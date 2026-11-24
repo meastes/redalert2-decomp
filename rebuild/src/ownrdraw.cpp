@@ -4240,7 +4240,7 @@ void __fastcall Move_Centred_Control(HWND window, Point2D const &size) // RA2: a
 
 namespace OwnerDraw { // RA2: as above
 
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005e9410 has no row); main: best 99.79, tried 11 times (frame, register, order)
+#ifdef RA2_NON_MATCHING // not exact: 1749 bytes differ against the image-derived bound 005e9410 (1,938 B; ours 1,984 B): the image calls Is_Listed_Kind 0x5E0DA0 in the first test and ours expands it there (the family of Enable_Animated_Control 0x5E4780 and Is_Tested_Control 0x5E0760). With the predicate kept out of line (probe only) the frame, calls and size are the image's and one byte is left: the operand order of the last compare (height against its old value at +0x765), which six orders of the closing test do not give
 void __fastcall Adjust_Control_Position(HWND window) // RA2: as above
 {
     HWND parent = GetParent(window);

@@ -431,7 +431,7 @@ int StringTable::ReadFile(char const * name) // RA2: 0x006F9400
 /// quoted strings, then END. Lines that are empty or start with // are skipped. 1 at the end of the file,
 /// 0 when the file ends inside a label.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
+#ifdef RA2_NON_MATCHING // not exact: 1237 bytes differ against the image-derived bound 006f9790 (1,469 B with its two switch tables; ours 1,488 B, frame 0x1C against 0x20): the image expands Reverse_String in the loop and calls it after the loop, ours expands both. The image's block from the jabber test to the terminating zero is one function expanded (its two parameters and a flag cleared ahead of the test are set up at +0x235); written as one static function, with lighter Strip_Line and Collapse_White_Space texts, the call list and size are the image's and 507 bytes are left (registers of the expanded copy). No reference in the tree has that function, so the draft stays as it was
 int __fastcall Read_Text_File(void) // RA2: 0x006F9790
 {
 	int label = 0; // RA2: the index of the next label

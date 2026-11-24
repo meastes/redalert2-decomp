@@ -5013,3 +5013,56 @@ and on a function's own line; var.py runs a file of one-statement variants and p
 - A plain function later in the file is expanded at an earlier site (lane F41) even when the twin avoids it with a
   second declaration of the same function under another name: that device does not carry over, and the twin's
   inline copy beside it expands at the first site instead of the last.
+- cell Place_Veins 0x47AD00 (2,191 B, exact) and partsys Smoke_AI 0x60BB70 (1,240 B, exact). A twin text that is
+  "16 frame bytes short" in the tree is read by its call list first (lab.py prints `CALLS` with each compile: the
+  image's direct calls against ours, in order). Place_Veins called Get_Vein_Frame in the image and expanded it in the
+  tree: the tree's Get_Vein_Frame, exact in its own row with nested ifs, is lighter than the twin's two-continue text
+  and falls under the plain-function limit. A callee's row being exact says nothing about its weight at other sites;
+  when the image calls a unit function the draft expands, take the twin's text of the callee before any spend probe.
+  The two file inlines that had kept that callee out of line for Redraw_Veins went with it. Smoke_AI was the first
+  compile of a twin matched the same evening, file helper and mid-file include as the twin has them.
+- gs.py opens every draft guard alone and prints its call list against the image. Of 27 comparable drafts ten have the
+  image's calls and four differ by one header inline with lane history; no other draft has a plain unit function
+  expanded where the image calls it.
+- reinf Do_Reinforcements 0x639970: one call differs (Coord's cell constructor expanded). Any one inline site after
+  the paradrop makes it exact, sites ahead of it do not, two spends ahead do. The tail holds only the announcement
+  test; the twin's Get_House there is an out-of-line member in Yuri's Revenge and the archive's Speak has no code in
+  the image, so no evidenced site: held.
+- tactical Draw_Radial_Indicators 0x6AC420: a twin matched with a branch RA2 lacks can lose a zero register with it.
+  The twin's text less its super weapon branch gives the image's frame and calls and no zero register (the image
+  holds zero in ebx through the first half and spills a coordinate for it); 21 one-statement variants left it.
+## A matched twin is diffed against an exact row too; a block the image sets up like a call is a function expanded, and its nested sites are decided on a share; an operand-order tie is met by the smallest of the equal choices (found in the rebuild (lane F55, high))
+
+Found in the rebuild (lane F55, high); one exact row rewritten in twin text, three rows placed on their image bounds.
+Lane tools in build/r/f55: su.py (named edit groups on one function, alone, all together, leave-one-out), vd.py (a
+Python list of edit sets against one row, no text encoding), gsub.py (one guard opened with every subset of the
+others), cnt.py (declarations ahead of a function), ils.py (il_lab over scratch texts of one callee).
+
+- super SuperClass::Place 0x69D850 (4,388 B) was exact with a flagged named local when ra2-decomp matched its twin.
+  The twin's text differed in seventeen places, each a group of tokens. Alone, seven of them break the row (one by
+  2,549 bytes: Is_Ready() for the member read moves the frame); together they are 47 bytes off, and the leave-one-out
+  run shows why: three one-token groups each move the same operand-order tie of the cell sums. A newly matched twin is
+  compiled whole first, then with each difference left out in turn: differences that fail alone are parts of one
+  form, and a tie shows as several unrelated groups that each "fix" the same hunks.
+- That tie (the X loads of `ChronoMapCoords + offset`) follows the function's expression count, and Yuri's Revenge's
+  function holds more statements, so the twin's own text cannot meet it here. Check the two images at the tie's place
+  before choosing: RA2 has Yuri's Revenge's two load orders exchanged between the bridge test and the occupier read.
+  Of the equal ways to meet it, keep the one that leaves the fewest tokens off the twin, and record the tie in the flag.
+- strtable Read_Text_File 0x6F9790: a block that starts with constants loaded into callee-saved registers and stored
+  to stack slots ahead of a test (`mov edi, out; xor ebp, ebp; mov esi, in; test eax, eax; mov [esp+0x24], edi; mov
+  [esp+0x28], ebp`) is an expanded function's parameters and its first locals. Written as one static function the
+  block gives the image's "expanded in the loop, called after it": the two nested sites share the function's budget
+  and only one fits, where the same two sites in the root both fit under the root's 2 x S.
+- When the helper gives the nested decisions and a later root site is then refused, measure the gap with out-of-line
+  statements in the root (11 to 32 here: 8 units short, a wide window above): a gap of a few units is the wording of
+  the small helpers ahead of it (assignment-in-condition loops against for loops), not another site.
+- ownrdraw Is_Listed_Kind 0x5E0DA0 (the predicate three roots call and the tree expands): il_lab reads 95 to 100
+  units; equal-code texts reach 165 and still expand; the plain-function limit refuses seventeen if/return statements,
+  which compile to other bytes. Nothing in the function's own statement shape (static local, local type, buffer,
+  inner block) refuses it. Adjust_Control_Position 0x5E9410 joins the family at one call and, with the call, one byte.
+- reinf Do_Chrono_Reinforcements 0x63A880: when a whole-function register exchange has a matched twin with more
+  code, look at the twin's image. Yuri's Revenge has RA2's registers with one more reference on each side of the
+  contest (the object of the outer loop, the cell pointer of the inner one), so RA2's text is not the twin's less its
+  additions: something in it weighs like the missing inner-loop reference.
+- A guard label saying "no bound" or "unplaced" is checked against image_bounds.csv before anything else: two of this
+  lane's rows had bounds, and the score on the bound named the one call that differs.

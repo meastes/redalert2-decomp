@@ -601,6 +601,20 @@ bool SuperClass::Can_Place() // RA2: is not const (0x0069D820)
 }
 
 
+#include "cast.h" // RA2: As_Unit, included here as in ra2-decomp's super.cpp
+
+
+/// <summary>
+/// Clears the targeting cursor and silences the "ready" announcement.
+/// </summary>
+/// <param name="name">The name of the speech to cancel.</param>
+static inline void Ready_Voice(char const * name) // RA2: ra2-decomp's file helper (YR SuperClass::Launch)
+{
+	CurrentSuperWeaponType = SUPER_NONE;
+	Speech_Cancel(Vox_From_Name(name));
+}
+
+
 /// <summary>
 /// Unleashes the super weapon upon the cell specified.
 /// This routine is called once the target has been chosen, either by the player
@@ -616,7 +630,7 @@ void SuperClass::Place(Cell const & cell, bool player) // RA2: does each weapon 
 {
 	switch (Class->Type) {
 	case SUPER_CHRONO_SPHERE: // RA2: as above
-		if (IsReady) {
+		if (Is_Ready()) {
 			ChronoMapCoords = cell; // RA2: as above
 			Coord coord = Map[cell].Center_Coord(); // RA2: as above
 			if (Map[cell].IsUnderBridge) { // RA2: as above
@@ -650,50 +664,49 @@ void SuperClass::Place(Cell const & cell, bool player) // RA2: does each weapon 
 		new AnimClass(Rule->ChronoBlastDest, dest + Coord(0, 0, 5), 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
 		new AnimClass(Rule->ChronoBlast, from + Coord(0, 0, 5), 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
 		for (int index = 0; index < 9; index++) { // RA2: as above
-			Cell const *offset = &CellAndNeighbors[index]; // RA2: as above
+			Cell const & offset = CellAndNeighbors[index]; // RA2: as above
 			ObjectClass *object; // RA2: as above
-			if (Map[ChronoMapCoords + *offset].IsUnderBridge) { // RA2: as above
-				object = Map[*offset + ChronoMapCoords].Cell_Bridge_Occupier(); // RA2: as above
+			if (Map[offset + ChronoMapCoords].IsUnderBridge) { // RA2: the offset first here (YR's image has the other order at this test)
+				object = Map[ChronoMapCoords + offset].Cell_Bridge_Occupier(); // RA2: as above
 			} else {
-				object = Map[*offset + ChronoMapCoords].Cell_Occupier(); // RA2: as above
+				object = Map[ChronoMapCoords + offset].Cell_Occupier(); // RA2: as above
 			}
 			while (object != 0) { // RA2: as above
-				FootClass *foot = (FootClass *)object; // RA2: as above
 				if (object->Is_Foot() && !object->In_Air()) { // RA2: as above
-					TechnoTypeClass const * ttype = foot->TClass; // RA2: as above
-					if (ttype->Organic && !foot->TClass->Teleporter && !object->In_Air()) { // RA2: as above
-						int damage = foot->TClass->MaxStrength; // RA2: as above
-						object->Take_Damage(damage, 0, Rule->C4Warhead, 0, true, 0); // RA2: as above
-					} else if (!foot->Unknown_Virtual_32C() && !foot->IsImmobilized && !object->IsBeingWarpedOut() && !object->IsWarpingIn()) { // RA2: as above
+					FootClass * foot = (FootClass *)object; // RA2: as above
+					if (foot->Techno_Type_Class()->Organic && !foot->Techno_Type_Class()->Teleporter && !foot->In_Air()) { // RA2: as above
+						int damage = foot->Techno_Type_Class()->MaxStrength; // RA2: as above
+						foot->Take_Damage(damage, 0, Rule->C4Warhead, 0, true, 0); // RA2: as above
+					} else if (!foot->Unknown_Virtual_32C() && !foot->IsImmobilized && !foot->IsBeingWarpedOut() && !foot->IsWarpingIn()) { // RA2: as above
 						IPiggybackPtr piggyback(foot->Locomotion); // RA2: as above
 						ILocomotionPtr teleport(CLSID_TeleportLocomotion); // RA2: as above
-						UnitClass *unit = object->Fetch_RTTI() == RTTI_UNIT ? (UnitClass *)object : 0; // RA2: as above
-						Coord coord = Map[*offset + cell].Center_Coord(); // RA2: as above
+						UnitClass * unit = As_Unit(foot); // RA2: as above
+						Coord coord = Map[offset + cell].Center_Coord(); // RA2: as above
 						if (Map[coord].IsUnderBridge) { // RA2: as above
 							coord.Z += BRIDGE_LEPTON_HEIGHT; // RA2: as above
 						}
 						if (unit != 0) { // RA2: as above
 							foot->Locomotion->Mark_All_Occupation_Bits(0); // RA2: as above
-							foot->Locomotion->Force_Track(-1, Coord(coord)); // RA2: as above
-							object->Clear_Occupy_Bit(coord); // RA2: as above
+							foot->Locomotion->Force_Track(-1, coord); // RA2: as above
+							foot->Clear_Occupy_Bit(coord); // RA2: as above
 							foot->IsOccupyingCell = true; // RA2: as above
 						}
-						teleport->Link_To_Object(object); // RA2: as above
+						teleport->Link_To_Object(foot); // RA2: as above
 						piggyback = IPiggybackPtr(teleport); // RA2: as above
 						if (piggyback != NULL) { // RA2: as above
 							piggyback->Begin_Piggyback(foot->Locomotion); // RA2: as above
 							foot->Locomotion = teleport; // RA2: as above
 						}
-						Coord delta = object->Center_Coord() - Map[ChronoMapCoords].Center_Coord(); // RA2: as above
+						Coord delta = foot->Center_Coord() - Map[ChronoMapCoords].Center_Coord(); // RA2: as above
 						if (unit == 0) { // RA2: as above
-							coord = delta + Map[cell].Center_Coord(); // RA2: as above
+							coord = Map[cell].Center_Coord() + delta; // RA2: as above
 							if (Map[coord].IsUnderBridge) { // RA2: as above
 								coord.Z += BRIDGE_LEPTON_HEIGHT; // RA2: as above
 							}
 						}
 						foot->IsImmobilized = true; // RA2: as above
 						foot->ChronoDestCoords = coord; // RA2: as above
-						foot->Assign_Destination(&Map[*offset + cell], true); // RA2: as above
+						foot->Assign_Destination(&Map[offset + cell], true); // RA2: as above
 					}
 				}
 				object = object->Next; // RA2: as above
@@ -703,29 +716,27 @@ void SuperClass::Place(Cell const & cell, bool player) // RA2: does each weapon 
 			Queue_Speech("EVA_ChronosphereActivated", -1, -1); // RA2: as above
 		}
 		if (player) {
-			CurrentSuperWeaponType = SUPER_NONE; // RA2: as above
-			Speech_Cancel(Vox_From_Name("EVA_ChronosphereReady")); // RA2: as above
+			Ready_Voice("EVA_ChronosphereReady"); // RA2: as above
 			return; // RA2: as above
 		}
 		break;
 	}
 
 	case SUPER_LIGHTNING_STORM: // RA2: as above
-		if (IsReady) {
+		if (Is_Ready()) {
 			IonStormClass::Ion_Storm_Begin(Rule->LightningStormDuration, Rule->LightningDeferment, cell, House); // RA2: as above
 			if (!MuteSWLaunches) { // RA2: as above
 				Queue_Speech("EVA_LightningStormCreated", -1, -1); // RA2: as above
 			}
 			if (player) {
-				CurrentSuperWeaponType = SUPER_NONE; // RA2: as above
-				Speech_Cancel(Vox_From_Name("EVA_LightningStormReady")); // RA2: as above
+				Ready_Voice("EVA_LightningStormReady"); // RA2: as above
 				return; // RA2: as above
 			}
 		}
 		break;
 
 	case SUPER_IRON_CURTAIN: // RA2: as above
-		if (IsReady) {
+		if (Is_Ready()) {
 			Coord coord = Map[cell].Center_Coord(); // RA2: as above
 			new AnimClass(Rule->IronCurtainInvokeAnim, coord + Coord(0, 0, 5), 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
 			if (!MuteSWLaunches) { // RA2: as above
@@ -733,26 +744,25 @@ void SuperClass::Place(Cell const & cell, bool player) // RA2: does each weapon 
 			}
 			Submit_Radar_Event(RADAREVENT_SUPERWEAPON_ACTIVATED, cell); // RA2: as above
 			for (int index = 0; index < 9; index++) { // RA2: as above
-				Cell const *offset = &CellAndNeighbors[index]; // RA2: as above
-				for (ObjectClass *object = Map[cell + *offset].Cell_Occupier(); object != 0; object = object->Next) { // RA2: as above
+				Cell const & offset = CellAndNeighbors[index]; // RA2: as above
+				for (ObjectClass * object = Map[cell + offset].Cell_Occupier(); object != 0; object = object->Next) { // RA2: as above
 					object->IronCurtain(Rule->IronCurtainDuration); // RA2: as above
 				}
 			}
 			if (player) {
-				CurrentSuperWeaponType = SUPER_NONE; // RA2: as above
-				Speech_Cancel(Vox_From_Name("EVA_IronCurtainReady")); // RA2: as above
+				Ready_Voice("EVA_IronCurtainReady"); // RA2: as above
 				return; // RA2: as above
 			}
 		}
 		break;
 
 	case SUPER_PARA_DROP: // RA2: as above
-		if (IsReady) {
-			int plane = AircraftTypeClass::From_Name("PDPLANE"); // RA2: as above
+		if (Is_Ready()) {
+			AircraftType plane = AircraftTypeClass::From_Name("PDPLANE"); // RA2: as above
 			CellClass *cellptr = &Map[cell]; // RA2: as above
 			if (cellptr != 0 && cellptr != &BlubCell) { // RA2: as above
 				if (cellptr->Is_Tile_Water()) { // RA2: as above
-					Cell spot = Map.Nearby_Location(cell, SPEED_FOOT, -1, MZONE_NORMAL, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), false); // RA2: as above
+					Cell spot = Map.Nearby_Location(cell, SPEED_FOOT); // RA2: as above
 					if (spot != CELL_NONE) { // RA2: as above
 						CellClass *nearptr = &Map[spot]; // RA2: as above
 						if (nearptr != 0 && nearptr != &BlubCell && !nearptr->Is_Tile_Water()) { // RA2: as above
@@ -764,37 +774,34 @@ void SuperClass::Place(Cell const & cell, bool player) // RA2: does each weapon 
 					if (Rule->AllyParaDropInf.Count() == Rule->AllyParaDropNum.Count()) { // RA2: as above
 						for (int i = 0; i < Rule->AllyParaDropInf.Count(); i++) { // RA2: as above
 							int type = Rule->AllyParaDropInf[i]->HeapID; // RA2: as above
-							int count = Rule->AllyParaDropNum[i]; // RA2: as above
 							if (plane != -1 && type != -1) { // RA2: as above
-								Create_Air_Reinforcement(House, (AircraftType)plane, 1, MISSION_PARADROP_APPROACH, cellptr, NULL, (InfantryType)type, count); // RA2: as above
+								Create_Air_Reinforcement(House, plane, 1, MISSION_PARADROP_APPROACH, cellptr, NULL, (InfantryType)type, Rule->AllyParaDropNum[i]); // RA2: as above
 							}
 						}
 					}
 				} else {
 					for (int i = 0; i < Rule->SovParaDropInf.Count(); i++) { // RA2: as above
 						int type = Rule->SovParaDropInf[i]->HeapID; // RA2: as above
-						int count = Rule->SovParaDropNum[i]; // RA2: as above
 						if (plane != -1 && type != -1) { // RA2: as above
-							Create_Air_Reinforcement(House, (AircraftType)plane, 1, MISSION_PARADROP_APPROACH, cellptr, NULL, (InfantryType)type, count); // RA2: as above
+							Create_Air_Reinforcement(House, plane, 1, MISSION_PARADROP_APPROACH, cellptr, NULL, (InfantryType)type, Rule->SovParaDropNum[i]); // RA2: as above
 						}
 					}
 				}
 			}
 			if (player) {
-				CurrentSuperWeaponType = SUPER_NONE; // RA2: as above
-				Speech_Cancel(Vox_From_Name("EVA_ReinforcementsReady")); // RA2: as above
+				Ready_Voice("EVA_ReinforcementsReady"); // RA2: as above
 				return; // RA2: as above
 			}
 		}
 		break;
 
 	case SUPER_AMER_PARA_DROP: // RA2: as above
-		if (IsReady) {
-			int plane = AircraftTypeClass::From_Name("PDPLANE"); // RA2: as above
+		if (Is_Ready()) {
+			AircraftType plane = AircraftTypeClass::From_Name("PDPLANE"); // RA2: as above
 			CellClass *cellptr = &Map[cell]; // RA2: as above
 			if (cellptr != 0 && cellptr != &BlubCell) { // RA2: as above
 				if (cellptr->Is_Tile_Water()) { // RA2: as above
-					Cell spot = Map.Nearby_Location(cell, SPEED_FOOT, -1, MZONE_NORMAL, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), false); // RA2: as above
+					Cell spot = Map.Nearby_Location(cell, SPEED_FOOT); // RA2: as above
 					if (spot != CELL_NONE) { // RA2: as above
 						CellClass *nearptr = &Map[spot]; // RA2: as above
 						if (nearptr != 0 && nearptr != &BlubCell && !nearptr->Is_Tile_Water()) { // RA2: as above
@@ -805,25 +812,23 @@ void SuperClass::Place(Cell const & cell, bool player) // RA2: does each weapon 
 				if (Rule->AmerParaDropInf.Count() == Rule->AmerParaDropNum.Count()) { // RA2: as above
 					for (int i = 0; i < Rule->AmerParaDropInf.Count(); i++) { // RA2: as above
 						int type = Rule->AmerParaDropInf[i]->HeapID; // RA2: as above
-						int count = Rule->AmerParaDropNum[i]; // RA2: as above
 						if (plane != -1 && type != -1) { // RA2: as above
-							Create_Air_Reinforcement(House, (AircraftType)plane, 1, MISSION_PARADROP_APPROACH, cellptr, NULL, (InfantryType)type, count); // RA2: as above
+							Create_Air_Reinforcement(House, plane, 1, MISSION_PARADROP_APPROACH, cellptr, NULL, (InfantryType)type, Rule->AmerParaDropNum[i]); // RA2: as above
 						}
 					}
 				}
 			}
 			if (player) {
-				CurrentSuperWeaponType = SUPER_NONE; // RA2: as above
-				Speech_Cancel(Vox_From_Name("EVA_ReinforcementsReady")); // RA2: as above
+				Ready_Voice("EVA_ReinforcementsReady"); // RA2: as above
 			}
 		}
 		break;
 
 	case SUPER_MULTI_MISSILE:
-		if (IsReady) {
+		if (Is_Ready()) {
 			if (Is_One_Time()) { // RA2: as above
 				Cell spot = cell; // RA2: as above
-				Coord coord = Coord(spot, 0); // RA2: as above
+				Coord coord = spot.As_Coord(); // RA2: as above
 				coord.Z = Map.Get_Height_GL(coord); // RA2: as above
 				if (Map[spot].IsUnderBridge) { // RA2: as above
 					coord.Z += BRIDGE_LEPTON_HEIGHT; // RA2: as above
@@ -832,19 +837,12 @@ void SuperClass::Place(Cell const & cell, bool player) // RA2: does each weapon 
 				CellClass *target = &Map[coord]; // RA2: as above
 				Coord sound = coord; // RA2: as above
 				Coord launch(sound.X, sound.Y, sound.Z + 20000); // RA2: as above
-				BulletTypeClass const * bullet_type = payload->Bullet; // RA2: TAction_MULTI_MISSILE's form (YR's twin text)
+				BulletTypeClass const * bullet_type = payload->Bullet; // RA2: as above
 				BulletClass * bullet = bullet_type->Create_Bullet(target, NULL, payload->Attack, payload->WarheadPtr, payload->MaxSpeed, false); // RA2: as above
 				bullet->Set_Weapon_Type(payload); // RA2: as above
 				Create_Attached_Anim(House, target, bullet, "PSIWARN"); // RA2: the bullet comes before the name
 				if (bullet != 0) { // RA2: as above
-					double angle = DirType(DIR_N).As_Radian(); // RA2: the same downward motion as TAction_MULTI_MISSILE.
-					double y = fastmath::sin(angle); // RA2: as above
-					y *= fastmath::cos(angle); // RA2: as above
-					y *= -100.0; // RA2: as above
-					TVelocity2D<double> planar(fastmath::cos(angle) * fastmath::cos(angle) * -100.0, y);
-					TVelocity3D<double> velocity;
-					static_cast<TVelocity2D<double> &>(velocity) = planar;
-					velocity.Z = fastmath::sin(angle) * -100.0; // RA2: as above
+					TVelocity3D<double> velocity(Dir256(DIR_N), Dir256(DIR_N), -100.0); // RA2: the same downward motion as TAction_MULTI_MISSILE
 					bullet->Unlimbo(launch, velocity); // RA2: as above
 					if (!MuteSWLaunches) { // RA2: as above
 						Queue_Speech("EVA_NuclearMissileLaunched", -1, -1); // RA2: as above
@@ -852,38 +850,36 @@ void SuperClass::Place(Cell const & cell, bool player) // RA2: does each weapon 
 					VocClass::PlayIndexAtPos(Rule->DigSound, sound, 0); // RA2: as above
 				}
 				if (player) {
-					CurrentSuperWeaponType = SUPER_NONE; // RA2: as above
-					Speech_Cancel(Vox_From_Name("EVA_NuclearMissileReady")); // RA2: as above
+					Ready_Voice("EVA_NuclearMissileReady"); // RA2: as above
 				}
-				House->IsRecalcNeeded = true;
-				return; // RA2: as above
-			}
-			for (int index = 0; index < BuildingTypes.Count(); index++) {
-				BuildingTypeClass *btype = BuildingTypes[index]; // RA2: as above
-				if (btype->IsNukeSilo && (btype->SuperWeapon == Class->HeapID || btype->SuperWeapon2 == Class->HeapID)) {
-					BuildingClass *site = House->Find_Building((StructType)index, ZONE_NONE); // RA2: as above
-					if (site != 0) { // RA2: as above
-						Cell spot = cell; // RA2: as above
-						Coord coord = Coord(spot, 0); // RA2: as above
-						coord.Z = Map.Get_Height_GL(coord); // RA2: as above
-						Coord sound = coord; // RA2: as above
-						site->QueueMission(MISSION_MISSILE, false); // RA2: as above
-						site->Commence(); // RA2: as above
-						House->NukeDest = cell;
-						site->LastSuperWeaponIndex = Class->Type; // RA2: as above
-						VocClass::PlayIndexAtPos(Rule->DigSound, sound, 0); // RA2: as above
-						if (!MuteSWLaunches) { // RA2: as above
-							Queue_Speech("EVA_NuclearMissileLaunched", -1, -1); // RA2: as above
+				House->Production_Status_Changed();
+			} else {
+				for (int index = 0; index < BuildingTypes.Count(); index++) {
+					BuildingTypeClass * btype = BuildingTypes[index]; // RA2: as above
+					if (btype->IsNukeSilo && (btype->SuperWeapon == Class->HeapID || btype->SuperWeapon2 == Class->HeapID)) {
+						BuildingClass * site = House->Find_Building((StructType)index, ZONE_NONE); // RA2: as above
+						if (site != 0) { // RA2: as above
+							Cell spot = cell; // RA2: as above
+							Coord coord = spot.As_Coord(); // RA2: as above
+							coord.Z = Map.Get_Height_GL(coord); // RA2: as above
+							Coord sound = coord; // RA2: as above
+							site->QueueMission(MISSION_MISSILE, false); // RA2: as above
+							site->Commence(); // RA2: as above
+							House->NukeDest = cell;
+							site->LastSuperWeaponIndex = Class->Type; // RA2: as above
+							VocClass::PlayIndexAtPos(Rule->DigSound, sound, 0); // RA2: as above
+							if (!MuteSWLaunches) { // RA2: as above
+								Queue_Speech("EVA_NuclearMissileLaunched", -1, -1); // RA2: as above
+							}
 						}
+						break;
 					}
-					break;
 				}
+				if (player) {
+					Ready_Voice("EVA_NuclearMissileReady"); // RA2: as above
+				}
+				House->Production_Status_Changed();
 			}
-			if (player) {
-				CurrentSuperWeaponType = SUPER_NONE; // RA2: as above
-				Speech_Cancel(Vox_From_Name("EVA_NuclearMissileReady")); // RA2: as above
-			}
-			House->IsRecalcNeeded = true;
 		}
 		break;
 	}

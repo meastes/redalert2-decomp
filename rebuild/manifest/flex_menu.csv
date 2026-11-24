@@ -23,8 +23,10 @@ mech,005919a0,MechLocomotionClass::Movement_AI,5575,no_row,951,a,"variation_cand
 netshare,005c7ef0,Send_Map_Preview,1325,no_row,1131,a,"variation_candidates.csv: kind C (a twin helper overriding the twin's own text at its own site): ra2-decomp's Narrow_Text (include/narrow.h, 61ba2ad) at the two `no preview download poss",,yes,,,,,,,
 ownrdraw,005e0760,Is_Tested_Control,1594,inline_call,1444,a,variation_candidates.csv: none admissible: as Enable_Animated_Control 0x5E4780 (the declared-only second name for Is_Listed_Kind),,yes,,,,B,structure,no,1594
 ownrdraw,005e4780,OwnerDraw::Enable_Animated_Control,2468,inline_call,,a,variation_candidates.csv: none admissible: main and ra2-decomp both reach the out-of-line Is_Listed_Kind call through a declared-only second name for the predicate (main's Is_Listed_Kind,,yes,,,,B,structure,no,2468
+ownrdraw,005e9410,Adjust_Control_Position,1938,no_row,1749,a,variation_candidates.csv: none admissible: as Enable_Animated_Control 0x5E4780 (the declared-only second name for Is_Listed_Kind); main also needed two dead self-assignments for the last,,yes,,,,,,,
 ownrdraw,005ee460,Control_Proc,7252,no_row,4898,a,"variation_candidates.csv: codex1 r2692 (refs/c1pk/r2692, 80ab511e9b): three coined record blocks ({ unsigned int control_key = (unsigned int)window; WinData *record = NULL; Control_Table",,yes,,,,,,,
 ownrdraw,005fee70,Dialog_On_WM_PAINT,1281,inline_call,536,a,variation_candidates.csv: main's coined callee declarations / helpers,,yes,,,,B,structure,not tested,1281
+reinf,00639970,Do_Reinforcements,1069,inline_call,432,a,"variation_candidates.csv: kind C (an inline site no reference has): one inline call of any kind in the announcement block after the paradrop, e.g. the house through an inline accessor or",,yes,,,,A,structure,yes,1069
 saveload,006558b0,Put_All,4055,exact_when_open,,a,"variation_candidates.csv: main's empty-inline DebugString lines (6 to 20 of the archive's `Saving ...` / FAILED lines, a budget form)",b,yes,guard-open exact (not probed),unknown until probed,,,,,
 score,00663fe0,ScoreClass::Presentation,7782,register_order,279,a,variation_candidates.csv: Score_Object_Not_Present written bool done = ScoreObjs.ID(obj) == -1 ? true : false; return(done); (TibSun: if (ScoreObjs.ID(obj) == -1) return(true); return(fa,,yes,,,,C,strictness,yes,7782
 sidebar,0067dc90,SidebarClass::AI,1315,inline_body,480,a,"variation_candidates.csv: lane F33's coined form (no reference has it): the file inline Bottom_Extra() written with an if and two returns in place of its conditional expression, and Stri",,yes,,,,E,,not tested,1315
@@ -34,6 +36,7 @@ sidebar,006819a0,SidebarClass::Reposition_Sidebar,1314,register_order,54,a,varia
 skirmish,006829f0,Skirmish_On_WM_COMMAND,3264,inline_call,2819,a,variation_candidates.csv: main's hypothesized Get_Item wrapper with its row helper and looked-up locals; codex1 r2686 (results only),,yes,,,,D,structure,not tested,3264
 startup,0068e280,WinMain,10076,inline_call,7223,a,"variation_candidates.csv: main's text: coined inline helpers Init_Mouse, Init_Language and Read_Destination_Network (TibSun writes the DestNet scan, LANGUAGE.MIX and WWMouseClass stateme",,yes,,,,A,structure,no,10076
 strtable,006f8e30,StringTable::LoadFile,1134,inline_call,783,a,"variation_candidates.csv: main's coined Open_File / Close_File wrappers (one of two fopen sites, three fclose sites)",,yes,,,,A,structure,yes,1134
+strtable,006f9790,Read_Text_File,1317,no_row,1237,a,"variation_candidates.csv: none yet: the jabber and widening blocks as one static function Translate_Copy(wchar_t *, char *) (a flag cleared at its top, compared with 1; a `case 0: return",,yes,,,,,,,
 techno,006c1f10,TechnoClass::TechnoClass,409,inline_call,93,a,"variation_candidates.csv: lane F21 form (held, 2026-11-22): `if (found == false) { Technos.Add(this); }` where the TibSun archive, ra2-decomp's twin (YR 0x6F4300) and main all write `if ",,yes,,,,C,strictness,yes,409
 techno,006c2c40,TechnoClass::Draw_Post_Render,3341,inline_call,3138,a,"variation_candidates.csv: main's coined unit-local readers Mouse_Hover_Flag and Techno_Is_Selected (techno.cpp, 'its site decides the temporaries')",,yes,,,,A,structure,no,3341
 techtype,006d9b40,TechnoTypeClass::TechnoTypeClass,2961,register_order,15,a,"variation_candidates.csv: main's coined `Leptons` class for GuardRange (a class with an inline constructor, after YRpp's name)",,yes,,,,B,structure,yes,-8262
@@ -192,9 +195,9 @@ ownrdraw,,Enable_Animated_Control,0,unplaced,2216,e,no row of the original match
 ownrdraw,,List_Proc,0,unplaced,14527,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 ownrdraw,,Static_Proc,0,unplaced,3067,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 ownrdraw,005e8130,Init_Control_Animation,1110,no_row,main best 49.20%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
-ownrdraw,005e9410,Adjust_Control_Position,1938,no_row,main best 99.79%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 ownrdraw,005f00c0,unknown_modal_list_atexit_5f00c0,23,no_draft,,e,no draft yet,,no,,,,,,,
 ownrdraw,005f00e0,unknown_active_messages_atexit_5f00e0,291,no_draft,,e,no draft yet,,no,,,,,,,
+ownrdraw,005ffb00,OwnerDraw::Default_Dialog_Proc,0,no_draft (no_main_row),,e,no draft yet,,no,,,,,,,
 ownrdraw,00601410,Leaf_601410::get,21,not_emitted,,e,stays a flagged draft,,yes,,,,E,,not tested,21
 ownrdraw,00601490,?Clear_Vector@?$WolArrayList@UUnknownListEntry_6017c0@@@@QAEXXZ,68,no_draft,,e,no draft yet,,no,,,,,,,
 ownrdraw,00601850,?Shrink_Vector@?$WolArrayList@UUnknownListEntry_6017c0@@@@QAE_NXZ,136,no_draft,,e,no draft yet,,no,,,,,,,
@@ -209,7 +212,6 @@ partsys,,ParticleSystemClass::Web_AI,0,unplaced,,e,no row of the original matche
 planmgr,00614ba0,Planning_Execute,786,inline_call,272,e,stays a flagged draft,,yes,,,,,,,
 queue,006282d0,Extract_Compressed_Events,1455,no_row,972,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 reinf,,Do_Chrono_Reinforcements,0,unplaced,84,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
-reinf,00639970,Do_Reinforcements,1069,inline_call,432,e,stays a flagged draft,,yes,,,,A,structure,yes,1069
 scenario,0065b780,ScenarioClass::ScenarioClass,171,inline_call,,e,stays a flagged draft,,yes,,,,,,,
 ship,,ShipLocomotionClass::Draw_Matrix,0,unplaced,714,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 sidebar,,SidebarClass::Abandon_Production,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
@@ -217,10 +219,9 @@ sidebar,,SidebarClass::Activate_Upgrade,0,unplaced,,e,no row of the original mat
 sidebar,,SidebarClass::Reload_Sidebar,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 sidebar,,SidebarClass::Which_Column,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 sidebar,006802d0,SidebarClass::StripClass::Recalc,1732,no_row,1660,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
-strtable,006f9790,Read_Text_File,1317,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 tab,,TabClass::Hilite_Tab,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 tab,,TabClass::Set_Active,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
-tactical,,Tactical::Draw_Radial_Indicators,0,unplaced,main best 78.52%,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
+tactical,,Tactical::Draw_Radial_Indicators,0,unplaced,820,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 tactical,006a45a0,Tactical::Render,3288,no_row,2650,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 tactical,006a8560,Tactical::Draw_Tiles,824,no_row,main best 63.04%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 tactical,006ac7a0,_$E298,1,no_draft,,e,no draft yet,,no,,,,,,,
@@ -247,12 +248,12 @@ wonline,00767550,?keyHash@?$Dictionary@VWstring@@ULadder@WOL@@@@AAEIABVWstring@@
 wonline,00767bb0,WolNameTable::Get_Pointer_00767bb0,107,no_draft,,e,no draft yet,,no,,,,,,,
 wonline,00767cd0,WolNameTable::Key_Hash_00767cd0,29,no_draft,,e,no draft yet,,no,,,,,,,
 xsurface,,XSurface::Plot_Line,0,unplaced,9,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
-(total),,flex a: 43 functions,146089,,,a,,,,,,,,,,
+(total),,flex a: 46 functions,150413,,,a,,,,,,,,,,
 (total),,flex b: 78 functions,6310,,,b,,,,,,,,,,
 (total),,flex c: 1 functions,1913,,,c,,,,,,,,,,
 (total),,flex d: 3 functions,219,,,d,,,,,,,,,,
-(total),,flex e: 117 functions,57377,,,e,,,,,,,,,,
-(total),,no draft yet: 19 functions,1507,,,e,,,no,,,,,,,
+(total),,flex e: 115 functions,53053,,,e,,,,,,,,,,
+(total),,no draft yet: 20 functions,1507,,,e,,,no,,,,,,,
 (gap),,79 functions,10880,,,,,,,guard-open exact (not probed),unknown until probed,,,,,
 (gap),,1 functions,1920,,,,,,,exact form parked count-sensitive,a count-holding declaration,,,,,
 (gap),,80 functions,12800,,,,,,,total: function-level minus whole-unit,,,,,,

@@ -4101,7 +4101,7 @@ static inline void World_To_View_Pixel(Tactical const & view, Coord const & coor
 /// This routine is used by the tactical map render pass to show the effect radius of any
 /// currently selected object whose type asks for one.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced); main: best 78.52, tried 7 times (layout, register, ruling)
+#ifdef RA2_NON_MATCHING // not exact: 820 bytes differ by position against the image bound 006ac420 (893 body bytes, ours 893, same calls): the image keeps a zero in ebx from the top of the function to the first building loop and the cursor cell's height on the stack (frame 0x38); ours keeps the count in ebx, no zero register, frame 0x30. ra2-decomp's matched twin text (cfebfc7, less its super weapon branch) gives the frame and the same 820; main: best 78.52
 void Tactical::Draw_Radial_Indicators(void)
 {
 	int count = CurrentObject.Count(); // RA2: the count is read once, before the loop (0x6AC42B)
