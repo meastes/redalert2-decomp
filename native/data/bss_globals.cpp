@@ -59,9 +59,6 @@ __asm__(".globl _SidebarDrawer\n.set _SidebarDrawer, _DAT_008323cc\n");  // same
 alignas(16) unsigned char ra2_bss_0041[16] __asm__("_WWKeyboard");  // 0x00832468 WWKeyboard (?WWKeyboard@@3PAVWWKeyboardClass@@A)
 alignas(16) unsigned char ra2_bss_0042[16] __asm__("_DAT_0083366c");  // 0x0083366C DAT_0083366c
 alignas(16) unsigned char ra2_bss_0043[16] __asm__("_DAT_00833670");  // 0x00833670 DAT_00833670
-alignas(16) unsigned char ra2_bss_0044[16] __asm__("_unknown_833680");  // 0x00833680 unknown_833680 (?unknown_833680@@3HA)
-alignas(16) unsigned char ra2_bss_0045[16] __asm__("_unknown_833684");  // 0x00833684 unknown_833684 (?unknown_833684@@3HA)
-alignas(16) unsigned char ra2_bss_0046[32] __asm__("_unknown_833968");  // 0x00833968 unknown_833968
 alignas(16) unsigned char ra2_bss_0047[16] __asm__("_MultiMix");  // 0x00837498 MultiMix (?MultiMix@@3PAVMixFileClass@@A)
 alignas(16) unsigned char ra2_bss_0048[16] __asm__("_unknown_ra2_mix_8374b8");  // 0x008374B8 unknown_ra2_mix_8374b8 (?unknown_ra2_mix_8374b8@@3PAVMixFileClass@@A)
 alignas(16) unsigned char ra2_bss_0049[16] __asm__("_unknown_language_mix_8374bc");  // 0x008374BC unknown_language_mix_8374bc (?unknown_language_mix_8374bc@@3PAVMixFileClass@@A)

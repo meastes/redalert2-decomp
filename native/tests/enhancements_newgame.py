@@ -32,7 +32,10 @@ import wine as winehost
 # dropdowns open on their rightmost pixels) and its 1.5x entry, the page's Ok (the column's
 # top slot), the Options dialog's Main Menu, then Single Player, Skirmish, Start Game
 # (build/routeA sk.script). The page's rows are 21 dialog units apart since it took eleven rows
-# (lane C16, Mod): the dropdown sits at y 272 and its 1.5x entry at 326.
+# (lane C16, Mod): the dropdown sits at y 272 and its 1.5x entry at 347. The rows are the original's
+# heights since lane N33 (Combo_Proc's OD_SUBCLASSED 0x005F6460: the field LineHeight + 2, the rows
+# LineHeight + 6, so 25 and 23 pixels with the game font): the list drops at y 288, rows 23 apart
+# from 290 (it was 326 with user32's 16-pixel rows).
 # Each click waits for its menu to settle ("s<k>": the k-th dialog shown and its slide-in
 # done, host.cpp), not a fixed time after an earlier dialog was shown: the Single Player
 # click had been timed from the Options dialog and landed while the main menu was still
@@ -43,7 +46,7 @@ import wine as winehost
 SCRIPT = """s1+1000 click 834 472
 s2+1000 click 834 388
 s3+1000 click 588 272
-s3+2000 click 500 326
+s3+2000 click 500 347
 s3+3000 click 834 304
 s4+1000 click 834 639
 s5+1000 click 834 304

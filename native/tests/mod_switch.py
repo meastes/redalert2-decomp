@@ -31,8 +31,9 @@ import game_process
 import wine as winehost
 
 # The shell's controls at 1024x768: main menu Options, the Options dialog's Enhancements, the
-# page's Mod dropdown (its arrow; the eleventh row) and its entries (None, Another, TestMod: 18
-# pixels apart under the dropdown), the page's Ok. "s<k>": the k-th dialog shown and settled.
+# page's Mod dropdown (its arrow; the eleventh row) and its entries (None, Another, TestMod: 23
+# pixels apart under the dropdown, the original's LineHeight + 6 rows since lane N33; the list
+# drops at y 563, its rows from 565), the page's Ok. "s<k>": the k-th dialog shown and settled.
 def choose(entry):
     return """s1+1000 click 834 472
 s2+1000 click 834 388
@@ -40,7 +41,7 @@ s3+1000 click 588 547
 s3+2000 click 500 %d
 s3+3000 click 834 304
 s4+4000 quit
-""" % (565 + 18 * entry)
+""" % (577 + 23 * entry)
 
 
 QUIT = "s1+2000 quit\n"

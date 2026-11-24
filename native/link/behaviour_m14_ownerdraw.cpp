@@ -1285,6 +1285,19 @@ LRESULT __stdcall unknown_combo_proc_5f4ba0(HWND window, UINT message, WPARAM wp
             // drew in colour 0 (black) before.
             int *colors = record->item_colors_110;
             if (message == 0x497) {
+                // Lane N33: the item heights from the box's font (0x005F643A-0x005F649D): unless the
+                // record's +0x1C flag is set and the rows already measure LineHeight + 6, the
+                // selection field (CB_SETITEMHEIGHT -1) gets LineHeight + 2 and the rows (0)
+                // LineHeight + 6, then the flag is set. +0x1C is the dword after +0x18 (the
+                // button's alternate image natively: a combo's record never holds one).
+                int heights_set;
+                memcpy(&heights_set, record->unknown_18 + 4, sizeof heights_set);
+                if (!heights_set || SendMessageA(window, 0x154, 0, 0) != record->font_64->Height + 6) {
+                    SendMessageA(window, 0x153, (WPARAM)-1, record->font_64->Height + 2);
+                    SendMessageA(window, 0x153, 0, record->font_64->Height + 6);
+                    heights_set = 1;
+                    memcpy(record->unknown_18 + 4, &heights_set, sizeof heights_set);
+                }
                 memset(colors, 0xFF, 50 * sizeof(int));
                 Combo_Current(window) = -1;
             } else if (wparam < 50) {

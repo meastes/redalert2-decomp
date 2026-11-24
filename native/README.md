@@ -1360,6 +1360,30 @@ Nothing there reads the clock; network games share one speed. Diagnostics for su
 `soak_watch_address` and the object in `soak_watch_object`, for a debugger's watchpoint or breakpoint
 condition; `RA2_NATIVE_SOAK_FPS=<n>` holds the measured frame rate (the detail checks).
 
+### Command bar order, Map's interior names, combo heights (lane N33)
+
+Three gaps a comparison with the rebuild-based trial (lane P9, native/rb/README.md on ports-on-rebuild) found.
+
+- **CommandNames** (`data/startup_tables.cpp`, 0x007F67F8): the order is now the image's pointer table
+  (Team01-03, TypeSelect, Deploy, AttackMove, Guard, Beacon, Stop, PlanningMode, Cheer). The list was a
+  hypothesis with Deploy at index 7; a command's index picks its icon (`Button%02d.SHP`, TabClass::Init_For_House)
+  and UI.INI's [AdvancedCommandBar] slots, so the bar showed the beacon and attack-move icons where Deploy and
+  Guard belong.
+- **Map's interior names.** Map's native storage is the arm64 MouseClass (23,128 bytes), and
+  `SidebarClass_IsSidebarRedrawPending` (0x008373C3) was already Map.IsForceCompleteRedraw (+0x4EE3, native
+  +23035) through its member alias, not an overrun. Three names inside Map still had their own BSS storage:
+  0x00833680/0x00833684 (DisplayClass PendingObjectPtr/PendingObject, pointers the units declare as int: the
+  tool listed them as conflicts) and 0x00833968 (RadarClass RadarScale, never aliased: 2 for maps over 63
+  cells, MapClass::Set_Map_Dimensions 0x005484E0). They are now member aliases (Map + 4696, 4704, 5668); `port/fixups.json` gives the
+  two pointer names their members' pointer types in object.cpp, uicmnds.cpp, mpcoop.cpp and init.cpp, so the
+  new game's clear (Init_Game, the multiplayer co-op start) clears the pending placement and ObjectClass slot 80
+  refuses a selection while one is pending. 0x0083366C/0x00833670 (CopyPendingObjectPtr/CopyPendingObject) keep
+  their storage: no unit reads them by name.
+- **Combo heights** (`link/behaviour_m14_ownerdraw.cpp` OD_SUBCLASSED, 0x005F643A-0x005F649D): unless the
+  record's +0x1C flag is set and the rows already measure LineHeight + 6, the selection field gets
+  CB_SETITEMHEIGHT -1 = LineHeight + 2 and the rows 0 = LineHeight + 6 (25 and 23 pixels with the game font,
+  user32's 16 before). enhancements_newgame.py and mod_switch.py click the rows at the new heights.
+
 ## Layers
 
 1. **Native view** (`tools/native_units.py`, run at configure time). Reads the
