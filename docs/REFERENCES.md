@@ -42,6 +42,10 @@ licence terms and a recovered-header to reference-file lookup table. They are
 shape references under the same rule as everything else here: hypotheses only,
 verified on the exact target, nothing copied.
 
+Electronic Arts' Command & Conquer Generals release (`electronicarts/CnC_Generals_Zero_Hour`) carries
+Westwood's string-table reader forward in `GameText.cpp`. Since the user's decision of 2026-11-23 that one
+file may be adopted with attribution for the strtable family (see `THIRD_PARTY.md`); acceptance is unchanged.
+
 The Yuri's Revenge matching decompilation at
 [github.com/gibbo101/ra2-decomp](https://github.com/gibbo101/ra2-decomp)
 (gamemd.exe 1.001, same VC6 SP3; source GPL-3.0-or-later with EA section 7

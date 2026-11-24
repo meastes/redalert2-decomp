@@ -91,6 +91,14 @@ inspection tools; VC6 and CrossOver are legitimate user-supplied local build too
   not the DLLs), fetched into the ignored `private/reference/renegade-wolapi-3e00c3a/`.
   Acceptance is unchanged.
 
+- **electronicarts/CnC_Generals_Zero_Hour** (commit `0a05454d85`, file `GameText.cpp` last changed in
+  `3d0ee53a05`, 2025-02-27): GPL-3.0 with EA's section 7 additional terms, Copyright Electronic Arts Inc.
+  Exception (user decision, 2026-11-23, given in the owner session): `GameText.cpp` may be adopted with
+  attribution on the same terms as Renegade (SPDX and copyright lines and the EA notice kept, marked modified,
+  commit subject "from Generals GameText.cpp"). Use: the string-table text reader family (strtable
+  `Read_Text_File` and its helpers), whose Westwood code Generals carries forward. Fetched into the ignored
+  `private/reference/cnc-generals/` with its LICENSE.md. Acceptance is unchanged.
+
 - **TibSun reconstruction** (`OpenTS-Developers/TibSun` commit `dbfbfbfaac40364ce7e1cd8fad7bcade5c6fb0d4`,
   `code/` only; read-only shape reference, see [docs/WESTWOOD_SOURCES.md](docs/WESTWOOD_SOURCES.md)): a community
   source reconstruction of Tiberian Sun GAME.EXE 2.03, not Westwood text. GPL-3.0-or-later plus EA's section 7 terms
