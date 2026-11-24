@@ -1110,7 +1110,7 @@ bool MapRegionClass::Split_Region(void)
 	queue->Insert(nodes[0]);
 
 	CellNode * node = queue->Extract_Min();
-	double dist = (unsigned int)RMGRandom() * (DEG_TO_RAD(360) / 4294967295.0);
+	double dist = (unsigned int)RMGRandom() * (DEG_TO_RAD(360) / UINT_MAX);
 
 	while (node != NULL) {
 		if (spread_count >= (int)target_count) {

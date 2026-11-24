@@ -8079,20 +8079,6 @@ int HouseClass::Base_Cell_Weight_By_Defense_Coverage(HouseClass const & house, C
 	}
 	return tie_breaker + (value * 128 + diff) * 1000; // RA2: as above
 }
-inline int Coord_Span2(Coord const & a, Coord const & b) // RA2: the same distance with the square root inline, summed z, y, x
-{
-	Coord d; // RA2: the differences are stored one at a time, x first
-	d.X = a.X - b.X; // RA2: as above
-	d.Y = a.Y - b.Y; // RA2: as above
-	d.Z = a.Z - b.Z; // RA2: as above
-	double x = d.X; // RA2: as above
-	double y = d.Y; // RA2: as above
-	double z = d.Z; // RA2: as above
-	return (int)fastmath::sqrt(z * z + y * y + x * x); // RA2: as above
-}
-
-
-
 
 
 /// <summary>
@@ -8106,7 +8092,7 @@ inline int Coord_Span2(Coord const & a, Coord const & b) // RA2: the same distan
 /// <param name="func">The weight function used to rank the candidate cells; lower wins.</param>
 /// <param name="context">Extra context handed through to the weight function.</param>
 /// <returns>Returns with the cell to build upon, or Cell(0,0) if the base has no room.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 763 of 2629 bytes differ (main house.cpp's plain placement loop: rectangle built at use, candidate height read directly, both scan coordinates advanced; same code as the form with single-use locals) (the YR twin's Facing_Sub at the reverse step; exact with main's Adjacent_Cell(Cell, int) overload, held on variation_candidates.csv)
+#ifdef RA2_NON_MATCHING // not exact: 763 of 2629 bytes differ (cloak-generator cells ranked by (Center - Coord(cell)).Length() as TibSun house.cpp has it, replacing a unit-local distance helper with the same code; main house.cpp's plain placement loop) (the YR twin's Facing_Sub at the reverse step; exact with main's Adjacent_Cell(Cell, int) overload, held on variation_candidates.csv)
 Cell HouseClass::Where_To_Place_Building(BuildingTypeClass * buildingtype, int (__fastcall *func)(HouseClass const &, Cell const &, int, int), int context) // RA2: the executable places ship buildings by the yard rule and uses the static offset tables of Facing_Offset
 {
 	if (buildingtype->Naval) { // RA2: a ship building (the naval yard) is placed on the water next to the construction yard
@@ -8140,8 +8126,7 @@ Cell HouseClass::Where_To_Place_Building(BuildingTypeClass * buildingtype, int (
 			if (!buildingtype->IsCloakGenerator) { // RA2: as above
 				score = func(*this, cell, i, context); // RA2: as above
 			} else {
-				Coord cell_coord(cell, 0); // RA2: the cell's center as a coordinate, built by the inline Coord(Cell, z)
-				score = i + 1000 * Coord_Span2(Center, cell_coord); // RA2: as above
+				score = i + 1000 * (Center - Coord(cell)).Length(); // RA2: as above
 			}
 			ranking.Add_Index(score, cell); // RA2: as above
 		}

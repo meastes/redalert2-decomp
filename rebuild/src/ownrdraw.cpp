@@ -10649,7 +10649,7 @@ TextNode *NodeList::Add_Node(int length) // RA2: as above
     return node; // RA2: as above
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 6582 bytes differ against the image-derived bound 005f4ba0 (6,895 body bytes) (was 6583; the item sentinel tested before null as ra2-decomp's banked form banks/0x00617250_odh.cpp (11df85d) has it)
+#ifdef RA2_NON_MATCHING // not exact: 6554 bytes differ against the image-derived bound 005f4ba0 (6,895 body bytes) (was 6582; the text query's shared result with the signed clamp, and the item sentinel tested before null, as ra2-decomp's banked form banks/0x00617250_odh.cpp (11df85d) has them)
 namespace OwnerDraw {
 
 LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
@@ -10948,14 +10948,22 @@ LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lp
 		case 0x4d0: {
 			if (lparam && message == 0x4bd) *(char *)lparam = 0;
 			if (lparam && message == 0x4c3) *(wchar_t *)lparam = 0;
-			if (wparam == (WPARAM)-1) return 0;
-			TextNode * node = (TextNode *)CallWindowProcA(previous, window, CB_GETITEMDATA, wparam, 0);
-			if (!node || node == (TextNode *)CB_ERR) return 0;
-			if (message == 0x4d0) return node->Reserved_0C;
-			int length = wcslen(node->Data);
-			if (lparam && message == 0x4c3) wcscpy((wchar_t *)lparam, node->Data);
-			if (lparam && message == 0x4bd) WideToCharString((char *)lparam, node->Data, -1);
-			return length;
+			LRESULT result = wparam;
+			if (result != CB_ERR) {
+				result = CallWindowProcA(previous, window, CB_GETITEMDATA, wparam, 0);
+				if (result != CB_ERR && result != 0) {
+					TextNode * node = (TextNode *)result;
+					if (message == 0x4d0) {
+						result = node->Reserved_0C;
+					} else {
+						result = wcslen(node->Data);
+						if (lparam && message == 0x4c3) wcscpy((wchar_t *)lparam, node->Data);
+						if (lparam && message == 0x4bd) WideToCharString((char *)lparam, node->Data, -1);
+					}
+				}
+			}
+			if (result < 0) result = 0;
+			return result;
 	}
 		case 0x4da:
 		case 0x4db:

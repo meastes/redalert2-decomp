@@ -5,8 +5,8 @@ unit,entry,function,bytes,bucket,best,flex,flex_note,also,draft,gap_reason,allow
 (main forms),,C: 9 rows,28436,,,,,,,,,,C,,7 rows,24920
 (main forms),,D: 1 rows,3264,,,,,,,,,,D,,0 rows,0
 (main forms),,E: 3 rows,3965,,,,,,,,,,E,,0 rows,0
-building,0043ee70,BuildingClass::Take_Damage,2501,inline_call,1318,a,variation_candidates.csv: main's coined Damage_Object_Distance / Damage_Object_Distance_Squared helpers with an explicit sqrt (main src/recovered/building.cpp:2029-2131),,yes,,,,A,structure,no,2501
-building,00440520,BuildingClass::Exit_Object,6505,no_row,4469,a,"variation_candidates.csv: worker form (refused, owner 2026-11-22): inline.h Direction(Cell const &, Cell const &) rewritten with copy locals short x1 = cell1.X; short x2 = cell2.X; befor",,yes,,,,,,,
+building,0043ee70,BuildingClass::Take_Damage,2501,inline_call,1309,a,variation_candidates.csv: main's coined Damage_Object_Distance / Damage_Object_Distance_Squared helpers with an explicit sqrt (main src/recovered/building.cpp:2029-2131),,yes,,,,A,structure,no,2501
+building,00440520,BuildingClass::Exit_Object,6505,no_row,3380,a,"variation_candidates.csv: worker form (refused, owner 2026-11-22): inline.h Direction(Cell const &, Cell const &) rewritten with copy locals short x1 = cell1.X; short x2 = cell2.X; befor",,yes,,,,,,,
 bullet,0045f710,BulletClass::AI,6438,no_row,4639,a,"variation_candidates.csv: ra2-decomp banked forms banks/0x004666E0_ballistic.cpp / _bullet.cpp with overlay _bullet_velocity.h (11df85d; codex1 r2835 d066cb0e31, r2837 e3df88b874): the b",,yes,,,,,,,
 bullet,00462c50,BulletClass::Shrapnel,2757,inline_call,1787,a,"variation_candidates.csv: a split declaration `Cell cell; cell = Get_Cell();` in the second loop, found by a count probe (the Cell default constructor is the extra inline-candidate site ",,yes,,,,C,strictness,yes,2757
 combat,0047e2c0,Explosion_Damage,4611,register_order,,a,variation_candidates.csv: main's Coord::operator+ form and coined Explosion_Length / Coord_Length(Coord_Difference) helpers (their named double locals supply the local count),,yes,,,,A,structure,no,4611
@@ -52,6 +52,7 @@ wdtsel,0072e780,WorldDominationTour::Selection::Do_Target_Anim,1531,register_ord
 wonline,007469c0,Wonline_Main_Dialog_Proc,7172,inline_call,1257,a,variation_candidates.csv: main's Make_Room level under Add_At (src/shared/wol_sink.hpp RA2_WOL_INT_ARRAY_MAKE_ROOM) with main's chain of inline helpers above it: the two growVector calls,,yes,,,,B,structure,no,7172
 wonline,0074a120,Player_Info_Tooltip,959,inline_call,857,a,"variation_candidates.csv: main's Key_Hash specialisation switch, as CChatEventSink::OnFind 0x762F70",,yes,,,,B,structure,not tested,959
 wonline,0074a710,Wonline_Game_Options_Dialog_Proc,7899,inline_body,386,a,"variation_candidates.csv: six reference locals aliasing Session.Options fields (int & unit_count = Session.Options.UnitCount; ... Credits, Bases, BridgeDestruction, Goodies, HarvTruce); ",,yes,,,,C,strictness,yes,7899
+wonline,0074e5e0,Start_Talking_To,2456,no_row,2112,a,"variation_candidates.csv: ra2-decomp banked form banks/0x00793D20_nat.cpp (11df85d; r2932 1933e483c0, base ae0582884d): the partner and participant held in single-use NodeNameType * loca",,yes,,,,,,,
 wonline,00750330,Negotiate_Scenario_Transfer,2520,register_order,32,a,variation_candidates.csv: kind C (a helper written out by hand where the reference calls it): in the host's answer loop `if (i < Session.Players.Count() && g_ConnectionStatus[i] < g_Conn,,yes,,,,C,strictness,yes,2520
 wonline,00758750,Buddy_Dialog_Proc,2935,calls_differ,1728,a,"variation_candidates.csv: main's coined inline Start_Buddy_Refresh (unit-local helper, no reference has it); codex1 r2687 (refs/c1pk/r2687, 4e301c72a3)",,yes,,,,,,,
 wonline,00759370,Run_Online_Menu,2687,calls_differ,2579,a,"variation_candidates.csv: main's coined single-caller helpers Request_Buddy_Game_List and Report_Disconnected (2391 bytes differ with them, the second lookup bound to a const reference o",,yes,,,,,,,
@@ -196,7 +197,7 @@ objtype,,ObjectTypeClass::Theater_Naming_Convention,0,unplaced,,e,no row of the 
 ownrdraw,,Enable_Animated_Control,0,unplaced,2216,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 ownrdraw,005f00c0,unknown_modal_list_atexit_5f00c0,23,no_draft,,e,no draft yet,,no,,,,,,,
 ownrdraw,005f00e0,unknown_active_messages_atexit_5f00e0,291,no_draft,,e,no draft yet,,no,,,,,,,
-ownrdraw,005f4ba0,Combo_Proc,6895,no_row,6582,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
+ownrdraw,005f4ba0,Combo_Proc,6895,no_row,6554,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 ownrdraw,005f6690,List_Proc,14618,no_row,13847,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 ownrdraw,00601410,Leaf_601410::get,21,not_emitted,,e,stays a flagged draft,,yes,,,,E,,not tested,21
 ownrdraw,00601490,?Clear_Vector@?$WolArrayList@UUnknownListEntry_6017c0@@@@QAEXXZ,68,no_draft,,e,no draft yet,,no,,,,,,,
@@ -240,16 +241,15 @@ wdtnet,,WDTState::To_String,0,unplaced,,e,no row of the original matches the dra
 wdtnet,,WDTTerritory::Get_Game_Options,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 wdtnet,,WDTTerritory::To_String,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 wdtsel,,Selection::Do_Target_Anim,0,unplaced,2,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
-wonline,0074e5e0,Start_Talking_To,2456,no_row,2112,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 wonline,0075f530,CChatEventSink::OnChannelJoin,5780,inline_body,,e,stays a flagged draft,,yes,,,,,,,
 wonline,00767550,?keyHash@?$Dictionary@VWstring@@ULadder@WOL@@@@AAEIABVWstring@@@Z,29,no_draft,,e,no draft yet,,no,,,,,,,
 wonline,00767bb0,WolNameTable::Get_Pointer_00767bb0,107,no_draft,,e,no draft yet,,no,,,,,,,
 wonline,00767cd0,WolNameTable::Key_Hash_00767cd0,29,no_draft,,e,no draft yet,,no,,,,,,,
-(total),,flex a: 53 functions,164176,,,a,,,,,,,,,,
+(total),,flex a: 54 functions,166632,,,a,,,,,,,,,,
 (total),,flex b: 78 functions,6310,,,b,,,,,,,,,,
 (total),,flex c: 1 functions,1913,,,c,,,,,,,,,,
 (total),,flex d: 3 functions,219,,,d,,,,,,,,,,
-(total),,flex e: 105 functions,77143,,,e,,,,,,,,,,
+(total),,flex e: 104 functions,74687,,,e,,,,,,,,,,
 (total),,no draft yet: 19 functions,1507,,,e,,,no,,,,,,,
 (gap),,79 functions,10880,,,,,,,guard-open exact (not probed),unknown until probed,,,,,
 (gap),,1 functions,1920,,,,,,,exact form parked count-sensitive,a count-holding declaration,,,,,

@@ -2573,7 +2573,7 @@ void BuildingClass::Leave_Rubble(void) // RA2: not in TibSun, at 0x43EBA0
  *   11/22/1994 JLB : Shares base damage handler for techno objects.                           *
  *   07/15/1995 JLB : Power ratio gets adjusted.                                               *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 1318 bytes differ by position with BuildingRunAwayOnDamage bound at 0x007CF670, one cause (723 = 723 instructions otherwise): at the run-away loop the image expands Length (the square root 0x4BA410 called) and calls it (0x41B780) at the destroyed-contacts loop; this calls it at both. The loop is Red Alert 2's own (ra2-decomp's Yuri's Revenge twin has none), and the twin's forms after it (PositionCoord at the sound, the animation pointer inside the sparky block) give the same bytes
+#ifdef RA2_NON_MATCHING // not exact: 1309 bytes differ by position with BuildingRunAwayOnDamage bound at 0x007CF670 (was 1318; Distance_To(contact) tested directly at the radio-link comparison, as the TibSun and Yuri's Revenge ObjectClass accessors are used, no single-use local): at the run-away loop the image expands Length (the square root 0x4BA410 called) and calls it (0x41B780) at the destroyed-contacts loop; this calls it at both. The loop is Red Alert 2's own (ra2-decomp's Yuri's Revenge twin has none), and the twin's forms after it (PositionCoord at the sound, the animation pointer inside the sparky block) give the same bytes
 ResultType BuildingClass::Take_Damage(int & damage, int distance, WarheadTypeClass const * warhead, TechnoClass * source, bool forced, bool no_crew)
 {
 	ResultType res = RESULT_NONE;
@@ -2671,8 +2671,7 @@ ResultType BuildingClass::Take_Damage(int & damage, int distance, WarheadTypeCla
 						for (int index = 0; index < RadioLinks.Length(); index++) { // RA2: as above
 							TechnoClass * contact = Radio_Link(index); // RA2: as above
 							if (contact) { // RA2: as above
-								int separation = Distance_To(contact); // RA2: as above
-								if (separation < 2 * CELL_LEPTON && !Class->IsHelipad) { // RA2: as above
+								if (Distance_To(contact) < 2 * CELL_LEPTON && !Class->IsHelipad) { // RA2: as above
 									Transmit_Message(RADIO_RUN_AWAY, contact); // RA2: as above
 									contact->QueueUpToEnter = NULL; // RA2: as above
 								}
@@ -3141,7 +3140,7 @@ none: // RA2: as above
  *   04/10/1995 JLB : Handles building production by computer.                                 *
  *   06/17/1995 JLB : Handles refinery exit.                                                   *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row yet (image-derived bound 00440520-00441eab, 6539+5, in image_bounds.csv); 4469 bytes differ against it (was 4858; the water exit facing through the DirType Direction member as ra2-decomp's banked form banks/0x00443C60_exit.cpp (11df85d) has it; before that the bank's exit paths adapted to RA2, keeping RA2's one-argument exits, native mission paths and the cloning-vat loop calling the image's own Exit_New_Object (0x4538D0) for each vat); all 146 calls in order (3569 and frame 0x12c only with copy locals in inline.h Direction(Cell, Cell), refused: variation_candidates.csv); previous 5824 (lane O20, 2026-11-22); main: best 92.27, tried 12 times (frame, register, inline)
+#ifdef RA2_NON_MATCHING // not exact: no row yet (image-derived bound 00440520-00441eab, 6539+5, in image_bounds.csv); 3380 bytes differ against it (was 4469; the two exit directions as TibSun building.cpp builds them, a temporary Coord in the first branch, a stored exitcellcoord in the second; the water exit facing through the DirType Direction member as ra2-decomp's banked form banks/0x00443C60_exit.cpp (11df85d) has it; the bank's exit paths adapted to RA2, keeping RA2's one-argument exits, native mission paths and the cloning-vat loop calling the image's own Exit_New_Object (0x4538D0) for each vat); all 146 calls in order (3569 and frame 0x12c only with copy locals in inline.h Direction(Cell, Cell), refused: variation_candidates.csv); main: best 92.27, tried 12 times (frame, register, inline)
 #include "airctype.h"
 #include "targetcell.h"
 int BuildingClass::Exit_Object(TechnoClass * base)
@@ -3358,8 +3357,7 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 						}
 					}
 
-					Coord exitcellcoord(cell);
-					Dir256 dir = ::Direction(Center_Coord(), exitcellcoord).As_Dir256();
+					Dir256 dir = ::Direction(Center_Coord(), Coord(cell)).As_Dir256();
 
 					Cell to = cell;
 					Cell here = Get_Cell();
@@ -3435,7 +3433,8 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 						return(0);
 					}
 
-					Dir256 dir = ::Direction(Center_Coord(), Coord(cell)).As_Dir256();
+					Coord exitcellcoord(cell);
+					Dir256 dir = ::Direction(Center_Coord(), exitcellcoord).As_Dir256();
 
 					Cell to = cell;
 					Cell here = Get_Cell();
