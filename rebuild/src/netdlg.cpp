@@ -23,7 +23,7 @@
 #include <string.h> // RA2: the includes this file needs
 #include <stdio.h> // RA2: the includes this file needs
 #include <wchar.h> // RA2: the includes this file needs
-#undef LoadString // RA2: as above
+#undef LoadString
 #include "_map.h" // RA2: the includes this file needs
 #include "_rules.h" // RA2: the includes this file needs
 #include "dbgprint.h" // RA2: the includes this file needs
@@ -128,21 +128,21 @@ void Destroy_Connection(int id, int error)
 	if (Session.Type == GAME_INTERNET && Session.ViaPacketRouter && Session.Am_I_Master(housep)) { // RA2: the leaver was the game master: choose a new host
 		Session.AboutToExitActive = true; // RA2: the byte at Session +0x3040 (0x00A402D8) is set to 1 here; the name is the one the other writer (event.cpp) gave it
 		int host = OwnerTalk.Update_Master(); // RA2: the new master's house, -1 when none
-		if (host != -1) { // RA2: as above
-			HouseClass *hostp = Houses[host]; // RA2: as above
-			if (hostp) { // RA2: as above
+		if (host != -1) {
+			HouseClass * hostp = Houses[host];
+			if (hostp) {
 				if (Session.Players.Count() > 2) { // RA2: with two players left no router is needed
 					IPXAddressClass *address = NULL; // RA2: the new host's address
 					for (i = 0; i < Session.Players.Count(); i++) {
 						if (Session.Players[i]->Player.ID == host) { // RA2: the ID (+0x5F) is compared, not the name
-							address = &Session.Players[i]->Address; // RA2: as above
+							address = &Session.Players[i]->Address;
 							Session.PacketRouterPort = Session.PlayerPorts[i]; // RA2: the router port is that of the same slot (Session +0x3022)
 							break;
 						}
 					}
 					NetNumType network;
 					NetNodeType node;
-					address->Get_Address(network, node); // RA2: as above
+					address->Get_Address(network, node);
 					Session.PacketRouterAddress.Set_Address(network, node, 0); // RA2: the address is copied to the router address (+0x2914) with port 0
 					DebugString("Session.PacketRouterAddress = %s\n", Session.PacketRouterAddress.As_String(0)); // RA2: the format string at 0x007D696C
 					DebugString("Session.PacketRouterPort = %d\n", Session.PacketRouterPort);
@@ -150,7 +150,7 @@ void Destroy_Connection(int id, int error)
 				}
 				wcscpy(Session.MasterPlayerName, hostp->UIName); // RA2: the new master's wide name is copied to Session +0x2FC8
 				DebugString("New game host is %ls\n", Session.MasterPlayerName);
-				Session.MasterPlayerID = host; // RA2: as above
+				Session.MasterPlayerID = host;
 				if (Session.Am_I_Master(NULL)) { // RA2: when this system became the master, the router gets the player list
 					OwnerTalk.Send_Player_List();
 				}
@@ -201,8 +201,8 @@ unsigned int __fastcall Compute_Name_CRC(wchar_t const * name) // RA2: the wide 
 	unsigned int crc = 0L;
 	unsigned int i;
 
-	wcscpy(buf, name); // RA2: as above
-	_wcsupr(buf); // RA2: as above
+	wcscpy(buf, name);
+	_wcsupr(buf);
 
 	for (i = 0; i < wcslen(buf); i++) { // RA2: i is unsigned, the compare is unsigned (jb)
 		Add_CRC(&crc, (unsigned int)buf[i]); // RA2: the 16 bit character is zero extended (no sign extension as in the narrow form)
@@ -219,9 +219,9 @@ void Clear_Listbox(ListClass * list)
 	wchar_t const * item; // RA2: the items are wide strings
 
 	while (list->Count()) {
-		item = list->Get_Item(0); // RA2: as above
+		item = list->Get_Item(0);
 		list->Remove_Item(item); // RA2: the overload taking the text (vtable +0xAC), not the index
-		delete [] (wchar_t *)item; // RA2: as above
+		delete[] (wchar_t *)item;
 	}
 	list->Flag_To_Redraw();
 }

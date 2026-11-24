@@ -17,7 +17,7 @@ class TechnoClass;
 
 class Reestablish { // RA2: the 8-byte record Captured allocates per captured contact (contact, was-tethered flag); name and class tag from the RTTI of VectorClass<Reestablish *> (vtable 0x79D0F0)
 	public:
-		TechnoClass * Contact; // RA2: as above
-		bool WasTethered; // RA2: as above
-		Reestablish(TechnoClass * contact, bool tethered) : Contact(contact), WasTethered(tethered) {} // RA2: as above
+		TechnoClass * Contact;
+		bool WasTethered;
+		Reestablish(TechnoClass * contact, bool tethered) : Contact(contact), WasTethered(tethered) {}
 };

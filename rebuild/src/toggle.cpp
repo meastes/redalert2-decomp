@@ -178,12 +178,12 @@ int ToggleClass::Action(unsigned flags, KeyNumType &key)
 
 	if (flags & (LEFTRELEASE|RIGHTRELEASE)) {
 		if (IsPressed) {
-			if (overbutton) { // RA2: as above
+			if (overbutton) {
 				if (IsToggleType == 1) { // RA2: IsToggleType is a dword: 1 toggles the state
-					IsOn = (IsOn == false); // RA2: as above
+					IsOn = (IsOn == false);
 				} else if (IsToggleType == 2) { // RA2: 2 only ever turns the state on
-					if (!IsOn) { // RA2: as above
-						IsOn = true; // RA2: as above
+					if (!IsOn) {
+						IsOn = true;
 					}
 				}
 			}

@@ -148,9 +148,13 @@ class HeavySlotTests(unittest.TestCase):
 class GateScopeTests(unittest.TestCase):
     def test_classify(self):
         self.assertEqual(gate_scope.scope(['native/platform/sdl/main.cpp', 'docs/HANDOFF.md']), 'native')
-        self.assertEqual(gate_scope.scope(['native/CMakeLists.txt', 'src/recovered/a.cpp']), 'exact')
+        self.assertEqual(gate_scope.scope(['native/CMakeLists.txt', 'src/recovered/a.cpp']), 'frozen')
+        self.assertEqual(gate_scope.scope(['native/CMakeLists.txt', 'build.command']), 'exact')
         self.assertEqual(gate_scope.scope(['tools/original_target/build.py']), 'exact')
-        self.assertEqual(gate_scope.scope(['manifests/original_target/index.json']), 'exact')
+        self.assertEqual(gate_scope.scope(['manifests/original_target/index.json']), 'frozen')
+        self.assertEqual(gate_scope.scope(['rebuild/src/facing.cpp', 'src/shared/x.hpp']), 'frozen')
+        self.assertEqual(gate_scope.classify('src/recovered/a.cpp'), 'frozen')
+        self.assertEqual(gate_scope.classify('manifests/toolchain.json'), 'exact')
         self.assertEqual(gate_scope.scope(['docs/STATUS.md', 'AGENTS.md']), 'none')
         self.assertEqual(gate_scope.scope([]), 'none')
         self.assertEqual(gate_scope.scope(['rebuild/src/facing.cpp', 'docs/STATUS.md']), 'rebuild')

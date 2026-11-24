@@ -20,19 +20,19 @@
 #include "always.h" // RA2: the includes this file needs
 #include "rect.h" // RA2: the header statics, in the order of the unit's initializer table
 #include "geometry.h"
-#include "convert.h" // RA2: as above
-#include "data.h" // RA2: as above
-#include "draw.h" // RA2: as above
-#include "dsurface.h" // RA2: as above
-#include "goptions.h" // RA2: as above
-#include "palette.h" // RA2: as above
-#include "rect.h" // RA2: as above
-#include "rgb.h" // RA2: as above
-#include "shapeset.h" // RA2: as above
-#include "_rect.h" // RA2: as above
-#include "_surface.h" // RA2: as above
-#include "globals.h" // RA2: as above
-#include "tab.h" // RA2: as above
+#include "convert.h"
+#include "data.h"
+#include "draw.h"
+#include "dsurface.h"
+#include "goptions.h"
+#include "palette.h"
+#include "rect.h"
+#include "rgb.h"
+#include "shapeset.h"
+#include "_rect.h"
+#include "_surface.h"
+#include "globals.h"
+#include "tab.h"
 #include "init.h"
 
 RGBClass YellowColor1(255, 255, 0); // RA2: 0x00AC1124
@@ -295,7 +295,7 @@ Point2D __fastcall Copy_Point(Rect const * source) // RA2: 0x006F1AE0; the recta
 /// </summary>
 void __fastcall Assign_Point(Point2D * dest, Point2D const * source) // RA2: 0x006F1AF0
 {
-	*dest = *source; // RA2: as above
+	*dest = *source;
 }
 
 /// <summary>
@@ -303,10 +303,10 @@ void __fastcall Assign_Point(Point2D * dest, Point2D const * source) // RA2: 0x0
 /// </summary>
 void __fastcall Inflate_Rect(Rect & rect, int amount) // RA2: 0x006F1B00
 {
-	rect.X += amount; // RA2: as above
-	rect.Y += amount; // RA2: as above
-	rect.Width -= amount * 2; // RA2: as above
-	rect.Height -= amount * 2; // RA2: as above
+	rect.X += amount;
+	rect.Y += amount;
+	rect.Width -= amount * 2;
+	rect.Height -= amount * 2;
 }
 
 /// <summary>
@@ -314,10 +314,10 @@ void __fastcall Inflate_Rect(Rect & rect, int amount) // RA2: 0x006F1B00
 /// </summary>
 void __fastcall Inflate_Rect(Rect & rect, int dx, int dy) // RA2: 0x006F1B30
 {
-	rect.X += dx; // RA2: as above
-	rect.Y += dy; // RA2: as above
-	rect.Width -= dx * 2; // RA2: as above
-	rect.Height -= dy * 2; // RA2: as above
+	rect.X += dx;
+	rect.Y += dy;
+	rect.Width -= dx * 2;
+	rect.Height -= dy * 2;
 }
 
 /// <summary>
@@ -325,8 +325,8 @@ void __fastcall Inflate_Rect(Rect & rect, int dx, int dy) // RA2: 0x006F1B30
 /// </summary>
 void __fastcall Load_All_Art(void) // RA2: 0x006F1B60
 {
-	Load_Popup_Dialog_Art(); // RA2: as above
-	Load_Interface_Art(); // RA2: as above
+	Load_Popup_Dialog_Art();
+	Load_Interface_Art();
 }
 
 /// <summary>
@@ -334,9 +334,9 @@ void __fastcall Load_All_Art(void) // RA2: 0x006F1B60
 /// </summary>
 void __fastcall Free_All_Art(void) // RA2: 0x006F1D20
 {
-	Free_Popup_Dialog_Art(); // RA2: as above
-	Free_Interface_Art(); // RA2: as above
-	Free_Sidebar_Art(); // RA2: as above
+	Free_Popup_Dialog_Art();
+	Free_Interface_Art();
+	Free_Sidebar_Art();
 }
 
 /// <summary>
@@ -344,15 +344,15 @@ void __fastcall Free_All_Art(void) // RA2: 0x006F1D20
 /// </summary>
 Rect __fastcall Get_Title_Screen_Area(void) // RA2: 0x006F1F30
 {
-	Rect rect = VisibleRect; // RA2: as above
-	rect.X = 0; // RA2: as above
-	rect.Y = 0; // RA2: as above
-	if (!Options.IsSidebarOnRight && !Debug_Map) { // RA2: as above
+	Rect rect = VisibleRect;
+	rect.X = 0;
+	rect.Y = 0;
+	if (!Options.IsSidebarOnRight && !Debug_Map) {
 		rect.X = 168; // RA2: the sidebar is on the left, so the area starts right of it
 	}
-	rect.Width -= 168; // RA2: as above
+	rect.Width -= 168;
 	rect.Height -= 32; // RA2: the tab bar takes the bottom
-	return rect; // RA2: as above
+	return rect;
 }
 
 /// <summary>
@@ -360,18 +360,18 @@ Rect __fastcall Get_Title_Screen_Area(void) // RA2: 0x006F1F30
 /// </summary>
 void __fastcall Load_Art_Palette(char const * name, PaletteClass * * palette, ConvertClass * * drawer) // RA2: 0x006F1FA0
 {
-	bool allocated = false; // RA2: as above
-	unsigned char const * data = (unsigned char const *)Load_Alloc_Data(name, allocated); // RA2: as above
-	*palette = new PaletteClass; // RA2: as above
-	for (int index = 0; index < 256; index++) { // RA2: as above
-		int offset = index * 3; // RA2: as above
+	bool allocated = false;
+	unsigned char const * data = (unsigned char const *)Load_Alloc_Data(name, allocated);
+	*palette = new PaletteClass;
+	for (int index = 0; index < 256; index++) {
+		int offset = index * 3;
 		RGBClass color(data[offset] << 2, data[offset + 1] << 2, data[offset + 2] << 2); // RA2: the file holds 6 bit colours
-		(**palette)[index] = color; // RA2: as above
+		(**palette)[index] = color;
 	}
-	if (allocated) { // RA2: as above
-		delete (void *)data; // RA2: as above
+	if (allocated) {
+		delete (void *)data;
 	}
-	*drawer = new ConvertClass(**palette, **palette, *AlternateSurface, 1, false); // RA2: as above
+	*drawer = new ConvertClass(**palette, **palette, *AlternateSurface, 1, false);
 }
 
 /// <summary>
@@ -379,8 +379,8 @@ void __fastcall Load_Art_Palette(char const * name, PaletteClass * * palette, Co
 /// </summary>
 void __fastcall Load_Popup_Dialog_Art(void) // RA2: 0x006F20B0
 {
-	Load_Popup_Dialog_Shapes(); // RA2: as above
-	Load_Dialog_Palettes(); // RA2: as above
+	Load_Popup_Dialog_Shapes();
+	Load_Dialog_Palettes();
 }
 
 /// <summary>
@@ -388,28 +388,28 @@ void __fastcall Load_Popup_Dialog_Art(void) // RA2: 0x006F20B0
 /// </summary>
 void __fastcall Free_Popup_Dialog_Art(void) // RA2: 0x006F2130
 {
-	Free_Popup_Dialog_Shapes(); // RA2: as above
-	Free_Dialog_Palettes(); // RA2: as above
+	Free_Popup_Dialog_Shapes();
+	Free_Dialog_Palettes();
 }
 
 PaletteClass * __cdecl Get_Dialog_Palette(void) // RA2: 0x006F2220
 {
-	return DialogPalette; // RA2: as above
+	return DialogPalette;
 }
 
 ConvertClass * __cdecl Get_Dialog_Drawer(void) // RA2: 0x006F2230
 {
-	return DialogDrawer; // RA2: as above
+	return DialogDrawer;
 }
 
 PaletteClass * __cdecl Get_Main_Button_Palette(void) // RA2: 0x006F2240
 {
-	return MainButtonPalette; // RA2: as above
+	return MainButtonPalette;
 }
 
 ConvertClass * __cdecl Get_Main_Button_Drawer(void) // RA2: 0x006F2250
 {
-	return MainButtonDrawer; // RA2: as above
+	return MainButtonDrawer;
 }
 
 /// <summary>
@@ -417,10 +417,10 @@ ConvertClass * __cdecl Get_Main_Button_Drawer(void) // RA2: 0x006F2250
 /// </summary>
 void __fastcall Load_Popup_Dialog_Shapes(void) // RA2: 0x006F2260
 {
-	ArtPopupBack = Load_Alloc_Data(PudlgbgnShpFile, ArtPopupBackAllocated); // RA2: as above
-	ArtPopupBackAllied = Load_Alloc_Data(PudlgbgaShpFile, ArtPopupBackAlliedAllocated); // RA2: as above
-	ArtPopupBackSoviet = Load_Alloc_Data(PudlgbgsShpFile, ArtPopupBackSovietAllocated); // RA2: as above
-	ArtMainButton = Load_Alloc_Data(MnbttnShpFile, ArtMainButtonAllocated); // RA2: as above
+	ArtPopupBack = Load_Alloc_Data(PudlgbgnShpFile, ArtPopupBackAllocated);
+	ArtPopupBackAllied = Load_Alloc_Data(PudlgbgaShpFile, ArtPopupBackAlliedAllocated);
+	ArtPopupBackSoviet = Load_Alloc_Data(PudlgbgsShpFile, ArtPopupBackSovietAllocated);
+	ArtMainButton = Load_Alloc_Data(MnbttnShpFile, ArtMainButtonAllocated);
 }
 
 /// <summary>
@@ -428,8 +428,8 @@ void __fastcall Load_Popup_Dialog_Shapes(void) // RA2: 0x006F2260
 /// </summary>
 void __fastcall Load_Dialog_Palettes(void) // RA2: 0x006F22C0
 {
-	Load_Art_Palette(DialogPalFile, &DialogPalette, &DialogDrawer); // RA2: as above
-	Load_Art_Palette(MainbttnPalFile, &MainButtonPalette, &MainButtonDrawer); // RA2: as above
+	Load_Art_Palette(DialogPalFile, &DialogPalette, &DialogDrawer);
+	Load_Art_Palette(MainbttnPalFile, &MainButtonPalette, &MainButtonDrawer);
 }
 
 /// <summary>
@@ -437,26 +437,26 @@ void __fastcall Load_Dialog_Palettes(void) // RA2: 0x006F22C0
 /// </summary>
 void __fastcall Free_Popup_Dialog_Shapes(void) // RA2: 0x006F22F0
 {
-	if (ArtPopupBackAllocated) { // RA2: as above
-		operator delete(ArtPopupBack); // RA2: as above
-		ArtPopupBackAllocated = false; // RA2: as above
+	if (ArtPopupBackAllocated) {
+		operator delete(ArtPopupBack);
+		ArtPopupBackAllocated = false;
 	}
-	ArtPopupBack = NULL; // RA2: as above
-	if (ArtPopupBackAlliedAllocated) { // RA2: as above
-		operator delete(ArtPopupBackAllied); // RA2: as above
-		ArtPopupBackAlliedAllocated = false; // RA2: as above
+	ArtPopupBack = NULL;
+	if (ArtPopupBackAlliedAllocated) {
+		operator delete(ArtPopupBackAllied);
+		ArtPopupBackAlliedAllocated = false;
 	}
-	ArtPopupBackAllied = NULL; // RA2: as above
-	if (ArtPopupBackSovietAllocated) { // RA2: as above
-		operator delete(ArtPopupBackSoviet); // RA2: as above
-		ArtPopupBackSovietAllocated = false; // RA2: as above
+	ArtPopupBackAllied = NULL;
+	if (ArtPopupBackSovietAllocated) {
+		operator delete(ArtPopupBackSoviet);
+		ArtPopupBackSovietAllocated = false;
 	}
-	ArtPopupBackSoviet = NULL; // RA2: as above
-	if (ArtMainButtonAllocated) { // RA2: as above
-		operator delete(ArtMainButton); // RA2: as above
-		ArtMainButtonAllocated = false; // RA2: as above
+	ArtPopupBackSoviet = NULL;
+	if (ArtMainButtonAllocated) {
+		operator delete(ArtMainButton);
+		ArtMainButtonAllocated = false;
 	}
-	ArtMainButton = NULL; // RA2: as above
+	ArtMainButton = NULL;
 }
 
 /// <summary>
@@ -464,21 +464,21 @@ void __fastcall Free_Popup_Dialog_Shapes(void) // RA2: 0x006F22F0
 /// </summary>
 void __fastcall Free_Dialog_Palettes(void) // RA2: 0x006F2390
 {
-	if (DialogPalette != NULL) { // RA2: as above
-		operator delete(DialogPalette); // RA2: as above
-		DialogPalette = NULL; // RA2: as above
+	if (DialogPalette != NULL) {
+		operator delete(DialogPalette);
+		DialogPalette = NULL;
 	}
-	if (DialogDrawer != NULL) { // RA2: as above
-		delete [] DialogDrawer; // RA2: as above
-		DialogDrawer = NULL; // RA2: as above
+	if (DialogDrawer != NULL) {
+		delete[] DialogDrawer;
+		DialogDrawer = NULL;
 	}
-	if (MainButtonPalette != NULL) { // RA2: as above
-		operator delete(MainButtonPalette); // RA2: as above
-		MainButtonPalette = NULL; // RA2: as above
+	if (MainButtonPalette != NULL) {
+		operator delete(MainButtonPalette);
+		MainButtonPalette = NULL;
 	}
-	if (MainButtonDrawer != NULL) { // RA2: as above
-		delete [] MainButtonDrawer; // RA2: as above
-		MainButtonDrawer = NULL; // RA2: as above
+	if (MainButtonDrawer != NULL) {
+		delete[] MainButtonDrawer;
+		MainButtonDrawer = NULL;
 	}
 }
 
@@ -487,11 +487,11 @@ void __fastcall Free_Dialog_Palettes(void) // RA2: 0x006F2390
 /// </summary>
 char const * __fastcall Get_Title_Bar_File(int width, int, int) // RA2: 0x006F2400
 {
-	char const * file = Ttlbr640ShpFile; // RA2: as above
-	if (width != 640) { // RA2: as above
-		file = Ttlbr800ShpFile; // RA2: as above
+	char const * file = Ttlbr640ShpFile;
+	if (width != 640) {
+		file = Ttlbr800ShpFile;
 	}
-	return file; // RA2: as above
+	return file;
 }
 
 /// <summary>
@@ -499,41 +499,41 @@ char const * __fastcall Get_Title_Bar_File(int width, int, int) // RA2: 0x006F24
 /// </summary>
 char const * __fastcall Get_Splash_Bar_File(int width, int, int) // RA2: 0x006F2420
 {
-	char const * file = SpldbrsShpFile; // RA2: as above
-	if (width != 640) { // RA2: as above
-		file = SpldbrlShpFile; // RA2: as above
+	char const * file = SpldbrsShpFile;
+	if (width != 640) {
+		file = SpldbrlShpFile;
 	}
-	return file; // RA2: as above
+	return file;
 }
 
 PaletteClass * __cdecl Get_Load_Screen_Palette(void) // RA2: 0x006F2440
 {
-	return LoadScreenPalette; // RA2: as above
+	return LoadScreenPalette;
 }
 
 ConvertClass * __cdecl Get_Load_Screen_Drawer(void) // RA2: 0x006F2450
 {
-	return LoadScreenDrawer; // RA2: as above
+	return LoadScreenDrawer;
 }
 
 PaletteClass * __cdecl Get_Load_Screen_Side_Palette(void) // RA2: 0x006F2460
 {
-	return LoadScreenSidePalette; // RA2: as above
+	return LoadScreenSidePalette;
 }
 
 ConvertClass * __cdecl Get_Load_Screen_Side_Drawer(void) // RA2: 0x006F2470
 {
-	return LoadScreenSideDrawer; // RA2: as above
+	return LoadScreenSideDrawer;
 }
 
 PaletteClass * __cdecl Get_Splash_Bar_Palette(void) // RA2: 0x006F2480
 {
-	return SplashBarPalette; // RA2: as above
+	return SplashBarPalette;
 }
 
 ConvertClass * __cdecl Get_Splash_Bar_Drawer(void) // RA2: 0x006F2490
 {
-	return SplashBarDrawer; // RA2: as above
+	return SplashBarDrawer;
 }
 
 /// <summary>
@@ -541,18 +541,18 @@ ConvertClass * __cdecl Get_Splash_Bar_Drawer(void) // RA2: 0x006F2490
 /// </summary>
 void __fastcall Load_Loading_Screen_Palettes(int side) // RA2: 0x006F24A0
 {
-	if (LoadScreenDrawer == NULL) { // RA2: as above
-		Load_Art_Palette(LdscrnPalFile, &LoadScreenPalette, &LoadScreenDrawer); // RA2: as above
+	if (LoadScreenDrawer == NULL) {
+		Load_Art_Palette(LdscrnPalFile, &LoadScreenPalette, &LoadScreenDrawer);
 	}
-	if (LoadScreenSideDrawer == NULL) { // RA2: as above
-		if (side == 0) { // RA2: as above
-			Load_Art_Palette(LdscrnaPalFile, &LoadScreenSidePalette, &LoadScreenSideDrawer); // RA2: as above
+	if (LoadScreenSideDrawer == NULL) {
+		if (side == 0) {
+			Load_Art_Palette(LdscrnaPalFile, &LoadScreenSidePalette, &LoadScreenSideDrawer);
 		} else {
-			Load_Art_Palette(LdscrnsPalFile, &LoadScreenSidePalette, &LoadScreenSideDrawer); // RA2: as above
+			Load_Art_Palette(LdscrnsPalFile, &LoadScreenSidePalette, &LoadScreenSideDrawer);
 		}
 	}
-	if (SplashBarDrawer == NULL) { // RA2: as above
-		Load_Art_Palette(SpldbrPalFile, &SplashBarPalette, &SplashBarDrawer); // RA2: as above
+	if (SplashBarDrawer == NULL) {
+		Load_Art_Palette(SpldbrPalFile, &SplashBarPalette, &SplashBarDrawer);
 	}
 }
 
@@ -561,40 +561,40 @@ void __fastcall Load_Loading_Screen_Palettes(int side) // RA2: 0x006F24A0
 /// </summary>
 void __fastcall Free_Loading_Screen_Palettes(void) // RA2: 0x006F2510
 {
-	if (LoadScreenPalette != NULL) { // RA2: as above
-		operator delete(LoadScreenPalette); // RA2: as above
-		LoadScreenPalette = NULL; // RA2: as above
+	if (LoadScreenPalette != NULL) {
+		operator delete(LoadScreenPalette);
+		LoadScreenPalette = NULL;
 	}
-	if (LoadScreenDrawer != NULL) { // RA2: as above
-		delete LoadScreenDrawer; // RA2: as above
-		LoadScreenDrawer = NULL; // RA2: as above
+	if (LoadScreenDrawer != NULL) {
+		delete LoadScreenDrawer;
+		LoadScreenDrawer = NULL;
 	}
-	if (LoadScreenSidePalette != NULL) { // RA2: as above
-		operator delete(LoadScreenSidePalette); // RA2: as above
-		LoadScreenSidePalette = NULL; // RA2: as above
+	if (LoadScreenSidePalette != NULL) {
+		operator delete(LoadScreenSidePalette);
+		LoadScreenSidePalette = NULL;
 	}
-	if (LoadScreenSideDrawer != NULL) { // RA2: as above
-		delete LoadScreenSideDrawer; // RA2: as above
-		LoadScreenSideDrawer = NULL; // RA2: as above
+	if (LoadScreenSideDrawer != NULL) {
+		delete LoadScreenSideDrawer;
+		LoadScreenSideDrawer = NULL;
 	}
-	if (SplashBarPalette != NULL) { // RA2: as above
-		operator delete(SplashBarPalette); // RA2: as above
-		SplashBarPalette = NULL; // RA2: as above
+	if (SplashBarPalette != NULL) {
+		operator delete(SplashBarPalette);
+		SplashBarPalette = NULL;
 	}
-	if (SplashBarDrawer != NULL) { // RA2: as above
-		delete SplashBarDrawer; // RA2: as above
-		SplashBarDrawer = NULL; // RA2: as above
+	if (SplashBarDrawer != NULL) {
+		delete SplashBarDrawer;
+		SplashBarDrawer = NULL;
 	}
 }
 
 PaletteClass * __cdecl Get_MP_Load_Palette(void) // RA2: 0x006F25A0
 {
-	return MPLoadPalette; // RA2: as above
+	return MPLoadPalette;
 }
 
 ConvertClass * __cdecl Get_MP_Load_Drawer(void) // RA2: 0x006F25B0
 {
-	return MPLoadDrawer; // RA2: as above
+	return MPLoadDrawer;
 }
 
 /// <summary>
@@ -603,22 +603,22 @@ ConvertClass * __cdecl Get_MP_Load_Drawer(void) // RA2: 0x006F25B0
 /// </summary>
 void __fastcall Load_MP_Load_Palette(void) // RA2: 0x006F25C0
 {
-	if (MPLoadPaletteKind == 1 && ObserverMode != 0) { // RA2: as above
-		Free_MP_Load_Palette(); // RA2: as above
+	if (MPLoadPaletteKind == 1 && ObserverMode != 0) {
+		Free_MP_Load_Palette();
 	}
-	if (MPLoadPaletteKind == 2 && ObserverMode == 0) { // RA2: as above
-		Free_MP_Load_Palette(); // RA2: as above
+	if (MPLoadPaletteKind == 2 && ObserverMode == 0) {
+		Free_MP_Load_Palette();
 	}
-	if (MPLoadDrawer == NULL) { // RA2: as above
-		MPLoadPaletteKind = 0; // RA2: as above
+	if (MPLoadDrawer == NULL) {
+		MPLoadPaletteKind = 0;
 	}
-	if (MPLoadPaletteKind == 0) { // RA2: as above
-		if (ObserverMode != 0) { // RA2: as above
-			Load_Art_Palette(MplsobsPalFile, &MPLoadPalette, &MPLoadDrawer); // RA2: as above
-			MPLoadPaletteKind = 2; // RA2: as above
+	if (MPLoadPaletteKind == 0) {
+		if (ObserverMode != 0) {
+			Load_Art_Palette(MplsobsPalFile, &MPLoadPalette, &MPLoadDrawer);
+			MPLoadPaletteKind = 2;
 		} else {
-			Load_Art_Palette(MplsPalFile, &MPLoadPalette, &MPLoadDrawer); // RA2: as above
-			MPLoadPaletteKind = 1; // RA2: as above
+			Load_Art_Palette(MplsPalFile, &MPLoadPalette, &MPLoadDrawer);
+			MPLoadPaletteKind = 1;
 		}
 	}
 }
@@ -628,13 +628,13 @@ void __fastcall Load_MP_Load_Palette(void) // RA2: 0x006F25C0
 /// </summary>
 void __fastcall Free_MP_Load_Palette(void) // RA2: 0x006F26D0
 {
-	if (MPLoadPalette != NULL) { // RA2: as above
-		delete MPLoadPalette; // RA2: as above
-		MPLoadPalette = NULL; // RA2: as above
+	if (MPLoadPalette != NULL) {
+		delete MPLoadPalette;
+		MPLoadPalette = NULL;
 	}
-	if (MPLoadDrawer != NULL) { // RA2: as above
-		delete MPLoadDrawer; // RA2: as above
-		MPLoadDrawer = NULL; // RA2: as above
+	if (MPLoadDrawer != NULL) {
+		delete MPLoadDrawer;
+		MPLoadDrawer = NULL;
 	}
 }
 
@@ -643,14 +643,14 @@ void __fastcall Free_MP_Load_Palette(void) // RA2: 0x006F26D0
 /// </summary>
 void __fastcall Load_Score_Art(int alternate) // RA2: 0x006F2710
 {
-	if (!ScoreArtLoaded) { // RA2: as above
-		Load_Score_Shapes(alternate); // RA2: as above
-		char const * name = AscorePalFile; // RA2: as above
-		if (alternate) { // RA2: as above
-			name = SscorePalFile; // RA2: as above
+	if (!ScoreArtLoaded) {
+		Load_Score_Shapes(alternate);
+		char const * name = AscorePalFile;
+		if (alternate) {
+			name = SscorePalFile;
 		}
-		Load_Art_Palette(name, &ScorePalette, &ScoreDrawer); // RA2: as above
-		ScoreArtLoaded = true; // RA2: as above
+		Load_Art_Palette(name, &ScorePalette, &ScoreDrawer);
+		ScoreArtLoaded = true;
 	}
 }
 
@@ -659,47 +659,47 @@ void __fastcall Load_Score_Art(int alternate) // RA2: 0x006F2710
 /// </summary>
 void __cdecl Free_Score_Art(void) // RA2: 0x006F2750
 {
-	if (ScoreArtLoaded) { // RA2: as above
-		ScoreArtLoaded = false; // RA2: as above
-		if (ArtChatBackAllocated) { // RA2: as above
-			operator delete(Art_Chat_Back); // RA2: as above
-			ArtChatBackAllocated = false; // RA2: as above
+	if (ScoreArtLoaded) {
+		ScoreArtLoaded = false;
+		if (ArtChatBackAllocated) {
+			operator delete(Art_Chat_Back);
+			ArtChatBackAllocated = false;
 		}
-		Art_Chat_Back = NULL; // RA2: as above
-		if (ArtScoreTopAllocated) { // RA2: as above
-			operator delete(ArtScoreTop); // RA2: as above
-			ArtScoreTopAllocated = false; // RA2: as above
+		Art_Chat_Back = NULL;
+		if (ArtScoreTopAllocated) {
+			operator delete(ArtScoreTop);
+			ArtScoreTopAllocated = false;
 		}
-		ArtScoreTop = NULL; // RA2: as above
-		if (ArtScoreFrameAllocated) { // RA2: as above
-			operator delete(Art_Score_Frame); // RA2: as above
-			ArtScoreFrameAllocated = false; // RA2: as above
+		ArtScoreTop = NULL;
+		if (ArtScoreFrameAllocated) {
+			operator delete(Art_Score_Frame);
+			ArtScoreFrameAllocated = false;
 		}
-		Art_Score_Frame = NULL; // RA2: as above
-		if (ScorePalette != NULL) { // RA2: as above
-			operator delete(ScorePalette); // RA2: as above
-			ScorePalette = NULL; // RA2: as above
+		Art_Score_Frame = NULL;
+		if (ScorePalette != NULL) {
+			operator delete(ScorePalette);
+			ScorePalette = NULL;
 		}
-		if (ScoreDrawer != NULL) { // RA2: as above
-			delete ScoreDrawer; // RA2: as above
-			ScoreDrawer = NULL; // RA2: as above
+		if (ScoreDrawer != NULL) {
+			delete ScoreDrawer;
+			ScoreDrawer = NULL;
 		}
 	}
 }
 
 bool __cdecl Is_Score_Art_Loaded(void) // RA2: 0x006F2810
 {
-	return ScoreArtLoaded; // RA2: as above
+	return ScoreArtLoaded;
 }
 
 PaletteClass * __cdecl Get_Score_Palette(void) // RA2: 0x006F2820
 {
-	return ScorePalette; // RA2: as above
+	return ScorePalette;
 }
 
 void * __fastcall Get_Chat_Art(void) // RA2: 0x006F2830
 {
-	return ScoreDrawer; // RA2: as above
+	return ScoreDrawer;
 }
 
 /// <summary>
@@ -707,25 +707,25 @@ void * __fastcall Get_Chat_Art(void) // RA2: 0x006F2830
 /// </summary>
 void __fastcall Load_Score_Shapes(int alternate) // RA2: 0x006F2840
 {
-	if (!alternate) { // RA2: as above
-		if (VideoModeWidth == 640) { // RA2: as above
-			Art_Chat_Back = (ShapeSet *)Load_Alloc_Data(AscrbksmShpFile, ArtChatBackAllocated); // RA2: as above
-			ArtScoreTop = Load_Alloc_Data(AscrtsmShpFile, ArtScoreTopAllocated); // RA2: as above
-			Art_Score_Frame = Load_Alloc_Data(AscrasmShpFile, ArtScoreFrameAllocated); // RA2: as above
+	if (!alternate) {
+		if (VideoModeWidth == 640) {
+			Art_Chat_Back = (ShapeSet *)Load_Alloc_Data(AscrbksmShpFile, ArtChatBackAllocated);
+			ArtScoreTop = Load_Alloc_Data(AscrtsmShpFile, ArtScoreTopAllocated);
+			Art_Score_Frame = Load_Alloc_Data(AscrasmShpFile, ArtScoreFrameAllocated);
 		} else {
-			Art_Chat_Back = (ShapeSet *)Load_Alloc_Data(AscrbkmdShpFile, ArtChatBackAllocated); // RA2: as above
-			ArtScoreTop = Load_Alloc_Data(AscrtmdShpFile, ArtScoreTopAllocated); // RA2: as above
-			Art_Score_Frame = Load_Alloc_Data(AscramdShpFile, ArtScoreFrameAllocated); // RA2: as above
+			Art_Chat_Back = (ShapeSet *)Load_Alloc_Data(AscrbkmdShpFile, ArtChatBackAllocated);
+			ArtScoreTop = Load_Alloc_Data(AscrtmdShpFile, ArtScoreTopAllocated);
+			Art_Score_Frame = Load_Alloc_Data(AscramdShpFile, ArtScoreFrameAllocated);
 		}
 	} else {
-		if (VideoModeWidth == 640) { // RA2: as above
-			Art_Chat_Back = (ShapeSet *)Load_Alloc_Data(SscrbksmShpFile, ArtChatBackAllocated); // RA2: as above
-			ArtScoreTop = Load_Alloc_Data(SscrtsmShpFile, ArtScoreTopAllocated); // RA2: as above
-			Art_Score_Frame = Load_Alloc_Data(SscrasmShpFile, ArtScoreFrameAllocated); // RA2: as above
+		if (VideoModeWidth == 640) {
+			Art_Chat_Back = (ShapeSet *)Load_Alloc_Data(SscrbksmShpFile, ArtChatBackAllocated);
+			ArtScoreTop = Load_Alloc_Data(SscrtsmShpFile, ArtScoreTopAllocated);
+			Art_Score_Frame = Load_Alloc_Data(SscrasmShpFile, ArtScoreFrameAllocated);
 		} else {
-			Art_Chat_Back = (ShapeSet *)Load_Alloc_Data(SscrbkmdShpFile, ArtChatBackAllocated); // RA2: as above
-			ArtScoreTop = Load_Alloc_Data(SscrtmdShpFile, ArtScoreTopAllocated); // RA2: as above
-			Art_Score_Frame = Load_Alloc_Data(SscramdShpFile, ArtScoreFrameAllocated); // RA2: as above
+			Art_Chat_Back = (ShapeSet *)Load_Alloc_Data(SscrbkmdShpFile, ArtChatBackAllocated);
+			ArtScoreTop = Load_Alloc_Data(SscrtmdShpFile, ArtScoreTopAllocated);
+			Art_Score_Frame = Load_Alloc_Data(SscramdShpFile, ArtScoreFrameAllocated);
 		}
 	}
 }
@@ -735,7 +735,7 @@ void __fastcall Load_Score_Shapes(int alternate) // RA2: 0x006F2840
 /// </summary>
 void __fastcall Load_Score_Palette(int alternate) // RA2: 0x006F2960
 {
-	Load_Art_Palette(alternate == 0 ? AscorePalFile : SscorePalFile, &ScorePalette, &ScoreDrawer); // RA2: as above
+	Load_Art_Palette(alternate == 0 ? AscorePalFile : SscorePalFile, &ScorePalette, &ScoreDrawer);
 }
 
 /// <summary>
@@ -743,21 +743,21 @@ void __fastcall Load_Score_Palette(int alternate) // RA2: 0x006F2960
 /// </summary>
 void __fastcall Free_Score_Shapes(void) // RA2: 0x006F2980
 {
-	if (ArtChatBackAllocated) { // RA2: as above
-		operator delete(Art_Chat_Back); // RA2: as above
-		ArtChatBackAllocated = false; // RA2: as above
+	if (ArtChatBackAllocated) {
+		operator delete(Art_Chat_Back);
+		ArtChatBackAllocated = false;
 	}
-	Art_Chat_Back = NULL; // RA2: as above
-	if (ArtScoreTopAllocated) { // RA2: as above
-		operator delete(ArtScoreTop); // RA2: as above
-		ArtScoreTopAllocated = false; // RA2: as above
+	Art_Chat_Back = NULL;
+	if (ArtScoreTopAllocated) {
+		operator delete(ArtScoreTop);
+		ArtScoreTopAllocated = false;
 	}
-	ArtScoreTop = NULL; // RA2: as above
-	if (ArtScoreFrameAllocated) { // RA2: as above
-		operator delete(Art_Score_Frame); // RA2: as above
-		ArtScoreFrameAllocated = false; // RA2: as above
+	ArtScoreTop = NULL;
+	if (ArtScoreFrameAllocated) {
+		operator delete(Art_Score_Frame);
+		ArtScoreFrameAllocated = false;
 	}
-	Art_Score_Frame = NULL; // RA2: as above
+	Art_Score_Frame = NULL;
 }
 
 /// <summary>
@@ -765,13 +765,13 @@ void __fastcall Free_Score_Shapes(void) // RA2: 0x006F2980
 /// </summary>
 void __fastcall Free_Score_Palette(void) // RA2: 0x006F29F0
 {
-	if (ScorePalette != NULL) { // RA2: as above
-		operator delete(ScorePalette); // RA2: as above
-		ScorePalette = NULL; // RA2: as above
+	if (ScorePalette != NULL) {
+		operator delete(ScorePalette);
+		ScorePalette = NULL;
 	}
-	if (ScoreDrawer != NULL) { // RA2: as above
-		delete ScoreDrawer; // RA2: as above
-		ScoreDrawer = NULL; // RA2: as above
+	if (ScoreDrawer != NULL) {
+		delete ScoreDrawer;
+		ScoreDrawer = NULL;
 	}
 }
 
@@ -780,12 +780,12 @@ void __fastcall Free_Score_Palette(void) // RA2: 0x006F29F0
 /// </summary>
 void __fastcall Load_MP_Score_Art(int side) // RA2: 0x006F2A30
 {
-	if (MPScoreArtLoaded) { // RA2: as above
-		return; // RA2: as above
+	if (MPScoreArtLoaded) {
+		return;
 	}
-	Load_MP_Score_Shape(side); // RA2: as above
-	Load_Art_Palette(side == 0 ? MpascrnPalFile : MpsscrnPalFile, &MPScorePalette, &MPScoreDrawer); // RA2: as above
-	MPScoreArtLoaded = true; // RA2: as above
+	Load_MP_Score_Shape(side);
+	Load_Art_Palette(side == 0 ? MpascrnPalFile : MpsscrnPalFile, &MPScorePalette, &MPScoreDrawer);
+	MPScoreArtLoaded = true;
 }
 
 /// <summary>
@@ -793,37 +793,37 @@ void __fastcall Load_MP_Score_Art(int side) // RA2: 0x006F2A30
 /// </summary>
 void __fastcall Free_MP_Score_Art(void) // RA2: 0x006F2AB0
 {
-	if (MPScoreArtLoaded) { // RA2: as above
-		MPScoreArtLoaded = false; // RA2: as above
-		if (ArtScoreScreenAllocated) { // RA2: as above
-			operator delete(Art_Score_Screen); // RA2: as above
-			ArtScoreScreenAllocated = false; // RA2: as above
+	if (MPScoreArtLoaded) {
+		MPScoreArtLoaded = false;
+		if (ArtScoreScreenAllocated) {
+			operator delete(Art_Score_Screen);
+			ArtScoreScreenAllocated = false;
 		}
-		Art_Score_Screen = NULL; // RA2: as above
-		if (MPScorePalette != NULL) { // RA2: as above
-			operator delete(MPScorePalette); // RA2: as above
-			MPScorePalette = NULL; // RA2: as above
+		Art_Score_Screen = NULL;
+		if (MPScorePalette != NULL) {
+			operator delete(MPScorePalette);
+			MPScorePalette = NULL;
 		}
-		if (MPScoreDrawer != NULL) { // RA2: as above
-			delete MPScoreDrawer; // RA2: as above
-			MPScoreDrawer = NULL; // RA2: as above
+		if (MPScoreDrawer != NULL) {
+			delete MPScoreDrawer;
+			MPScoreDrawer = NULL;
 		}
 	}
 }
 
 bool __cdecl Is_MP_Score_Art_Loaded(void) // RA2: 0x006F2B20
 {
-	return MPScoreArtLoaded; // RA2: as above
+	return MPScoreArtLoaded;
 }
 
 PaletteClass * __cdecl Get_MP_Score_Palette(void) // RA2: 0x006F2B30
 {
-	return MPScorePalette; // RA2: as above
+	return MPScorePalette;
 }
 
 void * __fastcall Get_Score_Drawer(void) // RA2: 0x006F2B40
 {
-	return MPScoreDrawer; // RA2: as above
+	return MPScoreDrawer;
 }
 
 /// <summary>
@@ -831,17 +831,17 @@ void * __fastcall Get_Score_Drawer(void) // RA2: 0x006F2B40
 /// </summary>
 void __fastcall Load_MP_Score_Shape(int alternate) // RA2: 0x006F2B50
 {
-	if (alternate == 0) { // RA2: as above
-		if (VideoModeWidth == 640) { // RA2: as above
-			Art_Score_Screen = (ShapeSet *)Load_Alloc_Data(MpascrnsShpFile, ArtScoreScreenAllocated); // RA2: as above
+	if (alternate == 0) {
+		if (VideoModeWidth == 640) {
+			Art_Score_Screen = (ShapeSet *)Load_Alloc_Data(MpascrnsShpFile, ArtScoreScreenAllocated);
 		} else {
-			Art_Score_Screen = (ShapeSet *)Load_Alloc_Data(MpascrnlShpFile, ArtScoreScreenAllocated); // RA2: as above
+			Art_Score_Screen = (ShapeSet *)Load_Alloc_Data(MpascrnlShpFile, ArtScoreScreenAllocated);
 		}
 	} else {
-		if (VideoModeWidth == 640) { // RA2: as above
-			Art_Score_Screen = (ShapeSet *)Load_Alloc_Data(MpsscrnsShpFile, ArtScoreScreenAllocated); // RA2: as above
+		if (VideoModeWidth == 640) {
+			Art_Score_Screen = (ShapeSet *)Load_Alloc_Data(MpsscrnsShpFile, ArtScoreScreenAllocated);
 		} else {
-			Art_Score_Screen = (ShapeSet *)Load_Alloc_Data(MpsscrnlShpFile, ArtScoreScreenAllocated); // RA2: as above
+			Art_Score_Screen = (ShapeSet *)Load_Alloc_Data(MpsscrnlShpFile, ArtScoreScreenAllocated);
 		}
 	}
 }
@@ -851,7 +851,7 @@ void __fastcall Load_MP_Score_Shape(int alternate) // RA2: 0x006F2B50
 /// </summary>
 void __fastcall Load_MP_Score_Palette(int alternate) // RA2: 0x006F2BB0
 {
-	Load_Art_Palette(alternate == 0 ? MpascrnPalFile : MpsscrnPalFile, &MPScorePalette, &MPScoreDrawer); // RA2: as above
+	Load_Art_Palette(alternate == 0 ? MpascrnPalFile : MpsscrnPalFile, &MPScorePalette, &MPScoreDrawer);
 }
 
 /// <summary>
@@ -859,11 +859,11 @@ void __fastcall Load_MP_Score_Palette(int alternate) // RA2: 0x006F2BB0
 /// </summary>
 void __fastcall Free_MP_Score_Shape(void) // RA2: 0x006F2BD0
 {
-	if (ArtScoreScreenAllocated) { // RA2: as above
-		operator delete(Art_Score_Screen); // RA2: as above
-		ArtScoreScreenAllocated = false; // RA2: as above
+	if (ArtScoreScreenAllocated) {
+		operator delete(Art_Score_Screen);
+		ArtScoreScreenAllocated = false;
 	}
-	Art_Score_Screen = NULL; // RA2: as above
+	Art_Score_Screen = NULL;
 }
 
 /// <summary>
@@ -871,13 +871,13 @@ void __fastcall Free_MP_Score_Shape(void) // RA2: 0x006F2BD0
 /// </summary>
 void __fastcall Free_MP_Score_Palette(void) // RA2: 0x006F2C00
 {
-	if (MPScorePalette != NULL) { // RA2: as above
-		operator delete(MPScorePalette); // RA2: as above
-		MPScorePalette = NULL; // RA2: as above
+	if (MPScorePalette != NULL) {
+		operator delete(MPScorePalette);
+		MPScorePalette = NULL;
 	}
-	if (MPScoreDrawer != NULL) { // RA2: as above
-		delete MPScoreDrawer; // RA2: as above
-		MPScoreDrawer = NULL; // RA2: as above
+	if (MPScoreDrawer != NULL) {
+		delete MPScoreDrawer;
+		MPScoreDrawer = NULL;
 	}
 }
 
@@ -886,18 +886,18 @@ void __fastcall Free_MP_Score_Palette(void) // RA2: 0x006F2C00
 /// </summary>
 void __fastcall Load_Side_Animation_Art(void) // RA2: 0x006F2C40
 {
-	if (VideoModeWidth == 640) { // RA2: as above
-		Art_Side_Animation = Load_Alloc_Data(FsasmShpFile, ArtSideAnimationAllocated); // RA2: as above
-		Art_Button_Corner = Load_Alloc_Data(FsbcsmShpFile, ArtButtonCornerAllocated); // RA2: as above
-		Art_Side_Strip = Load_Alloc_Data(FsssmShpFile, ArtSideStripAllocated); // RA2: as above
-		Art_Button_Back = Load_Alloc_Data(FsbkgdsmShpFile, ArtButtonBackAllocated); // RA2: as above
+	if (VideoModeWidth == 640) {
+		Art_Side_Animation = Load_Alloc_Data(FsasmShpFile, ArtSideAnimationAllocated);
+		Art_Button_Corner = Load_Alloc_Data(FsbcsmShpFile, ArtButtonCornerAllocated);
+		Art_Side_Strip = Load_Alloc_Data(FsssmShpFile, ArtSideStripAllocated);
+		Art_Button_Back = Load_Alloc_Data(FsbkgdsmShpFile, ArtButtonBackAllocated);
 	} else {
-		Art_Side_Animation = Load_Alloc_Data(FsalgShpFile, ArtSideAnimationAllocated); // RA2: as above
-		Art_Button_Corner = Load_Alloc_Data(FsbclgShpFile, ArtButtonCornerAllocated); // RA2: as above
-		Art_Side_Strip = Load_Alloc_Data(FsslgShpFile, ArtSideStripAllocated); // RA2: as above
-		Art_Button_Back = Load_Alloc_Data(FsbkgdlgShpFile, ArtButtonBackAllocated); // RA2: as above
+		Art_Side_Animation = Load_Alloc_Data(FsalgShpFile, ArtSideAnimationAllocated);
+		Art_Button_Corner = Load_Alloc_Data(FsbclgShpFile, ArtButtonCornerAllocated);
+		Art_Side_Strip = Load_Alloc_Data(FsslgShpFile, ArtSideStripAllocated);
+		Art_Button_Back = Load_Alloc_Data(FsbkgdlgShpFile, ArtButtonBackAllocated);
 	}
-	Load_Art_Palette(FsscrnPalFile, &SideAnimationPalette, &SideAnimationDrawer); // RA2: as above
+	Load_Art_Palette(FsscrnPalFile, &SideAnimationPalette, &SideAnimationDrawer);
 }
 
 /// <summary>
@@ -905,44 +905,44 @@ void __fastcall Load_Side_Animation_Art(void) // RA2: 0x006F2C40
 /// </summary>
 void __fastcall Free_Side_Animation_Art(void) // RA2: 0x006F2D00
 {
-	if (ArtSideAnimationAllocated) { // RA2: as above
-		operator delete(Art_Side_Animation); // RA2: as above
-		ArtSideAnimationAllocated = false; // RA2: as above
+	if (ArtSideAnimationAllocated) {
+		operator delete(Art_Side_Animation);
+		ArtSideAnimationAllocated = false;
 	}
-	Art_Side_Animation = NULL; // RA2: as above
-	if (ArtButtonCornerAllocated) { // RA2: as above
-		operator delete(Art_Button_Corner); // RA2: as above
-		ArtButtonCornerAllocated = false; // RA2: as above
+	Art_Side_Animation = NULL;
+	if (ArtButtonCornerAllocated) {
+		operator delete(Art_Button_Corner);
+		ArtButtonCornerAllocated = false;
 	}
-	Art_Button_Corner = NULL; // RA2: as above
-	if (ArtSideStripAllocated) { // RA2: as above
-		operator delete(Art_Side_Strip); // RA2: as above
-		ArtSideStripAllocated = false; // RA2: as above
+	Art_Button_Corner = NULL;
+	if (ArtSideStripAllocated) {
+		operator delete(Art_Side_Strip);
+		ArtSideStripAllocated = false;
 	}
-	Art_Side_Strip = NULL; // RA2: as above
-	if (ArtButtonBackAllocated) { // RA2: as above
-		operator delete(Art_Button_Back); // RA2: as above
-		ArtButtonBackAllocated = false; // RA2: as above
+	Art_Side_Strip = NULL;
+	if (ArtButtonBackAllocated) {
+		operator delete(Art_Button_Back);
+		ArtButtonBackAllocated = false;
 	}
-	Art_Button_Back = NULL; // RA2: as above
-	if (SideAnimationPalette != NULL) { // RA2: as above
-		operator delete(SideAnimationPalette); // RA2: as above
-		SideAnimationPalette = NULL; // RA2: as above
+	Art_Button_Back = NULL;
+	if (SideAnimationPalette != NULL) {
+		operator delete(SideAnimationPalette);
+		SideAnimationPalette = NULL;
 	}
-	if (SideAnimationDrawer != NULL) { // RA2: as above
-		delete SideAnimationDrawer; // RA2: as above
-		SideAnimationDrawer = NULL; // RA2: as above
+	if (SideAnimationDrawer != NULL) {
+		delete SideAnimationDrawer;
+		SideAnimationDrawer = NULL;
 	}
 }
 
 PaletteClass * __cdecl Get_Side_Animation_Palette(void) // RA2: 0x006F2DD0
 {
-	return SideAnimationPalette; // RA2: as above
+	return SideAnimationPalette;
 }
 
 void * __fastcall Get_Slot_Art(void) // RA2: 0x006F2DE0
 {
-	return SideAnimationDrawer; // RA2: as above
+	return SideAnimationDrawer;
 }
 
 /// <summary>
@@ -950,16 +950,16 @@ void * __fastcall Get_Slot_Art(void) // RA2: 0x006F2DE0
 /// </summary>
 void __fastcall Load_Side_Animation_Shapes(void) // RA2: 0x006F2DF0
 {
-	if (VideoModeWidth == 640) { // RA2: as above
-		Art_Side_Animation = Load_Alloc_Data(FsasmShpFile, ArtSideAnimationAllocated); // RA2: as above
-		Art_Button_Corner = Load_Alloc_Data(FsbcsmShpFile, ArtButtonCornerAllocated); // RA2: as above
-		Art_Side_Strip = Load_Alloc_Data(FsssmShpFile, ArtSideStripAllocated); // RA2: as above
-		Art_Button_Back = Load_Alloc_Data(FsbkgdsmShpFile, ArtButtonBackAllocated); // RA2: as above
+	if (VideoModeWidth == 640) {
+		Art_Side_Animation = Load_Alloc_Data(FsasmShpFile, ArtSideAnimationAllocated);
+		Art_Button_Corner = Load_Alloc_Data(FsbcsmShpFile, ArtButtonCornerAllocated);
+		Art_Side_Strip = Load_Alloc_Data(FsssmShpFile, ArtSideStripAllocated);
+		Art_Button_Back = Load_Alloc_Data(FsbkgdsmShpFile, ArtButtonBackAllocated);
 	} else {
-		Art_Side_Animation = Load_Alloc_Data(FsalgShpFile, ArtSideAnimationAllocated); // RA2: as above
-		Art_Button_Corner = Load_Alloc_Data(FsbclgShpFile, ArtButtonCornerAllocated); // RA2: as above
-		Art_Side_Strip = Load_Alloc_Data(FsslgShpFile, ArtSideStripAllocated); // RA2: as above
-		Art_Button_Back = Load_Alloc_Data(FsbkgdlgShpFile, ArtButtonBackAllocated); // RA2: as above
+		Art_Side_Animation = Load_Alloc_Data(FsalgShpFile, ArtSideAnimationAllocated);
+		Art_Button_Corner = Load_Alloc_Data(FsbclgShpFile, ArtButtonCornerAllocated);
+		Art_Side_Strip = Load_Alloc_Data(FsslgShpFile, ArtSideStripAllocated);
+		Art_Button_Back = Load_Alloc_Data(FsbkgdlgShpFile, ArtButtonBackAllocated);
 	}
 }
 
@@ -968,7 +968,7 @@ void __fastcall Load_Side_Animation_Shapes(void) // RA2: 0x006F2DF0
 /// </summary>
 void __cdecl Load_Side_Animation_Palette(void) // RA2: 0x006F2EB0
 {
-	Load_Art_Palette(FsscrnPalFile, &SideAnimationPalette, &SideAnimationDrawer); // RA2: as above
+	Load_Art_Palette(FsscrnPalFile, &SideAnimationPalette, &SideAnimationDrawer);
 }
 
 /// <summary>
@@ -976,26 +976,26 @@ void __cdecl Load_Side_Animation_Palette(void) // RA2: 0x006F2EB0
 /// </summary>
 void __fastcall Free_Side_Animation_Shapes(void) // RA2: 0x006F2ED0
 {
-	if (ArtSideAnimationAllocated) { // RA2: as above
-		operator delete(Art_Side_Animation); // RA2: as above
-		ArtSideAnimationAllocated = false; // RA2: as above
+	if (ArtSideAnimationAllocated) {
+		operator delete(Art_Side_Animation);
+		ArtSideAnimationAllocated = false;
 	}
-	Art_Side_Animation = NULL; // RA2: as above
-	if (ArtButtonCornerAllocated) { // RA2: as above
-		operator delete(Art_Button_Corner); // RA2: as above
-		ArtButtonCornerAllocated = false; // RA2: as above
+	Art_Side_Animation = NULL;
+	if (ArtButtonCornerAllocated) {
+		operator delete(Art_Button_Corner);
+		ArtButtonCornerAllocated = false;
 	}
-	Art_Button_Corner = NULL; // RA2: as above
-	if (ArtSideStripAllocated) { // RA2: as above
-		operator delete(Art_Side_Strip); // RA2: as above
-		ArtSideStripAllocated = false; // RA2: as above
+	Art_Button_Corner = NULL;
+	if (ArtSideStripAllocated) {
+		operator delete(Art_Side_Strip);
+		ArtSideStripAllocated = false;
 	}
-	Art_Side_Strip = NULL; // RA2: as above
-	if (ArtButtonBackAllocated) { // RA2: as above
-		operator delete(Art_Button_Back); // RA2: as above
-		ArtButtonBackAllocated = false; // RA2: as above
+	Art_Side_Strip = NULL;
+	if (ArtButtonBackAllocated) {
+		operator delete(Art_Button_Back);
+		ArtButtonBackAllocated = false;
 	}
-	Art_Button_Back = NULL; // RA2: as above
+	Art_Button_Back = NULL;
 }
 
 /// <summary>
@@ -1003,13 +1003,13 @@ void __fastcall Free_Side_Animation_Shapes(void) // RA2: 0x006F2ED0
 /// </summary>
 void __fastcall Free_Side_Animation_Palette(void) // RA2: 0x006F2F70
 {
-	if (SideAnimationPalette != NULL) { // RA2: as above
-		operator delete(SideAnimationPalette); // RA2: as above
-		SideAnimationPalette = NULL; // RA2: as above
+	if (SideAnimationPalette != NULL) {
+		operator delete(SideAnimationPalette);
+		SideAnimationPalette = NULL;
 	}
-	if (SideAnimationDrawer != NULL) { // RA2: as above
-		delete SideAnimationDrawer; // RA2: as above
-		SideAnimationDrawer = NULL; // RA2: as above
+	if (SideAnimationDrawer != NULL) {
+		delete SideAnimationDrawer;
+		SideAnimationDrawer = NULL;
 	}
 }
 
@@ -1019,14 +1019,14 @@ void __fastcall Free_Side_Animation_Palette(void) // RA2: 0x006F2F70
 /// </summary>
 void __fastcall Load_Interface_Art(void) // RA2: 0x006F2FB0
 {
-	if (!InterfaceArtLoaded) { // RA2: as above
-		Load_Neutral_Mix(); // RA2: as above
-		Load_Interface_Shapes(); // RA2: as above
-		Load_Art_Palette(ShellPalFile, &ShellPalette, &ShellDrawer); // RA2: as above
-		Load_Art_Palette(Shell2PalFile, &Shell2Palette, &Shell2Drawer); // RA2: as above
-		Load_Art_Palette(SdbtnanmPalFile, &ButtonAnimPalette, &ButtonAnimDrawer); // RA2: as above
-		Layout_Interface_Art(VideoModeWidth, VideoModeHeight); // RA2: as above
-		InterfaceArtLoaded = true; // RA2: as above
+	if (!InterfaceArtLoaded) {
+		Load_Neutral_Mix();
+		Load_Interface_Shapes();
+		Load_Art_Palette(ShellPalFile, &ShellPalette, &ShellDrawer);
+		Load_Art_Palette(Shell2PalFile, &Shell2Palette, &Shell2Drawer);
+		Load_Art_Palette(SdbtnanmPalFile, &ButtonAnimPalette, &ButtonAnimDrawer);
+		Layout_Interface_Art(VideoModeWidth, VideoModeHeight);
+		InterfaceArtLoaded = true;
 	}
 }
 
@@ -1035,12 +1035,12 @@ void __fastcall Load_Interface_Art(void) // RA2: 0x006F2FB0
 /// </summary>
 void __fastcall Free_Interface_Art(void) // RA2: 0x006F30F0
 {
-	if (InterfaceArtLoaded) { // RA2: as above
-		InterfaceArtLoaded = false; // RA2: as above
-		Free_Interface_Shapes(); // RA2: as above
-		Free_Interface_Palettes(); // RA2: as above
-		Free_Interface_Rects(); // RA2: as above
-		Release_Neutral_Mix(); // RA2: as above
+	if (InterfaceArtLoaded) {
+		InterfaceArtLoaded = false;
+		Free_Interface_Shapes();
+		Free_Interface_Palettes();
+		Free_Interface_Rects();
+		Release_Neutral_Mix();
 	}
 }
 
@@ -1049,8 +1049,8 @@ void __fastcall Free_Interface_Art(void) // RA2: 0x006F30F0
 /// </summary>
 void __fastcall Reload_Art_Set(void) // RA2: 0x006F31B0
 {
-	Free_Interface_Art(); // RA2: as above
-	Load_Interface_Art(); // RA2: as above
+	Free_Interface_Art();
+	Load_Interface_Art();
 }
 
 /// <summary>
@@ -1058,43 +1058,43 @@ void __fastcall Reload_Art_Set(void) // RA2: 0x006F31B0
 /// </summary>
 void __fastcall Relayout_Interface_Art(int width, int height) // RA2: 0x006F33B0
 {
-	Free_Interface_Rects(); // RA2: as above
-	Layout_Interface_Art(width, height); // RA2: as above
+	Free_Interface_Rects();
+	Layout_Interface_Art(width, height);
 }
 
 bool __fastcall Is_Interface_Art_Loaded(void) // RA2: 0x006F3460
 {
-	return InterfaceArtLoaded; // RA2: as above
+	return InterfaceArtLoaded;
 }
 
 PaletteClass * __cdecl Get_Shell_Palette(void) // RA2: 0x006F3470
 {
-	return ShellPalette; // RA2: as above
+	return ShellPalette;
 }
 
 void * __fastcall Get_Drawer(void) // RA2: 0x006F3480
 {
-	return ShellDrawer; // RA2: as above
+	return ShellDrawer;
 }
 
 PaletteClass * __cdecl Get_Shell2_Palette(void) // RA2: 0x006F3490
 {
-	return Shell2Palette; // RA2: as above
+	return Shell2Palette;
 }
 
 void * __fastcall Get_Listed_Drawer(void) // RA2: 0x006F34A0
 {
-	return Shell2Drawer; // RA2: as above
+	return Shell2Drawer;
 }
 
 PaletteClass * __cdecl Get_Button_Anim_Palette(void) // RA2: 0x006F34B0
 {
-	return ButtonAnimPalette; // RA2: as above
+	return ButtonAnimPalette;
 }
 
 ConvertClass * __cdecl Get_Button_Anim_Drawer(void) // RA2: 0x006F34C0
 {
-	return ButtonAnimDrawer; // RA2: as above
+	return ButtonAnimDrawer;
 }
 
 /// <summary>
@@ -1102,27 +1102,27 @@ ConvertClass * __cdecl Get_Button_Anim_Drawer(void) // RA2: 0x006F34C0
 /// </summary>
 void __fastcall Draw_Interface_Borders(Surface * surface, Rect const & window) // RA2: 0x006F34D0
 {
-	if (VideoModeWidth >= 1024) { // RA2: as above
-		int left = DialogBackRect->X; // RA2: as above
-		int right = SlideTopRect->X + SlideTopRect->Width; // RA2: as above
-		int top = DialogBackRect->Y; // RA2: as above
-		int bottom = LowerScreenRect->Height + LowerScreenRect->Y; // RA2: as above
-		Rect rect(0, 0, left, top); // RA2: as above
-		surface->Fill_Rect(rect, window, 0); // RA2: as above
-		rect = Rect(left, 0, 800, top); // RA2: as above
-		surface->Fill_Rect(rect, window, 0); // RA2: as above
-		rect = Rect(right, 0, left, top); // RA2: as above
-		surface->Fill_Rect(rect, window, 0); // RA2: as above
-		rect = Rect(right, top, left, 600); // RA2: as above
-		surface->Fill_Rect(rect, window, 0); // RA2: as above
-		rect = Rect(right, bottom, left, 600); // RA2: as above
-		surface->Fill_Rect(rect, window, 0); // RA2: as above
-		rect = Rect(left, bottom, 800, top); // RA2: as above
-		surface->Fill_Rect(rect, window, 0); // RA2: as above
-		rect = Rect(0, bottom, left, top); // RA2: as above
-		surface->Fill_Rect(rect, window, 0); // RA2: as above
-		rect = Rect(0, top, left, 600); // RA2: as above
-		surface->Fill_Rect(rect, window, 0); // RA2: as above
+	if (VideoModeWidth >= 1024) {
+		int left = DialogBackRect->X;
+		int right = SlideTopRect->X + SlideTopRect->Width;
+		int top = DialogBackRect->Y;
+		int bottom = LowerScreenRect->Height + LowerScreenRect->Y;
+		Rect rect(0, 0, left, top);
+		surface->Fill_Rect(rect, window, 0);
+		rect = Rect(left, 0, 800, top);
+		surface->Fill_Rect(rect, window, 0);
+		rect = Rect(right, 0, left, top);
+		surface->Fill_Rect(rect, window, 0);
+		rect = Rect(right, top, left, 600);
+		surface->Fill_Rect(rect, window, 0);
+		rect = Rect(right, bottom, left, 600);
+		surface->Fill_Rect(rect, window, 0);
+		rect = Rect(left, bottom, 800, top);
+		surface->Fill_Rect(rect, window, 0);
+		rect = Rect(0, bottom, left, top);
+		surface->Fill_Rect(rect, window, 0);
+		rect = Rect(0, top, left, 600);
+		surface->Fill_Rect(rect, window, 0);
 	}
 }
 
@@ -1132,49 +1132,49 @@ void __fastcall Draw_Interface_Borders(Surface * surface, Rect const & window) /
 void __fastcall Draw_Interface_Frame(Surface * surface, Rect const & window, bool arg3) // RA2: 0x006F3650
 {
 	Load_Interface_Art(); // RA2: loads the art once; the nested expansion there leaves the shapes to a call
-	Draw_Interface_Borders(surface, window); // RA2: as above
-	Point2D point(0, 0); // RA2: as above
-	Rect clip(window.X, window.Y, window.Width, window.Height); // RA2: as above
-	if (clip.Width > 800) { // RA2: as above
-		clip.Width = (clip.Width - 800) / 2 + 800; // RA2: as above
+	Draw_Interface_Borders(surface, window);
+	Point2D point(0, 0);
+	Rect clip(window.X, window.Y, window.Width, window.Height);
+	if (clip.Width > 800) {
+		clip.Width = (clip.Width - 800) / 2 + 800;
 	}
-	if (clip.Height > 600) { // RA2: as above
-		clip.Height = (clip.Height - 600) / 2 + 600; // RA2: as above
+	if (clip.Height > 600) {
+		clip.Height = (clip.Height - 600) / 2 + 600;
 	}
-	point.X = SlideTopRect->X; // RA2: as above
-	point.Y = SlideTopRect->Y; // RA2: as above
-	Draw_Shape(*surface, *ShellDrawer, ArtSlideTop, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
-	int index = 0; // RA2: as above
-	point.X = Button_Strip_Top->X; // RA2: as above
-	point.Y = Button_Strip_Top->Y; // RA2: as above
-	if (SlideButtonCount > 0) { // RA2: as above
+	point.X = SlideTopRect->X;
+	point.Y = SlideTopRect->Y;
+	Draw_Shape(*surface, *ShellDrawer, ArtSlideTop, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
+	int index = 0;
+	point.X = Button_Strip_Top->X;
+	point.Y = Button_Strip_Top->Y;
+	if (SlideButtonCount > 0) {
 		do {
-			Draw_Shape(*surface, *Shell2Drawer, ArtSlideButtonBack, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
-			point.Y += Button_Strip_Top->Height; // RA2: as above
-			index++; // RA2: as above
-		} while (index < SlideButtonCount); // RA2: as above
+			Draw_Shape(*surface, *Shell2Drawer, ArtSlideButtonBack, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
+			point.Y += Button_Strip_Top->Height;
+			index++;
+		} while (index < SlideButtonCount);
 	}
-	if (!arg3) { // RA2: as above
-		index = 0; // RA2: as above
-		point.X = SlideButtonRect->X; // RA2: as above
-		point.Y = SlideButtonRect->Y; // RA2: as above
-		if (SlideButtonCount > 0) { // RA2: as above
+	if (!arg3) {
+		index = 0;
+		point.X = SlideButtonRect->X;
+		point.Y = SlideButtonRect->Y;
+		if (SlideButtonCount > 0) {
 			do {
-				Draw_Shape(*surface, *ButtonAnimDrawer, Slide_Button_Shape, 10, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
-				point.Y += SlideButtonRect->Height; // RA2: as above
-				index++; // RA2: as above
-			} while (index < SlideButtonCount); // RA2: as above
+				Draw_Shape(*surface, *ButtonAnimDrawer, Slide_Button_Shape, 10, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
+				point.Y += SlideButtonRect->Height;
+				index++;
+			} while (index < SlideButtonCount);
 		}
 	}
-	point.X = Button_Strip_Bottom->X; // RA2: as above
-	point.Y = Button_Strip_Bottom->Y; // RA2: as above
-	Draw_Shape(*surface, *ShellDrawer, ArtSlideBottom, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
-	point.X = LowerScreenRect->X; // RA2: as above
-	point.Y = LowerScreenRect->Y; // RA2: as above
-	if (VideoModeWidth == 640) { // RA2: as above
-		Draw_Shape(*surface, *ShellDrawer, ArtLowerScreen640, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	point.X = Button_Strip_Bottom->X;
+	point.Y = Button_Strip_Bottom->Y;
+	Draw_Shape(*surface, *ShellDrawer, ArtSlideBottom, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
+	point.X = LowerScreenRect->X;
+	point.Y = LowerScreenRect->Y;
+	if (VideoModeWidth == 640) {
+		Draw_Shape(*surface, *ShellDrawer, ArtLowerScreen640, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
 	} else {
-		Draw_Shape(*surface, *ShellDrawer, ArtLowerScreen, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+		Draw_Shape(*surface, *ShellDrawer, ArtLowerScreen, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
 	}
 }
 
@@ -1183,20 +1183,20 @@ void __fastcall Draw_Interface_Frame(Surface * surface, Rect const & window, boo
 /// </summary>
 void __fastcall Draw_Dialog_Backdrop(Surface * surface, Rect const & window, ConvertClass * drawer, ShapeSet * shape640, ShapeSet * shape) // RA2: 0x006F3930
 {
-	Point2D point(0, 0); // RA2: as above
-	Rect clip(window.X, window.Y, window.Width, window.Height); // RA2: as above
-	if (clip.Width > 800) { // RA2: as above
-		clip.Width = (clip.Width - 800) / 2 + 800; // RA2: as above
+	Point2D point(0, 0);
+	Rect clip(window.X, window.Y, window.Width, window.Height);
+	if (clip.Width > 800) {
+		clip.Width = (clip.Width - 800) / 2 + 800;
 	}
-	if (clip.Height > 600) { // RA2: as above
-		clip.Height = (clip.Height - 600) / 2 + 600; // RA2: as above
+	if (clip.Height > 600) {
+		clip.Height = (clip.Height - 600) / 2 + 600;
 	}
-	point.X = DialogBackRect->X; // RA2: as above
-	point.Y = DialogBackRect->Y; // RA2: as above
-	if (VideoModeWidth == 640) { // RA2: as above
-		Draw_Shape(*surface, *drawer, shape640, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	point.X = DialogBackRect->X;
+	point.Y = DialogBackRect->Y;
+	if (VideoModeWidth == 640) {
+		Draw_Shape(*surface, *drawer, shape640, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
 	} else {
-		Draw_Shape(*surface, *drawer, shape, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+		Draw_Shape(*surface, *drawer, shape, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
 	}
 }
 
@@ -1205,8 +1205,8 @@ void __fastcall Draw_Dialog_Backdrop(Surface * surface, Rect const & window, Con
 /// </summary>
 void __fastcall Draw_Interface_Screen(Surface * surface, Rect const & rect, bool arg3) // RA2: 0x006F3A20
 {
-	Draw_Interface_Frame(surface, rect, arg3); // RA2: as above
-	Draw_Dialog_Backdrop(surface, rect, (ConvertClass *)Get_Drawer(), Art_Dialog_Back640, Art_Dialog_Back); // RA2: as above
+	Draw_Interface_Frame(surface, rect, arg3);
+	Draw_Dialog_Backdrop(surface, rect, (ConvertClass *)Get_Drawer(), Art_Dialog_Back640, Art_Dialog_Back);
 }
 
 /// <summary>
@@ -1214,10 +1214,10 @@ void __fastcall Draw_Interface_Screen(Surface * surface, Rect const & rect, bool
 /// </summary>
 void __fastcall Draw_Slide_MP_Button(Surface * surface, Rect const & window) // RA2: 0x006F3A60
 {
-	Point2D point(0, 0); // RA2: as above
-	point.X = SlideMPButtonRect->X; // RA2: as above
-	point.Y = SlideMPButtonRect->Y; // RA2: as above
-	Draw_Shape(*surface, *ShellDrawer, ArtSlideMPButton, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	Point2D point(0, 0);
+	point.X = SlideMPButtonRect->X;
+	point.Y = SlideMPButtonRect->Y;
+	Draw_Shape(*surface, *ShellDrawer, ArtSlideMPButton, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
 }
 
 /// <summary>
@@ -1225,10 +1225,10 @@ void __fastcall Draw_Slide_MP_Button(Surface * surface, Rect const & window) // 
 /// </summary>
 void __fastcall Draw_Slide_Top(Surface * surface, Rect const & window) // RA2: 0x006F3AC0
 {
-	Point2D point(0, 0); // RA2: as above
-	point.X = SlideTopRect->X; // RA2: as above
-	point.Y = SlideTopRect->Y; // RA2: as above
-	Draw_Shape(*surface, *ShellDrawer, ArtSlideTop, 1, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	Point2D point(0, 0);
+	point.X = SlideTopRect->X;
+	point.Y = SlideTopRect->Y;
+	Draw_Shape(*surface, *ShellDrawer, ArtSlideTop, 1, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
 }
 
 /// <summary>
@@ -1236,14 +1236,14 @@ void __fastcall Draw_Slide_Top(Surface * surface, Rect const & window) // RA2: 0
 /// </summary>
 void __fastcall Draw_Score_Top(Surface * surface, Rect const & window) // RA2: 0x006F3B20
 {
-	Point2D point(0, 0); // RA2: as above
-	Point2D * source = (Point2D *)DialogBackRect; // RA2: as above
-	point.X = source->X; // RA2: as above
-	point.Y = source->Y; // RA2: as above
-	if (VideoModeWidth >= 800) { // RA2: as above
-		point.X += 80; // RA2: as above
+	Point2D point(0, 0);
+	Point2D * source = (Point2D *)DialogBackRect;
+	point.X = source->X;
+	point.Y = source->Y;
+	if (VideoModeWidth >= 800) {
+		point.X += 80;
 	}
-	Draw_Shape(*surface, *ScoreDrawer, (ShapeSet *)ArtScoreTop, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	Draw_Shape(*surface, *ScoreDrawer, (ShapeSet *)ArtScoreTop, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
 }
 
 /// <summary>
@@ -1251,10 +1251,10 @@ void __fastcall Draw_Score_Top(Surface * surface, Rect const & window) // RA2: 0
 /// </summary>
 void __fastcall Draw_Score_Back(Surface * surface, Rect const & window) // RA2: 0x006F3B90
 {
-	Point2D point(0, 0); // RA2: as above
-	point.X = DialogBackRect->X; // RA2: as above
-	point.Y = DialogBackRect->Y; // RA2: as above
-	Draw_Shape(*surface, *ScoreDrawer, Art_Chat_Back, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	Point2D point(0, 0);
+	point.X = DialogBackRect->X;
+	point.Y = DialogBackRect->Y;
+	Draw_Shape(*surface, *ScoreDrawer, Art_Chat_Back, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
 }
 
 /// <summary>
@@ -1262,12 +1262,12 @@ void __fastcall Draw_Score_Back(Surface * surface, Rect const & window) // RA2: 
 /// </summary>
 void __fastcall Draw_Score_Screen(Surface * surface, Rect const & window) // RA2: 0x006F3BF0
 {
-	Draw_Interface_Borders(surface, window); // RA2: as above
-	Draw_Interface_Frame(surface, window, false); // RA2: as above
-	Point2D point(0, 0); // RA2: as above
-	point.X = DialogBackRect->X; // RA2: as above
-	point.Y = DialogBackRect->Y; // RA2: as above
-	Draw_Shape(*surface, *ScoreDrawer, Art_Chat_Back, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	Draw_Interface_Borders(surface, window);
+	Draw_Interface_Frame(surface, window, false);
+	Point2D point(0, 0);
+	point.X = DialogBackRect->X;
+	point.Y = DialogBackRect->Y;
+	Draw_Shape(*surface, *ScoreDrawer, Art_Chat_Back, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
 }
 
 /// <summary>
@@ -1275,10 +1275,10 @@ void __fastcall Draw_Score_Screen(Surface * surface, Rect const & window) // RA2
 /// </summary>
 void __fastcall Draw_MP_Score_Back(Surface * surface, Rect const & window) // RA2: 0x006F3C70
 {
-	Point2D point(0, 0); // RA2: as above
-	point.X = DialogBackRect->X; // RA2: as above
-	point.Y = DialogBackRect->Y; // RA2: as above
-	Draw_Shape(*surface, *MPScoreDrawer, Art_Score_Screen, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	Point2D point(0, 0);
+	point.X = DialogBackRect->X;
+	point.Y = DialogBackRect->Y;
+	Draw_Shape(*surface, *MPScoreDrawer, Art_Score_Screen, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
 }
 
 /// <summary>
@@ -1286,12 +1286,12 @@ void __fastcall Draw_MP_Score_Back(Surface * surface, Rect const & window) // RA
 /// </summary>
 void __fastcall Draw_MP_Score_Screen(Surface * surface, Rect const & window) // RA2: 0x006F3CD0
 {
-	Draw_Interface_Borders(surface, window); // RA2: as above
-	Draw_Interface_Frame(surface, window, false); // RA2: as above
-	Point2D point(0, 0); // RA2: as above
-	point.X = DialogBackRect->X; // RA2: as above
-	point.Y = DialogBackRect->Y; // RA2: as above
-	Draw_Shape(*surface, *MPScoreDrawer, Art_Score_Screen, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	Draw_Interface_Borders(surface, window);
+	Draw_Interface_Frame(surface, window, false);
+	Point2D point(0, 0);
+	point.X = DialogBackRect->X;
+	point.Y = DialogBackRect->Y;
+	Draw_Shape(*surface, *MPScoreDrawer, Art_Score_Screen, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
 }
 
 /// <summary>
@@ -1299,16 +1299,16 @@ void __fastcall Draw_MP_Score_Screen(Surface * surface, Rect const & window) // 
 /// </summary>
 void __fastcall Load_Interface_Shapes(void) // RA2: 0x006F3D50
 {
-	Slide_Button_Shape = (ShapeSet *)Load_Alloc_Data(SdbtnanmShpFile, SlideButtonAllocated); // RA2: as above
-	ArtSlideMPButton = (ShapeSet *)Load_Alloc_Data(SdmpbtnShpFile, ArtSlideMPButtonAllocated); // RA2: as above
-	ArtSlideWarning = (ShapeSet *)Load_Alloc_Data(SdwrntmpShpFile, ArtSlideWarningAllocated); // RA2: as above
-	Art_Dialog_Back640 = (ShapeSet *)Load_Alloc_Data(MnscrnsShpFile, ArtDialogBack640Allocated); // RA2: as above
-	Art_Dialog_Back = (ShapeSet *)Load_Alloc_Data(MnscrnlShpFile, ArtDialogBackAllocated); // RA2: as above
-	ArtSlideTop = (ShapeSet *)Load_Alloc_Data(SdtpShpFile, ArtSlideTopAllocated); // RA2: as above
-	ArtSlideButtonBack = (ShapeSet *)Load_Alloc_Data(SdbtnbkgdShpFile, ArtSlideButtonBackAllocated); // RA2: as above
-	ArtSlideBottom = (ShapeSet *)Load_Alloc_Data(SdbtmShpFile, ArtSlideBottomAllocated); // RA2: as above
-	ArtLowerScreen640 = (ShapeSet *)Load_Alloc_Data(LwscrnsShpFile, ArtLowerScreen640Allocated); // RA2: as above
-	ArtLowerScreen = (ShapeSet *)Load_Alloc_Data(LwscrnlShpFile, ArtLowerScreenAllocated); // RA2: as above
+	Slide_Button_Shape = (ShapeSet *)Load_Alloc_Data(SdbtnanmShpFile, SlideButtonAllocated);
+	ArtSlideMPButton = (ShapeSet *)Load_Alloc_Data(SdmpbtnShpFile, ArtSlideMPButtonAllocated);
+	ArtSlideWarning = (ShapeSet *)Load_Alloc_Data(SdwrntmpShpFile, ArtSlideWarningAllocated);
+	Art_Dialog_Back640 = (ShapeSet *)Load_Alloc_Data(MnscrnsShpFile, ArtDialogBack640Allocated);
+	Art_Dialog_Back = (ShapeSet *)Load_Alloc_Data(MnscrnlShpFile, ArtDialogBackAllocated);
+	ArtSlideTop = (ShapeSet *)Load_Alloc_Data(SdtpShpFile, ArtSlideTopAllocated);
+	ArtSlideButtonBack = (ShapeSet *)Load_Alloc_Data(SdbtnbkgdShpFile, ArtSlideButtonBackAllocated);
+	ArtSlideBottom = (ShapeSet *)Load_Alloc_Data(SdbtmShpFile, ArtSlideBottomAllocated);
+	ArtLowerScreen640 = (ShapeSet *)Load_Alloc_Data(LwscrnsShpFile, ArtLowerScreen640Allocated);
+	ArtLowerScreen = (ShapeSet *)Load_Alloc_Data(LwscrnlShpFile, ArtLowerScreenAllocated);
 }
 
 /// <summary>
@@ -1316,9 +1316,9 @@ void __fastcall Load_Interface_Shapes(void) // RA2: 0x006F3D50
 /// </summary>
 void __fastcall Load_Interface_Palettes(void) // RA2: 0x006F3E30
 {
-	Load_Art_Palette(ShellPalFile, &ShellPalette, &ShellDrawer); // RA2: as above
-	Load_Art_Palette(Shell2PalFile, &Shell2Palette, &Shell2Drawer); // RA2: as above
-	Load_Art_Palette(SdbtnanmPalFile, &ButtonAnimPalette, &ButtonAnimDrawer); // RA2: as above
+	Load_Art_Palette(ShellPalFile, &ShellPalette, &ShellDrawer);
+	Load_Art_Palette(Shell2PalFile, &Shell2Palette, &Shell2Drawer);
+	Load_Art_Palette(SdbtnanmPalFile, &ButtonAnimPalette, &ButtonAnimDrawer);
 }
 
 /// <summary>
@@ -1327,60 +1327,60 @@ void __fastcall Load_Interface_Palettes(void) // RA2: 0x006F3E30
 /// </summary>
 void __fastcall Layout_Interface_Art(int width, int height) // RA2: 0x006F3E70
 {
-	int left = 0; // RA2: as above
-	int right = width; // RA2: as above
-	if (width >= 1024) { // RA2: as above
-		left = (width - 800) / 2; // RA2: as above
-		right = width - left; // RA2: as above
+	int left = 0;
+	int right = width;
+	if (width >= 1024) {
+		left = (width - 800) / 2;
+		right = width - left;
 	}
-	int top = 0; // RA2: as above
-	int bottom = height; // RA2: as above
-	int span = height; // RA2: as above
-	if (height >= 768) { // RA2: as above
-		top = (height - 600) / 2; // RA2: as above
-		bottom = height - top; // RA2: as above
-		span = height - top * 2; // RA2: as above
+	int top = 0;
+	int bottom = height;
+	int span = height;
+	if (height >= 768) {
+		top = (height - 600) / 2;
+		bottom = height - top;
+		span = height - top * 2;
 	}
-	bool small_width = width == 640; // RA2: as above
-	bool small_height = height == 480; // RA2: as above
+	bool small_width = width == 640;
+	bool small_height = height == 480;
 
-	int w = small_width ? Art_Dialog_Back640->Get_Width() : Art_Dialog_Back->Get_Width(); // RA2: as above
-	int h = small_height ? Art_Dialog_Back640->Get_Height() : Art_Dialog_Back->Get_Height(); // RA2: as above
-	DialogBackRect = new Rect(left, top, w, h); // RA2: as above
+	int w = small_width ? Art_Dialog_Back640->Get_Width() : Art_Dialog_Back->Get_Width();
+	int h = small_height ? Art_Dialog_Back640->Get_Height() : Art_Dialog_Back->Get_Height();
+	DialogBackRect = new Rect(left, top, w, h);
 
-	int tw = ArtSlideTop->Get_Width(); // RA2: as above
-	int th = ArtSlideTop->Get_Height(); // RA2: as above
-	int x = right - tw; // RA2: as above
-	SlideTopRect = new Rect(x, top, tw, th); // RA2: as above
+	int tw = ArtSlideTop->Get_Width();
+	int th = ArtSlideTop->Get_Height();
+	int x = right - tw;
+	SlideTopRect = new Rect(x, top, tw, th);
 
-	int wh = ArtSlideWarning->Get_Height(); // RA2: as above
-	SlideWarningRect = new Rect(x, top, tw, wh); // RA2: as above
+	int wh = ArtSlideWarning->Get_Height();
+	SlideWarningRect = new Rect(x, top, tw, wh);
 
-	int by = SlideTopRect->Height + top; // RA2: as above
-	int bh = ArtSlideButtonBack->Get_Height(); // RA2: as above
-	Button_Strip_Top = new Rect(x, by, tw, bh); // RA2: as above
+	int by = SlideTopRect->Height + top;
+	int bh = ArtSlideButtonBack->Get_Height();
+	Button_Strip_Top = new Rect(x, by, tw, bh);
 
-	int aw = Slide_Button_Shape->Get_Width(); // RA2: as above
-	int ah = Slide_Button_Shape->Get_Height(); // RA2: as above
-	int ax = Button_Strip_Top->Width - aw + Button_Strip_Top->X; // RA2: as above
-	int ay = Button_Strip_Top->Y; // RA2: as above
-	SlideButtonRect = new Rect(ax, ay, aw, ah); // RA2: as above
+	int aw = Slide_Button_Shape->Get_Width();
+	int ah = Slide_Button_Shape->Get_Height();
+	int ax = Button_Strip_Top->Width - aw + Button_Strip_Top->X;
+	int ay = Button_Strip_Top->Y;
+	SlideButtonRect = new Rect(ax, ay, aw, ah);
 
-	int mw = ArtSlideMPButton->Get_Width(); // RA2: as above
-	int mh = ArtSlideMPButton->Get_Height(); // RA2: as above
-	int my = Button_Strip_Top->Height + Button_Strip_Top->Y - mh; // RA2: as above
-	SlideMPButtonRect = new Rect(right - mw, my, mw, mh); // RA2: as above
+	int mw = ArtSlideMPButton->Get_Width();
+	int mh = ArtSlideMPButton->Get_Height();
+	int my = Button_Strip_Top->Height + Button_Strip_Top->Y - mh;
+	SlideMPButtonRect = new Rect(right - mw, my, mw, mh);
 
-	SlideButtonCount = (span - SlideTopRect->Height) / Button_Strip_Top->Height; // RA2: as above
-	int offset = Button_Strip_Top->Height * SlideButtonCount; // RA2: as above
-	int used = SlideTopRect->Height + offset; // RA2: as above
-	int ly = Button_Strip_Top->Y + offset; // RA2: as above
-	int lw = ArtSlideBottom->Get_Width(); // RA2: as above
-	Button_Strip_Bottom = new Rect(right - lw, ly, lw, span - used); // RA2: as above
+	SlideButtonCount = (span - SlideTopRect->Height) / Button_Strip_Top->Height;
+	int offset = Button_Strip_Top->Height * SlideButtonCount;
+	int used = SlideTopRect->Height + offset;
+	int ly = Button_Strip_Top->Y + offset;
+	int lw = ArtSlideBottom->Get_Width();
+	Button_Strip_Bottom = new Rect(right - lw, ly, lw, span - used);
 
-	int sw = small_width ? ArtLowerScreen640->Get_Width() : ArtLowerScreen->Get_Width(); // RA2: as above
-	int sh = small_height ? ArtLowerScreen640->Get_Height() : ArtLowerScreen->Get_Height(); // RA2: as above
-	LowerScreenRect = new Rect(left, bottom - sh, sw, sh); // RA2: as above
+	int sw = small_width ? ArtLowerScreen640->Get_Width() : ArtLowerScreen->Get_Width();
+	int sh = small_height ? ArtLowerScreen640->Get_Height() : ArtLowerScreen->Get_Height();
+	LowerScreenRect = new Rect(left, bottom - sh, sw, sh);
 }
 
 /// <summary>
@@ -1388,56 +1388,56 @@ void __fastcall Layout_Interface_Art(int width, int height) // RA2: 0x006F3E70
 /// </summary>
 void __fastcall Free_Interface_Shapes(void) // RA2: 0x006F4160
 {
-	if (SlideButtonAllocated) { // RA2: as above
-		operator delete(Slide_Button_Shape); // RA2: as above
-		SlideButtonAllocated = false; // RA2: as above
+	if (SlideButtonAllocated) {
+		operator delete(Slide_Button_Shape);
+		SlideButtonAllocated = false;
 	}
-	Slide_Button_Shape = NULL; // RA2: as above
-	if (ArtSlideMPButtonAllocated) { // RA2: as above
-		operator delete(ArtSlideMPButton); // RA2: as above
-		ArtSlideMPButtonAllocated = false; // RA2: as above
+	Slide_Button_Shape = NULL;
+	if (ArtSlideMPButtonAllocated) {
+		operator delete(ArtSlideMPButton);
+		ArtSlideMPButtonAllocated = false;
 	}
-	ArtSlideMPButton = NULL; // RA2: as above
-	if (ArtSlideWarningAllocated) { // RA2: as above
-		operator delete(ArtSlideWarning); // RA2: as above
-		ArtSlideWarningAllocated = false; // RA2: as above
+	ArtSlideMPButton = NULL;
+	if (ArtSlideWarningAllocated) {
+		operator delete(ArtSlideWarning);
+		ArtSlideWarningAllocated = false;
 	}
-	ArtSlideWarning = NULL; // RA2: as above
-	if (ArtDialogBack640Allocated) { // RA2: as above
-		operator delete(Art_Dialog_Back640); // RA2: as above
-		ArtDialogBack640Allocated = false; // RA2: as above
+	ArtSlideWarning = NULL;
+	if (ArtDialogBack640Allocated) {
+		operator delete(Art_Dialog_Back640);
+		ArtDialogBack640Allocated = false;
 	}
-	Art_Dialog_Back640 = NULL; // RA2: as above
-	if (ArtDialogBackAllocated) { // RA2: as above
-		operator delete(Art_Dialog_Back); // RA2: as above
-		ArtDialogBackAllocated = false; // RA2: as above
+	Art_Dialog_Back640 = NULL;
+	if (ArtDialogBackAllocated) {
+		operator delete(Art_Dialog_Back);
+		ArtDialogBackAllocated = false;
 	}
-	Art_Dialog_Back = NULL; // RA2: as above
-	if (ArtSlideTopAllocated) { // RA2: as above
-		operator delete(ArtSlideTop); // RA2: as above
-		ArtSlideTopAllocated = false; // RA2: as above
+	Art_Dialog_Back = NULL;
+	if (ArtSlideTopAllocated) {
+		operator delete(ArtSlideTop);
+		ArtSlideTopAllocated = false;
 	}
-	ArtSlideTop = NULL; // RA2: as above
-	if (ArtSlideButtonBackAllocated) { // RA2: as above
-		operator delete(ArtSlideButtonBack); // RA2: as above
-		ArtSlideButtonBackAllocated = false; // RA2: as above
+	ArtSlideTop = NULL;
+	if (ArtSlideButtonBackAllocated) {
+		operator delete(ArtSlideButtonBack);
+		ArtSlideButtonBackAllocated = false;
 	}
-	ArtSlideButtonBack = NULL; // RA2: as above
-	if (ArtSlideBottomAllocated) { // RA2: as above
-		operator delete(ArtSlideBottom); // RA2: as above
-		ArtSlideBottomAllocated = false; // RA2: as above
+	ArtSlideButtonBack = NULL;
+	if (ArtSlideBottomAllocated) {
+		operator delete(ArtSlideBottom);
+		ArtSlideBottomAllocated = false;
 	}
-	ArtSlideBottom = NULL; // RA2: as above
-	if (ArtLowerScreen640Allocated) { // RA2: as above
-		operator delete(ArtLowerScreen640); // RA2: as above
-		ArtLowerScreen640Allocated = false; // RA2: as above
+	ArtSlideBottom = NULL;
+	if (ArtLowerScreen640Allocated) {
+		operator delete(ArtLowerScreen640);
+		ArtLowerScreen640Allocated = false;
 	}
-	ArtLowerScreen640 = NULL; // RA2: as above
-	if (ArtLowerScreenAllocated) { // RA2: as above
-		operator delete(ArtLowerScreen); // RA2: as above
-		ArtLowerScreenAllocated = false; // RA2: as above
+	ArtLowerScreen640 = NULL;
+	if (ArtLowerScreenAllocated) {
+		operator delete(ArtLowerScreen);
+		ArtLowerScreenAllocated = false;
 	}
-	ArtLowerScreen = NULL; // RA2: as above
+	ArtLowerScreen = NULL;
 }
 
 /// <summary>
@@ -1445,29 +1445,29 @@ void __fastcall Free_Interface_Shapes(void) // RA2: 0x006F4160
 /// </summary>
 void __cdecl Free_Interface_Palettes(void) // RA2: 0x006F42D0
 {
-	if (ShellPalette != NULL) { // RA2: as above
-		operator delete(ShellPalette); // RA2: as above
-		ShellPalette = NULL; // RA2: as above
+	if (ShellPalette != NULL) {
+		operator delete(ShellPalette);
+		ShellPalette = NULL;
 	}
-	if (ShellDrawer != NULL) { // RA2: as above
-		delete ShellDrawer; // RA2: as above
-		ShellDrawer = NULL; // RA2: as above
+	if (ShellDrawer != NULL) {
+		delete ShellDrawer;
+		ShellDrawer = NULL;
 	}
-	if (Shell2Palette != NULL) { // RA2: as above
-		operator delete(Shell2Palette); // RA2: as above
-		Shell2Palette = NULL; // RA2: as above
+	if (Shell2Palette != NULL) {
+		operator delete(Shell2Palette);
+		Shell2Palette = NULL;
 	}
-	if (Shell2Drawer != NULL) { // RA2: as above
-		delete Shell2Drawer; // RA2: as above
-		Shell2Drawer = NULL; // RA2: as above
+	if (Shell2Drawer != NULL) {
+		delete Shell2Drawer;
+		Shell2Drawer = NULL;
 	}
-	if (ButtonAnimPalette != NULL) { // RA2: as above
-		operator delete(ButtonAnimPalette); // RA2: as above
-		ButtonAnimPalette = NULL; // RA2: as above
+	if (ButtonAnimPalette != NULL) {
+		operator delete(ButtonAnimPalette);
+		ButtonAnimPalette = NULL;
 	}
-	if (ButtonAnimDrawer != NULL) { // RA2: as above
-		delete ButtonAnimDrawer; // RA2: as above
-		ButtonAnimDrawer = NULL; // RA2: as above
+	if (ButtonAnimDrawer != NULL) {
+		delete ButtonAnimDrawer;
+		ButtonAnimDrawer = NULL;
 	}
 }
 
@@ -1476,22 +1476,22 @@ void __cdecl Free_Interface_Palettes(void) // RA2: 0x006F42D0
 /// </summary>
 void __fastcall Free_Interface_Rects(void) // RA2: 0x006F4360
 {
-	operator delete(SlideButtonRect); // RA2: as above
-	SlideButtonRect = NULL; // RA2: as above
-	operator delete(SlideMPButtonRect); // RA2: as above
-	SlideMPButtonRect = NULL; // RA2: as above
-	operator delete(SlideWarningRect); // RA2: as above
-	SlideWarningRect = NULL; // RA2: as above
-	operator delete(DialogBackRect); // RA2: as above
-	DialogBackRect = NULL; // RA2: as above
-	operator delete(SlideTopRect); // RA2: as above
-	SlideTopRect = NULL; // RA2: as above
-	operator delete(Button_Strip_Top); // RA2: as above
-	Button_Strip_Top = NULL; // RA2: as above
-	operator delete(Button_Strip_Bottom); // RA2: as above
-	Button_Strip_Bottom = NULL; // RA2: as above
-	operator delete(LowerScreenRect); // RA2: as above
-	LowerScreenRect = NULL; // RA2: as above
+	operator delete(SlideButtonRect);
+	SlideButtonRect = NULL;
+	operator delete(SlideMPButtonRect);
+	SlideMPButtonRect = NULL;
+	operator delete(SlideWarningRect);
+	SlideWarningRect = NULL;
+	operator delete(DialogBackRect);
+	DialogBackRect = NULL;
+	operator delete(SlideTopRect);
+	SlideTopRect = NULL;
+	operator delete(Button_Strip_Top);
+	Button_Strip_Top = NULL;
+	operator delete(Button_Strip_Bottom);
+	Button_Strip_Bottom = NULL;
+	operator delete(LowerScreenRect);
+	LowerScreenRect = NULL;
 }
 
 /// <summary>
@@ -1499,10 +1499,10 @@ void __fastcall Free_Interface_Rects(void) // RA2: 0x006F4360
 /// </summary>
 void __fastcall Load_Sidebar_Art(void) // RA2: 0x006F4400
 {
-	Load_Sidebar_Shapes(); // RA2: as above
-	Load_Sidebar_Palettes(); // RA2: as above
-	Layout_Sidebar_Art(VideoModeWidth, VideoModeHeight); // RA2: as above
-	SidebarArtLoaded = true; // RA2: as above
+	Load_Sidebar_Shapes();
+	Load_Sidebar_Palettes();
+	Layout_Sidebar_Art(VideoModeWidth, VideoModeHeight);
+	SidebarArtLoaded = true;
 }
 
 /// <summary>
@@ -1510,25 +1510,25 @@ void __fastcall Load_Sidebar_Art(void) // RA2: 0x006F4400
 /// </summary>
 void __fastcall Free_Sidebar_Art(void) // RA2: 0x006F4450
 {
-	Free_Sidebar_Shapes(); // RA2: as above
-	if (SidebarArtPalette != NULL) { // RA2: as above
-		operator delete(SidebarArtPalette); // RA2: as above
-		SidebarArtPalette = NULL; // RA2: as above
+	Free_Sidebar_Shapes();
+	if (SidebarArtPalette != NULL) {
+		operator delete(SidebarArtPalette);
+		SidebarArtPalette = NULL;
 	}
-	if (SidebarArtDrawer != NULL) { // RA2: as above
-		delete SidebarArtDrawer; // RA2: as above
-		SidebarArtDrawer = NULL; // RA2: as above
+	if (SidebarArtDrawer != NULL) {
+		delete SidebarArtDrawer;
+		SidebarArtDrawer = NULL;
 	}
-	if (UIBackgroundPalette != NULL) { // RA2: as above
-		operator delete(UIBackgroundPalette); // RA2: as above
-		UIBackgroundPalette = NULL; // RA2: as above
+	if (UIBackgroundPalette != NULL) {
+		operator delete(UIBackgroundPalette);
+		UIBackgroundPalette = NULL;
 	}
-	if (UIBackgroundDrawer != NULL) { // RA2: as above
-		delete UIBackgroundDrawer; // RA2: as above
-		UIBackgroundDrawer = NULL; // RA2: as above
+	if (UIBackgroundDrawer != NULL) {
+		delete UIBackgroundDrawer;
+		UIBackgroundDrawer = NULL;
 	}
-	Free_Sidebar_Rects(); // RA2: as above
-	SidebarArtLoaded = false; // RA2: as above
+	Free_Sidebar_Rects();
+	SidebarArtLoaded = false;
 }
 
 /// <summary>
@@ -1536,17 +1536,17 @@ void __fastcall Free_Sidebar_Art(void) // RA2: 0x006F4450
 /// </summary>
 void __fastcall Reload_Sidebar_Art(void) // RA2: 0x006F44D0
 {
-	Free_Sidebar_Art(); // RA2: as above
-	Load_Sidebar_Shapes(); // RA2: as above
-	Load_Art_Palette(SidebarPalFile, &SidebarArtPalette, &SidebarArtDrawer); // RA2: as above
-	Load_Art_Palette(UibkgdPalFile, &UIBackgroundPalette, &UIBackgroundDrawer); // RA2: as above
-	Layout_Sidebar_Art(VideoModeWidth, VideoModeHeight); // RA2: as above
-	SidebarArtLoaded = true; // RA2: as above
+	Free_Sidebar_Art();
+	Load_Sidebar_Shapes();
+	Load_Art_Palette(SidebarPalFile, &SidebarArtPalette, &SidebarArtDrawer);
+	Load_Art_Palette(UibkgdPalFile, &UIBackgroundPalette, &UIBackgroundDrawer);
+	Layout_Sidebar_Art(VideoModeWidth, VideoModeHeight);
+	SidebarArtLoaded = true;
 }
 
 bool __fastcall Is_Sidebar_Art_Loaded(void) // RA2: 0x006F4590
 {
-	return SidebarArtLoaded; // RA2: as above
+	return SidebarArtLoaded;
 }
 
 /// <summary>
@@ -1554,31 +1554,31 @@ bool __fastcall Is_Sidebar_Art_Loaded(void) // RA2: 0x006F4590
 /// </summary>
 void __fastcall Select_Tooltip_Color(int which) // RA2: 0x006F45A0
 {
-	if (which == 0) { // RA2: as above
-		TooltipColor = TooltipColorSide0; // RA2: as above
-		return; // RA2: as above
+	if (which == 0) {
+		TooltipColor = TooltipColorSide0;
+		return;
 	}
-	TooltipColor = TooltipColorSide1; // RA2: as above
+	TooltipColor = TooltipColorSide1;
 }
 
 PaletteClass * __fastcall Get_Game_Palette(void) // RA2: 0x006F45E0
 {
-	return SidebarArtPalette; // RA2: as above
+	return SidebarArtPalette;
 }
 
 ConvertClass * __cdecl Get_Sidebar_Art_Drawer(void) // RA2: 0x006F45F0
 {
-	return SidebarArtDrawer; // RA2: as above
+	return SidebarArtDrawer;
 }
 
 PaletteClass * __cdecl Get_UI_Background_Palette(void) // RA2: 0x006F4600
 {
-	return UIBackgroundPalette; // RA2: as above
+	return UIBackgroundPalette;
 }
 
 ConvertClass * __cdecl Get_UI_Background_Drawer(void) // RA2: 0x006F4610
 {
-	return UIBackgroundDrawer; // RA2: as above
+	return UIBackgroundDrawer;
 }
 
 /// <summary>
@@ -1586,78 +1586,78 @@ ConvertClass * __cdecl Get_UI_Background_Drawer(void) // RA2: 0x006F4610
 /// </summary>
 void __fastcall Draw_Sidebar_Art(Surface * surface, Rect const & window, bool tabs) // RA2: 0x006F4620
 {
-	if (!SidebarArtLoaded) { // RA2: as above
-		Load_Sidebar_Shapes(); // RA2: as above
-		Load_Sidebar_Palettes(); // RA2: as above
-		Layout_Sidebar_Art(VideoModeWidth, VideoModeHeight); // RA2: as above
-		SidebarArtLoaded = true; // RA2: as above
+	if (!SidebarArtLoaded) {
+		Load_Sidebar_Shapes();
+		Load_Sidebar_Palettes();
+		Layout_Sidebar_Art(VideoModeWidth, VideoModeHeight);
+		SidebarArtLoaded = true;
 	}
-	surface->Fill(0); // RA2: as above
-	Point2D point(0, 0); // RA2: as above
-	point.X = SidebarBackRect->X; // RA2: as above
-	point.Y = SidebarBackRect->Y; // RA2: as above
-	if (VideoModeWidth == 640) { // RA2: as above
-		Draw_Shape(*surface, *UIBackgroundDrawer, ArtSidebarBack640, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
-	} else if (VideoModeWidth == 800) { // RA2: as above
-		Draw_Shape(*surface, *UIBackgroundDrawer, ArtSidebarBack800, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	surface->Fill(0);
+	Point2D point(0, 0);
+	point.X = SidebarBackRect->X;
+	point.Y = SidebarBackRect->Y;
+	if (VideoModeWidth == 640) {
+		Draw_Shape(*surface, *UIBackgroundDrawer, ArtSidebarBack640, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
+	} else if (VideoModeWidth == 800) {
+		Draw_Shape(*surface, *UIBackgroundDrawer, ArtSidebarBack800, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
 	} else {
-		Draw_Shape(*surface, *UIBackgroundDrawer, ArtSidebarBack1024, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+		Draw_Shape(*surface, *UIBackgroundDrawer, ArtSidebarBack1024, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
 	}
-	point.X = TabBackRect->X; // RA2: as above
-	point.Y = TabBackRect->Y; // RA2: as above
-	Draw_Shape(*surface, *SidebarArtDrawer, TabBackShape, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
-	point.X = RadarFrameRect->X; // RA2: as above
-	point.Y = RadarFrameRect->Y; // RA2: as above
-	Draw_Shape(*surface, *SidebarArtDrawer, RadarFrameShape, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
-	point.X = RadarAnimRect->X; // RA2: as above
-	point.Y = RadarAnimRect->Y; // RA2: as above
-	Draw_Shape(*surface, *SidebarArtDrawer, RadarAnimShape, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
-	point.X = Side1Rect->X; // RA2: as above
-	point.Y = Side1Rect->Y; // RA2: as above
-	Draw_Shape(*surface, *SidebarArtDrawer, ArtSide1, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
-	int index = 0; // RA2: as above
-	point.X = Free_Button_Strip->X; // RA2: as above
-	point.Y = Free_Button_Strip->Y; // RA2: as above
-	if (SidebarStripCount > 0) { // RA2: as above
+	point.X = TabBackRect->X;
+	point.Y = TabBackRect->Y;
+	Draw_Shape(*surface, *SidebarArtDrawer, TabBackShape, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
+	point.X = RadarFrameRect->X;
+	point.Y = RadarFrameRect->Y;
+	Draw_Shape(*surface, *SidebarArtDrawer, RadarFrameShape, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
+	point.X = RadarAnimRect->X;
+	point.Y = RadarAnimRect->Y;
+	Draw_Shape(*surface, *SidebarArtDrawer, RadarAnimShape, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
+	point.X = Side1Rect->X;
+	point.Y = Side1Rect->Y;
+	Draw_Shape(*surface, *SidebarArtDrawer, ArtSide1, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
+	int index = 0;
+	point.X = Free_Button_Strip->X;
+	point.Y = Free_Button_Strip->Y;
+	if (SidebarStripCount > 0) {
 		do {
-			Draw_Shape(*surface, *SidebarArtDrawer, ArtSide2b, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
-			point.Y += Free_Button_Strip->Height; // RA2: as above
-			index++; // RA2: as above
-		} while (index < SidebarStripCount); // RA2: as above
+			Draw_Shape(*surface, *SidebarArtDrawer, ArtSide2b, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
+			point.Y += Free_Button_Strip->Height;
+			index++;
+		} while (index < SidebarStripCount);
 	}
-	point.X = Default_Button_Y->X; // RA2: as above
-	point.Y = Default_Button_Y->Y; // RA2: as above
-	Draw_Shape(*surface, *SidebarArtDrawer, ArtSide3, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
-	point.X = Default_Button_Strip->X; // RA2: as above
-	point.Y = Default_Button_Strip->Y; // RA2: as above
-	Draw_Shape(*surface, *SidebarArtDrawer, ArtAddon, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
-	Rect clip = window; // RA2: as above
+	point.X = Default_Button_Y->X;
+	point.Y = Default_Button_Y->Y;
+	Draw_Shape(*surface, *SidebarArtDrawer, ArtSide3, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
+	point.X = Default_Button_Strip->X;
+	point.Y = Default_Button_Strip->Y;
+	Draw_Shape(*surface, *SidebarArtDrawer, ArtAddon, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
+	Rect clip = window;
 	clip.Width = Get_Title_Screen_Area().Width; // RA2: the tab bar is as wide as the area the tactical view uses
-	point.X = TabLeftRect->X; // RA2: as above
-	point.Y = TabLeftRect->Y; // RA2: as above
-	Draw_Shape(*surface, *SidebarArtDrawer, TabLeftShape, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
-	if (tabs) { // RA2: as above
-		point.X = ThumbOpenRect->X; // RA2: as above
-		point.Y = ThumbOpenRect->Y; // RA2: as above
-		Draw_Shape(*surface, *SidebarArtDrawer, TabThumbShape, 2, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
-		index = 0; // RA2: as above
-		point.X = ButtonSlotRect->X; // RA2: as above
-		point.Y = ButtonSlotRect->Y; // RA2: as above
-		if (TabTileCount > 0) { // RA2: as above
+	point.X = TabLeftRect->X;
+	point.Y = TabLeftRect->Y;
+	Draw_Shape(*surface, *SidebarArtDrawer, TabLeftShape, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
+	if (tabs) {
+		point.X = ThumbOpenRect->X;
+		point.Y = ThumbOpenRect->Y;
+		Draw_Shape(*surface, *SidebarArtDrawer, TabThumbShape, 2, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
+		index = 0;
+		point.X = ButtonSlotRect->X;
+		point.Y = ButtonSlotRect->Y;
+		if (TabTileCount > 0) {
 			do {
-				Draw_Shape(*surface, *SidebarArtDrawer, TabTileShape, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
-				point.X += ButtonSlotRect->Width; // RA2: as above
-				index++; // RA2: as above
-			} while (index < TabTileCount); // RA2: as above
+				Draw_Shape(*surface, *SidebarArtDrawer, TabTileShape, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
+				point.X += ButtonSlotRect->Width;
+				index++;
+			} while (index < TabTileCount);
 		}
 	} else {
-		point.X = ThumbClosedRect->X; // RA2: as above
-		point.Y = ThumbClosedRect->Y; // RA2: as above
-		Draw_Shape(*surface, *SidebarArtDrawer, TabThumbShape, 2, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+		point.X = ThumbClosedRect->X;
+		point.Y = ThumbClosedRect->Y;
+		Draw_Shape(*surface, *SidebarArtDrawer, TabThumbShape, 2, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
 	}
-	point.X = TabEndRect->X; // RA2: as above
-	point.Y = TabEndRect->Y; // RA2: as above
-	Draw_Shape(*surface, *SidebarArtDrawer, TabRightShape, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	point.X = TabEndRect->X;
+	point.Y = TabEndRect->Y;
+	Draw_Shape(*surface, *SidebarArtDrawer, TabRightShape, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0));
 }
 
 /// <summary>
@@ -1665,22 +1665,22 @@ void __fastcall Draw_Sidebar_Art(Surface * surface, Rect const & window, bool ta
 /// </summary>
 void __fastcall Load_Sidebar_Shapes(void) // RA2: 0x006F4B00
 {
-	Button_Strip_Shape = (ShapeSet *)Load_Alloc_Data(SidebttnShpFile, ButtonStripShapeAllocated); // RA2: as above
-	ArtSidebarBack640 = (ShapeSet *)Load_Alloc_Data(BkgdsmShpFile, ArtSidebarBack640Allocated); // RA2: as above
-	ArtSidebarBack800 = (ShapeSet *)Load_Alloc_Data(BkgdmdShpFile, ArtSidebarBack800Allocated); // RA2: as above
-	ArtSidebarBack1024 = (ShapeSet *)Load_Alloc_Data(BkgdlgShpFile, ArtSidebarBack1024Allocated); // RA2: as above
-	TabBackShape = (ShapeSet *)Load_Alloc_Data(CreditsShpFile, TabBackShapeAllocated); // RA2: as above
-	RadarFrameShape = (ShapeSet *)Load_Alloc_Data(TopShpFile, RadarFrameShapeAllocated); // RA2: as above
-	RadarAnimShape = (ShapeSet *)Load_Alloc_Data(RadarShpFile, RadarAnimShapeAllocated); // RA2: as above
-	ArtSide1 = (ShapeSet *)Load_Alloc_Data(Side1ShpFile, ArtSide1Allocated); // RA2: as above
-	ArtSide2 = (ShapeSet *)Load_Alloc_Data(Side2ShpFile, ArtSide2Allocated); // RA2: as above
-	ArtSide2b = (ShapeSet *)Load_Alloc_Data(Side2bShpFile, ArtSide2bAllocated); // RA2: as above
-	ArtSide3 = (ShapeSet *)Load_Alloc_Data(Side3ShpFile, ArtSide3Allocated); // RA2: as above
-	ArtAddon = (ShapeSet *)Load_Alloc_Data(AddonShpFile, ArtAddonAllocated); // RA2: as above
-	TabLeftShape = (ShapeSet *)Load_Alloc_Data(LspacerShpFile, TabLeftShapeAllocated); // RA2: as above
-	TabThumbShape = (ShapeSet *)Load_Alloc_Data(LendcapShpFile, TabThumbShapeAllocated); // RA2: as above
-	TabTileShape = (ShapeSet *)Load_Alloc_Data(BttnbkgdShpFile, TabTileShapeAllocated); // RA2: as above
-	TabRightShape = (ShapeSet *)Load_Alloc_Data(RendcapShpFile, TabRightShapeAllocated); // RA2: as above
+	Button_Strip_Shape = (ShapeSet *)Load_Alloc_Data(SidebttnShpFile, ButtonStripShapeAllocated);
+	ArtSidebarBack640 = (ShapeSet *)Load_Alloc_Data(BkgdsmShpFile, ArtSidebarBack640Allocated);
+	ArtSidebarBack800 = (ShapeSet *)Load_Alloc_Data(BkgdmdShpFile, ArtSidebarBack800Allocated);
+	ArtSidebarBack1024 = (ShapeSet *)Load_Alloc_Data(BkgdlgShpFile, ArtSidebarBack1024Allocated);
+	TabBackShape = (ShapeSet *)Load_Alloc_Data(CreditsShpFile, TabBackShapeAllocated);
+	RadarFrameShape = (ShapeSet *)Load_Alloc_Data(TopShpFile, RadarFrameShapeAllocated);
+	RadarAnimShape = (ShapeSet *)Load_Alloc_Data(RadarShpFile, RadarAnimShapeAllocated);
+	ArtSide1 = (ShapeSet *)Load_Alloc_Data(Side1ShpFile, ArtSide1Allocated);
+	ArtSide2 = (ShapeSet *)Load_Alloc_Data(Side2ShpFile, ArtSide2Allocated);
+	ArtSide2b = (ShapeSet *)Load_Alloc_Data(Side2bShpFile, ArtSide2bAllocated);
+	ArtSide3 = (ShapeSet *)Load_Alloc_Data(Side3ShpFile, ArtSide3Allocated);
+	ArtAddon = (ShapeSet *)Load_Alloc_Data(AddonShpFile, ArtAddonAllocated);
+	TabLeftShape = (ShapeSet *)Load_Alloc_Data(LspacerShpFile, TabLeftShapeAllocated);
+	TabThumbShape = (ShapeSet *)Load_Alloc_Data(LendcapShpFile, TabThumbShapeAllocated);
+	TabTileShape = (ShapeSet *)Load_Alloc_Data(BttnbkgdShpFile, TabTileShapeAllocated);
+	TabRightShape = (ShapeSet *)Load_Alloc_Data(RendcapShpFile, TabRightShapeAllocated);
 }
 
 /// <summary>
@@ -1688,8 +1688,8 @@ void __fastcall Load_Sidebar_Shapes(void) // RA2: 0x006F4B00
 /// </summary>
 void __fastcall Load_Sidebar_Palettes(void) // RA2: 0x006F4C60
 {
-	Load_Art_Palette(SidebarPalFile, &SidebarArtPalette, &SidebarArtDrawer); // RA2: as above
-	Load_Art_Palette(UibkgdPalFile, &UIBackgroundPalette, &UIBackgroundDrawer); // RA2: as above
+	Load_Art_Palette(SidebarPalFile, &SidebarArtPalette, &SidebarArtDrawer);
+	Load_Art_Palette(UibkgdPalFile, &UIBackgroundPalette, &UIBackgroundDrawer);
 }
 
 /// <summary>
@@ -1697,86 +1697,86 @@ void __fastcall Load_Sidebar_Palettes(void) // RA2: 0x006F4C60
 /// </summary>
 void __fastcall Layout_Sidebar_Art(int width, int height) // RA2: 0x006F4C90
 {
-	ShapeSet * backdrop; // RA2: as above
-	if (VideoModeWidth == 640) { // RA2: as above
-		backdrop = ArtSidebarBack640; // RA2: as above
-	} else if (VideoModeWidth == 800) { // RA2: as above
-		backdrop = ArtSidebarBack800; // RA2: as above
+	ShapeSet * backdrop;
+	if (VideoModeWidth == 640) {
+		backdrop = ArtSidebarBack640;
+	} else if (VideoModeWidth == 800) {
+		backdrop = ArtSidebarBack800;
 	} else {
-		backdrop = ArtSidebarBack1024; // RA2: as above
+		backdrop = ArtSidebarBack1024;
 	}
-	int w = backdrop->Get_Width(); // RA2: as above
-	int h = backdrop->Get_Height(); // RA2: as above
-	SidebarBackRect = new Rect(0, 0, w, h); // RA2: as above
+	int w = backdrop->Get_Width();
+	int h = backdrop->Get_Height();
+	SidebarBackRect = new Rect(0, 0, w, h);
 
-	w = TabBackShape->Get_Width(); // RA2: as above
-	h = TabBackShape->Get_Height(); // RA2: as above
-	int x = width - w; // RA2: as above
-	TabBackRect = new Rect(x, 0, w, h); // RA2: as above
-	int y = h; // RA2: as above
-	h = RadarFrameShape->Get_Height(); // RA2: as above
-	RadarFrameRect = new Rect(x, y, w, h); // RA2: as above
-	y += h; // RA2: as above
-	h = RadarAnimShape->Get_Height(); // RA2: as above
-	RadarAnimRect = new Rect(x, y, w, h); // RA2: as above
-	y += h; // RA2: as above
-	h = ArtSide1->Get_Height(); // RA2: as above
-	Side1Rect = new Rect(x, y, w, h); // RA2: as above
-	y += h; // RA2: as above
-	h = ArtSide2->Get_Height(); // RA2: as above
-	Free_Button_Strip = new Rect(x, y, w, h); // RA2: as above
-	h = ArtSide3->Get_Height(); // RA2: as above
-	Default_Button_Y = new Rect(x, y, w, h); // RA2: as above
-	h = ArtAddon->Get_Height(); // RA2: as above
-	Default_Button_Strip = new Rect(x, y, w, h); // RA2: as above
+	w = TabBackShape->Get_Width();
+	h = TabBackShape->Get_Height();
+	int x = width - w;
+	TabBackRect = new Rect(x, 0, w, h);
+	int y = h;
+	h = RadarFrameShape->Get_Height();
+	RadarFrameRect = new Rect(x, y, w, h);
+	y += h;
+	h = RadarAnimShape->Get_Height();
+	RadarAnimRect = new Rect(x, y, w, h);
+	y += h;
+	h = ArtSide1->Get_Height();
+	Side1Rect = new Rect(x, y, w, h);
+	y += h;
+	h = ArtSide2->Get_Height();
+	Free_Button_Strip = new Rect(x, y, w, h);
+	h = ArtSide3->Get_Height();
+	Default_Button_Y = new Rect(x, y, w, h);
+	h = ArtAddon->Get_Height();
+	Default_Button_Strip = new Rect(x, y, w, h);
 
 	SidebarStripCount = (height - Default_Button_Y->Height - Side1Rect->Height - RadarAnimRect->Height
-		- RadarFrameRect->Height - TabBackRect->Height) / Free_Button_Strip->Height; // RA2: as above
-	y += SidebarStripCount * Free_Button_Strip->Height; // RA2: as above
-	Default_Button_Y->Y = y; // RA2: as above
-	Default_Button_Strip->Y = Default_Button_Y->Height + y; // RA2: as above
+		- RadarFrameRect->Height - TabBackRect->Height) / Free_Button_Strip->Height;
+	y += SidebarStripCount * Free_Button_Strip->Height;
+	Default_Button_Y->Y = y;
+	Default_Button_Strip->Y = Default_Button_Y->Height + y;
 
-	y = height - 32; // RA2: as above
-	int bar_width = Get_Title_Screen_Area().Width; // RA2: as above
-	TabBarRect = new Rect(0, y, bar_width, 32); // RA2: as above
-	w = TabLeftShape->Get_Width(); // RA2: as above
-	h = TabLeftShape->Get_Height(); // RA2: as above
-	TabLeftRect = new Rect(0, y, w, h); // RA2: as above
-	w = TabThumbShape->Get_Width(); // RA2: as above
-	h = TabThumbShape->Get_Height(); // RA2: as above
-	ThumbOpenRect = new Rect(0, y, w, h); // RA2: as above
-	ThumbClosedRect = new Rect(0, y, w, h); // RA2: as above
-	w = TabTileShape->Get_Width(); // RA2: as above
-	h = TabTileShape->Get_Height(); // RA2: as above
-	ButtonSlotRect = new Rect(0, y, w, h); // RA2: as above
-	w = TabRightShape->Get_Width(); // RA2: as above
-	h = TabRightShape->Get_Height(); // RA2: as above
-	TabEndRect = new Rect(0, y, w, h); // RA2: as above
+	y = height - 32;
+	int bar_width = Get_Title_Screen_Area().Width;
+	TabBarRect = new Rect(0, y, bar_width, 32);
+	w = TabLeftShape->Get_Width();
+	h = TabLeftShape->Get_Height();
+	TabLeftRect = new Rect(0, y, w, h);
+	w = TabThumbShape->Get_Width();
+	h = TabThumbShape->Get_Height();
+	ThumbOpenRect = new Rect(0, y, w, h);
+	ThumbClosedRect = new Rect(0, y, w, h);
+	w = TabTileShape->Get_Width();
+	h = TabTileShape->Get_Height();
+	ButtonSlotRect = new Rect(0, y, w, h);
+	w = TabRightShape->Get_Width();
+	h = TabRightShape->Get_Height();
+	TabEndRect = new Rect(0, y, w, h);
 
 	TabTileCount = (width - ThumbOpenRect->Width - TabBackRect->Width - TabEndRect->Width)
-		/ ButtonSlotRect->Width; // RA2: as above
-	int bar_x = TabBackRect->X - TabEndRect->Width; // RA2: as above
-	TabEndRect->X = bar_x; // RA2: as above
-	bar_x -= ButtonSlotRect->Width * TabTileCount; // RA2: as above
-	ButtonSlotRect->X = bar_x; // RA2: as above
-	bar_x -= ThumbOpenRect->Width; // RA2: as above
-	ThumbOpenRect->X = bar_x; // RA2: as above
-	ThumbOpenX = bar_x; // RA2: as above
-	int tab_x = TabEndRect->X - ThumbClosedRect->Width; // RA2: as above
-	ThumbClosedRect->X = tab_x; // RA2: as above
-	ThumbClosedX = tab_x; // RA2: as above
-	ThumbTravel = TabEndRect->X - ThumbOpenRect->Width - ThumbOpenRect->X; // RA2: as above
+		/ ButtonSlotRect->Width;
+	int bar_x = TabBackRect->X - TabEndRect->Width;
+	TabEndRect->X = bar_x;
+	bar_x -= ButtonSlotRect->Width * TabTileCount;
+	ButtonSlotRect->X = bar_x;
+	bar_x -= ThumbOpenRect->Width;
+	ThumbOpenRect->X = bar_x;
+	ThumbOpenX = bar_x;
+	int tab_x = TabEndRect->X - ThumbClosedRect->Width;
+	ThumbClosedRect->X = tab_x;
+	ThumbClosedX = tab_x;
+	ThumbTravel = TabEndRect->X - ThumbOpenRect->Width - ThumbOpenRect->X;
 
-	int column_x = RadarFrameRect->X; // RA2: as above
-	int column_y = RadarFrameRect->Y; // RA2: as above
-	int column_width = RadarFrameRect->Width; // RA2: as above
-	int column_height = RadarAnimRect->Height + RadarFrameRect->Height; // RA2: as above
-	RadarAreaRect = new Rect(column_x, column_y, column_width, column_height); // RA2: as above
-	int strip_x = Side1Rect->X; // RA2: as above
-	int strip_y = Side1Rect->Y; // RA2: as above
-	int strip_width = Side1Rect->Width; // RA2: as above
-	int strip_height = SidebarStripCount * Free_Button_Strip->Height + Default_Button_Y->Height + Side1Rect->Height; // RA2: as above
-	SidebarButtonsRect = new Rect(strip_x, strip_y, strip_width, strip_height); // RA2: as above
+	int column_x = RadarFrameRect->X;
+	int column_y = RadarFrameRect->Y;
+	int column_width = RadarFrameRect->Width;
+	int column_height = RadarAnimRect->Height + RadarFrameRect->Height;
+	RadarAreaRect = new Rect(column_x, column_y, column_width, column_height);
+	int strip_x = Side1Rect->X;
+	int strip_y = Side1Rect->Y;
+	int strip_width = Side1Rect->Width;
+	int strip_height = SidebarStripCount * Free_Button_Strip->Height + Default_Button_Y->Height + Side1Rect->Height;
+	SidebarButtonsRect = new Rect(strip_x, strip_y, strip_width, strip_height);
 }
 
 /// <summary>
@@ -1784,86 +1784,86 @@ void __fastcall Layout_Sidebar_Art(int width, int height) // RA2: 0x006F4C90
 /// </summary>
 void __fastcall Free_Sidebar_Shapes(void) // RA2: 0x006F5150
 {
-	if (ButtonStripShapeAllocated) { // RA2: as above
-		delete Button_Strip_Shape; // RA2: as above
-		ButtonStripShapeAllocated = false; // RA2: as above
+	if (ButtonStripShapeAllocated) {
+		delete Button_Strip_Shape;
+		ButtonStripShapeAllocated = false;
 	}
-	Button_Strip_Shape = NULL; // RA2: as above
-	if (ArtSidebarBack640Allocated) { // RA2: as above
-		delete ArtSidebarBack640; // RA2: as above
-		ArtSidebarBack640Allocated = false; // RA2: as above
+	Button_Strip_Shape = NULL;
+	if (ArtSidebarBack640Allocated) {
+		delete ArtSidebarBack640;
+		ArtSidebarBack640Allocated = false;
 	}
-	ArtSidebarBack640 = NULL; // RA2: as above
-	if (ArtSidebarBack800Allocated) { // RA2: as above
-		delete ArtSidebarBack800; // RA2: as above
-		ArtSidebarBack800Allocated = false; // RA2: as above
+	ArtSidebarBack640 = NULL;
+	if (ArtSidebarBack800Allocated) {
+		delete ArtSidebarBack800;
+		ArtSidebarBack800Allocated = false;
 	}
-	ArtSidebarBack800 = NULL; // RA2: as above
-	if (ArtSidebarBack1024Allocated) { // RA2: as above
-		delete ArtSidebarBack1024; // RA2: as above
-		ArtSidebarBack1024Allocated = false; // RA2: as above
+	ArtSidebarBack800 = NULL;
+	if (ArtSidebarBack1024Allocated) {
+		delete ArtSidebarBack1024;
+		ArtSidebarBack1024Allocated = false;
 	}
-	ArtSidebarBack1024 = NULL; // RA2: as above
-	if (TabBackShapeAllocated) { // RA2: as above
-		delete (ShapeSet *)TabBackShape; // RA2: as above
-		TabBackShapeAllocated = false; // RA2: as above
+	ArtSidebarBack1024 = NULL;
+	if (TabBackShapeAllocated) {
+		delete (ShapeSet *)TabBackShape;
+		TabBackShapeAllocated = false;
 	}
-	TabBackShape = NULL; // RA2: as above
-	if (RadarFrameShapeAllocated) { // RA2: as above
-		delete (ShapeSet *)RadarFrameShape; // RA2: as above
-		RadarFrameShapeAllocated = false; // RA2: as above
+	TabBackShape = NULL;
+	if (RadarFrameShapeAllocated) {
+		delete (ShapeSet *)RadarFrameShape;
+		RadarFrameShapeAllocated = false;
 	}
-	RadarFrameShape = NULL; // RA2: as above
-	if (RadarAnimShapeAllocated) { // RA2: as above
-		delete (ShapeSet *)RadarAnimShape; // RA2: as above
-		RadarAnimShapeAllocated = false; // RA2: as above
+	RadarFrameShape = NULL;
+	if (RadarAnimShapeAllocated) {
+		delete (ShapeSet *)RadarAnimShape;
+		RadarAnimShapeAllocated = false;
 	}
-	RadarAnimShape = NULL; // RA2: as above
-	if (ArtSide1Allocated) { // RA2: as above
-		delete ArtSide1; // RA2: as above
-		ArtSide1Allocated = false; // RA2: as above
+	RadarAnimShape = NULL;
+	if (ArtSide1Allocated) {
+		delete ArtSide1;
+		ArtSide1Allocated = false;
 	}
-	ArtSide1 = NULL; // RA2: as above
-	if (ArtSide2Allocated) { // RA2: as above
-		delete ArtSide2; // RA2: as above
-		ArtSide2Allocated = false; // RA2: as above
+	ArtSide1 = NULL;
+	if (ArtSide2Allocated) {
+		delete ArtSide2;
+		ArtSide2Allocated = false;
 	}
-	ArtSide2 = NULL; // RA2: as above
-	if (ArtSide2bAllocated) { // RA2: as above
-		delete ArtSide2b; // RA2: as above
-		ArtSide2bAllocated = false; // RA2: as above
+	ArtSide2 = NULL;
+	if (ArtSide2bAllocated) {
+		delete ArtSide2b;
+		ArtSide2bAllocated = false;
 	}
-	ArtSide2b = NULL; // RA2: as above
-	if (ArtSide3Allocated) { // RA2: as above
-		delete ArtSide3; // RA2: as above
-		ArtSide3Allocated = false; // RA2: as above
+	ArtSide2b = NULL;
+	if (ArtSide3Allocated) {
+		delete ArtSide3;
+		ArtSide3Allocated = false;
 	}
-	ArtSide3 = NULL; // RA2: as above
-	if (ArtAddonAllocated) { // RA2: as above
-		delete ArtAddon; // RA2: as above
-		ArtAddonAllocated = false; // RA2: as above
+	ArtSide3 = NULL;
+	if (ArtAddonAllocated) {
+		delete ArtAddon;
+		ArtAddonAllocated = false;
 	}
-	ArtAddon = NULL; // RA2: as above
-	if (TabLeftShapeAllocated) { // RA2: as above
-		delete (ShapeSet *)TabLeftShape; // RA2: as above
-		TabLeftShapeAllocated = false; // RA2: as above
+	ArtAddon = NULL;
+	if (TabLeftShapeAllocated) {
+		delete (ShapeSet *)TabLeftShape;
+		TabLeftShapeAllocated = false;
 	}
-	TabLeftShape = NULL; // RA2: as above
-	if (TabThumbShapeAllocated) { // RA2: as above
-		delete (ShapeSet *)TabThumbShape; // RA2: as above
-		TabThumbShapeAllocated = false; // RA2: as above
+	TabLeftShape = NULL;
+	if (TabThumbShapeAllocated) {
+		delete (ShapeSet *)TabThumbShape;
+		TabThumbShapeAllocated = false;
 	}
-	TabThumbShape = NULL; // RA2: as above
-	if (TabTileShapeAllocated) { // RA2: as above
-		delete (ShapeSet *)TabTileShape; // RA2: as above
-		TabTileShapeAllocated = false; // RA2: as above
+	TabThumbShape = NULL;
+	if (TabTileShapeAllocated) {
+		delete (ShapeSet *)TabTileShape;
+		TabTileShapeAllocated = false;
 	}
-	TabTileShape = NULL; // RA2: as above
-	if (TabRightShapeAllocated) { // RA2: as above
-		delete (ShapeSet *)TabRightShape; // RA2: as above
-		TabRightShapeAllocated = false; // RA2: as above
+	TabTileShape = NULL;
+	if (TabRightShapeAllocated) {
+		delete (ShapeSet *)TabRightShape;
+		TabRightShapeAllocated = false;
 	}
-	TabRightShape = NULL; // RA2: as above
+	TabRightShape = NULL;
 }
 
 /// <summary>
@@ -1871,21 +1871,21 @@ void __fastcall Free_Sidebar_Shapes(void) // RA2: 0x006F5150
 /// </summary>
 void __fastcall Free_Sidebar_Palettes(void) // RA2: 0x006F5390
 {
-	if (SidebarArtPalette != NULL) { // RA2: as above
-		delete SidebarArtPalette; // RA2: as above
-		SidebarArtPalette = NULL; // RA2: as above
+	if (SidebarArtPalette != NULL) {
+		delete SidebarArtPalette;
+		SidebarArtPalette = NULL;
 	}
-	if (SidebarArtDrawer != NULL) { // RA2: as above
-		delete SidebarArtDrawer; // RA2: as above
-		SidebarArtDrawer = NULL; // RA2: as above
+	if (SidebarArtDrawer != NULL) {
+		delete SidebarArtDrawer;
+		SidebarArtDrawer = NULL;
 	}
-	if (UIBackgroundPalette != NULL) { // RA2: as above
-		delete UIBackgroundPalette; // RA2: as above
-		UIBackgroundPalette = NULL; // RA2: as above
+	if (UIBackgroundPalette != NULL) {
+		delete UIBackgroundPalette;
+		UIBackgroundPalette = NULL;
 	}
-	if (UIBackgroundDrawer != NULL) { // RA2: as above
-		delete UIBackgroundDrawer; // RA2: as above
-		UIBackgroundDrawer = NULL; // RA2: as above
+	if (UIBackgroundDrawer != NULL) {
+		delete UIBackgroundDrawer;
+		UIBackgroundDrawer = NULL;
 	}
 }
 
@@ -1894,38 +1894,38 @@ void __fastcall Free_Sidebar_Palettes(void) // RA2: 0x006F5390
 /// </summary>
 void __fastcall Free_Sidebar_Rects(void) // RA2: 0x006F5400
 {
-	operator delete(SidebarBackRect); // RA2: as above
-	SidebarBackRect = NULL; // RA2: as above
-	operator delete(TabBackRect); // RA2: as above
-	TabBackRect = NULL; // RA2: as above
-	operator delete(RadarFrameRect); // RA2: as above
-	RadarFrameRect = NULL; // RA2: as above
-	operator delete(RadarAnimRect); // RA2: as above
-	RadarAnimRect = NULL; // RA2: as above
-	operator delete(RadarAreaRect); // RA2: as above
-	RadarAreaRect = NULL; // RA2: as above
-	operator delete(Side1Rect); // RA2: as above
-	Side1Rect = NULL; // RA2: as above
-	operator delete(Free_Button_Strip); // RA2: as above
-	Free_Button_Strip = NULL; // RA2: as above
-	operator delete(Default_Button_Y); // RA2: as above
-	Default_Button_Y = NULL; // RA2: as above
-	operator delete(Default_Button_Strip); // RA2: as above
-	Default_Button_Strip = NULL; // RA2: as above
-	operator delete(SidebarButtonsRect); // RA2: as above
-	SidebarButtonsRect = NULL; // RA2: as above
-	operator delete(TabBarRect); // RA2: as above
-	TabBarRect = NULL; // RA2: as above
-	operator delete(TabLeftRect); // RA2: as above
-	TabLeftRect = NULL; // RA2: as above
-	operator delete(ThumbOpenRect); // RA2: as above
-	ThumbOpenRect = NULL; // RA2: as above
-	operator delete(ThumbClosedRect); // RA2: as above
-	ThumbClosedRect = NULL; // RA2: as above
-	operator delete(ButtonSlotRect); // RA2: as above
-	ButtonSlotRect = NULL; // RA2: as above
-	operator delete(TabEndRect); // RA2: as above
-	TabEndRect = NULL; // RA2: as above
+	operator delete(SidebarBackRect);
+	SidebarBackRect = NULL;
+	operator delete(TabBackRect);
+	TabBackRect = NULL;
+	operator delete(RadarFrameRect);
+	RadarFrameRect = NULL;
+	operator delete(RadarAnimRect);
+	RadarAnimRect = NULL;
+	operator delete(RadarAreaRect);
+	RadarAreaRect = NULL;
+	operator delete(Side1Rect);
+	Side1Rect = NULL;
+	operator delete(Free_Button_Strip);
+	Free_Button_Strip = NULL;
+	operator delete(Default_Button_Y);
+	Default_Button_Y = NULL;
+	operator delete(Default_Button_Strip);
+	Default_Button_Strip = NULL;
+	operator delete(SidebarButtonsRect);
+	SidebarButtonsRect = NULL;
+	operator delete(TabBarRect);
+	TabBarRect = NULL;
+	operator delete(TabLeftRect);
+	TabLeftRect = NULL;
+	operator delete(ThumbOpenRect);
+	ThumbOpenRect = NULL;
+	operator delete(ThumbClosedRect);
+	ThumbClosedRect = NULL;
+	operator delete(ButtonSlotRect);
+	ButtonSlotRect = NULL;
+	operator delete(TabEndRect);
+	TabEndRect = NULL;
 }
 
 /// <summary>
@@ -1933,8 +1933,8 @@ void __fastcall Free_Sidebar_Rects(void) // RA2: 0x006F5400
 /// </summary>
 void __fastcall Reload_Sidebar_Shapes(void) // RA2: 0x006F5530
 {
-	Free_Sidebar_Shapes(); // RA2: as above
-	Load_Sidebar_Shapes(); // RA2: as above
+	Free_Sidebar_Shapes();
+	Load_Sidebar_Shapes();
 }
 
 /// <summary>
@@ -1942,24 +1942,24 @@ void __fastcall Reload_Sidebar_Shapes(void) // RA2: 0x006F5530
 /// </summary>
 void __fastcall Reload_Sidebar_Palettes(void) // RA2: 0x006F5540
 {
-	if (SidebarArtPalette != NULL) { // RA2: as above
-		operator delete(SidebarArtPalette); // RA2: as above
-		SidebarArtPalette = NULL; // RA2: as above
+	if (SidebarArtPalette != NULL) {
+		operator delete(SidebarArtPalette);
+		SidebarArtPalette = NULL;
 	}
-	if (SidebarArtDrawer != NULL) { // RA2: as above
-		delete SidebarArtDrawer; // RA2: as above
-		SidebarArtDrawer = NULL; // RA2: as above
+	if (SidebarArtDrawer != NULL) {
+		delete SidebarArtDrawer;
+		SidebarArtDrawer = NULL;
 	}
-	if (UIBackgroundPalette != NULL) { // RA2: as above
-		operator delete(UIBackgroundPalette); // RA2: as above
-		UIBackgroundPalette = NULL; // RA2: as above
+	if (UIBackgroundPalette != NULL) {
+		operator delete(UIBackgroundPalette);
+		UIBackgroundPalette = NULL;
 	}
-	if (UIBackgroundDrawer != NULL) { // RA2: as above
-		delete UIBackgroundDrawer; // RA2: as above
-		UIBackgroundDrawer = NULL; // RA2: as above
+	if (UIBackgroundDrawer != NULL) {
+		delete UIBackgroundDrawer;
+		UIBackgroundDrawer = NULL;
 	}
-	Load_Art_Palette(SidebarPalFile, &SidebarArtPalette, &SidebarArtDrawer); // RA2: as above
-	Load_Art_Palette(UibkgdPalFile, &UIBackgroundPalette, &UIBackgroundDrawer); // RA2: as above
+	Load_Art_Palette(SidebarPalFile, &SidebarArtPalette, &SidebarArtDrawer);
+	Load_Art_Palette(UibkgdPalFile, &UIBackgroundPalette, &UIBackgroundDrawer);
 }
 
 /// <summary>
@@ -1967,6 +1967,6 @@ void __fastcall Reload_Sidebar_Palettes(void) // RA2: 0x006F5540
 /// </summary>
 void __fastcall Relayout_Sidebar_Art(int width, int height) // RA2: 0x006F55D0
 {
-	Free_Sidebar_Rects(); // RA2: as above
-	Layout_Sidebar_Art(width, height); // RA2: as above
+	Free_Sidebar_Rects();
+	Layout_Sidebar_Art(width, height);
 }

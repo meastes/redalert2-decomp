@@ -51,7 +51,7 @@ unsigned int DefaultControl; // RA2: 0x00AD0850
 /*
 **	RA2: a sound effect kept playing at a location, in the list of static sounds.
 */
-struct VocStaticSound : ListNode // RA2: as above
+struct VocStaticSound : ListNode
 {
 	AudioController Controller; // RA2: +0x0C
 	Coord Position; // RA2: +0x20
@@ -105,96 +105,96 @@ VocClass::~VocClass(void)
 bool VocClass::Fill_In(CCINIClass &ini) // RA2: the rules are read through a non-const reference
 {
 	char buffer[0x800]; // RA2: the line buffer for the sample list and the keyword lists
-	char * token; // RA2: as above
+	char * token;
 
 	if (Event == NULL || !ini.Is_Present(Name())) { // RA2: no event type or no section
 		return(false);
 	}
 
 	ini.Get_String(Name(), "Sounds", "", buffer, sizeof(buffer)); // RA2: the samples, split at white space
-	for (token = strtok(buffer, " \t\n"); token != NULL; token = strtok(NULL, " \t\n")) { // RA2: as above
-		AudioEventTypeAddSample(Event, token); // RA2: as above
+	for (token = strtok(buffer, " \t\n"); token != NULL; token = strtok(NULL, " \t\n")) {
+		AudioEventTypeAddSample(Event, token);
 	}
 
 	float volume = (float)ini.Get_Float(Name(), "Volume", DefaultVolume) * 0.01f; // RA2: percent, kept within 0 to 1
-	if (volume > 1.0) { // RA2: as above
-		volume = 1.0f; // RA2: as above
-	} else if (volume <= 0) { // RA2: as above
-		volume = 0.0f; // RA2: as above
+	if (volume > 1.0) {
+		volume = 1.0f;
+	} else if (volume <= 0) {
+		volume = 0.0f;
 	}
 	AudioEventTypeSetVolume(Event, (int)(volume * 16384.0f)); // RA2: 16384 is full volume
 
-	AudioEventTypeSetVShift(Event, ini.Get_Int(Name(), "VShift", 0)); // RA2: as above
+	AudioEventTypeSetVShift(Event, ini.Get_Int(Name(), "VShift", 0));
 
-	float minvolume = (float)ini.Get_Float(Name(), "MinVolume", DefaultMinVolume) * 0.01f; // RA2: as above
-	if (minvolume > 1.0) { // RA2: as above
-		minvolume = 1.0f; // RA2: as above
-	} else if (minvolume <= 0) { // RA2: as above
-		minvolume = 0.0f; // RA2: as above
+	float minvolume = (float)ini.Get_Float(Name(), "MinVolume", DefaultMinVolume) * 0.01f;
+	if (minvolume > 1.0) {
+		minvolume = 1.0f;
+	} else if (minvolume <= 0) {
+		minvolume = 0.0f;
 	}
-	AudioEventTypeSetMinVolume(Event, minvolume); // RA2: as above
+	AudioEventTypeSetMinVolume(Event, minvolume);
 
 	ini.Get_String(Name(), "Priority", "NORMAL", buffer, sizeof(buffer)); // RA2: a priority name
-	int priority = DefaultPriority; // RA2: as above
-	AudioPriorityFromName(buffer, &priority); // RA2: as above
-	AudioEventTypeSetPriority(Event, priority); // RA2: as above
+	int priority = DefaultPriority;
+	AudioPriorityFromName(buffer, &priority);
+	AudioEventTypeSetPriority(Event, priority);
 
-	AudioEventTypeSetAttack(Event, ini.Get_Int(Name(), "Attack", 0)); // RA2: as above
-	AudioEventTypeSetDecay(Event, ini.Get_Int(Name(), "Decay", 0)); // RA2: as above
+	AudioEventTypeSetAttack(Event, ini.Get_Int(Name(), "Attack", 0));
+	AudioEventTypeSetDecay(Event, ini.Get_Int(Name(), "Decay", 0));
 
 	ini.Get_String(Name(), "Control", "", buffer, sizeof(buffer)); // RA2: keywords, the defaults when there are none
-	token = strtok(buffer, " \t\n"); // RA2: as above
-	unsigned int control = DefaultControl; // RA2: as above
-	if (token != NULL) { // RA2: as above
-		control = 0; // RA2: as above
-		do { // RA2: as above
-			AudioControlApplyKeyword(&control, token); // RA2: as above
-			token = strtok(NULL, " \t\n"); // RA2: as above
-		} while (token != NULL); // RA2: as above
+	token = strtok(buffer, " \t\n");
+	unsigned int control = DefaultControl;
+	if (token != NULL) {
+		control = 0;
+		do {
+			AudioControlApplyKeyword(&control, token);
+			token = strtok(NULL, " \t\n");
+		} while (token != NULL);
 	}
-	AudioEventTypeSetControl(Event, control); // RA2: as above
+	AudioEventTypeSetControl(Event, control);
 
 	ini.Get_String(Name(), "Type", "", buffer, sizeof(buffer)); // RA2: as above, starting from 0x20
-	token = strtok(buffer, " \t\n"); // RA2: as above
-	unsigned int type = DefaultType; // RA2: as above
-	if (token != NULL) { // RA2: as above
-		type = 0x20; // RA2: as above
-		do { // RA2: as above
-			AudioTypeApplyKeyword(&type, token); // RA2: as above
-			token = strtok(NULL, " \t\n"); // RA2: as above
-		} while (token != NULL); // RA2: as above
+	token = strtok(buffer, " \t\n");
+	unsigned int type = DefaultType;
+	if (token != NULL) {
+		type = 0x20;
+		do {
+			AudioTypeApplyKeyword(&type, token);
+			token = strtok(NULL, " \t\n");
+		} while (token != NULL);
 	}
-	AudioEventTypeSetType(Event, type); // RA2: as above
+	AudioEventTypeSetType(Event, type);
 
-	AudioEventTypeSetLimit(Event, ini.Get_Int(Name(), "Limit", DefaultLimit)); // RA2: as above
-	AudioEventTypeSetLoop(Event, ini.Get_Int(Name(), "Loop", 0)); // RA2: as above
-	AudioEventTypeSetRange(Event, ini.Get_Int(Name(), "Range", DefaultRange)); // RA2: as above
+	AudioEventTypeSetLimit(Event, ini.Get_Int(Name(), "Limit", DefaultLimit));
+	AudioEventTypeSetLoop(Event, ini.Get_Int(Name(), "Loop", 0));
+	AudioEventTypeSetRange(Event, ini.Get_Int(Name(), "Range", DefaultRange));
 
 	ini.Get_String(Name(), "Delay", "", buffer, sizeof(buffer)); // RA2: a low and a high value, the high one defaulting to the low one
-	token = strtok(buffer, " \t\n"); // RA2: as above
-	int low = 0; // RA2: as above
-	if (token != NULL) { // RA2: as above
-		low = atoi(token); // RA2: as above
-		token = strtok(NULL, " \t\n"); // RA2: as above
+	token = strtok(buffer, " \t\n");
+	int low = 0;
+	if (token != NULL) {
+		low = atoi(token);
+		token = strtok(NULL, " \t\n");
 	}
-	int high = low; // RA2: as above
-	if (token != NULL) { // RA2: as above
-		high = atoi(token); // RA2: as above
+	int high = low;
+	if (token != NULL) {
+		high = atoi(token);
 	}
-	AudioEventTypeSetDelay(Event, low, high); // RA2: as above
+	AudioEventTypeSetDelay(Event, low, high);
 
-	ini.Get_String(Name(), "FShift", "", buffer, sizeof(buffer)); // RA2: as above
-	token = strtok(buffer, " \t\n"); // RA2: as above
-	low = 0; // RA2: as above
-	if (token != NULL) { // RA2: as above
-		low = atoi(token); // RA2: as above
-		token = strtok(NULL, " \t\n"); // RA2: as above
+	ini.Get_String(Name(), "FShift", "", buffer, sizeof(buffer));
+	token = strtok(buffer, " \t\n");
+	low = 0;
+	if (token != NULL) {
+		low = atoi(token);
+		token = strtok(NULL, " \t\n");
 	}
-	high = low; // RA2: as above
-	if (token != NULL) { // RA2: as above
-		high = atoi(token); // RA2: as above
+	high = low;
+	if (token != NULL) {
+		high = atoi(token);
 	}
-	AudioEventTypeSetFShift(Event, low, high); // RA2: as above
+	AudioEventTypeSetFShift(Event, low, high);
 
 	return(true);
 }
@@ -215,35 +215,35 @@ bool VocClass::Fill_In(CCINIClass &ini) // RA2: the rules are read through a non
 /// <returns>Returns with the event, or NULL if no sound was played.</returns>
 void * VocClass::PlayGlobal(int voc, float volume, int panning, AudioController * controller) // RA2: the sound effect's event is started and kept in the controller
 {
-	AudioEventType * type = NULL; // RA2: as above
-	if (voc >= 0 && voc < Vocs.Count()) { // RA2: as above
-		type = Vocs[voc]->Event; // RA2: as above
+	AudioEventType * type = NULL;
+	if (voc >= 0 && voc < Vocs.Count()) {
+		type = Vocs[voc]->Event;
 	}
 
-	AudioEvent * event = NULL; // RA2: as above
-	if (controller != NULL) { // RA2: as above
-		event = AudioControllerGetEvent(controller); // RA2: as above
-		if (event != NULL && AudioEventGetType(event) != type) { // RA2: as above
-			AudioEventStop(event); // RA2: as above
-			event = NULL; // RA2: as above
+	AudioEvent * event = NULL;
+	if (controller != NULL) {
+		event = AudioControllerGetEvent(controller);
+		if (event != NULL && AudioEventGetType(event) != type) {
+			AudioEventStop(event);
+			event = NULL;
 		}
 	}
 
-	if (type != NULL) { // RA2: as above
+	if (type != NULL) {
 		unsigned int level = (unsigned int)(volume * 16384.0f); // RA2: 16384 is full volume
-		if (level >= 0x4000) { // RA2: as above
-			level = 0x4000; // RA2: as above
+		if (level >= 0x4000) {
+			level = 0x4000;
 		}
-		if (event != NULL || (event = AudioEventCreate(type)) != NULL) { // RA2: as above
-			AudioEventSetVolume(event, level); // RA2: as above
-			AudioEventSetPan(event, panning); // RA2: as above
+		if (event != NULL || (event = AudioEventCreate(type)) != NULL) {
+			AudioEventSetVolume(event, level);
+			AudioEventSetPan(event, panning);
 		}
 	}
 
-	if (controller != NULL) { // RA2: as above
+	if (controller != NULL) {
 		controller->SetEvent(event, (VocClass *)type); // RA2: the controller's type member is declared as a VocClass pointer
 	}
-	return(event); // RA2: as above
+	return(event);
 }
 
 
@@ -258,19 +258,19 @@ void * VocClass::PlayGlobal(int voc, float volume, int panning, AudioController 
 /// <param name="coord">The world location the sound comes from.</param>
 /// <param name="controller">The optional handle that keeps the event.</param>
 /// <returns>Returns with the event, or NULL if no sound is playing.</returns>
-void * VocClass::PlayAt(int voc, Coord const & coord, AudioController * controller) // RA2: as above
+void * VocClass::PlayAt(int voc, Coord const & coord, AudioController * controller)
 {
-	AudioEvent * event = NULL; // RA2: as above
-	AudioEventType * type = NULL; // RA2: as above
-	if (voc >= 0 && voc < Vocs.Count()) { // RA2: as above
-		type = Vocs[voc]->Event; // RA2: as above
+	AudioEvent * event = NULL;
+	AudioEventType * type = NULL;
+	if (voc >= 0 && voc < Vocs.Count()) {
+		type = Vocs[voc]->Event;
 	}
 
-	if (controller != NULL) { // RA2: as above
-		event = AudioControllerGetEvent(controller); // RA2: as above
-		if (event != NULL && AudioEventGetType(event) != type) { // RA2: as above
-			AudioEventStop(event); // RA2: as above
-			event = NULL; // RA2: as above
+	if (controller != NULL) {
+		event = AudioControllerGetEvent(controller);
+		if (event != NULL && AudioEventGetType(event) != type) {
+			AudioEventStop(event);
+			event = NULL;
 		}
 	}
 
@@ -302,28 +302,28 @@ void * VocClass::PlayAt(int voc, Coord const & coord, AudioController * controll
  *   05/04/1995 JLB : Variation adjustments.                                                   *
  *   11/01/1996 JLB : House override control.                                                  *
  *=============================================================================================*/
-	if (type != NULL) { // RA2: as above
-		int panning; // RA2: as above
-		float volume = Volume_At(coord, &panning, type); // RA2: as above
-		if (volume > 0) { // RA2: as above
-			unsigned int level = (unsigned int)(volume * 16384.0f); // RA2: as above
-			if (level >= 0x4000) { // RA2: as above
-				level = 0x4000; // RA2: as above
+if (type != NULL) {
+	int panning;
+	float volume = Volume_At(coord, &panning, type);
+	if (volume > 0) {
+		unsigned int level = (unsigned int)(volume * 16384.0f);
+		if (level >= 0x4000) {
+			level = 0x4000;
 			}
-			if (event != NULL || (event = AudioEventCreate(type)) != NULL) { // RA2: as above
-				AudioEventSetVolume(event, level); // RA2: as above
-				AudioEventSetPan(event, panning); // RA2: as above
+		if (event != NULL || (event = AudioEventCreate(type)) != NULL) {
+			AudioEventSetVolume(event, level);
+			AudioEventSetPan(event, panning);
 			}
-		} else if (event != NULL) { // RA2: as above
-			AudioEventStop(event); // RA2: as above
-			event = NULL; // RA2: as above
+	} else if (event != NULL) {
+		AudioEventStop(event);
+		event = NULL;
 		}
 	}
 
-	if (controller != NULL) { // RA2: as above
-		controller->SetEvent(event, (VocClass *)type); // RA2: as above
+if (controller != NULL) {
+	controller->SetEvent(event, (VocClass *)type);
 	}
-	return(event); // RA2: as above
+return(event);
 }
 
 
@@ -342,59 +342,59 @@ void * VocClass::PlayAt(int voc, Coord const & coord, AudioController * controll
 float __fastcall Volume_At(Coord const & coord, int * panning, AudioEventType * type) // RA2: a free function the sound effect routines share
 {
 	*panning = 0;
-	float halfwidth = TacticalRect.Width * 0.5f; // RA2: as above
-	float halfheight = TacticalRect.Height * 0.5f; // RA2: as above
-	float volume = 0; // RA2: as above
-	float width = halfwidth + halfwidth; // RA2: as above
+	float halfwidth = TacticalRect.Width * 0.5f;
+	float halfheight = TacticalRect.Height * 0.5f;
+	float volume = 0;
+	float width = halfwidth + halfwidth;
 	float range = AudioEventTypeRange(type) * 60; // RA2: the range in cells, 60 pixels each
-	unsigned int flags = AudioEventTypeGetType(type); // RA2: as above
+	unsigned int flags = AudioEventTypeGetType(type);
 	if (flags & 0x800) { // RA2: sounds that only play where the player has seen
-		Cell cell = Cell(coord.X / 256, coord.Y / 256); // RA2: as above
-		if (cell == CELL_NONE) { // RA2: as above
-			return(0); // RA2: as above
+		Cell cell = Cell(coord.X / 256, coord.Y / 256);
+		if (cell == CELL_NONE) {
+			return(0);
 		}
-		CellClass & cellptr = Map[cell]; // RA2: as above
-		if (!cellptr.IsMapped && !cellptr.IsVisible) { // RA2: as above
-			return(0); // RA2: as above
+		CellClass & cellptr = Map[cell];
+		if (!cellptr.IsMapped && !cellptr.IsVisible) {
+			return(0);
 		}
 	}
 
-	Point2D pixel; // RA2: as above
-	TacticalMap->Coord_To_Pixel(coord, pixel); // RA2: as above
-	float dx = pixel.X - halfwidth; // RA2: as above
-	float x = abs((int)dx); // RA2: as above
-	float y = abs((int)(pixel.Y - halfheight)); // RA2: as above
-	if (!(flags & 0x40)) { // RA2: as above
-		x -= halfwidth; // RA2: as above
-		y -= halfheight; // RA2: as above
-		if (x < 0) { // RA2: as above
-			x = 0; // RA2: as above
+	Point2D pixel;
+	TacticalMap->Coord_To_Pixel(coord, pixel);
+	float dx = pixel.X - halfwidth;
+	float x = abs((int)dx);
+	float y = abs((int)(pixel.Y - halfheight));
+	if (!(flags & 0x40)) {
+		x -= halfwidth;
+		y -= halfheight;
+		if (x < 0) {
+			x = 0;
 		}
-		if (y < 0) { // RA2: as above
-			y = 0; // RA2: as above
-		}
-	}
-	y = y + y; // RA2: as above
-	if (x < range && y < range && range > 0) { // RA2: as above
-		float distance = x > y ? x : y; // RA2: as above
-		volume = (range - distance) / range; // RA2: as above
-	}
-	if (flags & 0x10) { // RA2: as above
-		if (AudioEventTypeMinVolume(type) > volume) { // RA2: as above
-			volume = AudioEventTypeMinVolume(type); // RA2: as above
+		if (y < 0) {
+			y = 0;
 		}
 	}
-	if (volume < 0.05) { // RA2: as above
-		return(0); // RA2: as above
+	y = y + y;
+	if (x < range && y < range && range > 0) {
+		float distance = x > y ? x : y;
+		volume = (range - distance) / range;
+	}
+	if (flags & 0x10) {
+		if (AudioEventTypeMinVolume(type) > volume) {
+			volume = AudioEventTypeMinVolume(type);
+		}
+	}
+	if (volume < 0.05) {
+		return(0);
 	}
 
-	if (dx < -width) { // RA2: as above
-		dx = -width; // RA2: as above
-	} else if (dx > width) { // RA2: as above
-		dx = width; // RA2: as above
+	if (dx < -width) {
+		dx = -width;
+	} else if (dx > width) {
+		dx = width;
 	}
 	*panning = (int)(dx * 8192.0f / width + 8192.0f);
-	return(volume); // RA2: as above
+	return(volume);
 }
 
 /***********************************************************************************************
@@ -436,36 +436,36 @@ float __fastcall Volume_At(Coord const & coord, int * panning, AudioEventType * 
 /// <returns>Returns with the event, or NULL if no sound is playing.</returns>
 void * VocClass::UpdateAt(Coord const & coord, AudioController * controller) // RA2: updates a kept event for a location
 {
-	AudioEvent * event = NULL; // RA2: as above
-	if (controller != NULL) { // RA2: as above
-		event = AudioControllerGetEvent(controller); // RA2: as above
-		AudioEventType * type = AudioControllerGetType(controller); // RA2: as above
-		if (type != NULL) { // RA2: as above
-			int panning; // RA2: as above
-			float volume = Volume_At(coord, &panning, type); // RA2: as above
-			if (volume > 0) { // RA2: as above
-				if (event == NULL && AudioEventTypeLoopsForever(type)) { // RA2: as above
-					event = AudioEventCreate(type); // RA2: as above
-					if (event != NULL) { // RA2: as above
-						AudioEventSetFlag8(event); // RA2: as above
+	AudioEvent * event = NULL;
+	if (controller != NULL) {
+		event = AudioControllerGetEvent(controller);
+		AudioEventType * type = AudioControllerGetType(controller);
+		if (type != NULL) {
+			int panning;
+			float volume = Volume_At(coord, &panning, type);
+			if (volume > 0) {
+				if (event == NULL && AudioEventTypeLoopsForever(type)) {
+					event = AudioEventCreate(type);
+					if (event != NULL) {
+						AudioEventSetFlag8(event);
 					}
 				}
-				if (event != NULL) { // RA2: as above
-					unsigned int level = (unsigned int)(volume * 16384.0f); // RA2: as above
-					if (level >= 0x4000) { // RA2: as above
-						level = 0x4000; // RA2: as above
+				if (event != NULL) {
+					unsigned int level = (unsigned int)(volume * 16384.0f);
+					if (level >= 0x4000) {
+						level = 0x4000;
 					}
-					AudioEventSetVolume(event, level); // RA2: as above
-					AudioEventSetPan(event, panning); // RA2: as above
+					AudioEventSetVolume(event, level);
+					AudioEventSetPan(event, panning);
 				}
-			} else if (event != NULL) { // RA2: as above
-				AudioEventStop(event); // RA2: as above
-				event = NULL; // RA2: as above
+			} else if (event != NULL) {
+				AudioEventStop(event);
+				event = NULL;
 			}
 		}
-		controller->SetEvent(event, (VocClass *)type); // RA2: as above
+		controller->SetEvent(event, (VocClass *)type);
 	}
-	return(event); // RA2: as above
+	return(event);
 }
 
 
@@ -480,27 +480,27 @@ void * VocClass::UpdateAt(Coord const & coord, AudioController * controller) // 
 /// <returns>Returns with the event, or NULL if no sound was started.</returns>
 void * VocClass::PlayIndexAtPos(int voc, Coord const & coord, int flag) // RA2: static sounds are kept in a list
 {
-	if (voc < 0) { // RA2: as above
+	if (voc < 0) {
 		return(NULL);
 	}
 
-	VocStaticSound * sound = (VocStaticSound *)MemoryPoolGetItem(StaticSoundPool); // RA2: as above
-	if (sound == NULL) { // RA2: as above
+	VocStaticSound * sound = (VocStaticSound *)MemoryPoolGetItem(StaticSoundPool);
+	if (sound == NULL) {
 		return(NULL);
 	}
 
-	sound->Controller.Init(); // RA2: as above
-	ListNodeInit(sound); // RA2: as above
-	sound->PauseCount = 0; // RA2: as above
-	sound->Position = coord; // RA2: as above
-	sound->Flag = flag; // RA2: as above
-	void * event = PlayAt(voc, sound->Position, &sound->Controller); // RA2: as above
-	ListNodeInsert(&StaticSounds, sound); // RA2: as above
-	StaticSoundCount++; // RA2: as above
-	if (StaticSoundCount > StaticSoundMaximum) { // RA2: as above
-		StaticSoundMaximum = StaticSoundCount; // RA2: as above
+	sound->Controller.Init();
+	ListNodeInit(sound);
+	sound->PauseCount = 0;
+	sound->Position = coord;
+	sound->Flag = flag;
+	void * event = PlayAt(voc, sound->Position, &sound->Controller);
+	ListNodeInsert(&StaticSounds, sound);
+	StaticSoundCount++;
+	if (StaticSoundCount > StaticSoundMaximum) {
+		StaticSoundMaximum = StaticSoundCount;
 	}
-	return(event); // RA2: as above
+	return(event);
 }
 
 
@@ -510,21 +510,21 @@ void * VocClass::PlayIndexAtPos(int voc, Coord const & coord, int flag) // RA2: 
 /// </summary>
 void Sound_Service(void) // RA2: services the static sounds
 {
-	VocStaticSound * sound = (VocStaticSound *)ListFirstItem(&StaticSounds); // RA2: as above
-	while (sound != NULL) { // RA2: as above
-		VocStaticSound * next = (VocStaticSound *)ListNextItem(sound); // RA2: as above
-		if (sound->PauseCount == 0) { // RA2: as above
-			VocClass::UpdateAt(sound->Position, &sound->Controller); // RA2: as above
+	VocStaticSound * sound = (VocStaticSound *)ListFirstItem(&StaticSounds);
+	while (sound != NULL) {
+		VocStaticSound * next = (VocStaticSound *)ListNextItem(sound);
+		if (sound->PauseCount == 0) {
+			VocClass::UpdateAt(sound->Position, &sound->Controller);
 		}
-		if (AudioControllerGetEvent(&sound->Controller) == NULL) { // RA2: as above
-			AudioEventType * type = AudioControllerGetType(&sound->Controller); // RA2: as above
-			if (type == NULL || !AudioEventTypeLoopsForever(type)) { // RA2: as above
-				ListNodeRemove(sound); // RA2: as above
-				MemoryPoolReturnItem(StaticSoundPool, sound); // RA2: as above
-				StaticSoundCount--; // RA2: as above
+		if (AudioControllerGetEvent(&sound->Controller) == NULL) {
+			AudioEventType * type = AudioControllerGetType(&sound->Controller);
+			if (type == NULL || !AudioEventTypeLoopsForever(type)) {
+				ListNodeRemove(sound);
+				MemoryPoolReturnItem(StaticSoundPool, sound);
+				StaticSoundCount--;
 			}
 		}
-		sound = next; // RA2: as above
+		sound = next;
 	}
 }
 
@@ -537,9 +537,9 @@ void Sound_Service(void) // RA2: services the static sounds
 /// <param name="flag">The flags the sounds were started with.</param>
 void VocClass::Stop_At(Coord const & coord, int flag) // RA2: ends the static sounds that match
 {
-	for (VocStaticSound * sound = (VocStaticSound *)ListFirstItem(&StaticSounds); sound != NULL; sound = (VocStaticSound *)ListNextItem(sound)) { // RA2: as above
-		if ((sound->Flag & flag) && sound->Position.X == coord.X && sound->Position.Y == coord.Y && sound->Position.Z == coord.Z) { // RA2: as above
-			sound->Controller.End(); // RA2: as above
+	for (VocStaticSound * sound = (VocStaticSound *)ListFirstItem(&StaticSounds); sound != NULL; sound = (VocStaticSound *)ListNextItem(sound)) {
+		if ((sound->Flag & flag) && sound->Position.X == coord.X && sound->Position.Y == coord.Y && sound->Position.Z == coord.Z) {
+			sound->Controller.End();
 		}
 	}
 }
@@ -550,14 +550,14 @@ void VocClass::Stop_At(Coord const & coord, int flag) // RA2: ends the static so
 /// </summary>
 void Sound_Clear_Static(void) // RA2: empties the static sound list
 {
-	VocStaticSound * sound = (VocStaticSound *)ListFirstItem(&StaticSounds); // RA2: as above
-	while (sound != NULL) { // RA2: as above
-		VocStaticSound * next = (VocStaticSound *)ListNextItem(sound); // RA2: as above
-		sound->Controller.Stop(); // RA2: as above
-		ListNodeRemove(sound); // RA2: as above
-		MemoryPoolReturnItem(StaticSoundPool, sound); // RA2: as above
-		StaticSoundCount--; // RA2: as above
-		sound = next; // RA2: as above
+	VocStaticSound * sound = (VocStaticSound *)ListFirstItem(&StaticSounds);
+	while (sound != NULL) {
+		VocStaticSound * next = (VocStaticSound *)ListNextItem(sound);
+		sound->Controller.Stop();
+		ListNodeRemove(sound);
+		MemoryPoolReturnItem(StaticSoundPool, sound);
+		StaticSoundCount--;
+		sound = next;
 	}
 }
 
@@ -567,10 +567,10 @@ void Sound_Clear_Static(void) // RA2: empties the static sound list
 /// </summary>
 void VocStaticSound::Pause(void) // RA2: a static sound that can be paused
 {
-	PauseCount++; // RA2: as above
-	AudioEvent * event = AudioControllerGetEvent(&Controller); // RA2: as above
-	if (event != NULL) { // RA2: as above
-		AudioEventPause(event); // RA2: as above
+	PauseCount++;
+	AudioEvent * event = AudioControllerGetEvent(&Controller);
+	if (event != NULL) {
+		AudioEventPause(event);
 	}
 }
 
@@ -578,15 +578,15 @@ void VocStaticSound::Pause(void) // RA2: a static sound that can be paused
 /// <summary>
 /// Counts one pause less, and resumes the sound's event when it was paused.
 /// </summary>
-void VocStaticSound::Resume(void) // RA2: as above
+void VocStaticSound::Resume(void)
 {
-	if (PauseCount != 0) { // RA2: as above
-		if (--PauseCount < 0) { // RA2: as above
-			PauseCount = 0; // RA2: as above
+	if (PauseCount != 0) {
+		if (--PauseCount < 0) {
+			PauseCount = 0;
 		}
-		AudioEvent * event = AudioControllerGetEvent(&Controller); // RA2: as above
-		if (event != NULL) { // RA2: as above
-			AudioEventResume(event); // RA2: as above
+		AudioEvent * event = AudioControllerGetEvent(&Controller);
+		if (event != NULL) {
+			AudioEventResume(event);
 		}
 	}
 }
@@ -597,8 +597,8 @@ void VocStaticSound::Resume(void) // RA2: as above
 /// </summary>
 void Sound_Pause_All(void) // RA2: pauses the static sounds
 {
-	for (VocStaticSound * sound = (VocStaticSound *)ListFirstItem(&StaticSounds); sound != NULL; sound = (VocStaticSound *)ListNextItem(sound)) { // RA2: as above
-		sound->Pause(); // RA2: as above
+	for (VocStaticSound * sound = (VocStaticSound *)ListFirstItem(&StaticSounds); sound != NULL; sound = (VocStaticSound *)ListNextItem(sound)) {
+		sound->Pause();
 	}
 }
 
@@ -608,8 +608,8 @@ void Sound_Pause_All(void) // RA2: pauses the static sounds
 /// </summary>
 void Sound_Resume_All(void) // RA2: resumes the static sounds
 {
-	for (VocStaticSound * sound = (VocStaticSound *)ListFirstItem(&StaticSounds); sound != NULL; sound = (VocStaticSound *)ListNextItem(sound)) { // RA2: as above
-		sound->Resume(); // RA2: as above
+	for (VocStaticSound * sound = (VocStaticSound *)ListFirstItem(&StaticSounds); sound != NULL; sound = (VocStaticSound *)ListNextItem(sound)) {
+		sound->Resume();
 	}
 }
 
@@ -626,40 +626,40 @@ void Init_Vocs(CCINIClass &ini) // RA2: the rules are read through a non-const r
 	char const * const SECTION = "SoundList";
 
 	ListInit(&StaticSounds); // RA2: the static sounds start out empty, in a pool of 100
-	StaticSoundPool = MemoryPoolCreate(100, sizeof(VocStaticSound)); // RA2: as above
-	StaticSoundCount = 0; // RA2: as above
-	StaticSoundMaximum = 0; // RA2: as above
+	StaticSoundPool = MemoryPoolCreate(100, sizeof(VocStaticSound));
+	StaticSoundCount = 0;
+	StaticSoundMaximum = 0;
 
-	char buffer[0x800]; // RA2: as above
-	char * token; // RA2: as above
-	if (ini.Is_Present("Defaults")) { // RA2: as above
-		DefaultVolume = (float)ini.Get_Float("Defaults", "Volume", DefaultVolume); // RA2: as above
-		DefaultMinVolume = (float)ini.Get_Float("Defaults", "MinVolume", DefaultMinVolume); // RA2: as above
-		ini.Get_String("Defaults", "Priority", "NORMAL", buffer, sizeof(buffer)); // RA2: as above
-		AudioPriorityFromName(buffer, &DefaultPriority); // RA2: as above
+	char buffer[0x800];
+	char * token;
+	if (ini.Is_Present("Defaults")) {
+		DefaultVolume = (float)ini.Get_Float("Defaults", "Volume", DefaultVolume);
+		DefaultMinVolume = (float)ini.Get_Float("Defaults", "MinVolume", DefaultMinVolume);
+		ini.Get_String("Defaults", "Priority", "NORMAL", buffer, sizeof(buffer));
+		AudioPriorityFromName(buffer, &DefaultPriority);
 
-		ini.Get_String("Defaults", "Control", "", buffer, sizeof(buffer)); // RA2: as above
-		token = strtok(buffer, " \t\n"); // RA2: as above
-		if (token != NULL) { // RA2: as above
-			DefaultControl = 0; // RA2: as above
-			do { // RA2: as above
-				AudioControlApplyKeyword(&DefaultControl, token); // RA2: as above
-				token = strtok(NULL, " \t\n"); // RA2: as above
-			} while (token != NULL); // RA2: as above
+		ini.Get_String("Defaults", "Control", "", buffer, sizeof(buffer));
+		token = strtok(buffer, " \t\n");
+		if (token != NULL) {
+			DefaultControl = 0;
+			do {
+				AudioControlApplyKeyword(&DefaultControl, token);
+				token = strtok(NULL, " \t\n");
+			} while (token != NULL);
 		}
 
-		ini.Get_String("Defaults", "Type", "", buffer, sizeof(buffer)); // RA2: as above
-		token = strtok(buffer, " \t\n"); // RA2: as above
-		if (token != NULL) { // RA2: as above
-			DefaultType = 0x20; // RA2: as above
-			do { // RA2: as above
-				AudioTypeApplyKeyword(&DefaultType, token); // RA2: as above
-				token = strtok(NULL, " \t\n"); // RA2: as above
-			} while (token != NULL); // RA2: as above
+		ini.Get_String("Defaults", "Type", "", buffer, sizeof(buffer));
+		token = strtok(buffer, " \t\n");
+		if (token != NULL) {
+			DefaultType = 0x20;
+			do {
+				AudioTypeApplyKeyword(&DefaultType, token);
+				token = strtok(NULL, " \t\n");
+			} while (token != NULL);
 		}
 
-		DefaultLimit = ini.Get_Int("Defaults", "Limit", DefaultLimit); // RA2: as above
-		DefaultRange = ini.Get_Int("Defaults", "Range", DefaultRange); // RA2: as above
+		DefaultLimit = ini.Get_Int("Defaults", "Limit", DefaultLimit);
+		DefaultRange = ini.Get_Int("Defaults", "Range", DefaultRange);
 	}
 
 	if (ini.Is_Present(SECTION)) {
@@ -695,9 +695,9 @@ void Free_Vocs(void)
 	}
 
 	if (StaticSoundPool != NULL) { // RA2: the static sounds go with the sound effects
-		Sound_Clear_Static(); // RA2: as above
-		MemoryPoolDestroy(StaticSoundPool); // RA2: as above
-		StaticSoundPool = NULL; // RA2: as above
+		Sound_Clear_Static();
+		MemoryPoolDestroy(StaticSoundPool);
+		StaticSoundPool = NULL;
 	}
 }
 
@@ -723,7 +723,7 @@ VocType VocClass::From_Name(char const * name)
 	if (name != NULL) { // RA2: the name test wraps the loop
 		for (int voc = VOC_FIRST; voc < Vocs.Count(); voc++) { // RA2: counts with an int
 			if (stricmp(name, Vocs[voc]->Name()) == 0) { // RA2: the name comes from the event type
-				return(VocType(voc)); // RA2: as above
+				return(VocType(voc));
 			}
 		}
 	}
@@ -774,9 +774,9 @@ char const * Voc_Name(VocType voc)
 {
 	if (voc >= 0 && voc < Vocs.Count()) { // RA2: any index in the list, "none" is -1
 		if (Vocs[voc]->Event != NULL) { // RA2: a sound effect without an event type has no name
-			return(AudioEventTypeName(Vocs[voc]->Event)); // RA2: as above
+			return(AudioEventTypeName(Vocs[voc]->Event));
 		}
-		return("Invalid Voc"); // RA2: as above
+		return("Invalid Voc");
 	}
 	return("<none>");
 }
@@ -808,7 +808,7 @@ VocType VocClass::Voc_Type(void)
 /// <returns>bool; Is this sound effect available to be played?</returns>
 bool VocClass::Has_Event(void) const // RA2: a test of the event type
 {
-	return(Event != NULL); // RA2: as above
+	return(Event != NULL);
 }
 
 
@@ -819,10 +819,10 @@ bool VocClass::Has_Event(void) const // RA2: a test of the event type
 /// <returns>Returns with the name of the event type, or "Invalid Voc" if there is none.</returns>
 char const * __fastcall Voc_Event_Name(VocClass const * voc) // RA2: 0x00714A70; the same test VocClass::Name makes, out of line
 {
-	if (voc->Event != NULL) { // RA2: as above
-		return(AudioEventTypeName(voc->Event)); // RA2: as above
+	if (voc->Event != NULL) {
+		return(AudioEventTypeName(voc->Event));
 	}
-	return("Invalid Voc"); // RA2: as above
+	return("Invalid Voc");
 }
 
 
@@ -833,37 +833,37 @@ char const * __fastcall Voc_Event_Name(VocClass const * voc) // RA2: 0x00714A70;
 /// <param name="stream">The stream to save to.</param>
 HRESULT __fastcall Static_Sounds_Save(IStream * stream) // RA2: the static sounds are saved with the game
 {
-	int count = ListCountItems(&StaticSounds); // RA2: as above
-	HRESULT result = stream->Write(&count, sizeof(count), 0); // RA2: as above
-	if (SUCCEEDED(result)) { // RA2: as above
-		VocStaticSound * sound = (VocStaticSound *)ListFirstItem(&StaticSounds); // RA2: as above
-		while (sound) { // RA2: as above
-			struct { // RA2: as above
-				int Index; // RA2: as above
+	int count = ListCountItems(&StaticSounds);
+	HRESULT result = stream->Write(&count, sizeof(count), 0);
+	if (SUCCEEDED(result)) {
+		VocStaticSound * sound = (VocStaticSound *)ListFirstItem(&StaticSounds);
+		while (sound) {
+			struct {
+					int Index;
 				int X; // RA2: the location, as three words
-				int Y; // RA2: as above
-				int Z; // RA2: as above
-			} entry; // RA2: as above
-			int index = VOC_NONE; // RA2: as above
-			entry.Index = index; // RA2: as above
-			if (sound->Controller.EventType) { // RA2: as above
-				char const * name = AudioEventTypeName((AudioEventType *)sound->Controller.EventType); // RA2: as above
-				if (name) { // RA2: as above
-					index = VocClass::From_Name(name); // RA2: as above
+					int Y;
+					int Z;
+			} entry;
+			int index = VOC_NONE;
+			entry.Index = index;
+			if (sound->Controller.EventType) {
+				char const * name = AudioEventTypeName((AudioEventType *)sound->Controller.EventType);
+				if (name) {
+					index = VocClass::From_Name(name);
 				}
-				entry.Index = index; // RA2: as above
+				entry.Index = index;
 			}
-			entry.X = sound->Position.X; // RA2: as above
-			entry.Y = sound->Position.Y; // RA2: as above
-			entry.Z = sound->Position.Z; // RA2: as above
-			result = stream->Write(&entry, sizeof(entry), 0); // RA2: as above
-			if (FAILED(result)) { // RA2: as above
-				return(result); // RA2: as above
+			entry.X = sound->Position.X;
+			entry.Y = sound->Position.Y;
+			entry.Z = sound->Position.Z;
+			result = stream->Write(&entry, sizeof(entry), 0);
+			if (FAILED(result)) {
+				return(result);
 			}
-			sound = (VocStaticSound *)ListNextItem(sound); // RA2: as above
+			sound = (VocStaticSound *)ListNextItem(sound);
 		}
 	}
-	return(result); // RA2: as above
+	return(result);
 }
 
 
@@ -874,35 +874,35 @@ HRESULT __fastcall Static_Sounds_Save(IStream * stream) // RA2: the static sound
 /// <param name="stream">The stream to load from.</param>
 long __fastcall Static_Sounds_Load(IStream * stream) // RA2: the static sounds are loaded with the game
 {
-	Sound_Clear_Static(); // RA2: as above
-	Audio_Stop_Events(); // RA2: as above
-	int count; // RA2: as above
-	HRESULT result = stream->Read(&count, sizeof(count), 0); // RA2: as above
-	if (SUCCEEDED(result)) { // RA2: as above
-		for (int index = 0; index < count; index++) { // RA2: as above
-			struct { // RA2: as above
-				int Index; // RA2: as above
+	Sound_Clear_Static();
+	Audio_Stop_Events();
+	int count;
+	HRESULT result = stream->Read(&count, sizeof(count), 0);
+	if (SUCCEEDED(result)) {
+		for (int index = 0; index < count; index++) {
+			struct {
+					int Index;
 				int X; // RA2: the location, as three words
-				int Y; // RA2: as above
-				int Z; // RA2: as above
-			} entry; // RA2: as above
-			result = stream->Read(&entry, sizeof(entry), 0); // RA2: as above
-			if (FAILED(result)) { // RA2: as above
-				return(result); // RA2: as above
+					int Y;
+					int Z;
+			} entry;
+			result = stream->Read(&entry, sizeof(entry), 0);
+			if (FAILED(result)) {
+				return(result);
 			}
-			if (entry.Index != VOC_NONE && entry.Index < Vocs.Count() && entry.Index >= 0) { // RA2: as above
-				VocClass * voc = Vocs[entry.Index]; // RA2: as above
-				if (voc->Event != NULL && AudioEventTypeLoopsForever(voc->Event)) { // RA2: as above
-					Coord position; // RA2: as above
-					position.X = entry.X; // RA2: as above
-					position.Y = entry.Y; // RA2: as above
-					position.Z = entry.Z; // RA2: as above
-					VocClass::PlayIndexAtPos(entry.Index, position, 0); // RA2: as above
+			if (entry.Index != VOC_NONE && entry.Index < Vocs.Count() && entry.Index >= 0) {
+				VocClass * voc = Vocs[entry.Index];
+				if (voc->Event != NULL && AudioEventTypeLoopsForever(voc->Event)) {
+					Coord position;
+					position.X = entry.X;
+					position.Y = entry.Y;
+					position.Z = entry.Z;
+					VocClass::PlayIndexAtPos(entry.Index, position, 0);
 				}
 			}
 		}
 	}
-	return(result); // RA2: as above
+	return(result);
 }
 
 
@@ -913,7 +913,7 @@ long __fastcall Static_Sounds_Load(IStream * stream) // RA2: the static sounds a
 /// <param name="voc">The sound effect number.</param>
 void __fastcall Controller_Set_Voc(AudioController * controller, int voc) // RA2: sets only the type of the controller
 {
-	if (voc >= 0 && voc < Vocs.Count()) { // RA2: as above
-		controller->SetEvent(NULL, (VocClass *)Vocs[voc]->Event); // RA2: as above
+	if (voc >= 0 && voc < Vocs.Count()) {
+		controller->SetEvent(NULL, (VocClass *)Vocs[voc]->Event);
 	}
 }

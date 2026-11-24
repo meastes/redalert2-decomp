@@ -162,7 +162,7 @@ void Stamp_Their_Timing(int index);	// RA2: 0x00623300 (queue.cpp)
 char * Wide_To_Narrow(wchar_t const * text);	// RA2: 0x006FA120 (wonline.cpp), the narrow text in a static buffer
 wchar_t * Narrow_To_Wide(char const * narrow);	// RA2: 0x006FA180 (wonline.cpp)
 unsigned int __fastcall Compute_Name_CRC(wchar_t const * name);	// RA2: 0x005BBA50, the wide form of netdlg.h's
-namespace OwnerDraw { // RA2: as above
+namespace OwnerDraw {
 	void __fastcall WideToCharString(char * dest, wchar_t const * src, int count);	// RA2: 0x006FA0F0
 }
 
@@ -183,7 +183,7 @@ enum { // RA2: NetCommandType lacks these four global packet commands
 static inline bool Same_Name(NodeNameType * a, NodeNameType * b)	// RA2: the inline compare of two lobby names (case insensitive, as narrow text)
 {
 	char * name = Wide_To_Narrow(a->Name); // RA2: the lobby names are wide; they are compared as narrow text
-	return(stricmp(name, Wide_To_Narrow(b->Name)) == 0); // RA2: as above
+	return(stricmp(name, Wide_To_Narrow(b->Name)) == 0);
 }
 
 
@@ -219,22 +219,22 @@ void Ingame_Menu_Dialog(void)
 
 		Pause_Scenario();
 		MouseCursor->Release_Mouse();	// RA2: the mouse is released and shown until its state is clear, then the dialogs run
-		while (MouseCursor->Get_Mouse_State()) {	// RA2: as above
-			MouseCursor->Show_Mouse();	// RA2: as above
+		while (MouseCursor->Get_Mouse_State()) {
+			MouseCursor->Show_Mouse();
 		}
 
 		while (SpecialDialog != SDLG_NONE) {
 			switch (SpecialDialog) {
 				case SDLG_RESTATE:	// RA2: dialog 9 restates the mission (0x0063B090)
-					Restate_Mission(Scen); // RA2: as above
-					if (SpecialDialog == SDLG_RESTATE) { // RA2: as above
+					Restate_Mission(Scen);
+					if (SpecialDialog == SDLG_RESTATE) {
 						SpecialDialog = SDLG_NONE;
 					}
 					break;
 
 				case SDLG_SPECIAL:	// RA2: dialog 8 is the diplomacy dialog of the map (0x00634A00)
-					Diplomacy_Dialog(&Map); // RA2: as above
-					if (SpecialDialog == SDLG_SPECIAL) { // RA2: as above
+					Diplomacy_Dialog(&Map);
+					if (SpecialDialog == SDLG_SPECIAL) {
 						SpecialDialog = SDLG_NONE;
 					}
 					break;
@@ -276,7 +276,7 @@ void Ingame_Menu_Dialog(void)
 							break;
 
 						case 4: // RA2: the abort menu's third answer queues the destruct event without leaving
-							OutList.Add(EventClass(PlayerPtr->HeapID, EventClass::DESTRUCT));	// RA2: as above
+							OutList.Add(EventClass(PlayerPtr->HeapID, EventClass::DESTRUCT));
 							_special_dialog_flag = false;
 							break;
 
@@ -309,11 +309,11 @@ void Ingame_Menu_Dialog(void)
 		}
 
 		UpdateWindow(MainWindow);	// RA2: after the dialogs the window is redrawn, input is locked again if the scenario wants it, and the mouse is taken back
-		if (Scen->IsInputLocked) {	// RA2: as above
-			MouseCursor->Hide_Mouse();	// RA2: as above
+		if (Scen->IsInputLocked) {
+			MouseCursor->Hide_Mouse();
 		}
-		MouseCursor->Capture_Mouse();	// RA2: as above
-		Session.Resume();	// RA2: as above
+		MouseCursor->Capture_Mouse();
+		Session.Resume();
 
 		Resume_Scenario();
 	}
@@ -356,7 +356,7 @@ void Main_Game(int argc, char * argv[])
 	if (ret) {
 		if (ret < 0) {
 			char text[5120];	// RA2: the message text and caption are converted to ANSI into buffers of 5120 and 2048 bytes
-			char caption[2048];	// RA2: as above
+			char caption[2048];
 			MSGBOXPARAMS params;
 			WideCharToMultiByte(CP_ACP, 0, StringTable::LoadString("TXT_INITGAME_FAILED", NULL, "D:\\Ra2\\Conquer.CPP", 562), -1, text, sizeof(text), NULL, NULL);	// RA2: the text is a string table entry, line 562 of the source
 			WideCharToMultiByte(CP_ACP, 0, StringTable::LoadString("TXT_SHORT_TITLE", NULL, "D:\\Ra2\\Conquer.CPP", 563), -1, caption, sizeof(caption), NULL, NULL);	// RA2: as above, line 563
@@ -364,7 +364,7 @@ void Main_Game(int argc, char * argv[])
 			params.hwndOwner = MainWindow;
 			params.hInstance = ProgramInstance;
 			params.lpszText = text;	// RA2: the text points at the converted buffer
-			params.lpszCaption = caption;	// RA2: as above
+			params.lpszCaption = caption;
 			params.dwStyle = (MB_OK | MB_ICONSTOP | MB_SETFOREGROUND | MB_TOPMOST);
 			params.lpszIcon = NULL;
 			params.dwContextHelpId = NULL;
@@ -435,8 +435,8 @@ ret_addr:
 		**	Call the game's main loop
 		*/
 		for (;;) {	// RA2: no editor loop; the loop ends when the game is over, which Process_Game_End decides
-			if (Main_Loop()) {	// RA2: as above
-				if (Process_Game_End()) {	// RA2: as above
+			if (Main_Loop()) {
+				if (Process_Game_End()) {
 					break;
 				}
 			}
@@ -452,7 +452,7 @@ ret_addr:
 			}
 		}
 		Reload_Art_Set();	// RA2: replaces Stop_Ingame_Movie, the tooltip deactivation and Hide_Mouse
-		Session.Leave_Game();	// RA2: as above
+		Session.Leave_Game();
 		ScenarioActive = false;
 		TacticalActive = false;
 
@@ -494,8 +494,8 @@ ret_addr:
 		}
 
 		if (Session.Type == GAME_IPX || Session.Type == GAME_INTERNET || Session.Type == GAME_NULL_MODEM || Session.Type == GAME_MODEM) {	// RA2: the chat settings are written for every networked game
-			if (!Session.Play) {	// RA2: as above
-				Session.Write_Chat_Settings();	// RA2: as above
+			if (!Session.Play) {
+				Session.Write_Chat_Settings();
 			}
 		}
 
@@ -571,9 +571,9 @@ void Call_Back(void)
 	*/
 	Audio_Service();	// RA2: one audio routine replaces the focus test, the sound callback, the theme and the speech
 	if (IngameVQ.Count() > 0) {	// RA2: the movie playing in the game gets its waiting call
-		MovieHandle * movie = IngameVQ[0];	// RA2: as above
-		if (movie != NULL) {	// RA2: as above
-			movie->Waiting();	// RA2: as above
+		MovieHandle * movie = IngameVQ[0];
+		if (movie != NULL) {
+			movie->Waiting();
 		}
 	}
 
@@ -641,32 +641,32 @@ void IPX_Call_Back(void)
 	**	messages from the connection dialogs.
 	*/
 	if (Session.Type == GAME_INTERNET && !Session.NetOpen) { // RA2: an internet game first sends NET_PORT_PROBE packets to the other players when the timer ran out or a probe is due
-		if ((_probe_timer == 0 || Session.PortProbeDue) && Session.Players.Count()) { // RA2: as above
+		if ((_probe_timer == 0 || Session.PortProbeDue) && Session.Players.Count()) {
 			Windows_Message_Handler();
 			Ipx.Service();
-			if (Ipx.Global_Num_Send() == 0) { // RA2: as above
-				GlobalPacketType packet; // RA2: as above
-				memset(&packet, 0, 0x5b); // RA2: as above
-				packet.Command = NET_PORT_PROBE; // RA2: as above
-				OwnerDraw::WideToCharString(packet.Name, Session.Players[0]->Name, -1); // RA2: as above
-				Queue_Ipx_Clear(); // RA2: as above
-				DebugString("Sending NET_PORT_PROBE packets in Call_Back\n"); // RA2: as above
+			if (Ipx.Global_Num_Send() == 0) {
+				GlobalPacketType packet;
+				memset(&packet, 0, 0x5b);
+				packet.Command = NET_PORT_PROBE;
+				OwnerDraw::WideToCharString(packet.Name, Session.Players[0]->Name, -1);
+				Queue_Ipx_Clear();
+				DebugString("Sending NET_PORT_PROBE packets in Call_Back\n");
 
-				for (int i = 1; i < Session.Players.Count(); i++) { // RA2: as above
-					unsigned short port = Session.PlayerPorts[i]; // RA2: as above
-					if (port) { // RA2: as above
-						DebugString("Sending to %s\n", Wide_To_Narrow(Session.Players[i]->Name)); // RA2: as above
-						Ipx.Send_Global_Message(&packet, 0x5b, 0, &Session.Players[i]->Address, port, 0); // RA2: as above
+				for (int i = 1; i < Session.Players.Count(); i++) {
+					unsigned short port = Session.PlayerPorts[i];
+					if (port) {
+						DebugString("Sending to %s\n", Wide_To_Narrow(Session.Players[i]->Name));
+						Ipx.Send_Global_Message(&packet, 0x5b, 0, &Session.Players[i]->Address, port, 0);
 						Windows_Message_Handler();
 						Ipx.Service();
 
-						for (int index = 0; index < 8; index++) { // RA2: as above
-							if (Same_Name(Session.Slots[index], Session.Players[i])) { // RA2: as above
-								if (TickCount - Session.PlayerLastTime[index] > 2400) { // RA2: as above
-									DebugString("No PORT_PROBE from %s in the last 40 seconds\n", Wide_To_Narrow(Session.Players[i]->Name)); // RA2: as above
-									if (Session.Players[i]->Slot.Port != port && Session.Players[i]->Slot.Port >= 0x400) { // RA2: as above
-										DebugString("Sending to %s on mangled port from pserver\n", Wide_To_Narrow(Session.Players[i]->Name)); // RA2: as above
-										Ipx.Send_Global_Message(&packet, 0x5b, 0, &Session.Players[i]->Address, Session.Players[i]->Slot.Port, 0); // RA2: as above
+						for (int index = 0; index < 8; index++) {
+							if (Same_Name(Session.Slots[index], Session.Players[i])) {
+								if (TickCount - Session.PlayerLastTime[index] > 2400) {
+									DebugString("No PORT_PROBE from %s in the last 40 seconds\n", Wide_To_Narrow(Session.Players[i]->Name));
+									if (Session.Players[i]->Slot.Port != port && Session.Players[i]->Slot.Port >= 0x400) {
+										DebugString("Sending to %s on mangled port from pserver\n", Wide_To_Narrow(Session.Players[i]->Name));
+										Ipx.Send_Global_Message(&packet, 0x5b, 0, &Session.Players[i]->Address, Session.Players[i]->Slot.Port, 0);
 									}
 								}
 								break;
@@ -675,15 +675,15 @@ void IPX_Call_Back(void)
 					}
 				}
 
-				CDTimerClass<SystemTimerClass> timer(120); // RA2: as above
-				while (Ipx.Global_Num_Send() > 0 && timer > 0) { // RA2: as above
+				CDTimerClass<SystemTimerClass> timer(120);
+				while (Ipx.Global_Num_Send() > 0 && timer > 0) {
 					Windows_Message_Handler();
 					Ipx.Service();
 				}
 
-				_probe_timer = ProbeDelay; // RA2: as above
-				Session.PortProbeDue = false; // RA2: as above
-				Ipx.Set_Global_Routed(); // RA2: as above
+				_probe_timer = ProbeDelay;
+				Session.PortProbeDue = false;
+				Ipx.Set_Global_Routed();
 			}
 		}
 	}
@@ -703,11 +703,11 @@ void IPX_Call_Back(void)
 
 					case NET_IM_STILL_HERE: // RA2: a keep-alive packet of a router connection (0x27) stamps that connection's timing
 					{
-						if (Session.Type == GAME_INTERNET && Session.ViaPacketRouter) { // RA2: as above
+						if (Session.Type == GAME_INTERNET && Session.ViaPacketRouter) {
 							for (int i = 0; i < Ipx.Num_Connections(); i++) {
-								if (Ipx.Connection_ID(i) == Session.GPacket.Chat.ID) { // RA2: as above
-									DebugString("Got NET_IM_STILL_HERE packet from %s.\n", Wide_To_Narrow(Ipx.Connection_Name(Session.GPacket.Chat.ID))); // RA2: as above
-									Stamp_Their_Timing(i); // RA2: as above
+								if (Ipx.Connection_ID(i) == Session.GPacket.Chat.ID) {
+									DebugString("Got NET_IM_STILL_HERE packet from %s.\n", Wide_To_Narrow(Ipx.Connection_Name(Session.GPacket.Chat.ID)));
+									Stamp_Their_Timing(i);
 									break;
 								}
 							}
@@ -715,48 +715,48 @@ void IPX_Call_Back(void)
 						break;
 					}
 
-					case NET_PORT_PROBE: // RA2: as above
+					case NET_PORT_PROBE:
 					{
-						DebugString("Got NET_PORT_PROBE packet from %s - port = %d\n", Session.GPacket.Name, Session.GAddress.Get_Port()); // RA2: as above
+						DebugString("Got NET_PORT_PROBE packet from %s - port = %d\n", Session.GPacket.Name, Session.GAddress.Get_Port());
 						for (int i = 0; i < Session.Players.Count(); i++) {
-							if (Session.Players[i]->Address.Is_Same_Node(Session.GAddress) && stricmp(Wide_To_Narrow(Session.Players[i]->Name), Session.GPacket.Name) == 0) { // RA2: as above
-								for (int index = 0; index < 8; index++) { // RA2: as above
-									if (Same_Name(Session.Slots[index], Session.Players[i])) { // RA2: as above
-										Session.PlayerLastTime[index] = TickCount; // RA2: as above
+							if (Session.Players[i]->Address.Is_Same_Node(Session.GAddress) && stricmp(Wide_To_Narrow(Session.Players[i]->Name), Session.GPacket.Name) == 0) {
+								for (int index = 0; index < 8; index++) {
+									if (Same_Name(Session.Slots[index], Session.Players[i])) {
+										Session.PlayerLastTime[index] = TickCount;
 										break;
 									}
 								}
-								unsigned short port = Session.GAddress.Get_Port(); // RA2: as above
-								if (port != Session.Players[i]->Address.Get_Port() || port != Session.PlayerPorts[i]) { // RA2: as above
-									DebugString("Strange port number in PORT_PROBE packet\n"); // RA2: as above
-									int old = Session.PlayerPorts[i]; // RA2: as above
-									if (port == 0) { // RA2: as above
-										port = 1234; // RA2: as above
+								unsigned short port = Session.GAddress.Get_Port();
+								if (port != Session.Players[i]->Address.Get_Port() || port != Session.PlayerPorts[i]) {
+									DebugString("Strange port number in PORT_PROBE packet\n");
+									int old = Session.PlayerPorts[i];
+									if (port == 0) {
+										port = 1234;
 									}
-									Session.PlayerPorts[i] = port; // RA2: as above
-									Session.Players[i]->Address.Set_Port(port); // RA2: as above
-									DebugString("Adjusting port number for player %s from %d to %d\n", Session.GPacket.Name, old, port); // RA2: as above
+									Session.PlayerPorts[i] = port;
+									Session.Players[i]->Address.Set_Port(port);
+									DebugString("Adjusting port number for player %s from %d to %d\n", Session.GPacket.Name, old, port);
 								}
 							}
 						}
 						break;
 					}
 
-					case NET_PLACE_BEACON: // RA2: as above
+					case NET_PLACE_BEACON:
 					{
-						BeaconManager.Place_Beacon(Session.GPacket.Beacon.House, Coord(Session.GPacket.Beacon.X, Session.GPacket.Beacon.Y, Session.GPacket.Beacon.Z), Session.GPacket.Beacon.ID); // RA2: as above
+						BeaconManager.Place_Beacon(Session.GPacket.Beacon.House, Coord(Session.GPacket.Beacon.X, Session.GPacket.Beacon.Y, Session.GPacket.Beacon.Z), Session.GPacket.Beacon.ID);
 						break;
 					}
 
-					case NET_REMOVE_BEACON: // RA2: as above
+					case NET_REMOVE_BEACON:
 					{
-						BeaconManager.Remove_Beacon(Session.GPacket.Beacon.House, Session.GPacket.Beacon.ID); // RA2: as above
+						BeaconManager.Remove_Beacon(Session.GPacket.Beacon.House, Session.GPacket.Beacon.ID);
 						break;
 					}
 
-					case NET_BEACON_TEXT: // RA2: as above
+					case NET_BEACON_TEXT:
 					{
-						BeaconManager.EditBeaconMessage(Session.GPacket.BeaconText.Text, Session.GPacket.BeaconText.House, Session.GPacket.BeaconText.ID, false); // RA2: as above
+						BeaconManager.EditBeaconMessage(Session.GPacket.BeaconText.Text, Session.GPacket.BeaconText.House, Session.GPacket.BeaconText.ID, false);
 						break;
 					}
 
@@ -783,14 +783,14 @@ void IPX_Call_Back(void)
 					*/
 					case NET_PORT_UNREACHABLE: // RA2: a peer's packets did not arrive (0x2F); the UDP transport learns the peer's address
 					{
-						DebugString("Got NET_PORT_UNREACHABLE message from %s\n", Session.GPacket.Name); // RA2: as above
-						if (Session.Type == GAME_INTERNET && PacketTransport != NULL) { // RA2: as above
+						DebugString("Got NET_PORT_UNREACHABLE message from %s\n", Session.GPacket.Name);
+						if (Session.Type == GAME_INTERNET && PacketTransport != NULL) {
 							NetNumType net;
 							NetNodeType node;
-							unsigned short port; // RA2: as above
-							IPXAddressClass * address = OwnerTalk.Address_From_Name(Session.GPacket.Name); // RA2: as above
-							address->Get_Address(net, node, &port); // RA2: as above
-							((UDPInterfaceClass *)PacketTransport)->Add_Peer(node, port); // RA2: as above
+							unsigned short port;
+							IPXAddressClass * address = OwnerTalk.Address_From_Name(Session.GPacket.Name);
+							address->Get_Address(net, node, &port);
+							((UDPInterfaceClass *)PacketTransport)->Add_Peer(node, port);
 						}
 						break;
 					}
@@ -813,12 +813,12 @@ void IPX_Call_Back(void)
 							}
 						}
 						if (msg_ok && Session.ViaPacketRouter) { // RA2: behind the packet router a message only counts for the players in its recipient mask
-							msg_ok = (Session.GPacket.Message.Recipients & OwnerTalk.Mask_From_ID(Session.Players[0]->Player.ID)) != 0; // RA2: as above
+							msg_ok = (Session.GPacket.Message.Recipients & OwnerTalk.Mask_From_ID(Session.Players[0]->Player.ID)) != 0;
 						}
 
 						if (msg_ok) {
 							wchar_t * name = Narrow_To_Wide(Session.GPacket.Name); // RA2: the sender's name is converted to wide text
-							Session.Messages.Add_Message(name, // RA2: as above
+							Session.Messages.Add_Message(name,
 								Session.GPacket.Message.Color,
 								(wchar_t *)Session.GPacket.Message.Buf, // RA2: the message text is wide
 								Session.Color_Index_To_Scheme(Session.GPacket.Message.Color),
@@ -841,24 +841,24 @@ void IPX_Call_Back(void)
 						break;
 					}
 
-					case NET_TAUNT: // RA2: as above
+					case NET_TAUNT:
 					{
 						bool msg_ok = false;
 						if (!Session.NetProtect) {
 							msg_ok = true;
 						} else {
-							if (Session.GPacket.Taunt.NameCRC == Compute_Name_CRC(Session.GameName)) { // RA2: as above
+							if (Session.GPacket.Taunt.NameCRC == Compute_Name_CRC(Session.GameName)) {
 								msg_ok = true;
 							} else {
 								msg_ok = false;
 							}
 						}
-						if (msg_ok && Session.ViaPacketRouter) { // RA2: as above
-							msg_ok = (Session.GPacket.Taunt.Recipients & OwnerTalk.Mask_From_ID(Session.Players[0]->Player.ID)) != 0; // RA2: as above
+						if (msg_ok && Session.ViaPacketRouter) {
+							msg_ok = (Session.GPacket.Taunt.Recipients & OwnerTalk.Mask_From_ID(Session.Players[0]->Player.ID)) != 0;
 						}
 						if (msg_ok) {
-							if ((Session.LANTaunts && Session.Type == GAME_IPX) || (Session.WOLTaunts && Session.Type == GAME_INTERNET)) { // RA2: as above
-								Play_Taunt(Session.GPacket.Taunt.ID); // RA2: as above
+							if ((Session.LANTaunts && Session.Type == GAME_IPX) || (Session.WOLTaunts && Session.Type == GAME_INTERNET)) {
+								Play_Taunt(Session.GPacket.Taunt.ID);
 							}
 						}
 						break;
@@ -869,7 +869,7 @@ void IPX_Call_Back(void)
 						DebugString("Processing NET_PROGRESS_REPORT\n"); // RA2: the report is logged, then matched to its player by node address and name
 						for (int i = 0; i < Session.Players.Count(); i++) {
 							if (Session.Players[i]->Address.Is_Same_Node(Session.GAddress) && stricmp(Wide_To_Narrow(Session.Players[i]->Name), Session.GPacket.Name) == 0) { // RA2: the sender is found by node address and name, not by address alone
-								Progress.Set_Progress_Percent(i, Session.GPacket.Progress.Percent, Point2D(-1, -1)); // RA2: as above
+								Progress.Set_Progress_Percent(i, Session.GPacket.Progress.Percent, Point2D(-1, -1));
 								break;
 							}
 						}
@@ -1643,10 +1643,10 @@ LayerType Layer_From_Name(char const * name) // RA2: TibSun has no layer names; 
 {
 	if (name != NULL) {	// RA2: the loop only runs for a non-NULL name
 		for (LayerType layer = LAYER_FIRST; layer < LAYER_COUNT; layer++) {	// RA2: five layers, walked through the table at 0x007D38C8
-			if (stricmp(LayerName[layer], name) == 0) return(layer); // RA2: as above
+			if (stricmp(LayerName[layer], name) == 0) return(layer);
 		}
 	}
-	return(LAYER_NONE); // RA2: as above
+	return(LAYER_NONE);
 }
 
 
@@ -1660,7 +1660,7 @@ LayerType Layer_From_Name(char const * name) // RA2: TibSun has no layer names; 
 char const * Name_From_Layer(LayerType layer) // RA2: same shape as Name_From_Speed over the layer table
 {
 	if ((unsigned)layer < LAYER_COUNT) {	// RA2: unsigned compare against 5
-		return(LayerName[layer]); // RA2: as above
+		return(LayerName[layer]);
 	}
 	return("<none>");
 }

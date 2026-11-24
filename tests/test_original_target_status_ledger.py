@@ -146,7 +146,8 @@ class RebuildCategoryLineTests(unittest.TestCase):
     """Both trees on the same category lines (lane O41, 2026-11-22): Reproduced .text is the sum of C/C++ body,
     evidenced inline asm, frozen padding, linked library and assembled asm in both; C/C++ is body bytes only; the
     rebuild's whole-unit categories come from its catalog, its function-level ones and the 'exact with no
-    judgment call' row (lane O37) from the last row of rebuild/manifest/progress.csv."""
+    judgment call' row (lane O37) from the last row of rebuild/manifest/progress.csv. Since 2026-11-24 the rebuild
+    (tree of record) is the first column, whole-unit as the headline, and src-final the frozen reference."""
     BASE = dict(time_utc='2026-11-22T20:00Z', units='2', functions_exact='10', bytes_exact='1000', a_functions='8',
                 a_bytes='800', b_functions='1', b_bytes='100', c_functions='1', c_bytes='100', workers_functions='0',
                 workers_bytes='0', source_share_of_text='5.000%', reproduced_text='6.000%', duplicates='0',
@@ -179,8 +180,8 @@ class RebuildCategoryLineTests(unittest.TestCase):
         lines = self.lines(dict(self.BASE, **self.BODY))
         self.assertEqual(self.line(lines, '| Reproduced .text'),
                          '| Reproduced .text (both trees: C/C++ body + evidenced inline asm + frozen padding + linked '
-                         'library members + assembled handwritten asm, the six lines below) | 13.00% (130 B) '
-                         '| **11.40% function-level** (114 B) (10.20% whole-unit, 102 B) |')
+                         'library members + assembled handwritten asm, the six lines below) '
+                         '| **10.20% whole-unit** (102 B) (11.40% function-level, 114 B) | 13.00% (130 B) |')
 
     def test_revised_assembly_has_its_own_line_and_no_cpp_credit(self):
         """Revised, binary-derived lines (user decision 2026-11-24): split off the assembled line, inside Reproduced
@@ -203,41 +204,42 @@ class RebuildCategoryLineTests(unittest.TestCase):
         lines = self.lines(dict(self.BASE, **self.BODY))
         self.assertEqual(self.line(lines, '| C/C++ bodies matched'),
                          '| C/C++ bodies matched (body bytes: no padding, no evidenced inline asm; the parity line) '
-                         '| 100 B, 10.00% | **90 B, 9.00% function-level** (80 B, 8.00% whole-unit); gap to main '
-                         '0.0 KB (0.0 KB whole-unit) |')
-        self.assertEqual(self.line(lines, '| Frozen padding'), '| Frozen padding of accepted rows | 20 B | 12 B '
-                         'function-level (10 B whole-unit) |')
+                         '| **80 B, 8.00% whole-unit** (90 B, 9.00% function-level); gap to src-final '
+                         '0.0 KB (0.0 KB function-level) | 100 B, 10.00% |')
+        self.assertEqual(self.line(lines, '| Frozen padding'), '| Frozen padding of accepted rows | 10 B '
+                         'whole-unit (12 B function-level) | 20 B |')
 
     def test_clean_row_needs_the_body_only_columns(self):
         lines = self.lines(dict(self.BASE, **dict(self.BODY, **self.CLEAN)))
         self.assertEqual(self.line(lines, '| C/C++ bodies, exact with no judgment call'),
-                         '| C/C++ bodies, exact with no judgment call (each tree\'s judgment rows left out) | 70 B, '
-                         '7.00% | **4.250% function-level** (4.000% whole-unit) of .text; left out: judgment calls '
-                         '3 rows / 1,234 B (of which header-form dependents 1 / 34 B), count-sensitive 1 rows / 64 B |')
+                         '| C/C++ bodies, exact with no judgment call (each tree\'s judgment rows left out) '
+                         '| **4.000% whole-unit** (4.250% function-level) of .text; left out: judgment calls '
+                         '3 rows / 1,234 B (of which header-form dependents 1 / 34 B), count-sensitive 1 rows / 64 B '
+                         '| 70 B, 7.00% |')
         # A row from before the series break (source shares with padding) shows no rebuild clean figure.
         lines = self.lines(dict(self.BASE, **self.CLEAN))
         self.assertTrue(self.line(lines, '| C/C++ bodies, exact with no judgment call').endswith(
-            '| from the next gated landing |'))
+            '| from the next gated landing | 70 B, 7.00% |'))
         self.assertIn('function-level from the next gated landing', self.line(lines, '| C/C++ bodies matched'))
 
     def test_clean_row_shows_body_bytes_when_the_row_has_them(self):
         row = dict(self.BASE, **dict(self.BODY, **dict(self.CLEAN, clean_c_body_bytes='40',
                                                          clean_function_level_c_body_bytes='42')))
-        self.assertIn('**42 B, 4.250% function-level** (40 B, 4.000% whole-unit) of .text; left out',
+        self.assertIn('**40 B, 4.000% whole-unit** (42 B, 4.250% function-level) of .text; left out',
                       self.line(self.lines(row), '| C/C++ bodies, exact with no judgment call'))
 
     def test_soft_judgment_and_kind_rows(self):
         """Lane O63 (review session request, 2026-11-23): exact with no soft judgment, and judgment by kind."""
         row = dict(self.BASE, **dict(self.BODY, **self.CLEAN))
         self.assertTrue(self.line(self.lines(row), '| C/C++ bodies, exact with no soft judgment').endswith(
-            '| 70 B, 7.00% | from the next gated landing |'))
+            '| from the next gated landing | 70 B, 7.00% |'))
         row.update(judgment_by_kind='iv-a 2/1000; vii 1/234', soft_judgment_rows='1', soft_judgment_bytes='234',
                    soft_free_c_body_bytes='60', soft_free_source_share_of_text='6.000%',
                    soft_free_function_level_c_body_bytes='65', soft_free_function_level_source_share_of_text='6.500%')
         lines = self.lines(row)
-        self.assertIn('| **65 B, 6.500% function-level** (60 B, 6.000% whole-unit); left out: soft judgment rows 1 / 234 B',
+        self.assertIn('| **60 B, 6.000% whole-unit** (65 B, 6.500% function-level); left out: soft judgment rows 1 / 234 B',
                       self.line(lines, '| C/C++ bodies, exact with no soft judgment'))
-        self.assertTrue(self.line(lines, '| Rebuild judgment calls by kind').endswith('| | iv-a 2/1000; vii 1/234 |'))
+        self.assertTrue(self.line(lines, '| Rebuild judgment calls by kind').endswith('| iv-a 2/1000; vii 1/234 | |'))
 
     def test_flagged_note_reads_past_a_kind_prefix(self):
         self.assertTrue(status.FLAGGED_NOTE.match('[iv-b] count_calibrated: a looked-up local'))
@@ -246,20 +248,20 @@ class RebuildCategoryLineTests(unittest.TestCase):
     def test_judgment_line_names_both_definitions(self):
         line = self.line(self.lines(dict(self.BASE, **dict(self.BODY, **self.CLEAN))), '| Judgment calls, each')
         self.assertIn('not comparable', line)
-        self.assertTrue(line.endswith('| 2 rows / 30 B | 3 rows / 1,234 B |'))
+        self.assertTrue(line.endswith('| 3 rows / 1,234 B | 2 rows / 30 B |'))
 
     def test_one_definition_judgment_line(self):
         """Lane O46 (owner ruling 2026-11-22): one line with main's flag definition in both trees."""
         row = dict(self.BASE, **dict(self.BODY, **self.CLEAN))
         line = self.line(self.lines(row), '| Judgment calls, one definition')
-        self.assertTrue(line.endswith('| 2 rows / 30 B | n/a |'))
+        self.assertTrue(line.endswith('| n/a | 2 rows / 30 B |'))
         saved = self.CAT
         try:
             self.CAT = dict(saved, flagged_judgment=(1, 4617))
             line = self.line(self.lines(row), '| Judgment calls, one definition')
         finally:
             self.CAT = saved
-        self.assertTrue(line.endswith('| 2 rows / 30 B | 1 rows / 4,617 B |'))
+        self.assertTrue(line.endswith('| 1 rows / 4,617 B | 2 rows / 30 B |'))
 
     def test_main_only_line(self):
         """Lane O50 (owner, 2026-11-22): main's accepted entries with no rebuild catalog row, until zero."""
@@ -268,14 +270,14 @@ class RebuildCategoryLineTests(unittest.TestCase):
         rebuild = dict(regions=[dict(entry=0x402000, body_bytes=40), dict(entry=0x404000, body_bytes=9)])
         self.assertEqual(status.main_only(main, rebuild), (2, 107))
         row = dict(self.BASE, **dict(self.BODY, **self.CLEAN))
-        self.assertTrue(self.line(self.lines(row), '| Matched in src-final (main)').endswith('| | n/a |'))
+        self.assertTrue(self.line(self.lines(row), '| Matched in src-final (main)').endswith('| n/a | |'))
         saved = self.CAT
         try:
             self.CAT = dict(saved, main_only=(387, 171314))
             line = self.line(self.lines(row), '| Matched in src-final (main)')
         finally:
             self.CAT = saved
-        self.assertTrue(line.endswith('| | 387 functions / 171,314 B |'))
+        self.assertTrue(line.endswith('| 387 functions / 171,314 B | |'))
 
     def test_rebuild_flagged_judgment_reads_named_flags_only(self):
         import csv, tempfile

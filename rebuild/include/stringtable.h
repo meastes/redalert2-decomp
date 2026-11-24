@@ -20,25 +20,25 @@ namespace OwnerDraw {
 /*
 **	RA2: the languages of the string table; the number is the language field of a .csf header.
 */
-enum CSFLanguages // RA2: as above
+enum CSFLanguages
 {
-	CSF_US = 0, // RA2: as above
-	CSF_UK = 1, // RA2: as above
-	CSF_GERMAN = 2, // RA2: as above
-	CSF_FRENCH = 3, // RA2: as above
-	CSF_SPANISH = 4, // RA2: as above
-	CSF_ITALIAN = 5, // RA2: as above
-	CSF_JAPANESE = 6, // RA2: as above
-	CSF_JABBERWOCKIE = 7, // RA2: as above
-	CSF_KOREAN = 8, // RA2: as above
-	CSF_CHINESE = 9, // RA2: as above
+	CSF_US = 0,
+	CSF_UK = 1,
+	CSF_GERMAN = 2,
+	CSF_FRENCH = 3,
+	CSF_SPANISH = 4,
+	CSF_ITALIAN = 5,
+	CSF_JAPANESE = 6,
+	CSF_JABBERWOCKIE = 7,
+	CSF_KOREAN = 8,
+	CSF_CHINESE = 9,
 	CSF_UNKNOWN = 10 // RA2: ends the language table (0x7F8CF0) and is the language before a table is read
 };
 
 /*
 **	RA2: the first 24 bytes of a .csf file.
 */
-struct CSFHeader // RA2: as above
+struct CSFHeader
 {
 	int ID; // RA2: 'CSF ' (0x43534620)
 	int Version; // RA2: versions below 2 have no language field and are US
@@ -51,7 +51,7 @@ struct CSFHeader // RA2: as above
 /*
 **	RA2: one label of the table (40 bytes); the labels are sorted by name for the search of LoadString.
 */
-struct CSFLabel // RA2: as above
+struct CSFLabel
 {
 	char Name[32]; // RA2: at most 31 characters
 	int StringCount; // RA2: how many strings follow under this label (LoadString uses only the first)
@@ -62,7 +62,7 @@ struct CSFLabel // RA2: as above
 **	RA2: the text LoadString makes up for a label it does not know; the chunks form a list so that
 **	Unload can free them.
 */
-struct CSFString // RA2: as above
+struct CSFString
 {
 	CSFString * PreviousEntry; // RA2: the chunk made before this one
 	wchar_t Text[258]; // RA2: the chunk is 0x208 bytes
@@ -71,7 +71,7 @@ struct CSFString // RA2: as above
 /*
 **	RA2: one language of the table at 0x7F8CF0, which ends with the entry for CSF_UNKNOWN.
 */
-struct CSFLanguage // RA2: as above
+struct CSFLanguage
 {
 	CSFLanguages Index; // RA2: the language
 	char const * Name; // RA2: its name in English

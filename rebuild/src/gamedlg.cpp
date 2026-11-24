@@ -59,29 +59,29 @@ namespace Game { extern int SpecialDialog; }
 
 
 char const * const Game_Speed_Labels[OptionsClass::MAX_SPEED_SETTING] = { // RA2: string-table labels (the table holds the names, not ids)
-	"TXT_SLOWEST", // RA2: as above
-	"TXT_SLOWER", // RA2: as above
-	"TXT_SLOW", // RA2: as above
-	"TXT_MEDIUM", // RA2: as above
-	"TXT_FAST", // RA2: as above
-	"TXT_FASTER", // RA2: as above
-	"TXT_FASTEST" // RA2: as above
+	"TXT_SLOWEST",
+	"TXT_SLOWER",
+	"TXT_SLOW",
+	"TXT_MEDIUM",
+	"TXT_FAST",
+	"TXT_FASTER",
+	"TXT_FASTEST"
 };
 
 char const * const Game_Scroll_Labels[OptionsClass::MAX_SCROLL_SETTING] = { // RA2: string-table labels (the table holds the names, not ids)
-	"TXT_SLOWEST", // RA2: as above
-	"TXT_SLOWER", // RA2: as above
-	"TXT_SLOW", // RA2: as above
-	"TXT_MEDIUM", // RA2: as above
-	"TXT_FAST", // RA2: as above
-	"TXT_FASTER", // RA2: as above
-	"TXT_FASTEST" // RA2: as above
+	"TXT_SLOWEST",
+	"TXT_SLOWER",
+	"TXT_SLOW",
+	"TXT_MEDIUM",
+	"TXT_FAST",
+	"TXT_FASTER",
+	"TXT_FASTEST"
 };
 
 char const * const Game_Detail_Labels[OptionsClass::MAX_DETAIL_SETTING] = { // RA2: string-table labels (the table holds the names, not ids)
-	"TXT_LOW", // RA2: as above
-	"TXT_MEDIUM", // RA2: as above
-	"TXT_HIGH" // RA2: as above
+	"TXT_LOW",
+	"TXT_MEDIUM",
+	"TXT_HIGH"
 };
 
 
@@ -183,9 +183,9 @@ void GameControlsClass::Set(void)
 	}
 
 	handle = GetDlgItem(_Dialog, 1540); // RA2: the show-hidden check box
-	if (handle) { // RA2: as above
-		Options.IsShowHidden = Button_GetCheck(handle) == TRUE; // RA2: as above
-	} // RA2: as above
+	if (handle) {
+		Options.IsShowHidden = Button_GetCheck(handle) == TRUE;
+	}
 
 	handle = GetDlgItem(_Dialog, IDC_TOOLTIPS);
 	if (handle) {
@@ -220,115 +220,115 @@ BOOL CALLBACK Game_Controls_Dialog_Proc(HWND window, UINT message, WPARAM wparam
 
 	int rc = OwnerDraw::Default_Dialog_Proc(window, message, wparam, lparam);
 	if (rc != 0) { // RA2: Game_Controls_Dialog_Proc at 0x4CFC00 returns the ownerdraw answer at once
-		return(rc); // RA2: as above
+		return(rc);
 	}
 
-	switch (message) { // RA2: as above
+	switch (message) {
 		case OD_SUBCLASSED: // RA2: the controls are primed once OwnerDraw has taken them over, not on WM_INITDIALOG
-			handle = GetDlgItem(window, IDC_GAME_SPEED_SLIDER); // RA2: as above
+			handle = GetDlgItem(window, IDC_GAME_SPEED_SLIDER);
 			if (Session.Type == GAME_NORMAL && !GameControlsShown) { // RA2: the game speed slider stays hidden in single player unless -SPEEDCONTROL was given
-				ShowWindow(handle, SW_HIDE); // RA2: as above
-				handle = GetDlgItem(window, 1812 /* RA2: the game speed caption, no name in language.h */); // RA2: as above
-				ShowWindow(handle, SW_HIDE); // RA2: as above
-				handle = GetDlgItem(window, IDC_GAME_SPEED_LABEL); // RA2: as above
-				ShowWindow(handle, SW_HIDE); // RA2: as above
-			} else if (handle) { // RA2: as above
-				SendMessage(handle, OD_TRACKNUMBERS, 0, 0); // RA2: as above
-				Slider_SetRange(handle, 0, (OptionsClass::MAX_SPEED_SETTING-1)); // RA2: as above
-				Slider_SetPos(handle, (OptionsClass::MAX_SPEED_SETTING-1) - Options.GameSpeed); // RA2: as above
+				ShowWindow(handle, SW_HIDE);
+				handle = GetDlgItem(window, 1812 /* RA2: the game speed caption, no name in language.h */);
+				ShowWindow(handle, SW_HIDE);
+				handle = GetDlgItem(window, IDC_GAME_SPEED_LABEL);
+				ShowWindow(handle, SW_HIDE);
+			} else if (handle) {
+				SendMessage(handle, OD_TRACKNUMBERS, 0, 0);
+				Slider_SetRange(handle, 0, (OptionsClass::MAX_SPEED_SETTING - 1));
+				Slider_SetPos(handle, (OptionsClass::MAX_SPEED_SETTING - 1) - Options.GameSpeed);
 			}
 
 			if (MuteSWLaunches) { // RA2: muted launches hide the game speed slider as well
-				handle = GetDlgItem(window, IDC_GAME_SPEED_SLIDER); // RA2: as above
-				ShowWindow(handle, SW_HIDE); // RA2: as above
-				handle = GetDlgItem(window, 1812 /* RA2: the game speed caption, no name in language.h */); // RA2: as above
-				ShowWindow(handle, SW_HIDE); // RA2: as above
-				handle = GetDlgItem(window, IDC_GAME_SPEED_LABEL); // RA2: as above
-				ShowWindow(handle, SW_HIDE); // RA2: as above
+				handle = GetDlgItem(window, IDC_GAME_SPEED_SLIDER);
+				ShowWindow(handle, SW_HIDE);
+				handle = GetDlgItem(window, 1812 /* RA2: the game speed caption, no name in language.h */);
+				ShowWindow(handle, SW_HIDE);
+				handle = GetDlgItem(window, IDC_GAME_SPEED_LABEL);
+				ShowWindow(handle, SW_HIDE);
 			}
 
-			handle = GetDlgItem(window, IDC_SCROLL_SPEED_SLIDER); // RA2: as above
-			if (handle) { // RA2: as above
-				SendMessage(handle, OD_TRACKNUMBERS, 0, 0); // RA2: as above
-				Slider_SetRange(handle, 0, (OptionsClass::MAX_SCROLL_SETTING-1)); // RA2: as above
-				Slider_SetPos(handle, (OptionsClass::MAX_SCROLL_SETTING-1) - Options.ScrollRate); // RA2: as above
+			handle = GetDlgItem(window, IDC_SCROLL_SPEED_SLIDER);
+			if (handle) {
+				SendMessage(handle, OD_TRACKNUMBERS, 0, 0);
+				Slider_SetRange(handle, 0, (OptionsClass::MAX_SCROLL_SETTING - 1));
+				Slider_SetPos(handle, (OptionsClass::MAX_SCROLL_SETTING - 1) - Options.ScrollRate);
 			}
 
-			handle = GetDlgItem(window, IDC_DETAIL_LEVEL_SLIDER); // RA2: as above
-			if (handle) { // RA2: as above
-				SendMessage(handle, OD_TRACKNUMBERS, 0, 0); // RA2: as above
-				Slider_SetRange(handle, 0, (OptionsClass::MAX_DETAIL_SETTING-1)); // RA2: as above
-				Slider_SetPos(handle, Options.DetailLevel); // RA2: as above
+			handle = GetDlgItem(window, IDC_DETAIL_LEVEL_SLIDER);
+			if (handle) {
+				SendMessage(handle, OD_TRACKNUMBERS, 0, 0);
+				Slider_SetRange(handle, 0, (OptionsClass::MAX_DETAIL_SETTING - 1));
+				Slider_SetPos(handle, Options.DetailLevel);
 			}
 
 			handle = GetDlgItem(window, IDC_TARGET_LINES); // RA2: no sidebar cameo text check box
-			if (handle) { // RA2: as above
-				Button_SetCheck(handle, Options.ActionLines != false); // RA2: as above
+			if (handle) {
+				Button_SetCheck(handle, Options.ActionLines != false);
 			}
 
 			handle = GetDlgItem(window, 1540); // RA2: the show-hidden check box (as in Set)
-			if (handle) { // RA2: as above
-				Button_SetCheck(handle, Options.IsShowHidden != false); // RA2: as above
-			} // RA2: as above
+			if (handle) {
+				Button_SetCheck(handle, Options.IsShowHidden != false);
+			}
 
-			handle = GetDlgItem(window, IDC_TOOLTIPS); // RA2: as above
-			if (handle) { // RA2: as above
-				Button_SetCheck(handle, Options.ToolTips != false); // RA2: as above
+			handle = GetDlgItem(window, IDC_TOOLTIPS);
+			if (handle) {
+				Button_SetCheck(handle, Options.ToolTips != false);
 			}
 
 			if (GameActive == true) { // RA2: no scroll coasting check box
-				handle = GetDlgItem(window, IDC_OPT_SOUND_BTN); // RA2: as above
+				handle = GetDlgItem(window, IDC_OPT_SOUND_BTN);
 				if (handle) {
 					EnableWindow(handle, AudioDeviceAvailable()); // RA2: the audio library's own test, not Audio_Available
 					return(0); // RA2: the dialog proc answers 0 directly
 				}
 			} else {
-				handle = GetDlgItem(window, IDC_DIFFICULTY_SLIDER); // RA2: as above
+				handle = GetDlgItem(window, IDC_DIFFICULTY_SLIDER);
 				if (handle) {
-					SendMessage(handle, OD_TRACKNUMBERS, 0, 0); // RA2: as above
-					Slider_SetRange(handle, 0, (OptionsClass::MAX_DIFFICULTY_SETTING-1)); // RA2: as above
-					Slider_SetPos(handle, Options.Difficulty); // RA2: as above
-					return(0); // RA2: as above
+					SendMessage(handle, OD_TRACKNUMBERS, 0, 0);
+					Slider_SetRange(handle, 0, (OptionsClass::MAX_DIFFICULTY_SETTING - 1));
+					Slider_SetPos(handle, Options.Difficulty);
+					return(0);
 				}
 			}
-			break; // RA2: as above
+			break;
 
 		case WM_COMMAND: // RA2: the command handler is expanded here (and also kept out of line)
-			Game_Controls_Command(window, LOWORD(wparam), (HWND)lparam, HIWORD(wparam)); // RA2: as above
-			break; // RA2: as above
+			Game_Controls_Command(window, LOWORD(wparam), (HWND)lparam, HIWORD(wparam));
+			break;
 
-		case WM_HSCROLL: // RA2: as above
-			if (LOWORD(wparam) == SB_THUMBTRACK) { // RA2: as above
-				index = HIWORD(wparam); // RA2: as above
+		case WM_HSCROLL:
+			if (LOWORD(wparam) == SB_THUMBTRACK) {
+				index = HIWORD(wparam);
 				char const * name; // RA2: the captions are string-table labels, not ids
 
-				if ((HWND)lparam == GetDlgItem(window, IDC_GAME_SPEED_SLIDER)) { // RA2: as above
-					name = Game_Speed_Labels[index]; // RA2: as above
-					handle = GetDlgItem(window, IDC_GAME_SPEED_LABEL); // RA2: as above
-				} else if ((HWND)lparam == GetDlgItem(window, IDC_SCROLL_SPEED_SLIDER)) { // RA2: as above
-					name = Game_Scroll_Labels[index]; // RA2: as above
-					handle = GetDlgItem(window, IDC_SCROLL_SPEED_LABEL); // RA2: as above
-				} else if ((HWND)lparam == GetDlgItem(window, IDC_DETAIL_LEVEL_SLIDER)) { // RA2: as above
-					name = Game_Detail_Labels[index]; // RA2: as above
-					handle = GetDlgItem(window, IDC_DETAIL_LEVEL_LABEL); // RA2: as above
+				if ((HWND)lparam == GetDlgItem(window, IDC_GAME_SPEED_SLIDER)) {
+					name = Game_Speed_Labels[index];
+					handle = GetDlgItem(window, IDC_GAME_SPEED_LABEL);
+				} else if ((HWND)lparam == GetDlgItem(window, IDC_SCROLL_SPEED_SLIDER)) {
+					name = Game_Scroll_Labels[index];
+					handle = GetDlgItem(window, IDC_SCROLL_SPEED_LABEL);
+				} else if ((HWND)lparam == GetDlgItem(window, IDC_DETAIL_LEVEL_SLIDER)) {
+					name = Game_Detail_Labels[index];
+					handle = GetDlgItem(window, IDC_DETAIL_LEVEL_LABEL);
 				} else {
-					if (GameActive != false) { // RA2: as above
-						return(0); // RA2: as above
+					if (GameActive != false) {
+						return(0);
 					}
-					if ((HWND)lparam != GetDlgItem(window, IDC_DIFFICULTY_SLIDER)) { // RA2: as above
-						return(0); // RA2: as above
+					if ((HWND)lparam != GetDlgItem(window, IDC_DIFFICULTY_SLIDER)) {
+						return(0);
 					}
-					name = Difficulty_Labels[index]; // RA2: as above
-					handle = GetDlgItem(window, IDC_DIFFICULTY_LABEL); // RA2: as above
+					name = Difficulty_Labels[index];
+					handle = GetDlgItem(window, IDC_DIFFICULTY_LABEL);
 				}
-				if (handle) { // RA2: as above
+				if (handle) {
 					SendMessage(handle, OD_SETTEXTW, 0, (LPARAM)StringTable::LoadString(name, NULL, "D:\\Ra2\\GameDlg.CPP", 420)); // RA2: the label's text, set as wide caption
-					return(0); // RA2: as above
+					return(0);
 				}
 			}
-			break; // RA2: as above
+			break;
 	}
-	return(0); // RA2: as above
+	return(0);
 }
 
 
@@ -346,16 +346,16 @@ void __fastcall Game_Controls_Command(HWND window, int message, HWND control, un
 {
 	int* retval = (int *)GetWindowLong(window, DWL_USER);
 
-	switch (message) { // RA2: as above
+	switch (message) {
 		case IDC_OPT_KEYBOARD_BTN:
-			if (code == 0 && GameActive == true) { // RA2: as above
+			if (code == 0 && GameActive == true) {
 				SpecialDialog = SDLG_KEYBOARD;
 				*retval = IDOK;
 			}
 			break;
 
 		case IDC_OPT_SOUND_BTN:
-			if (code == 0 && GameActive == true) { // RA2: as above
+			if (code == 0 && GameActive == true) {
 				SpecialDialog = SDLG_SOUND;
 				*retval = IDOK;
 			}

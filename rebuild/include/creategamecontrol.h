@@ -17,7 +17,7 @@
 #include "wonlinestringcontrol.h"
 
 class CreateGameDialogControl : public WonlineStringDialogControl { // RA2: vtable 0x007AF94C, the control of the create game dialog (0xC3); its base constructor 0x00765AA0 is called out of line from Host_Game, the four flags are set where it is used
-public: // RA2: as above
+	public:
 	CreateGameDialogControl(bool limit_resolution, bool observer) : IsTournament(false), IsPrivate(false), LimitResolution(limit_resolution), Observer(observer) {} // RA2: the executable stores +0x10 and +0x11 as 0, +0x12 and +0x13 from the arguments
 	virtual ~CreateGameDialogControl(void) {} // RA2: expanded where it is used
 	bool IsTournament; // RA2: +0x10, the dialog's radio button 0x629 sets it (Host_Game copies it to the channel's tournament member)

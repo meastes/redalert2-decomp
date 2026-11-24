@@ -2,9 +2,13 @@
 
 This project rebuilds the source code of Command & Conquer: Red Alert 2 (the 2000 Westwood
 game, version 1.006 of its `game.exe`) so that, compiled with the compiler Westwood used, it
-produces the original program again, byte for byte. About 93.5% of the code is rebuilt from
-source so far; the rest is still taken from the original. The same recovered source is also compiled
-with a modern compiler into native games for the Mac, iPhone and Windows. It is a
+produces the original program again, byte for byte. About 94.1% of the code is rebuilt from source
+in the current tree, `rebuild/` (94.3% counting each function checked on its own): one source file
+per original source file, laid out like Westwood's own code. The earlier tree, `src/`, reached 93.6%
+on the same measure and is kept unchanged as a reference (tag `src-final`); the native ports still
+build from it while they move to the new tree. The figure is expected to move in the coming days as
+held forms are decided. The rest of the code is still taken from the original. The recovered source
+is also compiled with a modern compiler into native games for the Mac, iPhone and Windows. It is a
 decompilation (source code worked back out of a compiled program by hand and with tools), not a
 remake: the game logic is the original's.
 
@@ -48,12 +52,20 @@ There are no signed builds: macOS and Windows will warn when you open what you b
 
 Numbers are generated into [docs/STATUS.md](docs/STATUS.md); the headline ones:
 
-| Measure | Value |
-| --- | ---: |
-| Reproduced .text (built from real inputs, not copied from the original) | 93.54% |
-| In-scope C/C++ bytes matched exactly | 93.14% |
-| In-scope functions matched exactly | 17,889 of 17,985 (99.47%) |
-| In-scope functions with source (exact or draft) | 17,980 of 17,985 (99.97%) |
+| Measure | `rebuild/` (tree of record) | `src/` at `src-final` (frozen reference) |
+| --- | ---: | ---: |
+| Reproduced .text (built from real inputs, not copied from the original) | 94.13% (94.31% function by function) | 93.58% |
+| C/C++ function bodies matched exactly | 3,295,764 bytes (87.43%) | 3,274,492 bytes (86.86%) |
+| Functions matched exactly | 17,807 in 440 original source files | 17,910 |
+| Functions not yet exact (kept as labelled drafts) | 110 (88,956 bytes) | |
+
+21 of the rebuild's matched functions (53,972 bytes, 1.4% of the code) use a form chosen by this
+project rather than one found in Westwood's code or a reference decompilation, allowed since 24
+November and flagged by kind: 6 keep a small inline helper whose existence the machine code shows
+(21,121 bytes), 11 spell a statement or condition differently (22,386 bytes), 4 name a local
+variable the compiler needs (10,465 bytes), and none yet uses a readability alias. Without them the
+rebuild stands at about 92.7% (92.9% counting each function on its own), and matching reference
+text replaces any of them when it turns up.
 
 - **Reproduced**: the share of the program's machine code (its `.text` section) that the build
   makes from real inputs (source code, identified compiler library code, and handwritten
@@ -75,51 +87,36 @@ not yet rebuilt from source is still taken from the original. STATUS counts exac
   stand-in names where nobody has worked out what they mean yet: a field such as `unknown_0x0c`,
   a class such as `UnknownAnimTechno`. Decompiler-generated names (such as `FUN_` followed by an
   address) have been removed from the code.
-- **Structure.** This tree is an exact-match record: every function is shown to compile to the
-  original bytes, and it is the base the native ports build from. Its source is organised by
-  function, as it was matched, not as Westwood's original source files. The structure census
-  (`tools/original_target/cleanup_census.py --structure`, also in [docs/STATUS.md](docs/STATUS.md))
-  counts what that leaves:
-  - 155 class names are defined more than once (a class redeclared in the files that needed it);
-  - about 1,960 one-function files sit beside 406 unit files (one per original source file);
-  - 482 functions are free functions, or members of a stand-in class, where a sister project has
-    them as a member of the real class;
-  - about 7,200 distinct names still carry the address of the original function or variable as a
-    suffix (such as `_004F52F0`);
-  - 260 `RA2_` preprocessor switches select declarations per file.
-
-  If you want readable source organised like the original, read
-  [mischa85/RedAlert2](https://github.com/mischa85/RedAlert2), a matching decompilation of the
-  same `game.exe`. This tree's job is the exact-match evidence and the native ports.
-- **Address-named files.** 121 files are still named after addresses in the program rather than
-  after what they hold. They live in two labelled folders: `src/recovered/unidentified/` (69
-  files whose owner is not known yet) and `src/recovered/awaiting_join/` (52 files waiting to be
-  joined into their original source file).
-- **96 non-exact drafts** (about 182 KB of machine code) still do not compile exactly.
+- **Structure.** `rebuild/` is organised like the original: one source file per original source
+  file, one header per class, no per-file switches. Its census (STATUS, "Rebuild structure") counts
+  0 classes defined twice, 6 stray `extern` declarations in landed files and 0 names carrying an
+  address suffix. The frozen `src/` tree is organised by function, as it was matched (about 1,960
+  one-function files, 121 of them named after addresses, and about 7,200 address-suffixed names);
+  it is kept unchanged as a reference and as the base the native ports still build from.
+- **110 functions not yet exact** in the rebuild (about 89 KB of machine code) are kept as labelled
+  drafts behind a switch; the exact build takes their bytes from the original.
 
 ## Two trees
 
-The repository holds two source trees for the same `game.exe`. They are built and checked
-separately, and their numbers are never added together.
+The repository holds two source trees for the same `game.exe`. They are built separately, and their
+numbers are never added together.
 
-- **`src/`, the exact-match record.** Every function this project has matched, about 93.5% of
-  the code. The native ports are built from it, and it is the tree to read for the game's
-  logic today. Its layout grew function by function, so some files are still grouped by
-  address or awaiting their original file.
-- **`rebuild/`, the clean tree in progress.** A new tree laid out like the original: one source
-  file per original source file, one header per class, members as members, no per-file
-  switches. It is held to the same exact standard (every function checked byte for byte, then
-  the whole-file build). At its last gated landing it built 68.59% of the code from source
-  (71.40% reproduced with the linked library and assembled bytes): 15,455 functions in 421
-  units. Most of that text is adopted, with credit, from mischa85's RedAlert2 decompilation:
-  11,786 functions adopted, 82 reshaped from `src/`, 127 written fresh, and 3,460 from the
-  Windows workers (mostly adopted). Structure: 0 duplicate class definitions, 6 stray externs
-  in landed files, 4 address-suffixed names; 1,618 functions (579 KB) not yet exact. Details,
-  provenance and licences: [rebuild/README.md](rebuild/README.md).
+### Tree of record: `rebuild/`
 
-Read `src/` to see what the game does and what the ports run. Read `rebuild/` to see the
-source as the original was organised, for the part it covers. Whether the rebuild replaces
-`src/` is decided when it reaches `src/`'s matched bytes.
+Since 24 November 2026 the exact-match work, the numbers and the public snapshot follow
+`rebuild/`: one source file per original source file, one header per class, members as members, no
+per-file switches. Every function is checked byte for byte with the original compiler, then the
+whole-file build must reproduce the original executable. Most of its text is adopted, with credit,
+from mischa85's RedAlert2 decompilation (16,867 functions); 185 were reshaped from `src/`, 163
+written fresh, and 592 came from the Windows workers. Details, provenance and licences:
+[rebuild/README.md](rebuild/README.md). `./build.command` builds it.
+
+### Frozen reference: `src/` (tag `src-final`)
+
+`src/` is the earlier exact-match record (93.6% reproduced), kept unchanged at the tag
+`src-final`: it is read-only, still reproduces the original (`./build.command --tree src`), and is
+the evidence many of the rebuild's rows cite. The native ports build from it until a separate
+ports repository takes the rebuild at a pinned commit.
 
 ## How exact matching works
 
@@ -142,8 +139,8 @@ Tiberian Sun reconstructions).
 
 | Folder | What it holds |
 | --- | --- |
-| `src/` | The recovered source: `src/recovered/` (exact functions, by original source file) and `src/shared/` (class layouts and headers) |
-| `rebuild/` | The clean rebuild tree in progress: one source per original unit (`rebuild/src/`), one header per class (`rebuild/include/`), its manifests and tools ([rebuild/README.md](rebuild/README.md)) |
+| `rebuild/` | The tree of record: one source per original unit (`rebuild/src/`), one header per class (`rebuild/include/`), the assembly sources (`rebuild/asm/`), its manifests and tools ([rebuild/README.md](rebuild/README.md)) |
+| `src/` | The frozen earlier tree (tag `src-final`): `src/recovered/` (exact functions) and `src/shared/` (class layouts and headers); the native ports build from it |
 | `native/` | The native Mac, iPhone and Windows ports: build files, the SDL3 platform layer, touch controls, enhancements, tests |
 | `native/yr/` | The Yuri's Revenge native build: glue and fixes applied to the pinned ra2-decomp source |
 | `yr/` | Pinned, unedited copies of the ra2-decomp and Tiberian Sun reference sources the Yuri's Revenge build uses |
@@ -152,8 +149,8 @@ Tiberian Sun reconstructions).
 | `tests/` | Tests for the tools |
 | `docs/` | Process, status, build instructions and decisions |
 
-At the top level, `build.command` runs the exact whole-file build and `test.command` the tool
-tests.
+At the top level, `build.command` runs the exact whole-file build of `rebuild/` (`--tree src` for
+the frozen tree) and `test.command` the tool tests.
 
 ## Getting started
 
@@ -183,8 +180,11 @@ With those in place:
 
 ```sh
 ./test.command
-./build.command     # fresh compile, strict checks, link, and compare with the original
+./build.command             # rebuild/: fresh compile, strict checks, link, and compare with the original
+./build.command --tree src  # the frozen src/ tree, the same way
 ```
+
+The rebuild's build also reads a build configuration its landing gate writes under `build/r/`.
 
 ## Contributing and following along
 
@@ -192,12 +192,12 @@ Current work and the next targets are in [docs/HANDOFF.md](docs/HANDOFF.md); the
 in [docs/STATUS.md](docs/STATUS.md); the workflow in
 [docs/ORIGINAL_TARGET_PROCESS.md](docs/ORIGINAL_TARGET_PROCESS.md).
 
-How a function gets accepted: a candidate source is seeded from a decompiler export, then
-compiled with the original compiler and diffed against the original instruction by instruction,
-and reworked until it matches. Exact candidates go through a strict audit (no hidden machine
-code, no copied instructions, every reference and padding byte accounted for), are filed into
-their original source file under `src/recovered/`, and the whole-file build must still produce
-the identical executable before the commit lands.
+How a function gets accepted: its source, in its original source file under `rebuild/src/`, is
+compiled with the original compiler and compared with the original instruction by instruction,
+and reworked until it matches. The unit is then catalogued (every row exact, no hidden machine
+code, no copied instructions, every reference and padding byte accounted for, the structure
+budget kept), and the whole-file build must still produce the identical executable before the
+commit lands.
 
 ## FAQ
 
@@ -240,7 +240,7 @@ attribution; licences and pinned commits are in [THIRD_PARTY.md](THIRD_PARTY.md)
 ## Licence
 
 The project's own tools, native port code and documents are licensed under the GNU General
-Public License, version 3 or later ([LICENSE](LICENSE)). The recovered source in `src/` is
+Public License, version 3 or later ([LICENSE](LICENSE)). The recovered source in `rebuild/` and `src/` is
 reconstructed from the original program and makes no new grant of rights in the game or the
 compiler. Adopted third-party text keeps its own licence and attribution, listed in
 [THIRD_PARTY.md](THIRD_PARTY.md).

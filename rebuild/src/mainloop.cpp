@@ -66,8 +66,8 @@
 #include "bench.hh"
 #include "special.hh"
 
-namespace CopyProtection { bool CheckProtectedData(void); } // RA2: as above
-namespace FPSCounter { extern unsigned CurrentFrameRate; extern unsigned TotalFramesElapsed; extern unsigned TotalTimeElapsed; } // RA2: as above
+namespace CopyProtection { bool CheckProtectedData(void); }
+namespace FPSCounter { extern unsigned CurrentFrameRate; extern unsigned TotalFramesElapsed; extern unsigned TotalTimeElapsed; }
 
 #include "dbgprint.h" // RA2: DebugString
 #include "_tooltip.h" // RA2: ToolTips
@@ -98,15 +98,15 @@ void __fastcall Send_Port_Unreachable(void); // RA2: 0x0062E840
 void __fastcall Planning_Update(void); // RA2: 0x00614010; the planning mode's per frame update
 void __fastcall Planning_Free_Nodes(void); // RA2: 0x006142F0; deletes the planning items
 static inline const CommandClass * Hotkey_Command(KeyNumType key) // RA2: Keyboard_Process looks the second key up through an inline copy of its own
-{ // RA2: as above
-	return HotkeyCommands[key]; // RA2: as above
-} // RA2: as above
-enum { // RA2: as above
+{
+	return HotkeyCommands[key];
+}
+enum {
 	SCROLL_UP = 0x0001, // RA2: bits of ScrollKeys
-	SCROLL_DOWN = 0x0010, // RA2: as above
-	SCROLL_LEFT = 0x0100, // RA2: as above
-	SCROLL_RIGHT = 0x1000 // RA2: as above
-}; // RA2: as above
+	SCROLL_DOWN = 0x0010,
+	SCROLL_LEFT = 0x0100,
+	SCROLL_RIGHT = 0x1000
+};
 
 
 //
@@ -137,27 +137,27 @@ static void Do_Record_Playback(void);
 /// RA2: tells whether Main_Loop is running.
 /// </summary>
 bool Is_In_Main_Loop(void) // RA2 has this routine (0x0053F460): it reads the flag Main_Loop sets
-{ // RA2: as above
-	return InMainLoop; // RA2: as above
-} // RA2: as above
+{
+	return InMainLoop;
+}
 
 
 /// <summary>
 /// RA2: marks Main_Loop as running.
 /// </summary>
 void Enter_Main_Loop(void) // RA2 has this routine (0x0053F470): it sets the flag Main_Loop sets
-{ // RA2: as above
-	InMainLoop = true; // RA2: as above
-} // RA2: as above
+{
+	InMainLoop = true;
+}
 
 
 /// <summary>
 /// RA2: marks Main_Loop as not running.
 /// </summary>
 void Leave_Main_Loop(void) // RA2 has this routine (0x0053F480): it clears the flag
-{ // RA2: as above
-	InMainLoop = false; // RA2: as above
-} // RA2: as above
+{
+	InMainLoop = false;
+}
 
 
 /// <summary>
@@ -269,86 +269,86 @@ void Motion_Capture(void)
  * HISTORY:                                                                                    *
  *   08/15/1995 BRR : Created.                                                                 *
  *=============================================================================================*/
-static inline void Do_Record_Playback() // RA2: as above
-{ // RA2: as above
-	int count; // RA2: as above
-	int tgt; // RA2: as above
-	int i; // RA2: as above
-	Point2D coord; // RA2: as above
-	ObjectClass *obj; // RA2: as above
-	unsigned int sum; // RA2: as above
-	unsigned int sum2; // RA2: as above
-	unsigned int ltgt; // RA2: as above
+static inline void Do_Record_Playback()
+{
+	int count;
+	int tgt;
+	int i;
+	Point2D coord;
+	ObjectClass * obj;
+	unsigned int sum;
+	unsigned int sum2;
+	unsigned int ltgt;
 
-	if (Session.Record) { // RA2: as above
-		coord = TacticalMap->Get_Tactical_Position(); // RA2: as above
-		Session.RecordFile.Write(&coord, sizeof(coord)); // RA2: as above
+	if (Session.Record) {
+		coord = TacticalMap->Get_Tactical_Position();
+		Session.RecordFile.Write(&coord, sizeof(coord));
 
-		count = CurrentObject.Count(); // RA2: as above
-		Session.RecordFile.Write(&count, sizeof(count)); // RA2: as above
+		count = CurrentObject.Count();
+		Session.RecordFile.Write(&count, sizeof(count));
 
-		sum = 0; // RA2: as above
-		for (i = 0; i < count; i++) { // RA2: as above
-			ltgt = TargetClass(CurrentObject[i]).Encode(); // RA2: as above
-			sum += ltgt; // RA2: as above
-		} // RA2: as above
-		Session.RecordFile.Write(&sum, sizeof(sum)); // RA2: as above
+		sum = 0;
+		for (i = 0; i < count; i++) {
+			ltgt = TargetClass(CurrentObject[i]).Encode();
+			sum += ltgt;
+		}
+		Session.RecordFile.Write(&sum, sizeof(sum));
 
-		for (i = 0; i < count; i++) { // RA2: as above
-			tgt = TargetClass(CurrentObject[i]).Encode(); // RA2: as above
-			Session.RecordFile.Write(&tgt, sizeof(tgt)); // RA2: as above
-		} // RA2: as above
+		for (i = 0; i < count; i++) {
+			tgt = TargetClass(CurrentObject[i]).Encode();
+			Session.RecordFile.Write(&tgt, sizeof(tgt));
+		}
 
-		Session.RecordFile.Write(&TeamEvent, sizeof(TeamEvent)); // RA2: as above
-		Session.RecordFile.Write(&TeamNumber, sizeof(TeamNumber)); // RA2: as above
-		TeamEvent = 0; // RA2: as above
-		TeamNumber = 0; // RA2: as above
-	} // RA2: as above
+		Session.RecordFile.Write(&TeamEvent, sizeof(TeamEvent));
+		Session.RecordFile.Write(&TeamNumber, sizeof(TeamNumber));
+		TeamEvent = 0;
+		TeamNumber = 0;
+	}
 
-	if (Session.Play) { // RA2: as above
-		if (Session.RecordFile.Read(&coord, sizeof(coord)) == sizeof(coord)) { // RA2: as above
-			TacticalMap->Set_Tactical_Position(coord); // RA2: as above
-		} // RA2: as above
+	if (Session.Play) {
+		if (Session.RecordFile.Read(&coord, sizeof(coord)) == sizeof(coord)) {
+			TacticalMap->Set_Tactical_Position(coord);
+		}
 
-		if (Session.RecordFile.Read(&count, sizeof(count)) == sizeof(count)) { // RA2: as above
-			sum = 0; // RA2: as above
-			for (i = 0; i < CurrentObject.Count(); i++) { // RA2: as above
-				ltgt = TargetClass(CurrentObject[i]).Encode(); // RA2: as above
-				sum += ltgt; // RA2: as above
-			} // RA2: as above
+		if (Session.RecordFile.Read(&count, sizeof(count)) == sizeof(count)) {
+			sum = 0;
+			for (i = 0; i < CurrentObject.Count(); i++) {
+				ltgt = TargetClass(CurrentObject[i]).Encode();
+				sum += ltgt;
+			}
 
-			Session.RecordFile.Read(&sum2, sizeof(sum2)); // RA2: as above
-			if (sum2 != sum) { // RA2: as above
-				Unselect_All(); // RA2: as above
-			} // RA2: as above
+			Session.RecordFile.Read(&sum2, sizeof(sum2));
+			if (sum2 != sum) {
+				Unselect_All();
+			}
 
-			AllowVoice = true; // RA2: as above
+			AllowVoice = true;
 
-			for (i = 0; i < count; i++) { // RA2: as above
-				if (Session.RecordFile.Read(&tgt, sizeof(tgt)) == sizeof(tgt)) { // RA2: as above
-					TargetClass tmp; // RA2: as above
-					tmp.Decode(tgt); // RA2: as above
-					obj = tmp.As_Object(); // RA2: as above
-					if (obj && (sum2 != sum)) { // RA2: as above
-						obj->Select(); // RA2: as above
-						AllowVoice = false; // RA2: as above
-					} // RA2: as above
-				} // RA2: as above
-			} // RA2: as above
+			for (i = 0; i < count; i++) {
+				if (Session.RecordFile.Read(&tgt, sizeof(tgt)) == sizeof(tgt)) {
+					TargetClass tmp;
+					tmp.Decode(tgt);
+					obj = tmp.As_Object();
+					if (obj && (sum2 != sum)) {
+						obj->Select();
+						AllowVoice = false;
+					}
+				}
+			}
 
-			AllowVoice = true; // RA2: as above
-		} // RA2: as above
+			AllowVoice = true;
+		}
 
-		Session.RecordFile.Read(&TeamEvent, sizeof(TeamEvent)); // RA2: as above
-		Session.RecordFile.Read(&TeamNumber, sizeof(TeamNumber)); // RA2: as above
+		Session.RecordFile.Read(&TeamEvent, sizeof(TeamEvent));
+		Session.RecordFile.Read(&TeamNumber, sizeof(TeamNumber));
 
-		Map.Flag_To_Redraw(); // RA2: as above
-		Map.Render(); // RA2: as above
-	} // RA2: as above
-} // RA2: as above
+		Map.Flag_To_Redraw();
+		Map.Render();
+	}
+}
 
 
-bool InMainLoop = false; // RA2: as above
+bool InMainLoop = false;
 
 /// <summary>
 /// Handles the game losing the input focus.
@@ -362,21 +362,21 @@ bool InMainLoop = false; // RA2: as above
 void Disconnect_Gracefully(void) // RA2 0x0053F780: leaves an internet game through the packet router; its own debug text names it
 {
 	DebugString("Disconnect_Gracefully\n"); // RA2 0x0053F780: leaves an internet game through the packet router; its own debug text names it
-	if (Session.Type == GAME_INTERNET && PacketTransport != NULL && Session.ViaPacketRouter) { // RA2: as above
-		if (PacketRouterConnection != NULL) { // RA2: as above
-			OwnerTalk.Send_Shutdown(); // RA2: as above
-			CDTimerClass<SystemTimerClass> timer(480); // RA2: as above
-			while (timer()) { // RA2: as above
-				Call_Back(); // RA2: as above
-				if (OwnerTalk.Wait_For_Router_Shutdown(10, false)) { // RA2: as above
+	if (Session.Type == GAME_INTERNET && PacketTransport != NULL && Session.ViaPacketRouter) {
+		if (PacketRouterConnection != NULL) {
+			OwnerTalk.Send_Shutdown();
+			CDTimerClass<SystemTimerClass> timer(480);
+			while (timer()) {
+				Call_Back();
+				if (OwnerTalk.Wait_For_Router_Shutdown(10, false)) {
 					break;
 				}
 			}
 		} // RA2 0x0053F780: leaves an internet game through the packet router; its own debug text names it
-		if (Session.MPGameMode == NULL || !Session.MPGameMode->vt_entry_08()) { // RA2: as above
-			Send_Port_Unreachable(); // RA2: as above
-		} // RA2: as above
-	} // RA2: as above
+		if (Session.MPGameMode == NULL || !Session.MPGameMode->vt_entry_08()) {
+			Send_Port_Unreachable();
+		}
+	}
 }
 
 
@@ -386,88 +386,88 @@ void Disconnect_Gracefully(void) // RA2 0x0053F780: leaves an internet game thro
 /// the game and runs the matching scenario routine.
 /// </summary>
 bool Process_Game_End(void) // RA2 0x0053F840: the win, lose, restart and abort handling is a function of its own, not part of Main_Loop
-{ // RA2: as above
-	if ((Frame & 0x3FF) == 0 && !CopyProtection::CheckProtectedData()) { // RA2: as above
-		OutList.Add(EventClass(PlayerPtr->HeapID, EventClass::DESTRUCT)); // RA2: as above
-	} // RA2: as above
-	if (PlayerWins || PlayerLoses || PlayerRestarts || PlayerAborts) { // RA2: as above
-		Session.Suspended++; // RA2: as above
-		Lock_Scenario_Input(); // RA2: as above
-		if (PlayerWins || PlayerLoses) { // RA2: as above
-			if (ToolTips != NULL) { // RA2: as above
-				ToolTips->Activate(false); // RA2: as above
-			} // RA2: as above
-		} // RA2: as above
-		if (PlayerWins || PlayerLoses) { // RA2: as above
-			if (Session.MPGameMode != NULL && (Session.Type == GAME_IPX || Session.Type == GAME_INTERNET)) { // RA2: as above
-				Session.MPGameMode->vt_entry_88(PlayerWins); // RA2: as above
-			} // RA2: as above
-		} // RA2: as above
-		if (PlayerWins) { // RA2: as above
-			if (Session.Type == GAME_INTERNET && !GameStatisticsPacketSent) { // RA2: as above
-				if (WestwoodOnline_Tournament) { // RA2: as above
-					Session.SawGameCompletion = true; // RA2: as above
-				} // RA2: as above
-				Register_Game_End_Time(); // RA2: as above
-				Send_Statistics_Packet(false); // RA2: as above
-			} // RA2: as above
-			PlayerLoses = false; // RA2: as above
-			PlayerWins = false; // RA2: as above
-			PlayerRestarts = false; // RA2: as above
-			PlayerAborts = false; // RA2: as above
-			Reload_Art_Set(); // RA2: as above
-			Session.Leave_Game(); // RA2: as above
-			Do_Win(); // RA2: as above
-			Session.Resume(); // RA2: as above
-			InMainLoop = false; // RA2: as above
-			if (ToolTips != NULL) { // RA2: as above
-				ToolTips->Activate(Options.ToolTips); // RA2: as above
-			} // RA2: as above
-		} else if (PlayerLoses) { // RA2: as above
-			if (Session.Type == GAME_INTERNET && !GameStatisticsPacketSent) { // RA2: as above
-				if (WestwoodOnline_Tournament) { // RA2: as above
-					Session.SawGameCompletion = true; // RA2: as above
-				} // RA2: as above
-				Register_Game_End_Time(); // RA2: as above
-				Send_Statistics_Packet(false); // RA2: as above
-			} // RA2: as above
-			PlayerWins = false; // RA2: as above
-			PlayerLoses = false; // RA2: as above
-			PlayerRestarts = false; // RA2: as above
-			PlayerAborts = false; // RA2: as above
-			Reload_Art_Set(); // RA2: as above
-			Session.Leave_Game(); // RA2: as above
-			Do_Lose(); // RA2: as above
-			Session.Resume(); // RA2: as above
-			InMainLoop = false; // RA2: as above
-			if (ToolTips != NULL) { // RA2: as above
-				ToolTips->Activate(Options.ToolTips); // RA2: as above
-			} // RA2: as above
-		} else if (PlayerRestarts) { // RA2: as above
-			PlayerWins = false; // RA2: as above
-			PlayerLoses = false; // RA2: as above
-			PlayerRestarts = false; // RA2: as above
-			PlayerAborts = false; // RA2: as above
-			Session.Leave_Game(); // RA2: as above
-			Do_Restart(); // RA2: as above
-			Session.Resume(); // RA2: as above
-			InMainLoop = false; // RA2: as above
-		} else if (PlayerAborts) { // RA2: as above
-			PlayerWins = false; // RA2: as above
-			PlayerLoses = false; // RA2: as above
-			PlayerRestarts = false; // RA2: as above
-			PlayerAborts = false; // RA2: as above
-			Reload_Art_Set(); // RA2: as above
-			Session.Leave_Game(); // RA2: as above
-			Do_Abort(); // RA2: as above
-			Session.Resume(); // RA2: as above
-			InMainLoop = false; // RA2: as above
-			Disconnect_Gracefully(); // RA2: as above
-		} // RA2: as above
-		Session.Suspended--; // RA2: as above
-	} // RA2: as above
-	return(!GameActive); // RA2: as above
-} // RA2: as above
+{
+	if ((Frame & 0x3FF) == 0 && !CopyProtection::CheckProtectedData()) {
+		OutList.Add(EventClass(PlayerPtr->HeapID, EventClass::DESTRUCT));
+	}
+	if (PlayerWins || PlayerLoses || PlayerRestarts || PlayerAborts) {
+		Session.Suspended++;
+		Lock_Scenario_Input();
+		if (PlayerWins || PlayerLoses) {
+			if (ToolTips != NULL) {
+				ToolTips->Activate(false);
+			}
+		}
+		if (PlayerWins || PlayerLoses) {
+			if (Session.MPGameMode != NULL && (Session.Type == GAME_IPX || Session.Type == GAME_INTERNET)) {
+				Session.MPGameMode->vt_entry_88(PlayerWins);
+			}
+		}
+		if (PlayerWins) {
+			if (Session.Type == GAME_INTERNET && !GameStatisticsPacketSent) {
+				if (WestwoodOnline_Tournament) {
+					Session.SawGameCompletion = true;
+				}
+				Register_Game_End_Time();
+				Send_Statistics_Packet(false);
+			}
+			PlayerLoses = false;
+			PlayerWins = false;
+			PlayerRestarts = false;
+			PlayerAborts = false;
+			Reload_Art_Set();
+			Session.Leave_Game();
+			Do_Win();
+			Session.Resume();
+			InMainLoop = false;
+			if (ToolTips != NULL) {
+				ToolTips->Activate(Options.ToolTips);
+			}
+		} else if (PlayerLoses) {
+			if (Session.Type == GAME_INTERNET && !GameStatisticsPacketSent) {
+				if (WestwoodOnline_Tournament) {
+					Session.SawGameCompletion = true;
+				}
+				Register_Game_End_Time();
+				Send_Statistics_Packet(false);
+			}
+			PlayerWins = false;
+			PlayerLoses = false;
+			PlayerRestarts = false;
+			PlayerAborts = false;
+			Reload_Art_Set();
+			Session.Leave_Game();
+			Do_Lose();
+			Session.Resume();
+			InMainLoop = false;
+			if (ToolTips != NULL) {
+				ToolTips->Activate(Options.ToolTips);
+			}
+		} else if (PlayerRestarts) {
+			PlayerWins = false;
+			PlayerLoses = false;
+			PlayerRestarts = false;
+			PlayerAborts = false;
+			Session.Leave_Game();
+			Do_Restart();
+			Session.Resume();
+			InMainLoop = false;
+		} else if (PlayerAborts) {
+			PlayerWins = false;
+			PlayerLoses = false;
+			PlayerRestarts = false;
+			PlayerAborts = false;
+			Reload_Art_Set();
+			Session.Leave_Game();
+			Do_Abort();
+			Session.Resume();
+			InMainLoop = false;
+			Disconnect_Gracefully();
+		}
+		Session.Suspended--;
+	}
+	return(!GameActive);
+}
 
 
 /***********************************************************************************************
@@ -492,8 +492,8 @@ bool Main_Loop(void)
 
 	//Mono_Set_Cursor(0,0);
 	if (!GameActive) { // RA2 0x0053FBD0: the loop without the bench calls and without the end of game handling (Process_Game_End)
-		return(!GameActive); // RA2: as above
-	} // RA2: as above
+		return(!GameActive);
+	}
 
 	InMainLoop = true;
 
@@ -525,18 +525,18 @@ bool Main_Loop(void)
 	}
 
 	if (TacticalActive == true && AudioDeviceAvailable()) { // RA2 0x0053FBD0: the loop without the bench calls and without the end of game handling (Process_Game_End)
-		ThemeType theme = Theme.Score; // RA2: as above
-		if (theme == THEME_NONE) { // RA2: as above
-			theme = Theme.Pending; // RA2: as above
-		} // RA2: as above
-		if (Options.IsInGameMusic) { // RA2: as above
-			if (theme == THEME_NONE) { // RA2: as above
+		ThemeType theme = Theme.Score;
+		if (theme == THEME_NONE) {
+			theme = Theme.Pending;
+		}
+		if (Options.IsInGameMusic) {
+			if (theme == THEME_NONE) {
 				Theme.Queue_Song(THEME_PICK_ANOTHER);
 			} // RA2 0x0053FBD0: the loop without the bench calls and without the end of game handling (Process_Game_End)
-		} else if (theme != THEME_QUIET) { // RA2: as above
-			Theme.Stop(true); // RA2: as above
-			Theme.Queue_Song(THEME_QUIET); // RA2: as above
-		} // RA2: as above
+		} else if (theme != THEME_QUIET) {
+			Theme.Stop(true);
+			Theme.Queue_Song(THEME_QUIET);
+		}
 	}
 
 	/*
@@ -547,13 +547,13 @@ bool Main_Loop(void)
 			FrameTimer = 0;
 		} else {
 			if (Session.DesiredFrameRate == 0) { // RA2 0x0053FBD0: the loop without the bench calls and without the end of game handling (Process_Game_End)
-				FrameTimer = 2; // RA2: as above
-				NetFrameTimer = 33; // RA2: as above
-			} else { // RA2: as above
-				FrameTimer = TIMER_SECOND / Session.DesiredFrameRate; // RA2: as above
-				NetFrameTimer = 1000 / Session.DesiredFrameRate; // RA2: as above
-			} // RA2: as above
-			LastNetFrameTimer = NetFrameTimer; // RA2: as above
+				FrameTimer = 2;
+				NetFrameTimer = 33;
+			} else {
+				FrameTimer = TIMER_SECOND / Session.DesiredFrameRate;
+				NetFrameTimer = 1000 / Session.DesiredFrameRate;
+			}
+			LastNetFrameTimer = NetFrameTimer;
 			int maxahead = Session.MaxAhead;
 			int worst_latency = 0;
 			if (Session.Type == GAME_INTERNET) {
@@ -577,9 +577,9 @@ bool Main_Loop(void)
 				}
 			}
 		} // RA2 0x0053FBD0: the loop without the bench calls and without the end of game handling (Process_Game_End)
-	} else if (Session.Type == GAME_NORMAL && !GameControlsShown) { // RA2: as above
-		Options.GameSpeed = 2; // RA2: as above
-		FrameTimer = 2; // RA2: as above
+	} else if (Session.Type == GAME_NORMAL && !GameControlsShown) {
+		Options.GameSpeed = 2;
+		FrameTimer = 2;
 	} else {
 		FrameTimer = Options.GameSpeed;
 	}
@@ -588,27 +588,27 @@ bool Main_Loop(void)
 	**	Update the display, unless we're inside a dialog.
 	*/
 	if (Session.Type == GAME_NORMAL) { // RA2 0x0053FBD0: the loop without the bench calls and without the end of game handling (Process_Game_End)
-		if (Scen->IsGamePaused && Scen->PauseTimer <= 0) { // RA2: as above
-			Scen->IsGamePaused = false; // RA2: as above
-			Release_Scenario(); // RA2: as above
-		} // RA2: as above
-		if (Scen->HoldCount) { // RA2: as above
-			Windows_Message_Handler(); // RA2: as above
-			Call_Back(); // RA2: as above
-			TacticalMap->AI(); // RA2: as above
-			Map.Render(); // RA2: as above
-			Sync_Delay(); // RA2: as above
-			InMainLoop = false; // RA2: as above
-			return(!GameActive); // RA2: as above
-		} // RA2: as above
-	} // RA2: as above
+		if (Scen->IsGamePaused && Scen->PauseTimer <= 0) {
+			Scen->IsGamePaused = false;
+			Release_Scenario();
+		}
+		if (Scen->HoldCount) {
+			Windows_Message_Handler();
+			Call_Back();
+			TacticalMap->AI();
+			Map.Render();
+			Sync_Delay();
+			InMainLoop = false;
+			return(!GameActive);
+		}
+	}
 
 	if (!Session.Play) {
 		if (SpecialDialog == SDLG_NONE && GameInFocus) {
 			Map.Input(input, x, y);
 			Keyboard_Process(input);
 			if (Session.EnableMultiplayerDebug) { // RA2 0x0053FBD0: the loop without the bench calls and without the end of game handling (Process_Game_End)
-				Draw_Multiplayer_Debug(false); // RA2: as above
+				Draw_Multiplayer_Debug(false);
 			}
 			if ((Frame & 7) == 7 && Session.Type == GAME_INTERNET) {
 				Ipx.Store_Stats();
@@ -640,19 +640,19 @@ bool Main_Loop(void)
 	**	AI logic operations are performed here.
 	*/
 	if (Session.Type == GAME_NORMAL && !ScenarioSaveNameSet) { // RA2 0x0053FBD0: the loop without the bench calls and without the end of game handling (Process_Game_End)
-		wchar_t description[56]; // RA2: as above
-		char name[261]; // RA2: as above
-		ScenarioSaveNameSet = true; // RA2: as above
-		strcpy(name, Scen->ScenarioName); // RA2: as above
-		name[260] = '\0'; // RA2: as above
-		char * dot = strrchr(name, '.'); // RA2: as above
-		if (dot != NULL) { // RA2: as above
+		wchar_t description[56];
+		char name[261];
+		ScenarioSaveNameSet = true;
+		strcpy(name, Scen->ScenarioName);
+		name[260] = '\0';
+		char * dot = strrchr(name, '.');
+		if (dot != NULL) {
 			*dot = '\0';
-		} // RA2: as above
-		strcat(name, ".sav"); // RA2: as above
-		swprintf(description, L"[%s]", Scen->Description); // RA2: as above
-		Save_Game(name, description, false); // RA2: as above
-	} // RA2: as above
+		}
+		strcat(name, ".sav");
+		swprintf(description, L"[%s]", Scen->Description);
+		Save_Game(name, description, false);
+	}
 
 	Logic.AI();
 
@@ -661,26 +661,26 @@ bool Main_Loop(void)
 	**	a message has expired & been removed, and the entire map must be updated.
 	*/
 	int scroll = ScrollSpeed; // RA2 0x0053FBD0: the loop without the bench calls and without the end of game handling (Process_Game_End)
-	if (Keyboard->Down(Options.KeySelect1) || Keyboard->Down(Options.KeySelect2)) { // RA2: as above
-		scroll = scroll * ScrollBoost; // RA2: as above
-	} else if (Keyboard->Down(Options.KeyForceAttack1) || Keyboard->Down(Options.KeyForceAttack2)) { // RA2: as above
-		scroll = MapSizeX > MapSizeY ? MapSizeX : MapSizeY; // RA2: as above
-		scroll <<= 8; // RA2: as above
-	} // RA2: as above
-	if (ScrollKeys & SCROLL_LEFT) { // RA2: as above
-		Map.Scroll_Map(FACING_W, scroll, true); // RA2: as above
-	} // RA2: as above
-	if (ScrollKeys & SCROLL_RIGHT) { // RA2: as above
-		Map.Scroll_Map(FACING_E, scroll, true); // RA2: as above
-	} // RA2: as above
-	if (ScrollKeys & SCROLL_UP) { // RA2: as above
-		Map.Scroll_Map(FACING_N, scroll, true); // RA2: as above
-	} // RA2: as above
-	if (ScrollKeys & SCROLL_DOWN) { // RA2: as above
-		Map.Scroll_Map(FACING_S, scroll, true); // RA2: as above
-	} // RA2: as above
+	if (Keyboard->Down(Options.KeySelect1) || Keyboard->Down(Options.KeySelect2)) {
+		scroll = scroll * ScrollBoost;
+	} else if (Keyboard->Down(Options.KeyForceAttack1) || Keyboard->Down(Options.KeyForceAttack2)) {
+		scroll = MapSizeX > MapSizeY ? MapSizeX : MapSizeY;
+		scroll <<= 8;
+	}
+	if (ScrollKeys & SCROLL_LEFT) {
+		Map.Scroll_Map(FACING_W, scroll, true);
+	}
+	if (ScrollKeys & SCROLL_RIGHT) {
+		Map.Scroll_Map(FACING_E, scroll, true);
+	}
+	if (ScrollKeys & SCROLL_UP) {
+		Map.Scroll_Map(FACING_N, scroll, true);
+	}
+	if (ScrollKeys & SCROLL_DOWN) {
+		Map.Scroll_Map(FACING_S, scroll, true);
+	}
 
-	Planning_Free_Nodes(); // RA2: as above
+	Planning_Free_Nodes();
 	Session.Messages.Manage();
 
 	//
@@ -697,20 +697,20 @@ bool Main_Loop(void)
 	Call_Back();
 
 	if (!PlayerWins && !PlayerLoses && !PlayerRestarts && !PlayerAborts) { // RA2 0x0053FBD0: the loop without the bench calls and without the end of game handling (Process_Game_End)
-		Frame++; // RA2: as above
-		if (UnlockInputFrame != 0 && UnlockInputFrame < Frame) { // RA2: as above
+		Frame++;
+		if (UnlockInputFrame != 0 && UnlockInputFrame < Frame) {
 			Unlock_Scenario_Input();
 			UnlockInputFrame = 0; // RA2 0x0053FBD0: the loop without the bench calls and without the end of game handling (Process_Game_End)
 		}
 		Sync_Delay(); // RA2 0x0053FBD0: the loop without the bench calls and without the end of game handling (Process_Game_End)
-		Process_Deferred_Deletion(); // RA2: as above
-		Planning_Update(); // RA2: as above
-		InMainLoop = false; // RA2: as above
-		return(!GameActive); // RA2: as above
+		Process_Deferred_Deletion();
+		Planning_Update();
+		InMainLoop = false;
+		return(!GameActive);
 	}
 
 	InMainLoop = false; // RA2 0x0053FBD0: the loop without the bench calls and without the end of game handling (Process_Game_End)
-	return(true); // RA2: as above
+	return(true);
 }
 
 
@@ -740,7 +740,7 @@ void Keyboard_Process(KeyNumType & input)
 	**	Don't do anything if there is not keyboard event.
 	*/
 	Message_Input(input); // RA2 0x005406E0: Message_Input first, then the commands through the three extra CommandClass slots
-	if (input == KN_NONE) { // RA2: as above
+	if (input == KN_NONE) {
 		return;
 	}
 
@@ -749,61 +749,61 @@ void Keyboard_Process(KeyNumType & input)
 	**	KN_1, for example, will yield TRUE if in fact the "1" key was pressed.
 	*/
 	KeyNumType key = KeyNumType(input & ~KN_RLSE_BIT); // RA2 0x005406E0: Message_Input first, then the commands through the three extra CommandClass slots
-	KeyNumType plain = KeyNumType(key & ~(WWKEY_SHIFT_BIT|WWKEY_ALT_BIT|WWKEY_CTRL_BIT|WWKEY_VK_BIT)); // RA2: as above
+	KeyNumType plain = KeyNumType(key & ~(WWKEY_SHIFT_BIT | WWKEY_ALT_BIT | WWKEY_CTRL_BIT | WWKEY_VK_BIT));
 
-	CommandClass const * cmd = HotkeyCommands[plain]; // RA2: as above
-	if (cmd == NULL) { // RA2: as above
-		cmd = HotkeyCommands[key]; // RA2: as above
-	} else if (!cmd->PreventCombinationOverride(key)) { // RA2: as above
-		cmd = Hotkey_Command(key); // RA2: as above
+	CommandClass const * cmd = HotkeyCommands[plain];
+	if (cmd == NULL) {
+		cmd = HotkeyCommands[key];
+	} else if (!cmd->PreventCombinationOverride(key)) {
+		cmd = Hotkey_Command(key);
 	}
 
 	if (cmd != NULL && (!IgnoreInput || _wcsicmp((wchar_t const *)cmd->Get_Category(), L"Debug") == 0)) { // RA2 0x005406E0: Message_Input first, then the commands through the three extra CommandClass slots
-		if (cmd->ExtraTriggerCondition(input)) { // RA2: as above
-			cmd->Execute(input); // RA2: as above
-		} // RA2: as above
-		if (cmd->Unknown1C(input)) { // RA2: as above
-			int count = 0; // RA2: as above
-			int next = Keyboard->Check() & 0xFFFF; // RA2: as above
-			if (next == input) { // RA2: as above
-				do { // RA2: as above
-					Keyboard->Get(); // RA2: as above
-					next = Keyboard->Check() & 0xFFFF; // RA2: as above
-					count++; // RA2: as above
-				} while (count < 10 && next == input); // RA2: as above
-			} // RA2: as above
-		} // RA2: as above
-		return; // RA2: as above
+		if (cmd->ExtraTriggerCondition(input)) {
+			cmd->Execute(input);
+		}
+		if (cmd->Unknown1C(input)) {
+			int count = 0;
+			int next = Keyboard->Check() & 0xFFFF;
+			if (next == input) {
+				do {
+					Keyboard->Get();
+					next = Keyboard->Check() & 0xFFFF;
+					count++;
+				} while (count < 10 && next == input);
+			}
+		}
+		return;
 	}
 
 	if (plain == KN_ESC) { // RA2 0x005406E0: Message_Input first, then the commands through the three extra CommandClass slots
-		Queue_Options(); // RA2: as above
-	} else if (plain == KN_TAB) { // RA2: as above
-		Map.Zoom_Mode_Control(); // RA2: as above
-	} else if (plain == KN_LEFT) { // RA2: as above
-		if (input & KN_RLSE_BIT) { // RA2: as above
-			ScrollKeys &= ~SCROLL_LEFT; // RA2: as above
-		} else { // RA2: as above
-			ScrollKeys |= SCROLL_LEFT; // RA2: as above
+		Queue_Options();
+	} else if (plain == KN_TAB) {
+		Map.Zoom_Mode_Control();
+	} else if (plain == KN_LEFT) {
+		if (input & KN_RLSE_BIT) {
+			ScrollKeys &= ~SCROLL_LEFT;
+		} else {
+			ScrollKeys |= SCROLL_LEFT;
 		}
 	} else if (plain == KN_RIGHT) { // RA2 0x005406E0: Message_Input first, then the commands through the three extra CommandClass slots
-		if (input & KN_RLSE_BIT) { // RA2: as above
-			ScrollKeys &= ~SCROLL_RIGHT; // RA2: as above
-		} else { // RA2: as above
-			ScrollKeys |= SCROLL_RIGHT; // RA2: as above
-		} // RA2: as above
-	} else if (plain == KN_UP) { // RA2: as above
-		if (input & KN_RLSE_BIT) { // RA2: as above
-			ScrollKeys &= ~SCROLL_UP; // RA2: as above
-		} else { // RA2: as above
-			ScrollKeys |= SCROLL_UP; // RA2: as above
-		} // RA2: as above
-	} else if (plain == KN_DOWN) { // RA2: as above
-		if (input & KN_RLSE_BIT) { // RA2: as above
-			ScrollKeys &= ~SCROLL_DOWN; // RA2: as above
-		} else { // RA2: as above
-			ScrollKeys |= SCROLL_DOWN; // RA2: as above
-		} // RA2: as above
+		if (input & KN_RLSE_BIT) {
+			ScrollKeys &= ~SCROLL_RIGHT;
+		} else {
+			ScrollKeys |= SCROLL_RIGHT;
+		}
+	} else if (plain == KN_UP) {
+		if (input & KN_RLSE_BIT) {
+			ScrollKeys &= ~SCROLL_UP;
+		} else {
+			ScrollKeys |= SCROLL_UP;
+		}
+	} else if (plain == KN_DOWN) {
+		if (input & KN_RLSE_BIT) {
+			ScrollKeys &= ~SCROLL_DOWN;
+		} else {
+			ScrollKeys |= SCROLL_DOWN;
+		}
 	}
 }
 
@@ -854,7 +854,7 @@ void Sync_Delay(void)
 		}
 	} else {
 		if (FrameTimer) { // RA2 0x00540960: waits on the frame timer in one loop
-			Wait_Blit(); // RA2: as above
+			Wait_Blit();
 			while (FrameTimer) {
 				Sleep(FrameTimer); // RA2 0x00540960: waits on the frame timer in one loop
 			}
@@ -880,7 +880,7 @@ void Sync_Delay(void)
 /// <summary>
 /// RA2
 /// </summary>
-static inline Point2D * Scratch(Point2D const & p) { return (Point2D *)&p; } // RA2: as above
+static inline Point2D * Scratch(Point2D const & p) { return (Point2D *)&p; }
 
 
 /***********************************************************************************************
@@ -904,14 +904,14 @@ void Message_Input(KeyNumType &input)
 	int rc;
 	int i;
 	int count; // RA2 0x00540C20: wide text, IME input and beacon messages
-	wchar_t name[16]; // RA2: as above
-	wchar_t command[64]; // RA2: as above
-	wchar_t command2[64]; // RA2: as above
-	wchar_t edit[162]; // RA2: as above
-	wchar_t message[224]; // RA2: as above
-	wchar_t prefix[112]; // RA2: as above
-	wchar_t rest[224]; // RA2: as above
-	wchar_t txt[224]; // RA2: as above
+	wchar_t name[16];
+	wchar_t command[64];
+	wchar_t command2[64];
+	wchar_t edit[162];
+	wchar_t message[224];
+	wchar_t prefix[112];
+	wchar_t rest[224];
+	wchar_t txt[224];
 
 	/*
 	**	Check keyboard input for a request to send a message.
@@ -921,56 +921,56 @@ void Message_Input(KeyNumType &input)
 	**	'to' portion.  At the other end, the buffer allocated to display the
 	**	message must be MAX_MESSAGE_LENGTH plus the size of "From: xxx (house)".
 	*/
-	int len = wcslen(IMEResultString); // RA2: as above
-	if (len) { // RA2: as above
-		KeyNumType key = KN_NONE; // RA2: as above
-		for (int k = 0; k < len; k++) { // RA2: as above
-			Session.Messages.Input(key, IMEResultString[k]); // RA2: as above
-		} // RA2: as above
-		IMEResultString[0] = 0; // RA2: as above
-	} // RA2: as above
+	int len = wcslen(IMEResultString);
+	if (len) {
+		KeyNumType key = KN_NONE;
+		for (int k = 0; k < len; k++) {
+			Session.Messages.Input(key, IMEResultString[k]);
+		}
+		IMEResultString[0] = 0;
+	}
 
 		/*
 		**	For a serial game, send a message on F1 or F4; set 'txt' to the
 		**	"Message:" string & add an editable message to the list.
 		*/
-	if (input == KN_NONE) { // RA2: as above
-		return; // RA2: as above
-	} // RA2: as above
+	if (input == KN_NONE) {
+		return;
+	}
 
-	if (Session.Type != GAME_NORMAL && Session.Type != GAME_SKIRMISH && !Session.Messages.Is_Edit()) { // RA2: as above
-		if (input & KN_BUTTON) { // RA2: as above
-			return; // RA2: as above
-		} // RA2: as above
-		int ascii = (unsigned char)Keyboard->To_ASCII(input); // RA2: as above
-		if (ascii == '\r' || ascii == '\\' || ascii == '\b') { // RA2: as above
-			txt[0] = 0; // RA2: as above
-			bool beacon = BeaconManager.FindSelected(PlayerPtr->HeapID) != 0; // RA2: as above
-			if (beacon) { // RA2: as above
-				swprintf(txt, StringTable::LoadString("TXT_BEACON_MESSAGE", 0, RA2_SOURCE, 1796)); // RA2: as above
-			} else { // RA2: as above
-				swprintf(txt, StringTable::LoadString("TXT_FROM", 0, RA2_SOURCE, 1798), PlayerPtr->UIName); // RA2: as above
-				if (ascii == '\r') { // RA2: as above
-					ChatTarget = 1; // RA2: as above
-				} else if (ascii == '\\') { // RA2: as above
-					ChatTarget = 3; // RA2: as above
-				} else if (ascii == '\b') { // RA2: as above
-					ChatTarget = 2; // RA2: as above
-				} // RA2: as above
-			} // RA2: as above
-			input = KN_NONE; // RA2: as above
-			int color = Session.Color_Index_To_Scheme(Session.PrefColor); // RA2: as above
-			TextLabelClass *label = Session.Messages.Add_Edit(color, TextPrintType(TPF_6PT_GRAD | TPF_USE_GRAD_PAL | TPF_FULLSHADOW), txt, 0, beacon ? 10000 : -1); // RA2: as above
-			if (beacon) { // RA2: as above
-				if (label) { // RA2: as above
-					label->SkipDraw = true; // RA2: as above
-				} // RA2: as above
-				Session.Messages.EnableOverflow = false; // RA2: as above
-				wcscpy(name, Narrow_To_Wide("_")); // RA2: as above
-				BeaconManager.EditBeaconMessage(name, -1, -1, false); // RA2: as above
-			} else { // RA2: as above
-				Session.Messages.EnableOverflow = true; // RA2: as above
-			} // RA2: as above
+	if (Session.Type != GAME_NORMAL && Session.Type != GAME_SKIRMISH && !Session.Messages.Is_Edit()) {
+		if (input & KN_BUTTON) {
+			return;
+		}
+		int ascii = (unsigned char)Keyboard->To_ASCII(input);
+		if (ascii == '\r' || ascii == '\\' || ascii == '\b') {
+			txt[0] = 0;
+			bool beacon = BeaconManager.FindSelected(PlayerPtr->HeapID) != 0;
+			if (beacon) {
+				swprintf(txt, StringTable::LoadString("TXT_BEACON_MESSAGE", 0, RA2_SOURCE, 1796));
+			} else {
+				swprintf(txt, StringTable::LoadString("TXT_FROM", 0, RA2_SOURCE, 1798), PlayerPtr->UIName);
+				if (ascii == '\r') {
+					ChatTarget = 1;
+				} else if (ascii == '\\') {
+					ChatTarget = 3;
+				} else if (ascii == '\b') {
+					ChatTarget = 2;
+				}
+			}
+			input = KN_NONE;
+			int color = Session.Color_Index_To_Scheme(Session.PrefColor);
+			TextLabelClass * label = Session.Messages.Add_Edit(color, TextPrintType(TPF_6PT_GRAD | TPF_USE_GRAD_PAL | TPF_FULLSHADOW), txt, 0, beacon ? 10000 : -1);
+			if (beacon) {
+				if (label) {
+					label->SkipDraw = true;
+				}
+				Session.Messages.EnableOverflow = false;
+				wcscpy(name, Narrow_To_Wide("_"));
+				BeaconManager.EditBeaconMessage(name, -1, -1, false);
+			} else {
+				Session.Messages.EnableOverflow = true;
+			}
 			Map.Flag_To_Redraw();
 			IMEResultString[0] = 0; // RA2 0x00540C20: wide text, IME input and beacon messages
 		}
@@ -980,7 +980,7 @@ void Message_Input(KeyNumType &input)
 	**	Process message-system input; send the message out if RETURN is hit.
 	*/
 	KeyNumType copy_input = input; // RA2 0x00540C20: wide text, IME input and beacon messages
-	rc = Session.Messages.Input(input, 0); // RA2: as above
+	rc = Session.Messages.Input(input, 0);
 
 	/*
 	**	If a single character has been added to an edit buffer, update the display.
@@ -988,7 +988,7 @@ void Message_Input(KeyNumType &input)
 	if (rc == 1 && Session.Type != GAME_NORMAL) {
 		Map.Flag_To_Redraw();
 	} else if (rc == 2 && Session.Type != GAME_NORMAL) { // RA2 0x00540C20: wide text, IME input and beacon messages
-		if (copy_input == KN_ESC) { // RA2: as above
+		if (copy_input == KN_ESC) {
 			Map.Flag_To_Redraw(GS_REDRAW_ALL);
 			ChatTarget = 0; // RA2 0x00540C20: wide text, IME input and beacon messages
 		} else {
@@ -1000,147 +1000,147 @@ void Message_Input(KeyNumType &input)
 	**	Send a message
 	*/
 	if ((BeaconManager.FindSelected(PlayerPtr->HeapID) && copy_input && rc == 1) || rc == 2 || rc == 4 || IMEComposing) { // RA2 0x00540C20: wide text, IME input and beacon messages
-		if (copy_input == KN_ESC) { // RA2: as above
-			BeaconManager.EditBeaconMessage(0, -1, -1, true); // RA2: as above
-		} else { // RA2: as above
-			wcsncpy(edit, Session.Messages.Get_Edit_Buf(), 162); // RA2: as above
-			edit[161] = 0; // RA2: as above
-			wcsncat(edit, IMECompositionString, 162); // RA2: as above
-			edit[161] = 0; // RA2: as above
-			wcsncat(edit, Narrow_To_Wide("_"), 162); // RA2: as above
-			edit[161] = 0; // RA2: as above
-			BeaconManager.EditBeaconMessage(edit, -1, -1, false); // RA2: as above
-		} // RA2: as above
-	} // RA2: as above
+		if (copy_input == KN_ESC) {
+			BeaconManager.EditBeaconMessage(0, -1, -1, true);
+		} else {
+			wcsncpy(edit, Session.Messages.Get_Edit_Buf(), 162);
+			edit[161] = 0;
+			wcsncat(edit, IMECompositionString, 162);
+			edit[161] = 0;
+			wcsncat(edit, Narrow_To_Wide("_"), 162);
+			edit[161] = 0;
+			BeaconManager.EditBeaconMessage(edit, -1, -1, false);
+		}
+	}
 
-	if ((rc == 3 || rc == 4) && Session.Type != GAME_NORMAL && Session.Type != GAME_SKIRMISH) { // RA2: as above
-		if (Session.Type == GAME_NULL_MODEM || Session.Type == GAME_MODEM) { // RA2: as above
-			SerialPacketType *packet = (SerialPacketType *)NullModem.BuildBuf; // RA2: as above
-			if (rc == 3 || rc == 4) { // RA2: as above
-				packet->Command = SERIAL_MESSAGE; // RA2: as above
-			} // RA2: as above
-			OwnerDraw::WideToCharString(packet->Name, Session.Players[0]->Name, -1); // RA2: as above
-			packet->ID = (char)Session.PrefColor; // RA2: as above
-			if (rc == 3) { // RA2: as above
-				wcscpy(packet->Message.Message, Session.Messages.Get_Edit_Buf()); // RA2: as above
-			} else if (rc == 4) { // RA2: as above
-				wcscpy(packet->Message.Message, Session.Messages.Get_Overflow_Buf()); // RA2: as above
-				Session.Messages.Clear_Overflow_Buf(); // RA2: as above
-			} // RA2: as above
-			NullModem.Send_Message(NullModem.BuildBuf, sizeof(SerialPacketType), 1); // RA2: as above
-			if (rc == 3 || rc == 4) { // RA2: as above
-				wcscpy(Session.LastMessage, packet->Message.Message); // RA2: as above
-			} // RA2: as above
-		} else if (Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) { // RA2: as above
-			if (BeaconManager.FindSelected(PlayerPtr->HeapID)) { // RA2: as above
-				BeaconManager.EditBeaconMessage(Session.Messages.Get_Edit_Buf(), -1, -1, true); // RA2: as above
+	if ((rc == 3 || rc == 4) && Session.Type != GAME_NORMAL && Session.Type != GAME_SKIRMISH) {
+		if (Session.Type == GAME_NULL_MODEM || Session.Type == GAME_MODEM) {
+			SerialPacketType * packet = (SerialPacketType *)NullModem.BuildBuf;
+			if (rc == 3 || rc == 4) {
+				packet->Command = SERIAL_MESSAGE;
+			}
+			OwnerDraw::WideToCharString(packet->Name, Session.Players[0]->Name, -1);
+			packet->ID = (char)Session.PrefColor;
+			if (rc == 3) {
+				wcscpy(packet->Message.Message, Session.Messages.Get_Edit_Buf());
+			} else if (rc == 4) {
+				wcscpy(packet->Message.Message, Session.Messages.Get_Overflow_Buf());
+				Session.Messages.Clear_Overflow_Buf();
+			}
+			NullModem.Send_Message(NullModem.BuildBuf, sizeof(SerialPacketType), 1);
+			if (rc == 3 || rc == 4) {
+				wcscpy(Session.LastMessage, packet->Message.Message);
+			}
+		} else if (Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) {
+			if (BeaconManager.FindSelected(PlayerPtr->HeapID)) {
+				BeaconManager.EditBeaconMessage(Session.Messages.Get_Edit_Buf(), -1, -1, true);
 			} else {
 				if (Session.Type == GAME_INTERNET) { // RA2 0x00540C20: wide text, IME input and beacon messages
-					if (rc == 3) { // RA2: as above
-						wcscpy(message, Session.Messages.Get_Edit_Buf()); // RA2: as above
-					} else if (rc == 4) { // RA2: as above
-						wcscpy(message, Session.Messages.Get_Overflow_Buf()); // RA2: as above
-					} // RA2: as above
-					int page = Parse_Page_Command(message); // RA2: as above
-					if (page) { // RA2: as above
-						if (page == 1) { // RA2: as above
-							int n = 0; // RA2: as above
-							wcscpy(command, StringTable::LoadString("TXT_PAGE_COMMAND", 0, RA2_SOURCE, 1984)); // RA2: as above
-							wchar_t *p = &message[wcslen(command)]; // RA2: as above
-							while (*p != 0 && wcsncmp(p, L" ", 1) == 0) { // RA2: as above
-								p++; // RA2: as above
-							} // RA2: as above
-							while (*p != 0 && wcsncmp(p, L" ", 1) != 0 && n <= 10) { // RA2: as above
-								name[n++] = *p++; // RA2: as above
-							} // RA2: as above
-							name[n] = 0; // RA2: as above
-							while (*p != 0 && wcsncmp(p, L" ", 1) == 0) { // RA2: as above
-								p++; // RA2: as above
-							} // RA2: as above
-							if (wcslen(name) == 0) { // RA2: as above
-								Session.Messages.Add_Message(0, -1, // RA2: as above
-									StringTable::LoadString("TXT_NO_NAME_SPECIFIED", 0, RA2_SOURCE, 2000), // RA2: as above
-									Session.Color_Index_To_Scheme(Session.PrefColor), TextPrintType(TPF_6PT_GRAD | TPF_USE_GRAD_PAL | TPF_FULLSHADOW), (int)(Rule->MessageDelay * TICKS_PER_MINUTE), false); // RA2: as above
-							} else if (wcslen(p) == 0) { // RA2: as above
-								Session.Messages.Add_Message(0, -1, // RA2: as above
-									StringTable::LoadString("TXT_CANT_SEND_BLANK_PAGE", 0, RA2_SOURCE, 2005), // RA2: as above
-									Session.Color_Index_To_Scheme(Session.PrefColor), TextPrintType(TPF_6PT_GRAD | TPF_USE_GRAD_PAL | TPF_FULLSHADOW), (int)(Rule->MessageDelay * TICKS_PER_MINUTE), false); // RA2: as above
-							} else { // RA2: as above
-								swprintf(command2, L"%s > %s", Session.Players[0]->Name, name); // RA2: as above
-								Session.Messages.Add_Message(command2, Session.PrefColor, p, // RA2: as above
-									Session.Color_Index_To_Scheme(Session.PrefColor), TextPrintType(TPF_6PT_GRAD | TPF_USE_GRAD_PAL | TPF_FULLSHADOW), (int)(Rule->MessageDelay * TICKS_PER_MINUTE), false); // RA2: as above
-							} // RA2: as above
-							if (rc == 4) { // RA2: as above
-								wchar_t *buf = Session.Messages.Get_Edit_Buf(); // RA2: as above
-								if (buf) { // RA2: as above
-									swprintf(prefix, StringTable::LoadString("TXT_FROM", 0, RA2_SOURCE, 2024), PlayerPtr->UIName); // RA2: as above
-									swprintf(rest, L"%s%s %s", command, name, buf); // RA2: as above
-									Session.Messages.Remove_Edit(); // RA2: as above
-									Session.Messages.Add_Edit(Session.PrefColor, TextPrintType(TPF_6PT_GRAD | TPF_USE_GRAD_PAL | TPF_FULLSHADOW), prefix, 0, -1); // RA2: as above
-									buf = Session.Messages.Get_Edit_Buf(); // RA2: as above
-									if (buf) { // RA2: as above
-										wcscat(buf, rest); // RA2: as above
-									} // RA2: as above
-								} // RA2: as above
-							} // RA2: as above
-						} // RA2: as above
+					if (rc == 3) {
+						wcscpy(message, Session.Messages.Get_Edit_Buf());
+					} else if (rc == 4) {
+						wcscpy(message, Session.Messages.Get_Overflow_Buf());
+					}
+					int page = Parse_Page_Command(message);
+					if (page) {
+						if (page == 1) {
+							int n = 0;
+							wcscpy(command, StringTable::LoadString("TXT_PAGE_COMMAND", 0, RA2_SOURCE, 1984));
+							wchar_t * p = &message[wcslen(command)];
+							while (*p != 0 && wcsncmp(p, L" ", 1) == 0) {
+								p++;
+							}
+							while (*p != 0 && wcsncmp(p, L" ", 1) != 0 && n <= 10) {
+								name[n++] = *p++;
+							}
+							name[n] = 0;
+							while (*p != 0 && wcsncmp(p, L" ", 1) == 0) {
+								p++;
+							}
+							if (wcslen(name) == 0) {
+								Session.Messages.Add_Message(0, -1,
+									StringTable::LoadString("TXT_NO_NAME_SPECIFIED", 0, RA2_SOURCE, 2000),
+									Session.Color_Index_To_Scheme(Session.PrefColor), TextPrintType(TPF_6PT_GRAD | TPF_USE_GRAD_PAL | TPF_FULLSHADOW), (int)(Rule->MessageDelay * TICKS_PER_MINUTE), false);
+							} else if (wcslen(p) == 0) {
+								Session.Messages.Add_Message(0, -1,
+									StringTable::LoadString("TXT_CANT_SEND_BLANK_PAGE", 0, RA2_SOURCE, 2005),
+									Session.Color_Index_To_Scheme(Session.PrefColor), TextPrintType(TPF_6PT_GRAD | TPF_USE_GRAD_PAL | TPF_FULLSHADOW), (int)(Rule->MessageDelay * TICKS_PER_MINUTE), false);
+							} else {
+								swprintf(command2, L"%s > %s", Session.Players[0]->Name, name);
+								Session.Messages.Add_Message(command2, Session.PrefColor, p,
+									Session.Color_Index_To_Scheme(Session.PrefColor), TextPrintType(TPF_6PT_GRAD | TPF_USE_GRAD_PAL | TPF_FULLSHADOW), (int)(Rule->MessageDelay * TICKS_PER_MINUTE), false);
+							}
+							if (rc == 4) {
+								wchar_t * buf = Session.Messages.Get_Edit_Buf();
+								if (buf) {
+									swprintf(prefix, StringTable::LoadString("TXT_FROM", 0, RA2_SOURCE, 2024), PlayerPtr->UIName);
+									swprintf(rest, L"%s%s %s", command, name, buf);
+									Session.Messages.Remove_Edit();
+									Session.Messages.Add_Edit(Session.PrefColor, TextPrintType(TPF_6PT_GRAD | TPF_USE_GRAD_PAL | TPF_FULLSHADOW), prefix, 0, -1);
+									buf = Session.Messages.Get_Edit_Buf();
+									if (buf) {
+										wcscat(buf, rest);
+									}
+								}
+							}
+						}
 						Session.Messages.Clear_Overflow_Buf();
 						return; // RA2 0x00540C20: wide text, IME input and beacon messages
-					} // RA2: as above
-					if (Parse_Online_Command(message)) { // RA2: as above
-						Session.Messages.Clear_Overflow_Buf(); // RA2: as above
-						return; // RA2: as above
-					} // RA2: as above
-					int reply = Reply_To_Last_Pager(message); // RA2: as above
-					if (reply) { // RA2: as above
-						if (reply == 1) { // RA2: as above
-							bool shortform = false; // RA2: as above
-							wcscpy(command, StringTable::LoadString("TXT_REPLY_COMMAND", 0, RA2_SOURCE, 2054)); // RA2: as above
-							wcscpy(command2, StringTable::LoadString("TXT_REPLY_COMMAND_SHORT", 0, RA2_SOURCE, 2055)); // RA2: as above
-							wchar_t *p; // RA2: as above
-							if (wcsncmp(message, command, wcslen(command)) == 0) { // RA2: as above
-								p = &message[wcslen(command)]; // RA2: as above
-							} else { // RA2: as above
-								p = &message[wcslen(command2)]; // RA2: as above
-								shortform = true; // RA2: as above
-							} // RA2: as above
-							while (*p != 0 && wcsncmp(p, L" ", 1) == 0) { // RA2: as above
-								p++; // RA2: as above
-							} // RA2: as above
-							swprintf(prefix, L"%s > %s", Session.Players[0]->Name, Narrow_To_Wide(LastPagerName)); // RA2: as above
-							if (wcslen(Narrow_To_Wide(LastPagerName)) == 0) { // RA2: as above
-								Session.Messages.Add_Message(0, Session.PrefColor, // RA2: as above
-									StringTable::LoadString("TXT_NAME_NOT_SPECIFIED", 0, RA2_SOURCE, 2069), // RA2: as above
-									Session.Color_Index_To_Scheme(Session.PrefColor), TextPrintType(TPF_6PT_GRAD | TPF_USE_GRAD_PAL | TPF_FULLSHADOW), (int)(Rule->MessageDelay * TICKS_PER_MINUTE), false); // RA2: as above
-							} else if (wcslen(p) > 0) { // RA2: as above
-								Session.Messages.Add_Message(prefix, Session.PrefColor, p, // RA2: as above
-									Session.Color_Index_To_Scheme(Session.PrefColor), TextPrintType(TPF_6PT_GRAD | TPF_USE_GRAD_PAL | TPF_FULLSHADOW), (int)(Rule->MessageDelay * TICKS_PER_MINUTE), false); // RA2: as above
-							} else { // RA2: as above
-								Session.Messages.Add_Message(0, Session.PrefColor, // RA2: as above
-									StringTable::LoadString("TXT_CANT_SEND_BLANK_PAGE", 0, RA2_SOURCE, 2082), // RA2: as above
-									Session.Color_Index_To_Scheme(Session.PrefColor), TextPrintType(TPF_6PT_GRAD | TPF_USE_GRAD_PAL | TPF_FULLSHADOW), (int)(Rule->MessageDelay * TICKS_PER_MINUTE), false); // RA2: as above
-							} // RA2: as above
-							if (rc == 4) { // RA2: as above
-								wchar_t *buf = Session.Messages.Get_Edit_Buf(); // RA2: as above
-								if (buf) { // RA2: as above
-									swprintf(edit, StringTable::LoadString("TXT_FROM", 0, RA2_SOURCE, 2094), PlayerPtr->UIName); // RA2: as above
-									if (shortform) { // RA2: as above
-										swprintf(rest, L"%s %s", command2, buf); // RA2: as above
-									} else { // RA2: as above
-										swprintf(rest, L"%s %s", command, buf); // RA2: as above
-									} // RA2: as above
-									Session.Messages.Remove_Edit(); // RA2: as above
-									Session.Messages.Add_Edit(Session.PrefColor, TextPrintType(TPF_6PT_GRAD | TPF_USE_GRAD_PAL | TPF_FULLSHADOW), edit, 0, -1); // RA2: as above
-									buf = Session.Messages.Get_Edit_Buf(); // RA2: as above
-									if (buf) { // RA2: as above
-										wcscat(buf, rest); // RA2: as above
-									} // RA2: as above
-								} // RA2: as above
-							} // RA2: as above
-						} // RA2: as above
-						Session.Messages.Clear_Overflow_Buf(); // RA2: as above
-						return; // RA2: as above
-					} // RA2: as above
+					}
+					if (Parse_Online_Command(message)) {
+						Session.Messages.Clear_Overflow_Buf();
+						return;
+					}
+					int reply = Reply_To_Last_Pager(message);
+					if (reply) {
+						if (reply == 1) {
+							bool shortform = false;
+							wcscpy(command, StringTable::LoadString("TXT_REPLY_COMMAND", 0, RA2_SOURCE, 2054));
+							wcscpy(command2, StringTable::LoadString("TXT_REPLY_COMMAND_SHORT", 0, RA2_SOURCE, 2055));
+							wchar_t * p;
+							if (wcsncmp(message, command, wcslen(command)) == 0) {
+								p = &message[wcslen(command)];
+							} else {
+								p = &message[wcslen(command2)];
+								shortform = true;
+							}
+							while (*p != 0 && wcsncmp(p, L" ", 1) == 0) {
+								p++;
+							}
+							swprintf(prefix, L"%s > %s", Session.Players[0]->Name, Narrow_To_Wide(LastPagerName));
+							if (wcslen(Narrow_To_Wide(LastPagerName)) == 0) {
+								Session.Messages.Add_Message(0, Session.PrefColor,
+									StringTable::LoadString("TXT_NAME_NOT_SPECIFIED", 0, RA2_SOURCE, 2069),
+									Session.Color_Index_To_Scheme(Session.PrefColor), TextPrintType(TPF_6PT_GRAD | TPF_USE_GRAD_PAL | TPF_FULLSHADOW), (int)(Rule->MessageDelay * TICKS_PER_MINUTE), false);
+							} else if (wcslen(p) > 0) {
+								Session.Messages.Add_Message(prefix, Session.PrefColor, p,
+									Session.Color_Index_To_Scheme(Session.PrefColor), TextPrintType(TPF_6PT_GRAD | TPF_USE_GRAD_PAL | TPF_FULLSHADOW), (int)(Rule->MessageDelay * TICKS_PER_MINUTE), false);
+							} else {
+								Session.Messages.Add_Message(0, Session.PrefColor,
+									StringTable::LoadString("TXT_CANT_SEND_BLANK_PAGE", 0, RA2_SOURCE, 2082),
+									Session.Color_Index_To_Scheme(Session.PrefColor), TextPrintType(TPF_6PT_GRAD | TPF_USE_GRAD_PAL | TPF_FULLSHADOW), (int)(Rule->MessageDelay * TICKS_PER_MINUTE), false);
+							}
+							if (rc == 4) {
+								wchar_t * buf = Session.Messages.Get_Edit_Buf();
+								if (buf) {
+									swprintf(edit, StringTable::LoadString("TXT_FROM", 0, RA2_SOURCE, 2094), PlayerPtr->UIName);
+									if (shortform) {
+										swprintf(rest, L"%s %s", command2, buf);
+									} else {
+										swprintf(rest, L"%s %s", command, buf);
+									}
+									Session.Messages.Remove_Edit();
+									Session.Messages.Add_Edit(Session.PrefColor, TextPrintType(TPF_6PT_GRAD | TPF_USE_GRAD_PAL | TPF_FULLSHADOW), edit, 0, -1);
+									buf = Session.Messages.Get_Edit_Buf();
+									if (buf) {
+										wcscat(buf, rest);
+									}
+								}
+							}
+						}
+						Session.Messages.Clear_Overflow_Buf();
+						return;
+					}
 				}
 
 			/*
@@ -1148,64 +1148,64 @@ void Message_Input(KeyNumType &input)
 			**	buffer; the computer may send us a version of it later.
 			*/
 				if (rc == 3 || rc == 4) { // RA2 0x00540C20: wide text, IME input and beacon messages
-					Session.GPacket.Command = NET_MESSAGE; // RA2: as above
-				} // RA2: as above
-				strcpy(Session.GPacket.Name, Wide_To_Narrow(Session.Players[0]->Name)); // RA2: as above
-				Session.GPacket.Message.Color = Session.PrefColor; // RA2: as above
-				Session.GPacket.Message.NameCRC = Compute_Name_CRC(Session.GameName); // RA2: as above
-				Session.GPacket.Message.Recipients = 0; // RA2: as above
-				if (rc == 3) { // RA2: as above
-					wcscpy((wchar_t *)Session.GPacket.Message.Buf, Session.Messages.Get_Edit_Buf()); // RA2: as above
-				} else if (rc == 4) { // RA2: as above
-					wcscpy((wchar_t *)Session.GPacket.Message.Buf, Session.Messages.Get_Overflow_Buf()); // RA2: as above
-					Session.Messages.Clear_Overflow_Buf(); // RA2: as above
-				} // RA2: as above
+					Session.GPacket.Command = NET_MESSAGE;
+				}
+				strcpy(Session.GPacket.Name, Wide_To_Narrow(Session.Players[0]->Name));
+				Session.GPacket.Message.Color = Session.PrefColor;
+				Session.GPacket.Message.NameCRC = Compute_Name_CRC(Session.GameName);
+				Session.GPacket.Message.Recipients = 0;
+				if (rc == 3) {
+					wcscpy((wchar_t *)Session.GPacket.Message.Buf, Session.Messages.Get_Edit_Buf());
+				} else if (rc == 4) {
+					wcscpy((wchar_t *)Session.GPacket.Message.Buf, Session.Messages.Get_Overflow_Buf());
+					Session.Messages.Clear_Overflow_Buf();
+				}
 
-				count = Houses.Count(); // RA2: as above
-				if (Session.MultiplayerObserver && (ChatTarget == 1 || ChatTarget == 2)) { // RA2: as above
-					for (i = 0; i < count; i++) { // RA2: as above
-						HouseClass *house = Houses[i]; // RA2: as above
-						if (house && house->Class->IsMultiplay // RA2: as above
-							&& ((!Session.PlayerChatEnabled[i] && ChatTarget == 1) // RA2: as above
-								|| (!Houses[Session.Players[0]->Player.ID]->Is_Ally(house) && ChatTarget == 2))) { // RA2: as above
-							int scheme = GadgetClass::Get_Color_Scheme(); // RA2: as above
-							Session.Messages.Add_Message(0, 0, // RA2: as above
-								StringTable::LoadString("TXT_OBSERVER_CANT_SEND", 0, RA2_SOURCE, 2167), // RA2: as above
-								scheme, TPF_TEXT, (int)(Rule->MessageDelay * TICKS_PER_MINUTE), true); // RA2: as above
-							ChatTarget = 0; // RA2: as above
-							break; // RA2: as above
-						} // RA2: as above
-					} // RA2: as above
-				} // RA2: as above
+				count = Houses.Count();
+				if (Session.MultiplayerObserver && (ChatTarget == 1 || ChatTarget == 2)) {
+					for (i = 0; i < count; i++) {
+						HouseClass * house = Houses[i];
+						if (house && house->Class->IsMultiplay
+							&& ((!Session.PlayerChatEnabled[i] && ChatTarget == 1)
+								|| (!Houses[Session.Players[0]->Player.ID]->Is_Ally(house) && ChatTarget == 2))) {
+							int scheme = GadgetClass::Get_Color_Scheme();
+							Session.Messages.Add_Message(0, 0,
+								StringTable::LoadString("TXT_OBSERVER_CANT_SEND", 0, RA2_SOURCE, 2167),
+								scheme, TPF_TEXT, (int)(Rule->MessageDelay * TICKS_PER_MINUTE), true);
+							ChatTarget = 0;
+							break;
+						}
+					}
+				}
 
 			/*
 			**	Network game: fill in a GlobalPacketType & send it.
 			*/
-				for (i = 0; i < count; i++) { // RA2: as above
-					HouseClass *house = Houses[i]; // RA2: as above
-					if (house && house->Class->IsMultiplay // RA2: as above
-						&& ((Session.PlayerChatEnabled[i] && ChatTarget == 1) // RA2: as above
-							|| (Houses[Session.Players[0]->Player.ID]->Is_Ally(house) && ChatTarget == 2) // RA2: as above
-							|| ChatTarget == 3)) { // RA2: as above
-						int connections = Ipx.Num_Connections(); // RA2: as above
-						for (int j = 0; j < connections; j++) { // RA2: as above
-							int id = Ipx.Connection_ID(j); // RA2: as above
-							if (wcscmp(house->UIName, Ipx.Connection_Name(id)) == 0) { // RA2: as above
-								IPXAddressClass *address = Ipx.Connection_Address(id); // RA2: as above
-								if (Session.ViaPacketRouter) { // RA2: as above
-									Session.GPacket.Message.Recipients |= OwnerTalk.Mask_From_ID(id); // RA2: as above
+				for (i = 0; i < count; i++) {
+					HouseClass * house = Houses[i];
+					if (house && house->Class->IsMultiplay
+						&& ((Session.PlayerChatEnabled[i] && ChatTarget == 1)
+							|| (Houses[Session.Players[0]->Player.ID]->Is_Ally(house) && ChatTarget == 2)
+							|| ChatTarget == 3)) {
+						int connections = Ipx.Num_Connections();
+						for (int j = 0; j < connections; j++) {
+							int id = Ipx.Connection_ID(j);
+							if (wcscmp(house->UIName, Ipx.Connection_Name(id)) == 0) {
+								IPXAddressClass * address = Ipx.Connection_Address(id);
+								if (Session.ViaPacketRouter) {
+									Session.GPacket.Message.Recipients |= OwnerTalk.Mask_From_ID(id);
 								} else {
 									Ipx.Send_Global_Message(&Session.GPacket, sizeof(GlobalPacketType), 1, address, 0, 0); // RA2 0x00540C20: wide text, IME input and beacon messages
-									Ipx.Service(); // RA2: as above
-								} // RA2: as above
-							} // RA2: as above
-						} // RA2: as above
-					} // RA2: as above
+									Ipx.Service();
+								}
+							}
+						}
+					}
 				}
 
 				if (Session.ViaPacketRouter && Session.GPacket.Message.Recipients) { // RA2 0x00540C20: wide text, IME input and beacon messages
-					DebugString("Sending chat, mask = %d\n", (unsigned char)Session.GPacket.Message.Recipients); // RA2: as above
-					Ipx.Send_Global_Message(&Session.GPacket, sizeof(GlobalPacketType), 1, &Session.Players[0]->Address, 0, 0); // RA2: as above
+					DebugString("Sending chat, mask = %d\n", (unsigned char)Session.GPacket.Message.Recipients);
+					Ipx.Send_Global_Message(&Session.GPacket, sizeof(GlobalPacketType), 1, &Session.Players[0]->Address, 0, 0);
 					Ipx.Service();
 				}
 
@@ -1214,10 +1214,10 @@ void Message_Input(KeyNumType &input)
 				**	Send to that address only.
 				*/
 				wchar_t *from = Narrow_To_Wide(Session.GPacket.Name); // RA2 0x00540C20: wide text, IME input and beacon messages
-				Session.Messages.Add_Message(from, Session.GPacket.Message.Color, // RA2: as above
-					(wchar_t *)Session.GPacket.Message.Buf, Session.Color_Index_To_Scheme(Session.GPacket.Message.Color), // RA2: as above
-					TextPrintType(TPF_6PT_GRAD | TPF_USE_GRAD_PAL | TPF_FULLSHADOW), (int)(Rule->MessageDelay * TICKS_PER_MINUTE), false); // RA2: as above
-				wcscpy(Session.LastMessage, (wchar_t *)Session.GPacket.Message.Buf); // RA2: as above
+				Session.Messages.Add_Message(from, Session.GPacket.Message.Color,
+					(wchar_t *)Session.GPacket.Message.Buf, Session.Color_Index_To_Scheme(Session.GPacket.Message.Color),
+					TextPrintType(TPF_6PT_GRAD | TPF_USE_GRAD_PAL | TPF_FULLSHADOW), (int)(Rule->MessageDelay * TICKS_PER_MINUTE), false);
+				wcscpy(Session.LastMessage, (wchar_t *)Session.GPacket.Message.Buf);
 			}
 		}
 
@@ -1228,7 +1228,7 @@ void Message_Input(KeyNumType &input)
 	}
 
 	if (rc == 3) { // RA2 0x00540C20: wide text, IME input and beacon messages
-		ChatTarget = 0; // RA2: as above
+		ChatTarget = 0;
 	}
 } // RA2 0x00540C20: wide text, IME input and beacon messages
 
@@ -1250,46 +1250,46 @@ void Draw_Multiplayer_Debug(bool noframecheck) // RA2 0x005419E0: TibSun has no 
 {
 	wchar_t buffer[256]; // RA2 0x005419E0: TibSun has no such function
 
-	if (DebugTime != -1) { // RA2: as above
-		double seconds = DebugTime * 0.001; // RA2: as above
-		Fancy_Text_Print(L"%.2f", *CompositeSurface, Rect(0, 0, 500, 15), Point2D(100, 0), ColorSchemes[GadgetClass::Get_Color_Scheme()], 0x1F, TextPrintType(TPF_6PT_GRAD), seconds, Scen->ScenarioName); // RA2: as above
+	if (DebugTime != -1) {
+		double seconds = DebugTime * 0.001;
+		Fancy_Text_Print(L"%.2f", *CompositeSurface, Rect(0, 0, 500, 15), Point2D(100, 0), ColorSchemes[GadgetClass::Get_Color_Scheme()], 0x1F, TextPrintType(TPF_6PT_GRAD), seconds, Scen->ScenarioName);
 	}
 
 	if (Session.DrawMPDebugStats && Session.Type != GAME_NORMAL && Session.Type != GAME_MODEM && Session.Type != GAME_NULL_MODEM) { // RA2 0x005419E0: TibSun has no such function
-		Surface * surface = CompositeSurface; // RA2: as above
-		MouseCursor->Hide_Mouse(); // RA2: as above
-		surface->Fill_Rect(Rect(0, 300, 639, 230), 0); // RA2: as above
+		Surface * surface = CompositeSurface;
+		MouseCursor->Hide_Mouse();
+		surface->Fill_Rect(Rect(0, 300, 639, 230), 0);
 
-		swprintf(buffer, L"Frame : %d", Frame); // RA2: as above
-		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 302), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW)); // RA2: as above
+		swprintf(buffer, L"Frame : %d", Frame);
+		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 302), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));
 
-		swprintf(buffer, L"FPS : %d", FPSCounter::CurrentFrameRate); // RA2: as above
-		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 312), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW)); // RA2: as above
+		swprintf(buffer, L"FPS : %d", FPSCounter::CurrentFrameRate);
+		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 312), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));
 
-		swprintf(buffer, L"MaxAhead : %d", Session.MaxAhead); // RA2: as above
-		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 322), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW)); // RA2: as above
+		swprintf(buffer, L"MaxAhead : %d", Session.MaxAhead);
+		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 322), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));
 
-		swprintf(buffer, L"Resp Time : %d ms", (int)(Ipx.Response_Time() * 1000) / TIMER_SECOND); // RA2: as above
-		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 332), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW)); // RA2: as above
+		swprintf(buffer, L"Resp Time : %d ms", (int)(Ipx.Response_Time() * 1000) / TIMER_SECOND);
+		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 332), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));
 
-		swprintf(buffer, L"Req fps : %d", Session.DesiredFrameRate); // RA2: as above
-		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 342), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW)); // RA2: as above
+		swprintf(buffer, L"Req fps : %d", Session.DesiredFrameRate);
+		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 342), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));
 
-		swprintf(buffer, L"Process : %d", Session.Players[0]->Player.ProcessTime); // RA2: as above
-		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 352), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW)); // RA2: as above
+		swprintf(buffer, L"Process : %d", Session.Players[0]->Player.ProcessTime);
+		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 352), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));
 
-		swprintf(buffer, L"Rout resp: %d", (unsigned)(Session.RouterResponse * 1000) / TIMER_SECOND); // RA2: as above
-		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 362), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW)); // RA2: as above
+		swprintf(buffer, L"Rout resp: %d", (unsigned)(Session.RouterResponse * 1000) / TIMER_SECOND);
+		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 362), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));
 
-		swprintf(buffer, L"NFT : %d", NetFrameTimer); // RA2: as above
-		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 372), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW)); // RA2: as above
+		swprintf(buffer, L"NFT : %d", NetFrameTimer);
+		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 372), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));
 
-		swprintf(buffer, L"LNFT : %d", LastNetFrameTimer); // RA2: as above
-		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 382), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW)); // RA2: as above
+		swprintf(buffer, L"LNFT : %d", LastNetFrameTimer);
+		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 382), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));
 
 		Ipx.Multiplayer_Debug_Print();
 		MouseCursor->Show_Mouse(); // RA2 0x005419E0: TibSun has no such function
-	} // RA2: as above
+	}
 }
 
 
@@ -1315,18 +1315,18 @@ void Draw_Multiplayer_Debug(bool noframecheck) // RA2 0x005419E0: TibSun has no 
 /// the Windows message queue so that the game can be restored. A network game cannot
 /// afford to stall, so it pumps the queue once and lets play carry on regardless.
 /// </summary>
-static void Check_For_Focus_Loss(void) // RA2: as above
+static void Check_For_Focus_Loss(void)
 {
-	while (!GameInFocus) { // RA2: as above
-		if (Session.Type == GAME_NORMAL || Session.Type == GAME_SKIRMISH) { // RA2: as above
-			Sleep(500); // RA2: as above
-			Windows_Message_Handler(); // RA2: as above
-		} else { // RA2: as above
-			Sleep(10); // RA2: as above
-			Windows_Message_Handler(); // RA2: as above
-			break; // RA2: as above
+	while (!GameInFocus) {
+		if (Session.Type == GAME_NORMAL || Session.Type == GAME_SKIRMISH) {
+			Sleep(500);
+			Windows_Message_Handler();
+		} else {
+			Sleep(10);
+			Windows_Message_Handler();
+			break;
 		}
-	} // RA2: as above
-	return; // RA2: as above
+	}
+	return;
 }
 

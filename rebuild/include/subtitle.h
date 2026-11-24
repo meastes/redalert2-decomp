@@ -24,14 +24,14 @@ class SubTitle
 		void Set_Caption(wchar_t * string); // RA2: 0x0069B120
 
 		void Set_Display_Time(unsigned long time) { TimeStamp = time; } // RA2: +0x00, in ticks of 1/60 second
-		unsigned long Get_Display_Time(void) const { return TimeStamp; } // RA2: as above
+		unsigned long Get_Display_Time(void) const { return TimeStamp; }
 		void Set_Display_Duration(unsigned long duration) { Duration = duration; } // RA2: +0x04
-		unsigned long Get_Display_Duration(void) const { return Duration; } // RA2: as above
+		unsigned long Get_Display_Duration(void) const { return Duration; }
 		unsigned long Get_RGB_Color(void) const { return RGBColor; } // RA2: +0x08
 		void Set_Line_Position(int line) { LinePosition = line; } // RA2: +0x0C
-		int Get_Line_Position(void) const { return LinePosition; } // RA2: as above
+		int Get_Line_Position(void) const { return LinePosition; }
 		void Set_Alignment(Alignment alignment) { Align = alignment; } // RA2: +0x10
-		Alignment Get_Alignment(void) const { return Align; } // RA2: as above
+		Alignment Get_Alignment(void) const { return Align; }
 		wchar_t const * Get_Caption(void) const { return Caption; } // RA2: +0x14
 
 	private:

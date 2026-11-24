@@ -56,11 +56,11 @@ static inline void _Add_System(ParticleSystemClass * system) // RA2: systems are
 /// </summary>
 static inline Vector3 Normalize_Direction(const Vector3 & vec) // RA2: the executable normalizes through an inline layer of its own
 {
-	float len = (float)fastmath::sqrt(vec.Z*vec.Z + vec.Y*vec.Y + vec.X*vec.X); // RA2: as above
-	if (len != 0.0) { // RA2: as above
-		return(vec / len); // RA2: as above
+	float len = (float)fastmath::sqrt(vec.Z * vec.Z + vec.Y * vec.Y + vec.X * vec.X);
+	if (len != 0.0) {
+		return(vec / len);
 	}
-	return(vec); // RA2: as above
+	return(vec);
 }
 
 
@@ -232,11 +232,11 @@ ParticleClass * ParticleSystemClass::Spawn_Held_Particle(Coord const & coord1, C
 ParticleClass * ParticleSystemClass::Spawn_Particle(ParticleTypeClass * type, Coord const & coord)
 {
 	ParticleClass * particle = new ParticleClass(type, coord, COORD_NONE, 0); // RA2: RA2's form
-	if (particle != 0) { // RA2: as above
+	if (particle != 0) {
 		SystemParticles.Add(particle);
-		return particle; // RA2: as above
+		return particle;
 	}
-	return 0; // RA2: as above
+	return 0;
 }
 
 
@@ -327,28 +327,28 @@ void ParticleSystemClass::Gas_AI(void)
 {
 	int index; // RA2: one counter for both loops
 
-	for (index = SystemParticles.Count() - 1; index >= 0; index--) { // RA2: as above
-		SystemParticles[index]->Behavior_AI(); // RA2: as above
+	for (index = SystemParticles.Count() - 1; index >= 0; index--) {
+		SystemParticles[index]->Behavior_AI();
 	}
 
-	for (index = SystemParticles.Count() - 1; index >= 0; index--) { // RA2: as above
-		ParticleClass *particle = SystemParticles[index]; // RA2: as above
-		if (particle->IsToDie) { // RA2: as above
+	for (index = SystemParticles.Count() - 1; index >= 0; index--) {
+		ParticleClass * particle = SystemParticles[index];
+		if (particle->IsToDie) {
 			ParticleTypeClass const *type = particle->Class; // RA2: the class kept in a local
-			if (type->NextParticle != PARTICLE_NONE) { // RA2: as above
+			if (type->NextParticle != PARTICLE_NONE) {
 				Coord position = particle->PositionCoord; // RA2: the position copied by value
-				ParticleTypeClass *next = ParticleTypes[type->NextParticle]; // RA2: as above
-				Coord coord = position + type->NextParticleOffset; // RA2: as above
+				ParticleTypeClass * next = ParticleTypes[type->NextParticle];
+				Coord coord = position + type->NextParticleOffset;
 				ParticleClass *spawned = new ParticleClass(next, coord, COORD_NONE, NULL); // RA2: no owning system is passed
-				if (spawned != NULL) { // RA2: as above
-					SystemParticles.Add(spawned); // RA2: as above
-					spawned->Speed = particle->Speed; // RA2: as above
-					spawned->GasDrift = particle->GasDrift; // RA2: as above
+				if (spawned != NULL) {
+					SystemParticles.Add(spawned);
+					spawned->Speed = particle->Speed;
+					spawned->GasDrift = particle->GasDrift;
 				}
 			}
-			particle->Delete_Me(); // RA2: as above
+			particle->Delete_Me();
 		} else {
-			particle->Motion_AI(); // RA2: as above
+			particle->Motion_AI();
 		}
 	}
 }
@@ -378,14 +378,14 @@ void ParticleSystemClass::Spark_AI(void)
 			ParticleTypeClass * held = ParticleTypes[Class->HoldsWhat];
 
 			Random2Class & generator = Scen->RandomNumber; // RA2: the generator kept by reference
-			int rand_y = generator; // RA2: as above
-			int rand_x = Scen->RandomNumber; // RA2: as above
+			int rand_y = generator;
+			int rand_x = Scen->RandomNumber;
 
 			Vector3 spark;
-			float vertical_velocity = (float)(int(generator) % held->ZVelocityRange); // RA2: as above
-			spark.X = (float)(rand_x % held->XVelocity); // RA2: as above
-			spark.Y = (float)(rand_y % held->YVelocity); // RA2: as above
-			spark.Z = vertical_velocity; // RA2: as above
+			float vertical_velocity = (float)(int(generator) % held->ZVelocityRange);
+			spark.X = (float)(rand_x % held->XVelocity);
+			spark.Y = (float)(rand_y % held->YVelocity);
+			spark.Z = vertical_velocity;
 
 			while (count > 0) {
 				ParticleClass * particle = Spawn_Held_Particle(PositionCoord, PositionCoord);
@@ -424,11 +424,11 @@ void ParticleSystemClass::Spark_AI(void)
 
 		double chance = Random_Double(0.0, 1.0);
 		if (chance < 0.3) {
-			int radius; // RA2: as above
+			int radius;
 			if (SparkRadius - 3 <= 17) { // RA2: the clamp tested on the expression
 				radius = 17;
 			} else {
-				radius = SparkRadius - 3; // RA2: as above
+				radius = SparkRadius - 3;
 			}
 			SparkRadius = radius;
 		} else if (chance < 0.6) {
@@ -440,12 +440,12 @@ void ParticleSystemClass::Spark_AI(void)
 		}
 	}
 
-	for (index = 0; index < SystemParticles.Count(); index++) { // RA2: as above
-		SystemParticles[index]->Behavior_AI(); // RA2: as above
+	for (index = 0; index < SystemParticles.Count(); index++) {
+		SystemParticles[index]->Behavior_AI();
 	}
 
-	for (index = SystemParticles.Count() - 1; index >= 0; index--) { // RA2: as above
-		ParticleClass * particle = SystemParticles[index]; // RA2: as above
+	for (index = SystemParticles.Count() - 1; index >= 0; index--) {
+		ParticleClass * particle = SystemParticles[index];
 		if (particle->IsToDie) {
 			particle->Delete_Me();
 		}
@@ -726,7 +726,7 @@ void ParticleSystemClass::Fire_AI(void)
 		int index = Frame % 500;
 
 		Coord delta = Get_Coord() - SpawnCoord; // RA2: the offset as one subtraction
-		int distsq = delta.Dot_Product(delta); // RA2: as above
+		int distsq = delta.Dot_Product(delta);
 
 		int divisor;
 		if ((float)fastmath::sqrt((double)distsq) < 200.0f) {

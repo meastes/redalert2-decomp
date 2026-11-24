@@ -50,7 +50,7 @@ DynamicVectorClass<ParasiteClass *> Parasites; // RA2: 0x00A76430; every parasit
 /// </summary>
 ParasiteClass::ParasiteClass(void) // RA2: 0x006061A0
 {
-	Parasites.Add(this); // RA2: as above
+	Parasites.Add(this);
 }
 
 
@@ -59,16 +59,16 @@ ParasiteClass::ParasiteClass(void) // RA2: 0x006061A0
 /// </summary>
 ParasiteClass::ParasiteClass(FootClass * owner) // RA2: 0x00606240
 {
-	Owner = owner; // RA2: as above
-	Victim = NULL; // RA2: as above
-	DamageDeliveryTimer = 0; // RA2: as above
-	SuppressionTimer = 0; // RA2: as above
-	GrappleAnimGotInvalid = false; // RA2: as above
-	GrappleAnimFrame = 0; // RA2: as above
-	GrappleAnimDelay = 0; // RA2: as above
-	GrappleAnim = NULL; // RA2: as above
-	GrappleState = 0; // RA2: as above
-	Parasites.Add(this); // RA2: as above
+	Owner = owner;
+	Victim = NULL;
+	DamageDeliveryTimer = 0;
+	SuppressionTimer = 0;
+	GrappleAnimGotInvalid = false;
+	GrappleAnimFrame = 0;
+	GrappleAnimDelay = 0;
+	GrappleAnim = NULL;
+	GrappleState = 0;
+	Parasites.Add(this);
 }
 
 
@@ -76,7 +76,7 @@ ParasiteClass::ParasiteClass(FootClass * owner) // RA2: 0x00606240
 /// The constructor used when the parasite is read from a save game; its fields come from the stream.
 /// </summary>
 ParasiteClass::ParasiteClass(NoInitClass const & x) : // RA2: 0x00606320
-	AbstractClass(x) // RA2: as above
+	AbstractClass(x)
 {
 }
 
@@ -87,7 +87,7 @@ ParasiteClass::ParasiteClass(NoInitClass const & x) : // RA2: 0x00606320
 ParasiteClass::~ParasiteClass(void) // RA2: 0x00606370
 {
 	Clear_Grapple(); // RA2: the executable has the body of Clear_Grapple in line here
-	Parasites.Delete(this); // RA2: as above
+	Parasites.Delete(this);
 }
 
 
@@ -96,14 +96,14 @@ ParasiteClass::~ParasiteClass(void) // RA2: 0x00606370
 /// </summary>
 void ParasiteClass::Compute_CRC(CRCEngine & crc) const // RA2: 0x00606460
 {
-	BASECLASS::Compute_CRC(crc); // RA2: as above
-	if (GrappleAnim != NULL) { // RA2: as above
-		crc(GrappleAnim->Fetch_ID()); // RA2: as above
+	BASECLASS::Compute_CRC(crc);
+	if (GrappleAnim != NULL) {
+		crc(GrappleAnim->Fetch_ID());
 	}
-	crc(GrappleState); // RA2: as above
-	crc(GrappleAnimFrame); // RA2: as above
-	crc(GrappleAnimDelay); // RA2: as above
-	crc(GrappleAnimGotInvalid); // RA2: as above
+	crc(GrappleState);
+	crc(GrappleAnimFrame);
+	crc(GrappleAnimDelay);
+	crc(GrappleAnimGotInvalid);
 }
 
 
@@ -112,16 +112,16 @@ void ParasiteClass::Compute_CRC(CRCEngine & crc) const // RA2: 0x00606460
 /// </summary>
 void ParasiteClass::Clear_Grapple(void) // RA2: 0x006064C0; named for what it does (YR: sub_629530)
 {
-	GrappleAnimFrame = 0; // RA2: as above
-	GrappleAnimDelay = 0; // RA2: as above
-	GrappleState = 0; // RA2: as above
-	if (GrappleAnim != NULL) { // RA2: as above
-		GrappleAnim->Delete_Me(); // RA2: as above
-		GrappleAnim = NULL; // RA2: as above
+	GrappleAnimFrame = 0;
+	GrappleAnimDelay = 0;
+	GrappleState = 0;
+	if (GrappleAnim != NULL) {
+		GrappleAnim->Delete_Me();
+		GrappleAnim = NULL;
 	}
-	if (GrappleAnimGotInvalid) { // RA2: as above
-		AnimPtrTracker.Delete(this); // RA2: as above
-		GrappleAnimGotInvalid = false; // RA2: as above
+	if (GrappleAnimGotInvalid) {
+		AnimPtrTracker.Delete(this);
+		GrappleAnimGotInvalid = false;
 	}
 }
 
@@ -132,17 +132,17 @@ void ParasiteClass::Clear_Grapple(void) // RA2: 0x006064C0; named for what it do
 /// </summary>
 HRESULT STDMETHODCALLTYPE ParasiteClass::Load(IStream * stream) // RA2: 0x00606540
 {
-	HRESULT result = BASECLASS::Load(stream); // RA2: as above
-	if (SUCCEEDED(result)) { // RA2: as above
-		new (this) ParasiteClass(NoInitClass()); // RA2: as above
-		if (GrappleAnim != NULL) { // RA2: as above
-			AnimPtrTracker.Add(this); // RA2: as above
+	HRESULT result = BASECLASS::Load(stream);
+	if (SUCCEEDED(result)) {
+		new (this) ParasiteClass(NoInitClass());
+		if (GrappleAnim != NULL) {
+			AnimPtrTracker.Add(this);
 		}
-		Swizzle_Pointer(&Owner); // RA2: as above
-		Swizzle_Pointer(&Victim); // RA2: as above
-		Swizzle_Pointer(&GrappleAnim); // RA2: as above
+		Swizzle_Pointer(&Owner);
+		Swizzle_Pointer(&Victim);
+		Swizzle_Pointer(&GrappleAnim);
 	}
-	return(result); // RA2: as above
+	return(result);
 }
 
 
@@ -151,7 +151,7 @@ HRESULT STDMETHODCALLTYPE ParasiteClass::Load(IStream * stream) // RA2: 0x006065
 /// </summary>
 HRESULT STDMETHODCALLTYPE ParasiteClass::Save(IStream * stream, BOOL cleardirty) // RA2: 0x00606640
 {
-	return(BASECLASS::Save(stream, cleardirty)); // RA2: as above
+	return(BASECLASS::Save(stream, cleardirty));
 }
 
 
@@ -160,9 +160,9 @@ HRESULT STDMETHODCALLTYPE ParasiteClass::Save(IStream * stream, BOOL cleardirty)
 /// </summary>
 HRESULT STDMETHODCALLTYPE ParasiteClass::GetClassID(CLSID * retval) // RA2: 0x00606660
 {
-	if (retval == NULL) return(E_POINTER); // RA2: as above
-	*retval = CLSID_ParasiteClass; // RA2: as above
-	return(S_OK); // RA2: as above
+	if (retval == NULL) return(E_POINTER);
+	*retval = CLSID_ParasiteClass;
+	return(S_OK);
 }
 
 
@@ -171,8 +171,8 @@ HRESULT STDMETHODCALLTYPE ParasiteClass::GetClassID(CLSID * retval) // RA2: 0x00
 /// </summary>
 void ParasiteClass::Reset_Grapple_Counters(void) // RA2: 0x006066A0; named for what it does (YR: sub_629710)
 {
-	GrappleAnimDelay = 0; // RA2: as above
-	GrappleAnimFrame = 0; // RA2: as above
+	GrappleAnimDelay = 0;
+	GrappleAnimFrame = 0;
 }
 
 
@@ -182,35 +182,35 @@ void ParasiteClass::Reset_Grapple_Counters(void) // RA2: 0x006066A0; named for w
 /// <returns>Returns true when the last frame of the state was shown.</returns>
 bool ParasiteClass::UpdateGrapple(void) // RA2: 0x006066B0
 {
-	DirType dir = Victim->PrimaryFacing.Current(); // RA2: as above
-	int base; // RA2: as above
-	int limit; // RA2: as above
-	switch (GrappleState) { // RA2: as above
-		case 0: // RA2: as above
-		case 1: // RA2: as above
-			base = 0; // RA2: as above
-			limit = 3; // RA2: as above
-			break; // RA2: as above
-		case 2: // RA2: as above
+	DirType dir = Victim->PrimaryFacing.Current();
+	int base;
+	int limit;
+	switch (GrappleState) {
+		case 0:
+		case 1:
+			base = 0;
+			limit = 3;
+			break;
+		case 2:
 			base = 80; // RA2: 0x50, the second set of ten frames per facing
-			limit = 4; // RA2: as above
-			break; // RA2: as above
-		default: // RA2: as above
+			limit = 4;
+			break;
+		default:
 			base = 160; // RA2: 0xA0, the third set of ten frames per facing
-			limit = 4; // RA2: as above
-			break; // RA2: as above
+			limit = 4;
+			break;
 	}
-	if (++GrappleAnimDelay >= limit) { // RA2: as above
-		GrappleAnimDelay = 0; // RA2: as above
-		if (++GrappleAnimFrame >= 10) { // RA2: as above
-			return(true); // RA2: as above
+	if (++GrappleAnimDelay >= limit) {
+		GrappleAnimDelay = 0;
+		if (++GrappleAnimFrame >= 10) {
+			return(true);
 		}
-		if (GrappleAnim != NULL) { // RA2: as above
-			GrappleAnim->Set_Rate(128); // RA2: as above
-			GrappleAnim->Set_Stage(GrappleAnimFrame + base + dir.As_Dir8() * 10); // RA2: as above
+		if (GrappleAnim != NULL) {
+			GrappleAnim->Set_Rate(128);
+			GrappleAnim->Set_Stage(GrappleAnimFrame + base + dir.As_Dir8() * 10);
 		}
 	}
-	return(false); // RA2: as above
+	return(false);
 }
 
 
@@ -220,124 +220,124 @@ bool ParasiteClass::UpdateGrapple(void) // RA2: 0x006066B0
 /// </summary>
 void ParasiteClass::UpdateSquid(void) // RA2: 0x00606780
 {
-	WeaponTypeClass * weapon = Owner->Get_Class_Weapon_Data(0)->Weapon; // RA2: as above
-	int damage; // RA2: as above
-	WarheadTypeClass const * warhead = weapon->WarheadPtr; // RA2: as above
-	Coord coord = Victim->Position; // RA2: as above
-	CellClass * cell = Victim->Get_Cell_Ptr(); // RA2: as above
-	double factor = 1.0; // RA2: as above
+	WeaponTypeClass * weapon = Owner->Get_Class_Weapon_Data(0)->Weapon;
+	int damage;
+	WarheadTypeClass const * warhead = weapon->WarheadPtr;
+	Coord coord = Victim->Position;
+	CellClass * cell = Victim->Get_Cell_Ptr();
+	double factor = 1.0;
 	if (cell == NULL || cell->Is_Tile_Water()) { // RA2: the squid only works while the ship is on water or off the map
 		Victim->ParalysisTimer = warhead->Paralyzes; // RA2: the ship is held for the warhead's paralyze time
 
-		switch (GrappleState) { // RA2: as above
-			case 0: // RA2: as above
+		switch (GrappleState) {
+			case 0:
 			{
-				Victim->AngleRotatedSideways = 0; // RA2: as above
+				Victim->AngleRotatedSideways = 0;
 				AnimType anim = AnimTypeClass::From_Name("SQDG"); // RA2: the squid grapple animation
-				if (anim != ANIM_NONE) { // RA2: as above
-					AnimTypeClass * type = AnimTypes[anim]; // RA2: as above
-					if (type != NULL) { // RA2: as above
-						AnimClass * grapple = new AnimClass(type, coord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
-						if (grapple != NULL) { // RA2: as above
-							GrappleAnim = grapple; // RA2: as above
-							AnimPtrTracker.Add(this); // RA2: as above
+				if (anim != ANIM_NONE) {
+					AnimTypeClass * type = AnimTypes[anim];
+					if (type != NULL) {
+						AnimClass * grapple = new AnimClass(type, coord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
+						if (grapple != NULL) {
+							GrappleAnim = grapple;
+							AnimPtrTracker.Add(this);
 						}
 					}
 				}
-				GrappleState = 1; // RA2: as above
-				Reset_Grapple_Counters(); // RA2: as above
-				UpdateGrapple(); // RA2: as above
-				break; // RA2: as above
+				GrappleState = 1;
+				Reset_Grapple_Counters();
+				UpdateGrapple();
+				break;
 			}
 
-			case 1: // RA2: as above
-				if (UpdateGrapple()) { // RA2: as above
-					GrappleState = Scen->RandomNumber(0, 1) ? 2 : 3; // RA2: as above
-					Reset_Grapple_Counters(); // RA2: as above
-					UpdateGrapple(); // RA2: as above
-					Make_Wakes(Victim, coord); // RA2: as above
+			case 1:
+				if (UpdateGrapple()) {
+					GrappleState = Scen->RandomNumber(0, 1) ? 2 : 3;
+					Reset_Grapple_Counters();
+					UpdateGrapple();
+					Make_Wakes(Victim, coord);
 				}
-				break; // RA2: as above
+				break;
 
-			case 2: // RA2: as above
-				factor = -1.0; // RA2: as above
+			case 2:
+				factor = -1.0;
 
-			case 3: // RA2: as above
+			case 3:
 			{
-				if (UpdateGrapple()) { // RA2: as above
-					GrappleState = 4; // RA2: as above
-					Reset_Grapple_Counters(); // RA2: as above
-					UpdateGrapple(); // RA2: as above
+				if (UpdateGrapple()) {
+					GrappleState = 4;
+					Reset_Grapple_Counters();
+					UpdateGrapple();
 				}
-				double angle = GrappleAnimFrame * factor * 0.31415926535897931; // RA2: as above
+				double angle = GrappleAnimFrame * factor * 0.31415926535897931;
 				Victim->AngleRotatedSideways = (float)fastmath::sin(angle) * 0.78539819f; // RA2: the ship rolls up to pi/4, sine of the frame angle (pi/10 per frame)
-				break; // RA2: as above
+				break;
 			}
 
-			case 4: // RA2: as above
+			case 4:
 			{
-				Victim->AngleRotatedSideways = 0; // RA2: as above
-				int count = Rule->SplashList.Count(); // RA2: as above
-				double rad = -Victim->PrimaryFacing.Current().As_Radian(); // RA2: as above
-				double cosine = fastmath::cos(rad); // RA2: as above
-				double sine = fastmath::sin(rad); // RA2: as above
-				for (int i = 0; i < 3; i++) { // RA2: as above
-					double across = 64.0; // RA2: as above
-					double along = i * 128.0 - 128.0; // RA2: as above
-					if (Scen->RandomNumber(0, 1)) { // RA2: as above
-						across = -64.0; // RA2: as above
+				Victim->AngleRotatedSideways = 0;
+				int count = Rule->SplashList.Count();
+				double rad = -Victim->PrimaryFacing.Current().As_Radian();
+				double cosine = fastmath::cos(rad);
+				double sine = fastmath::sin(rad);
+				for (int i = 0; i < 3; i++) {
+					double across = 64.0;
+					double along = i * 128.0 - 128.0;
+					if (Scen->RandomNumber(0, 1)) {
+						across = -64.0;
 					}
-					int x = (int)(along * cosine - across * sine); // RA2: as above
-					int y = (int)(along * sine + across * cosine); // RA2: as above
-					Coord splash = coord + Coord(x, y, 0); // RA2: as above
+					int x = (int)(along * cosine - across * sine);
+					int y = (int)(along * sine + across * cosine);
+					Coord splash = coord + Coord(x, y, 0);
 					new AnimClass(Rule->SplashList[Scen->RandomNumber(0, count - 1)], splash, 2, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), -10); // RA2: a random splash from the rules, delay 2, drawn 10 below
 				}
 				if (warhead->Culling && (Victim->Health_Status() == 0 || (Victim->Health_Status() == 1 && Owner->Veterancy.Is_Elite()))) { // RA2: a culling warhead finishes a ship in the red, or in the yellow when the squid is elite (Health_Status 0 red, 1 yellow)
-					if (Owner->Techno_Type_Class()->IsTrainable) { // RA2: as above
-						TechnoTypeClass const * victimtype = Victim->Techno_Type_Class(); // RA2: as above
-						TechnoTypeClass const * ownertype = Owner->Techno_Type_Class(); // RA2: as above
-						Owner->Veterancy.Made_A_Kill(ownertype->Cost_Of(Owner->House), victimtype->Cost_Of(Victim->House)); // RA2: as above
+					if (Owner->Techno_Type_Class()->IsTrainable) {
+						TechnoTypeClass const * victimtype = Victim->Techno_Type_Class();
+						TechnoTypeClass const * ownertype = Owner->Techno_Type_Class();
+						Owner->Veterancy.Made_A_Kill(ownertype->Cost_Of(Owner->House), victimtype->Cost_Of(Victim->House));
 					}
-					FootClass * victim = Victim; // RA2: as above
-					ExitUnit(); // RA2: as above
+					FootClass * victim = Victim;
+					ExitUnit();
 					victim->IsSinking = true; // RA2: the ship sinks with the squid's kill credit
-					victim->Death_Announcement(Owner); // RA2: as above
-					victim->Stun(); // RA2: as above
-					Clear_Grapple(); // RA2: as above
-					Owner->ParalysisTimer = 0; // RA2: as above
-					return; // RA2: as above
+					victim->Death_Announcement(Owner);
+					victim->Stun();
+					Clear_Grapple();
+					Owner->ParalysisTimer = 0;
+					return;
 				}
-				damage = weapon->Attack; // RA2: as above
-				Victim->Take_Damage(damage, 0, warhead, Owner, false, true); // RA2: as above
-				if (Victim != NULL) { // RA2: as above
-					GrappleState = Scen->RandomNumber(0, 1) ? 2 : 3; // RA2: as above
-					Reset_Grapple_Counters(); // RA2: as above
-					UpdateGrapple(); // RA2: as above
-					Make_Wakes(Victim, coord); // RA2: as above
-				} else { // RA2: as above
-					Clear_Grapple(); // RA2: as above
+				damage = weapon->Attack;
+				Victim->Take_Damage(damage, 0, warhead, Owner, false, true);
+				if (Victim != NULL) {
+					GrappleState = Scen->RandomNumber(0, 1) ? 2 : 3;
+					Reset_Grapple_Counters();
+					UpdateGrapple();
+					Make_Wakes(Victim, coord);
+				} else {
+					Clear_Grapple();
 				}
-				break; // RA2: as above
+				break;
 			}
 
-			default: // RA2: as above
-				ExitUnit(); // RA2: as above
-				break; // RA2: as above
+			default:
+				ExitUnit();
+				break;
 		}
 
-		AnimClass * grapple = GrappleAnim; // RA2: as above
-		if (grapple != NULL && Owner != NULL && Victim != NULL) { // RA2: as above
-			CellClass * vcell = Victim->Get_Cell_Ptr(); // RA2: as above
-			grapple->Attach_To(Victim); // RA2: as above
-			grapple->AlternativeDrawer = (ConvertClass *)Owner->GetRemapColour(); // RA2: as above
-			if (vcell != NULL) { // RA2: as above
-				grapple->AlternativeBrightness = vcell->Brightness; // RA2: as above
+		AnimClass * grapple = GrappleAnim;
+		if (grapple != NULL && Owner != NULL && Victim != NULL) {
+			CellClass * vcell = Victim->Get_Cell_Ptr();
+			grapple->Attach_To(Victim);
+			grapple->AlternativeDrawer = (ConvertClass *)Owner->GetRemapColour();
+			if (vcell != NULL) {
+				grapple->AlternativeBrightness = vcell->Brightness;
 			}
 		}
-	} else { // RA2: as above
-		ExitUnit(); // RA2: as above
-		if (Owner != NULL) { // RA2: as above
-			Owner->ParalysisTimer = 0; // RA2: as above
+	} else {
+		ExitUnit();
+		if (Owner != NULL) {
+			Owner->ParalysisTimer = 0;
 		}
 	}
 }
@@ -348,14 +348,14 @@ void ParasiteClass::UpdateSquid(void) // RA2: 0x00606780
 /// </summary>
 static void __fastcall Make_Wakes(FootClass * victim, Coord coord) // RA2: 0x00606E10
 {
-	double rad = -victim->PrimaryFacing.Current().As_Radian(); // RA2: as above
-	double cosine = fastmath::cos(rad); // RA2: as above
-	double sine = fastmath::sin(rad); // RA2: as above
-	for (int i = 0; i < 3; i++) { // RA2: as above
-		double along = Scen->RandomNumber(-180, 180); // RA2: as above
-		double across = Scen->RandomNumber(-64, 64); // RA2: as above
-		Coord wake = coord + Coord((int)(along * cosine - across * sine), (int)(along * sine + across * cosine), 0); // RA2: as above
-		new AnimClass(Rule->Wake, wake, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
+	double rad = -victim->PrimaryFacing.Current().As_Radian();
+	double cosine = fastmath::cos(rad);
+	double sine = fastmath::sin(rad);
+	for (int i = 0; i < 3; i++) {
+		double along = Scen->RandomNumber(-180, 180);
+		double across = Scen->RandomNumber(-64, 64);
+		Coord wake = coord + Coord((int)(along * cosine - across * sine), (int)(along * sine + across * cosine), 0);
+		new AnimClass(Rule->Wake, wake, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
 	}
 }
 
@@ -366,41 +366,41 @@ static void __fastcall Make_Wakes(FootClass * victim, Coord coord) // RA2: 0x006
 /// </summary>
 void ParasiteClass::AI(void) // RA2: 0x00606F50
 {
-	if (Victim == NULL) { // RA2: as above
-		return; // RA2: as above
+	if (Victim == NULL) {
+		return;
 	}
 	if (Victim->Techno_Type_Class()->Naval && !Victim->Techno_Type_Class()->Organic && Owner->Techno_Type_Class()->Naval && Owner->Techno_Type_Class()->Organic) { // RA2: only a naval organic owner (the squid) in a naval machine; the executable tests all four flags
-		UpdateSquid(); // RA2: as above
-		return; // RA2: as above
+		UpdateSquid();
+		return;
 	}
-	WeaponTypeClass * weapon = Owner->Get_Class_Weapon_Data(0)->Weapon; // RA2: as above
-	WarheadTypeClass const * warhead = weapon->WarheadPtr; // RA2: as above
-	Coord coord = Victim->Position; // RA2: as above
-	if (DamageDeliveryTimer != 0) { // RA2: as above
-		return; // RA2: as above
+	WeaponTypeClass * weapon = Owner->Get_Class_Weapon_Data(0)->Weapon;
+	WarheadTypeClass const * warhead = weapon->WarheadPtr;
+	Coord coord = Victim->Position;
+	if (DamageDeliveryTimer != 0) {
+		return;
 	}
-	DamageDeliveryTimer = weapon->ROF; // RA2: as above
-	Victim->ParalysisTimer = warhead->Paralyzes; // RA2: as above
-	int damage; // RA2: as above
-	if (Victim->Fetch_RTTI() == RTTI_INFANTRY) { // RA2: as above
-		damage = Victim->Strength; // RA2: as above
-		Victim->Take_Damage(damage, 0, warhead, Owner, true, true); // RA2: as above
-	} else { // RA2: as above
-		new ParticleSystemClass(Rule->DefaultSparkSystem, coord, NULL, NULL, COORD_NONE); // RA2: as above
-		DirType dir = Victim->PrimaryFacing.Current(); // RA2: as above
-		if (weapon->Anim.Count() != 0) { // RA2: as above
-			AnimTypeClass const * type = weapon->Anim[dir.As_Dir8()]; // RA2: as above
-			if (type != NULL) { // RA2: as above
-				new AnimClass(type, coord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
+	DamageDeliveryTimer = weapon->ROF;
+	Victim->ParalysisTimer = warhead->Paralyzes;
+	int damage;
+	if (Victim->Fetch_RTTI() == RTTI_INFANTRY) {
+		damage = Victim->Strength;
+		Victim->Take_Damage(damage, 0, warhead, Owner, true, true);
+	} else {
+		new ParticleSystemClass(Rule->DefaultSparkSystem, coord, NULL, NULL, COORD_NONE);
+		DirType dir = Victim->PrimaryFacing.Current();
+		if (weapon->Anim.Count() != 0) {
+			AnimTypeClass const * type = weapon->Anim[dir.As_Dir8()];
+			if (type != NULL) {
+				new AnimClass(type, coord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
 			}
 		}
-		dir = dir.Left_90(); // RA2: as above
-		int side = Scen->RandomNumber(0, 1) ? -2 : 2; // RA2: as above
-		double rad = dir.As_Radian(); // RA2: as above
-		Coord pushed((int)(fastmath::cos(rad) * side + coord.X), (int)(coord.Y - fastmath::sin(rad) * side), coord.Z); // RA2: as above
+		dir = dir.Left_90();
+		int side = Scen->RandomNumber(0, 1) ? -2 : 2;
+		double rad = dir.As_Radian();
+		Coord pushed((int)(fastmath::cos(rad) * side + coord.X), (int)(coord.Y - fastmath::sin(rad) * side), coord.Z);
 		Victim->Rock(pushed, 1.5f); // RA2: the vehicle is pushed two leptons sideways, force 1.5
-		damage = weapon->Attack; // RA2: as above
-		Victim->Take_Damage(damage, 0, warhead, Owner, false, true); // RA2: as above
+		damage = weapon->Attack;
+		Victim->Take_Damage(damage, 0, warhead, Owner, false, true);
 	}
 }
 
@@ -410,24 +410,24 @@ void ParasiteClass::AI(void) // RA2: 0x00606F50
 /// Get_Exit_Coord and also keeps an out of line copy that nothing calls; the compiler expands a function this large
 /// only when it is inline, so CanExistOnVictimCell itself forwards here and keeps the copy.
 /// </summary>
-static inline bool Owner_Fits_Victim_Cell(ParasiteClass const * parasite) // RA2: as above
+static inline bool Owner_Fits_Victim_Cell(ParasiteClass const * parasite)
 {
-	if (parasite->Victim == NULL) { // RA2: as above
-		return(false); // RA2: as above
+	if (parasite->Victim == NULL) {
+		return(false);
 	}
-	if (parasite->Victim->In_Air()) { // RA2: as above
-		return(false); // RA2: as above
+	if (parasite->Victim->In_Air()) {
+		return(false);
 	}
-	if (!parasite->Owner->Techno_Type_Class()->Naval) { // RA2: as above
-		if (parasite->Owner != NULL && parasite->Owner->Fetch_RTTI() == RTTI_UNIT && parasite->Victim->Get_Cell_Ptr()->Cell_Terrain(false) != NULL) { // RA2: as above
-			return(false); // RA2: as above
+	if (!parasite->Owner->Techno_Type_Class()->Naval) {
+		if (parasite->Owner != NULL && parasite->Owner->Fetch_RTTI() == RTTI_UNIT && parasite->Victim->Get_Cell_Ptr()->Cell_Terrain(false) != NULL) {
+			return(false);
 		}
-		LandType land = parasite->Victim->Get_Cell_Ptr()->Land_Type(); // RA2: as above
-		if (land == LAND_WATER || land == LAND_BEACH || land == LAND_ROCK) { // RA2: as above
-			return(false); // RA2: as above
+		LandType land = parasite->Victim->Get_Cell_Ptr()->Land_Type();
+		if (land == LAND_WATER || land == LAND_BEACH || land == LAND_ROCK) {
+			return(false);
 		}
 	}
-	return(true); // RA2: as above
+	return(true);
 }
 
 
@@ -437,54 +437,54 @@ static inline bool Owner_Fits_Victim_Cell(ParasiteClass const * parasite) // RA2
 /// </summary>
 void ParasiteClass::Detach(AbstractClass const * target, bool all) // RA2: 0x00607200
 {
-	if (target == Owner) { // RA2: as above
-		Owner = NULL; // RA2: as above
-		return; // RA2: as above
+	if (target == Owner) {
+		Owner = NULL;
+		return;
 	}
-	if (target == Victim) { // RA2: as above
-		if (!ScenarioActive) { // RA2: as above
-			Victim = NULL; // RA2: as above
-			return; // RA2: as above
+	if (target == Victim) {
+		if (!ScenarioActive) {
+			Victim = NULL;
+			return;
 		}
 		if (SuppressionTimer > 0 && !Owner->Unknown_Virtual_32C()) { // RA2: the owner is under suppression and not iron curtained (vtable +0x32C)
-			Victim->ParasiteEatingMe = NULL; // RA2: as above
-			Victim = NULL; // RA2: as above
-			Owner->Delete_Me(); // RA2: as above
-			return; // RA2: as above
+			Victim->ParasiteEatingMe = NULL;
+			Victim = NULL;
+			Owner->Delete_Me();
+			return;
 		}
-		Coord coord = Get_Exit_Coord(); // RA2: as above
-		ScenarioInit++; // RA2: as above
-		if (coord != COORD_NONE) { // RA2: as above
-			if (Owner->Unlimbo(coord, Victim->PrimaryFacing.Current().As_Dir256())) { // RA2: as above
-				ScenarioInit--; // RA2: as above
-				if (Owner->ShouldBeReselectOnUnlimbo && Owner->House->Is_Player_Control()) { // RA2: as above
-					Owner->ShouldBeReselectOnUnlimbo = false; // RA2: as above
-					Owner->Select(); // RA2: as above
+		Coord coord = Get_Exit_Coord();
+		ScenarioInit++;
+		if (coord != COORD_NONE) {
+			if (Owner->Unlimbo(coord, Victim->PrimaryFacing.Current().As_Dir256())) {
+				ScenarioInit--;
+				if (Owner->ShouldBeReselectOnUnlimbo && Owner->House->Is_Player_Control()) {
+					Owner->ShouldBeReselectOnUnlimbo = false;
+					Owner->Select();
 				}
-				if (Owner->OldTeam != NULL) { // RA2: as above
-					Owner->OldTeam->Add(Owner); // RA2: as above
+				if (Owner->OldTeam != NULL) {
+					Owner->OldTeam->Add(Owner);
 				}
-				if (!Owner->HaveMegaMission()) { // RA2: as above
-					Owner->Assign_Archive_Target(NULL); // RA2: as above
-					Owner->Assign_Target(NULL); // RA2: as above
-					Owner->Assign_Destination(NULL, true); // RA2: as above
+				if (!Owner->HaveMegaMission()) {
+					Owner->Assign_Archive_Target(NULL);
+					Owner->Assign_Target(NULL);
+					Owner->Assign_Destination(NULL, true);
 				}
-				Owner->Enter_Idle_Mode(false, true); // RA2: as above
-				Owner->UpdateSight(false, false, false, NULL); // RA2: as above
+				Owner->Enter_Idle_Mode(false, true);
+				Owner->UpdateSight(false, false, false, NULL);
 				Map.RevealArea3(Coord(Owner->Position), Owner->LastSightRange - 3, Owner->LastSightRange + 3, 0); // RA2: reveals the owner's sight range again, radius +3 (TryInfect uses +2)
-				Victim = NULL; // RA2: as above
-				return; // RA2: as above
+				Victim = NULL;
+				return;
 			}
 		}
-		ScenarioInit--; // RA2: as above
-		Owner->Strength = 0; // RA2: as above
-		Owner->Delete_Me(); // RA2: as above
-		Victim = NULL; // RA2: as above
-		return; // RA2: as above
+		ScenarioInit--;
+		Owner->Strength = 0;
+		Owner->Delete_Me();
+		Victim = NULL;
+		return;
 	}
-	if (target == GrappleAnim) { // RA2: as above
-		GrappleAnim = NULL; // RA2: as above
-		GrappleAnimGotInvalid = true; // RA2: as above
+	if (target == GrappleAnim) {
+		GrappleAnim = NULL;
+		GrappleAnimGotInvalid = true;
 	}
 }
 
@@ -495,60 +495,60 @@ void ParasiteClass::Detach(AbstractClass const * target, bool all) // RA2: 0x006
 /// </summary>
 void ParasiteClass::ExitUnit(void) // RA2: 0x00607440
 {
-	bool naval = Owner->Techno_Type_Class()->Naval; // RA2: as above
-	int face = Victim->PrimaryFacing.Current().As_Dir8(); // RA2: as above
-	DirType dir; // RA2: as above
-	if (face >= 0 && face <= 2) { // RA2: as above
-		dir = Victim->PrimaryFacing.Current().Right_90(); // RA2: as above
-	} else { // RA2: as above
-		dir = Victim->PrimaryFacing.Current().Left_90(); // RA2: as above
+	bool naval = Owner->Techno_Type_Class()->Naval;
+	int face = Victim->PrimaryFacing.Current().As_Dir8();
+	DirType dir;
+	if (face >= 0 && face <= 2) {
+		dir = Victim->PrimaryFacing.Current().Right_90();
+	} else {
+		dir = Victim->PrimaryFacing.Current().Left_90();
 	}
-	Cell cell; // RA2: as above
-	if (naval) { // RA2: as above
-		cell = Adjacent_Cell(Victim->Get_Cell(), dir.As_Dir8()); // RA2: as above
-	} else if (SuppressionTimer == 0) { // RA2: as above
-		cell = Victim->Get_Cell(); // RA2: as above
-	} else { // RA2: as above
-		Owner->Strength = 0; // RA2: as above
-		Victim->ParalysisTimer = 0; // RA2: as above
-		Victim->ParasiteEatingMe = NULL; // RA2: as above
-		Owner->Delete_Me(); // RA2: as above
-		Victim = NULL; // RA2: as above
-		return; // RA2: as above
+	Cell cell;
+	if (naval) {
+		cell = Adjacent_Cell(Victim->Get_Cell(), dir.As_Dir8());
+	} else if (SuppressionTimer == 0) {
+		cell = Victim->Get_Cell();
+	} else {
+		Owner->Strength = 0;
+		Victim->ParalysisTimer = 0;
+		Victim->ParasiteEatingMe = NULL;
+		Owner->Delete_Me();
+		Victim = NULL;
+		return;
 	}
-	CellClass * cellptr = &Map[cell]; // RA2: as above
-	if (!cellptr->Is_Clear_To_Move(Owner->Techno_Type_Class()->Speed, false, false, Map.Get_Cell_Zone(cell, Owner->Techno_Type_Class()->MZone, false), Owner->Techno_Type_Class()->MZone, -1, true)) { // RA2: as above
-		cell = Victim->Nearby_Location(NULL); // RA2: as above
+	CellClass * cellptr = &Map[cell];
+	if (!cellptr->Is_Clear_To_Move(Owner->Techno_Type_Class()->Speed, false, false, Map.Get_Cell_Zone(cell, Owner->Techno_Type_Class()->MZone, false), Owner->Techno_Type_Class()->MZone, -1, true)) {
+		cell = Victim->Nearby_Location(NULL);
 	}
-	Coord coord = COORD_NONE; // RA2: as above
-	if (cell != CELL_NONE) { // RA2: as above
-		coord = Map[cell].Center_Coord(); // RA2: as above
+	Coord coord = COORD_NONE;
+	if (cell != CELL_NONE) {
+		coord = Map[cell].Center_Coord();
 	}
-	if (cell == CELL_NONE || coord == COORD_NONE || !Owner_Fits_Victim_Cell(this) || !Owner->Unlimbo(coord, dir.As_Dir256())) { // RA2: as above
-		Owner->Strength = 0; // RA2: as above
-		Owner->Delete_Me(); // RA2: as above
-	} else { // RA2: as above
-		if (Owner->ShouldBeReselectOnUnlimbo && Owner->House->Is_Player_Control()) { // RA2: as above
-			Owner->ShouldBeReselectOnUnlimbo = false; // RA2: as above
-			Owner->Select(); // RA2: as above
+	if (cell == CELL_NONE || coord == COORD_NONE || !Owner_Fits_Victim_Cell(this) || !Owner->Unlimbo(coord, dir.As_Dir256())) {
+		Owner->Strength = 0;
+		Owner->Delete_Me();
+	} else {
+		if (Owner->ShouldBeReselectOnUnlimbo && Owner->House->Is_Player_Control()) {
+			Owner->ShouldBeReselectOnUnlimbo = false;
+			Owner->Select();
 		}
-		if (Owner->OldTeam != NULL) { // RA2: as above
-			Owner->OldTeam->Add(Owner); // RA2: as above
+		if (Owner->OldTeam != NULL) {
+			Owner->OldTeam->Add(Owner);
 		}
-		if (!Owner->HaveMegaMission()) { // RA2: as above
-			Owner->Assign_Archive_Target(NULL); // RA2: as above
-			Owner->Assign_Target(NULL); // RA2: as above
-			Owner->Assign_Destination(NULL, true); // RA2: as above
+		if (!Owner->HaveMegaMission()) {
+			Owner->Assign_Archive_Target(NULL);
+			Owner->Assign_Target(NULL);
+			Owner->Assign_Destination(NULL, true);
 		}
-		Owner->Enter_Idle_Mode(false, true); // RA2: as above
-		Owner->UpdateSight(false, false, false, NULL); // RA2: as above
-		Owner->ParalysisTimer = Owner->Get_Class_Weapon_Data(0)->Weapon->ROF * 3; // RA2: as above
-		Clear_Grapple(); // RA2: as above
+		Owner->Enter_Idle_Mode(false, true);
+		Owner->UpdateSight(false, false, false, NULL);
+		Owner->ParalysisTimer = Owner->Get_Class_Weapon_Data(0)->Weapon->ROF * 3;
+		Clear_Grapple();
 	}
-	Victim->AngleRotatedSideways = 0; // RA2: as above
-	Victim->ParalysisTimer = 0; // RA2: as above
-	Victim->ParasiteEatingMe = NULL; // RA2: as above
-	Victim = NULL; // RA2: as above
+	Victim->AngleRotatedSideways = 0;
+	Victim->ParalysisTimer = 0;
+	Victim->ParasiteEatingMe = NULL;
+	Victim = NULL;
 }
 
 
@@ -558,12 +558,12 @@ void ParasiteClass::ExitUnit(void) // RA2: 0x00607440
 /// </summary>
 bool ParasiteClass::CanInfect(FootClass * victim) const // RA2: 0x006078F0
 {
-	if (victim != NULL && !victim->IsInLimbo && victim->IsActive && victim->Strength != 0 && victim->ParasiteEatingMe == NULL && victim->Techno_Type_Class()->Parasiteable) { // RA2: as above
-		if (Owner == NULL || !Owner->Techno_Type_Class()->Naval || victim->Get_Cell_Ptr() == NULL || victim->Get_Cell_Ptr()->Is_Tile_Water()) { // RA2: as above
-			return(true); // RA2: as above
+	if (victim != NULL && !victim->IsInLimbo && victim->IsActive && victim->Strength != 0 && victim->ParasiteEatingMe == NULL && victim->Techno_Type_Class()->Parasiteable) {
+		if (Owner == NULL || !Owner->Techno_Type_Class()->Naval || victim->Get_Cell_Ptr() == NULL || victim->Get_Cell_Ptr()->Is_Tile_Water()) {
+			return(true);
 		}
 	}
-	return(false); // RA2: as above
+	return(false);
 }
 
 
@@ -572,16 +572,16 @@ bool ParasiteClass::CanInfect(FootClass * victim) const // RA2: 0x006078F0
 /// </summary>
 static inline int Sight_Range_Of(FootClass const * foot) // RA2: the executable expands accessors here; they decide which later calls stay out of line
 {
-	return(foot->LastSightRange); // RA2: as above
+	return(foot->LastSightRange);
 }
 
 
 /// <summary>
 /// Records the parasite's owner in the vehicle it infects.
 /// </summary>
-static inline void Set_Eaten_By(FootClass * victim, FootClass * owner) // RA2: as above
+static inline void Set_Eaten_By(FootClass * victim, FootClass * owner)
 {
-	victim->ParasiteEatingMe = owner; // RA2: as above
+	victim->ParasiteEatingMe = owner;
 }
 
 
@@ -591,24 +591,24 @@ static inline void Set_Eaten_By(FootClass * victim, FootClass * owner) // RA2: a
 /// </summary>
 void ParasiteClass::TryInfect(FootClass * target) // RA2: 0x00607980
 {
-	Clear_Grapple(); // RA2: as above
-	if (!CanInfect(target)) { // RA2: as above
-		if (!Owner->Unlimbo(Map[Owner->LastAdjacencyCell].Center_Coord(), DIR_N)) { // RA2: as above
-			Owner->Delete_Me(); // RA2: as above
-			return; // RA2: as above
+	Clear_Grapple();
+	if (!CanInfect(target)) {
+		if (!Owner->Unlimbo(Map[Owner->LastAdjacencyCell].Center_Coord(), DIR_N)) {
+			Owner->Delete_Me();
+			return;
 		}
-		Owner->RemoveSight(false, false, false, NULL); // RA2: as above
-		Map.RevealArea3(Coord(Owner->Position), Sight_Range_Of(Owner) - 3, Sight_Range_Of(Owner) + 2, 0); // RA2: as above
-		if (!Owner->HaveMegaMission()) { // RA2: as above
-			Owner->Assign_Target(NULL); // RA2: as above
-			Owner->Assign_Destination(NULL, true); // RA2: as above
+		Owner->RemoveSight(false, false, false, NULL);
+		Map.RevealArea3(Coord(Owner->Position), Sight_Range_Of(Owner) - 3, Sight_Range_Of(Owner) + 2, 0);
+		if (!Owner->HaveMegaMission()) {
+			Owner->Assign_Target(NULL);
+			Owner->Assign_Destination(NULL, true);
 		}
-		Owner->Enter_Idle_Mode(false, true); // RA2: as above
-		return; // RA2: as above
+		Owner->Enter_Idle_Mode(false, true);
+		return;
 	}
-	Owner->Locomotion->Force_Track(-1, Coord(target->Position)); // RA2: as above
-	Set_Eaten_By(target, Owner); // RA2: as above
-	Victim = target; // RA2: as above
+	Owner->Locomotion->Force_Track(-1, Coord(target->Position));
+	Set_Eaten_By(target, Owner);
+	Victim = target;
 }
 
 
@@ -618,7 +618,7 @@ void ParasiteClass::TryInfect(FootClass * target) // RA2: 0x00607980
 /// </summary>
 bool ParasiteClass::CanExistOnVictimCell(void) const // RA2: 0x00607BA0; nothing calls this copy, the callers expand Owner_Fits_Victim_Cell
 {
-	return(Owner_Fits_Victim_Cell(this)); // RA2: as above
+	return(Owner_Fits_Victim_Cell(this));
 }
 
 
@@ -629,26 +629,26 @@ bool ParasiteClass::CanExistOnVictimCell(void) const // RA2: 0x00607BA0; nothing
 /// <returns>Returns the position, or COORD_NONE when there is none.</returns>
 Coord ParasiteClass::Get_Exit_Coord(void) // RA2: 0x00607C30; named for what it does (YR: sub_62AC30)
 {
-	if (Victim == NULL) { // RA2: as above
-		return(COORD_NONE); // RA2: as above
+	if (Victim == NULL) {
+		return(COORD_NONE);
 	}
-	if (Owner_Fits_Victim_Cell(this)) { // RA2: as above
-		return(Victim->Position); // RA2: as above
+	if (Owner_Fits_Victim_Cell(this)) {
+		return(Victim->Position);
 	}
-	FacingType face = Victim->PrimaryFacing.Current().As_Dir8(); // RA2: as above
-	CellClass * victimcell = Victim->Get_Cell_Ptr(); // RA2: as above
-	CellClass * cell = &victimcell->Adjacent_Cell(face); // RA2: as above
-	if (!Owner->Techno_Type_Class()->Naval) { // RA2: as above
-		LandType land = cell->Land_Type(); // RA2: as above
-		if (land == LAND_WATER || land == LAND_BEACH || land == LAND_ROCK) { // RA2: as above
-			return(COORD_NONE); // RA2: as above
+	FacingType face = Victim->PrimaryFacing.Current().As_Dir8();
+	CellClass * victimcell = Victim->Get_Cell_Ptr();
+	CellClass * cell = &victimcell->Adjacent_Cell(face);
+	if (!Owner->Techno_Type_Class()->Naval) {
+		LandType land = cell->Land_Type();
+		if (land == LAND_WATER || land == LAND_BEACH || land == LAND_ROCK) {
+			return(COORD_NONE);
 		}
 	}
-	Coord coord = cell->Closest_Free_Spot(cell->Center_Coord(), false, false); // RA2: as above
-	if (coord != COORD_NONE) { // RA2: as above
-		return(coord); // RA2: as above
+	Coord coord = cell->Closest_Free_Spot(cell->Center_Coord(), false, false);
+	if (coord != COORD_NONE) {
+		return(coord);
 	}
-	return(COORD_NONE); // RA2: as above
+	return(COORD_NONE);
 }
 
 
@@ -657,7 +657,7 @@ Coord ParasiteClass::Get_Exit_Coord(void) // RA2: 0x00607C30; named for what it 
 /// </summary>
 int ParasiteClass::Fetch_Object_Size(void) const // RA2: 0x00607DD0
 {
-	return(sizeof(*this)); // RA2: as above
+	return(sizeof(*this));
 }
 
 
@@ -666,5 +666,5 @@ int ParasiteClass::Fetch_Object_Size(void) const // RA2: 0x00607DD0
 /// </summary>
 RTTIType ParasiteClass::Fetch_RTTI(void) const // RA2: 0x00607DE0
 {
-	return(RTTI_PARASITE); // RA2: as above
+	return(RTTI_PARASITE);
 }

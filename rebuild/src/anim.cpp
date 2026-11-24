@@ -138,13 +138,13 @@ AnimClass::AnimClass(AnimTypeClass const * type, Coord const & coord, int timede
 	FlamingGuyCoords(COORD_NONE),
 	FlamingGuyRetries(0),
 	IsBuildingAnim(false),
-	UnderTemporal(false), // RA2: as above
-	Paused(false), // RA2: as above
-	Unpaused(false), // RA2: as above
-	PausedAnimFrame(0), // RA2: as above
+	UnderTemporal(false),
+	Paused(false),
+	Unpaused(false),
+	PausedAnimFrame(0),
 	Bounce(),
-	TimeToDie(false), // RA2: as above
-	AttachedBullet(NULL), // RA2: as above
+	TimeToDie(false),
+	AttachedBullet(NULL),
 	Loops(1),
 	IsBouncing(false),
 	IsAttachedToCell(false),
@@ -164,7 +164,7 @@ AnimClass::AnimClass(AnimTypeClass const * type, Coord const & coord, int timede
 	PaletteName[0] = '\0'; // RA2: no palette name yet
 	Create_ID();
 	StartSoundAudioController.Init(); // RA2: the two sound handles are reset
-	StopSoundAudioController.Init(); // RA2: as above
+	StopSoundAudioController.Init();
 	Anims.Add(this);
 	IsActive = true;
 
@@ -248,7 +248,7 @@ AnimClass::AnimClass(AnimTypeClass const * type, Coord const & coord, int timede
 	*/
 	if (Class == Rule->FlareAnim) {
 		Map.Sight_From(coord, Rule->DropZoneRadius / CELL_LEPTON_W, PlayerPtr, false, false, false, true, false); // RA2: it reveals twice, the second time with the last flag set
-		Map.Sight_From(coord, Rule->DropZoneRadius / CELL_LEPTON_W, PlayerPtr, false, false, false, true, true); // RA2: as above
+		Map.Sight_From(coord, Rule->DropZoneRadius / CELL_LEPTON_W, PlayerPtr, false, false, false, true, true);
 	}
 
 	loop = MAX(loop, 1) * Class->Loops;
@@ -282,11 +282,11 @@ AnimClass::AnimClass(void) :
 	ZAdjust(0),
 	YSortAdjust(0),
 	IsBuildingAnim(false),
-	UnderTemporal(false), // RA2: as above
-	Paused(false), // RA2: as above
-	Unpaused(false), // RA2: as above
-	PausedAnimFrame(0), // RA2: as above
-	TimeToDie(false), // RA2: as above
+	UnderTemporal(false),
+	Paused(false),
+	Unpaused(false),
+	PausedAnimFrame(0),
+	TimeToDie(false),
 	Delay(0),
 	Accum(0),
 	IsBouncing(false),
@@ -300,7 +300,7 @@ AnimClass::AnimClass(void) :
 {
 	Anims.Add(this);
 	StartSoundAudioController.Init(); // RA2: the two sound handles are reset
-	StopSoundAudioController.Init(); // RA2: as above
+	StopSoundAudioController.Init();
 	IsActive = true;
 }
 
@@ -362,9 +362,9 @@ AnimClass::~AnimClass(void)
 	Class->Free_Image();
 
 	StartSoundAudioController.EndLooping(); // RA2: both sound handles are ended and released
-	StopSoundAudioController.EndLooping(); // RA2: as above
-	StartSoundAudioController.Release(); // RA2: as above
-	StopSoundAudioController.Release(); // RA2: as above
+	StopSoundAudioController.EndLooping();
+	StartSoundAudioController.Release();
+	StopSoundAudioController.Release();
 
 	xObject = NULL;
 	Class = 0;
@@ -1040,12 +1040,12 @@ void AnimClass::Set_Owner(HouseClass * house)
 LayerType AnimClass::In_Which_Layer(void) const
 {
 	if (xObject != 0) { // RA2: RA2's form
-		return LAYER_GROUND; // RA2: as above
+		return LAYER_GROUND;
 	}
-	if (Class != 0) { // RA2: as above
-		return Class->Layer; // RA2: as above
+	if (Class != 0) {
+		return Class->Layer;
 	}
-	return LAYER_AIR; // RA2: as above
+	return LAYER_AIR;
 }
 
 
@@ -1071,43 +1071,43 @@ void AnimClass::Start(void)
 {
 	Mark(MARK_CHANGE);
 	if (!IsInert && Class->StartSound != VOC_NONE) { // RA2: RA2's form
-		VocClass::PlayAt(Class->StartSound, Center_Coord(), &StartSoundAudioController); // RA2: as above
-	} else { // RA2: as above
-		StartSoundAudioController.Stop(); // RA2: as above
+		VocClass::PlayAt(Class->StartSound, Center_Coord(), &StartSoundAudioController);
+	} else {
+		StartSoundAudioController.Stop();
 	}
-	StopSoundAudioController.Stop(); // RA2: as above
+	StopSoundAudioController.Stop();
 
 	/*
 	**	If the stage where collateral effects occur is the first stage of the animation, then
 	**	perform this action now. Subsequent checks against this stage value starts with the
 	**	second frame of the animation.
 	*/
-	if (Class->Biggest == 0) { // RA2: as above
+	if (Class->Biggest == 0) {
 		Middle();
 	}
 
 	if (!IsInert && Class->IsTiberiumChainReaction) {
-		CellClass *cptr = (CellClass *)&Map[Center_Coord()]; // RA2: as above
-		int tib = cptr->Tiberium_Type_Here(); // RA2: as above
+		CellClass * cptr = (CellClass *)&Map[Center_Coord()];
+		int tib = cptr->Tiberium_Type_Here();
 
 		if (tib != TIBERIUM_NONE) {
-			TiberiumClass *tiberium = Tiberiums[tib]; // RA2: as above
+			TiberiumClass * tiberium = Tiberiums[tib];
 			cptr->Reduce_Tiberium(cptr->OverlayData + 1);
 
 			if (tiberium->Debris.Count() > 0 && (abs(Scen->RandomNumber) % 3) == 0) {
-				AnimClass *debris = new AnimClass( // RA2: as above
-					tiberium->Debris[Random_Pick(0, tiberium->Debris.Count() - 1)], // RA2: as above
-					Center_Coord() + Coord(0, 0, 10), 0, 1, (ShapeFlags_Type)(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
+				AnimClass * debris = new AnimClass(
+					tiberium->Debris[Random_Pick(0, tiberium->Debris.Count() - 1)],
+					Center_Coord() + Coord(0, 0, 10), 0, 1, (ShapeFlags_Type)(SHAPE_CENTER | SHAPE_WIN_REL), 0);
 				debris->AlternativeDrawer = ColorSchemes[tiberium->Color]->Converter;
 				debris->AlternativeBrightness = cptr->Brightness;
 			}
 
 			{
-				Coord coord = PositionCoord; // RA2: as above
-				Explosion_Damage(coord, Rule->TiberiumExplosionDamage, 0, Rule->C4Warhead, 0); // RA2: as above
+				Coord coord = PositionCoord;
+				Explosion_Damage(coord, Rule->TiberiumExplosionDamage, 0, Rule->C4Warhead, 0);
 			}
 
-			cptr->Recalc_Attributes(-1); // RA2: as above
+			cptr->Recalc_Attributes(-1);
 			Map.Update_Cell_Zone(cptr->CellID);
 			Map.Update_Cell_Subzones(cptr->CellID);
 		}
@@ -1136,27 +1136,27 @@ void AnimClass::Start(void)
 void AnimClass::Middle(void)
 {
 	Cell where = Center_Coord().As_Cell(); // RA2: RA2's form
-	CellClass *cell = (CellClass *)&Map[where]; // RA2: as above
+	CellClass * cell = (CellClass *)&Map[where];
 	int width = 30;
 	int height = 30;
-	ShapeSet const *shape = (ShapeSet const *)Get_Image_Data(); // RA2: as above
-	if (shape != 0) { // RA2: as above
-		width = shape->Get_Rect(Class->Biggest).Width; // RA2: as above
-		height = shape->Get_Rect(Class->Biggest).Height; // RA2: as above
+	ShapeSet const * shape = (ShapeSet const *)Get_Image_Data();
+	if (shape != 0) {
+		width = shape->Get_Rect(Class->Biggest).Width;
+		height = shape->Get_Rect(Class->Biggest).Height;
 	}
 	if (HeightAGL < 30) {
-		if (Class->IsScorcher && // RA2: as above
-			(!Class->IsCraterForming || Random_Double(0.0, 1.0) < 0.5)) { // RA2: as above
-			SmudgeTypeClass::Scorch_The_Ground(Center_Coord(), width, height, false); // RA2: as above
-			return; // RA2: as above
+		if (Class->IsScorcher &&
+			(!Class->IsCraterForming || Random_Double(0.0, 1.0) < 0.5)) {
+			SmudgeTypeClass::Scorch_The_Ground(Center_Coord(), width, height, false);
+			return;
 		}
-		if (Class->IsCraterForming) { // RA2: as above
-			cell->Reduce_Tiberium(6); // RA2: as above
-			if (Class->ForceBigCraters) { // RA2: as above
-				SmudgeTypeClass::Crater_The_Ground(Center_Coord(), 300, 300, true); // RA2: as above
-				return; // RA2: as above
+		if (Class->IsCraterForming) {
+			cell->Reduce_Tiberium(6);
+			if (Class->ForceBigCraters) {
+				SmudgeTypeClass::Crater_The_Ground(Center_Coord(), 300, 300, true);
+				return;
 			}
-			SmudgeTypeClass::Crater_The_Ground(Center_Coord(), width, height, false); // RA2: as above
+			SmudgeTypeClass::Crater_The_Ground(Center_Coord(), width, height, false);
 		}
 	}
 }
@@ -1189,16 +1189,16 @@ void AnimClass::Detach(AbstractClass const * target, bool all)
 	ObjectClass::Detach(target, all); // RA2: RA2's form
 	if (xObject == target) {
 		Map.Remove(this);
-		xObject = 0; // RA2: as above
+		xObject = 0;
 		IsToDelete = true;
 		Mark(MARK_UP);
 	}
 	if (Class == target) {
-		Class = 0; // RA2: as above
+		Class = 0;
 	}
-	if ((AbstractClass const *)AttachedBullet == target) { // RA2: as above
-		AttachedBullet = 0; // RA2: as above
-		Delete_Me(); // RA2: as above
+	if ((AbstractClass const *)AttachedBullet == target) {
+		AttachedBullet = 0;
+		Delete_Me();
 	}
 }
 
@@ -1264,7 +1264,7 @@ HRESULT STDMETHODCALLTYPE AnimClass::Load(IStream *stream)
 		new (this) AnimClass(NoInitClass());
 
 		StartSoundAudioController.Init(); // RA2: the two sound handles are reset
-		StopSoundAudioController.Init(); // RA2: as above
+		StopSoundAudioController.Init();
 
 		Swizzle_Pointer(&Class);
 		Swizzle_Pointer(&xObject);
@@ -1302,16 +1302,16 @@ HRESULT STDMETHODCALLTYPE AnimClass::Load(IStream *stream)
 HRESULT STDMETHODCALLTYPE AnimClass::Save(IStream * stream, BOOL cleardirty)
 {
 	if (AlternativeDrawer != 0) { // RA2: RA2's form
-		for (int index = ColorSchemes.Count() - 1; index >= 0; index--) { // RA2: as above
-			if (AlternativeDrawer == ColorSchemes[index]->Converter) { // RA2: as above
-				LightConvertIndex = index; // RA2: as above
-				goto save; // RA2: as above
+		for (int index = ColorSchemes.Count() - 1; index >= 0; index--) {
+			if (AlternativeDrawer == ColorSchemes[index]->Converter) {
+				LightConvertIndex = index;
+				goto save;
 			}
 		}
 	}
-	LightConvertIndex = -1; // RA2: as above
-save: // RA2: as above
-	return AbstractClass::Save(stream, cleardirty); // RA2: as above
+	LightConvertIndex = -1;
+save:
+	return AbstractClass::Save(stream, cleardirty);
 }
 
 
@@ -1324,18 +1324,18 @@ save: // RA2: as above
 void AnimClass::Compute_CRC(CRCEngine & crc) const
 {
 	ObjectClass::Compute_CRC(crc); // RA2: RA2's form
-	if (xObject != 0) { // RA2: as above
+	if (xObject != 0) {
 		crc(xObject->Fetch_ID());
 	}
-	crc((long)OwnerHouse); // RA2: as above
-	crc((long)AlternativeBrightness); // RA2: as above
-	crc((long)ZAdjust); // RA2: as above
-	crc((long)YSortAdjust); // RA2: as above
-	crc((long)Delay); // RA2: as above
+	crc((long)OwnerHouse);
+	crc((long)AlternativeBrightness);
+	crc((long)ZAdjust);
+	crc((long)YSortAdjust);
+	crc((long)Delay);
 	crc(Accum);
-	crc((long)ShapeFlags); // RA2: as above
+	crc((long)ShapeFlags);
 	crc(IsBouncing);
-	crc((long)Loops); // RA2: as above
+	crc((long)Loops);
 	crc(IsAttachedToCell);
 	crc(IsToDeleteOnOverpass);
 	crc(IsToDelete);
@@ -1428,7 +1428,7 @@ void AnimClass::Delete_Me(void)
 	Attach_To(NULL);
 	StartSoundAudioController.EndLooping(); // RA2: the start sound's loop is ended when the animation goes
 	if (!IsInert && Class->StopSound != VOC_NONE) { // RA2: a non-inert type with a stop sound plays it once at the center
-		VocClass::PlayAt(Class->StopSound, Center_Coord(), &StopSoundAudioController); // RA2: as above
+		VocClass::PlayAt(Class->StopSound, Center_Coord(), &StopSoundAudioController);
 	}
 	BASECLASS::Delete_Me();
 }
@@ -1618,37 +1618,37 @@ Coord AnimClass::Next_Flaming_Guy_Coord(void)
 		int dy = mincell.Y - cell.Y;
 		Point2D step(0, 0); // RA2: Next_Flaming_Guy_Coord at 0x4237B0 matches only so
 		if (dx < 0) {
-			step.X = -1; // RA2: as above
+			step.X = -1;
 		} else if (dx > 0) {
-			step.X = 1; // RA2: as above
+			step.X = 1;
 		}
 		if (dy < 0) {
-			step.Y = -1; // RA2: as above
+			step.Y = -1;
 		} else if (dy > 0) {
-			step.Y = 1; // RA2: as above
+			step.Y = 1;
 		}
 
-		if (Is_Valid_Flaming_Guy_Cell(cell + Cell(step.X, step.Y))) { // RA2: as above
-			return(Coord(Cell(cell.X + step.X, cell.Y + step.Y))); // RA2: as above
+		if (Is_Valid_Flaming_Guy_Cell(cell + Cell(step.X, step.Y))) {
+			return(Coord(Cell(cell.X + step.X, cell.Y + step.Y)));
 		}
 
-		if (Is_Valid_Flaming_Guy_Cell(cell + Cell(step.X, 0))) { // RA2: as above
-			return(Cell(cell.X + step.X, cell.Y).As_Coord()); // RA2: as above
+		if (Is_Valid_Flaming_Guy_Cell(cell + Cell(step.X, 0))) {
+			return(Cell(cell.X + step.X, cell.Y).As_Coord());
 		}
 
-		if (Is_Valid_Flaming_Guy_Cell(cell + Cell(0, step.Y))) { // RA2: as above
-			return(Cell(cell.X, cell.Y + step.Y).As_Coord()); // RA2: as above
+		if (Is_Valid_Flaming_Guy_Cell(cell + Cell(0, step.Y))) {
+			return(Cell(cell.X, cell.Y + step.Y).As_Coord());
 		}
 	}
 
 	if (CELL_NONE == Cell(0, 0)) {
 		FacingType dir = Random_Pick(FACING_FIRST, FacingType(FACING_COUNT - 1));
 		for (int i = 0; i < FACING_COUNT; i++) {
-			FacingType facing = FacingType((dir + i) % FACING_COUNT); // RA2: as above
-			Cell const & offset = AdjacentCell[(int)facing & 7]; // RA2: as above
-			Cell newcell = cell + offset; // RA2: as above
+			FacingType facing = FacingType((dir + i) % FACING_COUNT);
+			Cell const & offset = AdjacentCell[(int)facing & 7];
+			Cell newcell = cell + offset;
 			if (Is_Valid_Flaming_Guy_Cell(newcell)) {
-				return(newcell.As_Coord()); // RA2: as above
+				return(newcell.As_Coord());
 			}
 		}
 	}

@@ -20,20 +20,20 @@
 #define _WCTYPE_INLINE_DEFINED // RA2: the executable calls the library's iswspace (0x00784AA8); the inline version in wchar.h would call iswctype instead
 #include "geometry.h" // RA2: the geometry constants come before the rectangle of rect.h (the executable initializes them first)
 #include "always.h" // RA2: the includes this file needs
-#include <string.h> // RA2: as above
-#include <stdlib.h> // RA2: as above
-#include <stdio.h> // RA2: as above
-#include <ctype.h> // RA2: as above
-#include <wchar.h> // RA2: as above
-#include <windows.h> // RA2: as above
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <ctype.h>
+#include <wchar.h>
+#include <windows.h>
 #undef LoadString // RA2: windows.h maps LoadString to LoadStringA
 #undef getc // RA2: the executable calls the library function getc (0x00784A3C), not the macro of stdio.h
-#include "rawfile.h" // RA2: as above
-#include "ccfile.h" // RA2: as above
-#include "session.h" // RA2: as above
-#include "mapgen.h" // RA2: as above
-#include "dbgprint.h" // RA2: as above
-#include "stringtable.h" // RA2: as above
+#include "rawfile.h"
+#include "ccfile.h"
+#include "session.h"
+#include "mapgen.h"
+#include "dbgprint.h"
+#include "stringtable.h"
 
 
 int MaxLabelLen; // RA2: 0x00AD0428; the longest label name read so far
@@ -51,17 +51,17 @@ int StrOption = 1; // RA2: 0x007F8CE8; initialized to 1: a text file is allowed 
 CSFLanguages StringLanguage = CSF_UNKNOWN; // RA2: 0x007F8DA0; initialized to 10, the language before a file is read
 
 CSFLanguage Languages[11] = { // RA2: 0x007F8CF0; the table ends with the entry for CSF_UNKNOWN, which has no codes
-	{CSF_US, "US", "us", "e"}, // RA2: as above
+	{ CSF_US, "US", "us", "e" },
 	{CSF_UK, "UK", "uk", "e"}, // RA2: the strings of the UK language are the English ones
-	{CSF_GERMAN, "German", "ge", "g"}, // RA2: as above
-	{CSF_FRENCH, "French", "fr", "f"}, // RA2: as above
-	{CSF_SPANISH, "Spanish", "sp", "s"}, // RA2: as above
-	{CSF_ITALIAN, "Italian", "it", "i"}, // RA2: as above
-	{CSF_JAPANESE, "Japanese", "ja", "j"}, // RA2: as above
+	{ CSF_GERMAN, "German", "ge", "g" },
+	{ CSF_FRENCH, "French", "fr", "f" },
+	{ CSF_SPANISH, "Spanish", "sp", "s" },
+	{ CSF_ITALIAN, "Italian", "it", "i" },
+	{ CSF_JAPANESE, "Japanese", "ja", "j" },
 	{CSF_JABBERWOCKIE, "Jabberwockie", "jb", "e"}, // RA2: the test language reads like English
-	{CSF_KOREAN, "Korean", "ko", "k"}, // RA2: as above
-	{CSF_CHINESE, "Chinese", "ch", "c"}, // RA2: as above
-	{CSF_UNKNOWN, "Unknown", NULL, NULL} // RA2: as above
+	{ CSF_KOREAN, "Korean", "ko", "k" },
+	{ CSF_CHINESE, "Chinese", "ch", "c" },
+	{ CSF_UNKNOWN, "Unknown", NULL, NULL }
 };
 
 char NarrowBuffers[8][1024]; // RA2: 0x00AC136C; the eight results Wide_To_Narrow hands out in turn
@@ -84,11 +84,11 @@ FILE * TextFile; // RA2: 0x00AD0430; the text file being read
 CSFLanguage const * StringTable::GetLanguage(CSFLanguages language) // RA2: 0x006F8DD0
 {
 	for (CSFLanguage const * entry = Languages; entry->Index != CSF_UNKNOWN; entry++) { // RA2: the table ends with the entry of CSF_UNKNOWN
-		if (entry->Index == language) { // RA2: as above
-			return entry; // RA2: as above
+		if (entry->Index == language) {
+			return entry;
 		}
 	}
-	return NULL; // RA2: as above
+	return NULL;
 }
 
 /// <summary>
@@ -97,7 +97,7 @@ CSFLanguage const * StringTable::GetLanguage(CSFLanguages language) // RA2: 0x00
 char const * StringTable::GetLanguageName(CSFLanguages language) // RA2: 0x006F8E00
 {
 	CSFLanguage const * entry = GetLanguage(language); // RA2: its expansion is the loop at 0x006F8E00
-	if (entry != NULL) { // RA2: as above
+	if (entry != NULL) {
 		return entry->Name; // RA2: the name is the second field of the entry
 	}
 	return "unknown"; // RA2: the literal at 0x007CCCE0
@@ -108,7 +108,7 @@ char const * StringTable::GetLanguageName(CSFLanguages language) // RA2: 0x006F8
 /// </summary>
 /// <remarks>From Generals GameText.cpp (GameTextManager::stripSpaces), Copyright 2025 Electronic Arts Inc.,
 /// GPL-3.0-or-later; modified: this tree's names.</remarks>
-static inline void Collapse_White_Space(wchar_t * string) // RA2: as above
+static inline void Collapse_White_Space(wchar_t * string)
 {
 	wchar_t * str;
 	wchar_t * ptr;
@@ -151,21 +151,21 @@ static inline void Collapse_White_Space(wchar_t * string) // RA2: as above
 /// Reads the header of a .csf file: how many labels and strings it holds, and its language. False when
 /// the file is missing or is no .csf file.
 /// </summary>
-static int Read_CSF_Header(char const * name) // RA2: as above
+static int Read_CSF_Header(char const * name)
 {
 	CCFileClass file(name); // RA2: its expansion is at 0x006F8EE1 in LoadFile; the failing paths call the destructor
-	int ok = 0; // RA2: as above
-	if (file.Is_Available() && file.Open()) { // RA2: as above
-		CSFHeader header; // RA2: as above
+	int ok = 0;
+	if (file.Is_Available() && file.Open()) {
+		CSFHeader header;
 		if (file.Read(&header, sizeof(header)) == sizeof(header) && header.ID == 'CSF ') { // RA2: 24 bytes that start with 0x43534620
-			StringLabelCount = header.LabelCount; // RA2: as above
-			StringValueCount = header.StringCount; // RA2: as above
+			StringLabelCount = header.LabelCount;
+			StringValueCount = header.StringCount;
 			StringLanguage = (CSFLanguages)(header.Version < 2 ? 0 : header.Language); // RA2: versions below 2 have no language field and are US
-			ok = 1; // RA2: as above
+			ok = 1;
 		}
-		return ok; // RA2: as above
+		return ok;
 	}
-	return 0; // RA2: as above
+	return 0;
 }
 
 /// <summary>
@@ -173,7 +173,7 @@ static int Read_CSF_Header(char const * name) // RA2: as above
 /// </summary>
 /// <remarks>From Generals GameText.cpp (GameTextManager::removeLeadingAndTrailing), Copyright 2025 Electronic Arts Inc.,
 /// GPL-3.0-or-later; modified: this tree's names.</remarks>
-static void Strip_Line(char * line) // RA2: as above
+static void Strip_Line(char * line)
 {
 	char * first;
 	char * ptr;
@@ -256,18 +256,18 @@ static int Get_String_Count(char const * filename)
 int StringTable::LoadFile(char const * filename) // RA2: 0x006F8E30
 {
 	if (StringsLoaded != 0) { // RA2: the table is read only once until Unload
-		return 1; // RA2: as above
+		return 1;
 	}
 	StringsLoaded = 1; // RA2: set even when the reading fails below
-	MaxLabelLen = 0; // RA2: as above
-	StringFileName = filename; // RA2: as above
-	if (filename == 0 || *filename == 0) { // RA2: as above
-		return 0; // RA2: as above
+	MaxLabelLen = 0;
+	StringFileName = filename;
+	if (filename == 0 || *filename == 0) {
+		return 0;
 	}
-	strcpy(CSFName, filename); // RA2: as above
+	strcpy(CSFName, filename);
 	char * dot = strchr(CSFName, '.'); // RA2: the extension is replaced by .csf
-	if (dot != 0) { // RA2: as above
-		*dot = 0; // RA2: as above
+	if (dot != 0) {
+		*dot = 0;
 	}
 	strcat(CSFName, ".csf"); // RA2: the literal at 0x007F8E68
 	int format;
@@ -280,43 +280,43 @@ int StringTable::LoadFile(char const * filename) // RA2: 0x006F8E30
 		return 0;
 	}
 
-	if (StringValueCount == 0 || StringLabelCount == 0) { // RA2: as above
-		return 0; // RA2: as above
+	if (StringValueCount == 0 || StringLabelCount == 0) {
+		return 0;
 	}
 	StringLabels = (CSFLabel *)::operator new(StringLabelCount * sizeof(CSFLabel)); // RA2: the three tables are made one after the other
-	if (StringLabels == 0) { // RA2: as above
-		return 0; // RA2: as above
+	if (StringLabels == 0) {
+		return 0;
 	}
-	memset(StringLabels, 0, StringLabelCount * sizeof(CSFLabel)); // RA2: as above
-	StringValues = (wchar_t **)::operator new(StringValueCount * sizeof(wchar_t *)); // RA2: as above
-	if (StringValues == 0) { // RA2: as above
-		return 0; // RA2: as above
+	memset(StringLabels, 0, StringLabelCount * sizeof(CSFLabel));
+	StringValues = (wchar_t **)::operator new(StringValueCount * sizeof(wchar_t *));
+	if (StringValues == 0) {
+		return 0;
 	}
-	memset(StringValues, 0, StringValueCount * sizeof(wchar_t *)); // RA2: as above
-	StringExtraValues = (char **)::operator new(StringValueCount * sizeof(char *)); // RA2: as above
-	if (StringExtraValues == 0) { // RA2: as above
-		return 0; // RA2: as above
+	memset(StringValues, 0, StringValueCount * sizeof(wchar_t *));
+	StringExtraValues = (char **)::operator new(StringValueCount * sizeof(char *));
+	if (StringExtraValues == 0) {
+		return 0;
 	}
-	memset(StringExtraValues, 0, StringValueCount * sizeof(char *)); // RA2: as above
+	memset(StringExtraValues, 0, StringValueCount * sizeof(char *));
 	if (format == STRING_FILE) {
 		TextFile = fopen(filename, "r"); // RA2: the text file is read a second time to fill the tables
-		if (TextFile == 0) { // RA2: as above
-			return 0; // RA2: as above
+		if (TextFile == 0) {
+			return 0;
 		}
 		if (!Read_Text_File()) { // RA2: 0 when the file ends inside a label
-			fclose(TextFile); // RA2: as above
-			return 0; // RA2: as above
+			fclose(TextFile);
+			return 0;
 		}
-		fclose(TextFile); // RA2: as above
+		fclose(TextFile);
 	} else {
-		ReadFile(CSFName); // RA2: as above
+		ReadFile(CSFName);
 	}
 	qsort(StringLabels, StringLabelCount, sizeof(CSFLabel), (int (__cdecl *)(void const *, void const *))_stricmp); // RA2: the labels are compared without regard to case, which is what LoadString searches by
 	DebugString("MaxLabelLen = %d\n", MaxLabelLen); // RA2: the literal at 0x007F8E50
 	DebugString("Language: %s\n", GetLanguageName(StringLanguage)); // RA2: the literal at 0x007F8E40; GetLanguageName is expanded here
 	Session.Load_Call_Wait_Strings(); // RA2: the call-wait texts are fetched now that there are strings
-	RandomMapGen.SeedData.Set_Default_Description(); // RA2: as above
-	return 1; // RA2: as above
+	RandomMapGen.SeedData.Set_Default_Description();
+	return 1;
 }
 #endif
 
@@ -324,16 +324,16 @@ int StringTable::LoadFile(char const * filename) // RA2: 0x006F8E30
 /// Takes the next character of an entry: from the rest of the line already read (source, which becomes NULL
 /// when it runs out) and then from the file.
 /// </summary>
-static inline void Next_Character(FILE * file, char *& source, char & character) // RA2: as above
+static inline void Next_Character(FILE * file, char *& source, char & character)
 {
 	if (source != NULL) { // RA2: its code is expanded twice in Read_Text_Entry
-		character = *source++; // RA2: as above
+		character = *source++;
 		if (character == 0) { // RA2: the line is used up
-			source = NULL; // RA2: as above
+			source = NULL;
 			character = getc(file); // RA2: the library function getc, which calls fgetc
 		}
 	} else {
-		character = getc(file); // RA2: as above
+		character = getc(file);
 	}
 }
 
@@ -347,53 +347,53 @@ void __fastcall Read_Text_Entry(FILE * file, char * source, char * text, char * 
 	int escaped = 0; // RA2: 1 after a backslash
 	int state = 0; // RA2: 0 before the name, 1 inside it, 2 after it
 	int length = 0; // RA2: the length of the name
-	char character; // RA2: as above
+	char character;
 	for (; limit != 0; limit--) { // RA2: the text of the entry
-		Next_Character(file, source, character); // RA2: as above
+		Next_Character(file, source, character);
 		if (character == -1) { // RA2: end of file ends the entry at once, without terminating the text
-			return; // RA2: as above
+			return;
 		}
 		if (character == '\n') { // RA2: a line break is a space, and no backslash goes over it
-			escaped = 0; // RA2: as above
-			character = ' '; // RA2: as above
+			escaped = 0;
+			character = ' ';
 		} else if (character == '\\') { // RA2: a backslash escapes the next character
 			escaped = escaped == 0; // RA2: two backslashes cancel out
 		} else {
 			if (character == '"' && !escaped) { // RA2: an unescaped quote ends the text
-				break; // RA2: as above
+				break;
 			}
-			escaped = 0; // RA2: as above
+			escaped = 0;
 		}
 		if (iswspace(character)) { // RA2: the library's iswspace
-			character = ' '; // RA2: as above
+			character = ' ';
 		}
-		*text++ = character; // RA2: as above
+		*text++ = character;
 	}
-	*text = 0; // RA2: as above
+	*text = 0;
 	for (;;) { // RA2: the speech name after the quote
-		Next_Character(file, source, character); // RA2: as above
+		Next_Character(file, source, character);
 		if (character == '\n' || character == -1) { // RA2: the name ends with the line
-			*label = 0; // RA2: as above
+			*label = 0;
 			if (length != 0 && label[-1] >= '0' && label[-1] <= '9') { // RA2: a name that ends in a digit gets an e appended
-				*label = 'e'; // RA2: as above
-				label[1] = 0; // RA2: as above
+				*label = 'e';
+				label[1] = 0;
 			}
-			return; // RA2: as above
+			return;
 		}
-		switch (state) { // RA2: as above
+		switch (state) {
 		case 0: // RA2: before the name
 			if (iswspace(character) || character == '=') { // RA2: white space and = are skipped
-				continue; // RA2: as above
+					continue;
 			}
 			state = 1; // RA2: the name starts; falls into the next case
 		case 1: // RA2: inside the name
-			if ((character >= 'a' && character <= 'z') || (character >= 'A' && character <= 'Z') || (character >= '0' && character <= '9') || character == '_') { // RA2: as above
-				*label++ = character; // RA2: as above
-				length++; // RA2: as above
+				if ((character >= 'a' && character <= 'z') || (character >= 'A' && character <= 'Z') || (character >= '0' && character <= '9') || character == '_') {
+					*label++ = character;
+					length++;
 			} else {
 				state = 2; // RA2: anything else ends the name; the rest of the line is skipped
 			}
-			break; // RA2: as above
+				break;
 		}
 	}
 }
@@ -404,67 +404,67 @@ void __fastcall Read_Text_Entry(FILE * file, char * source, char * text, char * 
 /// </summary>
 int StringTable::ReadFile(char const * name) // RA2: 0x006F9400
 {
-	CCFileClass file(name); // RA2: as above
+	CCFileClass file(name);
 	int string_index = 0; // RA2: the index of the next string in the tables
-	if (!file.Is_Available() || !file.Open()) { // RA2: as above
-		return 0; // RA2: as above
+	if (!file.Is_Available() || !file.Open()) {
+		return 0;
 	}
 	CSFHeader header; // RA2: the header was read once already by LoadFile
-	if (file.Read(&header, sizeof(header)) != sizeof(header)) { // RA2: as above
-		return 0; // RA2: as above
+	if (file.Read(&header, sizeof(header)) != sizeof(header)) {
+		return 0;
 	}
-	int id; // RA2: as above
-	int count; // RA2: as above
-	int length; // RA2: as above
+	int id;
+	int count;
+	int length;
 	int label = 0; // RA2: the index of the next label
 	while (file.Read(&id, 4) == 4) { // RA2: a label: ' LBL', the number of strings, the length and the name
 		if (id != 'LBL ') { // RA2: 0x4C424C20
-			return 0; // RA2: as above
+			return 0;
 		}
-		file.Read(&count, 4); // RA2: as above
-		file.Read(&length, 4); // RA2: as above
-		if (length != 0) { // RA2: as above
+		file.Read(&count, 4);
+		file.Read(&length, 4);
+		if (length != 0) {
 			file.Read(TextLine, length); // RA2: the name goes through the line buffer
 		}
-		TextLine[length] = 0; // RA2: as above
-		strcpy(StringLabels[label].Name, TextLine); // RA2: as above
-		if (length > MaxLabelLen) { // RA2: as above
-			MaxLabelLen = length; // RA2: as above
+		TextLine[length] = 0;
+		strcpy(StringLabels[label].Name, TextLine);
+		if (length > MaxLabelLen) {
+			MaxLabelLen = length;
 		}
-		StringLabels[label].FirstString = string_index; // RA2: as above
-		StringLabels[label].StringCount = count; // RA2: as above
+		StringLabels[label].FirstString = string_index;
+		StringLabels[label].StringCount = count;
 		for (int index = 0; index < count; index++) { // RA2: the strings of the label
 			file.Read(&id, 4); // RA2: ' RTS' for a string, 'WRTS' for a string with a speech name
 			if (id != 'STR ' && id != 'STRW') { // RA2: 0x53545220 and 0x53545257
-				return 0; // RA2: as above
+				return 0;
 			}
 			file.Read(&length, 4); // RA2: the length in characters
-			if (length != 0) { // RA2: as above
-				file.Read(CSFWideText, length * 2); // RA2: as above
+			if (length != 0) {
+				file.Read(CSFWideText, length * 2);
 			}
-			CSFWideText[length] = 0; // RA2: as above
+			CSFWideText[length] = 0;
 			for (wchar_t * string = CSFWideText; *string != 0; string++) { // RA2: the text is stored with every bit inverted
-				*string = ~*string; // RA2: as above
+				*string = ~*string;
 			}
-			Collapse_White_Space(CSFWideText); // RA2: as above
-			StringValues[string_index + index] = (wchar_t *)::operator new((wcslen(CSFWideText) + 1) * sizeof(wchar_t)); // RA2: as above
-			wcscpy(StringValues[string_index + index], CSFWideText); // RA2: as above
+			Collapse_White_Space(CSFWideText);
+			StringValues[string_index + index] = (wchar_t *)::operator new((wcslen(CSFWideText) + 1) * sizeof(wchar_t));
+			wcscpy(StringValues[string_index + index], CSFWideText);
 			if (id == 'STRW') { // RA2: the speech name follows
-				file.Read(&length, 4); // RA2: as above
-				if (length != 0) { // RA2: as above
-					file.Read(TextLine, length); // RA2: as above
+				file.Read(&length, 4);
+				if (length != 0) {
+					file.Read(TextLine, length);
 				}
-				TextLine[length] = 0; // RA2: as above
-				if (length != 0) { // RA2: as above
-					StringExtraValues[string_index + index] = (char *)::operator new(length + 1); // RA2: as above
-					strcpy(StringExtraValues[string_index + index], TextLine); // RA2: as above
+				TextLine[length] = 0;
+				if (length != 0) {
+					StringExtraValues[string_index + index] = (char *)::operator new(length + 1);
+					strcpy(StringExtraValues[string_index + index], TextLine);
 				}
 			}
 		}
-		label++; // RA2: as above
-		string_index += count; // RA2: as above
+		label++;
+		string_index += count;
 	}
-	return 1; // RA2: as above
+	return 1;
 }
 
 #ifdef RA2_NON_MATCHING // not exact: the jabber block of the expanded Translate_Copy keeps the run start in esi and the input in ecx where the image has ecx and edx (0x6F99E1 to 0x6F9AB3, same instructions but two copies, and the first character through al); 740 bytes differ by position against the image-derived bound 006f9790 (1,469 B; ours 1,469 B, the image's calls, every reference bound): 21 groups of instructions, all in that block but the switch table offset one byte later. Text from Generals GameText.cpp (parseStringFile), modified for RA2: several strings to a label, the tables allocated here
@@ -622,14 +622,14 @@ int __fastcall Read_Text_File(void) // RA2: 0x006F9790
 				Read_Text_Entry(TextFile, &TextLine[1], TextBuffer, LabelBuffer, 0x1000);
 
 				Translate_Copy(CSFWideText, TextBuffer);
-				Collapse_White_Space(CSFWideText); // RA2: as above
+				Collapse_White_Space(CSFWideText);
 				len = wcslen(CSFWideText) + 1;
 				StringValues[string_index + count] = new wchar_t[len];
-				wcscpy(StringValues[string_index + count], CSFWideText); // RA2: as above
+				wcscpy(StringValues[string_index + count], CSFWideText);
 				int speech_length = strlen(LabelBuffer) + 1; // RA2: the speech name read behind the quote
 				if (speech_length > 1) { // RA2: only a name that is not empty is kept
-					StringExtraValues[string_index + count] = (char *)::operator new(speech_length); // RA2: as above
-					strcpy(StringExtraValues[string_index + count], LabelBuffer); // RA2: as above
+					StringExtraValues[string_index + count] = (char *)::operator new(speech_length);
+					strcpy(StringExtraValues[string_index + count], LabelBuffer);
 				}
 				count++;
 			} else if (!_stricmp(TextLine, "END")) {
@@ -690,40 +690,40 @@ void StringTable::Reverse_String(char * file, char * lp) // RA2: 0x006F9D50
 void StringTable::Unload(void) // RA2: 0x006F9D90
 {
 	while (StringChunkList) { // RA2: the second list, which nothing fills
-		CSFString * chunk = StringChunkList; // RA2: as above
-		StringChunkList = chunk->PreviousEntry; // RA2: as above
-		delete chunk; // RA2: as above
+		CSFString * chunk = StringChunkList;
+		StringChunkList = chunk->PreviousEntry;
+		delete chunk;
 	}
-	StringChunkList = 0; // RA2: as above
+	StringChunkList = 0;
 	if (StringValues) { // RA2: the texts
-		for (int index = 0; index < StringValueCount; index++) { // RA2: as above
-			if (StringValues[index]) { // RA2: as above
-				delete StringValues[index]; // RA2: as above
+		for (int index = 0; index < StringValueCount; index++) {
+			if (StringValues[index]) {
+				delete StringValues[index];
 			}
 		}
-		delete StringValues; // RA2: as above
-		StringValues = 0; // RA2: as above
+		delete StringValues;
+		StringValues = 0;
 	}
 	if (StringExtraValues) { // RA2: the speech names
-		for (int index = 0; index < StringValueCount; index++) { // RA2: as above
-			if (StringExtraValues[index]) { // RA2: as above
-				delete StringExtraValues[index]; // RA2: as above
+		for (int index = 0; index < StringValueCount; index++) {
+			if (StringExtraValues[index]) {
+				delete StringExtraValues[index];
 			}
 		}
-		delete StringExtraValues; // RA2: as above
-		StringExtraValues = 0; // RA2: as above
+		delete StringExtraValues;
+		StringExtraValues = 0;
 	}
 	if (StringLabels) { // RA2: the labels
-		delete StringLabels; // RA2: as above
-		StringLabels = 0; // RA2: as above
+		delete StringLabels;
+		StringLabels = 0;
 	}
 	CSFString * chunk = LastLoadedString; // RA2: the texts made up for missing labels
-	while (chunk) { // RA2: as above
-		CSFString * next = chunk->PreviousEntry; // RA2: as above
-		delete chunk; // RA2: as above
-		chunk = next; // RA2: as above
+	while (chunk) {
+		CSFString * next = chunk->PreviousEntry;
+		delete chunk;
+		chunk = next;
 	}
-	LastLoadedString = 0; // RA2: as above
+	LastLoadedString = 0;
 	StringsLoaded = 0; // RA2: the next LoadFile reads the table again
 }
 
@@ -732,12 +732,12 @@ void StringTable::Unload(void) // RA2: 0x006F9D90
 /// </summary>
 int __fastcall Is_Narrow_Text(wchar_t const * text) // RA2: 0x006F9E90
 {
-	while (*text) { // RA2: as above
-		if (*text++ > 0xFF) { // RA2: as above
-			return 0; // RA2: as above
+	while (*text) {
+		if (*text++ > 0xFF) {
+			return 0;
 		}
 	}
-	return 1; // RA2: as above
+	return 1;
 }
 
 /// <summary>
@@ -747,16 +747,16 @@ int __fastcall Is_Narrow_Text(wchar_t const * text) // RA2: 0x006F9E90
 /// </summary>
 wchar_t const * StringTable::LoadString(char const * label, char ** extra, char const * file, int line) // RA2: 0x006F9EC0
 {
-	if (extra) { // RA2: as above
-		*extra = 0; // RA2: as above
+	if (extra) {
+		*extra = 0;
 	}
 	if (!StringLabels) { // RA2: nothing was read
 		return L"***FATAL*** String Manager failed to initilaized properly"; // RA2: the spelling is the executable's
 	}
 	CSFLabel * found = (CSFLabel *)bsearch(label, StringLabels, StringLabelCount, sizeof(CSFLabel), (int (__cdecl *)(void const *, void const *))_stricmp); // RA2: the table is sorted by the same comparison
-	if (found) { // RA2: as above
-		if (extra) { // RA2: as above
-			*extra = StringExtraValues[found->FirstString]; // RA2: as above
+	if (found) {
+		if (extra) {
+			*extra = StringExtraValues[found->FirstString];
 		}
 		return StringValues[found->FirstString]; // RA2: only the first string of a label is ever used
 	}
@@ -764,8 +764,8 @@ wchar_t const * StringTable::LoadString(char const * label, char ** extra, char 
 	swprintf(chunk->Text, L"MISSING:'%hs'", label, file, line); // RA2: file and line are passed on although the format uses only the label
 	DebugString("***NO_STRING*** '%s' -> file:%s line:%d\n", label, file, line); // RA2: the literal at 0x007F8E70
 	chunk->PreviousEntry = LastLoadedString; // RA2: the chunk joins the list that Unload frees
-	LastLoadedString = chunk; // RA2: as above
-	return chunk->Text; // RA2: as above
+	LastLoadedString = chunk;
+	return chunk->Text;
 }
 
 /// <summary>
@@ -774,8 +774,8 @@ wchar_t const * StringTable::LoadString(char const * label, char ** extra, char 
 int __fastcall Is_Language_English(void) // RA2: 0x006F9F80
 {
 	char const * letter = Languages[StringLanguage].Letter; // RA2: the table is indexed by the language directly
-	if (letter == 0) { // RA2: as above
-		return 1; // RA2: as above
+	if (letter == 0) {
+		return 1;
 	}
 	return stricmp(letter, "e") == 0; // RA2: the literal at 0x007F8E34, shared with the table
 }
@@ -785,10 +785,10 @@ int __fastcall Is_Language_English(void) // RA2: 0x006F9F80
 /// </summary>
 void __fastcall Set_Jabber_Option(int value) // RA2: 0x006F9FB0
 {
-	if (JabberOption != value) { // RA2: as above
-		StringTable::Unload(); // RA2: as above
-		JabberOption = value; // RA2: as above
-		StringTable::LoadFile(StringFileName); // RA2: as above
+	if (JabberOption != value) {
+		StringTable::Unload();
+		JabberOption = value;
+		StringTable::LoadFile(StringFileName);
 	}
 }
 
@@ -798,10 +798,10 @@ void __fastcall Set_Jabber_Option(int value) // RA2: 0x006F9FB0
 /// </summary>
 void __fastcall Set_Str_Option(int value) // RA2: 0x006F9FE0
 {
-	if (StrOption != value) { // RA2: as above
-		StringTable::Unload(); // RA2: as above
-		StrOption = value; // RA2: as above
-		StringTable::LoadFile(StringFileName); // RA2: as above
+	if (StrOption != value) {
+		StringTable::Unload();
+		StrOption = value;
+		StringTable::LoadFile(StringFileName);
 	}
 }
 
@@ -810,7 +810,7 @@ void __fastcall Set_Str_Option(int value) // RA2: 0x006F9FE0
 /// </summary>
 int __fastcall Get_Jabber_Option(void) // RA2: 0x006FA010
 {
-	return JabberOption; // RA2: as above
+	return JabberOption;
 }
 
 /// <summary>
@@ -818,7 +818,7 @@ int __fastcall Get_Jabber_Option(void) // RA2: 0x006FA010
 /// </summary>
 int __fastcall Get_Str_Option(void) // RA2: 0x006FA020
 {
-	return StrOption; // RA2: as above
+	return StrOption;
 }
 
 /// <summary>
@@ -826,7 +826,7 @@ int __fastcall Get_Str_Option(void) // RA2: 0x006FA020
 /// </summary>
 int StringTable::Is_Initialized(void) // RA2: 0x006FA030
 {
-	return StringsLoaded; // RA2: as above
+	return StringsLoaded;
 }
 
 /// <summary>
@@ -834,11 +834,11 @@ int StringTable::Is_Initialized(void) // RA2: 0x006FA030
 /// </summary>
 int __fastcall Message_Box_Wide(HWND window, wchar_t const * text, wchar_t const * caption, unsigned int type) // RA2: 0x006FA040
 {
-	char narrow_text[0x1400]; // RA2: as above
-	char narrow_caption[0x800]; // RA2: as above
+	char narrow_text[0x1400];
+	char narrow_caption[0x800];
 	WideCharToMultiByte(CP_ACP, 0, text, -1, narrow_text, sizeof(narrow_text), 0, 0); // RA2: the ANSI code page
-	WideCharToMultiByte(CP_ACP, 0, caption, -1, narrow_caption, sizeof(narrow_caption), 0, 0); // RA2: as above
-	return MessageBoxA(window, narrow_text, narrow_caption, type); // RA2: as above
+	WideCharToMultiByte(CP_ACP, 0, caption, -1, narrow_caption, sizeof(narrow_caption), 0, 0);
+	return MessageBoxA(window, narrow_text, narrow_caption, type);
 }
 
 /// <summary>
@@ -846,16 +846,16 @@ int __fastcall Message_Box_Wide(HWND window, wchar_t const * text, wchar_t const
 /// </summary>
 void __fastcall Char_To_Wide(wchar_t * dest, char const * source, int limit) // RA2: 0x006FA0C0
 {
-	while (*source != 0 && limit != 0) { // RA2: as above
-		*dest++ = (unsigned char)*source++; // RA2: as above
+	while (*source != 0 && limit != 0) {
+		*dest++ = (unsigned char)*source++;
 		if (limit != -1) { // RA2: -1 counts down no further
-			limit--; // RA2: as above
+			limit--;
 		}
 	}
-	*dest = 0; // RA2: as above
+	*dest = 0;
 }
 
-namespace OwnerDraw { // RA2: as above
+namespace OwnerDraw {
 void __fastcall WideToCharString(char * dest, wchar_t const * source, int limit); // RA2: 0x006FA0F0, defined below
 }
 
@@ -865,13 +865,13 @@ void __fastcall WideToCharString(char * dest, wchar_t const * source, int limit)
 /// </summary>
 void __fastcall OwnerDraw::WideToCharString(char * dest, wchar_t const * source, int limit) // RA2: 0x006FA0F0
 {
-	while (*source != 0 && limit != 0) { // RA2: as above
+	while (*source != 0 && limit != 0) {
 		*dest++ = (char)*source++; // RA2: the high byte is cut off
 		if (limit != -1) { // RA2: -1 counts down no further
-			limit--; // RA2: as above
+			limit--;
 		}
 	}
-	*dest = 0; // RA2: as above
+	*dest = 0;
 }
 
 /// <summary>
@@ -879,14 +879,14 @@ void __fastcall OwnerDraw::WideToCharString(char * dest, wchar_t const * source,
 /// </summary>
 char * __fastcall Wide_To_Narrow(wchar_t const * text) // RA2: 0x006FA120
 {
-	if (!text) { // RA2: as above
-		return 0; // RA2: as above
+	if (!text) {
+		return 0;
 	}
-	char * buffer = NarrowBuffers[NarrowIndex]; // RA2: as above
-	OwnerDraw::WideToCharString(buffer, text, 0x400); // RA2: as above
-	buffer[0x3FF] = 0; // RA2: as above
+	char * buffer = NarrowBuffers[NarrowIndex];
+	OwnerDraw::WideToCharString(buffer, text, 0x400);
+	buffer[0x3FF] = 0;
 	NarrowIndex = (NarrowIndex + 1) & 7; // RA2: the next call uses the next buffer
-	return buffer; // RA2: as above
+	return buffer;
 }
 
 /// <summary>
@@ -894,12 +894,12 @@ char * __fastcall Wide_To_Narrow(wchar_t const * text) // RA2: 0x006FA120
 /// </summary>
 wchar_t * __fastcall Narrow_To_Wide(char const * narrow) // RA2: 0x006FA180
 {
-	if (!narrow) { // RA2: as above
-		return 0; // RA2: as above
+	if (!narrow) {
+		return 0;
 	}
-	wchar_t * buffer = WideBuffers[WideIndex]; // RA2: as above
-	Char_To_Wide(buffer, narrow, 0x400); // RA2: as above
-	buffer[0x3FF] = 0; // RA2: as above
+	wchar_t * buffer = WideBuffers[WideIndex];
+	Char_To_Wide(buffer, narrow, 0x400);
+	buffer[0x3FF] = 0;
 	WideIndex = (WideIndex + 1) & 7; // RA2: the next call uses the next buffer
-	return buffer; // RA2: as above
+	return buffer;
 }

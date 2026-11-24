@@ -88,28 +88,28 @@ static HANDLE MouseMutex = NULL; // RA2: a global, not a member
 **	RA2: the mouse is processed by a thread of its own (the O/S timer callback is gone). These
 **	hold the thread's control block, its handle and id, and whether it runs.
 */
-struct MouseThreadInfoStruct { // RA2: as above
+struct MouseThreadInfoStruct {
 	volatile int Quit; // RA2: volatile: the thread functions read and store this field in memory at every use (0x007717E0, 0x00771900, 0x007719A0)
 	volatile int Count; // RA2: volatile: the thread functions read and store this field in memory at every use (0x007717E0, 0x00771900, 0x007719A0)
 	volatile int Done; // RA2: volatile: the thread functions read and store this field in memory at every use (0x007717E0, 0x00771900, 0x007719A0)
-	int Unknown_0C; // RA2: as above
+		int Unknown_0C;
 	volatile __int64 Delay; // RA2: volatile: the thread functions read and store this field in memory at every use (0x007717E0, 0x00771900, 0x007719A0)
 	volatile int Started; // RA2: volatile: the thread functions read and store this field in memory at every use (0x007717E0, 0x00771900, 0x007719A0)
 
-	void Reset(void) // RA2: as above
+		void Reset(void)
 	{
-		Quit = 0; // RA2: as above
-		Done = 0; // RA2: as above
-		Started = 0; // RA2: as above
-		Delay = 16; // RA2: as above
-		Count = 0; // RA2: as above
+			Quit = 0;
+			Done = 0;
+			Started = 0;
+			Delay = 16;
+			Count = 0;
 	}
 };
 
-static MouseThreadInfoStruct MouseThreadInfo; // RA2: as above
-static HANDLE MouseThread = NULL; // RA2: as above
-static DWORD MouseThreadID = 0; // RA2: as above
-static int MouseThreadActive = 0; // RA2: as above
+static MouseThreadInfoStruct MouseThreadInfo;
+static HANDLE MouseThread = NULL;
+static DWORD MouseThreadID = 0;
+static int MouseThreadActive = 0;
 
 
 
@@ -121,8 +121,8 @@ static int MouseThreadActive = 0; // RA2: as above
  *=============================================================================================*/
 void Process_Mouse_Unthreaded(void) // RA2: the executable's function that audio.cpp calls
 {
-	if (!MouseThreadActive && _MousePtr != NULL) { // RA2: as above
-		_MousePtr->Process_Mouse(); // RA2: as above
+	if (!MouseThreadActive && _MousePtr != NULL) {
+		_MousePtr->Process_Mouse();
 	}
 }
 
@@ -130,29 +130,29 @@ void Process_Mouse_Unthreaded(void) // RA2: the executable's function that audio
 /***********************************************************************************************
  * Start_Mouse_Thread -- Start the thread that processes the mouse.                            *
  *=============================================================================================*/
-DWORD WINAPI Mouse_Thread(LPVOID parameter); // RA2: as above
+DWORD WINAPI Mouse_Thread(LPVOID parameter);
 
 void Start_Mouse_Thread(void) // RA2: not in TibSun
 {
-	char buffer[1024]; // RA2: as above
+	char buffer[1024];
 
-	if (MouseMutex == NULL) { // RA2: as above
-		MouseMutex = CreateMutex(NULL, FALSE, NULL); // RA2: as above
+	if (MouseMutex == NULL) {
+		MouseMutex = CreateMutex(NULL, FALSE, NULL);
 	}
-	if (!MouseThreadActive && MouseMutex != NULL) { // RA2: as above
-		MouseThreadInfo.Reset(); // RA2: as above
-		MouseThread = CreateThread(NULL, 0x1000, Mouse_Thread, &MouseThreadInfo, 0, &MouseThreadID); // RA2: as above
-		if (MouseThread != NULL) { // RA2: as above
-			MouseThreadActive = 1; // RA2: as above
-			if (!SetThreadPriority(MouseThread, THREAD_PRIORITY_TIME_CRITICAL)) { // RA2: as above
-				FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM, NULL, GetLastError(), 0, buffer, sizeof(buffer), NULL); // RA2: as above
-				DebugString("Unable to change the priority of the mouse thread - %s\n", buffer); // RA2: as above
-				while (!MouseThreadInfo.Done) { // RA2: as above
-					Sleep(0); // RA2: as above
+	if (!MouseThreadActive && MouseMutex != NULL) {
+		MouseThreadInfo.Reset();
+		MouseThread = CreateThread(NULL, 0x1000, Mouse_Thread, &MouseThreadInfo, 0, &MouseThreadID);
+		if (MouseThread != NULL) {
+			MouseThreadActive = 1;
+			if (!SetThreadPriority(MouseThread, THREAD_PRIORITY_TIME_CRITICAL)) {
+				FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM, NULL, GetLastError(), 0, buffer, sizeof(buffer), NULL);
+				DebugString("Unable to change the priority of the mouse thread - %s\n", buffer);
+				while (!MouseThreadInfo.Done) {
+					Sleep(0);
 				}
-				WaitForSingleObject(MouseThread, 5000); // RA2: as above
-				CloseHandle(MouseThread); // RA2: as above
-				MouseThreadActive = 0; // RA2: as above
+				WaitForSingleObject(MouseThread, 5000);
+				CloseHandle(MouseThread);
+				MouseThreadActive = 0;
 			}
 		}
 	}
@@ -164,21 +164,21 @@ void Start_Mouse_Thread(void) // RA2: not in TibSun
  *=============================================================================================*/
 DWORD WINAPI Mouse_Thread(LPVOID parameter) // RA2: not in TibSun
 {
-	MouseThreadInfoStruct * info = (MouseThreadInfoStruct *)parameter; // RA2: as above
+	MouseThreadInfoStruct * info = (MouseThreadInfoStruct *)parameter;
 
-	info->Started = 1; // RA2: as above
-	info->Done = 0; // RA2: as above
-	while (!info->Quit) { // RA2: as above
-		WWMouseClass::Block_Mouse(); // RA2: as above
-		if (_MousePtr != NULL) { // RA2: as above
-			_MousePtr->Process_Mouse(); // RA2: as above
+	info->Started = 1;
+	info->Done = 0;
+	while (!info->Quit) {
+		WWMouseClass::Block_Mouse();
+		if (_MousePtr != NULL) {
+			_MousePtr->Process_Mouse();
 		}
-		WWMouseClass::Unblock_Mouse(); // RA2: as above
-		Sleep((DWORD)info->Delay); // RA2: as above
-		info->Count++; // RA2: as above
+		WWMouseClass::Unblock_Mouse();
+		Sleep((DWORD)info->Delay);
+		info->Count++;
 	}
-	info->Done = 1; // RA2: as above
-	return(0); // RA2: as above
+	info->Done = 1;
+	return(0);
 }
 
 
@@ -187,18 +187,18 @@ DWORD WINAPI Mouse_Thread(LPVOID parameter) // RA2: not in TibSun
  *=============================================================================================*/
 void Kill_Mouse_Thread(void) // RA2: not in TibSun
 {
-	if (MouseThreadActive) { // RA2: as above
-		MouseThreadInfo.Quit = 1; // RA2: as above
-		while (!MouseThreadInfo.Done) { // RA2: as above
-			Sleep(0); // RA2: as above
+	if (MouseThreadActive) {
+		MouseThreadInfo.Quit = 1;
+		while (!MouseThreadInfo.Done) {
+			Sleep(0);
 		}
-		WaitForSingleObject(MouseThread, 5000); // RA2: as above
-		CloseHandle(MouseThread); // RA2: as above
-		MouseThreadActive = 0; // RA2: as above
+		WaitForSingleObject(MouseThread, 5000);
+		CloseHandle(MouseThread);
+		MouseThreadActive = 0;
 	}
-	if (MouseMutex != NULL) { // RA2: as above
-		CloseHandle(MouseMutex); // RA2: as above
-		MouseMutex = NULL; // RA2: as above
+	if (MouseMutex != NULL) {
+		CloseHandle(MouseMutex);
+		MouseMutex = NULL;
 	}
 }
 
@@ -228,7 +228,7 @@ WWMouseClass::WWMouseClass(Surface * surfaceptr, HWND window) :
 	MouseX(0),
 	MouseY(0),
 	CursorX(0), // RA2: the executable clears the cursor position too
-	CursorY(0), // RA2: as above
+	CursorY(0),
 	SurfacePtr(surfaceptr),
 	Window(window),
 	MouseShape(NULL),
@@ -237,21 +237,21 @@ WWMouseClass::WWMouseClass(Surface * surfaceptr, HWND window) :
 	MouseXHot(0),
 	MouseYHot(0),
 	Background(NULL),
-	SavedRegion(RECT_NONE), // RA2: as above
+	SavedRegion(RECT_NONE),
 	Alternate(NULL),
-	AltRegion(RECT_NONE), // RA2: as above
+	AltRegion(RECT_NONE),
 	SidebarAlternate(NULL),
-	SidebarAltRegion(RECT_NONE), // RA2: as above
-	ConditionalRect(RECT_NONE), // RA2: as above
+	SidebarAltRegion(RECT_NONE),
+	ConditionalRect(RECT_NONE),
 	ConditionalState(-1),
 	TimerHandle(0)
 {
 	Block_Mouse(); // RA2: the executable locks the mouse around the setup; there is no O/S timer callback
-	Calc_Confining_Rect(); // RA2: as above
+	Calc_Confining_Rect();
 	MouseXHot = ConfiningRect.X + (ConfiningRect.Width/2);
 	MouseYHot = ConfiningRect.Y + (ConfiningRect.Height/2);
-	_MousePtr = this; // RA2: as above
-	Unblock_Mouse(); // RA2: as above
+	_MousePtr = this;
+	Unblock_Mouse();
 	ShowCursor(FALSE); // RA2: hides the O/S cursor
 }
 
@@ -275,24 +275,24 @@ WWMouseClass::WWMouseClass(Surface * surfaceptr, HWND window) :
 WWMouseClass::~WWMouseClass(void) // RA2: defined here
 {
 	Block_Mouse(); // RA2: the executable locks the mouse instead of killing a timer
-	if (_MousePtr == this) { // RA2: as above
-		_MousePtr = NULL; // RA2: as above
+	if (_MousePtr == this) {
+		_MousePtr = NULL;
 	}
-	Unblock_Mouse(); // RA2: as above
+	Unblock_Mouse();
 
-	if (Background != NULL) { // RA2: as above
-		delete Background; // RA2: as above
-		Background = NULL; // RA2: as above
-	}
-
-	if (Alternate != NULL) { // RA2: as above
-		delete Alternate; // RA2: as above
-		Alternate = NULL; // RA2: as above
+	if (Background != NULL) {
+		delete Background;
+		Background = NULL;
 	}
 
-	if (SidebarAlternate != NULL) { // RA2: as above
-		delete SidebarAlternate; // RA2: as above
-		SidebarAlternate = NULL; // RA2: as above
+	if (Alternate != NULL) {
+		delete Alternate;
+		Alternate = NULL;
+	}
+
+	if (SidebarAlternate != NULL) {
+		delete SidebarAlternate;
+		SidebarAlternate = NULL;
 	}
 }
 
@@ -319,7 +319,7 @@ void WWMouseClass::Calc_Confining_Rect(void)
 	ClientToScreen(Window, &lr);
 
 	Rect confine(point.x, point.y, lr.x-point.x, lr.y-point.y); // RA2: a named temporary (as the executable's source weight shows)
-	ConfiningRect = confine; // RA2: as above
+	ConfiningRect = confine;
 //	ConfiningRect = Rect(point.x, point.y, lr.x-point.x+1, lr.y-point.y+1);
 	DebugString("Calc_Confining_Rect(%d,%d,%d,%d)\n", point.x, point.y, lr.x-point.x, lr.y-point.y);
 }
@@ -702,24 +702,24 @@ void WWMouseClass::Draw_Mouse(Surface * surface, bool issidebarsurface)
 void WWMouseClass::Erase_Mouse(Surface * surface, bool issidebarsurface)
 {
 	if (Is_Hidden() || !Is_Captured() || surface == 0 || surface == SurfacePtr || Alternate == 0 // RA2: RA2's form
-		|| SidebarAlternate == 0) { // RA2: as above
-		return; // RA2: as above
+		|| SidebarAlternate == 0) {
+		return;
 	}
-	BSurface *background; // RA2: as above
-	Rect rect; // RA2: as above
-	if (issidebarsurface) { // RA2: as above
-		background = SidebarAlternate; // RA2: as above
-		rect = SidebarAltRegion; // RA2: as above
-	} else { // RA2: as above
-		background = Alternate; // RA2: as above
-		rect = AltRegion; // RA2: as above
+	BSurface * background;
+	Rect rect;
+	if (issidebarsurface) {
+		background = SidebarAlternate;
+		rect = SidebarAltRegion;
+	} else {
+		background = Alternate;
+		rect = AltRegion;
 	}
-	if (background != 0) { // RA2: as above
-		Block_Mouse(); // RA2: as above
-		surface->Blit_From(rect, *background, Rect(0, 0, rect.Width, rect.Height), false, true); // RA2: as above
+	if (background != 0) {
+		Block_Mouse();
+		surface->Blit_From(rect, *background, Rect(0, 0, rect.Width, rect.Height), false, true);
 
 		//surface->Window.Set(old);
-		Unblock_Mouse(); // RA2: as above
+		Unblock_Mouse();
 	}
 }
 
@@ -870,16 +870,16 @@ void WWMouseClass::Show_Mouse(void)
 void WWMouseClass::Hide_Mouse(void)
 {
 	Block_Mouse(); // RA2: RA2's form
-	if (MouseState == 0) { // RA2: as above
-		if (Is_Captured()) { // RA2: as above
+	if (MouseState == 0) {
+		if (Is_Captured()) {
 			Low_Hide_Mouse();
-		} else { // RA2: as above
-			while (ShowCursor(0) >= 0) { // RA2: as above
+		} else {
+			while (ShowCursor(0) >= 0) {
 			}
 		}
 	}
-	MouseState--; // RA2: as above
-	Unblock_Mouse(); // RA2: as above
+	MouseState--;
+	Unblock_Mouse();
 }
 
 
@@ -942,9 +942,9 @@ void WWMouseClass::Release_Mouse(void)
 		DebugString("Release_Mouse()\n");
 		Block_Mouse();
 		IsCaptured = false;
-		if (!Is_Hidden()) { // RA2: as above
-			Low_Hide_Mouse(); // RA2: as above
-			while (ShowCursor(1) < 0) { // RA2: as above
+		if (!Is_Hidden()) {
+			Low_Hide_Mouse();
+			while (ShowCursor(1) < 0) {
 			}
 		}
 		Unblock_Mouse();
@@ -1103,26 +1103,26 @@ void WWMouseClass::Update_Mouse_Position(int x, int y, bool forced)
 void WWMouseClass::Process_Mouse(void)
 {
 	static bool forced = false; // RA2: RA2's form
-	if (SurfacePtr != 0) { // RA2: as above
+	if (SurfacePtr != 0) {
 		Block_Mouse();
 
 		int x;
 		int y;
-		if (Get_Input_Record_Mode()) { // RA2: as above
-			x = CursorX; // RA2: as above
-			y = CursorY; // RA2: as above
+		if (Get_Input_Record_Mode()) {
+			x = CursorX;
+			y = CursorY;
 		} else {
-			Get_Bounded_Position(x, y); // RA2: as above
-			CursorX = x; // RA2: as above
-			CursorY = y; // RA2: as above
+			Get_Bounded_Position(x, y);
+			CursorX = x;
+			CursorY = y;
 		}
-		if (!SurfacePtr->entry_64() && !forced) { // RA2: as above
+		if (!SurfacePtr->entry_64() && !forced) {
 			MouseX = x;
 			MouseY = y;
-			forced = true; // RA2: as above
+			forced = true;
 		} else {
-			Update_Mouse_Position(x, y, forced); // RA2: as above
-			forced = false; // RA2: as above
+			Update_Mouse_Position(x, y, forced);
+			forced = false;
 		}
 
 		Unblock_Mouse();

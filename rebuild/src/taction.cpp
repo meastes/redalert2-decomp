@@ -337,14 +337,14 @@ void TActionClass::Build_INI_Entry(char * ptr) const
 	NeedType need = Action_Needs(Action);
 	int val = Data.Value;
 	int number = 0; // RA2: the number and techno pair of NEED_NUMBER_AND_TECHNO (0x6AD66B)
-	int techno = 0; // RA2: as above
+	int techno = 0;
 	ParamCodeType code = PARAM_CODE_OTHER; // RA2: declared after the number and techno pair (stack layout at 0x6AD661)
 	char const * str = NULL;
 
 	if (need == NEED_NUMBER_AND_TECHNO) { // RA2: a number and a techno pair, written as a kind 9 line
-		code = PARAM_CODE_NUMBER_AND_TECHNO; // RA2: as above
-		number = val; // RA2: as above
-		techno = Value2; // RA2: as above
+		code = PARAM_CODE_NUMBER_AND_TECHNO;
+		number = val;
+		techno = Value2;
 	}
 	if (Team != NULL && need == NEED_TEAM_AND_TIME) {
 		code = PARAM_CODE_TEAM_AND_TIME;
@@ -367,26 +367,26 @@ void TActionClass::Build_INI_Entry(char * ptr) const
 		str = Tag->IniName; // RA2: the pointer was tested in the condition, so there is no NULL branch (0x6AD687)
 	}
 	else if (need == NEED_TEXT) { // RA2: text label, "-1" when there is none (0x6AD6FE)
-		code = PARAM_CODE_TEXT; // RA2: as above
+		code = PARAM_CODE_TEXT;
 		str = NULL; // RA2: the text is chosen by a branch on Text[0] (0x6AD703), not the accessor's neg/sbb select
-		if (Text[0] != 0) { // RA2: as above
-			str = Text; // RA2: as above
+		if (Text[0] != 0) {
+			str = Text;
 		}
-		if (str == NULL) { // RA2: as above
-			str = "-1"; // RA2: as above
+		if (str == NULL) {
+			str = "-1";
 		}
 	}
 	else if (need == NEED_SPEECH) { // RA2: the EVA line by name (0x6AD71D)
-		code = PARAM_CODE_SPEECH; // RA2: as above
-		str = VoxClass::Name_From(Data.Value); // RA2: as above
+		code = PARAM_CODE_SPEECH;
+		str = VoxClass::Name_From(Data.Value);
 	}
 	else if (need == NEED_SOUND || need == NEED_SOUND_AND_LOCATION) { // RA2: the sound by name (0x6AD72E)
-		code = PARAM_CODE_SOUND; // RA2: as above
-		str = Voc_Name(Data.Sound); // RA2: as above
+		code = PARAM_CODE_SOUND;
+		str = Voc_Name(Data.Sound);
 	}
 	else if (need == NEED_THEME) { // RA2: the theme by name (0x6AD738)
-		code = PARAM_CODE_THEME; // RA2: as above
-		str = Theme.INI_Name(Data.Theme); // RA2: as above
+		code = PARAM_CODE_THEME;
+		str = Theme.INI_Name(Data.Theme);
 	}
 
 	ptr += strlen(ptr);
@@ -509,23 +509,23 @@ void TActionClass::Read_INI(void)
 			break;
 
 		case PARAM_CODE_TEXT: // RA2: the text label (0x6AD98E)
-			if (val == -1) { // RA2: as above
-				Text[0] = '\0'; // RA2: as above
+			if (val == -1) {
+				Text[0] = '\0';
 			} else {
-				Set_Text(text); // RA2: as above
+				Set_Text(text);
 			}
 			break;
 
 		case PARAM_CODE_SPEECH: // RA2: the EVA line by name (0x6AD9A8)
-			Data.Value = Vox_From_Name(text); // RA2: as above
+			Data.Value = Vox_From_Name(text);
 			break;
 
 		case PARAM_CODE_SOUND: // RA2: the sound by name (0x6ADA66)
-			Data.Value = VocClass::From_Name(text); // RA2: as above
+			Data.Value = VocClass::From_Name(text);
 			break;
 
 		case PARAM_CODE_THEME: // RA2: the theme by name (0x6ADA79)
-			Data.Value = Theme.From_Name(text); // RA2: as above
+			Data.Value = Theme.From_Name(text);
 			break;
 	}
 
@@ -539,7 +539,7 @@ void TActionClass::Read_INI(void)
 			Data.Value = atoi(temp);
 		}
 		else if (code == PARAM_CODE_NUMBER_AND_TECHNO) { // RA2: the techno of the pair is stored in Value2 (0x6ADA8C)
-			Value2 = atoi(temp); // RA2: as above
+			Value2 = atoi(temp);
 		}
 		else {
 			EffectLocation = Waypoint_From_Name(temp);
@@ -698,21 +698,21 @@ bool TActionClass::operator() (HouseClass * house, ObjectClass * object, Trigger
 		INVOKE(ION_LIGHTNING_STRIKE);
 		INVOKE(PLAY_INGAME_MOVIE);
 		INVOKE(ACTIVATE_FIRESTORM); // RA2: the case order follows the executable; both firestorm cases come after PLAY_INGAME_MOVIE
-		INVOKE(DEACTIVATE_FIRESTORM); // RA2: as above
+		INVOKE(DEACTIVATE_FIRESTORM);
 		INVOKE(FLASH_TEAM);
 		INVOKE(TALK_BUBBLE); // RA2: called from the switch (0x6AF550)
 		INVOKE(SET_TECH_LEVEL); // RA2: the actions numbered 106 to 117 follow TALK_BUBBLE in the executable
-		INVOKE(CHRONO_IN_TEAM); // RA2: as above
-		INVOKE(CREATE_CRATE); // RA2: as above
-		INVOKE(IRON_CURTAIN); // RA2: as above
-		INVOKE(PAUSE_SCENARIO); // RA2: as above
-		INVOKE(EJECT_OCCUPANTS); // RA2: as above
+		INVOKE(CHRONO_IN_TEAM);
+		INVOKE(CREATE_CRATE);
+		INVOKE(IRON_CURTAIN);
+		INVOKE(PAUSE_SCENARIO);
+		INVOKE(EJECT_OCCUPANTS);
 		INVOKE(JUMP_VIEWPOINT); // RA2: as above (112 comes after EJECT_OCCUPANTS)
-		INVOKE(CHEER); // RA2: as above
-		INVOKE(SWITCH_TAB); // RA2: as above
-		INVOKE(FLASH_CAMEO); // RA2: as above
-		INVOKE(STOP_SOUND_AT); // RA2: as above
-		INVOKE(PLAY_INGAME_MOVIE_PAUSE); // RA2: as above
+		INVOKE(CHEER);
+		INVOKE(SWITCH_TAB);
+		INVOKE(FLASH_CAMEO);
+		INVOKE(STOP_SOUND_AT);
+		INVOKE(PLAY_INGAME_MOVIE_PAUSE);
 
 		/*
 		**	Do no action at all.
@@ -888,7 +888,7 @@ bool TActionClass::TAction_WAKEUP_GROUP(HouseClass * , ObjectClass * , TriggerCl
 				foot->IsActive &&
 				foot->IsDown &&
 				!foot->IsInLimbo) {
-			foot->QueueMission(MISSION_GUARD, false); // RA2: as above
+			foot->QueueMission(MISSION_GUARD, false);
 		}
 	}
 	return(true);
@@ -1171,8 +1171,8 @@ bool TActionClass::TAction_TEXT_TRIGGER(HouseClass * , ObjectClass * , TriggerCl
 	char const * label = Get_Text(); // RA2: the accessor, inlined here (0x6B0440 shows its neg/sbb select); the label is a string table key
 	ScenarioClass * scenario = Scen; // RA2: Scen is held in a local (0x6B0443)
 	int color_scheme = scenario->IsGDI ? 2 : 1; // RA2: setne/inc at 0x6B045F
-	int scheme = Session.Color_Index_To_Scheme(color_scheme); // RA2: as above
-	if (label != NULL) { // RA2: as above
+	int scheme = Session.Color_Index_To_Scheme(color_scheme);
+	if (label != NULL) {
 		Session.Messages.Add_Message(NULL, 0, StringTable::LoadString(label, NULL, "D:\\Ra2\\TAction.CPP", 1582), scheme, TextPrintType(TPF_6PT_GRAD | TPF_FULLSHADOW | TPF_USE_GRAD_PAL), int(Rule->MessageDelay * TICKS_PER_MINUTE), false); // RA2: as above, inlined in operator() at 0x006AE33x
 	}
 	return(true);
@@ -1190,7 +1190,7 @@ bool TActionClass::TAction_MAKE_ALLY(HouseClass * house, ObjectClass * , Trigger
 	if (Data.House != HOUSE_NONE) {
 		HouseClass * house2 = House_From_HousesType(Data.House);
 		house->Make_Ally(house2, false); // RA2: announce flag false, as meastes' body at the address
-		house2->Make_Ally(house, false); // RA2: as above
+		house2->Make_Ally(house, false);
 	}
 	return(true);
 }
@@ -1207,7 +1207,7 @@ bool TActionClass::TAction_MAKE_ENEMY(HouseClass * house, ObjectClass * , Trigge
 	if (Data.House != HOUSE_NONE) {
 		HouseClass * house2 = House_From_HousesType(Data.House);
 		house->Make_Enemy(house2, false); // RA2: announce flag false, as meastes' body at the address
-		house2->Make_Enemy(house, false); // RA2: as above
+		house2->Make_Enemy(house, false);
 	}
 	return(true);
 }
@@ -1244,7 +1244,7 @@ bool TActionClass::TAction_BASE_BUILDING(HouseClass * house, ObjectClass * , Tri
 			house->Base.PlacementCenter = base_cell;
 		}
 		if (house->Base.Nodes.Count() == 0) { // RA2: a house with no base plan starts one
-			house->Begin_Construction(); // RA2: as above
+			house->Begin_Construction();
 		}
 	} else {
 		house->IsBaseBuilding = false;
@@ -1303,11 +1303,11 @@ bool TActionClass::TAction_REVEAL_SOME(HouseClass * , ObjectClass * , TriggerCla
 		Cell waypoint = Scen->Get_Waypoint_Cell(Data.Value);
 		int extra; // RA2: the bridge height is chosen by an if/else (0x6B06BA..0x6B06DA)
 		if (Map[waypoint].IsUnderBridge || Map[waypoint].WasUnderBridge) {
-			extra = BRIDGE_CELL_HEIGHT; // RA2: as above
+			extra = BRIDGE_CELL_HEIGHT;
 		} else {
-			extra = 0; // RA2: as above
+			extra = 0;
 		}
-		int height = Map[waypoint].Height + extra; // RA2: as above
+		int height = Map[waypoint].Height + extra;
 		Map.Sight_From(Coord(waypoint - Cell(height/2, height/2)) + Coord(0, 0, height * LEVEL_LEPTON_H), Rule->RevealTriggerRadius, PlayerPtr, false, false, false, true, false); // RA2: the eighth argument false for the first reveal (0x6B0772)
 		Map.Sight_From(Coord(waypoint - Cell(height/2, height/2)) + Coord(0, 0, height * LEVEL_LEPTON_H), Rule->RevealTriggerRadius, PlayerPtr, false, false, false, true, true); // RA2: and again with it true (0x6B07E8)
 	}
@@ -1449,8 +1449,8 @@ bool TActionClass::TAction_SET_TIMER(HouseClass * , ObjectClass * , TriggerClass
 	Scen->MissionTimer = Data.Value * TICKS_PER_SECOND; // RA2: no Speak (0x6B0BA0 starts with the timer assignment)
 	Scen->MissionTimer.Start();
 	Scen->MissionTimerTextCSF = L""; // RA2: the timer text is cleared as in SET_TIMER_TEXT's empty case (0x6B0BE9)
-	TStringID<31> label(""); // RA2: as above
-	Scen->MissionTimerText = label; // RA2: as above
+	TStringID<31> label("");
+	Scen->MissionTimerText = label;
 	Map.Redraw_Tab();
 	return(true);
 }
@@ -1470,7 +1470,7 @@ bool TActionClass::TAction_SET_TIMER_TEXT(HouseClass * , ObjectClass * , Trigger
 	} else {
 		Scen->MissionTimerTextCSF = L"";
 		TStringID<31> empty_label(""); // RA2: a second label built from "" (0x6B0CDB), which is assigned
-		Scen->MissionTimerText = empty_label; // RA2: as above
+		Scen->MissionTimerText = empty_label;
 	}
 	Map.Redraw_Tab();
 	return(true);
@@ -1580,11 +1580,11 @@ ObjectClass * __fastcall Coord_Object(Coord const & coord) // RA2: not in TibSun
 bool TActionClass::TAction_PLAY_SOUND_AT(HouseClass * , ObjectClass * , TriggerClass * , Cell const & )
 {
 	Coord coord = Scen->Get_Waypoint_Coord(EffectLocation); // RA2: 0x6B0EC0 gives the sound to the object there, else plays it at the spot
-	ObjectClass * object = Coord_Object(coord); // RA2: as above
-	if (object != NULL) { // RA2: as above
-		object->Set_Ambient_Sound(Data.Sound); // RA2: as above
+	ObjectClass * object = Coord_Object(coord);
+	if (object != NULL) {
+		object->Set_Ambient_Sound(Data.Sound);
 	} else {
-		VocClass::PlayIndexAtPos(Data.Sound, coord, 1); // RA2: as above
+		VocClass::PlayIndexAtPos(Data.Sound, coord, 1);
 	}
 	return(true);
 }
@@ -2326,9 +2326,9 @@ bool TActionClass::TAction_ENABLE_TRIGGER(HouseClass * , ObjectClass * , Trigger
 		for (int index = 0; index < Triggers.Count(); index++) {
 			if (Triggers[index]->Class == Trigger) {
 				if ((Scen->Difficulty != 0 || Triggers[index]->Class->IsEnabledOnEasy) && // RA2: TAction_ENABLE_TRIGGER at 0x6B1F10 matches only so
-						(Scen->Difficulty != 1 || Triggers[index]->Class->IsEnabledOnMedium) && // RA2: as above
-						(Scen->Difficulty != 2 || Triggers[index]->Class->IsEnabledOnHard)) { // RA2: as above
-					Triggers[index]->Enable(); // RA2: as above
+					(Scen->Difficulty != 1 || Triggers[index]->Class->IsEnabledOnMedium) &&
+					(Scen->Difficulty != 2 || Triggers[index]->Class->IsEnabledOnHard)) {
+					Triggers[index]->Enable();
 				}
 			}
 		}
@@ -2638,12 +2638,12 @@ bool TActionClass::TAction_MULTI_MISSILE(HouseClass * , ObjectClass * , TriggerC
 	if (bullet != NULL) {
 		double angle = DirType(DIR_N).As_Radian(); // RA2: the constants at 0x6B2501 are DIR_N's radian value
 		double y = fastmath::sin(angle); // RA2: Y is built first (sin at 0x6B250B before any cos), then X; written out because the TVelocity3D constructors compute X first
-		y *= fastmath::cos(angle); // RA2: as above
-		y *= -100.0; // RA2: as above
-		TVelocity2D<double> planar(fastmath::cos(angle) * fastmath::cos(angle) * -100.0, y); // RA2: as above
-		TVelocity3D<double> velocity; // RA2: as above
+		y *= fastmath::cos(angle);
+		y *= -100.0;
+		TVelocity2D<double> planar(fastmath::cos(angle) * fastmath::cos(angle) * -100.0, y);
+		TVelocity3D<double> velocity;
 		static_cast<TVelocity2D<double> &>(velocity) = planar; // RA2: as above, X and Y copied together
-		velocity.Z = fastmath::sin(angle) * -100.0; // RA2: as above
+		velocity.Z = fastmath::sin(angle) * -100.0;
 		bullet->Unlimbo(launch, velocity); // RA2: YR's form; TibSun's needs WeaponTypeClass::ProjectileRange, which RA2 lacks
 		return(true);
 	}
@@ -2689,19 +2689,19 @@ bool TActionClass::TAction_LIGHTNING_STORM(HouseClass * house, ObjectClass * , T
 /// </summary>
 bool TActionClass::TAction_IRON_CURTAIN(HouseClass * , ObjectClass * , TriggerClass * , Cell const & ) // RA2: not in TibSun, at 0x6B26D0
 {
-	Cell target_cell; // RA2: as above
+	Cell target_cell;
 	Cell waypoint = Scen->Get_Waypoint_Cell(EffectLocation);
-	Coord position = Map[waypoint].Center_Coord(); // RA2: as above
-	new AnimClass(Rule->IronCurtainInvokeAnim, position + Coord(0, 0, 5), 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
+	Coord position = Map[waypoint].Center_Coord();
+	new AnimClass(Rule->IronCurtainInvokeAnim, position + Coord(0, 0, 5), 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
 	int count = MapClass::RadiusCount[1];
-	for (int index = 0; index < count; ++index) { // RA2: as above
+	for (int index = 0; index < count; ++index) {
 		Cell const & offset = MapClass::RadiusOffset[index];
-		target_cell = TPoint2D<short>((short)(waypoint.X + offset.X), (short)(waypoint.Y + offset.Y)); // RA2: as above
-		CellClass & target = Map[target_cell]; // RA2: as above
-		ObjectClass * occupier = target.Cell_Occupier(); // RA2: as above
-		while (occupier != NULL) { // RA2: as above
-			occupier->IronCurtain(Rule->IronCurtainDuration); // RA2: as above
-			occupier = occupier->Next; // RA2: as above
+		target_cell = TPoint2D<short>((short)(waypoint.X + offset.X), (short)(waypoint.Y + offset.Y));
+		CellClass & target = Map[target_cell];
+		ObjectClass * occupier = target.Cell_Occupier();
+		while (occupier != NULL) {
+			occupier->IronCurtain(Rule->IronCurtainDuration);
+			occupier = occupier->Next;
 		}
 	}
 	return(true);
@@ -2864,8 +2864,8 @@ NeedType Action_Needs(TActionType action) // RA2: 0x6B2AB0, RA2's actions and ne
 {
 	switch (action) {
 		case TACTION_TEXT_TRIGGER: // RA2: Action_Needs at 0x6B2AB0 matches only so
-		case TACTION_SET_TIMER_TEXT: // RA2: as above
-			return(NEED_TEXT); // RA2: as above
+		case TACTION_SET_TIMER_TEXT:
+			return(NEED_TEXT);
 
 		case TACTION_1_SPECIAL:
 		case TACTION_FULL_SPECIAL:
@@ -2873,20 +2873,20 @@ NeedType Action_Needs(TActionType action) // RA2: 0x6B2AB0, RA2's actions and ne
 
 		case TACTION_WIN: // RA2: Action_Needs at 0x6B2AB0 has no case TACTION_FIRE_SALE:
 		case TACTION_LOSE:
-		case TACTION_BEGIN_PRODUCTION: // RA2: as above
+		case TACTION_BEGIN_PRODUCTION:
 		case TACTION_ALL_HUNT:
-		case TACTION_FIRE_SALE: // RA2: as above
+		case TACTION_FIRE_SALE:
 		case TACTION_AUTOCREATE:
-		case TACTION_CHANGE_HOUSE: // RA2: as above
-		case TACTION_ALL_CHANGE_HOUSE: // RA2: as above
+		case TACTION_CHANGE_HOUSE:
+		case TACTION_ALL_CHANGE_HOUSE:
 		case TACTION_MAKE_ALLY:
 		case TACTION_MAKE_ENEMY:
 		case TACTION_BEGIN_AI_TRIGGERS: // RA2: Action_Needs at 0x6B2AB0 has no case TACTION_CHANGE_HOUSE:
 		case TACTION_STOP_AI_TRIGGERS:
-		case TACTION_CHEER: // RA2: as above
+		case TACTION_CHEER:
 			return(NEED_HOUSE);
 
-		case TACTION_BASE_BUILDING: // RA2: as above
+		case TACTION_BASE_BUILDING:
 		case TACTION_VEIN_GROWTH:
 		case TACTION_TIB_GROWTH:
 		case TACTION_ICE_GROWTH:
@@ -2902,13 +2902,13 @@ NeedType Action_Needs(TActionType action) // RA2: 0x6B2AB0, RA2's actions and ne
 			return(NEED_TEAM_AND_TIME);
 
 		case TACTION_REINFORCEMENTS_SPECIAL:
-		case TACTION_CHRONO_IN_TEAM: // RA2: as above
+		case TACTION_CHRONO_IN_TEAM:
 			return(NEED_TEAM_AND_LOCATION);
 
 		case TACTION_PARTICLE_ANIM:
 			return(NEED_PARTICLE_AND_LOCATION);
 
-		case TACTION_DESTROY_TRIGGER: // RA2: as above
+		case TACTION_DESTROY_TRIGGER:
 		case TACTION_FORCE_TRIGGER:
 		case TACTION_ENABLE_TRIGGER: // RA2: Action_Needs at 0x6B2AB0 has no case TACTION_DESTROY_TRIGGER:
 		case TACTION_DISABLE_TRIGGER:
@@ -2919,7 +2919,7 @@ NeedType Action_Needs(TActionType action) // RA2: 0x6B2AB0, RA2's actions and ne
 
 		case TACTION_PLAY_MOVIE:
 		case TACTION_PLAY_INGAME_MOVIE:
-		case TACTION_PLAY_INGAME_MOVIE_PAUSE: // RA2: as above
+		case TACTION_PLAY_INGAME_MOVIE_PAUSE:
 			return(NEED_MOVIE);
 
 		case TACTION_PLAY_SOUND:
@@ -2932,9 +2932,9 @@ NeedType Action_Needs(TActionType action) // RA2: 0x6B2AB0, RA2's actions and ne
 		case TACTION_DESTROY_TAG:
 			return(NEED_TAG);
 
-		case TACTION_SET_TECH_LEVEL: // RA2: as above
-		case TACTION_FLASH_CAMEO: // RA2: as above
-			return(NEED_NUMBER_AND_TECHNO); // RA2: as above
+		case TACTION_SET_TECH_LEVEL:
+		case TACTION_FLASH_CAMEO:
+			return(NEED_NUMBER_AND_TECHNO);
 
 		case TACTION_SET_GLOBAL:
 		case TACTION_CLEAR_GLOBAL:
@@ -2956,25 +2956,25 @@ NeedType Action_Needs(TActionType action) // RA2: 0x6B2AB0, RA2's actions and ne
 		case TACTION_PLAY_SOUND_AT:
 			return(NEED_SOUND_AND_LOCATION);
 
-		case TACTION_DZ: // RA2: as above
-		case TACTION_REVEAL_SOME: // RA2: as above
-		case TACTION_REVEAL_ZONE: // RA2: as above
-		case TACTION_REDUCE_TIBERIUM: // RA2: as above
-		case TACTION_DAMAGE: // RA2: as above
-		case TACTION_LIGHT_SMALL: // RA2: as above
-		case TACTION_LIGHT_MEDIUM: // RA2: as above
-		case TACTION_LIGHT_LARGE: // RA2: as above
-		case TACTION_REMOVE_PARTICLE_ANIM: // RA2: as above
-		case TACTION_ION_LIGHTNING_STRIKE: // RA2: as above
-		case TACTION_ION_CANNON: // RA2: as above
-		case TACTION_MULTI_MISSILE: // RA2: as above
-		case TACTION_CHEM_MISSILE: // RA2: as above
-		case TACTION_REVEAL_AROUND_WAYPOINT: // RA2: as above
-		case TACTION_LIGHTNING_STORM: // RA2: as above
-		case TACTION_IRON_CURTAIN: // RA2: as above
-		case TACTION_JUMP_VIEWPOINT: // RA2: as above
-		case TACTION_STOP_SOUND_AT: // RA2: as above
-			return(NEED_WAYPOINT); // RA2: as above
+		case TACTION_DZ:
+		case TACTION_REVEAL_SOME:
+		case TACTION_REVEAL_ZONE:
+		case TACTION_REDUCE_TIBERIUM:
+		case TACTION_DAMAGE:
+		case TACTION_LIGHT_SMALL:
+		case TACTION_LIGHT_MEDIUM:
+		case TACTION_LIGHT_LARGE:
+		case TACTION_REMOVE_PARTICLE_ANIM:
+		case TACTION_ION_LIGHTNING_STRIKE:
+		case TACTION_ION_CANNON:
+		case TACTION_MULTI_MISSILE:
+		case TACTION_CHEM_MISSILE:
+		case TACTION_REVEAL_AROUND_WAYPOINT:
+		case TACTION_LIGHTNING_STORM:
+		case TACTION_IRON_CURTAIN:
+		case TACTION_JUMP_VIEWPOINT:
+		case TACTION_STOP_SOUND_AT:
+			return(NEED_WAYPOINT);
 
 		case TACTION_DO_EXPLOSION:
 			return(NEED_WEAPON_AND_LOCATION);
@@ -2985,19 +2985,19 @@ NeedType Action_Needs(TActionType action) // RA2: 0x6B2AB0, RA2's actions and ne
 		case TACTION_CENTER_VIEWPOINT:
 			return(NEED_SPEED_AND_LOCATION);
 
-		case TACTION_ADD_TIMER: // RA2: as above
-		case TACTION_SUB_TIMER: // RA2: as above
-		case TACTION_SET_TIMER: // RA2: as above
-		case TACTION_CHANGE_ZOOM: // RA2: as above
+		case TACTION_ADD_TIMER:
+		case TACTION_SUB_TIMER:
+		case TACTION_SET_TIMER:
+		case TACTION_CHANGE_ZOOM:
 		case TACTION_ION_STORM_START:
-		case TACTION_SET_AMBIENT_LIGHT: // RA2: as above
-		case TACTION_SET_AI_TRIGGER_TEAM_RATIO: // RA2: as above
-		case TACTION_SET_TEAM_AIRCRAFT_RATIO: // RA2: as above
-		case TACTION_SET_TEAM_INFANTRY_RATIO: // RA2: as above
-		case TACTION_SET_TEAM_UNIT_RATIO: // RA2: as above
-		case TACTION_WAKEUP_GROUP: // RA2: as above
-		case TACTION_PAUSE_SCENARIO: // RA2: as above
-		case TACTION_SWITCH_TAB: // RA2: as above
+		case TACTION_SET_AMBIENT_LIGHT:
+		case TACTION_SET_AI_TRIGGER_TEAM_RATIO:
+		case TACTION_SET_TEAM_AIRCRAFT_RATIO:
+		case TACTION_SET_TEAM_INFANTRY_RATIO:
+		case TACTION_SET_TEAM_UNIT_RATIO:
+		case TACTION_WAKEUP_GROUP:
+		case TACTION_PAUSE_SCENARIO:
+		case TACTION_SWITCH_TAB:
 			return(NEED_NUMBER);
 
 		case TACTION_CHANGE_SPOTLIGHT_BEHAVIOR:
@@ -3013,8 +3013,8 @@ NeedType Action_Needs(TActionType action) // RA2: 0x6B2AB0, RA2's actions and ne
 		case TACTION_SET_AMBIENT_RATE:
 			return(NEED_FLOAT);
 
-		case TACTION_CREATE_CRATE: // RA2: as above
-			return(NEED_CRATE_AND_LOCATION); // RA2: as above
+		case TACTION_CREATE_CRATE:
+			return(NEED_CRATE_AND_LOCATION);
 
 		default:
 			break;
@@ -3063,7 +3063,7 @@ HRESULT STDMETHODCALLTYPE TActionClass::Load(IStream * stream)
 	Swizzle_Pointer(&Tag);
 	Swizzle_Pointer(&Trigger);
 
-	return(S_OK); // RA2: as above
+	return(S_OK);
 }
 
 
@@ -3145,19 +3145,19 @@ Coord TActionClass::Waypoint_As_Coord(void)
 /// </summary>
 void TActionClass::Set_Text(char const * text) // RA2: not in TibSun, at 0x6B2EC0
 {
-	Text[0] = 0; // RA2: as above
-	if (text != 0) { // RA2: as above
-		while (*text != 0 && (unsigned char)*text <= ' ') { // RA2: as above
+	Text[0] = 0;
+	if (text != 0) {
+		while (*text != 0 && (unsigned char)*text <= ' ') {
 			text++;
 		}
-		if (*text != 0) { // RA2: as above
-			strncpy(Text, text, sizeof(Text) - 1); // RA2: as above
-			Text[(int)(sizeof(Text) - 1)] = 0; // RA2: as above
-			int length = strlen(Text); // RA2: as above
-			while (length != 0 && (unsigned char)Text[length - 1] <= ' ') { // RA2: as above
+		if (*text != 0) {
+			strncpy(Text, text, sizeof(Text) - 1);
+			Text[(int)(sizeof(Text) - 1)] = 0;
+			int length = strlen(Text);
+			while (length != 0 && (unsigned char)Text[length - 1] <= ' ') {
 				length--;
 			}
-			Text[length] = 0; // RA2: as above
+			Text[length] = 0;
 		}
 	}
 }

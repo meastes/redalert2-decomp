@@ -216,7 +216,7 @@ FoggedObjectClass::FoggedObjectClass(BuildingClass * object, bool fade) :
 
 	DrawRecord record; // RA2: the record is filled in field by field, and reused for each animation
 	record.TypeClass = object->Class;
-	record.FrameNumber = shapenum; // RA2: as above
+	record.FrameNumber = shapenum;
 	if (object->Class->IsLaserFence && (object->LaserFenceFrame == 12 || object->LaserFenceFrame == 8)) {
 		record.HeightAdjust = 1;
 	} else {
@@ -232,11 +232,11 @@ FoggedObjectClass::FoggedObjectClass(BuildingClass * object, bool fade) :
 			object->Anims[i]->IsFogged = true;
 			AnimTypeClass *atype = object->Anims[i]->Class;
 			BoundingRect = Union(BoundingRect, object->Anims[i]->Get_Visual_Rect());
-			record.TypeClass = atype; // RA2: as above
+			record.TypeClass = atype;
 			record.FrameNumber = atype->Start + object->Anims[i]->Fetch_Stage();
-			record.HeightAdjust = 0; // RA2: as above
-			record.ZAdjust = object->Anims[i]->ZAdjust; // RA2: as above
-			Records.Add(record); // RA2: as above
+			record.HeightAdjust = 0;
+			record.ZAdjust = object->Anims[i]->ZAdjust;
+			Records.Add(record);
 		}
 	}
 
@@ -484,7 +484,7 @@ void Draw_Fogged_Objects(Rect const & rect)
 							Point3D * position = &data->Position; // RA2: the position read through the base class pointer in the animation case
 							Point2D drawpoint;
 							TacticalMap->Coord_To_Pixel(Coord(*position) - Coord(CELL_LEPTON_W / 2, CELL_LEPTON_H / 2, 0), drawpoint); // RA2: the position is copied into a Coord before the subtraction
-							drawpoint += TacticalRect.Top_Left() - rect.Top_Left(); // RA2: as above
+							drawpoint += TacticalRect.Top_Left() - rect.Top_Left();
 
 							int brightness = NORMAL_LIGHT;
 							if (!anim->IsUseNormalLight) {

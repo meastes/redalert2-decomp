@@ -202,40 +202,40 @@ int BuildingTypeClass::SizeHeight[BSIZE_COUNT] = {
 
 
 // RA2: the build category names and values (table at 0x7CFC40, six rows; the exe's order is DontCare, Tech, Power, Resource, Infrastructure, Combat)
-static struct { // RA2: as above
-	char const * Name; // RA2: as above
-	int Value; // RA2: as above
-} _buildcats[6] = { // RA2: as above
-	{ "DontCare", 0 }, // RA2: as above
-	{ "Tech", 1 }, // RA2: as above
-	{ "Power", 3 }, // RA2: as above
-	{ "Resource", 2 }, // RA2: as above
-	{ "Infrastructure", 4 }, // RA2: as above
-	{ "Combat", 5 } // RA2: as above
+static struct {
+		char const * Name;
+		int Value;
+} _buildcats[6] = {
+	{ "DontCare", 0 },
+	{ "Tech", 1 },
+	{ "Power", 3 },
+	{ "Resource", 2 },
+	{ "Infrastructure", 4 },
+	{ "Combat", 5 }
 };
 
 
 // RA2: Name_From_BuildCat 0x457A50 (new in RA2): linear search of the six rows by value, row 0 if none is found
-char const * __fastcall Name_From_BuildCat(int value) // RA2: as above
+char const * __fastcall Name_From_BuildCat(int value)
 {
-	for (int index = 0; index < 6; index++) { // RA2: as above
-		if (_buildcats[index].Value == value) { // RA2: as above
-			return(_buildcats[index].Name); // RA2: as above
+	for (int index = 0; index < 6; index++) {
+		if (_buildcats[index].Value == value) {
+			return(_buildcats[index].Name);
 		}
 	}
-	return(_buildcats[0].Name); // RA2: as above
+	return(_buildcats[0].Name);
 }
 
 
 // RA2: BuildCat_From_Name 0x457A80 (new in RA2): case-insensitive linear search of the six rows by name, 0 if none is found
-int __fastcall BuildCat_From_Name(char const * name) // RA2: as above
+int __fastcall BuildCat_From_Name(char const * name)
 {
-	for (int index = 0; index < 6; index++) { // RA2: as above
-		if (strcmpi(_buildcats[index].Name, name) == 0) { // RA2: as above
-			return(_buildcats[index].Value); // RA2: as above
+	for (int index = 0; index < 6; index++) {
+		if (strcmpi(_buildcats[index].Name, name) == 0) {
+			return(_buildcats[index].Value);
 		}
 	}
-	return(0); // RA2: as above
+	return(0);
 }
 
 
@@ -274,12 +274,12 @@ BuildingTypeClass::BuildingTypeClass(char const * ininame) :
 	ToTile(NULL),
 	BuildupFilename(NoInitClass()),
 	BuildupSound(VOC_NONE), // RA2: 0xC04..0xC1C are all -1
-	PackupSound(VOC_NONE), // RA2: as above
-	CreateUnitSound(VOC_NONE), // RA2: as above
-	UnitEnterSound(VOC_NONE), // RA2: as above
-	UnitExitSound(VOC_NONE), // RA2: as above
-	WorkingSound(VOC_NONE), // RA2: as above
-	NotWorkingSound(VOC_NONE), // RA2: as above
+	PackupSound(VOC_NONE),
+	CreateUnitSound(VOC_NONE),
+	UnitEnterSound(VOC_NONE),
+	UnitExitSound(VOC_NONE),
+	WorkingSound(VOC_NONE),
+	NotWorkingSound(VOC_NONE),
 	PowersUpBuilding(NoInitClass()),
 	FreeUnit(NULL),
 	FoundationFace(FACING_NONE),
@@ -322,24 +322,24 @@ BuildingTypeClass::BuildingTypeClass(char const * ininame) :
 	IsHoverPad(false),
 	IsBase(true),
 	EligibleForAllyBuilding(false), // RA2: +0x1204
-	EligibleForDelayKill(false), // RA2: as above
-	NeedsEngineer(false), // RA2: as above
+	EligibleForDelayKill(false),
+	NeedsEngineer(false),
 	ProduceCashStartup(0), // RA2: +0x1208
-	ProduceCashAmount(0), // RA2: as above
-	ProduceCashDelay(0), // RA2: as above
+	ProduceCashAmount(0),
+	ProduceCashDelay(0),
 	IsBibbed(false),
 	IsWall(false),
 	IsCaptureable(false),
 	IsPowered(false),
 	Overpowerable(false), // RA2: +0x1218
-	Spyable(false), // RA2: as above
-	CanC4(true), // RA2: as above
-	WantsExtraSpace(false), // RA2: as above
+	Spyable(false),
+	CanC4(true),
+	WantsExtraSpace(false),
 	IsUnsellable(false),
 	ClickRepairable(true), // RA2: +0x121D
-	CanBeOccupied(false), // RA2: as above
-	MaxNumberOccupants(0), // RA2: as above
-	ShowOccupantPips(true), // RA2: as above
+	CanBeOccupied(false),
+	MaxNumberOccupants(0),
+	ShowOccupantPips(true),
 	QueueingCell(Point2D(0, 0)), // RA2: +0x12B8
 	NumberImpassableRows(-1), // RA2: +0x12C0
 	IsRadar(false),
@@ -401,12 +401,12 @@ BuildingTypeClass::BuildingTypeClass(char const * ininame) :
 	IsFreeBuildup(false),
 	IsThreatRatingNode(false), // RA2: the executable's form of this statement (0x457AC0)
 	PrimaryFireDualOffset(false), // RA2: +0x13E4
-	ProtectWithWall(false), // RA2: as above
-	CanHideThings(true), // RA2: as above
-	CanBeHidden(true), // RA2: as above
-	CrateBeneath(false), // RA2: as above
-	LeaveRubble(false), // RA2: as above
-	CrateBeneathIsMoney(false), // RA2: as above
+	ProtectWithWall(false),
+	CanHideThings(true),
+	CanBeHidden(true),
+	CrateBeneath(false),
+	LeaveRubble(false),
+	CrateBeneathIsMoney(false),
 	NumberOfDocks(1), // RA2: +0x1400
 	DockingOffsets(1) // RA2: +0x1404, one entry
 {
@@ -437,20 +437,20 @@ BuildingTypeClass::BuildingTypeClass(char const * ininame) :
 	VoxelBarrelFile[0] = '\0';
 	IsTrainable = false;
 	DeployingAnimLoaded = false; // RA2: the four loaded flags are cleared in the body
-	UnderDoorAnimLoaded = false; // RA2: as above
-	RoofDeployingAnimLoaded = false; // RA2: as above
-	UnderRoofDoorAnimLoaded = false; // RA2: as above
+	UnderDoorAnimLoaded = false;
+	RoofDeployingAnimLoaded = false;
+	UnderRoofDoorAnimLoaded = false;
 	for (int first = 0; first < 10; first++) { // RA2: every muzzle flash and damage fire offset starts at the none-coordinate's X/Y
-		MuzzleFlash[first] = Point2D(COORD_NONE.X, COORD_NONE.Y); // RA2: as above
+		MuzzleFlash[first] = Point2D(COORD_NONE.X, COORD_NONE.Y);
 	}
-	for (int second = 0; second < 8; second++) { // RA2: as above
-		DamageFireOffset[second] = Point2D(COORD_NONE.X, COORD_NONE.Y); // RA2: as above
+	for (int second = 0; second < 8; second++) {
+		DamageFireOffset[second] = Point2D(COORD_NONE.X, COORD_NONE.Y);
 	}
 	DockingOffsets[0] = Point3D(0, 0, 0); // RA2: the one docking offset
 	ImmuneToPsionics = true; // RA2: TechnoTypeClass members set by this constructor
-	Parasiteable = false; // RA2: as above
-	Organic = false; // RA2: as above
-	ConsideredAircraft = false; // RA2: as above
+	Parasiteable = false;
+	Organic = false;
+	ConsideredAircraft = false;
 }
 
 
@@ -483,30 +483,30 @@ BuildingTypeClass::~BuildingTypeClass(void)
 		BuildupData = NULL;
 		BuildupLoaded = false; // RA2: ~BuildingTypeClass at 0x4581C0 matches only so
 	}
-	if (BibShapeLoaded && BibShape != NULL) { // RA2: as above
-		delete (ShapeSet *)BibShape; // RA2: as above
-		BibShape = NULL; // RA2: as above
-		BibShapeLoaded = false; // RA2: as above
+	if (BibShapeLoaded && BibShape != NULL) {
+		delete (ShapeSet *)BibShape;
+		BibShape = NULL;
+		BibShapeLoaded = false;
 	}
-	if (DeployingAnimLoaded && DeployingAnim != NULL) { // RA2: as above
-		delete (ShapeSet *)DeployingAnim; // RA2: as above
-		DeployingAnim = NULL; // RA2: as above
-		DeployingAnimLoaded = false; // RA2: as above
+	if (DeployingAnimLoaded && DeployingAnim != NULL) {
+		delete (ShapeSet *)DeployingAnim;
+		DeployingAnim = NULL;
+		DeployingAnimLoaded = false;
 	}
-	if (UnderDoorAnimLoaded && UnderDoorAnim != NULL) { // RA2: as above
-		delete (ShapeSet *)UnderDoorAnim; // RA2: as above
-		UnderDoorAnim = NULL; // RA2: as above
-		UnderDoorAnimLoaded = false; // RA2: as above
+	if (UnderDoorAnimLoaded && UnderDoorAnim != NULL) {
+		delete (ShapeSet *)UnderDoorAnim;
+		UnderDoorAnim = NULL;
+		UnderDoorAnimLoaded = false;
 	}
-	if (RoofDeployingAnimLoaded && RoofDeployingAnim != NULL) { // RA2: as above
-		delete (ShapeSet *)RoofDeployingAnim; // RA2: as above
-		RoofDeployingAnim = NULL; // RA2: as above
-		RoofDeployingAnimLoaded = false; // RA2: as above
+	if (RoofDeployingAnimLoaded && RoofDeployingAnim != NULL) {
+		delete (ShapeSet *)RoofDeployingAnim;
+		RoofDeployingAnim = NULL;
+		RoofDeployingAnimLoaded = false;
 	}
-	if (UnderRoofDoorAnimLoaded && UnderRoofDoorAnim != NULL) { // RA2: as above
-		delete (ShapeSet *)UnderRoofDoorAnim; // RA2: as above
-		UnderRoofDoorAnim = NULL; // RA2: as above
-		UnderRoofDoorAnimLoaded = false; // RA2: as above
+	if (UnderRoofDoorAnimLoaded && UnderRoofDoorAnim != NULL) {
+		delete (ShapeSet *)UnderRoofDoorAnim;
+		UnderRoofDoorAnim = NULL;
+		UnderRoofDoorAnimLoaded = false;
 	}
 	Detach_This_From_All(this, true);
 	BuildingTypes.Delete(this);
@@ -1031,7 +1031,7 @@ int BuildingTypeClass::Flush_For_Placement(Cell const & cell, HouseClass * house
 						return(2);
 					}
 					if (occupier->AbstractFlags & ABSTRACT_TECHNO) { // RA2: Flush_For_Placement at 0x458B10 matches only so
-						TechnoClass * techno = (TechnoClass *)occupier; // RA2: as above
+						TechnoClass * techno = (TechnoClass *)occupier;
 						if (techno->RTTI == RTTI_BUILDING) {
 							if (!((BuildingClass *)techno)->Can_Upgrade(this, house)) {
 								return(2);
@@ -1079,13 +1079,13 @@ void const * BuildingTypeClass::Get_Image_Data(void) const
 			if (ImageData != NULL) { // RA2: 0x458CE0 sets ImageAllocated, else retries the generic theater name
 				(bool &)ImageAllocated = true; // RA2: Get_Image_Data at 0x458CE0 matches only so
 			} else {
-				char fallback[260]; // RA2: as above
-				strncpy(fallback, TheaterImageFile, 19); // RA2: as above
-				Generic_Theater_Name(fallback); // RA2: as above
-				CCFileClass file2(fallback); // RA2: as above
-				(void *&)ImageData = Load_Alloc_Data(file2); // RA2: as above
-				if (ImageData != NULL) { // RA2: as above
-					(bool &)ImageAllocated = true; // RA2: as above
+				char fallback[260];
+				strncpy(fallback, TheaterImageFile, 19);
+				Generic_Theater_Name(fallback);
+				CCFileClass file2(fallback);
+				(void *&)ImageData = Load_Alloc_Data(file2);
+				if (ImageData != NULL) {
+					(bool &)ImageAllocated = true;
 				}
 			}
 		}
@@ -1145,46 +1145,46 @@ void BuildingTypeClass::Fetch_Building_Normal_Image(TheaterType theater)
 		Theater_Name_Fixup(fullname, theater); // RA2: the free function at 0x5D7BD0
 		void const * shape = MFCD::Retrieve(fullname); // RA2: the buildup shape is a local first
 		if (shape == NULL) { // RA2: retries the generic theater name
-			Generic_Theater_Name(fullname); // RA2: as above
-			CCFileClass file(fullname); // RA2: as above
-			shape = Load_Alloc_Data(file); // RA2: as above
+			Generic_Theater_Name(fullname);
+			CCFileClass file(fullname);
+			shape = Load_Alloc_Data(file);
 		}
-		BuildupData = shape; // RA2: as above
+		BuildupData = shape;
 		if (shape != NULL) { // RA2: the executable's form of this statement (0x458EA0)
-			int timedelay = 1; // RA2: as above
+			int timedelay = 1;
 			int count = ((ShapeSet const *)shape)->Get_Count()/2; // RA2: the executable's form of this statement (0x458EA0)
-			if (IsGate) { // RA2: as above
-				count = GateStages + 1; // RA2: as above
+			if (IsGate) {
+				count = GateStages + 1;
 			}
-			if (count > 0) { // RA2: as above
+			if (count > 0) {
 				timedelay = (int)(Rule->BuildupTime * 900.0 / count); // RA2: double math (0x45E790)
 			}
-			Init_Anim(BSTATE_CONSTRUCTION, 0, count, timedelay); // RA2: as above
+			Init_Anim(BSTATE_CONSTRUCTION, 0, count, timedelay);
 		}
 	}
 
 	ArtINI.Get_String(Graphic_Name(), "DeployingAnim", "", buffer, sizeof(buffer));
 	if (strlen(buffer) != 0) {
 		_makepath(fullname, NULL, NULL, buffer, ".SHP");
-		Theater_Name_Fixup(fullname, theater); // RA2: as above
+		Theater_Name_Fixup(fullname, theater);
 		Free_Deploying_Anim(); // RA2: frees an earlier copy first, loads through Load_Alloc_Data
-		DeployingAnim = (ShapeSet const *)Load_Alloc_Data(fullname, DeployingAnimLoaded); // RA2: as above
+		DeployingAnim = (ShapeSet const *)Load_Alloc_Data(fullname, DeployingAnimLoaded);
 		if (DeployingAnim == NULL) { // RA2: retries the generic theater name
-			Generic_Theater_Name(fullname); // RA2: as above
-			Free_Deploying_Anim(); // RA2: as above
-			DeployingAnim = (ShapeSet const *)Load_Alloc_Data(fullname, DeployingAnimLoaded); // RA2: as above
+			Generic_Theater_Name(fullname);
+			Free_Deploying_Anim();
+			DeployingAnim = (ShapeSet const *)Load_Alloc_Data(fullname, DeployingAnimLoaded);
 		}
 	}
 
 	ArtINI.Get_String(Graphic_Name(), "RoofDeployingAnim", "", buffer, sizeof(buffer)); // RA2: not in TibSun
-	if (strlen(buffer) != 0) { // RA2: as above
-		_makepath(fullname, NULL, NULL, buffer, ".SHP"); // RA2: as above
-		Theater_Name_Fixup(fullname, theater); // RA2: as above
-		Free_Roof_Deploying_Anim(); // RA2: as above
-		RoofDeployingAnim = (ShapeSet const *)Load_Alloc_Data(fullname, RoofDeployingAnimLoaded); // RA2: as above
-		if (RoofDeployingAnim == NULL) { // RA2: as above
-			Generic_Theater_Name(fullname); // RA2: as above
-			Free_Roof_Deploying_Anim(); // RA2: as above
+	if (strlen(buffer) != 0) {
+		_makepath(fullname, NULL, NULL, buffer, ".SHP");
+		Theater_Name_Fixup(fullname, theater);
+		Free_Roof_Deploying_Anim();
+		RoofDeployingAnim = (ShapeSet const *)Load_Alloc_Data(fullname, RoofDeployingAnimLoaded);
+		if (RoofDeployingAnim == NULL) {
+			Generic_Theater_Name(fullname);
+			Free_Roof_Deploying_Anim();
 			RoofDeployingAnim = (ShapeSet const *)Load_Alloc_Data(fullname, DeployingAnimLoaded); // RA2: the retry sets DeployingAnimLoaded, not the roof flag
 		}
 	}
@@ -1192,61 +1192,61 @@ void BuildingTypeClass::Fetch_Building_Normal_Image(TheaterType theater)
 	ArtINI.Get_String(Graphic_Name(), "DoorAnim", "", buffer, sizeof(buffer));
 	if (strlen(buffer) != 0) {
 		_makepath(fullname, NULL, NULL, buffer, ".SHP");
-		Theater_Name_Fixup(fullname, theater); // RA2: as above
+		Theater_Name_Fixup(fullname, theater);
 		DoorAnim = (ShapeSet const *)MFCD::Retrieve(fullname);
 		if (DoorAnim == NULL) { // RA2: retries the generic theater name
-			Generic_Theater_Name(fullname); // RA2: as above
-			DoorAnim = (ShapeSet const *)MFCD::Retrieve(fullname); // RA2: as above
+			Generic_Theater_Name(fullname);
+			DoorAnim = (ShapeSet const *)MFCD::Retrieve(fullname);
 		}
 	}
 
 	ArtINI.Get_String(Graphic_Name(), "UnderDoorAnim", "", buffer, sizeof(buffer));
 	if (strlen(buffer) != 0) {
 		_makepath(fullname, NULL, NULL, buffer, ".SHP");
-		Theater_Name_Fixup(fullname, theater); // RA2: as above
+		Theater_Name_Fixup(fullname, theater);
 		Free_Under_Door_Anim(); // RA2: frees an earlier copy first, loads through Load_Alloc_Data
-		UnderDoorAnim = (ShapeSet const *)Load_Alloc_Data(fullname, UnderDoorAnimLoaded); // RA2: as above
+		UnderDoorAnim = (ShapeSet const *)Load_Alloc_Data(fullname, UnderDoorAnimLoaded);
 		if (UnderDoorAnim == NULL) { // RA2: retries the generic theater name through the mix
-			Generic_Theater_Name(fullname); // RA2: as above
-			Free_Under_Door_Anim(); // RA2: as above
-			UnderDoorAnim = (ShapeSet const *)MFCD::Retrieve(fullname); // RA2: as above
+			Generic_Theater_Name(fullname);
+			Free_Under_Door_Anim();
+			UnderDoorAnim = (ShapeSet const *)MFCD::Retrieve(fullname);
 		}
 	}
 
 	ArtINI.Get_String(Graphic_Name(), "UnderRoofDoorAnim", "", buffer, sizeof(buffer)); // RA2: not in TibSun
-	if (strlen(buffer) != 0) { // RA2: as above
-		_makepath(fullname, NULL, NULL, buffer, ".SHP"); // RA2: as above
-		Theater_Name_Fixup(fullname, theater); // RA2: as above
-		Free_Under_Roof_Door_Anim(); // RA2: as above
-		UnderRoofDoorAnim = (ShapeSet const *)Load_Alloc_Data(fullname, UnderRoofDoorAnimLoaded); // RA2: as above
-		if (UnderRoofDoorAnim == NULL) { // RA2: as above
-			Generic_Theater_Name(fullname); // RA2: as above
-			Free_Under_Roof_Door_Anim(); // RA2: as above
-			UnderRoofDoorAnim = (ShapeSet const *)MFCD::Retrieve(fullname); // RA2: as above
+	if (strlen(buffer) != 0) {
+		_makepath(fullname, NULL, NULL, buffer, ".SHP");
+		Theater_Name_Fixup(fullname, theater);
+		Free_Under_Roof_Door_Anim();
+		UnderRoofDoorAnim = (ShapeSet const *)Load_Alloc_Data(fullname, UnderRoofDoorAnimLoaded);
+		if (UnderRoofDoorAnim == NULL) {
+			Generic_Theater_Name(fullname);
+			Free_Under_Roof_Door_Anim();
+			UnderRoofDoorAnim = (ShapeSet const *)MFCD::Retrieve(fullname);
 		}
 	}
 
 	ArtINI.Get_String(Graphic_Name(), "SpecialZOverlay", "", buffer, sizeof(buffer));
 	if (strlen(buffer) != 0) {
 		_makepath(fullname, NULL, NULL, buffer, ".SHP");
-		Theater_Name_Fixup(fullname, theater); // RA2: as above
+		Theater_Name_Fixup(fullname, theater);
 		SpecialZOverlay = (ShapeSet const *)MFCD::Retrieve(fullname);
 		if (SpecialZOverlay == NULL) { // RA2: retries the generic theater name
-			Generic_Theater_Name(fullname); // RA2: as above
-			SpecialZOverlay = (ShapeSet const *)MFCD::Retrieve(fullname); // RA2: as above
+			Generic_Theater_Name(fullname);
+			SpecialZOverlay = (ShapeSet const *)MFCD::Retrieve(fullname);
 		}
 	}
 
 	ArtINI.Get_String(Graphic_Name(), "BibShape", "", buffer, sizeof(buffer));
 	if (strlen(buffer) != 0) {
 		_makepath(fullname, NULL, NULL, buffer, ".SHP");
-		Theater_Name_Fixup(fullname, theater); // RA2: as above
+		Theater_Name_Fixup(fullname, theater);
 		Free_Bib_Shape(); // RA2: frees an earlier copy first, loads through Load_Alloc_Data
-		BibShape = (ShapeSet const *)Load_Alloc_Data(fullname, BibShapeLoaded); // RA2: as above
+		BibShape = (ShapeSet const *)Load_Alloc_Data(fullname, BibShapeLoaded);
 		if (BibShape == NULL) { // RA2: retries the generic theater name through the mix
-			Generic_Theater_Name(fullname); // RA2: as above
-			Free_Bib_Shape(); // RA2: as above
-			BibShape = (ShapeSet const *)MFCD::Retrieve(fullname); // RA2: as above
+			Generic_Theater_Name(fullname);
+			Free_Bib_Shape();
+			BibShape = (ShapeSet const *)MFCD::Retrieve(fullname);
 		}
 	}
 
@@ -1255,7 +1255,7 @@ void BuildingTypeClass::Fetch_Building_Normal_Image(TheaterType theater)
 	if (IsTheater && theater != THEATER_NONE) { // RA2: the theater test comes first
 		strcpy(ext, Theaters[theater].Suffix);
 	} else { // RA2: the theater suffix is the first branch in 0x458EA0
-		strcpy(ext, ".SHP"); // RA2: as above
+		strcpy(ext, ".SHP");
 	}
 
 	if (strlen(buffer)) {
@@ -1264,7 +1264,7 @@ void BuildingTypeClass::Fetch_Building_Normal_Image(TheaterType theater)
 		_makepath(fullname, NULL, NULL, Graphic_Name(), ext);
 	}
 
-	Theater_Name_Fixup(fullname, theater); // RA2: as above
+	Theater_Name_Fixup(fullname, theater);
 	strncpy(TheaterImageFile, fullname, sizeof(TheaterImageFile) - 1);
 
 	/*
@@ -1273,9 +1273,9 @@ void BuildingTypeClass::Fetch_Building_Normal_Image(TheaterType theater)
 	if (!IsDemandLoad) {
 		ImageData = MFCD::Retrieve(fullname);
 		if (ImageData == NULL) { // RA2: retries the generic theater name
-			Generic_Theater_Name(fullname); // RA2: as above
-			strncpy(TheaterImageFile, fullname, sizeof(TheaterImageFile) - 1); // RA2: as above
-			ImageData = MFCD::Retrieve(fullname); // RA2: as above
+			Generic_Theater_Name(fullname);
+			strncpy(TheaterImageFile, fullname, sizeof(TheaterImageFile) - 1);
+			ImageData = MFCD::Retrieve(fullname);
 		}
 	}
 
@@ -1329,7 +1329,7 @@ void BuildingTypeClass::Fetch_Building_Voxel_Image(void)
 				}
 			}
 
-			if (char * nameroot = strstr(strupr(&buffer[4]), strupr("TUR"))) { // RA2: as above
+			if (char * nameroot = strstr(strupr(&buffer[4]), strupr("TUR"))) {
 				*nameroot++ = 'B';
 				*nameroot++ = 'A';
 				*nameroot++ = 'R';
@@ -1364,7 +1364,7 @@ void BuildingTypeClass::Fetch_Building_Voxel_Image(void)
 /// </summary>
 static bool Same_Point(Point2D const & first, Point2D const & second) // RA2: not in TibSun; expanded into Read_INI (0x459A00)
 {
-	return(first.X == second.X && first.Y == second.Y); // RA2: as above
+	return(first.X == second.X && first.Y == second.Y);
 }
 
 
@@ -1385,15 +1385,15 @@ static bool Same_Point(Point2D const & first, Point2D const & second) // RA2: no
 bool BuildingTypeClass::Read_INI(CCINIClass const & ini)
 {
 	char key[128]; // RA2: Read_INI's ten char buffers (0x459A00), sized as the executable's 856-byte frame shows
-	char triple_out[64]; // RA2: as above
-	char triple_def[64]; // RA2: as above
-	char dock_key[40]; // RA2: as above
-	char y_key[64]; // RA2: as above
-	char ysort_key[64]; // RA2: as above
-	char anim_key[64]; // RA2: as above
-	char damaged_key[64]; // RA2: as above
-	char z_key[64]; // RA2: as above
-	char x_key[64]; // RA2: as above
+	char triple_out[64];
+	char triple_def[64];
+	char dock_key[40];
+	char y_key[64];
+	char ysort_key[64];
+	char anim_key[64];
+	char damaged_key[64];
+	char z_key[64];
+	char x_key[64];
 	if (BASECLASS::Read_INI(ini)) {
 		BuildCat = ini.Get_BuildCat(Name(), "BuildCat", BuildCat); // RA2: the executable reads "BuildCat" at this point of 0x459A00
 		HasSpotlight = ini.Get_Bool(Name(), "HasSpotlight", HasSpotlight);
@@ -1406,47 +1406,47 @@ bool BuildingTypeClass::Read_INI(CCINIClass const & ini)
 		IsCaptureable = ini.Get_Bool(Name(), "Capturable", IsCaptureable);
 		IsPowered = ini.Get_Bool(Name(), "Powered", IsPowered);
 		Overpowerable = ini.Get_Bool(Name(), "Overpowerable", Overpowerable); // RA2: the executable reads "Overpowerable" at this point of 0x459A00
-		Spyable = ini.Get_Bool(Name(), "Spyable", Spyable); // RA2: as above
-		CanC4 = ini.Get_Bool(Name(), "CanC4", CanC4); // RA2: as above
-		WantsExtraSpace = ini.Get_Bool(Name(), "WantsExtraSpace", WantsExtraSpace); // RA2: as above
+		Spyable = ini.Get_Bool(Name(), "Spyable", Spyable);
+		CanC4 = ini.Get_Bool(Name(), "CanC4", CanC4);
+		WantsExtraSpace = ini.Get_Bool(Name(), "WantsExtraSpace", WantsExtraSpace);
 		IsBibbed = ini.Get_Bool(Name(), "Bib", IsBibbed);
 		IsUnsellable = ini.Get_Bool(Name(), "Unsellable", IsUnsellable);
 		ClickRepairable = ini.Get_Bool(Name(), "ClickRepairable", ClickRepairable); // RA2: the executable reads "ClickRepairable" at this point of 0x459A00
-		CanBeOccupied = ini.Get_Bool(Name(), "CanBeOccupied", CanBeOccupied); // RA2: as above
-		ShowOccupantPips = ini.Get_Bool(Name(), "ShowOccupantPips", ShowOccupantPips); // RA2: as above
-		MaxNumberOccupants = ini.Get_Int(Name(), "MaxNumberOccupants", MaxNumberOccupants); // RA2: as above
-		NumberImpassableRows = ini.Get_Int(Name(), "NumberImpassableRows", NumberImpassableRows); // RA2: as above
-		ProduceCashStartup = ini.Get_Int(Name(), "ProduceCashStartup", ProduceCashStartup); // RA2: as above
-		ProduceCashAmount = ini.Get_Int(Name(), "ProduceCashAmount", ProduceCashAmount); // RA2: as above
-		ProduceCashDelay = ini.Get_Int(Name(), "ProduceCashDelay", ProduceCashDelay); // RA2: as above
+		CanBeOccupied = ini.Get_Bool(Name(), "CanBeOccupied", CanBeOccupied);
+		ShowOccupantPips = ini.Get_Bool(Name(), "ShowOccupantPips", ShowOccupantPips);
+		MaxNumberOccupants = ini.Get_Int(Name(), "MaxNumberOccupants", MaxNumberOccupants);
+		NumberImpassableRows = ini.Get_Int(Name(), "NumberImpassableRows", NumberImpassableRows);
+		ProduceCashStartup = ini.Get_Int(Name(), "ProduceCashStartup", ProduceCashStartup);
+		ProduceCashAmount = ini.Get_Int(Name(), "ProduceCashAmount", ProduceCashAmount);
+		ProduceCashDelay = ini.Get_Int(Name(), "ProduceCashDelay", ProduceCashDelay);
 		IsBase = ini.Get_Bool(Name(), "BaseNormal", IsBase);
 		EligibleForAllyBuilding = ini.Get_Bool(Name(), "EligibileForAllyBuilding", EligibleForAllyBuilding); // RA2: the executable reads "EligibileForAllyBuilding" at this point of 0x459A00
-		EligibleForDelayKill = ini.Get_Bool(Name(), "EligibleForDelayKill", EligibleForDelayKill); // RA2: as above
-		NeedsEngineer = ini.Get_Bool(Name(), "NeedsEngineer", NeedsEngineer); // RA2: as above
-		if (NeedsEngineer) { // RA2: as above
-			SightRange = 6; // RA2: as above
+		EligibleForDelayKill = ini.Get_Bool(Name(), "EligibleForDelayKill", EligibleForDelayKill);
+		NeedsEngineer = ini.Get_Bool(Name(), "NeedsEngineer", NeedsEngineer);
+		if (NeedsEngineer) {
+			SightRange = 6;
 		}
 		ProtectWithWall = ini.Get_Bool(Name(), "ProtectWithWall", ProtectWithWall); // RA2: the executable reads "ProtectWithWall" at this point of 0x459A00
-		int index; // RA2: as above
+		int index;
 		{ // RA2: the muzzle flash and damage fire offsets are read from the art INI (not in TibSun)
-			char number[8]; // RA2: as above
-			for (index = 0; index < MaxNumberOccupants; index++) { // RA2: as above
-				strcpy(key, "MuzzleFlash"); // RA2: as above
-				_itoa(index, number, 10); // RA2: as above
-				Point2D point = ArtINI.Get_Point(Graphic_Name(), strcat(key, number), Point2D(0xFFFF, 0xFFFF)); // RA2: as above
-				MuzzleFlash[index] = Point2D(point.X, point.Y); // RA2: as above
-				if (Same_Point(MuzzleFlash[index], Point2D(0xFFFF, 0xFFFF))) { // RA2: as above
-					MuzzleFlash[index] = Point2D(0, 0); // RA2: as above
+			char number[8];
+			for (index = 0; index < MaxNumberOccupants; index++) {
+				strcpy(key, "MuzzleFlash");
+				_itoa(index, number, 10);
+				Point2D point = ArtINI.Get_Point(Graphic_Name(), strcat(key, number), Point2D(0xFFFF, 0xFFFF));
+				MuzzleFlash[index] = Point2D(point.X, point.Y);
+				if (Same_Point(MuzzleFlash[index], Point2D(0xFFFF, 0xFFFF))) {
+					MuzzleFlash[index] = Point2D(0, 0);
 				}
 			}
 			for (index = 0; index < 8; index++) { // RA2: the executable's form of this statement (0x459A00)
-				strcpy(key, "DamageFireOffset"); // RA2: as above
-				_itoa(index, number, 10); // RA2: as above
-				Point2D point = ArtINI.Get_Point(Graphic_Name(), strcat(key, number), Point2D(0xFFFF, 0xFFFF)); // RA2: as above
-				DamageFireOffset[index] = Point2D(point.X, point.Y); // RA2: as above
-				if (Same_Point(DamageFireOffset[index], Point2D(0xFFFF, 0xFFFF))) { // RA2: as above
-					DamageFireOffset[index] = Point2D(COORD_NONE.X, COORD_NONE.Y); // RA2: as above
-					break; // RA2: as above
+				strcpy(key, "DamageFireOffset");
+				_itoa(index, number, 10);
+				Point2D point = ArtINI.Get_Point(Graphic_Name(), strcat(key, number), Point2D(0xFFFF, 0xFFFF));
+				DamageFireOffset[index] = Point2D(point.X, point.Y);
+				if (Same_Point(DamageFireOffset[index], Point2D(0xFFFF, 0xFFFF))) {
+					DamageFireOffset[index] = Point2D(COORD_NONE.X, COORD_NONE.Y);
+					break;
 				}
 			}
 		}
@@ -1454,19 +1454,19 @@ bool BuildingTypeClass::Read_INI(CCINIClass const & ini)
 		IsWeeder = ini.Get_Bool(Name(), "Weeder", IsWeeder);
 		IsHelipad = ini.Get_Bool(Name(), "Helipad", IsHelipad);
 		OrePurifier = ini.Get_Bool(Name(), "OrePurifier", OrePurifier); // RA2: the executable reads "OrePurifier" at this point of 0x459A00
-		ToBuild = ini.Get_RTTIType(Name(), "Factory", (RTTIType)ToBuild); // RA2: as above
+		ToBuild = ini.Get_RTTIType(Name(), "Factory", (RTTIType)ToBuild);
 		FreeUnit = TGet_Class(ini, Name(), "FreeUnit", FreeUnit);
 		IsHoverPad = ini.Get_Bool(Name(), "HoverPad", IsHoverPad);
 		IsTemple = ini.Get_Bool(Name(), "IsTemple", IsTemple);
 		IsPlug = ini.Get_Bool(Name(), "IsPlug", IsPlug);
 		IsCanTogglePower = ini.Get_Bool(Name(), "TogglePower", IsCanTogglePower);
 		BuildupSound = ini.Get_VocType(Name(), "BuildupSound", (VocType)BuildupSound); // RA2: the executable reads "BuildupSound" at this point of 0x459A00
-		PackupSound = ini.Get_VocType(Name(), "PackupSound", (VocType)PackupSound); // RA2: as above
-		CreateUnitSound = ini.Get_VocType(Name(), "CreateUnitSound", (VocType)CreateUnitSound); // RA2: as above
-		UnitExitSound = ini.Get_VocType(Name(), "UnitExitSound", (VocType)UnitExitSound); // RA2: as above
-		UnitEnterSound = ini.Get_VocType(Name(), "UnitEnterSound", (VocType)UnitEnterSound); // RA2: as above
-		WorkingSound = ini.Get_VocType(Name(), "WorkingSound", (VocType)WorkingSound); // RA2: as above
-		NotWorkingSound = ini.Get_VocType(Name(), "NotWorkingSound", (VocType)NotWorkingSound); // RA2: as above
+		PackupSound = ini.Get_VocType(Name(), "PackupSound", (VocType)PackupSound);
+		CreateUnitSound = ini.Get_VocType(Name(), "CreateUnitSound", (VocType)CreateUnitSound);
+		UnitExitSound = ini.Get_VocType(Name(), "UnitExitSound", (VocType)UnitExitSound);
+		UnitEnterSound = ini.Get_VocType(Name(), "UnitEnterSound", (VocType)UnitEnterSound);
+		WorkingSound = ini.Get_VocType(Name(), "WorkingSound", (VocType)WorkingSound);
+		NotWorkingSound = ini.Get_VocType(Name(), "NotWorkingSound", (VocType)NotWorkingSound);
 		IsCanUnitRepair = ini.Get_Bool(Name(), "UnitRepair", IsCanUnitRepair);
 		IsCanUnitReload = ini.Get_Bool(Name(), "UnitReload", IsCanUnitReload);
 		Cloning = ini.Get_Bool(Name(), "Cloning", Cloning); // RA2: the executable reads "Cloning" at this point of 0x459A00
@@ -1493,24 +1493,24 @@ bool BuildingTypeClass::Read_INI(CCINIClass const & ini)
 		IsSensorArray = ini.Get_Bool(Name(), "SensorArray", IsSensorArray);
 		CloakRadiusInCells = ini.Get_Int(Name(), "CloakRadiusInCells", CloakRadiusInCells);
 		PsychicDetectionRadius = ini.Get_Int(Name(), "PsychicDetectionRadius", PsychicDetectionRadius); // RA2: the executable reads "PsychicDetectionRadius" at this point of 0x459A00
-		StartPitch = (Dir256)(ini.Get_Int(Name(), "BarrelStartPitch", StartPitch >> 5) << 5); // RA2: as above
+		StartPitch = (Dir256)(ini.Get_Int(Name(), "BarrelStartPitch", StartPitch >> 5) << 5);
 		LightVisibility = ini.Get_Int(Name(), "LightVisibility", LightVisibility);
 		// RA2: each light value is read into a double local and stored as thousandths plus 0.1 (0x459A00)
 		{
 			double value = ini.Get_Float(Name(), "LightIntensity", (double)(LightIntensity / 1000)); // RA2: the executable reads "LightIntensity" at this point of 0x459A00
-			LightIntensity = (int)(value * 1000.0 + 0.1); // RA2: as above
+			LightIntensity = (int)(value * 1000.0 + 0.1);
 		}
 		{
 			double value = ini.Get_Float(Name(), "LightRedTint", (double)(LightRedTint / 1000)); // RA2: the executable reads "LightRedTint" at this point of 0x459A00
-			LightRedTint = (int)(value * 1000.0 + 0.1); // RA2: as above
+			LightRedTint = (int)(value * 1000.0 + 0.1);
 		}
 		{
 			double value = ini.Get_Float(Name(), "LightGreenTint", (double)(LightGreenTint / 1000)); // RA2: the executable reads "LightGreenTint" at this point of 0x459A00
-			LightGreenTint = (int)(value * 1000.0 + 0.1); // RA2: as above
+			LightGreenTint = (int)(value * 1000.0 + 0.1);
 		}
 		{
 			double value = ini.Get_Float(Name(), "LightBlueTint", (double)(LightBlueTint / 1000)); // RA2: the executable reads "LightBlueTint" at this point of 0x459A00
-			LightBlueTint = (int)(value * 1000.0 + 0.1); // RA2: as above
+			LightBlueTint = (int)(value * 1000.0 + 0.1);
 		}
 		GateCloseDelay = ini.Get_Float(Name(), "GateCloseDelay", GateCloseDelay);
 		IsInvisibleInGame = ini.Get_Bool(Name(), "InvisibleInGame", IsInvisibleInGame);
@@ -1519,15 +1519,15 @@ bool BuildingTypeClass::Read_INI(CCINIClass const & ini)
 			IsRadarVisible = false;
 		}
 		ini.Get_String(Name(), "PowersUpBuilding", "", key, 24); // RA2: the executable reads "PowersUpBuilding" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(PowersUpBuilding, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(PowersUpBuilding, key);
 		}
 		PowersUpToLevel = ini.Get_Int(Name(), "PowersUpToLevel", PowersUpToLevel);
 		IsBridgeRepairHut = ini.Get_Bool(Name(), "BridgeRepairHut", IsBridgeRepairHut);
 		IsHasStupidGuardMode = ini.Get_Bool(Name(), "HasStupidGuardMode", IsHasStupidGuardMode);
 		CrateBeneath = ini.Get_Bool(Name(), "CrateBeneath", CrateBeneath); // RA2: the executable reads "CrateBeneath" at this point of 0x459A00
-		CrateBeneathIsMoney = ini.Get_Bool(Name(), "CrateBeneathIsMoney", CrateBeneathIsMoney); // RA2: as above
-		LeaveRubble = ini.Get_Bool(Name(), "LeaveRubble", LeaveRubble); // RA2: as above
+		CrateBeneathIsMoney = ini.Get_Bool(Name(), "CrateBeneathIsMoney", CrateBeneathIsMoney);
+		LeaveRubble = ini.Get_Bool(Name(), "LeaveRubble", LeaveRubble);
 		IsCanPlaceAnywhere = ini.Get_Bool(Name(), "PlaceAnywhere", IsCanPlaceAnywhere);
 		IsICBMLauncher = ini.Get_Bool(Name(), "ICBMLauncher", IsICBMLauncher);
 		IsArtillary = ini.Get_Bool(Name(), "Artillary", IsArtillary);
@@ -1537,7 +1537,7 @@ bool BuildingTypeClass::Read_INI(CCINIClass const & ini)
 		}
 		{
 			Point3D offset = Point3D(ExitCoordinate); // RA2: the executable's form of this statement (0x459A00)
-			ExitCoordinate = ini.Get_Point(Name(), "ExitCoord", offset); // RA2: as above
+			ExitCoordinate = ini.Get_Point(Name(), "ExitCoord", offset);
 		}
 		CanAIBuildThis = ini.Get_Bool(Name(), "AIBuildThis", CanAIBuildThis);
 		IsBaseDefense = ini.Get_Bool(Name(), "IsBaseDefense", IsBaseDefense);
@@ -1552,9 +1552,9 @@ bool BuildingTypeClass::Read_INI(CCINIClass const & ini)
 			Drain = 0;
 		}
 		ExtraPower = ini.Get_Int(Name(), "ExtraPower", ExtraPower > 0 ? ExtraPower : -ExtraDrain); // RA2: the executable reads "ExtraPower" at this point of 0x459A00
-		if (ExtraPower < 0) { // RA2: as above
-			ExtraDrain = -ExtraPower; // RA2: as above
-			ExtraPower = 0; // RA2: as above
+		if (ExtraPower < 0) {
+			ExtraDrain = -ExtraPower;
+			ExtraPower = 0;
 		}
 		ZHeight = ArtINI.Get_Int(Graphic_Name(), "Height", ZHeight);
 		OccupyHeight = ArtINI.Get_Int(Graphic_Name(), "OccupyHeight", ZHeight); // RA2: the executable reads "OccupyHeight" at this point of 0x459A00
@@ -1563,12 +1563,12 @@ bool BuildingTypeClass::Read_INI(CCINIClass const & ini)
 		IsSiloDamage = ArtINI.Get_Bool(Graphic_Name(), "SiloDamage", IsSiloDamage);
 		IsHasChargeAnim = ArtINI.Get_Bool(Graphic_Name(), "ChargeAnim", IsHasChargeAnim);
 		IsAnimDelayedFire = ArtINI.Get_Bool(Graphic_Name(), "IsAnimDelayedFire", IsAnimDelayedFire); // RA2: the executable reads "IsAnimDelayedFire" at this point of 0x459A00
-		DelayedFireDelay = ArtINI.Get_Int(Graphic_Name(), "DelayedFireDelay", DelayedFireDelay); // RA2: as above
+		DelayedFireDelay = ArtINI.Get_Int(Graphic_Name(), "DelayedFireDelay", DelayedFireDelay);
 		ToOverlay = TGet_Class(ArtINI, Graphic_Name(), "ToOverlay", ToOverlay);
 		Size = ArtINI.Get_BSizeType(Graphic_Name(), "Foundation", Size);
 		BSizeType foundation = ArtINI.Get_BSizeType(Name(), "Foundation", Size); // RA2: the executable reads "Foundation" at this point of 0x459A00
-		if (foundation != BSIZE_FIRST) { // RA2: as above
-			Size = foundation; // RA2: as above
+		if (foundation != BSIZE_FIRST) {
+			Size = foundation;
 		}
 		MidPoint = ArtINI.Get_Int(Graphic_Name(), "MidPoint", MidPoint);
 		DoorStages = ArtINI.Get_Int(Graphic_Name(), "DoorStages", DoorStages);
@@ -1587,54 +1587,54 @@ bool BuildingTypeClass::Read_INI(CCINIClass const & ini)
 		IsDemandLoadBuildup = ArtINI.Get_Bool(Graphic_Name(), "DemandLoadBuildup", IsDemandLoadBuildup);
 		IsFreeBuildup = ArtINI.Get_Bool(Graphic_Name(), "FreeBuildup", IsFreeBuildup);
 		CanHideThings = ArtINI.Get_Bool(Name(), "CanHideThings", CanHideThings); // RA2: the executable reads "CanHideThings" at this point of 0x459A00
-		CanBeHidden = ArtINI.Get_Bool(Name(), "CanBeHidden", CanBeHidden); // RA2: as above
-		for (index = 0; index < 8; index++) { // RA2: as above
+		CanBeHidden = ArtINI.Get_Bool(Name(), "CanBeHidden", CanBeHidden);
+		for (index = 0; index < 8; index++) {
 			wsprintfA(key, "AddOccupy%d", index + 1); // RA2: the "AddOccupy%d" keys fill the array at +0x12C4, which builtype.h names RemoveOccupy (the names look swapped; offsets are what the executable shows)
-			RemoveOccupy[index] = ArtINI.Get_Point(Graphic_Name(), key, Point2D(0xFFFF, 0xFFFF)); // RA2: as above
-			wsprintfA(key, "RemoveOccupy%d", index + 1); // RA2: as above
-			AddOccupy[index] = ArtINI.Get_Point(Graphic_Name(), key, Point2D(0xFFFF, 0xFFFF)); // RA2: as above
+			RemoveOccupy[index] = ArtINI.Get_Point(Graphic_Name(), key, Point2D(0xFFFF, 0xFFFF));
+			wsprintfA(key, "RemoveOccupy%d", index + 1);
+			AddOccupy[index] = ArtINI.Get_Point(Graphic_Name(), key, Point2D(0xFFFF, 0xFFFF));
 		}
 		QueueingCell = ArtINI.Get_Point(Graphic_Name(), "QueueingCell", Point2D(0, 0)); // RA2: the executable reads "QueueingCell" at this point of 0x459A00
 		OccupyList = OccupyLists[Size];
 		ExitList = ExitLists[Size];
 		ArtINI.Get_String(Graphic_Name(), "Buildup", "", key, 16); // RA2: the executable reads "Buildup" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(BuildupFilename, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(BuildupFilename, key);
 		}
 		Fetch_Building_Normal_Image(Scen->Theater); // RA2: the executable's form of this statement (0x459A00)
-		sprintf(triple_def, "%d,%d,%d", Anims[BSTATE_IDLE].Start, Anims[BSTATE_IDLE].Count, Anims[BSTATE_IDLE].Rate); // RA2: as above
-		if (ArtINI.Get_String(Graphic_Name(), "AnimIdle", triple_def, triple_out, 64) > 0) { // RA2: as above
-			sscanf(triple_out, "%d,%d,%d", &Anims[BSTATE_IDLE].Start, &Anims[BSTATE_IDLE].Count, &Anims[BSTATE_IDLE].Rate); // RA2: as above
+		sprintf(triple_def, "%d,%d,%d", Anims[BSTATE_IDLE].Start, Anims[BSTATE_IDLE].Count, Anims[BSTATE_IDLE].Rate);
+		if (ArtINI.Get_String(Graphic_Name(), "AnimIdle", triple_def, triple_out, 64) > 0) {
+			sscanf(triple_out, "%d,%d,%d", &Anims[BSTATE_IDLE].Start, &Anims[BSTATE_IDLE].Count, &Anims[BSTATE_IDLE].Rate);
 		}
 		sprintf(triple_def, "%d,%d,%d", Anims[BSTATE_ACTIVE].Start, Anims[BSTATE_ACTIVE].Count, Anims[BSTATE_ACTIVE].Rate); // RA2: the executable's form of this statement (0x459A00)
-		if (ArtINI.Get_String(Graphic_Name(), "AnimActive", triple_def, triple_out, 64) > 0) { // RA2: as above
-			sscanf(triple_out, "%d,%d,%d", &Anims[BSTATE_ACTIVE].Start, &Anims[BSTATE_ACTIVE].Count, &Anims[BSTATE_ACTIVE].Rate); // RA2: as above
+		if (ArtINI.Get_String(Graphic_Name(), "AnimActive", triple_def, triple_out, 64) > 0) {
+			sscanf(triple_out, "%d,%d,%d", &Anims[BSTATE_ACTIVE].Start, &Anims[BSTATE_ACTIVE].Count, &Anims[BSTATE_ACTIVE].Rate);
 		}
 		sprintf(triple_def, "%d,%d,%d", Anims[BSTATE_AUX1].Start, Anims[BSTATE_AUX1].Count, Anims[BSTATE_AUX1].Rate); // RA2: the executable's form of this statement (0x459A00)
-		if (ArtINI.Get_String(Graphic_Name(), "AnimAux1", triple_def, triple_out, 64) > 0) { // RA2: as above
-			sscanf(triple_out, "%d,%d,%d", &Anims[BSTATE_AUX1].Start, &Anims[BSTATE_AUX1].Count, &Anims[BSTATE_AUX1].Rate); // RA2: as above
+		if (ArtINI.Get_String(Graphic_Name(), "AnimAux1", triple_def, triple_out, 64) > 0) {
+			sscanf(triple_out, "%d,%d,%d", &Anims[BSTATE_AUX1].Start, &Anims[BSTATE_AUX1].Count, &Anims[BSTATE_AUX1].Rate);
 		}
 		sprintf(triple_def, "%d,%d,%d", Anims[BSTATE_AUX2].Start, Anims[BSTATE_AUX2].Count, Anims[BSTATE_AUX2].Rate); // RA2: the executable's form of this statement (0x459A00)
-		if (ArtINI.Get_String(Graphic_Name(), "AnimAux2", triple_def, triple_out, 64) > 0) { // RA2: as above
-			sscanf(triple_out, "%d,%d,%d", &Anims[BSTATE_AUX2].Start, &Anims[BSTATE_AUX2].Count, &Anims[BSTATE_AUX2].Rate); // RA2: as above
+		if (ArtINI.Get_String(Graphic_Name(), "AnimAux2", triple_def, triple_out, 64) > 0) {
+			sscanf(triple_out, "%d,%d,%d", &Anims[BSTATE_AUX2].Start, &Anims[BSTATE_AUX2].Count, &Anims[BSTATE_AUX2].Rate);
 		}
 		ArtINI.Get_String(Graphic_Name(), "ActiveAnim", "", key, 16); // RA2: the executable reads "ActiveAnim" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_ACTIVE_ONE].Anim, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_ACTIVE_ONE].Anim, key);
 		}
 		ArtINI.Get_String(Graphic_Name(), "ActiveAnimDamaged", "", key, 16); // RA2: the executable reads "ActiveAnimDamaged" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_ACTIVE_ONE].AnimDamaged, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_ACTIVE_ONE].AnimDamaged, key);
 		}
 		if (strlen(AnimData[BANIM_ACTIVE_ONE].AnimDamaged) == 0) { // RA2: the executable's form of this statement (0x459A00)
 			strcpy(AnimData[BANIM_ACTIVE_ONE].AnimDamaged, AnimData[BANIM_ACTIVE_ONE].Anim); // RA2: the damaged name defaults to the plain one
 		}
 		ArtINI.Get_String(Graphic_Name(), "ActiveAnimGarrisoned", "", key, 16); // RA2: the executable reads "ActiveAnimGarrisoned" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_ACTIVE_ONE].AnimGarrisoned, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_ACTIVE_ONE].AnimGarrisoned, key);
 		}
 		if (strlen(AnimData[BANIM_ACTIVE_ONE].AnimGarrisoned) == 0) { // RA2: the executable's form of this statement (0x459A00)
-			strcpy(AnimData[BANIM_ACTIVE_ONE].AnimGarrisoned, AnimData[BANIM_ACTIVE_ONE].Anim); // RA2: as above
+			strcpy(AnimData[BANIM_ACTIVE_ONE].AnimGarrisoned, AnimData[BANIM_ACTIVE_ONE].Anim);
 		}
 		if (strlen(AnimData[BANIM_ACTIVE_ONE].Anim) != 0 || strlen(AnimData[BANIM_ACTIVE_ONE].AnimDamaged) != 0 || strlen(AnimData[BANIM_ACTIVE_ONE].AnimGarrisoned) != 0) { // RA2: the executable's form of this statement (0x459A00)
 			AnimData[BANIM_ACTIVE_ONE].Location.X = ArtINI.Get_Int(Graphic_Name(), "ActiveAnimX", AnimData[BANIM_ACTIVE_ONE].Location.X);
@@ -1645,22 +1645,22 @@ bool BuildingTypeClass::Read_INI(CCINIClass const & ini)
 			AnimData[BANIM_ACTIVE_ONE].PoweredLight = ArtINI.Get_Bool(Graphic_Name(), "ActiveAnimPoweredLight", AnimData[BANIM_ACTIVE_ONE].PoweredLight);
 		}
 		ArtINI.Get_String(Graphic_Name(), "ActiveAnimTwo", "", key, 16); // RA2: the executable reads "ActiveAnimTwo" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_ACTIVE_TWO].Anim, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_ACTIVE_TWO].Anim, key);
 		}
 		ArtINI.Get_String(Graphic_Name(), "ActiveAnimTwoDamaged", "", key, 16); // RA2: the executable reads "ActiveAnimTwoDamaged" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_ACTIVE_TWO].AnimDamaged, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_ACTIVE_TWO].AnimDamaged, key);
 		}
 		if (strlen(AnimData[BANIM_ACTIVE_TWO].AnimDamaged) == 0) { // RA2: the executable's form of this statement (0x459A00)
 			strcpy(AnimData[BANIM_ACTIVE_TWO].AnimDamaged, AnimData[BANIM_ACTIVE_TWO].Anim); // RA2: the damaged name defaults to the plain one
 		}
 		ArtINI.Get_String(Graphic_Name(), "ActiveAnimTwoGarrisoned", "", key, 16); // RA2: the executable reads "ActiveAnimTwoGarrisoned" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_ACTIVE_TWO].AnimGarrisoned, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_ACTIVE_TWO].AnimGarrisoned, key);
 		}
 		if (strlen(AnimData[BANIM_ACTIVE_TWO].AnimGarrisoned) == 0) { // RA2: the executable's form of this statement (0x459A00)
-			strcpy(AnimData[BANIM_ACTIVE_TWO].AnimGarrisoned, AnimData[BANIM_ACTIVE_TWO].Anim); // RA2: as above
+			strcpy(AnimData[BANIM_ACTIVE_TWO].AnimGarrisoned, AnimData[BANIM_ACTIVE_TWO].Anim);
 		}
 		if (strlen(AnimData[BANIM_ACTIVE_TWO].Anim) != 0 || strlen(AnimData[BANIM_ACTIVE_TWO].AnimDamaged) != 0 || strlen(AnimData[BANIM_ACTIVE_TWO].AnimGarrisoned) != 0) { // RA2: the executable's form of this statement (0x459A00)
 			AnimData[BANIM_ACTIVE_TWO].Location.X = ArtINI.Get_Int(Graphic_Name(), "ActiveAnimTwoX", AnimData[BANIM_ACTIVE_TWO].Location.X);
@@ -1671,22 +1671,22 @@ bool BuildingTypeClass::Read_INI(CCINIClass const & ini)
 			AnimData[BANIM_ACTIVE_TWO].PoweredLight = ArtINI.Get_Bool(Graphic_Name(), "ActiveAnimTwoPoweredLight", AnimData[BANIM_ACTIVE_TWO].PoweredLight);
 		}
 		ArtINI.Get_String(Graphic_Name(), "ActiveAnimThree", "", key, 16); // RA2: the executable reads "ActiveAnimThree" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_ACTIVE_THREE].Anim, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_ACTIVE_THREE].Anim, key);
 		}
 		ArtINI.Get_String(Graphic_Name(), "ActiveAnimThreeDamaged", "", key, 16); // RA2: the executable reads "ActiveAnimThreeDamaged" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_ACTIVE_THREE].AnimDamaged, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_ACTIVE_THREE].AnimDamaged, key);
 		}
 		if (strlen(AnimData[BANIM_ACTIVE_THREE].AnimDamaged) == 0) { // RA2: the executable's form of this statement (0x459A00)
 			strcpy(AnimData[BANIM_ACTIVE_THREE].AnimDamaged, AnimData[BANIM_ACTIVE_THREE].Anim); // RA2: the damaged name defaults to the plain one
 		}
 		ArtINI.Get_String(Graphic_Name(), "ActiveAnimThreeGarrisoned", "", key, 16); // RA2: the executable reads "ActiveAnimThreeGarrisoned" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_ACTIVE_THREE].AnimGarrisoned, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_ACTIVE_THREE].AnimGarrisoned, key);
 		}
 		if (strlen(AnimData[BANIM_ACTIVE_THREE].AnimGarrisoned) == 0) { // RA2: the executable's form of this statement (0x459A00)
-			strcpy(AnimData[BANIM_ACTIVE_THREE].AnimGarrisoned, AnimData[BANIM_ACTIVE_THREE].Anim); // RA2: as above
+			strcpy(AnimData[BANIM_ACTIVE_THREE].AnimGarrisoned, AnimData[BANIM_ACTIVE_THREE].Anim);
 		}
 		if (strlen(AnimData[BANIM_ACTIVE_THREE].Anim) != 0 || strlen(AnimData[BANIM_ACTIVE_THREE].AnimDamaged) != 0 || strlen(AnimData[BANIM_ACTIVE_THREE].AnimGarrisoned) != 0) { // RA2: the executable's form of this statement (0x459A00)
 			AnimData[BANIM_ACTIVE_THREE].Location.X = ArtINI.Get_Int(Graphic_Name(), "ActiveAnimThreeX", AnimData[BANIM_ACTIVE_THREE].Location.X);
@@ -1697,22 +1697,22 @@ bool BuildingTypeClass::Read_INI(CCINIClass const & ini)
 			AnimData[BANIM_ACTIVE_THREE].PoweredLight = ArtINI.Get_Bool(Graphic_Name(), "ActiveAnimThreePoweredLight", AnimData[BANIM_ACTIVE_THREE].PoweredLight);
 		}
 		ArtINI.Get_String(Graphic_Name(), "ActiveAnimFour", "", key, 16); // RA2: the executable reads "ActiveAnimFour" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_ACTIVE_FOUR].Anim, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_ACTIVE_FOUR].Anim, key);
 		}
 		ArtINI.Get_String(Graphic_Name(), "ActiveAnimFourDamaged", "", key, 16); // RA2: the executable reads "ActiveAnimFourDamaged" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_ACTIVE_FOUR].AnimDamaged, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_ACTIVE_FOUR].AnimDamaged, key);
 		}
 		if (strlen(AnimData[BANIM_ACTIVE_FOUR].AnimDamaged) == 0) { // RA2: the executable's form of this statement (0x459A00)
 			strcpy(AnimData[BANIM_ACTIVE_FOUR].AnimDamaged, AnimData[BANIM_ACTIVE_FOUR].Anim); // RA2: the damaged name defaults to the plain one
 		}
 		ArtINI.Get_String(Graphic_Name(), "ActiveAnimFourGarrisoned", "", key, 16); // RA2: the executable reads "ActiveAnimFourGarrisoned" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_ACTIVE_FOUR].AnimGarrisoned, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_ACTIVE_FOUR].AnimGarrisoned, key);
 		}
 		if (strlen(AnimData[BANIM_ACTIVE_FOUR].AnimGarrisoned) == 0) { // RA2: the executable's form of this statement (0x459A00)
-			strcpy(AnimData[BANIM_ACTIVE_FOUR].AnimGarrisoned, AnimData[BANIM_ACTIVE_FOUR].Anim); // RA2: as above
+			strcpy(AnimData[BANIM_ACTIVE_FOUR].AnimGarrisoned, AnimData[BANIM_ACTIVE_FOUR].Anim);
 		}
 		if (strlen(AnimData[BANIM_ACTIVE_FOUR].Anim) != 0 || strlen(AnimData[BANIM_ACTIVE_FOUR].AnimDamaged) != 0 || strlen(AnimData[BANIM_ACTIVE_FOUR].AnimGarrisoned) != 0) { // RA2: the executable's form of this statement (0x459A00)
 			AnimData[BANIM_ACTIVE_FOUR].Location.X = ArtINI.Get_Int(Graphic_Name(), "ActiveAnimFourX", AnimData[BANIM_ACTIVE_FOUR].Location.X);
@@ -1723,276 +1723,276 @@ bool BuildingTypeClass::Read_INI(CCINIClass const & ini)
 			AnimData[BANIM_ACTIVE_FOUR].PoweredLight = ArtINI.Get_Bool(Graphic_Name(), "ActiveAnimFourPoweredLight", AnimData[BANIM_ACTIVE_FOUR].PoweredLight);
 		}
 		ArtINI.Get_String(Graphic_Name(), "SuperAnim", "", key, 16); // RA2: the executable reads "SuperAnim" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_SUPER_ONE].Anim, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_SUPER_ONE].Anim, key);
 		}
 		ArtINI.Get_String(Graphic_Name(), "SuperAnimDamaged", "", key, 16); // RA2: the executable reads "SuperAnimDamaged" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_SUPER_ONE].AnimDamaged, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_SUPER_ONE].AnimDamaged, key);
 		}
 		if (strlen(AnimData[BANIM_SUPER_ONE].AnimDamaged) == 0) { // RA2: the executable's form of this statement (0x459A00)
-			strcpy(AnimData[BANIM_SUPER_ONE].AnimDamaged, AnimData[BANIM_SUPER_ONE].Anim); // RA2: as above
+			strcpy(AnimData[BANIM_SUPER_ONE].AnimDamaged, AnimData[BANIM_SUPER_ONE].Anim);
 		}
 		ArtINI.Get_String(Graphic_Name(), "SuperAnimGarrisoned", "", key, 16); // RA2: the executable reads "SuperAnimGarrisoned" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_SUPER_ONE].AnimGarrisoned, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_SUPER_ONE].AnimGarrisoned, key);
 		}
 		if (strlen(AnimData[BANIM_SUPER_ONE].AnimGarrisoned) == 0) { // RA2: the executable's form of this statement (0x459A00)
-			strcpy(AnimData[BANIM_SUPER_ONE].AnimGarrisoned, AnimData[BANIM_SUPER_ONE].Anim); // RA2: as above
+			strcpy(AnimData[BANIM_SUPER_ONE].AnimGarrisoned, AnimData[BANIM_SUPER_ONE].Anim);
 		}
 		if (strlen(AnimData[BANIM_SUPER_ONE].Anim) != 0 || strlen(AnimData[BANIM_SUPER_ONE].AnimDamaged) != 0 || strlen(AnimData[BANIM_SUPER_ONE].AnimGarrisoned) != 0) { // RA2: the executable's form of this statement (0x459A00)
-			AnimData[BANIM_SUPER_ONE].Location.X = ArtINI.Get_Int(Graphic_Name(), "SuperAnimX", AnimData[BANIM_ACTIVE_FOUR].Location.X); // RA2: as above
-			AnimData[BANIM_SUPER_ONE].Location.Y = ArtINI.Get_Int(Graphic_Name(), "SuperAnimY", AnimData[BANIM_ACTIVE_FOUR].Location.Y); // RA2: as above
-			AnimData[BANIM_SUPER_ONE].ZAdjust = ArtINI.Get_Int(Graphic_Name(), "SuperAnimZAdjust", AnimData[BANIM_SUPER_ONE].ZAdjust); // RA2: as above
-			AnimData[BANIM_SUPER_ONE].YSort = ArtINI.Get_Int(Graphic_Name(), "SuperAnimYSort", AnimData[BANIM_SUPER_ONE].YSort); // RA2: as above
-			AnimData[BANIM_SUPER_ONE].Powered = ArtINI.Get_Bool(Graphic_Name(), "SuperAnimPowered", AnimData[BANIM_SUPER_ONE].Powered); // RA2: as above
-			AnimData[BANIM_SUPER_ONE].PoweredLight = ArtINI.Get_Bool(Graphic_Name(), "SuperAnimPoweredLight", AnimData[BANIM_SUPER_ONE].PoweredLight); // RA2: as above
+			AnimData[BANIM_SUPER_ONE].Location.X = ArtINI.Get_Int(Graphic_Name(), "SuperAnimX", AnimData[BANIM_ACTIVE_FOUR].Location.X);
+			AnimData[BANIM_SUPER_ONE].Location.Y = ArtINI.Get_Int(Graphic_Name(), "SuperAnimY", AnimData[BANIM_ACTIVE_FOUR].Location.Y);
+			AnimData[BANIM_SUPER_ONE].ZAdjust = ArtINI.Get_Int(Graphic_Name(), "SuperAnimZAdjust", AnimData[BANIM_SUPER_ONE].ZAdjust);
+			AnimData[BANIM_SUPER_ONE].YSort = ArtINI.Get_Int(Graphic_Name(), "SuperAnimYSort", AnimData[BANIM_SUPER_ONE].YSort);
+			AnimData[BANIM_SUPER_ONE].Powered = ArtINI.Get_Bool(Graphic_Name(), "SuperAnimPowered", AnimData[BANIM_SUPER_ONE].Powered);
+			AnimData[BANIM_SUPER_ONE].PoweredLight = ArtINI.Get_Bool(Graphic_Name(), "SuperAnimPoweredLight", AnimData[BANIM_SUPER_ONE].PoweredLight);
 		}
 		ArtINI.Get_String(Graphic_Name(), "SuperAnimTwo", "", key, 16); // RA2: the executable reads "SuperAnimTwo" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_SUPER_TWO].Anim, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_SUPER_TWO].Anim, key);
 		}
 		ArtINI.Get_String(Graphic_Name(), "SuperAnimTwoDamaged", "", key, 16); // RA2: the executable reads "SuperAnimTwoDamaged" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_SUPER_TWO].AnimDamaged, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_SUPER_TWO].AnimDamaged, key);
 		}
 		if (strlen(AnimData[BANIM_SUPER_TWO].AnimDamaged) == 0) { // RA2: the executable's form of this statement (0x459A00)
-			strcpy(AnimData[BANIM_SUPER_TWO].AnimDamaged, AnimData[BANIM_SUPER_TWO].Anim); // RA2: as above
+			strcpy(AnimData[BANIM_SUPER_TWO].AnimDamaged, AnimData[BANIM_SUPER_TWO].Anim);
 		}
 		ArtINI.Get_String(Graphic_Name(), "SuperAnimTwoGarrisoned", "", key, 16); // RA2: the executable reads "SuperAnimTwoGarrisoned" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_SUPER_TWO].AnimGarrisoned, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_SUPER_TWO].AnimGarrisoned, key);
 		}
 		if (strlen(AnimData[BANIM_SUPER_TWO].AnimGarrisoned) == 0) { // RA2: the executable's form of this statement (0x459A00)
-			strcpy(AnimData[BANIM_SUPER_TWO].AnimGarrisoned, AnimData[BANIM_SUPER_TWO].Anim); // RA2: as above
+			strcpy(AnimData[BANIM_SUPER_TWO].AnimGarrisoned, AnimData[BANIM_SUPER_TWO].Anim);
 		}
 		if (strlen(AnimData[BANIM_SUPER_TWO].Anim) != 0 || strlen(AnimData[BANIM_SUPER_TWO].AnimDamaged) != 0 || strlen(AnimData[BANIM_SUPER_TWO].AnimGarrisoned) != 0) { // RA2: the executable's form of this statement (0x459A00)
-			AnimData[BANIM_SUPER_TWO].Location.X = ArtINI.Get_Int(Graphic_Name(), "SuperAnimTwoX", AnimData[BANIM_ACTIVE_TWO].Location.X); // RA2: as above
-			AnimData[BANIM_SUPER_TWO].Location.Y = ArtINI.Get_Int(Graphic_Name(), "SuperAnimTwoY", AnimData[BANIM_ACTIVE_TWO].Location.Y); // RA2: as above
-			AnimData[BANIM_SUPER_TWO].ZAdjust = ArtINI.Get_Int(Graphic_Name(), "SuperAnimTwoZAdjust", AnimData[BANIM_SUPER_TWO].ZAdjust); // RA2: as above
-			AnimData[BANIM_SUPER_TWO].YSort = ArtINI.Get_Int(Graphic_Name(), "SuperAnimTwoYSort", AnimData[BANIM_SUPER_TWO].YSort); // RA2: as above
-			AnimData[BANIM_SUPER_TWO].Powered = ArtINI.Get_Bool(Graphic_Name(), "SuperAnimTwoPowered", AnimData[BANIM_SUPER_TWO].Powered); // RA2: as above
-			AnimData[BANIM_SUPER_TWO].PoweredLight = ArtINI.Get_Bool(Graphic_Name(), "SuperAnimTwoPoweredLight", AnimData[BANIM_SUPER_TWO].PoweredLight); // RA2: as above
+			AnimData[BANIM_SUPER_TWO].Location.X = ArtINI.Get_Int(Graphic_Name(), "SuperAnimTwoX", AnimData[BANIM_ACTIVE_TWO].Location.X);
+			AnimData[BANIM_SUPER_TWO].Location.Y = ArtINI.Get_Int(Graphic_Name(), "SuperAnimTwoY", AnimData[BANIM_ACTIVE_TWO].Location.Y);
+			AnimData[BANIM_SUPER_TWO].ZAdjust = ArtINI.Get_Int(Graphic_Name(), "SuperAnimTwoZAdjust", AnimData[BANIM_SUPER_TWO].ZAdjust);
+			AnimData[BANIM_SUPER_TWO].YSort = ArtINI.Get_Int(Graphic_Name(), "SuperAnimTwoYSort", AnimData[BANIM_SUPER_TWO].YSort);
+			AnimData[BANIM_SUPER_TWO].Powered = ArtINI.Get_Bool(Graphic_Name(), "SuperAnimTwoPowered", AnimData[BANIM_SUPER_TWO].Powered);
+			AnimData[BANIM_SUPER_TWO].PoweredLight = ArtINI.Get_Bool(Graphic_Name(), "SuperAnimTwoPoweredLight", AnimData[BANIM_SUPER_TWO].PoweredLight);
 		}
 		ArtINI.Get_String(Graphic_Name(), "SuperAnimThree", "", key, 16); // RA2: the executable reads "SuperAnimThree" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_SUPER_THREE].Anim, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_SUPER_THREE].Anim, key);
 		}
 		ArtINI.Get_String(Graphic_Name(), "SuperAnimThreeDamaged", "", key, 16); // RA2: the executable reads "SuperAnimThreeDamaged" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_SUPER_THREE].AnimDamaged, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_SUPER_THREE].AnimDamaged, key);
 		}
 		if (strlen(AnimData[BANIM_SUPER_THREE].AnimDamaged) == 0) { // RA2: the executable's form of this statement (0x459A00)
-			strcpy(AnimData[BANIM_SUPER_THREE].AnimDamaged, AnimData[BANIM_SUPER_THREE].Anim); // RA2: as above
+			strcpy(AnimData[BANIM_SUPER_THREE].AnimDamaged, AnimData[BANIM_SUPER_THREE].Anim);
 		}
 		ArtINI.Get_String(Graphic_Name(), "SuperAnimThreeGarrisoned", "", key, 16); // RA2: the executable reads "SuperAnimThreeGarrisoned" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_SUPER_THREE].AnimGarrisoned, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_SUPER_THREE].AnimGarrisoned, key);
 		}
 		if (strlen(AnimData[BANIM_SUPER_THREE].AnimGarrisoned) == 0) { // RA2: the executable's form of this statement (0x459A00)
-			strcpy(AnimData[BANIM_SUPER_THREE].AnimGarrisoned, AnimData[BANIM_SUPER_THREE].Anim); // RA2: as above
+			strcpy(AnimData[BANIM_SUPER_THREE].AnimGarrisoned, AnimData[BANIM_SUPER_THREE].Anim);
 		}
 		if (strlen(AnimData[BANIM_SUPER_THREE].Anim) != 0 || strlen(AnimData[BANIM_SUPER_THREE].AnimDamaged) != 0 || strlen(AnimData[BANIM_SUPER_THREE].AnimGarrisoned) != 0) { // RA2: the executable's form of this statement (0x459A00)
-			AnimData[BANIM_SUPER_THREE].Location.X = ArtINI.Get_Int(Graphic_Name(), "SuperAnimThreeX", AnimData[BANIM_ACTIVE_THREE].Location.X); // RA2: as above
-			AnimData[BANIM_SUPER_THREE].Location.Y = ArtINI.Get_Int(Graphic_Name(), "SuperAnimThreeY", AnimData[BANIM_ACTIVE_THREE].Location.Y); // RA2: as above
-			AnimData[BANIM_SUPER_THREE].ZAdjust = ArtINI.Get_Int(Graphic_Name(), "SuperAnimThreeZAdjust", AnimData[BANIM_SUPER_THREE].ZAdjust); // RA2: as above
-			AnimData[BANIM_SUPER_THREE].YSort = ArtINI.Get_Int(Graphic_Name(), "SuperAnimThreeYSort", AnimData[BANIM_SUPER_THREE].YSort); // RA2: as above
-			AnimData[BANIM_SUPER_THREE].Powered = ArtINI.Get_Bool(Graphic_Name(), "SuperAnimThreePowered", AnimData[BANIM_SUPER_THREE].Powered); // RA2: as above
-			AnimData[BANIM_SUPER_THREE].PoweredLight = ArtINI.Get_Bool(Graphic_Name(), "SuperAnimThreePoweredLight", AnimData[BANIM_SUPER_THREE].PoweredLight); // RA2: as above
+			AnimData[BANIM_SUPER_THREE].Location.X = ArtINI.Get_Int(Graphic_Name(), "SuperAnimThreeX", AnimData[BANIM_ACTIVE_THREE].Location.X);
+			AnimData[BANIM_SUPER_THREE].Location.Y = ArtINI.Get_Int(Graphic_Name(), "SuperAnimThreeY", AnimData[BANIM_ACTIVE_THREE].Location.Y);
+			AnimData[BANIM_SUPER_THREE].ZAdjust = ArtINI.Get_Int(Graphic_Name(), "SuperAnimThreeZAdjust", AnimData[BANIM_SUPER_THREE].ZAdjust);
+			AnimData[BANIM_SUPER_THREE].YSort = ArtINI.Get_Int(Graphic_Name(), "SuperAnimThreeYSort", AnimData[BANIM_SUPER_THREE].YSort);
+			AnimData[BANIM_SUPER_THREE].Powered = ArtINI.Get_Bool(Graphic_Name(), "SuperAnimThreePowered", AnimData[BANIM_SUPER_THREE].Powered);
+			AnimData[BANIM_SUPER_THREE].PoweredLight = ArtINI.Get_Bool(Graphic_Name(), "SuperAnimThreePoweredLight", AnimData[BANIM_SUPER_THREE].PoweredLight);
 		}
 		ArtINI.Get_String(Graphic_Name(), "SuperAnimFour", "", key, 16); // RA2: the executable reads "SuperAnimFour" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_SUPER_FOUR].Anim, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_SUPER_FOUR].Anim, key);
 		}
 		ArtINI.Get_String(Graphic_Name(), "SuperAnimFourDamaged", "", key, 16); // RA2: the executable reads "SuperAnimFourDamaged" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_SUPER_FOUR].AnimDamaged, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_SUPER_FOUR].AnimDamaged, key);
 		}
 		if (strlen(AnimData[BANIM_SUPER_FOUR].AnimDamaged) == 0) { // RA2: the executable's form of this statement (0x459A00)
-			strcpy(AnimData[BANIM_SUPER_FOUR].AnimDamaged, AnimData[BANIM_SUPER_FOUR].Anim); // RA2: as above
+			strcpy(AnimData[BANIM_SUPER_FOUR].AnimDamaged, AnimData[BANIM_SUPER_FOUR].Anim);
 		}
 		ArtINI.Get_String(Graphic_Name(), "SuperAnimFourGarrisoned", "", key, 16); // RA2: the executable reads "SuperAnimFourGarrisoned" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_SUPER_FOUR].AnimGarrisoned, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_SUPER_FOUR].AnimGarrisoned, key);
 		}
 		if (strlen(AnimData[BANIM_SUPER_FOUR].AnimGarrisoned) == 0) { // RA2: the executable's form of this statement (0x459A00)
-			strcpy(AnimData[BANIM_SUPER_FOUR].AnimGarrisoned, AnimData[BANIM_SUPER_FOUR].Anim); // RA2: as above
+			strcpy(AnimData[BANIM_SUPER_FOUR].AnimGarrisoned, AnimData[BANIM_SUPER_FOUR].Anim);
 		}
 		if (strlen(AnimData[BANIM_SUPER_FOUR].Anim) != 0 || strlen(AnimData[BANIM_SUPER_FOUR].AnimDamaged) != 0 || strlen(AnimData[BANIM_SUPER_FOUR].AnimGarrisoned) != 0) { // RA2: the executable's form of this statement (0x459A00)
-			AnimData[BANIM_SUPER_FOUR].Location.X = ArtINI.Get_Int(Graphic_Name(), "SuperAnimFourX", AnimData[BANIM_ACTIVE_THREE].Location.X); // RA2: as above
-			AnimData[BANIM_SUPER_FOUR].Location.Y = ArtINI.Get_Int(Graphic_Name(), "SuperAnimFourY", AnimData[BANIM_ACTIVE_THREE].Location.Y); // RA2: as above
-			AnimData[BANIM_SUPER_FOUR].ZAdjust = ArtINI.Get_Int(Graphic_Name(), "SuperAnimFourZAdjust", AnimData[BANIM_SUPER_FOUR].ZAdjust); // RA2: as above
-			AnimData[BANIM_SUPER_FOUR].YSort = ArtINI.Get_Int(Graphic_Name(), "SuperAnimFourYSort", AnimData[BANIM_SUPER_FOUR].YSort); // RA2: as above
-			AnimData[BANIM_SUPER_FOUR].Powered = ArtINI.Get_Bool(Graphic_Name(), "SuperAnimFourPowered", AnimData[BANIM_SUPER_FOUR].Powered); // RA2: as above
-			AnimData[BANIM_SUPER_FOUR].PoweredLight = ArtINI.Get_Bool(Graphic_Name(), "SuperAnimFourPoweredLight", AnimData[BANIM_SUPER_FOUR].PoweredLight); // RA2: as above
+			AnimData[BANIM_SUPER_FOUR].Location.X = ArtINI.Get_Int(Graphic_Name(), "SuperAnimFourX", AnimData[BANIM_ACTIVE_THREE].Location.X);
+			AnimData[BANIM_SUPER_FOUR].Location.Y = ArtINI.Get_Int(Graphic_Name(), "SuperAnimFourY", AnimData[BANIM_ACTIVE_THREE].Location.Y);
+			AnimData[BANIM_SUPER_FOUR].ZAdjust = ArtINI.Get_Int(Graphic_Name(), "SuperAnimFourZAdjust", AnimData[BANIM_SUPER_FOUR].ZAdjust);
+			AnimData[BANIM_SUPER_FOUR].YSort = ArtINI.Get_Int(Graphic_Name(), "SuperAnimFourYSort", AnimData[BANIM_SUPER_FOUR].YSort);
+			AnimData[BANIM_SUPER_FOUR].Powered = ArtINI.Get_Bool(Graphic_Name(), "SuperAnimFourPowered", AnimData[BANIM_SUPER_FOUR].Powered);
+			AnimData[BANIM_SUPER_FOUR].PoweredLight = ArtINI.Get_Bool(Graphic_Name(), "SuperAnimFourPoweredLight", AnimData[BANIM_SUPER_FOUR].PoweredLight);
 		}
 		ArtINI.Get_String(Graphic_Name(), "SpecialAnim", "", key, 16); // RA2: the executable reads "SpecialAnim" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_SPECIAL_ONE].Anim, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_SPECIAL_ONE].Anim, key);
 		}
 		ArtINI.Get_String(Graphic_Name(), "SpecialAnimDamaged", "", key, 16); // RA2: the executable reads "SpecialAnimDamaged" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_SPECIAL_ONE].AnimDamaged, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_SPECIAL_ONE].AnimDamaged, key);
 		}
 		if (strlen(AnimData[BANIM_SPECIAL_ONE].AnimDamaged) == 0) { // RA2: the executable's form of this statement (0x459A00)
-			strcpy(AnimData[BANIM_SPECIAL_ONE].AnimDamaged, AnimData[BANIM_SPECIAL_ONE].Anim); // RA2: as above
+			strcpy(AnimData[BANIM_SPECIAL_ONE].AnimDamaged, AnimData[BANIM_SPECIAL_ONE].Anim);
 		}
 		ArtINI.Get_String(Graphic_Name(), "SpecialAnimGarrisoned", "", key, 16); // RA2: the executable reads "SpecialAnimGarrisoned" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_SPECIAL_ONE].AnimGarrisoned, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_SPECIAL_ONE].AnimGarrisoned, key);
 		}
 		if (strlen(AnimData[BANIM_SPECIAL_ONE].AnimGarrisoned) == 0) { // RA2: the executable's form of this statement (0x459A00)
-			strcpy(AnimData[BANIM_SPECIAL_ONE].AnimGarrisoned, AnimData[BANIM_SPECIAL_ONE].Anim); // RA2: as above
+			strcpy(AnimData[BANIM_SPECIAL_ONE].AnimGarrisoned, AnimData[BANIM_SPECIAL_ONE].Anim);
 		}
 		if (strlen(AnimData[BANIM_SPECIAL_ONE].Anim) != 0 || strlen(AnimData[BANIM_SPECIAL_ONE].AnimDamaged) != 0 || strlen(AnimData[BANIM_SPECIAL_ONE].AnimGarrisoned) != 0) { // RA2: the executable's form of this statement (0x459A00)
-			AnimData[BANIM_SPECIAL_ONE].Location.X = ArtINI.Get_Int(Graphic_Name(), "SpecialAnimX", AnimData[BANIM_SPECIAL_ONE].Location.X); // RA2: as above
-			AnimData[BANIM_SPECIAL_ONE].Location.Y = ArtINI.Get_Int(Graphic_Name(), "SpecialAnimY", AnimData[BANIM_SPECIAL_ONE].Location.Y); // RA2: as above
-			AnimData[BANIM_SPECIAL_ONE].ZAdjust = ArtINI.Get_Int(Graphic_Name(), "SpecialAnimZAdjust", AnimData[BANIM_SPECIAL_ONE].ZAdjust); // RA2: as above
-			AnimData[BANIM_SPECIAL_ONE].YSort = ArtINI.Get_Int(Graphic_Name(), "SpecialAnimYSort", AnimData[BANIM_SPECIAL_ONE].YSort); // RA2: as above
-			AnimData[BANIM_SPECIAL_ONE].Powered = ArtINI.Get_Bool(Graphic_Name(), "SpecialAnimPowered", AnimData[BANIM_SPECIAL_ONE].Powered); // RA2: as above
-			AnimData[BANIM_SPECIAL_ONE].PoweredLight = ArtINI.Get_Bool(Graphic_Name(), "SpecialAnimPoweredLight", AnimData[BANIM_SPECIAL_ONE].PoweredLight); // RA2: as above
+			AnimData[BANIM_SPECIAL_ONE].Location.X = ArtINI.Get_Int(Graphic_Name(), "SpecialAnimX", AnimData[BANIM_SPECIAL_ONE].Location.X);
+			AnimData[BANIM_SPECIAL_ONE].Location.Y = ArtINI.Get_Int(Graphic_Name(), "SpecialAnimY", AnimData[BANIM_SPECIAL_ONE].Location.Y);
+			AnimData[BANIM_SPECIAL_ONE].ZAdjust = ArtINI.Get_Int(Graphic_Name(), "SpecialAnimZAdjust", AnimData[BANIM_SPECIAL_ONE].ZAdjust);
+			AnimData[BANIM_SPECIAL_ONE].YSort = ArtINI.Get_Int(Graphic_Name(), "SpecialAnimYSort", AnimData[BANIM_SPECIAL_ONE].YSort);
+			AnimData[BANIM_SPECIAL_ONE].Powered = ArtINI.Get_Bool(Graphic_Name(), "SpecialAnimPowered", AnimData[BANIM_SPECIAL_ONE].Powered);
+			AnimData[BANIM_SPECIAL_ONE].PoweredLight = ArtINI.Get_Bool(Graphic_Name(), "SpecialAnimPoweredLight", AnimData[BANIM_SPECIAL_ONE].PoweredLight);
 		}
 		ArtINI.Get_String(Graphic_Name(), "SpecialAnimTwo", "", key, 16); // RA2: the executable reads "SpecialAnimTwo" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_SPECIAL_TWO].Anim, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_SPECIAL_TWO].Anim, key);
 		}
 		ArtINI.Get_String(Graphic_Name(), "SpecialAnimTwoDamaged", "", key, 16); // RA2: the executable reads "SpecialAnimTwoDamaged" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_SPECIAL_TWO].AnimDamaged, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_SPECIAL_TWO].AnimDamaged, key);
 		}
 		if (strlen(AnimData[BANIM_SPECIAL_TWO].AnimDamaged) == 0) { // RA2: the executable's form of this statement (0x459A00)
 			strcpy(AnimData[BANIM_SPECIAL_TWO].AnimDamaged, AnimData[BANIM_SPECIAL_TWO].Anim); // RA2: the damaged name defaults to the plain one
 		}
 		ArtINI.Get_String(Graphic_Name(), "SpecialAnimTwoGarrisoned", "", key, 16); // RA2: the executable reads "SpecialAnimTwoGarrisoned" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_SPECIAL_TWO].AnimGarrisoned, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_SPECIAL_TWO].AnimGarrisoned, key);
 		}
 		if (strlen(AnimData[BANIM_SPECIAL_TWO].AnimGarrisoned) == 0) { // RA2: the executable's form of this statement (0x459A00)
-			strcpy(AnimData[BANIM_SPECIAL_TWO].AnimGarrisoned, AnimData[BANIM_SPECIAL_TWO].Anim); // RA2: as above
+			strcpy(AnimData[BANIM_SPECIAL_TWO].AnimGarrisoned, AnimData[BANIM_SPECIAL_TWO].Anim);
 		}
 		if (strlen(AnimData[BANIM_SPECIAL_TWO].Anim) != 0 || strlen(AnimData[BANIM_SPECIAL_TWO].AnimDamaged) != 0 || strlen(AnimData[BANIM_SPECIAL_TWO].AnimGarrisoned) != 0) { // RA2: the executable's form of this statement (0x459A00)
-			AnimData[BANIM_SPECIAL_TWO].Location.X = ArtINI.Get_Int(Graphic_Name(), "SpecialAnimTwoX", AnimData[BANIM_SPECIAL_TWO].Location.X); // RA2: as above
-			AnimData[BANIM_SPECIAL_TWO].Location.Y = ArtINI.Get_Int(Graphic_Name(), "SpecialAnimTwoY", AnimData[BANIM_SPECIAL_TWO].Location.Y); // RA2: as above
-			AnimData[BANIM_SPECIAL_TWO].ZAdjust = ArtINI.Get_Int(Graphic_Name(), "SpecialAnimTwoZAdjust", AnimData[BANIM_SPECIAL_TWO].ZAdjust); // RA2: as above
-			AnimData[BANIM_SPECIAL_TWO].YSort = ArtINI.Get_Int(Graphic_Name(), "SpecialAnimTwoYSort", AnimData[BANIM_SPECIAL_TWO].YSort); // RA2: as above
-			AnimData[BANIM_SPECIAL_TWO].Powered = ArtINI.Get_Bool(Graphic_Name(), "SpecialAnimTwoPowered", AnimData[BANIM_SPECIAL_TWO].Powered); // RA2: as above
-			AnimData[BANIM_SPECIAL_TWO].PoweredLight = ArtINI.Get_Bool(Graphic_Name(), "SpecialAnimTwoPoweredLight", AnimData[BANIM_SPECIAL_TWO].PoweredLight); // RA2: as above
+			AnimData[BANIM_SPECIAL_TWO].Location.X = ArtINI.Get_Int(Graphic_Name(), "SpecialAnimTwoX", AnimData[BANIM_SPECIAL_TWO].Location.X);
+			AnimData[BANIM_SPECIAL_TWO].Location.Y = ArtINI.Get_Int(Graphic_Name(), "SpecialAnimTwoY", AnimData[BANIM_SPECIAL_TWO].Location.Y);
+			AnimData[BANIM_SPECIAL_TWO].ZAdjust = ArtINI.Get_Int(Graphic_Name(), "SpecialAnimTwoZAdjust", AnimData[BANIM_SPECIAL_TWO].ZAdjust);
+			AnimData[BANIM_SPECIAL_TWO].YSort = ArtINI.Get_Int(Graphic_Name(), "SpecialAnimTwoYSort", AnimData[BANIM_SPECIAL_TWO].YSort);
+			AnimData[BANIM_SPECIAL_TWO].Powered = ArtINI.Get_Bool(Graphic_Name(), "SpecialAnimTwoPowered", AnimData[BANIM_SPECIAL_TWO].Powered);
+			AnimData[BANIM_SPECIAL_TWO].PoweredLight = ArtINI.Get_Bool(Graphic_Name(), "SpecialAnimTwoPoweredLight", AnimData[BANIM_SPECIAL_TWO].PoweredLight);
 		}
 		ArtINI.Get_String(Graphic_Name(), "SpecialAnimThree", "", key, 16); // RA2: the executable reads "SpecialAnimThree" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_SPECIAL_THREE].Anim, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_SPECIAL_THREE].Anim, key);
 		}
 		ArtINI.Get_String(Graphic_Name(), "SpecialAnimThreeDamaged", "", key, 16); // RA2: the executable reads "SpecialAnimThreeDamaged" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_SPECIAL_THREE].AnimDamaged, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_SPECIAL_THREE].AnimDamaged, key);
 		}
 		if (strlen(AnimData[BANIM_SPECIAL_THREE].AnimDamaged) == 0) { // RA2: the executable's form of this statement (0x459A00)
 			strcpy(AnimData[BANIM_SPECIAL_THREE].AnimDamaged, AnimData[BANIM_SPECIAL_THREE].Anim); // RA2: the damaged name defaults to the plain one
 		}
 		ArtINI.Get_String(Graphic_Name(), "SpecialAnimThreeGarrisoned", "", key, 16); // RA2: the executable reads "SpecialAnimThreeGarrisoned" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_SPECIAL_THREE].AnimGarrisoned, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_SPECIAL_THREE].AnimGarrisoned, key);
 		}
 		if (strlen(AnimData[BANIM_SPECIAL_THREE].AnimGarrisoned) == 0) { // RA2: the executable's form of this statement (0x459A00)
-			strcpy(AnimData[BANIM_SPECIAL_THREE].AnimGarrisoned, AnimData[BANIM_SPECIAL_THREE].Anim); // RA2: as above
+			strcpy(AnimData[BANIM_SPECIAL_THREE].AnimGarrisoned, AnimData[BANIM_SPECIAL_THREE].Anim);
 		}
 		if (strlen(AnimData[BANIM_SPECIAL_THREE].Anim) != 0 || strlen(AnimData[BANIM_SPECIAL_THREE].AnimDamaged) != 0 || strlen(AnimData[BANIM_SPECIAL_THREE].AnimGarrisoned) != 0) { // RA2: the executable's form of this statement (0x459A00)
-			AnimData[BANIM_SPECIAL_THREE].Location.X = ArtINI.Get_Int(Graphic_Name(), "SpecialAnimThreeX", AnimData[BANIM_SPECIAL_THREE].Location.X); // RA2: as above
-			AnimData[BANIM_SPECIAL_THREE].Location.Y = ArtINI.Get_Int(Graphic_Name(), "SpecialAnimThreeY", AnimData[BANIM_SPECIAL_THREE].Location.Y); // RA2: as above
-			AnimData[BANIM_SPECIAL_THREE].ZAdjust = ArtINI.Get_Int(Graphic_Name(), "SpecialAnimThreeZAdjust", AnimData[BANIM_SPECIAL_THREE].ZAdjust); // RA2: as above
-			AnimData[BANIM_SPECIAL_THREE].YSort = ArtINI.Get_Int(Graphic_Name(), "SpecialAnimThreeYSort", AnimData[BANIM_SPECIAL_THREE].YSort); // RA2: as above
-			AnimData[BANIM_SPECIAL_THREE].Powered = ArtINI.Get_Bool(Graphic_Name(), "SpecialAnimThreePowered", AnimData[BANIM_SPECIAL_THREE].Powered); // RA2: as above
-			AnimData[BANIM_SPECIAL_THREE].PoweredLight = ArtINI.Get_Bool(Graphic_Name(), "SpecialAnimThreePoweredLight", AnimData[BANIM_SPECIAL_THREE].PoweredLight); // RA2: as above
+			AnimData[BANIM_SPECIAL_THREE].Location.X = ArtINI.Get_Int(Graphic_Name(), "SpecialAnimThreeX", AnimData[BANIM_SPECIAL_THREE].Location.X);
+			AnimData[BANIM_SPECIAL_THREE].Location.Y = ArtINI.Get_Int(Graphic_Name(), "SpecialAnimThreeY", AnimData[BANIM_SPECIAL_THREE].Location.Y);
+			AnimData[BANIM_SPECIAL_THREE].ZAdjust = ArtINI.Get_Int(Graphic_Name(), "SpecialAnimThreeZAdjust", AnimData[BANIM_SPECIAL_THREE].ZAdjust);
+			AnimData[BANIM_SPECIAL_THREE].YSort = ArtINI.Get_Int(Graphic_Name(), "SpecialAnimThreeYSort", AnimData[BANIM_SPECIAL_THREE].YSort);
+			AnimData[BANIM_SPECIAL_THREE].Powered = ArtINI.Get_Bool(Graphic_Name(), "SpecialAnimThreePowered", AnimData[BANIM_SPECIAL_THREE].Powered);
+			AnimData[BANIM_SPECIAL_THREE].PoweredLight = ArtINI.Get_Bool(Graphic_Name(), "SpecialAnimThreePoweredLight", AnimData[BANIM_SPECIAL_THREE].PoweredLight);
 		}
 		ArtINI.Get_String(Graphic_Name(), "ProductionAnim", "", key, 16); // RA2: the executable reads "ProductionAnim" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_PRODUCTION].Anim, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_PRODUCTION].Anim, key);
 		}
 		ArtINI.Get_String(Graphic_Name(), "ProductionAnimDamaged", "", key, 16); // RA2: the executable reads "ProductionAnimDamaged" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_PRODUCTION].AnimDamaged, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_PRODUCTION].AnimDamaged, key);
 		}
 		if (strlen(AnimData[BANIM_PRODUCTION].AnimDamaged) == 0) { // RA2: the executable's form of this statement (0x459A00)
 			strcpy(AnimData[BANIM_PRODUCTION].AnimDamaged, AnimData[BANIM_PRODUCTION].Anim); // RA2: the damaged name defaults to the plain one
 		}
 		ArtINI.Get_String(Graphic_Name(), "ProductionAnimGarrisoned", "", key, 16); // RA2: the executable reads "ProductionAnimGarrisoned" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_PRODUCTION].AnimGarrisoned, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_PRODUCTION].AnimGarrisoned, key);
 		}
 		if (strlen(AnimData[BANIM_PRODUCTION].AnimGarrisoned) == 0) { // RA2: the executable's form of this statement (0x459A00)
-			strcpy(AnimData[BANIM_PRODUCTION].AnimGarrisoned, AnimData[BANIM_PRODUCTION].Anim); // RA2: as above
+			strcpy(AnimData[BANIM_PRODUCTION].AnimGarrisoned, AnimData[BANIM_PRODUCTION].Anim);
 		}
 		if (strlen(AnimData[BANIM_PRODUCTION].Anim) != 0 || strlen(AnimData[BANIM_PRODUCTION].AnimDamaged) != 0 || strlen(AnimData[BANIM_PRODUCTION].AnimGarrisoned) != 0) { // RA2: the executable's form of this statement (0x459A00)
-			AnimData[BANIM_PRODUCTION].Location.X = ArtINI.Get_Int(Graphic_Name(), "ProductionAnimX", AnimData[BANIM_PRODUCTION].Location.X); // RA2: as above
-			AnimData[BANIM_PRODUCTION].Location.Y = ArtINI.Get_Int(Graphic_Name(), "ProductionAnimY", AnimData[BANIM_PRODUCTION].Location.Y); // RA2: as above
-			AnimData[BANIM_PRODUCTION].ZAdjust = ArtINI.Get_Int(Graphic_Name(), "ProductionAnimZAdjust", AnimData[BANIM_PRODUCTION].ZAdjust); // RA2: as above
-			AnimData[BANIM_PRODUCTION].YSort = ArtINI.Get_Int(Graphic_Name(), "ProductionAnimYSort", AnimData[BANIM_PRODUCTION].YSort); // RA2: as above
+			AnimData[BANIM_PRODUCTION].Location.X = ArtINI.Get_Int(Graphic_Name(), "ProductionAnimX", AnimData[BANIM_PRODUCTION].Location.X);
+			AnimData[BANIM_PRODUCTION].Location.Y = ArtINI.Get_Int(Graphic_Name(), "ProductionAnimY", AnimData[BANIM_PRODUCTION].Location.Y);
+			AnimData[BANIM_PRODUCTION].ZAdjust = ArtINI.Get_Int(Graphic_Name(), "ProductionAnimZAdjust", AnimData[BANIM_PRODUCTION].ZAdjust);
+			AnimData[BANIM_PRODUCTION].YSort = ArtINI.Get_Int(Graphic_Name(), "ProductionAnimYSort", AnimData[BANIM_PRODUCTION].YSort);
 		}
 		ArtINI.Get_String(Graphic_Name(), "IdleAnim", "", key, 16); // RA2: the executable reads "IdleAnim" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_IDLE].Anim, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_IDLE].Anim, key);
 		}
 		ArtINI.Get_String(Graphic_Name(), "IdleAnimDamaged", "", key, 16); // RA2: the executable reads "IdleAnimDamaged" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_IDLE].AnimDamaged, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_IDLE].AnimDamaged, key);
 		}
 		if (strlen(AnimData[BANIM_IDLE].AnimDamaged) == 0) { // RA2: the executable's form of this statement (0x459A00)
-			strcpy(AnimData[BANIM_IDLE].AnimDamaged, AnimData[BANIM_IDLE].Anim); // RA2: as above
+			strcpy(AnimData[BANIM_IDLE].AnimDamaged, AnimData[BANIM_IDLE].Anim);
 		}
 		ArtINI.Get_String(Graphic_Name(), "IdleAnimGarrisoned", "", key, 16); // RA2: the executable reads "IdleAnimGarrisoned" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_IDLE].AnimGarrisoned, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_IDLE].AnimGarrisoned, key);
 		}
 		if (strlen(AnimData[BANIM_IDLE].AnimGarrisoned) == 0) { // RA2: the executable's form of this statement (0x459A00)
-			strcpy(AnimData[BANIM_IDLE].AnimGarrisoned, AnimData[BANIM_IDLE].Anim); // RA2: as above
+			strcpy(AnimData[BANIM_IDLE].AnimGarrisoned, AnimData[BANIM_IDLE].Anim);
 		}
 		if (strlen(AnimData[BANIM_IDLE].Anim) != 0 || strlen(AnimData[BANIM_IDLE].AnimDamaged) != 0 || strlen(AnimData[BANIM_IDLE].AnimGarrisoned) != 0) { // RA2: the executable's form of this statement (0x459A00)
-			AnimData[BANIM_IDLE].Location.X = ArtINI.Get_Int(Graphic_Name(), "IdleAnimX", AnimData[BANIM_IDLE].Location.X); // RA2: as above
-			AnimData[BANIM_IDLE].Location.Y = ArtINI.Get_Int(Graphic_Name(), "IdleAnimY", AnimData[BANIM_IDLE].Location.Y); // RA2: as above
-			AnimData[BANIM_IDLE].ZAdjust = ArtINI.Get_Int(Graphic_Name(), "IdleAnimZAdjust", AnimData[BANIM_IDLE].ZAdjust); // RA2: as above
-			AnimData[BANIM_IDLE].YSort = ArtINI.Get_Int(Graphic_Name(), "IdleAnimYSort", AnimData[BANIM_IDLE].YSort); // RA2: as above
+			AnimData[BANIM_IDLE].Location.X = ArtINI.Get_Int(Graphic_Name(), "IdleAnimX", AnimData[BANIM_IDLE].Location.X);
+			AnimData[BANIM_IDLE].Location.Y = ArtINI.Get_Int(Graphic_Name(), "IdleAnimY", AnimData[BANIM_IDLE].Location.Y);
+			AnimData[BANIM_IDLE].ZAdjust = ArtINI.Get_Int(Graphic_Name(), "IdleAnimZAdjust", AnimData[BANIM_IDLE].ZAdjust);
+			AnimData[BANIM_IDLE].YSort = ArtINI.Get_Int(Graphic_Name(), "IdleAnimYSort", AnimData[BANIM_IDLE].YSort);
 		}
 		ArtINI.Get_String(Graphic_Name(), "PreProductionAnim", "", key, 16); // RA2: the executable reads "PreProductionAnim" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_PRE_PRODUCTION].Anim, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_PRE_PRODUCTION].Anim, key);
 		}
 		ArtINI.Get_String(Graphic_Name(), "PreProductionAnimDamaged", "", key, 16); // RA2: the executable reads "PreProductionAnimDamaged" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_PRE_PRODUCTION].AnimDamaged, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_PRE_PRODUCTION].AnimDamaged, key);
 		}
 		if (strlen(AnimData[BANIM_PRE_PRODUCTION].AnimDamaged) == 0) { // RA2: the executable's form of this statement (0x459A00)
 			strcpy(AnimData[BANIM_PRE_PRODUCTION].AnimDamaged, AnimData[BANIM_PRE_PRODUCTION].Anim); // RA2: the damaged name defaults to the plain one
 		}
 		ArtINI.Get_String(Graphic_Name(), "PreProductionAnimGarrisoned", "", key, 16); // RA2: the executable reads "PreProductionAnimGarrisoned" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_PRE_PRODUCTION].AnimGarrisoned, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_PRE_PRODUCTION].AnimGarrisoned, key);
 		}
 		if (strlen(AnimData[BANIM_PRE_PRODUCTION].AnimGarrisoned) == 0) { // RA2: the executable's form of this statement (0x459A00)
-			strcpy(AnimData[BANIM_PRE_PRODUCTION].AnimGarrisoned, AnimData[BANIM_PRE_PRODUCTION].Anim); // RA2: as above
+			strcpy(AnimData[BANIM_PRE_PRODUCTION].AnimGarrisoned, AnimData[BANIM_PRE_PRODUCTION].Anim);
 		}
 		if (strlen(AnimData[BANIM_PRE_PRODUCTION].Anim) != 0 || strlen(AnimData[BANIM_PRE_PRODUCTION].AnimDamaged) != 0 || strlen(AnimData[BANIM_PRE_PRODUCTION].AnimGarrisoned) != 0) { // RA2: the executable's form of this statement (0x459A00)
-			AnimData[BANIM_PRE_PRODUCTION].Location.X = ArtINI.Get_Int(Graphic_Name(), "PreProductionAnimX", AnimData[BANIM_PRE_PRODUCTION].Location.X); // RA2: as above
-			AnimData[BANIM_PRE_PRODUCTION].Location.Y = ArtINI.Get_Int(Graphic_Name(), "PreProductionAnimY", AnimData[BANIM_PRE_PRODUCTION].Location.Y); // RA2: as above
-			AnimData[BANIM_PRE_PRODUCTION].ZAdjust = ArtINI.Get_Int(Graphic_Name(), "PreProductionAnimZAdjust", AnimData[BANIM_PRE_PRODUCTION].ZAdjust); // RA2: as above
-			AnimData[BANIM_PRE_PRODUCTION].YSort = ArtINI.Get_Int(Graphic_Name(), "PreProductionAnimYSort", AnimData[BANIM_PRE_PRODUCTION].YSort); // RA2: as above
+			AnimData[BANIM_PRE_PRODUCTION].Location.X = ArtINI.Get_Int(Graphic_Name(), "PreProductionAnimX", AnimData[BANIM_PRE_PRODUCTION].Location.X);
+			AnimData[BANIM_PRE_PRODUCTION].Location.Y = ArtINI.Get_Int(Graphic_Name(), "PreProductionAnimY", AnimData[BANIM_PRE_PRODUCTION].Location.Y);
+			AnimData[BANIM_PRE_PRODUCTION].ZAdjust = ArtINI.Get_Int(Graphic_Name(), "PreProductionAnimZAdjust", AnimData[BANIM_PRE_PRODUCTION].ZAdjust);
+			AnimData[BANIM_PRE_PRODUCTION].YSort = ArtINI.Get_Int(Graphic_Name(), "PreProductionAnimYSort", AnimData[BANIM_PRE_PRODUCTION].YSort);
 		}
 		ini.Get_String(Name(), "TurretAnim", "", key, 16); // RA2: the executable reads "TurretAnim" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_TURRET].Anim, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_TURRET].Anim, key);
 		}
 		ini.Get_String(Name(), "TurretAnimDamaged", "", key, 16); // RA2: the executable reads "TurretAnimDamaged" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_TURRET].AnimDamaged, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_TURRET].AnimDamaged, key);
 		}
 		if (strlen(AnimData[BANIM_TURRET].AnimDamaged) == 0) { // RA2: the executable's form of this statement (0x459A00)
 			strcpy(AnimData[BANIM_TURRET].AnimDamaged, AnimData[BANIM_TURRET].Anim); // RA2: the damaged name defaults to the plain one
 		}
 		ini.Get_String(Graphic_Name(), "TurretAnimGarrisoned", "", key, 16); // RA2: the executable reads "TurretAnimGarrisoned" at this point of 0x459A00
-		if (strlen(key) != 0) { // RA2: as above
-			strcpy(AnimData[BANIM_TURRET].AnimGarrisoned, key); // RA2: as above
+		if (strlen(key) != 0) {
+			strcpy(AnimData[BANIM_TURRET].AnimGarrisoned, key);
 		}
 		if (strlen(AnimData[BANIM_TURRET].AnimGarrisoned) == 0) { // RA2: the executable's form of this statement (0x459A00)
-			strcpy(AnimData[BANIM_TURRET].AnimGarrisoned, AnimData[BANIM_TURRET].Anim); // RA2: as above
+			strcpy(AnimData[BANIM_TURRET].AnimGarrisoned, AnimData[BANIM_TURRET].Anim);
 		}
 		AnimData[BANIM_TURRET].Location.X = ini.Get_Int(Name(), "TurretAnimX", AnimData[BANIM_TURRET].Location.X);
 		AnimData[BANIM_TURRET].Location.Y = ini.Get_Int(Name(), "TurretAnimY", AnimData[BANIM_TURRET].Location.Y);
@@ -2002,45 +2002,45 @@ bool BuildingTypeClass::Read_INI(CCINIClass const & ini)
 		IsBarrelAnimAVoxel = ini.Get_Bool(Name(), "BarrelAnimIsVoxel", IsBarrelAnimAVoxel); // RA2: read after TurretAnimIsVoxel, not at the head of the function
 		ini.Get_String(Name(), "VoxelBarrelFile", VoxelBarrelFile, VoxelBarrelFile, 16); // RA2: the executable reads "VoxelBarrelFile" at this point of 0x459A00
 		VoxelBarrelOffsetToPitchPivotPoint = ini.Get_Point(Name(), "VoxelBarrelOffsetToPitchPivotPoint", VoxelBarrelOffsetToPitchPivotPoint); // RA2: the voxel barrel offsets are read after the animation slots
-		VoxelBarrelOffsetToRotatePivotPoint = ini.Get_Point(Name(), "VoxelBarrelOffsetToRotatePivotPoint", VoxelBarrelOffsetToRotatePivotPoint); // RA2: as above
-		VoxelBarrelOffsetToBuildingPivotPoint = ini.Get_Point(Name(), "VoxelBarrelOffsetToBuildingPivotPoint", VoxelBarrelOffsetToBuildingPivotPoint); // RA2: as above
-		VoxelBarrelOffsetToBarrelEnd = ini.Get_Point(Name(), "VoxelBarrelOffsetToBarrelEnd", VoxelBarrelOffsetToBarrelEnd); // RA2: as above
+		VoxelBarrelOffsetToRotatePivotPoint = ini.Get_Point(Name(), "VoxelBarrelOffsetToRotatePivotPoint", VoxelBarrelOffsetToRotatePivotPoint);
+		VoxelBarrelOffsetToBuildingPivotPoint = ini.Get_Point(Name(), "VoxelBarrelOffsetToBuildingPivotPoint", VoxelBarrelOffsetToBuildingPivotPoint);
+		VoxelBarrelOffsetToBarrelEnd = ini.Get_Point(Name(), "VoxelBarrelOffsetToBarrelEnd", VoxelBarrelOffsetToBarrelEnd);
 		Upgrades = ini.Get_Int(Name(), "Upgrades", Upgrades);
 		if (Upgrades > 0) { // RA2: the executable's form of this statement (0x459A00)
-			for (index = 0; index < Upgrades; index++) { // RA2: as above
-				sprintf(anim_key, "PowerUp%01dAnim", index + 1); // RA2: as above
-				sprintf(damaged_key, "PowerUp%01dDamagedAnim", index + 1); // RA2: as above
-				sprintf(x_key, "PowerUp%01dLocXX", index + 1); // RA2: as above
-				sprintf(y_key, "PowerUp%01dLocYY", index + 1); // RA2: as above
-				sprintf(z_key, "PowerUp%01dLocZZ", index + 1); // RA2: as above
-				sprintf(ysort_key, "PowerUp%01dYSort", index + 1); // RA2: as above
-				ArtINI.Get_String(Graphic_Name(), anim_key, "", key, 16); // RA2: as above
-				if (strlen(key) != 0) { // RA2: as above
-					strcpy(AnimData[index].Anim, key); // RA2: as above
+			for (index = 0; index < Upgrades; index++) {
+				sprintf(anim_key, "PowerUp%01dAnim", index + 1);
+				sprintf(damaged_key, "PowerUp%01dDamagedAnim", index + 1);
+				sprintf(x_key, "PowerUp%01dLocXX", index + 1);
+				sprintf(y_key, "PowerUp%01dLocYY", index + 1);
+				sprintf(z_key, "PowerUp%01dLocZZ", index + 1);
+				sprintf(ysort_key, "PowerUp%01dYSort", index + 1);
+				ArtINI.Get_String(Graphic_Name(), anim_key, "", key, 16);
+				if (strlen(key) != 0) {
+					strcpy(AnimData[index].Anim, key);
 				}
 				ArtINI.Get_String(Graphic_Name(), damaged_key, "", key, 16); // RA2: the executable's form of this statement (0x459A00)
-				if (strlen(key) != 0) { // RA2: as above
-					strcpy(AnimData[index].AnimDamaged, key); // RA2: as above
+				if (strlen(key) != 0) {
+					strcpy(AnimData[index].AnimDamaged, key);
 				}
 				AnimData[index].Location.X = ArtINI.Get_Int(Graphic_Name(), x_key, AnimData[index].Location.X); // RA2: the executable's form of this statement (0x459A00)
-				AnimData[index].Location.Y = ArtINI.Get_Int(Graphic_Name(), y_key, AnimData[index].Location.Y); // RA2: as above
-				AnimData[index].ZAdjust = ArtINI.Get_Int(Graphic_Name(), z_key, AnimData[index].ZAdjust); // RA2: as above
-				AnimData[index].YSort = ArtINI.Get_Int(Graphic_Name(), ysort_key, AnimData[index].YSort); // RA2: as above
+				AnimData[index].Location.Y = ArtINI.Get_Int(Graphic_Name(), y_key, AnimData[index].Location.Y);
+				AnimData[index].ZAdjust = ArtINI.Get_Int(Graphic_Name(), z_key, AnimData[index].ZAdjust);
+				AnimData[index].YSort = ArtINI.Get_Int(Graphic_Name(), ysort_key, AnimData[index].YSort);
 			}
 		}
 		int docks = NumberOfDocks; // RA2: the executable's form of this statement (0x459A00)
-		NumberOfDocks = ini.Get_Int(Name(), "NumberOfDocks", docks); // RA2: as above
-		if (NumberOfDocks > DockingOffsets.Length()) { // RA2: as above
-			DockingOffsets.Resize(NumberOfDocks); // RA2: as above
-			for (index = docks; index < NumberOfDocks; index++) { // RA2: as above
-				DockingOffsets[index] = Point3D(0, 0, 0); // RA2: as above
+		NumberOfDocks = ini.Get_Int(Name(), "NumberOfDocks", docks);
+		if (NumberOfDocks > DockingOffsets.Length()) {
+			DockingOffsets.Resize(NumberOfDocks);
+			for (index = docks; index < NumberOfDocks; index++) {
+				DockingOffsets[index] = Point3D(0, 0, 0);
 			}
 		}
 		for (index = 0; index < NumberOfDocks; index++) { // RA2: the executable's form of this statement (0x459A00)
-			sprintf(dock_key, "DockingOffset%d", index); // RA2: as above
-			Point3D offset = DockingOffsets[index]; // RA2: as above
-			offset = ArtINI.Get_Point(Graphic_Name(), dock_key, offset); // RA2: as above
-			DockingOffsets[index] = offset; // RA2: as above
+			sprintf(dock_key, "DockingOffset%d", index);
+			Point3D offset = DockingOffsets[index];
+			offset = ArtINI.Get_Point(Graphic_Name(), dock_key, offset);
+			DockingOffsets[index] = offset;
 		}
 		return(true);
 	}
@@ -2124,14 +2124,14 @@ void BuildingTypeClass::Compute_CRC(CRCEngine & crc) const
 	crc(ToBuild);
 	crc(Power);
 	crc(Drain);
-	crc(ExtraPower); // RA2: as above
-	crc(ExtraDrain); // RA2: as above
+	crc(ExtraPower);
+	crc(ExtraDrain);
 	crc(Size);
 	crc(ZHeight);
-	crc(OccupyHeight); // RA2: as above
+	crc(OccupyHeight);
 	crc(MidPoint);
 	crc(DoorStages);
-	crc(&Anims, 72); // RA2: as above
+	crc(&Anims, 72);
 	crc(&AnimData, sizeof(AnimData));
 	crc(Upgrades);
 	crc(SpecialZOverlayZAdjust);
@@ -2140,22 +2140,22 @@ void BuildingTypeClass::Compute_CRC(CRCEngine & crc) const
 	crc(IsTemple);
 	crc(HasSpotlight);
 	crc(IsBase);
-	crc(EligibleForAllyBuilding); // RA2: as above
-	crc(NeedsEngineer); // RA2: as above
+	crc(EligibleForAllyBuilding);
+	crc(NeedsEngineer);
 	crc(IsBibbed);
 	crc(IsWall);
 	crc(IsCaptureable);
 	crc(IsPowered);
 	crc(IsUnsellable);
 	crc(IsRadar);
-	crc(SpySat); // RA2: as above
+	crc(SpySat);
 	crc(IsHasChargeAnim);
-	crc(IsAnimDelayedFire); // RA2: as above
-	crc(DelayedFireDelay); // RA2: as above
+	crc(IsAnimDelayedFire);
+	crc(DelayedFireDelay);
 	crc(IsSiloDamage);
 	crc(IsCanUnitRepair);
 	crc(IsCanUnitReload);
-	crc(Cloning); // RA2: as above
+	crc(Cloning);
 	crc(IsFlat);
 	crc(IsDockUnload);
 	crc(IsRecoilless);
@@ -2170,7 +2170,7 @@ void BuildingTypeClass::Compute_CRC(CRCEngine & crc) const
 	crc(IsLaserFence);
 	crc(IsFirestormWall);
 	crc(IsHelipad);
-	crc(OrePurifier); // RA2: as above
+	crc(OrePurifier);
 	crc(IsExtraDamageStage);
 	crc(IsHospital);
 	crc(IsArmory);
@@ -2180,19 +2180,19 @@ void BuildingTypeClass::Compute_CRC(CRCEngine & crc) const
 	crc(IsInvisibleInGame);
 	crc(IsTerrainPalette);
 	crc(IsTurretAnimAVoxel);
-	crc(IsBarrelAnimAVoxel); // RA2: as above
-	crc((char const *)VoxelBarrelFile); // RA2: as above
-	crc(VoxelBarrelScale); // RA2: as above
-	crc(&VoxelBarrelOffsetToPitchPivotPoint, 12); // RA2: as above
-	crc(&VoxelBarrelOffsetToRotatePivotPoint, 12); // RA2: as above
-	crc(&VoxelBarrelOffsetToBuildingPivotPoint, 12); // RA2: as above
-	crc(&VoxelBarrelOffsetToBarrelEnd, 12); // RA2: as above
-	crc(CrateBeneath); // RA2: as above
-	crc(LeaveRubble); // RA2: as above
-	crc(CrateBeneathIsMoney); // RA2: as above
-	crc(NumberOfDocks); // RA2: as above
-	crc(StartPitch); // RA2: as above
-	crc(ConcentricRadialIndicator); // RA2: as above
+	crc(IsBarrelAnimAVoxel);
+	crc((char const *)VoxelBarrelFile);
+	crc(VoxelBarrelScale);
+	crc(&VoxelBarrelOffsetToPitchPivotPoint, 12);
+	crc(&VoxelBarrelOffsetToRotatePivotPoint, 12);
+	crc(&VoxelBarrelOffsetToBuildingPivotPoint, 12);
+	crc(&VoxelBarrelOffsetToBarrelEnd, 12);
+	crc(CrateBeneath);
+	crc(LeaveRubble);
+	crc(CrateBeneathIsMoney);
+	crc(NumberOfDocks);
+	crc(StartPitch);
+	crc(ConcentricRadialIndicator);
 }
 
 
@@ -2205,60 +2205,60 @@ void BuildingTypeClass::Compute_CRC(CRCEngine & crc) const
 /// <returns>Returns with S_OK if the object was read.</returns>
 HRESULT STDMETHODCALLTYPE BuildingTypeClass::Load(IStream * stream) // RA2: Load at 0x45DD90 matches only so
 {
-	if (IsFreeBuildup && BuildupData != NULL) { // RA2: as above
-		delete (ShapeSet *)BuildupData; // RA2: as above
-		BuildupData = NULL; // RA2: as above
-		BuildupLoaded = false; // RA2: as above
+	if (IsFreeBuildup && BuildupData != NULL) {
+		delete (ShapeSet *)BuildupData;
+		BuildupData = NULL;
+		BuildupLoaded = false;
 	}
-	if (BibShapeLoaded && BibShape != NULL) { // RA2: as above
-		delete (ShapeSet *)BibShape; // RA2: as above
-		BibShape = NULL; // RA2: as above
-		BibShapeLoaded = false; // RA2: as above
+	if (BibShapeLoaded && BibShape != NULL) {
+		delete (ShapeSet *)BibShape;
+		BibShape = NULL;
+		BibShapeLoaded = false;
 	}
-	if (DeployingAnimLoaded && DeployingAnim != NULL) { // RA2: as above
-		delete (ShapeSet *)DeployingAnim; // RA2: as above
-		DeployingAnim = NULL; // RA2: as above
-		DeployingAnimLoaded = false; // RA2: as above
+	if (DeployingAnimLoaded && DeployingAnim != NULL) {
+		delete (ShapeSet *)DeployingAnim;
+		DeployingAnim = NULL;
+		DeployingAnimLoaded = false;
 	}
-	if (UnderDoorAnimLoaded && UnderDoorAnim != NULL) { // RA2: as above
-		delete (ShapeSet *)UnderDoorAnim; // RA2: as above
-		UnderDoorAnim = NULL; // RA2: as above
-		UnderDoorAnimLoaded = false; // RA2: as above
+	if (UnderDoorAnimLoaded && UnderDoorAnim != NULL) {
+		delete (ShapeSet *)UnderDoorAnim;
+		UnderDoorAnim = NULL;
+		UnderDoorAnimLoaded = false;
 	}
-	if (RoofDeployingAnimLoaded && RoofDeployingAnim != NULL) { // RA2: as above
-		delete (ShapeSet *)RoofDeployingAnim; // RA2: as above
-		RoofDeployingAnim = NULL; // RA2: as above
-		RoofDeployingAnimLoaded = false; // RA2: as above
+	if (RoofDeployingAnimLoaded && RoofDeployingAnim != NULL) {
+		delete (ShapeSet *)RoofDeployingAnim;
+		RoofDeployingAnim = NULL;
+		RoofDeployingAnimLoaded = false;
 	}
-	if (UnderRoofDoorAnimLoaded && UnderRoofDoorAnim != NULL) { // RA2: as above
-		delete (ShapeSet *)UnderRoofDoorAnim; // RA2: as above
-		UnderRoofDoorAnim = NULL; // RA2: as above
-		UnderRoofDoorAnimLoaded = false; // RA2: as above
+	if (UnderRoofDoorAnimLoaded && UnderRoofDoorAnim != NULL) {
+		delete (ShapeSet *)UnderRoofDoorAnim;
+		UnderRoofDoorAnim = NULL;
+		UnderRoofDoorAnimLoaded = false;
 	}
 
-	HRESULT result = TechnoTypeClass::Load(stream); // RA2: as above
-	if (FAILED(result)) { // RA2: as above
-		return(result); // RA2: as above
+	HRESULT result = TechnoTypeClass::Load(stream);
+	if (FAILED(result)) {
+		return(result);
 	}
 
 	{
-		new (this) BuildingTypeClass(NoInitClass()); // RA2: as above
+		new (this) BuildingTypeClass(NoInitClass());
 
-		int count; // RA2: as above
-		result = stream->Read(&count, sizeof(count), NULL); // RA2: as above
-		if (FAILED(result)) { // RA2: as above
-			return(result); // RA2: as above
+		int count;
+		result = stream->Read(&count, sizeof(count), NULL);
+		if (FAILED(result)) {
+			return(result);
 		}
 
-		new (&DockingOffsets) VectorClass<Point3D>(); // RA2: as above
-		DockingOffsets.Resize(count, NULL); // RA2: as above
-		for (int index = 0; index < count; index++) { // RA2: as above
-			Point3D offset(0, 0, 0); // RA2: as above
-			result = stream->Read(&offset, sizeof(offset), NULL); // RA2: as above
-			if (FAILED(result)) { // RA2: as above
-				return(result); // RA2: as above
+		new (&DockingOffsets) VectorClass<Point3D>();
+		DockingOffsets.Resize(count, NULL);
+		for (int index = 0; index < count; index++) {
+			Point3D offset(0, 0, 0);
+			result = stream->Read(&offset, sizeof(offset), NULL);
+			if (FAILED(result)) {
+				return(result);
 			}
-			DockingOffsets[index] = offset; // RA2: as above
+			DockingOffsets[index] = offset;
 		}
 	}
 
@@ -2272,23 +2272,23 @@ HRESULT STDMETHODCALLTYPE BuildingTypeClass::Load(IStream * stream) // RA2: Load
 		Swizzle_Pointer(&ToOverlay);
 		Swizzle_Pointer(&FreeUnit);
 
-	Fetch_Building_Voxel_Image(); // RA2: as above
+		Fetch_Building_Voxel_Image();
 
-	BuildupData = NULL; // RA2: as above
-	BuildupLoaded = false; // RA2: as above
-	BibShape = NULL; // RA2: as above
-	BibShapeLoaded = false; // RA2: as above
-	DeployingAnim = NULL; // RA2: as above
-	DeployingAnimLoaded = false; // RA2: as above
-	UnderDoorAnim = NULL; // RA2: as above
-	UnderDoorAnimLoaded = false; // RA2: as above
-	RoofDeployingAnim = NULL; // RA2: as above
-	RoofDeployingAnimLoaded = false; // RA2: as above
-	UnderRoofDoorAnim = NULL; // RA2: as above
-	UnderRoofDoorAnimLoaded = false; // RA2: as above
+		BuildupData = NULL;
+		BuildupLoaded = false;
+		BibShape = NULL;
+		BibShapeLoaded = false;
+		DeployingAnim = NULL;
+		DeployingAnimLoaded = false;
+		UnderDoorAnim = NULL;
+		UnderDoorAnimLoaded = false;
+		RoofDeployingAnim = NULL;
+		RoofDeployingAnimLoaded = false;
+		UnderRoofDoorAnim = NULL;
+		UnderRoofDoorAnimLoaded = false;
 
-	Fetch_Building_Normal_Image(Scen->Theater); // RA2: as above
-	return(S_OK); // RA2: as above
+		Fetch_Building_Normal_Image(Scen->Theater);
+		return(S_OK);
 } // RA2: Load at 0x45DD90 has no return(result);
 
 
@@ -2300,24 +2300,24 @@ HRESULT STDMETHODCALLTYPE BuildingTypeClass::Load(IStream * stream) // RA2: Load
 /// <returns>Returns with S_OK if the object was written.</returns>
 HRESULT STDMETHODCALLTYPE BuildingTypeClass::Save(IStream * stream, BOOL cleardirty) // RA2: Save at 0x45E020 matches only so
 {
-	HRESULT result = TechnoTypeClass::Save(stream, cleardirty); // RA2: as above
-	if (FAILED(result)) { // RA2: as above
-		return(result); // RA2: as above
+	HRESULT result = TechnoTypeClass::Save(stream, cleardirty);
+	if (FAILED(result)) {
+		return(result);
 	}
 
-	int count = DockingOffsets.Length(); // RA2: as above
-	result = stream->Write(&count, sizeof(count), NULL); // RA2: as above
-	if (FAILED(result)) { // RA2: as above
-		return(result); // RA2: as above
+	int count = DockingOffsets.Length();
+	result = stream->Write(&count, sizeof(count), NULL);
+	if (FAILED(result)) {
+		return(result);
 	}
 
-	for (int index = 0; index < count; index++) { // RA2: as above
-		result = stream->Write(&DockingOffsets[index], sizeof(Point3D), NULL); // RA2: as above
-		if (FAILED(result)) { // RA2: as above
-			return(result); // RA2: as above
+	for (int index = 0; index < count; index++) {
+		result = stream->Write(&DockingOffsets[index], sizeof(Point3D), NULL);
+		if (FAILED(result)) {
+			return(result);
 		}
 	}
-	return(S_OK); // RA2: as above
+	return(S_OK);
 }
 
 
@@ -2368,13 +2368,13 @@ void BuildingTypeClass::Post_Load_Game(void)
 	}
 
 	char buffer[60]; // RA2: Post_Load_Game at 0x45E170 matches only so
-	for (int i = 0; i < BuildingTypes.Count(); i++) { // RA2: as above
-		BuildingTypeClass * building = BuildingTypes[i]; // RA2: as above
-		buffer[0] = '\0'; // RA2: as above
-		RuleINI->Get_String(building->Name(), "ToTile", NULL, buffer, sizeof(buffer)); // RA2: as above
-		IsometricTileType ittype = IsometricTileTypeClass::From_Name(buffer); // RA2: as above
-		if (ittype >= ISOTILE_FIRST && ittype < IsometricTileTypes.Count()) { // RA2: as above
-			building->ToTile = IsometricTileTypes[ittype]; // RA2: as above
+	for (int i = 0; i < BuildingTypes.Count(); i++) {
+		BuildingTypeClass * building = BuildingTypes[i];
+		buffer[0] = '\0';
+		RuleINI->Get_String(building->Name(), "ToTile", NULL, buffer, sizeof(buffer));
+		IsometricTileType ittype = IsometricTileTypeClass::From_Name(buffer);
+		if (ittype >= ISOTILE_FIRST && ittype < IsometricTileTypes.Count()) {
+			building->ToTile = IsometricTileTypes[ittype];
 		}
 	}
 }
@@ -2427,10 +2427,10 @@ Rect BuildingTypeClass::Get_Draw_Rect(void)
 	bool free_buildup = (BuildupData == NULL);
 	shape = (ShapeSet const *)Get_Buildup_Data(); // RA2: 0x45E290 reuses the one image pointer for the buildup shapes
 
-	if (shape != NULL) { // RA2: as above
-		frames = shape->Get_Count(); // RA2: as above
+	if (shape != NULL) {
+		frames = shape->Get_Count();
 		for (i = 0; i < frames; i++) {
-			rect = Union(rect, shape->Get_Rect(i)); // RA2: as above
+			rect = Union(rect, shape->Get_Rect(i));
 		}
 		if (free_buildup) {
 			Free_Buildup_Data();
@@ -2510,8 +2510,8 @@ void const * BuildingTypeClass::Get_Buildup_Data(void) const
 			ShapeSet * data = (ShapeSet *)Load_Alloc_Data(file);
 			if (data == NULL) { // RA2: 0x45E790 retries the generic theater name
 				Generic_Theater_Name(fullname); // RA2: Get_Buildup_Data at 0x45E790 matches only so
-				CCFileClass file2(fullname); // RA2: as above
-				data = (ShapeSet *)Load_Alloc_Data(file2); // RA2: as above
+				CCFileClass file2(fullname);
+				data = (ShapeSet *)Load_Alloc_Data(file2);
 			}
 			((void const *&)BuildupData) = data;
 			if (BuildupData != NULL) {
@@ -2541,9 +2541,9 @@ void const * BuildingTypeClass::Get_Buildup_Data(void) const
 void BuildingTypeClass::Free_Buildup_Data(void)
 {
 	if (IsFreeBuildup && BuildupData != NULL) { // RA2: Free_Buildup_Data at 0x45E920 matches only so
-		delete (ShapeSet *)BuildupData; // RA2: as above
-		BuildupData = NULL; // RA2: as above
-		BuildupLoaded = false; // RA2: as above
+		delete (ShapeSet *)BuildupData;
+		BuildupData = NULL;
+		BuildupLoaded = false;
 	}
 }
 
@@ -2628,14 +2628,14 @@ void BuildingTypeClass::Calculate_Base_Defense_Values(void)
 	if (IsBaseDefense) { // RA2: 0x45EAA0 rates the first weapon (TibSun's is empty)
 		WeaponTypeClass const * weapon = Get_Weapon(0)->Weapon; // RA2: Calculate_Base_Defense_Values at 0x45EAA0 matches only so
 		if (weapon != NULL) {
-			int rate = weapon->Attack / (weapon->ROF * 0.025); // RA2: as above
+			int rate = weapon->Attack / (weapon->ROF * 0.025);
 			if (weapon->Bullet->IsAntiAircraft) {
-				AntiAirValue = Defense_Cap(rate * weapon->WarheadPtr->Modifier[ARMOR_LIGHT], Rule->MaximumBaseDefenseValue); // RA2: as above
+				AntiAirValue = Defense_Cap(rate * weapon->WarheadPtr->Modifier[ARMOR_LIGHT], Rule->MaximumBaseDefenseValue);
 			}
 
 			if (weapon->Bullet->IsAntiGround) {
-				AntiArmorValue = Defense_Cap(rate * weapon->WarheadPtr->Modifier[ARMOR_MEDIUM], Rule->MaximumBaseDefenseValue); // RA2: as above
-				AntiInfantryValue = Defense_Cap(rate * weapon->WarheadPtr->Modifier[ARMOR_NONE], Rule->MaximumBaseDefenseValue); // RA2: as above
+				AntiArmorValue = Defense_Cap(rate * weapon->WarheadPtr->Modifier[ARMOR_MEDIUM], Rule->MaximumBaseDefenseValue);
+				AntiInfantryValue = Defense_Cap(rate * weapon->WarheadPtr->Modifier[ARMOR_NONE], Rule->MaximumBaseDefenseValue);
 			}
 		}
 	}

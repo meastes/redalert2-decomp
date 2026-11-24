@@ -29,7 +29,7 @@ using namespace WorldDominationTour;
 /// <returns>Returns with the new conflict.</returns>
 rc_ptr<Conflict> __fastcall Conflict::Create(rc_ptr<WDTTerritory> const & terr) // RA2: a counted conflict made over a counted territory (0x007272F0)
 {
-	return(rc_ptr<Conflict>(new Conflict(terr))); // RA2: as above
+	return(rc_ptr<Conflict>(new Conflict(terr)));
 }
 
 
@@ -110,12 +110,12 @@ void __fastcall Conflict::Init_Game_Options(void) // RA2: 0x00727480, builds the
 	/// nothing
 	Deinit_Game_Options(); // RA2: starts from an empty list
 	WDTGameOptionList.Add(rc_ptr<GameOption>(ValueGameOption<unsigned char>::Create(0x10000, WDT_Get_Tech_Level, Wstring("WDT:TechLevel"), 0))); // RA2: the options are counted objects of the executable's own classes
-	WDTGameOptionList.Add(rc_ptr<GameOption>(FlagGameOption::Create(0x10, Wstring("WDT:NoBases"), 0, Wstring("WDT:Bases"), 1))); // RA2: as above
-	WDTGameOptionList.Add(rc_ptr<GameOption>(FlagGameOption::Create(0x400, Wstring("WDT:NotShortGame"), 1, Wstring("WDT:ShortGame"), 0))); // RA2: as above
-	WDTGameOptionList.Add(rc_ptr<GameOption>(ValueGameOption<unsigned char>::Create(0x8000, WDT_Get_Unit_Count, Wstring("WDT:UnitCount"), 0))); // RA2: as above
-	WDTGameOptionList.Add(rc_ptr<GameOption>(FlagGameOption::Create(0x20, Wstring("WDT:NoRedeployMCV"), 1, Wstring("WDT:RedeployableMCV"), 0))); // RA2: as above
-	WDTGameOptionList.Add(rc_ptr<GameOption>(FlagGameOption::Create(0x100, Wstring("WDT:NoCrates"), 1, Wstring("WDT:Crates"), 1))); // RA2: as above
-	WDTGameOptionList.Add(MapSizeGameOption::Create(0xC000000)); // RA2: as above
+	WDTGameOptionList.Add(rc_ptr<GameOption>(FlagGameOption::Create(0x10, Wstring("WDT:NoBases"), 0, Wstring("WDT:Bases"), 1)));
+	WDTGameOptionList.Add(rc_ptr<GameOption>(FlagGameOption::Create(0x400, Wstring("WDT:NotShortGame"), 1, Wstring("WDT:ShortGame"), 0)));
+	WDTGameOptionList.Add(rc_ptr<GameOption>(ValueGameOption<unsigned char>::Create(0x8000, WDT_Get_Unit_Count, Wstring("WDT:UnitCount"), 0)));
+	WDTGameOptionList.Add(rc_ptr<GameOption>(FlagGameOption::Create(0x20, Wstring("WDT:NoRedeployMCV"), 1, Wstring("WDT:RedeployableMCV"), 0)));
+	WDTGameOptionList.Add(rc_ptr<GameOption>(FlagGameOption::Create(0x100, Wstring("WDT:NoCrates"), 1, Wstring("WDT:Crates"), 1)));
+	WDTGameOptionList.Add(MapSizeGameOption::Create(0xC000000));
 }
 
 
@@ -125,7 +125,7 @@ void __fastcall Conflict::Init_Game_Options(void) // RA2: 0x00727480, builds the
 /// </summary>
 void Conflict::Deinit_Game_Options(void) // RA2: 0x00727920, empties the shared list of battle options
 {
-	WDTGameOptionList.Clear(); // RA2: as above
+	WDTGameOptionList.Clear();
 }
 
 
@@ -139,31 +139,31 @@ void Conflict::Deinit_Game_Options(void) // RA2: 0x00727920, empties the shared 
 /// <returns>Returns with the text describing up to six of the conflict's options.</returns>
 WideWstring Conflict::Describe_Options(void) const // RA2: 0x00727960, the text of up to six options: first those worth calling out, then the rest that are not user modifiable
 {
-	if (WDTGameOptionList.Count() == 0) { // RA2: as above
+	if (WDTGameOptionList.Count() == 0) {
 		Init_Game_Options();
 	}
 	int left = 6;
-	WideWstring text; // RA2: as above
-	unsigned int used = 0; // RA2: as above
-	WDT_GAME_OPTION_ITER it(WDTGameOptionList); // RA2: as above
-	for (; left != 0 && it; it++) { // RA2: as above
-		rc_ptr<GameOption> opt = *it; // RA2: as above
-		if ((opt->Bitmask & used) == 0 && opt->Get_Display_Priority(Territory) == WDT_GAME_OPT_PRIORITY) { // RA2: as above
-			text = opt->Get_String(Territory, text); // RA2: as above
+	WideWstring text;
+	unsigned int used = 0;
+	WDT_GAME_OPTION_ITER it(WDTGameOptionList);
+	for (; left != 0 && it; it++) {
+		rc_ptr<GameOption> opt = *it;
+		if ((opt->Bitmask & used) == 0 && opt->Get_Display_Priority(Territory) == WDT_GAME_OPT_PRIORITY) {
+			text = opt->Get_String(Territory, text);
 			left--;
-			used |= opt->Bitmask; // RA2: as above
+			used |= opt->Bitmask;
 		}
 	}
 	it.Cursor = 0; // RA2: the second pass starts over from the first option, the vector stays
-	for (; left != 0 && it; it++) { // RA2: as above
-		rc_ptr<GameOption> opt = *it; // RA2: as above
-		if ((opt->Bitmask & used) == 0 && opt->Get_Display_Priority(Territory) != WDT_GAME_OPT_USER_MOD) { // RA2: as above
-			text = opt->Get_String(Territory, text); // RA2: as above
+	for (; left != 0 && it; it++) {
+		rc_ptr<GameOption> opt = *it;
+		if ((opt->Bitmask & used) == 0 && opt->Get_Display_Priority(Territory) != WDT_GAME_OPT_USER_MOD) {
+			text = opt->Get_String(Territory, text);
 			left--;
-			used |= opt->Bitmask; // RA2: as above
+			used |= opt->Bitmask;
 		}
 	}
-	return(text); // RA2: as above
+	return(text);
 }
 
 
@@ -175,7 +175,7 @@ WideWstring Conflict::Describe_Options(void) const // RA2: 0x00727960, the text 
 /// <returns>Returns with the territory's starting unit count.</returns>
 int __fastcall WDT_Get_Unit_Count(WDTTerritory const * territory) // RA2: 0x00727B70, the getter of the WDT:UnitCount option
 {
-	return(territory->UnitCount); // RA2: as above
+	return(territory->UnitCount);
 }
 
 
@@ -187,5 +187,5 @@ int __fastcall WDT_Get_Unit_Count(WDTTerritory const * territory) // RA2: 0x0072
 /// <returns>Returns with the territory's tech level.</returns>
 int __fastcall WDT_Get_Tech_Level(WDTTerritory const * territory) // RA2: 0x00727B80, the getter of the WDT:TechLevel option
 {
-	return(territory->TechLevel); // RA2: as above
+	return(territory->TechLevel);
 }

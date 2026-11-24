@@ -192,7 +192,7 @@ inline int QueueClass<T,size>::Add(T const &q)
 
 
 template<class T, int size>
-inline int QueueClass<T,size>::Add(T const &q, unsigned long timing) // RA2: as above
+inline int QueueClass<T, size>::Add(T const & q, unsigned long timing)
 {
 	if (Count < size) {
 		Array[Tail] = q;

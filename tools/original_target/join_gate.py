@@ -104,6 +104,11 @@ def main():
     if scope == 'auto':
         scope = gate_scope.scope(gate_scope.changed_paths(args.base))
         scope = 'exact' if scope == 'none' else scope
+    if scope == 'frozen':
+        # src/ and manifests/original_target/ are frozen at the tag src-final (rebuild/ is the tree of record
+        # from 2026-11-24): nothing lands there.
+        print('refused: the change touches src/ or manifests/original_target/, frozen at src-final; land rebuild/ instead')
+        raise SystemExit(1)
     if scope == 'rebuild':
         # Only the rebuild tree (rebuild/) and docs changed: neither main's whole-file gate nor the
         # native tests apply; the rebuild gate does (private/tools/land_rebuild_lane.sh).
@@ -129,7 +134,7 @@ def main():
         # 1. whole-file build (build.py takes the full-build lock and heavy-job slots itself)
         shutil.rmtree(build_dir, ignore_errors=True)
         with stages('whole-file build'):
-            code = run(['./build.command', '--keep-intermediates', '--output', str(build_dir)], out.parent / 'join-gate-build.log')
+            code = run(['./build.command', '--tree', 'src', '--keep-intermediates', '--output', str(build_dir)], out.parent / 'join-gate-build.log')
         found = None
         if (build_dir / 'build-receipt.json').exists():
             found = json.loads((build_dir / 'build-receipt.json').read_text())

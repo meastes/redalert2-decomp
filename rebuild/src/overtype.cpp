@@ -304,23 +304,23 @@ void OverlayTypeClass::Init(TheaterType theater)
 				_makepath(fullname, NULL, NULL, overlay.GraphicName, Theaters[theater].Suffix);
 				overlay.ImageData = MFCD::Retrieve(fullname);
 				if (overlay.ImageData == NULL) { // RA2: a missing art file retries with the generic theater letter
-					Generic_Theater_Name(fullname); // RA2: as above
-					overlay.ImageData = MFCD::Retrieve(fullname); // RA2: as above
+					Generic_Theater_Name(fullname);
+					overlay.ImageData = MFCD::Retrieve(fullname);
 				}
 
 			} else if (overlay.IsNewTheater) {
 				_makepath(fullname, NULL, NULL, overlay.GraphicName, ".SHP");
 				Theater_Name_Fixup(fullname, theater); // RA2: the free function at 0x5D7BD0 (was the member Theater_Naming_Convention)
 				overlay.ImageData = MFCD::Retrieve(fullname);
-				if (overlay.ImageData == NULL) { // RA2: as above
-					Generic_Theater_Name(fullname); // RA2: as above
-					overlay.ImageData = MFCD::Retrieve(fullname); // RA2: as above
+				if (overlay.ImageData == NULL) {
+					Generic_Theater_Name(fullname);
+					overlay.ImageData = MFCD::Retrieve(fullname);
 				}
 			}
 		} else {
 			if ((overlay.IsTheater || overlay.IsNewTheater) && overlay.ImageData != NULL && overlay.ImageAllocated) { // RA2: only an image the type owns is freed
-				delete [] (char*) overlay.ImageData; // RA2: as above
-				overlay.ImageData = NULL; // RA2: as above
+				delete[] (char *)overlay.ImageData;
+				overlay.ImageData = NULL;
 				overlay.ImageAllocated = false; // RA2: the image is no longer owned
 			}
 		}

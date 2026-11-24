@@ -37,26 +37,43 @@
     "_CELL_NONE": 11232904,
     "_COORD_NONE": 11232936,
     "??2@YAPAXI@Z": 7872535,
+    "??0ScriptTypeClass@@QAE@PBD@Z": 6720032,
+    "?_Create_Group@@YIPAVFootClass@@PBVTeamTypeClass@@@Z": 6528416,
+    "?Scen@@3PAVScenarioClass@@A": 10736272,
+    "?Get_Waypoint_Cell@ScenarioClass@@QBE?AVCell@@H@Z": 6697344,
+    "?Get_Origin@TeamTypeClass@@QBE?AVCell@@XZ": 7076496,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
+    "?Adjacent_Cell@CellClass@@QBEABV1@W4FacingType@@@Z": 4680384,
+    "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ": 4659120,
+    "?Cell_Unit@CellClass@@QBEPAVUnitClass@@_N@Z": 4668976,
+    "?Attach@CargoClass@@QAEXPAVFootClass@@@Z": 4622688,
+    "?In_Local_Radar@MapClass@@QBE_NABVCell@@_N@Z": 5613152,
+    "?Create_Reinforcement@@YI_NPBVTeamTypeClass@@PAVFootClass@@ABVCell@@_N@Z": 6529104,
+    "?PlayerPtr@@3PAVHouseClass@@A": 10706356,
+    "?Is_Ally@HouseClass@@QBE_NPBV1@@Z": 5133632,
+    "?Record_Event_Cell@@YIXABVCell@@@Z": 6538944,
+    "??_C@_07IIFO@PDPLANE?$AA@": 8316272,
+    "?From_Name@AircraftTypeClass@@SI?AW4AircraftType@@PBD@Z": 4308576,
+    "?AircraftTypes@@3V?$DynamicVectorClass@PAVAircraftTypeClass@@@@A": 10736248,
+    "?ScenarioInit@@3HA": 10749812,
+    "?Get_Transport_Origin@TeamTypeClass@@QBE?AVCell@@XZ": 7076560,
+    "?Calculated_Cell@DisplayClass@@QBE?AVCell@@W4SourceType@@ABV2@1W4SpeedType@@_NW4MZoneType@@@Z": 4826880,
+    "??0Coord@@QAE@ABVCell@@H@Z": 6417024,
     "??0TeamClass@@QAE@PBVTeamTypeClass@@PAVHouseClass@@PAX@Z": 7042096,
     "?Has_Air_Transport@TeamClass@@QBE_NXZ": 7067664,
-    "?ScenarioInit@@3HA": 10749812,
     "?Increase_Amount@StorageClass@@QAEMMH@Z": 6925904,
     "?Set_Elite@VeterancyClass@@QAEX_N@Z": 7419216,
     "?Set_Veteran@VeterancyClass@@QAEX_N@Z": 7419168,
     "?Set_Dumbass@VeterancyClass@@QAEX_N@Z": 7419104,
     "?Add@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384,
-    "?Attach@CargoClass@@QAEXPAVFootClass@@@Z": 4622688,
     "_CLSID_TunnelLocomotion": 8003472,
-    "?Map@@3VMouseClass@@A": 8594656,
     "?Nearby_Location@MapClass@@QBE?AVCell@@ABV2@W4SpeedType@@HW4MZoneType@@_NVPoint2D@@333303@Z": 5571296,
-    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
     "?_com_issue_error@@YGXJ@Z": 7952704,
     "?RevealArea3@MapClass@@QAEXABVCoord@@HHH@Z": 5547344,
     "?Cell_Coord@CellClass@@QBE?AVCoord@@XZ": 4676960,
     "?AdjacentCell@@3QBVCell@@B": 8723056,
     "?In_Radar@MapClass@@QBE_NABVCell@@@Z": 5548720,
-    "?AircraftTypes@@3V?$DynamicVectorClass@PAVAircraftTypeClass@@@@A": 10736248,
-    "?Calculated_Cell@DisplayClass@@QBE?AVCell@@W4SourceType@@ABV2@1W4SpeedType@@_NW4MZoneType@@@Z": 4826880,
     "?InfantryTypes@@3V?$DynamicVectorClass@PAVInfantryTypeClass@@@@A": 10748752,
     "_$E2": 6526832,
     "_$E5": 6526864,
@@ -73,8 +90,7 @@
     "_$E38": 6527296,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
-    "?_Create_Group@@YIPAVFootClass@@PBVTeamTypeClass@@@Z": 6528416,
-    "?Create_Reinforcement@@YI_NPBVTeamTypeClass@@PAVFootClass@@ABVCell@@_N@Z": 6529104,
+    "?Do_Reinforcements@@YI_NPBVTeamTypeClass@@H@Z": 6527344,
     "?Reinforcement_Refused@@YG_NHHH@Z": 6530688,
     "?Create_Air_Reinforcement@@YIHPAVHouseClass@@W4AircraftType@@HW4MissionType@@PAVAbstractClass@@3W4InfantryType@@H@Z": 6530704,
     "?_Need_To_Take@@YI_NPBVAircraftClass@@@Z": 6527328,
@@ -145,7 +161,7 @@
           "resolved": 11232900
         }
       ],
-      "source_sha256": "d210cdc89ed1e625b820c12880eab3b69b9c88b258e8b942d9ed1b5cb8961f07",
+      "source_sha256": "db4ccd932c3348132498a7ed919006121675a38966892f66096141bf5de62869",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6526832,
@@ -213,7 +229,7 @@
           "resolved": 11232912
         }
       ],
-      "source_sha256": "d210cdc89ed1e625b820c12880eab3b69b9c88b258e8b942d9ed1b5cb8961f07",
+      "source_sha256": "db4ccd932c3348132498a7ed919006121675a38966892f66096141bf5de62869",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6526864,
@@ -265,7 +281,7 @@
           "resolved": 11232984
         }
       ],
-      "source_sha256": "d210cdc89ed1e625b820c12880eab3b69b9c88b258e8b942d9ed1b5cb8961f07",
+      "source_sha256": "db4ccd932c3348132498a7ed919006121675a38966892f66096141bf5de62869",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6526912,
@@ -317,7 +333,7 @@
           "resolved": 11232968
         }
       ],
-      "source_sha256": "d210cdc89ed1e625b820c12880eab3b69b9c88b258e8b942d9ed1b5cb8961f07",
+      "source_sha256": "db4ccd932c3348132498a7ed919006121675a38966892f66096141bf5de62869",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6526944,
@@ -369,7 +385,7 @@
           "resolved": 11232960
         }
       ],
-      "source_sha256": "d210cdc89ed1e625b820c12880eab3b69b9c88b258e8b942d9ed1b5cb8961f07",
+      "source_sha256": "db4ccd932c3348132498a7ed919006121675a38966892f66096141bf5de62869",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6526976,
@@ -421,7 +437,7 @@
           "resolved": 11232920
         }
       ],
-      "source_sha256": "d210cdc89ed1e625b820c12880eab3b69b9c88b258e8b942d9ed1b5cb8961f07",
+      "source_sha256": "db4ccd932c3348132498a7ed919006121675a38966892f66096141bf5de62869",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6527008,
@@ -473,7 +489,7 @@
           "resolved": 11232880
         }
       ],
-      "source_sha256": "d210cdc89ed1e625b820c12880eab3b69b9c88b258e8b942d9ed1b5cb8961f07",
+      "source_sha256": "db4ccd932c3348132498a7ed919006121675a38966892f66096141bf5de62869",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6527040,
@@ -557,7 +573,7 @@
           "resolved": 11232992
         }
       ],
-      "source_sha256": "d210cdc89ed1e625b820c12880eab3b69b9c88b258e8b942d9ed1b5cb8961f07",
+      "source_sha256": "db4ccd932c3348132498a7ed919006121675a38966892f66096141bf5de62869",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6527072,
@@ -617,7 +633,7 @@
           "resolved": 11232928
         }
       ],
-      "source_sha256": "d210cdc89ed1e625b820c12880eab3b69b9c88b258e8b942d9ed1b5cb8961f07",
+      "source_sha256": "db4ccd932c3348132498a7ed919006121675a38966892f66096141bf5de62869",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6527136,
@@ -677,7 +693,7 @@
           "resolved": 11232952
         }
       ],
-      "source_sha256": "d210cdc89ed1e625b820c12880eab3b69b9c88b258e8b942d9ed1b5cb8961f07",
+      "source_sha256": "db4ccd932c3348132498a7ed919006121675a38966892f66096141bf5de62869",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6527184,
@@ -737,7 +753,7 @@
           "resolved": 11232976
         }
       ],
-      "source_sha256": "d210cdc89ed1e625b820c12880eab3b69b9c88b258e8b942d9ed1b5cb8961f07",
+      "source_sha256": "db4ccd932c3348132498a7ed919006121675a38966892f66096141bf5de62869",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6527232,
@@ -781,7 +797,7 @@
           "resolved": 11232906
         }
       ],
-      "source_sha256": "d210cdc89ed1e625b820c12880eab3b69b9c88b258e8b942d9ed1b5cb8961f07",
+      "source_sha256": "db4ccd932c3348132498a7ed919006121675a38966892f66096141bf5de62869",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6527280,
@@ -833,7 +849,7 @@
           "resolved": 11232944
         }
       ],
-      "source_sha256": "d210cdc89ed1e625b820c12880eab3b69b9c88b258e8b942d9ed1b5cb8961f07",
+      "source_sha256": "db4ccd932c3348132498a7ed919006121675a38966892f66096141bf5de62869",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6527296,
@@ -860,12 +876,360 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d210cdc89ed1e625b820c12880eab3b69b9c88b258e8b942d9ed1b5cb8961f07",
+      "source_sha256": "db4ccd932c3348132498a7ed919006121675a38966892f66096141bf5de62869",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6527328,
       "source_quality_family": "rebuild",
       "bound_population": "population-3817"
+    },
+    {
+      "entry": 6527344,
+      "method": "00639970",
+      "body_bytes": 1069,
+      "body_sha256": "0ca7e479a66b9494992ae4b61c58c3a09db5c56e6e7e04b493eeb17ea5117990",
+      "padding_bytes": 3,
+      "full_extent_bytes": 1072,
+      "full_extent_sha256": "e6fd36f2df516c25124af68bc2b8af1c8dfa3f809122e4ba834c1e7d338c2cff",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Do_Reinforcements@@YI_NPBVTeamTypeClass@@H@Z",
+      "symbol_prefix": "?Do_Reinforcements@@YI_NPBVTeamTypeClass@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 80,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1345107
+        },
+        {
+          "offset": 95,
+          "kind": 20,
+          "symbol": "??0ScriptTypeClass@@QAE@PBD@Z",
+          "target": 6720032,
+          "addend": 0,
+          "resolved": 192589
+        },
+        {
+          "offset": 169,
+          "kind": 20,
+          "symbol": "?_Create_Group@@YIPAVFootClass@@PBVTeamTypeClass@@@Z",
+          "target": 6528416,
+          "addend": 0,
+          "resolved": 899
+        },
+        {
+          "offset": 213,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 224,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Cell@ScenarioClass@@QBE?AVCell@@H@Z",
+          "target": 6697344,
+          "addend": 0,
+          "resolved": 169772
+        },
+        {
+          "offset": 252,
+          "kind": 20,
+          "symbol": "?Get_Origin@TeamTypeClass@@QBE?AVCell@@XZ",
+          "target": 7076496,
+          "addend": 0,
+          "resolved": 548896
+        },
+        {
+          "offset": 277,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11232904,
+          "addend": 0,
+          "resolved": 11232904
+        },
+        {
+          "offset": 291,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11232904,
+          "addend": 2,
+          "resolved": 11232906
+        },
+        {
+          "offset": 336,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 345,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293977507
+        },
+        {
+          "offset": 367,
+          "kind": 20,
+          "symbol": "?Adjacent_Cell@CellClass@@QBEABV1@W4FacingType@@@Z",
+          "target": 4680384,
+          "addend": 0,
+          "resolved": 4293119965
+        },
+        {
+          "offset": 376,
+          "kind": 20,
+          "symbol": "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ",
+          "target": 4659120,
+          "addend": 0,
+          "resolved": 4293098692
+        },
+        {
+          "offset": 398,
+          "kind": 20,
+          "symbol": "?Cell_Unit@CellClass@@QBEPAVUnitClass@@_N@Z",
+          "target": 4668976,
+          "addend": 0,
+          "resolved": 4293108526
+        },
+        {
+          "offset": 534,
+          "kind": 20,
+          "symbol": "?Attach@CargoClass@@QAEXPAVFootClass@@@Z",
+          "target": 4622688,
+          "addend": 0,
+          "resolved": 4293062102
+        },
+        {
+          "offset": 625,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 630,
+          "kind": 20,
+          "symbol": "?In_Local_Radar@MapClass@@QBE_NABVCell@@_N@Z",
+          "target": 5613152,
+          "addend": 0,
+          "resolved": 4294052470
+        },
+        {
+          "offset": 671,
+          "kind": 20,
+          "symbol": "?Create_Reinforcement@@YI_NPBVTeamTypeClass@@PAVFootClass@@ABVCell@@_N@Z",
+          "target": 6529104,
+          "addend": 0,
+          "resolved": 1085
+        },
+        {
+          "offset": 680,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 692,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NPBV1@@Z",
+          "target": 5133632,
+          "addend": 0,
+          "resolved": 4293572888
+        },
+        {
+          "offset": 705,
+          "kind": 20,
+          "symbol": "?Record_Event_Cell@@YIXABVCell@@@Z",
+          "target": 6538944,
+          "addend": 0,
+          "resolved": 10891
+        },
+        {
+          "offset": 728,
+          "kind": 6,
+          "symbol": "??_C@_07IIFO@PDPLANE?$AA@",
+          "target": 8316272,
+          "addend": 0,
+          "resolved": 8316272
+        },
+        {
+          "offset": 733,
+          "kind": 20,
+          "symbol": "?From_Name@AircraftTypeClass@@SI?AW4AircraftType@@PBD@Z",
+          "target": 4308576,
+          "addend": 0,
+          "resolved": 4292747791
+        },
+        {
+          "offset": 739,
+          "kind": 6,
+          "symbol": "?AircraftTypes@@3V?$DynamicVectorClass@PAVAircraftTypeClass@@@@A",
+          "target": 10736248,
+          "addend": 4,
+          "resolved": 10736252
+        },
+        {
+          "offset": 745,
+          "kind": 6,
+          "symbol": "?ScenarioInit@@3HA",
+          "target": 10749812,
+          "addend": 0,
+          "resolved": 10749812
+        },
+        {
+          "offset": 758,
+          "kind": 6,
+          "symbol": "?ScenarioInit@@3HA",
+          "target": 10749812,
+          "addend": 0,
+          "resolved": 10749812
+        },
+        {
+          "offset": 779,
+          "kind": 6,
+          "symbol": "?ScenarioInit@@3HA",
+          "target": 10749812,
+          "addend": 0,
+          "resolved": 10749812
+        },
+        {
+          "offset": 790,
+          "kind": 6,
+          "symbol": "?ScenarioInit@@3HA",
+          "target": 10749812,
+          "addend": 0,
+          "resolved": 10749812
+        },
+        {
+          "offset": 821,
+          "kind": 20,
+          "symbol": "?Get_Transport_Origin@TeamTypeClass@@QBE?AVCell@@XZ",
+          "target": 7076560,
+          "addend": 0,
+          "resolved": 548391
+        },
+        {
+          "offset": 857,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11232904,
+          "addend": 0,
+          "resolved": 11232904
+        },
+        {
+          "offset": 862,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11232904,
+          "addend": 0,
+          "resolved": 11232904
+        },
+        {
+          "offset": 872,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 878,
+          "kind": 20,
+          "symbol": "?Calculated_Cell@DisplayClass@@QBE?AVCell@@W4SourceType@@ABV2@1W4SpeedType@@_NW4MZoneType@@@Z",
+          "target": 4826880,
+          "addend": 0,
+          "resolved": 4293265950
+        },
+        {
+          "offset": 924,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 929,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293976923
+        },
+        {
+          "offset": 944,
+          "kind": 6,
+          "symbol": "?ScenarioInit@@3HA",
+          "target": 10749812,
+          "addend": 0,
+          "resolved": 10749812
+        },
+        {
+          "offset": 959,
+          "kind": 6,
+          "symbol": "?ScenarioInit@@3HA",
+          "target": 10749812,
+          "addend": 0,
+          "resolved": 10749812
+        },
+        {
+          "offset": 971,
+          "kind": 20,
+          "symbol": "??0Coord@@QAE@ABVCell@@H@Z",
+          "target": 6417024,
+          "addend": 0,
+          "resolved": 4294856001
+        },
+        {
+          "offset": 986,
+          "kind": 6,
+          "symbol": "?ScenarioInit@@3HA",
+          "target": 10749812,
+          "addend": 0,
+          "resolved": 10749812
+        },
+        {
+          "offset": 1000,
+          "kind": 6,
+          "symbol": "?ScenarioInit@@3HA",
+          "target": 10749812,
+          "addend": 0,
+          "resolved": 10749812
+        },
+        {
+          "offset": 1021,
+          "kind": 20,
+          "symbol": "?Attach@CargoClass@@QAEXPAVFootClass@@@Z",
+          "target": 4622688,
+          "addend": 0,
+          "resolved": 4293061615
+        }
+      ],
+      "source_sha256": "db4ccd932c3348132498a7ed919006121675a38966892f66096141bf5de62869",
+      "source": "rebuild/src/reinf.cpp",
+      "population": "rebuild-reinf",
+      "source_order": 6527344,
+      "source_quality_family": "rebuild"
     },
     {
       "entry": 6528416,
@@ -1025,7 +1389,7 @@
           "resolved": 4293061007
         }
       ],
-      "source_sha256": "d210cdc89ed1e625b820c12880eab3b69b9c88b258e8b942d9ed1b5cb8961f07",
+      "source_sha256": "db4ccd932c3348132498a7ed919006121675a38966892f66096141bf5de62869",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6528416,
@@ -1397,7 +1761,7 @@
           "resolved": 10749812
         }
       ],
-      "source_sha256": "d210cdc89ed1e625b820c12880eab3b69b9c88b258e8b942d9ed1b5cb8961f07",
+      "source_sha256": "db4ccd932c3348132498a7ed919006121675a38966892f66096141bf5de62869",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6529104,
@@ -1424,7 +1788,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d210cdc89ed1e625b820c12880eab3b69b9c88b258e8b942d9ed1b5cb8961f07",
+      "source_sha256": "db4ccd932c3348132498a7ed919006121675a38966892f66096141bf5de62869",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6530688,
@@ -1573,7 +1937,7 @@
           "resolved": 4293058875
         }
       ],
-      "source_sha256": "d210cdc89ed1e625b820c12880eab3b69b9c88b258e8b942d9ed1b5cb8961f07",
+      "source_sha256": "db4ccd932c3348132498a7ed919006121675a38966892f66096141bf5de62869",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6530704,

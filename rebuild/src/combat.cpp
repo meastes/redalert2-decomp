@@ -124,16 +124,16 @@ int Modify_Damage(int damage, WarheadTypeClass const * warhead, ArmorType armor,
 		return(0);
 	}
 
-	float fdamage = (float)damage; // RA2: as above
-	float fmin = fdamage * warhead->PercentAtMax; // RA2: as above
-	int spread = (int)(warhead->SpreadFactor * 256.0f); // RA2: as above
-	if (fmin != fdamage && spread) { // RA2: as above
-		damage = (int)((fdamage - fmin) * (spread - distance) / spread + fmin); // RA2: as above
+	float fdamage = (float)damage;
+	float fmin = fdamage * warhead->PercentAtMax;
+	int spread = (int)(warhead->SpreadFactor * 256.0f);
+	if (fmin != fdamage && spread) {
+		damage = (int)((fdamage - fmin) * (spread - distance) / spread + fmin);
 	}
 
-	damage = MAX(damage, 0); // RA2: as above
-	damage = (int)(damage * warhead->Modifier[armor]); // RA2: as above
-	return(MIN(damage, Rule->MaxDamage)); // RA2: as above
+	damage = MAX(damage, 0);
+	damage = (int)(damage * warhead->Modifier[armor]);
+	return(MIN(damage, Rule->MaxDamage));
 } // RA2: Modify_Damage at 0x47E1C0 has no Bound, MAX, Rule and 3 more
 
 
@@ -222,7 +222,6 @@ static inline bool Is_Bridge_Middle(int ittype)
 /// the warhead's particle system is spawned.
 /// </summary>
 /// <returns>2 when an iron curtained object blocked the blast, 1 when nothing was hit, else 0.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 7 instruction lines differ (30 bytes; lane F46: ra2-decomp's `Cell(coord)` and the archive's `bool destroyed` at the low bridge test, the same form at RA2's second low bridge test, close the second cell-distance site; 64 bytes before); the text is ra2-decomp's twin's where the image agrees (the aircraft distances through Distance_To on the position accessor, the three group distances through inline.h's Distance, groups.Delete_All(), the rocker loop's occupier as `isbridge ? Cell_Bridge_Occupier() : Cell_Occupier(false)`). Left: three ties that follow the function's count of named locals (the X sum of `cell + RadiusOffset[m]`, and the order the two cell-distance sites convert X, Y, Z): exact with 17 unused reference locals at the top (a probe; 1, 9 fix the sum, 6-7 and 17-24 the conversions), none with header declarations
 int Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, WarheadTypeClass const * warhead, bool dochainreaction)
 {
 	int distance;
@@ -247,7 +246,8 @@ int Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, Wa
 
 	int cell_height = Map.Get_Height_GL(Coord(cell.X * 256 + 128, cell.Y * 256 + 128, 0));
 	if (cell_height < coord.Z) {
-		AircraftTracker.Append_Radius_Bins(cellptr, (int)warhead->SpreadFactor);
+		int spread = (int)warhead->SpreadFactor;
+		AircraftTracker.Append_Radius_Bins(cellptr, spread);
 		TechnoClass * techno;
 		while ((techno = AircraftTracker.Get()) != NULL) {
 			if (techno->IsActive && techno->IsDown && techno->Strength > 0) {
@@ -276,7 +276,8 @@ int Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, Wa
 		if (cellptr->Overlay != OVERLAY_NONE) {
 			OverlayTypeClass * overlay = OverlayTypes[cellptr->Overlay];
 			if (overlay->IsChainReaction && (!overlay->IsTiberium || warhead->IsTiberiumDestroyer) && dochainreaction) {
-				cellptr->Reduce_Tiberium(strength / 10);
+				int reduction = strength / 10;
+				cellptr->Reduce_Tiberium(reduction);
 			}
 			if (overlay->IsWall) {
 				if (warhead->WallAbsoluteDestroyer) {
@@ -302,7 +303,8 @@ int Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, Wa
 				group->Target = object;
 				if (object->Fetch_RTTI() == RTTI_BUILDING) {
 					if (m == 0) {
-						if (coord.Z - cellptr->Center_Coord().Z > LEVEL_LEPTON_H * 2) {
+						int rise = coord.Z - cellptr->Center_Coord().Z;
+						if (rise > LEVEL_LEPTON_H * 2) {
 							group->Distance = Distance(coord, cellptr->Center_Coord()) - LEVEL_LEPTON_H * 2;
 						} else {
 							group->Distance = 0;
@@ -476,7 +478,6 @@ int Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, Wa
 
 	return(!hit);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -508,22 +509,22 @@ AnimTypeClass const * Combat_Anim(int damage, WarheadTypeClass const * warhead, 
 
 	if (land == LAND_WATER && warhead->IsConventional && !Map[coord].IsUnderBridge && coord.Z < Map.Get_Height_GL(coord) + LEVEL_LEPTON_H * 2) { // RA2: Combat_Anim at 0x47F4D0 matches only so
 		if (Rule->SplashList.Count()) {
-			int val = MIN(damage, 35 * Rule->SplashList.Count() - 1); // RA2: as above
-			return(Rule->SplashList[val / 35]); // RA2: as above
+			int val = MIN(damage, 35 * Rule->SplashList.Count() - 1);
+			return(Rule->SplashList[val / 35]);
 		}
 		return(NULL);
 	}
 
-	if (warhead == Rule->LightningWarhead) { // RA2: as above
-		return(Rule->WeatherConBoltExplosion); // RA2: as above
+	if (warhead == Rule->LightningWarhead) {
+		return(Rule->WeatherConBoltExplosion);
 	}
 
 	if (warhead->ExplosionSet.Count()) {
 		if (warhead->IsEMEffect) {
 			return(warhead->ExplosionSet[Random_Pick(0, warhead->ExplosionSet.Count() - 1)]);
 		}
-		int val = MIN(damage, 25 * warhead->ExplosionSet.Count() - 1); // RA2: as above
-		return(warhead->ExplosionSet[val / 25]); // RA2: as above
+		int val = MIN(damage, 25 * warhead->ExplosionSet.Count() - 1);
+		return(warhead->ExplosionSet[val / 25]);
 	}
 
 	return(NULL);
@@ -542,20 +543,20 @@ void Combat_Lighting(Coord coord, int damage, WarheadTypeClass const * warhead, 
 {
 	if ((Options.DetailLevel != 0 && FPSCounter::CurrentFrameRate >= Detail::GetMinFrameRate()) || (flags & 0xF) != 0) { // RA2: the detail level and frame rate gate, bypassed by the flags
 		if ((char)forced || warhead != NULL && warhead->IsBright) { // RA2: forced is tested by its low byte
-			int size; // RA2: as above
+			int size;
 			float light = warhead->CombatLightSize; // RA2: the warhead's own light size takes precedence
-			if (light > 0.0f) { // RA2: as above
-				if (light > 1.0f) { // RA2: as above
-					light = 1.0f; // RA2: as above
+			if (light > 0.0f) {
+				if (light > 1.0f) {
+					light = 1.0f;
 				}
-				size = (int)(light * 63.0f); // RA2: as above
-			} else { // RA2: as above
-				damage *= 64; // RA2: as above
-				size = damage >> 8; // RA2: as above
-				if (size >= 63) { // RA2: as above
-					size = 63; // RA2: as above
-				} else if (size <= 21) { // RA2: as above
-					size = 21; // RA2: as above
+				size = (int)(light * 63.0f);
+			} else {
+				damage *= 64;
+				size = damage >> 8;
+				if (size >= 63) {
+					size = 63;
+				} else if (size <= 21) {
+					size = 21;
 				}
 			}
 
@@ -675,8 +676,8 @@ bool Calculate_Projectile_Pitch(bool high_arc, int speed, int distance, int heig
 bool Calculate_Projectile_Angle(bool high_arc, int speed, int distance, int height, double gravity, double & angle)
 {
 	if (height > 0) { // RA2: Calculate_Projectile_Angle at 0x47F9B0 matches only so
-		angle = 0.7853822499999998; // RA2: as above
-		return(true); // RA2: as above
+		angle = 0.7853822499999998;
+		return(true);
 	}
 
 	if ((double)distance == 0.0) {
@@ -684,23 +685,23 @@ bool Calculate_Projectile_Angle(bool high_arc, int speed, int distance, int heig
 	}
 
 	double dx = (double)distance;
-	double velocity = (double)speed; // RA2: as above
+	double velocity = (double)speed;
 	double dy = (double)height;
-	double v = velocity; // RA2: as above
+	double v = velocity;
 
 	double vsq = v * v; // RA2: Calculate_Projectile_Angle at 0x47F9B0 has no double dy2 = dy * dy;
-	double base = vsq - ((double)height * gravity); // RA2: as above
+	double base = vsq - ((double)height * gravity);
 	double g2 = gravity * gravity;
-	double dx2 = (dx * dx); // RA2: as above
+	double dx2 = (dx * dx);
 
 	double value = (v * v * vsq)
 				 - (2 * vsq * dy * gravity)
 				 - (g2 * dx2);
 
-	double denominator = (((dy * dy) / dx2) + 1.0) * 2; // RA2: as above
+	double denominator = (((dy * dy) / dx2) + 1.0) * 2;
 
 	if (value < 0.0 || denominator == 0.0) {
-		return(false); // RA2: as above
+		return(false);
 	}
 
 	double numerator = !high_arc ? base + fastmath::sqrt(value)
@@ -779,16 +780,16 @@ bool Is_Projectile_Trajectory_Valid(int speed, int distance, int height, double 
 
 	double denominator = 2 * ((y2 / x2) + 1.0);
 	if (denominator == 0.0) {
-		return(false); // RA2: as above
+		return(false);
 	}
 
 	double base = vsq - (dy * gravity);
 
 	if (((base + fastmath::sqrt(discriminant)) / denominator) >= 0.0 ||
 		((base - fastmath::sqrt(discriminant)) / denominator) >= 0.0) {
-		return(true); // RA2: as above
+		return(true);
 	}
-	return(false); // RA2: as above
+	return(false);
 }
 
 

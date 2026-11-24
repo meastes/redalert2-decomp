@@ -184,24 +184,24 @@ void MessageListClass::Init(int x, int y, int max_msg, int maxchars,
 {
 	Width = width - 8;
 	DebugString("MessageListClass::Init(Width: %d)\n", width - 8); // RA2: RA2's form
-	TextLabelClass *node = MessageList; // RA2: as above
-	while (node) { // RA2: as above
-		MessageList = (TextLabelClass *)node->Remove(); // RA2: as above
-		if (node) { // RA2: as above
-			delete node; // RA2: as above
+	TextLabelClass * node = MessageList;
+	while (node) {
+		MessageList = (TextLabelClass *)node->Remove();
+		if (node) {
+			delete node;
 		}
-		node = MessageList; // RA2: as above
+		node = MessageList;
 	}
-	for (int i = 0; i < 7; i++) { // RA2: as above
-		((int *)BufferAvail)[i] = 0x10001; // RA2: as above
+	for (int i = 0; i < 7; i++) {
+		((int *)BufferAvail)[i] = 0x10001;
 	}
 
 	//------------------------------------------------------------------------
 	// Remove the editable message
 	//------------------------------------------------------------------------
 	if (IsEdit) {
-		if (EditLabel) { // RA2: as above
-			delete EditLabel; // RA2: as above
+		if (EditLabel) {
+			delete EditLabel;
 		}
 		EditLabel = 0;
 	}
@@ -213,14 +213,14 @@ void MessageListClass::Init(int x, int y, int max_msg, int maxchars,
 	MessageX = x;
 	MessageY = y;
 	MaxMessages = max_msg;
-	if (max_msg > 14) { // RA2: as above
-		MaxMessages = 14; // RA2: as above
+	if (max_msg > 14) {
+		MaxMessages = 14;
 	}
 	MaxChars = maxchars;
-	if (maxchars > 112) { // RA2: as above
-		MaxChars = 112; // RA2: as above
+	if (maxchars > 112) {
+		MaxChars = 112;
 	}
-	Height = 19; // RA2: as above
+	Height = 19;
 
 	//------------------------------------------------------------------------
 	// Init the edit field variables.  If edit_x or edit_y is -1, place the
@@ -228,13 +228,13 @@ void MessageListClass::Init(int x, int y, int max_msg, int maxchars,
 	// coords.
 	//------------------------------------------------------------------------
 	EnableOverflow = overflow_on;
-	IsEdit = false; // RA2: as above
+	IsEdit = false;
 	if (edit_x == -1 || edit_y == -1) {
-		AdjustEdit = true; // RA2: as above
+		AdjustEdit = true;
 		EditX = x;
 		EditY = y;
-	} else { // RA2: as above
-		AdjustEdit = false; // RA2: as above
+	} else {
+		AdjustEdit = false;
 		EditX = edit_x;
 		EditY = edit_y;
 	}
@@ -640,7 +640,7 @@ void MessageListClass::Remove_Edit(void)
 	if (IsEdit) {
 		IsEdit = false; // RA2: RA2's form
 		delete EditLabel;
-		IME_Stub1(); // RA2: as above
+		IME_Stub1();
 		if (AdjustEdit) {
 			Compute_Y();
 			MaxMessages++;
@@ -906,13 +906,13 @@ void MessageListClass::Draw(void)
 	if (IsEdit) {
 		Hide_Mouse();
 		EditLabel->Draw_Me(true);
-		BitFont * font = Font_From_TPF(EditLabel->Style); // RA2: as above
-		int textwidth = font->String_Pixel_Width(EditLabel->Text, 0); // RA2: as above
+		BitFont * font = Font_From_TPF(EditLabel->Style);
+		int textwidth = font->String_Pixel_Width(EditLabel->Text, 0);
 		if (CursorChar && (EditCurPos - EditInitPos) < (MaxChars - 1) && EditLabel->Has_Focus()) {
 			txt[0] = CursorChar;
-			Point2D pt(EditLabel->X + textwidth, EditLabel->Y); // RA2: as above
-			Fancy_Text_Print(txt, *LogicalSurface, LogicalSurface->Get_Rect(), pt, // RA2: as above
-				ColorSchemes[EditLabel->Color], 0, EditLabel->Style); // RA2: as above
+			Point2D pt(EditLabel->X + textwidth, EditLabel->Y);
+			Fancy_Text_Print(txt, *LogicalSurface, LogicalSurface->Get_Rect(), pt,
+				ColorSchemes[EditLabel->Color], 0, EditLabel->Style);
 		}
 		Show_Mouse();
 	}

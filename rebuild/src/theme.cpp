@@ -103,17 +103,17 @@ bool ThemeControl::Fill_In(CCINIClass const & ini)
 {
 	if (ini.Is_Present(Name)) {
 		ini.Get_String(Name, "Sound", "", Sound, sizeof(Sound)); // RA2: the sound file
-		char * sound = Sound; // RA2: as above
-		while (*sound == '$' || *sound == '#') { // RA2: as above
+		char * sound = Sound;
+		while (*sound == '$' || *sound == '#') {
 			sound++; // RA2: Fill_In at 0x6E7780 matches only so
 		}
-		strcpy(Sound, sound); // RA2: as above
+		strcpy(Sound, sound);
 		Scenario = ini.Get_Int(Name, "Scenario", Scenario);
 		Normal = ini.Get_Bool(Name, "Normal", Normal); // RA2: no Length
 		Repeat = ini.Get_Bool(Name, "Repeat", Repeat);
 		Owner = ini.Get_Side(Name, "Side", (SideType)Owner);
 		if (Normal) { // RA2: a normal theme's name from the string table (0x6E7780)
-			ini.ReadStringtableEntry(Name, "Name", Fullname, ARRAY_SIZE(Fullname)); // RA2: as above
+			ini.ReadStringtableEntry(Name, "Name", Fullname, ARRAY_SIZE(Fullname));
 		}
 		return(true);
 	}
@@ -149,11 +149,11 @@ void ThemeClass::Init_Themes(CCINIClass const & ini)
 		}
 	}
 	if (AudioGetDevice() != 0) { // RA2: the music stream is created here (0x6E7A14)
-		Stream = AudioStreamerCreate(AudioGetDevice(), 20000); // RA2: as above
-		if (Stream != 0) { // RA2: as above
-			AudioStreamerSetName(Stream, "Music Stream"); // RA2: as above
-			AudioStreamerSetAttribs(Stream, AudioScoreAttribs); // RA2: as above
-			AudioStreamerSetFadeAttribs(Stream, AudioFadeAttribs); // RA2: as above
+		Stream = AudioStreamerCreate(AudioGetDevice(), 20000);
+		if (Stream != 0) {
+			AudioStreamerSetName(Stream, "Music Stream");
+			AudioStreamerSetAttribs(Stream, AudioScoreAttribs);
+			AudioStreamerSetFadeAttribs(Stream, AudioFadeAttribs);
 		}
 	}
 }
@@ -172,11 +172,11 @@ void ThemeClass::Free_Themes(void)
 		Themes.Delete_Index(0);
 	}
 	if (Stream != 0) { // RA2: RA2's form
-		AudioStreamerFadeOut(Stream); // RA2: as above
-		AudioStreamerWaitForFade(Stream); // RA2: as above
-		AudioStreamerStop(Stream); // RA2: as above
-		AudioStreamerDestroy(Stream); // RA2: as above
-		Stream = 0; // RA2: as above
+		AudioStreamerFadeOut(Stream);
+		AudioStreamerWaitForFade(Stream);
+		AudioStreamerStop(Stream);
+		AudioStreamerDestroy(Stream);
+		Stream = 0;
 	}
 }
 
@@ -202,17 +202,17 @@ void ThemeClass::Free_Themes(void)
 void ThemeClass::Scan(void)
 {
 	if (ScoresPresent && AudioDeviceAvailable() && !Debug_Quiet) { // RA2: RA2's form
-		for (int theme = 0; theme < Themes.Count(); theme++) { // RA2: as above
-			char name[_MAX_FNAME+_MAX_EXT]; // RA2: as above
+		for (int theme = 0; theme < Themes.Count(); theme++) {
+			char name[_MAX_FNAME + _MAX_EXT];
 			_makepath(name, NULL, NULL, Themes[theme]->Sound, ".WAV"); // RA2: the score's sound file, .WAV
 			CCFileClass file(name); // RA2: Scan at 0x6E7AF0 keeps the file open to read its length
-			Themes[theme]->Available = file.Is_Available(); // RA2: as above
-			if (Themes[theme]->Available) { // RA2: as above
-				AudioFormat format; // RA2: as above
-				AudioFormatInit(&format); // RA2: as above
-				file.Open(FileClass::READ); // RA2: as above
-				int size; // RA2: as above
-				if (AudioFormatReadWaveFile(&file, &format, &size)) { // RA2: as above
+			Themes[theme]->Available = file.Is_Available();
+			if (Themes[theme]->Available) {
+				AudioFormat format;
+				AudioFormatInit(&format);
+				file.Open(FileClass::READ);
+				int size;
+				if (AudioFormatReadWaveFile(&file, &format, &size)) {
 					Themes[theme]->Duration = (int)(AudioFormatTime(&format, size) / 1000); // RA2: the length in seconds
 				}
 			}
@@ -268,8 +268,8 @@ ThemeClass::ThemeClass(void) :
 	Volume(255),
 	IsRepeat(false),
 	IsFading(false), // RA2: ThemeClass at 0x6E7C60 matches only so
-	IsShuffle(false), // RA2: as above
-	Stream(NULL) // RA2: as above
+	IsShuffle(false),
+	Stream(NULL)
 {
 }
 
@@ -318,29 +318,29 @@ wchar_t const * ThemeClass::Full_Name(ThemeType theme) const // RA2: wide
 void ThemeClass::AI(void)
 {
 	if (AudioDeviceAvailable() && !Debug_Quiet && ScoresPresent && Volume > 0) { // RA2: RA2's form
-		bool ready = false; // RA2: as above
-		if (Stream != 0) { // RA2: as above
-			if (IsFading && !AudioStreamerIsFading(Stream)) { // RA2: as above
-				AudioStreamerStop(Stream); // RA2: as above
+		bool ready = false;
+		if (Stream != 0) {
+			if (IsFading && !AudioStreamerIsFading(Stream)) {
+				AudioStreamerStop(Stream);
 			}
-			ready = AudioStreamerIsPlaying(Stream); // RA2: as above
+			ready = AudioStreamerIsPlaying(Stream);
 		}
-		if (ready) { // RA2: as above
-			return; // RA2: as above
+		if (ready) {
+			return;
 		}
-		ThemeType theme = Pending; // RA2: as above
-		if (theme != THEME_NONE && theme != THEME_QUIET && ScenarioInit == 0) { // RA2: as above
-			if (theme == THEME_PICK_ANOTHER) { // RA2: as above
-				Pending = Next_Song(Score); // RA2: as above
-				DebugString("Theme::AI(Next song = %d)\n", Pending); // RA2: as above
+		ThemeType theme = Pending;
+		if (theme != THEME_NONE && theme != THEME_QUIET && ScenarioInit == 0) {
+			if (theme == THEME_PICK_ANOTHER) {
+				Pending = Next_Song(Score);
+				DebugString("Theme::AI(Next song = %d)\n", Pending);
 			}
 
-			/* // RA2: as above
-			**	Start the song playing and then flag it so that a new song will // RA2: as above
-			**	be picked when this one ends. // RA2: as above
-			*/ // RA2: as above
-			Play_Song(Pending); // RA2: as above
-			Pending = THEME_PICK_ANOTHER; // RA2: as above
+			/*
+			**	Start the song playing and then flag it so that a new song will
+			**	be picked when this one ends.
+			*/
+			Play_Song(Pending);
+			Pending = THEME_PICK_ANOTHER;
 		}
 	}
 }
@@ -420,13 +420,13 @@ void ThemeClass::Queue_Song(ThemeType theme)
 {
 	if (ScoresPresent && AudioDeviceAvailable() && !Debug_Quiet) { // RA2: RA2's form
 		Pending = theme;
-		if (theme != THEME_NONE && theme != THEME_PICK_ANOTHER && theme != Score) { // RA2: as above
-			DebugString("Theme::QueueSong(%d)\n", theme); // RA2: as above
-			if (Still_Playing() == true) { // RA2: as above
-				if (Stream != 0) { // RA2: as above
-					AudioStreamerFadeOut(Stream); // RA2: as above
+		if (theme != THEME_NONE && theme != THEME_PICK_ANOTHER && theme != Score) {
+			DebugString("Theme::QueueSong(%d)\n", theme);
+			if (Still_Playing() == true) {
+				if (Stream != 0) {
+					AudioStreamerFadeOut(Stream);
 				}
-				IsFading = true; // RA2: as above
+				IsFading = true;
 			}
 		}
 	}
@@ -454,7 +454,7 @@ int ThemeClass::Play_Song(ThemeType theme)
 {
 	if (ScoresPresent && AudioDeviceAvailable() && !Debug_Quiet) { // RA2: RA2's form (0x6E7EB0)
 		if (Still_Playing() && Score == theme) { // RA2: a score that already plays is left alone
-			return(Current); // RA2: as above
+			return(Current);
 		}
 		Stop(false); // RA2: Stop is expanded in place
 		IsFading = false; // RA2: the new score does not fade
@@ -462,13 +462,13 @@ int ThemeClass::Play_Song(ThemeType theme)
 			if (theme > THEME_NONE && Volume > 0) {
 				Score = theme;
 				int disk = CD::Is_Override_Swap() ? 0 : CD::Get_Current_Disk(0); // RA2: the disk that holds the score
-				if (Stream != 0 && disk > -1) { // RA2: as above
+				if (Stream != 0 && disk > -1) {
 					AudioStreamerPlayWAV(Stream, Theme_File_Name(theme), true); // RA2: the streamer plays the file
 					Current = theme; // RA2: the handle is the score number
-				} else { // RA2: as above
-					Current = THEME_NONE; // RA2: as above
+				} else {
+					Current = THEME_NONE;
 					if (Stream != 0 && disk <= -1 && Pending == THEME_NONE) { // RA2: no disk, so the score waits
-						Theme.Queue_Song(theme); // RA2: as above
+						Theme.Queue_Song(theme);
 					}
 				}
 				DebugString("Theme::PlaySong(%d) - %s\n", Score, IsRepeat == true || Themes[theme]->Repeat == true ? "Repeating" : "Playing");
@@ -507,10 +507,10 @@ char const * ThemeClass::Theme_File_Name(ThemeType theme)
 	static char name[256 + 256]; // RA2: RA2's form
 
 	if ((unsigned)theme < (unsigned)Themes.Count()) {
-		_makepath(name, 0, 0, Themes[theme]->Sound, ".WAV"); // RA2: as above
-		return name; // RA2: as above
+		_makepath(name, 0, 0, Themes[theme]->Sound, ".WAV");
+		return name;
 	}
-	return ""; // RA2: as above
+	return "";
 }
 
 
@@ -536,7 +536,7 @@ int ThemeClass::Track_Length(ThemeType theme) const
 	if ((unsigned)theme < (unsigned)Themes.Count()) {
 		return (int)Themes[theme]->Duration; // RA2: Track_Length at 0x6E8150 matches only so
 	}
-	return 0; // RA2: as above
+	return 0;
 }
 
 
@@ -623,9 +623,9 @@ bool ThemeClass::Still_Playing(void) const
 {
 	if (Stream) { // RA2: the streamer, at 0x6E82D0
 		if (IsFading && !AudioStreamerIsFading(Stream)) { // RA2: a finished fade stops it
-			AudioStreamerStop(Stream); // RA2: as above
+			AudioStreamerStop(Stream);
 		}
-		return(AudioStreamerIsPlaying(Stream) != 0); // RA2: as above
+		return(AudioStreamerIsPlaying(Stream) != 0);
 	}
 	return(false);
 }
@@ -636,11 +636,11 @@ bool ThemeClass::Still_Playing(void) const
 /// </summary>
 long ThemeClass::Save(IStream * stream) // RA2: at 0x6E8310; returns the result of the last write
 {
-	HRESULT result = stream->Write(&Score, sizeof(Score), NULL); // RA2: as above
-	if (SUCCEEDED(result)) { // RA2: as above
-		result = stream->Write(&Pending, sizeof(Pending), NULL); // RA2: as above
+	HRESULT result = stream->Write(&Score, sizeof(Score), NULL);
+	if (SUCCEEDED(result)) {
+		result = stream->Write(&Pending, sizeof(Pending), NULL);
 	}
-	return(result); // RA2: as above
+	return(result);
 }
 
 
@@ -689,12 +689,12 @@ long ThemeClass::Load(IStream * stream) // RA2: at 0x6E8340
 bool ThemeClass::Is_Allowed(ThemeType index) const
 {
 	if (index == THEME_QUIET || index == THEME_PICK_ANOTHER) return true; // RA2: Is_Allowed at 0x6E8440 matches only so
-	if ((unsigned)index >= (unsigned)Themes.Count()) return false; // RA2: as above
-	if (!Themes[index]->Available) return false; // RA2: as above
-	if (!Themes[index]->Normal) return false; // RA2: as above
-	if (PlayerPtr != NULL && Themes[index]->Owner != SIDE_NONE && PlayerPtr->Class->Side != Themes[index]->Owner) return false; // RA2: as above
-	if (Session.Type == GAME_NORMAL && Scen->Scenario < Themes[index]->Scenario) return false; // RA2: as above
-	return true; // RA2: as above
+	if ((unsigned)index >= (unsigned)Themes.Count()) return false;
+	if (!Themes[index]->Available) return false;
+	if (!Themes[index]->Normal) return false;
+	if (PlayerPtr != NULL && Themes[index]->Owner != SIDE_NONE && PlayerPtr->Class->Side != Themes[index]->Owner) return false;
+	if (Session.Type == GAME_NORMAL && Scen->Scenario < Themes[index]->Scenario) return false;
+	return true;
 }
 
 

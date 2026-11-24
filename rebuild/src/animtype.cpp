@@ -147,12 +147,12 @@ AnimTypeClass::AnimTypeClass(char const *ininame) :
 	IsReverse(false),
 	IsShouldFogRemove(true), // RA2: AnimTypeClass at 0x424E30 matches only so
 	StopSound(VOC_NONE), // RA2: the RA2 fields, as RA2 initializes them
-	ZAdjust(0), // RA2: as above
-	HideIfNoOre(false), // RA2: as above
-	Layer(LAYER_AIR), // RA2: as above
-	ForceBigCraters(false), // RA2: as above
-	Shadow(false), // RA2: as above
-	PsiWarning(false) // RA2: as above
+	ZAdjust(0),
+	HideIfNoOre(false),
+	Layer(LAYER_AIR),
+	ForceBigCraters(false),
+	Shadow(false),
+	PsiWarning(false)
 {
 	Create_ID();
 	IsSentient = true;
@@ -216,40 +216,40 @@ AnimTypeClass::~AnimTypeClass(void)
 void AnimTypeClass::Init(TheaterType theater)
 {
 	if (!Debug_Map && theater == LastTheater) { // RA2: RA2's form
-		for (int index = 0; index < AnimTypes.Count(); index++) { // RA2: as above
-			AnimTypeClass *anim = AnimTypes[index]; // RA2: as above
-			if (anim->IsNewTheater && anim->ImageData == 0) { // RA2: as above
+		for (int index = 0; index < AnimTypes.Count(); index++) {
+			AnimTypeClass * anim = AnimTypes[index];
+			if (anim->IsNewTheater && anim->ImageData == 0) {
 				anim->Load_Image(theater);
 			}
 		}
-		return; // RA2: as above
+		return;
 	}
 
-	for (int index = 0; index < AnimTypes.Count(); index++) { // RA2: as above
-		AnimTypeClass *anim = AnimTypes[index]; // RA2: as above
-		if (!anim->IsDemandLoad) { // RA2: as above
-			if (anim->IsTheater) { // RA2: as above
-				if (anim->ImageData != 0 && anim->ImageAllocated) { // RA2: as above
-					operator delete((void *)anim->ImageData); // RA2: as above
-					anim->ImageAllocated = false; // RA2: as above
+	for (int index = 0; index < AnimTypes.Count(); index++) {
+		AnimTypeClass * anim = AnimTypes[index];
+		if (!anim->IsDemandLoad) {
+			if (anim->IsTheater) {
+				if (anim->ImageData != 0 && anim->ImageAllocated) {
+					operator delete((void *)anim->ImageData);
+					anim->ImageAllocated = false;
 				}
-				anim->ImageData = 0; // RA2: as above
-				char fullname[512]; // RA2: as above
-				_makepath(fullname, 0, 0, anim->Name(), Theaters[theater].Suffix); // RA2: as above
-				anim->ImageData = (void *)MixFileClass::Retrieve(fullname); // RA2: as above
-				if (anim->ImageData == 0) { // RA2: as above
-					_makepath(fullname, 0, 0, anim->Name(), ".SHP"); // RA2: as above
-					anim->ImageData = (void *)MixFileClass::Retrieve(fullname); // RA2: as above
+				anim->ImageData = 0;
+				char fullname[512];
+				_makepath(fullname, 0, 0, anim->Name(), Theaters[theater].Suffix);
+				anim->ImageData = (void *)MixFileClass::Retrieve(fullname);
+				if (anim->ImageData == 0) {
+					_makepath(fullname, 0, 0, anim->Name(), ".SHP");
+					anim->ImageData = (void *)MixFileClass::Retrieve(fullname);
 				}
-			} else if (anim->IsNewTheater) { // RA2: as above
+			} else if (anim->IsNewTheater) {
 				anim->Load_Image(theater);
 			}
-		} else if (anim->IsTheater || anim->IsNewTheater) { // RA2: as above
-			if (anim->ImageData != 0 && anim->ImageAllocated) { // RA2: as above
-				operator delete((void *)anim->ImageData); // RA2: as above
-				anim->ImageAllocated = false; // RA2: as above
+		} else if (anim->IsTheater || anim->IsNewTheater) {
+			if (anim->ImageData != 0 && anim->ImageAllocated) {
+				operator delete((void *)anim->ImageData);
+				anim->ImageAllocated = false;
 			}
-			anim->ImageData = 0; // RA2: as above
+			anim->ImageData = 0;
 		}
 	}
 }
@@ -265,21 +265,21 @@ void AnimTypeClass::Init(TheaterType theater)
 void AnimTypeClass::Init_Theater(TheaterType theater)
 {
 	if (!Debug_Map && theater == LastTheater) { // RA2: RA2's form
-		return; // RA2: as above
+		return;
 	}
-	if (IsTheater && !IsDemandLoad) { // RA2: as above
-		if (ImageData != 0 && ImageAllocated) { // RA2: as above
-			operator delete((void *)ImageData); // RA2: as above
-			ImageAllocated = false; // RA2: as above
+	if (IsTheater && !IsDemandLoad) {
+		if (ImageData != 0 && ImageAllocated) {
+			operator delete((void *)ImageData);
+			ImageAllocated = false;
 		}
-		ImageData = 0; // RA2: as above
-		char fullname[512]; // RA2: as above
-		_makepath(fullname, 0, 0, Name(), Theaters[theater].Suffix); // RA2: as above
-		ImageData = (void *)MixFileClass::Retrieve(fullname); // RA2: as above
-		return; // RA2: as above
+		ImageData = 0;
+		char fullname[512];
+		_makepath(fullname, 0, 0, Name(), Theaters[theater].Suffix);
+		ImageData = (void *)MixFileClass::Retrieve(fullname);
+		return;
 	}
-	if (IsNewTheater) { // RA2: as above
-		Load_Image(theater); // RA2: as above
+	if (IsNewTheater) {
+		Load_Image(theater);
 	}
 }
 
@@ -293,52 +293,52 @@ void AnimTypeClass::Init_Theater(TheaterType theater)
 /// </summary>
 /// <param name="theater">The theater to align the animation artwork with.</param>
 void AnimTypeClass::Load_Image(TheaterType theater)
-{ // RA2: as above
+{
 	if (!IsDemandLoad) { // RA2: no ImageData == NULL test; the stale image is released first
-		if (IsTheater) { // RA2: as above
-			Fetch_Normal_Image(); // RA2: as above
-		} else { // RA2: as above
-			if (ImageData != NULL && ImageAllocated) { // RA2: as above
-				operator delete((void *)ImageData); // RA2: as above
-				ImageAllocated = false; // RA2: as above
-			} // RA2: as above
+		if (IsTheater) {
+			Fetch_Normal_Image();
+		} else {
+			if (ImageData != NULL && ImageAllocated) {
+				operator delete((void *)ImageData);
+				ImageAllocated = false;
+			}
 			char first = GraphicName[0]; // RA2: the first character of the graphic name is read into a local before ImageData is cleared (the executable loads it into cl first)
-			ImageData = NULL; // RA2: as above
-			char const * graphic = first != '\0' ? Graphic_Name() : Name(); // RA2: as above
-			char fullname[512]; // RA2: as above
-			_makepath(fullname, NULL, NULL, graphic, ".SHP"); // RA2: as above
+			ImageData = NULL;
+			char const * graphic = first != '\0' ? Graphic_Name() : Name();
+			char fullname[512];
+			_makepath(fullname, NULL, NULL, graphic, ".SHP");
 			Theater_Name_Fixup(fullname, theater); // RA2: the free function at 0x5D7BD0 (was the member Theater_Naming_Convention)
-			ImageData = MFCD::Retrieve(fullname); // RA2: as above
+			ImageData = MFCD::Retrieve(fullname);
 			if (ImageData == NULL) { // RA2: a missing art file retries with the generic theater letter
-				Generic_Theater_Name(fullname); // RA2: as above
-				ImageData = MFCD::Retrieve(fullname); // RA2: as above
-			} // RA2: as above
-		} // RA2: as above
-	} // RA2: as above
+				Generic_Theater_Name(fullname);
+				ImageData = MFCD::Retrieve(fullname);
+			}
+		}
+	}
 
-	ShapeSet const * shape = (ShapeSet const *)ImageData; // RA2: as above
-	if (shape != NULL) { // RA2: as above
-		if (Stages == 0) { // RA2: as above
-			Stages = shape->Get_Count(); // RA2: as above
+	ShapeSet const * shape = (ShapeSet const *)ImageData;
+	if (shape != NULL) {
+		if (Stages == 0) {
+			Stages = shape->Get_Count();
 			if (Shadow) { // RA2: a shadowed shape holds its frames twice
-				Stages /= 2; // RA2: as above
-			} // RA2: as above
-		} // RA2: as above
-		if (LoopEnd == 0) { // RA2: as above
-			LoopEnd = Stages; // RA2: as above
-		} // RA2: as above
+				Stages /= 2;
+			}
+		}
+		if (LoopEnd == 0) {
+			LoopEnd = Stages;
+		}
 
-		int biggest_size = 0; // RA2: as above
-		int biggest_frame = 0; // RA2: as above
-		for (int frame = 0; frame < shape->Get_Count(); frame++) { // RA2: as above
-			Rect rect = shape->Get_Rect(frame); // RA2: as above
-			if (rect.Width * rect.Height > biggest_size) { // RA2: as above
-				biggest_frame = frame; // RA2: as above
-				biggest_size = rect.Width * rect.Height; // RA2: as above
-			} // RA2: as above
-		} // RA2: as above
-		Biggest = biggest_frame; // RA2: as above
-	} // RA2: as above
+		int biggest_size = 0;
+		int biggest_frame = 0;
+		for (int frame = 0; frame < shape->Get_Count(); frame++) {
+			Rect rect = shape->Get_Rect(frame);
+			if (rect.Width * rect.Height > biggest_size) {
+				biggest_frame = frame;
+				biggest_size = rect.Width * rect.Height;
+			}
+		}
+		Biggest = biggest_frame;
+	}
 }
 
 
@@ -397,120 +397,120 @@ AnimType AnimTypeClass::From_Name(char const * name)
 /// <param name="ini">The rules database to read this animation's section from.</param>
 /// <returns>bool; Was the animation type's data read?</returns>
 bool AnimTypeClass::Read_INI(CCINIClass const & ini) // RA2: the executable's body (meastes' source; Shadow, Layer, ForceBigCraters, PsiWarning, HideIfNoOre, ZAdjust, StopSound and the Report fallback are RA2's)
-{ // RA2: as above
-	if (BASECLASS::Read_INI(ini)) { // RA2: as above
-		bool shadow = ini.Get_Bool(Name(), "Shadow", Shadow); // RA2: as above
-		if (shadow != Shadow) { // RA2: as above
-			Shadow = shadow; // RA2: as above
-			if (Shadow) { // RA2: as above
-				Stages /= 2; // RA2: as above
-			} else { // RA2: as above
-				Stages *= 2; // RA2: as above
-			} // RA2: as above
-			if (LoopEnd > Stages) { // RA2: as above
-				LoopEnd = Stages; // RA2: as above
-			} // RA2: as above
-		} // RA2: as above
+{
+	if (BASECLASS::Read_INI(ini)) {
+		bool shadow = ini.Get_Bool(Name(), "Shadow", Shadow);
+		if (shadow != Shadow) {
+			Shadow = shadow;
+			if (Shadow) {
+				Stages /= 2;
+			} else {
+				Stages *= 2;
+			}
+			if (LoopEnd > Stages) {
+				LoopEnd = Stages;
+			}
+		}
 
-		if (GraphicName[0] != '\0') { // RA2: as above
-			if (ImageData == 0) { // RA2: as above
-				IsTheater = ArtINI.Get_Bool(Name(), "Theater", IsTheater); // RA2: as above
-				IsNewTheater = ArtINI.Get_Bool(Name(), "NewTheater", IsNewTheater); // RA2: as above
-			} // RA2: as above
-			Load_Image(THEATER_NONE); // RA2: as above
-		} // RA2: as above
+		if (GraphicName[0] != '\0') {
+			if (ImageData == 0) {
+				IsTheater = ArtINI.Get_Bool(Name(), "Theater", IsTheater);
+				IsNewTheater = ArtINI.Get_Bool(Name(), "NewTheater", IsNewTheater);
+			}
+			Load_Image(THEATER_NONE);
+		}
 
-		Layer = ini.Get_LayerType(Name(), "Layer", Layer); // RA2: as above
-		IsAltPalette = ArtINI.Get_Bool(Name(), "AltPalette", IsAltPalette); // RA2: as above
-		IsFlat = ini.Get_Bool(Name(), "Flat", IsFlat); // RA2: as above
-		IsFlameThrower = ini.Get_Bool(Name(), "Flamer", IsFlameThrower); // RA2: as above
-		IsNormalized = ini.Get_Bool(Name(), "Normalized", IsNormalized); // RA2: as above
-		IsTranslucent = ini.Get_Bool(Name(), "Translucent", IsTranslucent); // RA2: as above
-		IsScorcher = ini.Get_Bool(Name(), "Scorch", IsScorcher); // RA2: as above
-		IsCraterForming = ini.Get_Bool(Name(), "Crater", IsCraterForming); // RA2: as above
-		ForceBigCraters = ini.Get_Bool(Name(), "ForceBigCraters", ForceBigCraters); // RA2: as above
-		IsSticky = ini.Get_Bool(Name(), "Sticky", IsSticky); // RA2: as above
-		IsPingPong = ini.Get_Bool(Name(), "PingPong", IsPingPong); // RA2: as above
-		IsReverse = ini.Get_Bool(Name(), "Reverse", IsReverse); // RA2: as above
-		PsiWarning = ini.Get_Bool(Name(), "PsiWarning", PsiWarning); // RA2: as above
-		IsTiberiumChainReaction = ini.Get_Bool(Name(), "TiberiumChainReaction", IsTiberiumChainReaction); // RA2: as above
+		Layer = ini.Get_LayerType(Name(), "Layer", Layer);
+		IsAltPalette = ArtINI.Get_Bool(Name(), "AltPalette", IsAltPalette);
+		IsFlat = ini.Get_Bool(Name(), "Flat", IsFlat);
+		IsFlameThrower = ini.Get_Bool(Name(), "Flamer", IsFlameThrower);
+		IsNormalized = ini.Get_Bool(Name(), "Normalized", IsNormalized);
+		IsTranslucent = ini.Get_Bool(Name(), "Translucent", IsTranslucent);
+		IsScorcher = ini.Get_Bool(Name(), "Scorch", IsScorcher);
+		IsCraterForming = ini.Get_Bool(Name(), "Crater", IsCraterForming);
+		ForceBigCraters = ini.Get_Bool(Name(), "ForceBigCraters", ForceBigCraters);
+		IsSticky = ini.Get_Bool(Name(), "Sticky", IsSticky);
+		IsPingPong = ini.Get_Bool(Name(), "PingPong", IsPingPong);
+		IsReverse = ini.Get_Bool(Name(), "Reverse", IsReverse);
+		PsiWarning = ini.Get_Bool(Name(), "PsiWarning", PsiWarning);
+		IsTiberiumChainReaction = ini.Get_Bool(Name(), "TiberiumChainReaction", IsTiberiumChainReaction);
 
-		int rate = ini.Get_Int(Name(), "Rate", -1); // RA2: as above
-		if (rate != -1) { // RA2: as above
-			Delay = rate > 0 ? TICKS_PER_MINUTE / rate : 0; // RA2: as above
-		} // RA2: as above
+		int rate = ini.Get_Int(Name(), "Rate", -1);
+		if (rate != -1) {
+			Delay = rate > 0 ? TICKS_PER_MINUTE / rate : 0;
+		}
 
-		Damage = ini.Get_Float(Name(), "Damage", Damage); // RA2: as above
-		Start = ini.Get_Int(Name(), "Start", Start); // RA2: as above
-		Stages = ini.Get_Int(Name(), "End", Stages); // RA2: as above
-		LoopStart = ini.Get_Int(Name(), "LoopStart", LoopStart); // RA2: as above
-		LoopEnd = ini.Get_Int(Name(), "LoopEnd", LoopEnd); // RA2: as above
-		Loops = ini.Get_Int(Name(), "LoopCount", Loops); // RA2: as above
+		Damage = ini.Get_Float(Name(), "Damage", Damage);
+		Start = ini.Get_Int(Name(), "Start", Start);
+		Stages = ini.Get_Int(Name(), "End", Stages);
+		LoopStart = ini.Get_Int(Name(), "LoopStart", LoopStart);
+		LoopEnd = ini.Get_Int(Name(), "LoopEnd", LoopEnd);
+		Loops = ini.Get_Int(Name(), "LoopCount", Loops);
 
-		ChainTo = TGet_Class(ini, Name(), "Next", ChainTo); // RA2: as above
+		ChainTo = TGet_Class(ini, Name(), "Next", ChainTo);
 
-		DetailLevel = ini.Get_Int(Name(), "DetailLevel", DetailLevel); // RA2: as above
-		TranslucencyDetailLevel = ini.Get_Int(Name(), "TranslucencyDetailLevel", TranslucencyDetailLevel); // RA2: as above
-		Point2D delay = ini.Get_Point(Name(), "RandomLoopDelay", Point2D(RandomLoopDelayMin, RandomLoopDelayMax)); // RA2: as above
-		RandomLoopDelayMin = delay.X; // RA2: as above
-		RandomLoopDelayMax = delay.Y; // RA2: as above
-		Translucency = ini.Get_Int(Name(), "Translucency", Translucency); // RA2: as above
-		IsTiberium = ini.Get_Bool(Name(), "IsTiberium", IsTiberium); // RA2: as above
-		HideIfNoOre = ini.Get_Bool(Name(), "HideIfNoOre", HideIfNoOre); // RA2: as above
-		YSortAdjust = ini.Get_Int(Name(), "YSortAdjust", YSortAdjust); // RA2: as above
-		IsDemandLoad = ini.Get_Bool(Name(), "DemandLoad", IsDemandLoad); // RA2: as above
-		IsFreeAfterPlaying = ini.Get_Bool(Name(), "FreeAfterPlaying", IsFreeAfterPlaying); // RA2: as above
-		Elasticity = ini.Get_Float(Name(), "Elasticity", Elasticity); // RA2: as above
-		MaxXYVel = ini.Get_Float(Name(), "MaxXYVel", MaxXYVel); // RA2: as above
-		MinZVel = ini.Get_Float(Name(), "MinZVel", MinZVel); // RA2: as above
+		DetailLevel = ini.Get_Int(Name(), "DetailLevel", DetailLevel);
+		TranslucencyDetailLevel = ini.Get_Int(Name(), "TranslucencyDetailLevel", TranslucencyDetailLevel);
+		Point2D delay = ini.Get_Point(Name(), "RandomLoopDelay", Point2D(RandomLoopDelayMin, RandomLoopDelayMax));
+		RandomLoopDelayMin = delay.X;
+		RandomLoopDelayMax = delay.Y;
+		Translucency = ini.Get_Int(Name(), "Translucency", Translucency);
+		IsTiberium = ini.Get_Bool(Name(), "IsTiberium", IsTiberium);
+		HideIfNoOre = ini.Get_Bool(Name(), "HideIfNoOre", HideIfNoOre);
+		YSortAdjust = ini.Get_Int(Name(), "YSortAdjust", YSortAdjust);
+		IsDemandLoad = ini.Get_Bool(Name(), "DemandLoad", IsDemandLoad);
+		IsFreeAfterPlaying = ini.Get_Bool(Name(), "FreeAfterPlaying", IsFreeAfterPlaying);
+		Elasticity = ini.Get_Float(Name(), "Elasticity", Elasticity);
+		MaxXYVel = ini.Get_Float(Name(), "MaxXYVel", MaxXYVel);
+		MinZVel = ini.Get_Float(Name(), "MinZVel", MinZVel);
 
-		Spawns = TGet_Class(ini, Name(), "Spawns", Spawns); // RA2: as above
+		Spawns = TGet_Class(ini, Name(), "Spawns", Spawns);
 
-		SpawnCount = ini.Get_Int(Name(), "SpawnCount", SpawnCount); // RA2: as above
-		IsMeteor = ini.Get_Bool(Name(), "IsMeteor", IsMeteor); // RA2: as above
-		IsVeins = ini.Get_Bool(Name(), "IsVeins", IsVeins); // RA2: as above
-		TiberiumSpreadRadius = ini.Get_Int(Name(), "TiberiumSpreadRadius", TiberiumSpreadRadius); // RA2: as above
-		TiberiumSpawnType = TGet_Class(ini, Name(), "TiberiumSpawnType", TiberiumSpawnType); // RA2: as above
-		IsAnimatedTiberium = ini.Get_Bool(Name(), "IsAnimatedTiberium", IsAnimatedTiberium); // RA2: as above
-		IsShouldFogRemove = ini.Get_Bool(Name(), "ShouldFogRemove", IsShouldFogRemove); // RA2: as above
-		IsFlamingGuy = ini.Get_Bool(Name(), "IsFlamingGuy", IsFlamingGuy); // RA2: as above
-		RunningFrames = ini.Get_Int(Name(), "RunningFrames", RunningFrames); // RA2: as above
-		YDrawOffset = ini.Get_Int(Name(), "YDrawOffset", YDrawOffset); // RA2: as above
-		ZAdjust = ini.Get_Int(Name(), "ZAdjust", ZAdjust); // RA2: as above
+		SpawnCount = ini.Get_Int(Name(), "SpawnCount", SpawnCount);
+		IsMeteor = ini.Get_Bool(Name(), "IsMeteor", IsMeteor);
+		IsVeins = ini.Get_Bool(Name(), "IsVeins", IsVeins);
+		TiberiumSpreadRadius = ini.Get_Int(Name(), "TiberiumSpreadRadius", TiberiumSpreadRadius);
+		TiberiumSpawnType = TGet_Class(ini, Name(), "TiberiumSpawnType", TiberiumSpawnType);
+		IsAnimatedTiberium = ini.Get_Bool(Name(), "IsAnimatedTiberium", IsAnimatedTiberium);
+		IsShouldFogRemove = ini.Get_Bool(Name(), "ShouldFogRemove", IsShouldFogRemove);
+		IsFlamingGuy = ini.Get_Bool(Name(), "IsFlamingGuy", IsFlamingGuy);
+		RunningFrames = ini.Get_Int(Name(), "RunningFrames", RunningFrames);
+		YDrawOffset = ini.Get_Int(Name(), "YDrawOffset", YDrawOffset);
+		ZAdjust = ini.Get_Int(Name(), "ZAdjust", ZAdjust);
 
-		StartSound = ini.Get_VocType(Name(), "StartSound", StartSound); // RA2: as above
-		if (StartSound == VOC_NONE) { // RA2: as above
-			StartSound = ini.Get_VocType(Name(), "Report", VOC_NONE); // RA2: as above
-		} // RA2: as above
-		StopSound = ini.Get_VocType(Name(), "StopSound", StopSound); // RA2: as above
+		StartSound = ini.Get_VocType(Name(), "StartSound", StartSound);
+		if (StartSound == VOC_NONE) {
+			StartSound = ini.Get_VocType(Name(), "Report", VOC_NONE);
+		}
+		StopSound = ini.Get_VocType(Name(), "StopSound", StopSound);
 
-		BounceAnim = TGet_Class(ini, Name(), "BounceAnim", BounceAnim); // RA2: as above
-		ExpireAnim = TGet_Class(ini, Name(), "ExpireAnim", ExpireAnim); // RA2: as above
-		TrailerAnim = TGet_Class(ini, Name(), "TrailerAnim", TrailerAnim); // RA2: as above
-		TrailerSeperation = ini.Get_Int(Name(), "TrailerSeperation", TrailerSeperation); // RA2: as above
-		DamageRadius = ini.Get_Int(Name(), "DamageRadius", DamageRadius); // RA2: as above
-		Warhead = TGet_Class(ini, Name(), "Warhead", Warhead); // RA2: as above
-		IsBouncer = ini.Get_Bool(Name(), "Bouncer", IsBouncer); // RA2: as above
-		IsTiled = ini.Get_Bool(Name(), "Tiled", IsTiled); // RA2: as above
-		IsShouldUseCellDrawer = ini.Get_Bool(Name(), "ShouldUseCellDrawer", IsShouldUseCellDrawer); // RA2: as above
-		IsUseNormalLight = ini.Get_Bool(Name(), "UseNormalLight", IsUseNormalLight); // RA2: as above
+		BounceAnim = TGet_Class(ini, Name(), "BounceAnim", BounceAnim);
+		ExpireAnim = TGet_Class(ini, Name(), "ExpireAnim", ExpireAnim);
+		TrailerAnim = TGet_Class(ini, Name(), "TrailerAnim", TrailerAnim);
+		TrailerSeperation = ini.Get_Int(Name(), "TrailerSeperation", TrailerSeperation);
+		DamageRadius = ini.Get_Int(Name(), "DamageRadius", DamageRadius);
+		Warhead = TGet_Class(ini, Name(), "Warhead", Warhead);
+		IsBouncer = ini.Get_Bool(Name(), "Bouncer", IsBouncer);
+		IsTiled = ini.Get_Bool(Name(), "Tiled", IsTiled);
+		IsShouldUseCellDrawer = ini.Get_Bool(Name(), "ShouldUseCellDrawer", IsShouldUseCellDrawer);
+		IsUseNormalLight = ini.Get_Bool(Name(), "UseNormalLight", IsUseNormalLight);
 
-		Point2D rates = ini.Get_Point(Name(), "RandomRate", Point2D(-1, -1)); // RA2: as above
-		if (rates.X != -1) { // RA2: as above
-			RandomRateMin = rates.X > 0 ? TICKS_PER_MINUTE / rates.X : 0; // RA2: as above
-		} // RA2: as above
-		if (rates.Y != -1) { // RA2: as above
-			RandomRateMax = rates.Y > 0 ? TICKS_PER_MINUTE / rates.Y : 0; // RA2: as above
-		} // RA2: as above
-		if (RandomRateMax < 0) { // RA2: as above
-			RandomRateMax = 0; // RA2: as above
-		} // RA2: as above
-		if (RandomRateMin > RandomRateMax) { // RA2: as above
-			RandomRateMin = RandomRateMax; // RA2: as above
-		} // RA2: as above
-		return(true); // RA2: as above
-	} // RA2: as above
-	return(false); // RA2: as above
+		Point2D rates = ini.Get_Point(Name(), "RandomRate", Point2D(-1, -1));
+		if (rates.X != -1) {
+			RandomRateMin = rates.X > 0 ? TICKS_PER_MINUTE / rates.X : 0;
+		}
+		if (rates.Y != -1) {
+			RandomRateMax = rates.Y > 0 ? TICKS_PER_MINUTE / rates.Y : 0;
+		}
+		if (RandomRateMax < 0) {
+			RandomRateMax = 0;
+		}
+		if (RandomRateMin > RandomRateMax) {
+			RandomRateMin = RandomRateMax;
+		}
+		return(true);
+	}
+	return(false);
 }
 
 
@@ -593,9 +593,9 @@ HRESULT STDMETHODCALLTYPE AnimTypeClass::GetClassID(CLSID * retval)
 void AnimTypeClass::Compute_CRC(CRCEngine & crc) const
 {
 	ObjectTypeClass::Compute_CRC(crc); // RA2: RA2's form
-	crc((long)Layer); // RA2: as above
+	crc((long)Layer);
 	crc(IsNormalized);
-	crc(IsFlat); // RA2: as above
+	crc(IsFlat);
 	crc(IsTranslucent);
 	crc(IsScorcher);
 	crc(IsFlameThrower);
@@ -603,22 +603,22 @@ void AnimTypeClass::Compute_CRC(CRCEngine & crc) const
 	crc(IsSticky);
 	crc(IsPingPong);
 	crc(IsReverse);
-	crc(Shadow); // RA2: as above
-	crc((long)Biggest); // RA2: as above
+	crc(Shadow);
+	crc((long)Biggest);
 	crc(Damage);
 	crc(IsTiberiumChainReaction);
-	crc((long)Delay); // RA2: as above
-	crc((long)Start); // RA2: as above
-	crc((long)LoopStart); // RA2: as above
-	crc((long)LoopEnd); // RA2: as above
-	crc((long)Stages); // RA2: as above
-	crc((long)StartSound); // RA2: as above
-	crc((long)StopSound); // RA2: as above
-	crc((long)DetailLevel); // RA2: as above
-	crc((long)TranslucencyDetailLevel); // RA2: as above
-	crc((long)RandomLoopDelayMin); // RA2: as above
-	crc((long)RandomLoopDelayMax); // RA2: as above
-	crc((long)Translucency); // RA2: as above
+	crc((long)Delay);
+	crc((long)Start);
+	crc((long)LoopStart);
+	crc((long)LoopEnd);
+	crc((long)Stages);
+	crc((long)StartSound);
+	crc((long)StopSound);
+	crc((long)DetailLevel);
+	crc((long)TranslucencyDetailLevel);
+	crc((long)RandomLoopDelayMin);
+	crc((long)RandomLoopDelayMax);
+	crc((long)Translucency);
 	crc(IsTiled);
 }
 
@@ -662,31 +662,31 @@ void AnimTypeClass::Detach(AbstractClass const * target, bool all)
 void const * AnimTypeClass::Get_Image_Data(void) const
 {
 	AnimTypeClass *self = (AnimTypeClass *)this; // RA2: RA2's form
-	if (ImageData == 0 && IsDemandLoad) { // RA2: as above
-		DebugString("Demand loading image for %s\n", (char const *)Full_Name()); // RA2: as above
-		char fullname[512]; // RA2: as above
-		_makepath(fullname, 0, 0, GraphicName[0] != 0 ? (char const *)GraphicName : (char const *)Name(), ".SHP"); // RA2: as above
+	if (ImageData == 0 && IsDemandLoad) {
+		DebugString("Demand loading image for %s\n", (char const *)Full_Name());
+		char fullname[512];
+		_makepath(fullname, 0, 0, GraphicName[0] != 0 ? (char const *)GraphicName : (char const *)Name(), ".SHP");
 		if (IsTheater) {
-			_makepath(fullname, 0, 0, Name(), Theaters[Scen->Theater].Suffix); // RA2: as above
+			_makepath(fullname, 0, 0, Name(), Theaters[Scen->Theater].Suffix);
 		} else if (IsNewTheater) {
-			Theater_Name_Fixup(fullname, Scen->Theater); // RA2: as above
+			Theater_Name_Fixup(fullname, Scen->Theater);
 		}
 		CCFileClass file(fullname);
-		self->ImageData = Load_Alloc_Data(file); // RA2: as above
-		if (ImageData != 0) { // RA2: as above
-			self->ImageAllocated = true; // RA2: as above
-		} else { // RA2: as above
-			Generic_Theater_Name(fullname); // RA2: as above
-			CCFileClass generic(fullname); // RA2: as above
-			self->ImageData = Load_Alloc_Data(generic); // RA2: as above
-			if (ImageData != 0) { // RA2: as above
-				self->ImageAllocated = true; // RA2: as above
+		self->ImageData = Load_Alloc_Data(file);
+		if (ImageData != 0) {
+			self->ImageAllocated = true;
+		} else {
+			Generic_Theater_Name(fullname);
+			CCFileClass generic(fullname);
+			self->ImageData = Load_Alloc_Data(generic);
+			if (ImageData != 0) {
+				self->ImageAllocated = true;
 			}
 		}
-		self->Load_Image(Scen->Theater); // RA2: as above
-		return ImageData; // RA2: as above
+		self->Load_Image(Scen->Theater);
+		return ImageData;
 	}
-	return ImageData; // RA2: as above
+	return ImageData;
 }
 
 

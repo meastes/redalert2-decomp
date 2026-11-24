@@ -51,19 +51,19 @@ ProgressScreenClass Progress;
 /// </summary>
 ProgressScreenClass::ProgressScreenClass(void) : // RA2: ProgressScreenClass at 0x61ED00 matches only so
 	MainProgress(0), // RA2: the RA2 fields too, as an initializer list
-	String(NULL), // RA2: as above
-	Shape(NULL), // RA2: as above
-	BufferOwned(false), // RA2: as above
-	Background(NULL), // RA2: as above
-	IsActive(false), // RA2: as above
-	PlayerCount(0), // RA2: as above
-	Unused_62(false), // RA2: as above
-	Dialog(NULL), // RA2: as above
-	Pos(0, 0), // RA2: as above
-	ShowFlags(false), // RA2: as above
-	RowWidth(-1), // RA2: as above
-	Percentage(0), // RA2: as above
-	Side(SIDE_NONE) // RA2: as above
+	String(NULL),
+	Shape(NULL),
+	BufferOwned(false),
+	Background(NULL),
+	IsActive(false),
+	PlayerCount(0),
+	Unused_62(false),
+	Dialog(NULL),
+	Pos(0, 0),
+	ShowFlags(false),
+	RowWidth(-1),
+	Percentage(0),
+	Side(SIDE_NONE)
 {
 	for (int i = 0; i < MAX_PLAYERS; i++) {
 		PlayerProgress[i] = 0;
@@ -77,10 +77,10 @@ ProgressScreenClass::ProgressScreenClass(void) : // RA2: ProgressScreenClass at 
 ProgressScreenClass::~ProgressScreenClass(void)
 {
 	if (BufferOwned) { // RA2: the shape is freed when it was loaded here
-		delete [] (char *)Shape; // RA2: as above
-		BufferOwned = false; // RA2: as above
-	} // RA2: as above
-	Shape = NULL; // RA2: as above
+		delete[] (char *)Shape;
+		BufferOwned = false;
+	}
+	Shape = NULL;
 }
 
 /// <summary>
@@ -179,18 +179,18 @@ ColorScheme * ProgressScreenClass::Text_Scheme(void)
 ColorScheme * ProgressScreenClass::Player_Scheme(int index)
 {
 	ColorScheme * scheme = NULL; // RA2: the structure of meastes' body: named locals for the team, colour and scheme index
-	if (Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) { // RA2: as above
-		int team = Session.Players[index]->Slot.SpectatorFlag; // RA2: as above
-		if (team == -1) { // RA2: as above
-			int scheme_index = Session.Color_Index_To_Scheme(-2); // RA2: as above
-			scheme = ColorSchemes[scheme_index]; // RA2: as above
-			return(scheme); // RA2: as above
-		} // RA2: as above
+	if (Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) {
+		int team = Session.Players[index]->Slot.SpectatorFlag;
+		if (team == -1) {
+			int scheme_index = Session.Color_Index_To_Scheme(-2);
+			scheme = ColorSchemes[scheme_index];
+			return(scheme);
+		}
 	}
 	if (index >= 0 && index < MAX_PLAYERS) {
-		int color = Session.Players[index]->Get_Color(); // RA2: as above
-		int scheme_index = Session.Color_Index_To_Scheme(color); // RA2: as above
-		scheme = ColorSchemes[scheme_index]; // RA2: as above
+		int color = Session.Players[index]->Get_Color();
+		int scheme_index = Session.Color_Index_To_Scheme(color);
+		scheme = ColorSchemes[scheme_index];
 	}
 	return(scheme);
 }
@@ -384,11 +384,11 @@ int ProgressScreenClass::Text_Offset(bool flags)
 double ProgressScreenClass::Get_Current_Progress(void) const
 {
 	double progress = 0; // RA2: Get_Current_Progress at 0x61F8C0 matches only so
-	int count = PlayerCount; // RA2: as above
-	for (int i = 0; i < count; i++) { // RA2: as above
-		progress += PlayerProgress[i]; // RA2: as above
+	int count = PlayerCount;
+	for (int i = 0; i < count; i++) {
+		progress += PlayerProgress[i];
 	}
-	return(progress / count / MainProgress); // RA2: as above
+	return(progress / count / MainProgress);
 }
 
 
@@ -479,7 +479,7 @@ void ProgressScreenClass::Draw_Player(ColorScheme * scheme, wchar_t const * name
 	Point2D barpt = pt;
 	int baroffset = Bar_Offset(flags); // RA2: the bar offset in a named local before the bar point is moved (meastes' order)
 	barpt.X += 5;
-	barpt.Y = y + baroffset; // RA2: as above
+	barpt.Y = y + baroffset;
 	Point2D itempt = pt;
 	itempt.X += barwidth + 15;
 	Point2D flagpt = itempt;
@@ -519,38 +519,38 @@ void ProgressScreenClass::Draw_Player(ColorScheme * scheme, wchar_t const * name
 void ProgressScreenClass::Display_Progress(Point2D xpt)
 {
 	if (IsActive && Shape != NULL) { // RA2: Display_Progress rewritten as RA2's 0x620050 (a row per player)
-		Point2D pt; // RA2: as above
-		if (Dialog != NULL) { // RA2: as above
-			RECT crect; // RA2: as above
-			HWND control = GetDlgItem(Dialog, IDC_PROGRESS_BAR_FRAME); // RA2: as above
-			Get_Display_Rect(control, &crect); // RA2: as above
-			pt = Point2D(crect.left, crect.top); // RA2: as above
-			Draw_Bar(pt, Get_Current_Progress(0), AlternateSurface, NULL); // RA2: as above
-			return; // RA2: as above
+		Point2D pt;
+		if (Dialog != NULL) {
+			RECT crect;
+			HWND control = GetDlgItem(Dialog, IDC_PROGRESS_BAR_FRAME);
+			Get_Display_Rect(control, &crect);
+			pt = Point2D(crect.left, crect.top);
+			Draw_Bar(pt, Get_Current_Progress(0), AlternateSurface, NULL);
+			return;
 		}
-		pt = xpt; // RA2: as above
-		if (pt.X == -1 && pt.Y == -1) { // RA2: as above
-			pt = Pos; // RA2: as above
+		pt = xpt;
+		if (pt.X == -1 && pt.Y == -1) {
+			pt = Pos;
 		}
-		wchar_t const * name = String; // RA2: as above
-		if (PlayerCount == 1) { // RA2: as above
-			ColorScheme * scheme; // RA2: as above
-			if (Session.Type == GAME_NORMAL) { // RA2: as above
-				if (name == NULL) { // RA2: as above
-					name = L""; // RA2: as above
+		wchar_t const * name = String;
+		if (PlayerCount == 1) {
+			ColorScheme * scheme;
+			if (Session.Type == GAME_NORMAL) {
+				if (name == NULL) {
+					name = L"";
 				}
-				scheme = Side_Scheme(); // RA2: as above
+				scheme = Side_Scheme();
 			} else {
-				if (name == NULL) { // RA2: as above
-					name = Session.Players[0]->Name; // RA2: as above
+				if (name == NULL) {
+					name = Session.Players[0]->Name;
 				}
-				scheme = Player_Scheme(0); // RA2: as above
+				scheme = Player_Scheme(0);
 			}
-			Draw_Player(scheme, name, pt, 0, ShowFlags); // RA2: as above
+			Draw_Player(scheme, name, pt, 0, ShowFlags);
 		} else {
-			for (int i = 0; i < PlayerCount; i++) { // RA2: as above
+			for (int i = 0; i < PlayerCount; i++) {
 				ColorScheme * scheme = Player_Scheme(i); // RA2: the scheme first, in a named local (the exe calls Player_Scheme before it loads the name)
-				Draw_Player(scheme, Session.Players[i]->Name, pt, i, ShowFlags); // RA2: as above
+				Draw_Player(scheme, Session.Players[i]->Name, pt, i, ShowFlags);
 			}
 		}
 		Update_Visible_Surface(); // RA2: as above (TibSun's loading messages and per-player drawing are gone)
@@ -566,22 +566,22 @@ void ProgressScreenClass::Display_Progress(Point2D xpt)
 void ProgressScreenClass::Set_Progress_Percent(int index, double value, Point2D pt)
 {
 	int before = Get_Current_Progress() * 100.0; // RA2: Set_Progress_Percent at 0x6201C0 matches only so
-	double old = PlayerProgress[index]; // RA2: as above
-	PlayerProgress[index] = (MainProgress * 0.01) * value; // RA2: as above
-	if (PlayerProgress[index] > MainProgress) { // RA2: as above
-		PlayerProgress[index] = MainProgress; // RA2: as above
+	double old = PlayerProgress[index];
+	PlayerProgress[index] = (MainProgress * 0.01) * value;
+	if (PlayerProgress[index] > MainProgress) {
+		PlayerProgress[index] = MainProgress;
 	}
-	if (old != PlayerProgress[index]) { // RA2: as above
+	if (old != PlayerProgress[index]) {
 		if (Dialog != NULL) {
 			SendMessage(Dialog, WM_PAINT, 0, 0);
 		} else {
 			Display_Progress(pt);
 		}
 	}
-	int after = Get_Current_Progress() * 100.0; // RA2: as above
-	int percent[2] = {before, after}; // RA2: as above
-	if (Callback != NULL && IsActive) { // RA2: as above
-		Callback->Unknown_Virtual_0(0x11AE, (int)percent); // RA2: as above
+	int after = Get_Current_Progress() * 100.0;
+	int percent[2] = { before, after };
+	if (Callback != NULL && IsActive) {
+		Callback->Unknown_Virtual_0(0x11AE, (int)percent);
 	}
 }
 
@@ -592,22 +592,22 @@ void ProgressScreenClass::Set_Progress_Percent(int index, double value, Point2D 
 void ProgressScreenClass::Add_Progress_Percent(int index, double value, Point2D pt)
 {
 	int before = Get_Current_Progress() * 100.0; // RA2: Add_Progress_Percent at 0x6202C0 matches only so
-	double old = PlayerProgress[index]; // RA2: as above
-	PlayerProgress[index] += (MainProgress * 0.01) * value; // RA2: as above
-	if (PlayerProgress[index] > MainProgress) { // RA2: as above
-		PlayerProgress[index] = MainProgress; // RA2: as above
+	double old = PlayerProgress[index];
+	PlayerProgress[index] += (MainProgress * 0.01) * value;
+	if (PlayerProgress[index] > MainProgress) {
+		PlayerProgress[index] = MainProgress;
 	}
-	if (old != PlayerProgress[index]) { // RA2: as above
+	if (old != PlayerProgress[index]) {
 		if (Dialog != NULL) {
 			SendMessage(Dialog, WM_PAINT, 0, 0);
 		} else {
 			Display_Progress(pt);
 		}
 	}
-	int after = Get_Current_Progress() * 100.0; // RA2: as above
-	int percent[2] = {before, after}; // RA2: as above
-	if (Callback != NULL) { // RA2: as above
-		Callback->Unknown_Virtual_0(0x11AE, (int)percent); // RA2: as above
+	int after = Get_Current_Progress() * 100.0;
+	int percent[2] = { before, after };
+	if (Callback != NULL) {
+		Callback->Unknown_Virtual_0(0x11AE, (int)percent);
 	}
 }
 
@@ -648,11 +648,11 @@ void ProgressScreenClass::Unknown_Virtual_0(int callback)
 double ProgressScreenClass::Get_Current_Progress(int index) const
 {
 	double result; // RA2: a named result: the exe's inlined copies keep it in a double temporary, copying the job's total in two dwords
-	if (index >= PlayerCount) { // RA2: as above
-		result = MainProgress; // RA2: as above
-	} else { // RA2: as above
-		result = PlayerProgress[index] / MainProgress; // RA2: as above
-	} // RA2: as above
-	return(result); // RA2: as above
+	if (index >= PlayerCount) {
+		result = MainProgress;
+	} else {
+		result = PlayerProgress[index] / MainProgress;
+	}
+	return(result);
 }
 

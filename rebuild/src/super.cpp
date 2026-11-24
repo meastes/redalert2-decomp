@@ -91,15 +91,15 @@
 
 
 Cell const CellAndNeighbors[9] = { // RA2: 0x00ABD7A0, built by the initializer at 0x0069C5A0: the cell itself, then its eight neighbours clockwise from east
-	Cell(0, 0), // RA2: as above
-	Cell(1, 0), // RA2: as above
-	Cell(1, -1), // RA2: as above
-	Cell(0, -1), // RA2: as above
-	Cell(-1, -1), // RA2: as above
-	Cell(-1, 0), // RA2: as above
-	Cell(-1, 1), // RA2: as above
-	Cell(0, 1), // RA2: as above
-	Cell(1, 1) // RA2: as above
+	Cell(0, 0),
+	Cell(1, 0),
+	Cell(1, -1),
+	Cell(0, -1),
+	Cell(-1, -1),
+	Cell(-1, 0),
+	Cell(-1, 1),
+	Cell(0, 1),
+	Cell(1, 1)
 };
 
 
@@ -113,8 +113,8 @@ SuperClass::SuperClass(void) :
 	House(NULL),
 	NeedsBuilding(true),
 	ChronoMapCoords(CELL_NONE), // RA2: copied from the constant at 0x00ABD768
-	Animation(NULL), // RA2: as above
-	AnimationGotInvalid(false), // RA2: as above
+	Animation(NULL),
+	AnimationGotInvalid(false),
 	IsPresent(false),
 	IsOneTime(false),
 	IsReady(false),
@@ -149,10 +149,10 @@ SuperClass::SuperClass(void) :
 SuperClass::SuperClass(SuperWeaponTypeClass * type, HouseClass * owner) :
 	Class(type),
 	House(owner),
-	NeedsBuilding(true), // RA2: as above
-	ChronoMapCoords(CELL_NONE), // RA2: as above
-	Animation(NULL), // RA2: as above
-	AnimationGotInvalid(false), // RA2: as above
+	NeedsBuilding(true),
+	ChronoMapCoords(CELL_NONE),
+	Animation(NULL),
+	AnimationGotInvalid(false),
 	IsPresent(false),
 	IsOneTime(false),
 	IsReady(false),
@@ -174,8 +174,8 @@ SuperClass::SuperClass(SuperWeaponTypeClass * type, HouseClass * owner) :
 /// </summary>
 SuperClass::~SuperClass(void)
 {
-	Detach_Animation(); // RA2: as above
-	TimedSuperWeapons.Delete(this); // RA2: as above
+	Detach_Animation();
+	TimedSuperWeapons.Delete(this);
 	SuperWeapons.Delete(this);
 	AbstractTypePtrTracker.Delete(this);
 	HousePtrTracker.Delete(this);
@@ -199,25 +199,25 @@ SuperClass::~SuperClass(void)
  *=============================================================================================*/
 void SuperClass::Detach_Animation() // RA2: drops the animation and its tracker entries (0x0069CA70)
 {
-	if (Animation != NULL) { // RA2: as above
-		Animation->Loops = 0; // RA2: as above
-		Animation = NULL; // RA2: as above
-		AnimPtrTracker.Delete(this); // RA2: as above
+	if (Animation != NULL) {
+		Animation->Loops = 0;
+		Animation = NULL;
+		AnimPtrTracker.Delete(this);
 	}
-	if (AnimationGotInvalid) { // RA2: as above
-		AnimPtrTracker.Delete(this); // RA2: as above
-		AnimationGotInvalid = false; // RA2: as above
+	if (AnimationGotInvalid) {
+		AnimPtrTracker.Delete(this);
+		AnimationGotInvalid = false;
 	}
 }
 
 
 void SuperClass::Create_Chrono_Anim(Coord coord) // RA2: puts the chrono placement marker 5 leptons above coord (0x0069CB30)
 {
-	Detach_Animation(); // RA2: as above
-	AnimClass *anim = new AnimClass(Rule->ChronoPlacement, coord + Coord(0, 0, 5), 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
-	if (anim != NULL) { // RA2: as above
-		Animation = anim; // RA2: as above
-		AnimPtrTracker.Add(this); // RA2: as above
+	Detach_Animation();
+	AnimClass * anim = new AnimClass(Rule->ChronoPlacement, coord + Coord(0, 0, 5), 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
+	if (anim != NULL) {
+		Animation = anim;
+		AnimPtrTracker.Add(this);
 	}
 }
 
@@ -225,7 +225,7 @@ void SuperClass::Create_Chrono_Anim(Coord coord) // RA2: puts the chrono placeme
 bool SuperClass::Suspend(bool on)
 {
 	if (IsPresent && !IsOneTime && on != IsSuspended && NeedsBuilding) {
-		if (on || Class->IsManualControl) { // RA2: as above
+		if (on || Class->IsManualControl) {
 			Control.Stop();
 		} else {
 			Control.Start();
@@ -241,23 +241,23 @@ bool SuperClass::Enable(bool one_time, bool announce, bool on_hold) // RA2: gran
 {
 	if (!IsPresent) {
 		IsPresent = true;
-		IsOneTime = one_time; // RA2: as above
-		BlinkInfo.State = false; // RA2: as above
-		bool result = false; // RA2: as above
-		UIName = Class->UIName; // RA2: as above
-		if (!one_time) Suspend(false); // RA2: as above
-		if (Class->ShowTimer && !House->Class->IsMultiplayPassive) { // RA2: as above
-			TimedSuperWeapons.Add(this); // RA2: as above
+		IsOneTime = one_time;
+		BlinkInfo.State = false;
+		bool result = false;
+		UIName = Class->UIName;
+		if (!one_time) Suspend(false);
+		if (Class->ShowTimer && !House->Class->IsMultiplayPassive) {
+			TimedSuperWeapons.Add(this);
 		}
 		if (Class->IsManualControl) {
 			OldStage = -1;
 			Control = Class->RechargeTime;
 			Control.Stop();
 		} else {
-			result = Recharge(announce && !on_hold); // RA2: as above
+			result = Recharge(announce && !on_hold);
 		}
-		if (on_hold) Suspend(true); // RA2: as above
-		if (IsOneTime) Forced_Charge(announce); // RA2: as above
+		if (on_hold) Suspend(true);
+		if (IsOneTime) Forced_Charge(announce);
 		return(result);
 	}
 	return(false);
@@ -269,7 +269,7 @@ bool SuperClass::Remove() // RA2: takes the weapon away and leaves the timer lis
 	if (IsPresent) {
 		IsReady = false;
 		IsPresent = false;
-		TimedSuperWeapons.Delete(this); // RA2: as above
+		TimedSuperWeapons.Delete(this);
 		return(true);
 	}
 	return(false);
@@ -278,13 +278,13 @@ bool SuperClass::Remove() // RA2: takes the weapon away and leaves the timer lis
 
 void SuperClass::Set_Ready(bool ready) // RA2: has this one-line setter out of line (0x0069CFB0)
 {
-	IsReady = ready; // RA2: as above
+	IsReady = ready;
 }
 
 
 bool SuperClass::Recharge(bool player)
 {
-	Detach_Animation(); // RA2: as above
+	Detach_Animation();
 	if (IsPresent && !IsReady && !IsSuspended) {
 		OldStage = -1;
 		Control.Start();
@@ -323,15 +323,15 @@ bool SuperClass::Discharged(bool player, Cell const & cell)
 		return(false);
 	}
 
-	if ((Control.Is_Active() && IsPresent && IsReady) || Class->PostClick) { // RA2: as above
-		if (Class->Type == SUPER_LIGHTNING_STORM && IonStormClass::Is_Ion_Storm_Pending()) { // RA2: as above
+	if ((Control.Is_Active() && IsPresent && IsReady) || Class->PostClick) {
+		if (Class->Type == SUPER_LIGHTNING_STORM && IonStormClass::Is_Ion_Storm_Pending()) {
 			if (player) {
-				IonStormClass::Ion_Storm_Active_Message(); // RA2: as above
+				IonStormClass::Ion_Storm_Active_Message();
 			}
 			return(false);
 		}
 		Place(cell, player);
-		if (!Class->PostClick) { // RA2: as above
+		if (!Class->PostClick) {
 			IsReady = false;
 		}
 		if (IsOneTime) {
@@ -342,7 +342,7 @@ bool SuperClass::Discharged(bool player, Cell const & cell)
 			Control = Class->RechargeTime;
 			OldStage = -1;
 			Control.Stop();
-		} else if (!Class->PreClick && !Class->PostClick) { // RA2: as above
+		} else if (!Class->PreClick && !Class->PostClick) {
 			Recharge(player);
 		}
 	}
@@ -370,11 +370,11 @@ bool SuperClass::Discharged(bool player, Cell const & cell)
  *=============================================================================================*/
 bool SuperClass::AI(bool player)
 {
-	if (CurrentSuperWeaponType != SUPER_CHRONO_WARP && Animation != NULL) { // RA2: as above
-		Animation->IsInvisible = true; // RA2: as above
-		Animation->StartSoundAudioController.End(); // RA2: as above
+	if (CurrentSuperWeaponType != SUPER_CHRONO_WARP && Animation != NULL) {
+		Animation->IsInvisible = true;
+		Animation->StartSoundAudioController.End();
 	}
-	if (Is_Present() && (!IsReady || Class->UseChargeDrain) && !IsSuspended) { // RA2: as above
+	if (Is_Present() && (!IsReady || Class->UseChargeDrain) && !IsSuspended) {
 		if (!Control.Is_Active()) {
 			if (OldStage != -1) {
 				OldStage = -1;
@@ -396,20 +396,20 @@ bool SuperClass::AI(bool player)
 					if (player) {
 						switch (Class->Type) {
 						case SUPER_MULTI_MISSILE:
-							Queue_Speech("EVA_NuclearMissileReady", -1, -1); // RA2: as above
+							Queue_Speech("EVA_NuclearMissileReady", -1, -1);
 							break;
-						case SUPER_IRON_CURTAIN: // RA2: as above
-							Queue_Speech("EVA_IronCurtainReady", -1, -1); // RA2: as above
+						case SUPER_IRON_CURTAIN:
+							Queue_Speech("EVA_IronCurtainReady", -1, -1);
 							break;
-						case SUPER_LIGHTNING_STORM: // RA2: as above
-							Queue_Speech("EVA_LightningStormReady", -1, -1); // RA2: as above
+						case SUPER_LIGHTNING_STORM:
+							Queue_Speech("EVA_LightningStormReady", -1, -1);
 							break;
-						case SUPER_CHRONO_SPHERE: // RA2: as above
-							Queue_Speech("EVA_ChronosphereReady", -1, -1); // RA2: as above
+						case SUPER_CHRONO_SPHERE:
+							Queue_Speech("EVA_ChronosphereReady", -1, -1);
 							break;
-						case SUPER_PARA_DROP: // RA2: as above
-						case SUPER_AMER_PARA_DROP: // RA2: as above
-							Queue_Speech("EVA_ReinforcementsReady", -1, -1); // RA2: as above
+						case SUPER_PARA_DROP:
+						case SUPER_AMER_PARA_DROP:
+							Queue_Speech("EVA_ReinforcementsReady", -1, -1);
 							break;
 						}
 					}
@@ -450,17 +450,17 @@ int SuperClass::Anim_Stage() const // RA2: sidebar stage with the charge drain r
 		int stage;
 		if (Class->UseChargeDrain) {
 			if (ChargeDrainState == FIRESTORM_ON) {
-				stage = 54 * (1 - double(Class->RechargeTime * Rule->ChargeToDrainRatio - Control.Value()) / (Class->RechargeTime * Rule->ChargeToDrainRatio)); // RA2: as above
+				stage = 54 * (1 - double(Class->RechargeTime * Rule->ChargeToDrainRatio - Control.Value()) / (Class->RechargeTime * Rule->ChargeToDrainRatio));
 			} else {
-				stage = 54 * (double(Class->RechargeTime - Control.Value()) / Class->RechargeTime); // RA2: as above
+				stage = 54 * (double(Class->RechargeTime - Control.Value()) / Class->RechargeTime);
 			}
 		} else {
 			if (IsReady) {
-				return 54; // RA2: as above
+				return 54;
 			}
-			stage = 54 * (double(Class->RechargeTime - Control.Value()) / Class->RechargeTime); // RA2: as above
+			stage = 54 * (double(Class->RechargeTime - Control.Value()) / Class->RechargeTime);
 		}
-		stage = stage < 54 - 1 ? stage : 54 - 1; // RA2: as above
+		stage = stage < 54 - 1 ? stage : 54 - 1;
 		return(stage);
 	}
 	return(0);
@@ -516,20 +516,20 @@ void SuperClass::Forced_Charge(bool player)
 		if (player) {
 			switch (Class->Type) {
 			case SUPER_MULTI_MISSILE:
-				Queue_Speech("EVA_NuclearMissileReady", -1, -1); // RA2: as above
+				Queue_Speech("EVA_NuclearMissileReady", -1, -1);
 				break;
-			case SUPER_IRON_CURTAIN: // RA2: as above
-				Queue_Speech("EVA_IronCurtainReady", -1, -1); // RA2: as above
+			case SUPER_IRON_CURTAIN:
+				Queue_Speech("EVA_IronCurtainReady", -1, -1);
 				break;
-			case SUPER_LIGHTNING_STORM: // RA2: as above
-				Queue_Speech("EVA_LightningStormReady", -1, -1); // RA2: as above
+			case SUPER_LIGHTNING_STORM:
+				Queue_Speech("EVA_LightningStormReady", -1, -1);
 				break;
-			case SUPER_CHRONO_SPHERE: // RA2: as above
-				Queue_Speech("EVA_ChronosphereReady", -1, -1); // RA2: as above
+			case SUPER_CHRONO_SPHERE:
+				Queue_Speech("EVA_ChronosphereReady", -1, -1);
 				break;
-			case SUPER_PARA_DROP: // RA2: as above
-			case SUPER_AMER_PARA_DROP: // RA2: as above
-				Queue_Speech("EVA_ReinforcementsReady", -1, -1); // RA2: as above
+			case SUPER_PARA_DROP:
+			case SUPER_AMER_PARA_DROP:
+				Queue_Speech("EVA_ReinforcementsReady", -1, -1);
 				break;
 			}
 		}
@@ -563,22 +563,22 @@ wchar_t const *SuperClass::State_String() const // RA2: returns wide texts from 
 		if (Class->UseChargeDrain) {
 			switch (ChargeDrainState) {
 			case CHARGING:
-				return StringTable::LoadString("TXT_CHARGING", NULL, "D:\\Ra2\\Super.CPP", 0x32B); // RA2: as above
+				return StringTable::LoadString("TXT_CHARGING", NULL, "D:\\Ra2\\Super.CPP", 0x32B);
 			case READY:
-				return StringTable::LoadString("TXT_READY", NULL, "D:\\Ra2\\Super.CPP", 0x32E); // RA2: as above
+				return StringTable::LoadString("TXT_READY", NULL, "D:\\Ra2\\Super.CPP", 0x32E);
 			case FIRESTORM_ON:
-				return StringTable::LoadString("TXT_FIRESTORM_ON", NULL, "D:\\Ra2\\Super.CPP", 0x331); // RA2: as above
+				return StringTable::LoadString("TXT_FIRESTORM_ON", NULL, "D:\\Ra2\\Super.CPP", 0x331);
 			default:
 				return(0);
 			}
 		}
 		if (IsReady) {
-			return StringTable::LoadString("TXT_READY", NULL, "D:\\Ra2\\Super.CPP", 0x344); // RA2: as above
+			return StringTable::LoadString("TXT_READY", NULL, "D:\\Ra2\\Super.CPP", 0x344);
 		} else {
 			return(0);
 		}
 	} else {
-		return StringTable::LoadString("TXT_HOLD", NULL, "D:\\Ra2\\Super.CPP", 0x34A); // RA2: as above
+		return StringTable::LoadString("TXT_HOLD", NULL, "D:\\Ra2\\Super.CPP", 0x34A);
 	}
 }
 
@@ -593,7 +593,7 @@ bool SuperClass::Can_Place() // RA2: is not const (0x0069D820)
 {
 	if (!IsSuspended) {
 		if (Class->UseChargeDrain) {
-			return ChargeDrainState != NULL ? true : false; // RA2: as above
+			return ChargeDrainState != NULL ? true : false;
 		}
 		return(IsReady);
 	}
@@ -629,254 +629,254 @@ static inline void Ready_Voice(char const * name) // RA2: ra2-decomp's file help
 void SuperClass::Place(Cell const & cell, bool player) // RA2: does each weapon type's effect here (0x0069D850)
 {
 	switch (Class->Type) {
-	case SUPER_CHRONO_SPHERE: // RA2: as above
+		case SUPER_CHRONO_SPHERE:
 		if (Is_Ready()) {
-			ChronoMapCoords = cell; // RA2: as above
-			Coord coord = Map[cell].Center_Coord(); // RA2: as above
-			if (Map[cell].IsUnderBridge) { // RA2: as above
-				coord.Z += BRIDGE_LEPTON_HEIGHT; // RA2: as above
+				ChronoMapCoords = cell;
+				Coord coord = Map[cell].Center_Coord();
+				if (Map[cell].IsUnderBridge) {
+					coord.Z += BRIDGE_LEPTON_HEIGHT;
 			}
-			Create_Chrono_Anim(coord + Coord(0, 0, 5)); // RA2: as above
+				Create_Chrono_Anim(coord + Coord(0, 0, 5));
 			if (player) {
-				CurrentSuperWeaponType = SUPER_CHRONO_WARP; // RA2: as above
-				return; // RA2: as above
+					CurrentSuperWeaponType = SUPER_CHRONO_WARP;
+					return;
 			}
-			if (Animation != 0) { // RA2: as above
-				Animation->IsInvisible = true; // RA2: as above
-				Animation->StartSoundAudioController.Stop(); // RA2: as above
-				return; // RA2: as above
+				if (Animation != 0) {
+					Animation->IsInvisible = true;
+					Animation->StartSoundAudioController.Stop();
+					return;
 			}
 		}
 		break;
 
-	case SUPER_CHRONO_WARP: { // RA2: as above
-		Submit_Radar_Event(RADAREVENT_SUPERWEAPON_ACTIVATED, ChronoMapCoords); // RA2: as above
-		Submit_Radar_Event(RADAREVENT_SUPERWEAPON_ACTIVATED, cell); // RA2: as above
-		Coord dest = Map[cell].Center_Coord(); // RA2: as above
-		Coord from = Map[ChronoMapCoords].Center_Coord(); // RA2: as above
-		if (Map[cell].IsUnderBridge) { // RA2: as above
-			dest.Z += BRIDGE_LEPTON_HEIGHT; // RA2: as above
+		case SUPER_CHRONO_WARP: {
+			Submit_Radar_Event(RADAREVENT_SUPERWEAPON_ACTIVATED, ChronoMapCoords);
+			Submit_Radar_Event(RADAREVENT_SUPERWEAPON_ACTIVATED, cell);
+			Coord dest = Map[cell].Center_Coord();
+			Coord from = Map[ChronoMapCoords].Center_Coord();
+			if (Map[cell].IsUnderBridge) {
+				dest.Z += BRIDGE_LEPTON_HEIGHT;
 		}
-		if (Map[ChronoMapCoords].IsUnderBridge) { // RA2: as above
-			from.Z += BRIDGE_LEPTON_HEIGHT; // RA2: as above
+			if (Map[ChronoMapCoords].IsUnderBridge) {
+				from.Z += BRIDGE_LEPTON_HEIGHT;
 		}
-		Detach_Animation(); // RA2: as above
-		new AnimClass(Rule->ChronoBlastDest, dest + Coord(0, 0, 5), 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
-		new AnimClass(Rule->ChronoBlast, from + Coord(0, 0, 5), 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
-		for (int index = 0; index < 9; index++) { // RA2: as above
-			Cell const & offset = CellAndNeighbors[index]; // RA2: as above
-			ObjectClass *object; // RA2: as above
+			Detach_Animation();
+			new AnimClass(Rule->ChronoBlastDest, dest + Coord(0, 0, 5), 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
+			new AnimClass(Rule->ChronoBlast, from + Coord(0, 0, 5), 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
+			for (int index = 0; index < 9; index++) {
+				Cell const & offset = CellAndNeighbors[index];
+				ObjectClass * object;
 			if (Map[offset + ChronoMapCoords].IsUnderBridge) { // RA2: the offset first here (YR's image has the other order at this test)
-				object = Map[ChronoMapCoords + offset].Cell_Bridge_Occupier(); // RA2: as above
+					object = Map[ChronoMapCoords + offset].Cell_Bridge_Occupier();
 			} else {
-				object = Map[ChronoMapCoords + offset].Cell_Occupier(); // RA2: as above
+					object = Map[ChronoMapCoords + offset].Cell_Occupier();
 			}
-			while (object != 0) { // RA2: as above
-				if (object->Is_Foot() && !object->In_Air()) { // RA2: as above
-					FootClass * foot = (FootClass *)object; // RA2: as above
-					if (foot->Techno_Type_Class()->Organic && !foot->Techno_Type_Class()->Teleporter && !foot->In_Air()) { // RA2: as above
-						int damage = foot->Techno_Type_Class()->MaxStrength; // RA2: as above
-						foot->Take_Damage(damage, 0, Rule->C4Warhead, 0, true, 0); // RA2: as above
-					} else if (!foot->Unknown_Virtual_32C() && !foot->IsImmobilized && !foot->IsBeingWarpedOut() && !foot->IsWarpingIn()) { // RA2: as above
-						IPiggybackPtr piggyback(foot->Locomotion); // RA2: as above
-						ILocomotionPtr teleport(CLSID_TeleportLocomotion); // RA2: as above
-						UnitClass * unit = As_Unit(foot); // RA2: as above
-						Coord coord = Map[offset + cell].Center_Coord(); // RA2: as above
-						if (Map[coord].IsUnderBridge) { // RA2: as above
-							coord.Z += BRIDGE_LEPTON_HEIGHT; // RA2: as above
+				while (object != 0) {
+					if (object->Is_Foot() && !object->In_Air()) {
+						FootClass * foot = (FootClass *)object;
+						if (foot->Techno_Type_Class()->Organic && !foot->Techno_Type_Class()->Teleporter && !foot->In_Air()) {
+							int damage = foot->Techno_Type_Class()->MaxStrength;
+							foot->Take_Damage(damage, 0, Rule->C4Warhead, 0, true, 0);
+						} else if (!foot->Unknown_Virtual_32C() && !foot->IsImmobilized && !foot->IsBeingWarpedOut() && !foot->IsWarpingIn()) {
+							IPiggybackPtr piggyback(foot->Locomotion);
+							ILocomotionPtr teleport(CLSID_TeleportLocomotion);
+							UnitClass * unit = As_Unit(foot);
+							Coord coord = Map[offset + cell].Center_Coord();
+							if (Map[coord].IsUnderBridge) {
+								coord.Z += BRIDGE_LEPTON_HEIGHT;
 						}
-						if (unit != 0) { // RA2: as above
-							foot->Locomotion->Mark_All_Occupation_Bits(0); // RA2: as above
-							foot->Locomotion->Force_Track(-1, coord); // RA2: as above
-							foot->Clear_Occupy_Bit(coord); // RA2: as above
-							foot->IsOccupyingCell = true; // RA2: as above
+							if (unit != 0) {
+								foot->Locomotion->Mark_All_Occupation_Bits(0);
+								foot->Locomotion->Force_Track(-1, coord);
+								foot->Clear_Occupy_Bit(coord);
+								foot->IsOccupyingCell = true;
 						}
-						teleport->Link_To_Object(foot); // RA2: as above
-						piggyback = IPiggybackPtr(teleport); // RA2: as above
-						if (piggyback != NULL) { // RA2: as above
-							piggyback->Begin_Piggyback(foot->Locomotion); // RA2: as above
-							foot->Locomotion = teleport; // RA2: as above
+							teleport->Link_To_Object(foot);
+							piggyback = IPiggybackPtr(teleport);
+							if (piggyback != NULL) {
+								piggyback->Begin_Piggyback(foot->Locomotion);
+								foot->Locomotion = teleport;
 						}
-						Coord delta = foot->Center_Coord() - Map[ChronoMapCoords].Center_Coord(); // RA2: as above
-						if (unit == 0) { // RA2: as above
-							coord = Map[cell].Center_Coord() + delta; // RA2: as above
-							if (Map[coord].IsUnderBridge) { // RA2: as above
-								coord.Z += BRIDGE_LEPTON_HEIGHT; // RA2: as above
+							Coord delta = foot->Center_Coord() - Map[ChronoMapCoords].Center_Coord();
+							if (unit == 0) {
+								coord = Map[cell].Center_Coord() + delta;
+								if (Map[coord].IsUnderBridge) {
+									coord.Z += BRIDGE_LEPTON_HEIGHT;
 							}
 						}
-						foot->IsImmobilized = true; // RA2: as above
-						foot->ChronoDestCoords = coord; // RA2: as above
-						foot->Assign_Destination(&Map[offset + cell], true); // RA2: as above
+							foot->IsImmobilized = true;
+							foot->ChronoDestCoords = coord;
+							foot->Assign_Destination(&Map[offset + cell], true);
 					}
 				}
-				object = object->Next; // RA2: as above
+					object = object->Next;
 			}
 		}
-		if (!MuteSWLaunches) { // RA2: as above
-			Queue_Speech("EVA_ChronosphereActivated", -1, -1); // RA2: as above
+			if (!MuteSWLaunches) {
+				Queue_Speech("EVA_ChronosphereActivated", -1, -1);
 		}
 		if (player) {
-			Ready_Voice("EVA_ChronosphereReady"); // RA2: as above
-			return; // RA2: as above
+				Ready_Voice("EVA_ChronosphereReady");
+				return;
 		}
 		break;
 	}
 
-	case SUPER_LIGHTNING_STORM: // RA2: as above
+		case SUPER_LIGHTNING_STORM:
 		if (Is_Ready()) {
-			IonStormClass::Ion_Storm_Begin(Rule->LightningStormDuration, Rule->LightningDeferment, cell, House); // RA2: as above
-			if (!MuteSWLaunches) { // RA2: as above
-				Queue_Speech("EVA_LightningStormCreated", -1, -1); // RA2: as above
+				IonStormClass::Ion_Storm_Begin(Rule->LightningStormDuration, Rule->LightningDeferment, cell, House);
+				if (!MuteSWLaunches) {
+					Queue_Speech("EVA_LightningStormCreated", -1, -1);
 			}
 			if (player) {
-				Ready_Voice("EVA_LightningStormReady"); // RA2: as above
-				return; // RA2: as above
+					Ready_Voice("EVA_LightningStormReady");
+					return;
 			}
 		}
 		break;
 
-	case SUPER_IRON_CURTAIN: // RA2: as above
+		case SUPER_IRON_CURTAIN:
 		if (Is_Ready()) {
-			Coord coord = Map[cell].Center_Coord(); // RA2: as above
-			new AnimClass(Rule->IronCurtainInvokeAnim, coord + Coord(0, 0, 5), 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
-			if (!MuteSWLaunches) { // RA2: as above
-				Queue_Speech("EVA_IronCurtainActivated", -1, -1); // RA2: as above
+				Coord coord = Map[cell].Center_Coord();
+				new AnimClass(Rule->IronCurtainInvokeAnim, coord + Coord(0, 0, 5), 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
+				if (!MuteSWLaunches) {
+					Queue_Speech("EVA_IronCurtainActivated", -1, -1);
 			}
-			Submit_Radar_Event(RADAREVENT_SUPERWEAPON_ACTIVATED, cell); // RA2: as above
-			for (int index = 0; index < 9; index++) { // RA2: as above
-				Cell const & offset = CellAndNeighbors[index]; // RA2: as above
-				for (ObjectClass * object = Map[cell + offset].Cell_Occupier(); object != 0; object = object->Next) { // RA2: as above
-					object->IronCurtain(Rule->IronCurtainDuration); // RA2: as above
+				Submit_Radar_Event(RADAREVENT_SUPERWEAPON_ACTIVATED, cell);
+				for (int index = 0; index < 9; index++) {
+					Cell const & offset = CellAndNeighbors[index];
+					for (ObjectClass * object = Map[cell + offset].Cell_Occupier(); object != 0; object = object->Next) {
+						object->IronCurtain(Rule->IronCurtainDuration);
 				}
 			}
 			if (player) {
-				Ready_Voice("EVA_IronCurtainReady"); // RA2: as above
-				return; // RA2: as above
+					Ready_Voice("EVA_IronCurtainReady");
+					return;
 			}
 		}
 		break;
 
-	case SUPER_PARA_DROP: // RA2: as above
+		case SUPER_PARA_DROP:
 		if (Is_Ready()) {
-			AircraftType plane = AircraftTypeClass::From_Name("PDPLANE"); // RA2: as above
-			CellClass *cellptr = &Map[cell]; // RA2: as above
-			if (cellptr != 0 && cellptr != &BlubCell) { // RA2: as above
-				if (cellptr->Is_Tile_Water()) { // RA2: as above
-					Cell spot = Map.Nearby_Location(cell, SPEED_FOOT); // RA2: as above
-					if (spot != CELL_NONE) { // RA2: as above
-						CellClass *nearptr = &Map[spot]; // RA2: as above
-						if (nearptr != 0 && nearptr != &BlubCell && !nearptr->Is_Tile_Water()) { // RA2: as above
-							cellptr = nearptr; // RA2: as above
+				AircraftType plane = AircraftTypeClass::From_Name("PDPLANE");
+				CellClass * cellptr = &Map[cell];
+				if (cellptr != 0 && cellptr != &BlubCell) {
+					if (cellptr->Is_Tile_Water()) {
+						Cell spot = Map.Nearby_Location(cell, SPEED_FOOT);
+						if (spot != CELL_NONE) {
+							CellClass * nearptr = &Map[spot];
+							if (nearptr != 0 && nearptr != &BlubCell && !nearptr->Is_Tile_Water()) {
+								cellptr = nearptr;
 						}
 					}
 				}
-				if (House->ActLike == 0) { // RA2: as above
-					if (Rule->AllyParaDropInf.Count() == Rule->AllyParaDropNum.Count()) { // RA2: as above
-						for (int i = 0; i < Rule->AllyParaDropInf.Count(); i++) { // RA2: as above
-							int type = Rule->AllyParaDropInf[i]->HeapID; // RA2: as above
-							if (plane != -1 && type != -1) { // RA2: as above
-								Create_Air_Reinforcement(House, plane, 1, MISSION_PARADROP_APPROACH, cellptr, NULL, (InfantryType)type, Rule->AllyParaDropNum[i]); // RA2: as above
+					if (House->ActLike == 0) {
+						if (Rule->AllyParaDropInf.Count() == Rule->AllyParaDropNum.Count()) {
+							for (int i = 0; i < Rule->AllyParaDropInf.Count(); i++) {
+								int type = Rule->AllyParaDropInf[i]->HeapID;
+								if (plane != -1 && type != -1) {
+									Create_Air_Reinforcement(House, plane, 1, MISSION_PARADROP_APPROACH, cellptr, NULL, (InfantryType)type, Rule->AllyParaDropNum[i]);
 							}
 						}
 					}
 				} else {
-					for (int i = 0; i < Rule->SovParaDropInf.Count(); i++) { // RA2: as above
-						int type = Rule->SovParaDropInf[i]->HeapID; // RA2: as above
-						if (plane != -1 && type != -1) { // RA2: as above
-							Create_Air_Reinforcement(House, plane, 1, MISSION_PARADROP_APPROACH, cellptr, NULL, (InfantryType)type, Rule->SovParaDropNum[i]); // RA2: as above
+						for (int i = 0; i < Rule->SovParaDropInf.Count(); i++) {
+							int type = Rule->SovParaDropInf[i]->HeapID;
+							if (plane != -1 && type != -1) {
+								Create_Air_Reinforcement(House, plane, 1, MISSION_PARADROP_APPROACH, cellptr, NULL, (InfantryType)type, Rule->SovParaDropNum[i]);
 						}
 					}
 				}
 			}
 			if (player) {
-				Ready_Voice("EVA_ReinforcementsReady"); // RA2: as above
-				return; // RA2: as above
+					Ready_Voice("EVA_ReinforcementsReady");
+					return;
 			}
 		}
 		break;
 
-	case SUPER_AMER_PARA_DROP: // RA2: as above
+		case SUPER_AMER_PARA_DROP:
 		if (Is_Ready()) {
-			AircraftType plane = AircraftTypeClass::From_Name("PDPLANE"); // RA2: as above
-			CellClass *cellptr = &Map[cell]; // RA2: as above
-			if (cellptr != 0 && cellptr != &BlubCell) { // RA2: as above
-				if (cellptr->Is_Tile_Water()) { // RA2: as above
-					Cell spot = Map.Nearby_Location(cell, SPEED_FOOT); // RA2: as above
-					if (spot != CELL_NONE) { // RA2: as above
-						CellClass *nearptr = &Map[spot]; // RA2: as above
-						if (nearptr != 0 && nearptr != &BlubCell && !nearptr->Is_Tile_Water()) { // RA2: as above
-							cellptr = nearptr; // RA2: as above
+				AircraftType plane = AircraftTypeClass::From_Name("PDPLANE");
+				CellClass * cellptr = &Map[cell];
+				if (cellptr != 0 && cellptr != &BlubCell) {
+					if (cellptr->Is_Tile_Water()) {
+						Cell spot = Map.Nearby_Location(cell, SPEED_FOOT);
+						if (spot != CELL_NONE) {
+							CellClass * nearptr = &Map[spot];
+							if (nearptr != 0 && nearptr != &BlubCell && !nearptr->Is_Tile_Water()) {
+								cellptr = nearptr;
 						}
 					}
 				}
-				if (Rule->AmerParaDropInf.Count() == Rule->AmerParaDropNum.Count()) { // RA2: as above
-					for (int i = 0; i < Rule->AmerParaDropInf.Count(); i++) { // RA2: as above
-						int type = Rule->AmerParaDropInf[i]->HeapID; // RA2: as above
-						if (plane != -1 && type != -1) { // RA2: as above
-							Create_Air_Reinforcement(House, plane, 1, MISSION_PARADROP_APPROACH, cellptr, NULL, (InfantryType)type, Rule->AmerParaDropNum[i]); // RA2: as above
+					if (Rule->AmerParaDropInf.Count() == Rule->AmerParaDropNum.Count()) {
+						for (int i = 0; i < Rule->AmerParaDropInf.Count(); i++) {
+							int type = Rule->AmerParaDropInf[i]->HeapID;
+							if (plane != -1 && type != -1) {
+								Create_Air_Reinforcement(House, plane, 1, MISSION_PARADROP_APPROACH, cellptr, NULL, (InfantryType)type, Rule->AmerParaDropNum[i]);
 						}
 					}
 				}
 			}
 			if (player) {
-				Ready_Voice("EVA_ReinforcementsReady"); // RA2: as above
+					Ready_Voice("EVA_ReinforcementsReady");
 			}
 		}
 		break;
 
 	case SUPER_MULTI_MISSILE:
 		if (Is_Ready()) {
-			if (Is_One_Time()) { // RA2: as above
-				Cell spot = cell; // RA2: as above
-				Coord coord = spot.As_Coord(); // RA2: as above
-				coord.Z = Map.Get_Height_GL(coord); // RA2: as above
-				if (Map[spot].IsUnderBridge) { // RA2: as above
-					coord.Z += BRIDGE_LEPTON_HEIGHT; // RA2: as above
+				if (Is_One_Time()) {
+					Cell spot = cell;
+					Coord coord = spot.As_Coord();
+					coord.Z = Map.Get_Height_GL(coord);
+					if (Map[spot].IsUnderBridge) {
+						coord.Z += BRIDGE_LEPTON_HEIGHT;
 				}
-				WeaponTypeClass *payload = Weapons[WeaponTypeClass::From_Name("NukePayload")]; // RA2: as above
-				CellClass *target = &Map[coord]; // RA2: as above
-				Coord sound = coord; // RA2: as above
-				Coord launch(sound.X, sound.Y, sound.Z + 20000); // RA2: as above
-				BulletTypeClass const * bullet_type = payload->Bullet; // RA2: as above
-				BulletClass * bullet = bullet_type->Create_Bullet(target, NULL, payload->Attack, payload->WarheadPtr, payload->MaxSpeed, false); // RA2: as above
-				bullet->Set_Weapon_Type(payload); // RA2: as above
+					WeaponTypeClass * payload = Weapons[WeaponTypeClass::From_Name("NukePayload")];
+					CellClass * target = &Map[coord];
+					Coord sound = coord;
+					Coord launch(sound.X, sound.Y, sound.Z + 20000);
+					BulletTypeClass const * bullet_type = payload->Bullet;
+					BulletClass * bullet = bullet_type->Create_Bullet(target, NULL, payload->Attack, payload->WarheadPtr, payload->MaxSpeed, false);
+					bullet->Set_Weapon_Type(payload);
 				Create_Attached_Anim(House, target, bullet, "PSIWARN"); // RA2: the bullet comes before the name
-				if (bullet != 0) { // RA2: as above
+					if (bullet != 0) {
 					TVelocity3D<double> velocity(Dir256(DIR_N), Dir256(DIR_N), -100.0); // RA2: the same downward motion as TAction_MULTI_MISSILE
-					bullet->Unlimbo(launch, velocity); // RA2: as above
-					if (!MuteSWLaunches) { // RA2: as above
-						Queue_Speech("EVA_NuclearMissileLaunched", -1, -1); // RA2: as above
+						bullet->Unlimbo(launch, velocity);
+						if (!MuteSWLaunches) {
+							Queue_Speech("EVA_NuclearMissileLaunched", -1, -1);
 					}
-					VocClass::PlayIndexAtPos(Rule->DigSound, sound, 0); // RA2: as above
+						VocClass::PlayIndexAtPos(Rule->DigSound, sound, 0);
 				}
 				if (player) {
-					Ready_Voice("EVA_NuclearMissileReady"); // RA2: as above
+						Ready_Voice("EVA_NuclearMissileReady");
 				}
 				House->Production_Status_Changed();
 			} else {
 				for (int index = 0; index < BuildingTypes.Count(); index++) {
-					BuildingTypeClass * btype = BuildingTypes[index]; // RA2: as above
+						BuildingTypeClass * btype = BuildingTypes[index];
 					if (btype->IsNukeSilo && (btype->SuperWeapon == Class->HeapID || btype->SuperWeapon2 == Class->HeapID)) {
-						BuildingClass * site = House->Find_Building((StructType)index, ZONE_NONE); // RA2: as above
-						if (site != 0) { // RA2: as above
-							Cell spot = cell; // RA2: as above
-							Coord coord = spot.As_Coord(); // RA2: as above
-							coord.Z = Map.Get_Height_GL(coord); // RA2: as above
-							Coord sound = coord; // RA2: as above
-							site->QueueMission(MISSION_MISSILE, false); // RA2: as above
-							site->Commence(); // RA2: as above
+							BuildingClass * site = House->Find_Building((StructType)index, ZONE_NONE);
+							if (site != 0) {
+								Cell spot = cell;
+								Coord coord = spot.As_Coord();
+								coord.Z = Map.Get_Height_GL(coord);
+								Coord sound = coord;
+								site->QueueMission(MISSION_MISSILE, false);
+								site->Commence();
 							House->NukeDest = cell;
-							site->LastSuperWeaponIndex = Class->Type; // RA2: as above
-							VocClass::PlayIndexAtPos(Rule->DigSound, sound, 0); // RA2: as above
-							if (!MuteSWLaunches) { // RA2: as above
-								Queue_Speech("EVA_NuclearMissileLaunched", -1, -1); // RA2: as above
+								site->LastSuperWeaponIndex = Class->Type;
+								VocClass::PlayIndexAtPos(Rule->DigSound, sound, 0);
+								if (!MuteSWLaunches) {
+									Queue_Speech("EVA_NuclearMissileLaunched", -1, -1);
 							}
 						}
 						break;
 					}
 				}
 				if (player) {
-					Ready_Voice("EVA_NuclearMissileReady"); // RA2: as above
+						Ready_Voice("EVA_NuclearMissileReady");
 				}
 				House->Production_Status_Changed();
 			}
@@ -910,7 +910,7 @@ bool SuperClass::Is_Charging() const // RA2: (0x0069E990)
 	if (Class->UseChargeDrain) {
 		return(true);
 	}
-	return !IsReady; // RA2: as above
+	return !IsReady;
 }
 
 
@@ -935,18 +935,18 @@ HRESULT STDMETHODCALLTYPE SuperClass::GetClassID(CLSID * retval)
 HRESULT STDMETHODCALLTYPE SuperClass::Load(IStream * stream)
 {
 	HRESULT result = BASECLASS::Load(stream);
-	if (FAILED(result)) { // RA2: as above
+	if (FAILED(result)) {
 		return(result);
 	}
 	new (this) SuperClass(NoInitClass());
-	if (Animation != NULL) { // RA2: as above
-		AnimPtrTracker.Add(this); // RA2: as above
+	if (Animation != NULL) {
+		AnimPtrTracker.Add(this);
 	}
 	Swizzle_Pointer(&Class);
 	Swizzle_Pointer(&House);
-	Swizzle_Pointer(&Animation); // RA2: as above
-	BlinkInfo.Data0 = 0; // RA2: as above
-	BlinkInfo.Data1 = 0; // RA2: as above
+	Swizzle_Pointer(&Animation);
+	BlinkInfo.Data0 = 0;
+	BlinkInfo.Data1 = 0;
 	return(S_OK);
 }
 
@@ -969,9 +969,9 @@ void SuperClass::Detach(AbstractClass const * target, bool all)
 	if (target == Class) {
 		Class = NULL;
 	}
-	if (target == Animation) { // RA2: as above
-		Animation = NULL; // RA2: as above
-		AnimationGotInvalid = true; // RA2: as above
+	if (target == Animation) {
+		Animation = NULL;
+		AnimationGotInvalid = true;
 	}
 }
 
@@ -987,13 +987,13 @@ void SuperClass::Compute_CRC(CRCEngine & crc) const // RA2: sums the flags, the 
 	crc(IsPresent);
 	crc(IsOneTime);
 	crc(IsReady);
-	crc((long)OldStage); // RA2: as above
-	crc((long)ChargeDrainState); // RA2: as above
+	crc((long)OldStage);
+	crc((long)ChargeDrainState);
 	crc(NeedsBuilding);
-	crc(AnimationGotInvalid); // RA2: as above
-	if (Animation != NULL) { // RA2: as above
-		crc((long)Animation->Loops); // RA2: as above
-		crc(Animation->Fetch_ID()); // RA2: as above
+	crc(AnimationGotInvalid);
+	if (Animation != NULL) {
+		crc((long)Animation->Loops);
+		crc(Animation->Fetch_ID());
 	}
 }
 
@@ -1008,12 +1008,12 @@ void SuperClass::Compute_CRC(CRCEngine & crc) const // RA2: sums the flags, the 
 /// <param name="cell">The cell to begin dropping the squad around.</param>
 void SuperClass::Reset() // RA2: drops the animation and resets the charge (0x0069EBB0)
 {
-	Detach_Animation(); // RA2: as above
+	Detach_Animation();
 	IsReady = false;
 	OldStage = -1;
-	bool active = Control.Is_Active(); // RA2: as above
+	bool active = Control.Is_Active();
 	Control = Class->RechargeTime;
-	if (!active) { // RA2: as above
+	if (!active) {
 		Control.Stop();
 	}
 }

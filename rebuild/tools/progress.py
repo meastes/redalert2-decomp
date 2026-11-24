@@ -6,10 +6,11 @@ import rebuild as R, catalog_io
 START = datetime.datetime(2026, 11, 17, 18, 17, tzinfo=datetime.timezone.utc)
 TEXT = 3769805                       # .text bytes (docs/STATUS.md denominator)
 LIBRARY = 89127                      # linked library bytes the build reproduces (receipt)
-# Assembled handwritten asm, read from the ledger both builds assemble (manifests/original_target/assembly.json):
+# Assembled handwritten asm, read from the rebuild's ledger (rebuild/manifest/assembly.json, a copy of main's with
+# rebuild/asm paths since the 2026-11-24 switch; the same procedures and bytes):
 # ASSEMBLY the archive text adopted unchanged (16,999 B), REVISED the revised, binary-derived lines (user decision
 # 2026-11-24, lane O73: six ra2-decomp src/ra2asm procedures, 1,553 B), on its own column; both in reproduced.
-_asm_rows = json.load(open(R.ROOT / 'manifests/original_target/assembly.json'))['regions']
+_asm_rows = json.load(open(R.ROOT / 'rebuild/manifest/assembly.json'))['regions']
 REVISED = sum(r['bytes'] for r in _asm_rows if r.get('revised'))
 ASSEMBLY = sum(r['bytes'] for r in _asm_rows) - REVISED
 cat = catalog_io.load(R.MANIFEST / 'catalog')

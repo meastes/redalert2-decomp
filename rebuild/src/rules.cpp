@@ -120,8 +120,8 @@ void Difficulty_Get(CCINIClass const & ini, DifficultyClass & diff, char const *
 /// </summary>
 RulesClass::RulesClass(NoInitClass const & x) :
 	RadColor(x), // RA2: the load constructor builds only the colour members that have a NoInit form
-	LineTrailColorOverride(x), // RA2: as above
-	ChronoBeamColor(x) // RA2: as above
+	LineTrailColorOverride(x),
+	ChronoBeamColor(x)
 {
 }
 
@@ -144,39 +144,39 @@ RulesClass::RulesClass(NoInitClass const & x) :
  *=============================================================================================*/
 RulesClass::RulesClass(void) :
 	DetailMinFrameRateNormal(15), // RA2: the executable's initializer list, in RA2's member order and values
-	DetailMinFrameRateMovie(20), // RA2: as above
-	DetailBufferZoneWidth(5), // RA2: as above
+	DetailMinFrameRateMovie(20),
+	DetailBufferZoneWidth(5),
 	AmmoCrateDamage(100),
 	LargeVisceroid(0), // RA2: the executable's initializer list, in RA2's member order and values
-	SmallVisceroid(0), // RA2: as above
-	UnloadingHarvester(0), // RA2: as above
+	SmallVisceroid(0),
+	UnloadingHarvester(0),
 	AttackingAircraftSightRange(5),
 	TunnelSpeed(1.0), // RA2: the executable's initializer list, in RA2's member order and values
-	TiberiumHeal(0.016666666666666666), // RA2: as above
+	TiberiumHeal(0.016666666666666666),
 	IsFreeMCV(false),
 	IsBerzerkAllowed(false),
 	PoseDir(DIR_N),
 	DropPodPuff(0), // RA2: the executable's initializer list, in RA2's member order and values
 	WaypointAnimationSpeed(12),
 	BarrelExplode(0), // RA2: the executable's initializer list, in RA2's member order and values
-	BarrelParticle(0), // RA2: as above
-	RadarEventColorSpeed(0.05f), // RA2: as above
+	BarrelParticle(0),
+	RadarEventColorSpeed(0.05f),
 	RadarEventMinRadius(5),
 	RadarEventSpeed(1.0f), // RA2: the executable's initializer list, in RA2's member order and values
-	RadarEventRotationSpeed(0.1f), // RA2: as above
+	RadarEventRotationSpeed(0.1f),
 	FlashFrameTime(7),
 	RadarCombatFlashTime(21),
 	MaxWaypointPathLength(15),
 	Wake(0), // RA2: the executable's initializer list, in RA2's member order and values
-	NukeTakeOff(0), // RA2: as above
-	InfantryExplode(0), // RA2: as above
-	FlamingInfantry(0), // RA2: as above
-	InfantryHeadPop(0), // RA2: as above
-	InfantryNuked(0), // RA2: as above
-	Behind(0), // RA2: as above
-	AITriggerSuccessWeightDelta(1.0), // RA2: as above
-	AITriggerFailureWeightDelta(-1.0), // RA2: as above
-	AITriggerTrackRecordCoefficient(1.0), // RA2: as above
+	NukeTakeOff(0),
+	InfantryExplode(0),
+	FlamingInfantry(0),
+	InfantryHeadPop(0),
+	InfantryNuked(0),
+	Behind(0),
+	AITriggerSuccessWeightDelta(1.0),
+	AITriggerFailureWeightDelta(-1.0),
+	AITriggerTrackRecordCoefficient(1.0),
 	VeinholeMonsterStrength(10000),
 	MaxVeinholeGrowth(1000),
 	VeinholeGrowthRate(100),
@@ -186,69 +186,69 @@ RulesClass::RulesClass(void) :
 	MaximumQueuedObjects(5),
 	AircraftFogReveal(6),
 	WoodCrateImg(0), // RA2: the executable's initializer list, in RA2's member order and values
-	CrateImg(0), // RA2: as above
-	WaterCrateImg(0), // RA2: as above
+	CrateImg(0),
+	WaterCrateImg(0),
 	DigSound(VOC_NONE),
 	CreateUnitSound(VOC_NONE), // RA2: the executable's initializer list, in RA2's member order and values
-	CreateInfantrySound(VOC_NONE), // RA2: as above
-	CreateAircraftSound(VOC_NONE), // RA2: as above
-	BaseUnderAttackSound(VOC_NONE), // RA2: as above
-	GUIMainButtonSound(VOC_NONE), // RA2: as above
-	GUIBuildSound(VOC_NONE), // RA2: as above
-	GUITabSound(VOC_NONE), // RA2: as above
-	GUIOpenSound(VOC_NONE), // RA2: as above
-	GUICloseSound(VOC_NONE), // RA2: as above
-	GUIMoveOutSound(VOC_NONE), // RA2: as above
-	GUIMoveInSound(VOC_NONE), // RA2: as above
-	GUIComboOpenSound(VOC_NONE), // RA2: as above
-	GUIComboCloseSound(VOC_NONE), // RA2: as above
-	GUICheckboxSound(VOC_NONE), // RA2: as above
-	ScoreAnimSound(VOC_NONE), // RA2: as above
-	IFVTransformSound(VOC_NONE), // RA2: as above
-	PsychicSensorDetectSound(VOC_NONE), // RA2: as above
-	BuildingGarrisonedSound(VOC_NONE), // RA2: as above
-	BuildingAbandonedSound(VOC_NONE), // RA2: as above
-	BuildingRepairedSound(VOC_NONE), // RA2: as above
-	CheerSound(VOC_NONE), // RA2: as above
-	PlaceBeaconSound(VOC_NONE), // RA2: as above
-	DefaultChronoSound(VOC_NONE), // RA2: as above
-	StartPlanningModeSound(VOC_NONE), // RA2: as above
-	AddPlanningModeCommandSound(VOC_NONE), // RA2: as above
-	ExecutePlanSound(VOC_NONE), // RA2: as above
-	EndPlanningModeSound(VOC_NONE), // RA2: as above
-	CrateMoneySound(VOC_NONE), // RA2: as above
-	CrateRevealSound(VOC_NONE), // RA2: as above
-	CrateFireSound(VOC_NONE), // RA2: as above
-	CrateArmourSound(VOC_NONE), // RA2: as above
-	CrateSpeedSound(VOC_NONE), // RA2: as above
-	CrateUnitSound(VOC_NONE), // RA2: as above
-	CratePromoteSound(VOC_NONE), // RA2: as above
-	ImpactWaterSound(VOC_NONE), // RA2: as above
-	ImpactLandSound(VOC_NONE), // RA2: as above
-	SinkingSound(VOC_NONE), // RA2: as above
-	BombTickingSound(VOC_NONE), // RA2: as above
-	BombAttachSound(VOC_NONE), // RA2: as above
-	ChronoInSound(VOC_NONE), // RA2: as above
-	ChronoOutSound(VOC_NONE), // RA2: as above
-	SpySatActivationSound(VOC_NONE), // RA2: as above
-	SpySatDeactivationSound(VOC_NONE), // RA2: as above
-	UpgradeVeteranSound(VOC_NONE), // RA2: as above
-	UpgradeEliteSound(VOC_NONE), // RA2: as above
-	Dig(0), // RA2: as above
-	IonBlast(0), // RA2: as above
-	IonBeam(0), // RA2: as above
-	WeatherConBoltExplosion(0), // RA2: as above
-	ChronoBlast(0), // RA2: as above
-	ChronoBlastDest(0), // RA2: as above
-	ChronoPlacement(0), // RA2: as above
-	ChronoBeam(0), // RA2: as above
-	WarpIn(0), // RA2: as above
-	WarpOut(0), // RA2: as above
-	WarpAway(0), // RA2: as above
-	ChronoSparkle1(0), // RA2: as above
-	IronCurtainInvokeAnim(0), // RA2: as above
-	WeaponNullifyAnim(0), // RA2: as above
-	AtmosphereEntry(0), // RA2: as above
+	CreateInfantrySound(VOC_NONE),
+	CreateAircraftSound(VOC_NONE),
+	BaseUnderAttackSound(VOC_NONE),
+	GUIMainButtonSound(VOC_NONE),
+	GUIBuildSound(VOC_NONE),
+	GUITabSound(VOC_NONE),
+	GUIOpenSound(VOC_NONE),
+	GUICloseSound(VOC_NONE),
+	GUIMoveOutSound(VOC_NONE),
+	GUIMoveInSound(VOC_NONE),
+	GUIComboOpenSound(VOC_NONE),
+	GUIComboCloseSound(VOC_NONE),
+	GUICheckboxSound(VOC_NONE),
+	ScoreAnimSound(VOC_NONE),
+	IFVTransformSound(VOC_NONE),
+	PsychicSensorDetectSound(VOC_NONE),
+	BuildingGarrisonedSound(VOC_NONE),
+	BuildingAbandonedSound(VOC_NONE),
+	BuildingRepairedSound(VOC_NONE),
+	CheerSound(VOC_NONE),
+	PlaceBeaconSound(VOC_NONE),
+	DefaultChronoSound(VOC_NONE),
+	StartPlanningModeSound(VOC_NONE),
+	AddPlanningModeCommandSound(VOC_NONE),
+	ExecutePlanSound(VOC_NONE),
+	EndPlanningModeSound(VOC_NONE),
+	CrateMoneySound(VOC_NONE),
+	CrateRevealSound(VOC_NONE),
+	CrateFireSound(VOC_NONE),
+	CrateArmourSound(VOC_NONE),
+	CrateSpeedSound(VOC_NONE),
+	CrateUnitSound(VOC_NONE),
+	CratePromoteSound(VOC_NONE),
+	ImpactWaterSound(VOC_NONE),
+	ImpactLandSound(VOC_NONE),
+	SinkingSound(VOC_NONE),
+	BombTickingSound(VOC_NONE),
+	BombAttachSound(VOC_NONE),
+	ChronoInSound(VOC_NONE),
+	ChronoOutSound(VOC_NONE),
+	SpySatActivationSound(VOC_NONE),
+	SpySatDeactivationSound(VOC_NONE),
+	UpgradeVeteranSound(VOC_NONE),
+	UpgradeEliteSound(VOC_NONE),
+	Dig(0),
+	IonBlast(0),
+	IonBeam(0),
+	WeatherConBoltExplosion(0),
+	ChronoBlast(0),
+	ChronoBlastDest(0),
+	ChronoPlacement(0),
+	ChronoBeam(0),
+	WarpIn(0),
+	WarpOut(0),
+	WarpAway(0),
+	ChronoSparkle1(0),
+	IronCurtainInvokeAnim(0),
+	WeaponNullifyAnim(0),
+	AtmosphereEntry(0),
 	GateUpSound(VOC_NONE),
 	GateDownSound(VOC_NONE),
 	JumpjetTurnRate(3),
@@ -256,61 +256,61 @@ RulesClass::RulesClass(void) :
 	JumpjetClimb(5.0), // RA2: the executable's initializer list, in RA2's member order and values
 	JumpjetCruiseHeight(400),
 	JumpjetAcceleration(0.25), // RA2: the executable's initializer list, in RA2's member order and values
-	JumpjetWobblesPerSecond(0.25), // RA2: as above
+	JumpjetWobblesPerSecond(0.25),
 	JumpjetWobbleDeviation(40),
 	IonCannonDamage(700),
 	RailgunDamageRadius(128), // RA2: the executable's initializer list, in RA2's member order and values
-	PrismType(0), // RA2: as above
-	PrismSupportModifier(100), // RA2: as above
-	PrismSupportMax(8), // RA2: as above
-	PrismSupportDelay(100), // RA2: as above
-	PrismSupportDuration(15), // RA2: as above
-	PrismSupportHeight(300), // RA2: as above
-	ParadropRadius(1024), // RA2: as above
-	ZoomInFactor(2.0), // RA2: as above
-	ConditionRedSparkingProbability(0.02), // RA2: as above
-	ConditionYellowSparkingProbability(0.01), // RA2: as above
+	PrismType(0),
+	PrismSupportModifier(100),
+	PrismSupportMax(8),
+	PrismSupportDelay(100),
+	PrismSupportDuration(15),
+	PrismSupportHeight(300),
+	ParadropRadius(1024),
+	ZoomInFactor(2.0),
+	ConditionRedSparkingProbability(0.02),
+	ConditionYellowSparkingProbability(0.01),
 	TiberiumExplosionDamage(100),
 	TiberiumStrength(10),
 	MinLowPowerProductionSpeed(0.5f), // RA2: the executable's initializer list, in RA2's member order and values
-	MaxLowPowerProductionSpeed(0.9f), // RA2: as above
-	LowPowerPenaltyModifier(1.0f), // RA2: as above
-	MultipleFactory(1.0f), // RA2: as above
-	MaximumCheerRate(1), // RA2: as above
-	TreeFlammability(0.1), // RA2: as above
-	MissileSpeedVar(0.25), // RA2: as above
-	MissileROTVar(0.25), // RA2: as above
-	MissileSafetyAltitude(500), // RA2: as above
-	DropPodWeapon(0), // RA2: as above
+	MaxLowPowerProductionSpeed(0.9f),
+	LowPowerPenaltyModifier(1.0f),
+	MultipleFactory(1.0f),
+	MaximumCheerRate(1),
+	TreeFlammability(0.1),
+	MissileSpeedVar(0.25),
+	MissileROTVar(0.25),
+	MissileSafetyAltitude(500),
+	DropPodWeapon(0),
 	DropPodHeight(1500),
 	DropPodSpeed(40),
 	DropPodAngle(1.5707963267948966), // RA2: the executable's initializer list, in RA2's member order and values
-	ScrollMultiplier(1.0), // RA2: as above
-	CrewEscape(0.5), // RA2: as above
+	ScrollMultiplier(1.0),
+	CrewEscape(0.5),
 	ShakeScreen(400),
 	HoverHeight(120),
 	HoverBob(30.0), // RA2: the executable's initializer list, in RA2's member order and values
 	HoverBoost(1.3),
 	HoverAcceleration(0.03), // RA2: the executable's initializer list, in RA2's member order and values
-	HoverBrake(0.03), // RA2: as above
-	HoverDampen(0.8), // RA2: as above
-	PlacementDelay(0.05), // RA2: as above
-	TireVoxelDebris(0), // RA2: as above
-	ScrapVoxelDebris(0), // RA2: as above
+	HoverBrake(0.03),
+	HoverDampen(0.8),
+	PlacementDelay(0.05),
+	TireVoxelDebris(0),
+	ScrapVoxelDebris(0),
 	BridgeVoxelMax(3),
 	CloakingStages(9),
 	RevealTriggerRadius(5),
 	ShipSinkingWeight(3.0), // RA2: the executable's initializer list, in RA2's member order and values
-	IceCrackingWeight(2.0), // RA2: as above
-	IceBreakingWeight(4.0), // RA2: as above
-	CliffBackImpassability((char)0), // RA2: as above
-	VeteranRatio(10.0), // RA2: as above
-	VeteranCombat(1.0), // RA2: as above
-	VeteranSpeed(1.0), // RA2: as above
-	VeteranSight(1.0), // RA2: as above
-	VeteranArmor(1.0), // RA2: as above
-	VeteranROF(1.0), // RA2: as above
-	VeteranCap(1.0), // RA2: as above
+	IceCrackingWeight(2.0),
+	IceBreakingWeight(4.0),
+	CliffBackImpassability((char)0),
+	VeteranRatio(10.0),
+	VeteranCombat(1.0),
+	VeteranSpeed(1.0),
+	VeteranSight(1.0),
+	VeteranArmor(1.0),
+	VeteranROF(1.0),
+	VeteranCap(1.0),
 	CloakSound(VOC_NONE),
 	SellSound(VOC_NONE),
 	GameClosed(VOC_NONE),
@@ -327,7 +327,7 @@ RulesClass::RulesClass(void) :
 	RadarOn(VOC_NONE),
 	RadarOff(VOC_NONE),
 	MovieOn(-1), // RA2: the executable's initializer list, in RA2's member order and values
-	MovieOff(-1), // RA2: as above
+	MovieOff(-1),
 	ScoldSound(VOC_NONE),
 	TeslaCharge(VOC_NONE),
 	TeslaZap(VOC_NONE),
@@ -341,135 +341,135 @@ RulesClass::RulesClass(void) :
 	ScatterSound(VOC_NONE),
 	DeploySound(VOC_NONE),
 	StormSound(VOC_NONE), // RA2: the executable's initializer list, in RA2's member order and values
-	ShellButtonSlideSound(VOC_NONE), // RA2: as above
-	WallBuildSpeedCoefficient(0.5), // RA2: as above
-	ChargeToDrainRatio(3.0), // RA2: as above
-	DamageToFirestormDamageCoefficient(0.1), // RA2: as above
-	TrackedUphill(1.0), // RA2: as above
-	TrackedDownhill(1.0), // RA2: as above
-	WheeledUphill(1.0), // RA2: as above
-	WheeledDownhill(1.0), // RA2: as above
+	ShellButtonSlideSound(VOC_NONE),
+	WallBuildSpeedCoefficient(0.5),
+	ChargeToDrainRatio(3.0),
+	DamageToFirestormDamageCoefficient(0.1),
+	TrackedUphill(1.0),
+	TrackedDownhill(1.0),
+	WheeledUphill(1.0),
+	WheeledDownhill(1.0),
 	SpotlightMovementRadius(2000),
 	SpotlightLocationRadius(1000),
 	SpotlightSpeed(0.05), // RA2: the executable's initializer list, in RA2's member order and values
-	SpotlightAcceleration(0.005), // RA2: as above
-	SpotlightAngle(20.0), // RA2: as above
+	SpotlightAcceleration(0.005),
+	SpotlightAngle(20.0),
 	SpotlightRadius(175),
 	WindDirection(FACING_NONE),
 	CameraRange(2304), // RA2: the executable's initializer list, in RA2's member order and values
 	FlightLevel(500),
 	ParachuteMaxFallRate(-3), // RA2: the executable's initializer list, in RA2's member order and values
-	NoParachuteMaxFallRate(-100), // RA2: as above
+	NoParachuteMaxFallRate(-100),
 	BuildingDrop(VOC_NONE),
 	RepairBay(0), // RA2: the executable's initializer list, in RA2's member order and values
-	GDIGateOne(0), // RA2: as above
-	GDIGateTwo(0), // RA2: as above
-	NodGateOne(0), // RA2: as above
-	NodGateTwo(0), // RA2: as above
-	WallTower(0), // RA2: as above
-	GDIPowerPlant(0), // RA2: as above
-	GDIPowerTurbine(0), // RA2: as above
-	NodRegularPower(0), // RA2: as above
-	NodAdvancedPower(0), // RA2: as above
-	GDIFirestormGenerator(0), // RA2: as above
-	GDIHunterSeeker(0), // RA2: as above
-	NodHunterSeeker(0), // RA2: as above
-	GDIWallDefense(6.0), // RA2: as above
-	GDIWallDefenseCoefficient(3.0), // RA2: as above
-	NodBaseDefenseCoefficient(1.0), // RA2: as above
-	GDIBaseDefenseCoefficient(1.0), // RA2: as above
+	GDIGateOne(0),
+	GDIGateTwo(0),
+	NodGateOne(0),
+	NodGateTwo(0),
+	WallTower(0),
+	GDIPowerPlant(0),
+	GDIPowerTurbine(0),
+	NodRegularPower(0),
+	NodAdvancedPower(0),
+	GDIFirestormGenerator(0),
+	GDIHunterSeeker(0),
+	NodHunterSeeker(0),
+	GDIWallDefense(6.0),
+	GDIWallDefenseCoefficient(3.0),
+	NodBaseDefenseCoefficient(1.0),
+	GDIBaseDefenseCoefficient(1.0),
 	ComputerBaseDefenseResponse(3),
 	MaximumBaseDefenseValue(60),
 	Smoke1(0), // RA2: the executable's initializer list, in RA2's member order and values
-	Smoke2(0), // RA2: as above
-	FirestormActiveAnim(0), // RA2: as above
-	FirestormIdleAnim(0), // RA2: as above
-	FirestormAirAnim(0), // RA2: as above
-	FirestormGroundAnim(0), // RA2: as above
-	MoveFlash(0), // RA2: as above
-	BombParachute(0), // RA2: as above
-	Parachute(0), // RA2: as above
-	SmallFire(0), // RA2: as above
-	LargeFire(0), // RA2: as above
-	Paratrooper(0), // RA2: as above
-	EliteFlashTimer(100), // RA2: as above
-	ChronoDelay(60), // RA2: as above
-	ChronoReinfDelay(60), // RA2: as above
-	ChronoDistanceFactor(32), // RA2: as above
-	ChronoTrigger(true), // RA2: as above
-	ChronoMinimumDelay(0), // RA2: as above
-	ChronoRangeMinimum(0), // RA2: as above
-	AlliedDisguise(0), // RA2: as above
-	SovietDisguise(0), // RA2: as above
-	SpyPowerBlackout(0), // RA2: as above
-	SpyMoneyStealPercent(0.5f), // RA2: as above
-	AttackCursorOnDisguise(false), // RA2: as above
-	AIMinorSuperReadyPercent(0.8f), // RA2: as above
-	AISafeDistance(8), // RA2: as above
-	HarvesterTooFarDistance(5), // RA2: as above
-	ChronoHarvTooFarDistance(50), // RA2: as above
-	AIRestrictReplaceTime(500), // RA2: as above
-	ThreatPerOccupant(5), // RA2: as above
-	ApproachTargetResetMultiplier(1), // RA2: as above
-	CampaignMoneyDeltaEasy(5000), // RA2: as above
-	CampaignMoneyDeltaHard(-5000), // RA2: as above
-	GuardAreaTargetingDelay(36), // RA2: as above
-	NormalTargetingDelay(27), // RA2: as above
-	AINavalYardAdjacency(20), // RA2: as above
-	MaximumBuildingPlacementFailures(5), // RA2: as above
-	PurifierBonus(0.25f), // RA2: as above
-	Technician(0), // RA2: as above
-	Engineer(0), // RA2: as above
-	Pilot(0), // RA2: as above
-	AlliedCrew(0), // RA2: as above
-	SovietCrew(0), // RA2: as above
-	FlameDamage(0), // RA2: as above
-	FlameDamage2(0), // RA2: as above
-	NukeWarhead(0), // RA2: as above
-	NukeProjectile(0), // RA2: as above
-	NukeDown(0), // RA2: as above
-	EMPulseWarhead(0), // RA2: as above
-	EMPulseProjectile(0), // RA2: as above
-	C4Warhead(0), // RA2: as above
-	V3Warhead(0), // RA2: as above
-	DMislWarhead(0), // RA2: as above
-	V3EliteWarhead(0), // RA2: as above
-	DMislEliteWarhead(0), // RA2: as above
-	IvanWarhead(0), // RA2: as above
-	IvanDamage(100), // RA2: as above
-	IvanTimedDelay(450), // RA2: as above
-	CanDetonateTimeBomb(false), // RA2: as above
-	CanDetonateDeathBomb(false), // RA2: as above
-	IvanIconFlickerRate(8), // RA2: as above
-	DeathWeapon(0), // RA2: as above
-	BOMBCURS_SHP(0), // RA2: as above
-	IronCurtainDuration(0), // RA2: as above
-	IonCannonWarhead(0), // RA2: as above
-	FirestormWarhead(0), // RA2: as above
-	VeinholeWarhead(0), // RA2: as above
-	VeinholeTypeClass(0), // RA2: as above
-	InfantryBlinkDisguiseTime(0), // RA2: as above
-	DefaultLargeGreySmokeSystem(0), // RA2: as above
-	DefaultSmallGreySmokeSystem(0), // RA2: as above
-	DefaultSparkSystem(0), // RA2: as above
-	DefaultLargeRedSmokeSystem(0), // RA2: as above
-	DefaultSmallRedSmokeSystem(0), // RA2: as above
-	DefaultDebrisSmokeSystem(0), // RA2: as above
-	DefaultFireStreamSystem(0), // RA2: as above
-	DefaultFirestormExplosionSystem(0), // RA2: as above
-	DefaultTestParticleSystem(0), // RA2: as above
-	DefaultRepairParticleSystem(0), // RA2: as above
-	MyEffectivenessCoefficientDefault(0.0), // RA2: as above
-	TargetEffectivenessCoefficientDefault(0.0), // RA2: as above
-	TargetSpecialThreatCoefficientDefault(0.0), // RA2: as above
-	TargetStrengthCoefficientDefault(0.0), // RA2: as above
-	TargetDistanceCoefficientDefault(0.0), // RA2: as above
-	DumbMyEffectivenessCoefficient(0.0), // RA2: as above
-	DumbTargetEffectivenessCoefficient(0.0), // RA2: as above
-	DumbTargetSpecialThreatCoefficient(0.0), // RA2: as above
-	DumbTargetStrengthCoefficient(0.0), // RA2: as above
-	DumbTargetDistanceCoefficient(0.0), // RA2: as above
-	EnemyHouseThreatBonus(0.0), // RA2: as above
+	Smoke2(0),
+	FirestormActiveAnim(0),
+	FirestormIdleAnim(0),
+	FirestormAirAnim(0),
+	FirestormGroundAnim(0),
+	MoveFlash(0),
+	BombParachute(0),
+	Parachute(0),
+	SmallFire(0),
+	LargeFire(0),
+	Paratrooper(0),
+	EliteFlashTimer(100),
+	ChronoDelay(60),
+	ChronoReinfDelay(60),
+	ChronoDistanceFactor(32),
+	ChronoTrigger(true),
+	ChronoMinimumDelay(0),
+	ChronoRangeMinimum(0),
+	AlliedDisguise(0),
+	SovietDisguise(0),
+	SpyPowerBlackout(0),
+	SpyMoneyStealPercent(0.5f),
+	AttackCursorOnDisguise(false),
+	AIMinorSuperReadyPercent(0.8f),
+	AISafeDistance(8),
+	HarvesterTooFarDistance(5),
+	ChronoHarvTooFarDistance(50),
+	AIRestrictReplaceTime(500),
+	ThreatPerOccupant(5),
+	ApproachTargetResetMultiplier(1),
+	CampaignMoneyDeltaEasy(5000),
+	CampaignMoneyDeltaHard(-5000),
+	GuardAreaTargetingDelay(36),
+	NormalTargetingDelay(27),
+	AINavalYardAdjacency(20),
+	MaximumBuildingPlacementFailures(5),
+	PurifierBonus(0.25f),
+	Technician(0),
+	Engineer(0),
+	Pilot(0),
+	AlliedCrew(0),
+	SovietCrew(0),
+	FlameDamage(0),
+	FlameDamage2(0),
+	NukeWarhead(0),
+	NukeProjectile(0),
+	NukeDown(0),
+	EMPulseWarhead(0),
+	EMPulseProjectile(0),
+	C4Warhead(0),
+	V3Warhead(0),
+	DMislWarhead(0),
+	V3EliteWarhead(0),
+	DMislEliteWarhead(0),
+	IvanWarhead(0),
+	IvanDamage(100),
+	IvanTimedDelay(450),
+	CanDetonateTimeBomb(false),
+	CanDetonateDeathBomb(false),
+	IvanIconFlickerRate(8),
+	DeathWeapon(0),
+	BOMBCURS_SHP(0),
+	IronCurtainDuration(0),
+	IonCannonWarhead(0),
+	FirestormWarhead(0),
+	VeinholeWarhead(0),
+	VeinholeTypeClass(0),
+	InfantryBlinkDisguiseTime(0),
+	DefaultLargeGreySmokeSystem(0),
+	DefaultSmallGreySmokeSystem(0),
+	DefaultSparkSystem(0),
+	DefaultLargeRedSmokeSystem(0),
+	DefaultSmallRedSmokeSystem(0),
+	DefaultDebrisSmokeSystem(0),
+	DefaultFireStreamSystem(0),
+	DefaultFirestormExplosionSystem(0),
+	DefaultTestParticleSystem(0),
+	DefaultRepairParticleSystem(0),
+	MyEffectivenessCoefficientDefault(0.0),
+	TargetEffectivenessCoefficientDefault(0.0),
+	TargetSpecialThreatCoefficientDefault(0.0),
+	TargetStrengthCoefficientDefault(0.0),
+	TargetDistanceCoefficientDefault(0.0),
+	DumbMyEffectivenessCoefficient(0.0),
+	DumbTargetEffectivenessCoefficient(0.0),
+	DumbTargetSpecialThreatCoefficient(0.0),
+	DumbTargetStrengthCoefficient(0.0),
+	DumbTargetDistanceCoefficient(0.0),
+	EnemyHouseThreatBonus(0.0),
 	HunterSeekerDetonateProximity(0),
 	HunterSeekerDescendProximity(0),
 	HunterSeekerDescentSpeed(0),
@@ -477,9 +477,9 @@ RulesClass::RulesClass(void) :
 	HunterSeekerEmergeSpeed(0), // RA2: the executable's initializer list, in RA2's member order and values
 	TurboBoost(1.5),
 	AttackInterval(3.0), // RA2: the executable's initializer list, in RA2's member order and values
-	AttackDelay(5.0), // RA2: as above
-	PowerEmergencyFraction(0.75), // RA2: as above
-	AirstripRatio(0.12), // RA2: as above
+	AttackDelay(5.0),
+	PowerEmergencyFraction(0.75),
+	AirstripRatio(0.12),
 	AirstripLimit(5),
 	HelipadRatio(0.12), // RA2: the executable's initializer list, in RA2's member order and values
 	HelipadLimit(5),
@@ -502,15 +502,15 @@ RulesClass::RulesClass(void) :
 	SoloCrateMoney(2000),
 	TreeStrength(25),
 	UnitCrateType(0), // RA2: the executable's initializer list, in RA2's member order and values
-	PatrolTime(0.016), // RA2: as above
+	PatrolTime(0.016),
 	DissolveUnfilledTeamDelay(5000),
 	AIAlternateProductionCreditCutoff(1000),
 	AIUseTurbineUpgradeChance(1.0), // RA2: the executable's initializer list, in RA2's member order and values
-	CloakDelay(0.0), // RA2: as above
-	GameSpeedBias(1.0), // RA2: as above
-	NervousBias(1.0), // RA2: as above
-	ExplosionSpread(0.5), // RA2: as above
-	SupressRadius(256), // RA2: as above
+	CloakDelay(0.0),
+	GameSpeedBias(1.0),
+	NervousBias(1.0),
+	ExplosionSpread(0.5),
+	SupressRadius(256),
 	MaxIQ(5),
 	IQSuperWeapons(4),
 	IQProduction(5),
@@ -524,70 +524,70 @@ RulesClass::RulesClass(void) :
 	IQSellBack(2),
 	AIBaseSpacing(1),
 	SilverCrate((CrateType)CRATE_HEAL_BASE), // RA2: the executable's initializer list, in RA2's member order and values
-	WoodCrate((CrateType)CRATE_MONEY), // RA2: as above
-	WaterCrate((CrateType)CRATE_MONEY), // RA2: as above
+	WoodCrate((CrateType)CRATE_MONEY),
+	WaterCrate((CrateType)CRATE_MONEY),
 	CrateMinimum(1),
 	CrateMaximum(255),
 	LZScanRadius(8192), // RA2: the executable's initializer list, in RA2's member order and values
-	FlareAnim(0), // RA2: as above
-	MinMoney(2500), // RA2: as above
-	MPMoney(10000), // RA2: as above
+	FlareAnim(0),
+	MinMoney(2500),
+	MPMoney(10000),
 	MPMaxMoney(10000),
 	MoneyIncrement(100), // RA2: the executable's initializer list, in RA2's member order and values
-	MinUnitCount(1), // RA2: as above
+	MinUnitCount(1),
 	MPUnitCount(10),
 	MaxUnitCount(20), // RA2: the executable's initializer list, in RA2's member order and values
 	MPBuildLevel(10),
 	GameSpeed(6), // RA2: the executable's initializer list, in RA2's member order and values
-	AIDifficultyStruct(1), // RA2: as above
-	AIPlayers(1), // RA2: as above
+	AIDifficultyStruct(1),
+	AIPlayers(1),
 	IsMPBridgeDestruction(true),
 	IsMPShadowGrow(false), // RA2: the executable's initializer list, in RA2's member order and values
-	Shroud(true), // RA2: as above
+	Shroud(true),
 	IsMPBasesOn(true),
 	IsMPTiberiumGrow(true),
 	IsMPCrates(true),
 	IsMPCaptureTheFlag(false),
 	HarvesterTruce(false), // RA2: the executable's initializer list, in RA2's member order and values
-	MultiEngineer(false), // RA2: as above
-	AlliesAllowed(false), // RA2: as above
-	ShortGame(false), // RA2: as above
-	FogOfWar(false), // RA2: as above
-	MCVRedeploys(true), // RA2: as above
-	SuperWeaponsAllowed(true), // RA2: as above
-	BuildOffAlly(true), // RA2: as above
-	DropZoneRadius(1024), // RA2: as above
-	MessageDelay(0.6), // RA2: as above
-	SavourDelay(0.03), // RA2: as above
-	MaxPlayers(8), // RA2: as above
-	BaseDefenseDelay(0.25), // RA2: as above
+	MultiEngineer(false),
+	AlliesAllowed(false),
+	ShortGame(false),
+	FogOfWar(false),
+	MCVRedeploys(true),
+	SuperWeaponsAllowed(true),
+	BuildOffAlly(true),
+	DropZoneRadius(1024),
+	MessageDelay(0.6),
+	SavourDelay(0.03),
+	MaxPlayers(8),
+	BaseDefenseDelay(0.25),
 	SuspendPriority(20),
 	SuspendDelay(2.0), // RA2: the executable's initializer list, in RA2's member order and values
-	SurvivorFraction(0.5), // RA2: as above
-	AlliedSurvivorDivisor(200), // RA2: as above
-	SovietSurvivorDivisor(100), // RA2: as above
-	ReloadRate(0.05), // RA2: as above
-	AutocreateTime(5.0), // RA2: as above
-	BuildupTime(0.05), // RA2: as above
+	SurvivorFraction(0.5),
+	AlliedSurvivorDivisor(200),
+	SovietSurvivorDivisor(100),
+	ReloadRate(0.05),
+	AutocreateTime(5.0),
+	BuildupTime(0.05),
 	HarvesterLoadRate(2),
 	HarvesterDumpRate(0.016), // RA2: the executable's initializer list, in RA2's member order and values
 	AtomDamage(1000),
 	GrowthRate(2.0), // RA2: the executable's initializer list, in RA2's member order and values
-	ShroudRate(4.0), // RA2: as above
-	FogRate(0.05), // RA2: as above
-	IceGrowthRate(1.0), // RA2: as above
-	VeinGrowthRate(1.0), // RA2: as above
+	ShroudRate(4.0),
+	FogRate(0.05),
+	IceGrowthRate(1.0),
+	VeinGrowthRate(1.0),
 	IceSolidifyDelay(500),
 	AmbientLightChangeRate(0.2), // RA2: the executable's initializer list, in RA2's member order and values
-	AmbientLightChangeStep(0.1), // RA2: as above
-	CrateTime(10.0), // RA2: as above
-	TimerWarning(2.0), // RA2: as above
-	NukeTime(14.0), // RA2: as above
-	EMPulseTime(5.0), // RA2: as above
-	IonCannonTime(10.0), // RA2: as above
-	FirestormTime(10.0), // RA2: as above
-	SpeakDelay(2.0), // RA2: as above
-	DamageDelay(1.0), // RA2: as above
+	AmbientLightChangeStep(0.1),
+	CrateTime(10.0),
+	TimerWarning(2.0),
+	NukeTime(14.0),
+	EMPulseTime(5.0),
+	IonCannonTime(10.0),
+	FirestormTime(10.0),
+	SpeakDelay(2.0),
+	DamageDelay(1.0),
 	Gravity(3),
 	LeptonsPerSightIncrease(50),
 	Incoming(MPH_IMMOBILE),
@@ -597,38 +597,38 @@ RulesClass::RulesClass(void) :
 	RepairPercent(0.25), // RA2: the executable's initializer list, in RA2's member order and values
 	IRepairStep(1),
 	RepairRate(0.016), // RA2: the executable's initializer list, in RA2's member order and values
-	URepairRate(0.016), // RA2: as above
-	IRepairRate(0.016), // RA2: as above
-	ConditionGreen(1.0), // RA2: as above
-	ConditionYellow(0.5), // RA2: as above
-	ConditionRed(0.5), // RA2: as above
-	RandomAnimateTime(0.083), // RA2: as above
-	CloseEnoughDistance(640), // RA2: as above
-	StrayDistance(512), // RA2: as above
-	RelaxedStray(512), // RA2: as above
-	CrushDistance(384), // RA2: as above
-	CrateRadius(640), // RA2: as above
-	HomingScatter(512), // RA2: as above
-	BallisticScatter(256), // RA2: as above
-	RefundPercent(0.5), // RA2: as above
+	URepairRate(0.016),
+	IRepairRate(0.016),
+	ConditionGreen(1.0),
+	ConditionYellow(0.5),
+	ConditionRed(0.5),
+	RandomAnimateTime(0.083),
+	CloseEnoughDistance(640),
+	StrayDistance(512),
+	RelaxedStray(512),
+	CrushDistance(384),
+	CrateRadius(640),
+	HomingScatter(512),
+	BallisticScatter(256),
+	RefundPercent(0.5),
 	BridgeStrength(1000),
 	BuildSpeedBias(1.0), // RA2: the executable's initializer list, in RA2's member order and values
-	C4Delay(0.03), // RA2: as above
+	C4Delay(0.03),
 	RepairThreshhold(1000),
 	PathDelay(0.016), // RA2: the executable's initializer list, in RA2's member order and values
-	BlockagePathDelay(60), // RA2: as above
-	MovieTime(0.25), // RA2: as above
-	TiberiumShortScan(1536), // RA2: as above
-	TiberiumLongScan(8192), // RA2: as above
-	LightningDeferment(250), // RA2: as above
-	LightningDamage(200), // RA2: as above
-	LightningStormDuration(900), // RA2: as above
-	LightningHitDelay(90), // RA2: as above
-	LightningScatterDelay(10), // RA2: as above
-	LightningCellSpread(10), // RA2: as above
-	LightningSeparation(3), // RA2: as above
-	LightningPrintText(true), // RA2: as above
-	LightningWarhead(0), // RA2: as above
+	BlockagePathDelay(60),
+	MovieTime(0.25),
+	TiberiumShortScan(1536),
+	TiberiumLongScan(8192),
+	LightningDeferment(250),
+	LightningDamage(200),
+	LightningStormDuration(900),
+	LightningHitDelay(90),
+	LightningScatterDelay(10),
+	LightningCellSpread(10),
+	LightningSeparation(3),
+	LightningPrintText(true),
+	LightningWarhead(0),
 	CollapseChance(100),
 	WeedCapacity(0),
 	HarvestersPerRefinery(2), // RA2: the executable's initializer list, in RA2's member order and values
@@ -656,54 +656,54 @@ RulesClass::RulesClass(void) :
 	AIBuildsWalls(true),
 	UseMinDefenseRule(true),
 	EMPulseSparkles(0), // RA2: the executable's initializer list, in RA2's member order and values
-	EngineerCaptureLevel(1.0f), // RA2: as above
-	EngineerDamage(0.0f), // RA2: as above
-	TalkBubbleTime(300), // RA2: as above
-	RadDurationMultiple(0), // RA2: as above
-	RadApplicationDelay(0), // RA2: as above
-	RadLevelMax(0), // RA2: as above
-	RadLevelDelay(0), // RA2: as above
-	RadLightDelay(0), // RA2: as above
-	RadLevelFactor(0.0), // RA2: as above
-	RadLightFactor(0.0), // RA2: as above
-	RadTintFactor(0.0), // RA2: as above
+	EngineerCaptureLevel(1.0f),
+	EngineerDamage(0.0f),
+	TalkBubbleTime(300),
+	RadDurationMultiple(0),
+	RadApplicationDelay(0),
+	RadLevelMax(0),
+	RadLevelDelay(0),
+	RadLightDelay(0),
+	RadLevelFactor(0.0),
+	RadLightFactor(0.0),
+	RadTintFactor(0.0),
 	RadColor(0, 0, 0), // RA2: written out, as ra2-decomp's twin has it (the three-argument constructor at each colour)
-	RadSiteWarhead(0), // RA2: as above
-	ElevationIncrement(0), // RA2: as above
-	ElevationIncrementBonus(1.0), // RA2: as above
-	ElevationBonusCap(0.0), // RA2: as above
-	AlliedWallTransparency(false), // RA2: as above
-	WallPenetratorThreshold(0.5), // RA2: as above
-	LocalRadarColor(255, 255, 255), // RA2: as above
-	LineTrailColorOverride(0, 0, 0), // RA2: as above
-	ChronoBeamColor(0, 0, 0), // RA2: as above
-	OreTwinkleChance(50), // RA2: as above
-	OreTwinkle(0) // RA2: as above
+	RadSiteWarhead(0),
+	ElevationIncrement(0),
+	ElevationIncrementBonus(1.0),
+	ElevationBonusCap(0.0),
+	AlliedWallTransparency(false),
+	WallPenetratorThreshold(0.5),
+	LocalRadarColor(255, 255, 255),
+	LineTrailColorOverride(0, 0, 0),
+	ChronoBeamColor(0, 0, 0),
+	OreTwinkleChance(50),
+	OreTwinkle(0)
 {
 	V3Rocket.PauseFrames = 0; // RA2: the executable's initializer list, in RA2's member order and values
-	V3Rocket.TiltFrames = 60; // RA2: as above
-	V3Rocket.PitchInitial = 0.0f; // RA2: as above
-	V3Rocket.PitchFinal = 1.0f; // RA2: as above
-	V3Rocket.TurnRate = 0.05f; // RA2: as above
-	V3Rocket.Acceleration = 0.4f; // RA2: as above
-	V3Rocket.Altitude = 768; // RA2: as above
-	V3Rocket.Damage = 1000; // RA2: as above
-	V3Rocket.EliteDamage = 1000; // RA2: as above
-	V3Rocket.BodyLength = 256; // RA2: as above
-	V3Rocket.LazyCurve = true; // RA2: as above
-	V3Rocket.Type = 0; // RA2: as above
-	DMisl.PauseFrames = 10; // RA2: as above
-	DMisl.TiltFrames = 60; // RA2: as above
-	DMisl.PitchInitial = 0.0f; // RA2: as above
-	DMisl.PitchFinal = 1.0f; // RA2: as above
-	DMisl.TurnRate = 0.05f; // RA2: as above
-	DMisl.Acceleration = 0.4f; // RA2: as above
-	DMisl.Altitude = 768; // RA2: as above
-	DMisl.Damage = 1000; // RA2: as above
-	DMisl.EliteDamage = 1000; // RA2: as above
-	DMisl.BodyLength = 128; // RA2: as above
-	DMisl.LazyCurve = false; // RA2: as above
-	DMisl.Type = 0; // RA2: as above
+	V3Rocket.TiltFrames = 60;
+	V3Rocket.PitchInitial = 0.0f;
+	V3Rocket.PitchFinal = 1.0f;
+	V3Rocket.TurnRate = 0.05f;
+	V3Rocket.Acceleration = 0.4f;
+	V3Rocket.Altitude = 768;
+	V3Rocket.Damage = 1000;
+	V3Rocket.EliteDamage = 1000;
+	V3Rocket.BodyLength = 256;
+	V3Rocket.LazyCurve = true;
+	V3Rocket.Type = 0;
+	DMisl.PauseFrames = 10;
+	DMisl.TiltFrames = 60;
+	DMisl.PitchInitial = 0.0f;
+	DMisl.PitchFinal = 1.0f;
+	DMisl.TurnRate = 0.05f;
+	DMisl.Acceleration = 0.4f;
+	DMisl.Altitude = 768;
+	DMisl.Damage = 1000;
+	DMisl.EliteDamage = 1000;
+	DMisl.BodyLength = 128;
+	DMisl.LazyCurve = false;
+	DMisl.Type = 0;
 }
 
 
@@ -728,36 +728,36 @@ RulesClass::~RulesClass(void)
 /// pointer to one when this routine is called.</remarks>
 void RulesClass::Initialize(CCINIClass & ini) // RA2: a writable INI
 {
-	while (ColorSchemes.Count()) delete ColorSchemes[0]; // RA2: as above
-	ColorSchemes.Clear(); // RA2: as above
-	SchemeLibrary_Free(); // RA2: as above
+	while (ColorSchemes.Count()) delete ColorSchemes[0];
+	ColorSchemes.Clear();
+	SchemeLibrary_Free();
 
 	while (TeamTypes.Count()) delete TeamTypes[0]; // RA2: the executable's Initialize (no Firestorm or art ini loading, scheme library and session ini)
-	while (TaskForces.Count()) delete TaskForces[0]; // RA2: as above
-	while (ScriptTypes.Count()) delete ScriptTypes[0]; // RA2: as above
-	while (OverlayTypes.Count()) delete OverlayTypes[0]; // RA2: as above
-	while (SmudgeTypes.Count()) delete SmudgeTypes[0]; // RA2: as above
-	while (TerrainTypes.Count()) delete TerrainTypes[0]; // RA2: as above
-	while (InfantryTypes.Count()) delete InfantryTypes[0]; // RA2: as above
-	while (UnitTypes.Count()) delete UnitTypes[0]; // RA2: as above
-	while (AircraftTypes.Count()) delete AircraftTypes[0]; // RA2: as above
-	while (BulletTypes.Count()) delete BulletTypes[0]; // RA2: as above
-	while (BuildingTypes.Count()) delete BuildingTypes[0]; // RA2: as above
-	while (SuperWeaponTypes.Count()) delete SuperWeaponTypes[0]; // RA2: as above
-	while (AnimTypes.Count()) delete AnimTypes[0]; // RA2: as above
-	while (Weapons.Count()) delete Weapons[0]; // RA2: as above
-	while (::Warheads.Count()) delete ::Warheads[0]; // RA2: as above
-	while (VoxelAnimTypes.Count()) delete VoxelAnimTypes[0]; // RA2: as above
-	while (ParticleTypes.Count()) delete ParticleTypes[0]; // RA2: as above
-	while (ParticleSystemTypes.Count()) delete ParticleSystemTypes[0]; // RA2: as above
-	while (::Houses.Count()) delete ::Houses[0]; // RA2: as above
-	while (HouseTypes.Count()) delete HouseTypes[0]; // RA2: as above
+	while (TaskForces.Count()) delete TaskForces[0];
+	while (ScriptTypes.Count()) delete ScriptTypes[0];
+	while (OverlayTypes.Count()) delete OverlayTypes[0];
+	while (SmudgeTypes.Count()) delete SmudgeTypes[0];
+	while (TerrainTypes.Count()) delete TerrainTypes[0];
+	while (InfantryTypes.Count()) delete InfantryTypes[0];
+	while (UnitTypes.Count()) delete UnitTypes[0];
+	while (AircraftTypes.Count()) delete AircraftTypes[0];
+	while (BulletTypes.Count()) delete BulletTypes[0];
+	while (BuildingTypes.Count()) delete BuildingTypes[0];
+	while (SuperWeaponTypes.Count()) delete SuperWeaponTypes[0];
+	while (AnimTypes.Count()) delete AnimTypes[0];
+	while (Weapons.Count()) delete Weapons[0];
+	while (::Warheads.Count()) delete ::Warheads[0];
+	while (VoxelAnimTypes.Count()) delete VoxelAnimTypes[0];
+	while (ParticleTypes.Count()) delete ParticleTypes[0];
+	while (ParticleSystemTypes.Count()) delete ParticleSystemTypes[0];
+	while (::Houses.Count()) delete ::Houses[0];
+	while (HouseTypes.Count()) delete HouseTypes[0];
 
 	Heap_Maximums(ini); // RA2: the [Maximums] reader, expanded here by the compiler (ra2-decomp's twin calls it the same way)
 	Addition(ini);
 
 	CCFileClass file("LANGRULE.INI"); // RA2: the executable's Initialize (no Firestorm or art ini loading, scheme library and session ini)
-	if (file.Is_Available() == true) { // RA2: as above
+	if (file.Is_Available() == true) {
 		CCINIClass langini;
 		if (langini.Load(file, true) > 1) { // RA2: the executable's Initialize (no Firestorm or art ini loading, scheme library and session ini)
 			return;
@@ -765,7 +765,7 @@ void RulesClass::Initialize(CCINIClass & ini) // RA2: a writable INI
 		Addition(langini);
 	}
 	if (Session.Type && Session.MPGameMode) { // RA2: the executable's Initialize (no Firestorm or art ini loading, scheme library and session ini)
-		Addition(*Session.MPGameMode->GetINI()); // RA2: as above
+		Addition(*Session.MPGameMode->GetINI());
 	}
 }
 
@@ -817,8 +817,8 @@ bool RulesClass::Addition(CCINIClass & ini) // RA2: a writable INI
 	Crate_Rules(ini);
 	Combat_Damage(ini);
 	Radiation(ini); // RA2: Radiation, Elevation_Model and Wall_Model are read here (the executable has them as separate readers)
-	Elevation_Model(ini); // RA2: as above
-	Wall_Model(ini); // RA2: as above
+	Elevation_Model(ini);
+	Wall_Model(ini);
 	Audio_Visual_Rules(ini);
 	Special_Weapons(ini);
 	TiberiumClass::Process(ini); // RA2: the result is not used
@@ -880,272 +880,272 @@ static inline VocType Read_Sound(CCINIClass const & ini, char const * section, c
 bool RulesClass::Audio_Visual_Rules(CCINIClass const & ini)
 {
 	static char const * const RulesSection_AudioVisual = "AudioVisual"; // RA2: the executable's section name, a file-static pointer at 0x007A903C
-	if (ini.Is_Present(RulesSection_AudioVisual)) { // RA2: as above
-		DetailMinFrameRateNormal = ini.Get_Int(RulesSection_AudioVisual, "DetailMinFrameRateNormal", DetailMinFrameRateNormal); // RA2: as above
-		DetailMinFrameRateMovie = ini.Get_Int(RulesSection_AudioVisual, "DetailMinFrameRateMovie", DetailMinFrameRateMovie); // RA2: as above
-		DetailBufferZoneWidth = ini.Get_Int(RulesSection_AudioVisual, "DetailBufferZoneWidth", DetailBufferZoneWidth); // RA2: as above
-		UnloadingHarvester = TGet_Class(ini, RulesSection_AudioVisual, "UnloadingHarvester", UnloadingHarvester); // RA2: as above
-		PoseDir = (Dir256)ini.Get_Int(RulesSection_AudioVisual, "PoseDir", PoseDir); // RA2: as above
-		DropPodPuff = TGet_Class(ini, RulesSection_AudioVisual, "DropPodPuff", DropPodPuff); // RA2: as above
-		WaypointAnimationSpeed = ini.Get_Int(RulesSection_AudioVisual, "WaypointAnimationSpeed", WaypointAnimationSpeed); // RA2: as above
-		BarrelExplode = TGet_Class(ini, RulesSection_AudioVisual, "BarrelExplode", BarrelExplode); // RA2: as above
-		BarrelDebris = TGet_TypeList<VoxelAnimTypeClass>(ini, RulesSection_AudioVisual, "BarrelDebris", BarrelDebris); // RA2: as above
-		BarrelParticle = TGet_Class(ini, RulesSection_AudioVisual, "BarrelParticle", BarrelParticle); // RA2: as above
-		Wake = TGet_Class(ini, RulesSection_AudioVisual, "Wake", Wake); // RA2: as above
-		FlamingInfantry = TGet_Class(ini, RulesSection_AudioVisual, "FlamingInfantry", FlamingInfantry); // RA2: as above
-		NukeTakeOff = TGet_Class(ini, RulesSection_AudioVisual, "NukeTakeOff", NukeTakeOff); // RA2: as above
-		InfantryHeadPop = TGet_Class(ini, RulesSection_AudioVisual, "InfantryHeadPop", InfantryHeadPop); // RA2: as above
-		InfantryNuked = TGet_Class(ini, RulesSection_AudioVisual, "InfantryNuked", InfantryNuked); // RA2: as above
-		Behind = TGet_Class(ini, RulesSection_AudioVisual, "Behind", Behind); // RA2: as above
-		VeinAttack = TGet_Class(ini, RulesSection_AudioVisual, "VeinAttack", VeinAttack); // RA2: as above
-		DropPod = TGet_TypeList<AnimTypeClass>(ini, RulesSection_AudioVisual, "DropPod", DropPod); // RA2: as above
-		VocType dig_sound = Read_Sound(ini, RulesSection_AudioVisual, "DigSound", (VocType)DigSound); // RA2: as above
-		DigSound = dig_sound; // RA2: as above
-		VocType guimain_button_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUIMainButtonSound", (VocType)GUIMainButtonSound); // RA2: as above
-		GUIMainButtonSound = guimain_button_sound; // RA2: as above
-		VocType guibuild_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUIBuildSound", (VocType)GUIBuildSound); // RA2: as above
-		GUIBuildSound = guibuild_sound; // RA2: as above
-		VocType guitab_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUITabSound", (VocType)GUITabSound); // RA2: as above
-		GUITabSound = guitab_sound; // RA2: as above
-		VocType guiopen_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUIOpenSound", (VocType)GUIOpenSound); // RA2: as above
-		GUIOpenSound = guiopen_sound; // RA2: as above
-		VocType guiclose_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUICloseSound", (VocType)GUICloseSound); // RA2: as above
-		GUICloseSound = guiclose_sound; // RA2: as above
-		VocType guimove_out_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUIMoveOutSound", (VocType)GUIMoveOutSound); // RA2: as above
-		GUIMoveOutSound = guimove_out_sound; // RA2: as above
-		VocType guimove_in_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUIMoveInSound", (VocType)GUIMoveInSound); // RA2: as above
-		GUIMoveInSound = guimove_in_sound; // RA2: as above
-		VocType guicombo_open_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUIComboOpenSound", (VocType)GUIComboOpenSound); // RA2: as above
-		GUIComboOpenSound = guicombo_open_sound; // RA2: as above
-		VocType guicombo_close_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUIComboCloseSound", (VocType)GUIComboCloseSound); // RA2: as above
-		GUIComboCloseSound = guicombo_close_sound; // RA2: as above
-		VocType guicheckbox_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUICheckboxSound", (VocType)GUICheckboxSound); // RA2: as above
-		GUICheckboxSound = guicheckbox_sound; // RA2: as above
-		VocType score_anim_sound = Read_Sound(ini, RulesSection_AudioVisual, "ScoreAnimSound", (VocType)ScoreAnimSound); // RA2: as above
-		ScoreAnimSound = score_anim_sound; // RA2: as above
-		VocType cheer_sound = Read_Sound(ini, RulesSection_AudioVisual, "CheerSound", (VocType)CheerSound); // RA2: as above
-		CheerSound = cheer_sound; // RA2: as above
-		VocType default_chrono_sound = Read_Sound(ini, RulesSection_AudioVisual, "DefaultChronoSound", (VocType)DefaultChronoSound); // RA2: as above
-		DefaultChronoSound = default_chrono_sound; // RA2: as above
-		VocType start_planning_mode_sound = Read_Sound(ini, RulesSection_AudioVisual, "StartPlanningModeSound", (VocType)StartPlanningModeSound); // RA2: as above
-		StartPlanningModeSound = start_planning_mode_sound; // RA2: as above
-		VocType end_planning_mode_sound = Read_Sound(ini, RulesSection_AudioVisual, "EndPlanningModeSound", (VocType)EndPlanningModeSound); // RA2: as above
-		EndPlanningModeSound = end_planning_mode_sound; // RA2: as above
-		VocType crate_money_sound = Read_Sound(ini, RulesSection_AudioVisual, "CrateMoneySound", (VocType)CrateMoneySound); // RA2: as above
-		CrateMoneySound = crate_money_sound; // RA2: as above
-		VocType crate_reveal_sound = Read_Sound(ini, RulesSection_AudioVisual, "CrateRevealSound", (VocType)CrateRevealSound); // RA2: as above
-		CrateRevealSound = crate_reveal_sound; // RA2: as above
-		VocType crate_fire_sound = Read_Sound(ini, RulesSection_AudioVisual, "CrateFireSound", (VocType)CrateFireSound); // RA2: as above
-		CrateFireSound = crate_fire_sound; // RA2: as above
-		VocType crate_armour_sound = Read_Sound(ini, RulesSection_AudioVisual, "CrateArmourSound", (VocType)CrateArmourSound); // RA2: as above
-		CrateArmourSound = crate_armour_sound; // RA2: as above
-		VocType crate_speed_sound = Read_Sound(ini, RulesSection_AudioVisual, "CrateSpeedSound", (VocType)CrateSpeedSound); // RA2: as above
-		CrateSpeedSound = crate_speed_sound; // RA2: as above
-		VocType crate_unit_sound = Read_Sound(ini, RulesSection_AudioVisual, "CrateUnitSound", (VocType)CrateUnitSound); // RA2: as above
-		CrateUnitSound = crate_unit_sound; // RA2: as above
-		VocType crate_promote_sound = Read_Sound(ini, RulesSection_AudioVisual, "CratePromoteSound", (VocType)CratePromoteSound); // RA2: as above
-		CratePromoteSound = crate_promote_sound; // RA2: as above
-		VocType impact_water_sound = Read_Sound(ini, RulesSection_AudioVisual, "ImpactWaterSound", (VocType)ImpactWaterSound); // RA2: as above
-		ImpactWaterSound = impact_water_sound; // RA2: as above
-		VocType impact_land_sound = Read_Sound(ini, RulesSection_AudioVisual, "ImpactLandSound", (VocType)ImpactLandSound); // RA2: as above
-		ImpactLandSound = impact_land_sound; // RA2: as above
-		VocType sinking_sound = Read_Sound(ini, RulesSection_AudioVisual, "SinkingSound", (VocType)SinkingSound); // RA2: as above
-		SinkingSound = sinking_sound; // RA2: as above
-		VocType chrono_in_sound = Read_Sound(ini, RulesSection_AudioVisual, "ChronoInSound", (VocType)ChronoInSound); // RA2: as above
-		ChronoInSound = chrono_in_sound; // RA2: as above
-		VocType chrono_out_sound = Read_Sound(ini, RulesSection_AudioVisual, "ChronoOutSound", (VocType)ChronoOutSound); // RA2: as above
-		ChronoOutSound = chrono_out_sound; // RA2: as above
-		VocType bomb_ticking_sound = Read_Sound(ini, RulesSection_AudioVisual, "BombTickingSound", (VocType)BombTickingSound); // RA2: as above
-		BombTickingSound = bomb_ticking_sound; // RA2: as above
-		VocType bomb_attach_sound = Read_Sound(ini, RulesSection_AudioVisual, "BombAttachSound", (VocType)BombAttachSound); // RA2: as above
-		BombAttachSound = bomb_attach_sound; // RA2: as above
-		VocType yuri_mind_control_sound = Read_Sound(ini, RulesSection_AudioVisual, "YuriMindControlSound", (VocType)YuriMindControlSound); // RA2: as above
-		YuriMindControlSound = yuri_mind_control_sound; // RA2: as above
-		VocType add_planning_mode_command_sound = Read_Sound(ini, RulesSection_AudioVisual, "AddPlanningModeCommandSound", (VocType)AddPlanningModeCommandSound); // RA2: as above
-		AddPlanningModeCommandSound = add_planning_mode_command_sound; // RA2: as above
-		VocType execute_plan_sound = Read_Sound(ini, RulesSection_AudioVisual, "ExecutePlanSound", (VocType)ExecutePlanSound); // RA2: as above
-		ExecutePlanSound = execute_plan_sound; // RA2: as above
-		VocType place_beacon_sound = Read_Sound(ini, RulesSection_AudioVisual, "PlaceBeaconSound", (VocType)PlaceBeaconSound); // RA2: as above
-		PlaceBeaconSound = place_beacon_sound; // RA2: as above
-		VocType building_garrisoned_sound = Read_Sound(ini, RulesSection_AudioVisual, "BuildingGarrisonedSound", (VocType)BuildingGarrisonedSound); // RA2: as above
-		BuildingGarrisonedSound = building_garrisoned_sound; // RA2: as above
-		VocType building_abandoned_sound = Read_Sound(ini, RulesSection_AudioVisual, "BuildingAbandonedSound", (VocType)BuildingAbandonedSound); // RA2: as above
-		BuildingAbandonedSound = building_abandoned_sound; // RA2: as above
-		VocType building_repaired_sound = Read_Sound(ini, RulesSection_AudioVisual, "BuildingRepairedSound", (VocType)BuildingRepairedSound); // RA2: as above
-		BuildingRepairedSound = building_repaired_sound; // RA2: as above
-		VocType base_under_attack_sound = Read_Sound(ini, RulesSection_AudioVisual, "BaseUnderAttackSound", (VocType)BaseUnderAttackSound); // RA2: as above
-		BaseUnderAttackSound = base_under_attack_sound; // RA2: as above
-		VocType upgrade_veteran_sound = Read_Sound(ini, RulesSection_AudioVisual, "UpgradeVeteranSound", (VocType)UpgradeVeteranSound); // RA2: as above
-		UpgradeVeteranSound = upgrade_veteran_sound; // RA2: as above
-		VocType upgrade_elite_sound = Read_Sound(ini, RulesSection_AudioVisual, "UpgradeEliteSound", (VocType)UpgradeEliteSound); // RA2: as above
-		UpgradeEliteSound = upgrade_elite_sound; // RA2: as above
-		VocType create_unit_sound = Read_Sound(ini, RulesSection_AudioVisual, "CreateUnitSound", (VocType)CreateUnitSound); // RA2: as above
-		CreateUnitSound = create_unit_sound; // RA2: as above
-		VocType create_infantry_sound = Read_Sound(ini, RulesSection_AudioVisual, "CreateInfantrySound", (VocType)CreateInfantrySound); // RA2: as above
-		CreateInfantrySound = create_infantry_sound; // RA2: as above
-		VocType create_aircraft_sound = Read_Sound(ini, RulesSection_AudioVisual, "CreateAircraftSound", (VocType)CreateAircraftSound); // RA2: as above
-		CreateAircraftSound = create_aircraft_sound; // RA2: as above
-		VocType ifvtransform_sound = Read_Sound(ini, RulesSection_AudioVisual, "IFVTransformSound", (VocType)IFVTransformSound); // RA2: as above
-		IFVTransformSound = ifvtransform_sound; // RA2: as above
-		VocType psychic_sensor_detect_sound = Read_Sound(ini, RulesSection_AudioVisual, "PsychicSensorDetectSound", (VocType)PsychicSensorDetectSound); // RA2: as above
-		PsychicSensorDetectSound = psychic_sensor_detect_sound; // RA2: as above
-		VocType spy_sat_activation_sound = Read_Sound(ini, RulesSection_AudioVisual, "SpySatActivationSound", (VocType)SpySatActivationSound); // RA2: as above
-		SpySatActivationSound = spy_sat_activation_sound; // RA2: as above
-		VocType spy_sat_deactivation_sound = Read_Sound(ini, RulesSection_AudioVisual, "SpySatDeactivationSound", (VocType)SpySatDeactivationSound); // RA2: as above
-		SpySatDeactivationSound = spy_sat_deactivation_sound; // RA2: as above
-		Dig = TGet_Class(ini, RulesSection_AudioVisual, "Dig", Dig); // RA2: as above
-		IonBlast = TGet_Class(ini, RulesSection_AudioVisual, "IonBlast", IonBlast); // RA2: as above
-		IonBeam = TGet_Class(ini, RulesSection_AudioVisual, "IonBeam", IonBeam); // RA2: as above
-		ChronoBeam = TGet_Class(ini, RulesSection_AudioVisual, "ChronoBeam", ChronoBeam); // RA2: as above
-		ChronoBlast = TGet_Class(ini, RulesSection_AudioVisual, "ChronoBlast", ChronoBlast); // RA2: as above
-		ChronoBlastDest = TGet_Class(ini, RulesSection_AudioVisual, "ChronoBlastDest", ChronoBlastDest); // RA2: as above
-		ChronoPlacement = TGet_Class(ini, RulesSection_AudioVisual, "ChronoPlacement", ChronoPlacement); // RA2: as above
-		WarpIn = TGet_Class(ini, RulesSection_AudioVisual, "WarpIn", WarpIn); // RA2: as above
-		WarpOut = TGet_Class(ini, RulesSection_AudioVisual, "WarpOut", WarpOut); // RA2: as above
-		WarpAway = TGet_Class(ini, RulesSection_AudioVisual, "WarpAway", WarpAway); // RA2: as above
-		ChronoSparkle1 = TGet_Class(ini, RulesSection_AudioVisual, "ChronoSparkle1", ChronoSparkle1); // RA2: as above
-		IronCurtainInvokeAnim = TGet_Class(ini, RulesSection_AudioVisual, "IronCurtainInvokeAnim", IronCurtainInvokeAnim); // RA2: as above
-		WeaponNullifyAnim = TGet_Class(ini, RulesSection_AudioVisual, "WeaponNullifyAnim", WeaponNullifyAnim); // RA2: as above
-		InfantryExplode = TGet_Class(ini, RulesSection_AudioVisual, "InfantryExplode", InfantryExplode); // RA2: as above
-		AtmosphereEntry = TGet_Class(ini, RulesSection_AudioVisual, "AtmosphereEntry", AtmosphereEntry); // RA2: as above
-		VocType gate_up = Read_Sound(ini, RulesSection_AudioVisual, "GateUp", (VocType)GateUpSound); // RA2: as above
-		GateUpSound = gate_up; // RA2: as above
-		VocType gate_down = Read_Sound(ini, RulesSection_AudioVisual, "GateDown", (VocType)GateDownSound); // RA2: as above
-		GateDownSound = gate_down; // RA2: as above
-		IsShroudGrow = ini.Get_Bool(RulesSection_AudioVisual, "ShroudGrow", IsShroudGrow); // RA2: as above
-		double scroll_multiplier = ini.Get_Float(RulesSection_AudioVisual, "ScrollMultiplier", ScrollMultiplier); // RA2: as above
-		ScrollMultiplier = scroll_multiplier; // RA2: as above
-		ShakeScreen = ini.Get_Int(RulesSection_AudioVisual, "ShakeScreen", ShakeScreen); // RA2: as above
-		VocType cloak_sound = Read_Sound(ini, RulesSection_AudioVisual, "CloakSound", (VocType)CloakSound); // RA2: as above
-		CloakSound = cloak_sound; // RA2: as above
-		VocType sell_sound = Read_Sound(ini, RulesSection_AudioVisual, "SellSound", (VocType)SellSound); // RA2: as above
-		SellSound = sell_sound; // RA2: as above
-		VocType game_closed = Read_Sound(ini, RulesSection_AudioVisual, "GameClosed", (VocType)GameClosed); // RA2: as above
-		GameClosed = game_closed; // RA2: as above
-		VocType incoming_message = Read_Sound(ini, RulesSection_AudioVisual, "IncomingMessage", (VocType)IncomingMessage); // RA2: as above
-		IncomingMessage = incoming_message; // RA2: as above
-		VocType message_char_typed = Read_Sound(ini, RulesSection_AudioVisual, "MessageCharTyped", (VocType)MessageCharTyped); // RA2: as above
-		MessageCharTyped = message_char_typed; // RA2: as above
-		VocType system_error = Read_Sound(ini, RulesSection_AudioVisual, "SystemError", (VocType)SystemError); // RA2: as above
-		SystemError = system_error; // RA2: as above
-		VocType options_changed = Read_Sound(ini, RulesSection_AudioVisual, "OptionsChanged", (VocType)OptionsChanged); // RA2: as above
-		OptionsChanged = options_changed; // RA2: as above
-		VocType game_forming = Read_Sound(ini, RulesSection_AudioVisual, "GameForming", (VocType)GameForming); // RA2: as above
-		GameForming = game_forming; // RA2: as above
-		VocType player_left = Read_Sound(ini, RulesSection_AudioVisual, "PlayerLeft", (VocType)PlayerLeft); // RA2: as above
-		PlayerLeft = player_left; // RA2: as above
-		VocType player_joined = Read_Sound(ini, RulesSection_AudioVisual, "PlayerJoined", (VocType)PlayerJoined); // RA2: as above
-		PlayerJoined = player_joined; // RA2: as above
-		VocType construction = Read_Sound(ini, RulesSection_AudioVisual, "Construction", (VocType)Construction); // RA2: as above
-		Construction = construction; // RA2: as above
-		CreditTicks = CCINIClass::Get_VocType_List(ini, RulesSection_AudioVisual, "CreditTicks", CreditTicks); // RA2: as above
-		VocType building_die_sound = Read_Sound(ini, RulesSection_AudioVisual, "BuildingDieSound", (VocType)BuildingDieSound); // RA2: as above
-		BuildingDieSound = building_die_sound; // RA2: as above
-		VocType building_slam = Read_Sound(ini, RulesSection_AudioVisual, "BuildingSlam", (VocType)BuildingSlam); // RA2: as above
-		BuildingSlam = building_slam; // RA2: as above
-		VocType radar_on = Read_Sound(ini, RulesSection_AudioVisual, "RadarOn", (VocType)RadarOn); // RA2: as above
-		RadarOn = radar_on; // RA2: as above
-		VocType radar_off = Read_Sound(ini, RulesSection_AudioVisual, "RadarOff", (VocType)RadarOff); // RA2: as above
-		RadarOff = radar_off; // RA2: as above
-		VocType movie_on = Read_Sound(ini, RulesSection_AudioVisual, "MovieOn", (VocType)MovieOn); // RA2: as above
-		MovieOn = movie_on; // RA2: as above
-		VocType movie_off = Read_Sound(ini, RulesSection_AudioVisual, "MovieOff", (VocType)MovieOff); // RA2: as above
-		MovieOff = movie_off; // RA2: as above
-		VocType scold_sound = Read_Sound(ini, RulesSection_AudioVisual, "ScoldSound", (VocType)ScoldSound); // RA2: as above
-		ScoldSound = scold_sound; // RA2: as above
-		VocType tesla_charge = Read_Sound(ini, RulesSection_AudioVisual, "TeslaCharge", (VocType)TeslaCharge); // RA2: as above
-		TeslaCharge = tesla_charge; // RA2: as above
-		VocType tesla_zap = Read_Sound(ini, RulesSection_AudioVisual, "TeslaZap", (VocType)TeslaZap); // RA2: as above
-		TeslaZap = tesla_zap; // RA2: as above
-		VocType building_damage_sound = Read_Sound(ini, RulesSection_AudioVisual, "BuildingDamageSound", (VocType)BuildingDamageSound); // RA2: as above
-		BuildingDamageSound = building_damage_sound; // RA2: as above
-		VocType chute_sound = Read_Sound(ini, RulesSection_AudioVisual, "ChuteSound", (VocType)ChuteSound); // RA2: as above
-		ChuteSound = chute_sound; // RA2: as above
-		VocType generic_click = Read_Sound(ini, RulesSection_AudioVisual, "GenericClick", (VocType)GenericClick); // RA2: as above
-		GenericClick = generic_click; // RA2: as above
-		VocType generic_beep = Read_Sound(ini, RulesSection_AudioVisual, "GenericBeep", (VocType)GenericBeep); // RA2: as above
-		GenericBeep = generic_beep; // RA2: as above
-		VocType building_drop = Read_Sound(ini, RulesSection_AudioVisual, "BuildingDrop", (VocType)BuildingDrop); // RA2: as above
-		BuildingDrop = building_drop; // RA2: as above
-		VocType stop_sound = Read_Sound(ini, RulesSection_AudioVisual, "StopSound", (VocType)StopSound); // RA2: as above
-		StopSound = stop_sound; // RA2: as above
-		VocType guard_sound = Read_Sound(ini, RulesSection_AudioVisual, "GuardSound", (VocType)GuardSound); // RA2: as above
-		GuardSound = guard_sound; // RA2: as above
-		VocType scatter_sound = Read_Sound(ini, RulesSection_AudioVisual, "ScatterSound", (VocType)ScatterSound); // RA2: as above
-		ScatterSound = scatter_sound; // RA2: as above
-		VocType storm_sound = Read_Sound(ini, RulesSection_AudioVisual, "StormSound", (VocType)StormSound); // RA2: as above
-		StormSound = storm_sound; // RA2: as above
-		LightningSounds = CCINIClass::Get_VocType_List(ini, RulesSection_AudioVisual, "LightningSounds", LightningSounds); // RA2: as above
-		VocType shell_button_slide_sound = Read_Sound(ini, RulesSection_AudioVisual, "ShellButtonSlideSound", (VocType)ShellButtonSlideSound); // RA2: as above
-		ShellButtonSlideSound = shell_button_slide_sound; // RA2: as above
-		TreeFire = TGet_TypeList<AnimTypeClass>(ini, RulesSection_AudioVisual, "TreeFire", TreeFire); // RA2: as above
-		DeadBodies = TGet_TypeList<AnimTypeClass>(ini, RulesSection_AudioVisual, "DeadBodies", DeadBodies); // RA2: as above
-		MetallicDebris = TGet_TypeList<AnimTypeClass>(ini, RulesSection_AudioVisual, "MetallicDebris", MetallicDebris); // RA2: as above
-		BridgeExplosions = TGet_TypeList<AnimTypeClass>(ini, RulesSection_AudioVisual, "BridgeExplosions", BridgeExplosions); // RA2: as above
-		DamageFireTypes = TGet_TypeList<AnimTypeClass>(ini, RulesSection_AudioVisual, "DamageFireTypes", DamageFireTypes); // RA2: as above
-		WeatherConClouds = TGet_TypeList<AnimTypeClass>(ini, RulesSection_AudioVisual, "WeatherConClouds", WeatherConClouds); // RA2: as above
-		WeatherConBolts = TGet_TypeList<AnimTypeClass>(ini, RulesSection_AudioVisual, "WeatherConBolts", WeatherConBolts); // RA2: as above
-		WeatherConBoltExplosion = TGet_Class(ini, RulesSection_AudioVisual, "WeatherConBoltExplosion", WeatherConBoltExplosion); // RA2: as above
-		OnFire = TGet_TypeList<AnimTypeClass>(ini, RulesSection_AudioVisual, "OnFire", OnFire); // RA2: as above
-		Smoke1 = TGet_Class(ini, RulesSection_AudioVisual, "Smoke", Smoke1); // RA2: as above
-		Smoke2 = TGet_Class(ini, RulesSection_AudioVisual, "Smoke", Smoke2); // RA2: as above
-		FirestormActiveAnim = TGet_Class(ini, RulesSection_AudioVisual, "FirestormActiveAnim", FirestormActiveAnim); // RA2: as above
-		FirestormIdleAnim = TGet_Class(ini, RulesSection_AudioVisual, "FirestormIdleAnim", FirestormIdleAnim); // RA2: as above
-		FirestormAirAnim = TGet_Class(ini, RulesSection_AudioVisual, "FirestormAirAnim", FirestormAirAnim); // RA2: as above
-		FirestormGroundAnim = TGet_Class(ini, RulesSection_AudioVisual, "FirestormGroundAnim", FirestormGroundAnim); // RA2: as above
-		MoveFlash = TGet_Class(ini, RulesSection_AudioVisual, "MoveFlash", MoveFlash); // RA2: as above
-		EliteFlashTimer = ini.Get_Int(RulesSection_AudioVisual, "EliteFlashTimer", EliteFlashTimer); // RA2: as above
-		Parachute = TGet_Class(ini, RulesSection_AudioVisual, "Parachute", Parachute); // RA2: as above
-		BombParachute = TGet_Class(ini, RulesSection_AudioVisual, "BombParachute", BombParachute); // RA2: as above
-		SmallFire = TGet_Class(ini, RulesSection_AudioVisual, "SmallFire", SmallFire); // RA2: as above
-		LargeFire = TGet_Class(ini, RulesSection_AudioVisual, "LargeFire", LargeFire); // RA2: as above
-		IsAllyReveal = ini.Get_Bool(RulesSection_AudioVisual, "AllyReveal", IsAllyReveal); // RA2: as above
+	if (ini.Is_Present(RulesSection_AudioVisual)) {
+		DetailMinFrameRateNormal = ini.Get_Int(RulesSection_AudioVisual, "DetailMinFrameRateNormal", DetailMinFrameRateNormal);
+		DetailMinFrameRateMovie = ini.Get_Int(RulesSection_AudioVisual, "DetailMinFrameRateMovie", DetailMinFrameRateMovie);
+		DetailBufferZoneWidth = ini.Get_Int(RulesSection_AudioVisual, "DetailBufferZoneWidth", DetailBufferZoneWidth);
+		UnloadingHarvester = TGet_Class(ini, RulesSection_AudioVisual, "UnloadingHarvester", UnloadingHarvester);
+		PoseDir = (Dir256)ini.Get_Int(RulesSection_AudioVisual, "PoseDir", PoseDir);
+		DropPodPuff = TGet_Class(ini, RulesSection_AudioVisual, "DropPodPuff", DropPodPuff);
+		WaypointAnimationSpeed = ini.Get_Int(RulesSection_AudioVisual, "WaypointAnimationSpeed", WaypointAnimationSpeed);
+		BarrelExplode = TGet_Class(ini, RulesSection_AudioVisual, "BarrelExplode", BarrelExplode);
+		BarrelDebris = TGet_TypeList<VoxelAnimTypeClass>(ini, RulesSection_AudioVisual, "BarrelDebris", BarrelDebris);
+		BarrelParticle = TGet_Class(ini, RulesSection_AudioVisual, "BarrelParticle", BarrelParticle);
+		Wake = TGet_Class(ini, RulesSection_AudioVisual, "Wake", Wake);
+		FlamingInfantry = TGet_Class(ini, RulesSection_AudioVisual, "FlamingInfantry", FlamingInfantry);
+		NukeTakeOff = TGet_Class(ini, RulesSection_AudioVisual, "NukeTakeOff", NukeTakeOff);
+		InfantryHeadPop = TGet_Class(ini, RulesSection_AudioVisual, "InfantryHeadPop", InfantryHeadPop);
+		InfantryNuked = TGet_Class(ini, RulesSection_AudioVisual, "InfantryNuked", InfantryNuked);
+		Behind = TGet_Class(ini, RulesSection_AudioVisual, "Behind", Behind);
+		VeinAttack = TGet_Class(ini, RulesSection_AudioVisual, "VeinAttack", VeinAttack);
+		DropPod = TGet_TypeList<AnimTypeClass>(ini, RulesSection_AudioVisual, "DropPod", DropPod);
+		VocType dig_sound = Read_Sound(ini, RulesSection_AudioVisual, "DigSound", (VocType)DigSound);
+		DigSound = dig_sound;
+		VocType guimain_button_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUIMainButtonSound", (VocType)GUIMainButtonSound);
+		GUIMainButtonSound = guimain_button_sound;
+		VocType guibuild_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUIBuildSound", (VocType)GUIBuildSound);
+		GUIBuildSound = guibuild_sound;
+		VocType guitab_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUITabSound", (VocType)GUITabSound);
+		GUITabSound = guitab_sound;
+		VocType guiopen_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUIOpenSound", (VocType)GUIOpenSound);
+		GUIOpenSound = guiopen_sound;
+		VocType guiclose_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUICloseSound", (VocType)GUICloseSound);
+		GUICloseSound = guiclose_sound;
+		VocType guimove_out_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUIMoveOutSound", (VocType)GUIMoveOutSound);
+		GUIMoveOutSound = guimove_out_sound;
+		VocType guimove_in_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUIMoveInSound", (VocType)GUIMoveInSound);
+		GUIMoveInSound = guimove_in_sound;
+		VocType guicombo_open_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUIComboOpenSound", (VocType)GUIComboOpenSound);
+		GUIComboOpenSound = guicombo_open_sound;
+		VocType guicombo_close_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUIComboCloseSound", (VocType)GUIComboCloseSound);
+		GUIComboCloseSound = guicombo_close_sound;
+		VocType guicheckbox_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUICheckboxSound", (VocType)GUICheckboxSound);
+		GUICheckboxSound = guicheckbox_sound;
+		VocType score_anim_sound = Read_Sound(ini, RulesSection_AudioVisual, "ScoreAnimSound", (VocType)ScoreAnimSound);
+		ScoreAnimSound = score_anim_sound;
+		VocType cheer_sound = Read_Sound(ini, RulesSection_AudioVisual, "CheerSound", (VocType)CheerSound);
+		CheerSound = cheer_sound;
+		VocType default_chrono_sound = Read_Sound(ini, RulesSection_AudioVisual, "DefaultChronoSound", (VocType)DefaultChronoSound);
+		DefaultChronoSound = default_chrono_sound;
+		VocType start_planning_mode_sound = Read_Sound(ini, RulesSection_AudioVisual, "StartPlanningModeSound", (VocType)StartPlanningModeSound);
+		StartPlanningModeSound = start_planning_mode_sound;
+		VocType end_planning_mode_sound = Read_Sound(ini, RulesSection_AudioVisual, "EndPlanningModeSound", (VocType)EndPlanningModeSound);
+		EndPlanningModeSound = end_planning_mode_sound;
+		VocType crate_money_sound = Read_Sound(ini, RulesSection_AudioVisual, "CrateMoneySound", (VocType)CrateMoneySound);
+		CrateMoneySound = crate_money_sound;
+		VocType crate_reveal_sound = Read_Sound(ini, RulesSection_AudioVisual, "CrateRevealSound", (VocType)CrateRevealSound);
+		CrateRevealSound = crate_reveal_sound;
+		VocType crate_fire_sound = Read_Sound(ini, RulesSection_AudioVisual, "CrateFireSound", (VocType)CrateFireSound);
+		CrateFireSound = crate_fire_sound;
+		VocType crate_armour_sound = Read_Sound(ini, RulesSection_AudioVisual, "CrateArmourSound", (VocType)CrateArmourSound);
+		CrateArmourSound = crate_armour_sound;
+		VocType crate_speed_sound = Read_Sound(ini, RulesSection_AudioVisual, "CrateSpeedSound", (VocType)CrateSpeedSound);
+		CrateSpeedSound = crate_speed_sound;
+		VocType crate_unit_sound = Read_Sound(ini, RulesSection_AudioVisual, "CrateUnitSound", (VocType)CrateUnitSound);
+		CrateUnitSound = crate_unit_sound;
+		VocType crate_promote_sound = Read_Sound(ini, RulesSection_AudioVisual, "CratePromoteSound", (VocType)CratePromoteSound);
+		CratePromoteSound = crate_promote_sound;
+		VocType impact_water_sound = Read_Sound(ini, RulesSection_AudioVisual, "ImpactWaterSound", (VocType)ImpactWaterSound);
+		ImpactWaterSound = impact_water_sound;
+		VocType impact_land_sound = Read_Sound(ini, RulesSection_AudioVisual, "ImpactLandSound", (VocType)ImpactLandSound);
+		ImpactLandSound = impact_land_sound;
+		VocType sinking_sound = Read_Sound(ini, RulesSection_AudioVisual, "SinkingSound", (VocType)SinkingSound);
+		SinkingSound = sinking_sound;
+		VocType chrono_in_sound = Read_Sound(ini, RulesSection_AudioVisual, "ChronoInSound", (VocType)ChronoInSound);
+		ChronoInSound = chrono_in_sound;
+		VocType chrono_out_sound = Read_Sound(ini, RulesSection_AudioVisual, "ChronoOutSound", (VocType)ChronoOutSound);
+		ChronoOutSound = chrono_out_sound;
+		VocType bomb_ticking_sound = Read_Sound(ini, RulesSection_AudioVisual, "BombTickingSound", (VocType)BombTickingSound);
+		BombTickingSound = bomb_ticking_sound;
+		VocType bomb_attach_sound = Read_Sound(ini, RulesSection_AudioVisual, "BombAttachSound", (VocType)BombAttachSound);
+		BombAttachSound = bomb_attach_sound;
+		VocType yuri_mind_control_sound = Read_Sound(ini, RulesSection_AudioVisual, "YuriMindControlSound", (VocType)YuriMindControlSound);
+		YuriMindControlSound = yuri_mind_control_sound;
+		VocType add_planning_mode_command_sound = Read_Sound(ini, RulesSection_AudioVisual, "AddPlanningModeCommandSound", (VocType)AddPlanningModeCommandSound);
+		AddPlanningModeCommandSound = add_planning_mode_command_sound;
+		VocType execute_plan_sound = Read_Sound(ini, RulesSection_AudioVisual, "ExecutePlanSound", (VocType)ExecutePlanSound);
+		ExecutePlanSound = execute_plan_sound;
+		VocType place_beacon_sound = Read_Sound(ini, RulesSection_AudioVisual, "PlaceBeaconSound", (VocType)PlaceBeaconSound);
+		PlaceBeaconSound = place_beacon_sound;
+		VocType building_garrisoned_sound = Read_Sound(ini, RulesSection_AudioVisual, "BuildingGarrisonedSound", (VocType)BuildingGarrisonedSound);
+		BuildingGarrisonedSound = building_garrisoned_sound;
+		VocType building_abandoned_sound = Read_Sound(ini, RulesSection_AudioVisual, "BuildingAbandonedSound", (VocType)BuildingAbandonedSound);
+		BuildingAbandonedSound = building_abandoned_sound;
+		VocType building_repaired_sound = Read_Sound(ini, RulesSection_AudioVisual, "BuildingRepairedSound", (VocType)BuildingRepairedSound);
+		BuildingRepairedSound = building_repaired_sound;
+		VocType base_under_attack_sound = Read_Sound(ini, RulesSection_AudioVisual, "BaseUnderAttackSound", (VocType)BaseUnderAttackSound);
+		BaseUnderAttackSound = base_under_attack_sound;
+		VocType upgrade_veteran_sound = Read_Sound(ini, RulesSection_AudioVisual, "UpgradeVeteranSound", (VocType)UpgradeVeteranSound);
+		UpgradeVeteranSound = upgrade_veteran_sound;
+		VocType upgrade_elite_sound = Read_Sound(ini, RulesSection_AudioVisual, "UpgradeEliteSound", (VocType)UpgradeEliteSound);
+		UpgradeEliteSound = upgrade_elite_sound;
+		VocType create_unit_sound = Read_Sound(ini, RulesSection_AudioVisual, "CreateUnitSound", (VocType)CreateUnitSound);
+		CreateUnitSound = create_unit_sound;
+		VocType create_infantry_sound = Read_Sound(ini, RulesSection_AudioVisual, "CreateInfantrySound", (VocType)CreateInfantrySound);
+		CreateInfantrySound = create_infantry_sound;
+		VocType create_aircraft_sound = Read_Sound(ini, RulesSection_AudioVisual, "CreateAircraftSound", (VocType)CreateAircraftSound);
+		CreateAircraftSound = create_aircraft_sound;
+		VocType ifvtransform_sound = Read_Sound(ini, RulesSection_AudioVisual, "IFVTransformSound", (VocType)IFVTransformSound);
+		IFVTransformSound = ifvtransform_sound;
+		VocType psychic_sensor_detect_sound = Read_Sound(ini, RulesSection_AudioVisual, "PsychicSensorDetectSound", (VocType)PsychicSensorDetectSound);
+		PsychicSensorDetectSound = psychic_sensor_detect_sound;
+		VocType spy_sat_activation_sound = Read_Sound(ini, RulesSection_AudioVisual, "SpySatActivationSound", (VocType)SpySatActivationSound);
+		SpySatActivationSound = spy_sat_activation_sound;
+		VocType spy_sat_deactivation_sound = Read_Sound(ini, RulesSection_AudioVisual, "SpySatDeactivationSound", (VocType)SpySatDeactivationSound);
+		SpySatDeactivationSound = spy_sat_deactivation_sound;
+		Dig = TGet_Class(ini, RulesSection_AudioVisual, "Dig", Dig);
+		IonBlast = TGet_Class(ini, RulesSection_AudioVisual, "IonBlast", IonBlast);
+		IonBeam = TGet_Class(ini, RulesSection_AudioVisual, "IonBeam", IonBeam);
+		ChronoBeam = TGet_Class(ini, RulesSection_AudioVisual, "ChronoBeam", ChronoBeam);
+		ChronoBlast = TGet_Class(ini, RulesSection_AudioVisual, "ChronoBlast", ChronoBlast);
+		ChronoBlastDest = TGet_Class(ini, RulesSection_AudioVisual, "ChronoBlastDest", ChronoBlastDest);
+		ChronoPlacement = TGet_Class(ini, RulesSection_AudioVisual, "ChronoPlacement", ChronoPlacement);
+		WarpIn = TGet_Class(ini, RulesSection_AudioVisual, "WarpIn", WarpIn);
+		WarpOut = TGet_Class(ini, RulesSection_AudioVisual, "WarpOut", WarpOut);
+		WarpAway = TGet_Class(ini, RulesSection_AudioVisual, "WarpAway", WarpAway);
+		ChronoSparkle1 = TGet_Class(ini, RulesSection_AudioVisual, "ChronoSparkle1", ChronoSparkle1);
+		IronCurtainInvokeAnim = TGet_Class(ini, RulesSection_AudioVisual, "IronCurtainInvokeAnim", IronCurtainInvokeAnim);
+		WeaponNullifyAnim = TGet_Class(ini, RulesSection_AudioVisual, "WeaponNullifyAnim", WeaponNullifyAnim);
+		InfantryExplode = TGet_Class(ini, RulesSection_AudioVisual, "InfantryExplode", InfantryExplode);
+		AtmosphereEntry = TGet_Class(ini, RulesSection_AudioVisual, "AtmosphereEntry", AtmosphereEntry);
+		VocType gate_up = Read_Sound(ini, RulesSection_AudioVisual, "GateUp", (VocType)GateUpSound);
+		GateUpSound = gate_up;
+		VocType gate_down = Read_Sound(ini, RulesSection_AudioVisual, "GateDown", (VocType)GateDownSound);
+		GateDownSound = gate_down;
+		IsShroudGrow = ini.Get_Bool(RulesSection_AudioVisual, "ShroudGrow", IsShroudGrow);
+		double scroll_multiplier = ini.Get_Float(RulesSection_AudioVisual, "ScrollMultiplier", ScrollMultiplier);
+		ScrollMultiplier = scroll_multiplier;
+		ShakeScreen = ini.Get_Int(RulesSection_AudioVisual, "ShakeScreen", ShakeScreen);
+		VocType cloak_sound = Read_Sound(ini, RulesSection_AudioVisual, "CloakSound", (VocType)CloakSound);
+		CloakSound = cloak_sound;
+		VocType sell_sound = Read_Sound(ini, RulesSection_AudioVisual, "SellSound", (VocType)SellSound);
+		SellSound = sell_sound;
+		VocType game_closed = Read_Sound(ini, RulesSection_AudioVisual, "GameClosed", (VocType)GameClosed);
+		GameClosed = game_closed;
+		VocType incoming_message = Read_Sound(ini, RulesSection_AudioVisual, "IncomingMessage", (VocType)IncomingMessage);
+		IncomingMessage = incoming_message;
+		VocType message_char_typed = Read_Sound(ini, RulesSection_AudioVisual, "MessageCharTyped", (VocType)MessageCharTyped);
+		MessageCharTyped = message_char_typed;
+		VocType system_error = Read_Sound(ini, RulesSection_AudioVisual, "SystemError", (VocType)SystemError);
+		SystemError = system_error;
+		VocType options_changed = Read_Sound(ini, RulesSection_AudioVisual, "OptionsChanged", (VocType)OptionsChanged);
+		OptionsChanged = options_changed;
+		VocType game_forming = Read_Sound(ini, RulesSection_AudioVisual, "GameForming", (VocType)GameForming);
+		GameForming = game_forming;
+		VocType player_left = Read_Sound(ini, RulesSection_AudioVisual, "PlayerLeft", (VocType)PlayerLeft);
+		PlayerLeft = player_left;
+		VocType player_joined = Read_Sound(ini, RulesSection_AudioVisual, "PlayerJoined", (VocType)PlayerJoined);
+		PlayerJoined = player_joined;
+		VocType construction = Read_Sound(ini, RulesSection_AudioVisual, "Construction", (VocType)Construction);
+		Construction = construction;
+		CreditTicks = CCINIClass::Get_VocType_List(ini, RulesSection_AudioVisual, "CreditTicks", CreditTicks);
+		VocType building_die_sound = Read_Sound(ini, RulesSection_AudioVisual, "BuildingDieSound", (VocType)BuildingDieSound);
+		BuildingDieSound = building_die_sound;
+		VocType building_slam = Read_Sound(ini, RulesSection_AudioVisual, "BuildingSlam", (VocType)BuildingSlam);
+		BuildingSlam = building_slam;
+		VocType radar_on = Read_Sound(ini, RulesSection_AudioVisual, "RadarOn", (VocType)RadarOn);
+		RadarOn = radar_on;
+		VocType radar_off = Read_Sound(ini, RulesSection_AudioVisual, "RadarOff", (VocType)RadarOff);
+		RadarOff = radar_off;
+		VocType movie_on = Read_Sound(ini, RulesSection_AudioVisual, "MovieOn", (VocType)MovieOn);
+		MovieOn = movie_on;
+		VocType movie_off = Read_Sound(ini, RulesSection_AudioVisual, "MovieOff", (VocType)MovieOff);
+		MovieOff = movie_off;
+		VocType scold_sound = Read_Sound(ini, RulesSection_AudioVisual, "ScoldSound", (VocType)ScoldSound);
+		ScoldSound = scold_sound;
+		VocType tesla_charge = Read_Sound(ini, RulesSection_AudioVisual, "TeslaCharge", (VocType)TeslaCharge);
+		TeslaCharge = tesla_charge;
+		VocType tesla_zap = Read_Sound(ini, RulesSection_AudioVisual, "TeslaZap", (VocType)TeslaZap);
+		TeslaZap = tesla_zap;
+		VocType building_damage_sound = Read_Sound(ini, RulesSection_AudioVisual, "BuildingDamageSound", (VocType)BuildingDamageSound);
+		BuildingDamageSound = building_damage_sound;
+		VocType chute_sound = Read_Sound(ini, RulesSection_AudioVisual, "ChuteSound", (VocType)ChuteSound);
+		ChuteSound = chute_sound;
+		VocType generic_click = Read_Sound(ini, RulesSection_AudioVisual, "GenericClick", (VocType)GenericClick);
+		GenericClick = generic_click;
+		VocType generic_beep = Read_Sound(ini, RulesSection_AudioVisual, "GenericBeep", (VocType)GenericBeep);
+		GenericBeep = generic_beep;
+		VocType building_drop = Read_Sound(ini, RulesSection_AudioVisual, "BuildingDrop", (VocType)BuildingDrop);
+		BuildingDrop = building_drop;
+		VocType stop_sound = Read_Sound(ini, RulesSection_AudioVisual, "StopSound", (VocType)StopSound);
+		StopSound = stop_sound;
+		VocType guard_sound = Read_Sound(ini, RulesSection_AudioVisual, "GuardSound", (VocType)GuardSound);
+		GuardSound = guard_sound;
+		VocType scatter_sound = Read_Sound(ini, RulesSection_AudioVisual, "ScatterSound", (VocType)ScatterSound);
+		ScatterSound = scatter_sound;
+		VocType storm_sound = Read_Sound(ini, RulesSection_AudioVisual, "StormSound", (VocType)StormSound);
+		StormSound = storm_sound;
+		LightningSounds = CCINIClass::Get_VocType_List(ini, RulesSection_AudioVisual, "LightningSounds", LightningSounds);
+		VocType shell_button_slide_sound = Read_Sound(ini, RulesSection_AudioVisual, "ShellButtonSlideSound", (VocType)ShellButtonSlideSound);
+		ShellButtonSlideSound = shell_button_slide_sound;
+		TreeFire = TGet_TypeList<AnimTypeClass>(ini, RulesSection_AudioVisual, "TreeFire", TreeFire);
+		DeadBodies = TGet_TypeList<AnimTypeClass>(ini, RulesSection_AudioVisual, "DeadBodies", DeadBodies);
+		MetallicDebris = TGet_TypeList<AnimTypeClass>(ini, RulesSection_AudioVisual, "MetallicDebris", MetallicDebris);
+		BridgeExplosions = TGet_TypeList<AnimTypeClass>(ini, RulesSection_AudioVisual, "BridgeExplosions", BridgeExplosions);
+		DamageFireTypes = TGet_TypeList<AnimTypeClass>(ini, RulesSection_AudioVisual, "DamageFireTypes", DamageFireTypes);
+		WeatherConClouds = TGet_TypeList<AnimTypeClass>(ini, RulesSection_AudioVisual, "WeatherConClouds", WeatherConClouds);
+		WeatherConBolts = TGet_TypeList<AnimTypeClass>(ini, RulesSection_AudioVisual, "WeatherConBolts", WeatherConBolts);
+		WeatherConBoltExplosion = TGet_Class(ini, RulesSection_AudioVisual, "WeatherConBoltExplosion", WeatherConBoltExplosion);
+		OnFire = TGet_TypeList<AnimTypeClass>(ini, RulesSection_AudioVisual, "OnFire", OnFire);
+		Smoke1 = TGet_Class(ini, RulesSection_AudioVisual, "Smoke", Smoke1);
+		Smoke2 = TGet_Class(ini, RulesSection_AudioVisual, "Smoke", Smoke2);
+		FirestormActiveAnim = TGet_Class(ini, RulesSection_AudioVisual, "FirestormActiveAnim", FirestormActiveAnim);
+		FirestormIdleAnim = TGet_Class(ini, RulesSection_AudioVisual, "FirestormIdleAnim", FirestormIdleAnim);
+		FirestormAirAnim = TGet_Class(ini, RulesSection_AudioVisual, "FirestormAirAnim", FirestormAirAnim);
+		FirestormGroundAnim = TGet_Class(ini, RulesSection_AudioVisual, "FirestormGroundAnim", FirestormGroundAnim);
+		MoveFlash = TGet_Class(ini, RulesSection_AudioVisual, "MoveFlash", MoveFlash);
+		EliteFlashTimer = ini.Get_Int(RulesSection_AudioVisual, "EliteFlashTimer", EliteFlashTimer);
+		Parachute = TGet_Class(ini, RulesSection_AudioVisual, "Parachute", Parachute);
+		BombParachute = TGet_Class(ini, RulesSection_AudioVisual, "BombParachute", BombParachute);
+		SmallFire = TGet_Class(ini, RulesSection_AudioVisual, "SmallFire", SmallFire);
+		LargeFire = TGet_Class(ini, RulesSection_AudioVisual, "LargeFire", LargeFire);
+		IsAllyReveal = ini.Get_Bool(RulesSection_AudioVisual, "AllyReveal", IsAllyReveal);
 		ConditionGreen = 1;
 		double condition_red = ini.Get_Float(RulesSection_AudioVisual, "ConditionRed", ConditionRed); // RA2: the executable's AudioVisual reader: RA2's keys and member order
-		ConditionRed = condition_red; // RA2: as above
-		double condition_yellow = ini.Get_Float(RulesSection_AudioVisual, "ConditionYellow", ConditionYellow); // RA2: as above
-		ConditionYellow = condition_yellow; // RA2: as above
-		DropZoneRadius = ini.Get_Lepton(RulesSection_AudioVisual, "DropZoneRadius", DropZoneRadius); // RA2: as above
-		FlareAnim = TGet_Class(ini, RulesSection_AudioVisual, "DropZoneAnim", FlareAnim); // RA2: as above
-		IsHealthBar = ini.Get_Bool(RulesSection_AudioVisual, "EnemyHealth", IsHealthBar); // RA2: as above
-		Gravity = ini.Get_Int(RulesSection_AudioVisual, "Gravity", Gravity); // RA2: as above
-		double idle_action_frequency = ini.Get_Float(RulesSection_AudioVisual, "IdleActionFrequency", RandomAnimateTime); // RA2: as above
-		RandomAnimateTime = idle_action_frequency; // RA2: as above
-		double message_delay = ini.Get_Float(RulesSection_AudioVisual, "MessageDelay", MessageDelay); // RA2: as above
-		MessageDelay = message_delay; // RA2: as above
-		double movie_time = ini.Get_Float(RulesSection_AudioVisual, "MovieTime", MovieTime); // RA2: as above
-		MovieTime = movie_time; // RA2: as above
-		IsNamed = ini.Get_Bool(RulesSection_AudioVisual, "NamedCivilians", IsNamed); // RA2: as above
-		double savour_delay = ini.Get_Float(RulesSection_AudioVisual, "SavourDelay", SavourDelay); // RA2: as above
-		SavourDelay = savour_delay; // RA2: as above
-		double shroud_rate = ini.Get_Float(RulesSection_AudioVisual, "ShroudRate", ShroudRate); // RA2: as above
-		ShroudRate = shroud_rate; // RA2: as above
-		double fog_rate = ini.Get_Float(RulesSection_AudioVisual, "FogRate", FogRate); // RA2: as above
-		FogRate = fog_rate; // RA2: as above
-		double vein_growth_rate = ini.Get_Float(RulesSection_AudioVisual, "VeinGrowthRate", VeinGrowthRate); // RA2: as above
-		VeinGrowthRate = vein_growth_rate; // RA2: as above
-		double ice_growth_rate = ini.Get_Float(RulesSection_AudioVisual, "IceGrowthRate", IceGrowthRate); // RA2: as above
-		IceGrowthRate = ice_growth_rate; // RA2: as above
-		IceSolidifyDelay = ini.Get_Int(RulesSection_AudioVisual, "IceSolidifyFrameTime", IceSolidifyDelay); // RA2: as above
+		ConditionRed = condition_red;
+		double condition_yellow = ini.Get_Float(RulesSection_AudioVisual, "ConditionYellow", ConditionYellow);
+		ConditionYellow = condition_yellow;
+		DropZoneRadius = ini.Get_Lepton(RulesSection_AudioVisual, "DropZoneRadius", DropZoneRadius);
+		FlareAnim = TGet_Class(ini, RulesSection_AudioVisual, "DropZoneAnim", FlareAnim);
+		IsHealthBar = ini.Get_Bool(RulesSection_AudioVisual, "EnemyHealth", IsHealthBar);
+		Gravity = ini.Get_Int(RulesSection_AudioVisual, "Gravity", Gravity);
+		double idle_action_frequency = ini.Get_Float(RulesSection_AudioVisual, "IdleActionFrequency", RandomAnimateTime);
+		RandomAnimateTime = idle_action_frequency;
+		double message_delay = ini.Get_Float(RulesSection_AudioVisual, "MessageDelay", MessageDelay);
+		MessageDelay = message_delay;
+		double movie_time = ini.Get_Float(RulesSection_AudioVisual, "MovieTime", MovieTime);
+		MovieTime = movie_time;
+		IsNamed = ini.Get_Bool(RulesSection_AudioVisual, "NamedCivilians", IsNamed);
+		double savour_delay = ini.Get_Float(RulesSection_AudioVisual, "SavourDelay", SavourDelay);
+		SavourDelay = savour_delay;
+		double shroud_rate = ini.Get_Float(RulesSection_AudioVisual, "ShroudRate", ShroudRate);
+		ShroudRate = shroud_rate;
+		double fog_rate = ini.Get_Float(RulesSection_AudioVisual, "FogRate", FogRate);
+		FogRate = fog_rate;
+		double vein_growth_rate = ini.Get_Float(RulesSection_AudioVisual, "VeinGrowthRate", VeinGrowthRate);
+		VeinGrowthRate = vein_growth_rate;
+		double ice_growth_rate = ini.Get_Float(RulesSection_AudioVisual, "IceGrowthRate", IceGrowthRate);
+		IceGrowthRate = ice_growth_rate;
+		IceSolidifyDelay = ini.Get_Int(RulesSection_AudioVisual, "IceSolidifyFrameTime", IceSolidifyDelay);
 		IceCrackSounds.Clear();
 		IceCrackSounds = CCINIClass::Get_VocType_List(ini, RulesSection_AudioVisual, "IceCrackSounds", IceCrackSounds); // RA2: the executable's AudioVisual reader: RA2's keys and member order
-		double ambient_change_rate = ini.Get_Float(RulesSection_AudioVisual, "AmbientChangeRate", AmbientLightChangeRate); // RA2: as above
-		AmbientLightChangeRate = ambient_change_rate; // RA2: as above
-		double ambient_change_step = ini.Get_Float(RulesSection_AudioVisual, "AmbientChangeStep", AmbientLightChangeStep); // RA2: as above
-		AmbientLightChangeStep = ambient_change_step; // RA2: as above
-		double speak_delay = ini.Get_Float(RulesSection_AudioVisual, "SpeakDelay", SpeakDelay); // RA2: as above
-		SpeakDelay = speak_delay; // RA2: as above
-		double timer_warning = ini.Get_Float(RulesSection_AudioVisual, "TimerWarning", TimerWarning); // RA2: as above
-		TimerWarning = timer_warning; // RA2: as above
-		ExtraUnitLight = ini.Get_Float(RulesSection_AudioVisual, "ExtraUnitLight", ExtraUnitLight / 1000) * 1000.0; // RA2: as above
-		ExtraInfantryLight = ini.Get_Float(RulesSection_AudioVisual, "ExtraInfantryLight", ExtraInfantryLight / 1000) * 1000.0; // RA2: as above
-		ExtraAircraftLight = ini.Get_Float(RulesSection_AudioVisual, "ExtraAircraftLight", ExtraAircraftLight / 1000) * 1000.0; // RA2: as above
-		EMPulseSparkles = TGet_Class(ini, RulesSection_AudioVisual, "EMPulseSparkles", EMPulseSparkles); // RA2: as above
-		LocalRadarColor = ini.Get_RGBClass(RulesSection_AudioVisual, "LocalRadarColor", LocalRadarColor); // RA2: as above
-		LineTrailColorOverride = ini.Get_RGBClass(RulesSection_AudioVisual, "LineTrailColorOverride", LineTrailColorOverride); // RA2: as above
-		ChronoBeamColor = ini.Get_RGBClass(RulesSection_AudioVisual, "ChronoBeamColor", ChronoBeamColor); // RA2: as above
-		OreTwinkleChance = ini.Get_Int(RulesSection_AudioVisual, "OreTwinkleChance", OreTwinkleChance); // RA2: as above
-		OreTwinkle = TGet_Class(ini, RulesSection_AudioVisual, "OreTwinkle", OreTwinkle); // RA2: as above
+		double ambient_change_rate = ini.Get_Float(RulesSection_AudioVisual, "AmbientChangeRate", AmbientLightChangeRate);
+		AmbientLightChangeRate = ambient_change_rate;
+		double ambient_change_step = ini.Get_Float(RulesSection_AudioVisual, "AmbientChangeStep", AmbientLightChangeStep);
+		AmbientLightChangeStep = ambient_change_step;
+		double speak_delay = ini.Get_Float(RulesSection_AudioVisual, "SpeakDelay", SpeakDelay);
+		SpeakDelay = speak_delay;
+		double timer_warning = ini.Get_Float(RulesSection_AudioVisual, "TimerWarning", TimerWarning);
+		TimerWarning = timer_warning;
+		ExtraUnitLight = ini.Get_Float(RulesSection_AudioVisual, "ExtraUnitLight", ExtraUnitLight / 1000) * 1000.0;
+		ExtraInfantryLight = ini.Get_Float(RulesSection_AudioVisual, "ExtraInfantryLight", ExtraInfantryLight / 1000) * 1000.0;
+		ExtraAircraftLight = ini.Get_Float(RulesSection_AudioVisual, "ExtraAircraftLight", ExtraAircraftLight / 1000) * 1000.0;
+		EMPulseSparkles = TGet_Class(ini, RulesSection_AudioVisual, "EMPulseSparkles", EMPulseSparkles);
+		LocalRadarColor = ini.Get_RGBClass(RulesSection_AudioVisual, "LocalRadarColor", LocalRadarColor);
+		LineTrailColorOverride = ini.Get_RGBClass(RulesSection_AudioVisual, "LineTrailColorOverride", LineTrailColorOverride);
+		ChronoBeamColor = ini.Get_RGBClass(RulesSection_AudioVisual, "ChronoBeamColor", ChronoBeamColor);
+		OreTwinkleChance = ini.Get_Int(RulesSection_AudioVisual, "OreTwinkleChance", OreTwinkleChance);
+		OreTwinkle = TGet_Class(ini, RulesSection_AudioVisual, "OreTwinkle", OreTwinkle);
 		return(true);
 	}
 	return(false);
@@ -1177,7 +1177,7 @@ bool RulesClass::Crate_Rules(CCINIClass const & ini)
 		SoloCrateMoney = ini.Get_Int(CRATERULES, "SoloCrateMoney", SoloCrateMoney);
 		SilverCrate = ini.Get_CrateType(CRATERULES, "SilverCrate", SilverCrate);
 		WoodCrate = ini.Get_CrateType(CRATERULES, "WoodCrate", WoodCrate);
-		WaterCrate = ini.Get_CrateType(CRATERULES, "WaterCrate", WaterCrate); // RA2: as above
+		WaterCrate = ini.Get_CrateType(CRATERULES, "WaterCrate", WaterCrate);
 		return(true);
 	}
 	return(false);
@@ -1194,74 +1194,74 @@ bool RulesClass::Crate_Rules(CCINIClass const & ini)
 bool RulesClass::Combat_Damage(CCINIClass const & ini) // RA2: ra2-decomp's twin text (direct assignments, the two elite warhead blocks)
 {
 	static char const * const RulesSection_CombatDamage = "CombatDamage"; // RA2: the executable's section name, a file-static pointer at 0x007A9044
-	if (ini.Is_Present(RulesSection_CombatDamage)) { // RA2: as above
-		AmmoCrateDamage = ini.Get_Int(RulesSection_CombatDamage, "AmmoCrateDamage", AmmoCrateDamage); // RA2: as above
-		IonCannonDamage = ini.Get_Int(RulesSection_CombatDamage, "IonCannonDamage", IonCannonDamage); // RA2: as above
-		RailgunDamageRadius = ini.Get_Int(RulesSection_CombatDamage, "RailgunDamageRadius", RailgunDamageRadius); // RA2: as above
-		TiberiumExplosionDamage = ini.Get_Int(RulesSection_CombatDamage, "TiberiumExplosionDamage", TiberiumExplosionDamage); // RA2: as above
-		TiberiumStrength = ini.Get_Int(RulesSection_CombatDamage, "TiberiumStrength", TiberiumStrength); // RA2: as above
-		Scorches = TGet_TypeList<SmudgeTypeClass>(ini, RulesSection_CombatDamage, "Scorches", Scorches); // RA2: as above
-		Scorches1 = TGet_TypeList<SmudgeTypeClass>(ini, RulesSection_CombatDamage, "Scorches1", Scorches1); // RA2: as above
-		Scorches2 = TGet_TypeList<SmudgeTypeClass>(ini, RulesSection_CombatDamage, "Scorches2", Scorches2); // RA2: as above
-		Scorches3 = TGet_TypeList<SmudgeTypeClass>(ini, RulesSection_CombatDamage, "Scorches3", Scorches3); // RA2: as above
-		Scorches4 = TGet_TypeList<SmudgeTypeClass>(ini, RulesSection_CombatDamage, "Scorches4", Scorches4); // RA2: as above
-		SplashList = TGet_TypeList<AnimTypeClass>(ini, RulesSection_CombatDamage, "SplashList", SplashList); // RA2: as above
-		FlameDamage = TGet_Class(ini, RulesSection_CombatDamage, "FlameDamage", FlameDamage); // RA2: as above
-		FlameDamage2 = TGet_Class(ini, RulesSection_CombatDamage, "FlameDamage2", FlameDamage2); // RA2: as above
-		C4Warhead = TGet_Class(ini, RulesSection_CombatDamage, "C4Warhead", C4Warhead); // RA2: as above
-		V3Warhead = TGet_Class(ini, RulesSection_CombatDamage, "V3Warhead", V3Warhead); // RA2: as above
-		DMislWarhead = TGet_Class(ini, RulesSection_CombatDamage, "DMislWarhead", DMislWarhead); // RA2: as above
+	if (ini.Is_Present(RulesSection_CombatDamage)) {
+		AmmoCrateDamage = ini.Get_Int(RulesSection_CombatDamage, "AmmoCrateDamage", AmmoCrateDamage);
+		IonCannonDamage = ini.Get_Int(RulesSection_CombatDamage, "IonCannonDamage", IonCannonDamage);
+		RailgunDamageRadius = ini.Get_Int(RulesSection_CombatDamage, "RailgunDamageRadius", RailgunDamageRadius);
+		TiberiumExplosionDamage = ini.Get_Int(RulesSection_CombatDamage, "TiberiumExplosionDamage", TiberiumExplosionDamage);
+		TiberiumStrength = ini.Get_Int(RulesSection_CombatDamage, "TiberiumStrength", TiberiumStrength);
+		Scorches = TGet_TypeList<SmudgeTypeClass>(ini, RulesSection_CombatDamage, "Scorches", Scorches);
+		Scorches1 = TGet_TypeList<SmudgeTypeClass>(ini, RulesSection_CombatDamage, "Scorches1", Scorches1);
+		Scorches2 = TGet_TypeList<SmudgeTypeClass>(ini, RulesSection_CombatDamage, "Scorches2", Scorches2);
+		Scorches3 = TGet_TypeList<SmudgeTypeClass>(ini, RulesSection_CombatDamage, "Scorches3", Scorches3);
+		Scorches4 = TGet_TypeList<SmudgeTypeClass>(ini, RulesSection_CombatDamage, "Scorches4", Scorches4);
+		SplashList = TGet_TypeList<AnimTypeClass>(ini, RulesSection_CombatDamage, "SplashList", SplashList);
+		FlameDamage = TGet_Class(ini, RulesSection_CombatDamage, "FlameDamage", FlameDamage);
+		FlameDamage2 = TGet_Class(ini, RulesSection_CombatDamage, "FlameDamage2", FlameDamage2);
+		C4Warhead = TGet_Class(ini, RulesSection_CombatDamage, "C4Warhead", C4Warhead);
+		V3Warhead = TGet_Class(ini, RulesSection_CombatDamage, "V3Warhead", V3Warhead);
+		DMislWarhead = TGet_Class(ini, RulesSection_CombatDamage, "DMislWarhead", DMislWarhead);
 		{ // RA2: the elite warhead falls back to the plain one; written out as ra2-decomp's twin has it (the fallback is read before the name)
-			char name[128]; // RA2: as above
-			WarheadTypeClass const * fallback = V3Warhead; // RA2: as above
-			V3EliteWarhead = ini.Get_String(RulesSection_CombatDamage, "V3EliteWarhead", "", name, sizeof(name)) ? WarheadTypeClass::Find_Or_Make(name) : fallback; // RA2: as above
-		} // RA2: as above
-		{ // RA2: as above
-			char name[128]; // RA2: as above
-			WarheadTypeClass const * fallback = DMislWarhead; // RA2: as above
-			DMislEliteWarhead = ini.Get_String(RulesSection_CombatDamage, "DMislEliteWarhead", "", name, sizeof(name)) ? WarheadTypeClass::Find_Or_Make(name) : fallback; // RA2: as above
-		} // RA2: as above
-		IvanWarhead = TGet_Class(ini, RulesSection_CombatDamage, "IvanWarhead", IvanWarhead); // RA2: as above
-		CanDetonateTimeBomb = ini.Get_Bool(RulesSection_CombatDamage, "CanDetonateTimeBomb", CanDetonateTimeBomb); // RA2: as above
-		CanDetonateDeathBomb = ini.Get_Bool(RulesSection_CombatDamage, "CanDetonateDeathBomb", CanDetonateDeathBomb); // RA2: as above
-		DeathWeapon = TGet_Class(ini, RulesSection_CombatDamage, "DeathWeapon", DeathWeapon); // RA2: as above
-		IvanDamage = ini.Get_Int(RulesSection_CombatDamage, "IvanDamage", IvanDamage); // RA2: as above
-		IvanTimedDelay = ini.Get_Int(RulesSection_CombatDamage, "IvanTimedDelay", IvanTimedDelay); // RA2: as above
-		BOMBCURS_SHP = (ShapeSet const *)MixFileClass::Retrieve("BOMBCURS.SHP"); // RA2: as above
-		IvanIconFlickerRate = ini.Get_Int(RulesSection_CombatDamage, "IvanIconFlickerRate", IvanIconFlickerRate); // RA2: as above
-		IronCurtainDuration = ini.Get_Int(RulesSection_CombatDamage, "IronCurtainDuration", IronCurtainDuration); // RA2: as above
-		IonCannonWarhead = TGet_Class(ini, RulesSection_CombatDamage, "IonCannonWarhead", IonCannonWarhead); // RA2: as above
-		FirestormWarhead = TGet_Class(ini, RulesSection_CombatDamage, "FirestormWarhead", FirestormWarhead); // RA2: as above
-		VeinholeWarhead = TGet_Class(ini, RulesSection_CombatDamage, "VeinholeWarhead", VeinholeWarhead); // RA2: as above
-		DefaultFirestormExplosionSystem = TGet_Class(ini, RulesSection_CombatDamage, "DefaultFirestormExplosionSystem", DefaultFirestormExplosionSystem); // RA2: as above
-		DefaultLargeGreySmokeSystem = TGet_Class(ini, RulesSection_CombatDamage, "DefaultLargeGreySmokeSystem", DefaultLargeGreySmokeSystem); // RA2: as above
-		DefaultSmallGreySmokeSystem = TGet_Class(ini, RulesSection_CombatDamage, "DefaultSmallGreySmokeSystem", DefaultSmallGreySmokeSystem); // RA2: as above
-		DefaultSparkSystem = TGet_Class(ini, RulesSection_CombatDamage, "DefaultSparkSystem", DefaultSparkSystem); // RA2: as above
-		DefaultLargeRedSmokeSystem = TGet_Class(ini, RulesSection_CombatDamage, "DefaultLargeRedSmokeSystem", DefaultLargeRedSmokeSystem); // RA2: as above
-		DefaultSmallRedSmokeSystem = TGet_Class(ini, RulesSection_CombatDamage, "DefaultSmallRedSmokeSystem", DefaultSmallRedSmokeSystem); // RA2: as above
-		DefaultDebrisSmokeSystem = TGet_Class(ini, RulesSection_CombatDamage, "DefaultDebrisSmokeSystem", DefaultDebrisSmokeSystem); // RA2: as above
-		DefaultFireStreamSystem = TGet_Class(ini, RulesSection_CombatDamage, "DefaultFireStreamSystem", DefaultFireStreamSystem); // RA2: as above
-		DefaultTestParticleSystem = TGet_Class(ini, RulesSection_CombatDamage, "DefaultTestParticleSystem", DefaultTestParticleSystem); // RA2: as above
-		DefaultRepairParticleSystem = TGet_Class(ini, RulesSection_CombatDamage, "DefaultRepairParticleSystem", DefaultRepairParticleSystem); // RA2: as above
-		IsBerzerkAllowed = ini.Get_Bool(RulesSection_CombatDamage, "BerzerkAllowed", IsBerzerkAllowed); // RA2: as above
-		TurboBoost = ini.Get_Float(RulesSection_CombatDamage, "TurboBoost", TurboBoost); // RA2: as above
-		AtomDamage = ini.Get_Int(RulesSection_CombatDamage, "AtomDamage", AtomDamage); // RA2: as above
-		BallisticScatter = ini.Get_Lepton(RulesSection_CombatDamage, "BallisticScatter", BallisticScatter); // RA2: as above
-		BridgeStrength = ini.Get_Int(RulesSection_CombatDamage, "BridgeStrength", BridgeStrength); // RA2: as above
-		C4Delay = ini.Get_Float(RulesSection_CombatDamage, "C4Delay", C4Delay); // RA2: as above
-		CrushDistance = ini.Get_Lepton(RulesSection_CombatDamage, "Crush", CrushDistance); // RA2: as above
-		ExplosionSpread = ini.Get_Float(RulesSection_CombatDamage, "ExpSpread", ExplosionSpread); // RA2: as above
-		SupressRadius = ini.Get_Lepton(RulesSection_CombatDamage, "FireSupress", SupressRadius); // RA2: as above
-		HomingScatter = ini.Get_Lepton(RulesSection_CombatDamage, "HomingScatter", HomingScatter); // RA2: as above
-		MaxDamage = ini.Get_Int(RulesSection_CombatDamage, "MaxDamage", MaxDamage); // RA2: as above
-		MinDamage = ini.Get_Int(RulesSection_CombatDamage, "MinDamage", MinDamage); // RA2: as above
-		IsExplosiveHarvester = ini.Get_Bool(RulesSection_CombatDamage, "TiberiumExplosive", IsExplosiveHarvester); // RA2: as above
-		IsAutoCrush = ini.Get_Bool(RulesSection_CombatDamage, "PlayerAutoCrush", IsAutoCrush); // RA2: as above
-		IsSmartDefense = ini.Get_Bool(RulesSection_CombatDamage, "PlayerReturnFire", IsSmartDefense); // RA2: as above
-		IsScatter = ini.Get_Bool(RulesSection_CombatDamage, "PlayerScatter", IsScatter); // RA2: as above
-		IsTreeTarget = ini.Get_Bool(RulesSection_CombatDamage, "TreeTargeting", IsTreeTarget); // RA2: as above
-		Incoming = ini.Get_MPHType(RulesSection_CombatDamage, "Incoming", Incoming); // RA2: as above
-		CollapseChance = ini.Get_Int(RulesSection_CombatDamage, "CollapseChance", CollapseChance); // RA2: as above
+			char name[128];
+			WarheadTypeClass const * fallback = V3Warhead;
+			V3EliteWarhead = ini.Get_String(RulesSection_CombatDamage, "V3EliteWarhead", "", name, sizeof(name)) ? WarheadTypeClass::Find_Or_Make(name) : fallback;
+		}
+		{
+			char name[128];
+			WarheadTypeClass const * fallback = DMislWarhead;
+			DMislEliteWarhead = ini.Get_String(RulesSection_CombatDamage, "DMislEliteWarhead", "", name, sizeof(name)) ? WarheadTypeClass::Find_Or_Make(name) : fallback;
+		}
+		IvanWarhead = TGet_Class(ini, RulesSection_CombatDamage, "IvanWarhead", IvanWarhead);
+		CanDetonateTimeBomb = ini.Get_Bool(RulesSection_CombatDamage, "CanDetonateTimeBomb", CanDetonateTimeBomb);
+		CanDetonateDeathBomb = ini.Get_Bool(RulesSection_CombatDamage, "CanDetonateDeathBomb", CanDetonateDeathBomb);
+		DeathWeapon = TGet_Class(ini, RulesSection_CombatDamage, "DeathWeapon", DeathWeapon);
+		IvanDamage = ini.Get_Int(RulesSection_CombatDamage, "IvanDamage", IvanDamage);
+		IvanTimedDelay = ini.Get_Int(RulesSection_CombatDamage, "IvanTimedDelay", IvanTimedDelay);
+		BOMBCURS_SHP = (ShapeSet const *)MixFileClass::Retrieve("BOMBCURS.SHP");
+		IvanIconFlickerRate = ini.Get_Int(RulesSection_CombatDamage, "IvanIconFlickerRate", IvanIconFlickerRate);
+		IronCurtainDuration = ini.Get_Int(RulesSection_CombatDamage, "IronCurtainDuration", IronCurtainDuration);
+		IonCannonWarhead = TGet_Class(ini, RulesSection_CombatDamage, "IonCannonWarhead", IonCannonWarhead);
+		FirestormWarhead = TGet_Class(ini, RulesSection_CombatDamage, "FirestormWarhead", FirestormWarhead);
+		VeinholeWarhead = TGet_Class(ini, RulesSection_CombatDamage, "VeinholeWarhead", VeinholeWarhead);
+		DefaultFirestormExplosionSystem = TGet_Class(ini, RulesSection_CombatDamage, "DefaultFirestormExplosionSystem", DefaultFirestormExplosionSystem);
+		DefaultLargeGreySmokeSystem = TGet_Class(ini, RulesSection_CombatDamage, "DefaultLargeGreySmokeSystem", DefaultLargeGreySmokeSystem);
+		DefaultSmallGreySmokeSystem = TGet_Class(ini, RulesSection_CombatDamage, "DefaultSmallGreySmokeSystem", DefaultSmallGreySmokeSystem);
+		DefaultSparkSystem = TGet_Class(ini, RulesSection_CombatDamage, "DefaultSparkSystem", DefaultSparkSystem);
+		DefaultLargeRedSmokeSystem = TGet_Class(ini, RulesSection_CombatDamage, "DefaultLargeRedSmokeSystem", DefaultLargeRedSmokeSystem);
+		DefaultSmallRedSmokeSystem = TGet_Class(ini, RulesSection_CombatDamage, "DefaultSmallRedSmokeSystem", DefaultSmallRedSmokeSystem);
+		DefaultDebrisSmokeSystem = TGet_Class(ini, RulesSection_CombatDamage, "DefaultDebrisSmokeSystem", DefaultDebrisSmokeSystem);
+		DefaultFireStreamSystem = TGet_Class(ini, RulesSection_CombatDamage, "DefaultFireStreamSystem", DefaultFireStreamSystem);
+		DefaultTestParticleSystem = TGet_Class(ini, RulesSection_CombatDamage, "DefaultTestParticleSystem", DefaultTestParticleSystem);
+		DefaultRepairParticleSystem = TGet_Class(ini, RulesSection_CombatDamage, "DefaultRepairParticleSystem", DefaultRepairParticleSystem);
+		IsBerzerkAllowed = ini.Get_Bool(RulesSection_CombatDamage, "BerzerkAllowed", IsBerzerkAllowed);
+		TurboBoost = ini.Get_Float(RulesSection_CombatDamage, "TurboBoost", TurboBoost);
+		AtomDamage = ini.Get_Int(RulesSection_CombatDamage, "AtomDamage", AtomDamage);
+		BallisticScatter = ini.Get_Lepton(RulesSection_CombatDamage, "BallisticScatter", BallisticScatter);
+		BridgeStrength = ini.Get_Int(RulesSection_CombatDamage, "BridgeStrength", BridgeStrength);
+		C4Delay = ini.Get_Float(RulesSection_CombatDamage, "C4Delay", C4Delay);
+		CrushDistance = ini.Get_Lepton(RulesSection_CombatDamage, "Crush", CrushDistance);
+		ExplosionSpread = ini.Get_Float(RulesSection_CombatDamage, "ExpSpread", ExplosionSpread);
+		SupressRadius = ini.Get_Lepton(RulesSection_CombatDamage, "FireSupress", SupressRadius);
+		HomingScatter = ini.Get_Lepton(RulesSection_CombatDamage, "HomingScatter", HomingScatter);
+		MaxDamage = ini.Get_Int(RulesSection_CombatDamage, "MaxDamage", MaxDamage);
+		MinDamage = ini.Get_Int(RulesSection_CombatDamage, "MinDamage", MinDamage);
+		IsExplosiveHarvester = ini.Get_Bool(RulesSection_CombatDamage, "TiberiumExplosive", IsExplosiveHarvester);
+		IsAutoCrush = ini.Get_Bool(RulesSection_CombatDamage, "PlayerAutoCrush", IsAutoCrush);
+		IsSmartDefense = ini.Get_Bool(RulesSection_CombatDamage, "PlayerReturnFire", IsSmartDefense);
+		IsScatter = ini.Get_Bool(RulesSection_CombatDamage, "PlayerScatter", IsScatter);
+		IsTreeTarget = ini.Get_Bool(RulesSection_CombatDamage, "TreeTargeting", IsTreeTarget);
+		Incoming = ini.Get_MPHType(RulesSection_CombatDamage, "Incoming", Incoming);
+		CollapseChance = ini.Get_Int(RulesSection_CombatDamage, "CollapseChance", CollapseChance);
 		return(true);
 	}
 	return(false);
@@ -1375,9 +1375,9 @@ bool RulesClass::Color_Schemes(CCINIClass const & ini)
 		int count = ini.Entry_Count(COLORS);
 		for (int i = 0; i < count; i++) {
 			char const * entry = ini.Get_Entry(COLORS, i); // RA2: the entry name is kept in a register
-			HSVClass hsv = ini.Get_HSVClass(COLORS, entry, HSVClass()); // RA2: as above
+			HSVClass hsv = ini.Get_HSVClass(COLORS, entry, HSVClass());
 			SchemeLibrary_Add(entry, hsv); // RA2: every scheme is also recorded in the scheme library (0x603A60)
-			ColorScheme::Find_Or_Make(entry, hsv, SchemePalette, GamePalette, 1); // RA2: as above
+			ColorScheme::Find_Or_Make(entry, hsv, SchemePalette, GamePalette, 1);
 			ColorScheme::Find_Or_Make(entry, hsv, SchemePalette, GamePalette, 53); // RA2: 53 intensity levels, not TibSun's NUM_INTENSITY_LEVELS (63)
 		}
 		return(true);
@@ -1409,284 +1409,284 @@ bool RulesClass::Color_Schemes(CCINIClass const & ini)
 bool RulesClass::General(CCINIClass const & ini)
 {
 	static char const * const RulesSection_General = "General"; // RA2: the executable's section name, a file-static pointer at 0x007A9058
-	if (ini.Is_Present(RulesSection_General)) { // RA2: as above
-		LargeVisceroid = TGet_Class(ini, RulesSection_General, "LargeVisceroid", LargeVisceroid); // RA2: as above
-		SmallVisceroid = TGet_Class(ini, RulesSection_General, "SmallVisceroid", SmallVisceroid); // RA2: as above
-		TiberiumHeal = ini.Get_Float(RulesSection_General, "TiberiumHeal", TiberiumHeal); // RA2: as above
-		PrerequisitePower = CCINIClass::Get_BuildingType_List(ini, RulesSection_General, "PrerequisitePower", PrerequisitePower); // RA2: as above
-		PrerequisiteFactory = CCINIClass::Get_BuildingType_List(ini, RulesSection_General, "PrerequisiteFactory", PrerequisiteFactory); // RA2: as above
-		PrerequisiteBarracks = CCINIClass::Get_BuildingType_List(ini, RulesSection_General, "PrerequisiteBarracks", PrerequisiteBarracks); // RA2: as above
-		PrerequisiteRadar = CCINIClass::Get_BuildingType_List(ini, RulesSection_General, "PrerequisiteRadar", PrerequisiteRadar); // RA2: as above
-		PrerequisiteTech = CCINIClass::Get_BuildingType_List(ini, RulesSection_General, "PrerequisiteTech", PrerequisiteTech); // RA2: as above
-		PrerequisiteProc = CCINIClass::Get_BuildingType_List(ini, RulesSection_General, "PrerequisiteProc", PrerequisiteProc); // RA2: as above
-		ZoomInFactor = ini.Get_Float(RulesSection_General, "ZoomInFactor", ZoomInFactor); // RA2: as above
-		IsRevealByHeight = ini.Get_Bool(RulesSection_General, "RevealByHeight", IsRevealByHeight); // RA2: as above
-		IsShroudedSubteranneanMovesAllowed = ini.Get_Bool(RulesSection_General, "AllowShroudedSubteranneanMoves", IsShroudedSubteranneanMovesAllowed); // RA2: as above
-		AircraftFogReveal = ini.Get_Int(RulesSection_General, "AircraftFogReveal", AircraftFogReveal); // RA2: as above
-		MinLowPowerProductionSpeed = ini.Get_Float(RulesSection_General, "MinLowPowerProductionSpeed", MinLowPowerProductionSpeed); // RA2: as above
-		MaxLowPowerProductionSpeed = ini.Get_Float(RulesSection_General, "MaxLowPowerProductionSpeed", MaxLowPowerProductionSpeed); // RA2: as above
-		LowPowerPenaltyModifier = ini.Get_Float(RulesSection_General, "LowPowerPenaltyModifier", LowPowerPenaltyModifier); // RA2: as above
-		MultipleFactory = ini.Get_Float(RulesSection_General, "MultipleFactory", MultipleFactory); // RA2: as above
-		MaximumCheerRate = ini.Get_Int(RulesSection_General, "MaximumCheerRate", MaximumCheerRate); // RA2: as above
-		TreeFlammability = ini.Get_Float(RulesSection_General, "TreeFlammability", TreeFlammability); // RA2: as above
-		MissileROTVar = ini.Get_Float(RulesSection_General, "MissileROTVar", MissileROTVar); // RA2: as above
-		MissileSafetyAltitude = ini.Get_Int(RulesSection_General, "MissileSafetyAltitude", MissileSafetyAltitude); // RA2: as above
-		MissileSpeedVar = ini.Get_Float(RulesSection_General, "MissileSpeedVar", MissileSpeedVar); // RA2: as above
-		DropPodWeapon = TGet_Class(ini, RulesSection_General, "DropPodWeapon", DropPodWeapon); // RA2: as above
-		DropPodHeight = ini.Get_Int(RulesSection_General, "DropPodHeight", DropPodHeight); // RA2: as above
-		DropPodSpeed = ini.Get_Int(RulesSection_General, "DropPodSpeed", DropPodSpeed); // RA2: as above
-		DropPodAngle = ini.Get_Float(RulesSection_General, "DropPodAngle", DropPodAngle); // RA2: as above
+	if (ini.Is_Present(RulesSection_General)) {
+		LargeVisceroid = TGet_Class(ini, RulesSection_General, "LargeVisceroid", LargeVisceroid);
+		SmallVisceroid = TGet_Class(ini, RulesSection_General, "SmallVisceroid", SmallVisceroid);
+		TiberiumHeal = ini.Get_Float(RulesSection_General, "TiberiumHeal", TiberiumHeal);
+		PrerequisitePower = CCINIClass::Get_BuildingType_List(ini, RulesSection_General, "PrerequisitePower", PrerequisitePower);
+		PrerequisiteFactory = CCINIClass::Get_BuildingType_List(ini, RulesSection_General, "PrerequisiteFactory", PrerequisiteFactory);
+		PrerequisiteBarracks = CCINIClass::Get_BuildingType_List(ini, RulesSection_General, "PrerequisiteBarracks", PrerequisiteBarracks);
+		PrerequisiteRadar = CCINIClass::Get_BuildingType_List(ini, RulesSection_General, "PrerequisiteRadar", PrerequisiteRadar);
+		PrerequisiteTech = CCINIClass::Get_BuildingType_List(ini, RulesSection_General, "PrerequisiteTech", PrerequisiteTech);
+		PrerequisiteProc = CCINIClass::Get_BuildingType_List(ini, RulesSection_General, "PrerequisiteProc", PrerequisiteProc);
+		ZoomInFactor = ini.Get_Float(RulesSection_General, "ZoomInFactor", ZoomInFactor);
+		IsRevealByHeight = ini.Get_Bool(RulesSection_General, "RevealByHeight", IsRevealByHeight);
+		IsShroudedSubteranneanMovesAllowed = ini.Get_Bool(RulesSection_General, "AllowShroudedSubteranneanMoves", IsShroudedSubteranneanMovesAllowed);
+		AircraftFogReveal = ini.Get_Int(RulesSection_General, "AircraftFogReveal", AircraftFogReveal);
+		MinLowPowerProductionSpeed = ini.Get_Float(RulesSection_General, "MinLowPowerProductionSpeed", MinLowPowerProductionSpeed);
+		MaxLowPowerProductionSpeed = ini.Get_Float(RulesSection_General, "MaxLowPowerProductionSpeed", MaxLowPowerProductionSpeed);
+		LowPowerPenaltyModifier = ini.Get_Float(RulesSection_General, "LowPowerPenaltyModifier", LowPowerPenaltyModifier);
+		MultipleFactory = ini.Get_Float(RulesSection_General, "MultipleFactory", MultipleFactory);
+		MaximumCheerRate = ini.Get_Int(RulesSection_General, "MaximumCheerRate", MaximumCheerRate);
+		TreeFlammability = ini.Get_Float(RulesSection_General, "TreeFlammability", TreeFlammability);
+		MissileROTVar = ini.Get_Float(RulesSection_General, "MissileROTVar", MissileROTVar);
+		MissileSafetyAltitude = ini.Get_Int(RulesSection_General, "MissileSafetyAltitude", MissileSafetyAltitude);
+		MissileSpeedVar = ini.Get_Float(RulesSection_General, "MissileSpeedVar", MissileSpeedVar);
+		DropPodWeapon = TGet_Class(ini, RulesSection_General, "DropPodWeapon", DropPodWeapon);
+		DropPodHeight = ini.Get_Int(RulesSection_General, "DropPodHeight", DropPodHeight);
+		DropPodSpeed = ini.Get_Int(RulesSection_General, "DropPodSpeed", DropPodSpeed);
+		DropPodAngle = ini.Get_Float(RulesSection_General, "DropPodAngle", DropPodAngle);
 		DropPodAngle = MIN(DropPodAngle, DEG_TO_RAD(67.5));
 		DropPodAngle = MAX(DropPodAngle, DEG_TO_RAD(22.5));
 		CrewEscape = ini.Get_Float(RulesSection_General, "CrewEscape", CrewEscape); // RA2: the executable's General reader: RA2's keys and member order
-		TunnelSpeed = ini.Get_Float(RulesSection_General, "TunnelSpeed", TunnelSpeed); // RA2: as above
-		HoverDampen = ini.Get_Float(RulesSection_General, "HoverDampen", HoverDampen); // RA2: as above
-		HoverBob = ini.Get_Float(RulesSection_General, "HoverBob", HoverBob); // RA2: as above
-		HoverHeight = ini.Get_Int(RulesSection_General, "HoverHeight", HoverHeight); // RA2: as above
-		HoverBoost = ini.Get_Float(RulesSection_General, "HoverBoost", HoverBoost); // RA2: as above
-		HoverAcceleration = ini.Get_Float(RulesSection_General, "HoverAcceleration", HoverAcceleration); // RA2: as above
-		HoverBrake = ini.Get_Float(RulesSection_General, "HoverBrake", HoverBrake); // RA2: as above
-		VeteranRatio = ini.Get_Float(RulesSection_General, "VeteranRatio", VeteranRatio); // RA2: as above
-		VeteranCombat = ini.Get_Float(RulesSection_General, "VeteranCombat", VeteranCombat); // RA2: as above
-		VeteranSpeed = ini.Get_Float(RulesSection_General, "VeteranSpeed", VeteranSpeed); // RA2: as above
-		VeteranSight = ini.Get_Float(RulesSection_General, "VeteranSight", VeteranSight); // RA2: as above
-		VeteranArmor = ini.Get_Float(RulesSection_General, "VeteranArmor", VeteranArmor); // RA2: as above
-		VeteranROF = ini.Get_Float(RulesSection_General, "VeteranROF", VeteranROF); // RA2: as above
-		VeteranCap = ini.Get_Float(RulesSection_General, "VeteranCap", VeteranCap); // RA2: as above
-		ExplosiveVoxelDebris = TGet_TypeList<VoxelAnimTypeClass>(ini, RulesSection_General, "ExplosiveVoxelDebris", ExplosiveVoxelDebris); // RA2: as above
-		BridgeVoxelMax = ini.Get_Int(RulesSection_General, "BridgeVoxelMax", BridgeVoxelMax); // RA2: as above
-		TireVoxelDebris = TGet_Class(ini, RulesSection_General, "TireVoxelDebris", TireVoxelDebris); // RA2: as above
-		ScrapVoxelDebris = TGet_Class(ini, RulesSection_General, "ScrapVoxelDebris", ScrapVoxelDebris); // RA2: as above
-		CloakingStages = ini.Get_Int(RulesSection_General, "CloakingStages", CloakingStages); // RA2: as above
-		ShipSinkingWeight = ini.Get_Float(RulesSection_General, "ShipSinkingWeight", ShipSinkingWeight); // RA2: as above
-		IceCrackingWeight = ini.Get_Float(RulesSection_General, "IceCrackingWeight", IceCrackingWeight); // RA2: as above
-		IceBreakingWeight = ini.Get_Float(RulesSection_General, "IceBreakingWeight", IceBreakingWeight); // RA2: as above
-		CliffBackImpassability = ini.Get_Int(RulesSection_General, "CliffBackImpassability", CliffBackImpassability); // RA2: as above
-		PlacementDelay = ini.Get_Float(RulesSection_General, "PlacementDelay", PlacementDelay); // RA2: as above
-		TrackedUphill = ini.Get_Float(RulesSection_General, "TrackedUphill", TrackedUphill); // RA2: as above
-		TrackedDownhill = ini.Get_Float(RulesSection_General, "TrackedDownhill", TrackedDownhill); // RA2: as above
-		WheeledUphill = ini.Get_Float(RulesSection_General, "WheeledUphill", WheeledUphill); // RA2: as above
-		WheeledDownhill = ini.Get_Float(RulesSection_General, "WheeledDownhill", WheeledDownhill); // RA2: as above
-		WindDirection = (FacingType)ini.Get_Int(RulesSection_General, "WindDirection", WindDirection); // RA2: as above
-		CameraRange = ini.Get_Lepton(RulesSection_General, "CameraRange", CameraRange); // RA2: as above
-		FlightLevel = ini.Get_Int(RulesSection_General, "FlightLevel", FlightLevel); // RA2: as above
-		ParachuteMaxFallRate = ini.Get_Int(RulesSection_General, "ParachuteMaxFallRate", ParachuteMaxFallRate); // RA2: as above
-		NoParachuteMaxFallRate = ini.Get_Int(RulesSection_General, "NoParachuteMaxFallRate", NoParachuteMaxFallRate); // RA2: as above
-		RepairBay = TGet_Class(ini, RulesSection_General, "RepairBay", RepairBay); // RA2: as above
-		GDIGateOne = TGet_Class(ini, RulesSection_General, "GDIGateOne", GDIGateOne); // RA2: as above
-		GDIGateTwo = TGet_Class(ini, RulesSection_General, "GDIGateTwo", GDIGateTwo); // RA2: as above
-		NodGateOne = TGet_Class(ini, RulesSection_General, "NodGateOne", NodGateOne); // RA2: as above
-		NodGateTwo = TGet_Class(ini, RulesSection_General, "NodGateTwo", NodGateTwo); // RA2: as above
-		WallTower = TGet_Class(ini, RulesSection_General, "WallTower", WallTower); // RA2: as above
-		Shipyard = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_General, "Shipyard", Shipyard); // RA2: as above
-		GDIPowerPlant = TGet_Class(ini, RulesSection_General, "GDIPowerPlant", GDIPowerPlant); // RA2: as above
-		GDIPowerTurbine = TGet_Class(ini, RulesSection_General, "GDIPowerTurbine", GDIPowerTurbine); // RA2: as above
-		NodRegularPower = TGet_Class(ini, RulesSection_General, "NodRegularPower", NodRegularPower); // RA2: as above
-		NodAdvancedPower = TGet_Class(ini, RulesSection_General, "NodAdvancedPower", NodAdvancedPower); // RA2: as above
-		GDIFirestormGenerator = TGet_Class(ini, RulesSection_General, "GDIFirestormGenerator", GDIFirestormGenerator); // RA2: as above
-		GDIHunterSeeker = TGet_Class(ini, RulesSection_General, "GDIHunterSeeker", GDIHunterSeeker); // RA2: as above
-		NodHunterSeeker = TGet_Class(ini, RulesSection_General, "NodHunterSeeker", NodHunterSeeker); // RA2: as above
-		BaseUnit = TGet_TypeList<UnitTypeClass>(ini, RulesSection_General, "BaseUnit", BaseUnit); // RA2: as above
-		HarvesterUnit = TGet_TypeList<UnitTypeClass>(ini, RulesSection_General, "HarvesterUnit", HarvesterUnit); // RA2: as above
-		PadAircraft = TGet_TypeList<AircraftTypeClass>(ini, RulesSection_General, "PadAircraft", PadAircraft); // RA2: as above
-		Paratrooper = TGet_Class(ini, RulesSection_General, "Paratrooper", Paratrooper); // RA2: as above
-		ChronoDelay = ini.Get_Int(RulesSection_General, "ChronoDelay", ChronoDelay); // RA2: as above
-		ChronoReinfDelay = ini.Get_Int(RulesSection_General, "ChronoReinfDelay", ChronoReinfDelay); // RA2: as above
-		ChronoDistanceFactor = ini.Get_Int(RulesSection_General, "ChronoDistanceFactor", ChronoDistanceFactor); // RA2: as above
-		ChronoTrigger = ini.Get_Bool(RulesSection_General, "ChronoTrigger", ChronoTrigger); // RA2: as above
-		ChronoMinimumDelay = ini.Get_Int(RulesSection_General, "ChronoMinimumDelay", ChronoMinimumDelay); // RA2: as above
-		ChronoRangeMinimum = ini.Get_Int(RulesSection_General, "ChronoRangeMinimum", ChronoRangeMinimum); // RA2: as above
-		AlliedDisguise = TGet_Class(ini, RulesSection_General, "AlliedDisguise", AlliedDisguise); // RA2: as above
-		SovietDisguise = TGet_Class(ini, RulesSection_General, "SovietDisguise", SovietDisguise); // RA2: as above
-		SpyPowerBlackout = ini.Get_Int(RulesSection_General, "SpyPowerBlackout", SpyPowerBlackout); // RA2: as above
-		SpyMoneyStealPercent = ini.Get_Float(RulesSection_General, "SpyMoneyStealPercent", SpyMoneyStealPercent); // RA2: as above
-		AttackCursorOnDisguise = ini.Get_Bool(RulesSection_General, "AttackCursorOnDisguise", AttackCursorOnDisguise); // RA2: as above
-		AIMinorSuperReadyPercent = ini.Get_Float(RulesSection_General, "AIMinorSuperReadyPercent", AIMinorSuperReadyPercent); // RA2: as above
-		AISafeDistance = ini.Get_Int(RulesSection_General, "AISafeDistance", AISafeDistance); // RA2: as above
-		AINavalYardAdjacency = ini.Get_Int(RulesSection_General, "AINavalYardAdjacency", AINavalYardAdjacency); // RA2: as above
-		MaximumBuildingPlacementFailures = ini.Get_Int(RulesSection_General, "MaximumBuildingPlacementFailures", MaximumBuildingPlacementFailures); // RA2: as above
-		HarvesterTooFarDistance = ini.Get_Int(RulesSection_General, "HarvesterTooFarDistance", HarvesterTooFarDistance); // RA2: as above
-		ApproachTargetResetMultiplier = ini.Get_Int(RulesSection_General, "ApproachTargetResetMultiplier", ApproachTargetResetMultiplier); // RA2: as above
-		CampaignMoneyDeltaEasy = ini.Get_Int(RulesSection_General, "CampaignMoneyDeltaEasy", CampaignMoneyDeltaEasy); // RA2: as above
-		CampaignMoneyDeltaHard = ini.Get_Int(RulesSection_General, "CampaignMoneyDeltaHard", CampaignMoneyDeltaHard); // RA2: as above
-		GuardAreaTargetingDelay = ini.Get_Int(RulesSection_General, "GuardAreaTargetingDelay", GuardAreaTargetingDelay); // RA2: as above
-		NormalTargetingDelay = ini.Get_Int(RulesSection_General, "NormalTargetingDelay", NormalTargetingDelay); // RA2: as above
-		ChronoHarvTooFarDistance = ini.Get_Int(RulesSection_General, "ChronoHarvTooFarDistance", ChronoHarvTooFarDistance); // RA2: as above
-		AIRestrictReplaceTime = ini.Get_Int(RulesSection_General, "AIRestrictReplaceTime", AIRestrictReplaceTime); // RA2: as above
-		ThreatPerOccupant = ini.Get_Int(RulesSection_General, "ThreatPerOccupant", ThreatPerOccupant); // RA2: as above
-		PurifierBonus = ini.Get_Float(RulesSection_General, "PurifierBonus", PurifierBonus); // RA2: as above
-		Engineer = TGet_Class(ini, RulesSection_General, "Engineer", Engineer); // RA2: as above
-		Technician = TGet_Class(ini, RulesSection_General, "Technician", Technician); // RA2: as above
-		Pilot = TGet_Class(ini, RulesSection_General, "Pilot", Pilot); // RA2: as above
-		AlliedCrew = TGet_Class(ini, RulesSection_General, "AlliedCrew", AlliedCrew); // RA2: as above
-		SovietCrew = TGet_Class(ini, RulesSection_General, "SovietCrew", SovietCrew); // RA2: as above
-		IsCurleyShuffle = ini.Get_Bool(RulesSection_General, "CurleyShuffle", IsCurleyShuffle); // RA2: as above
-		IsFineDifficulty = ini.Get_Bool(RulesSection_General, "FineDiffControl", IsFineDifficulty); // RA2: as above
-		TeamDelays = ini.Get_IntList(RulesSection_General, "TeamDelays", TeamDelays); // RA2: as above
-		AlliedBaseDefenseCounts = ini.Get_IntList(RulesSection_General, "AlliedBaseDefenseCounts", AlliedBaseDefenseCounts); // RA2: as above
-		SovietBaseDefenseCounts = ini.Get_IntList(RulesSection_General, "SovietBaseDefenseCounts", SovietBaseDefenseCounts); // RA2: as above
-		DisabledDisguiseDetectionPercent = ini.Get_IntList(RulesSection_General, "DisabledDisguiseDetectionPercent", DisabledDisguiseDetectionPercent); // RA2: as above
-		AIAutoDeployFrameDelay = ini.Get_IntList(RulesSection_General, "AIAutoDeployFrameDelay", AIAutoDeployFrameDelay); // RA2: as above
-		AIPickWallDefensePercent = ini.Get_IntList(RulesSection_General, "AIPickWallDefensePercent", AIPickWallDefensePercent); // RA2: as above
-		AIHateDelays = ini.Get_IntList(RulesSection_General, "AIHateDelays", AIHateDelays); // RA2: as above
-		AIAlternateProductionCreditCutoff = ini.Get_Int(RulesSection_General, "AIAlternateProductionCreditCutoff", AIAlternateProductionCreditCutoff); // RA2: as above
-		AIUseTurbineUpgradeChance = ini.Get_Float(RulesSection_General, "AIUseTurbineUpgradeProbability", AIUseTurbineUpgradeChance); // RA2: as above
-		NodAIBuildsWalls = ini.Get_Bool(RulesSection_General, "NodAIBuildsWalls", NodAIBuildsWalls); // RA2: as above
-		AIBuildsWalls = ini.Get_Bool(RulesSection_General, "AIBuildsWalls", AIBuildsWalls); // RA2: as above
-		FillEarliestTeamProbability = ini.Get_IntList(RulesSection_General, "FillEarliestTeamProbability", FillEarliestTeamProbability); // RA2: as above
-		MinimumAIDefensiveTeams = ini.Get_IntList(RulesSection_General, "MinimumAIDefensiveTeams", MinimumAIDefensiveTeams); // RA2: as above
-		MaximumAIDefensiveTeams = ini.Get_IntList(RulesSection_General, "MaximumAIDefensiveTeams", MaximumAIDefensiveTeams); // RA2: as above
-		TotalAITeamCap = ini.Get_IntList(RulesSection_General, "TotalAITeamCap", TotalAITeamCap); // RA2: as above
-		UseMinDefenseRule = ini.Get_Bool(RulesSection_General, "UseMinDefenseRule", UseMinDefenseRule); // RA2: as above
-		DissolveUnfilledTeamDelay = ini.Get_Int(RulesSection_General, "DissolveUnfilledTeamDelay", DissolveUnfilledTeamDelay); // RA2: as above
-		MultiplayerAICreditMultipliers = ini.Get_IntList(RulesSection_General, "MultiplayerAICM", MultiplayerAICreditMultipliers); // RA2: as above
-		AIVirtualPurifiers = ini.Get_IntList(RulesSection_General, "AIVirtualPurifiers", AIVirtualPurifiers); // RA2: as above
-		AmerParaDropInf = TGet_TypeList<InfantryTypeClass>(ini, RulesSection_General, "AmerParaDropInf", AmerParaDropInf); // RA2: as above
-		AmerParaDropNum = ini.Get_IntList(RulesSection_General, "AmerParaDropNum", AmerParaDropNum); // RA2: as above
-		AllyParaDropInf = TGet_TypeList<InfantryTypeClass>(ini, RulesSection_General, "AllyParaDropInf", AllyParaDropInf); // RA2: as above
-		AllyParaDropNum = ini.Get_IntList(RulesSection_General, "AllyParaDropNum", AllyParaDropNum); // RA2: as above
-		SovParaDropInf = TGet_TypeList<InfantryTypeClass>(ini, RulesSection_General, "SovParaDropInf", SovParaDropInf); // RA2: as above
-		SovParaDropNum = ini.Get_IntList(RulesSection_General, "SovParaDropNum", SovParaDropNum); // RA2: as above
-		AIIonCannonConYardValue = ini.Get_IntList(RulesSection_General, "AIIonCannonConYardValue", AIIonCannonConYardValue); // RA2: as above
-		AIIonCannonWarFactoryValue = ini.Get_IntList(RulesSection_General, "AIIonCannonWarFactoryValue", AIIonCannonWarFactoryValue); // RA2: as above
-		AIIonCannonPowerValue = ini.Get_IntList(RulesSection_General, "AIIonCannonPowerValue", AIIonCannonPowerValue); // RA2: as above
-		AIIonCannonEngineerValue = ini.Get_IntList(RulesSection_General, "AIIonCannonEngineerValue", AIIonCannonEngineerValue); // RA2: as above
-		AIIonCannonThiefValue = ini.Get_IntList(RulesSection_General, "AIIonCannonThiefValue", AIIonCannonThiefValue); // RA2: as above
-		AIIonCannonHarvesterValue = ini.Get_IntList(RulesSection_General, "AIIonCannonHarvesterValue", AIIonCannonHarvesterValue); // RA2: as above
-		AIIonCannonMCVValue = ini.Get_IntList(RulesSection_General, "AIIonCannonMCVValue", AIIonCannonMCVValue); // RA2: as above
-		AIIonCannonAPCValue = ini.Get_IntList(RulesSection_General, "AIIonCannonAPCValue", AIIonCannonAPCValue); // RA2: as above
-		AIIonCannonBaseDefenseValue = ini.Get_IntList(RulesSection_General, "AIIonCannonBaseDefenseValue", AIIonCannonBaseDefenseValue); // RA2: as above
-		AIIonCannonPlugValue = ini.Get_IntList(RulesSection_General, "AIIonCannonPlugValue", AIIonCannonPlugValue); // RA2: as above
-		AIIonCannonHelipadValue = ini.Get_IntList(RulesSection_General, "AIIonCannonHelipadValue", AIIonCannonHelipadValue); // RA2: as above
-		AIIonCannonTempleValue = ini.Get_IntList(RulesSection_General, "AIIonCannonTempleValue", AIIonCannonTempleValue); // RA2: as above
-		CloakDelay = ini.Get_Float(RulesSection_General, "CloakDelay", CloakDelay); // RA2: as above
-		GameSpeedBias = ini.Get_Float(RulesSection_General, "GameSpeedBias", GameSpeedBias); // RA2: as above
-		NervousBias = ini.Get_Float(RulesSection_General, "BaseBias", NervousBias); // RA2: as above
-		IsSeparate = ini.Get_Bool(RulesSection_General, "SeparateAircraft", IsSeparate); // RA2: as above
-		BaseDefenseDelay = ini.Get_Float(RulesSection_General, "BaseDefenseDelay", BaseDefenseDelay); // RA2: as above
-		SuspendPriority = ini.Get_Int(RulesSection_General, "SuspendPriority", SuspendPriority); // RA2: as above
-		SuspendDelay = ini.Get_Float(RulesSection_General, "SuspendDelay", SuspendDelay); // RA2: as above
-		SurvivorFraction = ini.Get_Float(RulesSection_General, "SurvivorRate", SurvivorFraction); // RA2: as above
-		AlliedSurvivorDivisor = ini.Get_Int(RulesSection_General, "AlliedSurvivorDivisor", AlliedSurvivorDivisor); // RA2: as above
-		SovietSurvivorDivisor = ini.Get_Int(RulesSection_General, "SovietSurvivorDivisor", SovietSurvivorDivisor); // RA2: as above
-		ReloadRate = ini.Get_Float(RulesSection_General, "ReloadRate", ReloadRate); // RA2: as above
-		BuildupTime = ini.Get_Float(RulesSection_General, "BuildupTime", BuildupTime); // RA2: as above
-		HarvesterDumpRate = ini.Get_Float(RulesSection_General, "HarvesterDumpRate", HarvesterDumpRate); // RA2: as above
-		HarvesterLoadRate = ini.Get_Int(RulesSection_General, "HarvesterLoadRate", HarvesterLoadRate); // RA2: as above
-		BuildSpeedBias = ini.Get_Float(RulesSection_General, "BuildSpeed", BuildSpeedBias); // RA2: as above
-		DamageDelay = ini.Get_Float(RulesSection_General, "DamageDelay", DamageDelay); // RA2: as above
-		GrowthRate = ini.Get_Float(RulesSection_General, "GrowthRate", GrowthRate); // RA2: as above
-		RefundPercent = ini.Get_Float(RulesSection_General, "RefundPercent", RefundPercent); // RA2: as above
-		RepairPercent = ini.Get_Float(RulesSection_General, "RepairPercent", RepairPercent); // RA2: as above
-		RepairStep = ini.Get_Int(RulesSection_General, "RepairStep", RepairStep); // RA2: as above
-		IRepairStep = ini.Get_Int(RulesSection_General, "IRepairStep", IRepairStep); // RA2: as above
-		RepairRate = ini.Get_Float(RulesSection_General, "RepairRate", RepairRate); // RA2: as above
-		URepairRate = ini.Get_Float(RulesSection_General, "URepairRate", URepairRate); // RA2: as above
-		IRepairRate = ini.Get_Float(RulesSection_General, "IRepairRate", IRepairRate); // RA2: as above
-		StrayDistance = ini.Get_Lepton(RulesSection_General, "Stray", StrayDistance); // RA2: as above
-		RelaxedStray = ini.Get_Lepton(RulesSection_General, "RelaxedStray", RelaxedStray); // RA2: as above
-		GuardModeStray = ini.Get_Lepton(RulesSection_General, "GuardModeStray", GuardModeStray); // RA2: as above
-		CloseEnoughDistance = ini.Get_Lepton(RulesSection_General, "CloseEnough", CloseEnoughDistance); // RA2: as above
-		IsBlendedFog = ini.Get_Bool(RulesSection_General, "BlendedFog", IsBlendedFog); // RA2: as above
-		AttackingAircraftSightRange = ini.Get_Int(RulesSection_General, "AttackingAircraftSightRange", AttackingAircraftSightRange); // RA2: as above
-		LeptonsPerSightIncrease = ini.Get_Int(RulesSection_General, "LeptonsPerSightIncrease", LeptonsPerSightIncrease); // RA2: as above
-		TiberiumTransmogrify = ini.Get_Int(RulesSection_General, "TiberiumTransmogrify", TiberiumTransmogrify); // RA2: as above
-		LightningDeferment = ini.Get_Int(RulesSection_General, "LightningDeferment", LightningDeferment); // RA2: as above
-		LightningDamage = ini.Get_Int(RulesSection_General, "LightningDamage", LightningDamage); // RA2: as above
-		LightningStormDuration = ini.Get_Int(RulesSection_General, "LightningStormDuration", LightningStormDuration); // RA2: as above
-		LightningHitDelay = ini.Get_Int(RulesSection_General, "LightningHitDelay", LightningHitDelay); // RA2: as above
-		LightningScatterDelay = ini.Get_Int(RulesSection_General, "LightningScatterDelay", LightningScatterDelay); // RA2: as above
-		LightningCellSpread = ini.Get_Int(RulesSection_General, "LightningCellSpread", LightningCellSpread); // RA2: as above
-		LightningSeparation = ini.Get_Int(RulesSection_General, "LightningSeparation", LightningSeparation); // RA2: as above
-		LightningWarhead = TGet_Class(ini, RulesSection_General, "LightningWarhead", LightningWarhead);  /* out of line 653da0 */ // RA2: as above
-		LightningPrintText = ini.Get_Bool(RulesSection_General, "LightningPrintText", LightningPrintText); // RA2: as above
-		PrismType = TGet_Class(ini, RulesSection_General, "PrismType", PrismType);  /* out of line 654060 */ // RA2: as above
-		PrismSupportModifier = ini.Get_Float(RulesSection_General, "PrismSupportModifier", PrismSupportModifier) * 100.0; // RA2: as above
-		PrismSupportMax = ini.Get_Int(RulesSection_General, "PrismSupportMax", PrismSupportMax); // RA2: as above
-		PrismSupportDelay = ini.Get_Int(RulesSection_General, "PrismSupportDelay", PrismSupportDelay); // RA2: as above
-		PrismSupportDuration = ini.Get_Int(RulesSection_General, "PrismSupportDuration", PrismSupportDuration); // RA2: as above
-		PrismSupportHeight = ini.Get_Int(RulesSection_General, "PrismSupportHeight", PrismSupportHeight); // RA2: as above
-		V3Rocket.PauseFrames = ini.Get_Int(RulesSection_General, "V3RocketPauseFrames", V3Rocket.PauseFrames); // RA2: as above
-		V3Rocket.TiltFrames = ini.Get_Int(RulesSection_General, "V3RocketTiltFrames", V3Rocket.TiltFrames); // RA2: as above
-		V3Rocket.PitchInitial = ini.Get_Float(RulesSection_General, "V3RocketPitchInitial", V3Rocket.PitchInitial); // RA2: as above
-		V3Rocket.PitchFinal = ini.Get_Float(RulesSection_General, "V3RocketPitchFinal", V3Rocket.PitchFinal); // RA2: as above
-		V3Rocket.TurnRate = ini.Get_Float(RulesSection_General, "V3RocketTurnRate", V3Rocket.TurnRate); // RA2: as above
-		V3Rocket.Acceleration = ini.Get_Float(RulesSection_General, "V3RocketAcceleration", V3Rocket.Acceleration); // RA2: as above
-		V3Rocket.Altitude = ini.Get_Int(RulesSection_General, "V3RocketAltitude", V3Rocket.Altitude); // RA2: as above
-		V3Rocket.Damage = ini.Get_Int(RulesSection_General, "V3RocketDamage", V3Rocket.Damage); // RA2: as above
-		V3Rocket.EliteDamage = ini.Get_Int(RulesSection_General, "V3RocketEliteDamage", V3Rocket.EliteDamage); // RA2: as above
-		V3Rocket.BodyLength = ini.Get_Int(RulesSection_General, "V3RocketBodyLength", V3Rocket.BodyLength); // RA2: as above
-		V3Rocket.LazyCurve = ini.Get_Bool(RulesSection_General, "V3RocketLazyCurve", V3Rocket.LazyCurve); // RA2: as above
-		V3Rocket.Type = TGet_Class(ini, RulesSection_General, "V3RocketType", V3Rocket.Type);  /* out of line 6540b0 */ // RA2: as above
-		DMisl.PauseFrames = ini.Get_Int(RulesSection_General, "DMislPauseFrames", DMisl.PauseFrames); // RA2: as above
-		DMisl.TiltFrames = ini.Get_Int(RulesSection_General, "DMislTiltFrames", DMisl.TiltFrames); // RA2: as above
-		DMisl.PitchInitial = ini.Get_Float(RulesSection_General, "DMislPitchInitial", DMisl.PitchInitial); // RA2: as above
-		DMisl.PitchFinal = ini.Get_Float(RulesSection_General, "DMislPitchFinal", DMisl.PitchFinal); // RA2: as above
-		DMisl.TurnRate = ini.Get_Float(RulesSection_General, "DMislTurnRate", DMisl.TurnRate); // RA2: as above
-		DMisl.Acceleration = ini.Get_Float(RulesSection_General, "DMislAcceleration", DMisl.Acceleration); // RA2: as above
-		DMisl.Altitude = ini.Get_Int(RulesSection_General, "DMislAltitude", DMisl.Altitude); // RA2: as above
-		DMisl.Damage = ini.Get_Int(RulesSection_General, "DMislDamage", DMisl.Damage); // RA2: as above
-		DMisl.EliteDamage = ini.Get_Int(RulesSection_General, "DMislEliteDamage", DMisl.EliteDamage); // RA2: as above
-		DMisl.BodyLength = ini.Get_Int(RulesSection_General, "DMislBodyLength", DMisl.BodyLength); // RA2: as above
-		DMisl.LazyCurve = ini.Get_Bool(RulesSection_General, "DMislLazyCurve", DMisl.LazyCurve); // RA2: as above
-		DMisl.Type = TGet_Class(ini, RulesSection_General, "DMislType", DMisl.Type);  /* out of line 6540b0 */ // RA2: as above
-		ParadropRadius = ini.Get_Int(RulesSection_General, "ParadropRadius", ParadropRadius); // RA2: as above
-		SpotlightMovementRadius = ini.Get_Int(RulesSection_General, "SpotlightMovementRadius", SpotlightMovementRadius); // RA2: as above
-		SpotlightLocationRadius = ini.Get_Int(RulesSection_General, "SpotlightLocationRadius", SpotlightLocationRadius); // RA2: as above
-		SpotlightSpeed = ini.Get_Float(RulesSection_General, "SpotlightSpeed", SpotlightSpeed); // RA2: as above
-		SpotlightAcceleration = ini.Get_Float(RulesSection_General, "SpotlightAcceleration", SpotlightAcceleration); // RA2: as above
-		SpotlightAngle = ini.Get_Float(RulesSection_General, "SpotlightAngle", SpotlightAngle); // RA2: as above
-		SpotlightRadius = ini.Get_Int(RulesSection_General, "SpotlightRadius", SpotlightRadius); // RA2: as above
-		RevealTriggerRadius = ini.Get_Int(RulesSection_General, "RevealTriggerRadius", RevealTriggerRadius); // RA2: as above
-		ChargeToDrainRatio = ini.Get_Float(RulesSection_General, "ChargeToDrainRatio", ChargeToDrainRatio); // RA2: as above
-		DamageToFirestormDamageCoefficient = ini.Get_Float(RulesSection_General, "DamageToFirestormDamageCoefficient", DamageToFirestormDamageCoefficient); // RA2: as above
-		WallBuildSpeedCoefficient = ini.Get_Float(RulesSection_General, "WallBuildSpeedCoefficient", WallBuildSpeedCoefficient); // RA2: as above
-		ConditionYellowSparkingProbability = ini.Get_Float(RulesSection_General, "ConditionYellowSparkingProbability", ConditionYellowSparkingProbability); // RA2: as above
-		ConditionRedSparkingProbability = ini.Get_Float(RulesSection_General, "ConditionRedSparkingProbability", ConditionRedSparkingProbability); // RA2: as above
-		AITriggerSuccessWeightDelta = ini.Get_Float(RulesSection_General, "AITriggerSuccessWeightDelta", AITriggerSuccessWeightDelta); // RA2: as above
-		AITriggerFailureWeightDelta = ini.Get_Float(RulesSection_General, "AITriggerFailureWeightDelta", AITriggerFailureWeightDelta); // RA2: as above
-		AITriggerTrackRecordCoefficient = ini.Get_Float(RulesSection_General, "AITriggerTrackRecordCoefficient", AITriggerTrackRecordCoefficient); // RA2: as above
-		WeedCapacity = ini.Get_Int(RulesSection_General, "WeedCapacity", WeedCapacity); // RA2: as above
-		HarvestersPerRefinery = ini.Get_Int(RulesSection_General, "HarvestersPerRefinery", HarvestersPerRefinery); // RA2: as above
-		FlashFrameTime = ini.Get_Int(RulesSection_General, "FlashFrameTime", FlashFrameTime); // RA2: as above
-		RadarCombatFlashTime = ini.Get_Int(RulesSection_General, "RadarCombatFlashTime", RadarCombatFlashTime); // RA2: as above
-		RadarEventSpeed = ini.Get_Float(RulesSection_General, "RadarEventSpeed", RadarEventSpeed); // RA2: as above
-		RadarEventRotationSpeed = ini.Get_Float(RulesSection_General, "RadarEventRotationSpeed", RadarEventRotationSpeed); // RA2: as above
-		RadarEventSuppressionDistances = ini.Get_IntList(RulesSection_General, "RadarEventSuppressionDistances", RadarEventSuppressionDistances); // RA2: as above
-		RadarEventVisibilityDurations = ini.Get_IntList(RulesSection_General, "RadarEventVisibilityDurations", RadarEventVisibilityDurations); // RA2: as above
-		RadarEventDurations = ini.Get_IntList(RulesSection_General, "RadarEventDurations", RadarEventDurations); // RA2: as above
-		RadarEventMinRadius = ini.Get_Int(RulesSection_General, "RadarEventMinRadius", RadarEventMinRadius); // RA2: as above
-		RadarEventColorSpeed = ini.Get_Float(RulesSection_General, "RadarEventColorSpeed", RadarEventColorSpeed); // RA2: as above
-		HunterSeekerDetonateProximity = ini.Get_Int(RulesSection_General, "HunterSeekerDetonateProximity", HunterSeekerDetonateProximity); // RA2: as above
-		HunterSeekerDescendProximity = ini.Get_Int(RulesSection_General, "HunterSeekerDescendProximity", HunterSeekerDescendProximity); // RA2: as above
-		HunterSeekerDescentSpeed = ini.Get_Int(RulesSection_General, "HunterSeekerDescentSpeed", HunterSeekerDescentSpeed); // RA2: as above
-		HunterSeekerAscentSpeed = ini.Get_Int(RulesSection_General, "HunterSeekerAscentSpeed", HunterSeekerAscentSpeed); // RA2: as above
-		HunterSeekerEmergeSpeed = ini.Get_Int(RulesSection_General, "HunterSeekerEmergeSpeed", HunterSeekerEmergeSpeed); // RA2: as above
-		MyEffectivenessCoefficientDefault = ini.Get_Float(RulesSection_General, "MyEffectivenessCoefficientDefault", MyEffectivenessCoefficientDefault); // RA2: as above
-		TargetEffectivenessCoefficientDefault = ini.Get_Float(RulesSection_General, "TargetEffectivenessCoefficientDefault", TargetEffectivenessCoefficientDefault); // RA2: as above
-		TargetSpecialThreatCoefficientDefault = ini.Get_Float(RulesSection_General, "TargetSpecialThreatCoefficientDefault", TargetSpecialThreatCoefficientDefault); // RA2: as above
-		TargetStrengthCoefficientDefault = ini.Get_Float(RulesSection_General, "TargetStrengthCoefficientDefault", TargetStrengthCoefficientDefault); // RA2: as above
-		TargetDistanceCoefficientDefault = ini.Get_Float(RulesSection_General, "TargetDistanceCoefficientDefault", TargetDistanceCoefficientDefault); // RA2: as above
-		DumbMyEffectivenessCoefficient = ini.Get_Float(RulesSection_General, "DumbMyEffectivenessCoefficient", DumbMyEffectivenessCoefficient); // RA2: as above
-		DumbTargetEffectivenessCoefficient = ini.Get_Float(RulesSection_General, "DumbTargetEffectivenessCoefficient", DumbTargetEffectivenessCoefficient); // RA2: as above
-		DumbTargetSpecialThreatCoefficient = ini.Get_Float(RulesSection_General, "DumbTargetSpecialThreatCoefficient", DumbTargetSpecialThreatCoefficient); // RA2: as above
-		DumbTargetStrengthCoefficient = ini.Get_Float(RulesSection_General, "DumbTargetStrengthCoefficient", DumbTargetStrengthCoefficient); // RA2: as above
-		DumbTargetDistanceCoefficient = ini.Get_Float(RulesSection_General, "DumbTargetDistanceCoefficient", DumbTargetDistanceCoefficient); // RA2: as above
-		EnemyHouseThreatBonus = ini.Get_Float(RulesSection_General, "EnemyHouseThreatBonus", EnemyHouseThreatBonus); // RA2: as above
-		VeinholeMonsterStrength = ini.Get_Int(RulesSection_General, "VeinholeMonsterStrength", VeinholeMonsterStrength); // RA2: as above
-		MaxVeinholeGrowth = ini.Get_Int(RulesSection_General, "MaxVeinholeGrowth", MaxVeinholeGrowth); // RA2: as above
-		VeinholeGrowthRate = ini.Get_Int(RulesSection_General, "VeinholeGrowthRate", VeinholeGrowthRate); // RA2: as above
-		VeinholeShrinkRate = ini.Get_Int(RulesSection_General, "VeinholeShrinkRate", VeinholeShrinkRate); // RA2: as above
-		VeinDamage = ini.Get_Int(RulesSection_General, "VeinDamage", VeinDamage); // RA2: as above
-		VeinholeTypeClass = TGet_Class(ini, RulesSection_General, "VeinholeTypeClass", VeinholeTypeClass);  /* out of line 654100 */ // RA2: as above
-		DefaultMirageDisguises = TGet_TypeList<TerrainTypeClass>(ini, RulesSection_General, "DefaultMirageDisguises", DefaultMirageDisguises); // RA2: as above
-		InfantryBlinkDisguiseTime = ini.Get_Int(RulesSection_General, "InfantryBlinkDisguiseTime", InfantryBlinkDisguiseTime); // RA2: as above
-		MaximumQueuedObjects = ini.Get_Int(RulesSection_General, "MaximumQueuedObjects", MaximumQueuedObjects); // RA2: as above
-		MaxWaypointPathLength = ini.Get_Int(RulesSection_General, "MaxWaypointPathLength", MaxWaypointPathLength); // RA2: as above
-		TreeStrength = ini.Get_Int(RulesSection_General, "TreeStrength", TreeStrength); // RA2: as above
-		EngineerCaptureLevel = ini.Get_Float(RulesSection_General, "EngineerCaptureLevel", EngineerCaptureLevel); // RA2: as above
+		TunnelSpeed = ini.Get_Float(RulesSection_General, "TunnelSpeed", TunnelSpeed);
+		HoverDampen = ini.Get_Float(RulesSection_General, "HoverDampen", HoverDampen);
+		HoverBob = ini.Get_Float(RulesSection_General, "HoverBob", HoverBob);
+		HoverHeight = ini.Get_Int(RulesSection_General, "HoverHeight", HoverHeight);
+		HoverBoost = ini.Get_Float(RulesSection_General, "HoverBoost", HoverBoost);
+		HoverAcceleration = ini.Get_Float(RulesSection_General, "HoverAcceleration", HoverAcceleration);
+		HoverBrake = ini.Get_Float(RulesSection_General, "HoverBrake", HoverBrake);
+		VeteranRatio = ini.Get_Float(RulesSection_General, "VeteranRatio", VeteranRatio);
+		VeteranCombat = ini.Get_Float(RulesSection_General, "VeteranCombat", VeteranCombat);
+		VeteranSpeed = ini.Get_Float(RulesSection_General, "VeteranSpeed", VeteranSpeed);
+		VeteranSight = ini.Get_Float(RulesSection_General, "VeteranSight", VeteranSight);
+		VeteranArmor = ini.Get_Float(RulesSection_General, "VeteranArmor", VeteranArmor);
+		VeteranROF = ini.Get_Float(RulesSection_General, "VeteranROF", VeteranROF);
+		VeteranCap = ini.Get_Float(RulesSection_General, "VeteranCap", VeteranCap);
+		ExplosiveVoxelDebris = TGet_TypeList<VoxelAnimTypeClass>(ini, RulesSection_General, "ExplosiveVoxelDebris", ExplosiveVoxelDebris);
+		BridgeVoxelMax = ini.Get_Int(RulesSection_General, "BridgeVoxelMax", BridgeVoxelMax);
+		TireVoxelDebris = TGet_Class(ini, RulesSection_General, "TireVoxelDebris", TireVoxelDebris);
+		ScrapVoxelDebris = TGet_Class(ini, RulesSection_General, "ScrapVoxelDebris", ScrapVoxelDebris);
+		CloakingStages = ini.Get_Int(RulesSection_General, "CloakingStages", CloakingStages);
+		ShipSinkingWeight = ini.Get_Float(RulesSection_General, "ShipSinkingWeight", ShipSinkingWeight);
+		IceCrackingWeight = ini.Get_Float(RulesSection_General, "IceCrackingWeight", IceCrackingWeight);
+		IceBreakingWeight = ini.Get_Float(RulesSection_General, "IceBreakingWeight", IceBreakingWeight);
+		CliffBackImpassability = ini.Get_Int(RulesSection_General, "CliffBackImpassability", CliffBackImpassability);
+		PlacementDelay = ini.Get_Float(RulesSection_General, "PlacementDelay", PlacementDelay);
+		TrackedUphill = ini.Get_Float(RulesSection_General, "TrackedUphill", TrackedUphill);
+		TrackedDownhill = ini.Get_Float(RulesSection_General, "TrackedDownhill", TrackedDownhill);
+		WheeledUphill = ini.Get_Float(RulesSection_General, "WheeledUphill", WheeledUphill);
+		WheeledDownhill = ini.Get_Float(RulesSection_General, "WheeledDownhill", WheeledDownhill);
+		WindDirection = (FacingType)ini.Get_Int(RulesSection_General, "WindDirection", WindDirection);
+		CameraRange = ini.Get_Lepton(RulesSection_General, "CameraRange", CameraRange);
+		FlightLevel = ini.Get_Int(RulesSection_General, "FlightLevel", FlightLevel);
+		ParachuteMaxFallRate = ini.Get_Int(RulesSection_General, "ParachuteMaxFallRate", ParachuteMaxFallRate);
+		NoParachuteMaxFallRate = ini.Get_Int(RulesSection_General, "NoParachuteMaxFallRate", NoParachuteMaxFallRate);
+		RepairBay = TGet_Class(ini, RulesSection_General, "RepairBay", RepairBay);
+		GDIGateOne = TGet_Class(ini, RulesSection_General, "GDIGateOne", GDIGateOne);
+		GDIGateTwo = TGet_Class(ini, RulesSection_General, "GDIGateTwo", GDIGateTwo);
+		NodGateOne = TGet_Class(ini, RulesSection_General, "NodGateOne", NodGateOne);
+		NodGateTwo = TGet_Class(ini, RulesSection_General, "NodGateTwo", NodGateTwo);
+		WallTower = TGet_Class(ini, RulesSection_General, "WallTower", WallTower);
+		Shipyard = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_General, "Shipyard", Shipyard);
+		GDIPowerPlant = TGet_Class(ini, RulesSection_General, "GDIPowerPlant", GDIPowerPlant);
+		GDIPowerTurbine = TGet_Class(ini, RulesSection_General, "GDIPowerTurbine", GDIPowerTurbine);
+		NodRegularPower = TGet_Class(ini, RulesSection_General, "NodRegularPower", NodRegularPower);
+		NodAdvancedPower = TGet_Class(ini, RulesSection_General, "NodAdvancedPower", NodAdvancedPower);
+		GDIFirestormGenerator = TGet_Class(ini, RulesSection_General, "GDIFirestormGenerator", GDIFirestormGenerator);
+		GDIHunterSeeker = TGet_Class(ini, RulesSection_General, "GDIHunterSeeker", GDIHunterSeeker);
+		NodHunterSeeker = TGet_Class(ini, RulesSection_General, "NodHunterSeeker", NodHunterSeeker);
+		BaseUnit = TGet_TypeList<UnitTypeClass>(ini, RulesSection_General, "BaseUnit", BaseUnit);
+		HarvesterUnit = TGet_TypeList<UnitTypeClass>(ini, RulesSection_General, "HarvesterUnit", HarvesterUnit);
+		PadAircraft = TGet_TypeList<AircraftTypeClass>(ini, RulesSection_General, "PadAircraft", PadAircraft);
+		Paratrooper = TGet_Class(ini, RulesSection_General, "Paratrooper", Paratrooper);
+		ChronoDelay = ini.Get_Int(RulesSection_General, "ChronoDelay", ChronoDelay);
+		ChronoReinfDelay = ini.Get_Int(RulesSection_General, "ChronoReinfDelay", ChronoReinfDelay);
+		ChronoDistanceFactor = ini.Get_Int(RulesSection_General, "ChronoDistanceFactor", ChronoDistanceFactor);
+		ChronoTrigger = ini.Get_Bool(RulesSection_General, "ChronoTrigger", ChronoTrigger);
+		ChronoMinimumDelay = ini.Get_Int(RulesSection_General, "ChronoMinimumDelay", ChronoMinimumDelay);
+		ChronoRangeMinimum = ini.Get_Int(RulesSection_General, "ChronoRangeMinimum", ChronoRangeMinimum);
+		AlliedDisguise = TGet_Class(ini, RulesSection_General, "AlliedDisguise", AlliedDisguise);
+		SovietDisguise = TGet_Class(ini, RulesSection_General, "SovietDisguise", SovietDisguise);
+		SpyPowerBlackout = ini.Get_Int(RulesSection_General, "SpyPowerBlackout", SpyPowerBlackout);
+		SpyMoneyStealPercent = ini.Get_Float(RulesSection_General, "SpyMoneyStealPercent", SpyMoneyStealPercent);
+		AttackCursorOnDisguise = ini.Get_Bool(RulesSection_General, "AttackCursorOnDisguise", AttackCursorOnDisguise);
+		AIMinorSuperReadyPercent = ini.Get_Float(RulesSection_General, "AIMinorSuperReadyPercent", AIMinorSuperReadyPercent);
+		AISafeDistance = ini.Get_Int(RulesSection_General, "AISafeDistance", AISafeDistance);
+		AINavalYardAdjacency = ini.Get_Int(RulesSection_General, "AINavalYardAdjacency", AINavalYardAdjacency);
+		MaximumBuildingPlacementFailures = ini.Get_Int(RulesSection_General, "MaximumBuildingPlacementFailures", MaximumBuildingPlacementFailures);
+		HarvesterTooFarDistance = ini.Get_Int(RulesSection_General, "HarvesterTooFarDistance", HarvesterTooFarDistance);
+		ApproachTargetResetMultiplier = ini.Get_Int(RulesSection_General, "ApproachTargetResetMultiplier", ApproachTargetResetMultiplier);
+		CampaignMoneyDeltaEasy = ini.Get_Int(RulesSection_General, "CampaignMoneyDeltaEasy", CampaignMoneyDeltaEasy);
+		CampaignMoneyDeltaHard = ini.Get_Int(RulesSection_General, "CampaignMoneyDeltaHard", CampaignMoneyDeltaHard);
+		GuardAreaTargetingDelay = ini.Get_Int(RulesSection_General, "GuardAreaTargetingDelay", GuardAreaTargetingDelay);
+		NormalTargetingDelay = ini.Get_Int(RulesSection_General, "NormalTargetingDelay", NormalTargetingDelay);
+		ChronoHarvTooFarDistance = ini.Get_Int(RulesSection_General, "ChronoHarvTooFarDistance", ChronoHarvTooFarDistance);
+		AIRestrictReplaceTime = ini.Get_Int(RulesSection_General, "AIRestrictReplaceTime", AIRestrictReplaceTime);
+		ThreatPerOccupant = ini.Get_Int(RulesSection_General, "ThreatPerOccupant", ThreatPerOccupant);
+		PurifierBonus = ini.Get_Float(RulesSection_General, "PurifierBonus", PurifierBonus);
+		Engineer = TGet_Class(ini, RulesSection_General, "Engineer", Engineer);
+		Technician = TGet_Class(ini, RulesSection_General, "Technician", Technician);
+		Pilot = TGet_Class(ini, RulesSection_General, "Pilot", Pilot);
+		AlliedCrew = TGet_Class(ini, RulesSection_General, "AlliedCrew", AlliedCrew);
+		SovietCrew = TGet_Class(ini, RulesSection_General, "SovietCrew", SovietCrew);
+		IsCurleyShuffle = ini.Get_Bool(RulesSection_General, "CurleyShuffle", IsCurleyShuffle);
+		IsFineDifficulty = ini.Get_Bool(RulesSection_General, "FineDiffControl", IsFineDifficulty);
+		TeamDelays = ini.Get_IntList(RulesSection_General, "TeamDelays", TeamDelays);
+		AlliedBaseDefenseCounts = ini.Get_IntList(RulesSection_General, "AlliedBaseDefenseCounts", AlliedBaseDefenseCounts);
+		SovietBaseDefenseCounts = ini.Get_IntList(RulesSection_General, "SovietBaseDefenseCounts", SovietBaseDefenseCounts);
+		DisabledDisguiseDetectionPercent = ini.Get_IntList(RulesSection_General, "DisabledDisguiseDetectionPercent", DisabledDisguiseDetectionPercent);
+		AIAutoDeployFrameDelay = ini.Get_IntList(RulesSection_General, "AIAutoDeployFrameDelay", AIAutoDeployFrameDelay);
+		AIPickWallDefensePercent = ini.Get_IntList(RulesSection_General, "AIPickWallDefensePercent", AIPickWallDefensePercent);
+		AIHateDelays = ini.Get_IntList(RulesSection_General, "AIHateDelays", AIHateDelays);
+		AIAlternateProductionCreditCutoff = ini.Get_Int(RulesSection_General, "AIAlternateProductionCreditCutoff", AIAlternateProductionCreditCutoff);
+		AIUseTurbineUpgradeChance = ini.Get_Float(RulesSection_General, "AIUseTurbineUpgradeProbability", AIUseTurbineUpgradeChance);
+		NodAIBuildsWalls = ini.Get_Bool(RulesSection_General, "NodAIBuildsWalls", NodAIBuildsWalls);
+		AIBuildsWalls = ini.Get_Bool(RulesSection_General, "AIBuildsWalls", AIBuildsWalls);
+		FillEarliestTeamProbability = ini.Get_IntList(RulesSection_General, "FillEarliestTeamProbability", FillEarliestTeamProbability);
+		MinimumAIDefensiveTeams = ini.Get_IntList(RulesSection_General, "MinimumAIDefensiveTeams", MinimumAIDefensiveTeams);
+		MaximumAIDefensiveTeams = ini.Get_IntList(RulesSection_General, "MaximumAIDefensiveTeams", MaximumAIDefensiveTeams);
+		TotalAITeamCap = ini.Get_IntList(RulesSection_General, "TotalAITeamCap", TotalAITeamCap);
+		UseMinDefenseRule = ini.Get_Bool(RulesSection_General, "UseMinDefenseRule", UseMinDefenseRule);
+		DissolveUnfilledTeamDelay = ini.Get_Int(RulesSection_General, "DissolveUnfilledTeamDelay", DissolveUnfilledTeamDelay);
+		MultiplayerAICreditMultipliers = ini.Get_IntList(RulesSection_General, "MultiplayerAICM", MultiplayerAICreditMultipliers);
+		AIVirtualPurifiers = ini.Get_IntList(RulesSection_General, "AIVirtualPurifiers", AIVirtualPurifiers);
+		AmerParaDropInf = TGet_TypeList<InfantryTypeClass>(ini, RulesSection_General, "AmerParaDropInf", AmerParaDropInf);
+		AmerParaDropNum = ini.Get_IntList(RulesSection_General, "AmerParaDropNum", AmerParaDropNum);
+		AllyParaDropInf = TGet_TypeList<InfantryTypeClass>(ini, RulesSection_General, "AllyParaDropInf", AllyParaDropInf);
+		AllyParaDropNum = ini.Get_IntList(RulesSection_General, "AllyParaDropNum", AllyParaDropNum);
+		SovParaDropInf = TGet_TypeList<InfantryTypeClass>(ini, RulesSection_General, "SovParaDropInf", SovParaDropInf);
+		SovParaDropNum = ini.Get_IntList(RulesSection_General, "SovParaDropNum", SovParaDropNum);
+		AIIonCannonConYardValue = ini.Get_IntList(RulesSection_General, "AIIonCannonConYardValue", AIIonCannonConYardValue);
+		AIIonCannonWarFactoryValue = ini.Get_IntList(RulesSection_General, "AIIonCannonWarFactoryValue", AIIonCannonWarFactoryValue);
+		AIIonCannonPowerValue = ini.Get_IntList(RulesSection_General, "AIIonCannonPowerValue", AIIonCannonPowerValue);
+		AIIonCannonEngineerValue = ini.Get_IntList(RulesSection_General, "AIIonCannonEngineerValue", AIIonCannonEngineerValue);
+		AIIonCannonThiefValue = ini.Get_IntList(RulesSection_General, "AIIonCannonThiefValue", AIIonCannonThiefValue);
+		AIIonCannonHarvesterValue = ini.Get_IntList(RulesSection_General, "AIIonCannonHarvesterValue", AIIonCannonHarvesterValue);
+		AIIonCannonMCVValue = ini.Get_IntList(RulesSection_General, "AIIonCannonMCVValue", AIIonCannonMCVValue);
+		AIIonCannonAPCValue = ini.Get_IntList(RulesSection_General, "AIIonCannonAPCValue", AIIonCannonAPCValue);
+		AIIonCannonBaseDefenseValue = ini.Get_IntList(RulesSection_General, "AIIonCannonBaseDefenseValue", AIIonCannonBaseDefenseValue);
+		AIIonCannonPlugValue = ini.Get_IntList(RulesSection_General, "AIIonCannonPlugValue", AIIonCannonPlugValue);
+		AIIonCannonHelipadValue = ini.Get_IntList(RulesSection_General, "AIIonCannonHelipadValue", AIIonCannonHelipadValue);
+		AIIonCannonTempleValue = ini.Get_IntList(RulesSection_General, "AIIonCannonTempleValue", AIIonCannonTempleValue);
+		CloakDelay = ini.Get_Float(RulesSection_General, "CloakDelay", CloakDelay);
+		GameSpeedBias = ini.Get_Float(RulesSection_General, "GameSpeedBias", GameSpeedBias);
+		NervousBias = ini.Get_Float(RulesSection_General, "BaseBias", NervousBias);
+		IsSeparate = ini.Get_Bool(RulesSection_General, "SeparateAircraft", IsSeparate);
+		BaseDefenseDelay = ini.Get_Float(RulesSection_General, "BaseDefenseDelay", BaseDefenseDelay);
+		SuspendPriority = ini.Get_Int(RulesSection_General, "SuspendPriority", SuspendPriority);
+		SuspendDelay = ini.Get_Float(RulesSection_General, "SuspendDelay", SuspendDelay);
+		SurvivorFraction = ini.Get_Float(RulesSection_General, "SurvivorRate", SurvivorFraction);
+		AlliedSurvivorDivisor = ini.Get_Int(RulesSection_General, "AlliedSurvivorDivisor", AlliedSurvivorDivisor);
+		SovietSurvivorDivisor = ini.Get_Int(RulesSection_General, "SovietSurvivorDivisor", SovietSurvivorDivisor);
+		ReloadRate = ini.Get_Float(RulesSection_General, "ReloadRate", ReloadRate);
+		BuildupTime = ini.Get_Float(RulesSection_General, "BuildupTime", BuildupTime);
+		HarvesterDumpRate = ini.Get_Float(RulesSection_General, "HarvesterDumpRate", HarvesterDumpRate);
+		HarvesterLoadRate = ini.Get_Int(RulesSection_General, "HarvesterLoadRate", HarvesterLoadRate);
+		BuildSpeedBias = ini.Get_Float(RulesSection_General, "BuildSpeed", BuildSpeedBias);
+		DamageDelay = ini.Get_Float(RulesSection_General, "DamageDelay", DamageDelay);
+		GrowthRate = ini.Get_Float(RulesSection_General, "GrowthRate", GrowthRate);
+		RefundPercent = ini.Get_Float(RulesSection_General, "RefundPercent", RefundPercent);
+		RepairPercent = ini.Get_Float(RulesSection_General, "RepairPercent", RepairPercent);
+		RepairStep = ini.Get_Int(RulesSection_General, "RepairStep", RepairStep);
+		IRepairStep = ini.Get_Int(RulesSection_General, "IRepairStep", IRepairStep);
+		RepairRate = ini.Get_Float(RulesSection_General, "RepairRate", RepairRate);
+		URepairRate = ini.Get_Float(RulesSection_General, "URepairRate", URepairRate);
+		IRepairRate = ini.Get_Float(RulesSection_General, "IRepairRate", IRepairRate);
+		StrayDistance = ini.Get_Lepton(RulesSection_General, "Stray", StrayDistance);
+		RelaxedStray = ini.Get_Lepton(RulesSection_General, "RelaxedStray", RelaxedStray);
+		GuardModeStray = ini.Get_Lepton(RulesSection_General, "GuardModeStray", GuardModeStray);
+		CloseEnoughDistance = ini.Get_Lepton(RulesSection_General, "CloseEnough", CloseEnoughDistance);
+		IsBlendedFog = ini.Get_Bool(RulesSection_General, "BlendedFog", IsBlendedFog);
+		AttackingAircraftSightRange = ini.Get_Int(RulesSection_General, "AttackingAircraftSightRange", AttackingAircraftSightRange);
+		LeptonsPerSightIncrease = ini.Get_Int(RulesSection_General, "LeptonsPerSightIncrease", LeptonsPerSightIncrease);
+		TiberiumTransmogrify = ini.Get_Int(RulesSection_General, "TiberiumTransmogrify", TiberiumTransmogrify);
+		LightningDeferment = ini.Get_Int(RulesSection_General, "LightningDeferment", LightningDeferment);
+		LightningDamage = ini.Get_Int(RulesSection_General, "LightningDamage", LightningDamage);
+		LightningStormDuration = ini.Get_Int(RulesSection_General, "LightningStormDuration", LightningStormDuration);
+		LightningHitDelay = ini.Get_Int(RulesSection_General, "LightningHitDelay", LightningHitDelay);
+		LightningScatterDelay = ini.Get_Int(RulesSection_General, "LightningScatterDelay", LightningScatterDelay);
+		LightningCellSpread = ini.Get_Int(RulesSection_General, "LightningCellSpread", LightningCellSpread);
+		LightningSeparation = ini.Get_Int(RulesSection_General, "LightningSeparation", LightningSeparation);
+		LightningWarhead = TGet_Class(ini, RulesSection_General, "LightningWarhead", LightningWarhead);  /* out of line 653da0 */
+		LightningPrintText = ini.Get_Bool(RulesSection_General, "LightningPrintText", LightningPrintText);
+		PrismType = TGet_Class(ini, RulesSection_General, "PrismType", PrismType);  /* out of line 654060 */
+		PrismSupportModifier = ini.Get_Float(RulesSection_General, "PrismSupportModifier", PrismSupportModifier) * 100.0;
+		PrismSupportMax = ini.Get_Int(RulesSection_General, "PrismSupportMax", PrismSupportMax);
+		PrismSupportDelay = ini.Get_Int(RulesSection_General, "PrismSupportDelay", PrismSupportDelay);
+		PrismSupportDuration = ini.Get_Int(RulesSection_General, "PrismSupportDuration", PrismSupportDuration);
+		PrismSupportHeight = ini.Get_Int(RulesSection_General, "PrismSupportHeight", PrismSupportHeight);
+		V3Rocket.PauseFrames = ini.Get_Int(RulesSection_General, "V3RocketPauseFrames", V3Rocket.PauseFrames);
+		V3Rocket.TiltFrames = ini.Get_Int(RulesSection_General, "V3RocketTiltFrames", V3Rocket.TiltFrames);
+		V3Rocket.PitchInitial = ini.Get_Float(RulesSection_General, "V3RocketPitchInitial", V3Rocket.PitchInitial);
+		V3Rocket.PitchFinal = ini.Get_Float(RulesSection_General, "V3RocketPitchFinal", V3Rocket.PitchFinal);
+		V3Rocket.TurnRate = ini.Get_Float(RulesSection_General, "V3RocketTurnRate", V3Rocket.TurnRate);
+		V3Rocket.Acceleration = ini.Get_Float(RulesSection_General, "V3RocketAcceleration", V3Rocket.Acceleration);
+		V3Rocket.Altitude = ini.Get_Int(RulesSection_General, "V3RocketAltitude", V3Rocket.Altitude);
+		V3Rocket.Damage = ini.Get_Int(RulesSection_General, "V3RocketDamage", V3Rocket.Damage);
+		V3Rocket.EliteDamage = ini.Get_Int(RulesSection_General, "V3RocketEliteDamage", V3Rocket.EliteDamage);
+		V3Rocket.BodyLength = ini.Get_Int(RulesSection_General, "V3RocketBodyLength", V3Rocket.BodyLength);
+		V3Rocket.LazyCurve = ini.Get_Bool(RulesSection_General, "V3RocketLazyCurve", V3Rocket.LazyCurve);
+		V3Rocket.Type = TGet_Class(ini, RulesSection_General, "V3RocketType", V3Rocket.Type);  /* out of line 6540b0 */
+		DMisl.PauseFrames = ini.Get_Int(RulesSection_General, "DMislPauseFrames", DMisl.PauseFrames);
+		DMisl.TiltFrames = ini.Get_Int(RulesSection_General, "DMislTiltFrames", DMisl.TiltFrames);
+		DMisl.PitchInitial = ini.Get_Float(RulesSection_General, "DMislPitchInitial", DMisl.PitchInitial);
+		DMisl.PitchFinal = ini.Get_Float(RulesSection_General, "DMislPitchFinal", DMisl.PitchFinal);
+		DMisl.TurnRate = ini.Get_Float(RulesSection_General, "DMislTurnRate", DMisl.TurnRate);
+		DMisl.Acceleration = ini.Get_Float(RulesSection_General, "DMislAcceleration", DMisl.Acceleration);
+		DMisl.Altitude = ini.Get_Int(RulesSection_General, "DMislAltitude", DMisl.Altitude);
+		DMisl.Damage = ini.Get_Int(RulesSection_General, "DMislDamage", DMisl.Damage);
+		DMisl.EliteDamage = ini.Get_Int(RulesSection_General, "DMislEliteDamage", DMisl.EliteDamage);
+		DMisl.BodyLength = ini.Get_Int(RulesSection_General, "DMislBodyLength", DMisl.BodyLength);
+		DMisl.LazyCurve = ini.Get_Bool(RulesSection_General, "DMislLazyCurve", DMisl.LazyCurve);
+		DMisl.Type = TGet_Class(ini, RulesSection_General, "DMislType", DMisl.Type);  /* out of line 6540b0 */
+		ParadropRadius = ini.Get_Int(RulesSection_General, "ParadropRadius", ParadropRadius);
+		SpotlightMovementRadius = ini.Get_Int(RulesSection_General, "SpotlightMovementRadius", SpotlightMovementRadius);
+		SpotlightLocationRadius = ini.Get_Int(RulesSection_General, "SpotlightLocationRadius", SpotlightLocationRadius);
+		SpotlightSpeed = ini.Get_Float(RulesSection_General, "SpotlightSpeed", SpotlightSpeed);
+		SpotlightAcceleration = ini.Get_Float(RulesSection_General, "SpotlightAcceleration", SpotlightAcceleration);
+		SpotlightAngle = ini.Get_Float(RulesSection_General, "SpotlightAngle", SpotlightAngle);
+		SpotlightRadius = ini.Get_Int(RulesSection_General, "SpotlightRadius", SpotlightRadius);
+		RevealTriggerRadius = ini.Get_Int(RulesSection_General, "RevealTriggerRadius", RevealTriggerRadius);
+		ChargeToDrainRatio = ini.Get_Float(RulesSection_General, "ChargeToDrainRatio", ChargeToDrainRatio);
+		DamageToFirestormDamageCoefficient = ini.Get_Float(RulesSection_General, "DamageToFirestormDamageCoefficient", DamageToFirestormDamageCoefficient);
+		WallBuildSpeedCoefficient = ini.Get_Float(RulesSection_General, "WallBuildSpeedCoefficient", WallBuildSpeedCoefficient);
+		ConditionYellowSparkingProbability = ini.Get_Float(RulesSection_General, "ConditionYellowSparkingProbability", ConditionYellowSparkingProbability);
+		ConditionRedSparkingProbability = ini.Get_Float(RulesSection_General, "ConditionRedSparkingProbability", ConditionRedSparkingProbability);
+		AITriggerSuccessWeightDelta = ini.Get_Float(RulesSection_General, "AITriggerSuccessWeightDelta", AITriggerSuccessWeightDelta);
+		AITriggerFailureWeightDelta = ini.Get_Float(RulesSection_General, "AITriggerFailureWeightDelta", AITriggerFailureWeightDelta);
+		AITriggerTrackRecordCoefficient = ini.Get_Float(RulesSection_General, "AITriggerTrackRecordCoefficient", AITriggerTrackRecordCoefficient);
+		WeedCapacity = ini.Get_Int(RulesSection_General, "WeedCapacity", WeedCapacity);
+		HarvestersPerRefinery = ini.Get_Int(RulesSection_General, "HarvestersPerRefinery", HarvestersPerRefinery);
+		FlashFrameTime = ini.Get_Int(RulesSection_General, "FlashFrameTime", FlashFrameTime);
+		RadarCombatFlashTime = ini.Get_Int(RulesSection_General, "RadarCombatFlashTime", RadarCombatFlashTime);
+		RadarEventSpeed = ini.Get_Float(RulesSection_General, "RadarEventSpeed", RadarEventSpeed);
+		RadarEventRotationSpeed = ini.Get_Float(RulesSection_General, "RadarEventRotationSpeed", RadarEventRotationSpeed);
+		RadarEventSuppressionDistances = ini.Get_IntList(RulesSection_General, "RadarEventSuppressionDistances", RadarEventSuppressionDistances);
+		RadarEventVisibilityDurations = ini.Get_IntList(RulesSection_General, "RadarEventVisibilityDurations", RadarEventVisibilityDurations);
+		RadarEventDurations = ini.Get_IntList(RulesSection_General, "RadarEventDurations", RadarEventDurations);
+		RadarEventMinRadius = ini.Get_Int(RulesSection_General, "RadarEventMinRadius", RadarEventMinRadius);
+		RadarEventColorSpeed = ini.Get_Float(RulesSection_General, "RadarEventColorSpeed", RadarEventColorSpeed);
+		HunterSeekerDetonateProximity = ini.Get_Int(RulesSection_General, "HunterSeekerDetonateProximity", HunterSeekerDetonateProximity);
+		HunterSeekerDescendProximity = ini.Get_Int(RulesSection_General, "HunterSeekerDescendProximity", HunterSeekerDescendProximity);
+		HunterSeekerDescentSpeed = ini.Get_Int(RulesSection_General, "HunterSeekerDescentSpeed", HunterSeekerDescentSpeed);
+		HunterSeekerAscentSpeed = ini.Get_Int(RulesSection_General, "HunterSeekerAscentSpeed", HunterSeekerAscentSpeed);
+		HunterSeekerEmergeSpeed = ini.Get_Int(RulesSection_General, "HunterSeekerEmergeSpeed", HunterSeekerEmergeSpeed);
+		MyEffectivenessCoefficientDefault = ini.Get_Float(RulesSection_General, "MyEffectivenessCoefficientDefault", MyEffectivenessCoefficientDefault);
+		TargetEffectivenessCoefficientDefault = ini.Get_Float(RulesSection_General, "TargetEffectivenessCoefficientDefault", TargetEffectivenessCoefficientDefault);
+		TargetSpecialThreatCoefficientDefault = ini.Get_Float(RulesSection_General, "TargetSpecialThreatCoefficientDefault", TargetSpecialThreatCoefficientDefault);
+		TargetStrengthCoefficientDefault = ini.Get_Float(RulesSection_General, "TargetStrengthCoefficientDefault", TargetStrengthCoefficientDefault);
+		TargetDistanceCoefficientDefault = ini.Get_Float(RulesSection_General, "TargetDistanceCoefficientDefault", TargetDistanceCoefficientDefault);
+		DumbMyEffectivenessCoefficient = ini.Get_Float(RulesSection_General, "DumbMyEffectivenessCoefficient", DumbMyEffectivenessCoefficient);
+		DumbTargetEffectivenessCoefficient = ini.Get_Float(RulesSection_General, "DumbTargetEffectivenessCoefficient", DumbTargetEffectivenessCoefficient);
+		DumbTargetSpecialThreatCoefficient = ini.Get_Float(RulesSection_General, "DumbTargetSpecialThreatCoefficient", DumbTargetSpecialThreatCoefficient);
+		DumbTargetStrengthCoefficient = ini.Get_Float(RulesSection_General, "DumbTargetStrengthCoefficient", DumbTargetStrengthCoefficient);
+		DumbTargetDistanceCoefficient = ini.Get_Float(RulesSection_General, "DumbTargetDistanceCoefficient", DumbTargetDistanceCoefficient);
+		EnemyHouseThreatBonus = ini.Get_Float(RulesSection_General, "EnemyHouseThreatBonus", EnemyHouseThreatBonus);
+		VeinholeMonsterStrength = ini.Get_Int(RulesSection_General, "VeinholeMonsterStrength", VeinholeMonsterStrength);
+		MaxVeinholeGrowth = ini.Get_Int(RulesSection_General, "MaxVeinholeGrowth", MaxVeinholeGrowth);
+		VeinholeGrowthRate = ini.Get_Int(RulesSection_General, "VeinholeGrowthRate", VeinholeGrowthRate);
+		VeinholeShrinkRate = ini.Get_Int(RulesSection_General, "VeinholeShrinkRate", VeinholeShrinkRate);
+		VeinDamage = ini.Get_Int(RulesSection_General, "VeinDamage", VeinDamage);
+		VeinholeTypeClass = TGet_Class(ini, RulesSection_General, "VeinholeTypeClass", VeinholeTypeClass);  /* out of line 654100 */
+		DefaultMirageDisguises = TGet_TypeList<TerrainTypeClass>(ini, RulesSection_General, "DefaultMirageDisguises", DefaultMirageDisguises);
+		InfantryBlinkDisguiseTime = ini.Get_Int(RulesSection_General, "InfantryBlinkDisguiseTime", InfantryBlinkDisguiseTime);
+		MaximumQueuedObjects = ini.Get_Int(RulesSection_General, "MaximumQueuedObjects", MaximumQueuedObjects);
+		MaxWaypointPathLength = ini.Get_Int(RulesSection_General, "MaxWaypointPathLength", MaxWaypointPathLength);
+		TreeStrength = ini.Get_Int(RulesSection_General, "TreeStrength", TreeStrength);
+		EngineerCaptureLevel = ini.Get_Float(RulesSection_General, "EngineerCaptureLevel", EngineerCaptureLevel);
 		EngineerDamage = ini.Get_Float(RulesSection_General, "EngineerCaptureLevel", EngineerDamage); // RA2: TibSun reads the damage under the capture level's key too
-		TalkBubbleTime = ini.Get_Float(RulesSection_General, "TalkBubbleTime", TalkBubbleTime * (1.0f / 60)) * 60.0; // RA2: as above
+		TalkBubbleTime = ini.Get_Float(RulesSection_General, "TalkBubbleTime", TalkBubbleTime * (1.0f / 60)) * 60.0;
 		return(true);
 	}
 	return(false);
@@ -1711,33 +1711,33 @@ bool RulesClass::General(CCINIClass const & ini)
 bool RulesClass::MPlayer(CCINIClass const & ini)
 {
 	static char const * const RulesSection_MultiplayerDialogSettings = "MultiplayerDialogSettings"; // RA2: the executable's section name (a file-static pointer, 0x7A905C)
-	if (ini.Is_Present(RulesSection_MultiplayerDialogSettings)) { // RA2: as above
-		MinMoney = ini.Get_Int(RulesSection_MultiplayerDialogSettings, "MinMoney", MinMoney); // RA2: as above
-		MPMoney = ini.Get_Int(RulesSection_MultiplayerDialogSettings, "Money", MPMoney); // RA2: as above
-		MPMaxMoney = ini.Get_Int(RulesSection_MultiplayerDialogSettings, "MaxMoney", MPMaxMoney); // RA2: as above
-		MoneyIncrement = ini.Get_Int(RulesSection_MultiplayerDialogSettings, "MoneyIncrement", MoneyIncrement); // RA2: as above
-		MinUnitCount = ini.Get_Int(RulesSection_MultiplayerDialogSettings, "MinUnitCount", MinUnitCount); // RA2: as above
-		MPUnitCount = ini.Get_Int(RulesSection_MultiplayerDialogSettings, "UnitCount", MPUnitCount); // RA2: as above
-		MaxUnitCount = ini.Get_Int(RulesSection_MultiplayerDialogSettings, "MaxUnitCount", MaxUnitCount); // RA2: as above
-		MPBuildLevel = ini.Get_Int(RulesSection_MultiplayerDialogSettings, "TechLevel", MPBuildLevel); // RA2: as above
-		GameSpeed = ini.Get_Int(RulesSection_MultiplayerDialogSettings, "GameSpeed", GameSpeed); // RA2: as above
-		AIDifficultyStruct = ini.Get_Int(RulesSection_MultiplayerDialogSettings, "AIDifficulty", AIDifficultyStruct); // RA2: as above
-		AIPlayers = ini.Get_Int(RulesSection_MultiplayerDialogSettings, "AIPlayers", AIPlayers); // RA2: as above
-		IsMPBridgeDestruction = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "BridgeDestruction", IsMPBridgeDestruction); // RA2: as above
-		IsMPShadowGrow = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "ShadowGrow", IsMPShadowGrow); // RA2: as above
-		Shroud = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "Shroud", Shroud); // RA2: as above
-		IsMPBasesOn = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "Bases", IsMPBasesOn); // RA2: as above
-		IsMPTiberiumGrow = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "TiberiumGrows", IsMPTiberiumGrow); // RA2: as above
-		IsMPCrates = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "Crates", IsMPCrates); // RA2: as above
-		IsMPCaptureTheFlag = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "CaptureTheFlag", IsMPCaptureTheFlag); // RA2: as above
-		HarvesterTruce = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "HarvesterTruce", HarvesterTruce); // RA2: as above
-		MultiEngineer = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "MultiEngineer", MultiEngineer); // RA2: as above
-		AlliesAllowed = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "AlliesAllowed", AlliesAllowed); // RA2: as above
-		ShortGame = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "ShortGame", ShortGame); // RA2: as above
-		SuperWeaponsAllowed = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "SuperWeaponsAllowed", SuperWeaponsAllowed); // RA2: as above
-		BuildOffAlly = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "BuildOffAlly", BuildOffAlly); // RA2: as above
-		FogOfWar = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "FogOfWar", FogOfWar); // RA2: as above
-		MCVRedeploys = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "MCVRedeploys", MCVRedeploys); // RA2: as above
+	if (ini.Is_Present(RulesSection_MultiplayerDialogSettings)) {
+		MinMoney = ini.Get_Int(RulesSection_MultiplayerDialogSettings, "MinMoney", MinMoney);
+		MPMoney = ini.Get_Int(RulesSection_MultiplayerDialogSettings, "Money", MPMoney);
+		MPMaxMoney = ini.Get_Int(RulesSection_MultiplayerDialogSettings, "MaxMoney", MPMaxMoney);
+		MoneyIncrement = ini.Get_Int(RulesSection_MultiplayerDialogSettings, "MoneyIncrement", MoneyIncrement);
+		MinUnitCount = ini.Get_Int(RulesSection_MultiplayerDialogSettings, "MinUnitCount", MinUnitCount);
+		MPUnitCount = ini.Get_Int(RulesSection_MultiplayerDialogSettings, "UnitCount", MPUnitCount);
+		MaxUnitCount = ini.Get_Int(RulesSection_MultiplayerDialogSettings, "MaxUnitCount", MaxUnitCount);
+		MPBuildLevel = ini.Get_Int(RulesSection_MultiplayerDialogSettings, "TechLevel", MPBuildLevel);
+		GameSpeed = ini.Get_Int(RulesSection_MultiplayerDialogSettings, "GameSpeed", GameSpeed);
+		AIDifficultyStruct = ini.Get_Int(RulesSection_MultiplayerDialogSettings, "AIDifficulty", AIDifficultyStruct);
+		AIPlayers = ini.Get_Int(RulesSection_MultiplayerDialogSettings, "AIPlayers", AIPlayers);
+		IsMPBridgeDestruction = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "BridgeDestruction", IsMPBridgeDestruction);
+		IsMPShadowGrow = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "ShadowGrow", IsMPShadowGrow);
+		Shroud = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "Shroud", Shroud);
+		IsMPBasesOn = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "Bases", IsMPBasesOn);
+		IsMPTiberiumGrow = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "TiberiumGrows", IsMPTiberiumGrow);
+		IsMPCrates = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "Crates", IsMPCrates);
+		IsMPCaptureTheFlag = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "CaptureTheFlag", IsMPCaptureTheFlag);
+		HarvesterTruce = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "HarvesterTruce", HarvesterTruce);
+		MultiEngineer = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "MultiEngineer", MultiEngineer);
+		AlliesAllowed = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "AlliesAllowed", AlliesAllowed);
+		ShortGame = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "ShortGame", ShortGame);
+		SuperWeaponsAllowed = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "SuperWeaponsAllowed", SuperWeaponsAllowed);
+		BuildOffAlly = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "BuildOffAlly", BuildOffAlly);
+		FogOfWar = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "FogOfWar", FogOfWar);
+		MCVRedeploys = ini.Get_Bool(RulesSection_MultiplayerDialogSettings, "MCVRedeploys", MCVRedeploys);
 		return(true);
 	}
 	return(false);
@@ -2118,82 +2118,82 @@ bool RulesClass::Do_ParticleSystemTypes(CCINIClass const & ini)
 bool RulesClass::AI(CCINIClass const & ini)
 {
 	static char const * const RulesSection_AI = "AI"; // RA2: the executable's section name, a file-static pointer at 0x007A9090
-	if (ini.Is_Present(RulesSection_AI)) { // RA2: as above
-		BuildConst = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "BuildConst", BuildConst); // RA2: as above
-		BuildPower = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "BuildPower", BuildPower); // RA2: as above
-		BuildRefinery = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "BuildRefinery", BuildRefinery); // RA2: as above
-		BuildBarracks = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "BuildBarracks", BuildBarracks); // RA2: as above
-		BuildTech = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "BuildTech", BuildTech); // RA2: as above
-		BuildWeapons = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "BuildWeapons", BuildWeapons); // RA2: as above
-		BuildDefense = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "BuildDefense", BuildDefense); // RA2: as above
-		BuildPDefense = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "BuildPDefense", BuildPDefense); // RA2: as above
-		BuildAA = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "BuildAA", BuildAA); // RA2: as above
-		BuildHelipad = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "BuildHelipad", BuildHelipad); // RA2: as above
-		BuildRadar = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "BuildRadar", BuildRadar); // RA2: as above
-		ConcreteWalls = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "ConcreteWalls", ConcreteWalls); // RA2: as above
-		NSGates = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "NSGates", NSGates); // RA2: as above
-		EWGates = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "EWGates", EWGates); // RA2: as above
-		BuildNavalYard = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "BuildNavalYard", BuildNavalYard); // RA2: as above
-		BuildDummy = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "BuildDummy", BuildDummy); // RA2: as above
-		NeutralTechBuildings = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "NeutralTechBuildings", NeutralTechBuildings); // RA2: as above
-		AttackInterval = ini.Get_Float(RulesSection_AI, "AttackInterval", AttackInterval); // RA2: as above
-		AttackDelay = ini.Get_Float(RulesSection_AI, "AttackDelay", AttackDelay); // RA2: as above
-		PatrolTime = ini.Get_Float(RulesSection_AI, "PatrolScan", PatrolTime); // RA2: as above
-		int credit_reserve = ini.Get_Int(RulesSection_AI, "CreditReserve", RepairThreshhold); // RA2: as above
-		RepairThreshhold = credit_reserve; // RA2: as above
-		PathDelay = ini.Get_Float(RulesSection_AI, "PathDelay", PathDelay); // RA2: as above
-		int blockage_path_delay = ini.Get_Int(RulesSection_AI, "BlockagePathDelay", BlockagePathDelay); // RA2: as above
-		BlockagePathDelay = blockage_path_delay; // RA2: as above
-		int tiberium_near_scan = ini.Get_Lepton(RulesSection_AI, "TiberiumNearScan", TiberiumShortScan); // RA2: as above
-		TiberiumShortScan = tiberium_near_scan; // RA2: as above
-		int tiberium_far_scan = ini.Get_Lepton(RulesSection_AI, "TiberiumFarScan", TiberiumLongScan); // RA2: as above
-		TiberiumLongScan = tiberium_far_scan; // RA2: as above
-		AutocreateTime = ini.Get_Float(RulesSection_AI, "AutocreateTime", AutocreateTime); // RA2: as above
-		int infantry_reserve = ini.Get_Int(RulesSection_AI, "InfantryReserve", InfantryReserve); // RA2: as above
-		InfantryReserve = infantry_reserve; // RA2: as above
-		int infantry_base_mult = ini.Get_Int(RulesSection_AI, "InfantryBaseMult", InfantryBaseMult); // RA2: as above
-		InfantryBaseMult = infantry_base_mult; // RA2: as above
-		int power_surplus = ini.Get_Int(RulesSection_AI, "PowerSurplus", PowerSurplus); // RA2: as above
-		PowerSurplus = power_surplus; // RA2: as above
-		int base_size_add = ini.Get_Int(RulesSection_AI, "BaseSizeAdd", BaseSizeAdd); // RA2: as above
-		BaseSizeAdd = base_size_add; // RA2: as above
-		RefineryRatio = ini.Get_Float(RulesSection_AI, "RefineryRatio", RefineryRatio); // RA2: as above
-		int refinery_limit = ini.Get_Int(RulesSection_AI, "RefineryLimit", RefineryLimit); // RA2: as above
-		RefineryLimit = refinery_limit; // RA2: as above
-		BarracksRatio = ini.Get_Float(RulesSection_AI, "BarracksRatio", BarracksRatio); // RA2: as above
-		int barracks_limit = ini.Get_Int(RulesSection_AI, "BarracksLimit", BarracksLimit); // RA2: as above
-		BarracksLimit = barracks_limit; // RA2: as above
-		WarRatio = ini.Get_Float(RulesSection_AI, "WarRatio", WarRatio); // RA2: as above
-		int war_limit = ini.Get_Int(RulesSection_AI, "WarLimit", WarLimit); // RA2: as above
-		WarLimit = war_limit; // RA2: as above
-		DefenseRatio = ini.Get_Float(RulesSection_AI, "DefenseRatio", DefenseRatio); // RA2: as above
-		int defense_limit = ini.Get_Int(RulesSection_AI, "DefenseLimit", DefenseLimit); // RA2: as above
-		DefenseLimit = defense_limit; // RA2: as above
-		AARatio = ini.Get_Float(RulesSection_AI, "AARatio", AARatio); // RA2: as above
-		int aa_limit = ini.Get_Int(RulesSection_AI, "AALimit", AALimit); // RA2: as above
-		AALimit = aa_limit; // RA2: as above
-		TeslaRatio = ini.Get_Float(RulesSection_AI, "TeslaRatio", TeslaRatio); // RA2: as above
-		int tesla_limit = ini.Get_Int(RulesSection_AI, "TeslaLimit", TeslaLimit); // RA2: as above
-		TeslaLimit = tesla_limit; // RA2: as above
-		HelipadRatio = ini.Get_Float(RulesSection_AI, "HelipadRatio", HelipadRatio); // RA2: as above
-		int helipad_limit = ini.Get_Int(RulesSection_AI, "HelipadLimit", HelipadLimit); // RA2: as above
-		HelipadLimit = helipad_limit; // RA2: as above
-		AirstripRatio = ini.Get_Float(RulesSection_AI, "AirstripRatio", AirstripRatio); // RA2: as above
-		int airstrip_limit = ini.Get_Int(RulesSection_AI, "AirstripLimit", AirstripLimit); // RA2: as above
-		AirstripLimit = airstrip_limit; // RA2: as above
-		IsCompEasyBonus = ini.Get_Bool(RulesSection_AI, "CompEasyBonus", IsCompEasyBonus); // RA2: as above
-		IsComputerParanoid = ini.Get_Bool(RulesSection_AI, "Paranoid", IsComputerParanoid); // RA2: as above
-		PowerEmergencyFraction = ini.Get_Float(RulesSection_AI, "PowerEmergency", PowerEmergencyFraction); // RA2: as above
-		int ai_base_spacing = ini.Get_Int(RulesSection_AI, "AIBaseSpacing", AIBaseSpacing); // RA2: as above
-		AIBaseSpacing = ai_base_spacing; // RA2: as above
-		GDIWallDefense = ini.Get_Float(RulesSection_AI, "GDIWallDefense", GDIWallDefense); // RA2: as above
-		GDIWallDefenseCoefficient = ini.Get_Float(RulesSection_AI, "GDIWallDefenseCoefficient", GDIWallDefenseCoefficient); // RA2: as above
-		NodBaseDefenseCoefficient = ini.Get_Float(RulesSection_AI, "NodBaseDefenseCoefficient", NodBaseDefenseCoefficient); // RA2: as above
-		GDIBaseDefenseCoefficient = ini.Get_Float(RulesSection_AI, "GDIBaseDefenseCoefficient", GDIBaseDefenseCoefficient); // RA2: as above
-		int maximum_base_defense_value = ini.Get_Int(RulesSection_AI, "MaximumBaseDefenseValue", MaximumBaseDefenseValue); // RA2: as above
-		MaximumBaseDefenseValue = maximum_base_defense_value; // RA2: as above
-		int computer_base_defense_response = ini.Get_Int(RulesSection_AI, "ComputerBaseDefenseResponse", ComputerBaseDefenseResponse); // RA2: as above
-		ComputerBaseDefenseResponse = computer_base_defense_response; // RA2: as above
+	if (ini.Is_Present(RulesSection_AI)) {
+		BuildConst = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "BuildConst", BuildConst);
+		BuildPower = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "BuildPower", BuildPower);
+		BuildRefinery = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "BuildRefinery", BuildRefinery);
+		BuildBarracks = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "BuildBarracks", BuildBarracks);
+		BuildTech = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "BuildTech", BuildTech);
+		BuildWeapons = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "BuildWeapons", BuildWeapons);
+		BuildDefense = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "BuildDefense", BuildDefense);
+		BuildPDefense = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "BuildPDefense", BuildPDefense);
+		BuildAA = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "BuildAA", BuildAA);
+		BuildHelipad = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "BuildHelipad", BuildHelipad);
+		BuildRadar = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "BuildRadar", BuildRadar);
+		ConcreteWalls = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "ConcreteWalls", ConcreteWalls);
+		NSGates = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "NSGates", NSGates);
+		EWGates = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "EWGates", EWGates);
+		BuildNavalYard = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "BuildNavalYard", BuildNavalYard);
+		BuildDummy = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "BuildDummy", BuildDummy);
+		NeutralTechBuildings = TGet_TypeList<BuildingTypeClass>(ini, RulesSection_AI, "NeutralTechBuildings", NeutralTechBuildings);
+		AttackInterval = ini.Get_Float(RulesSection_AI, "AttackInterval", AttackInterval);
+		AttackDelay = ini.Get_Float(RulesSection_AI, "AttackDelay", AttackDelay);
+		PatrolTime = ini.Get_Float(RulesSection_AI, "PatrolScan", PatrolTime);
+		int credit_reserve = ini.Get_Int(RulesSection_AI, "CreditReserve", RepairThreshhold);
+		RepairThreshhold = credit_reserve;
+		PathDelay = ini.Get_Float(RulesSection_AI, "PathDelay", PathDelay);
+		int blockage_path_delay = ini.Get_Int(RulesSection_AI, "BlockagePathDelay", BlockagePathDelay);
+		BlockagePathDelay = blockage_path_delay;
+		int tiberium_near_scan = ini.Get_Lepton(RulesSection_AI, "TiberiumNearScan", TiberiumShortScan);
+		TiberiumShortScan = tiberium_near_scan;
+		int tiberium_far_scan = ini.Get_Lepton(RulesSection_AI, "TiberiumFarScan", TiberiumLongScan);
+		TiberiumLongScan = tiberium_far_scan;
+		AutocreateTime = ini.Get_Float(RulesSection_AI, "AutocreateTime", AutocreateTime);
+		int infantry_reserve = ini.Get_Int(RulesSection_AI, "InfantryReserve", InfantryReserve);
+		InfantryReserve = infantry_reserve;
+		int infantry_base_mult = ini.Get_Int(RulesSection_AI, "InfantryBaseMult", InfantryBaseMult);
+		InfantryBaseMult = infantry_base_mult;
+		int power_surplus = ini.Get_Int(RulesSection_AI, "PowerSurplus", PowerSurplus);
+		PowerSurplus = power_surplus;
+		int base_size_add = ini.Get_Int(RulesSection_AI, "BaseSizeAdd", BaseSizeAdd);
+		BaseSizeAdd = base_size_add;
+		RefineryRatio = ini.Get_Float(RulesSection_AI, "RefineryRatio", RefineryRatio);
+		int refinery_limit = ini.Get_Int(RulesSection_AI, "RefineryLimit", RefineryLimit);
+		RefineryLimit = refinery_limit;
+		BarracksRatio = ini.Get_Float(RulesSection_AI, "BarracksRatio", BarracksRatio);
+		int barracks_limit = ini.Get_Int(RulesSection_AI, "BarracksLimit", BarracksLimit);
+		BarracksLimit = barracks_limit;
+		WarRatio = ini.Get_Float(RulesSection_AI, "WarRatio", WarRatio);
+		int war_limit = ini.Get_Int(RulesSection_AI, "WarLimit", WarLimit);
+		WarLimit = war_limit;
+		DefenseRatio = ini.Get_Float(RulesSection_AI, "DefenseRatio", DefenseRatio);
+		int defense_limit = ini.Get_Int(RulesSection_AI, "DefenseLimit", DefenseLimit);
+		DefenseLimit = defense_limit;
+		AARatio = ini.Get_Float(RulesSection_AI, "AARatio", AARatio);
+		int aa_limit = ini.Get_Int(RulesSection_AI, "AALimit", AALimit);
+		AALimit = aa_limit;
+		TeslaRatio = ini.Get_Float(RulesSection_AI, "TeslaRatio", TeslaRatio);
+		int tesla_limit = ini.Get_Int(RulesSection_AI, "TeslaLimit", TeslaLimit);
+		TeslaLimit = tesla_limit;
+		HelipadRatio = ini.Get_Float(RulesSection_AI, "HelipadRatio", HelipadRatio);
+		int helipad_limit = ini.Get_Int(RulesSection_AI, "HelipadLimit", HelipadLimit);
+		HelipadLimit = helipad_limit;
+		AirstripRatio = ini.Get_Float(RulesSection_AI, "AirstripRatio", AirstripRatio);
+		int airstrip_limit = ini.Get_Int(RulesSection_AI, "AirstripLimit", AirstripLimit);
+		AirstripLimit = airstrip_limit;
+		IsCompEasyBonus = ini.Get_Bool(RulesSection_AI, "CompEasyBonus", IsCompEasyBonus);
+		IsComputerParanoid = ini.Get_Bool(RulesSection_AI, "Paranoid", IsComputerParanoid);
+		PowerEmergencyFraction = ini.Get_Float(RulesSection_AI, "PowerEmergency", PowerEmergencyFraction);
+		int ai_base_spacing = ini.Get_Int(RulesSection_AI, "AIBaseSpacing", AIBaseSpacing);
+		AIBaseSpacing = ai_base_spacing;
+		GDIWallDefense = ini.Get_Float(RulesSection_AI, "GDIWallDefense", GDIWallDefense);
+		GDIWallDefenseCoefficient = ini.Get_Float(RulesSection_AI, "GDIWallDefenseCoefficient", GDIWallDefenseCoefficient);
+		NodBaseDefenseCoefficient = ini.Get_Float(RulesSection_AI, "NodBaseDefenseCoefficient", NodBaseDefenseCoefficient);
+		GDIBaseDefenseCoefficient = ini.Get_Float(RulesSection_AI, "GDIBaseDefenseCoefficient", GDIBaseDefenseCoefficient);
+		int maximum_base_defense_value = ini.Get_Int(RulesSection_AI, "MaximumBaseDefenseValue", MaximumBaseDefenseValue);
+		MaximumBaseDefenseValue = maximum_base_defense_value;
+		int computer_base_defense_response = ini.Get_Int(RulesSection_AI, "ComputerBaseDefenseResponse", ComputerBaseDefenseResponse);
+		ComputerBaseDefenseResponse = computer_base_defense_response;
 		return(true);
 	}
 	return(false);
@@ -2292,21 +2292,21 @@ bool RulesClass::Powerups(CCINIClass const & ini) // RA2: at 0x64D490
 bool RulesClass::Land_Types(CCINIClass const & ini)
 {
 	static char const * _lands[LAND_COUNT] = { // RA2: Land_Types at 0x64D610 matches only so
-		"Clear", "Road", "Water", "Rock", "Wall", "Tiberium", // RA2: as above
-		"Beach", "Rough", "Ice", "Railroad", "Tunnel", "Weeds", // RA2: as above
-	}; // RA2: as above
+		"Clear", "Road", "Water", "Rock", "Wall", "Tiberium",
+		"Beach", "Rough", "Ice", "Railroad", "Tunnel", "Weeds",
+	};
 	for (int land = LAND_FIRST; land < LAND_COUNT; land++) {
 		GroundType * gptr = &Ground[land]; // RA2: Land_Types at 0x64D610 has no static char const * _lands[LAND_COUNT] =
 		if (ini.Is_Present(_lands[land])) {
-			gptr->Cost[SPEED_HOVER] = MIN(ini.Get_Float(_lands[land], "Hover", 1.0), 1.0); // RA2: as above
-			gptr->Cost[SPEED_FOOT] = MIN(ini.Get_Float(_lands[land], "Foot", 1.0), 1.0); // RA2: as above
-			gptr->Cost[SPEED_TRACK] = MIN(ini.Get_Float(_lands[land], "Track", 1.0), 1.0); // RA2: as above
-			gptr->Cost[SPEED_WHEEL] = MIN(ini.Get_Float(_lands[land], "Wheel", 1.0), 1.0); // RA2: as above
-			gptr->Cost[SPEED_WINGED] = 1.0f; // RA2: as above
-			gptr->Cost[SPEED_FLOAT] = MIN(ini.Get_Float(_lands[land], "Float", 1.0), 1.0); // RA2: as above
-			gptr->Cost[SPEED_AMPHIBIOUS] = MIN(ini.Get_Float(_lands[land], "Amphibious", 1.0), 1.0); // RA2: as above
-			gptr->Cost[SPEED_CREEP] = MIN(ini.Get_Float(_lands[land], "FloatBeach", 1.0), 1.0); // RA2: as above
-			gptr->Build = ini.Get_Bool(_lands[land], "Buildable", false); // RA2: as above
+			gptr->Cost[SPEED_HOVER] = MIN(ini.Get_Float(_lands[land], "Hover", 1.0), 1.0);
+			gptr->Cost[SPEED_FOOT] = MIN(ini.Get_Float(_lands[land], "Foot", 1.0), 1.0);
+			gptr->Cost[SPEED_TRACK] = MIN(ini.Get_Float(_lands[land], "Track", 1.0), 1.0);
+			gptr->Cost[SPEED_WHEEL] = MIN(ini.Get_Float(_lands[land], "Wheel", 1.0), 1.0);
+			gptr->Cost[SPEED_WINGED] = 1.0f;
+			gptr->Cost[SPEED_FLOAT] = MIN(ini.Get_Float(_lands[land], "Float", 1.0), 1.0);
+			gptr->Cost[SPEED_AMPHIBIOUS] = MIN(ini.Get_Float(_lands[land], "Amphibious", 1.0), 1.0);
+			gptr->Cost[SPEED_CREEP] = MIN(ini.Get_Float(_lands[land], "FloatBeach", 1.0), 1.0);
+			gptr->Build = ini.Get_Bool(_lands[land], "Buildable", false);
 		}
 	}
 	return(true);
@@ -2501,15 +2501,15 @@ void RulesClass::Save(IStream * stream)
 	AIIonCannonTempleValue.Save(stream);
 	FillEarliestTeamProbability.Save(stream);
 	TeamDelays.Save(stream);
-	AlliedBaseDefenseCounts.Save(stream); // RA2: as above
-	SovietBaseDefenseCounts.Save(stream); // RA2: as above
-	DisabledDisguiseDetectionPercent.Save(stream); // RA2: as above
-	AIAutoDeployFrameDelay.Save(stream); // RA2: as above
-	AIPickWallDefensePercent.Save(stream); // RA2: as above
+	AlliedBaseDefenseCounts.Save(stream);
+	SovietBaseDefenseCounts.Save(stream);
+	DisabledDisguiseDetectionPercent.Save(stream);
+	AIAutoDeployFrameDelay.Save(stream);
+	AIPickWallDefensePercent.Save(stream);
 	MinimumAIDefensiveTeams.Save(stream);
 	MaximumAIDefensiveTeams.Save(stream);
 	MultiplayerAICreditMultipliers.Save(stream);
-	AIVirtualPurifiers.Save(stream); // RA2: as above
+	AIVirtualPurifiers.Save(stream);
 	TotalAITeamCap.Save(stream);
 	AIHateDelays.Save(stream);
 	RadarEventSuppressionDistances.Save(stream);
@@ -2522,16 +2522,16 @@ void RulesClass::Save(IStream * stream)
 	PrerequisiteBarracks.Save(stream);
 	PrerequisiteRadar.Save(stream);
 	PrerequisiteTech.Save(stream);
-	PrerequisiteProc.Save(stream); // RA2: as above
+	PrerequisiteProc.Save(stream);
 	CreditTicks.Save(stream);
-	LightningSounds.Save(stream); // RA2: as above
+	LightningSounds.Save(stream);
 	Scorches.Save(stream);
 	Scorches1.Save(stream);
 	Scorches2.Save(stream);
 	Scorches3.Save(stream);
 	Scorches4.Save(stream);
-	Shipyard.Save(stream); // RA2: as above
-	BuildConst.Save(stream); // RA2: as above
+	Shipyard.Save(stream);
+	BuildConst.Save(stream);
 	BuildPower.Save(stream);
 	BuildRefinery.Save(stream);
 	BuildBarracks.Save(stream);
@@ -2545,15 +2545,15 @@ void RulesClass::Save(IStream * stream)
 	ConcreteWalls.Save(stream);
 	NSGates.Save(stream);
 	EWGates.Save(stream);
-	BuildNavalYard.Save(stream); // RA2: as above
-	BuildDummy.Save(stream); // RA2: as above
-	NeutralTechBuildings.Save(stream); // RA2: as above
+	BuildNavalYard.Save(stream);
+	BuildDummy.Save(stream);
+	NeutralTechBuildings.Save(stream);
 	PadAircraft.Save(stream);
 	OnFire.Save(stream);
 	TreeFire.Save(stream);
 	SplashList.Save(stream);
-	BaseUnit.Save(stream); // RA2: as above
-	DefaultMirageDisguises.Save(stream); // RA2: as above
+	BaseUnit.Save(stream);
+	DefaultMirageDisguises.Save(stream);
 	HarvesterUnit.Save(stream);
 	DeadBodies.Save(stream);
 	DropPod.Save(stream);
@@ -2561,15 +2561,15 @@ void RulesClass::Save(IStream * stream)
 	BridgeExplosions.Save(stream);
 	IceCrackSounds.Save(stream);
 	HSBuilding.Save(stream);
-	AmerParaDropInf.Save(stream); // RA2: as above
-	AmerParaDropNum.Save(stream); // RA2: as above
-	AllyParaDropInf.Save(stream); // RA2: as above
-	AllyParaDropNum.Save(stream); // RA2: as above
-	SovParaDropInf.Save(stream); // RA2: as above
-	SovParaDropNum.Save(stream); // RA2: as above
-	DamageFireTypes.Save(stream); // RA2: as above
-	WeatherConClouds.Save(stream); // RA2: as above
-	WeatherConBolts.Save(stream); // RA2: as above
+	AmerParaDropInf.Save(stream);
+	AmerParaDropNum.Save(stream);
+	AllyParaDropInf.Save(stream);
+	AllyParaDropNum.Save(stream);
+	SovParaDropInf.Save(stream);
+	SovParaDropNum.Save(stream);
+	DamageFireTypes.Save(stream);
+	WeatherConClouds.Save(stream);
+	WeatherConBolts.Save(stream);
 }
  // RA2: no PrerequisiteNodFactory, PrerequisiteGDIFactory (not in RA2's layout)
 
@@ -2602,10 +2602,10 @@ void RulesClass::Load(IStream * stream)
 	FillEarliestTeamProbability.Clear();
 	TeamDelays.Clear();
 	AlliedBaseDefenseCounts.Clear(); // RA2: the executable's Load: RA2's members and order
-	SovietBaseDefenseCounts.Clear(); // RA2: as above
-	DisabledDisguiseDetectionPercent.Clear(); // RA2: as above
-	AIAutoDeployFrameDelay.Clear(); // RA2: as above
-	AIPickWallDefensePercent.Clear(); // RA2: as above
+	SovietBaseDefenseCounts.Clear();
+	DisabledDisguiseDetectionPercent.Clear();
+	AIAutoDeployFrameDelay.Clear();
+	AIPickWallDefensePercent.Clear();
 	MinimumAIDefensiveTeams.Clear();
 	MaximumAIDefensiveTeams.Clear();
 	MultiplayerAICreditMultipliers.Clear();
@@ -2645,25 +2645,25 @@ void RulesClass::Load(IStream * stream)
 	NSGates.Clear();
 	EWGates.Clear();
 	BuildNavalYard.Clear(); // RA2: the executable's Load: RA2's members and order
-	BuildDummy.Clear(); // RA2: as above
-	NeutralTechBuildings.Clear(); // RA2: as above
+	BuildDummy.Clear();
+	NeutralTechBuildings.Clear();
 	PadAircraft.Clear();
 	OnFire.Clear();
 	TreeFire.Clear();
 	SplashList.Clear();
 	BaseUnit.Clear(); // RA2: the executable's Load: RA2's members and order
-	DefaultMirageDisguises.Clear(); // RA2: as above
+	DefaultMirageDisguises.Clear();
 	HarvesterUnit.Clear();
 	IceCrackSounds.Clear();
 	HSBuilding.Clear();
 	AmerParaDropInf.Clear(); // RA2: the executable's Load: RA2's members and order
-	AmerParaDropNum.Clear(); // RA2: as above
-	AllyParaDropInf.Clear(); // RA2: as above
-	AllyParaDropNum.Clear(); // RA2: as above
-	SovParaDropInf.Clear(); // RA2: as above
-	SovParaDropNum.Clear(); // RA2: as above
-	stream->Read(this, sizeof(*this), 0); // RA2: as above
-	new (this) RulesClass(NoInitClass()); // RA2: as above
+	AmerParaDropNum.Clear();
+	AllyParaDropInf.Clear();
+	AllyParaDropNum.Clear();
+	SovParaDropInf.Clear();
+	SovParaDropNum.Clear();
+	stream->Read(this, sizeof(*this), 0);
+	new (this) RulesClass(NoInitClass());
 	AIIonCannonConYardValue.Load(stream);
 	AIIonCannonWarFactoryValue.Load(stream);
 	AIIonCannonPowerValue.Load(stream);
@@ -2679,10 +2679,10 @@ void RulesClass::Load(IStream * stream)
 	FillEarliestTeamProbability.Load(stream);
 	TeamDelays.Load(stream);
 	AlliedBaseDefenseCounts.Load(stream); // RA2: the executable's Load: RA2's members and order
-	SovietBaseDefenseCounts.Load(stream); // RA2: as above
-	DisabledDisguiseDetectionPercent.Load(stream); // RA2: as above
-	AIAutoDeployFrameDelay.Load(stream); // RA2: as above
-	AIPickWallDefensePercent.Load(stream); // RA2: as above
+	SovietBaseDefenseCounts.Load(stream);
+	DisabledDisguiseDetectionPercent.Load(stream);
+	AIAutoDeployFrameDelay.Load(stream);
+	AIPickWallDefensePercent.Load(stream);
 	MinimumAIDefensiveTeams.Load(stream);
 	MaximumAIDefensiveTeams.Load(stream);
 	MultiplayerAICreditMultipliers.Load(stream);
@@ -2723,14 +2723,14 @@ void RulesClass::Load(IStream * stream)
 	NSGates.Load(stream);
 	EWGates.Load(stream);
 	BuildNavalYard.Load(stream); // RA2: the executable's Load: RA2's members and order
-	BuildDummy.Load(stream); // RA2: as above
-	NeutralTechBuildings.Load(stream); // RA2: as above
+	BuildDummy.Load(stream);
+	NeutralTechBuildings.Load(stream);
 	PadAircraft.Load(stream);
 	OnFire.Load(stream);
 	TreeFire.Load(stream);
 	SplashList.Load(stream);
 	BaseUnit.Load(stream); // RA2: the executable's Load: RA2's members and order
-	DefaultMirageDisguises.Load(stream); // RA2: as above
+	DefaultMirageDisguises.Load(stream);
 	HarvesterUnit.Load(stream);
 	DeadBodies.Load(stream);
 	DropPod.Load(stream);
@@ -2739,14 +2739,14 @@ void RulesClass::Load(IStream * stream)
 	IceCrackSounds.Load(stream);
 	HSBuilding.Load(stream);
 	AmerParaDropInf.Load(stream); // RA2: the executable's Load: RA2's members and order
-	AmerParaDropNum.Load(stream); // RA2: as above
-	AllyParaDropInf.Load(stream); // RA2: as above
-	AllyParaDropNum.Load(stream); // RA2: as above
-	SovParaDropInf.Load(stream); // RA2: as above
-	SovParaDropNum.Load(stream); // RA2: as above
-	DamageFireTypes.Load(stream); // RA2: as above
-	WeatherConClouds.Load(stream); // RA2: as above
-	WeatherConBolts.Load(stream); // RA2: as above
+	AmerParaDropNum.Load(stream);
+	AllyParaDropInf.Load(stream);
+	AllyParaDropNum.Load(stream);
+	SovParaDropInf.Load(stream);
+	SovParaDropNum.Load(stream);
+	DamageFireTypes.Load(stream);
+	WeatherConClouds.Load(stream);
+	WeatherConBolts.Load(stream);
 	Swizzle_Pointer(&NukeWarhead);
 	Swizzle_Pointer(&FlameDamage);
 	Swizzle_Pointer(&FlameDamage2);
@@ -2757,14 +2757,14 @@ void RulesClass::Load(IStream * stream)
 	Swizzle_Pointer(&EMPulseWarhead);
 	Swizzle_Pointer(&C4Warhead);
 	Swizzle_Pointer(&V3Warhead); // RA2: the executable's Load: RA2's members and order
-	Swizzle_Pointer(&DMislWarhead); // RA2: as above
-	Swizzle_Pointer(&V3EliteWarhead); // RA2: as above
-	Swizzle_Pointer(&DMislEliteWarhead); // RA2: as above
-	Swizzle_Pointer(&V3Rocket.Type); // RA2: as above
-	Swizzle_Pointer(&DMisl.Type); // RA2: as above
-	Swizzle_Pointer(&PrismType); // RA2: as above
-	Swizzle_Pointer(&IvanWarhead); // RA2: as above
-	Swizzle_Pointer(&DeathWeapon); // RA2: as above
+	Swizzle_Pointer(&DMislWarhead);
+	Swizzle_Pointer(&V3EliteWarhead);
+	Swizzle_Pointer(&DMislEliteWarhead);
+	Swizzle_Pointer(&V3Rocket.Type);
+	Swizzle_Pointer(&DMisl.Type);
+	Swizzle_Pointer(&PrismType);
+	Swizzle_Pointer(&IvanWarhead);
+	Swizzle_Pointer(&DeathWeapon);
 	Swizzle_Pointer(&IonCannonWarhead);
 	Swizzle_Pointer(&FirestormWarhead);
 	Swizzle_Pointer(&VeinholeWarhead);
@@ -2791,12 +2791,12 @@ void RulesClass::Load(IStream * stream)
 	Swizzle_Pointer(&UnitCrateType);
 	Swizzle_Pointer(&Paratrooper);
 	Swizzle_Pointer(&AlliedDisguise); // RA2: the executable's Load: RA2's members and order
-	Swizzle_Pointer(&SovietDisguise); // RA2: as above
+	Swizzle_Pointer(&SovietDisguise);
 	Swizzle_Pointer(&Technician);
 	Swizzle_Pointer(&Engineer);
 	Swizzle_Pointer(&Pilot);
 	Swizzle_Pointer(&AlliedCrew); // RA2: the executable's Load: RA2's members and order
-	Swizzle_Pointer(&SovietCrew); // RA2: as above
+	Swizzle_Pointer(&SovietCrew);
 	Swizzle_Pointer(&RepairBay);
 	Swizzle_Pointer(&GDIGateOne);
 	Swizzle_Pointer(&GDIGateTwo);
@@ -2819,16 +2819,16 @@ void RulesClass::Load(IStream * stream)
 	Swizzle_Pointer(&InfantryExplode);
 	Swizzle_Pointer(&IonBlast);
 	Swizzle_Pointer(&ChronoBeam); // RA2: the executable's Load: RA2's members and order
-	Swizzle_Pointer(&ChronoBlast); // RA2: as above
-	Swizzle_Pointer(&ChronoBlastDest); // RA2: as above
-	Swizzle_Pointer(&ChronoPlacement); // RA2: as above
+	Swizzle_Pointer(&ChronoBlast);
+	Swizzle_Pointer(&ChronoBlastDest);
+	Swizzle_Pointer(&ChronoPlacement);
 	Swizzle_Pointer(&IonBeam);
 	Swizzle_Pointer(&WarpIn); // RA2: the executable's Load: RA2's members and order
-	Swizzle_Pointer(&WarpOut); // RA2: as above
-	Swizzle_Pointer(&WarpAway); // RA2: as above
-	Swizzle_Pointer(&ChronoSparkle1); // RA2: as above
-	Swizzle_Pointer(&IronCurtainInvokeAnim); // RA2: as above
-	Swizzle_Pointer(&WeaponNullifyAnim); // RA2: as above
+	Swizzle_Pointer(&WarpOut);
+	Swizzle_Pointer(&WarpAway);
+	Swizzle_Pointer(&ChronoSparkle1);
+	Swizzle_Pointer(&IronCurtainInvokeAnim);
+	Swizzle_Pointer(&WeaponNullifyAnim);
 	Swizzle_Pointer(&Dig);
 	Swizzle_Pointer(&FirestormIdleAnim);
 	Swizzle_Pointer(&FirestormAirAnim);
@@ -2839,19 +2839,19 @@ void RulesClass::Load(IStream * stream)
 	Swizzle_Pointer(&OreTwinkle); // RA2: the executable's Load: RA2's members and order
 	Swizzle_Pointer(&FlamingInfantry);
 	Swizzle_Pointer(&NukeTakeOff); // RA2: the executable's Load: RA2's members and order
-	Swizzle_Pointer(&InfantryHeadPop); // RA2: as above
-	Swizzle_Pointer(&InfantryNuked); // RA2: as above
-	Swizzle_Pointer(&Behind); // RA2: as above
+	Swizzle_Pointer(&InfantryHeadPop);
+	Swizzle_Pointer(&InfantryNuked);
+	Swizzle_Pointer(&Behind);
 	Swizzle_Pointer(&VeinAttack);
 	Swizzle_Pointer(&BarrelExplode);
 	Swizzle_Pointer(&BarrelParticle);
 	Swizzle_Pointer(&DropPodPuff);
 	Swizzle_Pointer(&LightningWarhead); // RA2: the executable's Load: RA2's members and order
-	Swizzle_Pointer(&RadSiteWarhead); // RA2: as above
+	Swizzle_Pointer(&RadSiteWarhead);
 	Swizzle_Pointer(&WoodCrateImg);
 	Swizzle_Pointer(&CrateImg);
 	Swizzle_Pointer(&WaterCrateImg); // RA2: the executable's Load: RA2's members and order
-	BOMBCURS_SHP = (ShapeSet const *)MixFileClass::Retrieve("BOMBCURS.SHP"); // RA2: as above
+	BOMBCURS_SHP = (ShapeSet const *)MixFileClass::Retrieve("BOMBCURS.SHP");
 	for (index = 0; index < BarrelDebris.Count(); index++) {
 		Swizzle_Pointer(&BarrelDebris[index]);
 	}
@@ -2880,16 +2880,16 @@ void RulesClass::Load(IStream * stream)
 		Swizzle_Pointer(&Scorches4[index]);
 	}
 	for (index = 0; index < BaseUnit.Count(); index++) { // RA2: the executable's Load: RA2's members and order
-		Swizzle_Pointer(&BaseUnit[index]); // RA2: as above
+		Swizzle_Pointer(&BaseUnit[index]);
 	}
 	for (index = 0; index < DefaultMirageDisguises.Count(); index++) { // RA2: the executable's Load: RA2's members and order
-		Swizzle_Pointer(&DefaultMirageDisguises[index]); // RA2: as above
+		Swizzle_Pointer(&DefaultMirageDisguises[index]);
 	}
 	for (index = 0; index < HarvesterUnit.Count(); index++) {
 		Swizzle_Pointer(&HarvesterUnit[index]);
 	}
 	for (index = 0; index < Shipyard.Count(); index++) { // RA2: the executable's Load: RA2's members and order
-		Swizzle_Pointer(&Shipyard[index]); // RA2: as above
+		Swizzle_Pointer(&Shipyard[index]);
 	}
 	for (index = 0; index < BuildConst.Count(); index++) {
 		Swizzle_Pointer(&BuildConst[index]);
@@ -2934,13 +2934,13 @@ void RulesClass::Load(IStream * stream)
 		Swizzle_Pointer(&EWGates[index]);
 	}
 	for (index = 0; index < BuildNavalYard.Count(); index++) { // RA2: the executable's Load: RA2's members and order
-		Swizzle_Pointer(&BuildNavalYard[index]); // RA2: as above
+		Swizzle_Pointer(&BuildNavalYard[index]);
 	}
 	for (index = 0; index < BuildDummy.Count(); index++) { // RA2: the executable's Load: RA2's members and order
-		Swizzle_Pointer(&BuildDummy[index]); // RA2: as above
+		Swizzle_Pointer(&BuildDummy[index]);
 	}
 	for (index = 0; index < NeutralTechBuildings.Count(); index++) { // RA2: the executable's Load: RA2's members and order
-		Swizzle_Pointer(&NeutralTechBuildings[index]); // RA2: as above
+		Swizzle_Pointer(&NeutralTechBuildings[index]);
 	}
 	for (index = 0; index < PadAircraft.Count(); index++) {
 		Swizzle_Pointer(&PadAircraft[index]);
@@ -2964,25 +2964,25 @@ void RulesClass::Load(IStream * stream)
 		Swizzle_Pointer(&HSBuilding[index]);
 	}
 	count = WeatherConClouds.Count(); // RA2: the executable's Load: RA2's members and order
-	for (index = 0; index < count; index++) { // RA2: as above
-		Swizzle_Pointer(&WeatherConClouds[index]); // RA2: as above
+	for (index = 0; index < count; index++) {
+		Swizzle_Pointer(&WeatherConClouds[index]);
 	}
 	count = WeatherConBolts.Count(); // RA2: the executable's Load: RA2's members and order
-	for (index = 0; index < count; index++) { // RA2: as above
-		Swizzle_Pointer(&WeatherConBolts[index]); // RA2: as above
+	for (index = 0; index < count; index++) {
+		Swizzle_Pointer(&WeatherConBolts[index]);
 	}
 	for (index = 0; index < AmerParaDropInf.Count(); index++) { // RA2: the executable's Load: RA2's members and order
-		Swizzle_Pointer(&AmerParaDropInf[index]); // RA2: as above
+		Swizzle_Pointer(&AmerParaDropInf[index]);
 	}
 	for (index = 0; index < AllyParaDropInf.Count(); index++) { // RA2: the executable's Load: RA2's members and order
-		Swizzle_Pointer(&AllyParaDropInf[index]); // RA2: as above
+		Swizzle_Pointer(&AllyParaDropInf[index]);
 	}
 	for (index = 0; index < SovParaDropInf.Count(); index++) { // RA2: the executable's Load: RA2's members and order
-		Swizzle_Pointer(&SovParaDropInf[index]); // RA2: as above
+		Swizzle_Pointer(&SovParaDropInf[index]);
 	}
 	count = DamageFireTypes.Count(); // RA2: the executable's Load: RA2's members and order
-	for (index = 0; index < count; index++) { // RA2: as above
-		Swizzle_Pointer(&DamageFireTypes[index]); // RA2: as above
+	for (index = 0; index < count; index++) {
+		Swizzle_Pointer(&DamageFireTypes[index]);
 	}
 }
 
@@ -3000,344 +3000,344 @@ void RulesClass::Detach(AbstractClass const * target, bool all)
 		LargeVisceroid = 0; // RA2: RA2's form
 	}
 	if (target == SmallVisceroid) {
-		SmallVisceroid = 0; // RA2: as above
+		SmallVisceroid = 0;
 	}
 	if (target == UnloadingHarvester) {
-		UnloadingHarvester = 0; // RA2: as above
+		UnloadingHarvester = 0;
 	}
 	if (target == VeinAttack) {
-		VeinAttack = 0; // RA2: as above
+		VeinAttack = 0;
 	}
 	if (target == Wake) {
-		Wake = 0; // RA2: as above
+		Wake = 0;
 	}
-	if (target == OreTwinkle) { // RA2: as above
-		OreTwinkle = 0; // RA2: as above
+	if (target == OreTwinkle) {
+		OreTwinkle = 0;
 	}
 	if (target == FlamingInfantry) {
-		FlamingInfantry = 0; // RA2: as above
+		FlamingInfantry = 0;
 	}
-	if (target == NukeTakeOff) { // RA2: as above
-		NukeTakeOff = 0; // RA2: as above
+	if (target == NukeTakeOff) {
+		NukeTakeOff = 0;
 	}
-	if (target == InfantryHeadPop) { // RA2: as above
-		InfantryHeadPop = 0; // RA2: as above
+	if (target == InfantryHeadPop) {
+		InfantryHeadPop = 0;
 	}
-	if (target == InfantryNuked) { // RA2: as above
-		InfantryNuked = 0; // RA2: as above
+	if (target == InfantryNuked) {
+		InfantryNuked = 0;
 	}
-	if (target == Behind) { // RA2: as above
-		Behind = 0; // RA2: as above
+	if (target == Behind) {
+		Behind = 0;
 	}
 	if (target == DropPodWeapon) {
-		DropPodWeapon = 0; // RA2: as above
+		DropPodWeapon = 0;
 	}
 	if (target == FlameDamage) {
-		FlameDamage = 0; // RA2: as above
+		FlameDamage = 0;
 	}
 	if (target == FlameDamage2) {
-		FlameDamage2 = 0; // RA2: as above
+		FlameDamage2 = 0;
 	}
 	if (target == NukeWarhead) {
-		NukeWarhead = 0; // RA2: as above
+		NukeWarhead = 0;
 	}
 	if (target == EMPulseWarhead) {
-		EMPulseWarhead = 0; // RA2: as above
+		EMPulseWarhead = 0;
 	}
 	if (target == C4Warhead) {
-		C4Warhead = 0; // RA2: as above
+		C4Warhead = 0;
 	}
-	if (target == V3Warhead) { // RA2: as above
-		V3Warhead = 0; // RA2: as above
+	if (target == V3Warhead) {
+		V3Warhead = 0;
 	}
-	if (target == DMislWarhead) { // RA2: as above
-		DMislWarhead = 0; // RA2: as above
+	if (target == DMislWarhead) {
+		DMislWarhead = 0;
 	}
-	if (target == V3EliteWarhead) { // RA2: as above
-		V3EliteWarhead = 0; // RA2: as above
+	if (target == V3EliteWarhead) {
+		V3EliteWarhead = 0;
 	}
-	if (target == DMislEliteWarhead) { // RA2: as above
-		DMislEliteWarhead = 0; // RA2: as above
+	if (target == DMislEliteWarhead) {
+		DMislEliteWarhead = 0;
 	}
-	if (target == V3Rocket.Type) { // RA2: as above
-		V3Rocket.Type = 0; // RA2: as above
+	if (target == V3Rocket.Type) {
+		V3Rocket.Type = 0;
 	}
-	if (target == DMisl.Type) { // RA2: as above
-		DMisl.Type = 0; // RA2: as above
+	if (target == DMisl.Type) {
+		DMisl.Type = 0;
 	}
-	if (target == IvanWarhead) { // RA2: as above
-		IvanWarhead = 0; // RA2: as above
+	if (target == IvanWarhead) {
+		IvanWarhead = 0;
 	}
-	if (target == DeathWeapon) { // RA2: as above
-		DeathWeapon = 0; // RA2: as above
+	if (target == DeathWeapon) {
+		DeathWeapon = 0;
 	}
 	if (target == IonCannonWarhead) {
-		IonCannonWarhead = 0; // RA2: as above
+		IonCannonWarhead = 0;
 	}
 	if (target == FirestormWarhead) {
-		FirestormWarhead = 0; // RA2: as above
+		FirestormWarhead = 0;
 	}
 	if (target == EMPulseSparkles) {
-		EMPulseSparkles = 0; // RA2: as above
+		EMPulseSparkles = 0;
 	}
 	if (target == VeinholeWarhead) {
-		VeinholeWarhead = 0; // RA2: as above
+		VeinholeWarhead = 0;
 	}
 	if (target == DefaultFirestormExplosionSystem) {
-		DefaultFirestormExplosionSystem = 0; // RA2: as above
+		DefaultFirestormExplosionSystem = 0;
 	}
 	if (target == DefaultLargeGreySmokeSystem) {
-		DefaultLargeGreySmokeSystem = 0; // RA2: as above
+		DefaultLargeGreySmokeSystem = 0;
 	}
 	if (target == DefaultSmallGreySmokeSystem) {
-		DefaultSmallGreySmokeSystem = 0; // RA2: as above
+		DefaultSmallGreySmokeSystem = 0;
 	}
 	if (target == DefaultSparkSystem) {
-		DefaultSparkSystem = 0; // RA2: as above
+		DefaultSparkSystem = 0;
 	}
 	if (target == DefaultLargeRedSmokeSystem) {
-		DefaultLargeRedSmokeSystem = 0; // RA2: as above
+		DefaultLargeRedSmokeSystem = 0;
 	}
 	if (target == DefaultSmallRedSmokeSystem) {
-		DefaultSmallRedSmokeSystem = 0; // RA2: as above
+		DefaultSmallRedSmokeSystem = 0;
 	}
 	if (target == DefaultDebrisSmokeSystem) {
-		DefaultDebrisSmokeSystem = 0; // RA2: as above
+		DefaultDebrisSmokeSystem = 0;
 	}
 	if (target == DefaultFireStreamSystem) {
-		DefaultFireStreamSystem = 0; // RA2: as above
+		DefaultFireStreamSystem = 0;
 	}
 	if (target == DefaultTestParticleSystem) {
-		DefaultTestParticleSystem = 0; // RA2: as above
+		DefaultTestParticleSystem = 0;
 	}
 	if (target == DefaultRepairParticleSystem) {
-		DefaultRepairParticleSystem = 0; // RA2: as above
+		DefaultRepairParticleSystem = 0;
 	}
 	if (target == VeinholeTypeClass) {
-		VeinholeTypeClass = 0; // RA2: as above
+		VeinholeTypeClass = 0;
 	}
-	if (target == WeatherConBoltExplosion) { // RA2: as above
-		WeatherConBoltExplosion = 0; // RA2: as above
+	if (target == WeatherConBoltExplosion) {
+		WeatherConBoltExplosion = 0;
 	}
 	if (target == Smoke1) {
-		Smoke1 = 0; // RA2: as above
+		Smoke1 = 0;
 	}
 	if (target == Smoke2) {
-		Smoke2 = 0; // RA2: as above
+		Smoke2 = 0;
 	}
 	if (target == MoveFlash) {
-		MoveFlash = 0; // RA2: as above
+		MoveFlash = 0;
 	}
 	if (target == BombParachute) {
-		BombParachute = 0; // RA2: as above
+		BombParachute = 0;
 	}
 	if (target == Parachute) {
-		Parachute = 0; // RA2: as above
+		Parachute = 0;
 	}
 	if (target == SmallFire) {
-		SmallFire = 0; // RA2: as above
+		SmallFire = 0;
 	}
 	if (target == LargeFire) {
-		LargeFire = 0; // RA2: as above
+		LargeFire = 0;
 	}
 	if (target == FlareAnim) {
-		FlareAnim = 0; // RA2: as above
+		FlareAnim = 0;
 	}
 	if (target == UnitCrateType) {
-		UnitCrateType = 0; // RA2: as above
+		UnitCrateType = 0;
 	}
 	if (target == Paratrooper) {
-		Paratrooper = 0; // RA2: as above
+		Paratrooper = 0;
 	}
-	if (target == AlliedDisguise) { // RA2: as above
-		AlliedDisguise = 0; // RA2: as above
+	if (target == AlliedDisguise) {
+		AlliedDisguise = 0;
 	}
-	if (target == SovietDisguise) { // RA2: as above
-		SovietDisguise = 0; // RA2: as above
+	if (target == SovietDisguise) {
+		SovietDisguise = 0;
 	}
 	if (target == Technician) {
-		Technician = 0; // RA2: as above
+		Technician = 0;
 	}
 	if (target == Engineer) {
-		Engineer = 0; // RA2: as above
+		Engineer = 0;
 	}
 	if (target == Pilot) {
-		Pilot = 0; // RA2: as above
+		Pilot = 0;
 	}
-	if (target == AlliedCrew) { // RA2: as above
-		AlliedCrew = 0; // RA2: as above
+	if (target == AlliedCrew) {
+		AlliedCrew = 0;
 	}
-	if (target == SovietCrew) { // RA2: as above
-		SovietCrew = 0; // RA2: as above
+	if (target == SovietCrew) {
+		SovietCrew = 0;
 	}
 	if (target == RepairBay) {
-		RepairBay = 0; // RA2: as above
+		RepairBay = 0;
 	}
 	if (target == GDIGateOne) {
-		GDIGateOne = 0; // RA2: as above
+		GDIGateOne = 0;
 	}
 	if (target == GDIGateTwo) {
-		GDIGateTwo = 0; // RA2: as above
+		GDIGateTwo = 0;
 	}
 	if (target == NodGateOne) {
-		NodGateOne = 0; // RA2: as above
+		NodGateOne = 0;
 	}
 	if (target == NodGateTwo) {
-		NodGateTwo = 0; // RA2: as above
+		NodGateTwo = 0;
 	}
 	if (target == WallTower) {
-		WallTower = 0; // RA2: as above
+		WallTower = 0;
 	}
 	if (target == GDIPowerPlant) {
-		GDIPowerPlant = 0; // RA2: as above
+		GDIPowerPlant = 0;
 	}
 	if (target == GDIPowerTurbine) {
-		GDIPowerTurbine = 0; // RA2: as above
+		GDIPowerTurbine = 0;
 	}
 	if (target == NodRegularPower) {
-		NodRegularPower = 0; // RA2: as above
+		NodRegularPower = 0;
 	}
 	if (target == NodAdvancedPower) {
-		NodAdvancedPower = 0; // RA2: as above
+		NodAdvancedPower = 0;
 	}
 	if (target == GDIFirestormGenerator) {
-		GDIFirestormGenerator = 0; // RA2: as above
+		GDIFirestormGenerator = 0;
 	}
 	if (target == GDIHunterSeeker) {
-		GDIHunterSeeker = 0; // RA2: as above
+		GDIHunterSeeker = 0;
 	}
 	if (target == NodHunterSeeker) {
-		NodHunterSeeker = 0; // RA2: as above
+		NodHunterSeeker = 0;
 	}
 	if (target == NukeProjectile) {
-		NukeProjectile = 0; // RA2: as above
+		NukeProjectile = 0;
 	}
 	if (target == NukeDown) {
-		NukeDown = 0; // RA2: as above
+		NukeDown = 0;
 	}
 	if (target == EMPulseProjectile) {
-		EMPulseProjectile = 0; // RA2: as above
+		EMPulseProjectile = 0;
 	}
 	if (target == TireVoxelDebris) {
-		TireVoxelDebris = 0; // RA2: as above
+		TireVoxelDebris = 0;
 	}
 	if (target == ScrapVoxelDebris) {
-		ScrapVoxelDebris = 0; // RA2: as above
+		ScrapVoxelDebris = 0;
 	}
 	if (target == AtmosphereEntry) {
-		AtmosphereEntry = 0; // RA2: as above
+		AtmosphereEntry = 0;
 	}
 	if (target == InfantryExplode) {
-		InfantryExplode = 0; // RA2: as above
+		InfantryExplode = 0;
 	}
 	if (target == IonBlast) {
-		IonBlast = 0; // RA2: as above
+		IonBlast = 0;
 	}
 	if (target == IonBeam) {
-		IonBeam = 0; // RA2: as above
+		IonBeam = 0;
 	}
-	if (target == ChronoBlast) { // RA2: as above
-		ChronoBlast = 0; // RA2: as above
+	if (target == ChronoBlast) {
+		ChronoBlast = 0;
 	}
-	if (target == ChronoBlastDest) { // RA2: as above
-		ChronoBlastDest = 0; // RA2: as above
+	if (target == ChronoBlastDest) {
+		ChronoBlastDest = 0;
 	}
-	if (target == ChronoPlacement) { // RA2: as above
-		ChronoPlacement = 0; // RA2: as above
+	if (target == ChronoPlacement) {
+		ChronoPlacement = 0;
 	}
-	if (target == ChronoBeam) { // RA2: as above
-		ChronoBeam = 0; // RA2: as above
+	if (target == ChronoBeam) {
+		ChronoBeam = 0;
 	}
-	if (target == WarpIn) { // RA2: as above
-		WarpIn = 0; // RA2: as above
+	if (target == WarpIn) {
+		WarpIn = 0;
 	}
-	if (target == WarpOut) { // RA2: as above
-		WarpOut = 0; // RA2: as above
+	if (target == WarpOut) {
+		WarpOut = 0;
 	}
-	if (target == WarpAway) { // RA2: as above
-		WarpAway = 0; // RA2: as above
+	if (target == WarpAway) {
+		WarpAway = 0;
 	}
-	if (target == ChronoSparkle1) { // RA2: as above
-		ChronoSparkle1 = 0; // RA2: as above
+	if (target == ChronoSparkle1) {
+		ChronoSparkle1 = 0;
 	}
-	if (target == IronCurtainInvokeAnim) { // RA2: as above
-		IronCurtainInvokeAnim = 0; // RA2: as above
+	if (target == IronCurtainInvokeAnim) {
+		IronCurtainInvokeAnim = 0;
 	}
-	if (target == WeaponNullifyAnim) { // RA2: as above
-		WeaponNullifyAnim = 0; // RA2: as above
+	if (target == WeaponNullifyAnim) {
+		WeaponNullifyAnim = 0;
 	}
 	if (target == Dig) {
-		Dig = 0; // RA2: as above
+		Dig = 0;
 	}
 	if (target == FirestormIdleAnim) {
-		FirestormIdleAnim = 0; // RA2: as above
+		FirestormIdleAnim = 0;
 	}
 	if (target == FirestormAirAnim) {
-		FirestormAirAnim = 0; // RA2: as above
+		FirestormAirAnim = 0;
 	}
 	if (target == FirestormActiveAnim) {
-		FirestormActiveAnim = 0; // RA2: as above
+		FirestormActiveAnim = 0;
 	}
 	if (target == FirestormGroundAnim) {
-		FirestormGroundAnim = 0; // RA2: as above
+		FirestormGroundAnim = 0;
 	}
 	if (target == BarrelExplode) {
-		BarrelExplode = 0; // RA2: as above
+		BarrelExplode = 0;
 	}
 	if (target == BarrelParticle) {
-		BarrelParticle = 0; // RA2: as above
+		BarrelParticle = 0;
 	}
 	if (target == DropPodPuff) {
-		DropPodPuff = 0; // RA2: as above
+		DropPodPuff = 0;
 	}
-	if (target == LightningWarhead) { // RA2: as above
-		LightningWarhead = 0; // RA2: as above
+	if (target == LightningWarhead) {
+		LightningWarhead = 0;
 	}
-	if (target == RadSiteWarhead) { // RA2: as above
-		RadSiteWarhead = 0; // RA2: as above
+	if (target == RadSiteWarhead) {
+		RadSiteWarhead = 0;
 	}
-	BarrelDebris.Delete((VoxelAnimTypeClass *)target); // RA2: as above
-	OnFire.Delete((AnimTypeClass *)target); // RA2: as above
-	TreeFire.Delete((AnimTypeClass *)target); // RA2: as above
-	SplashList.Delete((AnimTypeClass *)target); // RA2: as above
-	Scorches.Delete((SmudgeTypeClass *)target); // RA2: as above
-	Scorches1.Delete((SmudgeTypeClass *)target); // RA2: as above
-	Scorches2.Delete((SmudgeTypeClass *)target); // RA2: as above
-	Scorches3.Delete((SmudgeTypeClass *)target); // RA2: as above
-	Scorches4.Delete((SmudgeTypeClass *)target); // RA2: as above
-	BaseUnit.Delete((UnitTypeClass *)target); // RA2: as above
-	DefaultMirageDisguises.Delete((TerrainTypeClass *)target); // RA2: as above
-	HarvesterUnit.Delete((UnitTypeClass *)target); // RA2: as above
-	Shipyard.Delete((BuildingTypeClass *)target); // RA2: as above
-	BuildConst.Delete((BuildingTypeClass *)target); // RA2: as above
-	BuildPower.Delete((BuildingTypeClass *)target); // RA2: as above
-	BuildRefinery.Delete((BuildingTypeClass *)target); // RA2: as above
-	BuildBarracks.Delete((BuildingTypeClass *)target); // RA2: as above
-	BuildTech.Delete((BuildingTypeClass *)target); // RA2: as above
-	BuildWeapons.Delete((BuildingTypeClass *)target); // RA2: as above
-	BuildDefense.Delete((BuildingTypeClass *)target); // RA2: as above
-	BuildPDefense.Delete((BuildingTypeClass *)target); // RA2: as above
-	BuildAA.Delete((BuildingTypeClass *)target); // RA2: as above
-	BuildHelipad.Delete((BuildingTypeClass *)target); // RA2: as above
-	BuildRadar.Delete((BuildingTypeClass *)target); // RA2: as above
-	ConcreteWalls.Delete((BuildingTypeClass *)target); // RA2: as above
-	NSGates.Delete((BuildingTypeClass *)target); // RA2: as above
-	EWGates.Delete((BuildingTypeClass *)target); // RA2: as above
-	BuildNavalYard.Delete((BuildingTypeClass *)target); // RA2: as above
-	BuildDummy.Delete((BuildingTypeClass *)target); // RA2: as above
-	NeutralTechBuildings.Delete((BuildingTypeClass *)target); // RA2: as above
-	PadAircraft.Delete((AircraftTypeClass *)target); // RA2: as above
-	DeadBodies.Delete((AnimTypeClass *)target); // RA2: as above
-	DropPod.Delete((AnimTypeClass *)target); // RA2: as above
-	MetallicDebris.Delete((AnimTypeClass *)target); // RA2: as above
-	BridgeExplosions.Delete((AnimTypeClass *)target); // RA2: as above
-	HSBuilding.Delete((BuildingTypeClass *)target); // RA2: as above
-	WeatherConClouds.Delete((AnimTypeClass *)target); // RA2: as above
-	WeatherConBolts.Delete((AnimTypeClass *)target); // RA2: as above
-	AmerParaDropInf.Delete((InfantryTypeClass *)target); // RA2: as above
-	AllyParaDropInf.Delete((InfantryTypeClass *)target); // RA2: as above
-	SovParaDropInf.Delete((InfantryTypeClass *)target); // RA2: as above
-	DamageFireTypes.Delete((AnimTypeClass *)target); // RA2: as above
+	BarrelDebris.Delete((VoxelAnimTypeClass *)target);
+	OnFire.Delete((AnimTypeClass *)target);
+	TreeFire.Delete((AnimTypeClass *)target);
+	SplashList.Delete((AnimTypeClass *)target);
+	Scorches.Delete((SmudgeTypeClass *)target);
+	Scorches1.Delete((SmudgeTypeClass *)target);
+	Scorches2.Delete((SmudgeTypeClass *)target);
+	Scorches3.Delete((SmudgeTypeClass *)target);
+	Scorches4.Delete((SmudgeTypeClass *)target);
+	BaseUnit.Delete((UnitTypeClass *)target);
+	DefaultMirageDisguises.Delete((TerrainTypeClass *)target);
+	HarvesterUnit.Delete((UnitTypeClass *)target);
+	Shipyard.Delete((BuildingTypeClass *)target);
+	BuildConst.Delete((BuildingTypeClass *)target);
+	BuildPower.Delete((BuildingTypeClass *)target);
+	BuildRefinery.Delete((BuildingTypeClass *)target);
+	BuildBarracks.Delete((BuildingTypeClass *)target);
+	BuildTech.Delete((BuildingTypeClass *)target);
+	BuildWeapons.Delete((BuildingTypeClass *)target);
+	BuildDefense.Delete((BuildingTypeClass *)target);
+	BuildPDefense.Delete((BuildingTypeClass *)target);
+	BuildAA.Delete((BuildingTypeClass *)target);
+	BuildHelipad.Delete((BuildingTypeClass *)target);
+	BuildRadar.Delete((BuildingTypeClass *)target);
+	ConcreteWalls.Delete((BuildingTypeClass *)target);
+	NSGates.Delete((BuildingTypeClass *)target);
+	EWGates.Delete((BuildingTypeClass *)target);
+	BuildNavalYard.Delete((BuildingTypeClass *)target);
+	BuildDummy.Delete((BuildingTypeClass *)target);
+	NeutralTechBuildings.Delete((BuildingTypeClass *)target);
+	PadAircraft.Delete((AircraftTypeClass *)target);
+	DeadBodies.Delete((AnimTypeClass *)target);
+	DropPod.Delete((AnimTypeClass *)target);
+	MetallicDebris.Delete((AnimTypeClass *)target);
+	BridgeExplosions.Delete((AnimTypeClass *)target);
+	HSBuilding.Delete((BuildingTypeClass *)target);
+	WeatherConClouds.Delete((AnimTypeClass *)target);
+	WeatherConBolts.Delete((AnimTypeClass *)target);
+	AmerParaDropInf.Delete((InfantryTypeClass *)target);
+	AllyParaDropInf.Delete((InfantryTypeClass *)target);
+	SovParaDropInf.Delete((InfantryTypeClass *)target);
+	DamageFireTypes.Delete((AnimTypeClass *)target);
 }
 
 
@@ -3361,62 +3361,62 @@ bool RulesClass::Objects(CCINIClass & ini) // RA2: a writable INI
 {
 	int index;
 	for (index = 0; index < HouseTypes.Count(); index++) { // RA2: the executable's Objects (no stricmp on the infantry name)
-		HouseTypes[index]->Read_INI(ini); // RA2: as above
+		HouseTypes[index]->Read_INI(ini);
 	}
 	for (index = 0; index < SuperWeaponTypes.Count(); index++) { // RA2: the executable's Objects (no stricmp on the infantry name)
 		SuperWeaponTypes[index]->Read_INI(ini);
 	}
 	for (index = 0; index < AnimTypes.Count(); index++) { // RA2: the executable's Objects (no stricmp on the infantry name)
-		AnimTypes[index]->Read_INI(ArtINI); // RA2: as above
+		AnimTypes[index]->Read_INI(ArtINI);
 	}
 	for (index = 0; index < BuildingTypes.Count(); index++) { // RA2: the executable's Objects (no stricmp on the infantry name)
-		BuildingTypes[index]->Read_INI(ini); // RA2: as above
+		BuildingTypes[index]->Read_INI(ini);
 	}
 	for (index = 0; index < AircraftTypes.Count(); index++) { // RA2: the executable's Objects (no stricmp on the infantry name)
-		AircraftTypes[index]->Read_INI(ini); // RA2: as above
+		AircraftTypes[index]->Read_INI(ini);
 	}
 	for (index = 0; index < UnitTypes.Count(); index++) { // RA2: the executable's Objects (no stricmp on the infantry name)
-		UnitTypes[index]->Read_INI(ini); // RA2: as above
+		UnitTypes[index]->Read_INI(ini);
 	}
 	for (index = 0; index < InfantryTypes.Count(); index++) { // RA2: the executable's Objects (no stricmp on the infantry name)
-		InfantryTypes[index]->Read_INI(ini); // RA2: as above
+		InfantryTypes[index]->Read_INI(ini);
 	}
 	for (index = 0; index < Weapons.Count(); index++) { // RA2: the executable's Objects (no stricmp on the infantry name)
-		Weapons[index]->Read_INI(ini); // RA2: as above
+		Weapons[index]->Read_INI(ini);
 	}
 	for (index = 0; index < BulletTypes.Count(); index++) { // RA2: the executable's Objects (no stricmp on the infantry name)
-		BulletTypes[index]->Read_INI(ini); // RA2: as above
+		BulletTypes[index]->Read_INI(ini);
 	}
 	for (index = 0; index < Warheads.Count(); index++) { // RA2: the executable's Objects (no stricmp on the infantry name)
-		Warheads[index]->Read_INI(ini); // RA2: as above
+		Warheads[index]->Read_INI(ini);
 	}
 	for (index = 0; index < Weapons.Count(); index++) { // RA2: the executable's Objects (no stricmp on the infantry name)
-		Weapons[index]->Init_Max_Speed(); // RA2: as above
+		Weapons[index]->Init_Max_Speed();
 	}
 	for (index = 0; index < BuildingTypes.Count(); index++) { // RA2: the executable's Objects (no stricmp on the infantry name)
-		BuildingTypes[index]->Calculate_Base_Defense_Values(); // RA2: as above
+		BuildingTypes[index]->Calculate_Base_Defense_Values();
 	}
 	for (index = 0; index < TerrainTypes.Count(); index++) { // RA2: the executable's Objects (no stricmp on the infantry name)
-		TerrainTypes[index]->Read_INI(ini); // RA2: as above
+		TerrainTypes[index]->Read_INI(ini);
 	}
 	for (index = 0; index < SmudgeTypes.Count(); index++) { // RA2: the executable's Objects (no stricmp on the infantry name)
-		SmudgeTypes[index]->Read_INI(ini); // RA2: as above
+		SmudgeTypes[index]->Read_INI(ini);
 	}
 	for (index = 0; index < OverlayTypes.Count(); index++) { // RA2: the executable's Objects (no stricmp on the infantry name)
-		OverlayTypes[index]->Read_INI(ini); // RA2: as above
+		OverlayTypes[index]->Read_INI(ini);
 	}
 	for (index = 0; index < ParticleTypes.Count(); index++) { // RA2: the executable's Objects (no stricmp on the infantry name)
-		ParticleTypes[index]->Read_INI(ini); // RA2: as above
+		ParticleTypes[index]->Read_INI(ini);
 	}
 	for (index = 0; index < ParticleSystemTypes.Count(); index++) { // RA2: the executable's Objects (no stricmp on the infantry name)
-		ParticleSystemTypes[index]->Read_INI(ini); // RA2: as above
+		ParticleSystemTypes[index]->Read_INI(ini);
 	}
 	for (index = 0; index < VoxelAnimTypes.Count(); index++) { // RA2: the executable's Objects (no stricmp on the infantry name)
-		VoxelAnimTypes[index]->Read_INI(ini); // RA2: as above
+		VoxelAnimTypes[index]->Read_INI(ini);
 	}
 	for (int mission = MISSION_FIRST; mission < MISSION_COUNT; mission++) {
 		MissionControl[mission].Mission = (MissionType)mission; // RA2: the executable's Objects (no stricmp on the infantry name)
-		MissionControl[mission].Read_INI(ini); // RA2: as above
+		MissionControl[mission].Read_INI(ini);
 	}
 	return(true);
 }
@@ -3461,13 +3461,13 @@ int RulesClass::Get_Rule_Unique_ID(void)
 {
 	int id = RuleINI->Get_Unique_ID();
 	int count = MultiplayerGameMode::GetModeCount(); // RA2: RA2's form
-	for (int index = 1; index <= count; index++) { // RA2: as above
-		MultiplayerGameMode *session = MultiplayerGameMode::Get(index); // RA2: as above
-		if (session != 0) { // RA2: as above
-			id += session->GetINI()->Get_Unique_ID(); // RA2: as above
+	for (int index = 1; index <= count; index++) {
+		MultiplayerGameMode * session = MultiplayerGameMode::Get(index);
+		if (session != 0) {
+			id += session->GetINI()->Get_Unique_ID();
 		}
 	}
-	return id + Coop_Camp_Unique_ID(); // RA2: as above
+	return id + Coop_Camp_Unique_ID();
 }
 
 

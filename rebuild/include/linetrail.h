@@ -3,17 +3,17 @@
  * Copyright 2026 RedAlert2 contributors
  ******************************************************************************/
 
-#pragma once // RA2: as above
+#pragma once
 
-#include "coord.h" // RA2: as above
-#include "rgb.h" // RA2: as above
+#include "coord.h"
+#include "rgb.h"
 
-class ObjectClass; // RA2: as above
+class ObjectClass;
 
 /*
 **	RA2: one point of a line trail: a position and the intensity it has left (16 bytes).
 */
-struct LineTrailNode // RA2: as above
+struct LineTrailNode
 {
 	Coord Position; // RA2: +0x00
 	int Value; // RA2: +0x0C
@@ -24,9 +24,9 @@ struct LineTrailNode // RA2: as above
 **	with UseLineTrail and keeps it in LineTrailer (+0x94). The object is 528 bytes: a colour, the owner,
 **	the fade step, the newest slot and a ring of 32 points.
 */
-class LineTrail // RA2: as above
+class LineTrail
 {
-	public: // RA2: as above
+	public:
 		LineTrail(void); // RA2: 0x005393E0, grey, decrement 16, and enters the list of all trails
 		~LineTrail(void); // RA2: 0x00539490, lets go of the owner and leaves the list
 		void Release_Owner(void); // RA2: 0x005394F0, called by Detach_All; YR's name Release_Owner (meastes: Clear_Owner)

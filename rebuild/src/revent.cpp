@@ -48,23 +48,23 @@ struct RadarEventTypeStruct { // RA2: one row of the table at 0x007A8D58
 };
 
 const RadarEventTypeStruct RadarEventTypes[RADAREVENT_COUNT] = { // RA2: in the executable's .rdata (0x007A8D58), so const
-	{8, 200, 400, true}, // RA2: as above
-	{8, 200, 400, false}, // RA2: as above
-	{8, 200, 400, false}, // RA2: as above
-	{8, 200, 600, true}, // RA2: as above
-	{8, 200, 400, true}, // RA2: as above
-	{6, 200, 400, true}, // RA2: as above
-	{2, 0, 200, true}, // RA2: as above
-	{8, 0, 200, true}, // RA2: as above
-	{2, 0, 400, true}, // RA2: as above
-	{5, 0, 400, false}, // RA2: as above
-	{8, 0, 100, false}, // RA2: as above
-	{8, 200, 200, true}, // RA2: as above
-	{8, 200, 400, false}, // RA2: as above
-	{8, 0, 5, false}, // RA2: as above
-	{ 8, 0, 200, true }, // RA2: as above
-	{ 8, 0, 400, true }, // RA2: as above
-	{ 8, 200, 600, true } // RA2: as above
+	{ 8, 200, 400, true },
+	{ 8, 200, 400, false },
+	{ 8, 200, 400, false },
+	{ 8, 200, 600, true },
+	{ 8, 200, 400, true },
+	{ 6, 200, 400, true },
+	{ 2, 0, 200, true },
+	{ 8, 0, 200, true },
+	{ 2, 0, 400, true },
+	{ 5, 0, 400, false },
+	{ 8, 0, 100, false },
+	{ 8, 200, 200, true },
+	{ 8, 200, 400, false },
+	{ 8, 0, 5, false },
+	{ 8, 0, 200, true },
+	{ 8, 0, 400, true },
+	{ 8, 200, 600, true }
 };
 
 const char * RadarEventNames[RADAREVENT_COUNT] = {
@@ -289,7 +289,7 @@ void RadarEventClass::Draw(void)
 	RGBClass color1 = Get_Max_Color();
 	RGBClass color2 = Get_Min_Color();
 	if (color1 == RGBClass(0, 0, 0)) { // RA2: RA2's form
-		return; // RA2: as above
+		return;
 	}
 
 	Point2D event_rect[4];
@@ -309,7 +309,7 @@ void RadarEventClass::Draw(void)
 	float rate = (Radius * 2) * 0.7071067811865475 / (float)maxdist * ColorSpeed; // ra2-decomp revent.cpp: the image holds 0x3FE6A09E667F3BCC (M_SQRT_2 rounds one unit higher)
 
 	for (i = 0; i < ARRAY_SIZE(event_rect); i++) {
-		((DSurface *)Map.RadarSurface)->Draw_Ping_Pong_Gradient_Line(Map.RadarSurface->Get_Rect(), event_rect[i], event_rect[(i + 1) % 4], color1, color2, rate, color_factor); // RA2: as above
+		((DSurface *)Map.RadarSurface)->Draw_Ping_Pong_Gradient_Line(Map.RadarSurface->Get_Rect(), event_rect[i], event_rect[(i + 1) % 4], color1, color2, rate, color_factor);
 	}
 
 	for (i = 0; i < ARRAY_SIZE(event_rect); i++) {
@@ -508,18 +508,18 @@ RGBClass RadarEventClass::Get_Max_Color(void) const
 {
 	switch (Type) {
 		case RADAREVENT_COMBAT: // RA2: RA2's form
-		case RADAREVENT_BASE_ATTACKED: // RA2: as above
-		case RADAREVENT_HARVESTER_ATTACKED: // RA2: as above
-			return RGBClass(255, 0, 255); // RA2: as above
-		case RADAREVENT_NONCOMBAT: // RA2: as above
-		case RADAREVENT_DROPZONE: // RA2: as above
-		case RADAREVENT_BEACON_PLACED: // RA2: as above
-		case RADAREVENT_SUPERWEAPON_DETECTED: // RA2: as above
-			return RGBClass(255, 255, 0); // RA2: as above
-		case RADAREVENT_ENEMY_SENSED: // RA2: as above
-			return RGBClass(0, 255, 255); // RA2: as above
+		case RADAREVENT_BASE_ATTACKED:
+		case RADAREVENT_HARVESTER_ATTACKED:
+			return RGBClass(255, 0, 255);
+		case RADAREVENT_NONCOMBAT:
+		case RADAREVENT_DROPZONE:
+		case RADAREVENT_BEACON_PLACED:
+		case RADAREVENT_SUPERWEAPON_DETECTED:
+			return RGBClass(255, 255, 0);
+		case RADAREVENT_ENEMY_SENSED:
+			return RGBClass(0, 255, 255);
 		default:
-			return RGBClass(0, 0, 0); // RA2: as above
+			return RGBClass(0, 0, 0);
 	}
 }
 
@@ -535,18 +535,18 @@ RGBClass RadarEventClass::Get_Min_Color(void) const
 {
 	switch (Type) {
 		case RADAREVENT_COMBAT: // RA2: RA2's form
-		case RADAREVENT_BASE_ATTACKED: // RA2: as above
-		case RADAREVENT_HARVESTER_ATTACKED: // RA2: as above
-			return RGBClass(128, 0, 128); // RA2: as above
-		case RADAREVENT_NONCOMBAT: // RA2: as above
-		case RADAREVENT_DROPZONE: // RA2: as above
-		case RADAREVENT_BEACON_PLACED: // RA2: as above
-		case RADAREVENT_SUPERWEAPON_DETECTED: // RA2: as above
-			return RGBClass(128, 128, 0); // RA2: as above
-		case RADAREVENT_ENEMY_SENSED: // RA2: as above
-			return RGBClass(0, 128, 128); // RA2: as above
+		case RADAREVENT_BASE_ATTACKED:
+		case RADAREVENT_HARVESTER_ATTACKED:
+			return RGBClass(128, 0, 128);
+		case RADAREVENT_NONCOMBAT:
+		case RADAREVENT_DROPZONE:
+		case RADAREVENT_BEACON_PLACED:
+		case RADAREVENT_SUPERWEAPON_DETECTED:
+			return RGBClass(128, 128, 0);
+		case RADAREVENT_ENEMY_SENSED:
+			return RGBClass(0, 128, 128);
 		default:
-			return RGBClass(0, 0, 0); // RA2: as above
+			return RGBClass(0, 0, 0);
 	}
 }
 
@@ -604,9 +604,9 @@ void Clear_Radar_Events(void) // RA2: not in TibSun, at 0x0063C640
 /// </summary>
 void Record_Event_Cell(Cell const & cell) // RA2: not in TibSun, at 0x0063C6C0
 {
-	RecentRadarEventNewest = (RecentRadarEventNewest + 1) % 8; // RA2: as above
-	RecentRadarEventCells[RecentRadarEventNewest] = cell; // RA2: as above
-	RecentRadarEventCurrent = RecentRadarEventNewest; // RA2: as above
+	RecentRadarEventNewest = (RecentRadarEventNewest + 1) % 8;
+	RecentRadarEventCells[RecentRadarEventNewest] = cell;
+	RecentRadarEventCurrent = RecentRadarEventNewest;
 }
 
 
@@ -616,11 +616,11 @@ void Record_Event_Cell(Cell const & cell) // RA2: not in TibSun, at 0x0063C6C0
 /// </summary>
 Cell Recall_Radar_Event_Cell(void) // RA2: not in TibSun, at 0x0063C6F0
 {
-	if (RecentRadarEventNewest == -1) { // RA2: as above
-		return CELL_NONE; // RA2: as above
+	if (RecentRadarEventNewest == -1) {
+		return CELL_NONE;
 	}
-	RecentRadarEventCurrent = RecentRadarEventNewest; // RA2: as above
-	return RecentRadarEventCells[RecentRadarEventNewest]; // RA2: as above
+	RecentRadarEventCurrent = RecentRadarEventNewest;
+	return RecentRadarEventCells[RecentRadarEventNewest];
 }
 
 
@@ -630,21 +630,21 @@ Cell Recall_Radar_Event_Cell(void) // RA2: not in TibSun, at 0x0063C6F0
 /// </summary>
 Cell Recall_Previous_Radar_Event_Cell(void) // RA2: not in TibSun, at 0x0063C720
 {
-	if (RecentRadarEventNewest == -1) { // RA2: as above
-		return CELL_NONE; // RA2: as above
+	if (RecentRadarEventNewest == -1) {
+		return CELL_NONE;
 	}
-	int previous = RecentRadarEventCurrent - 1; // RA2: as above
-	if (previous < 0) { // RA2: as above
-		previous += 8; // RA2: as above
+	int previous = RecentRadarEventCurrent - 1;
+	if (previous < 0) {
+		previous += 8;
 	}
-	if (RecentRadarEventCells[previous] == CELL_NONE) { // RA2: as above
-		Cell result = RecentRadarEventCells[RecentRadarEventNewest]; // RA2: as above
-		RecentRadarEventCurrent = RecentRadarEventNewest; // RA2: as above
-		return result; // RA2: as above
+	if (RecentRadarEventCells[previous] == CELL_NONE) {
+		Cell result = RecentRadarEventCells[RecentRadarEventNewest];
+		RecentRadarEventCurrent = RecentRadarEventNewest;
+		return result;
 	}
-	Cell result = RecentRadarEventCells[previous]; // RA2: as above
-	RecentRadarEventCurrent = previous; // RA2: as above
-	return result; // RA2: as above
+	Cell result = RecentRadarEventCells[previous];
+	RecentRadarEventCurrent = previous;
+	return result;
 }
 
 
@@ -653,9 +653,9 @@ Cell Recall_Previous_Radar_Event_Cell(void) // RA2: not in TibSun, at 0x0063C720
 /// </summary>
 void Reset_Radar_Event_Cells(void) // RA2: not in TibSun, at 0x0063C790
 {
-	RecentRadarEventNewest = -1; // RA2: as above
-	RecentRadarEventCurrent = -1; // RA2: as above
-	for (int i = 0; i < 8; i++) { // RA2: as above
-		RecentRadarEventCells[i] = CELL_NONE; // RA2: as above
+	RecentRadarEventNewest = -1;
+	RecentRadarEventCurrent = -1;
+	for (int i = 0; i < 8; i++) {
+		RecentRadarEventCells[i] = CELL_NONE;
 	}
 }

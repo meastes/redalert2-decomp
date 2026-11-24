@@ -7880,6 +7880,42 @@
       "bound_population": "population-4352"
     },
     {
+      "entry": 7537472,
+      "method": "00730340",
+      "body_bytes": 25,
+      "body_sha256": "9b3f0f022f917955380a42903d61574dc861efc558f8db346cd300d123eae655",
+      "padding_bytes": 7,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4589b36dea21bd2ec8972b04d2502c284541dc7d51b38551d4b6589394ae40a0",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$VectorCursor@PAVMSSfxEntry@@V?$DynamicVectorClass@PAVMSSfxEntry@@@@@@QAE@AAV?$DynamicVectorClass@PAVMSSfxEntry@@@@H@Z",
+      "symbol_prefix": "??0?$VectorCursor@PAVMSSfxEntry@@V?$DynamicVectorClass@PAVMSSfxEntry@@@@@@QAE@AAV?$DynamicVectorClass@PAVMSSfxEntry@@@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@PAVMSSfxEntry@@V?$DynamicVectorClass@PAVMSSfxEntry@@@@@@6B@",
+          "target": 8057724,
+          "addend": 0,
+          "resolved": 8057724
+        }
+      ],
+      "source_sha256": "bac9e9cc5bfb79a968fce272a13f170c802e824b6e1817d071a2890b292f5f2e",
+      "source": "rebuild/src/wdtsel.cpp",
+      "population": "rebuild-wdtsel",
+      "source_order": 7537472,
+      "source_quality_family": "rebuild"
+    },
+    {
       "entry": 7537504,
       "method": "00730360",
       "body_bytes": 14,
@@ -7972,6 +8008,34 @@
       "bound_population": "population-42"
     },
     {
+      "entry": 7537568,
+      "method": "007303a0",
+      "body_bytes": 14,
+      "body_sha256": "65928e72743eaf9020009560cd7a304f982043da5d52b280521c28d758627639",
+      "padding_bytes": 2,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "6e6072f8a70fc03a5bddce2ece34e019610941c429a8f6803f18ae4bd652db15",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??B?$VectorCursor@PAVMSAnim@@V?$DynamicVectorClass@PAVMSAnim@@@@@@UBE_NXZ",
+      "symbol_prefix": "??B?$VectorCursor@PAVMSAnim@@V?$DynamicVectorClass@PAVMSAnim@@@@@@UBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "bac9e9cc5bfb79a968fce272a13f170c802e824b6e1817d071a2890b292f5f2e",
+      "source": "rebuild/src/wdtsel.cpp",
+      "population": "rebuild-wdtsel",
+      "source_order": 7537568,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-130"
+    },
+    {
       "entry": 7537584,
       "method": "007303b0",
       "body_bytes": 32,
@@ -8057,6 +8121,51 @@
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7537616,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-66"
+    },
+    {
+      "entry": 7537648,
+      "method": "007303f0",
+      "body_bytes": 32,
+      "body_sha256": "ccf9b04820cb7ef3c99b1805a63d12b2980ef2460784501e6187c071fffd16b9",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "ccf9b04820cb7ef3c99b1805a63d12b2980ef2460784501e6187c071fffd16b9",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorCursor@PAVMSAnim@@V?$DynamicVectorClass@PAVMSAnim@@@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorCursor@PAVMSAnim@@V?$DynamicVectorClass@PAVMSAnim@@@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@PAVMSAnim@@V?$DynamicVectorClass@PAVMSAnim@@@@@@6B@",
+          "target": 8057764,
+          "addend": 0,
+          "resolved": 8057764
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 334132
+        }
+      ],
+      "source_sha256": "bac9e9cc5bfb79a968fce272a13f170c802e824b6e1817d071a2890b292f5f2e",
+      "source": "rebuild/src/wdtsel.cpp",
+      "population": "rebuild-wdtsel",
+      "source_order": 7537648,
       "source_quality_family": "rebuild",
       "bound_population": "population-66"
     },
@@ -8171,6 +8280,107 @@
       "source_order": 7537728,
       "source_quality_family": "rebuild",
       "bound_population": "population-09"
+    },
+    {
+      "entry": 7537744,
+      "method": "730450",
+      "body_bytes": 6,
+      "body_sha256": "14db3be74843d875a82d78d97382ed667f85eecbb309b4584b94beaa27676d12",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "2b52fe92ab420b3b64fe68bc7ae3b694023146ceb9e26b177681ea7bc1f8d734",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??E?$VectorCursor@PAVMSAnim@@V?$DynamicVectorClass@PAVMSAnim@@@@@@UAEAAV0@XZ",
+      "symbol_prefix": "??E?$VectorCursor@PAVMSAnim@@V?$DynamicVectorClass@PAVMSAnim@@@@@@UAEAAV0@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "bac9e9cc5bfb79a968fce272a13f170c802e824b6e1817d071a2890b292f5f2e",
+      "source": "rebuild/src/wdtsel.cpp",
+      "population": "rebuild-wdtsel",
+      "source_order": 7537744,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-09"
+    },
+    {
+      "entry": 7537760,
+      "method": "730460",
+      "body_bytes": 6,
+      "body_sha256": "f5d6ab61265ab17ba1aa24eec1dd3f880a3da42d1b1c807d32deaafa992aaa82",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "91a91676eb37e28fb88f9f6d0da9088cf2b2c06f7e1a18de246ed2f4e5ca1a27",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??F?$VectorCursor@PAVMSAnim@@V?$DynamicVectorClass@PAVMSAnim@@@@@@UAEAAV0@XZ",
+      "symbol_prefix": "??F?$VectorCursor@PAVMSAnim@@V?$DynamicVectorClass@PAVMSAnim@@@@@@UAEAAV0@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "bac9e9cc5bfb79a968fce272a13f170c802e824b6e1817d071a2890b292f5f2e",
+      "source": "rebuild/src/wdtsel.cpp",
+      "population": "rebuild-wdtsel",
+      "source_order": 7537760,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-09"
+    },
+    {
+      "entry": 7537776,
+      "method": "730470",
+      "body_bytes": 74,
+      "body_sha256": "4fb1800c1a301165c0320751de95dce77c63c6a315ff2100df3237c2ccb67ba9",
+      "padding_bytes": 6,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "c5ba8d08bd29dfcd2315c70c946699867b399eca7be88abc9bb5c73867cb8fdf",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$VectorClass@PAVMSAnim@@@@QAE@HPBQAVMSAnim@@@Z",
+      "symbol_prefix": "??0?$VectorClass@PAVMSAnim@@@@QAE@HPBQAVMSAnim@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVMSAnim@@@@6B@",
+          "target": 8024184,
+          "addend": 0,
+          "resolved": 8024184
+        },
+        {
+          "offset": 54,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 334701
+        }
+      ],
+      "source_sha256": "bac9e9cc5bfb79a968fce272a13f170c802e824b6e1817d071a2890b292f5f2e",
+      "source": "rebuild/src/wdtsel.cpp",
+      "population": "rebuild-wdtsel",
+      "source_order": 7537776,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-22"
     },
     {
       "entry": 7537856,

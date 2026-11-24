@@ -402,9 +402,9 @@ typedef struct Squad Squad;
         virtual HRESULT STDMETHODCALLTYPE RequestBuddyAdd(User *newbuddy) = 0;
         virtual HRESULT STDMETHODCALLTYPE RequestBuddyDelete(User *buddy) = 0;
 		virtual HRESULT STDMETHODCALLTYPE RequestPublicUnicodeMessage(unsigned short const * message) = 0; // RA2: slot 58, called by 0x0073CA50 (Send_Chat_Message)
-		virtual HRESULT STDMETHODCALLTYPE RequestPrivateUnicodeMessage(User * users, unsigned short const * message) = 0; // RA2: as above
+		virtual HRESULT STDMETHODCALLTYPE RequestPrivateUnicodeMessage(User * users, unsigned short const * message) = 0;
 		virtual HRESULT STDMETHODCALLTYPE RequestPublicUnicodeAction(unsigned short const * action) = 0; // RA2: slot 60, called by 0x0073CB80 (Send_Chat_Action)
-		virtual HRESULT STDMETHODCALLTYPE RequestPrivateUnicodeAction(User * users, unsigned short const * action) = 0; // RA2: as above
+		virtual HRESULT STDMETHODCALLTYPE RequestPrivateUnicodeAction(User * users, unsigned short const * action) = 0;
 		virtual HRESULT STDMETHODCALLTYPE RequestUnicodePage(User * user, unsigned short const * message) = 0; // RA2: slot 62 (0xF8), the wide counterpart of RequestPage (Parse_Page_Command and Reply_To_Last_Pager)
 		virtual HRESULT STDMETHODCALLTYPE RequestSetPlayerCount(int update, int count) = 0;
         

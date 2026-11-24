@@ -110,16 +110,16 @@ boolean STDMETHODCALLTYPE JumpjetLocomotionClass::Process(void)
 		}
 
 		if (LinkedTo->House->Ion_Sensitives_Should_Be_Offline()) { // RA2: a house call (0x51FC80) instead of the ion storm test; a flying unit crashes (not Take_Damage)
-			if (CurrentState != GROUNDED && CurrentState != CRASHING) { // RA2: as above
-				LinkedTo->Crash(NULL); // RA2: as above
+			if (CurrentState != GROUNDED && CurrentState != CRASHING) {
+				LinkedTo->Crash(NULL);
 			}
 		}
 
 		if (LinkedTo->IsRocking && CurrentState != CRASHING && CurrentState != UNKNOWN && LinkedTo->HeightAGL > 0) { // RA2: a rocking unit in the air starts to crash
-			FlightLevel = -5; // RA2: as above
-			CurrentState = CRASHING; // RA2: as above
+			FlightLevel = -5;
+			CurrentState = CRASHING;
 			if (LinkedTo->Fetch_RTTI() == RTTI_INFANTRY) { // RA2: infantry start their tumble sequence
-				((InfantryClass *)LinkedTo)->Do_Action(DO_AIR_DEATH_START, false, false); // RA2: as above
+				((InfantryClass *)LinkedTo)->Do_Action(DO_AIR_DEATH_START, false, false);
 			}
 		}
 
@@ -197,15 +197,15 @@ void STDMETHODCALLTYPE JumpjetLocomotionClass::Move_To(CoordStruct to)
 		if (LinkedTo->Fetch_RTTI() == RTTI_UNIT && !((UnitClass *)LinkedTo)->Class->BalloonHover) { // RA2: a unit that is not a balloon hoverer searches without the bridge test
 			cell = Map.Nearby_Location(((Coord &)to).As_Cell(), LinkedTo->TClass->Speed, -1, MZONE_FLYER, false, Point2D(1, 1), false, false, false, false, Cell(0, 0), false); // RA2: as above, with underbridge cells not allowed
 		} else {
-			cell = Map.Nearby_Location(((Coord &)to).As_Cell(), LinkedTo->TClass->Speed, -1, MZONE_FLYER, Map[to].IsUnderBridge, Point2D(1, 1), false, false, false, true, Cell(0, 0), false); // RA2: as above
+			cell = Map.Nearby_Location(((Coord &)to).As_Cell(), LinkedTo->TClass->Speed, -1, MZONE_FLYER, Map[to].IsUnderBridge, Point2D(1, 1), false, false, false, true, Cell(0, 0), false);
 		}
 		Coord free = Closest_Free_Spot(Coord(cell)); // RA2: the found cell is made a coordinate first
 		if (free != COORD_NONE) {
 			if (LinkedTo->Fetch_RTTI() != RTTI_UNIT || (!LinkedTo->TClass->BalloonHover && LinkedTo->MissionQueue != MISSION_ENTER && LinkedTo->Get_Mission() != MISSION_ENTER)) { // RA2: a unit that is entering something or hovers like a balloon keeps the destination it was given
-				HeadToCoord = free; // RA2: as above
+				HeadToCoord = free;
 			}
-			if (LinkedTo->MissionQueue != MISSION_ENTER && LinkedTo->Get_Mission() != MISSION_ENTER) { // RA2: as above
-				LinkedTo->NavCom = &Map[HeadToCoord]; // RA2: as above
+			if (LinkedTo->MissionQueue != MISSION_ENTER && LinkedTo->Get_Mission() != MISSION_ENTER) {
+				LinkedTo->NavCom = &Map[HeadToCoord];
 			}
 			IsMoving = true;
 			if (CurrentState == DESCENDING) {
@@ -232,10 +232,10 @@ void STDMETHODCALLTYPE JumpjetLocomotionClass::Stop_Moving(void)
 			LinkedTo->Clear_Occupy_Bit(HeadToCoord);
 			IsLanding = false;
 		}
-		Coord position = LinkedTo->Position; // RA2: as above
-		Cell cell = position.As_Cell(); // RA2: as above
-		Cell nearby; // RA2: as above
-		nearby = Map.Nearby_Location(Cell(cell), LinkedTo->TClass->Speed, -1, LinkedTo->TClass->MZone, false, Point2D(1, 1), false, false, false, true); // RA2: as above
+		Coord position = LinkedTo->Position;
+		Cell cell = position.As_Cell();
+		Cell nearby;
+		nearby = Map.Nearby_Location(Cell(cell), LinkedTo->TClass->Speed, -1, LinkedTo->TClass->MZone, false, Point2D(1, 1), false, false, false, true);
 		if (nearby != CELL_NONE) {
 			Coord nearby_coord = nearby.As_Coord();
 			nearby_coord.Z = Map.Get_Height_GL(nearby_coord);
@@ -244,9 +244,9 @@ void STDMETHODCALLTYPE JumpjetLocomotionClass::Stop_Moving(void)
 			}
 			Move_To(nearby_coord);
 		} else {
-			if (LinkedTo->Strength > 0) { // RA2: as above
-				LinkedTo->Take_Damage(LinkedTo->Strength, 0, Rule->C4Warhead, NULL, true, true); // RA2: as above
-				HeadToCoord = COORD_NONE; // RA2: as above
+			if (LinkedTo->Strength > 0) {
+				LinkedTo->Take_Damage(LinkedTo->Strength, 0, Rule->C4Warhead, NULL, true, true);
+				HeadToCoord = COORD_NONE;
 			}
 		}
 	}
@@ -336,7 +336,7 @@ void JumpjetLocomotionClass::Process_Grounded(void)
 		FlightLevel = Height; // RA2: the locomotor's own Height (+0x28), not the rules value
 		if (!LinkedTo->House->Ion_Sensitives_Should_Be_Offline()) { // RA2: a house call (0x51FC80) instead of the ion storm test
 			if (LinkedTo->GetLastFlightMapCoords() == CELL_NONE) { // RA2: files the unit in the aircraft tracker if it has no cell there yet
-				AircraftTracker.Add(LinkedTo); // RA2: as above
+				AircraftTracker.Add(LinkedTo);
 			}
 			CurrentState = ASCENDING;
 		}
@@ -360,41 +360,41 @@ void JumpjetLocomotionClass::Process_Ascent(void)
 	}
 
 	Cell cell = LinkedTo->Get_Cell(); // RA2: keeps the aircraft tracker's filing of the unit up to date
-	if (cell != LinkedTo->LastFlightMapCoords) { // RA2: as above
-		AircraftTracker.Update(LinkedTo, LinkedTo->LastFlightMapCoords, cell); // RA2: as above
+	if (cell != LinkedTo->LastFlightMapCoords) {
+		AircraftTracker.Update(LinkedTo, LinkedTo->LastFlightMapCoords, cell);
 	}
 
 	if (height >= FlightLevel) {
 		if (AircraftTracker.IsJumpjet(LinkedTo)) { // RA2: another jumpjet holds this cell's place, so move on to a random neighbouring cell
-			int facing = Random_Pick(0, 7); // RA2: as above
-			LinkedTo->Assign_Destination(&Map[cell].Adjacent_Cell((FacingType)facing), true); // RA2: as above
-			CurrentState = CRUISING; // RA2: as above
+			int facing = Random_Pick(0, 7);
+			LinkedTo->Assign_Destination(&Map[cell].Adjacent_Cell((FacingType)facing), true);
+			CurrentState = CRUISING;
 		} else {
 			LinkedTo->Get_Cell_Ptr()->TryAssignJumpjet(LinkedTo); // RA2: claims the cell's jumpjet place
-			CurrentState = HOVERING; // RA2: as above
+			CurrentState = HOVERING;
 		}
-		return; // RA2: as above
+		return;
 	}
 
 	int limit; // RA2: the speed-up starts at half the flight level for a balloon hoverer unit, a quarter otherwise
-	if (LinkedTo->Fetch_RTTI() == RTTI_UNIT && LinkedTo->Techno_Type_Class()->BalloonHover) { // RA2: as above
-		limit = FlightLevel / 2; // RA2: as above
+	if (LinkedTo->Fetch_RTTI() == RTTI_UNIT && LinkedTo->Techno_Type_Class()->BalloonHover) {
+		limit = FlightLevel / 2;
 	} else {
-		limit = FlightLevel / 4; // RA2: as above
+		limit = FlightLevel / 4;
 	}
-	if (height > limit) { // RA2: as above
+	if (height > limit) {
 		TargetSpeed = Speed; // RA2: the locomotor's own Speed (+0x1C), not the rules value
 		Facing.Set_Desired(DirType().Direction(LinkedTo->PositionCoord, HeadToCoord));
 		TechnoClass * contact = LinkedTo->Radio_Link(0); // RA2: a unit leaving a factory or barracks tells it that it has taken off
-		if (contact != NULL && contact->Fetch_RTTI() == RTTI_BUILDING) { // RA2: as above
-			BuildingTypeClass * type = ((BuildingClass *)contact)->Class; // RA2: as above
-			if (type->IsWeaponsFactory || type->IsGDIBarracks || type->IsNODBarracks) { // RA2: as above
-				LinkedTo->Unknown_Virtual_0(0x117B, 0); // RA2: as above
+		if (contact != NULL && contact->Fetch_RTTI() == RTTI_BUILDING) {
+			BuildingTypeClass * type = ((BuildingClass *)contact)->Class;
+			if (type->IsWeaponsFactory || type->IsGDIBarracks || type->IsNODBarracks) {
+				LinkedTo->Unknown_Virtual_0(0x117B, 0);
 			}
 		}
 		if (cell == Cell(HeadToCoord.As_Cell()) && !LinkedTo->Techno_Type_Class()->BalloonHover) { // RA2: over its destination cell the flight level is the current height
-			FlightLevel = LinkedTo->HeightAGL; // RA2: as above
-			CurrentState = CRUISING; // RA2: as above
+			FlightLevel = LinkedTo->HeightAGL;
+			CurrentState = CRUISING;
 		}
 	}
 }
@@ -424,22 +424,22 @@ void JumpjetLocomotionClass::Process_Hover(void)
 		if (Point2D(headto) == Point2D(position)) {
 			if (LinkedTo->TarCom == NULL) {
 				if (LinkedTo->Techno_Type_Class()->BalloonHover) { // RA2: balloon hoverers stay up, the rest descend; both advance the planning path
-					CurrentState = HOVERING; // RA2: as above
-					LinkedTo->Next_Planning_Node(); // RA2: as above
+					CurrentState = HOVERING;
+					LinkedTo->Next_Planning_Node();
 				} else {
-					CurrentState = DESCENDING; // RA2: as above
-					LinkedTo->Next_Planning_Node(); // RA2: as above
+					CurrentState = DESCENDING;
+					LinkedTo->Next_Planning_Node();
 				}
 			}
 		} else {
 			Facing.Set_Desired(DirType().Direction(LinkedTo->PositionCoord, HeadToCoord));
 			if (LinkedTo->Get_Cell_Ptr()->Jumpjet == NULL) { // RA2: gives up the jumpjet place of the cell it was last filed under, then the one of its own cell
-				if (Map[LinkedTo->LastFlightMapCoords].Jumpjet == LinkedTo) { // RA2: as above
-					Map[LinkedTo->LastFlightMapCoords].TryAssignJumpjet(NULL); // RA2: as above
+				if (Map[LinkedTo->LastFlightMapCoords].Jumpjet == LinkedTo) {
+					Map[LinkedTo->LastFlightMapCoords].TryAssignJumpjet(NULL);
 				}
 			}
-			LinkedTo->Get_Cell_Ptr()->TryAssignJumpjet(NULL); // RA2: as above
-			CurrentState = CRUISING; // RA2: as above
+			LinkedTo->Get_Cell_Ptr()->TryAssignJumpjet(NULL);
+			CurrentState = CRUISING;
 		}
 	}
 }
@@ -455,11 +455,11 @@ void JumpjetLocomotionClass::Process_Cruise(void)
 {
 	Coord position = LinkedTo->PositionCoord;
 	Cell cell = LinkedTo->Get_Cell(); // RA2: keeps the aircraft tracker's filing of the unit up to date
-	if (cell != LinkedTo->LastFlightMapCoords) { // RA2: as above
-		AircraftTracker.Update(LinkedTo, LinkedTo->LastFlightMapCoords, cell); // RA2: as above
+	if (cell != LinkedTo->LastFlightMapCoords) {
+		AircraftTracker.Update(LinkedTo, LinkedTo->LastFlightMapCoords, cell);
 	}
 	DirType dir; // RA2: a named direction for the facing
-	Facing.Set_Desired(dir.Direction(position, HeadToCoord)); // RA2: as above
+	Facing.Set_Desired(dir.Direction(position, HeadToCoord));
 	DirType difference = Facing.Difference(); // RA2: how far the facing still has to turn
 	bool balloon = LinkedTo->Techno_Type_Class()->BalloonHover; // RA2: balloon hoverers keep their flight level
 
@@ -479,8 +479,8 @@ void JumpjetLocomotionClass::Process_Cruise(void)
 			LinkedTo->Next_Planning_Node(); // RA2: advances the planning path
 		} else {
 			if (AircraftTracker.IsJumpjet(LinkedTo)) { // RA2: another jumpjet holds the cell's place, so head for a random neighbouring cell
-				int facing = Random_Pick(0, 7); // RA2: as above
-				LinkedTo->Assign_Destination(&Map[cell].Adjacent_Cell((FacingType)facing), true); // RA2: as above
+				int facing = Random_Pick(0, 7);
+				LinkedTo->Assign_Destination(&Map[cell].Adjacent_Cell((FacingType)facing), true);
 			} else {
 				LinkedTo->Get_Cell_Ptr()->TryAssignJumpjet(LinkedTo); // RA2: claims the cell's jumpjet place
 				CurrentState = HOVERING; // RA2: claims the cell and hovers, as in the ascent
@@ -491,27 +491,27 @@ void JumpjetLocomotionClass::Process_Cruise(void)
 		if (LinkedTo->TarCom == NULL) {
 			FlightLevel = Height / 2; // RA2: the locomotor's own Height (+0x28)
 		}
-	} else if (distance < Speed * 2) { // RA2: as above
+	} else if (distance < Speed * 2) {
 		TargetSpeed = Speed / 4; // RA2: integer division of the locomotor's Speed
-		if (LinkedTo->TarCom == NULL) { // RA2: as above
-			FlightLevel = Height / 2; // RA2: as above
+		if (LinkedTo->TarCom == NULL) {
+			FlightLevel = Height / 2;
 		}
 		if (difference.As_Dir256() > TurnRate) { // RA2: a sharp turn slows the unit to a tenth, at least 1
-			TargetSpeed = Speed / 10; // RA2: as above
-			if (TargetSpeed < 1.0) { // RA2: as above
-				TargetSpeed = 1.0; // RA2: as above
+			TargetSpeed = Speed / 10;
+			if (TargetSpeed < 1.0) {
+				TargetSpeed = 1.0;
 			}
 		}
 	} else {
 		if (distance < (Speed * 50) / TurnRate) { // RA2: close enough to start slowing down for the turn rate
-			TargetSpeed = Speed / 2; // RA2: as above
-			if (LinkedTo->TarCom == NULL) { // RA2: as above
-				FlightLevel = (int)(Height * 0.75); // RA2: as above
+			TargetSpeed = Speed / 2;
+			if (LinkedTo->TarCom == NULL) {
+				FlightLevel = (int)(Height * 0.75);
 			}
-			if (difference.As_Dir256() > TurnRate * 5) { // RA2: as above
-				TargetSpeed = Speed / 5; // RA2: as above
-				if (TargetSpeed < 1.0) { // RA2: as above
-					TargetSpeed = 1.0; // RA2: as above
+			if (difference.As_Dir256() > TurnRate * 5) {
+				TargetSpeed = Speed / 5;
+				if (TargetSpeed < 1.0) {
+					TargetSpeed = 1.0;
 				}
 			}
 		} else {
@@ -521,8 +521,8 @@ void JumpjetLocomotionClass::Process_Cruise(void)
 	}
 
 	CellClass & destination = Map[HeadToCoord]; // RA2: over water or beach it keeps the full flight level
-	if (balloon || destination.Land_Type() == LAND_WATER || destination.Land_Type() == LAND_BEACH) { // RA2: as above
-		FlightLevel = Height; // RA2: as above
+	if (balloon || destination.Land_Type() == LAND_WATER || destination.Land_Type() == LAND_BEACH) {
+		FlightLevel = Height;
 	}
 }
 
@@ -537,40 +537,40 @@ void JumpjetLocomotionClass::Process_Descent(void)
 {
 	CellClass * cellptr = &Map[HeadToCoord];
 	if (cellptr->Land_Type() == LAND_WATER || cellptr->Land_Type() == LAND_BEACH) { // RA2: no landing on water or beach unless the unit is entering something
-		if (LinkedTo->MissionQueue != MISSION_ENTER && LinkedTo->Get_Mission() != MISSION_ENTER) { // RA2: as above
+		if (LinkedTo->MissionQueue != MISSION_ENTER && LinkedTo->Get_Mission() != MISSION_ENTER) {
 			if (AircraftTracker.IsJumpjet(LinkedTo)) { // RA2: another jumpjet holds the cell's place, so head for a random neighbouring cell
-				int facing = Random_Pick(0, 7); // RA2: as above
-				LinkedTo->Assign_Destination(&LinkedTo->Get_Cell_Ptr()->Adjacent_Cell((FacingType)facing), true); // RA2: as above
-				CurrentState = CRUISING; // RA2: as above
+				int facing = Random_Pick(0, 7);
+				LinkedTo->Assign_Destination(&LinkedTo->Get_Cell_Ptr()->Adjacent_Cell((FacingType)facing), true);
+				CurrentState = CRUISING;
 			} else {
 				LinkedTo->Get_Cell_Ptr()->TryAssignJumpjet(LinkedTo); // RA2: claims the cell's jumpjet place and hovers there at full height
-				CurrentState = HOVERING; // RA2: as above
-				FlightLevel = Height; // RA2: as above
+				CurrentState = HOVERING;
+				FlightLevel = Height;
 			}
-			return; // RA2: as above
+			return;
 		}
 	}
 
 	MoveType move = LinkedTo->Can_Enter_Cell(cellptr);
 	int spot = CellClass::Spot_Index(HeadToCoord);
 	bool landable; // RA2: the spot is free or already claimed; a unit may always land on the cell's centre spot
-	if (cellptr->Is_Spot_Free(spot, cellptr->IsUnderBridge) || IsLanding) { // RA2: as above
-		landable = true; // RA2: as above
+	if (cellptr->Is_Spot_Free(spot, cellptr->IsUnderBridge) || IsLanding) {
+		landable = true;
 	} else {
-		landable = false; // RA2: as above
+		landable = false;
 	}
-	if (LinkedTo->Fetch_RTTI() == RTTI_UNIT && spot == 0) { // RA2: as above
-		landable = true; // RA2: as above
+	if (LinkedTo->Fetch_RTTI() == RTTI_UNIT && spot == 0) {
+		landable = true;
 	}
 
 	if (LinkedTo->MissionQueue != MISSION_ENTER && LinkedTo->Get_Mission() != MISSION_ENTER) { // RA2: a unit entering something skips the landing checks
-		if (!landable || (!Map[HeadToCoord].IsUnderBridge && (move > MOVE_MOVING_BLOCK || (move == MOVE_MOVING_BLOCK && !IsLanding)))) { // RA2: as above
+		if (!landable || (!Map[HeadToCoord].IsUnderBridge && (move > MOVE_MOVING_BLOCK || (move == MOVE_MOVING_BLOCK && !IsLanding)))) {
 			Stop_Moving();
 			return;
 		}
 		if (!IsLanding) {
-			IsLanding = true; // RA2: as above
-			LinkedTo->Set_Occupy_Bit(HeadToCoord); // RA2: as above
+			IsLanding = true;
+			LinkedTo->Set_Occupy_Bit(HeadToCoord);
 		}
 	}
 
@@ -603,14 +603,14 @@ void JumpjetLocomotionClass::Process_Descent(void)
 
 			if (LinkedTo->IsActive && !LinkedTo->IsInLimbo && !LinkedTo->IsFalling) { // RA2: no null test of LinkedTo
 				LinkedTo->RemoveSight(0, 0, 0, 0); // RA2: takes back the sight, then reveals the surroundings again, instead of Look
-				if (LinkedTo->IsActive) { // RA2: as above
-					LinkedTo->UpdateSight(0, 0, 0, 0); // RA2: as above
+				if (LinkedTo->IsActive) {
+					LinkedTo->UpdateSight(0, 0, 0, 0);
 				}
-				if (LinkedTo->IsActive) { // RA2: as above
-					Map.RevealArea3(LinkedTo->PositionCoord, LinkedTo->LastSightRange - 3, LinkedTo->LastSightRange + 3, 0); // RA2: as above
+				if (LinkedTo->IsActive) {
+					Map.RevealArea3(LinkedTo->PositionCoord, LinkedTo->LastSightRange - 3, LinkedTo->LastSightRange + 3, 0);
 				}
 				Release_Jumpjet(LinkedTo); // RA2: gives up the cell's jumpjet place and leaves the aircraft tracker
-				AircraftTracker.Remove(LinkedTo); // RA2: as above
+				AircraftTracker.Remove(LinkedTo);
 				CurrentState = GROUNDED;
 				IsLanding = false;
 			}
@@ -629,11 +629,11 @@ void JumpjetLocomotionClass::Process_Crashing(void) // RA2: at 0x530940
 	Coord coord = LinkedTo->Position;
 	coord.Z -= Crash;
 	{
-		DirType dir = DirType((unsigned short)(Facing.Current().Raw + 0x2D00)); // RA2: as above
-		Facing.Set_Desired(dir); // RA2: as above
+		DirType dir = DirType((unsigned short)(Facing.Current().Raw + 0x2D00));
+		Facing.Set_Desired(dir);
 	}
 	Map.Get_Height_GL(coord);
-	Map[coord]; // RA2: as above
+	Map[coord];
 	if (Map.In_Radar(coord.As_Cell())) {
 		Map.Remove(LinkedTo);
 		LinkedTo->Mark(MARK_UP);
@@ -642,13 +642,13 @@ void JumpjetLocomotionClass::Process_Crashing(void) // RA2: at 0x530940
 		Map.Submit(LinkedTo);
 	}
 	if (LinkedTo->HeightAGL <= 0) {
-		if (((CellClass *)LinkedTo->Get_Cell_Ptr())->Jumpjet == LinkedTo) { // RA2: as above
-			((CellClass *)LinkedTo->Get_Cell_Ptr())->TryAssignJumpjet(NULL); // RA2: as above
+		if (((CellClass *)LinkedTo->Get_Cell_Ptr())->Jumpjet == LinkedTo) {
+			((CellClass *)LinkedTo->Get_Cell_Ptr())->TryAssignJumpjet(NULL);
 		}
 		AircraftTracker.Remove(LinkedTo);
 		CurrentState = UNKNOWN;
-		TargetSpeed = 0; // RA2: as above
-		LinkedTo->Unknown_Virtual_0(0x117C, 0); // RA2: as above
+		TargetSpeed = 0;
+		LinkedTo->Unknown_Virtual_0(0x117C, 0);
 	}
 }
 
@@ -704,11 +704,11 @@ void JumpjetLocomotionClass::Movement_AI(void)
 		CurrentSpeed = MIN(CurrentSpeed, (double)Speed); // RA2: the locomotor's own Speed (+0x1C)
 	}
 	if (TargetSpeed < CurrentSpeed) {
-		CurrentSpeed -= Accel * 1.5; // RA2: as above
-		CurrentSpeed = MAX(CurrentSpeed, 0.0); // RA2: as above
+		CurrentSpeed -= Accel * 1.5;
+		CurrentSpeed = MAX(CurrentSpeed, 0.0);
 	}
 
-	LinkedTo->Set_Speed(CurrentSpeed / Speed); // RA2: as above
+	LinkedTo->Set_Speed(CurrentSpeed / Speed);
 
 	bool at_destination = LinkedTo->Get_Cell() == HeadToCoord.As_Cell();
 
@@ -746,16 +746,16 @@ void JumpjetLocomotionClass::Movement_AI(void)
 			LinkedTo->IsOnBridge = false;
 		}
 		if (height_diff + Climb > desired_height) { // RA2: the climb step (+0x20) is limited so the unit does not overshoot the wanted height
-			height += desired_height - height_diff; // RA2: as above
+			height += desired_height - height_diff;
 		} else {
-			height = (int)(height + Climb); // RA2: as above
+			height = (int)(height + Climb);
 		}
 		moved = true;
 	} else if (height_diff > desired_height) { // RA2: an else-if, as the executable tests the flags of one comparison
 		if (height_diff - Climb < desired_height) { // RA2: the same limit going down
-			height += desired_height - height_diff; // RA2: as above
+			height += desired_height - height_diff;
 		} else {
-			height = (int)(height - Climb); // RA2: as above
+			height = (int)(height - Climb);
 		}
 		if (height <= ground_height) {
 			height = ground_height;
@@ -769,7 +769,7 @@ void JumpjetLocomotionClass::Movement_AI(void)
 			CurrentSpeed = 0; // RA2: the speed drops to zero, not by a tenth
 		}
 		if (height_diff < desired_height / 4) {
-			CurrentSpeed = 0; // RA2: as above
+			CurrentSpeed = 0;
 		}
 	}
 

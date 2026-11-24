@@ -44,7 +44,7 @@
 #include "ccrand.h" // RA2: the includes this file needs
 #include "dbgprint.h" // RA2: the includes this file needs
 #include <windows.h> // RA2: the includes this file needs
-#undef LoadString // RA2: as above
+#undef LoadString
 #include "rect.h" // RA2: the includes this file needs
 #include "wonline.h"
 #include "unholyalliance.h"
@@ -62,10 +62,10 @@ static char const * MultiplayerDialogSettings = "MultiplayerDialogSettings"; // 
 
 static inline bool Has_Settings(CCINIClass * ini) // RA2: the test of the constructor, whose result is kept as a flag
 {
-	if (ini == NULL) { // RA2: as above
-		return(false); // RA2: as above
+	if (ini == NULL) {
+		return(false);
 	}
-	return(ini->Section_Present(MultiplayerDialogSettings)); // RA2: as above
+	return(ini->Section_Present(MultiplayerDialogSettings));
 }
 
 /// <summary>
@@ -75,7 +75,7 @@ static inline bool Has_Settings(CCINIClass * ini) // RA2: the test of the constr
 DynamicVectorClass<MultiplayerGameMode *> & Game_Modes(void) // RA2: 0x005B6C30
 {
 	static DynamicVectorClass<MultiplayerGameMode *> modes; // RA2: the static at 0x00A71A10 with its guard bit at 0x00A719E0; its destructor runs at exit
-	return(modes); // RA2: as above
+	return(modes);
 }
 
 /// <summary>
@@ -84,20 +84,20 @@ DynamicVectorClass<MultiplayerGameMode *> & Game_Modes(void) // RA2: 0x005B6C30
 /// [MultiplayerDialogSettings] says whether Westwood Online tournaments may use the mode.
 /// </summary>
 MultiplayerGameMode::MultiplayerGameMode(WideWstring const & title, WideWstring const & tooltip, Wstring const & inifile, Wstring const & mapfilter, bool aiallowed, int modeindex) : // RA2: 0x005B6CD0
-	MPTeams(), // RA2: as above
-	UIName(title), // RA2: as above
-	CSFTooltip(tooltip), // RA2: as above
-	MPModeIndex(modeindex), // RA2: as above
-	INIFilename(inifile), // RA2: as above
-	MapFilter(mapfilter), // RA2: as above
-	AIAllowed(aiallowed), // RA2: as above
-	INI(NULL) // RA2: as above
+	MPTeams(),
+	UIName(title),
+	CSFTooltip(tooltip),
+	MPModeIndex(modeindex),
+	INIFilename(inifile),
+	MapFilter(mapfilter),
+	AIAllowed(aiallowed),
+	INI(NULL)
 {
 	unknown_4 = false; // RA2: +0x04
 	wolTourney = 1; // RA2: +0x3C, 1 unless the INI file says otherwise
 	GetINI(); // RA2: expanded here; the INI is made and read
-	if (Has_Settings(INI)) { // RA2: as above
-		wolTourney = INI->Get_Int(MultiplayerDialogSettings, "WonlineTournamentAllowed", wolTourney); // RA2: as above
+	if (Has_Settings(INI)) {
+		wolTourney = INI->Get_Int(MultiplayerDialogSettings, "WonlineTournamentAllowed", wolTourney);
 	}
 }
 
@@ -106,8 +106,8 @@ MultiplayerGameMode::MultiplayerGameMode(WideWstring const & title, WideWstring 
 /// </summary>
 MultiplayerGameMode::~MultiplayerGameMode(void) // RA2: 0x005B6E20
 {
-	DeleteTeams(); // RA2: as above
-	delete INI; // RA2: as above
+	DeleteTeams();
+	delete INI;
 }
 
 /// <summary>
@@ -115,7 +115,7 @@ MultiplayerGameMode::~MultiplayerGameMode(void) // RA2: 0x005B6E20
 /// </summary>
 int MultiplayerGameMode::DefaultCountry(void) // RA2: 0x005B6EB0, slot 0x28 of the vtable
 {
-	return(-2); // RA2: as above
+	return(-2);
 }
 
 /// <summary>
@@ -123,10 +123,10 @@ int MultiplayerGameMode::DefaultCountry(void) // RA2: 0x005B6EB0, slot 0x28 of t
 /// </summary>
 MultiplayerGameMode * First_Game_Mode(void) // RA2: 0x005B6EC0
 {
-	if (Game_Modes().Count() == 0) { // RA2: as above
-		return(NULL); // RA2: as above
+	if (Game_Modes().Count() == 0) {
+		return(NULL);
 	}
-	return(Game_Modes()[0]); // RA2: as above
+	return(Game_Modes()[0]);
 }
 
 /// <summary>
@@ -134,7 +134,7 @@ MultiplayerGameMode * First_Game_Mode(void) // RA2: 0x005B6EC0
 /// </summary>
 int __cdecl MultiplayerGameMode::GetModeCount(void) // RA2: 0x005B6F80
 {
-	return(Game_Modes().Count()); // RA2: as above
+	return(Game_Modes().Count());
 }
 
 /// <summary>
@@ -142,13 +142,13 @@ int __cdecl MultiplayerGameMode::GetModeCount(void) // RA2: 0x005B6F80
 /// </summary>
 MultiplayerGameMode * __fastcall MultiplayerGameMode::Get(int index) // RA2: 0x005B6FE0
 {
-	for (int i = 0; i < GetModeCount(); i++) { // RA2: as above
-		MultiplayerGameMode * mode = Game_Modes()[i]; // RA2: as above
-		if (mode->MPModeIndex == index) { // RA2: as above
-			return(mode); // RA2: as above
+	for (int i = 0; i < GetModeCount(); i++) {
+		MultiplayerGameMode * mode = Game_Modes()[i];
+		if (mode->MPModeIndex == index) {
+			return(mode);
 		}
 	}
-	return(NULL); // RA2: as above
+	return(NULL);
 }
 
 /// <summary>
@@ -157,16 +157,16 @@ MultiplayerGameMode * __fastcall MultiplayerGameMode::Get(int index) // RA2: 0x0
 /// </summary>
 void __fastcall Fill_Game_Mode_Combo(HWND combo, int index) // RA2: 0x005B70B0
 {
-	Clear_ComboBox(combo); // RA2: as above
-	bool skirmish = Session.Type == GAME_SKIRMISH; // RA2: as above
-	for (int i = 0; i < MultiplayerGameMode::GetModeCount(); i++) { // RA2: as above
-		MultiplayerGameMode * mode = Game_Modes()[i]; // RA2: as above
-		if (!skirmish || mode->IsSkirmishAllowed()) { // RA2: as above
-			int item = SendMessage(combo, CB_ADDSTRING, 0, (LPARAM)mode->Get_Name().text()); // RA2: as above
-			if (mode->Get_ID() == index) { // RA2: as above
-				SendMessage(combo, CB_SETCURSEL, item, 0); // RA2: as above
+	Clear_ComboBox(combo);
+	bool skirmish = Session.Type == GAME_SKIRMISH;
+	for (int i = 0; i < MultiplayerGameMode::GetModeCount(); i++) {
+		MultiplayerGameMode * mode = Game_Modes()[i];
+		if (!skirmish || mode->IsSkirmishAllowed()) {
+			int item = SendMessage(combo, CB_ADDSTRING, 0, (LPARAM)mode->Get_Name().text());
+			if (mode->Get_ID() == index) {
+				SendMessage(combo, CB_SETCURSEL, item, 0);
 			}
-			SendMessage(combo, CB_SETITEMDATA, item, (LPARAM)mode); // RA2: as above
+			SendMessage(combo, CB_SETITEMDATA, item, (LPARAM)mode);
 		}
 	}
 }
@@ -179,22 +179,22 @@ void __fastcall Fill_Game_Mode_Combo(HWND combo, int index) // RA2: 0x005B70B0
 /// </summary>
 void __fastcall Fill_Game_Mode_List(HWND list, int index) // RA2: 0x005B71E0
 {
-	SendMessage(list, LB_RESETCONTENT, 0, 0); // RA2: as above
-	bool skirmish = Session.Type == GAME_SKIRMISH; // RA2: as above
-	for (int i = 0; i < MultiplayerGameMode::GetModeCount(); i++) { // RA2: as above
-		MultiplayerGameMode * mode = Game_Modes()[i]; // RA2: as above
-		if (mode->wolTourney == 0 && Session.Type == GAME_INTERNET && Is_Current_Channel_Tournament()) { // RA2: as above
-			continue; // RA2: as above
+	SendMessage(list, LB_RESETCONTENT, 0, 0);
+	bool skirmish = Session.Type == GAME_SKIRMISH;
+	for (int i = 0; i < MultiplayerGameMode::GetModeCount(); i++) {
+		MultiplayerGameMode * mode = Game_Modes()[i];
+		if (mode->wolTourney == 0 && Session.Type == GAME_INTERNET && Is_Current_Channel_Tournament()) {
+			continue;
 		}
-		if (LobbyObserverSlot == 0 && Session.Slots[0]->Slot.SpectatorFlag == -1 && !mode->vt_entry_A0()) { // RA2: as above
-			continue; // RA2: as above
+		if (LobbyObserverSlot == 0 && Session.Slots[0]->Slot.SpectatorFlag == -1 && !mode->vt_entry_A0()) {
+			continue;
 		}
-		if (!skirmish || mode->IsSkirmishAllowed()) { // RA2: as above
-			int item = SendMessage(list, LB_ADDITEM, 0, (LPARAM)mode->Get_Name().text()); // RA2: as above
-			if (mode->Get_ID() == index) { // RA2: as above
-				SendMessage(list, LB_SETCURSEL, item, 0); // RA2: as above
+		if (!skirmish || mode->IsSkirmishAllowed()) {
+			int item = SendMessage(list, LB_ADDITEM, 0, (LPARAM)mode->Get_Name().text());
+			if (mode->Get_ID() == index) {
+				SendMessage(list, LB_SETCURSEL, item, 0);
 			}
-			SendMessage(list, LB_SETITEMDATA, item, (LPARAM)mode); // RA2: as above
+			SendMessage(list, LB_SETITEMDATA, item, (LPARAM)mode);
 		}
 	}
 }
@@ -205,14 +205,14 @@ void __fastcall Fill_Game_Mode_List(HWND list, int index) // RA2: 0x005B71E0
 /// </summary>
 bool MultiplayerGameMode::AssignTeams(void) // RA2: 0x005B7350
 {
-	for (int i = 0; i < Session.Players.Count(); i++) { // RA2: as above
-		if (Session.Players[i]->Get_Country() == -3) { // RA2: as above
-			Session.Players[i]->Slot.SpectatorFlag = -1; // RA2: as above
-		} else { // RA2: as above
-			Session.Players[i]->Slot.SpectatorFlag = i; // RA2: as above
+	for (int i = 0; i < Session.Players.Count(); i++) {
+		if (Session.Players[i]->Get_Country() == -3) {
+			Session.Players[i]->Slot.SpectatorFlag = -1;
+		} else {
+			Session.Players[i]->Slot.SpectatorFlag = i;
 		}
 	}
-	return(true); // RA2: as above
+	return(true);
 }
 
 /// <summary>
@@ -220,7 +220,7 @@ bool MultiplayerGameMode::AssignTeams(void) // RA2: 0x005B7350
 /// </summary>
 bool MultiplayerGameMode::CheckStartConditions(WideWstring * message) // RA2: 0x005B73A0
 {
-	return(true); // RA2: as above
+	return(true);
 }
 
 /// <summary>
@@ -228,7 +228,7 @@ bool MultiplayerGameMode::CheckStartConditions(WideWstring * message) // RA2: 0x
 /// </summary>
 bool MultiplayerGameMode::vt_entry_50(void) // RA2: 0x005B73B0, slot 0x50 of the vtable; true
 {
-	return(true); // RA2: as above
+	return(true);
 }
 
 /// <summary>
@@ -236,7 +236,7 @@ bool MultiplayerGameMode::vt_entry_50(void) // RA2: 0x005B73B0, slot 0x50 of the
 /// </summary>
 bool MultiplayerGameMode::vt_entry_54(void) // RA2: 0x005B73C0, slot 0x54 of the vtable; true
 {
-	return(true); // RA2: as above
+	return(true);
 }
 
 /// <summary>
@@ -244,7 +244,7 @@ bool MultiplayerGameMode::vt_entry_54(void) // RA2: 0x005B73C0, slot 0x54 of the
 /// </summary>
 bool MultiplayerGameMode::AssignTeamsAtStart(void) // RA2: 0x005B73D0
 {
-	return(true); // RA2: as above
+	return(true);
 }
 
 /// <summary>
@@ -252,7 +252,7 @@ bool MultiplayerGameMode::AssignTeamsAtStart(void) // RA2: 0x005B73D0
 /// </summary>
 bool MultiplayerGameMode::IsAIAllowed(void) // RA2: 0x005B73E0
 {
-	return(AIAllowed); // RA2: as above
+	return(AIAllowed);
 }
 
 /// <summary>
@@ -260,7 +260,7 @@ bool MultiplayerGameMode::IsAIAllowed(void) // RA2: 0x005B73E0
 /// </summary>
 bool MultiplayerGameMode::IsSkirmishAllowed(void) // RA2: 0x005B73F0
 {
-	return(false); // RA2: as above
+	return(false);
 }
 
 /// <summary>
@@ -268,13 +268,13 @@ bool MultiplayerGameMode::IsSkirmishAllowed(void) // RA2: 0x005B73F0
 /// </summary>
 int MultiplayerGameMode::FirstValidMapIndex(void) // RA2: 0x005B7400
 {
-	int count = Session.Scenarios.Count(); // RA2: as above
-	for (int i = 0; i < count; i++) { // RA2: as above
-		if (IsMapAllowed(Session.Scenarios[i])) { // RA2: as above
-			return(i); // RA2: as above
+	int count = Session.Scenarios.Count();
+	for (int i = 0; i < count; i++) {
+		if (IsMapAllowed(Session.Scenarios[i])) {
+			return(i);
 		}
 	}
-	return(-1); // RA2: as above
+	return(-1);
 }
 
 /// <summary>
@@ -283,13 +283,13 @@ int MultiplayerGameMode::FirstValidMapIndex(void) // RA2: 0x005B7400
 /// </summary>
 bool MultiplayerGameMode::IsMapAllowed(MultiMission const * map) // RA2: 0x005B7470
 {
-	if (map->Is_Random_Map()) { // RA2: as above
-		return(IsAIAllowed()); // RA2: as above
+	if (map->Is_Random_Map()) {
+		return(IsAIAllowed());
 	}
-	if (!map->Get_Official() && Is_Current_Channel_Tournament()) { // RA2: as above
-		return(false); // RA2: as above
+	if (!map->Get_Official() && Is_Current_Channel_Tournament()) {
+		return(false);
 	}
-	return(map->Supports_Game_Mode(MapFilter)); // RA2: as above
+	return(map->Supports_Game_Mode(MapFilter));
 }
 
 /// <summary>
@@ -297,7 +297,7 @@ bool MultiplayerGameMode::IsMapAllowed(MultiMission const * map) // RA2: 0x005B7
 /// </summary>
 int MultiplayerGameMode::RandomHumanCountryIndex(void) // RA2: 0x005B74C0
 {
-	return(Session.Random_Side()); // RA2: as above
+	return(Session.Random_Side());
 }
 
 /// <summary>
@@ -305,7 +305,7 @@ int MultiplayerGameMode::RandomHumanCountryIndex(void) // RA2: 0x005B74C0
 /// </summary>
 int MultiplayerGameMode::RandomAICountryIndex(void) // RA2: 0x005B74D0
 {
-	return(RandomHumanCountryIndex()); // RA2: as above
+	return(RandomHumanCountryIndex());
 }
 
 /// <summary>
@@ -314,14 +314,14 @@ int MultiplayerGameMode::RandomAICountryIndex(void) // RA2: 0x005B74D0
 /// </summary>
 void MultiplayerGameMode::PopulateTeamDropdown(HWND hwnd, DynamicVectorClass<MultiplayerTeam *> * teams, MultiplayerTeam * team) // RA2: 0x005B74E0
 {
-	Clear_ComboBox(hwnd); // RA2: as above
-	for (int i = 0; i < teams->Count(); i++) { // RA2: as above
-		MultiplayerTeam * entry = (*teams)[i]; // RA2: as above
-		int item = SendMessage(hwnd, CB_ADDSTRING, 0, (LPARAM)entry); // RA2: as above
-		if (entry == team) { // RA2: as above
-			SendMessage(hwnd, CB_SETCURSEL, item, 0); // RA2: as above
+	Clear_ComboBox(hwnd);
+	for (int i = 0; i < teams->Count(); i++) {
+		MultiplayerTeam * entry = (*teams)[i];
+		int item = SendMessage(hwnd, CB_ADDSTRING, 0, (LPARAM)entry);
+		if (entry == team) {
+			SendMessage(hwnd, CB_SETCURSEL, item, 0);
 		}
-		SendMessage(hwnd, CB_SETITEMDATA, item, (LPARAM)entry); // RA2: as above
+		SendMessage(hwnd, CB_SETITEMDATA, item, (LPARAM)entry);
 	}
 }
 
@@ -330,14 +330,14 @@ void MultiplayerGameMode::PopulateTeamDropdown(HWND hwnd, DynamicVectorClass<Mul
 /// </summary>
 void MultiplayerGameMode::DrawTeamDropdown(HWND hwnd, DynamicVectorClass<MultiMission const *> * maps, MultiMission const * map) // RA2: 0x005B7550
 {
-	SendMessage(hwnd, LB_RESETCONTENT, 0, 0); // RA2: as above
-	for (int i = 0; i < maps->Count(); i++) { // RA2: as above
-		MultiMission const * entry = (*maps)[i]; // RA2: as above
-		int item = SendMessage(hwnd, LB_ADDITEM, 0, (LPARAM)entry); // RA2: as above
-		if (entry == map) { // RA2: as above
-			SendMessage(hwnd, LB_SETCURSEL, item, 0); // RA2: as above
+	SendMessage(hwnd, LB_RESETCONTENT, 0, 0);
+	for (int i = 0; i < maps->Count(); i++) {
+		MultiMission const * entry = (*maps)[i];
+		int item = SendMessage(hwnd, LB_ADDITEM, 0, (LPARAM)entry);
+		if (entry == map) {
+			SendMessage(hwnd, LB_SETCURSEL, item, 0);
 		}
-		SendMessage(hwnd, LB_SETITEMDATA, item, (LPARAM)entry); // RA2: as above
+		SendMessage(hwnd, LB_SETITEMDATA, item, (LPARAM)entry);
 	}
 }
 
@@ -347,21 +347,21 @@ void MultiplayerGameMode::DrawTeamDropdown(HWND hwnd, DynamicVectorClass<MultiMi
 /// </summary>
 void MultiplayerGameMode::PopulateTeamDropdownForPlayer(HWND hwnd, int index) // RA2: 0x005B75D0
 {
-	Clear_ComboBox(hwnd); // RA2: as above
-	for (int i = 0; i < MPTeams.Count(); i++) { // RA2: as above
-		delete MPTeams[i]; // RA2: as above
+	Clear_ComboBox(hwnd);
+	for (int i = 0; i < MPTeams.Count(); i++) {
+		delete MPTeams[i];
 	}
-	MPTeams.Clear(); // RA2: as above
-	CreateMPTeams(&MPTeams); // RA2: as above
-	if (index >= 0 && index < Session.Players.Count()) { // RA2: as above
-		int slot = Session.Players[index]->Slot.SpectatorFlag; // RA2: as above
-		for (int i = 0; i < MPTeams.Count(); i++) { // RA2: as above
-			MultiplayerTeam * entry = MPTeams[i]; // RA2: as above
-			int item = SendMessage(hwnd, CB_ADDSTRING, 0, (LPARAM)entry->Title.text()); // RA2: as above
-			if (entry->Index == slot) { // RA2: as above
-				SendMessage(hwnd, CB_SETCURSEL, item, 0); // RA2: as above
+	MPTeams.Clear();
+	CreateMPTeams(&MPTeams);
+	if (index >= 0 && index < Session.Players.Count()) {
+		int slot = Session.Players[index]->Slot.SpectatorFlag;
+		for (int i = 0; i < MPTeams.Count(); i++) {
+			MultiplayerTeam * entry = MPTeams[i];
+			int item = SendMessage(hwnd, CB_ADDSTRING, 0, (LPARAM)entry->Title.text());
+			if (entry->Index == slot) {
+				SendMessage(hwnd, CB_SETCURSEL, item, 0);
 			}
-			SendMessage(hwnd, CB_SETITEMDATA, item, (LPARAM)entry); // RA2: as above
+			SendMessage(hwnd, CB_SETITEMDATA, item, (LPARAM)entry);
 		}
 	}
 }
@@ -371,20 +371,20 @@ void MultiplayerGameMode::PopulateTeamDropdownForPlayer(HWND hwnd, int index) //
 /// </summary>
 MultiplayerTeam * MultiplayerGameMode::GetTeam(int index) // RA2: 0x005B76B0
 {
-	if (MPTeams.Count() < 3) { // RA2: as above
-		for (int i = 0; i < MPTeams.Count(); i++) { // RA2: as above
-			delete MPTeams[i]; // RA2: as above
+	if (MPTeams.Count() < 3) {
+		for (int i = 0; i < MPTeams.Count(); i++) {
+			delete MPTeams[i];
 		}
-		MPTeams.Clear(); // RA2: as above
-		CreateMPTeams(&MPTeams); // RA2: as above
+		MPTeams.Clear();
+		CreateMPTeams(&MPTeams);
 	}
-	for (int i = 0; i < MPTeams.Count(); i++) { // RA2: as above
-		MultiplayerTeam * team = MPTeams[i]; // RA2: as above
-		if (team != NULL && team->Index == index) { // RA2: as above
-			return(team); // RA2: as above
+	for (int i = 0; i < MPTeams.Count(); i++) {
+		MultiplayerTeam * team = MPTeams[i];
+		if (team != NULL && team->Index == index) {
+			return(team);
 		}
 	}
-	return(NULL); // RA2: as above
+	return(NULL);
 }
 
 /// <summary>
@@ -393,9 +393,9 @@ MultiplayerTeam * MultiplayerGameMode::GetTeam(int index) // RA2: 0x005B76B0
 /// </summary>
 void MultiplayerGameMode::CreateMPTeams(DynamicVectorClass<MultiplayerTeam *> * teams) // RA2: 0x005B7720
 {
-	teams->Add(new MultiplayerObserverTeam); // RA2: as above
-	for (int i = 1; i <= Session.MaxPlayers; i++) { // RA2: as above
-		teams->Add(Create_Battle_Team(i)); // RA2: as above
+	teams->Add(new MultiplayerObserverTeam);
+	for (int i = 1; i <= Session.MaxPlayers; i++) {
+		teams->Add(Create_Battle_Team(i));
 	}
 }
 
@@ -404,10 +404,10 @@ void MultiplayerGameMode::CreateMPTeams(DynamicVectorClass<MultiplayerTeam *> * 
 /// </summary>
 void MultiplayerGameMode::DeleteTeams(void) // RA2: 0x005B77E0
 {
-	for (int i = 0; i < MPTeams.Count(); i++) { // RA2: as above
-		delete MPTeams[i]; // RA2: as above
+	for (int i = 0; i < MPTeams.Count(); i++) {
+		delete MPTeams[i];
 	}
-	MPTeams.Clear(); // RA2: as above
+	MPTeams.Clear();
 }
 
 /// <summary>
@@ -415,8 +415,8 @@ void MultiplayerGameMode::DeleteTeams(void) // RA2: 0x005B77E0
 /// </summary>
 bool MultiplayerGameMode::UnfixAlliances(void) // RA2: 0x005B7820
 {
-	Scen->Special.IsAllianceFixed = false; // RA2: as above
-	return(true); // RA2: as above
+	Scen->Special.IsAllianceFixed = false;
+	return(true);
 }
 
 /// <summary>
@@ -424,7 +424,7 @@ bool MultiplayerGameMode::UnfixAlliances(void) // RA2: 0x005B7820
 /// </summary>
 bool MultiplayerGameMode::IsCountryAllowed(int country) // RA2: 0x005B7830, slot 0x1C of the vtable; every country is allowed
 {
-	return(true); // RA2: as above
+	return(true);
 }
 
 /// <summary>
@@ -432,14 +432,14 @@ bool MultiplayerGameMode::IsCountryAllowed(int country) // RA2: 0x005B7830, slot
 /// </summary>
 CCINIClass * MultiplayerGameMode::GetINI(void) // RA2: 0x005B7840
 {
-	if (INI == NULL) { // RA2: as above
-		INI = new CCINIClass; // RA2: as above
-		CCFileClass file(INIFilename); // RA2: as above
-		if (file.Is_Available(false)) { // RA2: as above
-			INI->Load(file, false, false); // RA2: as above
+	if (INI == NULL) {
+		INI = new CCINIClass;
+		CCFileClass file(INIFilename);
+		if (file.Is_Available(false)) {
+			INI->Load(file, false, false);
 		}
 	}
-	return(INI); // RA2: as above
+	return(INI);
 }
 
 static bool ObserverCellTaken; // RA2: 0x00A71A3C, set when an observer was given a cell; AssignStartingPositionsToHouse lets the next house share it once
@@ -451,14 +451,14 @@ static bool ObserverCellShared; // RA2: 0x00A71A3D, set when the next house was 
 /// </summary>
 static inline bool Is_Observer(HouseClass * house) // RA2: expanded where AssignStartingPositionsToHouse and GenerateUnits ask
 {
-	if (house != NULL) { // RA2: as above
-		for (int i = 0; i < Session.Players.Count(); i++) { // RA2: as above
-			if (house->Is_Human_Player() && wcscmp(house->UIName, Session.Players[i]->Name) == 0) { // RA2: as above
-				return(Session.Players[i]->Slot.SpectatorFlag == -1); // RA2: as above
+	if (house != NULL) {
+		for (int i = 0; i < Session.Players.Count(); i++) {
+			if (house->Is_Human_Player() && wcscmp(house->UIName, Session.Players[i]->Name) == 0) {
+				return(Session.Players[i]->Slot.SpectatorFlag == -1);
 			}
 		}
 	}
-	return(false); // RA2: as above
+	return(false);
 }
 
 /// <summary>
@@ -472,59 +472,59 @@ static inline bool Is_Observer(HouseClass * house) // RA2: expanded where Assign
 /// <param name="satisfied">One flag per starting cell: taken or not.</param>
 Cell * MultiplayerGameMode::AssignStartingPositionsToHouse(Cell * result, int house, DynamicVectorClass<Cell> * coords, unsigned char * satisfied) // RA2: 0x005B7920
 {
-	int i = 0; // RA2: as above
-	while (i < coords->Count() && !satisfied[i]) { // RA2: as above
-		i++; // RA2: as above
+	int i = 0;
+	while (i < coords->Count() && !satisfied[i]) {
+		i++;
 	}
-	if (i == coords->Count()) { // RA2: as above
-		ObserverCellTaken = false; // RA2: as above
-		ObserverCellShared = false; // RA2: as above
-		if (Is_Observer(Houses[house])) { // RA2: as above
-			i = Scen->RandomNumber(0, coords->Count() - 1); // RA2: as above
-			satisfied[i] = true; // RA2: as above
-			ObserverCellTaken = true; // RA2: as above
-			DebugString("Observer observing random cell: %d (%d,%d)\n", i, (*coords)[i].X, (*coords)[i].Y); // RA2: as above
-			*result = (*coords)[i]; // RA2: as above
-			return(result); // RA2: as above
+	if (i == coords->Count()) {
+		ObserverCellTaken = false;
+		ObserverCellShared = false;
+		if (Is_Observer(Houses[house])) {
+			i = Scen->RandomNumber(0, coords->Count() - 1);
+			satisfied[i] = true;
+			ObserverCellTaken = true;
+			DebugString("Observer observing random cell: %d (%d,%d)\n", i, (*coords)[i].X, (*coords)[i].Y);
+			*result = (*coords)[i];
+			return(result);
 		}
-		i = Scen->RandomNumber(0, coords->Count() - 1); // RA2: as above
-		DebugString("First cell taken: %d (%d,%d)\n", i, (*coords)[i].X, (*coords)[i].Y); // RA2: as above
-		satisfied[i] = true; // RA2: as above
-		*result = (*coords)[i]; // RA2: as above
-		return(result); // RA2: as above
+		i = Scen->RandomNumber(0, coords->Count() - 1);
+		DebugString("First cell taken: %d (%d,%d)\n", i, (*coords)[i].X, (*coords)[i].Y);
+		satisfied[i] = true;
+		*result = (*coords)[i];
+		return(result);
 	}
-	if (ObserverCellTaken && !ObserverCellShared) { // RA2: as above
-		ObserverCellShared = true; // RA2: as above
-		*result = (*coords)[i]; // RA2: as above
-		return(result); // RA2: as above
+	if (ObserverCellTaken && !ObserverCellShared) {
+		ObserverCellShared = true;
+		*result = (*coords)[i];
+		return(result);
 	}
-	if (Is_Observer(Houses[house])) { // RA2: as above
-		ObserverCellShared = true; // RA2: as above
-		ObserverCellTaken = true; // RA2: as above
-		DebugString("Observer Observing cell: %d (%d,%d)\n", i, (*coords)[i].X, (*coords)[i].Y); // RA2: as above
-		*result = (*coords)[i]; // RA2: as above
-		return(result); // RA2: as above
+	if (Is_Observer(Houses[house])) {
+		ObserverCellShared = true;
+		ObserverCellTaken = true;
+		DebugString("Observer Observing cell: %d (%d,%d)\n", i, (*coords)[i].X, (*coords)[i].Y);
+		*result = (*coords)[i];
+		return(result);
 	}
-	int best_sum = -1; // RA2: as above
-	int best = -1; // RA2: as above
-	for (int b = 0; b < coords->Count(); b++) { // RA2: as above
-		if (!satisfied[b]) { // RA2: as above
-			int sum = 0; // RA2: as above
-			for (int c = 0; c < coords->Count(); c++) { // RA2: as above
-				if (satisfied[c]) { // RA2: as above
-					sum += (*coords)[b].Distance_To((*coords)[c]); // RA2: as above
+	int best_sum = -1;
+	int best = -1;
+	for (int b = 0; b < coords->Count(); b++) {
+		if (!satisfied[b]) {
+			int sum = 0;
+			for (int c = 0; c < coords->Count(); c++) {
+				if (satisfied[c]) {
+					sum += (*coords)[b].Distance_To((*coords)[c]);
 				}
 			}
-			if (sum > best_sum) { // RA2: as above
-				best_sum = sum; // RA2: as above
-				best = b; // RA2: as above
+			if (sum > best_sum) {
+				best_sum = sum;
+				best = b;
 			}
 		}
 	}
-	satisfied[best] = true; // RA2: as above
-	DebugString("Starting cell taken: %d (%d,%d)\n", best, (*coords)[best].X, (*coords)[best].Y); // RA2: as above
-	*result = (*coords)[best]; // RA2: as above
-	return(result); // RA2: as above
+	satisfied[best] = true;
+	DebugString("Starting cell taken: %d (%d,%d)\n", best, (*coords)[best].X, (*coords)[best].Y);
+	*result = (*coords)[best];
+	return(result);
 }
 
 
@@ -534,19 +534,19 @@ Cell * MultiplayerGameMode::AssignStartingPositionsToHouse(Cell * result, int ho
 /// <param name="unused">The argument the starting cell list is asked for with; RA2's list ignores it.</param>
 bool MultiplayerGameMode::StartingPositionsToHouseBaseCells(char unused) // RA2: 0x005B7C00
 {
-	DynamicVectorClass<Cell> cells = Build_Start_Waypoint_List(unused); // RA2: as above
-	unsigned char taken[16]; // RA2: as above
-	memset(taken, 0, sizeof(taken)); // RA2: as above
-	for (int i = 0; i < Houses.Count(); i++) { // RA2: as above
-		HouseClass * house = Houses[i]; // RA2: as above
-		if (!house->Class->IsMultiplayPassive) { // RA2: as above
-			DebugString("Assigning Starting Points for house %d (%s)\n", i, house->Class->Name()); // RA2: as above
-			Cell cell; // RA2: as above
-			Cell chosen = *AssignStartingPositionsToHouse(&cell, i, &cells, taken); // RA2: as above
-			house->Center = Coord(chosen); // RA2: as above
+	DynamicVectorClass<Cell> cells = Build_Start_Waypoint_List(unused);
+	unsigned char taken[16];
+	memset(taken, 0, sizeof(taken));
+	for (int i = 0; i < Houses.Count(); i++) {
+		HouseClass * house = Houses[i];
+		if (!house->Class->IsMultiplayPassive) {
+			DebugString("Assigning Starting Points for house %d (%s)\n", i, house->Class->Name());
+			Cell cell;
+			Cell chosen = *AssignStartingPositionsToHouse(&cell, i, &cells, taken);
+			house->Center = Coord(chosen);
 		}
 	}
-	return(true); // RA2: as above
+	return(true);
 }
 
 /// <summary>
@@ -554,10 +554,10 @@ bool MultiplayerGameMode::StartingPositionsToHouseBaseCells(char unused) // RA2:
 /// </summary>
 static inline void Player_Owner_Mask(int & mask) // RA2: expanded in GenerateUnits; the mask is kept in memory there
 {
-	for (int h = 0; h < Houses.Count(); h++) { // RA2: as above
-		HouseTypeClass * type = Houses[h]->Class; // RA2: as above
-		if (!type->IsMultiplayPassive) { // RA2: as above
-			mask |= 1 << Houses[h]->Class->HeapID; // RA2: as above
+	for (int h = 0; h < Houses.Count(); h++) {
+		HouseTypeClass * type = Houses[h]->Class;
+		if (!type->IsMultiplayPassive) {
+			mask |= 1 << Houses[h]->Class->HeapID;
 		}
 	}
 }
@@ -569,54 +569,54 @@ static inline void Player_Owner_Mask(int & mask) // RA2: expanded in GenerateUni
 /// </summary>
 bool MultiplayerGameMode::GenerateUnits(void) // RA2: 0x005B7CE0
 {
-	int credits = 0; // RA2: as above
-	int amount; // RA2: as above
-	if (Session.Options.UnitCount > 0) { // RA2: as above
-		amount = 0; // RA2: as above
-		Player_Owner_Mask(amount); // RA2: as above
-		int total = 0; // RA2: as above
-		int count = 0; // RA2: as above
-		for (int u = 0; u < UnitTypes.Count(); u++) { // RA2: as above
-			UnitTypeClass * type = UnitTypes[u]; // RA2: as above
-			if (type->IsAllowedToStartInMultiplayer && (amount & type->Ownable) && type->Level <= BuildLevel) { // RA2: as above
-				if (!Rule->BaseUnit.Is_In_List(type)) { // RA2: as above
-					count++; // RA2: as above
-					total += type->Raw_Cost(); // RA2: as above
+	int credits = 0;
+	int amount;
+	if (Session.Options.UnitCount > 0) {
+		amount = 0;
+		Player_Owner_Mask(amount);
+		int total = 0;
+		int count = 0;
+		for (int u = 0; u < UnitTypes.Count(); u++) {
+			UnitTypeClass * type = UnitTypes[u];
+			if (type->IsAllowedToStartInMultiplayer && (amount & type->Ownable) && type->Level <= BuildLevel) {
+				if (!Rule->BaseUnit.Is_In_List(type)) {
+					count++;
+					total += type->Raw_Cost();
 				}
 			}
 		}
-		for (int n = 0; n < InfantryTypes.Count(); n++) { // RA2: as above
-			InfantryTypeClass * type = InfantryTypes[n]; // RA2: as above
-			if (type->IsAllowedToStartInMultiplayer && (amount & type->Ownable) && type->Level <= BuildLevel) { // RA2: as above
-				count++; // RA2: as above
-				total += type->Raw_Cost(); // RA2: as above
+		for (int n = 0; n < InfantryTypes.Count(); n++) {
+			InfantryTypeClass * type = InfantryTypes[n];
+			if (type->IsAllowedToStartInMultiplayer && (amount & type->Ownable) && type->Level <= BuildLevel) {
+				count++;
+				total += type->Raw_Cost();
 			}
 		}
-		if (count == 0) { // RA2: as above
-			count = 1; // RA2: as above
+		if (count == 0) {
+			count = 1;
 		}
-		credits = (count / 2 + total) / count * Session.Options.UnitCount; // RA2: as above
+		credits = (count / 2 + total) / count * Session.Options.UnitCount;
 	}
-	for (int i = 0; i < Houses.Count(); i++) { // RA2: as above
-		HouseClass * house = Houses[i]; // RA2: as above
-		if (!house->Class->IsMultiplayPassive) { // RA2: as above
-			if (!Is_Observer(house)) { // RA2: as above
-				amount = credits; // RA2: as above
-				if (!SpawnBaseUnits(house, (unsigned)&amount) || !GenerateStartingUnits(house, amount)) { // RA2: as above
-					return(false); // RA2: as above
+	for (int i = 0; i < Houses.Count(); i++) {
+		HouseClass * house = Houses[i];
+		if (!house->Class->IsMultiplayPassive) {
+			if (!Is_Observer(house)) {
+				amount = credits;
+				if (!SpawnBaseUnits(house, (unsigned)&amount) || !GenerateStartingUnits(house, amount)) {
+					return(false);
 				}
-				if (amount > 0) { // RA2: as above
-					house->Refund_Money(amount); // RA2: as above
+				if (amount > 0) {
+					house->Refund_Money(amount);
 				}
-				house->PBQuantity.Clear(); // RA2: as above
-				house->PAQuantity.Clear(); // RA2: as above
-				house->PIQuantity.Clear(); // RA2: as above
-				house->PUQuantity.Clear(); // RA2: as above
+				house->PBQuantity.Clear();
+				house->PAQuantity.Clear();
+				house->PIQuantity.Clear();
+				house->PUQuantity.Clear();
 			}
 		}
 	}
-	DebugString("Finished unit generation. Random number is %d\n", Random_Pick(0, 0xFFFF)); // RA2: as above
-	return(true); // RA2: as above
+	DebugString("Finished unit generation. Random number is %d\n", Random_Pick(0, 0xFFFF));
+	return(true);
 }
 
 /// <summary>
@@ -626,23 +626,23 @@ bool MultiplayerGameMode::GenerateUnits(void) // RA2: 0x005B7CE0
 /// <returns>Returns false when there is no base unit or it cannot be placed.</returns>
 bool MultiplayerGameMode::SpawnBaseUnits(HouseClass * house, unsigned unused) // RA2: 0x005B7F90
 {
-	if (!Session.Options.Bases) { // RA2: as above
-		return(true); // RA2: as above
+	if (!Session.Options.Bases) {
+		return(true);
 	}
-	UnitTypeClass const * type = house->Get_First_Ownable(Rule->BaseUnit); // RA2: as above
-	if (type != NULL) { // RA2: as above
-		UnitClass * unit = new UnitClass(type, house); // RA2: as above
-		if (unit != NULL) { // RA2: as above
-			if (unit->Unlimbo(house->Center)) { // RA2: as above
-				return(true); // RA2: as above
+	UnitTypeClass const * type = house->Get_First_Ownable(Rule->BaseUnit);
+	if (type != NULL) {
+		UnitClass * unit = new UnitClass(type, house);
+		if (unit != NULL) {
+			if (unit->Unlimbo(house->Center)) {
+				return(true);
 			}
-			if (Scan_Place_Object(unit, Cell(house->Center), 1)) { // RA2: as above
-				return(true); // RA2: as above
+			if (Scan_Place_Object(unit, Cell(house->Center), 1)) {
+				return(true);
 			}
-			delete unit; // RA2: as above
+			delete unit;
 		}
 	}
-	return(false); // RA2: as above
+	return(false);
 }
 
 /// <summary>
@@ -655,55 +655,55 @@ bool MultiplayerGameMode::SpawnBaseUnits(HouseClass * house, unsigned unused) //
 /// <returns>Returns false when no type fits the house.</returns>
 bool MultiplayerGameMode::GenerateStartingUnits(HouseClass * house, int & amount) // RA2: 0x005B8060
 {
-	if (amount > 0) { // RA2: as above
-		int total = amount; // RA2: as above
-		DynamicVectorClass<UnitTypeClass *> units; // RA2: as above
-		DynamicVectorClass<InfantryTypeClass *> infantry; // RA2: as above
-		int owner = 1 << house->Class->HeapID; // RA2: as above
-		for (int u = 0; u < UnitTypes.Count(); u++) { // RA2: as above
-			UnitTypeClass * type = UnitTypes[u]; // RA2: as above
-			if (type->IsAllowedToStartInMultiplayer && (type->Ownable & owner) && type->Level <= house->Control.TechLevel) { // RA2: as above
-				if (!Rule->BaseUnit.Is_In_List(type)) { // RA2: as above
-					units.Add(type); // RA2: as above
+	if (amount > 0) {
+		int total = amount;
+		DynamicVectorClass<UnitTypeClass *> units;
+		DynamicVectorClass<InfantryTypeClass *> infantry;
+		int owner = 1 << house->Class->HeapID;
+		for (int u = 0; u < UnitTypes.Count(); u++) {
+			UnitTypeClass * type = UnitTypes[u];
+			if (type->IsAllowedToStartInMultiplayer && (type->Ownable & owner) && type->Level <= house->Control.TechLevel) {
+				if (!Rule->BaseUnit.Is_In_List(type)) {
+					units.Add(type);
 				}
 			}
 		}
-		for (int n = 0; n < InfantryTypes.Count(); n++) { // RA2: as above
-			InfantryTypeClass * type = InfantryTypes[n]; // RA2: as above
-			if (type->IsAllowedToStartInMultiplayer && (type->Ownable & owner) && type->Level <= house->Control.TechLevel) { // RA2: as above
-				infantry.Add(type); // RA2: as above
+		for (int n = 0; n < InfantryTypes.Count(); n++) {
+			InfantryTypeClass * type = InfantryTypes[n];
+			if (type->IsAllowedToStartInMultiplayer && (type->Ownable & owner) && type->Level <= house->Control.TechLevel) {
+				infantry.Add(type);
 			}
 		}
-		if (units.Count() == 0 && infantry.Count() == 0) { // RA2: as above
-			return(false); // RA2: as above
+		if (units.Count() == 0 && infantry.Count() == 0) {
+			return(false);
 		}
-		int tries = 20; // RA2: as above
-		while (amount > 0 && tries > 0) { // RA2: as above
-			TechnoTypeClass * type; // RA2: as above
-			if (amount > total / 3 && units.Count() != 0) { // RA2: as above
-				type = units[Random_Pick(0, units.Count() - 1)]; // RA2: as above
-			} else { // RA2: as above
-				type = infantry[Random_Pick(0, infantry.Count() - 1)]; // RA2: as above
+		int tries = 20;
+		while (amount > 0 && tries > 0) {
+			TechnoTypeClass * type;
+			if (amount > total / 3 && units.Count() != 0) {
+				type = units[Random_Pick(0, units.Count() - 1)];
+			} else {
+				type = infantry[Random_Pick(0, infantry.Count() - 1)];
 			}
-			ObjectClass * object = type->Create_One_Of(house); // RA2: as above
-			TechnoClass * techno = dynamic_cast<TechnoClass *>(object); // RA2: as above
-			if (!Scan_Place_Object(techno, Cell(house->Center), 4)) { // RA2: as above
-				delete techno; // RA2: as above
-				tries--; // RA2: as above
-			} else { // RA2: as above
-				amount -= type->Raw_Cost(); // RA2: as above
-				if (Scen->Special.IsInitialVeteran) { // RA2: as above
-					techno->Veterancy.Set_Elite(true); // RA2: as above
+			ObjectClass * object = type->Create_One_Of(house);
+			TechnoClass * techno = dynamic_cast<TechnoClass *>(object);
+			if (!Scan_Place_Object(techno, Cell(house->Center), 4)) {
+				delete techno;
+				tries--;
+			} else {
+				amount -= type->Raw_Cost();
+				if (Scen->Special.IsInitialVeteran) {
+					techno->Veterancy.Set_Elite(true);
 				}
-				if (house->Is_Human_Player()) { // RA2: as above
-					techno->Set_Mission(MISSION_GUARD); // RA2: as above
-				} else { // RA2: as above
-					techno->Set_Mission(MISSION_GUARD_AREA); // RA2: as above
+				if (house->Is_Human_Player()) {
+					techno->Set_Mission(MISSION_GUARD);
+				} else {
+					techno->Set_Mission(MISSION_GUARD_AREA);
 				}
 			}
 		}
 	}
-	return(true); // RA2: as above
+	return(true);
 }
 
 /// <summary>
@@ -711,7 +711,7 @@ bool MultiplayerGameMode::GenerateStartingUnits(HouseClass * house, int & amount
 /// </summary>
 bool MultiplayerGameMode::AllyTeams(void) // RA2: 0x005B8420, slot 0x70 of the vtable; true
 {
-	return(true); // RA2: as above
+	return(true);
 }
 
 /// <summary>
@@ -720,12 +720,12 @@ bool MultiplayerGameMode::AllyTeams(void) // RA2: 0x005B8420, slot 0x70 of the v
 /// </summary>
 int MultiplayerGameMode::TeamOfHouse(int house) // RA2: 0x005B8430
 {
-	for (int i = 0; i < Session.Players.Count(); i++) { // RA2: as above
-		if (Session.Players[i]->Slot.HouseIndex == house) { // RA2: as above
-			return(Session.Players[i]->Slot.SpectatorFlag); // RA2: as above
+	for (int i = 0; i < Session.Players.Count(); i++) {
+		if (Session.Players[i]->Slot.HouseIndex == house) {
+			return(Session.Players[i]->Slot.SpectatorFlag);
 		}
 	}
-	return(-1); // RA2: as above
+	return(-1);
 }
 
 /// <summary>
@@ -733,7 +733,7 @@ int MultiplayerGameMode::TeamOfHouse(int house) // RA2: 0x005B8430
 /// </summary>
 bool MultiplayerGameMode::OnGameStart(void) // RA2: 0x005B8470, slot 0x74 of the vtable; true
 {
-	return(true); // RA2: as above
+	return(true);
 }
 
 /// <summary>
@@ -745,7 +745,7 @@ MultiplayerGameMode::InitializerBase::InitializerBase(void) // RA2: 0x005B8480
 
 static inline void Trim_Trailing(Wstring & string) // RA2: the line of the list entry is trimmed at its end the same way for every part
 {
-	string.trimTrailing(" "); // RA2: as above
+	string.trimTrailing(" ");
 }
 
 /// <summary>
@@ -756,75 +756,75 @@ static inline void Trim_Trailing(Wstring & string) // RA2: the line of the list 
 /// </summary>
 void __fastcall Read_Game_Modes(Wstring const & section, MultiplayerGameMode::InitializerBase & init) // RA2: 0x005B8490
 {
-	CCFileClass file("MPModes.ini"); // RA2: as above
-	if (file.Is_Available(false)) { // RA2: as above
-		INIClass ini; // RA2: as above
-		if (ini.Load(file, false) > 0) { // RA2: as above
-			int count = ini.Entry_Count(section); // RA2: as above
-			for (int i = 0; i < count; i++) { // RA2: as above
-				Wstring entry = ini.Get_Entry(section, i); // RA2: as above
-				int index = entry.toInt(); // RA2: as above
-				Wstring value; // RA2: as above
-				int length = ini.Get_String(section, entry, "", value); // RA2: as above
-				if (length <= 0) { // RA2: as above
-					continue; // RA2: as above
+	CCFileClass file("MPModes.ini");
+	if (file.Is_Available(false)) {
+		INIClass ini;
+		if (ini.Load(file, false) > 0) {
+			int count = ini.Entry_Count(section);
+			for (int i = 0; i < count; i++) {
+				Wstring entry = ini.Get_Entry(section, i);
+				int index = entry.toInt();
+				Wstring value;
+				int length = ini.Get_String(section, entry, "", value);
+				if (length <= 0) {
+					continue;
 				}
 
-				Wstring name; // RA2: as above
-				int pos = value.getToken(0, ",", name); // RA2: as above
-				if (!name.length()) { // RA2: as above
-					continue; // RA2: as above
+				Wstring name;
+				int pos = value.getToken(0, ",", name);
+				if (!name.length()) {
+					continue;
 				}
-				name.trimLeading(" "); // RA2: as above
-				Trim_Trailing(name); // RA2: as above
-				WideWstring title(StringTable::LoadString(name.get(), NULL, "D:\\Ra2\\Multiplayer.cpp", 773)); // RA2: as above
+				name.trimLeading(" ");
+				Trim_Trailing(name);
+				WideWstring title(StringTable::LoadString(name.get(), NULL, "D:\\Ra2\\Multiplayer.cpp", 773));
 
-				Wstring tip; // RA2: as above
-				pos = value.getToken(pos, ",", tip); // RA2: as above
-				if (!tip.length()) { // RA2: as above
-					continue; // RA2: as above
+				Wstring tip;
+				pos = value.getToken(pos, ",", tip);
+				if (!tip.length()) {
+					continue;
 				}
-				tip.trimLeading(" "); // RA2: as above
-				Trim_Trailing(tip); // RA2: as above
-				WideWstring tooltip(StringTable::LoadString(tip.get(), NULL, "D:\\Ra2\\Multiplayer.cpp", 784)); // RA2: as above
+				tip.trimLeading(" ");
+				Trim_Trailing(tip);
+				WideWstring tooltip(StringTable::LoadString(tip.get(), NULL, "D:\\Ra2\\Multiplayer.cpp", 784));
 
-				Wstring inifile; // RA2: as above
-				pos = value.getToken(pos, ",", inifile); // RA2: as above
-				if (!inifile.length()) { // RA2: as above
-					continue; // RA2: as above
+				Wstring inifile;
+				pos = value.getToken(pos, ",", inifile);
+				if (!inifile.length()) {
+					continue;
 				}
-				inifile.trimLeading(" "); // RA2: as above
-				Trim_Trailing(inifile); // RA2: as above
+				inifile.trimLeading(" ");
+				Trim_Trailing(inifile);
 
-				Wstring mapfilter; // RA2: as above
-				pos = value.getToken(pos, ",", mapfilter); // RA2: as above
-				mapfilter.trimLeading(" "); // RA2: as above
-				Trim_Trailing(mapfilter); // RA2: as above
+				Wstring mapfilter;
+				pos = value.getToken(pos, ",", mapfilter);
+				mapfilter.trimLeading(" ");
+				Trim_Trailing(mapfilter);
 
-				Wstring ai; // RA2: as above
-				value.getToken(pos, ",", ai); // RA2: as above
-				ai.trimLeading(" "); // RA2: as above
-				Trim_Trailing(ai); // RA2: as above
-				bool aiallowed = true; // RA2: as above
-				if (ai.length() > 0) { // RA2: as above
-					aiallowed = stricmp(ai.get(), "false") != 0; // RA2: as above
-				}
-
-				if (title.length() <= 0 || inifile.length() <= 0 || mapfilter.length() <= 0) { // RA2: as above
-					continue; // RA2: as above
+				Wstring ai;
+				value.getToken(pos, ",", ai);
+				ai.trimLeading(" ");
+				Trim_Trailing(ai);
+				bool aiallowed = true;
+				if (ai.length() > 0) {
+					aiallowed = stricmp(ai.get(), "false") != 0;
 				}
 
-				MultiplayerGameMode * mode = init.Create(title, tooltip, inifile, mapfilter, aiallowed, index); // RA2: as above
-				int at; // RA2: as above
-				for (at = 0; at < Game_Modes().Count(); at++) { // RA2: as above
-					if (Game_Modes()[at]->MPModeIndex > mode->MPModeIndex) { // RA2: as above
-						break; // RA2: as above
+				if (title.length() <= 0 || inifile.length() <= 0 || mapfilter.length() <= 0) {
+					continue;
+				}
+
+				MultiplayerGameMode * mode = init.Create(title, tooltip, inifile, mapfilter, aiallowed, index);
+				int at;
+				for (at = 0; at < Game_Modes().Count(); at++) {
+					if (Game_Modes()[at]->MPModeIndex > mode->MPModeIndex) {
+						break;
 					}
 				}
-				if (at == 0) { // RA2: as above
-					Game_Modes().Add_Head(mode); // RA2: as above
-				} else { // RA2: as above
-					Game_Modes().Insert_After(at - 1, mode); // RA2: as above
+				if (at == 0) {
+					Game_Modes().Add_Head(mode);
+				} else {
+					Game_Modes().Insert_After(at - 1, mode);
 				}
 			}
 		}
@@ -845,19 +845,19 @@ void Free_Game_Modes(void); // RA2: 0x005B8D40, defined below; Init_Game_Modes e
 /// </summary>
 void Init_Game_Modes(void) // RA2: 0x005B8BD0
 {
-	Free_Game_Modes(); // RA2: as above
-	MultiplayerGameMode::Initializer<MultiplayerBattle> battle; // RA2: as above
-	Read_Game_Modes("Battle", battle); // RA2: as above
-	MultiplayerGameMode::Initializer<MultiplayerManBattle> manbattle; // RA2: as above
-	Read_Game_Modes("ManBattle", manbattle); // RA2: as above
-	MultiplayerGameMode::Initializer<MultiplayerSiege> siege; // RA2: as above
-	Read_Game_Modes("Siege", siege); // RA2: as above
-	MultiplayerGameMode::Initializer<UnholyAlliance> unholy; // RA2: as above
-	Read_Game_Modes("Unholy", unholy); // RA2: as above
-	MultiplayerGameMode::Initializer<FreeForAll> freeforall; // RA2: as above
-	Read_Game_Modes("FreeForAll", freeforall); // RA2: as above
-	MultiplayerGameMode::Initializer<MPCooperative> cooperative; // RA2: as above
-	Read_Game_Modes("Cooperative", cooperative); // RA2: as above
+	Free_Game_Modes();
+	MultiplayerGameMode::Initializer<MultiplayerBattle> battle;
+	Read_Game_Modes("Battle", battle);
+	MultiplayerGameMode::Initializer<MultiplayerManBattle> manbattle;
+	Read_Game_Modes("ManBattle", manbattle);
+	MultiplayerGameMode::Initializer<MultiplayerSiege> siege;
+	Read_Game_Modes("Siege", siege);
+	MultiplayerGameMode::Initializer<UnholyAlliance> unholy;
+	Read_Game_Modes("Unholy", unholy);
+	MultiplayerGameMode::Initializer<FreeForAll> freeforall;
+	Read_Game_Modes("FreeForAll", freeforall);
+	MultiplayerGameMode::Initializer<MPCooperative> cooperative;
+	Read_Game_Modes("Cooperative", cooperative);
 }
 
 /// <summary>
@@ -865,7 +865,7 @@ void Init_Game_Modes(void) // RA2: 0x005B8BD0
 /// </summary>
 void Free_Game_Modes(void) // RA2: 0x005B8D40
 {
-	for (int i = 0; i < Game_Modes().Count(); i++) { // RA2: as above
-		delete Game_Modes()[i]; // RA2: as above
+	for (int i = 0; i < Game_Modes().Count(); i++) {
+		delete Game_Modes()[i];
 	}
 }

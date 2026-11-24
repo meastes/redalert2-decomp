@@ -342,15 +342,15 @@ SUGGESTED_TEAM_LIST TeamTypeClass::Suggested_New_Team(HouseClass * house, bool)
 					if (trig->Process(house, enemy, skip_base_defense) == true) {
 						int weight = (int)trig->Get_Current_Weight(); // RA2: the weight is truncated to an int first
 						if (weight == 5000) { // RA2: an infinite weight trigger excludes all others
-							if (!exclusive) { // RA2: as above
-								exclusive = true; // RA2: as above
-								trigdist.Clear(); // RA2: as above
-								DebugString("Infinite weight AIT hit; clearing distribution.\n"); // RA2: as above
+							if (!exclusive) {
+								exclusive = true;
+								trigdist.Clear();
+								DebugString("Infinite weight AIT hit; clearing distribution.\n");
 							}
-						} else if (exclusive) { // RA2: as above
-							continue; // RA2: as above
+						} else if (exclusive) {
+							continue;
 						}
-						trigdist.Add(trig, weight); // RA2: as above
+						trigdist.Add(trig, weight);
 					}
 				}
 			}
@@ -629,7 +629,7 @@ bool TeamTypeClass::Read_INI(CCINIClass const & ini)
 		}
 
 		if (ini.Get_String(IniName, "TransportWaypoint", Waypoint_To_Name(TransportOrigin), waypt, sizeof(waypt)) > 0) { // RA2: a second waypoint key, into +0xD0
-			TransportOrigin = Waypoint_From_Name(waypt); // RA2: as above
+			TransportOrigin = Waypoint_From_Name(waypt);
 		}
 
 		Script = TGet_Class(ini, IniName, "Script", Script);

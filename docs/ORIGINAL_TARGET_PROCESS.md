@@ -15,6 +15,12 @@ Per-batch records up to A15 are in [history/](history/).
 
 ## The recovery loop
 
+Since 2026-11-24 the tree of record is `rebuild/` (section "Tree of record" below): lanes match in
+`rebuild/src/` and `rebuild/include/`, check units with `rebuild/tools/rebuild.py check`, and land
+through the owner's rebuild landing (catalog, structure gate, whole-file build). The loop below is
+the method `src/` was built with; its candidate and acceptance tools (`compile_candidates.py`,
+`accept_sources.py`) write `src/`, which is frozen at `src-final`, so they are retired with it.
+
 The unit of progress is matched body bytes. The loop is designed to be short:
 
 ```text
@@ -102,30 +108,37 @@ plans; the owner accepts, builds and commits.
   the next round; a final hand-back ends the run. End it only when you are
   blocked on an owner decision with nothing else to do, or out of work.
 
-**Build and commit.** Run `./build.command` once before committing accepted
-source or build-logic changes; it must reproduce the complete packaged file.
+**Build and commit.** Run `./build.command` (the rebuild; `--tree src` for the frozen tree when a
+shared tool changed) once before committing accepted source or build-logic changes; it must
+reproduce the complete packaged file.
 Run `status.py --write` and `source_index.py`, update `HANDOFF.md` in a few
 lines, commit.
 
-**Two trees, two gates (user, 2026-11-19).** The rebuild tree lives on main in `rebuild/`
-beside `src/` and is gated separately. `tools/original_target/gate_scope.py --base REV` decides:
+**Tree of record (user, 2026-11-24, in the owner session: rebuild/ is the tree of record from
+today; decision of 2026-11-22).** `rebuild/` is the exact-match tree: acceptance, STATUS, ByteMatch
+and the public snapshot follow it. `src/` and main's catalog (`manifests/original_target/`) are
+frozen at the tag `src-final`: read-only reference text, and the evidence the rebuild's rows cite
+(bounds, hashes, `bound_population`). The native ports keep building from `src/` until a separate
+ports repository consumes the rebuild at a pinned commit. `tools/original_target/gate_scope.py
+--base REV` decides the gates:
 
-- Only `rebuild/` (and docs) changed: scope `rebuild`. Run the rebuild gate only: `rebuild.py
-  catalog` (with `RA2_TREE=rebuild`), the structure gate, and the rebuild's whole-file build
-  (`build.py --config build/r/rebuild-config.json --manifest rebuild/manifest/catalog`), as the
-  owner's rebuild landing script does. Neither main's whole-file build nor native ctest: the
-  native tree is generated from `src/`, which the rebuild never edits.
-- A shared tool changed (`tools/original_target/`, `manifests/toolchain.json`; gate_scope
-  prints `"rebuild_gate": true` beside scope `exact`): both trees' gates, main's whole-file
-  exact build with the strict audit and native ctest, and the rebuild gate.
-- `src/`, main's manifests, `build.command` or `native/`: main's gates as before (`exact` or
-  `native`).
+- Only `rebuild/` (and docs) changed: scope `rebuild`. The rebuild gate: `rebuild.py check` of each
+  touched unit, `rebuild.py catalog` (with `RA2_TREE=rebuild`; it runs the structure gate), and the
+  whole-file build `./build.command` (= `build.py --config build/r/rebuild-config.json --manifest
+  rebuild/manifest/catalog`), as the owner's rebuild landing script does.
+- A shared tool changed (`tools/original_target/`, `manifests/toolchain.json`, `build.command`;
+  gate_scope prints `"rebuild_gate": true` beside scope `exact`): both whole-file builds,
+  `./build.command` (rebuild) and `./build.command --tree src` (the frozen tree must still
+  reproduce the original), `./test.command`, and native ctest when the native tree reads the tool.
+- `native/`: scope `native`, native gates as before (they rest on the frozen tree's receipts).
+- `src/` or `manifests/original_target/`: scope `frozen`, refused (`tests/test_src_frozen.py` fails
+  while the tag exists; `join_gate.py` refuses it).
 
-Shared-tool behaviour the rebuild needs is switched by `RA2_TREE=rebuild` (`tree.py`) or by an
-opt-in row field that main's manifests never carry (`data_pending`, `data_bound_by_rows`,
-`data_bound_by_group`, `data_bound_by: unplaced-unreferenced`); main's acceptance model is
-unchanged. Numbers stay separate: STATUS shows main's and the rebuild's side by side, never
-added. Rebuild-only commits publish at most hourly.
+Shared-tool behaviour the rebuild needs is switched by `RA2_TREE=rebuild` (`tree.py`; the default
+stays `main` until the tool default moves, one week after the switch, with the native tools pinned
+to `main` first) or by an opt-in row field main's manifests never carry. STATUS shows the rebuild
+first and src-final as the frozen reference column, never added. Rebuild-only commits publish at
+most hourly.
 
 ## Accounting
 
@@ -195,9 +208,10 @@ because time, usage or a ready queue ran out.
 
 ## Canonical layout
 
-Accepted source lives in tracked `src/recovered/` (descriptive purpose
-directories, address suffixes); evidenced shared layouts in `src/shared/`, pinned
-by the manifest. Fresh builds compile tracked sources grouped by recorded
+Accepted source lives in tracked `rebuild/src/` (one file per original translation unit) with
+one header per class in `rebuild/include/`, catalogued in `rebuild/manifest/catalog`. The frozen
+tree keeps `src/recovered/` (descriptive purpose directories, address suffixes) and `src/shared/`,
+pinned by main's manifest at `src-final`. Fresh builds compile tracked sources grouped by recorded
 population/options in source order. Scratch candidates, sweeps and Ghidra seeds
 live under ignored `build/`. Private inputs are configured, pinned by hash, and
 never executed as authored tooling.

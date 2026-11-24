@@ -88,13 +88,13 @@ static int CampaignDifficulty = -1; // RA2: 0x007D1480, the difficulty shown on 
 */
 static int CampScoreControls[MAX_MULTI_NAMES][CAMPSCORE_COLUMNS] = { // RA2: 0x007D1484
 	{1041, 1049, 1699, 1701, 1702, 1802}, // RA2: the first row
-	{1042, 1050, 1700, 1703, 1704, 1803}, // RA2: as above
-	{1043, 1051, 1705, 1706, 1707, 1804}, // RA2: as above
-	{1044, 1052, 1708, 1709, 1710, 1805}, // RA2: as above
-	{1045, 1053, 1711, 1712, 1713, 1806}, // RA2: as above
-	{1046, 1054, 1714, 1715, 1716, 1807}, // RA2: as above
-	{1047, 1055, 1717, 1718, 1719, 1808}, // RA2: as above
-	{1048, 1056, 1720, 1721, 1722, 1809} // RA2: as above
+	{ 1042, 1050, 1700, 1703, 1704, 1803 },
+	{ 1043, 1051, 1705, 1706, 1707, 1804 },
+	{ 1044, 1052, 1708, 1709, 1710, 1805 },
+	{ 1045, 1053, 1711, 1712, 1713, 1806 },
+	{ 1046, 1054, 1714, 1715, 1716, 1807 },
+	{ 1047, 1055, 1717, 1718, 1719, 1808 },
+	{ 1048, 1056, 1720, 1721, 1722, 1809 }
 };
 
 static MPlayerScoreType * CampaignSortedScores[MAX_MULTI_NAMES]; // RA2: 0x00850448, the score table of the map ordered by score
@@ -127,8 +127,8 @@ int __stdcall Campaign_End_Score_Dialog_Proc(HWND window, UINT message, WPARAM w
 /// </summary>
 CampaignScoreClass::CampaignScoreClass(void) // RA2: 0x00465BF0
 {
-	Field4 = 0; // RA2: as above
-	ScoreTime = 0; // RA2: as above
+	Field4 = 0;
+	ScoreTime = 0;
 	CampaignDifficulty = -1; // RA2: the difficulty is not known yet
 }
 
@@ -153,11 +153,11 @@ void __fastcall Campaign_Score_Format_Time(wchar_t * buffer, int time) // RA2: 0
 		if (time / 3600 > 99) { // RA2: more than 99 hours
 			time = 359999; // RA2: 99:59:59
 		}
-		int hours = time / 3600; // RA2: as above
-		time -= hours * 3600; // RA2: as above
-		int minutes = time / 60; // RA2: as above
-		time -= minutes * 60; // RA2: as above
-		swprintf(buffer, StringTable::LoadString("TXT_TIME_FORMAT_HOURS", NULL, "D:\\Ra2\\CampScor.cpp", 102), hours, minutes, time); // RA2: as above
+		int hours = time / 3600;
+		time -= hours * 3600;
+		int minutes = time / 60;
+		time -= minutes * 60;
+		swprintf(buffer, StringTable::LoadString("TXT_TIME_FORMAT_HOURS", NULL, "D:\\Ra2\\CampScor.cpp", 102), hours, minutes, time);
 	}
 }
 
@@ -170,10 +170,10 @@ void __fastcall Campaign_Score_Format_Time(wchar_t * buffer, int time) // RA2: 0
 /// <param name="value">The number to show.</param>
 void __fastcall Campaign_Score_Set_Number(HWND dialog, int id, int value) // RA2: 0x00465CC0
 {
-	wchar_t text[32]; // RA2: as above
-	swprintf(text, L"%d", value); // RA2: as above
-	HWND item = GetDlgItem(dialog, id); // RA2: as above
-	SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)text); // RA2: as above
+	wchar_t text[32];
+	swprintf(text, L"%d", value);
+	HWND item = GetDlgItem(dialog, id);
+	SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)text);
 }
 
 
@@ -186,49 +186,49 @@ void CampaignScoreClass::Tally_Scores(void) // RA2: 0x00465D10
 {
 	Session.NumScores = 0; // RA2: the table starts empty
 	int count = Houses.Count(); // RA2: also bounds the buildings killed loop below
-	for (int index = 0; index < count; index++) { // RA2: as above
-		HouseClass * house = Houses[index]; // RA2: as above
+	for (int index = 0; index < count; index++) {
+		HouseClass * house = Houses[index];
 		if (house != NULL && house->Class->IsMultiplayPassive != true) { // RA2: only real players
-			int slot = Session.NumScores++; // RA2: as above
-			Session.Score[slot].Wins = 0; // RA2: as above
+			int slot = Session.NumScores++;
+			Session.Score[slot].Wins = 0;
 			wcscpy(Session.Score[slot].Name, house->UIName); // RA2: the player's name
 			Session.Score[slot].Lost[0] = 0; // RA2: the totals are in the first game's entries
-			Session.Score[slot].Kills[0] = 0; // RA2: as above
-			Session.Score[slot].Built[0] = 0; // RA2: as above
-			Session.Score[slot].Score[0] = 0; // RA2: as above
+			Session.Score[slot].Kills[0] = 0;
+			Session.Score[slot].Built[0] = 0;
+			Session.Score[slot].Score[0] = 0;
 			Session.Score[slot].Scheme = house->Scheme; // RA2: the colour of the player
 			if (!house->IsDefeated) { // RA2: the player is still in the game
-				Session.Score[slot].Wins++; // RA2: as above
-				Session.Winner = slot; // RA2: as above
+				Session.Score[slot].Wins++;
+				Session.Winner = slot;
 			}
 
-			int kills = 0; // RA2: as above
+			int kills = 0;
 			int unit;
 			for (unit = 0; unit < 20; unit++) { // RA2: the units killed, per unit type slot
-				kills += house->UnitsKilled[unit]; // RA2: as above
+				kills += house->UnitsKilled[unit];
 			}
 			for (unit = 0; unit < count; unit++) { // RA2: the executable bounds the buildings by the number of houses, not by the 20 entries
-				kills += house->BuildingsKilled[unit]; // RA2: as above
+				kills += house->BuildingsKilled[unit];
 			}
-			Session.Score[slot].Kills[0] = kills; // RA2: as above
-			Session.Score[slot].Lost[0] = house->UnitsLost + house->BuildingsLost; // RA2: as above
+			Session.Score[slot].Kills[0] = kills;
+			Session.Score[slot].Lost[0] = house->UnitsLost + house->BuildingsLost;
 
 			int built = house->ABQuantity.Total(); // RA2: buildings in service
 			built += house->AUQuantity.Total(); // RA2: units in service
 			built += house->AIQuantity.Total(); // RA2: infantry in service
 			built += house->AAQuantity.Total(); // RA2: aircraft in service
-			Session.Score[slot].Built[0] = house->UnitsLost + house->BuildingsLost + built; // RA2: as above
+			Session.Score[slot].Built[0] = house->UnitsLost + house->BuildingsLost + built;
 
-			if (house->PointTotal > 0) { // RA2: as above
-				Session.Score[slot].Score[0] += house->PointTotal; // RA2: as above
+			if (house->PointTotal > 0) {
+				Session.Score[slot].Score[0] += house->PointTotal;
 			}
 
 			DebugString("%s: %s\n Scheme: %d\n Lost = %d\n Kills = %d\n Built = %d\n Score = %d\n", // RA2: the executable prints the name with %s
-				Session.Score[slot].Name, // RA2: as above
-				Session.Score[slot].Wins > 0 ? "Winner" : "Loser", // RA2: as above
-				Session.Score[slot].Scheme, Session.Score[slot].Lost[0], // RA2: as above
-				Session.Score[slot].Kills[0], Session.Score[slot].Built[0], // RA2: as above
-				Session.Score[slot].Score[0]); // RA2: as above
+				Session.Score[slot].Name,
+				Session.Score[slot].Wins > 0 ? "Winner" : "Loser",
+				Session.Score[slot].Scheme, Session.Score[slot].Lost[0],
+				Session.Score[slot].Kills[0], Session.Score[slot].Built[0],
+				Session.Score[slot].Score[0]);
 		}
 	}
 }
@@ -239,12 +239,12 @@ void CampaignScoreClass::Tally_Scores(void) // RA2: 0x00465D10
 /// </summary>
 void Campaign_Score_Sort(void) // RA2: 0x00465EE0
 {
-	int count = Session.NumScores; // RA2: as above
-	for (int index = 0; index < count; index++) { // RA2: as above
-		CampaignSortedScores[index] = &Session.Score[index]; // RA2: as above
+	int count = Session.NumScores;
+	for (int index = 0; index < count; index++) {
+		CampaignSortedScores[index] = &Session.Score[index];
 	}
-	if (count > 1) { // RA2: as above
-		qsort(CampaignSortedScores, count, sizeof(MPlayerScoreType *), Campaign_Score_Compare); // RA2: as above
+	if (count > 1) {
+		qsort(CampaignSortedScores, count, sizeof(MPlayerScoreType *), Campaign_Score_Compare);
 	}
 }
 
@@ -257,12 +257,12 @@ void Campaign_Score_Sort(void) // RA2: 0x00465EE0
 /// <returns>int; negative when the first entry's score is higher, positive when it is lower, 0 when equal.</returns>
 int __cdecl Campaign_Score_Compare(void const * left, void const * right) // RA2: 0x00465F20
 {
-	MPlayerScoreType const * a = *(MPlayerScoreType const * const *)left; // RA2: as above
-	MPlayerScoreType const * b = *(MPlayerScoreType const * const *)right; // RA2: as above
+	MPlayerScoreType const * a = *(MPlayerScoreType const * const *)left;
+	MPlayerScoreType const * b = *(MPlayerScoreType const * const *)right;
 	if (a->Score[0] == b->Score[0]) { // RA2: the score is the first game's entry
-		return(0); // RA2: as above
+		return(0);
 	}
-	return a->Score[0] > b->Score[0] ? -1 : 1; // RA2: as above
+	return a->Score[0] > b->Score[0] ? -1 : 1;
 }
 
 
@@ -272,9 +272,9 @@ int __cdecl Campaign_Score_Compare(void const * left, void const * right) // RA2
 /// <param name="count">How many rows start as not ready.</param>
 void __fastcall Campaign_Score_Reset_Ready(int count) // RA2: 0x00465F50
 {
-	memset(ScoreReady, true, sizeof(ScoreReady)); // RA2: as above
-	for (int index = 0; index < count; index++) { // RA2: as above
-		ScoreReady[index] = false; // RA2: as above
+	memset(ScoreReady, true, sizeof(ScoreReady));
+	for (int index = 0; index < count; index++) {
+		ScoreReady[index] = false;
 	}
 }
 
@@ -286,12 +286,12 @@ void __fastcall Campaign_Score_Reset_Ready(int count) // RA2: 0x00465F50
 bool Campaign_Score_All_Ready(void) // RA2: 0x00465F80
 {
 	int index;
-	for (index = 0; index < 8; index++) { // RA2: as above
-		if (!ScoreReady[index]) { // RA2: as above
-			break; // RA2: as above
+	for (index = 0; index < 8; index++) {
+		if (!ScoreReady[index]) {
+			break;
 		}
 	}
-	return index == 8; // RA2: as above
+	return index == 8;
 }
 
 
@@ -302,7 +302,7 @@ bool Campaign_Score_All_Ready(void) // RA2: 0x00465F80
 /// <param name="ready">Whether the row is ready for the next map.</param>
 void __fastcall Campaign_Score_Set_Ready(int index, bool ready) // RA2: 0x00465FA0
 {
-	ScoreReady[index] = ready; // RA2: as above
+	ScoreReady[index] = ready;
 }
 
 
@@ -313,7 +313,7 @@ void __fastcall Campaign_Score_Set_Ready(int index, bool ready) // RA2: 0x00465F
 /// <returns>bool; true when the row is ready for the next map.</returns>
 bool __fastcall Campaign_Score_Is_Ready(int index) // RA2: 0x00465FB0
 {
-	return ScoreReady[index]; // RA2: as above
+	return ScoreReady[index];
 }
 
 
@@ -323,13 +323,13 @@ bool __fastcall Campaign_Score_Is_Ready(int index) // RA2: 0x00465FB0
 /// <param name="command">NET_SCORE_READY, NET_SCORE_ABORTED, NET_SCORE_WAITING or NET_SCORE_CONTINUE.</param>
 static inline void Send_Score_Packet(CampScoreCommandType command) // RA2: the executable has this code in place at each use (the dialog procedure and Presentation call nothing here)
 {
-	GlobalPacketType packet; // RA2: as above
-	memset(&packet, 0, sizeof(packet)); // RA2: as above
-	packet.Command = (NetCommandType)command; // RA2: as above
+	GlobalPacketType packet;
+	memset(&packet, 0, sizeof(packet));
+	packet.Command = (NetCommandType)command;
 	strcpy(packet.Name, Wide_To_Narrow(Session.Players[0]->Name)); // RA2: the first player is this one
-	for (int index = 1; index < Session.Players.Count(); index++) { // RA2: as above
+	for (int index = 1; index < Session.Players.Count(); index++) {
 		Ipx.Send_Global_Message_To_Name(&packet, 0x2F, 1, Session.Players[index]->Name); // RA2: only the header of the packet is sent
-		Ipx.Service(); // RA2: as above
+		Ipx.Service();
 	}
 }
 
@@ -349,158 +349,158 @@ static inline void Send_Score_Packet(CampScoreCommandType command) // RA2: the e
 int __stdcall Campaign_Score_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x00465FC0
 {
 	int rc = OwnerDraw::Default_Dialog_Proc(window, message, wparam, lparam); // RA2: the common owner draw handling comes first
-	if (rc != 0) { // RA2: as above
-		return rc; // RA2: as above
+	if (rc != 0) {
+		return rc;
 	}
 
 	int * done = (int *)GetWindowLong(window, DWL_USER); // RA2: set by Presentation, the flag that ends the dialog
-	switch (message) { // RA2: as above
+	switch (message) {
 		case WM_INITDIALOG: // RA2: 0x110
 		{
-			wchar_t text[32]; // RA2: as above
-			HWND item = GetDlgItem(window, CAMPSCORE_TITLE); // RA2: as above
+			wchar_t text[32];
+			HWND item = GetDlgItem(window, CAMPSCORE_TITLE);
 			SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)Session.Options.ScenarioDescription); // RA2: the description of the map
-			swprintf(text, L"%s: ", StringTable::LoadString("GUI:Difficulty", NULL, "D:\\Ra2\\CampScor.cpp", 285)); // RA2: as above
-			if (CampaignDifficulty == DIFF_EASY) { // RA2: as above
-				swprintf(text, StringTable::LoadString("GUI:DifficultyString", NULL, "D:\\Ra2\\CampScor.cpp", 287), StringTable::LoadString("TXT_DIFFICULTY_EASY", NULL, "D:\\Ra2\\CampScor.cpp", 287)); // RA2: as above
-			} else if (CampaignDifficulty == DIFF_NORMAL) { // RA2: as above
-				swprintf(text, StringTable::LoadString("GUI:DifficultyString", NULL, "D:\\Ra2\\CampScor.cpp", 289), StringTable::LoadString("TXT_DIFFICULTY_MEDIUM", NULL, "D:\\Ra2\\CampScor.cpp", 289)); // RA2: as above
-			} else if (CampaignDifficulty == DIFF_HARD) { // RA2: as above
-				swprintf(text, StringTable::LoadString("GUI:DifficultyString", NULL, "D:\\Ra2\\CampScor.cpp", 291), StringTable::LoadString("TXT_DIFFICULTY_BRUTAL", NULL, "D:\\Ra2\\CampScor.cpp", 291)); // RA2: as above
+			swprintf(text, L"%s: ", StringTable::LoadString("GUI:Difficulty", NULL, "D:\\Ra2\\CampScor.cpp", 285));
+			if (CampaignDifficulty == DIFF_EASY) {
+				swprintf(text, StringTable::LoadString("GUI:DifficultyString", NULL, "D:\\Ra2\\CampScor.cpp", 287), StringTable::LoadString("TXT_DIFFICULTY_EASY", NULL, "D:\\Ra2\\CampScor.cpp", 287));
+			} else if (CampaignDifficulty == DIFF_NORMAL) {
+				swprintf(text, StringTable::LoadString("GUI:DifficultyString", NULL, "D:\\Ra2\\CampScor.cpp", 289), StringTable::LoadString("TXT_DIFFICULTY_MEDIUM", NULL, "D:\\Ra2\\CampScor.cpp", 289));
+			} else if (CampaignDifficulty == DIFF_HARD) {
+				swprintf(text, StringTable::LoadString("GUI:DifficultyString", NULL, "D:\\Ra2\\CampScor.cpp", 291), StringTable::LoadString("TXT_DIFFICULTY_BRUTAL", NULL, "D:\\Ra2\\CampScor.cpp", 291));
 			}
-			item = GetDlgItem(window, CAMPSCORE_DIFFICULTY); // RA2: as above
-			SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)text); // RA2: as above
-			item = GetDlgItem(window, CAMPSCORE_NAME); // RA2: as above
-			SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)ScoreName); // RA2: as above
+			item = GetDlgItem(window, CAMPSCORE_DIFFICULTY);
+			SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)text);
+			item = GetDlgItem(window, CAMPSCORE_NAME);
+			SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)ScoreName);
 			Campaign_Score_Format_Time(text, ScoreTime / 60); // RA2: the timer counts frames, 60 to the second
-			item = GetDlgItem(window, CAMPSCORE_TIME); // RA2: as above
-			SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)text); // RA2: as above
-			memset(ScoreReady, true, sizeof(ScoreReady)); // RA2: as above
-			for (int row = 0; row < Session.NumScores; row++) { // RA2: as above
+			item = GetDlgItem(window, CAMPSCORE_TIME);
+			SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)text);
+			memset(ScoreReady, true, sizeof(ScoreReady));
+			for (int row = 0; row < Session.NumScores; row++) {
 				if (wcscmp(CampaignSortedScores[row]->Name, StringTable::LoadString("TXT_COMPUTER", NULL, "D:\\Ra2\\CampScor.cpp", 307)) != 0) { // RA2: computers are always ready
-					ScoreReady[row] = false; // RA2: as above
+					ScoreReady[row] = false;
 				}
-				ColorScheme * scheme = ColorSchemes[CampaignSortedScores[row]->Scheme]; // RA2: as above
+				ColorScheme * scheme = ColorSchemes[CampaignSortedScores[row]->Scheme];
 				RGBClass color = scheme->HSV; // RA2: HSVClass converts to RGBClass
 				unsigned long rgb = color.Get_Red() | (color.Get_Green() << 8) | (color.Get_Blue() << 16); // RA2: a COLORREF
 				int id = CampScoreControls[row][0]; // RA2: the name
-				wchar_t const * name = CampaignSortedScores[row]->Name; // RA2: as above
-				item = GetDlgItem(window, id); // RA2: as above
-				SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)name); // RA2: as above
-				item = GetDlgItem(window, id); // RA2: as above
-				SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb); // RA2: as above
+				wchar_t const * name = CampaignSortedScores[row]->Name;
+				item = GetDlgItem(window, id);
+				SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)name);
+				item = GetDlgItem(window, id);
+				SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb);
 				id = CampScoreControls[row][1]; // RA2: the kills
-				Campaign_Score_Set_Number(window, id, CampaignSortedScores[row]->Kills[0]); // RA2: as above
-				item = GetDlgItem(window, id); // RA2: as above
-				SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb); // RA2: as above
+				Campaign_Score_Set_Number(window, id, CampaignSortedScores[row]->Kills[0]);
+				item = GetDlgItem(window, id);
+				SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb);
 				id = CampScoreControls[row][2]; // RA2: the losses
-				Campaign_Score_Set_Number(window, id, CampaignSortedScores[row]->Lost[0]); // RA2: as above
-				item = GetDlgItem(window, id); // RA2: as above
-				SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb); // RA2: as above
+				Campaign_Score_Set_Number(window, id, CampaignSortedScores[row]->Lost[0]);
+				item = GetDlgItem(window, id);
+				SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb);
 				id = CampScoreControls[row][3]; // RA2: the buildings built
-				Campaign_Score_Set_Number(window, id, CampaignSortedScores[row]->Built[0]); // RA2: as above
-				item = GetDlgItem(window, id); // RA2: as above
-				SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb); // RA2: as above
+				Campaign_Score_Set_Number(window, id, CampaignSortedScores[row]->Built[0]);
+				item = GetDlgItem(window, id);
+				SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb);
 				id = CampScoreControls[row][4]; // RA2: the score
-				Campaign_Score_Set_Number(window, id, CampaignSortedScores[row]->Score[0]); // RA2: as above
-				item = GetDlgItem(window, id); // RA2: as above
-				SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb); // RA2: as above
+				Campaign_Score_Set_Number(window, id, CampaignSortedScores[row]->Score[0]);
+				item = GetDlgItem(window, id);
+				SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb);
 
 				int count = Session.Players.Count(); // RA2: is the player still connected?
-				bool found = false; // RA2: as above
-				for (int player = 0; player < count; player++) { // RA2: as above
-					if (wcscmp(Session.Players[player]->Name, CampaignSortedScores[row]->Name) == 0) { // RA2: as above
-						found = true; // RA2: as above
-						break; // RA2: as above
+				bool found = false;
+				for (int player = 0; player < count; player++) {
+					if (wcscmp(Session.Players[player]->Name, CampaignSortedScores[row]->Name) == 0) {
+						found = true;
+						break;
 					}
 				}
 				id = CampScoreControls[row][5]; // RA2: the status
-				if (found) { // RA2: as above
-					wchar_t const * status = StringTable::LoadString("TXT_WAITING", NULL, "D:\\Ra2\\CampScor.cpp", 367); // RA2: as above
-					item = GetDlgItem(window, id); // RA2: as above
-					SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)status); // RA2: as above
+				if (found) {
+					wchar_t const * status = StringTable::LoadString("TXT_WAITING", NULL, "D:\\Ra2\\CampScor.cpp", 367);
+					item = GetDlgItem(window, id);
+					SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)status);
 				} else if (!ScoreReady[row]) { // RA2: a human player that is gone
-					wchar_t const * status = StringTable::LoadString("TXT_ABORTED", NULL, "D:\\Ra2\\CampScor.cpp", 370); // RA2: as above
-					item = GetDlgItem(window, id); // RA2: as above
-					SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)status); // RA2: as above
+					wchar_t const * status = StringTable::LoadString("TXT_ABORTED", NULL, "D:\\Ra2\\CampScor.cpp", 370);
+					item = GetDlgItem(window, id);
+					SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)status);
 					EnableWindow(GetDlgItem(window, CAMPSCORE_CONTINUE), FALSE); // RA2: nobody to wait for, so no continue
 				}
-				item = GetDlgItem(window, id); // RA2: as above
-				SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb); // RA2: as above
+				item = GetDlgItem(window, id);
+				SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb);
 			}
-			ScoreIsReady = false; // RA2: as above
-			return(0); // RA2: as above
+			ScoreIsReady = false;
+			return(0);
 		}
 
 		case WM_PAINT: // RA2: 0x0F
-			Dialog_On_WM_PAINT(window); // RA2: as above
-			Slide_Pending_Dialog(window); // RA2: as above
-			return(0); // RA2: as above
+			Dialog_On_WM_PAINT(window);
+			Slide_Pending_Dialog(window);
+			return(0);
 
 		case WM_COMMAND: // RA2: 0x111
-			switch (wparam & 0xFFFF) { // RA2: as above
+			switch (wparam & 0xFFFF) {
 				case CAMPSCORE_CONTINUE: // RA2: toggles this player's readiness
 					if (!ScoreIsReady) { // RA2: now ready
 						if (Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) { // RA2: only network games have others to tell
-							Send_Score_Packet(NET_SCORE_READY); // RA2: as above
+							Send_Score_Packet(NET_SCORE_READY);
 						}
-						for (int row = 0; row < Session.NumScores; row++) { // RA2: as above
-							int id = CampScoreControls[row][5]; // RA2: as above
+						for (int row = 0; row < Session.NumScores; row++) {
+							int id = CampScoreControls[row][5];
 							if (wcscmp(Session.Players[0]->Name, CampaignSortedScores[row]->Name) == 0) { // RA2: this player's row
-								wchar_t const * status = StringTable::LoadString("TXT_READY", NULL, "D:\\Ra2\\CampScor.cpp", 415); // RA2: as above
-								HWND item = GetDlgItem(window, id); // RA2: as above
-								SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)status); // RA2: as above
-								break; // RA2: as above
+								wchar_t const * status = StringTable::LoadString("TXT_READY", NULL, "D:\\Ra2\\CampScor.cpp", 415);
+								HWND item = GetDlgItem(window, id);
+								SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)status);
+								break;
 							}
 						}
 						wchar_t const * label = StringTable::LoadString("GUI:Cancel", NULL, "D:\\Ra2\\CampScor.cpp", 419); // RA2: the button takes the readiness back
-						HWND item = GetDlgItem(window, CAMPSCORE_CONTINUE); // RA2: as above
-						SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)label); // RA2: as above
-						EnableWindow(GetDlgItem(window, CAMPSCORE_QUIT), FALSE); // RA2: as above
-						*done = 1; // RA2: as above
-						ScoreIsReady = true; // RA2: as above
-						InvalidateRect(window, NULL, FALSE); // RA2: as above
-						return(0); // RA2: as above
+						HWND item = GetDlgItem(window, CAMPSCORE_CONTINUE);
+						SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)label);
+						EnableWindow(GetDlgItem(window, CAMPSCORE_QUIT), FALSE);
+						*done = 1;
+						ScoreIsReady = true;
+						InvalidateRect(window, NULL, FALSE);
+						return(0);
 					} else { // RA2: no longer ready
-						if (Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) { // RA2: as above
-							Send_Score_Packet(NET_SCORE_WAITING); // RA2: as above
+						if (Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) {
+							Send_Score_Packet(NET_SCORE_WAITING);
 						}
-						for (int row = 0; row < Session.NumScores; row++) { // RA2: as above
-							int id = CampScoreControls[row][5]; // RA2: as above
-							if (wcscmp(Session.Players[0]->Name, CampaignSortedScores[row]->Name) == 0) { // RA2: as above
-								wchar_t const * status = StringTable::LoadString("TXT_WAITING", NULL, "D:\\Ra2\\CampScor.cpp", 434); // RA2: as above
-								HWND item = GetDlgItem(window, id); // RA2: as above
-								SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)status); // RA2: as above
-								break; // RA2: as above
+						for (int row = 0; row < Session.NumScores; row++) {
+							int id = CampScoreControls[row][5];
+							if (wcscmp(Session.Players[0]->Name, CampaignSortedScores[row]->Name) == 0) {
+								wchar_t const * status = StringTable::LoadString("TXT_WAITING", NULL, "D:\\Ra2\\CampScor.cpp", 434);
+								HWND item = GetDlgItem(window, id);
+								SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)status);
+								break;
 							}
 						}
-						wchar_t const * label = StringTable::LoadString("GUI:Continue", NULL, "D:\\Ra2\\CampScor.cpp", 439); // RA2: as above
-						HWND item = GetDlgItem(window, CAMPSCORE_CONTINUE); // RA2: as above
-						SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)label); // RA2: as above
-						EnableWindow(GetDlgItem(window, CAMPSCORE_QUIT), TRUE); // RA2: as above
-						*done = 1; // RA2: as above
-						ScoreIsReady = false; // RA2: as above
-						InvalidateRect(window, NULL, FALSE); // RA2: as above
-						return(0); // RA2: as above
+						wchar_t const * label = StringTable::LoadString("GUI:Continue", NULL, "D:\\Ra2\\CampScor.cpp", 439);
+						HWND item = GetDlgItem(window, CAMPSCORE_CONTINUE);
+						SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)label);
+						EnableWindow(GetDlgItem(window, CAMPSCORE_QUIT), TRUE);
+						*done = 1;
+						ScoreIsReady = false;
+						InvalidateRect(window, NULL, FALSE);
+						return(0);
 					}
 
 				case CAMPSCORE_QUIT: // RA2: leaves the campaign
-					*done = 2; // RA2: as above
-					CampaignScoreDone = false; // RA2: as above
-					if (Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) { // RA2: as above
-						Send_Score_Packet(NET_SCORE_ABORTED); // RA2: as above
+					*done = 2;
+					CampaignScoreDone = false;
+					if (Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) {
+						Send_Score_Packet(NET_SCORE_ABORTED);
 					}
-					return(1); // RA2: as above
+					return(1);
 			}
 			break;
 
 		case WM_USER + 0xED: // RA2: 0x4ED, the dialog is closing
-			Darken_Surface(NULL, true); // RA2: as above
-			OwnerDraw::Set_Paint_Disabled(window, 1); // RA2: as above
-			ShowWindow(window, SW_HIDE); // RA2: as above
+			Darken_Surface(NULL, true);
+			OwnerDraw::Set_Paint_Disabled(window, 1);
+			ShowWindow(window, SW_HIDE);
 			break;
 	}
-	return(0); // RA2: as above
+	return(0);
 }
 
 
@@ -511,14 +511,14 @@ int __stdcall Campaign_Score_Dialog_Proc(HWND window, UINT message, WPARAM wpara
 /// <returns>bool; whatever the network service of the game type returns, false for other games.</returns>
 bool Campaign_Score_Service(void) // RA2: 0x00466A20
 {
-	if (Session.Type == GAME_IPX) { // RA2: as above
+	if (Session.Type == GAME_IPX) {
 		return Net2Callback(); // RA2: the lobby's service of a LAN game
 	}
-	if (Session.Type == GAME_INTERNET) { // RA2: as above
+	if (Session.Type == GAME_INTERNET) {
 		return WOL_Wait_Callback(); // RA2: the service of an Internet game
 	}
-	Call_Back(); // RA2: as above
-	return false; // RA2: as above
+	Call_Back();
+	return false;
 }
 
 
@@ -545,117 +545,117 @@ inline void _Set_Text(HWND dialog, int id, wchar_t const * text)
 /// <param name="name">The name of the campaign.</param>
 void CampaignScoreClass::Presentation(DynamicVectorClass<MPlayerScoreType *> scores, int time, bool more, int difficulty, wchar_t const * name) // RA2: 0x00466A50
 {
-	ScoreCount = scores.Count(); // RA2: as above
-	ScoreTime = time; // RA2: as above
-	CampaignDifficulty = difficulty; // RA2: as above
-	wcscpy(ScoreName, name); // RA2: as above
+	ScoreCount = scores.Count();
+	ScoreTime = time;
+	CampaignDifficulty = difficulty;
+	wcscpy(ScoreName, name);
 	Campaign_Score_Reset_Ready(8); // RA2: no row is ready, the rows of the missing players are made so below
 	int row;
-	for (row = 0; row < ScoreCount; row++) { // RA2: as above
-		CampaignSortedScores[row] = scores[row]; // RA2: as above
+	for (row = 0; row < ScoreCount; row++) {
+		CampaignSortedScores[row] = scores[row];
 	}
 	Tally_Scores(); // RA2: the table of the session is filled from the houses
 	Campaign_Score_Sort(); // RA2: and ordered, replacing the copy of the caller's list
 	Load_Score_Art(Scen->IsGDI == false); // RA2: the side of the art is 1 unless the scenario is GDI's
-	Darken_Surface(NULL, true); // RA2: as above
-	if (Session.Type == GAME_INTERNET) { // RA2: as above
-		Ipx.Clear_Global_Routed(); // RA2: as above
+	Darken_Surface(NULL, true);
+	if (Session.Type == GAME_INTERNET) {
+		Ipx.Clear_Global_Routed();
 	}
-	HWND window = OwnerDraw::Begin_Dialog(CAMPSCORE_DIALOG, Campaign_Score_Dialog_Proc, 0); // RA2: as above
+	HWND window = OwnerDraw::Begin_Dialog(CAMPSCORE_DIALOG, Campaign_Score_Dialog_Proc, 0);
 	int result = 0; // RA2: the dialog's flag: 1 when the continue button was pressed, 2 when quit
-	if (window != NULL) { // RA2: as above
-		SetWindowLong(window, DWL_USER, (LONG)&result); // RA2: as above
-		OwnerDraw::Display_Dialog(window); // RA2: as above
-		while (result == 0 || result == 1) { // RA2: as above
-			Windows_Message_Handler(); // RA2: as above
+	if (window != NULL) {
+		SetWindowLong(window, DWL_USER, (LONG)&result);
+		OwnerDraw::Display_Dialog(window);
+		while (result == 0 || result == 1) {
+			Windows_Message_Handler();
 			if (result == 1) { // RA2: this player has pressed continue or taken it back
-				for (row = 0; row < Session.NumScores; row++) { // RA2: as above
-					if (wcscmp(Session.Players[0]->Name, CampaignSortedScores[row]->Name) == 0) { // RA2: as above
-						break; // RA2: as above
+				for (row = 0; row < Session.NumScores; row++) {
+					if (wcscmp(Session.Players[0]->Name, CampaignSortedScores[row]->Name) == 0) {
+						break;
 					}
 				}
-				if (ScoreIsReady) { // RA2: as above
-					ScoreReady[row] = true; // RA2: as above
-				} else { // RA2: as above
-					ScoreReady[row] = false; // RA2: as above
+				if (ScoreIsReady) {
+					ScoreReady[row] = true;
+				} else {
+					ScoreReady[row] = false;
 				}
-				if (Campaign_Score_All_Ready() && more) { // RA2: as above
-					CampaignScoreDone = true; // RA2: as above
-					Send_Score_Packet(NET_SCORE_CONTINUE); // RA2: as above
-					break; // RA2: as above
+				if (Campaign_Score_All_Ready() && more) {
+					CampaignScoreDone = true;
+					Send_Score_Packet(NET_SCORE_CONTINUE);
+					break;
 				}
-				if (!more) { // RA2: as above
-					CampaignScoreDone = false; // RA2: as above
-					break; // RA2: as above
+				if (!more) {
+					CampaignScoreDone = false;
+					break;
 				}
-				result = 0; // RA2: as above
+				result = 0;
 			}
 
-			Ipx.Service(); // RA2: as above
-			if (!Ipx.Get_Global_Message(&Session.GPacket, &Session.GPacketlen, &Session.GAddress, &Session.GProductID) // RA2: as above
-				|| Session.GProductID != 0xAA03 // RA2: as above
-				|| Process_Global_Packet(&Session.GPacket, &Session.GAddress)) { // RA2: as above
-				continue; // RA2: as above
+			Ipx.Service();
+			if (!Ipx.Get_Global_Message(&Session.GPacket, &Session.GPacketlen, &Session.GAddress, &Session.GProductID)
+				|| Session.GProductID != 0xAA03
+				|| Process_Global_Packet(&Session.GPacket, &Session.GAddress)) {
+				continue;
 			}
 
-			if ((int)Session.GPacket.Command == NET_SCORE_READY) { // RA2: as above
-				for (row = 0; row < Session.NumScores; row++) { // RA2: as above
-					if (strcmp(Session.GPacket.Name, Wide_To_Narrow(CampaignSortedScores[row]->Name)) == 0) { // RA2: as above
-						int id = CampScoreControls[row][5]; // RA2: as above
-						_Set_Text(window, id, StringTable::LoadString("TXT_READY", NULL, "D:\\Ra2\\CampScor.cpp", 582)); // RA2: as above
-						ScoreReady[row] = true; // RA2: as above
-						break; // RA2: as above
+			if ((int)Session.GPacket.Command == NET_SCORE_READY) {
+				for (row = 0; row < Session.NumScores; row++) {
+					if (strcmp(Session.GPacket.Name, Wide_To_Narrow(CampaignSortedScores[row]->Name)) == 0) {
+						int id = CampScoreControls[row][5];
+						_Set_Text(window, id, StringTable::LoadString("TXT_READY", NULL, "D:\\Ra2\\CampScor.cpp", 582));
+						ScoreReady[row] = true;
+						break;
 					}
 				}
-				if (Campaign_Score_All_Ready() && more) { // RA2: as above
-					CampaignScoreDone = true; // RA2: as above
-					Send_Score_Packet(NET_SCORE_CONTINUE); // RA2: as above
-					break; // RA2: as above
+				if (Campaign_Score_All_Ready() && more) {
+					CampaignScoreDone = true;
+					Send_Score_Packet(NET_SCORE_CONTINUE);
+					break;
 				}
-			} else if ((int)Session.GPacket.Command == NET_SCORE_ABORTED) { // RA2: as above
-				for (row = 0; row < Session.NumScores; row++) { // RA2: as above
-					if (strcmp(Session.GPacket.Name, Wide_To_Narrow(CampaignSortedScores[row]->Name)) == 0) { // RA2: as above
-						int id = CampScoreControls[row][5]; // RA2: as above
-						_Set_Text(window, id, StringTable::LoadString("TXT_ABORTED", NULL, "D:\\Ra2\\CampScor.cpp", 602)); // RA2: as above
-						ScoreReady[row] = false; // RA2: as above
-						break; // RA2: as above
+			} else if ((int)Session.GPacket.Command == NET_SCORE_ABORTED) {
+				for (row = 0; row < Session.NumScores; row++) {
+					if (strcmp(Session.GPacket.Name, Wide_To_Narrow(CampaignSortedScores[row]->Name)) == 0) {
+						int id = CampScoreControls[row][5];
+						_Set_Text(window, id, StringTable::LoadString("TXT_ABORTED", NULL, "D:\\Ra2\\CampScor.cpp", 602));
+						ScoreReady[row] = false;
+						break;
 					}
 				}
 				for (row = 0; row < Session.Players.Count(); row++) { // RA2: the player is dropped from the session's list
-					if (strcmp(Session.GPacket.Name, Wide_To_Narrow(Session.Players[row]->Name)) == 0) { // RA2: as above
-						delete Session.Players[row]; // RA2: as above
-						Session.Players.Delete(Session.Players[row]); // RA2: as above
-						break; // RA2: as above
+					if (strcmp(Session.GPacket.Name, Wide_To_Narrow(Session.Players[row]->Name)) == 0) {
+						delete Session.Players[row];
+						Session.Players.Delete(Session.Players[row]);
+						break;
 					}
 				}
-				EnableWindow(GetDlgItem(window, CAMPSCORE_CONTINUE), FALSE); // RA2: as above
-				EnableWindow(GetDlgItem(window, CAMPSCORE_QUIT), TRUE); // RA2: as above
-			} else if ((int)Session.GPacket.Command == NET_SCORE_WAITING) { // RA2: as above
-				for (row = 0; row < Session.NumScores; row++) { // RA2: as above
-					if (strcmp(Session.GPacket.Name, Wide_To_Narrow(CampaignSortedScores[row]->Name)) == 0) { // RA2: as above
-						int id = CampScoreControls[row][5]; // RA2: as above
-						_Set_Text(window, id, StringTable::LoadString("TXT_WAITING", NULL, "D:\\Ra2\\CampScor.cpp", 625)); // RA2: as above
-						ScoreReady[row] = false; // RA2: as above
-						break; // RA2: as above
+				EnableWindow(GetDlgItem(window, CAMPSCORE_CONTINUE), FALSE);
+				EnableWindow(GetDlgItem(window, CAMPSCORE_QUIT), TRUE);
+			} else if ((int)Session.GPacket.Command == NET_SCORE_WAITING) {
+				for (row = 0; row < Session.NumScores; row++) {
+					if (strcmp(Session.GPacket.Name, Wide_To_Narrow(CampaignSortedScores[row]->Name)) == 0) {
+						int id = CampScoreControls[row][5];
+						_Set_Text(window, id, StringTable::LoadString("TXT_WAITING", NULL, "D:\\Ra2\\CampScor.cpp", 625));
+						ScoreReady[row] = false;
+						break;
 					}
 				}
-			} else if ((int)Session.GPacket.Command == NET_SCORE_CONTINUE) { // RA2: as above
-				CampaignScoreDone = true; // RA2: as above
-				break; // RA2: as above
-			} else if (Campaign_Score_All_Ready() && more) { // RA2: as above
-				CampaignScoreDone = true; // RA2: as above
-				Send_Score_Packet(NET_SCORE_CONTINUE); // RA2: as above
-				break; // RA2: as above
+			} else if ((int)Session.GPacket.Command == NET_SCORE_CONTINUE) {
+				CampaignScoreDone = true;
+				break;
+			} else if (Campaign_Score_All_Ready() && more) {
+				CampaignScoreDone = true;
+				Send_Score_Packet(NET_SCORE_CONTINUE);
+				break;
 			}
 		}
-		Darken_Surface(NULL, true); // RA2: as above
-		OwnerDraw::End_Dialog(window); // RA2: as above
-		Darken_Surface(NULL, true); // RA2: as above
+		Darken_Surface(NULL, true);
+		OwnerDraw::End_Dialog(window);
+		Darken_Surface(NULL, true);
 	}
-	if (Session.Type == GAME_INTERNET) { // RA2: as above
-		Ipx.Set_Global_Routed(); // RA2: as above
+	if (Session.Type == GAME_INTERNET) {
+		Ipx.Set_Global_Routed();
 	}
-	Free_Score_Art(); // RA2: as above
+	Free_Score_Art();
 }
 
 
@@ -665,8 +665,8 @@ void CampaignScoreClass::Presentation(DynamicVectorClass<MPlayerScoreType *> sco
 CampaignEndScoreClass::CampaignEndScoreClass(void) // RA2: 0x00467200
 {
 	EndScoreDifficulty = -1; // RA2: no difficulty yet
-	EndScoreCount = 0; // RA2: as above
-	EndScoreTime = 0; // RA2: as above
+	EndScoreCount = 0;
+	EndScoreTime = 0;
 }
 
 
@@ -687,10 +687,10 @@ CampaignEndScoreClass::~CampaignEndScoreClass(void) // RA2: 0x00467230
 /// <param name="value">The number to show.</param>
 void __fastcall Campaign_End_Score_Set_Number(HWND dialog, int id, int value) // RA2: 0x00467240
 {
-	wchar_t text[32]; // RA2: as above
-	swprintf(text, L"%d", value); // RA2: as above
-	HWND item = GetDlgItem(dialog, id); // RA2: as above
-	SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)text); // RA2: as above
+	wchar_t text[32];
+	swprintf(text, L"%d", value);
+	HWND item = GetDlgItem(dialog, id);
+	SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)text);
 }
 
 
@@ -702,15 +702,15 @@ void __fastcall Campaign_End_Score_Set_Number(HWND dialog, int id, int value) //
 /// <param name="time">The duration in seconds.</param>
 void __fastcall Campaign_End_Score_Format_Time(wchar_t * buffer, int time) // RA2: 0x00467290
 {
-	if (buffer != NULL) { // RA2: as above
-		if (time / 3600 > 99) { // RA2: as above
-			time = 359999; // RA2: as above
+	if (buffer != NULL) {
+		if (time / 3600 > 99) {
+			time = 359999;
 		}
-		int hours = time / 3600; // RA2: as above
-		time -= hours * 3600; // RA2: as above
-		int minutes = time / 60; // RA2: as above
-		time -= minutes * 60; // RA2: as above
-		swprintf(buffer, StringTable::LoadString("TXT_TIME_FORMAT_HOURS", NULL, "D:\\Ra2\\CampScor.cpp", 700), hours, minutes, time); // RA2: as above
+		int hours = time / 3600;
+		time -= hours * 3600;
+		int minutes = time / 60;
+		time -= minutes * 60;
+		swprintf(buffer, StringTable::LoadString("TXT_TIME_FORMAT_HOURS", NULL, "D:\\Ra2\\CampScor.cpp", 700), hours, minutes, time);
 	}
 }
 
@@ -728,125 +728,125 @@ void __fastcall Campaign_End_Score_Format_Time(wchar_t * buffer, int time) // RA
 int __stdcall Campaign_End_Score_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x00467330
 {
 	int rc = OwnerDraw::Default_Dialog_Proc(window, message, wparam, lparam); // RA2: the common owner draw handling comes first
-	if (rc != 0) { // RA2: as above
-		return rc; // RA2: as above
+	if (rc != 0) {
+		return rc;
 	}
 
 	int * done = (int *)GetWindowLong(window, DWL_USER); // RA2: the flag that ends the dialog
-	switch (message) { // RA2: as above
+	switch (message) {
 		case WM_PAINT: // RA2: 0x0F
-			Dialog_On_WM_PAINT(window); // RA2: as above
-			Slide_Pending_Dialog(window); // RA2: as above
+			Dialog_On_WM_PAINT(window);
+			Slide_Pending_Dialog(window);
 			break;
 
 		case WM_INITDIALOG: // RA2: 0x110
 		{
 			HWND item;
-			wchar_t text[32]; // RA2: as above
-			text[0] = 0; // RA2: as above
-			item = GetDlgItem(window, CAMPSCORE_NAME); // RA2: as above
-			SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)EndScoreName); // RA2: as above
-			swprintf(text, StringTable::LoadString("GUI:CampaignLabel", NULL, "D:\\Ra2\\CampScor.cpp", 722), EndScoreCampaign); // RA2: as above
-			item = GetDlgItem(window, CAMPSCORE_END_CAMPAIGN); // RA2: as above
-			SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)text); // RA2: as above
-			if (EndScoreDifficulty == DIFF_EASY) { // RA2: as above
-				swprintf(text, StringTable::LoadString("GUI:DifficultyString", NULL, "D:\\Ra2\\CampScor.cpp", 726), StringTable::LoadString("TXT_DIFFICULTY_EASY", NULL, "D:\\Ra2\\CampScor.cpp", 726)); // RA2: as above
-			} else if (EndScoreDifficulty == DIFF_NORMAL) { // RA2: as above
-				swprintf(text, StringTable::LoadString("GUI:DifficultyString", NULL, "D:\\Ra2\\CampScor.cpp", 728), StringTable::LoadString("TXT_DIFFICULTY_MEDIUM", NULL, "D:\\Ra2\\CampScor.cpp", 728)); // RA2: as above
-			} else if (EndScoreDifficulty == DIFF_HARD) { // RA2: as above
-				swprintf(text, StringTable::LoadString("GUI:DifficultyString", NULL, "D:\\Ra2\\CampScor.cpp", 730), StringTable::LoadString("TXT_DIFFICULTY_BRUTAL", NULL, "D:\\Ra2\\CampScor.cpp", 730)); // RA2: as above
-			} else { // RA2: as above
-				swprintf(text, StringTable::LoadString("GUI:Blank", NULL, "D:\\Ra2\\CampScor.cpp", 732)); // RA2: as above
+			wchar_t text[32];
+			text[0] = 0;
+			item = GetDlgItem(window, CAMPSCORE_NAME);
+			SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)EndScoreName);
+			swprintf(text, StringTable::LoadString("GUI:CampaignLabel", NULL, "D:\\Ra2\\CampScor.cpp", 722), EndScoreCampaign);
+			item = GetDlgItem(window, CAMPSCORE_END_CAMPAIGN);
+			SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)text);
+			if (EndScoreDifficulty == DIFF_EASY) {
+				swprintf(text, StringTable::LoadString("GUI:DifficultyString", NULL, "D:\\Ra2\\CampScor.cpp", 726), StringTable::LoadString("TXT_DIFFICULTY_EASY", NULL, "D:\\Ra2\\CampScor.cpp", 726));
+			} else if (EndScoreDifficulty == DIFF_NORMAL) {
+				swprintf(text, StringTable::LoadString("GUI:DifficultyString", NULL, "D:\\Ra2\\CampScor.cpp", 728), StringTable::LoadString("TXT_DIFFICULTY_MEDIUM", NULL, "D:\\Ra2\\CampScor.cpp", 728));
+			} else if (EndScoreDifficulty == DIFF_HARD) {
+				swprintf(text, StringTable::LoadString("GUI:DifficultyString", NULL, "D:\\Ra2\\CampScor.cpp", 730), StringTable::LoadString("TXT_DIFFICULTY_BRUTAL", NULL, "D:\\Ra2\\CampScor.cpp", 730));
+			} else {
+				swprintf(text, StringTable::LoadString("GUI:Blank", NULL, "D:\\Ra2\\CampScor.cpp", 732));
 			}
-			item = GetDlgItem(window, CAMPSCORE_DIFFICULTY); // RA2: as above
-			SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)text); // RA2: as above
-			Campaign_End_Score_Format_Time(text, EndScoreTime / 60); // RA2: as above
-			item = GetDlgItem(window, CAMPSCORE_TIME); // RA2: as above
-			SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)text); // RA2: as above
-			for (int row = 0; row < EndScoreCount; row++) { // RA2: as above
-				ColorScheme * scheme = ColorSchemes[EndScores[row]->Scheme]; // RA2: as above
+			item = GetDlgItem(window, CAMPSCORE_DIFFICULTY);
+			SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)text);
+			Campaign_End_Score_Format_Time(text, EndScoreTime / 60);
+			item = GetDlgItem(window, CAMPSCORE_TIME);
+			SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)text);
+			for (int row = 0; row < EndScoreCount; row++) {
+				ColorScheme * scheme = ColorSchemes[EndScores[row]->Scheme];
 				RGBClass color = scheme->HSV; // RA2: HSVClass converts to RGBClass
 				unsigned long rgb = color.Get_Red() | (color.Get_Green() << 8) | (color.Get_Blue() << 16); // RA2: a COLORREF
 				int id = CampScoreControls[row][0]; // RA2: the name
-				wchar_t const * name = EndScores[row]->Name; // RA2: as above
-				item = GetDlgItem(window, id); // RA2: as above
-				SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)name); // RA2: as above
-				item = GetDlgItem(window, id); // RA2: as above
-				SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb); // RA2: as above
+				wchar_t const * name = EndScores[row]->Name;
+				item = GetDlgItem(window, id);
+				SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)name);
+				item = GetDlgItem(window, id);
+				SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb);
 				id = CampScoreControls[row][1]; // RA2: the kills
-				Campaign_End_Score_Set_Number(window, id, EndScores[row]->Kills[0]); // RA2: as above
-				item = GetDlgItem(window, id); // RA2: as above
-				SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb); // RA2: as above
+				Campaign_End_Score_Set_Number(window, id, EndScores[row]->Kills[0]);
+				item = GetDlgItem(window, id);
+				SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb);
 				id = CampScoreControls[row][2]; // RA2: the losses
-				Campaign_End_Score_Set_Number(window, id, EndScores[row]->Lost[0]); // RA2: as above
-				item = GetDlgItem(window, id); // RA2: as above
-				SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb); // RA2: as above
+				Campaign_End_Score_Set_Number(window, id, EndScores[row]->Lost[0]);
+				item = GetDlgItem(window, id);
+				SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb);
 				id = CampScoreControls[row][3]; // RA2: the buildings built
-				Campaign_End_Score_Set_Number(window, id, EndScores[row]->Built[0]); // RA2: as above
-				item = GetDlgItem(window, id); // RA2: as above
-				SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb); // RA2: as above
+				Campaign_End_Score_Set_Number(window, id, EndScores[row]->Built[0]);
+				item = GetDlgItem(window, id);
+				SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb);
 				id = CampScoreControls[row][4]; // RA2: the score
-				Campaign_End_Score_Set_Number(window, id, EndScores[row]->Score[0]); // RA2: as above
-				item = GetDlgItem(window, id); // RA2: as above
-				SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb); // RA2: as above
+				Campaign_End_Score_Set_Number(window, id, EndScores[row]->Score[0]);
+				item = GetDlgItem(window, id);
+				SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb);
 				if (row == 0) { // RA2: the winner on the podium
-					name = EndScores[0]->Name; // RA2: as above
-					item = GetDlgItem(window, CAMPSCORE_FIRST_NAME); // RA2: as above
-					SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)name); // RA2: as above
-					item = GetDlgItem(window, CAMPSCORE_FIRST_NAME); // RA2: as above
-					SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb); // RA2: as above
-					swprintf(text, L"%d", EndScores[0]->Score[0]); // RA2: as above
-					item = GetDlgItem(window, CAMPSCORE_FIRST_SCORE); // RA2: as above
-					SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)text); // RA2: as above
-					item = GetDlgItem(window, CAMPSCORE_FIRST_SCORE); // RA2: as above
-					SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb); // RA2: as above
+					name = EndScores[0]->Name;
+					item = GetDlgItem(window, CAMPSCORE_FIRST_NAME);
+					SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)name);
+					item = GetDlgItem(window, CAMPSCORE_FIRST_NAME);
+					SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb);
+					swprintf(text, L"%d", EndScores[0]->Score[0]);
+					item = GetDlgItem(window, CAMPSCORE_FIRST_SCORE);
+					SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)text);
+					item = GetDlgItem(window, CAMPSCORE_FIRST_SCORE);
+					SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb);
 				} else if (row == 1) { // RA2: the second place
-					name = EndScores[1]->Name; // RA2: as above
-					item = GetDlgItem(window, CAMPSCORE_SECOND_NAME); // RA2: as above
-					SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)name); // RA2: as above
-					item = GetDlgItem(window, CAMPSCORE_SECOND_NAME); // RA2: as above
-					SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb); // RA2: as above
-					swprintf(text, L"%d", EndScores[1]->Score[0]); // RA2: as above
-					item = GetDlgItem(window, CAMPSCORE_SECOND_SCORE); // RA2: as above
-					SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)text); // RA2: as above
-					item = GetDlgItem(window, CAMPSCORE_SECOND_SCORE); // RA2: as above
-					SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb); // RA2: as above
+					name = EndScores[1]->Name;
+					item = GetDlgItem(window, CAMPSCORE_SECOND_NAME);
+					SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)name);
+					item = GetDlgItem(window, CAMPSCORE_SECOND_NAME);
+					SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb);
+					swprintf(text, L"%d", EndScores[1]->Score[0]);
+					item = GetDlgItem(window, CAMPSCORE_SECOND_SCORE);
+					SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)text);
+					item = GetDlgItem(window, CAMPSCORE_SECOND_SCORE);
+					SendMessage(item, CAMPSCORE_SET_COLOR, 0, rgb);
 				}
 			}
 			break;
 		}
 
 		case WM_COMMAND: // RA2: 0x111
-			if ((unsigned short)wparam == CAMPSCORE_CONTINUE) { // RA2: as above
-				*done = 1; // RA2: as above
+			if ((unsigned short)wparam == CAMPSCORE_CONTINUE) {
+				*done = 1;
 				break;
 			}
 			break;
 
 		case OD_SUBCLASSED: // RA2: 0x497, sent to the dialog once it is up
 		{
-			HWND item = GetDlgItem(window, CAMPSCORE_END_ANIM); // RA2: as above
-			PostMessage(item, WM_USER + 0xD7, 0, (LPARAM)window); // RA2: as above
+			HWND item = GetDlgItem(window, CAMPSCORE_END_ANIM);
+			PostMessage(item, WM_USER + 0xD7, 0, (LPARAM)window);
 		}
 			break;
 
 		case WM_USER + 0xD8: // RA2: 0x4D8
-			if (wparam == 0) { // RA2: as above
-				SendDlgItemMessage(window, CAMPSCORE_END_ANIM, WM_USER + 0xD5, wparam, 0x1D); // RA2: as above
+			if (wparam == 0) {
+				SendDlgItemMessage(window, CAMPSCORE_END_ANIM, WM_USER + 0xD5, wparam, 0x1D);
 			}
 			break;
 
 		case WM_USER + 0xEC: // RA2: 0x4EC
-			SendDlgItemMessage(window, CAMPSCORE_END_ANIM, WM_USER + 0xD3, 0, 0); // RA2: as above
+			SendDlgItemMessage(window, CAMPSCORE_END_ANIM, WM_USER + 0xD3, 0, 0);
 			break;
 
 		case WM_USER + 0xED: // RA2: 0x4ED, the dialog is closing
-			Darken_Surface(NULL, true); // RA2: as above
-			ShowWindow(window, SW_HIDE); // RA2: as above
-			OwnerDraw::Set_Paint_Disabled(window, 1); // RA2: as above
+			Darken_Surface(NULL, true);
+			ShowWindow(window, SW_HIDE);
+			OwnerDraw::Set_Paint_Disabled(window, 1);
 			break;
 	}
-	return(0); // RA2: as above
+	return(0);
 }
 
 
@@ -855,8 +855,8 @@ int __stdcall Campaign_End_Score_Dialog_Proc(HWND window, UINT message, WPARAM w
 /// </summary>
 void Campaign_End_Score_Sort(void) // RA2: 0x00467A00
 {
-	if (EndScoreCount > 1) { // RA2: as above
-		qsort(EndScores, EndScoreCount, sizeof(MPlayerScoreType *), Campaign_Score_Compare); // RA2: as above
+	if (EndScoreCount > 1) {
+		qsort(EndScores, EndScoreCount, sizeof(MPlayerScoreType *), Campaign_Score_Compare);
 	}
 }
 
@@ -871,22 +871,22 @@ void Campaign_End_Score_Sort(void) // RA2: 0x00467A00
 /// <param name="name">The name of the campaign.</param>
 void CampaignEndScoreClass::Presentation(DynamicVectorClass<MPlayerScoreType *> scores, int time, int difficulty, int campaign, wchar_t const * name) // RA2: 0x00467A20
 {
-	EndScoreCount = scores.Count(); // RA2: as above
-	wcscpy(EndScoreName, name); // RA2: as above
-	for (int row = 0; row < EndScoreCount; row++) { // RA2: as above
-		EndScores[row] = scores[row]; // RA2: as above
+	EndScoreCount = scores.Count();
+	wcscpy(EndScoreName, name);
+	for (int row = 0; row < EndScoreCount; row++) {
+		EndScores[row] = scores[row];
 	}
-	if (EndScoreCount > 1) { // RA2: as above
-		qsort(EndScores, EndScoreCount, sizeof(MPlayerScoreType *), Campaign_Score_Compare); // RA2: as above
+	if (EndScoreCount > 1) {
+		qsort(EndScores, EndScoreCount, sizeof(MPlayerScoreType *), Campaign_Score_Compare);
 	}
-	EndScoreCampaign = campaign; // RA2: as above
-	EndScoreDifficulty = difficulty; // RA2: as above
-	EndScoreTime = time; // RA2: as above
+	EndScoreCampaign = campaign;
+	EndScoreDifficulty = difficulty;
+	EndScoreTime = time;
 	int side = Scen->IsGDI == false; // RA2: the side of the art is 1 unless the scenario is GDI's
-	Load_Score_Art(side); // RA2: as above
-	Load_MP_Score_Art(side); // RA2: as above
-	Darken_Surface(NULL, true); // RA2: as above
-	Dialog_Box(CAMPSCORE_END_DIALOG, Campaign_End_Score_Dialog_Proc, false); // RA2: as above
-	Free_MP_Score_Art(); // RA2: as above
-	Free_Score_Art(); // RA2: as above
+	Load_Score_Art(side);
+	Load_MP_Score_Art(side);
+	Darken_Surface(NULL, true);
+	Dialog_Box(CAMPSCORE_END_DIALOG, Campaign_End_Score_Dialog_Proc, false);
+	Free_MP_Score_Art();
+	Free_Score_Art();
 }

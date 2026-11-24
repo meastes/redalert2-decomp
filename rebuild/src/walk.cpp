@@ -222,7 +222,7 @@ void STDMETHODCALLTYPE WalkLocomotionClass::Force_Immediate_Destination(CoordStr
  * HISTORY:                                                                                    *
  *   07/29/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: against the image-derived bound 0071e220 (4,967 B) 3,581 bytes differ (was 3,611; the visual cell coordinate evaluated inside the LastTubeCoord sum as ra2-decomp's banked form banks/0x0075AEC0_returns.cpp (11df85d) has it; the end of the move as TibSun walk.cpp and the bank write it; TibSun walk.cpp's tube intermediates and the bank's single arrival test bring back the second three-axis Coord constructor: all 119 calls in native order); main: best 89.83, tried 12 times (frame, inline, register)
+#ifdef RA2_NON_MATCHING // not exact: against the image-derived bound 0071e220 (4,967 B) 3,581 bytes differ (was 3,611; the tube path shift sized by ARRAY_SIZE(LinkedTo->Path) as TibSun and the bank write it, same code; the visual cell coordinate evaluated inside the LastTubeCoord sum as ra2-decomp's banked form banks/0x0075AEC0_returns.cpp (11df85d) has it; the end of the move as TibSun walk.cpp and the bank write it; TibSun walk.cpp's tube intermediates and the bank's single arrival test bring back the second three-axis Coord constructor: all 119 calls in native order); main: best 89.83, tried 12 times (frame, inline, register)
 void WalkLocomotionClass::Movement_AI(bool first_pass)
 {
 	if (HeadToCoord == COORD_NONE) {
@@ -301,8 +301,8 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 					Cell cell = tube_ptr->Get_Exit();
 					HeadToCoord = Coord(cell, 0);
 
-					memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * (CONQUER_PATH_MAX - 1));
-					LinkedTo->Path[CONQUER_PATH_MAX - 1] = FACING_NONE;
+					memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * (ARRAY_SIZE(LinkedTo->Path) - 1));
+					LinkedTo->Path[ARRAY_SIZE(LinkedTo->Path) - 1] = FACING_NONE;
 
 					LinkedTo->CurrentTube = tube;
 					LinkedTo->CurrentTubeDir = FACING_FIRST;
@@ -572,15 +572,15 @@ bool WalkLocomotionClass::Mark_Head_To(Coord const & coord)
 	if (coord != COORD_NONE) {
 		if (LinkedTo->Get_Mission() == MISSION_CAPTURE || LinkedTo->Get_Mission() == MISSION_EATEN || LinkedTo->Get_Mission() == MISSION_ENTER || LinkedTo->Get_Mission() == MISSION_GUARD_AREA || LinkedTo->Get_Mission() == MISSION_PATROL) { // RA2: also MISSION_EATEN, and the mission is read through the virtual each time
 			ObjectClass * unit = (ObjectClass *)LinkedTo->NavCom; // RA2: virtual Fetch_RTTI instead of dynamic_cast
-			if (unit != NULL && unit->Fetch_RTTI() == RTTI_UNIT && unit->Get_Cell() == coord.As_Cell()) { // RA2: as above
+			if (unit != NULL && unit->Fetch_RTTI() == RTTI_UNIT && unit->Get_Cell() == coord.As_Cell()) {
 				any_spot = true;
 			}
-			ObjectClass * aircraft = (ObjectClass *)LinkedTo->NavCom; // RA2: as above
-			if (aircraft != NULL && aircraft->Fetch_RTTI() == RTTI_AIRCRAFT && aircraft->Get_Cell() == coord.As_Cell()) { // RA2: as above
+			ObjectClass * aircraft = (ObjectClass *)LinkedTo->NavCom;
+			if (aircraft != NULL && aircraft->Fetch_RTTI() == RTTI_AIRCRAFT && aircraft->Get_Cell() == coord.As_Cell()) {
 				any_spot = true;
 			}
-			ObjectClass * building = (ObjectClass *)LinkedTo->NavCom; // RA2: as above
-			if (building != NULL && building->Fetch_RTTI() == RTTI_BUILDING && Map[coord].Cell_Building() == building) { // RA2: as above
+			ObjectClass * building = (ObjectClass *)LinkedTo->NavCom;
+			if (building != NULL && building->Fetch_RTTI() == RTTI_BUILDING && Map[coord].Cell_Building() == building) {
 				any_spot = true;
 			}
 		}

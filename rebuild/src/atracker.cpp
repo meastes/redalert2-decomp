@@ -63,7 +63,7 @@ int AircraftTrackerClass::Shift_Bin(int index, Point2D offset) // RA2: 0x004127A
 	int x = index % 20;
 	int y = index / 20;
 	x = MIN(19, MAX(0, x + offset.X)); // RA2: clamped to the grid
-	y = MIN(19, MAX(0, y + offset.Y)); // RA2: as above
+	y = MIN(19, MAX(0, y + offset.Y));
 	return x + y * 20;
 }
 

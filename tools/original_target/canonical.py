@@ -1100,10 +1100,10 @@ def separate_unit_populations(catalog):
 
 
 def validate_assembly_ledger(repository):
-    """Both trees assemble manifests/original_target/assembly.json: its archive rows carry no revised flag; its
+    """Each tree assembles its ledger (tree.ASSEMBLY; the rebuild's copy since 2026-11-24): its archive rows carry no revised flag; its
     revised, binary-derived rows (user decision 2026-11-24) are on the per-source allowlist with their cited archive
     parent and the adopted files keep their notices (assembly_tools.validate_manifest)."""
-    path = Path(repository) / 'manifests/original_target/assembly.json'
+    path = Path(repository) / tree.ASSEMBLY
     if path.exists():
         import assembly_tools
         assembly_tools.validate_manifest(json.loads(path.read_text()), repository)

@@ -218,7 +218,7 @@ BulletClass::~BulletClass(void)
 	Detach_This_From_All(this, true);
 
 	if (SpawnNextAnim) { // RA2: a bullet with an anim was tracked in AnimPtrTracker (inlined Delete at 0x45F5C0)
-		AnimPtrTracker.Delete(this); // RA2: as above
+		AnimPtrTracker.Delete(this);
 	}
 
 	if (GameActive) {
@@ -938,7 +938,7 @@ void BulletClass::Draw_It(Point2D const & point, Rect const & cliprect) const
 
 	if (Class->IsInvisible) return;
 
-	if (SpawnNextAnim) return; // RA2: as above
+	if (SpawnNextAnim) return;
 
 	if (Class->IsVoxel) {
 		Matrix3D matrix(true);
@@ -953,14 +953,14 @@ void BulletClass::Draw_It(Point2D const & point, Rect const & cliprect) const
 		int shapenum = Shape_Number();
 
 		int height_agl = HeightAGL;
-		int height_gl = Map.Get_Height_GL(Get_Coord()); // RA2: as above
+		int height_gl = Map.Get_Height_GL(Get_Coord());
 
-		if (!IsOnBridge && Map[Get_Coord()].IsUnderBridge && height_agl >= BRIDGE_LEPTON_HEIGHT) { // RA2: as above
+		if (!IsOnBridge && Map[Get_Coord()].IsUnderBridge && height_agl >= BRIDGE_LEPTON_HEIGHT) {
 			height_agl -= BRIDGE_LEPTON_HEIGHT;
 			height_gl += BRIDGE_LEPTON_HEIGHT;
 		}
 
-		if (height_agl > 0 && Class->IsShadow) { // RA2: as above
+		if (height_agl > 0 && Class->IsShadow) {
 			Point2D shadowpoint = point + Point2D(0, TacticalMap->Z_Lepton_To_Pixel(height_agl));
 			Draw_Shape(*LogicalSurface, *NormalDrawer, shapeptr, shapenum, shadowpoint, cliprect, ShapeFlags_Type(SHAPE_DARKEN|SHAPE_CENTER|SHAPE_WIN_REL|SHAPE_ZGRAD), 0, -10 - TacticalMap->Z_Lepton_To_Pixel(height_gl));
 		}
@@ -968,11 +968,11 @@ void BulletClass::Draw_It(Point2D const & point, Rect const & cliprect) const
 		ConvertClass * drawer = NormalDrawer;
 		if (Class->IsAnimPalette) {
 			drawer = AnimDrawer;
-		} else if (Class->FirersPalette) { // RA2: as above
-			if (InheritedColor != -1) { // RA2: as above
-				drawer = ColorSchemes[InheritedColor]->Converter; // RA2: as above
+		} else if (Class->FirersPalette) {
+			if (InheritedColor != -1) {
+				drawer = ColorSchemes[InheritedColor]->Converter;
 			} else {
-				drawer = ColorSchemes[PlayerPtr->Scheme]->Converter; // RA2: as above
+				drawer = ColorSchemes[PlayerPtr->Scheme]->Converter;
 			}
 		}
 		Draw_Shape(*LogicalSurface, *drawer, shapeptr, shapenum, point, cliprect, ShapeFlags_Type(SHAPE_CENTER|SHAPE_WIN_REL|SHAPE_ALPHA|SHAPE_ZGRAD), 0, -30 - TacticalMap->Z_Lepton_To_Pixel(Height));
@@ -1032,18 +1032,18 @@ void BulletClass::Detach(AbstractClass const * target, bool all)
 		Class = NULL;
 	}
 	if (WeaponType == target) { // RA2: also the weapon type (+0x118)
-		WeaponType = NULL; // RA2: as above
+		WeaponType = NULL;
 	}
 	if (NextAnim == target) { // RA2: also the anim (+0x13C)
-		NextAnim = NULL; // RA2: as above
+		NextAnim = NULL;
 	}
 	if (all && target->Fetch_RTTI() == RTTI_BULLET) { // RA2: a Scalable bullet that goes leaves the list of those in flight
-		BulletClass * bullet = (BulletClass *)target; // RA2: as above
-		if (bullet->Class->Scalable) { // RA2: as above
-			for (int index = 0; index < ScalableBullets.Count(); index++) { // RA2: as above
-				if (bullet == ScalableBullets[index]) { // RA2: as above
-					ScalableBullets.Delete(bullet); // RA2: as above
-					return; // RA2: as above
+		BulletClass * bullet = (BulletClass *)target;
+		if (bullet->Class->Scalable) {
+			for (int index = 0; index < ScalableBullets.Count(); index++) {
+				if (bullet == ScalableBullets[index]) {
+					ScalableBullets.Delete(bullet);
+					return;
 				}
 			}
 		}
@@ -1182,12 +1182,12 @@ bool BulletClass::Is_Forced_To_Explode(Coord & coord) const
 	**	RA2: a bullet that cannot cross cliffs or walls explodes at the obstacle on its way from the
 	**	source to the target cell (TrajectoryHelper::GetObstacle at 0x4BBAF0).
 	*/
-	if (Class->SubjectToCliffs || Class->SubjectToWalls) { // RA2: as above
-		CellClass * source = &Map[SourceCoords]; // RA2: as above
-		CellClass * destination = &Map[TargetCoords]; // RA2: as above
-		CellClass * previous = &Map[LastMapCoords]; // RA2: as above
-		if (TrajectoryHelper::GetObstacle(source, destination, previous, coord, Class, Payback == NULL ? NULL : Payback->House)) { // RA2: as above
-			return(true); // RA2: as above
+	if (Class->SubjectToCliffs || Class->SubjectToWalls) {
+		CellClass * source = &Map[SourceCoords];
+		CellClass * destination = &Map[TargetCoords];
+		CellClass * previous = &Map[LastMapCoords];
+		if (TrajectoryHelper::GetObstacle(source, destination, previous, coord, Class, Payback == NULL ? NULL : Payback->House)) {
+			return(true);
 		}
 	}
 
@@ -1196,9 +1196,9 @@ bool BulletClass::Is_Forced_To_Explode(Coord & coord) const
 	}
 
 	if (TarCom != NULL && Class->FlakScatter) { // RA2: a flak bullet that is lower than its target explodes
-		Coord current = PositionCoord; // RA2: as above
-		if (current.Z < TarCom->As_Coord().Z && HeightAGL < 0) { // RA2: as above
-			return(true); // RA2: as above
+		Coord current = PositionCoord;
+		if (current.Z < TarCom->As_Coord().Z && HeightAGL < 0) {
+			return(true);
 		}
 	}
 
@@ -1251,35 +1251,35 @@ void BulletClass::Bullet_Explodes(bool forced)
 		target = (TechnoClass *)TarCom;
 	}
 
-	if (!Class->IsInaccurate) { // RA2: as above
-		if (TarCom != NULL) { // RA2: as above
-			if (Coord_Dist(coord, TarCom->Center_Coord()) < 32 && !Class->IsAirburst && !Class->IsInaccurate) { // RA2: as above
+	if (!Class->IsInaccurate) {
+		if (TarCom != NULL) {
+			if (Coord_Dist(coord, TarCom->Center_Coord()) < 32 && !Class->IsAirburst && !Class->IsInaccurate) {
 				coord = TarCom->Center_Coord();
 			}
 		}
 
-		if (!Warhead->IsEMEffect && !Class->IsAirburst) { // RA2: as above
+		if (!Warhead->IsEMEffect && !Class->IsAirburst) {
 			if (!forced && !Class->IsArcing && !Is_Homing() && Fuse.Fuse_Target() != COORD_NONE) {
 				coord = Fuse.Fuse_Target();
 			}
 
 			if (target != NULL && target->In_Which_Layer() != LAYER_GROUND) {
-				if (Distance(TarCom) < 128) { // RA2: as above
+				if (Distance(TarCom) < 128) {
 					coord = target->Target_Coord();
 				}
-			} else if (TarCom != NULL && Distance(TarCom) < 42) { // RA2: as above
-				coord = TarCom->As_Coord(); // RA2: as above
-				if (TarCom->Fetch_RTTI() == RTTI_BUILDING) { // RA2: as above
-					Point3D const & offset = ((BuildingClass *)TarCom)->Class->TargetCoordOffset; // RA2: as above
-					if (offset.X != 0 || offset.Y != 0 || offset.Z != 0) { // RA2: as above
-						coord = ((ObjectClass *)TarCom)->Target_Coord(); // RA2: as above
+			} else if (TarCom != NULL && Distance(TarCom) < 42) {
+				coord = TarCom->As_Coord();
+				if (TarCom->Fetch_RTTI() == RTTI_BUILDING) {
+					Point3D const & offset = ((BuildingClass *)TarCom)->Class->TargetCoordOffset;
+					if (offset.X != 0 || offset.Y != 0 || offset.Z != 0) {
+						coord = ((ObjectClass *)TarCom)->Target_Coord();
 					}
 				}
 			}
 		}
 	}
 
-	if (!Class->IsAirburst) { // RA2: as above
+	if (!Class->IsAirburst) {
 		Coord newcoord = coord;
 		for (int i = 0; i < Class->Cluster; i++) {
 			Detonate(coord);
@@ -1448,7 +1448,7 @@ void BulletClass::Detonate(Coord const &position)
             } while (--remaining != 0);
             BulletClass *fragment = projectile->Create_Bullet(center, Payback, weapon->Attack, weapon->WarheadPtr, 50, false);
             if (fragment != 0) {
-				TVelocity3D<double> velocity(DirType((Dir256)Random_Pick(DIR_MIN, DIR_NE)), DirType(DIR_S), weapon->MaxSpeed / 10); // RA2: as above
+				TVelocity3D<double> velocity(DirType((Dir256)Random_Pick(DIR_MIN, DIR_NE)), DirType(DIR_S), weapon->MaxSpeed / 10);
 				fragment->Unlimbo(PositionCoord, velocity);
             }
         }
@@ -1585,7 +1585,7 @@ HRESULT STDMETHODCALLTYPE BulletClass::Load(IStream * stream)
 		new (this) BulletClass(NoInitClass());
 
 		if (NextAnim) { // RA2: a bullet with an anim is tracked again in AnimPtrTracker (inlined Add at 0x463847)
-			AnimPtrTracker.Add(this); // RA2: as above
+			AnimPtrTracker.Add(this);
 		}
 		Swizzle_Pointer(&Class);
 		Swizzle_Pointer(&Payback);
@@ -1706,10 +1706,10 @@ void BulletClass::Draw_Voxel(VoxelDataStruct const & voxeldata, Matrix3D const &
 
 	SurfaceRegion region = VoxelDrawSystem::Render();
 	static int flat_height_offset = -65; // RA2: a Flat bullet is drawn at a fixed height offset, read from memory (0x7D11A4)
-	int height_offset = 0; // RA2: as above
+	int height_offset = 0;
 	ShapeFlags_Type draw_flags = ShapeFlags_Type(flags & ~SHAPE_REMAP); // RA2: a local for the flags
-	if (Class->Flat) { // RA2: as above
-		height_offset = flat_height_offset; // RA2: as above
+	if (Class->Flat) {
+		height_offset = flat_height_offset;
 		draw_flags = ShapeFlags_Type(draw_flags | SHAPE_ZGRAD); // RA2: ... and with the z gradient
 	}
 	Blit_Block(*LogicalSurface, *ColorSchemes[Class->Color]->Converter, *VoxelDrawSystem::Get_Surface(), region.Bounds, region.Point + drawpoint, cliprect, NULL, ColorSchemes[Class->Color]->Converter->Blitter_From_Flags(draw_flags), height_offset, Class->Flat ? ZGRAD_GROUND : ZGRAD_90DEG, brightness, 0); // RA2: the full argument list
@@ -1768,13 +1768,13 @@ void BulletClass::NukeMaker(void) // RA2: at 0x463C50
 		Coord coord = cptr->Center_Coord();
 		coord = coord + Coord(0, 0, WeaponType->Bullet->DetonationAltitude);
 		double angle = DirType(DIR_N).As_Radian(); // RA2: straight down; Y is built first (sin before any cos), then X, where the TVelocity3D constructors compute X first
-		double y = fastmath::sin(angle); // RA2: as above
-		y *= fastmath::cos(angle); // RA2: as above
-		y *= -1.0; // RA2: as above
-		TVelocity2D<double> planar(fastmath::cos(angle) * fastmath::cos(angle) * -1.0, y); // RA2: as above
-		TVelocity3D<double> velocity; // RA2: as above
+		double y = fastmath::sin(angle);
+		y *= fastmath::cos(angle);
+		y *= -1.0;
+		TVelocity2D<double> planar(fastmath::cos(angle) * fastmath::cos(angle) * -1.0, y);
+		TVelocity3D<double> velocity;
 		static_cast<TVelocity2D<double> &>(velocity) = planar; // RA2: as above, X and Y copied together
-		velocity.Z = fastmath::sin(angle) * -1.0; // RA2: as above
+		velocity.Z = fastmath::sin(angle) * -1.0;
 		bullet->Unlimbo(coord, velocity);
 	}
 }

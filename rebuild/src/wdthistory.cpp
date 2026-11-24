@@ -26,7 +26,7 @@ using namespace WorldDominationTour;
 /// <returns>Returns with the new history.</returns>
 rc_ptr<History> __fastcall History::Create(rc_ptr<WDTState> const & tour) // RA2: a counted history, made by a static Create (0x00728E50)
 {
-	return(rc_ptr<History>(new History(tour))); // RA2: as above
+	return(rc_ptr<History>(new History(tour)));
 }
 
 
@@ -54,7 +54,7 @@ History::History(rc_ptr<WDTState> const & tour) : // RA2: the tour state is a co
 /// <returns>Returns with the snapshot of territory ownership at that tick.</returns>
 rc_ptr<State> History::Get_State(int tick) const // RA2: a counted snapshot, made by State::Create (0x00728F00)
 {
-	return(State::Create(TourState, tick)); // RA2: as above
+	return(State::Create(TourState, tick));
 }
 
 
@@ -67,10 +67,10 @@ rc_ptr<State> History::Get_State(int tick) const // RA2: a counted snapshot, mad
 /// <returns>bool; Does the history cover this tick?</returns>
 int History::Is_Tick_Valid(unsigned int tick) const // RA2: the tour state is a counted pointer (0x00728F20); returns int
 {
-	if (TourState.Get() != NULL && tick < TourState->NumTicks) { // RA2: as above
-		return(true); // RA2: as above
+	if (TourState.Get() != NULL && tick < TourState->NumTicks) {
+		return(true);
 	}
-	return(false); // RA2: as above
+	return(false);
 }
 
 

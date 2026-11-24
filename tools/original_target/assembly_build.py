@@ -9,9 +9,10 @@ import struct
 from pathlib import Path
 
 import assembly_tools as AT
+import tree
 
 REPOSITORY = AT.REPOSITORY
-MANIFEST = REPOSITORY / 'manifests/original_target/assembly.json'
+MANIFEST = REPOSITORY / tree.ASSEMBLY            # the tree's ledger (rebuild/manifest/assembly.json in the rebuild)
 
 
 def require(condition, message):

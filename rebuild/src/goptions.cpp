@@ -356,18 +356,18 @@ void Game_Options_On_INITDIALOG(HWND window)
 int Abort_Dialog(void) // RA2: at 0x4DDF20, returns the choice
 {
 	int result = 0; // RA2: Abort_Dialog at 0x4DDF20 matches only so
-	HWND dialog = OwnerDraw::Begin_Dialog(IDD_MISSION_ABORT, Abort_Dialog_Proc, 0); // RA2: as above
+	HWND dialog = OwnerDraw::Begin_Dialog(IDD_MISSION_ABORT, Abort_Dialog_Proc, 0);
 	if (dialog) {
-		SetWindowLong(dialog, DWL_USER, (LONG)&result); // RA2: as above
+		SetWindowLong(dialog, DWL_USER, (LONG)&result);
 		OwnerDraw::Display_Dialog(dialog);
-		while (result == 0) { // RA2: as above
+		while (result == 0) {
 			if (OwnerDraw::Dialog_Message_Handler() == true) {
-				result = 1; // RA2: as above
+				result = 1;
 			}
 		}
 		OwnerDraw::End_Dialog(dialog);
 	}
-	return(result); // RA2: as above
+	return(result);
 } // RA2: Abort_Dialog at 0x4DDF20 has no IgnoreInput, Scen, IsInputLocked and 2 more
 
 
@@ -382,26 +382,26 @@ int Abort_Dialog(void) // RA2: at 0x4DDF20, returns the choice
 /// <returns>Returns with TRUE if the owner draw system consumed the message.</returns>
 BOOL CALLBACK Abort_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: at 0x4DDF90
 {
-	int result = OwnerDraw::Default_Dialog_Proc(window, message, wparam, lparam); // RA2: as above
-	if (result) { // RA2: as above
-		return(result); // RA2: as above
+	int result = OwnerDraw::Default_Dialog_Proc(window, message, wparam, lparam);
+	if (result) {
+		return(result);
 	}
 
 	switch (message) {
-		case WM_COMMAND: { // RA2: as above
-			int * retval = (int *)GetWindowLong(window, DWL_USER); // RA2: as above
-			if (HIWORD(wparam) == BN_CLICKED) { // RA2: as above
-				switch (LOWORD(wparam)) { // RA2: as above
-					case IDC_GOPTIONS_LEAVE: // RA2: as above
+		case WM_COMMAND: {
+			int * retval = (int *)GetWindowLong(window, DWL_USER);
+			if (HIWORD(wparam) == BN_CLICKED) {
+				switch (LOWORD(wparam)) {
+					case IDC_GOPTIONS_LEAVE:
 						*retval = LeaveResult;
-						return(FALSE); // RA2: as above
+						return(FALSE);
 
-					case IDOK: // RA2: as above
-					case IDC_GOPTIONS_RESUME: // RA2: as above
+					case IDOK:
+					case IDC_GOPTIONS_RESUME:
 						*retval = 1;
-						return(FALSE); // RA2: as above
+						return(FALSE);
 
-					case IDC_GOPTIONS_RESTART: // RA2: as above
+					case IDC_GOPTIONS_RESTART:
 						*retval = RestartResult;
 						break;
 				} // RA2: no HIWORD, GetWindowLong, LOWORD and 30 more (TibSun's use does not compile against RA2's declaration)
@@ -409,36 +409,36 @@ BOOL CALLBACK Abort_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 			break;
 		}
 
-		case OD_SUBCLASSED: { // RA2: as above
-			HWND leave = GetDlgItem(window, IDC_GOPTIONS_LEAVE); // RA2: as above
-			SendMessage(leave, OD_SETTEXTW, 0, (LPARAM)StringTable::LoadString("GUI:Leave", NULL, RA2_SOURCE, 543)); // RA2: as above
-			LeaveResult = 2; // RA2: as above
+		case OD_SUBCLASSED: {
+			HWND leave = GetDlgItem(window, IDC_GOPTIONS_LEAVE);
+			SendMessage(leave, OD_SETTEXTW, 0, (LPARAM)StringTable::LoadString("GUI:Leave", NULL, RA2_SOURCE, 543));
+			LeaveResult = 2;
 
-			HWND restart = GetDlgItem(window, IDC_GOPTIONS_RESTART); // RA2: as above
-			RestartResult = 0; // RA2: as above
-			if (Session.Type == GAME_NORMAL) { // RA2: as above
-				SendMessage(restart, OD_SETTEXTW, 0, (LPARAM)StringTable::LoadString("GUI:Restart", NULL, RA2_SOURCE, 554)); // RA2: as above
-				RestartResult = 5; // RA2: as above
-			} else if (Session.Type == GAME_SKIRMISH) { // RA2: as above
-				ShowWindow(restart, SW_HIDE); // RA2: as above
-			} else if (Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) { // RA2: as above
-				int humans = 0; // RA2: as above
-				for (int index = 0; index < Houses.Count(); index++) { // RA2: as above
-					if (Houses[index]->IsHuman && !Houses[index]->IsDefeated) { // RA2: as above
-						humans++; // RA2: as above
+			HWND restart = GetDlgItem(window, IDC_GOPTIONS_RESTART);
+			RestartResult = 0;
+			if (Session.Type == GAME_NORMAL) {
+				SendMessage(restart, OD_SETTEXTW, 0, (LPARAM)StringTable::LoadString("GUI:Restart", NULL, RA2_SOURCE, 554));
+				RestartResult = 5;
+			} else if (Session.Type == GAME_SKIRMISH) {
+				ShowWindow(restart, SW_HIDE);
+			} else if (Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) {
+				int humans = 0;
+				for (int index = 0; index < Houses.Count(); index++) {
+					if (Houses[index]->IsHuman && !Houses[index]->IsDefeated) {
+						humans++;
 					}
 				}
-				if (humans >= 2 && !PlayerPtr->IsDefeated) { // RA2: as above
-					LeaveResult = 3; // RA2: as above
-					SendMessage(restart, OD_SETTEXTW, 0, (LPARAM)StringTable::LoadString("GUI:Observe", NULL, RA2_SOURCE, 582)); // RA2: as above
-					RestartResult = 4; // RA2: as above
+				if (humans >= 2 && !PlayerPtr->IsDefeated) {
+					LeaveResult = 3;
+					SendMessage(restart, OD_SETTEXTW, 0, (LPARAM)StringTable::LoadString("GUI:Observe", NULL, RA2_SOURCE, 582));
+					RestartResult = 4;
 				} else {
-					ShowWindow(restart, SW_HIDE); // RA2: as above
+					ShowWindow(restart, SW_HIDE);
 				}
 			}
-			OwnerDraw::Set_Control_Result(leave, LeaveResult); // RA2: as above
-			OwnerDraw::Set_Control_Result(restart, RestartResult); // RA2: as above
-			return(FALSE); // RA2: as above
+			OwnerDraw::Set_Control_Result(leave, LeaveResult);
+			OwnerDraw::Set_Control_Result(restart, RestartResult);
+			return(FALSE);
 		}
 	}
 

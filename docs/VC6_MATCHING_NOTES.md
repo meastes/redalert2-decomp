@@ -5263,3 +5263,50 @@ refs2.py, da.py and bis.sh.
   groupings of Length compiled to the same bytes) is neither that callee's text nor the count.
 - A probe that changes an inline decision is not a count probe: extra basic blocks move the prologue, and the
   archive's one-expression `zadjust` expands Horizontal_Speed at every count. Read the call list of each probe.
+
+## A dead frame slot can be a converted inline parameter; a count window is first met with values the function already computes; a predicate can be the inline site a wrapper stood for (found in the rebuild (lane F61, high))
+
+Found in the rebuild (lane F61, high); six rows landed under the 2026-11-24 flagged variation forms (WinMain,
+Explosion_Damage, Reposition_Sidebar, Do_Reinforcements, Skirmish_On_WM_COMMAND and their template copies), five
+measured and left parked. Lane tools in build/r/f61: v.py (F54's; a guard substring must not hold `::`, the entry
+spec is split on colons), apply.py, inc.py (includers of a header, rows that change), rdata.py and rdres.py (the
+data symbols a unit's object defines, their bindings and relocation targets), noprov.py, gate.sh.
+
+- startup WinMain 0x68E280: a frame one dword too large with every instruction the image's is a dead slot, and an
+  ebp frame keeps the dead ones. Here it was the home of an inline member's int parameter stored to an unsigned
+  member (`void Set_Scroll(int position) { ScrollOffset = position; }` called with a constant): the conversion
+  keeps the parameter's slot though the constant is propagated; with equal types there is none. Find the owner by
+  taking the call out (frame 4 smaller) before reading a header edit as a count device.
+- Read the frame from a listing (/FAs names every referenced local with its offset) and compare the gaps: the
+  image's unreferenced stretches are its dead locals and temporaries in declaration order, so their place says
+  which statements held named values. A named local passed straight to an inline constructor replaces that
+  argument's temporary at the frame's end by a slot in place; an expression argument keeps its temporary. That
+  gives a form with the same code and one slot fewer or more without touching a header.
+- The slot order of an ebp frame can follow local names (three renames moved 2 to 18 bytes of offsets): port a
+  matched text with its names before judging its statements.
+- A `__try` scope table is `$T<n>` with n the declaration count. Bind it under the bare `$T`, as the shared audit
+  reads it; a numbered binding is stale at the next header change. A table of pointers a function reaches only
+  through the table needs its string literal bound by hand (no code site infers it).
+- combat Explosion_Damage 0x47E2C0, sidebar Reposition_Sidebar 0x6819A0: survey the count with referenced int
+  probes over a full period first (16 here: exact at +3 and +19; 6, 7 and 11 to 14), then meet it with values the
+  function already computes, named where they are computed. Test each candidate alone: one that counts and moves
+  nothing leaves the probe-of-one byte count; a value read ahead of a loop, a shared negation or a call result
+  taken early changes code and is no candidate; a local holding a call result less a local can count nothing.
+- sidebar Activate 0x67E210: when the window is eight wide of the text and the function computes three values,
+  there is no such form. Reference locals to array elements changed code and missed the window.
+- reinf Do_Reinforcements 0x639970: an accessor wanted as one more inline site is priced as a header member
+  before it is written: `HouseClass * Get_House(void) const { return(House); }` in the class, or declared there
+  and defined inline after it, turned map Zone_Reset by 4 bytes each way. The same accessor as a file inline costs
+  nothing. Try a twin's accessor at the twin's other sites too: here two of them lost their rows, so the sibling
+  image has the site in one place only.
+- skirmish Skirmish_On_WM_COMMAND 0x6829F0: where a pass-through wrapper made a row exact by its sites, look for
+  the expression at those sites that is worth a name. Thirteen GetDlgItem wrappers were not needed: a predicate
+  at five of them (`SendMessage(item, BM_GETCHECK, 0, 0) == 1`) gives the image's inline decisions, and a helper
+  at the four enable sites or the three slider sites changes nothing. Then diff the ported text against the
+  answer key statement by statement: a flag's type (unsigned char against BOOL), a member read into a local, a
+  chained assignment and an argument computed ahead of its call were the rest.
+- unit Unit_Draw_Voxel 0x6FF690, map Register_Zone_Connection_Entries 0x564B60, foot
+  Search_For_Tiberium_Weighted 0x4CBB40: a one-expression predicate in place of the written-out test compiled to
+  the same bytes and did not move a nested decision; wrappers around a whole block grew the frame; and a draft
+  can sit on the one count where its inline decisions hold, so that every probe loses a call. Check the call
+  list of a count survey before reading its byte counts.

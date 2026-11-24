@@ -36,22 +36,22 @@
 #include "_WSProto.h" // RA2: PacketTransport
 
 
-#pragma pack(push, 1) // RA2: as above
+#pragma pack(push, 1)
 struct TalkPacketType { // RA2: the message to the router: 0x152 bytes, the command, one parameter and the table of players
 	unsigned char Command; // RA2: 1 player list, 2 remove player, 3 shut down, 6 port blitz; the router answers 4 (hello) and 5 (address change)
 	unsigned char Param; // RA2: the number of players, the id of the removed player or the port
 	OwnerTalkClass::ConnectionListStruct Entries[8]; // RA2: the table of players (0x2A bytes each)
 };
-#pragma pack(pop) // RA2: as above
+#pragma pack(pop)
 
-#pragma pack(push, 1) // RA2: as above
+#pragma pack(push, 1)
 struct RouterMessageType { // RA2: what the router sends: a command, then for a change of address the player's id and its new address
 	unsigned char Command; // RA2: 5 for a change of address
 	signed char ID; // RA2: the player whose address changed
 	unsigned long Address; // RA2: the player's new address
 	unsigned char Pad[0x3F8]; // RA2: the receive buffer is 1024 bytes
 };
-#pragma pack(pop) // RA2: as above
+#pragma pack(pop)
 
 OwnerTalkClass OwnerTalk; // RA2: 0x00AB6D18; the one connection to the router (its initializer follows the geometry constants, with the destructor registered by it)
 
@@ -61,8 +61,8 @@ RouterMessageType RouterMessage; // RA2: the buffer Handle_Router_Messages recei
 /// Makes a connection table with no players and no router running.
 /// </summary>
 OwnerTalkClass::OwnerTalkClass(void) : // RA2: 0x0063F040
-	IsRouterRunning(false), // RA2: as above
-	RouterProcess(NULL) // RA2: as above
+	IsRouterRunning(false),
+	RouterProcess(NULL)
 {
 }
 
@@ -71,12 +71,12 @@ OwnerTalkClass::OwnerTalkClass(void) : // RA2: 0x0063F040
 /// </summary>
 void OwnerTalkClass::Reset(void) // RA2: 0x0063F070
 {
-	while (Connections.Count() != 0) { // RA2: as above
-		delete Connections[0]; // RA2: as above
-		Connections.Delete_Index(0); // RA2: as above
+	while (Connections.Count() != 0) {
+		delete Connections[0];
+		Connections.Delete_Index(0);
 	}
-	IsRouterRunning = false; // RA2: as above
-	RouterProcess = NULL; // RA2: as above
+	IsRouterRunning = false;
+	RouterProcess = NULL;
 }
 
 /// <summary>
@@ -84,9 +84,9 @@ void OwnerTalkClass::Reset(void) // RA2: 0x0063F070
 /// </summary>
 OwnerTalkClass::~OwnerTalkClass(void) // RA2: 0x0063F0C0
 {
-	while (Connections.Count() != 0) { // RA2: as above
-		delete Connections[0]; // RA2: as above
-		Connections.Delete_Index(0); // RA2: as above
+	while (Connections.Count() != 0) {
+		delete Connections[0];
+		Connections.Delete_Index(0);
 	}
 }
 
@@ -96,30 +96,30 @@ OwnerTalkClass::~OwnerTalkClass(void) // RA2: 0x0063F0C0
 /// </summary>
 bool OwnerTalkClass::Send_Player_List(void) // RA2: 0x0063F130
 {
-	TalkPacketType packet = {0}; // RA2: as above
-	CDTimerClass<SystemTimerClass> timer; // RA2: as above
+	TalkPacketType packet = { 0 };
+	CDTimerClass<SystemTimerClass> timer;
 
-	if (!IsRouterRunning) { // RA2: as above
-		return(false); // RA2: as above
+	if (!IsRouterRunning) {
+		return(false);
 	}
-	DebugString("About to send master player list to router\n"); // RA2: as above
-	packet.Command = 1; // RA2: as above
-	packet.Param = Connections.Count(); // RA2: as above
-	for (int i = 0; i < Connections.Count(); i++) { // RA2: as above
-		packet.Entries[i] = *Connections[i]; // RA2: as above
-		if (Ipx.Connection_Index(Connections[i]->ID) == -1 && PlayerPtr->HeapID != Connections[i]->ID) { // RA2: as above
-			DebugString("Marking player %s as inactive\n", Connections[i]->Name); // RA2: as above
-			packet.Entries[i].IsActive = false; // RA2: as above
-			packet.Entries[i].IsMaster = false; // RA2: as above
+	DebugString("About to send master player list to router\n");
+	packet.Command = 1;
+	packet.Param = Connections.Count();
+	for (int i = 0; i < Connections.Count(); i++) {
+		packet.Entries[i] = *Connections[i];
+		if (Ipx.Connection_Index(Connections[i]->ID) == -1 && PlayerPtr->HeapID != Connections[i]->ID) {
+			DebugString("Marking player %s as inactive\n", Connections[i]->Name);
+			packet.Entries[i].IsActive = false;
+			packet.Entries[i].IsMaster = false;
 		}
 	}
-	Ipx.Send_Lobby_Message(&packet, 0x152, true); // RA2: as above
-	DebugString("Player list sent to router\n"); // RA2: as above
-	timer = 900; // RA2: as above
-	while (Ipx.Lobby_Num_Send() > 0 && timer != 0) { // RA2: as above
-		Call_Back(); // RA2: as above
+	Ipx.Send_Lobby_Message(&packet, 0x152, true);
+	DebugString("Player list sent to router\n");
+	timer = 900;
+	while (Ipx.Lobby_Num_Send() > 0 && timer != 0) {
+		Call_Back();
 	}
-	return(true); // RA2: as above
+	return(true);
 }
 
 /// <summary>
@@ -128,30 +128,30 @@ bool OwnerTalkClass::Send_Player_List(void) // RA2: 0x0063F130
 /// </summary>
 void OwnerTalkClass::Build_Connection_List(void) // RA2: 0x0063F2A0
 {
-	while (Connections.Count() != 0) { // RA2: as above
-		delete Connections[0]; // RA2: as above
-		Connections.Delete_Index(0); // RA2: as above
+	while (Connections.Count() != 0) {
+		delete Connections[0];
+		Connections.Delete_Index(0);
 	}
-	for (int i = 0; i < Houses.Count(); i++) { // RA2: as above
-		HouseClass * house = Houses[i]; // RA2: as above
-		if (house->Is_Human_Player() && !house->IsToDie) { // RA2: as above
-			ConnectionListStruct * entry = new ConnectionListStruct; // RA2: as above
-			entry->ID = i; // RA2: as above
-			strncpy(entry->Name, Wide_To_Narrow(house->UIName), 20); // RA2: as above
-			for (int j = 0; j < Session.Players.Count(); j++) { // RA2: as above
-				if (Session.Players[j]->Player.ID == i) { // RA2: as above
-					NetNumType net; // RA2: as above
-					NetNodeType node; // RA2: as above
-					Session.Players[j]->Address.Get_Address(net, node); // RA2: as above
-					entry->Address = *(unsigned long *)node; // RA2: as above
-					entry->Port = Session.PlayerPorts[j]; // RA2: as above
-					break; // RA2: as above
+	for (int i = 0; i < Houses.Count(); i++) {
+		HouseClass * house = Houses[i];
+		if (house->Is_Human_Player() && !house->IsToDie) {
+			ConnectionListStruct * entry = new ConnectionListStruct;
+			entry->ID = i;
+			strncpy(entry->Name, Wide_To_Narrow(house->UIName), 20);
+			for (int j = 0; j < Session.Players.Count(); j++) {
+				if (Session.Players[j]->Player.ID == i) {
+					NetNumType net;
+					NetNodeType node;
+					Session.Players[j]->Address.Get_Address(net, node);
+					entry->Address = *(unsigned long *)node;
+					entry->Port = Session.PlayerPorts[j];
+					break;
 				}
 			}
-			entry->IsActive = true; // RA2: as above
-			entry->IsMaster = (Session.MasterPlayerID == house->HeapID); // RA2: as above
-			entry->Mask = 1 << i; // RA2: as above
-			Connections.Add(entry); // RA2: as above
+			entry->IsActive = true;
+			entry->IsMaster = (Session.MasterPlayerID == house->HeapID);
+			entry->Mask = 1 << i;
+			Connections.Add(entry);
 		}
 	}
 }
@@ -161,23 +161,23 @@ void OwnerTalkClass::Build_Connection_List(void) // RA2: 0x0063F2A0
 /// </summary>
 char OwnerTalkClass::Mask_From_Address(IPXAddressClass * address) // RA2: 0x0063F430
 {
-	if (address == NULL) { // RA2: as above
-		return(-1); // RA2: as above
+	if (address == NULL) {
+		return(-1);
 	}
-	if (address->Is_Broadcast()) { // RA2: as above
-		return(-1); // RA2: as above
+	if (address->Is_Broadcast()) {
+		return(-1);
 	}
-	NetNumType net; // RA2: as above
-	NetNodeType node; // RA2: as above
-	char mask = 0; // RA2: as above
-	address->Get_Address(net, node); // RA2: as above
-	for (int i = 0; i < Connections.Count(); i++) { // RA2: as above
-		if (*(unsigned long *)node == Connections[i]->Address) { // RA2: as above
-			mask = Connections[i]->Mask; // RA2: as above
-			break; // RA2: as above
+	NetNumType net;
+	NetNodeType node;
+	char mask = 0;
+	address->Get_Address(net, node);
+	for (int i = 0; i < Connections.Count(); i++) {
+		if (*(unsigned long *)node == Connections[i]->Address) {
+			mask = Connections[i]->Mask;
+			break;
 		}
 	}
-	return(mask); // RA2: as above
+	return(mask);
 }
 
 /// <summary>
@@ -185,21 +185,21 @@ char OwnerTalkClass::Mask_From_Address(IPXAddressClass * address) // RA2: 0x0063
 /// </summary>
 unsigned char OwnerTalkClass::Mask_From_ID(int id) // RA2: 0x0063F4C0
 {
-	unsigned char mask = 0; // RA2: as above
+	unsigned char mask = 0;
 
-	if (id == -1) { // RA2: as above
-		return(0xFF); // RA2: as above
+	if (id == -1) {
+		return(0xFF);
 	}
-	for (int i = 0; i < Connections.Count(); i++) { // RA2: as above
-		if (id == Connections[i]->ID) { // RA2: as above
-			mask = Connections[i]->Mask; // RA2: as above
-			break; // RA2: as above
+	for (int i = 0; i < Connections.Count(); i++) {
+		if (id == Connections[i]->ID) {
+			mask = Connections[i]->Mask;
+			break;
 		}
 	}
-	if (mask == 0) { // RA2: as above
-		mask = 0xFF; // RA2: as above
+	if (mask == 0) {
+		mask = 0xFF;
 	}
-	return(mask); // RA2: as above
+	return(mask);
 }
 
 /// <summary>
@@ -208,74 +208,74 @@ unsigned char OwnerTalkClass::Mask_From_ID(int id) // RA2: 0x0063F4C0
 /// </summary>
 bool OwnerTalkClass::Start_Router(unsigned char * node) // RA2: 0x0063F510
 {
-	CDTimerClass<SystemTimerClass> timer; // RA2: as above
-	IPXAddressClass address; // RA2: as above
-	STARTUPINFO startup; // RA2: as above
-	PROCESS_INFORMATION process; // RA2: as above
-	char command[256]; // RA2: as above
-	char buffer[1024]; // RA2: as above
-	int length; // RA2: as above
-	unsigned short product_id; // RA2: as above
+	CDTimerClass<SystemTimerClass> timer;
+	IPXAddressClass address;
+	STARTUPINFO startup;
+	PROCESS_INFORMATION process;
+	char command[256];
+	char buffer[1024];
+	int length;
+	unsigned short product_id;
 
-	DebugString("Starting packet router process\n"); // RA2: as above
-	GetStartupInfo(&startup); // RA2: as above
-	if (!PacketTransport->Get_Num_Local_Addresses()) { // RA2: as above
-		return(false); // RA2: as above
+	DebugString("Starting packet router process\n");
+	GetStartupInfo(&startup);
+	if (!PacketTransport->Get_Num_Local_Addresses()) {
+		return(false);
 	}
-	if (node == NULL) { // RA2: as above
-		if (Session.Players.Count() == 0) { // RA2: as above
-			unsigned char * local = PacketTransport->Get_Local_Address(0); // RA2: as above
-			sprintf(command, "mph.exe %d.%d.%d.%d", local[0], local[1], local[2], local[3]); // RA2: as above
-		} else { // RA2: as above
-			IPXAddressClass * player = &Session.Players[0]->Address; // RA2: as above
-			if (player != NULL) { // RA2: as above
-				NetNumType net; // RA2: as above
-				NetNodeType host; // RA2: as above
-				player->Get_Address(net, host); // RA2: as above
-				sprintf(command, "mph.exe %d.%d.%d.%d", host[0], host[1], host[2], host[3]); // RA2: as above
-				Session.PacketRouterAddressTranslate = *player; // RA2: as above
-				Session.PacketRouterPort = 0; // RA2: as above
-				DebugString("Session.PacketRouterAddressTranslate = %s\n", Session.PacketRouterAddressTranslate.As_String()); // RA2: as above
+	if (node == NULL) {
+		if (Session.Players.Count() == 0) {
+			unsigned char * local = PacketTransport->Get_Local_Address(0);
+			sprintf(command, "mph.exe %d.%d.%d.%d", local[0], local[1], local[2], local[3]);
+		} else {
+			IPXAddressClass * player = &Session.Players[0]->Address;
+			if (player != NULL) {
+				NetNumType net;
+				NetNodeType host;
+				player->Get_Address(net, host);
+				sprintf(command, "mph.exe %d.%d.%d.%d", host[0], host[1], host[2], host[3]);
+				Session.PacketRouterAddressTranslate = *player;
+				Session.PacketRouterPort = 0;
+				DebugString("Session.PacketRouterAddressTranslate = %s\n", Session.PacketRouterAddressTranslate.As_String());
 			}
 		}
-	} else { // RA2: as above
-		sprintf(command, "mph.exe %d.%d.%d.%d", node[0], node[1], node[2], node[3]); // RA2: as above
-		IPXAddressClass * player = &Session.Players[0]->Address; // RA2: as above
-		if (player != NULL) { // RA2: as above
-			NetNumType net; // RA2: as above
-			NetNodeType host; // RA2: as above
-			player->Get_Address(net, host); // RA2: as above
-			host[0] = node[0]; // RA2: as above
-			host[1] = node[1]; // RA2: as above
-			host[2] = node[2]; // RA2: as above
-			host[3] = node[3]; // RA2: as above
-			Session.PacketRouterAddressTranslate.Set_Address(net, host, 0); // RA2: as above
-			Session.PacketRouterAddressTranslate.Set_Port(Session.Players[0]->Address.Get_Port()); // RA2: as above
-			Session.PacketRouterPort = Session.Players[0]->Address.Get_Port(); // RA2: as above
-			Session.PacketRouterAddress = Session.Players[0]->Address; // RA2: as above
-			DebugString("Session.PacketRouterAddressTranslate = %s\n", Session.PacketRouterAddressTranslate.As_String()); // RA2: as above
+	} else {
+		sprintf(command, "mph.exe %d.%d.%d.%d", node[0], node[1], node[2], node[3]);
+		IPXAddressClass * player = &Session.Players[0]->Address;
+		if (player != NULL) {
+			NetNumType net;
+			NetNodeType host;
+			player->Get_Address(net, host);
+			host[0] = node[0];
+			host[1] = node[1];
+			host[2] = node[2];
+			host[3] = node[3];
+			Session.PacketRouterAddressTranslate.Set_Address(net, host, 0);
+			Session.PacketRouterAddressTranslate.Set_Port(Session.Players[0]->Address.Get_Port());
+			Session.PacketRouterPort = Session.Players[0]->Address.Get_Port();
+			Session.PacketRouterAddress = Session.Players[0]->Address;
+			DebugString("Session.PacketRouterAddressTranslate = %s\n", Session.PacketRouterAddressTranslate.As_String());
 		}
 	}
-	BOOL result = CreateProcess("mph.exe", command, NULL, NULL, FALSE, 0x200, NULL, NULL, &startup, &process); // RA2: as above
-	if (!result) { // RA2: as above
-		DebugString("CreateProcess failed with error %d, %s\n", GetLastError(), result); // RA2: as above
-	} else { // RA2: as above
-		RouterProcess = process.hProcess; // RA2: as above
-		DebugString("hRouterProcess = %d\n", process.hProcess); // RA2: as above
-		SetFocus(MainWindow); // RA2: as above
-		timer = 1800; // RA2: as above
-		result = FALSE; // RA2: as above
-		while (timer) { // RA2: as above
-			Call_Back(); // RA2: as above
-			if (Ipx.Get_Lobby_Message(buffer, &length, &address, &product_id) && buffer[0] == 4) { // RA2: as above
-				result = TRUE; // RA2: as above
-				DebugString("Received TALK_HELLO from router\n"); // RA2: as above
-				IsRouterRunning = true; // RA2: as above
-				break; // RA2: as above
+	BOOL result = CreateProcess("mph.exe", command, NULL, NULL, FALSE, 0x200, NULL, NULL, &startup, &process);
+	if (!result) {
+		DebugString("CreateProcess failed with error %d, %s\n", GetLastError(), result);
+	} else {
+		RouterProcess = process.hProcess;
+		DebugString("hRouterProcess = %d\n", process.hProcess);
+		SetFocus(MainWindow);
+		timer = 1800;
+		result = FALSE;
+		while (timer) {
+			Call_Back();
+			if (Ipx.Get_Lobby_Message(buffer, &length, &address, &product_id) && buffer[0] == 4) {
+				result = TRUE;
+				DebugString("Received TALK_HELLO from router\n");
+				IsRouterRunning = true;
+				break;
 			}
 		}
 	}
-	return(result != FALSE); // RA2: as above
+	return(result != FALSE);
 }
 
 /// <summary>
@@ -283,24 +283,24 @@ bool OwnerTalkClass::Start_Router(unsigned char * node) // RA2: 0x0063F510
 /// </summary>
 void OwnerTalkClass::Handle_Router_Messages(void) // RA2: 0x0063F840
 {
-	IPXAddressClass address; // RA2: as above
-	int length; // RA2: as above
-	unsigned short product_id; // RA2: as above
+	IPXAddressClass address;
+	int length;
+	unsigned short product_id;
 
-	if (Frame > 0) { // RA2: as above
-		while (Ipx.Get_Lobby_Message(&RouterMessage, &length, &address, &product_id)) { // RA2: as above
-			if (RouterMessage.Command != 5) { // RA2: as above
-				DebugString("Got spurious message %d from the router\n", RouterMessage.Command); // RA2: as above
-			} else { // RA2: as above
-				DebugString("Received change of address notification.\n"); // RA2: as above
-				int id = RouterMessage.ID; // RA2: as above
-				NetNumType net; // RA2: as above
-				NetNodeType node; // RA2: as above
-				memset(node, 0, sizeof(node)); // RA2: as above
+	if (Frame > 0) {
+		while (Ipx.Get_Lobby_Message(&RouterMessage, &length, &address, &product_id)) {
+			if (RouterMessage.Command != 5) {
+				DebugString("Got spurious message %d from the router\n", RouterMessage.Command);
+			} else {
+				DebugString("Received change of address notification.\n");
+				int id = RouterMessage.ID;
+				NetNumType net;
+				NetNodeType node;
+				memset(node, 0, sizeof(node));
 				*(unsigned long *)node = RouterMessage.Address;
-				IPXAddressClass new_address; // RA2: as above
-				new_address.Set_Address(net, node, 0); // RA2: as above
-				OutList.Add(EventClass(PlayerPtr->HeapID, new_address, id)); // RA2: as above
+				IPXAddressClass new_address;
+				new_address.Set_Address(net, node, 0);
+				OutList.Add(EventClass(PlayerPtr->HeapID, new_address, id));
 			}
 		}
 	}
@@ -311,14 +311,14 @@ void OwnerTalkClass::Handle_Router_Messages(void) // RA2: 0x0063F840
 /// </summary>
 void OwnerTalkClass::Set_Address(int id, IPXAddressClass * address) // RA2: 0x0063F9A0
 {
-	NetNumType net; // RA2: as above
-	NetNodeType node; // RA2: as above
+	NetNumType net;
+	NetNodeType node;
 
-	address->Get_Address(net, node); // RA2: as above
-	for (int i = 0; i < Connections.Count(); i++) { // RA2: as above
-		if (Connections[i]->ID == id) { // RA2: as above
-			Connections[i]->Address = *(unsigned long *)node; // RA2: as above
-			break; // RA2: as above
+	address->Get_Address(net, node);
+	for (int i = 0; i < Connections.Count(); i++) {
+		if (Connections[i]->ID == id) {
+			Connections[i]->Address = *(unsigned long *)node;
+			break;
 		}
 	}
 }
@@ -330,23 +330,23 @@ void OwnerTalkClass::Set_Address(int id, IPXAddressClass * address) // RA2: 0x00
 IPXAddressClass * OwnerTalkClass::Address_From_Name(char const * name) // RA2: 0x0063FA00
 {
 	static IPXAddressClass address; // RA2: the object returned (its initializer is the one after the geometry constants)
-	NetNodeType node; // RA2: as above
+	NetNodeType node;
 
-	memset(node, 0, sizeof(node)); // RA2: as above
+	memset(node, 0, sizeof(node));
 
-	address.Set_Node(node); // RA2: as above
-	address.Set_Port(0); // RA2: as above
-	for (int i = 0; i < Connections.Count(); i++) { // RA2: as above
-		if (stricmp(Connections[i]->Name, name) == 0) { // RA2: as above
-			NetNodeType found; // RA2: as above
+	address.Set_Node(node);
+	address.Set_Port(0);
+	for (int i = 0; i < Connections.Count(); i++) {
+		if (stricmp(Connections[i]->Name, name) == 0) {
+			NetNodeType found;
 
 			*(unsigned long *)found = Connections[i]->Address;
-			address.Set_Node(found); // RA2: as above
-			address.Set_Port(Connections[i]->Port); // RA2: as above
-			break; // RA2: as above
+			address.Set_Node(found);
+			address.Set_Port(Connections[i]->Port);
+			break;
 		}
 	}
-	return(&address); // RA2: as above
+	return(&address);
 }
 
 /// <summary>
@@ -354,12 +354,12 @@ IPXAddressClass * OwnerTalkClass::Address_From_Name(char const * name) // RA2: 0
 /// </summary>
 unsigned short OwnerTalkClass::Port_From_Name(char const * name) // RA2: 0x0063FAF0
 {
-	for (int i = 0; i < Connections.Count(); i++) { // RA2: as above
-		if (stricmp(Connections[i]->Name, name) == 0) { // RA2: as above
-			return(Connections[i]->Port); // RA2: as above
+	for (int i = 0; i < Connections.Count(); i++) {
+		if (stricmp(Connections[i]->Name, name) == 0) {
+			return(Connections[i]->Port);
 		}
 	}
-	return(0); // RA2: as above
+	return(0);
 }
 
 /// <summary>
@@ -367,10 +367,10 @@ unsigned short OwnerTalkClass::Port_From_Name(char const * name) // RA2: 0x0063F
 /// </summary>
 char * OwnerTalkClass::Name_From_Index(int index) // RA2: 0x0063FB40
 {
-	if (index < Connections.Count()) { // RA2: as above
-		return(Connections[index]->Name); // RA2: as above
+	if (index < Connections.Count()) {
+		return(Connections[index]->Name);
 	}
-	return(NULL); // RA2: as above
+	return(NULL);
 }
 
 /// <summary>
@@ -378,10 +378,10 @@ char * OwnerTalkClass::Name_From_Index(int index) // RA2: 0x0063FB40
 /// </summary>
 void OwnerTalkClass::Set_Port(int id, unsigned short port) // RA2: 0x0063FB60
 {
-	for (int i = 0; i < Connections.Count(); i++) { // RA2: as above
-		if (Connections[i]->ID == id) { // RA2: as above
-			Connections[i]->Port = port; // RA2: as above
-			break; // RA2: as above
+	for (int i = 0; i < Connections.Count(); i++) {
+		if (Connections[i]->ID == id) {
+			Connections[i]->Port = port;
+			break;
 		}
 	}
 }
@@ -394,38 +394,38 @@ void OwnerTalkClass::Set_Port(int id, unsigned short port) // RA2: 0x0063FB60
 int OwnerTalkClass::Update_Master(void) // RA2: 0x0063FBA0
 {
 	int id = Session.LastTimingID; // RA2: +0x303C of the session, -1 when none; main names it LastTimingID, the code reads it as the master's id
-	int i; // RA2: as above
+	int i;
 
-	if (id == -1) { // RA2: as above
-		for (i = 0; i < Connections.Count(); i++) { // RA2: as above
-			if (Connections[i]->IsActive && !Connections[i]->IsMaster) { // RA2: as above
-				id = Connections[i]->ID; // RA2: as above
-				Connections[i]->IsMaster = true; // RA2: as above
+	if (id == -1) {
+		for (i = 0; i < Connections.Count(); i++) {
+			if (Connections[i]->IsActive && !Connections[i]->IsMaster) {
+				id = Connections[i]->ID;
+				Connections[i]->IsMaster = true;
 			}
 		}
-	} else { // RA2: as above
-		for (i = 0; i < Connections.Count(); i++) { // RA2: as above
-			if (Connections[i]->ID == id) { // RA2: as above
-				Connections[i]->IsMaster = true; // RA2: as above
-			} else { // RA2: as above
-				Connections[i]->IsMaster = false; // RA2: as above
+	} else {
+		for (i = 0; i < Connections.Count(); i++) {
+			if (Connections[i]->ID == id) {
+				Connections[i]->IsMaster = true;
+			} else {
+				Connections[i]->IsMaster = false;
 			}
 		}
 	}
-	if (!Session.Am_I_Master(NULL) && id != -1 && id == PlayerPtr->HeapID && Session.Players.Count() > 2) { // RA2: as above
-		IPXAddressClass * address = NULL; // RA2: as above
-		NetNumType net; // RA2: as above
-		NetNodeType node; // RA2: as above
-		for (i = 0; i < Session.Players.Count(); i++) { // RA2: as above
-			if (Session.Players[i]->Player.ID == id) { // RA2: as above
-				address = &Session.Players[i]->Address; // RA2: as above
-				break; // RA2: as above
+	if (!Session.Am_I_Master(NULL) && id != -1 && id == PlayerPtr->HeapID && Session.Players.Count() > 2) {
+		IPXAddressClass * address = NULL;
+		NetNumType net;
+		NetNodeType node;
+		for (i = 0; i < Session.Players.Count(); i++) {
+			if (Session.Players[i]->Player.ID == id) {
+				address = &Session.Players[i]->Address;
+				break;
 			}
 		}
-		address->Get_Address(net, node); // RA2: as above
-		Start_Router(node); // RA2: as above
+		address->Get_Address(net, node);
+		Start_Router(node);
 	}
-	return(id); // RA2: as above
+	return(id);
 }
 
 /// <summary>
@@ -433,15 +433,15 @@ int OwnerTalkClass::Update_Master(void) // RA2: 0x0063FBA0
 /// </summary>
 void OwnerTalkClass::Send_Shutdown(void) // RA2: 0x0063FC90
 {
-	TalkPacketType packet = {0}; // RA2: as above
-	CDTimerClass<SystemTimerClass> timer; // RA2: as above
+	TalkPacketType packet = { 0 };
+	CDTimerClass<SystemTimerClass> timer;
 
-	if (IsRouterRunning && RouterProcess != NULL) { // RA2: as above
-		packet.Command = 3; // RA2: as above
-		Ipx.Send_Lobby_Message(&packet, 0x152, true); // RA2: as above
-		timer = 900; // RA2: as above
-		while (Ipx.Lobby_Num_Send() > 0 && timer != 0) { // RA2: as above
-			Call_Back(); // RA2: as above
+	if (IsRouterRunning && RouterProcess != NULL) {
+		packet.Command = 3;
+		Ipx.Send_Lobby_Message(&packet, 0x152, true);
+		timer = 900;
+		while (Ipx.Lobby_Num_Send() > 0 && timer != 0) {
+			Call_Back();
 		}
 	}
 }
@@ -452,25 +452,25 @@ void OwnerTalkClass::Send_Shutdown(void) // RA2: 0x0063FC90
 /// </summary>
 bool OwnerTalkClass::Wait_For_Router_Shutdown(unsigned long timeout, bool force) // RA2: 0x0063FD70
 {
-	DebugString("Wait_For_Router_Shutdown - hRouterProcess = %d\n", RouterProcess); // RA2: as above
-	if (RouterProcess != NULL) { // RA2: as above
-		if (WaitForMultipleObjects(1, &RouterProcess, FALSE, timeout) == WAIT_TIMEOUT) { // RA2: as above
-			if (!force) { // RA2: as above
-				return(false); // RA2: as above
+	DebugString("Wait_For_Router_Shutdown - hRouterProcess = %d\n", RouterProcess);
+	if (RouterProcess != NULL) {
+		if (WaitForMultipleObjects(1, &RouterProcess, FALSE, timeout) == WAIT_TIMEOUT) {
+			if (!force) {
+				return(false);
 			}
-			DebugString("***Router process still running - shutting it down***\n"); // RA2: as above
-			BOOL result = TerminateProcess(RouterProcess, 0); // RA2: as above
-			if (!result) { // RA2: as above
-				DebugString("Failed to shut down router - error code %d - %s\n", GetLastError(), result); // RA2: as above
-			} else { // RA2: as above
-				RouterProcess = NULL; // RA2: as above
+			DebugString("***Router process still running - shutting it down***\n");
+			BOOL result = TerminateProcess(RouterProcess, 0);
+			if (!result) {
+				DebugString("Failed to shut down router - error code %d - %s\n", GetLastError(), result);
+			} else {
+				RouterProcess = NULL;
 			}
-			return(result ? true : false); // RA2: as above
+			return(result ? true : false);
 		}
-		DebugString("Router not running\n"); // RA2: as above
-		RouterProcess = NULL; // RA2: as above
+		DebugString("Router not running\n");
+		RouterProcess = NULL;
 	}
-	return(true); // RA2: as above
+	return(true);
 }
 
 /// <summary>
@@ -478,20 +478,20 @@ bool OwnerTalkClass::Wait_For_Router_Shutdown(unsigned long timeout, bool force)
 /// </summary>
 void OwnerTalkClass::Send_Remove_Player(int id) // RA2: 0x0063FE20
 {
-	TalkPacketType packet = {0}; // RA2: as above
+	TalkPacketType packet = { 0 };
 
-	for (int i = 0; i < Connections.Count(); i++) { // RA2: as above
-		ConnectionListStruct * entry = Connections[i]; // RA2: as above
-		if (entry->ID == id) { // RA2: as above
-			entry->IsActive = false; // RA2: as above
-			entry->IsMaster = false; // RA2: as above
+	for (int i = 0; i < Connections.Count(); i++) {
+		ConnectionListStruct * entry = Connections[i];
+		if (entry->ID == id) {
+			entry->IsActive = false;
+			entry->IsMaster = false;
 		}
 	}
-	if (IsRouterRunning) { // RA2: as above
-		packet.Command = 2; // RA2: as above
-		packet.Param = id; // RA2: as above
-		DebugString("Sending TALK_REMOVE_PLAYER to router\n"); // RA2: as above
-		Ipx.Send_Lobby_Message(&packet, 0x152, true); // RA2: as above
+	if (IsRouterRunning) {
+		packet.Command = 2;
+		packet.Param = id;
+		DebugString("Sending TALK_REMOVE_PLAYER to router\n");
+		Ipx.Send_Lobby_Message(&packet, 0x152, true);
 	}
 }
 
@@ -500,12 +500,12 @@ void OwnerTalkClass::Send_Remove_Player(int id) // RA2: 0x0063FE20
 /// </summary>
 void OwnerTalkClass::Send_Port_Blitz(char port) // RA2: 0x0063FEB0
 {
-	TalkPacketType packet = {0}; // RA2: as above
+	TalkPacketType packet = { 0 };
 
-	if (IsRouterRunning) { // RA2: as above
-		packet.Command = 6; // RA2: as above
-		packet.Param = port; // RA2: as above
-		DebugString("Sending TALK_PORT_BLITZ to router\n"); // RA2: as above
-		Ipx.Send_Lobby_Message(&packet, 0x152, true); // RA2: as above
+	if (IsRouterRunning) {
+		packet.Command = 6;
+		packet.Param = port;
+		DebugString("Sending TALK_PORT_BLITZ to router\n");
+		Ipx.Send_Lobby_Message(&packet, 0x152, true);
 	}
 }

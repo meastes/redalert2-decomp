@@ -14,6 +14,8 @@ import struct
 import subprocess
 from pathlib import Path
 
+import tree
+
 REPOSITORY = Path(__file__).resolve().parents[2]
 DEFAULT_ASSEMBLER = REPOSITORY / 'private/original-target-20261020/toolchain/masm615'
 ML_FLAGS = ['/nologo', '/c', '/coff', '/Cx']
@@ -26,7 +28,7 @@ REL_SIZES = {0x06: 4, 0x07: 4, 0x14: 4, 0x0B: 2, 0x0C: 2, 0x0D: 2, 0x0E: 2, 0x0F
 # these procedures are taken from each file (its other procedures, e.g. Draw_Voxel_Regular_ASM/Reverse_ASM, stay
 # built from the archive text), each with the archive parent it revises. Diffs against the archive: lane O72's
 # bundle item (d); evidence: lane O71 (both under private/dossiers).
-REVISED_DIRECTORY = 'src/recovered/asm/ra2asm'
+REVISED_DIRECTORY = tree.ASM + '/ra2asm'          # the tree's copy (tree.py; src/recovered/asm/ra2asm in the frozen tree)
 REVISED_FLAG = 'binary-derived'
 REVISED_REFERENCE = dict(name='gibbo101/ra2-decomp', commit='f70722414a172d30d124b7271a87d55657d259d8',
                          path='src/ra2asm/<file>.asm',

@@ -29,18 +29,18 @@ Wstring operator+(Wstring const & a, Wstring const & b); // RA2: 0x0076F7D0; the
 /// The six groups are named after the INI keys their lines are read under.
 /// </summary>
 Voices::Voices(int faction) : // RA2: constructs the voice player that speaks for one faction
-	Faction(faction), // RA2: as above
-	Idle(true), // RA2: as above
-	Pending(0), // RA2: as above
-	Stream(NULL) // RA2: as above
+	Faction(faction),
+	Idle(true),
+	Pending(0),
+	Stream(NULL)
 {
 	AudioGetDevice(); // RA2: the exe fetches the audio device here and does nothing with it
 	Groups[0].Set_Name("OldCycle"); // RA2: the group names
-	Groups[1].Set_Name("History"); // RA2: as above
-	Groups[2].Set_Name("Status"); // RA2: as above
-	Groups[3].Set_Name("Territory"); // RA2: as above
-	Groups[4].Set_Name("Game"); // RA2: as above
-	Groups[5].Set_Name("Evacuate"); // RA2: as above
+	Groups[1].Set_Name("History");
+	Groups[2].Set_Name("Status");
+	Groups[3].Set_Name("Territory");
+	Groups[4].Set_Name("Game");
+	Groups[5].Set_Name("Evacuate");
 }
 
 
@@ -50,8 +50,8 @@ Voices::Voices(int faction) : // RA2: constructs the voice player that speaks fo
 Voices::~Voices(void) // RA2: destroys the voice player; whatever is queued is stopped and the audio stream is freed
 {
 	Stop(); // RA2: expanded here
-	if (Stream != NULL) { // RA2: as above
-		AudioStreamerDestroy((AudioStreamer *)Stream); // RA2: as above
+	if (Stream != NULL) {
+		AudioStreamerDestroy((AudioStreamer *)Stream);
 	}
 }
 
@@ -61,16 +61,16 @@ Voices::~Voices(void) // RA2: destroys the voice player; whatever is queued is s
 /// </summary>
 void Voices::Load(INIClass & ini, Wstring const & section) // RA2: reads every group's Win, Lose and Draw lines and the two stand-alone lists
 {
-	for (int group = 0; group < VOICECAT_COUNT; group++) { // RA2: as above
-		Groups[group].Load(ini, section, Faction); // RA2: as above
+	for (int group = 0; group < VOICECAT_COUNT; group++) {
+		Groups[group].Load(ini, section, Faction);
 	}
 	{
-		Wstring key("Startup"); // RA2: as above
-		Load_List(ini, section, 0, key); // RA2: as above
+		Wstring key("Startup");
+		Load_List(ini, section, 0, key);
 	}
 	{
-		Wstring key("TerritorySelect"); // RA2: as above
-		Load_List(ini, section, 1, key); // RA2: as above
+		Wstring key("TerritorySelect");
+		Load_List(ini, section, 1, key);
 	}
 }
 
@@ -81,12 +81,12 @@ void Voices::Load(INIClass & ini, Wstring const & section) // RA2: reads every g
 void Voices::Load_List(INIClass & ini, Wstring const & section, int index, Wstring const & key) // RA2: reads one comma separated list of line numbers, named after the faction and the key
 {
 	Wstring entry = operator+(Faction_Name(Faction), key); // RA2: the free join
-	Wstring value; // RA2: as above
+	Wstring value;
 	{
-		Wstring empty(""); // RA2: as above
-		ini.Get_String(section, entry, empty, value); // RA2: as above
+		Wstring empty("");
+		ini.Get_String(section, entry, empty, value);
 	}
-	Parse_List(value, Lists[index]); // RA2: as above
+	Parse_List(value, Lists[index]);
 }
 
 
@@ -95,7 +95,7 @@ void Voices::Load_List(INIClass & ini, Wstring const & section, int index, Wstri
 /// </summary>
 bool Voices::Pick(int group, int kind, Wstring & name) const // RA2: picks the speech name of an ordinary line of a group for a result
 {
-	return(Groups[group].Pick(Faction, kind, name)); // RA2: as above
+	return(Groups[group].Pick(Faction, kind, name));
 }
 
 
@@ -104,7 +104,7 @@ bool Voices::Pick(int group, int kind, Wstring & name) const // RA2: picks the s
 /// </summary>
 bool Voices::Pick_Emphasis(int group, int kind, Wstring & name) const // RA2: picks the speech name of an emphatic line of a group for a result
 {
-	return(Groups[group].Pick_Emphasis(Faction, kind, name)); // RA2: as above
+	return(Groups[group].Pick_Emphasis(Faction, kind, name));
 }
 
 
@@ -113,7 +113,7 @@ bool Voices::Pick_Emphasis(int group, int kind, Wstring & name) const // RA2: pi
 /// </summary>
 bool Voices::Pick_List(int index, Wstring & name) const // RA2: picks the speech name of a line of one of the stand-alone lists
 {
-	return(Pick(Faction, Lists[index], name)); // RA2: as above
+	return(Pick(Faction, Lists[index], name));
 }
 
 
@@ -122,12 +122,12 @@ bool Voices::Pick_List(int index, Wstring & name) const // RA2: picks the speech
 /// </summary>
 bool __fastcall Voices::Pick(int faction, DynamicVectorClass<unsigned int> const & lines, Wstring & name) // RA2: picks a line of a list at random and makes its speech name; an empty list gives nothing
 {
-	name.clear(); // RA2: as above
-	if (lines.Count() <= 0) { // RA2: as above
-		return(false); // RA2: as above
+	name.clear();
+	if (lines.Count() <= 0) {
+		return(false);
 	}
-	int index = lines.Count() == 1 ? 0 : NonCriticalRandomNumber(0, lines.Count() - 1); // RA2: as above
-	return(Make_Name(faction, lines[index], name)); // RA2: as above
+	int index = lines.Count() == 1 ? 0 : NonCriticalRandomNumber(0, lines.Count() - 1);
+	return(Make_Name(faction, lines[index], name));
 }
 
 
@@ -136,12 +136,12 @@ bool __fastcall Voices::Pick(int faction, DynamicVectorClass<unsigned int> const
 /// </summary>
 bool __fastcall Voices::Make_Name(int faction, int line, Wstring & name) // RA2: the speech name of a line, "WWD-Soviet" for faction 3 and "WWD_Allied" for the others, with the number
 {
-	if (faction == 3) { // RA2: as above
-		name = "WWD-Soviet" + Wstring_FromInt(line, 2); // RA2: as above
-	} else { // RA2: as above
-		name = "WWD_Allied" + Wstring_FromInt(line, 2); // RA2: as above
+	if (faction == 3) {
+		name = "WWD-Soviet" + Wstring_FromInt(line, 2);
+	} else {
+		name = "WWD_Allied" + Wstring_FromInt(line, 2);
 	}
-	return(true); // RA2: as above
+	return(true);
 }
 
 
@@ -150,12 +150,12 @@ bool __fastcall Voices::Make_Name(int faction, int line, Wstring & name) // RA2:
 /// </summary>
 void __fastcall Voices::Parse_List(Wstring const & text, DynamicVectorClass<unsigned int> & lines) // RA2: replaces a list with the comma separated numbers of a text
 {
-	lines.Clear(); // RA2: as above
-	Wstring token; // RA2: as above
-	int position = text.getToken(0, ",", token); // RA2: as above
-	while (position != -1) { // RA2: as above
-		lines.Add(token.toInt()); // RA2: as above
-		position = text.getToken(position, ",", token); // RA2: as above
+	lines.Clear();
+	Wstring token;
+	int position = text.getToken(0, ",", token);
+	while (position != -1) {
+		lines.Add(token.toInt());
+		position = text.getToken(position, ",", token);
 	}
 }
 
@@ -165,7 +165,7 @@ void __fastcall Voices::Parse_List(Wstring const & text, DynamicVectorClass<unsi
 /// </summary>
 Voices::Group::Group(void) // RA2: a group starts with an empty name
 {
-	Name = ""; // RA2: as above
+	Name = "";
 }
 
 
@@ -174,7 +174,7 @@ Voices::Group::Group(void) // RA2: a group starts with an empty name
 /// </summary>
 void Voices::Group::Set_Name(Wstring const & name) // RA2: names the group after the INI key its lines are read under
 {
-	Name = name; // RA2: as above
+	Name = name;
 }
 
 
@@ -184,16 +184,16 @@ void Voices::Group::Set_Name(Wstring const & name) // RA2: names the group after
 void Voices::Group::Load(INIClass & ini, Wstring const & section, int faction) // RA2: reads the lines of all three results of this group
 {
 	{
-		Wstring key("Win"); // RA2: as above
-		Load(ini, section, faction, 0, key); // RA2: as above
+		Wstring key("Win");
+		Load(ini, section, faction, 0, key);
 	}
 	{
-		Wstring key("Lose"); // RA2: as above
-		Load(ini, section, faction, 1, key); // RA2: as above
+		Wstring key("Lose");
+		Load(ini, section, faction, 1, key);
 	}
 	{
-		Wstring key("Draw"); // RA2: as above
-		Load(ini, section, faction, 2, key); // RA2: as above
+		Wstring key("Draw");
+		Load(ini, section, faction, 2, key);
 	}
 }
 
@@ -203,7 +203,7 @@ void Voices::Group::Load(INIClass & ini, Wstring const & section, int faction) /
 /// </summary>
 bool Voices::Group::Pick(int faction, int kind, Wstring & name) const // RA2: picks an ordinary line for a result
 {
-	return(Voices::Pick(faction, Lines[kind * 2], name)); // RA2: as above
+	return(Voices::Pick(faction, Lines[kind * 2], name));
 }
 
 
@@ -212,7 +212,7 @@ bool Voices::Group::Pick(int faction, int kind, Wstring & name) const // RA2: pi
 /// </summary>
 bool Voices::Group::Pick_Emphasis(int faction, int kind, Wstring & name) const // RA2: picks an emphatic line for a result
 {
-	return(Voices::Pick(faction, Lines[kind * 2 + 1], name)); // RA2: as above
+	return(Voices::Pick(faction, Lines[kind * 2 + 1], name));
 }
 
 
@@ -222,18 +222,18 @@ bool Voices::Group::Pick_Emphasis(int faction, int kind, Wstring & name) const /
 void Voices::Group::Load(INIClass & ini, Wstring const & section, int faction, int kind, Wstring const & key) // RA2: reads the plain and the emphatic lines of one result of this group (the entry is <faction><group><key>[Emphasis])
 {
 	Wstring entry = operator+(Faction_Name(faction), Name).operator+(key); // RA2: the free join of faction and group name, then the member join of the key
-	Wstring value; // RA2: as above
+	Wstring value;
 	{
-		Wstring empty(""); // RA2: as above
-		ini.Get_String(section, entry, empty, value); // RA2: as above
+		Wstring empty("");
+		ini.Get_String(section, entry, empty, value);
 	}
-	Voices::Parse_List(value, Lines[kind * 2]); // RA2: as above
-	entry += "Emphasis"; // RA2: as above
+	Voices::Parse_List(value, Lines[kind * 2]);
+	entry += "Emphasis";
 	{
-		Wstring empty(""); // RA2: as above
-		ini.Get_String(section, entry, empty, value); // RA2: as above
+		Wstring empty("");
+		ini.Get_String(section, entry, empty, value);
 	}
-	Voices::Parse_List(value, Lines[kind * 2 + 1]); // RA2: as above
+	Voices::Parse_List(value, Lines[kind * 2 + 1]);
 }
 
 
@@ -242,20 +242,20 @@ void Voices::Group::Load(INIClass & ini, Wstring const & section, int faction, i
 /// </summary>
 void Voices::Say(int group, int kind, bool emphasis, bool counted, int delay) // RA2: queues the speech of a result of a group, and with emphasis a second line behind it
 {
-	Trim(); // RA2: as above
-	Wstring name; // RA2: as above
-	if (Pick(group, kind, name)) { // RA2: as above
-		if (!Is_Speaking()) { // RA2: as above
-			Timer = delay; // RA2: as above
+	Trim();
+	Wstring name;
+	if (Pick(group, kind, name)) {
+		if (!Is_Speaking()) {
+			Timer = delay;
 		}
-		Queue.Add(name); // RA2: as above
-		if (counted) { // RA2: as above
-			Pending++; // RA2: as above
+		Queue.Add(name);
+		if (counted) {
+			Pending++;
 		}
-		if (emphasis && Pick_Emphasis(group, kind, name)) { // RA2: as above
-			Queue.Add(name); // RA2: as above
-			if (counted) { // RA2: as above
-				Pending++; // RA2: as above
+		if (emphasis && Pick_Emphasis(group, kind, name)) {
+			Queue.Add(name);
+			if (counted) {
+				Pending++;
 			}
 		}
 	}
@@ -267,15 +267,15 @@ void Voices::Say(int group, int kind, bool emphasis, bool counted, int delay) //
 /// </summary>
 void Voices::Say_List(int index, bool counted, int delay) // RA2: queues a line of one of the stand-alone lists (the startup list is 0)
 {
-	Trim(); // RA2: as above
-	Wstring name; // RA2: as above
-	if (Pick_List(index, name)) { // RA2: as above
-		if (!Is_Speaking()) { // RA2: as above
-			Timer = delay; // RA2: as above
+	Trim();
+	Wstring name;
+	if (Pick_List(index, name)) {
+		if (!Is_Speaking()) {
+			Timer = delay;
 		}
-		Queue.Add(name); // RA2: as above
-		if (counted) { // RA2: as above
-			Pending++; // RA2: as above
+		Queue.Add(name);
+		if (counted) {
+			Pending++;
 		}
 	}
 }
@@ -286,19 +286,19 @@ void Voices::Say_List(int index, bool counted, int delay) // RA2: queues a line 
 /// </summary>
 void Voices::Update(void) // RA2: once the delay has run out and nothing is playing, drops the line just said and plays the next one
 {
-	if (Timer() == 0 && Queue.Count() > 0 && !Is_Speaking()) { // RA2: as above
-		if (!Idle) { // RA2: as above
-			Queue.Delete_Index(0); // RA2: as above
-			if (Pending > 0) { // RA2: as above
-				Pending--; // RA2: as above
+	if (Timer() == 0 && Queue.Count() > 0 && !Is_Speaking()) {
+		if (!Idle) {
+			Queue.Delete_Index(0);
+			if (Pending > 0) {
+				Pending--;
 			}
 		}
-		if (Queue.Count() > 0) { // RA2: as above
-			Queue_Speech(Vox_From_Name(Queue[0].get()), -1, -1); // RA2: as above
-			Idle = false; // RA2: as above
-		} else { // RA2: as above
-			Pending = 0; // RA2: as above
-			Idle = true; // RA2: as above
+		if (Queue.Count() > 0) {
+			Queue_Speech(Vox_From_Name(Queue[0].get()), -1, -1);
+			Idle = false;
+		} else {
+			Pending = 0;
+			Idle = true;
 		}
 	}
 }
@@ -309,12 +309,12 @@ void Voices::Update(void) // RA2: once the delay has run out and nothing is play
 /// </summary>
 void Voices::Trim(void) // RA2: drops the queued lines past the counted ones
 {
-	int index = Queue.Count(); // RA2: as above
-	while (index-- > Pending) { // RA2: as above
-		Queue.Delete_Index(index); // RA2: as above
+	int index = Queue.Count();
+	while (index-- > Pending) {
+		Queue.Delete_Index(index);
 	}
-	if (Pending == 0) { // RA2: as above
-		Idle = true; // RA2: as above
+	if (Pending == 0) {
+		Idle = true;
 	}
 }
 
@@ -340,11 +340,11 @@ void Voices_Noop2(void) // RA2: an empty function at 0x007329E0
 /// </summary>
 void Voices::Stop(void) // RA2: stops the speech and forgets everything queued
 {
-	if (Queue.Count() > 0) { // RA2: as above
-		Speech_Stop(true); // RA2: as above
-		Queue.Clear(); // RA2: as above
+	if (Queue.Count() > 0) {
+		Speech_Stop(true);
+		Queue.Clear();
 	}
-	Timer = 0; // RA2: as above
+	Timer = 0;
 }
 
 
@@ -353,7 +353,7 @@ void Voices::Stop(void) // RA2: stops the speech and forgets everything queued
 /// </summary>
 bool Voices::Is_Speaking(void) // RA2: is the speech stream busy?
 {
-	return(::Is_Speaking()); // RA2: as above
+	return(::Is_Speaking());
 }
 
 
@@ -362,13 +362,13 @@ bool Voices::Is_Speaking(void) // RA2: is the speech stream busy?
 /// </summary>
 Voices::Anim * Voices::Create_Anim(void) // RA2: a new animation that plays this player's queue
 {
-	return(new Anim(this)); // RA2: as above
+	return(new Anim(this));
 }
 
 
 Voices::Anim::Anim(Voices * voices) : // RA2: a new animation that plays this player's queue
 	MSAnim(0, 0, false), // RA2: the animation starts inactive
-	VoicePlayer(voices) // RA2: as above
+	VoicePlayer(voices)
 {
 }
 
@@ -383,22 +383,22 @@ Voices::Anim::~Anim(void) // RA2: a new animation that plays this player's queue
 /// </summary>
 void Voices::Anim::Set_Active(bool active) // RA2: switching the animation off stops the voices
 {
-	Active = active; // RA2: as above
-	if (!Active) { // RA2: as above
-		VoicePlayer->Stop(); // RA2: as above
+	Active = active;
+	if (!Active) {
+		VoicePlayer->Stop();
 	}
 }
 
 
 void Voices::Anim::Pause(void) // RA2: switching the animation off stops the voices
 {
-	Timer.Stop(); // RA2: as above
+	Timer.Stop();
 }
 
 
 void Voices::Anim::Resume(void) // RA2: switching the animation off stops the voices
 {
-	Timer.Start(); // RA2: as above
+	Timer.Start();
 }
 
 
@@ -407,14 +407,14 @@ void Voices::Anim::Resume(void) // RA2: switching the animation off stops the vo
 /// </summary>
 bool Voices::Anim::Advance(Surface * surface, Rect & rect) // RA2: services the queue; the animation never asks to be deleted
 {
-	VoicePlayer->Update(); // RA2: as above
-	return(false); // RA2: as above
+	VoicePlayer->Update();
+	return(false);
 }
 
 
 void Voices::Anim::Redraw(Surface * surface, Rect const * rect) // RA2: services the queue; the animation never asks to be deleted
 {
-	VoicePlayer->Update(); // RA2: as above
+	VoicePlayer->Update();
 }
 
 
@@ -423,7 +423,7 @@ void Voices::Anim::Redraw(Surface * surface, Rect const * rect) // RA2: services
 /// </summary>
 Rect Voices::Anim::Get_Rect(void) const // RA2: an animation that is heard, not seen, takes no screen area
 {
-	return(Rect()); // RA2: as above
+	return(Rect());
 }
 
 
@@ -432,11 +432,11 @@ Rect Voices::Anim::Get_Rect(void) const // RA2: an animation that is heard, not 
 /// </summary>
 bool Voices::Anim::Has_Finished(void) const // RA2: finished once nothing is being said
 {
-	return(!::Is_Speaking()); // RA2: as above
+	return(!::Is_Speaking());
 }
 
 
 void Voices::Anim::Restore(Rect const & rect) // RA2: finished once nothing is being said
 {
-	VoicePlayer->Update(); // RA2: as above
+	VoicePlayer->Update();
 }

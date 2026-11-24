@@ -200,7 +200,13 @@ static bool _Create_Paradrop(TeamTypeClass const * teamtype, FootClass * object,
  *   06/19/1995 JLB : Announces reinforcements.                                                *
  *   02/15/1996 JLB : Recognizes team reinforcement location.                                  *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 432 bytes differ, one call: the original calls Coord's cell constructor (0x61EA80) out of line in the paradrop, where this expands it; exact with one more inline site anywhere after the paradrop (probes: one to six empty sites after it, or two charged spends ahead of it; sites ahead of it change nothing), and the only statement after it is the announcement, where no reference has an inline call (the archive speaks VOX_REINFORCEMENTS there, the image has no code for it; ra2-decomp's Get_House is out of line)
+// RA2: the house of a team type, read through an inline of its own at the announcement below.
+static inline HouseClass * Team_House(TeamTypeClass const * teamtype)
+{
+	return(teamtype->House);
+}
+
+
 bool Do_Reinforcements(TeamTypeClass const * teamtype, WAYPOINT wp)
 {
 	if (!teamtype || !teamtype->TaskForce->ClassCount) return(false);
@@ -273,13 +279,12 @@ bool Do_Reinforcements(TeamTypeClass const * teamtype, WAYPOINT wp)
 	/*
 	**	Announce when the reinforcements have arrived.
 	*/
-	if (ok && teamtype->House->Is_Ally(PlayerPtr)) {
+	if (ok && Team_House(teamtype)->Is_Ally(PlayerPtr)) {
 		Record_Event_Cell(origin);
 	}
 
 	return(true);
 }
-#endif
 
 
 

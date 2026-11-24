@@ -19,6 +19,6 @@
 #include "trect.h"
 
 // RA2: defined here (internal linkage), so every module including this header holds its own copy and initializer
-const Rect RECT_NONE(0, 0, 0, 0); // RA2: as above
+const Rect RECT_NONE(0, 0, 0, 0);
 
 void __fastcall Inflate_Rect(Rect & rect, int amount); // RA2: moves each edge by amount (txtlabel2.cpp)

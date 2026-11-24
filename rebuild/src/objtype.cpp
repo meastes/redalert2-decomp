@@ -50,28 +50,28 @@ void const * ObjectTypeClass::Pip2Shapes = 0;
 void const * ObjectTypeClass::TalkBubbleShapes = 0;
 
 bool ObjectTypeClass::SelectShapesAllocated = false; // RA2: whether One_Time allocated the shapes
-bool ObjectTypeClass::PipShapesAllocated = false; // RA2: as above
-bool ObjectTypeClass::Pip2ShapesAllocated = false; // RA2: as above
-bool ObjectTypeClass::TalkBubbleShapesAllocated = false; // RA2: as above
+bool ObjectTypeClass::PipShapesAllocated = false;
+bool ObjectTypeClass::Pip2ShapesAllocated = false;
+bool ObjectTypeClass::TalkBubbleShapesAllocated = false;
 
 DynamicVectorClass<ObjectTypeClass *> ObjectTypeClass::ObjectTypes;
 
 
 template<> inline bool DynamicVectorClass<ObjectTypeClass *>::Add(ObjectTypeClass * const & object) // RA2: this unit's Add holds the new length in a variable before the Resize call (the sum is formed in the register that held Length), as in link2.cpp
 {
-	if (ActiveCount >= Length()) { // RA2: as above
-		if ((IsAllocated || !VectorMax) && GrowthStep > 0) { // RA2: as above
-			int new_length = Length(); // RA2: as above
-			new_length += GrowthStep; // RA2: as above
-			if (!Resize(new_length)) { // RA2: as above
-				return(false); // RA2: as above
+	if (ActiveCount >= Length()) {
+		if ((IsAllocated || !VectorMax) && GrowthStep > 0) {
+			int new_length = Length();
+			new_length += GrowthStep;
+			if (!Resize(new_length)) {
+				return(false);
 			}
 		} else {
-			return(false); // RA2: as above
+			return(false);
 		}
 	}
-	(*this)[ActiveCount++] = object; // RA2: as above
-	return(true); // RA2: as above
+	(*this)[ActiveCount++] = object;
+	return(true);
 }
 
 
@@ -122,7 +122,7 @@ ObjectTypeClass::ObjectTypeClass(char const * ininame) :
 	MaxStrength(0),
 	ImageData(0),
 	ImageAllocated(false), // RA2: 0xA8 starts clear
-	AlphaImageData(0), // RA2: as above
+	AlphaImageData(0),
 	NoSpawnAlt(false) // RA2: 0x1B8 starts clear
 {
 	GraphicName = IniName;
@@ -163,9 +163,9 @@ ObjectTypeClass::~ObjectTypeClass(void)
 {
 	ObjectTypes.Delete(this);
 	if (ImageAllocated && ImageData != NULL) { // RA2: 0x5D5B83 frees the loaded image (+0xA4) when the flag at +0xA8 is set
-		operator delete((void *)ImageData); // RA2: as above
-		ImageData = NULL; // RA2: as above
-		ImageAllocated = false; // RA2: as above
+		operator delete((void *)ImageData);
+		ImageData = NULL;
+		ImageAllocated = false;
 	}
 }
 
@@ -237,10 +237,10 @@ Point3D ObjectTypeClass::Pixel_Dimensions(void) const
 Point3D ObjectTypeClass::Lepton_Dimensions(void) const
 {
 	Point3D coord; // RA2: RA2's form
-	coord.X = 0x100; // RA2: as above
-	coord.Y = 0x100; // RA2: as above
-	coord.Z = LEVEL_LEPTON_H * 2; // RA2: as above
-	return coord; // RA2: as above
+	coord.X = 0x100;
+	coord.Y = 0x100;
+	coord.Z = LEVEL_LEPTON_H * 2;
+	return coord;
 }
 
 
@@ -361,31 +361,31 @@ void ObjectTypeClass::One_Time(void)
 		SelectShapes = Load_Alloc_Data(file); // RA2: from a loose file
 		SelectShapesAllocated = (SelectShapes != NULL); // RA2: remembered for freeing
 		if (SelectShapes == NULL) { // RA2: else from the mix files
-			SelectShapes = MFCD::Retrieve("PIPBRD.SHP"); // RA2: as above
+			SelectShapes = MFCD::Retrieve("PIPBRD.SHP");
 		}
 	}
-	if (PipShapes == NULL) { // RA2: as above
-		RawFileClass file("PIPS.SHP"); // RA2: as above
-		PipShapes = Load_Alloc_Data(file); // RA2: as above
-		PipShapesAllocated = (PipShapes != NULL); // RA2: as above
-		if (PipShapes == NULL) { // RA2: as above
-			PipShapes = MFCD::Retrieve("PIPS.SHP"); // RA2: as above
+	if (PipShapes == NULL) {
+		RawFileClass file("PIPS.SHP");
+		PipShapes = Load_Alloc_Data(file);
+		PipShapesAllocated = (PipShapes != NULL);
+		if (PipShapes == NULL) {
+			PipShapes = MFCD::Retrieve("PIPS.SHP");
 		}
 	}
-	if (Pip2Shapes == NULL) { // RA2: as above
-		RawFileClass file("PIPS2.SHP"); // RA2: as above
-		Pip2Shapes = Load_Alloc_Data(file); // RA2: as above
-		Pip2ShapesAllocated = (Pip2Shapes != NULL); // RA2: as above
-		if (Pip2Shapes == NULL) { // RA2: as above
-			Pip2Shapes = MFCD::Retrieve("PIPS2.SHP"); // RA2: as above
+	if (Pip2Shapes == NULL) {
+		RawFileClass file("PIPS2.SHP");
+		Pip2Shapes = Load_Alloc_Data(file);
+		Pip2ShapesAllocated = (Pip2Shapes != NULL);
+		if (Pip2Shapes == NULL) {
+			Pip2Shapes = MFCD::Retrieve("PIPS2.SHP");
 		}
 	}
-	if (TalkBubbleShapes == NULL) { // RA2: as above
-		RawFileClass file("TALKBUBL.SHP"); // RA2: as above
-		TalkBubbleShapes = Load_Alloc_Data(file); // RA2: as above
-		TalkBubbleShapesAllocated = (TalkBubbleShapes != NULL); // RA2: as above
-		if (TalkBubbleShapes == NULL) { // RA2: as above
-			TalkBubbleShapes = MFCD::Retrieve("TALKBUBL.SHP"); // RA2: as above
+	if (TalkBubbleShapes == NULL) {
+		RawFileClass file("TALKBUBL.SHP");
+		TalkBubbleShapes = Load_Alloc_Data(file);
+		TalkBubbleShapesAllocated = (TalkBubbleShapes != NULL);
+		if (TalkBubbleShapes == NULL) {
+			TalkBubbleShapes = MFCD::Retrieve("TALKBUBL.SHP");
 		}
 	}
 }
@@ -647,26 +647,26 @@ void ObjectTypeClass::Free_Charger_Voxels(void) // RA2: not in TibSun, at 0x005D
 void ObjectTypeClass::Fetch_Voxel_Image(void)
 {
 	char name[256]; // RA2: RA2's form
-	char fullname[260]; // RA2: as above
+	char fullname[260];
 	bool failed = false;
 
-	_makepath(fullname, 0, 0, GraphicName, ".VXL"); // RA2: as above
-	CCFileClass voxel(fullname); // RA2: as above
-	if (voxel.Is_Available()) { // RA2: as above
+	_makepath(fullname, 0, 0, GraphicName, ".VXL");
+	CCFileClass voxel(fullname);
+	if (voxel.Is_Available()) {
 		delete Voxel.VoxLib;
-		Voxel.VoxLib = new VoxelLibrary(voxel); // RA2: as above
+		Voxel.VoxLib = new VoxelLibrary(voxel);
 		if (Voxel.VoxLib == NULL || Voxel.VoxLib->Load_Failed()) {
 			failed = true;
 		}
-		_makepath(fullname, 0, 0, GraphicName, ".HVA"); // RA2: as above
-		CCFileClass motion(fullname); // RA2: as above
+		_makepath(fullname, 0, 0, GraphicName, ".HVA");
+		CCFileClass motion(fullname);
 
 		//if (hva.Is_Available()) {
 		delete Voxel.MotLib;
-		Voxel.MotLib = new MotionLibrary(motion); // RA2: as above
-		if (Voxel.MotLib != NULL && !Voxel.MotLib->Load_Failed()) { // RA2: as above
-			Voxel.MotLib->Scale(Voxel.VoxLib->Get_Layer_Info(0, 0).Scale); // RA2: as above
-		} else { // RA2: as above
+		Voxel.MotLib = new MotionLibrary(motion);
+		if (Voxel.MotLib != NULL && !Voxel.MotLib->Load_Failed()) {
+			Voxel.MotLib->Scale(Voxel.VoxLib->Get_Layer_Info(0, 0).Scale);
+		} else {
 			failed = true;
 		}
 	} else {
@@ -674,109 +674,109 @@ void ObjectTypeClass::Fetch_Voxel_Image(void)
 	}
 
 	UnitTypeClass *utype = (UnitTypeClass *)this;
-	TechnoTypeClass *ttype = (TechnoTypeClass *)this; // RA2: as above
+	TechnoTypeClass * ttype = (TechnoTypeClass *)this;
 
-	if (Fetch_RTTI() == RTTI_UNITTYPE && !utype->IsTurretEquipped) { // RA2: as above
-		if (strcmp((const char *)utype->IniName, "APC") == 0) { // RA2: as above
-			sprintf(name, "%sW", (char const *)GraphicName); // RA2: as above
-			_makepath(fullname, 0, 0, name, ".VXL"); // RA2: as above
-			CCFileClass voxel(fullname); // RA2: as above
-			if (voxel.Is_Available()) { // RA2: as above
-				delete AuxVoxel.VoxLib; // RA2: as above
-				AuxVoxel.VoxLib = new VoxelLibrary(voxel); // RA2: as above
-				if (AuxVoxel.VoxLib == NULL || AuxVoxel.VoxLib->Load_Failed()) { // RA2: as above
+	if (Fetch_RTTI() == RTTI_UNITTYPE && !utype->IsTurretEquipped) {
+		if (strcmp((const char *)utype->IniName, "APC") == 0) {
+			sprintf(name, "%sW", (char const *)GraphicName);
+			_makepath(fullname, 0, 0, name, ".VXL");
+			CCFileClass voxel(fullname);
+			if (voxel.Is_Available()) {
+				delete AuxVoxel.VoxLib;
+				AuxVoxel.VoxLib = new VoxelLibrary(voxel);
+				if (AuxVoxel.VoxLib == NULL || AuxVoxel.VoxLib->Load_Failed()) {
 					failed = true;
 				}
-				sprintf(name, "%sW", (char const *)GraphicName); // RA2: as above
-				_makepath(fullname, 0, 0, name, ".HVA"); // RA2: as above
-				CCFileClass motion(fullname); // RA2: as above
-				delete AuxVoxel.MotLib; // RA2: as above
-				AuxVoxel.MotLib = new MotionLibrary(motion); // RA2: as above
-				if (AuxVoxel.MotLib != NULL && !AuxVoxel.MotLib->Load_Failed()) { // RA2: as above
+				sprintf(name, "%sW", (char const *)GraphicName);
+				_makepath(fullname, 0, 0, name, ".HVA");
+				CCFileClass motion(fullname);
+				delete AuxVoxel.MotLib;
+				AuxVoxel.MotLib = new MotionLibrary(motion);
+				if (AuxVoxel.MotLib != NULL && !AuxVoxel.MotLib->Load_Failed()) {
 					AuxVoxel.MotLib->Scale(AuxVoxel.VoxLib->Get_Layer_Info(0, 0).Scale);
 				} else {
 					failed = true;
 				}
 			}
 		}
-		if (NoSpawnAlt) { // RA2: as above
-			sprintf(name, "%sWO", (char const *)GraphicName); // RA2: as above
-			_makepath(fullname, 0, 0, name, ".VXL"); // RA2: as above
-			CCFileClass voxel(fullname); // RA2: as above
-			if (voxel.Is_Available()) { // RA2: as above
-				delete AuxVoxel.VoxLib; // RA2: as above
-				AuxVoxel.VoxLib = new VoxelLibrary(voxel); // RA2: as above
-				if (AuxVoxel.VoxLib == NULL || AuxVoxel.VoxLib->Load_Failed()) { // RA2: as above
+		if (NoSpawnAlt) {
+			sprintf(name, "%sWO", (char const *)GraphicName);
+			_makepath(fullname, 0, 0, name, ".VXL");
+			CCFileClass voxel(fullname);
+			if (voxel.Is_Available()) {
+				delete AuxVoxel.VoxLib;
+				AuxVoxel.VoxLib = new VoxelLibrary(voxel);
+				if (AuxVoxel.VoxLib == NULL || AuxVoxel.VoxLib->Load_Failed()) {
 					failed = true;
 				}
-				sprintf(name, "%sWO", (char const *)GraphicName); // RA2: as above
-				_makepath(fullname, 0, 0, name, ".HVA"); // RA2: as above
-				CCFileClass motion(fullname); // RA2: as above
-				delete AuxVoxel.MotLib; // RA2: as above
-				AuxVoxel.MotLib = new MotionLibrary(motion); // RA2: as above
-				if (AuxVoxel.MotLib != NULL && !AuxVoxel.MotLib->Load_Failed()) { // RA2: as above
+				sprintf(name, "%sWO", (char const *)GraphicName);
+				_makepath(fullname, 0, 0, name, ".HVA");
+				CCFileClass motion(fullname);
+				delete AuxVoxel.MotLib;
+				AuxVoxel.MotLib = new MotionLibrary(motion);
+				if (AuxVoxel.MotLib != NULL && !AuxVoxel.MotLib->Load_Failed()) {
 					AuxVoxel.MotLib->Scale(AuxVoxel.VoxLib->Get_Layer_Info(0, 0).Scale);
 				} else {
 					failed = true;
 				}
 			}
 		}
-	} else if (Fetch_RTTI() == RTTI_UNITTYPE && ttype->Has_Turret_Weapons()) { // RA2: as above
-		int count = ttype->TurretCount; // RA2: as above
-		for (int index = 0; index < count; index++) { // RA2: as above
-			if (!Load_Charger_Turret(GraphicName, index)) { // RA2: as above
+	} else if (Fetch_RTTI() == RTTI_UNITTYPE && ttype->Has_Turret_Weapons()) {
+		int count = ttype->TurretCount;
+		for (int index = 0; index < count; index++) {
+			if (!Load_Charger_Turret(GraphicName, index)) {
 				failed = true;
-				break; // RA2: as above
+				break;
 			}
 		}
 	} else {
-		sprintf(name, "%sTUR", (char const *)GraphicName); // RA2: as above
-		_makepath(fullname, 0, 0, name, ".VXL"); // RA2: as above
-		CCFileClass voxel(fullname); // RA2: as above
-		if (voxel.Is_Available()) { // RA2: as above
-			delete AuxVoxel.VoxLib; // RA2: as above
-			AuxVoxel.VoxLib = new VoxelLibrary(voxel); // RA2: as above
+		sprintf(name, "%sTUR", (char const *)GraphicName);
+		_makepath(fullname, 0, 0, name, ".VXL");
+		CCFileClass voxel(fullname);
+		if (voxel.Is_Available()) {
+			delete AuxVoxel.VoxLib;
+			AuxVoxel.VoxLib = new VoxelLibrary(voxel);
 			if (AuxVoxel.VoxLib == NULL || AuxVoxel.VoxLib->Load_Failed()) {
 				failed = true;
 			}
-			sprintf(name, "%sTUR", (char const *)GraphicName); // RA2: as above
-			_makepath(fullname, 0, 0, name, ".HVA"); // RA2: as above
-			CCFileClass motion(fullname); // RA2: as above
-			delete AuxVoxel.MotLib; // RA2: as above
-			AuxVoxel.MotLib = new MotionLibrary(motion); // RA2: as above
-			if (AuxVoxel.MotLib != NULL && !AuxVoxel.MotLib->Load_Failed()) { // RA2: as above
-				AuxVoxel.MotLib->Scale(AuxVoxel.VoxLib->Get_Layer_Info(0, 0).Scale); // RA2: as above
+			sprintf(name, "%sTUR", (char const *)GraphicName);
+			_makepath(fullname, 0, 0, name, ".HVA");
+			CCFileClass motion(fullname);
+			delete AuxVoxel.MotLib;
+			AuxVoxel.MotLib = new MotionLibrary(motion);
+			if (AuxVoxel.MotLib != NULL && !AuxVoxel.MotLib->Load_Failed()) {
+				AuxVoxel.MotLib->Scale(AuxVoxel.VoxLib->Get_Layer_Info(0, 0).Scale);
 			} else {
 				failed = true;
 			}
 		}
 	}
 
-	if (Fetch_RTTI() != RTTI_UNITTYPE || utype->IsTurretEquipped) { // RA2: as above
-		if (Fetch_RTTI() == RTTI_UNITTYPE && ttype->Has_Turret_Weapons()) { // RA2: as above
-			int count = ttype->TurretCount; // RA2: as above
-			for (int index = 0; index < count; index++) { // RA2: as above
-				if (!Load_Charger_Barrel(GraphicName, index)) { // RA2: as above
+	if (Fetch_RTTI() != RTTI_UNITTYPE || utype->IsTurretEquipped) {
+		if (Fetch_RTTI() == RTTI_UNITTYPE && ttype->Has_Turret_Weapons()) {
+			int count = ttype->TurretCount;
+			for (int index = 0; index < count; index++) {
+				if (!Load_Charger_Barrel(GraphicName, index)) {
 					failed = true;
-					break; // RA2: as above
+					break;
 				}
 			}
-		} else { // RA2: as above
-			sprintf(name, "%sBARL", (char const *)GraphicName); // RA2: as above
-			_makepath(fullname, 0, 0, name, ".VXL"); // RA2: as above
-			CCFileClass voxel(fullname); // RA2: as above
-			if (voxel.Is_Available()) { // RA2: as above
-				delete AuxVoxel2.VoxLib; // RA2: as above
-				AuxVoxel2.VoxLib = new VoxelLibrary(voxel); // RA2: as above
-				if (AuxVoxel2.VoxLib == NULL || AuxVoxel2.VoxLib->Load_Failed()) { // RA2: as above
+		} else {
+			sprintf(name, "%sBARL", (char const *)GraphicName);
+			_makepath(fullname, 0, 0, name, ".VXL");
+			CCFileClass voxel(fullname);
+			if (voxel.Is_Available()) {
+				delete AuxVoxel2.VoxLib;
+				AuxVoxel2.VoxLib = new VoxelLibrary(voxel);
+				if (AuxVoxel2.VoxLib == NULL || AuxVoxel2.VoxLib->Load_Failed()) {
 					failed = true;
 				}
-				sprintf(name, "%sBARL", (char const *)GraphicName); // RA2: as above
-				_makepath(fullname, 0, 0, name, ".HVA"); // RA2: as above
-				CCFileClass motion(fullname); // RA2: as above
-				delete AuxVoxel2.MotLib; // RA2: as above
-				AuxVoxel2.MotLib = new MotionLibrary(motion); // RA2: as above
-				if (AuxVoxel2.MotLib != NULL && !AuxVoxel2.MotLib->Load_Failed()) { // RA2: as above
+				sprintf(name, "%sBARL", (char const *)GraphicName);
+				_makepath(fullname, 0, 0, name, ".HVA");
+				CCFileClass motion(fullname);
+				delete AuxVoxel2.MotLib;
+				AuxVoxel2.MotLib = new MotionLibrary(motion);
+				if (AuxVoxel2.MotLib != NULL && !AuxVoxel2.MotLib->Load_Failed()) {
 					AuxVoxel2.MotLib->Scale(AuxVoxel2.VoxLib->Get_Layer_Info(0, 0).Scale);
 				} else {
 					failed = true;
@@ -785,41 +785,41 @@ void ObjectTypeClass::Fetch_Voxel_Image(void)
 		}
 	}
 
-	if (failed) { // RA2: as above
-		if (Voxel.VoxLib != NULL) { // RA2: as above
-			delete Voxel.VoxLib; // RA2: as above
-			Voxel.VoxLib = NULL; // RA2: as above
+	if (failed) {
+		if (Voxel.VoxLib != NULL) {
+			delete Voxel.VoxLib;
+			Voxel.VoxLib = NULL;
 		}
-		if (Voxel.MotLib != NULL) { // RA2: as above
+		if (Voxel.MotLib != NULL) {
 			delete Voxel.MotLib;
-			Voxel.MotLib = NULL; // RA2: as above
+			Voxel.MotLib = NULL;
 		}
-		if (Fetch_RTTI() == RTTI_UNITTYPE && ttype->Has_Turret_Weapons()) { // RA2: as above
-			Free_Charger_Voxels(); // RA2: as above
-		} else { // RA2: as above
-			if (AuxVoxel.VoxLib != NULL) { // RA2: as above
-				delete AuxVoxel.VoxLib; // RA2: as above
-				AuxVoxel.VoxLib = NULL; // RA2: as above
+		if (Fetch_RTTI() == RTTI_UNITTYPE && ttype->Has_Turret_Weapons()) {
+			Free_Charger_Voxels();
+		} else {
+			if (AuxVoxel.VoxLib != NULL) {
+				delete AuxVoxel.VoxLib;
+				AuxVoxel.VoxLib = NULL;
 			}
-			if (AuxVoxel.MotLib != NULL) { // RA2: as above
-				delete AuxVoxel.MotLib; // RA2: as above
-				AuxVoxel.MotLib = NULL; // RA2: as above
+			if (AuxVoxel.MotLib != NULL) {
+				delete AuxVoxel.MotLib;
+				AuxVoxel.MotLib = NULL;
 			}
 		}
 	} else {
-		int size = Voxel.VoxLib->Get_Layer_Info(0, 0).XSize; // RA2: as above
-		for (int index = 0; index < (int)Voxel.VoxLib->Get_Layer_Count(); index++) { // RA2: as above
-			if (size <= Voxel.VoxLib->Get_Layer_Info(index, 0).XSize) { // RA2: as above
-				size = Voxel.VoxLib->Get_Layer_Info(index, 0).XSize; // RA2: as above
+		int size = Voxel.VoxLib->Get_Layer_Info(0, 0).XSize;
+		for (int index = 0; index < (int)Voxel.VoxLib->Get_Layer_Count(); index++) {
+			if (size <= Voxel.VoxLib->Get_Layer_Info(index, 0).XSize) {
+				size = Voxel.VoxLib->Get_Layer_Info(index, 0).XSize;
 			}
-			if (size <= Voxel.VoxLib->Get_Layer_Info(index, 0).YSize) { // RA2: as above
-				size = Voxel.VoxLib->Get_Layer_Info(index, 0).YSize; // RA2: as above
+			if (size <= Voxel.VoxLib->Get_Layer_Info(index, 0).YSize) {
+				size = Voxel.VoxLib->Get_Layer_Info(index, 0).YSize;
 			}
-			if (size <= Voxel.VoxLib->Get_Layer_Info(index, 0).ZSize) { // RA2: as above
-				size = Voxel.VoxLib->Get_Layer_Info(index, 0).ZSize; // RA2: as above
+			if (size <= Voxel.VoxLib->Get_Layer_Info(index, 0).ZSize) {
+				size = Voxel.VoxLib->Get_Layer_Info(index, 0).ZSize;
 			}
 		}
-		MaxSize = size > 8 ? size : 8; // RA2: as above
+		MaxSize = size > 8 ? size : 8;
 		Clear_Voxel_Index();
 	}
 }
@@ -893,14 +893,14 @@ void ObjectTypeClass::Fetch_Normal_Image(void)
 {
 	char fullname[260];
 	if (AlternateArcticArt && Scen->Theater == THEATER_SNOW && !ImageAllocated) { // RA2: snow maps use the "A" art variant of the graphic name (flag +0x1E1, state +0x1E2)
-		if (!ArcticArtInUse) { // RA2: as above
-			char buffer[256]; // RA2: as above
-			sprintf(buffer, "%sA", (char const *)GraphicName); // RA2: as above
-			GraphicName = buffer; // RA2: as above
-			ArcticArtInUse = true; // RA2: as above
+		if (!ArcticArtInUse) {
+			char buffer[256];
+			sprintf(buffer, "%sA", (char const *)GraphicName);
+			GraphicName = buffer;
+			ArcticArtInUse = true;
 		}
 	} else {
-		ArcticArtInUse = false; // RA2: as above
+		ArcticArtInUse = false;
 	}
 
 	_makepath(fullname, NULL, NULL, GraphicName, ".SHP");
@@ -912,10 +912,10 @@ void ObjectTypeClass::Fetch_Normal_Image(void)
 	}
 
 	if (ImageAllocated && ImageData != NULL) { // RA2: frees the previous image first
-		operator delete((void *)ImageData); // RA2: as above
+		operator delete((void *)ImageData);
 	}
-	ImageData = NULL; // RA2: as above
-	ImageAllocated = false; // RA2: as above
+	ImageData = NULL;
+	ImageAllocated = false;
 
 	ShapeSet const * image = (ShapeSet const *)MFCD::Retrieve(fullname);
 	ImageData = image; // RA2: stored before the test
@@ -939,34 +939,34 @@ void ObjectTypeClass::Fetch_Normal_Image(void)
 bool ObjectTypeClass::Read_INI(CCINIClass const & ini)
 {
 	if (AbstractTypeClass::Read_INI(ini)) { // RA2: RA2's form
-		char buffer[25]; // RA2: as above
-		strcpy(buffer, GraphicName); // RA2: as above
-		ini.Get_String(IniName, "Image", buffer, GraphicName, sizeof(GraphicName)); // RA2: as above
-		strcpy(buffer, AlphaGraphicName); // RA2: as above
-		ini.Get_String(IniName, "AlphaImage", buffer, AlphaGraphicName, sizeof(AlphaGraphicName)); // RA2: as above
-		char name[128]; // RA2: as above
-		int sound = CrushSound; // RA2: as above
-		if (ini.Get_String(IniName, "CrushSound", "", name, sizeof(name))) { // RA2: as above
-			int found = VocClass::From_Name(name); // RA2: as above
-			if (found != VOC_NONE) { // RA2: as above
-				sound = found; // RA2: as above
+		char buffer[25];
+		strcpy(buffer, GraphicName);
+		ini.Get_String(IniName, "Image", buffer, GraphicName, sizeof(GraphicName));
+		strcpy(buffer, AlphaGraphicName);
+		ini.Get_String(IniName, "AlphaImage", buffer, AlphaGraphicName, sizeof(AlphaGraphicName));
+		char name[128];
+		int sound = CrushSound;
+		if (ini.Get_String(IniName, "CrushSound", "", name, sizeof(name))) {
+			int found = VocClass::From_Name(name);
+			if (found != VOC_NONE) {
+				sound = found;
 			}
 		}
-		CrushSound = (VocType)sound; // RA2: as above
-		sound = AmbientSound; // RA2: as above
-		int found; // RA2: as above
-		if (!ini.Get_String(IniName, "AmbientSound", "", name, sizeof(name)) || (found = VocClass::From_Name(name)) == VOC_NONE) { // RA2: as above
-			found = sound; // RA2: as above
+		CrushSound = (VocType)sound;
+		sound = AmbientSound;
+		int found;
+		if (!ini.Get_String(IniName, "AmbientSound", "", name, sizeof(name)) || (found = VocClass::From_Name(name)) == VOC_NONE) {
+			found = sound;
 		}
-		AmbientSound = (VocType)found; // RA2: as above
+		AmbientSound = (VocType)found;
 		IsCrushable = ini.Get_Bool(IniName, "Crushable", IsCrushable);
-		IsBombable = ini.Get_Bool(IniName, "Bombable", IsBombable); // RA2: as above
-		NoSpawnAlt = ini.Get_Bool(IniName, "NoSpawnAlt", NoSpawnAlt); // RA2: as above
-		AlternateArcticArt = ini.Get_Bool(IniName, "AlternateArcticArt", AlternateArcticArt); // RA2: as above
+		IsBombable = ini.Get_Bool(IniName, "Bombable", IsBombable);
+		NoSpawnAlt = ini.Get_Bool(IniName, "NoSpawnAlt", NoSpawnAlt);
+		AlternateArcticArt = ini.Get_Bool(IniName, "AlternateArcticArt", AlternateArcticArt);
 		IsStealthy = ini.Get_Bool(IniName, "RadarInvisible", IsStealthy);
 		IsSelectable = ini.Get_Bool(IniName, "Selectable", IsSelectable);
 		IsLegalTarget = ini.Get_Bool(IniName, "LegalTarget", IsLegalTarget);
-		Armor = ini.Get_ArmorType(IniName, "Armor", (ArmorType)Armor); // RA2: as above
+		Armor = ini.Get_ArmorType(IniName, "Armor", (ArmorType)Armor);
 		MaxStrength = ini.Get_Int(IniName, "Strength", MaxStrength);
 		IsImmune = ini.Get_Bool(IniName, "Immune", IsImmune);
 		IsInsignificant = ini.Get_Bool(IniName, "Insignificant", IsInsignificant);
@@ -974,9 +974,9 @@ bool ObjectTypeClass::Read_INI(CCINIClass const & ini)
 		RadialColor = ini.Get_RGBClass(IniName, "RadialColor", RadialColor);
 		IsIgnoresFirestorm = ini.Get_Bool(IniName, "IgnoresFirestorm", IsIgnoresFirestorm);
 
-		UseLineTrail = ArtINI.Get_Bool(GraphicName, "UseLineTrail", UseLineTrail); // RA2: as above
-		LineTrailColor = ArtINI.Get_RGBClass(GraphicName, "LineTrailColor", LineTrailColor); // RA2: as above
-		LineTrailColorDecrement = ArtINI.Get_Int(GraphicName, "LineTrailColorDecrement", LineTrailColorDecrement); // RA2: as above
+		UseLineTrail = ArtINI.Get_Bool(GraphicName, "UseLineTrail", UseLineTrail);
+		LineTrailColor = ArtINI.Get_RGBClass(GraphicName, "LineTrailColor", LineTrailColor);
+		LineTrailColorDecrement = ArtINI.Get_Int(GraphicName, "LineTrailColorDecrement", LineTrailColorDecrement);
 		IsTheater = ArtINI.Get_Bool(GraphicName, "Theater", IsTheater);
 		IsNewTheater = ArtINI.Get_Bool(GraphicName, "NewTheater", IsNewTheater);
 		IsVoxel = ArtINI.Get_Bool(GraphicName, "Voxel", IsVoxel);
@@ -984,10 +984,10 @@ bool ObjectTypeClass::Read_INI(CCINIClass const & ini)
 			Fetch_Normal_Image();
 		}
 
-		if (AlphaGraphicName[0] != 0) { // RA2: as above
-			char filename[260]; // RA2: as above
-			_makepath(filename, 0, 0, AlphaGraphicName, ".SHP"); // RA2: as above
-			AlphaImageData = (const void *)MixFileClass::Retrieve(filename); // RA2: as above
+		if (AlphaGraphicName[0] != 0) {
+			char filename[260];
+			_makepath(filename, 0, 0, AlphaGraphicName, ".SHP");
+			AlphaImageData = (const void *)MixFileClass::Retrieve(filename);
 		}
 		return(true);
 	}
@@ -1006,17 +1006,17 @@ bool ObjectTypeClass::Read_INI(CCINIClass const & ini)
 /// <param name="name">The artwork name to adjust in place.</param>
 void Theater_Name_Fixup(char * name, TheaterType theater) // RA2: not in TibSun, at 0x005D7BD0
 {
-	if (theater != -1) { // RA2: as above
+	if (theater != -1) {
 		char first = name[0];
 		char second = name[1];
-		if (first >= 'A' && first <= 'Z') { // RA2: as above
-			first += 'a' - 'A'; // RA2: as above
+		if (first >= 'A' && first <= 'Z') {
+			first += 'a' - 'A';
 		}
-		if (second >= 'A' && second <= 'Z') { // RA2: as above
-			second += 'a' - 'A'; // RA2: as above
+		if (second >= 'A' && second <= 'Z') {
+			second += 'a' - 'A';
 		}
-		if ((first == 'g' || first == 'n' || first == 'c') && (second == 'a' || second == 't')) { // RA2: as above
-			name[1] = Theaters[theater].Letter[0]; // RA2: as above
+		if ((first == 'g' || first == 'n' || first == 'c') && (second == 'a' || second == 't')) {
+			name[1] = Theaters[theater].Letter[0];
 		}
 	}
 }
@@ -1046,9 +1046,9 @@ HRESULT STDMETHODCALLTYPE ObjectTypeClass::Load(IStream *stream)
 	char filename[260];
 
 	VoxelIndex.Clear(); // RA2: the four index tables are destroyed in place (the first Clear is expanded, the rest are calls to 0x5D8070)
-	AuxVoxelIndex.~VoxelIndexClass(); // RA2: as above
-	ShadowVoxelIndex.~VoxelIndexClass(); // RA2: as above
-	AuxVoxel2Index.~VoxelIndexClass(); // RA2: as above
+	AuxVoxelIndex.~VoxelIndexClass();
+	ShadowVoxelIndex.~VoxelIndexClass();
+	AuxVoxel2Index.~VoxelIndexClass();
 
 	delete Voxel.VoxLib;
 	Voxel.VoxLib = NULL;
@@ -1088,10 +1088,10 @@ HRESULT STDMETHODCALLTYPE ObjectTypeClass::Load(IStream *stream)
 		AuxVoxel2.VoxLib = NULL;
 		AuxVoxel2.MotLib = NULL;
 		for (int index = 0; index < ARRAY_SIZE(ChargerTurrets); index++) { // RA2: the charger voxel pointers are cleared as well
-			ChargerTurrets[index].VoxLib = NULL; // RA2: as above
-			ChargerTurrets[index].MotLib = NULL; // RA2: as above
-			ChargerBarrels[index].VoxLib = NULL; // RA2: as above
-			ChargerBarrels[index].MotLib = NULL; // RA2: as above
+			ChargerTurrets[index].VoxLib = NULL;
+			ChargerTurrets[index].MotLib = NULL;
+			ChargerBarrels[index].VoxLib = NULL;
+			ChargerBarrels[index].MotLib = NULL;
 		}
 
 		if (*AlphaGraphicName != NULL) {

@@ -63,7 +63,7 @@
 #include "vector.h"
 
 #include "color.hh"
-#include "bittext.h" // RA2: as above
+#include "bittext.h"
 
 
 /// <summary>

@@ -315,19 +315,19 @@ namespace OwnerDraw { // RA2: the helper belongs to OwnerDraw (ownrdraw.cpp, ego
 /*
 **	RA2: blends a colour into a pixel by alpha (0-255) per channel through the colour masks.
 */
-inline unsigned short __cdecl Blend_Color(unsigned short pixel, unsigned short color, unsigned char alpha) // RA2: as above
+inline unsigned short __cdecl Blend_Color(unsigned short pixel, unsigned short color, unsigned char alpha)
 {
-	static unsigned int color_alpha; // RA2: as above
-	static unsigned int pixel_alpha; // RA2: as above
-	color_alpha = alpha; // RA2: as above
-	pixel_alpha = 255 - alpha; // RA2: as above
-	unsigned short red = (((pixel & Red_Mask) * pixel_alpha) + ((color & Red_Mask) * color_alpha)) >> 8 & Red_Mask; // RA2: as above
-	unsigned short green = (((pixel & Green_Mask) * pixel_alpha) + ((color & Green_Mask) * color_alpha)) >> 8 & Green_Mask; // RA2: as above
-	unsigned short blue = (((pixel & Blue_Mask) * pixel_alpha) + ((color & Blue_Mask) * color_alpha)) >> 8; // RA2: as above
-	return((unsigned short)(red | green | blue)); // RA2: as above
+	static unsigned int color_alpha;
+	static unsigned int pixel_alpha;
+	color_alpha = alpha;
+	pixel_alpha = 255 - alpha;
+	unsigned short red = (((pixel & Red_Mask) * pixel_alpha) + ((color & Red_Mask) * color_alpha)) >> 8 & Red_Mask;
+	unsigned short green = (((pixel & Green_Mask) * pixel_alpha) + ((color & Green_Mask) * color_alpha)) >> 8 & Green_Mask;
+	unsigned short blue = (((pixel & Blue_Mask) * pixel_alpha) + ((color & Blue_Mask) * color_alpha)) >> 8;
+	return((unsigned short)(red | green | blue));
 }
 
-} // RA2: as above
+}
 
 
 /*
@@ -495,11 +495,11 @@ namespace OwnerDraw {
 class DialogControl { // RA2: the base of the controls dialogs report to (vtable 0x007A7B28)
 	public:
 		DialogControl(void); // RA2: 0x00601030
-		virtual ~DialogControl(void); // RA2: as above
-		virtual void Set_Window(unsigned int key, HWND window) = 0; // RA2: as above
-		virtual bool Is_Done(void) = 0; // RA2: as above
-		virtual HWND Get_Window(void) = 0; // RA2: as above
-		virtual bool Is_Cancelled(void) = 0; // RA2: as above
+		virtual ~DialogControl(void);
+		virtual void Set_Window(unsigned int key, HWND window) = 0;
+		virtual bool Is_Done(void) = 0;
+		virtual HWND Get_Window(void) = 0;
+		virtual bool Is_Cancelled(void) = 0;
 };
 class SimpleDialogControl : public DialogControl { // RA2: vtable 0x007A7B40
 	public:
@@ -525,12 +525,12 @@ template<class K, class V> class Dictionary;
 // Declarations moved from the units that used them (one declaration per name).
 extern bool __fastcall Focus_Next_Tab_Item(long lparam, bool flag); // RA2: 0x005DEF80
 extern int __fastcall Dialog_Box(int resource, int(__stdcall * proc)(struct HWND__ *, unsigned int, unsigned int, long), bool show); // RA2: 0x005EAB60 (ownrdraw.cpp)
-extern Dictionary<unsigned int, OwnerDraw::WinData> Control_Table; // RA2: as above
-extern OwnerDraw::Tooltip ODTooltip; // RA2: as above
-namespace OwnerDraw { extern int Masks_Ready; } // RA2: as above
-namespace OwnerDraw { extern long ODLastTooltipTime; } // RA2: as above
+extern Dictionary<unsigned int, OwnerDraw::WinData> Control_Table;
+extern OwnerDraw::Tooltip ODTooltip;
+namespace OwnerDraw { extern int Masks_Ready; }
+namespace OwnerDraw { extern long ODLastTooltipTime; }
 namespace OwnerDraw { extern int Caret_Hidden; } // RA2: 0xA763EC, the caret blink state Draw_Edit_Text reads
-namespace OwnerDraw { extern char const * Dialog_Back_Name; } // RA2: as above
+namespace OwnerDraw { extern char const * Dialog_Back_Name; }
 extern HWND Dropdown_Window; // RA2: the open drop-down list (ownrdraw.cpp defines it)
 extern HWND Dropdown_Owner; // RA2: the combo box that owns it
 

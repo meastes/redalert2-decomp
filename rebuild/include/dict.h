@@ -331,8 +331,8 @@ char Dictionary<K,V>::remove(K const &key,V &value) // RA2: keys by const refere
 template <class K,class V>
 char Dictionary<K,V>::remove(K const &key) // RA2: keys by const reference; through remove(key, value)
 {
-	V value; // RA2: as above
-	return(remove(key,value)); // RA2: as above
+	V value;
+	return(remove(key, value));
 }
 
 template <class K,class V>

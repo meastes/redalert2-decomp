@@ -1,5 +1,8 @@
 # Recovered source by supported purpose
 
+This index covers `src/recovered/`, frozen at the tag `src-final` on 2026-11-24 (read-only reference; the native ports
+build from it). The tree of record is `rebuild/` ([rebuild/README.md](../rebuild/README.md)).
+
 ## Units by directory
 
 <!-- generated:units -->

@@ -5,6 +5,23 @@ Current state only (2026-11-19 ~08:20Z; account 1 parked, 91% at 04:30Z). Number
 [VC6 notes](VC6_MATCHING_NOTES.md). Open misses and debt: [OPEN_MISSES.md](OPEN_MISSES.md).
 Earlier owner periods are in [history/](history/).
 
+## Tree-of-record switch (lane O83, 2026-11-24; user in the owner session ~17:30Z: "Switch today once all the criteria are met")
+
+- **rebuild/ is the exact-match tree of record from 2026-11-24.** `src/` and `manifests/original_target/` are frozen at
+  the tag `src-final` (gate scope `frozen`, refused; `tests/test_src_frozen.py`). `./build.command` builds the rebuild
+  (needs `build/r/rebuild-config.json` from the rebuild gate), `./build.command --tree src` the frozen tree;
+  `./test.command` runs `tests/` and `rebuild/tests/`. Assembly copied to `rebuild/asm/` with its own ledger
+  `rebuild/manifest/assembly.json` (`src/recovered/asm` untouched: native/CMakeLists.txt reads it). STATUS leads with
+  the rebuild (whole-unit headline, function-level beside it), src-final the frozen reference column; ByteMatch
+  defaults to `--tree rebuild`. The trailing `// RA2: as above` markers are stripped from rebuild/ (45,180 lines;
+  `private/tools/strip_as_above.py`); the ports-on-rebuild lane updates its 52 fixups at its next re-pin.
+- **Native ports unchanged:** they build from `src/` (native/build.sh, native_units.py, `tree.py` default `main`).
+  Step 13 (one week later): pin `RA2_TREE=main` in the native tools, then flip `tree.py`'s default. Step 14 (no date):
+  the rebuild owns its evidence (plan row 13).
+- **Owner steps after the fast-forward:** tag `src-final`, `zsh private/tools/retire_src_scripts.sh` (step 8),
+  Windows workers fetch main (step 10), publish (step 11), lanes merge main (step 12); details and the exact commit
+  in private/dossiers/handover_run_sheet.md, "Lane O83 result".
+
 ## Owner handoff (2026-11-24 ~02:10Z, account 1, before a compaction): start here
 
 - **State (main caeff15f4c):** rebuild 17,757 functions / 440 units, 3,377,827 B exact. C/C++ bodies about 3,233 KB whole-unit (85.8%) against main's 3,274,492 B (86.86%): gap about 41 KB whole-unit, about 28 KB function-level (last official STATUS 2026-11-23 18:41Z: 62.6 / 49.9 KB). Judgment, one definition for both trees: rebuild 0 rows vs main 10. Soft judgment 7 rows / 27 KB (kinds tagged in provenance.csv; STATUS shows "exact with no soft judgment"). count_watch: queue Print_CRCs and map Zone_Reset (both exact; they flip on header declaration counts). Parity checkpoint draft ready: private/dossiers/checkpoint_parity_draft.md (send when the like-for-like line crosses).

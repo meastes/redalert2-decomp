@@ -42,12 +42,12 @@ struct SubtitleToken
 };
 
 SubtitleToken SubtitleTokens[] = { // RA2: 0x007F62F0; ends with an empty entry
-	{L"Time", Parse_Time}, // RA2: as above
-	{L"Duration", Parse_Duration}, // RA2: as above
-	{L"Position", Parse_Position}, // RA2: as above
-	{L"Color", Parse_Color}, // RA2: as above
-	{L"Text", Parse_Text}, // RA2: as above
-	{NULL, NULL} // RA2: as above
+	{ L"Time", Parse_Time },
+	{ L"Duration", Parse_Duration },
+	{ L"Position", Parse_Position },
+	{ L"Color", Parse_Color },
+	{ L"Text", Parse_Text },
+	{ NULL, NULL }
 };
 
 /// <summary>
@@ -60,22 +60,22 @@ struct SubtitleAlignment
 };
 
 SubtitleAlignment SubtitleAlignments[] = { // RA2: 0x007F6338
-	{L"Left", SubTitle::Left}, // RA2: as above
-	{L"Right", SubTitle::Right}, // RA2: as above
-	{L"Center", SubTitle::Center}, // RA2: as above
-	{NULL, SubTitle::Center} // RA2: as above
+	{ L"Left", SubTitle::Left },
+	{ L"Right", SubTitle::Right },
+	{ L"Center", SubTitle::Center },
+	{ NULL, SubTitle::Center }
 };
 
 /// <summary>
 /// RA2: starts reading the control file from its byte order mark; a file that is not unicode is only reported.
 /// </summary>
 SubTitleParserClass::SubTitleParserClass(Straw & input) // RA2: 0x0069B680
-	: mInput(input), // RA2: as above
-	mLineNumber(0) // RA2: as above
+	: mInput(input),
+	mLineNumber(0)
 {
-	wchar_t bom = 0; // RA2: as above
-	mInput.Get(&bom, sizeof(wchar_t)); // RA2: as above
-	if (bom != 0xFEFF) { // RA2: as above
+	wchar_t bom = 0;
+	mInput.Get(&bom, sizeof(wchar_t));
+	if (bom != 0xFEFF) {
 		DebugString("Error: Subtitle control file is not unicode!\n"); // RA2: 0x007F63B4
 	}
 }
@@ -90,55 +90,55 @@ SubTitleParserClass::~SubTitleParserClass(void) // RA2: 0x0069B6C0
 /// </summary>
 DynamicVectorClass<SubTitle *> * SubTitleParserClass::Get_Sub_Titles(char const * moviename) // RA2: 0x0069B6D0
 {
-	DynamicVectorClass<SubTitle *> * subtitles = NULL; // RA2: as above
+	DynamicVectorClass<SubTitle *> * subtitles = NULL;
 
-	if (Find_Movie_Entry(moviename) == true) { // RA2: as above
-		subtitles = new DynamicVectorClass<SubTitle *>; // RA2: as above
+	if (Find_Movie_Entry(moviename) == true) {
+		subtitles = new DynamicVectorClass<SubTitle *>;
 
-		if (subtitles != NULL) { // RA2: as above
-			for (;;) { // RA2: as above
-				wchar_t * string = Get_Next_Line(); // RA2: as above
+		if (subtitles != NULL) {
+			for (;;) {
+				wchar_t * string = Get_Next_Line();
 
-				if (string != NULL && wcslen(string) > 0) { // RA2: as above
+				if (string != NULL && wcslen(string) > 0) {
 					if (string[0] == L'<' && string[wcslen(string) - 1] == L'>') { // RA2: a line in angle brackets is one subtitle
-						string++; // RA2: as above
-						string[wcslen(string) - 1] = 0; // RA2: as above
-						wcstrim(string); // RA2: as above
+						string++;
+						string[wcslen(string) - 1] = 0;
+						wcstrim(string);
 
-						if (wcslen(string) == 0) { // RA2: as above
-							continue; // RA2: as above
+						if (wcslen(string) == 0) {
+							continue;
 						}
 
-						SubTitle * subtitle = new SubTitle(); // RA2: as above
+						SubTitle * subtitle = new SubTitle();
 
-						if (subtitle == NULL) { // RA2: as above
+						if (subtitle == NULL) {
 							DebugString("***** Failed to create SubTitle!\n"); // RA2: 0x007F644C
-							break; // RA2: as above
+							break;
 						}
 
-						if (Parse_Sub_Title(string, subtitle) == true) { // RA2: as above
-							subtitles->Add(subtitle); // RA2: as above
-						} else { // RA2: as above
-							delete subtitle; // RA2: as above
+						if (Parse_Sub_Title(string, subtitle) == true) {
+							subtitles->Add(subtitle);
+						} else {
+							delete subtitle;
 						}
 
-						continue; // RA2: as above
+						continue;
 					}
 
-					if (wcsnicmp(string, L"EndMovie", wcslen(L"EndMovie")) == 0) { // RA2: as above
-						break; // RA2: as above
+					if (wcsnicmp(string, L"EndMovie", wcslen(L"EndMovie")) == 0) {
+						break;
 					}
 				}
 			}
 
-			if (subtitles->Count() == 0) { // RA2: as above
-				delete subtitles; // RA2: as above
-				subtitles = NULL; // RA2: as above
+			if (subtitles->Count() == 0) {
+				delete subtitles;
+				subtitles = NULL;
 			}
 		}
 	}
 
-	return subtitles; // RA2: as above
+	return subtitles;
 }
 
 /// <summary>
@@ -146,22 +146,22 @@ DynamicVectorClass<SubTitle *> * SubTitleParserClass::Get_Sub_Titles(char const 
 /// </summary>
 bool SubTitleParserClass::Find_Movie_Entry(char const * moviename) // RA2: 0x0069B9A0
 {
-	wchar_t movie[32]; // RA2: as above
-	mbstowcs(movie, moviename, 32); // RA2: as above
-	wchar_t * line; // RA2: as above
-	while ((line = Get_Next_Line()) != NULL) { // RA2: as above
-		if (_wcsnicmp(line, L"BeginMovie", wcslen(L"BeginMovie")) == 0) { // RA2: as above
-			wchar_t * name = wcschr(line, L' '); // RA2: as above
-			if (name) { // RA2: as above
-				wcstrim(name); // RA2: as above
-				if (_wcsicmp(name, movie) == 0) { // RA2: as above
-					DebugString("Found movie entry %s\n", moviename); // RA2: as above
-					return true; // RA2: as above
+	wchar_t movie[32];
+	mbstowcs(movie, moviename, 32);
+	wchar_t * line;
+	while ((line = Get_Next_Line()) != NULL) {
+		if (_wcsnicmp(line, L"BeginMovie", wcslen(L"BeginMovie")) == 0) {
+			wchar_t * name = wcschr(line, L' ');
+			if (name) {
+				wcstrim(name);
+				if (_wcsicmp(name, movie) == 0) {
+					DebugString("Found movie entry %s\n", moviename);
+					return true;
 				}
 			}
 		}
 	}
-	return false; // RA2: as above
+	return false;
 }
 
 /// <summary>
@@ -170,64 +170,64 @@ bool SubTitleParserClass::Find_Movie_Entry(char const * moviename) // RA2: 0x006
 /// </summary>
 bool SubTitleParserClass::Parse_Sub_Title(wchar_t * string, SubTitle * subtitle) // RA2: 0x0069BAD0
 {
-	for (;;) { // RA2: as above
-		wchar_t * separator = wcschr(string, L'='); // RA2: as above
+	for (;;) {
+		wchar_t * separator = wcschr(string, L'=');
 
-		if (separator == NULL) { // RA2: as above
-			DebugString("Error on line %d: syntax error\n", mLineNumber); // RA2: as above
-			return false; // RA2: as above
+		if (separator == NULL) {
+			DebugString("Error on line %d: syntax error\n", mLineNumber);
+			return false;
 		}
 
-		*separator++ = 0; // RA2: as above
+		*separator++ = 0;
 
-		wchar_t * token = string; // RA2: as above
-		wcstrim(token); // RA2: as above
+		wchar_t * token = string;
+		wcstrim(token);
 
-		wchar_t * param = separator; // RA2: as above
-		wcstrim(param); // RA2: as above
+		wchar_t * param = separator;
+		wcstrim(param);
 
 		if (param[0] == L'"') { // RA2: a quoted value runs to the closing quote
-			param++; // RA2: as above
-			separator = wcschr(param, L'"'); // RA2: as above
+			param++;
+			separator = wcschr(param, L'"');
 
-			if (separator == NULL) { // RA2: as above
-				DebugString("Error on line %d: mismatched quotes\n", mLineNumber); // RA2: as above
-				return false; // RA2: as above
+			if (separator == NULL) {
+				DebugString("Error on line %d: mismatched quotes\n", mLineNumber);
+				return false;
 			}
 
-			*separator++ = 0; // RA2: as above
-			wcstrim(separator); // RA2: as above
+			*separator++ = 0;
+			wcstrim(separator);
 
-			if (*separator == L',') { // RA2: as above
-				separator++; // RA2: as above
+			if (*separator == L',') {
+				separator++;
 			}
-			string = separator; // RA2: as above
-		} else { // RA2: as above
+			string = separator;
+		} else {
 			separator = wcspbrk(param, L", "); // RA2: a plain value runs to the next comma or blank
 
-			if (separator != NULL) { // RA2: as above
-				*separator++ = 0; // RA2: as above
-				string = separator; // RA2: as above
-			} else { // RA2: as above
-				string = L""; // RA2: as above
+			if (separator != NULL) {
+				*separator++ = 0;
+				string = separator;
+			} else {
+				string = L"";
 			}
 		}
 
-		if (wcslen(token) == 0) { // RA2: as above
-			DebugString("Error on line %d: missing token\n", mLineNumber); // RA2: as above
-			return false; // RA2: as above
+		if (wcslen(token) == 0) {
+			DebugString("Error on line %d: missing token\n", mLineNumber);
+			return false;
 		}
 
-		Parse_Token(token, param, subtitle); // RA2: as above
+		Parse_Token(token, param, subtitle);
 
-		wcstrim(string); // RA2: as above
+		wcstrim(string);
 
-		if (wcslen(string) == 0) { // RA2: as above
-			break; // RA2: as above
+		if (wcslen(string) == 0) {
+			break;
 		}
 	}
 
-	return true; // RA2: as above
+	return true;
 }
 
 /// <summary>
@@ -235,16 +235,16 @@ bool SubTitleParserClass::Parse_Sub_Title(wchar_t * string, SubTitle * subtitle)
 /// </summary>
 void __stdcall Parse_Token(wchar_t const * token, wchar_t * param, SubTitle * subtitle) // RA2: 0x0069BC60
 {
-	if (token != NULL && SubtitleTokens[0].Name != NULL) { // RA2: as above
-		SubtitleToken * var = SubtitleTokens; // RA2: as above
-		SubtitleToken * entry = var; // RA2: as above
-		while (entry->Name != NULL) { // RA2: as above
-			if (_wcsicmp(var->Name, token) == 0) { // RA2: as above
-				var->Handler(param, subtitle); // RA2: as above
-				break; // RA2: as above
+	if (token != NULL && SubtitleTokens[0].Name != NULL) {
+		SubtitleToken * var = SubtitleTokens;
+		SubtitleToken * entry = var;
+		while (entry->Name != NULL) {
+			if (_wcsicmp(var->Name, token) == 0) {
+				var->Handler(param, subtitle);
+				break;
 			}
-			entry++; // RA2: as above
-			var = entry; // RA2: as above
+			entry++;
+			var = entry;
 		}
 	}
 }
@@ -254,16 +254,16 @@ void __stdcall Parse_Token(wchar_t const * token, wchar_t * param, SubTitle * su
 /// </summary>
 wchar_t * SubTitleParserClass::Get_Next_Line(void) // RA2: 0x0069BCB0
 {
-	bool eof = false; // RA2: as above
-	while (!eof) { // RA2: as above
-		eof = Read_Line(mInput, mBuffer, 1024); // RA2: as above
-		++mLineNumber; // RA2: as above
-		wchar_t * line = wcstrim(mBuffer); // RA2: as above
-		if (wcslen(line) > 0 && *line != L';') { // RA2: as above
-			return line; // RA2: as above
+	bool eof = false;
+	while (!eof) {
+		eof = Read_Line(mInput, mBuffer, 1024);
+		++mLineNumber;
+		wchar_t * line = wcstrim(mBuffer);
+		if (wcslen(line) > 0 && *line != L';') {
+			return line;
 		}
 	}
-	return NULL; // RA2: as above
+	return NULL;
 }
 
 /// <summary>
@@ -271,30 +271,30 @@ wchar_t * SubTitleParserClass::Get_Next_Line(void) // RA2: 0x0069BCB0
 /// </summary>
 unsigned long __fastcall Parse_Timecode(wchar_t const * text) // RA2: 0x0069BD60
 {
-	wchar_t buf[12]; // RA2: as above
-	wchar_t * colon; // RA2: as above
+	wchar_t buf[12];
+	wchar_t * colon;
 
-	wcsncpy(buf, text, 12); // RA2: as above
-	buf[11] = 0; // RA2: as above
+	wcsncpy(buf, text, 12);
+	buf[11] = 0;
 
-	colon = wcschr(buf, L':'); // RA2: as above
-	*colon = 0; // RA2: as above
-	unsigned long hours = wcstoul(buf, NULL, 10); // RA2: as above
+	colon = wcschr(buf, L':');
+	*colon = 0;
+	unsigned long hours = wcstoul(buf, NULL, 10);
 
-	wchar_t * minutes = colon + 1; // RA2: as above
-	colon = wcschr(minutes, L':'); // RA2: as above
-	*colon = 0; // RA2: as above
-	unsigned long mins = wcstoul(minutes, NULL, 10); // RA2: as above
+	wchar_t * minutes = colon + 1;
+	colon = wcschr(minutes, L':');
+	*colon = 0;
+	unsigned long mins = wcstoul(minutes, NULL, 10);
 
-	wchar_t * seconds = colon + 1; // RA2: as above
-	colon = wcschr(seconds, L':'); // RA2: as above
-	*colon = 0; // RA2: as above
-	unsigned long secs = wcstoul(seconds, NULL, 10); // RA2: as above
+	wchar_t * seconds = colon + 1;
+	colon = wcschr(seconds, L':');
+	*colon = 0;
+	unsigned long secs = wcstoul(seconds, NULL, 10);
 
-	wchar_t * frames = colon + 1; // RA2: as above
-	unsigned long hundredths = wcstoul(frames, NULL, 10); // RA2: as above
+	wchar_t * frames = colon + 1;
+	unsigned long hundredths = wcstoul(frames, NULL, 10);
 
-	return (((hours * 60 + mins) * 60 + secs) * 60) + (hundredths * 60) / 100; // RA2: as above
+	return (((hours * 60 + mins) * 60 + secs) * 60) + (hundredths * 60) / 100;
 }
 
 /// <summary>
@@ -302,7 +302,7 @@ unsigned long __fastcall Parse_Timecode(wchar_t const * text) // RA2: 0x0069BD60
 /// </summary>
 void __fastcall Parse_Time(wchar_t * value, SubTitle * subtitle) // RA2: 0x0069BE30
 {
-	subtitle->Set_Display_Time(Parse_Timecode(value)); // RA2: as above
+	subtitle->Set_Display_Time(Parse_Timecode(value));
 }
 
 /// <summary>
@@ -310,9 +310,9 @@ void __fastcall Parse_Time(wchar_t * value, SubTitle * subtitle) // RA2: 0x0069B
 /// </summary>
 void __fastcall Parse_Duration(wchar_t * value, SubTitle * subtitle) // RA2: 0x0069BE40
 {
-	unsigned long duration = Parse_Timecode(value); // RA2: as above
-	if (duration > 0) { // RA2: as above
-		subtitle->Set_Display_Duration(duration); // RA2: as above
+	unsigned long duration = Parse_Timecode(value);
+	if (duration > 0) {
+		subtitle->Set_Display_Duration(duration);
 	}
 }
 
@@ -321,21 +321,21 @@ void __fastcall Parse_Duration(wchar_t * value, SubTitle * subtitle) // RA2: 0x0
 /// </summary>
 void __fastcall Parse_Position(wchar_t * value, SubTitle * subtitle) // RA2: 0x0069BE60
 {
-	wchar_t * colon = wcschr(value, L':'); // RA2: as above
-	if (colon != NULL) { // RA2: as above
-		*colon = 0; // RA2: as above
-		subtitle->Set_Line_Position(wcstol(value, NULL, 0)); // RA2: as above
-		value = colon + 1; // RA2: as above
+	wchar_t * colon = wcschr(value, L':');
+	if (colon != NULL) {
+		*colon = 0;
+		subtitle->Set_Line_Position(wcstol(value, NULL, 0));
+		value = colon + 1;
 	}
 
-	int alignment = SubTitle::Center; // RA2: as above
-	for (int i = 0; SubtitleAlignments[i].Name != NULL; i++) { // RA2: as above
-		if (_wcsicmp(value, SubtitleAlignments[i].Name) == 0) { // RA2: as above
-			alignment = SubtitleAlignments[i].Value; // RA2: as above
-			break; // RA2: as above
+	int alignment = SubTitle::Center;
+	for (int i = 0; SubtitleAlignments[i].Name != NULL; i++) {
+		if (_wcsicmp(value, SubtitleAlignments[i].Name) == 0) {
+			alignment = SubtitleAlignments[i].Value;
+			break;
 		}
 	}
-	subtitle->Set_Alignment((SubTitle::Alignment)alignment); // RA2: as above
+	subtitle->Set_Alignment((SubTitle::Alignment)alignment);
 }
 
 /// <summary>
@@ -343,18 +343,18 @@ void __fastcall Parse_Position(wchar_t * value, SubTitle * subtitle) // RA2: 0x0
 /// </summary>
 void __fastcall Parse_Color(wchar_t * value, SubTitle * subtitle) // RA2: 0x0069BEF0
 {
-	wchar_t * colon = wcschr(value, L':'); // RA2: as above
-	*colon = 0; // RA2: as above
-	unsigned char red = (unsigned char)wcstoul(value, NULL, 10); // RA2: as above
+	wchar_t * colon = wcschr(value, L':');
+	*colon = 0;
+	unsigned char red = (unsigned char)wcstoul(value, NULL, 10);
 
-	wchar_t * next = colon + 1; // RA2: as above
-	colon = wcschr(next, L':'); // RA2: as above
-	*colon = 0; // RA2: as above
-	unsigned char green = (unsigned char)wcstoul(next, NULL, 10); // RA2: as above
+	wchar_t * next = colon + 1;
+	colon = wcschr(next, L':');
+	*colon = 0;
+	unsigned char green = (unsigned char)wcstoul(next, NULL, 10);
 
-	unsigned char blue = (unsigned char)wcstoul(colon + 1, NULL, 10); // RA2: as above
+	unsigned char blue = (unsigned char)wcstoul(colon + 1, NULL, 10);
 
-	subtitle->Set_RGB_Color(red, green, blue); // RA2: as above
+	subtitle->Set_RGB_Color(red, green, blue);
 }
 
 /// <summary>
@@ -362,7 +362,7 @@ void __fastcall Parse_Color(wchar_t * value, SubTitle * subtitle) // RA2: 0x0069
 /// </summary>
 void __fastcall Parse_Text(wchar_t * value, SubTitle * subtitle) // RA2: 0x0069BF70
 {
-	subtitle->Set_Caption(value); // RA2: as above
+	subtitle->Set_Caption(value);
 }
 
 
@@ -372,23 +372,23 @@ void __fastcall Parse_Text(wchar_t * value, SubTitle * subtitle) // RA2: 0x0069B
 /// </summary>
 bool __fastcall Read_Line(Straw & input, wchar_t * buffer, int count) // RA2: 0x0069C100
 {
-	buffer[0] = 0; // RA2: as above
-	bool eof = false; // RA2: as above
-	int length = 0; // RA2: as above
+	buffer[0] = 0;
+	bool eof = false;
+	int length = 0;
 
-	while (length < count) { // RA2: as above
-		wchar_t character; // RA2: as above
-		if (input.Get(&character, sizeof(wchar_t)) != sizeof(wchar_t)) { // RA2: as above
-			eof = true; // RA2: as above
-			break; // RA2: as above
+	while (length < count) {
+		wchar_t character;
+		if (input.Get(&character, sizeof(wchar_t)) != sizeof(wchar_t)) {
+			eof = true;
+			break;
 		}
-		if (character == 0xA) { // RA2: as above
-			break; // RA2: as above
+		if (character == 0xA) {
+			break;
 		}
-		if (character != 0xD) { // RA2: as above
-			buffer[length++] = character; // RA2: as above
+		if (character != 0xD) {
+			buffer[length++] = character;
 		}
 	}
-	buffer[length] = 0; // RA2: as above
-	return eof; // RA2: as above
+	buffer[length] = 0;
+	return eof;
 }

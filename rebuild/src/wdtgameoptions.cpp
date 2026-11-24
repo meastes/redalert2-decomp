@@ -17,7 +17,7 @@
 #include "language\language.h"
 #include "wdtnet.h"
 #include "wdtgameoptions.h"
-#include "wstring.h" // RA2: as above
+#include "wstring.h"
 #include "geoconst2.h" // RA2: the slope and bridge constants (after globals.h)
 
 using namespace WorldDominationTour;
@@ -44,7 +44,7 @@ GameOption::~GameOption(void)
 /// <returns>bool; Is this option left to the player's discretion?</returns>
 bool GameOption::Is_User_Modifiable(rc_ptr<WDTTerritory> const & territory) const // RA2: the territory is a counted pointer and no option is ever left to the player (0x00728680)
 {
-	return(false); // RA2: as above
+	return(false);
 }
 
 
@@ -58,13 +58,13 @@ bool GameOption::Is_User_Modifiable(rc_ptr<WDTTerritory> const & territory) cons
 /// <returns>Returns with the text so far and the wording of the band.</returns>
 WideWstring RangedGameOption::Get_String(rc_ptr<WDTTerritory> const & territory, WideWstring const & prefix) const // RA2: returns the text so far with the label of the band number appended (0x00728690); the label is completed by the number, loaded as a counted wide text
 {
-	int range = Get_Range(territory); // RA2: as above
-	Wstring label = operator+(Label, Wstring_FromInt(range)); // RA2: as above
-	if (prefix.length() != 0) { // RA2: as above
-		WideWstring separator(L", "); // RA2: as above
-		return(operator+(prefix, separator) + StringTable::LoadString(label.get(), NULL, "D:\\Ra2\\WDTGameOptions.cpp", 22)); // RA2: as above
+	int range = Get_Range(territory);
+	Wstring label = operator+(Label, Wstring_FromInt(range));
+	if (prefix.length() != 0) {
+		WideWstring separator(L", ");
+		return(operator+(prefix, separator) + StringTable::LoadString(label.get(), NULL, "D:\\Ra2\\WDTGameOptions.cpp", 22));
 	}
-	return(WideWstring(StringTable::LoadString(label.get(), NULL, "D:\\Ra2\\WDTGameOptions.cpp", 25))); // RA2: as above
+	return(WideWstring(StringTable::LoadString(label.get(), NULL, "D:\\Ra2\\WDTGameOptions.cpp", 25)));
 }
 
 
@@ -116,7 +116,7 @@ int RangedGameOption::Get_Display_Priority(rc_ptr<WDTTerritory> const & territor
 /// <returns>Returns with the new option.</returns>
 rc_ptr<FlagGameOption> __fastcall FlagGameOption::Create(unsigned int bitmask, Wstring off_string, int off_value, Wstring on_string, int on_value) // RA2: a counted option made from the bit, the two labels and the two priorities (0x007287D0)
 {
-	return(rc_ptr<FlagGameOption>(new FlagGameOption(bitmask, off_string, off_value, on_string, on_value))); // RA2: as above
+	return(rc_ptr<FlagGameOption>(new FlagGameOption(bitmask, off_string, off_value, on_string, on_value)));
 }
 
 
@@ -144,15 +144,15 @@ int FlagGameOption::Get_Display_Priority(rc_ptr<WDTTerritory> const & territory)
 /// <returns>Returns with the text so far and the wording of the flag's state.</returns>
 WideWstring FlagGameOption::Get_String(rc_ptr<WDTTerritory> const & territory, WideWstring const & prefix) const // RA2: returns the text so far with the label of the flag's state appended (0x00728870); a state without a label leaves the text as it is
 {
-	Wstring label = (territory->Booleans & Bitmask) ? OnString : OffString; // RA2: as above
-	if (label.length() == 0) { // RA2: as above
-		return(prefix); // RA2: as above
+	Wstring label = (territory->Booleans & Bitmask) ? OnString : OffString;
+	if (label.length() == 0) {
+		return(prefix);
 	}
-	if (prefix.length() > 0) { // RA2: as above
-		WideWstring separator(L", "); // RA2: as above
-		return(operator+(prefix, separator) + StringTable::LoadString(label.get(), NULL, "D:\\Ra2\\WDTGameOptions.cpp", 78)); // RA2: as above
+	if (prefix.length() > 0) {
+		WideWstring separator(L", ");
+		return(operator+(prefix, separator) + StringTable::LoadString(label.get(), NULL, "D:\\Ra2\\WDTGameOptions.cpp", 78));
 	}
-	return(WideWstring(StringTable::LoadString(label.get(), NULL, "D:\\Ra2\\WDTGameOptions.cpp", 81))); // RA2: as above
+	return(WideWstring(StringTable::LoadString(label.get(), NULL, "D:\\Ra2\\WDTGameOptions.cpp", 81)));
 }
 
 
@@ -175,11 +175,11 @@ int NumberOfPlayersGameOption::Get_Display_Priority(rc_ptr<WDTTerritory> const &
 WideWstring NumberOfPlayersGameOption::Get_String(rc_ptr<WDTTerritory> const & territory, WideWstring const & prefix) const // RA2: returns the text so far with the label of the two or four player restriction appended (0x00728980)
 {
 	Wstring label(territory->NumPlayers == 4 ? "WDT:FourPlayerOnly" : "WDT:TwoPlayerOnly"); // RA2: the labels of the string table
-	if (prefix.length() > 0) { // RA2: as above
-		WideWstring separator(L", "); // RA2: as above
-		return(operator+(prefix, separator) + StringTable::LoadString(label.get(), NULL, "D:\\Ra2\\WDTGameOptions.cpp", 104)); // RA2: as above
+	if (prefix.length() > 0) {
+		WideWstring separator(L", ");
+		return(operator+(prefix, separator) + StringTable::LoadString(label.get(), NULL, "D:\\Ra2\\WDTGameOptions.cpp", 104));
 	}
-	return(WideWstring(StringTable::LoadString(label.get(), NULL, "D:\\Ra2\\WDTGameOptions.cpp", 107))); // RA2: as above
+	return(WideWstring(StringTable::LoadString(label.get(), NULL, "D:\\Ra2\\WDTGameOptions.cpp", 107)));
 }
 
 
@@ -189,7 +189,7 @@ WideWstring NumberOfPlayersGameOption::Get_String(rc_ptr<WDTTerritory> const & t
 /// <returns>Returns with the new option.</returns>
 rc_ptr<MapSizeGameOption> __fastcall MapSizeGameOption::Create(unsigned int bitmask) // RA2: a counted option made from the bit (0x00728A60)
 {
-	return(rc_ptr<MapSizeGameOption>(new MapSizeGameOption(bitmask))); // RA2: as above
+	return(rc_ptr<MapSizeGameOption>(new MapSizeGameOption(bitmask)));
 }
 
 
@@ -204,10 +204,10 @@ rc_ptr<MapSizeGameOption> __fastcall MapSizeGameOption::Create(unsigned int bitm
 WideWstring MapSizeGameOption::Get_String(rc_ptr<WDTTerritory> const & territory, WideWstring const & prefix) const // RA2: returns the text so far with the label of the map size appended (0x00728AB0); one label per size step, read for the width after a comma and for the height otherwise
 {
 	static char const * const _labels[4] = { "WDT:SmallMap", "WDT:MediumMap", "WDT:LargeMap", "WDT:VeryLargeMap" }; // RA2: the labels of the string table (0x007AF140)
-	if (prefix.length() > 0) { // RA2: as above
+	if (prefix.length() > 0) {
 		return(operator+(prefix, L", ") + StringTable::LoadString(_labels[territory->Width], NULL, "D:\\Ra2\\WDTGameOptions.cpp", 129)); // RA2: the separator is made from the text where the executable joins the two
 	}
-	return(WideWstring(StringTable::LoadString(_labels[territory->Height], NULL, "D:\\Ra2\\WDTGameOptions.cpp", 131))); // RA2: as above
+	return(WideWstring(StringTable::LoadString(_labels[territory->Height], NULL, "D:\\Ra2\\WDTGameOptions.cpp", 131)));
 }
 
 
@@ -239,10 +239,10 @@ int MapSizeGameOption::Get_Display_Priority(rc_ptr<WDTTerritory> const & territo
 /// <param name="on_string">The wording of the flag being on.</param>
 /// <param name="on_value">The display priority of the flag being on.</param>
 FlagGameOption::FlagGameOption(unsigned int bitmask, Wstring off_string, int off_value, Wstring on_string, int on_value) : // RA2: the option keeps the bit, the two labels and the two priorities, out of line for Create (0x00728B90)
-	GameOption(bitmask), // RA2: as above
-	OffValue(off_value), // RA2: as above
-	OnValue(on_value), // RA2: as above
-	OnString(on_string), // RA2: as above
-	OffString(off_string) // RA2: as above
+	GameOption(bitmask),
+	OffValue(off_value),
+	OnValue(on_value),
+	OnString(on_string),
+	OffString(off_string)
 {
 }

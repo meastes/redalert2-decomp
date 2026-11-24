@@ -130,7 +130,7 @@ unsigned short WWKeyboardClass::Buff_Get(void)
 		MouseQY = Fetch_Element();
 		MousePos = Point2D(MouseQX, MouseQY);
 	} else if (Is_Wheel_Key(temp)) { // RA2: the wheel delta follows a wheel key
-		MouseWheel = Fetch_Element(); // RA2: as above
+		MouseWheel = Fetch_Element();
 	}
 	return(temp);
 }
@@ -247,7 +247,7 @@ bool WWKeyboardClass::Put(unsigned short key)
 bool WWKeyboardClass::Put_Key_Message(unsigned short vk_key, bool release)
 {
 	if (IgnoreInput && vk_key != VK_ESCAPE) { // RA2: only escape gets through while input is locked
-		return(true); // RA2: as above
+		return(true);
 	}
 	Set_Key_State(vk_key, release); // RA2: kept for Get_Key_State
 
@@ -269,7 +269,7 @@ bool WWKeyboardClass::Put_Key_Message(unsigned short vk_key, bool release)
 		}
 		if ((Get_Key_State(VK_MENU) & 0x8000) != 0) { // RA2: Get_Key_State
 			if (vk_key == VK_TAB) { // RA2: Alt+Tab is dropped
-				return(true); // RA2: as above
+				return(true);
 			}
 			vk_key |= WWKEY_ALT_BIT;
 		}
@@ -311,7 +311,7 @@ bool WWKeyboardClass::Put_Key_Message(unsigned short vk_key, bool release)
 bool WWKeyboardClass::Put_Mouse_Message(unsigned short vk_key, int x, int y, bool release)
 {
 	if (IgnoreInput) { // RA2: no mouse input while input is locked
-		return(true); // RA2: as above
+		return(true);
 	}
 	if (Available_Buffer_Room() >= 3 && Is_Mouse_Key(vk_key)) {
 		Put_Key_Message(vk_key, release);
@@ -366,10 +366,10 @@ char WWKeyboardClass::To_ASCII(unsigned short key)
 		return('\0');
 	}
 	if ((key & 0xFF) == VK_HOME) { // RA2: To_ASCII at 0x532720 matches only so
-		return('\b'); // RA2: as above
+		return('\b');
 	}
-	if ((key & 0xFF) == VK_END) { // RA2: as above
-		return('\\'); // RA2: as above
+	if ((key & 0xFF) == VK_END) {
+		return('\\');
 	}
 
 	if (key & WWKEY_SHIFT_BIT) {
@@ -386,8 +386,8 @@ char WWKeyboardClass::To_ASCII(unsigned short key)
 	int result;
 	int scancode;
 
-	scancode = MapVirtualKey(key, 0); // RA2: as above
-	result = ToAscii((UINT)key, (UINT)scancode, (PBYTE)KeyState, (LPWORD)buffer, (UINT)0); // RA2: as above
+	scancode = MapVirtualKey(key, 0);
+	result = ToAscii((UINT)key, (UINT)scancode, (PBYTE)KeyState, (LPWORD)buffer, (UINT)0);
 
 	if (key & WWKEY_SHIFT_BIT) {
 		KeyState[VK_SHIFT] = 0;
@@ -754,12 +754,12 @@ int WWKeyboardClass::Message_Handler(HWND window, UINT message, UINT wParam, LON
 		/*
 		**	RA2: a typed character goes to the chat line being edited.
 		*/
-		case WM_CHAR: // RA2: as above
-			if (Is_Chat_Editing()) { // RA2: as above
-				Put_Char((char)wParam); // RA2: as above
-			} // RA2: as above
-			processed = true; // RA2: as above
-			break; // RA2: as above
+		case WM_CHAR:
+			if (Is_Chat_Editing()) {
+				Put_Char((char)wParam);
+			}
+			processed = true;
+			break;
 
 		/*
 		**	Press of the middle mouse button.

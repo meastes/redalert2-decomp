@@ -651,7 +651,7 @@ void GScreenClass::AI(KeyNumType &, Point2D const & xy)
 
 
 #include <string.h> // RA2: the color scheme library's key (palette.cpp), here where ra2-decomp's gscreen.cpp has it
-#include "hashstr.h" // RA2: as above
+#include "hashstr.h"
 
 
 /// <summary>

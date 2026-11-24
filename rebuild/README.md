@@ -1,7 +1,8 @@
 # Rebuild tree
 
-This folder holds the standing rebuild effort (started 2026-11-17 as a three-day trial; the branch keeps
-the name `rebuild-trial`). It rebuilds the Red Alert 2 1.006 `game.exe`
+This folder is the exact-match tree of record of this repository since 2026-11-24 (user decision of
+2026-11-22, brought into force by the user on 2026-11-24 in the owner session). It began on 2026-11-17 as
+a three-day trial (the old branch name `rebuild-trial` survives as a frozen pointer). It rebuilds the Red Alert 2 1.006 `game.exe`
 from a new source tree laid out like the original: one source file per original translation unit
 (`src/<unit>.cpp`), one header per class (`include/`), and no per-unit views or feature switches. A
 function counts only when the original compiler (VC6) turns its source into the exact original bytes,
@@ -9,9 +10,11 @@ and the tree as a whole must pass the whole-file exact build.
 
 ## How it relates to the rest of this repository
 
-- **Main tree** (`src/` on `main`): this project's exact-match record, and the code the native ports build
-  from. The rebuild never edits it. It serves as the answer key: function bodies taken from it are
-  provenance class b.
+- **Frozen tree** (`src/` and `manifests/original_target/`, tag `src-final`): this project's earlier
+  exact-match record, read-only since 2026-11-24, and still the code the native ports build from until a
+  separate ports repository consumes this tree at a pinned commit. It stays the answer key and the evidence
+  the catalog's rows cite (bounds, hashes, `bound_population`): function bodies taken from it are
+  provenance class b. `./build.command --tree src` still reproduces the original from it.
 - **mischa85/RedAlert2**: a separate matching decompilation of the same executable. Most of the text here
   is adopted from it, whole files, credited per file. Its module map decides where each unit's functions
   lie. `manifest/adopted.csv` lists every adopted file with origin and commit; licences are in

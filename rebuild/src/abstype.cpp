@@ -138,11 +138,11 @@ bool AbstractTypeClass::Read_INI(CCINIClass const & ini)
 		ini.Get_String(IniName, "Name", GivenName, buffer, GivenName.Size());
 		GivenName = TStringID<48>(buffer);
 		ini.Get_String(IniName, "UIName", UINameLabel, buffer, UINameLabel.Size()); // RA2: the display name's string-table label
-		UINameLabel = TStringID<31>(buffer); // RA2: as above
-		if (UINameLabel[0] != '\0') { // RA2: as above
-			UIName = StringTable::LoadString(UINameLabel, NULL, "D:\\Ra2\\AbsType.cpp", 205); // RA2: as above
-		} else { // RA2: as above
-			UIName = L""; // RA2: as above
+		UINameLabel = TStringID<31>(buffer);
+		if (UINameLabel[0] != '\0') {
+			UIName = StringTable::LoadString(UINameLabel, NULL, "D:\\Ra2\\AbsType.cpp", 205);
+		} else {
+			UIName = L"";
 		}
 		return(true);
 	}
@@ -159,8 +159,8 @@ bool AbstractTypeClass::Write_INI(CCINIClass & ini) const
 {
 	ini.Clear(IniName);
 	ini.Put_String(IniName, "Name", GivenName);
-	if (UINameLabel[0]) { // RA2: as above
-		ini.Put_String(IniName, "UIName", UINameLabel); // RA2: as above
+	if (UINameLabel[0]) {
+		ini.Put_String(IniName, "UIName", UINameLabel);
 	}
 	return(true);
 }

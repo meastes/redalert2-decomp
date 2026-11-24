@@ -155,9 +155,35 @@ bool __fastcall Skirmish_Has_Computer_After(int player)
 }
 
 /// <summary>
+/// Whether a check box of the dialog is ticked.
+/// </summary>
+static inline bool Is_Item_Checked(HWND item)
+{
+	return(SendMessage(item, BM_GETCHECK, 0, 0) == 1);
+}
+
+/// <summary>
+/// A player type combo changed: only a computer row may pick its side and colour.
+/// </summary>
+static void Skirmish_Player_Type_Changed(HWND dialog, int id)
+{
+	int row = Skirmish_Player_Index(id) + 1;
+	int row_color = Player_Color_Combo_ID(row);
+	int row_side = Player_Side_Combo_ID(row);
+	unsigned char computer = Skirmish_Is_Computer(dialog, id);
+	if (!computer) {
+		Select_Color_Combo(dialog, row_color, -2);
+		Select_Side_Combo(dialog, row_side, -2);
+	}
+	HWND color_box = GetDlgItem(dialog, row_color);
+	HWND side_box = GetDlgItem(dialog, row_side);
+	EnableWindow(color_box, computer);
+	EnableWindow(side_box, computer);
+}
+
+/// <summary>
 /// The commands of the skirmish dialog.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 2819 bytes differ (draft structure)
 void __fastcall Skirmish_On_WM_COMMAND(HWND dialog, int id, HWND control, int code)
 {
 	int * result = (int *)GetWindowLong(dialog, DWL_USER);
@@ -169,20 +195,7 @@ void __fastcall Skirmish_On_WM_COMMAND(HWND dialog, int id, HWND control, int co
 		case 0x51B:
 		case 0x51C:
 		case 0x51D:
-		{
-			int row = Skirmish_Player_Index(id) + 1;
-			int row_color = Player_Color_Combo_ID(row);
-			int row_side = Player_Side_Combo_ID(row);
-			BOOL enable = Skirmish_Is_Computer(dialog, id);
-			if (!enable) {
-				Select_Color_Combo(dialog, row_color, -2);
-				Select_Side_Combo(dialog, row_side, -2);
-			}
-			HWND color_box = GetDlgItem(dialog, row_color);
-			HWND side_box = GetDlgItem(dialog, row_side);
-			EnableWindow(color_box, enable);
-			EnableWindow(side_box, enable);
-		}
+			Skirmish_Player_Type_Changed(dialog, id);
 		return;
 		case 0x5AA: {
 			int old_mode = Session.Options.MPModeIndex;
@@ -289,8 +302,9 @@ void __fastcall Skirmish_On_WM_COMMAND(HWND dialog, int id, HWND control, int co
 				return;
 			}
 		}
+		MultiplayerGameMode * mode = Session.MPGameMode;
 			WideWstring message;
-			if (!Session.MPGameMode->CheckStartConditions(&message)) {
+		if (!mode->CheckStartConditions(&message)) {
 				if (id == 0x617) {
 					WWMessageBox(L" ").Process(message.get(), StringTable::LoadString("TXT_OK", NULL, "D:\\Ra2\\Skirmish.cpp", 0x34B), NULL, NULL, false);
 					EnableWindow(GetDlgItem(dialog, 0x617), TRUE);
@@ -343,7 +357,8 @@ void __fastcall Skirmish_On_WM_COMMAND(HWND dialog, int id, HWND control, int co
 				Session.Skirmish.SlotData[player][1] = side;
 				Session.Skirmish.SlotData[player][2] = color;
 		}
-		Session.Set_Color(Color_Combo_Data(dialog, 0x6A2, -1), true);
+		int local_color = Color_Combo_Data(dialog, 0x6A2, -1);
+		Session.Set_Color(local_color, true);
 			NodeNameType * node = new NodeNameType;
 			if (node != NULL) {
 				wcscpy(node->Name, Narrow_To_Wide(Session.Handle));
@@ -355,8 +370,7 @@ void __fastcall Skirmish_On_WM_COMMAND(HWND dialog, int id, HWND control, int co
 			Session.Assign_Random_Choices();
 			HWND item = GetDlgItem(dialog, 0x529);
 			if (item != NULL) {
-				Session.Options.GameSpeed = 6 - SendMessage(item, TBM_GETPOS, 0, 0);
-			Options.GameSpeed = Session.Options.GameSpeed;
+				Options.GameSpeed = Session.Options.GameSpeed = 6 - SendMessage(item, TBM_GETPOS, 0, 0);
 		}
 			item = GetDlgItem(dialog, 0x511);
 			if (item != NULL) {
@@ -371,23 +385,23 @@ void __fastcall Skirmish_On_WM_COMMAND(HWND dialog, int id, HWND control, int co
 			Session.Skirmish.UnitCount = Session.Options.UnitCount;
 			item = GetDlgItem(dialog, 0x54E);
 			if (item != NULL) {
-				Session.Options.ShortGame = SendMessage(item, BM_GETCHECK, 0, 0) == 1;
+				Session.Options.ShortGame = Is_Item_Checked(item);
 		}
 			item = GetDlgItem(dialog, 0x69A);
 			if (item != NULL) {
-				Session.Options.SWAllowed = SendMessage(item, BM_GETCHECK, 0, 0) == 1;
+				Session.Options.SWAllowed = Is_Item_Checked(item);
 		}
 			item = GetDlgItem(dialog, 0x69D);
 			if (item != NULL) {
-				Session.Options.BuildOffAlly = SendMessage(item, BM_GETCHECK, 0, 0) == 1;
+				Session.Options.BuildOffAlly = Is_Item_Checked(item);
 		}
 			item = GetDlgItem(dialog, 0x693);
 			if (item != NULL) {
-				Session.Options.MCVRedeploy = SendMessage(item, BM_GETCHECK, 0, 0) == 1;
+				Session.Options.MCVRedeploy = Is_Item_Checked(item);
 		}
 			item = GetDlgItem(dialog, 0x696);
 			if (item != NULL) {
-				Session.Options.Goodies = SendMessage(item, BM_GETCHECK, 0, 0) == 1;
+				Session.Options.Goodies = Is_Item_Checked(item);
 		}
 			Session.Skirmish.ShortGame = Session.Options.ShortGame;
 			Session.Skirmish.SuperWeaponsAllowed = Session.Options.SWAllowed;
@@ -429,7 +443,6 @@ void __fastcall Skirmish_On_WM_COMMAND(HWND dialog, int id, HWND control, int co
 		break;
 	}
 }
-#endif
 
 
 /// <summary>

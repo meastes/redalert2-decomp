@@ -1,5 +1,13 @@
 # Native tree: coupling to this repository's source layout
 
+**Since 2026-11-24** `rebuild/` is the exact-match tree of record and `src/` is frozen at the tag
+`src-final`. The native ports keep building from `src/recovered` and `src/shared` unchanged (native/build.sh,
+native_units.py; `tree.py`'s default stays `main` until the native tools pin `RA2_TREE=main`, step 13 of the
+switch). The move onto the rebuild (docs/REBUILD_HANDOVER_PLAN.md plan 2) runs on branch `ports-on-rebuild`
+(`native/rb/`: a pinned `rebuild/` commit in `native/rb/PIN` plus `native/rb/fixups.json`); nothing of it lands
+on main until it passes what the src-based port passes, and a separate ports repository consuming the rebuild
+at a pinned commit is the user's decision. The counts below are lane N1's of 2026-11-17.
+
 What in `native/` would have to be redone if the ports were moved onto a different source base
 (another decompilation of the same game.exe, with its own files, headers and names). Counted by
 lane N1 on 2026-11-17 at main d8d398b7f plus lane N1's commits. Each line says what the item is

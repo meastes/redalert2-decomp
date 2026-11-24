@@ -1,6 +1,18 @@
 # Canonical original-target build
 
-The source of truth is tracked `src/recovered/`, selected by
+**Tree of record (user, 2026-11-24, in the owner session).** The source of truth is `rebuild/`:
+`rebuild/src/` (one source per original unit) and `rebuild/include/`, selected by the catalog
+`rebuild/manifest/catalog`, with assembly under `rebuild/asm/` (ledger
+`rebuild/manifest/assembly.json`). `./build.command` builds it: `RA2_TREE=rebuild`,
+`build.py --config build/r/rebuild-config.json --manifest rebuild/manifest/catalog`. The build config
+is written by the rebuild gate (`rebuild/tools/rebuild.py catalog` after `rebuild.py check` of the
+units) and never tracked; a fresh worktree copies `build/r/{check,last,rebuild-config.json,
+xcu-table.json}` from a gated checkout (plus the `private/` link). `./build.command --tree src`
+builds the frozen tree described below, unchanged: `src/` and `manifests/original_target/` at the
+tag `src-final`, which the native ports still build from. `./test.command` runs `tests/` and
+`rebuild/tests/`.
+
+The frozen tree's source of truth is tracked `src/recovered/`, selected by
 the catalog `manifests/original_target/`. The active build executes tracked Python under
 `tools/original_target/`. Frozen old private source, manifests and receipts stay
 unchanged as provenance; they are not the source implementation consumed by this
@@ -77,6 +89,9 @@ listed under `skipped_other`.
 
 Westwood's assembly (the VQA/audio codecs, clipping, CPU detection, the MMX
 interpolation block) was assembled with MASM 6.13.7299 (Rich header: 48 objects).
+The rebuild assembles the same files from its own copy, `rebuild/asm/` (and `rebuild/asm/ra2asm/`),
+listed in `rebuild/manifest/assembly.json` (`tree.ASM`, `tree.ASSEMBLY`); the paths below are the
+frozen tree's (`src/recovered/asm/`, read by the native asm check too).
 `src/recovered/asm/*.asm` holds the TibSun archive's `.asm` files adopted
 unchanged (THIRD_PARTY.md; SPDX and EA lines inside). `tools/original_target/
 assembly_link.py --write` assembles them with the pinned MASM 6.15.8803
@@ -135,7 +150,8 @@ audit and module_ledger use the same function and the audit result lists `data_b
 ```sh
 ./test.command
 ./run.command
-./build.command
+./build.command                 # rebuild/, the tree of record
+./build.command --tree src      # src/, frozen at src-final (shared-tool changes run both)
 # Optional deterministic destination, which must not already exist:
 ./build.command --output build/my-fresh-build
 ```

@@ -282,9 +282,9 @@ ScenarioClass::ScenarioClass(NoInitClass const & x) :
 	FadeTimer(x)
 {
 	if (MissionTimerText[0] != '\0') { // RA2: the timer's label is loaded again (the string table is not saved)
-		MissionTimerTextCSF = StringTable::LoadString(MissionTimerText, NULL, "D:\\Ra2\\Scenario.CPP", 340); // RA2: as above
+		MissionTimerTextCSF = StringTable::LoadString(MissionTimerText, NULL, "D:\\Ra2\\Scenario.CPP", 340);
 	} else {
-		MissionTimerTextCSF = L""; // RA2: as above
+		MissionTimerTextCSF = L"";
 	}
 }
 #endif
@@ -305,13 +305,13 @@ void ScenarioClass::Reset(void)
 	ElapsedTimer = 0;
 	ElapsedTimer.Stop();
 	PauseTimer = 0; // RA2: the pause timer (+0x620) and its count (+0x62C) are reset here
-	PauseTimer.Stop(); // RA2: as above
-	HoldCount = 0; // RA2: as above
-	IsGamePaused = false; // RA2: as above
+	PauseTimer.Stop();
+	HoldCount = 0;
+	IsGamePaused = false;
 	MissionTimer = 0;
 	MissionTimer.Stop();
 	MissionTimerTextCSF = L""; // RA2: the timer's label starts empty
-	MissionTimerText = TStringID<31>(""); // RA2: as above
+	MissionTimerText = TStringID<31>("");
 	ShroudTimer = 0;
 	FogTimer = 0;
 	IceGrowthTimer = 0;
@@ -359,46 +359,46 @@ void ScenarioClass::Reset(void)
 	GreenTint = 100;
 	BlueTint = 100;
 	GroundLight = 100; // RA2: the ground and level light are plain numbers here
-	LevelLight = 16; // RA2: as above
+	LevelLight = 16;
 	IonAmbientLight = 100;
 	IonRedTint = 0;
 	IonGreenTint = 0;
 	IonBlueTint = 0;
-	IonGroundLight = 100; // RA2: as above
-	IonLevelLight = 16; // RA2: as above
+	IonGroundLight = 100;
+	IonLevelLight = 16;
 	NukeAmbient = 200; // RA2: the nuclear flash light set (not in TibSun)
-	NukeRedTint = 175; // RA2: as above
-	NukeGreenTint = 150; // RA2: as above
-	NukeBlueTint = 125; // RA2: as above
-	NukeGroundLight = 100; // RA2: as above
-	NukeLevelLight = 100; // RA2: as above
-	NukeAmbientChangeRate = 1; // RA2: as above
+	NukeRedTint = 175;
+	NukeGreenTint = 150;
+	NukeBlueTint = 125;
+	NukeGroundLight = 100;
+	NukeLevelLight = 100;
+	NukeAmbientChangeRate = 1;
 	InitTime = 10000;
 	Stage = 0;
 	IsInputLocked = false;
 	IsTiberiumDeathToVisceroid = true;
 	ParTimeEasy = 3600; // RA2: the par times and the score and load screen texts are reset here
-	ParTimeMedium = 3600; // RA2: as above
-	ParTimeDifficult = 3600; // RA2: as above
-	UnderParTitle[0] = '\0'; // RA2: as above
-	UnderParMessage[0] = '\0'; // RA2: as above
-	OverParTitle[0] = '\0'; // RA2: as above
-	OverParMessage[0] = '\0'; // RA2: as above
-	LSLoadMessage[0] = '\0'; // RA2: as above
-	LSBrief[0] = '\0'; // RA2: as above
-	LS640BriefLocX = 0; // RA2: as above
-	LS640BriefLocY = 0; // RA2: as above
-	LS800BriefLocX = 0; // RA2: as above
-	LS800BriefLocY = 0; // RA2: as above
-	LS640BkgdName[0] = '\0'; // RA2: as above
-	LS800BkgdName[0] = '\0'; // RA2: as above
+	ParTimeMedium = 3600;
+	ParTimeDifficult = 3600;
+	UnderParTitle[0] = '\0';
+	UnderParMessage[0] = '\0';
+	OverParTitle[0] = '\0';
+	OverParMessage[0] = '\0';
+	LSLoadMessage[0] = '\0';
+	LSBrief[0] = '\0';
+	LS640BriefLocX = 0;
+	LS640BriefLocY = 0;
+	LS800BriefLocX = 0;
+	LS800BriefLocY = 0;
+	LS640BkgdName[0] = '\0';
+	LS800BkgdName[0] = '\0';
 
 	AllowableUnits.Clear();
 	AllowableUnitMaximums.Clear();
 	AllowableUnitCounts.Clear();
 
 	if (Session.Type == GAME_SKIRMISH) { // RA2: a skirmish game is named from the string table
-		wcscpy(Scen->Description, StringTable::LoadString("GUI:SkirmishGame", NULL, "D:\\Ra2\\Scenario.CPP", 486)); // RA2: as above
+		wcscpy(Scen->Description, StringTable::LoadString("GUI:SkirmishGame", NULL, "D:\\Ra2\\Scenario.CPP", 486));
 	}
 } // RA2: no SpeechSide, RequiredAddOn (not in RA2's layout)
 
@@ -441,39 +441,39 @@ bool Start_Scenario(char const * name, bool briefing, CampaignType campaign)
 
 	CD::Set_Required_Disk(DISK_ANY); // RA2: no Theme.Stop() here and no _DEBUG swap override test
 
-	if (Session.Type == GAME_NORMAL) { // RA2: as above
-		if (Scen->Campaign != CAMPAIGN_NONE) { // RA2: as above
-			CD::Set_Required_Disk((DiskID)Campaigns[Scen->Campaign]->CDNumber); // RA2: as above
+	if (Session.Type == GAME_NORMAL) {
+		if (Scen->Campaign != CAMPAIGN_NONE) {
+			CD::Set_Required_Disk((DiskID)Campaigns[Scen->Campaign]->CDNumber);
 		}
 	} else {
-		if (Session.Options.ScenarioIndex != -1) { // RA2: as above
-			MultiMission * multi = Session.Scenarios[Session.Options.ScenarioIndex]; // RA2: as above
+		if (Session.Options.ScenarioIndex != -1) {
+			MultiMission * multi = Session.Scenarios[Session.Options.ScenarioIndex];
 			if (!multi->Is_On_CD(CD::Get_Current_Disk(60))) { // RA2: the multiplayer map names the disc it is on
-				CD::Set_Required_Disk(multi->On_Which_CD()); // RA2: as above
+				CD::Set_Required_Disk(multi->On_Which_CD());
 			}
 		}
 	}
 
-	Session.Suspended++; // RA2: as above
+	Session.Suspended++;
 
-	if (!CD::Force_Available()) { // RA2: as above
+	if (!CD::Force_Available()) {
 		return(false); // RA2: the suspend count stays raised when the disc does not come
 	}
-	Session.Suspended--; // RA2: as above
+	Session.Suspended--;
 
 	Hide_Mouse(); // RA2: the mouse is hidden while the movies and the scenario load
 
 	{ // RA2: the scenario's own intro (or briefing) movie plays before it is read
-		CCINIClass ini; // RA2: as above
-		CCFileClass file(name); // RA2: as above
-		if (ini.Load(file, true, false)) { // RA2: as above
-			VQType movie = ini.Get_VQType("Basic", "Intro", VQ_NONE); // RA2: as above
-			if (movie == VQ_NONE) { // RA2: as above
-				movie = ini.Get_VQType("Basic", "Brief", movie); // RA2: as above
+		CCINIClass ini;
+		CCFileClass file(name);
+		if (ini.Load(file, true, false)) {
+			VQType movie = ini.Get_VQType("Basic", "Intro", VQ_NONE);
+			if (movie == VQ_NONE) {
+				movie = ini.Get_VQType("Basic", "Brief", movie);
 			}
-			if (movie != VQ_NONE) { // RA2: as above
-				Theme.Stop(false); // RA2: as above
-				Play_Movie(movie, THEME_NONE, true, true, true); // RA2: as above
+			if (movie != VQ_NONE) {
+				Theme.Stop(false);
+				Play_Movie(movie, THEME_NONE, true, true, true);
 			}
 		}
 	}
@@ -490,7 +490,7 @@ bool Start_Scenario(char const * name, bool briefing, CampaignType campaign)
 	/*
 	**	If there's no briefing movie, restate the mission at the beginning.
 	*/
-	char buffer[28]; // RA2: as above
+	char buffer[28];
 
 	if (Scen->BriefMovie != VQ_NONE) {
 		wsprintf(buffer, "%s.VQA", Movies[Scen->BriefMovie]);
@@ -512,15 +512,15 @@ bool Start_Scenario(char const * name, bool briefing, CampaignType campaign)
 	Options.Set();
 
 	HiddenSurface->Fill(0);
-	Update_Visible_Surface(true, HiddenSurface, NULL); // RA2: as above
+	Update_Visible_Surface(true, HiddenSurface, NULL);
 
 	Toggle_Display_Mode(true);
 	Scen->ElapsedTimer.Start();
 
 	if (Scen->TransitTheme != THEME_NONE) { // RA2: the scenario's score is queued, or the music stops
-		Theme.Queue_Song(Scen->TransitTheme); // RA2: as above
+		Theme.Queue_Song(Scen->TransitTheme);
 	} else {
-		Theme.Stop(true); // RA2: as above
+		Theme.Stop(true);
 	}
 
 	ScenarioActive = true;
@@ -540,7 +540,7 @@ void Pause_Scenario(void)
 {
 	Audio_Pause_All(); // RA2: the sound stops with the game
 	SavedSpeechVolume = AudioLevelGetVal(&AudioGroupAttribs1->VolumeLevel); // RA2: EVA's volume is kept and set to AUDIO_VOLUME_MAX
-	AudioLevelSet(&AudioGroupAttribs1->VolumeLevel, AUDIO_VOLUME_MAX); // RA2: as above
+	AudioLevelSet(&AudioGroupAttribs1->VolumeLevel, AUDIO_VOLUME_MAX);
 
 	if (Session.Type == GAME_NORMAL || Session.Type == GAME_SKIRMISH) {
 		DebugString("Paused ElapsedTimer = %ld\n", (int)Scen->ElapsedTimer); // RA2: the timer is passed as its value
@@ -574,14 +574,14 @@ void Resume_Scenario(void)
 	Map.Revert_Mouse_Shape();
 
 	Scen->ElapsedTimer.Start();
-	DebugString("Resume ElapsedTimer = %ld\n", (int)Scen->ElapsedTimer); // RA2: as above
+	DebugString("Resume ElapsedTimer = %ld\n", (int)Scen->ElapsedTimer);
 
 	if (ToolTips != NULL) {
 		ToolTips->Activate(Options.ToolTips);
 	}
 
 	AudioLevelSet(&AudioGroupAttribs1->VolumeLevel, SavedSpeechVolume); // RA2: EVA's volume comes back
-	SavedSpeechVolume = AUDIO_VOLUME_MAX; // RA2: as above
+	SavedSpeechVolume = AUDIO_VOLUME_MAX;
 
 	Pause_Ingame_Movie(false);
 	Audio_Resume_All(); // RA2: the sound goes on again
@@ -770,10 +770,10 @@ bool Wait_For_Players_To_Load(void)
 				if (Progress.Get_Current_Progress(loader) < 0.999) { // RA2: below 0.999 instead of not exactly 1.0
 					DebugString("Player %s failed to make it into the game. Dropping %s\n", Narrow_Text(Session.Players[i]->Name), Narrow_Text(Session.Players[i]->Name)); // RA2: the wide names
 					int id = Session.Players[i]->Player.ID; // RA2: the connection's id is kept for the master test
-					Destroy_Connection(id, 1); // RA2: as above
+					Destroy_Connection(id, 1);
 					if (Session.Am_I_Master(Houses[id])) { // RA2: a dropped master is forgotten (0x66F150)
-						Session.MasterPlayerID = -1; // RA2: as above
-						memset(Session.MasterPlayerName, 0, sizeof(Session.MasterPlayerName)); // RA2: as above
+						Session.MasterPlayerID = -1;
+						memset(Session.MasterPlayerName, 0, sizeof(Session.MasterPlayerName));
 					}
 					i--;
 				}
@@ -857,34 +857,34 @@ bool Read_Scenario(char const * fname)
 			players = Session.Players.Count();
 		}
 
-		Progress.Initialize(100.0, players, NULL); // RA2: as above
+		Progress.Initialize(100.0, players, NULL);
 
 		wchar_t const * prog_msg = NULL; // RA2: the Internet tournament game id is shown on the load screen
-		wchar_t prog_msg_buffer[130]; // RA2: as above
+		wchar_t prog_msg_buffer[130];
 
 		if (Session.Type == GAME_INTERNET && WestwoodOnline_Tournament) {
-			swprintf(prog_msg_buffer, StringTable::LoadString("TXT_GAME_ID", NULL, "D:\\Ra2\\Scenario.CPP", 1303), GameID); // RA2: as above
-			prog_msg = prog_msg_buffer; // RA2: as above
+			swprintf(prog_msg_buffer, StringTable::LoadString("TXT_GAME_ID", NULL, "D:\\Ra2\\Scenario.CPP", 1303), GameID);
+			prog_msg = prog_msg_buffer;
 		}
 
 		loader = LoadProgressManager::Create(); // RA2: the load screen is set up here (0x65C903)
-		loader->Compute_Rects(); // RA2: as above
+		loader->Compute_Rects();
 		Progress.Unknown_Virtual_0((int)loader); // RA2: the manager is told of the progress (0x6203E0)
 
-		int side = Player_Side(); // RA2: as above
-		Scen->IsGDI = (side == 0); // RA2: as above
-		Progress.Set_Side(side); // RA2: as above
+		int side = Player_Side();
+		Scen->IsGDI = (side == 0);
+		Progress.Set_Side(side);
 
-		LoadProgressManager::Create()->Load_Mixes(); // RA2: as above
+		LoadProgressManager::Create()->Load_Mixes();
 
 		if (Session.Type == GAME_NORMAL) { // RA2: a campaign shows the splash bar, a multiplayer game the bars of its players
-			Progress.Set_Graphic_Data("SPLDBR.SHP", NULL, Get_Splash_Bar_Drawer()); // RA2: as above
+			Progress.Set_Graphic_Data("SPLDBR.SHP", NULL, Get_Splash_Bar_Drawer());
 		} else {
-			Progress.Set_Graphic_Data("PROGBARM.SHP", NULL, NULL); // RA2: as above
+			Progress.Set_Graphic_Data("PROGBARM.SHP", NULL, NULL);
 		}
-		bool campaign = (Session.Type == GAME_NORMAL); // RA2: as above
-		Progress.Set_Layout(loader->Text_Origin(), prog_msg, !campaign, !campaign); // RA2: as above
-		Progress.Set_Row_Width(loader->Get_Row_Width()); // RA2: as above
+		bool campaign = (Session.Type == GAME_NORMAL);
+		Progress.Set_Layout(loader->Text_Origin(), prog_msg, !campaign, !campaign);
+		Progress.Set_Row_Width(loader->Get_Row_Width());
 
 		if (PacketTransport != NULL && Session.Type == GAME_INTERNET && Session.Players.Count() > 1) {
 			DebugString("Setting addresses for UDP broadcast\n");
@@ -916,7 +916,7 @@ bool Read_Scenario(char const * fname)
 	}
 
 	if (!Rule->Shroud) { // RA2: a scenario without shroud is revealed (0x65CB9B)
-		Map.Reveal_The_Map(); // RA2: as above
+		Map.Reveal_The_Map();
 	}
 
 	if (!read_ok) {
@@ -927,8 +927,8 @@ bool Read_Scenario(char const * fname)
 		ScenarioInit--;
 		Scen->IsReadingScenario = false;
 		if (loader != NULL) { // RA2: the manager is given up
-			Progress.Unknown_Virtual_0(0); // RA2: as above
-			delete loader; // RA2: as above
+			Progress.Unknown_Virtual_0(0);
+			delete loader;
 		}
 		return(false);
 	}
@@ -952,9 +952,9 @@ bool Read_Scenario(char const * fname)
 	Fill_In_Data();
 
 	if (Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) { // RA2: the load is nearly done
-		Session.Update_Progress(99); // RA2: as above
+		Session.Update_Progress(99);
 		if (Session.Type == GAME_INTERNET && Session.ViaPacketRouter) { // RA2: a game played through the packet router waits for it to shut down (0x65CCAD)
-			OwnerTalk.Wait_For_Router_Shutdown(15000, true); // RA2: as above
+			OwnerTalk.Wait_For_Router_Shutdown(15000, true);
 		}
 	}
 
@@ -991,8 +991,8 @@ bool Read_Scenario(char const * fname)
 	Progress.End();
 
 	if (loader != NULL) { // RA2: the manager is released
-		Progress.Unknown_Virtual_0(0); // RA2: as above
-		loader->Release(); // RA2: as above
+		Progress.Unknown_Virtual_0(0);
+		loader->Release();
 	}
 
 	return(true);
@@ -1068,8 +1068,8 @@ void Fill_In_Data(void)
 		if (tp->Attaches_To() & ATTACH_HOUSE) {
 			TagClass * tt = Find_Or_Make(tp);
 			HouseClass * tagowner = House_From_HousesType(tt->Class->FirstTrigger->House->House); // RA2: the owner may be gone
-			if (tagowner != NULL) { // RA2: as above
-				tagowner->HouseTags.Add(tt); // RA2: as above
+			if (tagowner != NULL) {
+				tagowner->HouseTags.Add(tt);
 			}
 		}
 	}
@@ -1099,7 +1099,7 @@ void Fill_In_Data(void)
 		TagTypeClass * tp = TagTypes[index];
 		if (tp->Is_Allow_Win()) {
 			HouseClass * blocked = House_From_HousesType((HousesType)tp->FirstTrigger->House->HeapID); // RA2: found through House_From_HousesType (0x4ED760)
-			blocked->Blockage++; // RA2: as above
+			blocked->Blockage++;
 		}
 	}
 
@@ -1115,7 +1115,7 @@ void Fill_In_Data(void)
 				TiberiumClass const * tib = Tiberiums[0];
 
 				while (money > tib->CreditValue && hptr->Available_Storage() > 0) {
-					hptr->Give_Tiberium(1, 0); // RA2: as above
+					hptr->Give_Tiberium(1, 0);
 					money -= tib->CreditValue;
 				}
 			}
@@ -1146,13 +1146,13 @@ void Fill_In_Data(void)
 	}
 
 	if (Rule->OreTwinkle != NULL) { // RA2: ore cells twinkle at random when the rules name an animation for it
-		Map.Reset_Iterator(); // RA2: as above
-		CellClass * orecell = Map.Iterate(); // RA2: as above
-		while (orecell != NULL) { // RA2: as above
-			if (orecell->Tiberium_Value() && Random_Pick(0, Rule->OreTwinkleChance - 1) == 0) { // RA2: as above
-				new AnimClass(Rule->OreTwinkle, orecell->Center_Coord(), 0, 1); // RA2: as above
+		Map.Reset_Iterator();
+		CellClass * orecell = Map.Iterate();
+		while (orecell != NULL) {
+			if (orecell->Tiberium_Value() && Random_Pick(0, Rule->OreTwinkleChance - 1) == 0) {
+				new AnimClass(Rule->OreTwinkle, orecell->Center_Coord(), 0, 1);
 			}
-			orecell = Map.Iterate(); // RA2: as above
+			orecell = Map.Iterate();
 		}
 	}
 
@@ -1200,8 +1200,8 @@ void Post_Load_Game(void)
 	InvalidateRect(MainWindow, NULL, FALSE);
 
 	Reset_Group_Select(); // RA2: 0x6F89E0, then 0x6F8A20 with NULL (clears both sidebar tab objects), then the tail call of 0x63C790
-	Clear_Sidebar_Tab_Object(NULL); // RA2: as above
-	Reset_Radar_Event_Cells(); // RA2: as above
+	Clear_Sidebar_Tab_Object(NULL);
+	Reset_Radar_Event_Cells();
 }
 
 
@@ -1285,12 +1285,12 @@ void Clear_Scenario(void)
 
 
 	Scen->ParTimeEasy = 3600; // RA2: one hour par time for every difficulty, no under/over par texts (0x65D627)
-	Scen->ParTimeMedium = Scen->ParTimeEasy; // RA2: as above
-	Scen->ParTimeDifficult = Scen->ParTimeEasy; // RA2: as above
-	Scen->UnderParTitle[0] = '\0'; // RA2: as above
-	Scen->UnderParMessage[0] = '\0'; // RA2: as above
-	Scen->OverParTitle[0] = '\0'; // RA2: as above
-	Scen->OverParMessage[0] = '\0'; // RA2: as above
+	Scen->ParTimeMedium = Scen->ParTimeEasy;
+	Scen->ParTimeDifficult = Scen->ParTimeEasy;
+	Scen->UnderParTitle[0] = '\0';
+	Scen->UnderParMessage[0] = '\0';
+	Scen->OverParTitle[0] = '\0';
+	Scen->OverParMessage[0] = '\0';
 
 	LightSourceClass::Reset();
 	IonStormClass::Init();
@@ -1410,15 +1410,15 @@ void Do_Win(void)
 		if (!Session.Play) {
 			Session.GamesPlayed++;
 			if (Session.MPGameMode != NULL) { // RA2: a network game of a mode that does its own scoring is not scored here
-				if ((Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) && Session.MPGameMode->vt_entry_08()) { // RA2: as above
-					Darken_Surface(NULL, true); // RA2: as above
+				if ((Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) && Session.MPGameMode->vt_entry_08()) {
+					Darken_Surface(NULL, true);
 				} else {
 					MPScoreScreen().Presentation(); // RA2: 0x5AAA20, 0x5AAA40 (in place of Multi_Score_Presentation)
 				}
 			} else {
-				MPScoreScreen().Presentation(); // RA2: as above
+				MPScoreScreen().Presentation();
 			}
-			if (Session.MPGameMode != NULL) { // RA2: as above
+			if (Session.MPGameMode != NULL) {
 				next = Session.MPGameMode->vt_entry_90(); // RA2: slot 0x90, whether another round is played
 			}
 			Session.CurGame++;
@@ -1428,8 +1428,8 @@ void Do_Win(void)
 			}
 		}
 
-		if (!next) { // RA2: as above
-			if (Session.MPGameMode != NULL) { // RA2: as above
+		if (!next) {
+			if (Session.MPGameMode != NULL) {
 				Session.MPGameMode->vt_entry_8C(true); // RA2: slot 0x8C, the game mode is told the game was won
 			}
 			GameActive = false;
@@ -1476,7 +1476,7 @@ void Do_Win(void)
 			}
 			Show_Credits(); // RA2: 0x4B37C0, the credits (TibSun: Show_Who_Was_Responsible)
 			GameActive = false;
-			MouseCursor->Show_Mouse(); // RA2: as above
+			MouseCursor->Show_Mouse();
 			return;
 		}
 
@@ -1493,50 +1493,50 @@ void Do_Win(void)
 					Map_Select_Advance(Scen, Scen->NextScenarioName);
 				}
 			} else {
-				MouseCursor->Show_Mouse(); // RA2: as above
+				MouseCursor->Show_Mouse();
 				Map_Selection(Scen);
-				MouseCursor->Hide_Mouse(); // RA2: as above
+				MouseCursor->Hide_Mouse();
 			}
 		}
 
 		Keyboard->Clear();
 	}
 
-	MouseCursor->Show_Mouse(); // RA2: as above
+	MouseCursor->Show_Mouse();
 
 	Environment.Store();
 
 	Scen->Scenario++;
 
 	if ((Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) && Session.MPGameMode != NULL && Session.MPGameMode->vt_entry_08()) { // RA2: a network game starts again over a fresh connection
-		if (Session.Type == GAME_IPX) { // RA2: as above
-			PacketTransport->Close_Socket(); // RA2: as above
-			delete PacketTransport; // RA2: as above
-			PacketTransport = NULL; // RA2: as above
-			PacketTransport = new IPXInterfaceClass; // RA2: as above
+		if (Session.Type == GAME_IPX) {
+			PacketTransport->Close_Socket();
+			delete PacketTransport;
+			PacketTransport = NULL;
+			PacketTransport = new IPXInterfaceClass;
 		}
-		PacketTransport->Init(); // RA2: as above
+		PacketTransport->Init();
 
 		int ai_players = Session.Options.AIPlayers; // RA2: the computer players' setup survives
-		int colors[8]; // RA2: as above
-		int countries[8]; // RA2: as above
-		int difficulties[8]; // RA2: as above
-		memcpy(colors, Session.Options.AISlots.Colors, sizeof(colors)); // RA2: as above
-		memcpy(countries, Session.Options.AISlots.Countries, sizeof(countries)); // RA2: as above
-		memcpy(difficulties, Session.Options.AISlots.Difficulties, sizeof(difficulties)); // RA2: as above
-		if (!Net2Init_Network()) { // RA2: as above
-			if (PacketTransport != NULL) { // RA2: as above
-				delete PacketTransport; // RA2: as above
-				PacketTransport = NULL; // RA2: as above
+		int colors[8];
+		int countries[8];
+		int difficulties[8];
+		memcpy(colors, Session.Options.AISlots.Colors, sizeof(colors));
+		memcpy(countries, Session.Options.AISlots.Countries, sizeof(countries));
+		memcpy(difficulties, Session.Options.AISlots.Difficulties, sizeof(difficulties));
+		if (!Net2Init_Network()) {
+			if (PacketTransport != NULL) {
+				delete PacketTransport;
+				PacketTransport = NULL;
 			}
 			GameActive = false;
 			return;
 		}
-		Session.Options.AIPlayers = ai_players; // RA2: as above
-		for (int index = 0; index < 8; index++) { // RA2: as above
-			Session.Options.AISlots.Difficulties[index] = difficulties[index]; // RA2: as above
-			Session.Options.AISlots.Countries[index] = countries[index]; // RA2: as above
-			Session.Options.AISlots.Colors[index] = colors[index]; // RA2: as above
+		Session.Options.AIPlayers = ai_players;
+		for (int index = 0; index < 8; index++) {
+			Session.Options.AISlots.Difficulties[index] = difficulties[index];
+			Session.Options.AISlots.Countries[index] = countries[index];
+			Session.Options.AISlots.Colors[index] = colors[index];
 		}
 		Keyboard->Clear();
 	}
@@ -1545,26 +1545,26 @@ void Do_Win(void)
 	**	Generate a new scenario filename
 	*/
 	GameActive = CopyProtection::CheckProtectedData(); // RA2: the game ends when the copy protection check fails
-	if (!GameActive) { // RA2: as above
-		MouseCursor->Show_Mouse(); // RA2: as above
+	if (!GameActive) {
+		MouseCursor->Show_Mouse();
 		return;
 	}
 	Start_Scenario(Scen->ScenarioName, true, Scen->Campaign);
 
 	if ((Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) && Session.MPGameMode != NULL && Session.MPGameMode->vt_entry_08()) { // RA2: the connections are made again
-		Session.Create_Connections(); // RA2: as above
-		if (Session.Type == GAME_IPX) { // RA2: as above
+		Session.Create_Connections();
+		if (Session.Type == GAME_IPX) {
 			Ipx.Set_Timing((Ipx.Global_Response_Time() + 2 < 15) ? 15 : Ipx.Global_Response_Time() + 2, -1, 600, true); // RA2: the timing is at least 15 (the test is unsigned, the response time is read again)
-			Ipx.Set_External_Timing((Ipx.Global_Response_Time() + 2 < 60) ? 60 : Ipx.Global_Response_Time() + 2, -1, 600); // RA2: as above
-		} else if (Session.Type == GAME_INTERNET && Session.PrecalcDesiredFrameRate == 0) { // RA2: as above
-			Ipx.Set_Timing((Ipx.Global_Response_Time() + 2 < 60) ? 60 : Ipx.Global_Response_Time() + 2, -1, 600, true); // RA2: as above
+			Ipx.Set_External_Timing((Ipx.Global_Response_Time() + 2 < 60) ? 60 : Ipx.Global_Response_Time() + 2, -1, 600);
+		} else if (Session.Type == GAME_INTERNET && Session.PrecalcDesiredFrameRate == 0) {
+			Ipx.Set_Timing((Ipx.Global_Response_Time() + 2 < 60) ? 60 : Ipx.Global_Response_Time() + 2, -1, 600, true);
 		}
 	}
 
 	Environment.Restore();
 
 	if (ToolTips != NULL) { // RA2: the tooltips come back as the options have them
-		ToolTips->Activate(Options.ToolTips); // RA2: as above
+		ToolTips->Activate(Options.ToolTips);
 	}
 	Map.Render();
 	Set_Palette(GamePalette, FADE_PALETTE_FAST, Call_Back);
@@ -1639,15 +1639,15 @@ void Do_Lose(void)
 		if (!Session.Play) {
 			Session.GamesPlayed++;
 			if (Session.MPGameMode != NULL) { // RA2: a network game of a mode that does its own scoring is not scored here
-				if ((Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) && Session.MPGameMode->vt_entry_08()) { // RA2: as above
-					Darken_Surface(NULL, true); // RA2: as above
+				if ((Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) && Session.MPGameMode->vt_entry_08()) {
+					Darken_Surface(NULL, true);
 				} else {
 					MPScoreScreen().Presentation(); // RA2: 0x5AAA20, 0x5AAA40 (in place of Multi_Score_Presentation)
 				}
 			} else {
-				MPScoreScreen().Presentation(); // RA2: as above
+				MPScoreScreen().Presentation();
 			}
-			if (Session.MPGameMode != NULL) { // RA2: as above
+			if (Session.MPGameMode != NULL) {
 				replay = Session.MPGameMode->vt_entry_90(); // RA2: slot 0x90, whether another round is played
 			}
 			Session.CurGame++;
@@ -1656,8 +1656,8 @@ void Do_Lose(void)
 				Session.CurGame = MAX_MULTI_GAMES - 1;
 			}
 		}
-		if (!replay) { // RA2: as above
-			if (Session.MPGameMode != NULL) { // RA2: as above
+		if (!replay) {
+			if (Session.MPGameMode != NULL) {
 				Session.MPGameMode->vt_entry_8C(false); // RA2: slot 0x8C, the game mode is told it is over
 			}
 			GameActive = false;
@@ -1674,34 +1674,34 @@ void Do_Lose(void)
 	*/
 	if ((Session.Type == GAME_NORMAL && !Session.Play && WWMessageBox(L" ").Process(StringTable::LoadString("TXT_TO_REPLAY", NULL, "D:\\Ra2\\Scenario.CPP", 2612), StringTable::LoadString("TXT_YES", NULL, "D:\\Ra2\\Scenario.CPP", 2612), StringTable::LoadString("TXT_NO", NULL, "D:\\Ra2\\Scenario.CPP", 2612), NULL, false) == 0) || replay) { // RA2: the texts are loaded by name
 		if ((Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) && Session.MPGameMode != NULL && Session.MPGameMode->vt_entry_08()) { // RA2: a network game starts again over a fresh connection
-			if (Session.Type == GAME_IPX) { // RA2: as above
-				PacketTransport->Close_Socket(); // RA2: as above
-				delete PacketTransport; // RA2: as above
-				PacketTransport = NULL; // RA2: as above
-				PacketTransport = new IPXInterfaceClass; // RA2: as above
+			if (Session.Type == GAME_IPX) {
+				PacketTransport->Close_Socket();
+				delete PacketTransport;
+				PacketTransport = NULL;
+				PacketTransport = new IPXInterfaceClass;
 			}
-			PacketTransport->Init(); // RA2: as above
+			PacketTransport->Init();
 
 			int ai_players = Session.Options.AIPlayers; // RA2: the computer players' setup survives
-			int colors[8]; // RA2: as above
-			int countries[8]; // RA2: as above
-			int difficulties[8]; // RA2: as above
-			memcpy(colors, Session.Options.AISlots.Colors, sizeof(colors)); // RA2: as above
-			memcpy(countries, Session.Options.AISlots.Countries, sizeof(countries)); // RA2: as above
-			memcpy(difficulties, Session.Options.AISlots.Difficulties, sizeof(difficulties)); // RA2: as above
-			if (!Net2Init_Network()) { // RA2: as above
-				if (PacketTransport != NULL) { // RA2: as above
-					delete PacketTransport; // RA2: as above
-					PacketTransport = NULL; // RA2: as above
+			int colors[8];
+			int countries[8];
+			int difficulties[8];
+			memcpy(colors, Session.Options.AISlots.Colors, sizeof(colors));
+			memcpy(countries, Session.Options.AISlots.Countries, sizeof(countries));
+			memcpy(difficulties, Session.Options.AISlots.Difficulties, sizeof(difficulties));
+			if (!Net2Init_Network()) {
+				if (PacketTransport != NULL) {
+					delete PacketTransport;
+					PacketTransport = NULL;
 				}
 				GameActive = false;
 				return;
 			}
-			Session.Options.AIPlayers = ai_players; // RA2: as above
-			for (int index = 0; index < 8; index++) { // RA2: as above
-				Session.Options.AISlots.Difficulties[index] = difficulties[index]; // RA2: as above
-				Session.Options.AISlots.Countries[index] = countries[index]; // RA2: as above
-				Session.Options.AISlots.Colors[index] = colors[index]; // RA2: as above
+			Session.Options.AIPlayers = ai_players;
+			for (int index = 0; index < 8; index++) {
+				Session.Options.AISlots.Difficulties[index] = difficulties[index];
+				Session.Options.AISlots.Countries[index] = countries[index];
+				Session.Options.AISlots.Colors[index] = colors[index];
 			}
 			Keyboard->Clear();
 		}
@@ -1709,19 +1709,19 @@ void Do_Lose(void)
 		Start_Scenario(Scen->ScenarioName, false, Scen->Campaign);
 
 		if ((Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) && Session.MPGameMode != NULL && Session.MPGameMode->vt_entry_08()) { // RA2: the connections are made again
-			Session.Create_Connections(); // RA2: as above
-			if (Session.Type == GAME_IPX) { // RA2: as above
+			Session.Create_Connections();
+			if (Session.Type == GAME_IPX) {
 				Ipx.Set_Timing((Ipx.Global_Response_Time() + 2 < 15) ? 15 : Ipx.Global_Response_Time() + 2, -1, 600, true); // RA2: the timing is at least 15 (the test is unsigned, the response time is read again)
-				Ipx.Set_External_Timing((Ipx.Global_Response_Time() + 2 < 60) ? 60 : Ipx.Global_Response_Time() + 2, -1, 600); // RA2: as above
-			} else if (Session.Type == GAME_INTERNET && Session.PrecalcDesiredFrameRate == 0) { // RA2: as above
-				Ipx.Set_Timing((Ipx.Global_Response_Time() + 2 < 60) ? 60 : Ipx.Global_Response_Time() + 2, -1, 600, true); // RA2: as above
+				Ipx.Set_External_Timing((Ipx.Global_Response_Time() + 2 < 60) ? 60 : Ipx.Global_Response_Time() + 2, -1, 600);
+			} else if (Session.Type == GAME_INTERNET && Session.PrecalcDesiredFrameRate == 0) {
+				Ipx.Set_Timing((Ipx.Global_Response_Time() + 2 < 60) ? 60 : Ipx.Global_Response_Time() + 2, -1, 600, true);
 			}
 		}
 
 		Environment.Restore();
 
 		if (ToolTips != NULL) { // RA2: the tooltips come back as the options have them
-			ToolTips->Activate(Options.ToolTips); // RA2: as above
+			ToolTips->Activate(Options.ToolTips);
 		}
 		Map.Render();
 	} else {
@@ -1753,7 +1753,7 @@ void Do_Restart(void)
 	TacticalActive = false;
 
 	if (ToolTips != NULL) { // RA2: the tooltips are switched off for the restart
-		ToolTips->Activate(false); // RA2: as above
+		ToolTips->Activate(false);
 	}
 	Scen->ElapsedTimer.Stop();
 	Stop_Ingame_Movie();
@@ -1784,7 +1784,7 @@ void Do_Restart(void)
 	Keyboard->Clear();
 
 	if (ToolTips != NULL) { // RA2: the tooltips come back as the options have them
-		ToolTips->Activate(Options.ToolTips); // RA2: as above
+		ToolTips->Activate(Options.ToolTips);
 	}
 	Map.Render();
 }
@@ -2006,13 +2006,13 @@ void Multiplayer_Last_Minute_Fixups(bool official)
 
 		if (Houses[i] != special_hptr) {
 			Houses[i]->Make_Ally(special_hptr, false); // RA2: with the announce flag
-			special_hptr->Make_Ally(Houses[i], false); // RA2: as above
+			special_hptr->Make_Ally(Houses[i], false);
 		}
 	}
 
 	if (Session.MPGameMode != NULL) { // RA2: the game mode is told (slots 0x70 and 0x74)
-		Session.MPGameMode->AllyTeams(); // RA2: as above
-		Session.MPGameMode->OnGameStart(); // RA2: as above
+		Session.MPGameMode->AllyTeams();
+		Session.MPGameMode->OnGameStart();
 	}
 	memset(Session.PlayerChatEnabled, 1, sizeof(Session.PlayerChatEnabled)); // RA2: chat is enabled for every player (0x65EB1F)
 }
@@ -2075,77 +2075,77 @@ bool Read_Scenario_INI(CCINIClass const & ini, bool is_mapgen)
 	ini.Get_Bool(BASIC, "Official", false); // RA2: read here, but never consulted
 
 	CCINIClass mini; // RA2: declared here, the mission ini is read before the tactical map is made
-	CCFileClass cfile; // RA2: as above
+	CCFileClass cfile;
 
 	if (Session.Type == GAME_NORMAL) { // RA2: the scenario's own ini and MISSION.INI are read first (0x65EC83)
-		_splitpath(Scen->ScenarioName, NULL, NULL, buffer, NULL); // RA2: as above
-		strcat(buffer, ".INI"); // RA2: as above
-		cfile.Set_Name(buffer); // RA2: as above
+		_splitpath(Scen->ScenarioName, NULL, NULL, buffer, NULL);
+		strcat(buffer, ".INI");
+		cfile.Set_Name(buffer);
 
-		if (cfile.Is_Available(0)) { // RA2: as above
-			mini.Load(cfile, false, false); // RA2: as above
-			Rule->Addition(mini); // RA2: as above
+		if (cfile.Is_Available(0)) {
+			mini.Load(cfile, false, false);
+			Rule->Addition(mini);
 		}
 
-		cfile.Close(); // RA2: as above
-		cfile.Set_Name("MISSION.INI"); // RA2: as above
+		cfile.Close();
+		cfile.Set_Name("MISSION.INI");
 
-		if (cfile.Is_Available(0)) { // RA2: as above
-			mini.Load(cfile, false, false); // RA2: as above
+		if (cfile.Is_Available(0)) {
+			mini.Load(cfile, false, false);
 
 			Scen->Description[0] = L'\0'; // RA2: the mission texts of this scenario
-			if (mini.Is_Present(Scen->ScenarioName, "Name")) { // RA2: as above
-				mini.Get_UnicodeString(Scen->ScenarioName, "Name", L"", Scen->Description, 45); // RA2: as above
+			if (mini.Is_Present(Scen->ScenarioName, "Name")) {
+				mini.Get_UnicodeString(Scen->ScenarioName, "Name", L"", Scen->Description, 45);
 			}
 
-			Scen->BriefingText[0] = L'\0'; // RA2: as above
-			if (mini.Is_Present(Scen->ScenarioName, "Briefing")) { // RA2: as above
-				mini.Get_String(Scen->ScenarioName, "Briefing", "", Scen->BriefingCSF, 32); // RA2: as above
-				if (strlen(Scen->BriefingCSF) != 0) { // RA2: as above
-					wcsncpy(Scen->BriefingText, StringTable::LoadString(Scen->BriefingCSF, NULL, "D:\\Ra2\\Scenario.CPP", 3180), 1024); // RA2: as above
-					Scen->BriefingText[1023] = L'\0'; // RA2: as above
+			Scen->BriefingText[0] = L'\0';
+			if (mini.Is_Present(Scen->ScenarioName, "Briefing")) {
+				mini.Get_String(Scen->ScenarioName, "Briefing", "", Scen->BriefingCSF, 32);
+				if (strlen(Scen->BriefingCSF) != 0) {
+					wcsncpy(Scen->BriefingText, StringTable::LoadString(Scen->BriefingCSF, NULL, "D:\\Ra2\\Scenario.CPP", 3180), 1024);
+					Scen->BriefingText[1023] = L'\0';
 				}
 			}
 
-			Scen->UIName[0] = '\0'; // RA2: as above
-			if (mini.Is_Present(Scen->ScenarioName, "UIName")) { // RA2: as above
-				mini.Get_String(Scen->ScenarioName, "UIName", "", Scen->UIName, 32); // RA2: as above
-				if (strlen(Scen->UIName) != 0) { // RA2: as above
-					wcsncpy(Scen->Description, StringTable::LoadString(Scen->UIName, NULL, "D:\\Ra2\\Scenario.CPP", 3192), 45); // RA2: as above
-					Scen->Description[44] = L'\0'; // RA2: as above
+			Scen->UIName[0] = '\0';
+			if (mini.Is_Present(Scen->ScenarioName, "UIName")) {
+				mini.Get_String(Scen->ScenarioName, "UIName", "", Scen->UIName, 32);
+				if (strlen(Scen->UIName) != 0) {
+					wcsncpy(Scen->Description, StringTable::LoadString(Scen->UIName, NULL, "D:\\Ra2\\Scenario.CPP", 3192), 45);
+					Scen->Description[44] = L'\0';
 				}
 			}
 
-			Scen->LSLoadMessage[0] = '\0'; // RA2: as above
-			if (mini.Is_Present(Scen->ScenarioName, "LSLoadMessage")) { // RA2: as above
-				mini.Get_String(Scen->ScenarioName, "LSLoadMessage", "", Scen->LSLoadMessage, 31); // RA2: as above
+			Scen->LSLoadMessage[0] = '\0';
+			if (mini.Is_Present(Scen->ScenarioName, "LSLoadMessage")) {
+				mini.Get_String(Scen->ScenarioName, "LSLoadMessage", "", Scen->LSLoadMessage, 31);
 			}
 
-			Scen->LSBrief[0] = '\0'; // RA2: as above
-			if (mini.Is_Present(Scen->ScenarioName, "LSLoadBriefing")) { // RA2: as above
-				mini.Get_String(Scen->ScenarioName, "LSLoadBriefing", "", Scen->LSBrief, 31); // RA2: as above
+			Scen->LSBrief[0] = '\0';
+			if (mini.Is_Present(Scen->ScenarioName, "LSLoadBriefing")) {
+				mini.Get_String(Scen->ScenarioName, "LSLoadBriefing", "", Scen->LSBrief, 31);
 			}
 
-			if (mini.Is_Present(Scen->ScenarioName, "LS640BriefLocX")) { // RA2: as above
-				Scen->LS640BriefLocX = mini.Get_Int(Scen->ScenarioName, "LS640BriefLocX", Scen->LS640BriefLocX); // RA2: as above
+			if (mini.Is_Present(Scen->ScenarioName, "LS640BriefLocX")) {
+				Scen->LS640BriefLocX = mini.Get_Int(Scen->ScenarioName, "LS640BriefLocX", Scen->LS640BriefLocX);
 			}
-			if (mini.Is_Present(Scen->ScenarioName, "LS640BriefLocY")) { // RA2: as above
-				Scen->LS640BriefLocY = mini.Get_Int(Scen->ScenarioName, "LS640BriefLocY", Scen->LS640BriefLocY); // RA2: as above
+			if (mini.Is_Present(Scen->ScenarioName, "LS640BriefLocY")) {
+				Scen->LS640BriefLocY = mini.Get_Int(Scen->ScenarioName, "LS640BriefLocY", Scen->LS640BriefLocY);
 			}
-			if (mini.Is_Present(Scen->ScenarioName, "LS800BriefLocX")) { // RA2: as above
-				Scen->LS800BriefLocX = mini.Get_Int(Scen->ScenarioName, "LS800BriefLocX", Scen->LS800BriefLocX); // RA2: as above
+			if (mini.Is_Present(Scen->ScenarioName, "LS800BriefLocX")) {
+				Scen->LS800BriefLocX = mini.Get_Int(Scen->ScenarioName, "LS800BriefLocX", Scen->LS800BriefLocX);
 			}
-			if (mini.Is_Present(Scen->ScenarioName, "LS800BriefLocY")) { // RA2: as above
-				Scen->LS800BriefLocY = mini.Get_Int(Scen->ScenarioName, "LS800BriefLocY", Scen->LS800BriefLocY); // RA2: as above
+			if (mini.Is_Present(Scen->ScenarioName, "LS800BriefLocY")) {
+				Scen->LS800BriefLocY = mini.Get_Int(Scen->ScenarioName, "LS800BriefLocY", Scen->LS800BriefLocY);
 			}
 
-			Scen->LS640BkgdName[0] = '\0'; // RA2: as above
-			if (mini.Is_Present(Scen->ScenarioName, "LS640BkgdName")) { // RA2: as above
-				mini.Get_String(Scen->ScenarioName, "LS640BkgdName", "", Scen->LS640BkgdName, 64); // RA2: as above
+			Scen->LS640BkgdName[0] = '\0';
+			if (mini.Is_Present(Scen->ScenarioName, "LS640BkgdName")) {
+				mini.Get_String(Scen->ScenarioName, "LS640BkgdName", "", Scen->LS640BkgdName, 64);
 			}
-			Scen->LS800BkgdName[0] = '\0'; // RA2: as above
-			if (mini.Is_Present(Scen->ScenarioName, "LS800BkgdName")) { // RA2: as above
-				mini.Get_String(Scen->ScenarioName, "LS800BkgdName", "", Scen->LS800BkgdName, 64); // RA2: as above
+			Scen->LS800BkgdName[0] = '\0';
+			if (mini.Is_Present(Scen->ScenarioName, "LS800BkgdName")) {
+				mini.Get_String(Scen->ScenarioName, "LS800BkgdName", "", Scen->LS800BkgdName, 64);
 			}
 		}
 	}
@@ -2175,7 +2175,7 @@ bool Read_Scenario_INI(CCINIClass const & ini, bool is_mapgen)
 	Session.Update_Progress(30);
 
 	Rule->Read_AdvancedCommandBar(UIINI, Session.Type != GAME_NORMAL && Session.Type != GAME_SKIRMISH); // RA2: the command bar rules of UI.INI (0x64DD90), before the rules proper
-	Session.Update_Progress(31); // RA2: as above
+	Session.Update_Progress(31);
 
 	Rule->Initialize(*RuleINI);
 	Session.Update_Progress(35);
@@ -2196,8 +2196,8 @@ bool Read_Scenario_INI(CCINIClass const & ini, bool is_mapgen)
 	**	Which side the player is on: for a campaign the side of its CD, otherwise
 	**	the side of the first player's country.
 	*/
-	int side = Player_Side(); // RA2: as above
-	bool allied = (side == 0); // RA2: as above
+	int side = Player_Side();
+	bool allied = (side == 0);
 
 	/*
 	**	Read in the specific information for each of the house types.  This creates
@@ -2206,21 +2206,21 @@ bool Read_Scenario_INI(CCINIClass const & ini, bool is_mapgen)
 	if (Session.Type == GAME_NORMAL) {
 		HouseClass::Read_All(ini);
 		ini.Get_String(BASIC, "Player", "Americans", buffer, sizeof(buffer)); // RA2: the player's house decides the side (0x65F490)
-		int house = House_Index_From_Name(buffer); // RA2: as above
-		if (house != -1 && house <= Houses.Count()) { // RA2: as above
-			allied = (Houses[house]->Class->Side == 0); // RA2: as above
+		int house = House_Index_From_Name(buffer);
+		if (house != -1 && house <= Houses.Count()) {
+			allied = (Houses[house]->Class->Side == 0);
 		} else {
-			allied = false; // RA2: as above
+			allied = false;
 		}
-		Scen->IsGDI = allied; // RA2: as above
-		if (!Prep_For_Side(allied ? SIDE_GDI : SIDE_NOD)) { // RA2: as above
-			ScenarioInit--; // RA2: as above
+		Scen->IsGDI = allied;
+		if (!Prep_For_Side(allied ? SIDE_GDI : SIDE_NOD)) {
+			ScenarioInit--;
 			return(false);
 		}
 	} else {
-		Scen->IsGDI = allied; // RA2: as above
-		if (!Prep_For_Side(allied ? SIDE_GDI : SIDE_NOD)) { // RA2: as above
-			ScenarioInit--; // RA2: as above
+		Scen->IsGDI = allied;
+		if (!Prep_For_Side(allied ? SIDE_GDI : SIDE_NOD)) {
+			ScenarioInit--;
 			return(false);
 		}
 	}
@@ -2237,23 +2237,23 @@ bool Read_Scenario_INI(CCINIClass const & ini, bool is_mapgen)
 	Session.Update_Progress(58);
 
 	if (Session.Type == GAME_NORMAL) { // RA2: the player's house decides the side again, after the scenario's own Basic section
-		char player[32]; // RA2: as above
-		ini.Get_String(BASIC, "Player", "Americans", player, sizeof(player)); // RA2: as above
-		int house = House_Index_From_Name(player); // RA2: as above
-		if (house != -1 && house <= Houses.Count()) { // RA2: as above
-			allied = (Houses[house]->Class->Side == 0); // RA2: as above
+		char player[32];
+		ini.Get_String(BASIC, "Player", "Americans", player, sizeof(player));
+		int house = House_Index_From_Name(player);
+		if (house != -1 && house <= Houses.Count()) {
+			allied = (Houses[house]->Class->Side == 0);
 		} else {
-			allied = false; // RA2: as above
+			allied = false;
 		}
-		if (!Prep_For_Side(allied ? SIDE_GDI : SIDE_NOD)) { // RA2: as above
-			ScenarioInit--; // RA2: as above
+		if (!Prep_For_Side(allied ? SIDE_GDI : SIDE_NOD)) {
+			ScenarioInit--;
 			return(false);
 		}
-		Scen->IsGDI = allied; // RA2: as above
+		Scen->IsGDI = allied;
 	} else {
-		Scen->IsGDI = allied; // RA2: as above
+		Scen->IsGDI = allied;
 		if (Session.MPGameMode != NULL) { // RA2: the game mode releases its alliances (slot 0x68)
-			Session.MPGameMode->UnfixAlliances(); // RA2: as above
+			Session.MPGameMode->UnfixAlliances();
 		}
 	}
 
@@ -2261,7 +2261,7 @@ bool Read_Scenario_INI(CCINIClass const & ini, bool is_mapgen)
 	**
 	*/
 	if (Session.Type != GAME_NORMAL && !Session.Options.BridgeDestruction) {
-		Special.IsDestroyBridges = false; // RA2: as above
+		Special.IsDestroyBridges = false;
 	}
 	Special.Apply_To_Game();
 
@@ -2405,8 +2405,8 @@ bool Read_Scenario_INI(CCINIClass const & ini, bool is_mapgen)
 			cfile.Set_Name("TMCJ4F.INI");
 
 			if (cfile.Is_Available(0) == true) { // RA2: with the explicit argument
-				mini.Load(cfile, false, false); // RA2: as above
-				Rule->Addition(mini); // RA2: as above
+				mini.Load(cfile, false, false);
+				Rule->Addition(mini);
 			}
 		}
 	}
@@ -2608,7 +2608,7 @@ void Assign_Houses(void)
 			// If we've already assigned this house, skip it.
 			//..................................................................
 			if (!assigned[j] && (lowest_color == -1 || Session.Players[j]->Slot.ColorIdx < lowest_color)) { // RA2: +0x53
-				lowest_color = Session.Players[index = j]->Slot.ColorIdx; // RA2: as above
+				lowest_color = Session.Players[index = j]->Slot.ColorIdx;
 			}
 		}
 		NodeNameType * player = Session.Players[index];
@@ -2621,13 +2621,13 @@ void Assign_Houses(void)
 		HouseClass * housep = new HouseClass(HouseTypes[player->Slot.Country]); // RA2: the slot fields of the player and its setup (Slot.Country, Slot.ColorIdx), the count read once
 
 		if (Session.Type == GAME_INTERNET) { // RA2: a WOL game names the house after the player
-			Wstring name = Wstring_Narrow(player->Name); // RA2: as above
-			housep->IniName = TStringID<HOUSE_NAME_MAX>(name.get()); // RA2: as above
+			Wstring name = Wstring_Narrow(player->Name);
+			housep->IniName = TStringID<HOUSE_NAME_MAX>(name.get());
 		} else {
-			housep->IniName = TStringID<HOUSE_NAME_MAX>("<human player>"); // RA2: as above
+			housep->IniName = TStringID<HOUSE_NAME_MAX>("<human player>");
 		}
-		wcsncpy(housep->UIName, player->Name, 21); // RA2: as above
-		housep->UIName[20] = L'\0'; // RA2: as above
+		wcsncpy(housep->UIName, player->Name, 21);
+		housep->UIName[20] = L'\0';
 		housep->IsHuman = true;
 		housep->Init_Data(player->Slot.ColorIdx, (HousesType)player->Slot.Country, Session.Options.Credits); // RA2: the slot fields of the player and its setup (Slot.Country, Slot.ColorIdx), the count read once
 
@@ -2661,11 +2661,11 @@ void Assign_Houses(void)
 	// Now assign computer players to the remaining houses.
 	//------------------------------------------------------------------------
 	int computers = Session.Options.AIPlayers; // RA2: the computer players come from the per-slot setup, not from random picks
-	int made = 0; // RA2: as above
-	for (int slot = 0; slot < 8; slot++) { // RA2: as above
+	int made = 0;
+	for (int slot = 0; slot < 8; slot++) {
 		if (made < computers && Session.Options.AISlots.Countries[slot] != -1 && Session.Options.AISlots.Countries[slot] != -3) { // RA2: unused slots are -1, random observers -3
-			int country = Session.Options.AISlots.Countries[slot]; // RA2: as above
-			int color = Session.Options.AISlots.Colors[slot]; // RA2: as above
+			int country = Session.Options.AISlots.Countries[slot];
+			int color = Session.Options.AISlots.Colors[slot];
 			made++; // RA2: the slot fields of the player and its setup (Slot.Country, Slot.ColorIdx), the count read once
 
 			/*
@@ -2680,8 +2680,8 @@ void Assign_Houses(void)
 			housep->Scheme = Session.Color_Index_To_Scheme(color);
 			housep->Initialize_Radar_Color();
 			housep->Update_Laser_Color(); // RA2: 0x4F5570
-			housep->IniName = TStringID<HOUSE_NAME_MAX>("Computer"); // RA2: as above
-			wcscpy(housep->UIName, StringTable::LoadString("TXT_COMPUTER", NULL, "D:\\Ra2\\Scenario.CPP", 3947)); // RA2: as above
+			housep->IniName = TStringID<HOUSE_NAME_MAX>("Computer");
+			wcscpy(housep->UIName, StringTable::LoadString("TXT_COMPUTER", NULL, "D:\\Ra2\\Scenario.CPP", 3947));
 
 			if (Session.Type != GAME_NORMAL) {
 				housep->IQ = Rule->MaxIQ;
@@ -2873,18 +2873,18 @@ void Create_Units(bool official) // RA2: YR's body, at 0x660320 (a list of base 
 
 		if (numtaken == 0) {
 			int pick = Scen->RandomNumber(0, waypts.Count() - 1); // RA2: the first house takes a random start cell
-			centroid = waypts[pick]; // RA2: as above
-			taken[pick] = true; // RA2: as above
+			centroid = waypts[pick];
+			taken[pick] = true;
 			numtaken++;
 		} else {
 			int score[26]; // RA2: each free start cell is scored by its distance to the taken ones
 			memset(score, '\0', sizeof(score));
 
-			for (int index = 0; index < waypts.Count(); index++) { // RA2: as above
-				if (!taken[index]) { // RA2: as above
-					for (int trypoint = 0; trypoint < waypts.Count(); trypoint++) { // RA2: as above
-						if (taken[trypoint]) { // RA2: as above
-							score[index] += Distance(waypts[index], waypts[trypoint]); // RA2: as above
+			for (int index = 0; index < waypts.Count(); index++) {
+				if (!taken[index]) {
+					for (int trypoint = 0; trypoint < waypts.Count(); trypoint++) {
+						if (taken[trypoint]) {
+							score[index] += Distance(waypts[index], waypts[trypoint]);
 						}
 					}
 				}
@@ -2893,13 +2893,13 @@ void Create_Units(bool official) // RA2: YR's body, at 0x660320 (a list of base 
 			int best = 0;
 			int bestvalue = 0;
 			for (int searchindex = 0; searchindex < waypts.Count(); searchindex++) { // RA2: the farthest cell is taken
-				if (score[searchindex] > bestvalue || bestvalue == 0) { // RA2: as above
-					bestvalue = score[searchindex]; // RA2: as above
-					best = searchindex; // RA2: as above
+				if (score[searchindex] > bestvalue || bestvalue == 0) {
+					bestvalue = score[searchindex];
+					best = searchindex;
 				}
 			}
 
-			centroid = waypts[best]; // RA2: as above
+			centroid = waypts[best];
 			taken[best] = true;
 			numtaken++;
 		}
@@ -3134,12 +3134,12 @@ int Scan_Place_Object(ObjectClass * obj, Cell const & cell, int start) // RA2: t
 	}
 
 	int tryval; // RA2: the locals are declared after the first try, in this order
-	FacingType fcounter; // RA2: as above
-	int skipit; // RA2: as above
-	TechnoClass * techno; // RA2: as above
-	Cell newcell; // RA2: as above
-	int dist = start; // RA2: as above
-	FacingType rot; // RA2: as above
+	FacingType fcounter;
+	int skipit;
+	TechnoClass * techno;
+	Cell newcell;
+	int dist = start;
+	FacingType rot;
 	for (; dist < 32; dist++) { // RA2: the locals are declared where they are first needed
 		rot = Random_Pick(FACING_N, FACING_NW);
 
@@ -3190,8 +3190,8 @@ void ScenarioClass::Save(IStream * stream) const
 {
 	DebugString("Scenario Save: ElapsedTimer = %ld\n", ElapsedTimer);
 	bool was_stopped = !ElapsedTimer.Is_Active(); // RA2: Save at 0x660F60 matches only so
-	if (!was_stopped) { // RA2: as above
-		ElapsedTimer.Stop(); // RA2: as above
+	if (!was_stopped) {
+		ElapsedTimer.Stop();
 	}
 
 	stream->Write(this, sizeof(*this), NULL);
@@ -3200,8 +3200,8 @@ void ScenarioClass::Save(IStream * stream) const
 	AllowableUnitMaximums.Save(stream);
 	AllowableUnitCounts.Save(stream);
 
-	if (!was_stopped) { // RA2: as above
-		ElapsedTimer.Start(); // RA2: as above
+	if (!was_stopped) {
+		ElapsedTimer.Start();
 	}
 }
 
@@ -3231,9 +3231,9 @@ void ScenarioClass::Load(IStream * stream)
 	}
 
 	if (MissionTimerText[0] != '\0') { // RA2: the timer's label is fetched again from its string table name (0x66125D)
-		MissionTimerTextCSF = StringTable::LoadString(MissionTimerText, NULL, "D:\\Ra2\\Scenario.CPP", 6379); // RA2: as above
+		MissionTimerTextCSF = StringTable::LoadString(MissionTimerText, NULL, "D:\\Ra2\\Scenario.CPP", 6379);
 	} else {
-		MissionTimerTextCSF = L""; // RA2: as above
+		MissionTimerTextCSF = L"";
 	}
 
 	ElapsedTimer.Start();
@@ -3600,29 +3600,29 @@ bool ScenarioClass::Read_INI(CCINIClass const & ini)
 
 	char const * const RANKING = "Ranking"; // RA2: the par times and rank texts are read before the lighting
 
-	ParTimeEasy = ini.Get_Time(RANKING, "ParTimeEasy", ParTimeEasy); // RA2: as above
-	ParTimeMedium = ini.Get_Time(RANKING, "ParTimeMedium", ParTimeMedium); // RA2: as above
-	ParTimeDifficult = ini.Get_Time(RANKING, "ParTimeHard", ParTimeDifficult); // RA2: as above
-	ini.Get_String(RANKING, "UnderParTitle", "GUI:NoUnderParTitle", UnderParTitle, sizeof(UnderParTitle)); // RA2: as above
-	ini.Get_String(RANKING, "UnderParMessage", "GUI:NoUnderParMessage", UnderParMessage, sizeof(UnderParMessage)); // RA2: as above
-	ini.Get_String(RANKING, "OverParTitle", "GUI:NoOverParTitle", OverParTitle, sizeof(OverParTitle)); // RA2: as above
-	ini.Get_String(RANKING, "OverParMessage", "GUI:NoOverParMessage", OverParMessage, sizeof(OverParMessage)); // RA2: as above
+	ParTimeEasy = ini.Get_Time(RANKING, "ParTimeEasy", ParTimeEasy);
+	ParTimeMedium = ini.Get_Time(RANKING, "ParTimeMedium", ParTimeMedium);
+	ParTimeDifficult = ini.Get_Time(RANKING, "ParTimeHard", ParTimeDifficult);
+	ini.Get_String(RANKING, "UnderParTitle", "GUI:NoUnderParTitle", UnderParTitle, sizeof(UnderParTitle));
+	ini.Get_String(RANKING, "UnderParMessage", "GUI:NoUnderParMessage", UnderParMessage, sizeof(UnderParMessage));
+	ini.Get_String(RANKING, "OverParTitle", "GUI:NoOverParTitle", OverParTitle, sizeof(OverParTitle));
+	ini.Get_String(RANKING, "OverParMessage", "GUI:NoOverParMessage", OverParMessage, sizeof(OverParMessage));
 
 	char const * const LIGHTING = "Lighting";
 
 	DesiredAmbientLight = CurrentAmbientLight = AmbientLight = (int)(ini.Get_Float(LIGHTING, "Ambient", AmbientLight * 0.01) * 100.0); // RA2: the lighting reads (and its defaults) default to the current value times 0.01, the ground and level ones to an integer division by 1000
-	RedTint = (int)(ini.Get_Float(LIGHTING, "Red", RedTint * 0.01) * 100.0); // RA2: as above
-	GreenTint = (int)(ini.Get_Float(LIGHTING, "Green", GreenTint * 0.01) * 100.0); // RA2: as above
-	BlueTint = (int)(ini.Get_Float(LIGHTING, "Blue", BlueTint * 0.01) * 100.0); // RA2: as above
-	GroundLight = (int)(ini.Get_Float(LIGHTING, "Ground", GroundLight / 1000) * 1000.0); // RA2: as above
-	LevelLight = (int)(ini.Get_Float(LIGHTING, "Level", LevelLight / 1000) * 1000.0); // RA2: as above
-	IonAmbientLight = (int)(ini.Get_Float(LIGHTING, "IonAmbient", AmbientLight * 0.01) * 100.0); // RA2: as above
-	IonRedTint = (int)(ini.Get_Float(LIGHTING, "IonRed", RedTint * 0.01) * 100.0); // RA2: as above
-	IonGreenTint = (int)(ini.Get_Float(LIGHTING, "IonGreen", GreenTint * 0.01) * 100.0); // RA2: as above
-	IonBlueTint = (int)(ini.Get_Float(LIGHTING, "IonBlue", BlueTint * 0.01) * 100.0); // RA2: as above
-	IonGroundLight = (int)(ini.Get_Float(LIGHTING, "IonGround", GroundLight / 1000) * 1000.0); // RA2: as above
-	IonLevelLight = (int)(ini.Get_Float(LIGHTING, "IonLevel", LevelLight / 1000) * 1000.0); // RA2: as above
-	NukeAmbientChangeRate = ini.Get_Float(LIGHTING, "NukeAmbientChangeRate", NukeAmbientChangeRate); // RA2: as above
+	RedTint = (int)(ini.Get_Float(LIGHTING, "Red", RedTint * 0.01) * 100.0);
+	GreenTint = (int)(ini.Get_Float(LIGHTING, "Green", GreenTint * 0.01) * 100.0);
+	BlueTint = (int)(ini.Get_Float(LIGHTING, "Blue", BlueTint * 0.01) * 100.0);
+	GroundLight = (int)(ini.Get_Float(LIGHTING, "Ground", GroundLight / 1000) * 1000.0);
+	LevelLight = (int)(ini.Get_Float(LIGHTING, "Level", LevelLight / 1000) * 1000.0);
+	IonAmbientLight = (int)(ini.Get_Float(LIGHTING, "IonAmbient", AmbientLight * 0.01) * 100.0);
+	IonRedTint = (int)(ini.Get_Float(LIGHTING, "IonRed", RedTint * 0.01) * 100.0);
+	IonGreenTint = (int)(ini.Get_Float(LIGHTING, "IonGreen", GreenTint * 0.01) * 100.0);
+	IonBlueTint = (int)(ini.Get_Float(LIGHTING, "IonBlue", BlueTint * 0.01) * 100.0);
+	IonGroundLight = (int)(ini.Get_Float(LIGHTING, "IonGround", GroundLight / 1000) * 1000.0);
+	IonLevelLight = (int)(ini.Get_Float(LIGHTING, "IonLevel", LevelLight / 1000) * 1000.0);
+	NukeAmbientChangeRate = ini.Get_Float(LIGHTING, "NukeAmbientChangeRate", NukeAmbientChangeRate);
 
 	Session.Update_Progress(55);
 	Call_Back();
@@ -3633,13 +3633,13 @@ bool ScenarioClass::Read_INI(CCINIClass const & ini)
 	*/
 	if (Session.Type == GAME_NORMAL) {
 		char player[20]; // RA2: the player's house is found by its name among the houses made, not by type
-		ini.Get_String(BASIC, "Player", "", player, sizeof(player)); // RA2: as above
-		int house = House_Index_From_Name(player); // RA2: as above
-		if (house == -1) { // RA2: as above
-			house = 0; // RA2: as above
+		ini.Get_String(BASIC, "Player", "", player, sizeof(player));
+		int house = House_Index_From_Name(player);
+		if (house == -1) {
+			house = 0;
 		}
-		PlayerPtr = Houses[house]; // RA2: as above
-		PlayerHouse = PlayerPtr->Class->House; // RA2: as above
+		PlayerPtr = Houses[house];
+		PlayerHouse = PlayerPtr->Class->House;
 	} else {
 		Assign_Houses();
 	}
@@ -3685,25 +3685,25 @@ bool ScenarioClass::Write_INI(CCINIClass & ini, bool mplayer) const
 	static char const * const BASIC = "Basic"; // RA2: RA2's form
 	ini.Clear(BASIC);
 	ini.Clear(BASIC, "CivEvac");
-	if (strlen(Scen->BriefingCSF) != 0) { // RA2: as above
-		ini.Put_String(BASIC, "Briefing", Scen->BriefingCSF); // RA2: as above
+	if (strlen(Scen->BriefingCSF) != 0) {
+		ini.Put_String(BASIC, "Briefing", Scen->BriefingCSF);
 	}
-	if (strlen(Scen->UIName) != 0) { // RA2: as above
-		ini.Put_String(BASIC, "UIName", Scen->UIName); // RA2: as above
+	if (strlen(Scen->UIName) != 0) {
+		ini.Put_String(BASIC, "UIName", Scen->UIName);
 	}
-	Special.Write_INI(ini); // RA2: as above
-	ini.Put_String(BASIC, "NextScenario", NextScenarioName); // RA2: as above
-	ini.Put_String(BASIC, "AltNextScenario", AltNextScenarioName); // RA2: as above
-	ini.Put_UnicodeString(BASIC, "Name", Description); // RA2: as above
-	ini.Put_Int(BASIC, "NewINIFormat", 4); // RA2: as above
+	Special.Write_INI(ini);
+	ini.Put_String(BASIC, "NextScenario", NextScenarioName);
+	ini.Put_String(BASIC, "AltNextScenario", AltNextScenarioName);
+	ini.Put_UnicodeString(BASIC, "Name", Description);
+	ini.Put_Int(BASIC, "NewINIFormat", 4);
 	ini.Put_Int(BASIC, "CarryOverCap", CarryOverCap / 100);
-	ini.Put_Bool(BASIC, "EndOfGame", IsEndOfGame); // RA2: as above
-	ini.Put_Bool(BASIC, "SkipScore", IsSkipScore); // RA2: as above
-	ini.Put_Bool(BASIC, "OneTimeOnly", IsOneTimeOnly); // RA2: as above
-	ini.Put_Bool(BASIC, "SkipMapSelect", IsNoMapSel); // RA2: as above
+	ini.Put_Bool(BASIC, "EndOfGame", IsEndOfGame);
+	ini.Put_Bool(BASIC, "SkipScore", IsSkipScore);
+	ini.Put_Bool(BASIC, "OneTimeOnly", IsOneTimeOnly);
+	ini.Put_Bool(BASIC, "SkipMapSelect", IsNoMapSel);
 	ini.Put_Bool(BASIC, "Official", true);
 	ini.Put_Bool(BASIC, "IgnoreGlobalAITriggers", IsIgnoreGlobalAITriggers);
-	ini.Put_Bool(BASIC, "TruckCrate", IsTruckCrate); // RA2: as above
+	ini.Put_Bool(BASIC, "TruckCrate", IsTruckCrate);
 	ini.Put_Bool(BASIC, "TrainCrate", IsTrainCargo);
 	ini.Put_Int(BASIC, "Percent", Percent);
 	ini.Put_TechnoType_List(BASIC, "AllowableUnits", AllowableUnits);
@@ -3711,9 +3711,9 @@ bool ScenarioClass::Write_INI(CCINIClass & ini, bool mplayer) const
 	ini.Put_ThemeType(BASIC, "Theme", TransitTheme); // RA2: written under the key "Theme" (the string at 0x007D9D6C), the key Read_INI reads
 
 	if (!mplayer) {
-		char player[32]; // RA2: as above
-		strcpy(player, PlayerPtr->IniName); // RA2: as above
-		ini.Put_String(BASIC, "Player", player); // RA2: as above
+		char player[32];
+		strcpy(player, PlayerPtr->IniName);
+		ini.Put_String(BASIC, "Player", player);
 		ini.Put_VQType(BASIC, "Intro", IntroMovie);
 		ini.Put_VQType(BASIC, "Brief", BriefMovie);
 		ini.Put_VQType(BASIC, "Win", WinMovie);
@@ -3721,56 +3721,56 @@ bool ScenarioClass::Write_INI(CCINIClass & ini, bool mplayer) const
 		ini.Put_VQType(BASIC, "Action", ActionMovie);
 		ini.Put_VQType(BASIC, "PostScore", PostScoreMovie);
 		ini.Put_VQType(BASIC, "PreMapSelect", PreMapSelectMovie);
-		ini.Put_Float(BASIC, "CarryOverMoney", CarryOverPercent); // RA2: as above
+		ini.Put_Float(BASIC, "CarryOverMoney", CarryOverPercent);
 		ini.Put_Bool(BASIC, "TimerInherit", IsInheritTimer);
-		ini.Put_Bool(BASIC, "FillSilos", IsMoneyTiberium); // RA2: as above
+		ini.Put_Bool(BASIC, "FillSilos", IsMoneyTiberium);
 		ini.Put_Int(BASIC, "StartingDropships", StartingDropships);
-		ini.Put_Int(BASIC, "HomeCell", Home); // RA2: as above
-		ini.Put_Int(BASIC, "AltHomeCell", AltHome); // RA2: as above
+		ini.Put_Int(BASIC, "HomeCell", Home);
+		ini.Put_Int(BASIC, "AltHomeCell", AltHome);
 	}
-	ini.Put_Int(BASIC, "MultiplayerOnly", IsMultiplayerOnly); // RA2: as above
+	ini.Put_Int(BASIC, "MultiplayerOnly", IsMultiplayerOnly);
 	ini.Put_Bool(BASIC, "TiberiumGrowthEnabled", IsTibGrowth);
 	ini.Put_Bool(BASIC, "VeinGrowthEnabled", IsVeinGrowth);
 	ini.Put_Bool(BASIC, "IceGrowthEnabled", IsIceGrowth);
-	ini.Put_Bool(BASIC, "TiberiumDeathToVisceroid", IsTiberiumDeathToVisceroid); // RA2: as above
-	ini.Put_Bool(BASIC, "FreeRadar", IsFreeRadar); // RA2: as above
+	ini.Put_Bool(BASIC, "TiberiumDeathToVisceroid", IsTiberiumDeathToVisceroid);
+	ini.Put_Bool(BASIC, "FreeRadar", IsFreeRadar);
 	ini.Put_Int(BASIC, "InitTime", InitTime);
 
 	Write_Local_INI(ini); // RA2: the local variable names (the image's one "VariableNames" pointer at 0x007A9200 serves both)
 
-	ini.Put_Time("Ranking", "ParTimeEasy", ParTimeEasy); // RA2: as above
-	ini.Put_Time("Ranking", "ParTimeMedium", ParTimeMedium); // RA2: as above
-	ini.Put_Time("Ranking", "ParTimeHard", ParTimeDifficult); // RA2: as above
-	ini.Put_String("Ranking", "UnderParTitle", UnderParTitle); // RA2: as above
-	ini.Put_String("Ranking", "UnderParMessage", UnderParMessage); // RA2: as above
-	ini.Put_String("Ranking", "OverParTitle", OverParTitle); // RA2: as above
-	ini.Put_String("Ranking", "OverParMessage", OverParMessage); // RA2: as above
+	ini.Put_Time("Ranking", "ParTimeEasy", ParTimeEasy);
+	ini.Put_Time("Ranking", "ParTimeMedium", ParTimeMedium);
+	ini.Put_Time("Ranking", "ParTimeHard", ParTimeDifficult);
+	ini.Put_String("Ranking", "UnderParTitle", UnderParTitle);
+	ini.Put_String("Ranking", "UnderParMessage", UnderParMessage);
+	ini.Put_String("Ranking", "OverParTitle", OverParTitle);
+	ini.Put_String("Ranking", "OverParMessage", OverParMessage);
 
-	ini.Clear("Lighting"); // RA2: as above
-	double ambient = AmbientLight * 0.01; // RA2: as above
-	ini.Put_Float("Lighting", "Ambient", ambient); // RA2: as above
-	double red = RedTint * 0.01; // RA2: as above
-	ini.Put_Float("Lighting", "Red", red); // RA2: as above
-	double green = GreenTint * 0.01; // RA2: as above
-	ini.Put_Float("Lighting", "Green", green); // RA2: as above
-	double blue = BlueTint * 0.01; // RA2: as above
-	ini.Put_Float("Lighting", "Blue", blue); // RA2: as above
-	double ground = GroundLight * 0.001; // RA2: as above
-	ini.Put_Float("Lighting", "Ground", ground); // RA2: as above
-	double level = LevelLight * 0.001; // RA2: as above
-	ini.Put_Float("Lighting", "Level", level); // RA2: as above
-	double ionambient = IonAmbientLight * 0.01; // RA2: as above
-	ini.Put_Float("Lighting", "IonAmbient", ionambient); // RA2: as above
-	double ionred = IonRedTint * 0.01; // RA2: as above
-	ini.Put_Float("Lighting", "IonRed", ionred); // RA2: as above
-	double iongreen = IonGreenTint * 0.01; // RA2: as above
-	ini.Put_Float("Lighting", "IonGreen", iongreen); // RA2: as above
-	double ionblue = IonBlueTint * 0.01; // RA2: as above
-	ini.Put_Float("Lighting", "IonBlue", ionblue); // RA2: as above
-	double ionground = IonGroundLight * 0.001; // RA2: as above
-	ini.Put_Float("Lighting", "IonGround", ionground); // RA2: as above
-	double ionlevel = IonLevelLight * 0.001; // RA2: as above
-	ini.Put_Float("Lighting", "IonLevel", ionlevel); // RA2: as above
+	ini.Clear("Lighting");
+	double ambient = AmbientLight * 0.01;
+	ini.Put_Float("Lighting", "Ambient", ambient);
+	double red = RedTint * 0.01;
+	ini.Put_Float("Lighting", "Red", red);
+	double green = GreenTint * 0.01;
+	ini.Put_Float("Lighting", "Green", green);
+	double blue = BlueTint * 0.01;
+	ini.Put_Float("Lighting", "Blue", blue);
+	double ground = GroundLight * 0.001;
+	ini.Put_Float("Lighting", "Ground", ground);
+	double level = LevelLight * 0.001;
+	ini.Put_Float("Lighting", "Level", level);
+	double ionambient = IonAmbientLight * 0.01;
+	ini.Put_Float("Lighting", "IonAmbient", ionambient);
+	double ionred = IonRedTint * 0.01;
+	ini.Put_Float("Lighting", "IonRed", ionred);
+	double iongreen = IonGreenTint * 0.01;
+	ini.Put_Float("Lighting", "IonGreen", iongreen);
+	double ionblue = IonBlueTint * 0.01;
+	ini.Put_Float("Lighting", "IonBlue", ionblue);
+	double ionground = IonGroundLight * 0.001;
+	ini.Put_Float("Lighting", "IonGround", ionground);
+	double ionlevel = IonLevelLight * 0.001;
+	ini.Put_Float("Lighting", "IonLevel", ionlevel);
 	return(true);
 }
 
@@ -3821,52 +3821,52 @@ int Adjust_To_CPU_Timing(int time)
 void ScenarioClass::Compute_CRC(CRCEngine & crc) const
 {
 	crc(UIName); // RA2: RA2's form
-	crc((long)IntroMovie); // RA2: as above
-	crc((long)BriefMovie); // RA2: as above
-	crc((long)WinMovie); // RA2: as above
-	crc((long)LoseMovie); // RA2: as above
-	crc((long)ActionMovie); // RA2: as above
-	crc((long)PostScoreMovie); // RA2: as above
-	crc((long)PreMapSelectMovie); // RA2: as above
-	crc((long)PlayerHouse); // RA2: as above
-	crc((long)Percent); // RA2: as above
-	crc((long)TransitTheme); // RA2: as above
+	crc((long)IntroMovie);
+	crc((long)BriefMovie);
+	crc((long)WinMovie);
+	crc((long)LoseMovie);
+	crc((long)ActionMovie);
+	crc((long)PostScoreMovie);
+	crc((long)PreMapSelectMovie);
+	crc((long)PlayerHouse);
+	crc((long)Percent);
+	crc((long)TransitTheme);
 	crc(CarryOverPercent);
 	crc(IsMultiplayerOnly);
 	crc(IsInheritTimer);
-	crc((long)(CarryOverCap / 100)); // RA2: as above
-	crc((long)BridgeCount); // RA2: as above
+	crc((long)(CarryOverCap / 100));
+	crc((long)BridgeCount);
 	crc(IsEndOfGame);
-	crc((long)Campaign); // RA2: as above
+	crc((long)Campaign);
 	crc(IsSkipScore);
 	crc(IsOneTimeOnly);
 	crc(IsNoMapSel);
 	crc(IsMoneyTiberium);
 	crc(IsIgnoreGlobalAITriggers);
 	crc(IsTruckCrate);
-	crc((long)Percent); // RA2: as above
-	crc((long)StartingDropships); // RA2: as above
-	crc((long)MissionTimer.Value()); // RA2: as above
-	crc((long)ShroudTimer.Value()); // RA2: as above
-	crc((long)FogTimer.Value()); // RA2: as above
-	crc((long)IceGrowthTimer.Value()); // RA2: as above
-	crc((long)VeinGrowthTimer.Value()); // RA2: as above
-	crc((long)ElapsedTimer.Value()); // RA2: as above
-	crc((long)Difficulty); // RA2: as above
-	crc((long)CDifficulty); // RA2: as above
-	crc((long)Theater); // RA2: as above
-	crc((long)GroundLight); // RA2: as above
-	crc((long)LevelLight); // RA2: as above
+	crc((long)Percent);
+	crc((long)StartingDropships);
+	crc((long)MissionTimer.Value());
+	crc((long)ShroudTimer.Value());
+	crc((long)FogTimer.Value());
+	crc((long)IceGrowthTimer.Value());
+	crc((long)VeinGrowthTimer.Value());
+	crc((long)ElapsedTimer.Value());
+	crc((long)Difficulty);
+	crc((long)CDifficulty);
+	crc((long)Theater);
+	crc((long)GroundLight);
+	crc((long)LevelLight);
 	crc(IsFreeRadar);
-	crc((long)IonAmbientLight); // RA2: as above
-	crc((long)IonRedTint); // RA2: as above
-	crc((long)IonGreenTint); // RA2: as above
-	crc((long)IonBlueTint); // RA2: as above
-	crc((long)IonGroundLight); // RA2: as above
-	crc((long)IonLevelLight); // RA2: as above
-	crc((long)AmbientLight); // RA2: as above
-	crc((long)CurrentAmbientLight); // RA2: as above
-	crc((long)DesiredAmbientLight); // RA2: as above
+	crc((long)IonAmbientLight);
+	crc((long)IonRedTint);
+	crc((long)IonGreenTint);
+	crc((long)IonBlueTint);
+	crc((long)IonGroundLight);
+	crc((long)IonLevelLight);
+	crc((long)AmbientLight);
+	crc((long)CurrentAmbientLight);
+	crc((long)DesiredAmbientLight);
 }
 
 

@@ -160,13 +160,13 @@ static inline int Ground_Distance(Coord const & to, ObjectClass * object) // RA2
 
 static inline int Ground_Distance2(Point2D const & to, Coord const & from) // RA2: inline in 0x0063DE90; x*x + y*y
 {
-	Point2D delta = Point2D(from.X, from.Y) - to; // RA2: as above
+	Point2D delta = Point2D(from.X, from.Y) - to;
 	return((int)fastmath::sqrt((double)delta.X * (double)delta.X + (double)delta.Y * (double)delta.Y));
 }
 
 static inline int Ground_Distance2(Coord const & to, ObjectClass * object) // RA2: inline in 0x0063DE90
 {
-	return(Ground_Distance2(Point2D(to.X, to.Y), object->Center_Coord())); // RA2: as above
+	return(Ground_Distance2(Point2D(to.X, to.Y), object->Center_Coord()));
 }
 
 static inline DirType Direction_To(ObjectClass * object, Coord const & to) // RA2: inline in 0x0063DE90

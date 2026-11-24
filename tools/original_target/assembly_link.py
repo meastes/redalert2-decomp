@@ -12,13 +12,14 @@ before linking it in place of scaffold. Evidenced handwritten assembly is its ow
 ledger category, not C/C++ credit.
 
 Revised, binary-derived lines (user decision 2026-11-24): the allowlisted procedures
-of the ra2-decomp `src/ra2asm` files in src/recovered/asm/ra2asm (assembly_tools.
+of the ra2-decomp `src/ra2asm` files in <tree asm>/ra2asm (assembly_tools.
 REVISED_ALLOWLIST) are placed after every archive procedure, so they never displace
 an archive row; each carries `revised: binary-derived` and its cited archive parent,
 and an archive miss of the same procedure leaves the miss list. Their own category:
 Reproduced .text only, never C/C++.
 
     python3 tools/original_target/assembly_link.py --write     # manifests/original_target/assembly.json
+    RA2_TREE=rebuild python3 tools/original_target/assembly_link.py --write   # rebuild/manifest/assembly.json
 """
 import argparse
 import json
@@ -30,11 +31,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import assembly_tools as AT  # noqa: E402
 import library_identity as LI  # noqa: E402
+import tree  # noqa: E402
 
 REPOSITORY = AT.REPOSITORY
-MANIFEST = REPOSITORY / 'manifests/original_target/assembly.json'
-SOURCES = sorted(p.relative_to(REPOSITORY).as_posix() for p in (REPOSITORY / 'src/recovered/asm').glob('*.asm'))
-INCLUDES = sorted(p.relative_to(REPOSITORY).as_posix() for p in (REPOSITORY / 'src/recovered/asm').glob('*.inc'))
+MANIFEST = REPOSITORY / tree.ASSEMBLY
+SOURCES = sorted(p.relative_to(REPOSITORY).as_posix() for p in (REPOSITORY / tree.ASM).glob('*.asm'))
+INCLUDES = sorted(p.relative_to(REPOSITORY).as_posix() for p in (REPOSITORY / tree.ASM).glob('*.inc'))
 ARCHIVE = dict(name='OpenTS-Developers/TibSun', commit='dbfbfbfaac40364ce7e1cd8fad7bcade5c6fb0d4', path='code/<file>.asm',
                licence='GPL-3.0-or-later with EA section 7 terms (THIRD_PARTY.md); adopted unchanged, user decision 2026-11-06')
 

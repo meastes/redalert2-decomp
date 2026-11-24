@@ -14,8 +14,11 @@ procedures count as matched, as they do in the treemap.
 One unit per treemap group (class, recovered directory or original source file). A function counts as
 matched only when accepted exact; others carry their best recorded score as fuzzy_match_percent.
 
-    python3 tools/original_target/bytematch_report.py                    # build/bytematch/report.json
-    python3 tools/original_target/bytematch_report.py --upload          # token from private/bytematch.token
+    python3 tools/original_target/bytematch_report.py --tree main        # build/bytematch/report.json
+    python3 tools/original_target/bytematch_report.py --tree main --upload   # token from private/bytematch.token
+
+The default is --tree rebuild (rebuild/ is the tree of record from 2026-11-24, user decision in the owner
+session); main's series (src/, frozen at the tag src-final) had its last upload at src-final.
 
 Rebuild mode (--tree rebuild, version ra2-rebuild) reports the rebuild tree (branch rebuild-trial, worktree
 .claude/worktrees/lane-r) over the same in-scope function set and byte denominator, so its percentages
@@ -25,7 +28,7 @@ rebuild/manifest/catalog. Others carry the rebuild's own recorded score: the uni
 (build/r/last/<unit>.json, only when it is of the current source) or units.json parked_rows best_differing;
 count-sensitive rows are not matched. Library and handwritten assembly stay out of scope, as in main's mode.
 
-    python3 tools/original_target/bytematch_report.py --tree rebuild    # build/bytematch/rebuild-report.json
+    python3 tools/original_target/bytematch_report.py                  # build/bytematch/rebuild-report.json
 """
 import argparse
 import hashlib
@@ -301,7 +304,8 @@ def build_rebuild(treemap, worktree):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--treemap', type=Path, default=REPOSITORY / 'build/treemap.json')
-    ap.add_argument('--tree', choices=('main', 'rebuild'), default='main')
+    ap.add_argument('--tree', choices=('main', 'rebuild'), default='rebuild',
+                    help='rebuild (default: the tree of record since 2026-11-24) or main (src/, frozen at src-final)')
     ap.add_argument('--worktree', type=Path, default=REBUILD_WORKTREE, help='rebuild worktree (--tree rebuild)')
     ap.add_argument('--out', type=Path)
     ap.add_argument('--upload', action='store_true', help='POST to ByteMatch (token in $BYTEMATCH_TOKEN)')

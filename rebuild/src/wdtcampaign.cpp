@@ -35,7 +35,7 @@ int __fastcall WDT_Get_Campaign_ID(Wstring const & section) // RA2: __fastcall (
 		ini.Load(file);
 		file.Close();
 		Wstring key("CampaignID"); // RA2: the Wstring overload of Get_Int, the key is a Wstring made on the stack
-		return(ini.Get_Int(section, key, -1)); // RA2: as above
+		return(ini.Get_Int(section, key, -1));
 	}
 	return(-1);
 }
@@ -50,10 +50,10 @@ int __fastcall WDT_Get_Campaign_ID(Wstring const & section) // RA2: __fastcall (
 /// <returns>Returns with the new campaign, or an empty pointer when there are no properties.</returns>
 rc_ptr<Campaign> __fastcall Campaign::Create(Wstring const & name, rc_ptr<CampaignProperties> const & props) // RA2: the 0x00725EE0 function every counted class has; the constructor takes counted properties
 {
-	if (props.Get() == NULL) { // RA2: as above
-		return rc_ptr<Campaign>(); // RA2: as above
+	if (props.Get() == NULL) {
+		return rc_ptr<Campaign>();
 	}
-	return rc_ptr<Campaign>(new Campaign(name, props)); // RA2: as above
+	return rc_ptr<Campaign>(new Campaign(name, props));
 }
 
 
@@ -74,16 +74,16 @@ Campaign::Campaign(Wstring const & name, rc_ptr<CampaignProperties> const & prop
 	Name(name) // RA2: the name is a Wstring member
 {
 	memset(LastDay, 0, sizeof(LastDay)); // RA2: one last day per faction instead of a single previous tick
-	if (props->TourState.Get() != NULL) { // RA2: as above
+	if (props->TourState.Get() != NULL) {
 		rc_ptr<State> state = CycleHistory->Get_State(props->Get_Current_Tick()); // RA2: a counted state
-		unsigned int terrnum = props->TourState->NumTerritories; // RA2: as above
+		unsigned int terrnum = props->TourState->NumTerritories;
 		while (terrnum--) {
 			if (state->Owner_Of(terrnum) == 1) { // RA2: Owner_Of 1 is a disputed territory
 				DynamicVectorClass<rc_ptr<WDTTerritory> > & territories = props->TourState->Territories; // RA2: counted territories
 				rc_ptr<WDTTerritory> territory = terrnum < (unsigned)territories.Count() ? territories[terrnum] : rc_ptr<WDTTerritory>(); // RA2: a copy, empty past the end
-				if (territory.Get() != NULL) { // RA2: as above
+				if (territory.Get() != NULL) {
 					rc_ptr<Conflict> conflict = Conflict::Create(territory); // RA2: conflicts are counted and made by Create
-					Conflicts.Add(conflict); // RA2: as above
+					Conflicts.Add(conflict);
 				}
 			}
 		}
@@ -94,21 +94,21 @@ Campaign::Campaign(Wstring const & name, rc_ptr<CampaignProperties> const & prop
 		INIClass ini;
 		ini.Load(file);
 		file.Close();
-		int cycle_id; // RA2: as above
+		int cycle_id;
 		{
 			Wstring key("CampaignID"); // RA2: the Wstring overload of Get_Int, the key is built on the stack
-			cycle_id = ini.Get_Int(Name, key, -1); // RA2: as above
+			cycle_id = ini.Get_Int(Name, key, -1);
 		}
 		CycleID = cycle_id < 0 ? 0 : cycle_id;
-		if (CycleID == props->Get_Cycle_ID()) { // RA2: as above
+		if (CycleID == props->Get_Cycle_ID()) {
 			for (int faction = 0; faction < 4; faction++) { // RA2: every faction has its own last day, saved as LastDay<faction name>
-				Wstring key = Wstring("LastDay") + Faction_Code(faction); // RA2: as above
-				int day = ini.Get_Int(Name, key, 0); // RA2: as above
-				LastDay[faction] = day < 0 ? 0 : day; // RA2: as above
+				Wstring key = Wstring("LastDay") + Faction_Code(faction);
+				int day = ini.Get_Int(Name, key, 0);
+				LastDay[faction] = day < 0 ? 0 : day;
 			}
 			{
-				Wstring key("PlayerFaction"); // RA2: as above
-				PlayerFaction = ini.Get_Int(Name, key, PlayerFaction); // RA2: as above
+				Wstring key("PlayerFaction");
+				PlayerFaction = ini.Get_Int(Name, key, PlayerFaction);
 			}
 		} else {
 			memset(LastDay, 0, sizeof(LastDay)); // RA2: a fresh start forgets every faction's last day
@@ -135,7 +135,7 @@ Campaign::~Campaign(void)
 bool Campaign::Is_Different_Cycle(void) const // RA2: const (0x00726350)
 {
 	int cycle = Properties->Get_Cycle_ID(); // RA2: the properties are a counted pointer; the value is read into a local first
-	return(CycleID != cycle); // RA2: as above
+	return(CycleID != cycle);
 }
 
 
@@ -149,11 +149,11 @@ bool Campaign::Is_Different_Cycle(void) const // RA2: const (0x00726350)
 bool Campaign::Is_Different(int faction) const // RA2: const, one last day per faction (0x00726370)
 {
 	int cycle = Properties->Get_Cycle_ID(); // RA2: not a call of Is_Different_Cycle, the test is expanded
-	if (CycleID != cycle) { // RA2: as above
-		return(true); // RA2: as above
+	if (CycleID != cycle) {
+		return(true);
 	}
-	cycle = Properties->Get_Current_Tick(); // RA2: as above
-	return(LastDay[faction] != cycle ? true : false); // RA2: as above
+	cycle = Properties->Get_Current_Tick();
+	return(LastDay[faction] != cycle ? true : false);
 }
 
 
@@ -164,7 +164,7 @@ bool Campaign::Is_Different(int faction) const // RA2: const, one last day per f
 /// <returns>Returns with the faction's last recorded day.</returns>
 int Campaign::Get_Last_Day(int faction) const // RA2: 0x007263A0
 {
-	return(LastDay[faction]); // RA2: as above
+	return(LastDay[faction]);
 }
 
 
@@ -176,16 +176,16 @@ int Campaign::Get_Last_Day(int faction) const // RA2: 0x007263A0
 /// <param name="faction">The faction whose progress is saved.</param>
 void Campaign::Save_Progress(int faction) // RA2: the day is saved per faction (0x007263B0, TibSun's Write_INI)
 {
-	CycleID = Properties->Get_Cycle_ID(); // RA2: as above
+	CycleID = Properties->Get_Cycle_ID();
 	LastDay[faction] = Properties->Get_Current_Tick(); // RA2: one last day per faction
 	INIClass ini;
 	Load_INI(ini);
 	Wstring key = Wstring("LastDay") + Faction_Code(faction); // RA2: the entry is named after the faction
 	{
 		Wstring id_key("CampaignID"); // RA2: the Wstring overload of Put_Int
-		ini.Put_Int(Name, id_key, CycleID, 0); // RA2: as above
+		ini.Put_Int(Name, id_key, CycleID, 0);
 	}
-	ini.Put_Int(Name, key, LastDay[faction], 0); // RA2: as above
+	ini.Put_Int(Name, key, LastDay[faction], 0);
 	CDFileClass file;
 	file.Open("WDTHist.ini", FileClass::WRITE);
 	ini.Save(file);
@@ -203,11 +203,11 @@ void Campaign::Reset_Progress(void) // RA2: 0x00726580, TibSun's Reset_INI; noth
 	Load_INI(ini);
 	{
 		Wstring key("CampaignID"); // RA2: the Wstring overload of Put_Int
-		ini.Put_Int(Name, key, 0, 0); // RA2: as above
+		ini.Put_Int(Name, key, 0, 0);
 	}
 	for (int faction = 0; faction < 4; faction++) { // RA2: every faction's last day is cleared
-		Wstring key = Wstring("LastDay") + Faction_Code(faction); // RA2: as above
-		ini.Put_Int(Name, key, 0, 0); // RA2: as above
+		Wstring key = Wstring("LastDay") + Faction_Code(faction);
+		ini.Put_Int(Name, key, 0, 0);
 	}
 	CDFileClass file;
 	file.Open("WDTHist.ini", FileClass::WRITE);
@@ -249,7 +249,7 @@ void Campaign::Set_Faction(int faction) // RA2: 0x007267C0
 		Load_INI(ini);
 		{
 			Wstring key("PlayerFaction"); // RA2: the Wstring overload of Put_Int
-			ini.Put_Int(Name, key, PlayerFaction, 0); // RA2: as above
+			ini.Put_Int(Name, key, PlayerFaction, 0);
 		}
 		CDFileClass file;
 		file.Open("WDTHist.ini", FileClass::WRITE);

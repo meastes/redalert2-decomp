@@ -173,7 +173,7 @@ void MouseClass::Mouse_Small(bool wsmall)
 	int frame = Get_Mouse_Start_Frame(CurrentMouseShape, wsmall); // RA2: 0x59F090 calls the start frame (0x59F170) and adds Frame below
 	Point2D hotspot = Get_Mouse_Hotspot(CurrentMouseShape);
 
-	MouseCursor->Set_Cursor(hotspot, MouseShapes, frame + Frame); // RA2: as above
+	MouseCursor->Set_Cursor(hotspot, MouseShapes, frame + Frame);
 }
 
 
@@ -327,7 +327,7 @@ void MouseClass::AI(KeyNumType &input, Point2D const & xy)
 		Timer = control->FrameRate;
 
 		int start = Get_Mouse_Start_Frame(CurrentMouseShape, IsSmall); // RA2: start frame plus Frame (meastes 0x59F390)
-		MouseCursor->Set_Cursor(Get_Mouse_Hotspot(CurrentMouseShape), MouseShapes, start + Frame); // RA2: as above
+		MouseCursor->Set_Cursor(Get_Mouse_Hotspot(CurrentMouseShape), MouseShapes, start + Frame);
 	}
 
 	BASECLASS::AI(input, xy);
@@ -439,8 +439,8 @@ HRESULT MouseClass::Load(IStream * stream)
 
 		for (i = 0; i < SUBZONE_COUNT; i++) {
 			if (SubzoneConnectionHashTable[i] != NULL) { // RA2: YR's Load (unplaced; TibSun's does not compile against RA2's MapClass: no DirtyIceCells/CrackedIce)
-				delete SubzoneConnectionHashTable[i]; // RA2: as above
-				SubzoneConnectionHashTable[i] = NULL; // RA2: as above
+				delete SubzoneConnectionHashTable[i];
+				SubzoneConnectionHashTable[i] = NULL;
 			}
 		}
 
@@ -495,8 +495,8 @@ HRESULT MouseClass::Load(IStream * stream)
 			int v = (1 << (i + 1));
 			SubzoneTracking[i].Clear();
 			SubzoneTracking[i].Set_Growth_Step((4 * PlayRect.Width * PlayRect.Height) / (v * v));
-			SUBZONE_CONNECTION_HASH_SET * connections = new SUBZONE_CONNECTION_HASH_SET(20, 256, SubzoneHash); // RA2: as above
-			SubzoneConnectionHashTable[i] = connections; // RA2: as above
+			SUBZONE_CONNECTION_HASH_SET * connections = new SUBZONE_CONNECTION_HASH_SET(20, 256, SubzoneHash);
+			SubzoneConnectionHashTable[i] = connections;
 		}
 
 		result = stream->Read(CellZones, sizeof(*CellZones) * CellZoneCount, NULL);
@@ -504,7 +504,7 @@ HRESULT MouseClass::Load(IStream * stream)
 			return(result);
 		}
 
-		for (i = 0; i < MZONE_CRUSHER_ALL; i++) { // RA2: as above
+		for (i = 0; i < MZONE_CRUSHER_ALL; i++) {
 			Zones[i] = new unsigned short[ZoneCount];
 			result = stream->Read(Zones[i], sizeof(unsigned short) * ZoneCount, NULL);
 			if (FAILED(result)) {
@@ -528,9 +528,9 @@ HRESULT MouseClass::Load(IStream * stream)
 		}
 
 		for (i = 0; i < Array.Length(); i++) {
-			if (Array[i] != NULL) { // RA2: as above
-				delete Array[i]; // RA2: as above
-				Array[i] = NULL; // RA2: as above
+			if (Array[i] != NULL) {
+				delete Array[i];
+				Array[i] = NULL;
 			}
 		}
 		int count;
@@ -549,7 +549,7 @@ HRESULT MouseClass::Load(IStream * stream)
 		}
 		for (i = 0; i < count; i++) {
 			Cell cell;
-			result = Read_Cell(stream, cell); // RA2: as above
+			result = Read_Cell(stream, cell);
 			if (FAILED(result)) {
 				return(result);
 			}
@@ -562,7 +562,7 @@ HRESULT MouseClass::Load(IStream * stream)
 		}
 		for (i = 0; i < count; i++) {
 			Cell cell;
-			result = Read_Cell(stream, cell); // RA2: as above
+			result = Read_Cell(stream, cell);
 			if (FAILED(result)) {
 				return(result);
 			}
@@ -619,7 +619,7 @@ HRESULT MouseClass::Save(IStream * stream)
 			return(result);
 		}
 
-		for (i = 0; i < MZONE_CRUSHER_ALL; i++) { // RA2: as above
+		for (i = 0; i < MZONE_CRUSHER_ALL; i++) {
 			result = stream->Write(Zones[i], sizeof(unsigned short) * ZoneCount, NULL);
 			if (FAILED(result)) {
 				return(result);

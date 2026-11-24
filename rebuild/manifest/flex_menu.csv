@@ -1,14 +1,13 @@
 unit,entry,function,bytes,bucket,best,flex,flex_note,also,draft,gap_reason,allowance,brings,main_form,main_form_cost,tested_exact,net_bytes
-(summary),,main's accepted forms the rebuild's rules refuse: 29 rows / 88682 B,,,,,,,,,,,,,,
-(main forms),,A: 15 rows,40351,,,,,,,,,,A,,4 rows,9142
+(summary),,main's accepted forms the rebuild's rules refuse: 23 rows / 67534 B,,,,,,,,,,,,,,
+(main forms),,A: 11 rows,23781,,,,,,,,,,A,,3 rows,8073
 (main forms),,B: 8 rows,30099,,,,,,,,,,B,,0 rows,0
-(main forms),,C: 5 rows,14968,,,,,,,,,,C,,3 rows,11452
-(main forms),,D: 1 rows,3264,,,,,,,,,,D,,0 rows,0
+(main forms),,C: 4 rows,13654,,,,,,,,,,C,,3 rows,11452
+(main forms),,D: 0 rows,0,,,,,,,,,,D,,0 rows,0
 (main forms),,E: 3 rows,3965,,,,,,,,,,E,,0 rows,0
 building,0043ee70,BuildingClass::Take_Damage,2501,inline_call,1309,a,variation_candidates.csv: main's coined Damage_Object_Distance / Damage_Object_Distance_Squared helpers with an explicit sqrt (main src/recovered/building.cpp:2029-2131),,yes,,,,A,structure,no,2501
 building,00440520,BuildingClass::Exit_Object,6505,no_row,3380,a,"variation_candidates.csv: worker form (refused, owner 2026-11-22): inline.h Direction(Cell const &, Cell const &) rewritten with copy locals short x1 = cell1.X; short x2 = cell2.X; befor",,yes,,,,,,,
 bullet,0045f710,BulletClass::AI,6438,no_row,4639,a,"variation_candidates.csv: ra2-decomp banked forms banks/0x004666E0_ballistic.cpp / _bullet.cpp with overlay _bullet_velocity.h (11df85d; codex1 r2835 d066cb0e31, r2837 e3df88b874): the b",,yes,,,,,,,
-combat,0047e2c0,Explosion_Damage,4611,register_order,,a,variation_candidates.csv: main's Coord::operator+ form and coined Explosion_Length / Coord_Length(Coord_Difference) helpers (their named double locals supply the local count),,yes,,,,A,structure,no,4611
 coord,00491750,Coord_Scatter,289,inline_call,173,a,variation_candidates.csv: ra2-decomp's pass-through _Move_Coord (return(Move_Coord(...))) with its lock expression,,yes,,,,C,strictness,yes,289
 dropship,004a6b90,Dropship_Screen,10797,inline_body,4453,a,"variation_candidates.csv: unsigned VectorClass index (operator[] / body casts) plus caller repairs: reaches the function-wide signedness-conversion window; costs 26 exact rows (47,385 B)",,yes,,,,B,structure,yes,-36588
 foot,004cbb40,FootClass::Search_For_Tiberium_Weighted,1467,inline_body,1045,a,variation_candidates.csv: main's inline Tiberium_Value wrapper around each tiberium read (a budget form),,yes,,,,,,,
@@ -30,13 +29,9 @@ ownrdraw,005f2b50,Static_Proc,4512,no_row,3067,a,"variation_candidates.csv: code
 ownrdraw,005fee70,Dialog_On_WM_PAINT,1281,inline_call,536,a,variation_candidates.csv: main's coined callee declarations / helpers,,yes,,,,B,structure,not tested,1281
 palette,00603d50,Palette_Scheme_Count,592,no_row,119,a,variation_candidates.csv: an unread `SchemeLibrary * library = Scheme_Library();` local ahead of the iterator (main's text; mischa85's src/palette.cpp has the same line),,yes,,,,,,,
 particle,00609540,ParticleClass::Spark_Behavior_AI,1069,inline_body,694,a,"variation_candidates.csv: none in main (non-exact there, 66.45); ra2-decomp's held form (branch banked-forms 11df85d, banks/0x0062C6E0_ballistic.h and .cpp): Ballistic_Move gains a Techn",,yes,,,,,,,
-reinf,00639970,Do_Reinforcements,1069,inline_call,432,a,"variation_candidates.csv: kind C (an inline site no reference has): one inline call of any kind in the announcement block after the paradrop, e.g. the house through an inline accessor or",,yes,,,,A,structure,yes,1069
 sidebar,0067dc90,SidebarClass::AI,1315,inline_body,480,a,"variation_candidates.csv: lane F33's coined form (no reference has it): the file inline Bottom_Extra() written with an if and two returns in place of its conditional expression, and Stri",,yes,,,,E,,not tested,1315
 sidebar,0067e210,SidebarClass::Activate,1067,no_row,58,a,"variation_candidates.csv: 8 to 12 dead locals in the function (`int p = 0;`), or 3 to 6 in SidebarClass::Max_Visible: a count calibration, no reference has them",,yes,,,,,,,
 sidebar,0067f800,SidebarClass::StripClass::Draw_It,2760,register_order,6,a,"variation_candidates.csv: main's open-coded hicolor packing with chosen channel orders (outline Green|Red|Blue from a by-value RGBClass copy, text Red|Blue|Green from TooltipColor) in pl",,yes,,,,A,structure,no,2760
-sidebar,006819a0,SidebarClass::Reposition_Sidebar,1314,register_order,54,a,variation_candidates.csv: split assignment SidebarRect.X = TacticalRect.X; SidebarRect.X += TacticalRect.Width; (ra2-decomp's twin writes the single sum; main's row was count_calibrated),,yes,,,,C,strictness,no,1314
-skirmish,006829f0,Skirmish_On_WM_COMMAND,3264,inline_call,2819,a,variation_candidates.csv: main's hypothesized Get_Item wrapper with its row helper and looked-up locals; codex1 r2686 (results only),,yes,,,,D,structure,not tested,3264
-startup,0068e280,WinMain,10076,inline_call,7223,a,"variation_candidates.csv: main's text: coined inline helpers Init_Mouse, Init_Language and Read_Destination_Network (TibSun writes the DestNet scan, LANGUAGE.MIX and WWMouseClass stateme",,yes,,,,A,structure,no,10076
 strtable,006f8e30,StringTable::LoadFile,1134,inline_call,777,a,"variation_candidates.csv: none needed: the Generals shape (getStringCount as its own static function, init's choice of format) is two inline sites short where the tree's old text was fou",,yes,,,,A,structure,yes,1134
 strtable,006f9790,Read_Text_File,1317,no_row,740,a,variation_candidates.csv: none yet for the last block,,yes,,,,,,,
 techno,006c2c40,TechnoClass::Draw_Post_Render,3341,inline_call,3138,a,"variation_candidates.csv: main's coined unit-local readers Mouse_Hover_Flag and Techno_Is_Selected (techno.cpp, 'its site decides the temporaries')",,yes,,,,A,structure,no,3341
@@ -51,19 +46,6 @@ wonline,00759370,Run_Online_Menu,2687,calls_differ,2579,a,"variation_candidates.
 wonline,00759e20,Start_Quick_Match,2202,inline_call,1350,a,"variation_candidates.csv: main's .Count read for the one g_UserList.length() > 1 test after Reset_Buddy_State (no inline site), but Count is the private Entries_ in the reference arrayli",,yes,,,,C,strictness,no,2202
 wonline,00762f70,CChatEventSink::OnFind,2867,inline_call,,a,variation_candidates.csv: main's Key_Hash specialisation switch (src/shared/wol_dictionary.hpp RA2_WOL_DICTIONARY_KEY_SPECIALIZATIONS: keyHash declared in the class and defined per key t,,yes,,,,B,structure,not tested,2867
 xsurface,00773f00,XSurface::Plot_Line,511,no_row,9,a,variation_candidates.csv: kind B (a statement written in both arms of an if/else): `int dy = end.Y - start.Y; int pitch; if (dy >= 0) { pitch = 1; dy = abs(dy); } else { pitch = -1; dy =,,yes,,,,,,,
-combat,0047fcf0,?Clear@?$DynamicVectorClass@PAUDamageGroup@@@@UAEXXZ,42,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
-combat,0047fd20,?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
-combat,0047fd40,?GetItem@?$VectorClass@PAUDamageGroup@@@@UBEPAUDamageGroup@@H@Z,13,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
-combat,0047fd50,??8?$VectorClass@PAUDamageGroup@@@@UBE_NABV0@@Z,62,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
-combat,0047fd90,?Resize@?$VectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z,174,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
-combat,0047fe40,?Clear@?$VectorClass@PAUDamageGroup@@@@UAEXXZ,39,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
-combat,0047fe70,?ID@?$VectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z,51,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
-combat,0047feb0,?ID@?$VectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
-combat,0047fed0,?Resize@?$DynamicVectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z,176,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
-combat,0047ff80,?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z,38,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
-combat,0047ffb0,??_G?$VectorClass@PAUDamageGroup@@@@UAEPAXI@Z,73,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
-combat,00480000,??_G?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z,73,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
-combat,00480050,??0?$VectorClass@PAUDamageGroup@@@@QAE@HPBQAUDamageGroup@@@Z,74,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
 drive,004a4d20,??R?$CDTimerClass@VFrameTimerClass@@@@QBEHXZ,28,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
 dropship,004a9af0,RGBClass::RGBClass,13,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
 dropship,004a9b00,?Clear@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEXXZ,42,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
@@ -106,9 +88,6 @@ ownrdraw,00602510,??_G?$DNode@IUWinData@OwnerDraw@@@@QAEPAXI@Z,138,exact_when_op
 ownrdraw,00602890,?shrink@?$Dictionary@UMessageKey@OwnerDraw@@_N@@AAEXXZ,168,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
 ownrdraw,00602940,?growVector@?$ArrayList@PAUHWND__@@@@AAEDXZ,143,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
 sidebar,00682520,StageClass::StageClass,29,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
-startup,00691450,?CreateInstance@?$_com_ptr_t@V?$_com_IIID@UIUnknown@@$1?_GUID_00000000_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@QAEJABU_GUID@@PAUIUnknown@@K@Z,136,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
-startup,006983e0,?_Release@?$_com_ptr_t@V?$_com_IIID@UIUnknown@@$1?_GUID_00000000_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ,13,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
-startup,00698620,?Add@?$DynamicVectorClass@K@@QAE_NABK@Z,80,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
 techno,006d9770,??K?$TPoint3D@H@@QBE?BV0@H@Z,77,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
 wdtmap,0072af50,??4?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@QAEAAV0@ABV0@@Z,21,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
 wdtmap,0072af70,??0?$TRect@H@@QAE@XZ,3,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
@@ -233,14 +212,14 @@ wonline,0075f530,CChatEventSink::OnChannelJoin,5780,inline_body,,e,stays a flagg
 wonline,00767550,?keyHash@?$Dictionary@VWstring@@ULadder@WOL@@@@AAEIABVWstring@@@Z,29,no_draft,,e,no draft yet,,no,,,,,,,
 wonline,00767bb0,WolNameTable::Get_Pointer_00767bb0,107,no_draft,,e,no draft yet,,no,,,,,,,
 wonline,00767cd0,WolNameTable::Key_Hash_00767cd0,29,no_draft,,e,no draft yet,,no,,,,,,,
-(total),,flex a: 46 functions,142657,,,a,,,,,,,,,,
-(total),,flex b: 76 functions,5954,,,b,,,,,,,,,,
+(total),,flex a: 41 functions,122323,,,a,,,,,,,,,,
+(total),,flex b: 60 functions,4856,,,b,,,,,,,,,,
 (total),,flex c: 1 functions,1913,,,c,,,,,,,,,,
 (total),,flex d: 3 functions,219,,,d,,,,,,,,,,
 (total),,flex e: 102 functions,74642,,,e,,,,,,,,,,
 (total),,no draft yet: 19 functions,1507,,,e,,,no,,,,,,,
-(gap),,76 functions,6448,,,,,,,guard-open exact (not probed),unknown until probed,,,,,
+(gap),,60 functions,5264,,,,,,,guard-open exact (not probed),unknown until probed,,,,,
 (gap),,1 functions,1920,,,,,,,exact form parked count-sensitive,a count-holding declaration,,,,,
-(gap),,77 functions,8368,,,,,,,total: function-level minus whole-unit,,,,,,
+(gap),,61 functions,7184,,,,,,,total: function-level minus whole-unit,,,,,,
 (gap),,0 functions,0,,,,,,,exact but unbound / data not bound,an unverified reference,,,,,
 (not counted),,3 functions,219,unbound,,,,,,differ only at unbound references: counted at neither level,an unverified reference,,,,,

@@ -45,20 +45,20 @@ DynamicVectorClass<RadSiteClass *> RadSites; // RA2: 0x00AB6620; every RadSiteCl
 /// The site lists itself in the list of all radiation sites.
 /// </summary>
 RadSiteClass::RadSiteClass(void) : // RA2: 0x006372A0
-	BASECLASS(), // RA2: as above
+	BASECLASS(),
 	LightSource(NULL), // RA2: no light until the site is activated
 	RadLevelTimer(), // RA2: both timers start counting from the current frame
-	RadLightTimer(), // RA2: as above
-	BaseCell(0, 0), // RA2: as above
-	Spread(0), // RA2: as above
-	SpreadInLeptons(0), // RA2: as above
-	RadLevel(0), // RA2: as above
-	LevelSteps(0), // RA2: as above
-	Intensity(0), // RA2: as above
-	IntensitySteps(0), // RA2: as above
-	IntensityDecrement(0), // RA2: as above
-	RadDuration(0), // RA2: as above
-	RadTimeLeft(0) // RA2: as above
+	RadLightTimer(),
+	BaseCell(0, 0),
+	Spread(0),
+	SpreadInLeptons(0),
+	RadLevel(0),
+	LevelSteps(0),
+	Intensity(0),
+	IntensitySteps(0),
+	IntensityDecrement(0),
+	RadDuration(0),
+	RadTimeLeft(0)
 {
 	RadSites.Add(this); // RA2: the site registers itself in the list of every radiation site
 }
@@ -70,9 +70,9 @@ RadSiteClass::RadSiteClass(void) : // RA2: 0x006372A0
 /// </summary>
 /// <param name="x">The no init marker.</param>
 RadSiteClass::RadSiteClass(NoInitClass const & x) : // RA2: 0x00637360
-	BASECLASS(x), // RA2: as above
+	BASECLASS(x),
 	RadLevelTimer(), // RA2: the timers are rebuilt as new ones
-	RadLightTimer() // RA2: as above
+	RadLightTimer()
 {
 }
 
@@ -85,11 +85,11 @@ RadSiteClass::RadSiteClass(NoInitClass const & x) : // RA2: 0x00637360
 RadSiteClass::~RadSiteClass(void) // RA2: 0x006373B0
 {
 	CellClass & cell = Map[BaseCell]; // RA2: the base cell no longer belongs to this site
-	cell.Set_Rad_Site(NULL); // RA2: as above
-	Detach_This_From_All(this, true); // RA2: as above
+	cell.Set_Rad_Site(NULL);
+	Detach_This_From_All(this, true);
 	if (LightSource != NULL) { // RA2: the light goes away with the site
-		delete LightSource; // RA2: as above
-		LightSource = NULL; // RA2: as above
+		delete LightSource;
+		LightSource = NULL;
 	}
 	RadSites.Delete(this); // RA2: the site leaves the list of every radiation site
 }
@@ -101,7 +101,7 @@ RadSiteClass::~RadSiteClass(void) // RA2: 0x006373B0
 /// <returns>Returns with the size of a RadSiteClass.</returns>
 int RadSiteClass::Fetch_Object_Size(void) const // RA2: 0x00637460
 {
-	return(sizeof(*this)); // RA2: as above
+	return(sizeof(*this));
 }
 
 
@@ -134,11 +134,11 @@ RTTIType RadSiteClass::Fetch_RTTI(void) const // RA2: 0x00637480
 HRESULT STDMETHODCALLTYPE RadSiteClass::Load(IStream * stream) // RA2: 0x00637490
 {
 	HRESULT result = BASECLASS::Load(stream); // RA2: the base class reads its part of the stream first
-	if (SUCCEEDED(result)) { // RA2: as above
+	if (SUCCEEDED(result)) {
 		new (this) RadSiteClass(NoInitClass()); // RA2: restores the vtables over the loaded data
-		Swizzle_Pointer(&LightSource); // RA2: as above
+		Swizzle_Pointer(&LightSource);
 	}
-	return(result); // RA2: as above
+	return(result);
 }
 
 
@@ -161,11 +161,11 @@ HRESULT STDMETHODCALLTYPE RadSiteClass::Save(IStream * stream, BOOL cleardirty) 
 /// <returns>Returns with S_OK, or E_POINTER if no buffer was supplied.</returns>
 HRESULT STDMETHODCALLTYPE RadSiteClass::GetClassID(CLSID * retval) // RA2: 0x00637530
 {
-	if (retval == NULL) { // RA2: as above
-		return(E_POINTER); // RA2: as above
+	if (retval == NULL) {
+		return(E_POINTER);
 	}
-	*retval = CLSID_RadSiteClass; // RA2: as above
-	return(S_OK); // RA2: as above
+	*retval = CLSID_RadSiteClass;
+	return(S_OK);
 }
 
 
@@ -174,7 +174,7 @@ HRESULT STDMETHODCALLTYPE RadSiteClass::GetClassID(CLSID * retval) // RA2: 0x006
 /// </summary>
 int RadSiteClass::GetSpread(void) // RA2: 0x00637570
 {
-	return(Spread); // RA2: as above
+	return(Spread);
 }
 
 
@@ -184,7 +184,7 @@ int RadSiteClass::GetSpread(void) // RA2: 0x00637570
 /// <param name="cell">The center cell.</param>
 void RadSiteClass::SetBaseCell(Cell * cell) // RA2: 0x00637580
 {
-	BaseCell = *cell; // RA2: as above
+	BaseCell = *cell;
 }
 
 
@@ -194,7 +194,7 @@ void RadSiteClass::SetBaseCell(Cell * cell) // RA2: 0x00637580
 /// <param name="spread">The spread in cells.</param>
 void RadSiteClass::SetSpread(int spread) // RA2: 0x00637590
 {
-	Spread = spread; // RA2: as above
+	Spread = spread;
 	SpreadInLeptons = spread * 256 + 128; // RA2: the spread in cells times the 256 leptons of a cell, plus half a cell
 }
 
@@ -205,7 +205,7 @@ void RadSiteClass::SetSpread(int spread) // RA2: 0x00637590
 /// <param name="level">The radiation level.</param>
 void RadSiteClass::SetRadLevel(int level) // RA2: 0x006375B0
 {
-	RadLevel = level; // RA2: as above
+	RadLevel = level;
 	RadDuration = Rule->RadDurationMultiple * level; // RA2: the rules' RadDurationMultiple times the level
 	RadTimeLeft = RadDuration; // RA2: the whole duration is left
 }
@@ -218,7 +218,7 @@ void RadSiteClass::SetRadLevel(int level) // RA2: 0x006375B0
 int RadSiteClass::GetRadLevel(void) // RA2: 0x006375D0
 {
 	if (RadDuration <= 0) { // RA2: no duration: no level (also guards the division)
-		return(0); // RA2: as above
+		return(0);
 	}
 	return(RadTimeLeft * RadLevel / RadDuration); // RA2: integer product first, then the division
 }
@@ -233,11 +233,11 @@ int RadSiteClass::GetRadLevel(void) // RA2: 0x006375D0
 void RadSiteClass::Add(int level) // RA2: 0x006375F0
 {
 	double current = RadLevel; // RA2: the level now, in floating point
-	double left = RadTimeLeft; // RA2: as above
-	double duration = RadDuration; // RA2: as above
-	int now = (int)(current * left / duration); // RA2: as above
+	double left = RadTimeLeft;
+	double duration = RadDuration;
+	int now = (int)(current * left / duration);
 	Deactivate(); // RA2: takes the old effect off the cells
-	SetRadLevel(now + level); // RA2: as above
+	SetRadLevel(now + level);
 	Activate(); // RA2: applies the new one
 }
 
@@ -252,45 +252,45 @@ void RadSiteClass::Activate(void) // RA2: 0x00637640
 	int leveldelay = Rule->RadLevelDelay; // RA2: the frames between two decay steps of the cells
 	int lightdelay = Rule->RadLightDelay; // RA2: the frames between two fade steps of the light
 	RadLevelTimer = leveldelay; // RA2: the timers count down these frames
-	RadLightTimer = lightdelay; // RA2: as above
+	RadLightTimer = lightdelay;
 
 	int green = Rule->RadColor.Get_Green(); // RA2: the rules' color, read green first
-	int blue = Rule->RadColor.Get_Blue(); // RA2: as above
-	int red = Rule->RadColor.Get_Red(); // RA2: as above
+	int blue = Rule->RadColor.Get_Blue();
+	int red = Rule->RadColor.Get_Red();
 	if (Scen->Theater == THEATER_SNOW) { // RA2: on snow the red and blue parts are dropped
-		red = blue = -128; // RA2: as above
+		red = blue = -128;
 	}
 	int r = red * 1000 / 255; // RA2: the color in thousandths
-	int g = green * 1000 / 255; // RA2: as above
-	int b = blue * 1000 / 255; // RA2: as above
+	int g = green * 1000 / 255;
+	int b = blue * 1000 / 255;
 	int visibility = SpreadInLeptons; // RA2: the light reaches as far as the radiation
 	double light = RadLevel; // RA2: the brightness, at most 2000
-	light *= Rule->RadLightFactor; // RA2: as above
-	light = (2000.0 < light) ? 2000.0 : light; // RA2: as above
-	int intensity = (int)light; // RA2: as above
+	light *= Rule->RadLightFactor;
+	light = (2000.0 < light) ? 2000.0 : light;
+	int intensity = (int)light;
 	double tr = r * Rule->RadTintFactor; // RA2: the tint of each color, at most 2000
-	tr = (2000.0 < tr) ? 2000.0 : tr; // RA2: as above
-	int tintr = (int)tr; // RA2: as above
-	double tg = g * Rule->RadTintFactor; // RA2: as above
-	tg = (2000.0 < tg) ? 2000.0 : tg; // RA2: as above
-	int tintg = (int)tg; // RA2: as above
-	double tb = b * Rule->RadTintFactor; // RA2: as above
-	tb = (2000.0 < tb) ? 2000.0 : tb; // RA2: as above
-	int tintb = (int)tb; // RA2: as above
+	tr = (2000.0 < tr) ? 2000.0 : tr;
+	int tintr = (int)tr;
+	double tg = g * Rule->RadTintFactor;
+	tg = (2000.0 < tg) ? 2000.0 : tg;
+	int tintg = (int)tg;
+	double tb = b * Rule->RadTintFactor;
+	tb = (2000.0 < tb) ? 2000.0 : tb;
+	int tintb = (int)tb;
 
 	Tint.Red = tintr; // RA2: kept, so that the light can fade
-	Tint.Green = tintg; // RA2: as above
-	Tint.Blue = tintb; // RA2: as above
-	Intensity = intensity; // RA2: as above
+	Tint.Green = tintg;
+	Tint.Blue = tintb;
+	Intensity = intensity;
 	LevelSteps = RadDuration / leveldelay; // RA2: the number of steps in which the radiation decays
 	IntensitySteps = RadDuration / lightdelay; // RA2: the number of steps in which the light fades
-	IntensityDecrement = intensity / IntensitySteps; // RA2: as above
+	IntensityDecrement = intensity / IntensitySteps;
 
 	Coord coord = Map[BaseCell].Center_Coord(); // RA2: the light sits in the middle of the base cell
 	if (LightSource == NULL) { // RA2: the first activation makes the light
-		LightSource = new LightSourceClass(coord, visibility, intensity, tintr, tintg, tintb); // RA2: as above
+		LightSource = new LightSourceClass(coord, visibility, intensity, tintr, tintg, tintb);
 		LightSource->DetailLevel = 0; // RA2: the light is lit at once, at detail level 0
-		LightSource->Enable(false); // RA2: as above
+		LightSource->Enable(false);
 	} else {
 		LightSource->ChangeLevels(intensity, tintr, tintg, tintb, false); // RA2: a later one (Add) only changes its levels
 	}
@@ -307,12 +307,12 @@ void RadSiteClass::AI(void) // RA2: 0x006378C0
 {
 	RadTimeLeft--; // RA2: one frame less to live
 	if (RadLevelTimer.Value() == 0) { // RA2: the level timer ran out: one decay step of the cells, then the timer restarts
-		DecreaseRadiation(); // RA2: as above
-		RadLevelTimer = Rule->RadLevelDelay; // RA2: as above
+		DecreaseRadiation();
+		RadLevelTimer = Rule->RadLevelDelay;
 	}
 	if (RadLightTimer.Value() == 0) { // RA2: the light timer ran out: one fade step of the light, then the timer restarts
-		DecreaseLight(); // RA2: as above
-		RadLightTimer = Rule->RadLightDelay; // RA2: as above
+		DecreaseLight();
+		RadLightTimer = Rule->RadLightDelay;
 	}
 	if (RadTimeLeft <= 0) { // RA2: the site is used up
 		delete this; // RA2: through the virtual destructor (scalar deleting destructor at 0x00637F90)
@@ -329,16 +329,16 @@ void RadSiteClass::AI(void) // RA2: 0x006378C0
 double RadSiteClass::GetRadLevelAt(Cell const & cell) // RA2: 0x006379B0
 {
 	CellClass & here = Map[BaseCell]; // RA2: the distance runs between the centers of the base cell and of the cell
-	CellClass & there = Map[cell]; // RA2: as above
-	Coord a = here.Center_Coord(); // RA2: as above
-	Coord b = there.Center_Coord(); // RA2: as above
-	int distance = a.Distance_To(b); // RA2: as above
-	int range = SpreadInLeptons; // RA2: as above
+	CellClass & there = Map[cell];
+	Coord a = here.Center_Coord();
+	Coord b = there.Center_Coord();
+	int distance = a.Distance_To(b);
+	int range = SpreadInLeptons;
 	double result = 0.0; // RA2: outside of the spread there is no radiation
-	if (distance <= range) { // RA2: as above
+	if (distance <= range) {
 		result = (double)(range - distance) / range * RadLevel; // RA2: linear falloff to nothing at the edge
 	}
-	return(result); // RA2: as above
+	return(result);
 }
 
 
@@ -348,15 +348,15 @@ double RadSiteClass::GetRadLevelAt(Cell const & cell) // RA2: 0x006379B0
 void RadSiteClass::Radiate(void) // RA2: 0x00637A80
 {
 	int x0 = BaseCell.X - Spread; // RA2: the square of the spread around the base cell
-	int y0 = BaseCell.Y - Spread; // RA2: as above
-	int xend = x0 + Spread * 2 + 1; // RA2: as above
-	int yend = y0 + Spread * 2 + 1; // RA2: as above
-	for (int y = y0; y < yend; y++) { // RA2: as above
-		for (int x = x0; x < xend; x++) { // RA2: as above
-			Cell cell(x, y); // RA2: as above
-			double level = GetRadLevelAt(cell); // RA2: as above
-			CellClass & target = Map[cell]; // RA2: as above
-			target.RadLevel_Increase(level); // RA2: as above
+	int y0 = BaseCell.Y - Spread;
+	int xend = x0 + Spread * 2 + 1;
+	int yend = y0 + Spread * 2 + 1;
+	for (int y = y0; y < yend; y++) {
+		for (int x = x0; x < xend; x++) {
+			Cell cell(x, y);
+			double level = GetRadLevelAt(cell);
+			CellClass & target = Map[cell];
+			target.RadLevel_Increase(level);
 		}
 	}
 }
@@ -369,17 +369,17 @@ void RadSiteClass::Radiate(void) // RA2: 0x00637A80
 void RadSiteClass::Deactivate(void) // RA2: 0x00637C10
 {
 	int steps = RadTimeLeft / Rule->RadLevelDelay + 1; // RA2: the decay steps that are left, counting the one that is running
-	int x0 = BaseCell.X - Spread; // RA2: as above
-	int y0 = BaseCell.Y - Spread; // RA2: as above
-	int xend = x0 + Spread * 2 + 1; // RA2: as above
-	int yend = y0 + Spread * 2 + 1; // RA2: as above
-	for (int y = y0; y < yend; y++) { // RA2: as above
-		for (int x = x0; x < xend; x++) { // RA2: as above
-			Cell cell(x, y); // RA2: as above
-			double level = GetRadLevelAt(cell); // RA2: as above
-			level = level / LevelSteps * steps; // RA2: as above
-			CellClass & target = Map[cell]; // RA2: as above
-			target.RadLevel_Decrease(level); // RA2: as above
+	int x0 = BaseCell.X - Spread;
+	int y0 = BaseCell.Y - Spread;
+	int xend = x0 + Spread * 2 + 1;
+	int yend = y0 + Spread * 2 + 1;
+	for (int y = y0; y < yend; y++) {
+		for (int x = x0; x < xend; x++) {
+			Cell cell(x, y);
+			double level = GetRadLevelAt(cell);
+			level = level / LevelSteps * steps;
+			CellClass & target = Map[cell];
+			target.RadLevel_Decrease(level);
 		}
 	}
 }
@@ -390,17 +390,17 @@ void RadSiteClass::Deactivate(void) // RA2: 0x00637C10
 /// </summary>
 void RadSiteClass::DecreaseRadiation(void) // RA2: 0x00637DC0
 {
-	int x0 = BaseCell.X - Spread; // RA2: as above
-	int y0 = BaseCell.Y - Spread; // RA2: as above
-	int xend = x0 + Spread * 2 + 1; // RA2: as above
-	int yend = y0 + Spread * 2 + 1; // RA2: as above
-	for (int y = y0; y < yend; y++) { // RA2: as above
-		for (int x = x0; x < xend; x++) { // RA2: as above
-			Cell cell(x, y); // RA2: as above
-			double level = GetRadLevelAt(cell); // RA2: as above
-			level /= LevelSteps; // RA2: as above
-			CellClass & target = Map[cell]; // RA2: as above
-			target.RadLevel_Decrease(level); // RA2: as above
+	int x0 = BaseCell.X - Spread;
+	int y0 = BaseCell.Y - Spread;
+	int xend = x0 + Spread * 2 + 1;
+	int yend = y0 + Spread * 2 + 1;
+	for (int y = y0; y < yend; y++) {
+		for (int x = x0; x < xend; x++) {
+			Cell cell(x, y);
+			double level = GetRadLevelAt(cell);
+			level /= LevelSteps;
+			CellClass & target = Map[cell];
+			target.RadLevel_Decrease(level);
 		}
 	}
 }

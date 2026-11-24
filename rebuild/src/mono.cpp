@@ -7,18 +7,18 @@
  *  In the executable the unit runs from its head initializers to motlib.cpp (0x0059D590-0x0059EB60): the window functions, then MonoPoint and MonoClass.
  */
 
-#include "always.h" // RA2: as above
+#include "always.h"
 #include "rect.h" // RA2: the head initializers: RECT_NONE, then geometry.h's twelve header statics (0x0059D590-0x0059D780)
-#include "geometry.h" // RA2: as above
+#include "geometry.h"
 #include "mono.h"
-#include "audfile.h" // RA2: as above
+#include "audfile.h"
 
-#include "point.h" // RA2: as above
+#include "point.h"
 
-#include <cstdio> // RA2: as above
-#include <cstring> // RA2: as above
-#include <cstdarg> // RA2: as above
-#include <cwchar> // RA2: as above
+#include <cstdio>
+#include <cstring>
+#include <cstdarg>
+#include <cwchar>
 
 
 static COLORREF MonoTextColor; // RA2: 0x00A70DE8
@@ -358,30 +358,30 @@ BOOL CALLBACK Mono_Dialog_Proc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam
 /// <summary>
 /// The pixel position of a character cell.
 /// </summary>
-struct MonoPoint : public Point2D // RA2: as above
+struct MonoPoint : public Point2D
 {
-	MonoPoint(int column, int row); // RA2: as above
+		MonoPoint(int column, int row);
 };
 
 
 MonoPoint::MonoPoint(int column, int row) // RA2: 0x0059E160, the cell size from the font metrics with a margin of ten pixels
 {
-	Point2D p(MonoMetrics.tmMaxCharWidth * column + 10, (MonoMetrics.tmHeight + MonoMetrics.tmExternalLeading) * row + 10); // RA2: as above
-	X = p.X; // RA2: as above
-	Y = p.Y; // RA2: as above
+	Point2D p(MonoMetrics.tmMaxCharWidth * column + 10, (MonoMetrics.tmHeight + MonoMetrics.tmExternalLeading) * row + 10);
+	X = p.X;
+	Y = p.Y;
 }
 
 
 MonoClass::MonoClass(int handle) // RA2: 0x0059E190, starts a blank 80 x 25 window at the top left
 {
-	Handle = handle; // RA2: as above
-	X = 0; // RA2: as above
-	Y = 0; // RA2: as above
-	WindowX = 0; // RA2: as above
-	WindowY = 0; // RA2: as above
-	WindowWidth = 80; // RA2: as above
-	WindowHeight = 25; // RA2: as above
-	Clear(); // RA2: as above
+	Handle = handle;
+	X = 0;
+	Y = 0;
+	WindowX = 0;
+	WindowY = 0;
+	WindowWidth = 80;
+	WindowHeight = 25;
+	Clear();
 }
 
 
@@ -392,277 +392,277 @@ MonoClass::~MonoClass(void) // RA2: 0x0059E220, an empty destructor
 
 int MonoClass::Get_Handle(void) const // RA2: 0x0059E230
 {
-	return(Handle); // RA2: as above
+	return(Handle);
 }
 
 
 void MonoClass::Set_Cursor(int x, int y) // RA2: 0x0059E240
 {
-	X = x; // RA2: as above
-	Y = y; // RA2: as above
+	X = x;
+	Y = y;
 }
 
 
 void MonoClass::Sub_Window(int x, int y, int w, int h) // RA2: 0x0059E260, stores the window without clipping it
 {
-	WindowX = x; // RA2: as above
-	WindowY = y; // RA2: as above
-	WindowWidth = w; // RA2: as above
-	WindowHeight = h; // RA2: as above
+	WindowX = x;
+	WindowY = y;
+	WindowWidth = w;
+	WindowHeight = h;
 }
 
 
 void MonoClass::Clear(void) // RA2: 0x0059E290, blanks the whole 80 x 25 grid and redraws it
 {
-	for (int y = 0; y < LINES; y++) { // RA2: as above
-		for (int x = 0; x < COLUMNS; x++) { // RA2: as above
-			Characters[x][y] = ' '; // RA2: as above
-			Attributes[x][y] = 0; // RA2: as above
+	for (int y = 0; y < LINES; y++) {
+		for (int x = 0; x < COLUMNS; x++) {
+			Characters[x][y] = ' ';
+			Attributes[x][y] = 0;
 		}
 	}
-	Changed = true; // RA2: as above
-	Refresh(0, 0, COLUMNS, LINES); // RA2: as above
+	Changed = true;
+	Refresh(0, 0, COLUMNS, LINES);
 }
 
 
 bool MonoClass::Is_Changed(void) const // RA2: 0x0059E2E0
 {
-	return(Changed); // RA2: as above
+	return(Changed);
 }
 
 
 void MonoClass::View(void) // RA2: 0x0059E2F0, a page that was not on display is cleared first
 {
-	if (Enabled) { // RA2: as above
-		if (Current != this) { // RA2: as above
-			Current = this; // RA2: as above
-			Clear(); // RA2: as above
+	if (Enabled) {
+		if (Current != this) {
+			Current = this;
+			Clear();
 		}
-		Refresh(0, 0, COLUMNS, LINES); // RA2: as above
+		Refresh(0, 0, COLUMNS, LINES);
 	}
 }
 
 
 void MonoClass::Set_Default_Attribute(MonoAttribute attrib) // RA2: 0x0059E370
 {
-	if (Enabled) { // RA2: as above
-		Attribute = attrib; // RA2: as above
+	if (Enabled) {
+		Attribute = attrib;
 	}
 }
 
 
 void MonoClass::Fill_Attrib(int x, int y, int w, int h, MonoAttribute attrib) // RA2: 0x0059E390, window relative block
 {
-	if (Enabled) { // RA2: as above
-		int left = WindowX + x; // RA2: as above
-		int top = WindowY + y; // RA2: as above
-		int right = left + w; // RA2: as above
-		int bottom = top + h; // RA2: as above
-		for (int row = top; row < bottom; row++) { // RA2: as above
-			for (int column = left; column < right; column++) { // RA2: as above
-				Attributes[column][row] = attrib; // RA2: as above
+	if (Enabled) {
+		int left = WindowX + x;
+		int top = WindowY + y;
+		int right = left + w;
+		int bottom = top + h;
+		for (int row = top; row < bottom; row++) {
+			for (int column = left; column < right; column++) {
+				Attributes[column][row] = attrib;
 			}
 		}
-		Refresh(left, top, w, h); // RA2: as above
+		Refresh(left, top, w, h);
 	}
 }
 
 
 void MonoClass::Scroll(int lines) // RA2: 0x0059E410, positive moves the window's text up, negative down
 {
-	if (Enabled) { // RA2: as above
-		int x = WindowX; // RA2: as above
-		int y = WindowY; // RA2: as above
-		int width = WindowWidth; // RA2: as above
-		int height = WindowHeight; // RA2: as above
-		if (lines > 0) { // RA2: as above
-			for (int column = x; column < x + width; column++) { // RA2: as above
-				for (int row = y; row < y + height - 1; row++) { // RA2: as above
-					Characters[column][row] = Characters[column][row + 1]; // RA2: as above
-					Attributes[column][row] = Attributes[column][row + 1]; // RA2: as above
+	if (Enabled) {
+		int x = WindowX;
+		int y = WindowY;
+		int width = WindowWidth;
+		int height = WindowHeight;
+		if (lines > 0) {
+			for (int column = x; column < x + width; column++) {
+				for (int row = y; row < y + height - 1; row++) {
+					Characters[column][row] = Characters[column][row + 1];
+					Attributes[column][row] = Attributes[column][row + 1];
 				}
-				Characters[column][y + height - 1] = ' '; // RA2: as above
-				Attributes[column][y + height - 1] = 0; // RA2: as above
+				Characters[column][y + height - 1] = ' ';
+				Attributes[column][y + height - 1] = 0;
 			}
-		} else if (lines < 0) { // RA2: as above
-			for (int column = x; column < x + width; column++) { // RA2: as above
-				for (int row = y + height - 1; row > y; row--) { // RA2: as above
-					Characters[column][row] = Characters[column][row - 1]; // RA2: as above
-					Attributes[column][row] = Attributes[column][row - 1]; // RA2: as above
+		} else if (lines < 0) {
+			for (int column = x; column < x + width; column++) {
+				for (int row = y + height - 1; row > y; row--) {
+					Characters[column][row] = Characters[column][row - 1];
+					Attributes[column][row] = Attributes[column][row - 1];
 				}
-				Characters[column][y] = ' '; // RA2: as above
-				Attributes[column][y] = 0; // RA2: as above
+				Characters[column][y] = ' ';
+				Attributes[column][y] = 0;
 			}
 		}
-		Refresh(0, 0, COLUMNS, LINES); // RA2: as above
+		Refresh(0, 0, COLUMNS, LINES);
 	}
 }
 
 
 void MonoClass::Pan(int cols) // RA2: 0x0059E590, positive moves the window's text left, negative right
 {
-	if (Enabled) { // RA2: as above
-		int x = WindowX; // RA2: as above
-		int width = WindowWidth; // RA2: as above
-		int y = WindowY; // RA2: as above
-		int height = WindowHeight; // RA2: as above
-		if (cols > 0) { // RA2: as above
-			for (int row = y; row < y + height; row++) { // RA2: as above
-				for (int column = x; column < x + width - 1; column++) { // RA2: as above
-					Characters[column][row] = Characters[column + 1][row]; // RA2: as above
-					Attributes[column][row] = Attributes[column + 1][row]; // RA2: as above
+	if (Enabled) {
+		int x = WindowX;
+		int width = WindowWidth;
+		int y = WindowY;
+		int height = WindowHeight;
+		if (cols > 0) {
+			for (int row = y; row < y + height; row++) {
+				for (int column = x; column < x + width - 1; column++) {
+					Characters[column][row] = Characters[column + 1][row];
+					Attributes[column][row] = Attributes[column + 1][row];
 				}
-				Characters[x + width - 1][row] = ' '; // RA2: as above
-				Attributes[x + width - 1][row] = 0; // RA2: as above
+				Characters[x + width - 1][row] = ' ';
+				Attributes[x + width - 1][row] = 0;
 			}
-		} else if (cols < 0) { // RA2: as above
-			for (int row = y; row < y + height; row++) { // RA2: as above
-				for (int column = x + width - 1; column > x; column--) { // RA2: as above
-					Characters[column][row] = Characters[column - 1][row]; // RA2: as above
-					Attributes[column][row] = Attributes[column - 1][row]; // RA2: as above
+		} else if (cols < 0) {
+			for (int row = y; row < y + height; row++) {
+				for (int column = x + width - 1; column > x; column--) {
+					Characters[column][row] = Characters[column - 1][row];
+					Attributes[column][row] = Attributes[column - 1][row];
 				}
-				Characters[x][row] = ' '; // RA2: as above
-				Attributes[x][row] = 0; // RA2: as above
+				Characters[x][row] = ' ';
+				Attributes[x][row] = 0;
 			}
 		}
-		Refresh(0, 0, COLUMNS, LINES); // RA2: as above
+		Refresh(0, 0, COLUMNS, LINES);
 	}
 }
 
 
 void MonoClass::Print(char const * text) // RA2: 0x0059E6D0, writes at the cursor clipped to the window width, a newline returns the cursor to column 0 one line down
 {
-	if (Enabled) { // RA2: as above
-		int cx = X; // RA2: as above
-		int start = WindowX + cx; // RA2: as above
-		int row = WindowY + Y; // RA2: as above
-		int limit = WindowWidth + WindowX; // RA2: as above
-		Changed = false; // RA2: as above
-		int end = (int)strlen(text) + start; // RA2: as above
-		if (end > limit) { // RA2: as above
-			end = limit; // RA2: as above
+	if (Enabled) {
+		int cx = X;
+		int start = WindowX + cx;
+		int row = WindowY + Y;
+		int limit = WindowWidth + WindowX;
+		Changed = false;
+		int end = (int)strlen(text) + start;
+		if (end > limit) {
+			end = limit;
 		}
-		for (int col = start, i = 0; col < end; col++, i++) { // RA2: as above
-			char c = text[i]; // RA2: as above
-			Characters[col][row] = Map_Character(c); // RA2: as above
-			Attributes[col][row] = Attribute; // RA2: as above
-			if (c == '\n') { // RA2: as above
-				X = 0; // RA2: as above
-				Y++; // RA2: as above
+		for (int col = start, i = 0; col < end; col++, i++) {
+			char c = text[i];
+			Characters[col][row] = Map_Character(c);
+			Attributes[col][row] = Attribute;
+			if (c == '\n') {
+				X = 0;
+				Y++;
 			} else {
-				X++; // RA2: as above
+				X++;
 			}
 		}
-		Refresh(start, row, end - start, 1); // RA2: as above
+		Refresh(start, row, end - start, 1);
 	}
 }
 
 
 void __cdecl MonoClass::Printf(char const * text, ...) // RA2: 0x0059E7F0
 {
-	if (Enabled) { // RA2: as above
-		char buffer[256]; // RA2: as above
-		va_list args; // RA2: as above
-		va_start(args, text); // RA2: as above
-		vsprintf(buffer, text, args); // RA2: as above
-		buffer[255] = '\0'; // RA2: as above
-		Print(buffer); // RA2: as above
+	if (Enabled) {
+		char buffer[256];
+		va_list args;
+		va_start(args, text);
+		vsprintf(buffer, text, args);
+		buffer[255] = '\0';
+		Print(buffer);
 	}
 }
 
 
 void __cdecl MonoClass::Printf(wchar_t const * text, ...) // RA2: 0x0059E840, formats wide, then prints narrow through %S
 {
-	if (Enabled) { // RA2: as above
-		wchar_t wide[256]; // RA2: as above
-		char buffer[256]; // RA2: as above
-		va_list args; // RA2: as above
-		va_start(args, text); // RA2: as above
-		vswprintf(wide, text, args); // RA2: as above
-		sprintf(buffer, "%S", wide); // RA2: as above
-		Print(buffer); // RA2: as above
+	if (Enabled) {
+		wchar_t wide[256];
+		char buffer[256];
+		va_list args;
+		va_start(args, text);
+		vswprintf(wide, text, args);
+		sprintf(buffer, "%S", wide);
+		Print(buffer);
 	}
 }
 
 
 void MonoClass::Text_Print(char const * text, int x, int y, MonoAttribute attrib) // RA2: 0x0059E8A0
 {
-	if (Enabled) { // RA2: as above
-		Set_Cursor(x, y); // RA2: as above
-		Set_Default_Attribute(attrib); // RA2: as above
-		Print(text); // RA2: as above
+	if (Enabled) {
+		Set_Cursor(x, y);
+		Set_Default_Attribute(attrib);
+		Print(text);
 	}
 }
 
 
 void MonoClass::Text_Print(wchar_t const * text, int x, int y, MonoAttribute attrib) // RA2: 0x0059E8E0, prints a wide string through %S
 {
-	if (Enabled) { // RA2: as above
-		char buffer[1024]; // RA2: as above
-		Set_Cursor(x, y); // RA2: as above
-		Set_Default_Attribute(attrib); // RA2: as above
-		sprintf(buffer, "%S", text); // RA2: as above
-		Print(buffer); // RA2: as above
+	if (Enabled) {
+		char buffer[1024];
+		Set_Cursor(x, y);
+		Set_Default_Attribute(attrib);
+		sprintf(buffer, "%S", text);
+		Print(buffer);
 	}
 }
 
 
 char MonoClass::Map_Character(char character) // RA2: 0x0059E960, line drawing characters of the IBM set become + | - =
 {
-	if (character == '\n') { // RA2: as above
-		return(' '); // RA2: as above
+	if (character == '\n') {
+		return(' ');
 	}
-	if (character == -0x4d) { // RA2: as above
-		return('|'); // RA2: as above
+	if (character == -0x4d) {
+		return('|');
 	}
-	if (character == -0x3c) { // RA2: as above
-		return('-'); // RA2: as above
+	if (character == -0x3c) {
+		return('-');
 	}
-	if (character == -0x33) { // RA2: as above
-		return('='); // RA2: as above
+	if (character == -0x33) {
+		return('=');
 	}
-	if (character == -0x26 || character == -0x3e || character == -0x41 || character == -0x3a || character == -0x3d || character == -0x2f || character == -0x3b || character == -0x28 || character == -0x4b || character == -0x40 || character == -0x3f || character == -0x27 || character == -0x2b || character == -0x4c) { // RA2: as above
-		character = '+'; // RA2: as above
+	if (character == -0x26 || character == -0x3e || character == -0x41 || character == -0x3a || character == -0x3d || character == -0x2f || character == -0x3b || character == -0x28 || character == -0x4b || character == -0x40 || character == -0x3f || character == -0x27 || character == -0x2b || character == -0x4c) {
+		character = '+';
 	}
-	return(character); // RA2: as above
+	return(character);
 }
 
 
 void MonoClass::Draw_Character(HDC dc, int x, int y) // RA2: 0x0059E9D0, attribute 1 is inverse video
 {
-	int attribute = Attributes[x][y]; // RA2: as above
-	if (attribute != DrawnAttribute) { // RA2: as above
-		if (attribute == 1) { // RA2: as above
-			SetBkColor(dc, MonoTextColor); // RA2: as above
-			SetTextColor(dc, MonoBackColor); // RA2: as above
+	int attribute = Attributes[x][y];
+	if (attribute != DrawnAttribute) {
+		if (attribute == 1) {
+			SetBkColor(dc, MonoTextColor);
+			SetTextColor(dc, MonoBackColor);
 		} else {
-			SetBkColor(dc, MonoBackColor); // RA2: as above
-			SetTextColor(dc, MonoTextColor); // RA2: as above
+			SetBkColor(dc, MonoBackColor);
+			SetTextColor(dc, MonoTextColor);
 		}
-		DrawnAttribute = attribute; // RA2: as above
+		DrawnAttribute = attribute;
 	}
-	char character = Characters[x][y]; // RA2: as above
-	MonoPoint point(x, y); // RA2: as above
-	TextOutA(dc, point.X, point.Y, &character, 1); // RA2: as above
+	char character = Characters[x][y];
+	MonoPoint point(x, y);
+	TextOutA(dc, point.X, point.Y, &character, 1);
 }
 
 
 void MonoClass::Refresh(int x, int y, int w, int h) // RA2: 0x0059EA90, redraws a block of cells when this is the page on display
 {
-	if (Enabled && this == Current) { // RA2: as above
-		HDC dc = GetDC(MonoWindow); // RA2: as above
-		SetBkMode(dc, OPAQUE); // RA2: as above
-		SetBkColor(dc, MonoBackColor); // RA2: as above
-		SetTextColor(dc, MonoTextColor); // RA2: as above
-		if (dc != NULL) { // RA2: as above
-			HGDIOBJ old_font = SelectObject(dc, MonoFont); // RA2: as above
-			for (int row = y; row < y + h; row++) { // RA2: as above
-				for (int column = x; column < x + w; column++) { // RA2: as above
-					Draw_Character(dc, column, row); // RA2: as above
+	if (Enabled && this == Current) {
+		HDC dc = GetDC(MonoWindow);
+		SetBkMode(dc, OPAQUE);
+		SetBkColor(dc, MonoBackColor);
+		SetTextColor(dc, MonoTextColor);
+		if (dc != NULL) {
+			HGDIOBJ old_font = SelectObject(dc, MonoFont);
+			for (int row = y; row < y + h; row++) {
+				for (int column = x; column < x + w; column++) {
+					Draw_Character(dc, column, row);
 				}
 			}
-			SelectObject(dc, old_font); // RA2: as above
-			ReleaseDC(MonoWindow, dc); // RA2: as above
+			SelectObject(dc, old_font);
+			ReleaseDC(MonoWindow, dc);
 		}
 	}
 }

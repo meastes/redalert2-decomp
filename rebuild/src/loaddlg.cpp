@@ -64,7 +64,7 @@ namespace OwnerDraw { // RA2: the helpers Dialog calls
 void __fastcall Set_Control_Disabled(HWND control, bool value); // RA2: 0x5E46C0, used by Dialog
 void __fastcall Set_Dialog_Hidden(HWND control); // RA2: 0x5E62D0, as above
 void __fastcall Clear_Dialog_Hidden(HWND control); // RA2: 0x5E6330, as above
-} // RA2: as above
+}
 wchar_t * __fastcall wcstrim(wchar_t * buffer); // RA2: 0x6EEF80, as above
 
 
@@ -182,18 +182,18 @@ void LoadOptionsClass::Load_Dialog_On_WM_COMMAND(HWND window, WPARAM wparam, LPA
 	switch ((int)wparam) {
 		case IDC_MISSION_LOAD_LIST: // RA2: Load_Dialog_On_WM_COMMAND at 0x53B200 matches only so
 			if (id == LBN_DBLCLK && ListBox_GetCount((HWND)lparam) > 0) {
-				_this->State = (LoadDialogState)0x40F; // RA2: as above
+				_this->State = (LoadDialogState)0x40F;
 			}
 			break;
 
-		case 0x40F: // RA2: as above
+		case 0x40F:
 			if (id == BN_CLICKED) {
 				_this->State = (LoadDialogState)wparam;
 			}
 			break;
 
-		case 0x686: // RA2: as above
-			_this->State = (LoadDialogState)STATE_CLOSE; // RA2: as above
+		case 0x686:
+			_this->State = (LoadDialogState)STATE_CLOSE;
 			break;
 	}
 }
@@ -214,35 +214,35 @@ void LoadOptionsClass::Save_Dialog_On_WM_COMMAND(HWND window, WPARAM wparam, LPA
 	switch ((int)wparam) {
 		case IDC_MISSION_SAVE_LIST: // RA2: Save_Dialog_On_WM_COMMAND at 0x53B280 matches only so
 			if (id == LBN_SELCHANGE && ListBox_GetCount((HWND)lparam) > 0) {
-				HWND list = (HWND)lparam; // RA2: as above
-				int row = ListBox_GetCurSel(list); // RA2: as above
+				HWND list = (HWND)lparam;
+				int row = ListBox_GetCurSel(list);
 				if (row != LB_ERR) {
-					FileEntryClass * fdata = (FileEntryClass *)ListBox_GetItemData(list, row); // RA2: as above
-					if (!fdata->Valid || fdata->Old) { // RA2: as above
-						wchar_t * text = _this->Description; // RA2: as above
-						if (text != NULL) { // RA2: as above
-							HWND edit = GetDlgItem(window, IDC_MISSION_SAVE_DESC); // RA2: as above
-							SendMessage(edit, OD_SETTEXTW, 0, (LPARAM)text); // RA2: as above
+					FileEntryClass * fdata = (FileEntryClass *)ListBox_GetItemData(list, row);
+					if (!fdata->Valid || fdata->Old) {
+						wchar_t * text = _this->Description;
+						if (text != NULL) {
+							HWND edit = GetDlgItem(window, IDC_MISSION_SAVE_DESC);
+							SendMessage(edit, OD_SETTEXTW, 0, (LPARAM)text);
 						}
 					} else {
-						HWND edit = GetDlgItem(window, IDC_MISSION_SAVE_DESC); // RA2: as above
-						SendMessage(edit, OD_SETTEXTW, 0, (LPARAM)fdata->Descr); // RA2: as above
+						HWND edit = GetDlgItem(window, IDC_MISSION_SAVE_DESC);
+						SendMessage(edit, OD_SETTEXTW, 0, (LPARAM)fdata->Descr);
 					}
-					SetFocus(GetDlgItem(window, IDC_MISSION_SAVE_DESC)); // RA2: as above
-					Edit_SetSel(GetDlgItem(window, IDC_MISSION_SAVE_DESC), 0, -1); // RA2: as above
+					SetFocus(GetDlgItem(window, IDC_MISSION_SAVE_DESC));
+					Edit_SetSel(GetDlgItem(window, IDC_MISSION_SAVE_DESC), 0, -1);
 				}
 			}
 			break;
 
-		case 0x686: // RA2: as above
+		case 0x686:
 			if (id == BN_CLICKED) {
-				_this->State = (LoadDialogState)STATE_CLOSE; // RA2: as above
+				_this->State = (LoadDialogState)STATE_CLOSE;
 			}
 			break;
 
-		case 0x6C7: // RA2: as above
-			if (id == BN_CLICKED) { // RA2: as above
-				_this->State = (LoadDialogState)STATE_OK; // RA2: as above
+		case 0x6C7:
+			if (id == BN_CLICKED) {
+				_this->State = (LoadDialogState)STATE_OK;
 			}
 			break;
 	}
@@ -262,13 +262,13 @@ void LoadOptionsClass::Delete_Dialog_On_WM_COMMAND(HWND window, WPARAM wparam, L
 	switch ((int)wparam) {
 		case 0x686: // RA2: Delete_Dialog_On_WM_COMMAND at 0x53B390 matches only so
 			if (id == BN_CLICKED) {
-				_this->State = (LoadDialogState)STATE_CLOSE; // RA2: as above
+				_this->State = (LoadDialogState)STATE_CLOSE;
 			}
 			break;
 
-		case 0x6C8: // RA2: as above
-			if (id == BN_CLICKED) { // RA2: as above
-				_this->State = (LoadDialogState)STATE_OK; // RA2: as above
+		case 0x6C8:
+			if (id == BN_CLICKED) {
+				_this->State = (LoadDialogState)STATE_OK;
 			}
 			break;
 	}
@@ -287,24 +287,24 @@ LRESULT CALLBACK LoadOptionsClass::Load_Dialog_Proc(HWND window, UINT message, W
 	int rc = OwnerDraw::Default_Dialog_Proc(window, message, wparam, lparam);
 
 	if (rc != 0) { // RA2: RA2's form
-		return rc; // RA2: as above
+		return rc;
 	}
-	switch (message) { // RA2: as above
-		case WM_PAINT: // RA2: as above
-		Slide_Pending_Dialog(window); // RA2: as above
-		return(1); // RA2: as above
-		case WM_COMMAND: // RA2: as above
-		Load_Dialog_On_WM_COMMAND(window, (unsigned short)wparam, lparam, (unsigned short)(wparam >> 16)); // RA2: as above
-		break; // RA2: as above
-		case WM_MOVING: // RA2: as above
-		return On_WM_MOVING(window, wparam, lparam); // RA2: as above
-		case OD_SUBCLASSED: // RA2: as above
-			SendDlgItemMessageA(window, IDC_MISSION_LOAD_LIST, OD_ADDCOLUMN, 0xf9, 2); // RA2: as above
-			SendDlgItemMessageA(window, IDC_MISSION_LOAD_LIST, OD_ADDCOLUMN, 0x38, 0xff); // RA2: as above
-			SendDlgItemMessageA(window, IDC_MISSION_LOAD_LIST, OD_ADDCOLUMN, 0, 0x13b); // RA2: as above
-		break; // RA2: as above
+	switch (message) {
+		case WM_PAINT:
+			Slide_Pending_Dialog(window);
+			return(1);
+		case WM_COMMAND:
+			Load_Dialog_On_WM_COMMAND(window, (unsigned short)wparam, lparam, (unsigned short)(wparam >> 16));
+			break;
+		case WM_MOVING:
+			return On_WM_MOVING(window, wparam, lparam);
+		case OD_SUBCLASSED:
+			SendDlgItemMessageA(window, IDC_MISSION_LOAD_LIST, OD_ADDCOLUMN, 0xf9, 2);
+			SendDlgItemMessageA(window, IDC_MISSION_LOAD_LIST, OD_ADDCOLUMN, 0x38, 0xff);
+			SendDlgItemMessageA(window, IDC_MISSION_LOAD_LIST, OD_ADDCOLUMN, 0, 0x13b);
+			break;
 	}
-	return(0); // RA2: as above
+	return(0);
 }
 
 
@@ -318,30 +318,30 @@ LRESULT CALLBACK LoadOptionsClass::Load_Dialog_Proc(HWND window, UINT message, W
 /// <returns>Returns with the message result, or FALSE if nothing here dealt with it.</returns>
 LRESULT __stdcall LoadOptionsClass::Save_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: RA2's form
 {
-	int result = OwnerDraw::Default_Dialog_Proc(window, message, wparam, lparam); // RA2: as above
-	if (result != 0) { // RA2: as above
-		return result; // RA2: as above
+	int result = OwnerDraw::Default_Dialog_Proc(window, message, wparam, lparam);
+	if (result != 0) {
+		return result;
 	}
-	switch (message) { // RA2: as above
-	case WM_PAINT: // RA2: as above
-		Slide_Pending_Dialog(window); // RA2: as above
-		return(1); // RA2: as above
-	case WM_COMMAND: // RA2: as above
-		Save_Dialog_On_WM_COMMAND(window, LOWORD(wparam), lparam, HIWORD(wparam)); // RA2: as above
-		break; // RA2: as above
-	case WM_MOVING: // RA2: as above
-		return On_WM_MOVING(window, wparam, lparam); // RA2: as above
-	case OD_SUBCLASSED: // RA2: as above
-		SendMessageA(GetDlgItem(window, IDC_MISSION_SAVE_DESC), EM_SETLIMITTEXT, 79, 0); // RA2: as above
-		SendDlgItemMessageA(window, IDC_MISSION_SAVE_LIST, OD_ADDCOLUMN, 0xf9, 2); // RA2: as above
-		SendDlgItemMessageA(window, IDC_MISSION_SAVE_LIST, OD_ADDCOLUMN, 0x38, 255); // RA2: as above
-		SendDlgItemMessageA(window, IDC_MISSION_SAVE_LIST, OD_ADDCOLUMN, 0, 315); // RA2: as above
-		break; // RA2: as above
-	case 0x4da: // RA2: as above
-		((LoadOptionsClass *)GetWindowLongA(window, DWL_USER))->State = STATE_OK; // RA2: as above
-		break; // RA2: as above
+	switch (message) {
+		case WM_PAINT:
+			Slide_Pending_Dialog(window);
+			return(1);
+		case WM_COMMAND:
+			Save_Dialog_On_WM_COMMAND(window, LOWORD(wparam), lparam, HIWORD(wparam));
+			break;
+		case WM_MOVING:
+			return On_WM_MOVING(window, wparam, lparam);
+		case OD_SUBCLASSED:
+			SendMessageA(GetDlgItem(window, IDC_MISSION_SAVE_DESC), EM_SETLIMITTEXT, 79, 0);
+			SendDlgItemMessageA(window, IDC_MISSION_SAVE_LIST, OD_ADDCOLUMN, 0xf9, 2);
+			SendDlgItemMessageA(window, IDC_MISSION_SAVE_LIST, OD_ADDCOLUMN, 0x38, 255);
+			SendDlgItemMessageA(window, IDC_MISSION_SAVE_LIST, OD_ADDCOLUMN, 0, 315);
+			break;
+		case 0x4da:
+			((LoadOptionsClass *)GetWindowLongA(window, DWL_USER))->State = STATE_OK;
+			break;
 	}
-	return(0); // RA2: as above
+	return(0);
 }
 
 
@@ -356,25 +356,25 @@ LRESULT __stdcall LoadOptionsClass::Save_Dialog_Proc(HWND window, UINT message, 
 LRESULT CALLBACK LoadOptionsClass::Delete_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
 	int result = OwnerDraw::Default_Dialog_Proc(window, message, wparam, lparam); // RA2: RA2's form
-	if (result != 0) { // RA2: as above
-		return result; // RA2: as above
+	if (result != 0) {
+		return result;
 	}
-	switch (message) { // RA2: as above
-	case WM_PAINT: // RA2: as above
-		Slide_Pending_Dialog(window); // RA2: as above
-		return(1); // RA2: as above
-	case WM_COMMAND: // RA2: as above
-		Delete_Dialog_On_WM_COMMAND(window, (unsigned short)wparam, lparam, (unsigned short)(wparam >> 16)); // RA2: as above
-		break; // RA2: as above
-	case WM_MOVING: // RA2: as above
-		return On_WM_MOVING(window, wparam, lparam); // RA2: as above
-	case OD_SUBCLASSED: // RA2: as above
-		SendDlgItemMessage(window, IDC_MISSION_DELETE_LIST, OD_ADDCOLUMN, 0xf9, 2); // RA2: as above
-		SendDlgItemMessage(window, IDC_MISSION_DELETE_LIST, OD_ADDCOLUMN, 0x38, 0xff); // RA2: as above
-		SendDlgItemMessage(window, IDC_MISSION_DELETE_LIST, OD_ADDCOLUMN, 0, 0x13b); // RA2: as above
-		break; // RA2: as above
+	switch (message) {
+		case WM_PAINT:
+			Slide_Pending_Dialog(window);
+			return(1);
+		case WM_COMMAND:
+			Delete_Dialog_On_WM_COMMAND(window, (unsigned short)wparam, lparam, (unsigned short)(wparam >> 16));
+			break;
+		case WM_MOVING:
+			return On_WM_MOVING(window, wparam, lparam);
+		case OD_SUBCLASSED:
+			SendDlgItemMessage(window, IDC_MISSION_DELETE_LIST, OD_ADDCOLUMN, 0xf9, 2);
+			SendDlgItemMessage(window, IDC_MISSION_DELETE_LIST, OD_ADDCOLUMN, 0x38, 0xff);
+			SendDlgItemMessage(window, IDC_MISSION_DELETE_LIST, OD_ADDCOLUMN, 0, 0x13b);
+			break;
 	}
-	return(0); // RA2: as above
+	return(0);
 }
 
 
@@ -394,219 +394,219 @@ LRESULT CALLBACK LoadOptionsClass::Delete_Dialog_Proc(HWND window, UINT message,
  * HISTORY:                                                                                    *
  *   02/14/1995 BR : Created.                                                                  *
  *=============================================================================================*/
-bool LoadOptionsClass::Dialog(void) // RA2: as above
-{ // RA2: as above
-	HWND dialog = 0; // RA2: as above
-	HWND list = 0; // RA2: as above
+bool LoadOptionsClass::Dialog(void)
+{
+	HWND dialog = 0;
+	HWND list = 0;
 
 	wchar_t buffer[256]; // RA2: the description and message texts are wide (meastes 0x53B770)
 	char filename_buffer[256]; // RA2: the generated file name is kept in its own buffer
 
-	switch (Style) { // RA2: as above
-		case LOAD: { // RA2: as above
+	switch (Style) {
+		case LOAD: {
 			dialog = OwnerDraw::Begin_Dialog(IDD_MISSION_LOAD, (DLGPROC)Load_Dialog_Proc, 0); // RA2: dialog 0xB7 (IDD_MISSION_LOAD in TibSun)
-			list = GetDlgItem(dialog, IDC_MISSION_LOAD_LIST); // RA2: as above
+			list = GetDlgItem(dialog, IDC_MISSION_LOAD_LIST);
 			HWND title = GetDlgItem(dialog, 0x694); // RA2: the title control's caption comes from the virtual Load_Caption (slot 5)
-			SendMessageA(title, OD_SETTEXTW, 0, (LPARAM)Load_Caption()); // RA2: as above
+			SendMessageA(title, OD_SETTEXTW, 0, (LPARAM)Load_Caption());
 			if (!Session.Is_In_Game()) { // RA2: the button 0x40C is hidden outside a running game
-				HWND button = GetDlgItem(dialog, 0x40C); // RA2: as above
-				ShowWindow(button, SW_HIDE); // RA2: as above
-			} // RA2: as above
-			break; // RA2: as above
-		} // RA2: as above
+				HWND button = GetDlgItem(dialog, 0x40C);
+				ShowWindow(button, SW_HIDE);
+			}
+			break;
+		}
 
-		case SAVE: { // RA2: as above
-			if (Disk_Space_Available() < MinSpaceRequired) { // RA2: as above
+		case SAVE: {
+			if (Disk_Space_Available() < MinSpaceRequired) {
 				WWMessageBox().Process(StringTable::LoadString("TXT_DISKFULL", NULL, "D:\\Ra2\\LoadDlg.CPP", 0x1AD), StringTable::LoadString("TXT_OK", NULL, "D:\\Ra2\\LoadDlg.CPP", 0x1AD), NULL, NULL, false); // RA2: wide message and button texts, line 0x1AD of the source
-				return(false); // RA2: as above
-			} // RA2: as above
+				return(false);
+			}
 			dialog = OwnerDraw::Begin_Dialog(IDD_MISSION_SAVE, (DLGPROC)Save_Dialog_Proc, 0); // RA2: dialog 0x2B4 (IDD_MISSION_SAVE in TibSun)
-			list = GetDlgItem(dialog, IDC_MISSION_SAVE_LIST); // RA2: as above
+			list = GetDlgItem(dialog, IDC_MISSION_SAVE_LIST);
 			wchar_t * description = Description; // RA2: the suggested description is put into the edit control first
-			HWND edit = GetDlgItem(dialog, IDC_MISSION_SAVE_DESC); // RA2: as above
-			SendMessageA(edit, OD_SETTEXTW, 0, (LPARAM)description); // RA2: as above
+			HWND edit = GetDlgItem(dialog, IDC_MISSION_SAVE_DESC);
+			SendMessageA(edit, OD_SETTEXTW, 0, (LPARAM)description);
 			HWND title = GetDlgItem(dialog, 0x694); // RA2: the title is the virtual Save_Caption (slot 6)
-			SendMessageA(title, OD_SETTEXTW, 0, (LPARAM)Save_Caption()); // RA2: as above
+			SendMessageA(title, OD_SETTEXTW, 0, (LPARAM)Save_Caption());
 			if (!Session.Is_In_Game()) { // RA2: as in the load case
-				HWND button = GetDlgItem(dialog, 0x40C); // RA2: as above
-				ShowWindow(button, SW_HIDE); // RA2: as above
-			} // RA2: as above
-			break; // RA2: as above
-		} // RA2: as above
+				HWND button = GetDlgItem(dialog, 0x40C);
+				ShowWindow(button, SW_HIDE);
+			}
+			break;
+		}
 
-		case WWDELETE: { // RA2: as above
+		case WWDELETE: {
 			dialog = OwnerDraw::Begin_Dialog(IDD_MISSION_DELETE, (DLGPROC)Delete_Dialog_Proc, 0); // RA2: dialog 0x2B5 (IDD_MISSION_DELETE in TibSun)
-			list = GetDlgItem(dialog, IDC_MISSION_DELETE_LIST); // RA2: as above
+			list = GetDlgItem(dialog, IDC_MISSION_DELETE_LIST);
 			HWND title = GetDlgItem(dialog, 0x694); // RA2: the title is the virtual Delete_Caption (slot 7)
-			SendMessageA(title, OD_SETTEXTW, 0, (LPARAM)Delete_Caption()); // RA2: as above
+			SendMessageA(title, OD_SETTEXTW, 0, (LPARAM)Delete_Caption());
 			if (!Session.Is_In_Game()) { // RA2: as in the load case
-				HWND button = GetDlgItem(dialog, 0x40C); // RA2: as above
-				ShowWindow(button, SW_HIDE); // RA2: as above
-			} // RA2: as above
-			break; // RA2: as above
-		} // RA2: as above
-	} // RA2: as above
+				HWND button = GetDlgItem(dialog, 0x40C);
+				ShowWindow(button, SW_HIDE);
+			}
+			break;
+		}
+	}
 
-	State = STATE_PENDING; // RA2: as above
+	State = STATE_PENDING;
 
-	if (dialog) { // RA2: as above
-		SetWindowLong(dialog, DWL_USER, (LONG)this); // RA2: as above
+	if (dialog) {
+		SetWindowLong(dialog, DWL_USER, (LONG)this);
 
-		if (list != 0) { // RA2: as above
-			Fill_List(list); // RA2: as above
-			EnableWindow(GetDlgItem(dialog, IDOK), bool(ListBox_GetCount(list) > 0)); // RA2: as above
-		} // RA2: as above
+		if (list != 0) {
+			Fill_List(list);
+			EnableWindow(GetDlgItem(dialog, IDOK), bool(ListBox_GetCount(list) > 0));
+		}
 
-		OwnerDraw::Display_Dialog(dialog); // RA2: as above
+		OwnerDraw::Display_Dialog(dialog);
 
-		do { // RA2: as above
-			while (State == STATE_PENDING) { // RA2: as above
-				if (OwnerDraw::Dialog_Message_Handler() == true) { // RA2: as above
-					State = STATE_CLOSE; // RA2: as above
-				} // RA2: as above
+		do {
+			while (State == STATE_PENDING) {
+				if (OwnerDraw::Dialog_Message_Handler() == true) {
+					State = STATE_CLOSE;
+				}
 
-				if (Callback) { // RA2: as above
-					Callback(); // RA2: as above
-				} // RA2: as above
+				if (Callback) {
+					Callback();
+				}
 
-				if (!GameActive) { // RA2: as above
-					Title_Screen_Restore(false); // RA2: as above
-				} // RA2: as above
-			} // RA2: as above
+				if (!GameActive) {
+					Title_Screen_Restore(false);
+				}
+			}
 
 			if (State == STATE_OK || State == 0x40F) { // RA2: 0x40F, the list's double click, also confirms
-				LRESULT row = ListBox_GetCurSel(list); // RA2: as above
+				LRESULT row = ListBox_GetCurSel(list);
 
-				if (row == LB_ERR) { // RA2: as above
+				if (row == LB_ERR) {
 					State = STATE_PENDING; // RA2: no selection keeps the dialog up
-				} else { // RA2: as above
-					FileEntryClass * entry = (FileEntryClass *)ListBox_GetItemData(list, row); // RA2: as above
+				} else {
+					FileEntryClass * entry = (FileEntryClass *)ListBox_GetItemData(list, row);
 
-					switch (Style) { // RA2: as above
-						case LOAD: // RA2: as above
+					switch (Style) {
+						case LOAD:
 							if (!entry->Old) { // RA2: an old entry (meastes NeedsDescription, +0x1B5) is not loaded
 								DiskID old_disk = CD::Get_Current_Disk(60); // RA2: the current disk is remembered
 								CD::Set_Required_Disk(entry->Num == -1 ? DISK_ANY : (DiskID)Campaigns[entry->Num]->CDNumber); // RA2: no Init_Campaigns
-								if (!CD::Force_Available()) { // RA2: as above
+								if (!CD::Force_Available()) {
 									CD::Set_Required_Disk(old_disk); // RA2: the remembered disk is required again
-									State = STATE_PENDING; // RA2: as above
-								} else { // RA2: as above
-									ShowWindow(dialog, SW_HIDE); // RA2: as above
+									State = STATE_PENDING;
+								} else {
+									ShowWindow(dialog, SW_HIDE);
 									MouseCursor->Hide_Mouse(); // RA2: the mouse is hidden, no UpdateWindow / IsOldSaveGame
-									if (!Load_File(entry->Filename)) { // RA2: as above
-										MouseCursor->Show_Mouse(); // RA2: as above
-										ShowWindow(dialog, SW_SHOW); // RA2: as above
+									if (!Load_File(entry->Filename)) {
+										MouseCursor->Show_Mouse();
+										ShowWindow(dialog, SW_SHOW);
 										WWMessageBox().Process(StringTable::LoadString("TXT_ERROR_LOADING_GAME", NULL, "D:\\Ra2\\LoadDlg.CPP", 0x218), StringTable::LoadString("TXT_OK", NULL, "D:\\Ra2\\LoadDlg.CPP", 0x218), NULL, NULL, false); // RA2: wide texts, line 0x218
 										ShowWindow(dialog, SW_HIDE); // RA2: the dialog is hidden again after the message
-										State = STATE_PENDING; // RA2: as above
-									} // RA2: as above
-								} // RA2: as above
-							} // RA2: as above
-							break; // RA2: as above
+										State = STATE_PENDING;
+									}
+								}
+							}
+							break;
 
-						case SAVE: { // RA2: as above
+						case SAVE: {
 							HWND item = GetDlgItem(dialog, IDC_MISSION_SAVE_LIST); // RA2: the list's attached control is disabled while the message boxes show
-							HWND disabled = 0; // RA2: as above
-							if (item) { // RA2: as above
+							HWND disabled = 0;
+							if (item) {
 								disabled = (HWND)SendMessageA(item, 0x4EF, 0, 0); // RA2: 0x4EF returns the attached control
-								if (disabled) { // RA2: as above
-									OwnerDraw::Set_Control_Disabled(disabled, true); // RA2: as above
-								} // RA2: as above
-							} // RA2: as above
+								if (disabled) {
+									OwnerDraw::Set_Control_Disabled(disabled, true);
+								}
+							}
 							HWND edit = GetDlgItem(dialog, IDC_MISSION_SAVE_DESC); // RA2: the description is read as wide text
 							SendMessageA(edit, 0x4B3, 0x50, (LPARAM)buffer); // RA2: 0x4B3 reads the wide text of the control (at most 0x50 characters)
 							wcstrim(buffer); // RA2: 0x6EEF80 trims it
 
-							if (wcslen(buffer) == 0) { // RA2: as above
+							if (wcslen(buffer) == 0) {
 								WWMessageBox().Process(StringTable::LoadString("TXT_MUSTENTER_DESCRIPTION", NULL, "D:\\Ra2\\LoadDlg.CPP", 0x230), StringTable::LoadString("TXT_OK", NULL, "D:\\Ra2\\LoadDlg.CPP", 0x230), NULL, NULL, false); // RA2: wide texts, line 0x230
-								SetFocus(GetDlgItem(dialog, IDC_MISSION_SAVE_DESC)); // RA2: as above
-								Edit_SetSel(GetDlgItem(dialog, IDC_MISSION_SAVE_DESC), -1, -1); // RA2: as above
-								State = STATE_PENDING; // RA2: as above
-								break; // RA2: as above
-							} // RA2: as above
+								SetFocus(GetDlgItem(dialog, IDC_MISSION_SAVE_DESC));
+								Edit_SetSel(GetDlgItem(dialog, IDC_MISSION_SAVE_DESC), -1, -1);
+								State = STATE_PENDING;
+								break;
+							}
 
-							const char * filename = NULL; // RA2: as above
+							const char * filename = NULL;
 
-							if (entry && entry->Valid) { // RA2: as above
-								filename = entry->Filename; // RA2: as above
-							} else { // RA2: as above
-								{ // RA2: as above
-									CCFileClass temp_file; // RA2: as above
-									do { // RA2: as above
-										sprintf(filename_buffer, "SAVE%04lX.%3s", rand(), Extension); // RA2: as above
-										temp_file.Set_Name(filename_buffer); // RA2: as above
-									} while (temp_file.Is_Available() == true); // RA2: as above
-								} // RA2: as above
+							if (entry && entry->Valid) {
+								filename = entry->Filename;
+							} else {
+								{
+									CCFileClass temp_file;
+									do {
+										sprintf(filename_buffer, "SAVE%04lX.%3s", rand(), Extension);
+										temp_file.Set_Name(filename_buffer);
+									} while (temp_file.Is_Available() == true);
+								}
 
-								filename = filename_buffer; // RA2: as above
-							} // RA2: as above
+								filename = filename_buffer;
+							}
 
-							if (filename != NULL) { // RA2: as above
-								bool exists = RawFileClass(filename).Is_Available() == true; // RA2: as above
+							if (filename != NULL) {
+								bool exists = RawFileClass(filename).Is_Available() == true;
 								if (exists && WWMessageBox().Process(StringTable::LoadString("TXT_CONFIRM_SAVE", NULL, "D:\\Ra2\\LoadDlg.CPP", 0x244), StringTable::LoadString("TXT_YES", NULL, "D:\\Ra2\\LoadDlg.CPP", 0x244), StringTable::LoadString("TXT_NO", NULL, "D:\\Ra2\\LoadDlg.CPP", 0x244), NULL, false)) { // RA2: wide texts, line 0x244
-									State = STATE_PENDING; // RA2: as above
-								} else { // RA2: as above
+									State = STATE_PENDING;
+								} else {
 									ShowWindow(dialog, SW_HIDE); // RA2: the dialog is hidden while the game is saved
 									if (!Save_File(filename, buffer)) { // RA2: the wide description is passed
-										ShowWindow(dialog, SW_SHOW); // RA2: as above
+										ShowWindow(dialog, SW_SHOW);
 										WWMessageBox().Process(StringTable::LoadString("TXT_ERROR_SAVING_GAME", NULL, "D:\\Ra2\\LoadDlg.CPP", 0x253), StringTable::LoadString("TXT_OK", NULL, "D:\\Ra2\\LoadDlg.CPP", 0x253), NULL, NULL, false); // RA2: wide texts, line 0x253
-										State = STATE_PENDING; // RA2: as above
-									} else { // RA2: as above
+										State = STATE_PENDING;
+									} else {
 										ShowWindow(dialog, SW_SHOW); // RA2: the success message is shown over the dialog
-										OwnerDraw::Clear_Dialog_Hidden(dialog); // RA2: as above
+										OwnerDraw::Clear_Dialog_Hidden(dialog);
 										wchar_t const * message = Saved_Message(); // RA2: the virtual Saved_Message (slot 8)
 										WWMessageBox().Process(message, StringTable::LoadString("TXT_OK", NULL, "D:\\Ra2\\LoadDlg.CPP", 0x25B), NULL, NULL, false); // RA2: line 0x25B
-										OwnerDraw::Set_Dialog_Hidden(dialog); // RA2: as above
-										ShowWindow(dialog, SW_HIDE); // RA2: as above
+										OwnerDraw::Set_Dialog_Hidden(dialog);
+										ShowWindow(dialog, SW_HIDE);
 										if (Description) { // RA2: the caller's description buffer is copied from the buffer
-											wcscpy(buffer, Description); // RA2: as above
-										} // RA2: as above
-									} // RA2: as above
-								} // RA2: as above
-							} // RA2: as above
+											wcscpy(buffer, Description);
+										}
+									}
+								}
+							}
 
 							if (disabled) { // RA2: the attached control is enabled again
-								OwnerDraw::Set_Control_Disabled(disabled, false); // RA2: as above
-							} // RA2: as above
-							break; // RA2: as above
-						} // RA2: as above
+								OwnerDraw::Set_Control_Disabled(disabled, false);
+							}
+							break;
+						}
 
-						case WWDELETE: { // RA2: as above
+						case WWDELETE: {
 							swprintf(buffer, L"%s\n\n%s", StringTable::LoadString("TXT_DELETE_FILE_QUERY", NULL, "D:\\Ra2\\LoadDlg.CPP", 0x26D), entry->Descr); // RA2: wide text with the entry's wide description, line 0x26D
 							HWND item = GetDlgItem(dialog, IDC_MISSION_DELETE_LIST); // RA2: the list's attached control is disabled while the message box shows
-							HWND disabled = 0; // RA2: as above
-							if (item) { // RA2: as above
-								disabled = (HWND)SendMessageA(item, 0x4EF, 0, 0); // RA2: as above
-								if (disabled) { // RA2: as above
-									OwnerDraw::Set_Control_Disabled(disabled, true); // RA2: as above
-								} // RA2: as above
-							} // RA2: as above
+							HWND disabled = 0;
+							if (item) {
+								disabled = (HWND)SendMessageA(item, 0x4EF, 0, 0);
+								if (disabled) {
+									OwnerDraw::Set_Control_Disabled(disabled, true);
+								}
+							}
 
 							if (!WWMessageBox().Process(buffer, StringTable::LoadString("TXT_YES", NULL, "D:\\Ra2\\LoadDlg.CPP", 0x278), StringTable::LoadString("TXT_NO", NULL, "D:\\Ra2\\LoadDlg.CPP", 0x278), NULL, false)) { // RA2: wide texts, line 0x278
-								Delete_File(entry->Filename); // RA2: as above
-								ListBox_DeleteString(list, row); // RA2: as above
-								ListBox_SetCurSel(list, 0); // RA2: as above
-								if (ListBox_GetCount(list) > 0) { // RA2: as above
-									State = STATE_PENDING; // RA2: as above
-								} // RA2: as above
-							} else { // RA2: as above
-								State = STATE_PENDING; // RA2: as above
-							} // RA2: as above
+								Delete_File(entry->Filename);
+								ListBox_DeleteString(list, row);
+								ListBox_SetCurSel(list, 0);
+								if (ListBox_GetCount(list) > 0) {
+									State = STATE_PENDING;
+								}
+							} else {
+								State = STATE_PENDING;
+							}
 
 							if (disabled) { // RA2: the attached control is enabled again
-								OwnerDraw::Set_Control_Disabled(disabled, false); // RA2: as above
-							} // RA2: as above
-							break; // RA2: as above
-						} // RA2: as above
-					} // RA2: as above
-				} // RA2: as above
-			} // RA2: as above
-		} while (State == STATE_PENDING); // RA2: as above
+								OwnerDraw::Set_Control_Disabled(disabled, false);
+							}
+							break;
+						}
+					}
+				}
+			}
+		} while (State == STATE_PENDING);
 
-		Clear_List(); // RA2: as above
+		Clear_List();
 
-		OwnerDraw::End_Dialog(dialog); // RA2: as above
-	} // RA2: as above
+		OwnerDraw::End_Dialog(dialog);
+	}
 
 	return(State == 0x40F ? true : false); // RA2: only the double click returns true
 }
@@ -624,8 +624,8 @@ void LoadOptionsClass::Pick_Filename(char * file_name) // RA2: Pick_Filename at 
 {
 	CCFileClass file;
 	do {
-		sprintf(file_name, "SAVE%04lX.%3s", rand(), Extension); // RA2: as above
-		file.Set_Name(file_name); // RA2: as above
+		sprintf(file_name, "SAVE%04lX.%3s", rand(), Extension);
+		file.Set_Name(file_name);
 	} while (file.Is_Available() == true);
 }
 
@@ -672,119 +672,119 @@ void LoadOptionsClass::Clear_List(void)
  *   02/14/1995 BR : Created.                                                                  *
  *   06/25/1995 JLB : Shows which saved games are "(old)".                                     *
  *=============================================================================================*/
-void LoadOptionsClass::Fill_List(HWND window) // RA2: as above
-{ // RA2: as above
+void LoadOptionsClass::Fill_List(HWND window)
+{
 	OwnerDraw::CellData thecell; // RA2: a cell with wide text, set per column below (meastes 0x53C040)
 	SYSTEMTIME time; // RA2: declared at the top
-	FILETIME ft; // RA2: as above
-	char buffer[128]; // RA2: as above
+	FILETIME ft;
+	char buffer[128];
 	wchar_t wide[128]; // RA2: the date and time texts are converted to wide text
-	WIN32_FIND_DATAA ff; // RA2: as above
+	WIN32_FIND_DATAA ff;
 
-	Clear_List(); // RA2: as above
+	Clear_List();
 
-	if (Style == SAVE) { // RA2: as above
-		FileEntryClass * fdata = new FileEntryClass; // RA2: as above
+	if (Style == SAVE) {
+		FileEntryClass * fdata = new FileEntryClass;
 		swprintf(fdata->Descr, StringTable::LoadString("TXT_EMPTY_SLOT", NULL, "D:\\Ra2\\LoadDlg.CPP", 0x2F8)); // RA2: the empty slot's description is a string table entry, line 0x2F8 of the source
-		if (PlayerPtr != NULL) { // RA2: as above
-			fdata->Scenario = Scen->Scenario; // RA2: as above
-			fdata->House = Scen->PlayerHouse; // RA2: as above
-			fdata->Num = Scen->Campaign; // RA2: as above
+		if (PlayerPtr != NULL) {
+			fdata->Scenario = Scen->Scenario;
+			fdata->House = Scen->PlayerHouse;
+			fdata->Num = Scen->Campaign;
 			wcscpy(fdata->PlayerName, PlayerPtr->Class->UIName); // RA2: the player's name is the house's UI name
-		} else { // RA2: as above
-			fdata->Scenario = 0; // RA2: as above
-			fdata->House = (HousesType)Session.House; // RA2: as above
-			fdata->Num = -1; // RA2: as above
+		} else {
+			fdata->Scenario = 0;
+			fdata->House = (HousesType)Session.House;
+			fdata->Num = -1;
 			swprintf(fdata->PlayerName, L"%s", Narrow_To_Wide(Session.Handle)); // RA2: the player's name is the session's handle in wide text
-		} // RA2: as above
-		GetSystemTime(&time); // RA2: as above
-		SystemTimeToFileTime(&time, &fdata->DateTime); // RA2: as above
+		}
+		GetSystemTime(&time);
+		SystemTimeToFileTime(&time, &fdata->DateTime);
 		int game_type = Session.Type; // RA2: read into a local before the flag is set
-		fdata->Valid = false; // RA2: as above
-		fdata->Type = (GameType)game_type; // RA2: as above
-		Files.Add(fdata); // RA2: as above
-	} // RA2: as above
+		fdata->Valid = false;
+		fdata->Type = (GameType)game_type;
+		Files.Add(fdata);
+	}
 
-	sprintf(buffer, "*.%3s", Extension); // RA2: as above
-	HANDLE hFind = FindFirstFileA(buffer, &ff); // RA2: as above
-	FileEntryClass * fdata = NULL; // RA2: as above
+	sprintf(buffer, "*.%3s", Extension);
+	HANDLE hFind = FindFirstFileA(buffer, &ff);
+	FileEntryClass * fdata = NULL;
 
-	if (hFind != INVALID_HANDLE_VALUE) { // RA2: as above
-		do { // RA2: as above
-			if ((ff.dwFileAttributes & 0x116) == 0) { // RA2: as above
-				if (fdata == NULL) { // RA2: as above
-					fdata = new FileEntryClass; // RA2: as above
-				} // RA2: as above
-				if (Read_File(fdata, &ff) == true) { // RA2: as above
-					Files.Add(fdata); // RA2: as above
-					fdata = NULL; // RA2: as above
-				} // RA2: as above
-			} // RA2: as above
-		} while (FindNextFileA(hFind, &ff)); // RA2: as above
+	if (hFind != INVALID_HANDLE_VALUE) {
+		do {
+			if ((ff.dwFileAttributes & 0x116) == 0) {
+				if (fdata == NULL) {
+					fdata = new FileEntryClass;
+				}
+				if (Read_File(fdata, &ff) == true) {
+					Files.Add(fdata);
+					fdata = NULL;
+				}
+			}
+		} while (FindNextFileA(hFind, &ff));
 
-		if (fdata != NULL) { // RA2: as above
-			delete fdata; // RA2: as above
-		} // RA2: as above
-		FindClose(hFind); // RA2: as above
-	} // RA2: as above
+		if (fdata != NULL) {
+			delete fdata;
+		}
+		FindClose(hFind);
+	}
 
-	if (Files.Count() > 0) { // RA2: as above
-		qsort(&Files[0], Files.Count(), sizeof(FileEntryClass *), LoadOptionsClass::Compare); // RA2: as above
+	if (Files.Count() > 0) {
+		qsort(&Files[0], Files.Count(), sizeof(FileEntryClass *), LoadOptionsClass::Compare);
 
-		SendMessageA(window, LB_RESETCONTENT, 0, 0); // RA2: as above
+		SendMessageA(window, LB_RESETCONTENT, 0, 0);
 
-		for (int i = 0; i < Files.Count(); i++) { // RA2: as above
-			FileEntryClass * file = Files[i]; // RA2: as above
+		for (int i = 0; i < Files.Count(); i++) {
+			FileEntryClass * file = Files[i];
 			if (!file->Old) { // RA2: only entries not marked old are added (meastes NeedsDescription, +0x1B5)
-				int row = SendMessageA(window, OD_ADDSTRINGW, 0, (LPARAM)file); // RA2: as above
-				if (file->Type != GAME_NORMAL) { // RA2: as above
-					thecell.type = OwnerDraw::CellData::TEXT; // RA2: as above
+				int row = SendMessageA(window, OD_ADDSTRINGW, 0, (LPARAM)file);
+				if (file->Type != GAME_NORMAL) {
+					thecell.type = OwnerDraw::CellData::TEXT;
 					thecell.string.set(L"*"); // RA2: an asterisk marks a non-normal game
-					SendMessageA(window, OD_SETCELL, MAKEWPARAM(200, row), (LPARAM)&thecell); // RA2: as above
-				} // RA2: as above
+					SendMessageA(window, OD_SETCELL, MAKEWPARAM(200, row), (LPARAM)&thecell);
+				}
 
-				if (file->DateTime.dwHighDateTime != -1 && file->DateTime.dwLowDateTime != -1) { // RA2: as above
-					FileTimeToLocalFileTime(&file->DateTime, &ft); // RA2: as above
-					FileTimeToSystemTime(&ft, &time); // RA2: as above
-					GetDateFormatA(LOCALE_USER_DEFAULT, TIME_NOMINUTESORSECONDS, &time, NULL, buffer, sizeof(buffer)); // RA2: as above
-					thecell.type = OwnerDraw::CellData::TEXT; // RA2: as above
+				if (file->DateTime.dwHighDateTime != -1 && file->DateTime.dwLowDateTime != -1) {
+					FileTimeToLocalFileTime(&file->DateTime, &ft);
+					FileTimeToSystemTime(&ft, &time);
+					GetDateFormatA(LOCALE_USER_DEFAULT, TIME_NOMINUTESORSECONDS, &time, NULL, buffer, sizeof(buffer));
+					thecell.type = OwnerDraw::CellData::TEXT;
 					int length = MultiByteToWideChar(CP_ACP, 0, buffer, -1, wide, 128); // RA2: the date text is converted to wide text
-					wide[127] = 0; // RA2: as above
-					wide[length] = 0; // RA2: as above
-					thecell.string.set(wide); // RA2: as above
-					SendMessageA(window, OD_SETCELL, MAKEWPARAM(255, row), (LPARAM)&thecell); // RA2: as above
+					wide[127] = 0;
+					wide[length] = 0;
+					thecell.string.set(wide);
+					SendMessageA(window, OD_SETCELL, MAKEWPARAM(255, row), (LPARAM)&thecell);
 					GetTimeFormatA(LOCALE_USER_DEFAULT, 0, &time, NULL, buffer, sizeof(buffer)); // RA2: flags 0 (seconds shown)
-					thecell.type = OwnerDraw::CellData::TEXT; // RA2: as above
+					thecell.type = OwnerDraw::CellData::TEXT;
 					length = MultiByteToWideChar(CP_ACP, 0, buffer, -1, wide, 128); // RA2: the time text is converted to wide text
-					wide[127] = 0; // RA2: as above
-					wide[length] = 0; // RA2: as above
-					thecell.string.set(wide); // RA2: as above
-					SendMessageA(window, OD_SETCELL, MAKEWPARAM(315, row), (LPARAM)&thecell); // RA2: as above
-				} // RA2: as above
+					wide[127] = 0;
+					wide[length] = 0;
+					thecell.string.set(wide);
+					SendMessageA(window, OD_SETCELL, MAKEWPARAM(315, row), (LPARAM)&thecell);
+				}
 
-				SendMessageA(window, LB_SETITEMDATA, row, (LPARAM)file); // RA2: as above
-			} // RA2: as above
-		} // RA2: as above
+				SendMessageA(window, LB_SETITEMDATA, row, (LPARAM)file);
+			}
+		}
 
-		switch (Style) { // RA2: as above
-			case LOAD: { // RA2: as above
-				for (int i = 0; i < Files.Count(); i++) { // RA2: as above
+		switch (Style) {
+			case LOAD: {
+				for (int i = 0; i < Files.Count(); i++) {
 					if (Files[i]->Valid && !Files[i]->Old) { // RA2: an old entry is skipped too
-						SendMessageA(window, LB_SETCURSEL, i, 0); // RA2: as above
-						SendMessageA(window, LB_SETTOPINDEX, i, 0); // RA2: as above
-						break; // RA2: as above
-					} // RA2: as above
-				} // RA2: as above
-				} // RA2: as above
-				break; // RA2: as above
+						SendMessageA(window, LB_SETCURSEL, i, 0);
+						SendMessageA(window, LB_SETTOPINDEX, i, 0);
+						break;
+					}
+				}
+			}
+				break;
 
-			case SAVE: // RA2: as above
-			case WWDELETE: // RA2: as above
-				SendMessageA(window, LB_SETCURSEL, 0, 0); // RA2: as above
-				SendMessageA(window, LB_SETTOPINDEX, 0, 0); // RA2: as above
-				break; // RA2: as above
-		} // RA2: as above
-	} // RA2: as above
+			case SAVE:
+			case WWDELETE:
+				SendMessageA(window, LB_SETCURSEL, 0, 0);
+				SendMessageA(window, LB_SETTOPINDEX, 0, 0);
+				break;
+		}
+	}
 }
 
 
@@ -800,19 +800,19 @@ bool LoadOptionsClass::Files_Present(void)
 {
 	char pattern[64];
 	WIN32_FIND_DATA find; // RA2: RA2's form
-	bool found = false; // RA2: as above
+	bool found = false;
 	sprintf(pattern, "*.%3s", Extension);
-	HANDLE handle = FindFirstFileA(pattern, &find); // RA2: as above
-	if (handle != INVALID_HANDLE_VALUE) { // RA2: as above
-		do { // RA2: as above
-			if (!(find.dwFileAttributes & 0x116) && _stricmp(find.cFileName, "SAVEGAME.NET") != 0) { // RA2: as above
-				found = true; // RA2: as above
+	HANDLE handle = FindFirstFileA(pattern, &find);
+	if (handle != INVALID_HANDLE_VALUE) {
+		do {
+			if (!(find.dwFileAttributes & 0x116) && _stricmp(find.cFileName, "SAVEGAME.NET") != 0) {
+				found = true;
 				break;
 			}
-		} while (FindNextFileA(handle, &find)); // RA2: as above
+		} while (FindNextFileA(handle, &find));
 	}
-	FindClose(handle); // RA2: as above
-	return found; // RA2: as above
+	FindClose(handle);
+	return found;
 }
 
 
@@ -850,28 +850,28 @@ int __cdecl LoadOptionsClass::Compare(const void * p1, const void * p2)
 /// play first so that nothing tries to tick while the game state is being replaced.
 /// </summary>
 /// <returns>bool; Was the game loaded?</returns>
-bool LoadOptionsClass::Load_File(const char * file_name) // RA2: as above
-{ // RA2: as above
+bool LoadOptionsClass::Load_File(const char * file_name)
+{
 	int mouse_state = MouseCursor->Get_Mouse_State(); // RA2: the mouse state is saved first (0x53C680)
 	HWND dialog = OwnerDraw::Custom_Message_Box(StringTable::LoadString("TXT_LOADING", NULL, "D:\\Ra2\\LoadDlg.CPP", 0x41C), NULL, NULL); // RA2: a message box with the TXT_LOADING text, line 0x41C of the source
-	MouseCursor->Hide_Mouse(); // RA2: as above
-	if (dialog) { // RA2: as above
-		OwnerDraw::Display_Dialog(dialog); // RA2: as above
-	} // RA2: as above
-	ScenarioActive = false; // RA2: as above
-	TacticalActive = false; // RA2: as above
+	MouseCursor->Hide_Mouse();
+	if (dialog) {
+		OwnerDraw::Display_Dialog(dialog);
+	}
+	ScenarioActive = false;
+	TacticalActive = false;
 	Session.Leave_Game(); // RA2: 0x672E70 is called before the load
-	bool loaded = Load_Game(file_name); // RA2: as above
+	bool loaded = Load_Game(file_name);
 	while (MouseCursor->Get_Mouse_State() < mouse_state) { // RA2: the mouse state is restored by showing or hiding
-		MouseCursor->Show_Mouse(); // RA2: as above
-	} // RA2: as above
-	while (MouseCursor->Get_Mouse_State() > mouse_state) { // RA2: as above
-		MouseCursor->Hide_Mouse(); // RA2: as above
-	} // RA2: as above
-	if (dialog) { // RA2: as above
-		OwnerDraw::End_Dialog(dialog); // RA2: as above
-	} // RA2: as above
-	return(loaded); // RA2: as above
+		MouseCursor->Show_Mouse();
+	}
+	while (MouseCursor->Get_Mouse_State() > mouse_state) {
+		MouseCursor->Hide_Mouse();
+	}
+	if (dialog) {
+		OwnerDraw::End_Dialog(dialog);
+	}
+	return(loaded);
 }
 
 
@@ -884,18 +884,18 @@ bool LoadOptionsClass::Load_File(const char * file_name) // RA2: as above
 /// <param name="descr">The description to record alongside the saved game.</param>
 /// <returns>bool; Was the game saved?</returns>
 bool LoadOptionsClass::Save_File(const char * file_name, wchar_t const * descr) // RA2: a wide description
-{ // RA2: as above
+{
 	HWND dialog = OwnerDraw::Custom_Message_Box(StringTable::LoadString("TXT_SAVING_GAME", NULL, "D:\\Ra2\\LoadDlg.CPP", 0x453), NULL, NULL); // RA2: a message box with the TXT_SAVING_GAME text, line 0x453 of the source (0x53C760)
-	MouseCursor->Hide_Mouse(); // RA2: as above
-	if (dialog) { // RA2: as above
-		OwnerDraw::Display_Dialog(dialog); // RA2: as above
-	} // RA2: as above
-	bool saved = Save_Game(file_name, descr, false); // RA2: as above
+	MouseCursor->Hide_Mouse();
+	if (dialog) {
+		OwnerDraw::Display_Dialog(dialog);
+	}
+	bool saved = Save_Game(file_name, descr, false);
 	MouseCursor->Show_Mouse(); // RA2: the mouse is shown again
 	if (dialog) { // RA2: the message box is closed again
-		OwnerDraw::End_Dialog(dialog); // RA2: as above
-	} // RA2: as above
-	return(saved); // RA2: as above
+		OwnerDraw::End_Dialog(dialog);
+	}
+	return(saved);
 }
 
 
@@ -939,10 +939,10 @@ bool LoadOptionsClass::Read_File(FileEntryClass * fdata, WIN32_FIND_DATAA * ff)
 		}
 
 		if (savever.Get_Internal_Version() != ExpectedGameVersion) { // RA2: Read_File at 0x53C7F0 matches only so
-			wcscpy(fdata->Descr, savever.Get_Scenario_Description()); // RA2: as above
+			wcscpy(fdata->Descr, savever.Get_Scenario_Description());
 			fdata->Old = true;
 		} else {
-			wcscpy(fdata->Descr, savever.Get_Scenario_Description()); // RA2: as above
+			wcscpy(fdata->Descr, savever.Get_Scenario_Description());
 			fdata->Old = false;
 		}
 
@@ -951,7 +951,7 @@ bool LoadOptionsClass::Read_File(FileEntryClass * fdata, WIN32_FIND_DATAA * ff)
 		fdata->Num = savever.Get_Campaign_Number();
 		fdata->Type = (GameType)savever.Get_Game_Type();
 		strcpy(fdata->Filename, ff->cFileName);
-		wcscpy(fdata->PlayerName, savever.Get_Player_House()); // RA2: as above
+		wcscpy(fdata->PlayerName, savever.Get_Player_House());
 		if (strlen(fdata->Filename) == 0) {
 			strcpy(fdata->Filename, ff->cAlternateFileName);
 		}

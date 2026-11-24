@@ -183,7 +183,7 @@ static inline long VQA_CalcFramesSinceDrawn(VQAHandleP * vqap) // RA2: ra2-decom
 	return to_loop_end + from_loop_start + 1;
 }
 
-static inline long VQA_SetCurrentFrameAsLast(VQAHandleP * vqap) // RA2: as above
+static inline long VQA_SetCurrentFrameAsLast(VQAHandleP * vqap)
 {
 	VQADrawer * drawer;
 
@@ -194,7 +194,7 @@ static inline long VQA_SetCurrentFrameAsLast(VQAHandleP * vqap) // RA2: as above
 	return(VQAERR_NONE);
 }
 
-static inline void VQA_SetPreviousFrameNode(VQAHandleP * vqap) // RA2: as above
+static inline void VQA_SetPreviousFrameNode(VQAHandleP * vqap)
 {
 	VQADrawer * drawer;
 

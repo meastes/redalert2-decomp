@@ -51,12 +51,12 @@
 #include "crc.h"
 #include "findmake.h"
 #include "globals.h"
-#include "infatype.h" // RA2: as above
+#include "infatype.h"
 #include "side.h"
 #include "sun.h"
 #include "swizzle.h"
 #include "tracker.h"
-#include "unittype.h" // RA2: as above
+#include "unittype.h"
 #include "vector.h"
 
 /***********************************************************************************************
@@ -127,10 +127,10 @@ HouseTypeClass::HouseTypeClass(char const * ininame) :
 /// </summary>
 HouseTypeClass::HouseTypeClass(NoInitClass const & x) :
 	BASECLASS(x), // RA2: the base is still built without initialization
-	ParentCountry(x), // RA2: as above
+	ParentCountry(x),
 	VeteranInfantry(x), // RA2: the three veteran lists are built without initialization too
-	VeteranUnits(x), // RA2: as above
-	VeteranAircraft(x) // RA2: as above
+	VeteranUnits(x),
+	VeteranAircraft(x)
 {
 }
 
@@ -170,7 +170,7 @@ HouseTypeClass::~HouseTypeClass(void)
 HousesType HouseTypeClass::From_Name(char const * name)
 {
 	if (stricmp(name, "<random>") == 0) { // RA2: 0x4F94D0 maps "<random>" to -2 first
-		return((HousesType)-2); // RA2: as above
+		return((HousesType)-2);
 	}
 	if (name != NULL) {
 		for (int house = HOUSE_FIRST; house < HouseTypes.Count(); house++) {
@@ -234,28 +234,28 @@ bool HouseTypeClass::Read_INI(CCINIClass const & ini)
 		IsSmartAI = ini.Get_Bool(Name(), "SmartAI", IsSmartAI);
 
 		ArmorInfantryMult = ini.Get_Float(Name(), "ArmorInfantryMult", ArmorInfantryMult); // RA2: the per kind multipliers are RA2's
-		ArmorUnitsMult = ini.Get_Float(Name(), "ArmorUnitsMult", ArmorUnitsMult); // RA2: as above
-		ArmorAircraftMult = ini.Get_Float(Name(), "ArmorAircraftMult", ArmorAircraftMult); // RA2: as above
-		ArmorBuildingsMult = ini.Get_Float(Name(), "ArmorBuildingsMult", ArmorBuildingsMult); // RA2: as above
-		ArmorDefensesMult = ini.Get_Float(Name(), "ArmorDefensesMult", ArmorDefensesMult); // RA2: as above
-		CostInfantryMult = ini.Get_Float(Name(), "CostInfantryMult", CostInfantryMult); // RA2: as above
-		CostUnitsMult = ini.Get_Float(Name(), "CostUnitsMult", CostUnitsMult); // RA2: as above
-		CostAircraftMult = ini.Get_Float(Name(), "CostAircraftMult", CostAircraftMult); // RA2: as above
-		CostBuildingsMult = ini.Get_Float(Name(), "CostBuildingsMult", CostBuildingsMult); // RA2: as above
-		CostDefensesMult = ini.Get_Float(Name(), "CostDefensesMult", CostDefensesMult); // RA2: as above
-		SpeedInfantryMult = ini.Get_Float(Name(), "SpeedInfantryMult", SpeedInfantryMult); // RA2: as above
-		SpeedUnitsMult = ini.Get_Float(Name(), "SpeedUnitsMult", SpeedUnitsMult); // RA2: as above
-		SpeedAircraftMult = ini.Get_Float(Name(), "SpeedAircraftMult", SpeedAircraftMult); // RA2: as above
-		BuildtimeInfantryMult = ini.Get_Float(Name(), "BuildTimeInfantryMult", BuildtimeInfantryMult); // RA2: as above
-		BuildtimeUnitsMult = ini.Get_Float(Name(), "BuildTimeUnitsMult", BuildtimeUnitsMult); // RA2: as above
-		BuildtimeAircraftMult = ini.Get_Float(Name(), "BuildTimeAircraftMult", BuildtimeAircraftMult); // RA2: as above
-		BuildtimeBuildingsMult = ini.Get_Float(Name(), "BuildTimeBuildingsMult", BuildtimeBuildingsMult); // RA2: as above
-		BuildtimeDefensesMult = ini.Get_Float(Name(), "BuildTimeDefensesMult", BuildtimeDefensesMult); // RA2: as above
-		IncomeMult = ini.Get_Float(Name(), "IncomeMult", IncomeMult); // RA2: as above
+		ArmorUnitsMult = ini.Get_Float(Name(), "ArmorUnitsMult", ArmorUnitsMult);
+		ArmorAircraftMult = ini.Get_Float(Name(), "ArmorAircraftMult", ArmorAircraftMult);
+		ArmorBuildingsMult = ini.Get_Float(Name(), "ArmorBuildingsMult", ArmorBuildingsMult);
+		ArmorDefensesMult = ini.Get_Float(Name(), "ArmorDefensesMult", ArmorDefensesMult);
+		CostInfantryMult = ini.Get_Float(Name(), "CostInfantryMult", CostInfantryMult);
+		CostUnitsMult = ini.Get_Float(Name(), "CostUnitsMult", CostUnitsMult);
+		CostAircraftMult = ini.Get_Float(Name(), "CostAircraftMult", CostAircraftMult);
+		CostBuildingsMult = ini.Get_Float(Name(), "CostBuildingsMult", CostBuildingsMult);
+		CostDefensesMult = ini.Get_Float(Name(), "CostDefensesMult", CostDefensesMult);
+		SpeedInfantryMult = ini.Get_Float(Name(), "SpeedInfantryMult", SpeedInfantryMult);
+		SpeedUnitsMult = ini.Get_Float(Name(), "SpeedUnitsMult", SpeedUnitsMult);
+		SpeedAircraftMult = ini.Get_Float(Name(), "SpeedAircraftMult", SpeedAircraftMult);
+		BuildtimeInfantryMult = ini.Get_Float(Name(), "BuildTimeInfantryMult", BuildtimeInfantryMult);
+		BuildtimeUnitsMult = ini.Get_Float(Name(), "BuildTimeUnitsMult", BuildtimeUnitsMult);
+		BuildtimeAircraftMult = ini.Get_Float(Name(), "BuildTimeAircraftMult", BuildtimeAircraftMult);
+		BuildtimeBuildingsMult = ini.Get_Float(Name(), "BuildTimeBuildingsMult", BuildtimeBuildingsMult);
+		BuildtimeDefensesMult = ini.Get_Float(Name(), "BuildTimeDefensesMult", BuildtimeDefensesMult);
+		IncomeMult = ini.Get_Float(Name(), "IncomeMult", IncomeMult);
 
 		VeteranInfantry = TGet_TypeList<InfantryTypeClass>(ini, Name(), "VeteranInfantry", VeteranInfantry); // RA2: the veteran lists
-		VeteranUnits = TGet_TypeList<UnitTypeClass>(ini, Name(), "VeteranUnits", VeteranUnits); // RA2: as above
-		VeteranAircraft = TGet_TypeList<AircraftTypeClass>(ini, Name(), "VeteranAircraft", VeteranAircraft); // RA2: as above
+		VeteranUnits = TGet_TypeList<UnitTypeClass>(ini, Name(), "VeteranUnits", VeteranUnits);
+		VeteranAircraft = TGet_TypeList<AircraftTypeClass>(ini, Name(), "VeteranAircraft", VeteranAircraft);
 
 		SideType oldside = Side;
 		Side = ini.Get_Side(Name(), "Side", Side);
@@ -320,8 +320,8 @@ HRESULT STDMETHODCALLTYPE HouseTypeClass::IsDirty(void)
 HRESULT STDMETHODCALLTYPE HouseTypeClass::Load(IStream * stream)
 {
 	VeteranInfantry.Clear(); // RA2: the veteran lists are emptied first
-	VeteranUnits.Clear(); // RA2: as above
-	VeteranAircraft.Clear(); // RA2: as above
+	VeteranUnits.Clear();
+	VeteranAircraft.Clear();
 
 	HRESULT result = BASECLASS::Load(stream); // RA2: the abstract type's data
 	if (FAILED(result)) {
@@ -331,8 +331,8 @@ HRESULT STDMETHODCALLTYPE HouseTypeClass::Load(IStream * stream)
 	new (this) HouseTypeClass(NoInitClass());
 
 	VeteranInfantry.Load(stream); // RA2: the lists are loaded element by element
-	VeteranUnits.Load(stream); // RA2: as above
-	VeteranAircraft.Load(stream); // RA2: as above
+	VeteranUnits.Load(stream);
+	VeteranAircraft.Load(stream);
 
 	int index;
 	for (index = 0; index < VeteranInfantry.Count(); index++) {
@@ -357,12 +357,12 @@ HRESULT STDMETHODCALLTYPE HouseTypeClass::Load(IStream * stream)
 HRESULT STDMETHODCALLTYPE HouseTypeClass::Save(IStream * stream, BOOL cleardirty)
 {
 	HRESULT result = BASECLASS::Save(stream, cleardirty); // RA2: Save at 0x4FA150 matches only so
-	if (SUCCEEDED(result)) { // RA2: as above
-		VeteranInfantry.Save(stream); // RA2: as above
-		VeteranUnits.Save(stream); // RA2: as above
-		VeteranAircraft.Save(stream); // RA2: as above
+	if (SUCCEEDED(result)) {
+		VeteranInfantry.Save(stream);
+		VeteranUnits.Save(stream);
+		VeteranAircraft.Save(stream);
 
-		result = S_OK; // RA2: as above
+		result = S_OK;
 	}
 	return(result);
 }

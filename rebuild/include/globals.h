@@ -382,7 +382,7 @@ extern int LowResHeight; // RA2: 0x007ADD74 (480), ra2-decomp's DAT_007F5BEC
 extern int MedResHeight; // RA2: 0x007ADD78 (600), ra2-decomp's DAT_007F5BF0
 extern int HighResHeight; // RA2: 0x007ADD7C (768), ra2-decomp's DAT_007F5BF4
 extern bool ScenarioSaveNameSet; // RA2: 0x00A6EBD0, as in mainloop.cpp
-extern bool InMainLoop; // RA2: as above
+extern bool InMainLoop;
 extern int ChatTarget; // RA2: 0x00A6EBE0; who a typed message goes to: 1 everybody, 2 allies, 3 one player, 0 nobody
 extern char LastPagerName[]; // RA2: 0x00B2AC48; who paged last
 extern unsigned int DebugTime; // RA2: 0x007EC498; milliseconds shown at the top of the screen, -1 for none
@@ -484,43 +484,43 @@ extern bool VideoBackBufferAllowed; // RA2: 0x007F4CC4, [Video] VideoBackBuffer 
 extern void __fastcall Set_Scheme_Table_Theater(TheaterType theater); // RA2: 0x00603750, palette.cpp: switches the colour scheme table to the theater
 extern void __cdecl Delete_All_Line_Trails(void); // RA2: 0x005397B0, deletes every line trail
 extern void __fastcall Load_Techno_Palettes(void); // RA2: 0x006DF640, TechnoTypeClass::Load_Palettes of the executable
-extern int Alternate_Frame_Color; // RA2: as above
-extern int Base_Screen_Height; // RA2: as above
-extern int Base_Screen_Width; // RA2: as above
-extern int Border_Width; // RA2: as above
-extern int Brown_Color; // RA2: as above
-extern int Dark_Brown_Color; // RA2: as above
-extern int Dark_Grey_Color; // RA2: as above
-extern int Default_Frame_Color; // RA2: as above
-extern int Dim_Alpha; // RA2: as above
-extern int Disabled_Text_Color; // RA2: as above
-extern int Fill_Color; // RA2: as above
-extern int Frame_Color; // RA2: as above
-extern int Glow_Color; // RA2: as above
-extern int Grey_Color; // RA2: as above
-extern int Highlight_Text_Color; // RA2: as above
-extern int Light_Grey_Color; // RA2: as above
-extern int Olive_Color; // RA2: as above
-extern int Pressed_Fill_Color; // RA2: as above
-extern int Tab_Text_Color; // RA2: as above
-extern int Visible_Default_Buttons; // RA2: as above
-extern int Visible_Free_Buttons; // RA2: as above
-extern int White_Color; // RA2: as above
-extern int Classes_Registered; // RA2: as above
-extern int Surface_Count; // RA2: as above
-extern unsigned short Edit_Buffer[0x1400]; // RA2: as above
-extern int Mouse_Release_Depth; // RA2: as above
-extern bool Session_Busy; // RA2: as above
-extern void* DialogControl_Vtable; // RA2: as above
-extern char const *Dialog_Back_Name; // RA2: as above
-extern char const *Listed_Kind_Art_Name; // RA2: as above
+extern int Alternate_Frame_Color;
+extern int Base_Screen_Height;
+extern int Base_Screen_Width;
+extern int Border_Width;
+extern int Brown_Color;
+extern int Dark_Brown_Color;
+extern int Dark_Grey_Color;
+extern int Default_Frame_Color;
+extern int Dim_Alpha;
+extern int Disabled_Text_Color;
+extern int Fill_Color;
+extern int Frame_Color;
+extern int Glow_Color;
+extern int Grey_Color;
+extern int Highlight_Text_Color;
+extern int Light_Grey_Color;
+extern int Olive_Color;
+extern int Pressed_Fill_Color;
+extern int Tab_Text_Color;
+extern int Visible_Default_Buttons;
+extern int Visible_Free_Buttons;
+extern int White_Color;
+extern int Classes_Registered;
+extern int Surface_Count;
+extern unsigned short Edit_Buffer[0x1400];
+extern int Mouse_Release_Depth;
+extern bool Session_Busy;
+extern void * DialogControl_Vtable;
+extern char const * Dialog_Back_Name;
+extern char const * Listed_Kind_Art_Name;
 extern void * ArtMainButton; // RA2: 0xAC10C0, the main menu button shapes (txtlabel2.cpp)
 extern RGBClass DarkRedColor1; // RA2: 0xAC109C, a disabled button's caption outside a game (txtlabel2.cpp)
 extern RGBClass DarkRedColor2; // RA2: 0xAC1100, the same on the Soviet side (txtlabel2.cpp)
 extern RGBClass TealColor; // RA2: 0xAC1008, the same on the Allied side (txtlabel2.cpp)
-extern void *Art_Popup_Back; // RA2: as above
-extern void *Art_Popup_Back_Allied; // RA2: as above
-extern void *Art_Popup_Back_Soviet; // RA2: as above
+extern void * Art_Popup_Back;
+extern void * Art_Popup_Back_Allied;
+extern void * Art_Popup_Back_Soviet;
 extern int Counter; // RA2: 0x00A3FABC, nonzero while a modal loop runs (Dialog_Message_Handler then leaves the message to it)
 
 extern QueueClass<EventClass, 256> MegaMissionQueue;

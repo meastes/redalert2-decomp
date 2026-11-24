@@ -155,7 +155,7 @@ ShadowCasterInfo ShadowCasterSlopeInfo[SLOPE_COUNT] = {
 	/* Slope 03 */ ShadowCasterInfo(),
 	/* Slope 04 */ ShadowCasterInfo(13, 6, 48, 12), // RA2: TibSun's 48 x 24 tile offsets, kept unchanged in the original's table
 	/* Slope 05 */ ShadowCasterInfo(),
-	/* Slope 06 */ ShadowCasterInfo(14, 1, 48, 12), // RA2: as above
+	/* Slope 06 */ ShadowCasterInfo(14, 1, 48, 12),
 	/* Slope 07 */ ShadowCasterInfo(),
 	/* Slope 08 */ ShadowCasterInfo(),
 	/* Slope 09 */ ShadowCasterInfo(),

@@ -284,7 +284,7 @@ bool TEventClass::operator () (TEventType event, HouseClass const * house, Objec
 		Event != TEVENT_BUILD_INFANTRY &&
 		Event != TEVENT_BUILD_AIRCRAFT &&
 		Event != (TEventType)53 &&		// RA2: events 53 and 54 are not time based either
-		Event != (TEventType)54 &&		// RA2: as above
+		Event != (TEventType)54 &&
 		Is_Time_Based()) {
 		if ((event != Event) || Debug_Map) {
 			return(false);
@@ -304,20 +304,20 @@ bool TEventClass::operator () (TEventType event, HouseClass const * house, Objec
 		return(true);
 	}
 	else if (Event == (TEventType)53) {		// RA2: the object must be disguised as a unit of this house
-		if (event != Event) return(false);		// RA2: as above
-		if (!object || Data.House == HOUSE_NONE || House_From_HousesType(Data.House) == NULL) return(false);		// RA2: as above
-		if (!object->GetDisguiseHouse(true)) return(false);		// RA2: as above
-		if (object->GetDisguiseHouse(true)->HeapID != House_From_HousesType(Data.House)->HeapID) return(false);		// RA2: as above
-		tripped = true;		// RA2: as above
-		return(true);		// RA2: as above
+		if (event != Event) return(false);
+		if (!object || Data.House == HOUSE_NONE || House_From_HousesType(Data.House) == NULL) return(false);
+		if (!object->GetDisguiseHouse(true)) return(false);
+		if (object->GetDisguiseHouse(true)->HeapID != House_From_HousesType(Data.House)->HeapID) return(false);
+		tripped = true;
+		return(true);
 	}
 	else if (Event == (TEventType)54) {		// RA2: the object must be disguised as this infantry type
-		if (event != Event) return(false);		// RA2: as above
-		if (!object) return(false);		// RA2: as above
-		ObjectTypeClass * type = object->GetDisguise(true);		// RA2: as above
-		if (type->Fetch_RTTI() != RTTI_INFANTRYTYPE || Data.Value == -1 || type->Fetch_Heap_ID() != Data.Infantry) return(false);		// RA2: as above
-		tripped = true;		// RA2: as above
-		return(true);		// RA2: as above
+		if (event != Event) return(false);
+		if (!object) return(false);
+		ObjectTypeClass * type = object->GetDisguise(true);
+		if (type->Fetch_RTTI() != RTTI_INFANTRYTYPE || Data.Value == -1 || type->Fetch_Heap_ID() != Data.Infantry) return(false);
+		tripped = true;
+		return(true);
 	}
 	else if (Event == TEVENT_NEAR_WAYPOINT) {
 		if (event != Event) return(false);
@@ -374,8 +374,8 @@ bool TEventClass::operator () (TEventType event, HouseClass const * house, Objec
 			case TEVENT_NOFACTORIES:
 				if (house->CurBuildings > 0) {
 					for (int index = 0; index < house->Buildings.Count(); index++) {		// RA2: the house's own building vector, no owner test
-						BuildingClass * ptr = house->Buildings[index];		// RA2: as above
-						if (ptr != NULL && !ptr->IsInLimbo && ptr->Class->ToBuild != RTTI_NONE) {		// RA2: as above
+						BuildingClass * ptr = house->Buildings[index];
+						if (ptr != NULL && !ptr->IsInLimbo && ptr->Class->ToBuild != RTTI_NONE) {
 							return(false);
 						}
 					}
@@ -394,11 +394,11 @@ bool TEventClass::operator () (TEventType event, HouseClass const * house, Objec
 			*/
 			case TEVENT_BUILDING_EXISTS:
 				if (house->ABQuantity.Value(Data.Structure) == 0) return(false);		// RA2: ABQuantity at 0x5460
-				tripped = true;		// RA2: as above
-				break;		// RA2: as above
+				tripped = true;
+				break;
 
 			case (TEventType)57:		// RA2: event 57 trips when no building of this type exists
-				if (house->ABQuantity.Value(Data.Structure) != 0) return(false);		// RA2: as above
+				if (house->ABQuantity.Value(Data.Structure) != 0) return(false);
 				tripped = true;
 				break;
 
@@ -487,13 +487,13 @@ bool TEventClass::operator () (TEventType event, HouseClass const * house, Objec
 				break;
 
 			case (TEventType)55:		// RA2: no naval units left
-				if (house->OwnedNavy > 0) return(false);		// RA2: as above
-				break;		// RA2: as above
+				if (house->OwnedNavy > 0) return(false);
+				break;
 
 			case (TEventType)56:		// RA2: no ground units except naval ones, and no infantry
-				if (house->CurUnits - house->OwnedNavy > 0) return(false);		// RA2: as above
-				if (house->CurInfantry > 0) return(false);		// RA2: as above
-				break;		// RA2: as above
+				if (house->CurUnits - house->OwnedNavy > 0) return(false);
+				if (house->CurInfantry > 0) return(false);
+				break;
 
 			/*
 			**	Verify that all buildings and units have been destroyed.
@@ -598,30 +598,30 @@ NeedType Event_Needs(TEventType event)
 {
 	switch (event) {
 		case TEVENT_PLAYER_ENTERED:		// RA2: house events (executable's table: 1,3,5,9,10,11,24,25,26,30,44,53,55,56)
-		case TEVENT_THIEVED:		// RA2: as above
-		case TEVENT_HOUSE_DISCOVERED:		// RA2: as above
-		case TEVENT_UNITS_DESTROYED:		// RA2: as above
-		case TEVENT_BUILDINGS_DESTROYED:		// RA2: as above
-		case TEVENT_ALL_DESTROYED:		// RA2: as above
-		case TEVENT_ENTERS_ZONE:		// RA2: as above
-		case TEVENT_CROSS_HORIZONTAL:		// RA2: as above
-		case TEVENT_CROSS_VERTICAL:		// RA2: as above
-		case TEVENT_LOW_POWER:		// RA2: as above
-		case TEVENT_ATTACKED_BY:		// RA2: as above
+		case TEVENT_THIEVED:
+		case TEVENT_HOUSE_DISCOVERED:
+		case TEVENT_UNITS_DESTROYED:
+		case TEVENT_BUILDINGS_DESTROYED:
+		case TEVENT_ALL_DESTROYED:
+		case TEVENT_ENTERS_ZONE:
+		case TEVENT_CROSS_HORIZONTAL:
+		case TEVENT_CROSS_VERTICAL:
+		case TEVENT_LOW_POWER:
+		case TEVENT_ATTACKED_BY:
 		case (TEventType)53:		// RA2: events 53, 55 and 56 do not exist in TibSun's enumeration
-		case (TEventType)55:		// RA2: as above
-		case (TEventType)56:		// RA2: as above
+		case (TEventType)55:
+		case (TEventType)56:
 			return(NEED_HOUSE);
 
 		case TEVENT_CREDITS:		// RA2: number events 12,13,15,16,45,46,47,51,52
-		case TEVENT_TIME:		// RA2: as above
-		case TEVENT_NBUILDINGS_DESTROYED:		// RA2: as above
-		case TEVENT_NUNITS_DESTROYED:		// RA2: as above
-		case TEVENT_AMBIENT_LESS_THAN:		// RA2: as above
-		case TEVENT_AMBIENT_GREATER_THAN:		// RA2: as above
-		case TEVENT_GAME_TIME:		// RA2: as above
-		case TEVENT_RANDOM_TIME:		// RA2: as above
-		case TEVENT_CREDITS_BELOW:		// RA2: as above
+		case TEVENT_TIME:
+		case TEVENT_NBUILDINGS_DESTROYED:
+		case TEVENT_NUNITS_DESTROYED:
+		case TEVENT_AMBIENT_LESS_THAN:
+		case TEVENT_AMBIENT_GREATER_THAN:
+		case TEVENT_GAME_TIME:
+		case TEVENT_RANDOM_TIME:
+		case TEVENT_CREDITS_BELOW:
 			return(NEED_NUMBER);
 
 		case TEVENT_GLOBAL_SET:
@@ -633,7 +633,7 @@ NeedType Event_Needs(TEventType event)
 			return(NEED_LOCAL);
 
 		case TEVENT_BUILD:
-		case TEVENT_BUILDING_EXISTS:		// RA2: as above
+		case TEVENT_BUILDING_EXISTS:
 		case (TEventType)57:		// RA2: event 57 needs a structure as well
 			return(NEED_STRUCTURE);
 
@@ -734,89 +734,89 @@ AttachType Attaches_To(TEventType event)
 {
 	int flags = ATTACH_NONE; // RA2: RA2's form
 	switch (event) {
-		case TEVENT_NONE: // RA2: as above
-		case TEVENT_PLAYER_ENTERED: // RA2: as above
-		case TEVENT_DISCOVERED: // RA2: as above
-		case TEVENT_ANY: // RA2: as above
-		case TEVENT_ENTERS_ZONE: // RA2: as above
-		case TEVENT_CROSS_HORIZONTAL: // RA2: as above
-		case TEVENT_CROSS_VERTICAL: // RA2: as above
-		case TEVENT_BRIDGE_DESTROYED: // RA2: as above
-		case 53: // RA2: as above
-		case 54: // RA2: as above
-			flags |= ATTACH_CELL; // RA2: as above
+		case TEVENT_NONE:
+		case TEVENT_PLAYER_ENTERED:
+		case TEVENT_DISCOVERED:
+		case TEVENT_ANY:
+		case TEVENT_ENTERS_ZONE:
+		case TEVENT_CROSS_HORIZONTAL:
+		case TEVENT_CROSS_VERTICAL:
+		case TEVENT_BRIDGE_DESTROYED:
+		case 53:
+		case 54:
+			flags |= ATTACH_CELL;
 			break;
 	}
 	switch (event) {
-		case TEVENT_NONE: // RA2: as above
-		case TEVENT_PLAYER_ENTERED: // RA2: as above
-		case TEVENT_SPIED: // RA2: as above
-		case TEVENT_DISCOVERED: // RA2: as above
-		case TEVENT_ATTACKED: // RA2: as above
-		case TEVENT_DESTROYED: // RA2: as above
-		case TEVENT_ANY: // RA2: as above
-		case TEVENT_DESTROYED_ANY_X: // RA2: as above
-		case TEVENT_SELECTED: // RA2: as above
-		case TEVENT_NEAR_WAYPOINT: // RA2: as above
-		case TEVENT_ENEMY_IN_SPOTLIGHT: // RA2: as above
-		case TEVENT_FIRST_DAMAGED: // RA2: as above
-		case TEVENT_ENTER_YELLOW: // RA2: as above
-		case TEVENT_ENTER_RED: // RA2: as above
-		case TEVENT_FIRST_DAMAGED_ANY: // RA2: as above
-		case TEVENT_ENTER_YELLOW_ANY: // RA2: as above
-		case TEVENT_ENTER_RED_ANY: // RA2: as above
-		case TEVENT_ATTACKED_BY: // RA2: as above
-		case TEVENT_DESTROYED_ANY: // RA2: as above
-		case TEVENT_PICKUP_CRATE: // RA2: as above
-			flags |= ATTACH_OBJECT; // RA2: as above
+		case TEVENT_NONE:
+		case TEVENT_PLAYER_ENTERED:
+		case TEVENT_SPIED:
+		case TEVENT_DISCOVERED:
+		case TEVENT_ATTACKED:
+		case TEVENT_DESTROYED:
+		case TEVENT_ANY:
+		case TEVENT_DESTROYED_ANY_X:
+		case TEVENT_SELECTED:
+		case TEVENT_NEAR_WAYPOINT:
+		case TEVENT_ENEMY_IN_SPOTLIGHT:
+		case TEVENT_FIRST_DAMAGED:
+		case TEVENT_ENTER_YELLOW:
+		case TEVENT_ENTER_RED:
+		case TEVENT_FIRST_DAMAGED_ANY:
+		case TEVENT_ENTER_YELLOW_ANY:
+		case TEVENT_ENTER_RED_ANY:
+		case TEVENT_ATTACKED_BY:
+		case TEVENT_DESTROYED_ANY:
+		case TEVENT_PICKUP_CRATE:
+			flags |= ATTACH_OBJECT;
 			break;
 	}
-	if (event == TEVENT_ANY || event == TEVENT_ENTERS_ZONE) { // RA2: as above
-		flags |= ATTACH_MAP; // RA2: as above
+	if (event == TEVENT_ANY || event == TEVENT_ENTERS_ZONE) {
+		flags |= ATTACH_MAP;
 	}
 	switch (event) {
-		case TEVENT_THIEVED: // RA2: as above
-		case TEVENT_HOUSE_DISCOVERED: // RA2: as above
-		case TEVENT_ANY: // RA2: as above
-		case TEVENT_UNITS_DESTROYED: // RA2: as above
-		case TEVENT_BUILDINGS_DESTROYED: // RA2: as above
-		case TEVENT_ALL_DESTROYED: // RA2: as above
-		case TEVENT_CREDITS: // RA2: as above
-		case TEVENT_NBUILDINGS_DESTROYED: // RA2: as above
-		case TEVENT_NUNITS_DESTROYED: // RA2: as above
-		case TEVENT_NOFACTORIES: // RA2: as above
-		case TEVENT_EVAC_CIVILIAN: // RA2: as above
-		case TEVENT_BUILD: // RA2: as above
-		case TEVENT_BUILD_UNIT: // RA2: as above
-		case TEVENT_BUILD_INFANTRY: // RA2: as above
-		case TEVENT_BUILD_AIRCRAFT: // RA2: as above
-		case TEVENT_LOW_POWER: // RA2: as above
-		case TEVENT_BUILDING_EXISTS: // RA2: as above
-		case TEVENT_CREDITS_BELOW: // RA2: as above
-		case 55: // RA2: as above
-		case 56: // RA2: as above
-		case 57: // RA2: as above
-			flags |= ATTACH_HOUSE; // RA2: as above
+		case TEVENT_THIEVED:
+		case TEVENT_HOUSE_DISCOVERED:
+		case TEVENT_ANY:
+		case TEVENT_UNITS_DESTROYED:
+		case TEVENT_BUILDINGS_DESTROYED:
+		case TEVENT_ALL_DESTROYED:
+		case TEVENT_CREDITS:
+		case TEVENT_NBUILDINGS_DESTROYED:
+		case TEVENT_NUNITS_DESTROYED:
+		case TEVENT_NOFACTORIES:
+		case TEVENT_EVAC_CIVILIAN:
+		case TEVENT_BUILD:
+		case TEVENT_BUILD_UNIT:
+		case TEVENT_BUILD_INFANTRY:
+		case TEVENT_BUILD_AIRCRAFT:
+		case TEVENT_LOW_POWER:
+		case TEVENT_BUILDING_EXISTS:
+		case TEVENT_CREDITS_BELOW:
+		case 55:
+		case 56:
+		case 57:
+			flags |= ATTACH_HOUSE;
 			break;
 	}
 	switch (event) {
-		case TEVENT_ANY: // RA2: as above
-		case TEVENT_TIME: // RA2: as above
-		case TEVENT_MISSION_TIMER_EXPIRED: // RA2: as above
-		case TEVENT_LEAVES_MAP: // RA2: as above
-		case TEVENT_GLOBAL_SET: // RA2: as above
-		case TEVENT_GLOBAL_CLEAR: // RA2: as above
-		case TEVENT_LOCAL_SET: // RA2: as above
-		case TEVENT_LOCAL_CLEAR: // RA2: as above
-		case TEVENT_AMBIENT_LESS_THAN: // RA2: as above
-		case TEVENT_AMBIENT_GREATER_THAN: // RA2: as above
-		case TEVENT_GAME_TIME: // RA2: as above
-		case TEVENT_PICKUP_CRATE_ANY: // RA2: as above
-		case TEVENT_RANDOM_TIME: // RA2: as above
-			flags |= ATTACH_GENERAL; // RA2: as above
+		case TEVENT_ANY:
+		case TEVENT_TIME:
+		case TEVENT_MISSION_TIMER_EXPIRED:
+		case TEVENT_LEAVES_MAP:
+		case TEVENT_GLOBAL_SET:
+		case TEVENT_GLOBAL_CLEAR:
+		case TEVENT_LOCAL_SET:
+		case TEVENT_LOCAL_CLEAR:
+		case TEVENT_AMBIENT_LESS_THAN:
+		case TEVENT_AMBIENT_GREATER_THAN:
+		case TEVENT_GAME_TIME:
+		case TEVENT_PICKUP_CRATE_ANY:
+		case TEVENT_RANDOM_TIME:
+			flags |= ATTACH_GENERAL;
 			break;
 	}
-	return (AttachType)flags; // RA2: as above
+	return (AttachType)flags;
 }
 
 

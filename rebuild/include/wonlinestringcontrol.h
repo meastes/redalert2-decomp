@@ -18,7 +18,7 @@
 #include "wstring.h"
 
 class WonlineStringDialogControl : public SimpleWonlineDialogControl { // RA2: vtable 0x007AF934, the control of the dialogs that ask for a text
-public: // RA2: as above
+	public:
 	WonlineStringDialogControl(void) {} // RA2: expanded where it is used
 	virtual ~WonlineStringDialogControl(void) {} // RA2: expanded where it is used
 	Wstring Text; // RA2: +0x0C, the text the player typed

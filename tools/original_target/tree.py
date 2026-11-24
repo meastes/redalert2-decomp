@@ -21,3 +21,7 @@ INCLUDE_ROOT = 'rebuild/include' if REBUILD else 'src'         # the compile's /
 HEADER_SUFFIXES = ('.h', '.hpp', '.hh', '.c') if REBUILD else ('.h', '.hpp')     # .c: MIDL interface-id files a unit includes
 SOURCE_SUFFIXES = ('.cpp', '.c') if REBUILD else ('.cpp',)
 MIN_SOURCE_PARTS = 3                                            # rebuild/src/x.cpp, src/recovered/x.cpp
+# Handwritten assembly sources and their ledger (tree-of-record switch, 2026-11-24): the rebuild assembles its own
+# copy; src/recovered/asm stays as it was (frozen at src-final; native/CMakeLists.txt's asm check reads it).
+ASM = 'rebuild/asm' if REBUILD else 'src/recovered/asm'
+ASSEMBLY = 'rebuild/manifest/assembly.json' if REBUILD else 'manifests/original_target/assembly.json'

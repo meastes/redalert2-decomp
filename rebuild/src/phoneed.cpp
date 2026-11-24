@@ -28,7 +28,7 @@
 #include "stringtable.h" // RA2: the captions come from the string table
 
 #undef Edit_SetText // RA2: the dialog's edit boxes are owner drawn and take the owner draw layer's own messages
-#undef Edit_GetText // RA2: as above
+#undef Edit_GetText
 #define Edit_SetText(h, s) ((int)SendMessage((h), 0x4b4, 0, (LPARAM)(s))) // RA2: 0x4B4 sets the text of an edit box as ANSI
 #define Edit_GetText(h, s, n) ((int)SendMessage((h), 0x4b5, (n), (LPARAM)(s))) // RA2: 0x4B5 gets the text as ANSI
 #define Edit_SetTextW(h, s) ((int)SendMessage((h), OD_SETTEXTW, 0, (LPARAM)(s))) // RA2: 0x4B2 sets the text as wide characters
@@ -287,18 +287,18 @@ void PhoneEdit::Build_Phone_Listbox(void)
 			if ( !(wcslen( Session.PhoneBook[i]->Name )) ) { // RA2: the name is wide
 				wcscpy( item, L" " ); // RA2: the blank name is wide
 			} else {
-				wcsncpy( item, Session.PhoneBook[i]->Name, PhoneEntryClass::PHONE_MAX_NAME-1 ); // RA2: as above
+				wcsncpy(item, Session.PhoneBook[i]->Name, PhoneEntryClass::PHONE_MAX_NAME - 1);
 				item[PhoneEntryClass::PHONE_MAX_NAME-1] = '\0';
 			}
 
 			int row = SendMessage(handle, OD_ADDSTRINGW, 0, (LPARAM)item); // RA2: the wide form of adding a row
 
 			if ( !strlen( Session.PhoneBook[i]->Number ) ) {
-				wcscpy( item, L" " ); // RA2: as above
+				wcscpy(item, L" ");
 			} else {
 				strncpy( number, Session.PhoneBook[i]->Number, PhoneEntryClass::PHONE_MAX_NAME-1 ); // RA2: the number is narrow and widened by the format below
-				number[PhoneEntryClass::PHONE_MAX_NAME-1] = '\0'; // RA2: as above
-				swprintf(item, L"%hs", number); // RA2: as above
+				number[PhoneEntryClass::PHONE_MAX_NAME - 1] = '\0';
+				swprintf(item, L"%hs", number);
 			}
 
 			thecell.type = OwnerDraw::CellData::DataType::TEXT;
@@ -581,9 +581,9 @@ bool PhoneEntryEdit::Dialog(PhoneEntryClass *phone)
 	}
 
 	if (RC != IDOK) { // RA2: the executable does not expand this function into Add and Edit (it calls it), which the single conditional return would allow
-		return(false); // RA2: as above
+		return(false);
 	}
-	return(true); // RA2: as above
+	return(true);
 }
 
 
@@ -636,8 +636,8 @@ BOOL CALLBACK Edit_Phone_Dialog_Proc(HWND window, UINT message, WPARAM wparam, L
 			case IDC_PHONE_NAME:
 				if (HIWORD(wparam) == EN_MAXTEXT || HIWORD(wparam) == EN_KILLFOCUS) {
 					Edit_GetTextW((HWND)lparam, buffer, 64); // RA2: the name box is read and written as wide characters
-					wcstrim(buffer); // RA2: as above
-					Edit_SetTextW((HWND)lparam, buffer); // RA2: as above
+					wcstrim(buffer);
+					Edit_SetTextW((HWND)lparam, buffer);
 				}
 				break;
 
@@ -657,8 +657,8 @@ BOOL CALLBACK Edit_Phone_Dialog_Proc(HWND window, UINT message, WPARAM wparam, L
 			case IDC_PHONE_NUMBER:
 				if (HIWORD(wparam) == EN_MAXTEXT || HIWORD(wparam) == EN_KILLFOCUS) {
 					Edit_GetText((HWND)lparam, buffer, 64); // RA2: the number box is narrow; the wide buffer is reused
-					strtrim((char *)buffer); // RA2: as above
-					Edit_SetText((HWND)lparam, buffer); // RA2: as above
+					strtrim((char *)buffer);
+					Edit_SetText((HWND)lparam, buffer);
 				}
 				break;
 			}
@@ -688,10 +688,10 @@ void PhoneEntryEdit::Save(void)
 	if (handle != 0) {
 		Edit_GetTextW(handle, Phone->Name, sizeof(Phone->Name) / sizeof(Phone->Name[0])); // RA2: the name is read as wide characters
 		if (wcslen( Phone->Name ) > 0) { // RA2: the length is tested as unsigned greater than zero
-			_wcsupr( Phone->Name ); // RA2: as above
+			_wcsupr(Phone->Name);
 		} else {
 			// if nothing was entered then make if NONAME
-			wcscpy( Phone->Name, LS("TXT_NONAME", 757) ); // RA2: as above
+			wcscpy(Phone->Name, LS("TXT_NONAME", 757));
 		}
 	}
 	DebugString("Name: %ls\n", Phone->Name); // RA2: the name is wide

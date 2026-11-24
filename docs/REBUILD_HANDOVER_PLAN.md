@@ -1,5 +1,13 @@
 # Rebuild handover plan
 
+**Done on 2026-11-24 (lane O83; the user brought the date forward in the owner session: "Switch today once all the
+criteria are met").** Rows 0 (dry run), 2-6, 8 and 12 are committed on the switch branch; row 1 (tag `src-final`),
+7 (private landing scripts, `private/tools/retire_src_scripts.sh`), 9 (Windows workers) and 10 (public snapshot) are
+the owner's steps at the fast-forward. Rows 11 (tool default, one week later, after pinning `RA2_TREE=main` in the
+native tools) and 13 (the rebuild owns its evidence) remain. Figures below are those of 2026-11-22; the rebuild
+since passed `src/` (94.13% vs 93.58% Reproduced .text, whole-unit, 2026-11-24 17:00Z). The 16 assembly files of row
+12 are 15 (12 `.asm`, 3 `.inc`) plus the 3 revised `ra2asm` files, with their own ledger `rebuild/manifest/assembly.json`.
+
 Lane O48, 2026-11-22 (main at 9f34da05a). A planning document; nothing here is done yet. It
 implements the user's decision of 2026-11-22 (AGENTS.md): from 2026-11-29 `rebuild/` is the
 exact-match tree of record, `src/` retires at the tag `src-final` (read-only, kept as reference

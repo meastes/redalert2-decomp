@@ -291,33 +291,6 @@
     "?Enter_Main_Loop@@YIXXZ": 5502064,
     "?Leave_Main_Loop@@YIXXZ": 5502080,
     "?Motion_Capture@@YIXXZ": 5502096,
-    "??_GBSurface@@UAEPAXI@Z": 4264912,
-    "??_R0?AVBSurface@@@8": 8184544,
-    "?Get_Pixel_Clip@XSurface@@UBEHABVPoint2D@@ABV?$TRect@H@@@Z": 7815808,
-    "?Put_Pixel_Clip@XSurface@@UAE_NABVPoint2D@@HABV?$TRect@H@@@Z": 7815936,
-    "__purecall": 4950368,
-    "?Draw_Rect@XSurface@@UAE_NABV?$TRect@H@@H@Z": 7815424,
-    "?Draw_Rect@XSurface@@UAE_NABV?$TRect@H@@0H@Z": 7815472,
-    "?Draw_Masked_Line@XSurface@@UAE_NABVPoint2D@@0I_N@Z": 7814832,
-    "?Draw_Masked_Dashed_Line@XSurface@@UAEHABVPoint2D@@0IQA_NH_N@Z": 7814816,
-    "?Draw_Dashed_Line@XSurface@@UAEHABVPoint2D@@0IQA_NH@Z": 7814192,
-    "?Draw_RGB_Multiplying_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1ABVRGBClass@@MHH@Z": 7814896,
-    "?Draw_Depth_Antialiased_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1AAVRGBClass@@HH_N333M@Z": 7814880,
-    "?Draw_Depth_Glow_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1HHH_N@Z": 7814864,
-    "?Draw_Depth_Shaded_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1IHH_N@Z": 7814848,
-    "?Draw_Line@XSurface@@UAE_NABVPoint2D@@0H@Z": 7813456,
-    "?Draw_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1H@Z": 7813504,
-    "?Get_Pixel@XSurface@@UBEHABVPoint2D@@@Z": 7815632,
-    "?Put_Pixel@XSurface@@UAE_NABVPoint2D@@H@Z": 7815712,
-    "?Fill_Rect_Trans@XSurface@@UAE_NABV?$TRect@H@@ABVRGBClass@@I@Z": 7816880,
-    "?Fill@XSurface@@UAE_NH@Z": 7818784,
-    "?Fill_Rect@XSurface@@UAE_NABV?$TRect@H@@H@Z": 7816080,
-    "?Fill_Rect@XSurface@@UAE_NABV?$TRect@H@@0H@Z": 7816128,
-    "?Blit_From@XSurface@@UAE_NABV?$TRect@H@@0ABVSurface@@00_N2@Z": 7819360,
-    "?Blit_From@XSurface@@UAE_NABV?$TRect@H@@ABVSurface@@0_N2@Z": 7819008,
-    "??_GXSurface@@UAEPAXI@Z": 4264736,
-    "??_R0?AVSurface@@@8": 8184496,
-    "??_R0?AVXSurface@@@8": 8184520,
     "?Error@CCFileClass@@UAEXHHPBD@Z": 4624384,
     "?Set_Date_Time@CCFileClass@@UAE_NI@Z": 4625408,
     "?Get_Date_Time@CCFileClass@@UAEIXZ": 4625232,
@@ -348,8 +321,35 @@
     "??_R0?AVFileClass@@@8": 8177872,
     "??_R0?AVRawFileClass@@@8": 8177896,
     "??_R0?AVBufferIOFileClass@@@8": 8177928,
-    "??_7type_info@@6B@": 8066532,
     "??_R0?AVCDFileClass@@@8": 8177960,
+    "__purecall": 4950368,
+    "??_GXSurface@@UAEPAXI@Z": 4264736,
+    "?Get_Pixel_Clip@XSurface@@UBEHABVPoint2D@@ABV?$TRect@H@@@Z": 7815808,
+    "?Put_Pixel_Clip@XSurface@@UAE_NABVPoint2D@@HABV?$TRect@H@@@Z": 7815936,
+    "?Draw_Rect@XSurface@@UAE_NABV?$TRect@H@@H@Z": 7815424,
+    "?Draw_Rect@XSurface@@UAE_NABV?$TRect@H@@0H@Z": 7815472,
+    "?Draw_Masked_Line@XSurface@@UAE_NABVPoint2D@@0I_N@Z": 7814832,
+    "?Draw_Masked_Dashed_Line@XSurface@@UAEHABVPoint2D@@0IQA_NH_N@Z": 7814816,
+    "?Draw_Dashed_Line@XSurface@@UAEHABVPoint2D@@0IQA_NH@Z": 7814192,
+    "?Draw_RGB_Multiplying_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1ABVRGBClass@@MHH@Z": 7814896,
+    "?Draw_Depth_Antialiased_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1AAVRGBClass@@HH_N333M@Z": 7814880,
+    "?Draw_Depth_Glow_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1HHH_N@Z": 7814864,
+    "?Draw_Depth_Shaded_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1IHH_N@Z": 7814848,
+    "?Draw_Line@XSurface@@UAE_NABVPoint2D@@0H@Z": 7813456,
+    "?Draw_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1H@Z": 7813504,
+    "?Get_Pixel@XSurface@@UBEHABVPoint2D@@@Z": 7815632,
+    "?Put_Pixel@XSurface@@UAE_NABVPoint2D@@H@Z": 7815712,
+    "?Fill_Rect_Trans@XSurface@@UAE_NABV?$TRect@H@@ABVRGBClass@@I@Z": 7816880,
+    "?Fill@XSurface@@UAE_NH@Z": 7818784,
+    "?Fill_Rect@XSurface@@UAE_NABV?$TRect@H@@H@Z": 7816080,
+    "?Fill_Rect@XSurface@@UAE_NABV?$TRect@H@@0H@Z": 7816128,
+    "?Blit_From@XSurface@@UAE_NABV?$TRect@H@@0ABVSurface@@00_N2@Z": 7819360,
+    "?Blit_From@XSurface@@UAE_NABV?$TRect@H@@ABVSurface@@0_N2@Z": 7819008,
+    "??_GBSurface@@UAEPAXI@Z": 4264912,
+    "??_R0?AVSurface@@@8": 8184496,
+    "??_R0?AVXSurface@@@8": 8184520,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVBSurface@@@8": 8184544,
     "?Can_Lock@Surface@@UBE_NHH@Z": 4264560,
     "?entry_64@Surface@@UBE_NVPoint2D@@@Z": 4264576,
     "?Get_Rect@Surface@@UBE?AV?$TRect@H@@XZ": 4264592,
@@ -438,7 +438,7 @@
           "resolved": 10939212
         }
       ],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5501552,
@@ -506,7 +506,7 @@
           "resolved": 10939224
         }
       ],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5501584,
@@ -558,7 +558,7 @@
           "resolved": 10939320
         }
       ],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5501632,
@@ -610,7 +610,7 @@
           "resolved": 10939304
         }
       ],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5501664,
@@ -662,7 +662,7 @@
           "resolved": 10939296
         }
       ],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5501696,
@@ -714,7 +714,7 @@
           "resolved": 10939248
         }
       ],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5501728,
@@ -766,7 +766,7 @@
           "resolved": 10939192
         }
       ],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5501760,
@@ -850,7 +850,7 @@
           "resolved": 10939328
         }
       ],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5501792,
@@ -910,7 +910,7 @@
           "resolved": 10939256
         }
       ],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5501856,
@@ -970,7 +970,7 @@
           "resolved": 10939288
         }
       ],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5501904,
@@ -1030,7 +1030,7 @@
           "resolved": 10939316
         }
       ],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5501952,
@@ -1074,7 +1074,7 @@
           "resolved": 10939218
         }
       ],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5502000,
@@ -1126,7 +1126,7 @@
           "resolved": 10939280
         }
       ],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5502016,
@@ -1162,7 +1162,7 @@
           "resolved": 10939184
         }
       ],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5502048,
@@ -1198,7 +1198,7 @@
           "resolved": 10939184
         }
       ],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5502064,
@@ -1234,7 +1234,7 @@
           "resolved": 10939184
         }
       ],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5502080,
@@ -1678,7 +1678,7 @@
           "resolved": 4294356534
         }
       ],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5502096,
@@ -1826,7 +1826,7 @@
           "resolved": 978958
         }
       ],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5502848,
@@ -2726,7 +2726,7 @@
           "resolved": 10750296
         }
       ],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5503040,
@@ -4874,7 +4874,7 @@
           "resolved": 10939184
         }
       ],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5503952,
@@ -5254,7 +5254,7 @@
           "resolved": 10939356
         }
       ],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5506784,
@@ -5874,7 +5874,7 @@
           "resolved": 10939240
         }
       ],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5507424,
@@ -5901,7 +5901,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5508112,
@@ -8441,7 +8441,7 @@
           "resolved": 10939360
         }
       ],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5508128,
@@ -9045,7 +9045,7 @@
           "resolved": 8625256
         }
       ],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5511648,
@@ -9072,7 +9072,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5512848,
@@ -9099,7 +9099,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5512896,
@@ -9143,7 +9143,7 @@
           "resolved": 2358849
         }
       ],
-      "source_sha256": "b48cbe3fc314f697a062dfd5a2e43a5c21256302ab1c9688f88a481b3b87ce6e",
+      "source_sha256": "bba4074a583d6c650d2a5eb7338c5f196548911fcbfdd281649cf7e9e4a4e53f",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5512928,

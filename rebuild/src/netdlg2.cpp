@@ -56,7 +56,7 @@
 #include "wstring.h" // RA2: the includes this file needs
 #include "widewstring.h" // RA2: the includes this file needs
 
-#undef LoadString // RA2: as above
+#undef LoadString
 #include <stddef.h> // RA2: the includes this file needs
 #include <wchar.h> // RA2: the includes this file needs
 #include "stringtable.h" // RA2: the includes this file needs
@@ -71,8 +71,8 @@ Surface * __fastcall Country_Flag(int country); // RA2: the flag picture of a co
 int Dialog_ID_Of_Window(HWND window); // RA2: 0x005EAB00, the dialog number a window was created for
 namespace UI { bool __fastcall Is_Host_Player(int player); } // RA2: 0x005C8680
 int Net2_g_Col_Name; // RA2: the columns of the users list
-int Net2_g_Col_House; // RA2: as above
-int Net2_g_Col_Accept; // RA2: as above
+int Net2_g_Col_House;
+int Net2_g_Col_Accept;
 void __fastcall Free_Lobby_Entries(void); // RA2: 0x005C8950
 void __fastcall Fill_Slots(void); // RA2: 0x005C8A10
 void __fastcall Init_Lobby_Entries(void); // RA2: 0x005C86E0
@@ -170,11 +170,11 @@ char SerialNumber[23]; // RA2: 0x00A71BC4
 /*
 ******************************** Prototypes *********************************
 */
-int Request_To_Join(int join_index, bool observer); // RA2: as above
-void Unjoin_Game(int game_index); // RA2: as above
+int Request_To_Join(int join_index, bool observer);
+void Unjoin_Game(int game_index);
 static void Send_Join_Queries(int gamenow, int playernow, int chatnow, int init = 0);
 void Get_Join_Responses(void); // RA2: 0x005C08A0
-void Send_Chat_Message(HWND dialog, int color, int recipients); // RA2: as above
+void Send_Chat_Message(HWND dialog, int color, int recipients);
 
 
 bool Net2Callback(void)
@@ -188,13 +188,13 @@ bool Net2Callback(void)
 void Send_Slot_Names(void) // RA2: 0x005BBD20; sends the lobby's slot names to every other player
 {
 	GlobalPacketType packet;
-	memset(&packet, 0, sizeof(packet)); // RA2: as above
-	packet.Command = NET_COMMAND_16; // RA2: as above
+	memset(&packet, 0, sizeof(packet));
+	packet.Command = NET_COMMAND_16;
 	strcpy(packet.Name, Session.Handle);
-	Get_Slot_Names(packet.Slots.Names); // RA2: as above
-	int count = Session.Players.Count(); // RA2: as above
-	for (int i = 1; i < count; i++) { // RA2: as above
-		Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.Players[i]->Address); // RA2: as above
+	Get_Slot_Names(packet.Slots.Names);
+	int count = Session.Players.Count();
+	for (int i = 1; i < count; i++) {
+		Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.Players[i]->Address);
 		Call_Back();
 	}
 }
@@ -207,7 +207,7 @@ void Send_Slot_Names(void) // RA2: 0x005BBD20; sends the lobby's slot names to e
 /// </summary>
 void Net2DisplayUsers(void)
 {
-	Net2DisplayUsersFull(false); // RA2: as above
+	Net2DisplayUsersFull(false);
 }
 
 
@@ -230,22 +230,22 @@ void Net2DisplayUsers(void)
 /// Services the network while something else is waiting.
 /// </summary>
 /// <returns>bool; Should the caller abandon what it is waiting on?</returns>
-static bool Find_Active_Game_Dialog(HWND & active) // RA2: as above
+static bool Find_Active_Game_Dialog(HWND & active)
 {
-	active = WS_Top_Window(); // RA2: as above
-	int dialog_id = WS_Top_Window_ID(); // RA2: as above
-	if (dialog_id == IDD_MPLAYER_HOST || dialog_id == IDD_MPLAYER_GUEST) { // RA2: as above
-		return true; // RA2: as above
+	active = WS_Top_Window();
+	int dialog_id = WS_Top_Window_ID();
+	if (dialog_id == IDD_MPLAYER_HOST || dialog_id == IDD_MPLAYER_GUEST) {
+		return true;
 	}
-	active = WS_Next_Lower_Dialog(active); // RA2: as above
-	while (active) { // RA2: as above
-		int kind = Dialog_ID_Of_Window(active); // RA2: as above
-		if (kind == IDD_MPLAYER_HOST || kind == IDD_MPLAYER_GUEST) { // RA2: as above
-			return true; // RA2: as above
+	active = WS_Next_Lower_Dialog(active);
+	while (active) {
+		int kind = Dialog_ID_Of_Window(active);
+		if (kind == IDD_MPLAYER_HOST || kind == IDD_MPLAYER_GUEST) {
+			return true;
 		}
-		active = WS_Next_Lower_Dialog(active); // RA2: as above
+		active = WS_Next_Lower_Dialog(active);
 	}
-	return false; // RA2: as above
+	return false;
 }
 
 
@@ -254,79 +254,79 @@ static bool Find_Active_Game_Dialog(HWND & active) // RA2: as above
 /// </summary>
 void __fastcall Net2DisplayUsersFull(bool full) // RA2: 0x005BBDD0; with a game lobby dialog open its slot rows are refreshed instead
 {
-	HWND active; // RA2: as above
-	if (Find_Active_Game_Dialog(active)) { // RA2: as above
-		Refresh_Slot_Settings(active, full); // RA2: as above
+	HWND active;
+	if (Find_Active_Game_Dialog(active)) {
+		Refresh_Slot_Settings(active, full);
 		return;
 	}
 	{
-	HWND dialog = WS_Top_Window(); // RA2: as above
-	HWND list = GetDlgItem(dialog, IDC_USERS); // RA2: as above
-	if (dialog && list) { // RA2: as above
-		HWND users = GetDlgItem(dialog, IDC_USERS); // RA2: as above
-		OwnerDraw::CellData cell; // RA2: as above
-		int top = SendDlgItemMessage(dialog, IDC_USERS, LB_GETTOPINDEX, 0, 0); // RA2: as above
-		SendDlgItemMessage(dialog, IDC_USERS, OD_DISABLEPAINT, 0, 1); // RA2: as above
-		Dictionary<WideWstring, bool> selections(Wstring_Hash); // RA2: as above
-		LBSaveSelections(list, selections); // RA2: as above
-		SendDlgItemMessage(dialog, IDC_USERS, LB_RESETCONTENT, 0, 0); // RA2: as above
+		HWND dialog = WS_Top_Window();
+		HWND list = GetDlgItem(dialog, IDC_USERS);
+		if (dialog && list) {
+			HWND users = GetDlgItem(dialog, IDC_USERS);
+			OwnerDraw::CellData cell;
+			int top = SendDlgItemMessage(dialog, IDC_USERS, LB_GETTOPINDEX, 0, 0);
+			SendDlgItemMessage(dialog, IDC_USERS, OD_DISABLEPAINT, 0, 1);
+			Dictionary<WideWstring, bool> selections(Wstring_Hash);
+			LBSaveSelections(list, selections);
+			SendDlgItemMessage(dialog, IDC_USERS, LB_RESETCONTENT, 0, 0);
 		if (CurGame == 0) {
-			SendMessage(users, 0x4CC, 0, (LPARAM)Narrow_To_Wide(Session.Handle)); // RA2: as above
-			for (int chat = 1; chat < Session.Chat.Count(); ++chat) { // RA2: as above
-				SendMessage(users, 0x4CC, chat, (LPARAM)Session.Chat[chat]); // RA2: as above
+				SendMessage(users, 0x4CC, 0, (LPARAM)Narrow_To_Wide(Session.Handle));
+				for (int chat = 1; chat < Session.Chat.Count(); ++chat) {
+					SendMessage(users, 0x4CC, chat, (LPARAM)Session.Chat[chat]);
 			}
 		} else {
-			for (int player = 0; player < Session.Players.Count(); ++player) { // RA2: as above
-				int state = 0; // RA2: as above
-				if (UI::Is_Host_Player(player)) { // RA2: as above
-					state = 2; // RA2: as above
-					Session.Players[player]->Player.Status = 1; // RA2: as above
-				} else if (Session.Players[player]->Player.Status != 0) { // RA2: as above
-					state = 1; // RA2: as above
+				for (int player = 0; player < Session.Players.Count(); ++player) {
+					int state = 0;
+					if (UI::Is_Host_Player(player)) {
+						state = 2;
+						Session.Players[player]->Player.Status = 1;
+					} else if (Session.Players[player]->Player.Status != 0) {
+						state = 1;
 				}
-				wchar_t info[128]; // RA2: as above
-				wchar_t country_name[128]; // RA2: as above
-				swprintf(info, L"%s", Session.Players[player]); // RA2: as above
-				int country = Session.Players[player]->Get_Country(); // RA2: as above
-				Surface * flag = Country_Flag(country); // RA2: as above
-				switch (country) { // RA2: as above
-				case 0: swprintf(country_name, L"%s", StringTable::LoadString("TXT_GDI", NULL, "D:\\Ra2\\netdlg2.cpp", 383)); break; // RA2: as above
-				case 1: swprintf(country_name, L"%s", StringTable::LoadString("TXT_GDI", NULL, "D:\\Ra2\\netdlg2.cpp", 386)); break; // RA2: as above
-				case 2: swprintf(country_name, L"%s", StringTable::LoadString("TXT_GDI", NULL, "D:\\Ra2\\netdlg2.cpp", 389)); break; // RA2: as above
-				case 3: swprintf(country_name, L"%s", StringTable::LoadString("TXT_GDI", NULL, "D:\\Ra2\\netdlg2.cpp", 392)); break; // RA2: as above
-				case 4: swprintf(country_name, L"%s", StringTable::LoadString("TXT_GDI", NULL, "D:\\Ra2\\netdlg2.cpp", 395)); break; // RA2: as above
-				case 5: swprintf(country_name, L"%s", StringTable::LoadString("TXT_NOD", NULL, "D:\\Ra2\\netdlg2.cpp", 398)); break; // RA2: as above
-				case 6: swprintf(country_name, L"%s", StringTable::LoadString("TXT_NOD", NULL, "D:\\Ra2\\netdlg2.cpp", 401)); break; // RA2: as above
-				case 7: swprintf(country_name, L"%s", StringTable::LoadString("TXT_NOD", NULL, "D:\\Ra2\\netdlg2.cpp", 404)); break; // RA2: as above
-				case 8: swprintf(country_name, L"%s", StringTable::LoadString("TXT_NOD", NULL, "D:\\Ra2\\netdlg2.cpp", 407)); break; // RA2: as above
+					wchar_t info[128];
+					wchar_t country_name[128];
+					swprintf(info, L"%s", Session.Players[player]);
+					int country = Session.Players[player]->Get_Country();
+					Surface * flag = Country_Flag(country);
+					switch (country) {
+						case 0: swprintf(country_name, L"%s", StringTable::LoadString("TXT_GDI", NULL, "D:\\Ra2\\netdlg2.cpp", 383)); break;
+						case 1: swprintf(country_name, L"%s", StringTable::LoadString("TXT_GDI", NULL, "D:\\Ra2\\netdlg2.cpp", 386)); break;
+						case 2: swprintf(country_name, L"%s", StringTable::LoadString("TXT_GDI", NULL, "D:\\Ra2\\netdlg2.cpp", 389)); break;
+						case 3: swprintf(country_name, L"%s", StringTable::LoadString("TXT_GDI", NULL, "D:\\Ra2\\netdlg2.cpp", 392)); break;
+						case 4: swprintf(country_name, L"%s", StringTable::LoadString("TXT_GDI", NULL, "D:\\Ra2\\netdlg2.cpp", 395)); break;
+						case 5: swprintf(country_name, L"%s", StringTable::LoadString("TXT_NOD", NULL, "D:\\Ra2\\netdlg2.cpp", 398)); break;
+						case 6: swprintf(country_name, L"%s", StringTable::LoadString("TXT_NOD", NULL, "D:\\Ra2\\netdlg2.cpp", 401)); break;
+						case 7: swprintf(country_name, L"%s", StringTable::LoadString("TXT_NOD", NULL, "D:\\Ra2\\netdlg2.cpp", 404)); break;
+						case 8: swprintf(country_name, L"%s", StringTable::LoadString("TXT_NOD", NULL, "D:\\Ra2\\netdlg2.cpp", 407)); break;
 				}
-				SendMessage(users, 0x4CC, -1, (LPARAM)info); // RA2: as above
-				int color = PlayerColorTable[Session.Players[player]->Player.Color]; // RA2: as above
-				cell.type = OwnerDraw::CellData::PRIMARY; // RA2: as above
-				cell.color = color; // RA2: as above
+					SendMessage(users, 0x4CC, -1, (LPARAM)info);
+					int color = PlayerColorTable[Session.Players[player]->Player.Color];
+					cell.type = OwnerDraw::CellData::PRIMARY;
+					cell.color = color;
 				cell.hint.set(L""); // RA2: set, not operator=
-				SendDlgItemMessage(dialog, IDC_USERS, OD_SETCELL, MAKEWPARAM(Net2_g_Col_Name, player), (LPARAM)&cell); // RA2: as above
-				cell.type = OwnerDraw::CellData::SURFACE; // RA2: as above
-				cell.hint.set(country_name); // RA2: as above
-				cell.surf = flag; // RA2: as above
-				SendDlgItemMessage(dialog, IDC_USERS, OD_SETCELL, MAKEWPARAM(Net2_g_Col_House, player), (LPARAM)&cell); // RA2: as above
+					SendDlgItemMessage(dialog, IDC_USERS, OD_SETCELL, MAKEWPARAM(Net2_g_Col_Name, player), (LPARAM)&cell);
+					cell.type = OwnerDraw::CellData::SURFACE;
+					cell.hint.set(country_name);
+					cell.surf = flag;
+					SendDlgItemMessage(dialog, IDC_USERS, OD_SETCELL, MAKEWPARAM(Net2_g_Col_House, player), (LPARAM)&cell);
 				cell.hint.set(L""); // RA2: set, not operator=
-				cell.type = OwnerDraw::CellData::SURFACE; // RA2: as above
-				if (state == 2) { // RA2: as above
-					cell.surf = SurfaceCache.GetSurface("wolhost.pcx", false); // RA2: as above
-				} else if (state) { // RA2: as above
-					cell.surf = SurfaceCache.GetSurface("wolacpt.pcx", false); // RA2: as above
+					cell.type = OwnerDraw::CellData::SURFACE;
+					if (state == 2) {
+						cell.surf = SurfaceCache.GetSurface("wolhost.pcx", false);
+					} else if (state) {
+						cell.surf = SurfaceCache.GetSurface("wolacpt.pcx", false);
 				} else {
-					cell.type = OwnerDraw::CellData::INVALID; // RA2: as above
+						cell.type = OwnerDraw::CellData::INVALID;
 				}
-				SendDlgItemMessage(dialog, IDC_USERS, OD_SETCELL, MAKEWPARAM(Net2_g_Col_Accept, player), (LPARAM)&cell); // RA2: as above
+					SendDlgItemMessage(dialog, IDC_USERS, OD_SETCELL, MAKEWPARAM(Net2_g_Col_Accept, player), (LPARAM)&cell);
 			}
 		}
-		LBRestoreSelections(list, selections); // RA2: as above
-		SendDlgItemMessage(dialog, IDC_USERS, LB_SETTOPINDEX, top, 0); // RA2: as above
-		SendDlgItemMessage(dialog, IDC_USERS, OD_DISABLEPAINT, 0, 0); // RA2: as above
-		InvalidateRect(list, NULL, 0); // RA2: as above
-		UpdateWindow(list); // RA2: as above
+			LBRestoreSelections(list, selections);
+			SendDlgItemMessage(dialog, IDC_USERS, LB_SETTOPINDEX, top, 0);
+			SendDlgItemMessage(dialog, IDC_USERS, OD_DISABLEPAINT, 0, 0);
+			InvalidateRect(list, NULL, 0);
+			UpdateWindow(list);
 	}
 	}
 }
@@ -336,19 +336,19 @@ void __fastcall Reject_Join(NodeNameType * node) // RA2: 0x005BC3E0; turns a joi
 {
 	memset(&Session.GPacket, 0, sizeof(Session.GPacket));
 	Session.GPacket.Command = NET_REJECT_JOIN;
-	Session.GPacket.Reject.Why = REJECT_BY_OWNER; // RA2: as above
-	Ipx.Send_Global_Message(&Session.GPacket, sizeof(Session.GPacket), 1, &node->Address); // RA2: as above
+	Session.GPacket.Reject.Why = REJECT_BY_OWNER;
+	Ipx.Send_Global_Message(&Session.GPacket, sizeof(Session.GPacket), 1, &node->Address);
 }
 
 
 bool __fastcall Update_Lobby_Count(int count, bool flag1, bool flag2) // RA2: 0x005BC430
 {
-	HWND dialog = WS_Find_Dialog(IDD_MPLAYER_HOST); // RA2: as above
-	return Lobby_Update_Dialog(dialog, count, flag1, flag2); // RA2: as above
+	HWND dialog = WS_Find_Dialog(IDD_MPLAYER_HOST);
+	return Lobby_Update_Dialog(dialog, count, flag1, flag2);
 }
 
 
-bool Net2Init_Network(void) // RA2: as above
+bool Net2Init_Network(void)
 {
 	NetNumType net;
 	NetNodeType node;
@@ -356,13 +356,13 @@ bool Net2Init_Network(void) // RA2: as above
 	if (!Ipx.Init()) {
 		return(false);
 	}
-	if (Session.Type != GAME_INTERNET && Session.IsBridge) { // RA2: as above
-		Session.BridgeNet.Get_Address(net, node); // RA2: as above
+	if (Session.Type != GAME_INTERNET && Session.IsBridge) {
+		Session.BridgeNet.Get_Address(net, node);
 		Ipx.Set_Bridge(net);
 	}
 	Init_Lobby_Entries(); // RA2: the fixed lobby entries (open, closed, computers)
-	Clear_Slot_Lists(); // RA2: as above
-	Reset_Slots(); // RA2: as above
+	Clear_Slot_Lists();
+	Reset_Slots();
 	return(true);
 
 }	/* end of Init_Network */
@@ -383,7 +383,7 @@ bool Net2Init_Network(void) // RA2: as above
  * HISTORY:                                                                                    *
  *   02/14/1995 BR : Created.                                                                  *
  *=============================================================================================*/
-void Net2Shutdown_Network(void) // RA2: as above
+void Net2Shutdown_Network(void)
 {
 //
 // Note: The thought behind this section of code was that if the program
@@ -398,8 +398,8 @@ void Net2Shutdown_Network(void) // RA2: as above
 //
 	Free_Lobby_Entries(); // RA2: no sign-off packet, the lobby entries are freed instead
 	Session.GameName[0] = 0;
-	if (PacketTransport != NULL) { // RA2: as above
-		delete PacketTransport; // RA2: as above
+	if (PacketTransport != NULL) {
+		delete PacketTransport;
 	}
 	PacketTransport = NULL;
 
@@ -417,15 +417,15 @@ void Net2ServiceGameList(void)
 	int i;
 
 	for (i = 1; i < Session.Games.Count(); i++) {
-		if (wcscmp(Session.Games[i]->Name, Session.GameName) != 0) { // RA2: as above
-			if (TickCount - Session.Games[i]->Game.LastTime > 300) { // RA2: as above
-				DebugString("Game '%ls' has timed out\n", Session.Games[i]->Name); // RA2: as above
+		if (wcscmp(Session.Games[i]->Name, Session.GameName) != 0) {
+			if (TickCount - Session.Games[i]->Game.LastTime > 300) {
+				DebugString("Game '%ls' has timed out\n", Session.Games[i]->Name);
 				delete Session.Games[i];
 				Session.Games.Delete(Session.Games[i]);
 
 				Net2DisplayGameList();
 				if (i <= CurGame) {
-					Net2DisplayUsersFull(false); // RA2: as above
+					Net2DisplayUsersFull(false);
 					Send_Join_Queries(0, 1, 0, 0);
 				}
 			}
@@ -436,16 +436,16 @@ void Net2ServiceGameList(void)
 		if (Session.Chat[i]->Chat.LastTime == 0) {
 			Session.Chat[i]->Chat.LastTime = TickCount;
 		}
-		if (TickCount - Session.Chat[i]->Chat.LastTime > 360) { // RA2: as above
+		if (TickCount - Session.Chat[i]->Chat.LastTime > 360) {
 			delete Session.Chat[i];
 			Session.Chat.Delete(Session.Chat[i]);
-			Net2DisplayUsersFull(false); // RA2: as above
-		} else if (TickCount - Session.Chat[i]->Chat.LastTime > 300 && Session.Chat[i]->Chat.LastChance == 0) { // RA2: as above
+			Net2DisplayUsersFull(false);
+		} else if (TickCount - Session.Chat[i]->Chat.LastTime > 300 && Session.Chat[i]->Chat.LastChance == 0) {
 			GlobalPacketType packet;
-			memset(&packet, 0, sizeof(packet)); // RA2: as above
+			memset(&packet, 0, sizeof(packet));
 			strcpy(packet.Name, Session.Handle);
 			packet.Command = NET_CHAT_REQUEST;
-			Ipx.Send_Global_Message(&packet, sizeof(packet), 0, &Session.Chat[i]->Address); // RA2: as above
+			Ipx.Send_Global_Message(&packet, sizeof(packet), 0, &Session.Chat[i]->Address);
 			Call_Back();
 			Session.Chat[i]->Chat.LastChance = 1;
 		}
@@ -461,36 +461,36 @@ void Net2ServiceGameList(void)
 /// </summary>
 void Net2DisplayGameList(void)
 {
-	wchar_t text[80]; // RA2: as above
+	wchar_t text[80];
 
-	if (WS_Top_Window_ID() == IDD_MPLAYER_GAME_LIST) { // RA2: as above
-		HWND dialog = WS_Top_Window(); // RA2: as above
-		HWND list = GetDlgItem(dialog, IDC_GAMELIST); // RA2: as above
-		if (CurGame >= Session.Games.Count()) { // RA2: as above
+	if (WS_Top_Window_ID() == IDD_MPLAYER_GAME_LIST) {
+		HWND dialog = WS_Top_Window();
+		HWND list = GetDlgItem(dialog, IDC_GAMELIST);
+		if (CurGame >= Session.Games.Count()) {
 			CurGame = Session.Games.Count() - 1;
 			Send_Join_Queries(0, 1, 0, 0);
 		}
 		if (CurGame < 0) {
 			CurGame = 0;
 		}
-		int top = SendDlgItemMessage(dialog, IDC_GAMELIST, LB_GETTOPINDEX, 0, 0); // RA2: as above
-		SendDlgItemMessage(dialog, IDC_GAMELIST, OD_DISABLEPAINT, 0, 1); // RA2: as above
-		SendMessage(list, LB_RESETCONTENT, 0, 0); // RA2: as above
-		SendMessage(list, OD_ADDSTRINGW, 0, (LPARAM)StringTable::LoadString("TXT_LOBBY", NULL, "D:\\Ra2\\netdlg2.cpp", 490)); // RA2: as above
+		int top = SendDlgItemMessage(dialog, IDC_GAMELIST, LB_GETTOPINDEX, 0, 0);
+		SendDlgItemMessage(dialog, IDC_GAMELIST, OD_DISABLEPAINT, 0, 1);
+		SendMessage(list, LB_RESETCONTENT, 0, 0);
+		SendMessage(list, OD_ADDSTRINGW, 0, (LPARAM)StringTable::LoadString("TXT_LOBBY", NULL, "D:\\Ra2\\netdlg2.cpp", 490));
 		for (int i = 1; i < Session.Games.Count(); i++) {
 			if (Session.Games[i]->Game.IsOpen) {
-				swprintf(text, StringTable::LoadString("TXT_THATGUYS_GAME", NULL, "D:\\Ra2\\netdlg2.cpp", 496), Session.Games[i]->Name); // RA2: as above
+				swprintf(text, StringTable::LoadString("TXT_THATGUYS_GAME", NULL, "D:\\Ra2\\netdlg2.cpp", 496), Session.Games[i]->Name);
 			} else {
-				swprintf(text, StringTable::LoadString("TXT_THATGUYS_GAME_BRACKET", NULL, "D:\\Ra2\\netdlg2.cpp", 498), Session.Games[i]->Name); // RA2: as above
+				swprintf(text, StringTable::LoadString("TXT_THATGUYS_GAME_BRACKET", NULL, "D:\\Ra2\\netdlg2.cpp", 498), Session.Games[i]->Name);
 			}
-			SendMessage(list, OD_ADDSTRINGW, 0, (LPARAM)text); // RA2: as above
+			SendMessage(list, OD_ADDSTRINGW, 0, (LPARAM)text);
 		}
-		SendDlgItemMessage(dialog, IDC_GAMELIST, LB_SETCURSEL, CurGame, 0); // RA2: as above
-		SendDlgItemMessage(dialog, IDC_GAMELIST, LB_SETTOPINDEX, top, 0); // RA2: as above
-		SendDlgItemMessage(dialog, IDC_GAMELIST, OD_DISABLEPAINT, 0, 0); // RA2: as above
-		list = GetDlgItem(dialog, IDC_GAMELIST); // RA2: as above
-		InvalidateRect(list, NULL, 0); // RA2: as above
-		UpdateWindow(list); // RA2: as above
+		SendDlgItemMessage(dialog, IDC_GAMELIST, LB_SETCURSEL, CurGame, 0);
+		SendDlgItemMessage(dialog, IDC_GAMELIST, LB_SETTOPINDEX, top, 0);
+		SendDlgItemMessage(dialog, IDC_GAMELIST, OD_DISABLEPAINT, 0, 0);
+		list = GetDlgItem(dialog, IDC_GAMELIST);
+		InvalidateRect(list, NULL, 0);
+		UpdateWindow(list);
 	}
 }
 
@@ -510,25 +510,25 @@ void Net2EncodeGameopt(char *out)
 	Wstring name = Session.Options.ScenarioDescription ? Wstring_FromWide(Session.Options.ScenarioDescription) : ""; // RA2: only the 7 bit characters of the map name are sent
 	int value = Session.ScenarioMaxPlayers; // RA2: not recovered
 	sprintf(out, "%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%s,%d,%d,%d,%s,%s:", Seed, Options.GameSpeed, Session.Options.GameSpeed, Session.Options.Credits, Session.Options.UnitCount, // RA2: the older option string; as above
-		Session.Options.ShortGame, Session.Options.SWAllowed, Session.Options.BuildOffAlly, Session.Options.MCVRedeploy, Session.Options.Goodies, Session.Options.MPModeIndex, // RA2: as above
-		name.get(), value, Session.ScenarioIsOfficial, Session.ScenarioFileLength, Session.ScenarioFileName, Session.ScenarioDigest); // RA2: as above
+		Session.Options.ShortGame, Session.Options.SWAllowed, Session.Options.BuildOffAlly, Session.Options.MCVRedeploy, Session.Options.Goodies, Session.Options.MPModeIndex,
+		name.get(), value, Session.ScenarioIsOfficial, Session.ScenarioFileLength, Session.ScenarioFileName, Session.ScenarioDigest);
 
 	memset(useroptions, 0, sizeof(useroptions));
 
-	for (int i = 0, count = Session.Players.Count(); i < count; i++) { // RA2: as above
-		NodeNameType * entry = Session.Players[i]; // RA2: as above
+	for (int i = 0, count = Session.Players.Count(); i < count; i++) {
+		NodeNameType * entry = Session.Players[i];
 		int country = entry->Get_Country(); // RA2: country and color of each player, three more numbers that are zero
-		int color = entry->Get_Color(); // RA2: as above
-		wchar_t const * player_name = Session.Players[i]->Name; // RA2: as above
-		sprintf(useroptions + strlen(useroptions), "%s,%d,%d,%x,%x,%x,", Wide_To_Narrow(player_name), country, color, 0, 0, 0); // RA2: as above
+		int color = entry->Get_Color();
+		wchar_t const * player_name = Session.Players[i]->Name;
+		sprintf(useroptions + strlen(useroptions), "%s,%d,%d,%x,%x,%x,", Wide_To_Narrow(player_name), country, color, 0, 0, 0);
 	}
 	useroptions[strlen(useroptions) - 1] = ':'; // RA2: the player list ends in a colon
 	strcat(useroptions, "@:"); // RA2: then the computer players
-	for (int k = 0; k < 8; k++) { // RA2: as above
-		sprintf(useroptions + strlen(useroptions), "%d,%d,%d,", Session.Options.AISlots.Difficulties[k], Session.Options.AISlots.Countries[k] == -3 ? -1 : Session.Options.AISlots.Countries[k], Session.Options.AISlots.Colors[k]); // RA2: as above
+	for (int k = 0; k < 8; k++) {
+		sprintf(useroptions + strlen(useroptions), "%d,%d,%d,", Session.Options.AISlots.Difficulties[k], Session.Options.AISlots.Countries[k] == -3 ? -1 : Session.Options.AISlots.Countries[k], Session.Options.AISlots.Colors[k]);
 	}
 	DebugString("Size of options string is %d bytes\n", strlen(useroptions)); // RA2: logged
-	DebugString("Options: %s\n", useroptions); // RA2: as above
+	DebugString("Options: %s\n", useroptions);
 	strcat(out, useroptions);
 }
 
@@ -541,17 +541,17 @@ void Net2EncodeGameopt(char *out)
 /// <param name="who">The name of the player to adjust. NULL means this machine's own
 /// player.</param>
 /// <param name="status">The accept status to record against the player.</param>
-void Net2SetAccept(char const * who, int status) // RA2: as above
+void Net2SetAccept(char const * who, int status)
 {
 	if (who == NULL) {
 		who = Session.Handle;
-		if (status == 0) { // RA2: as above
+		if (status == 0) {
 			HWND dialog = WS_Find_Dialog(IDD_MPLAYER_GUEST); // RA2: the player's own side and color boxes follow the status
-			Enable_Player_Combos(dialog, true); // RA2: as above
+			Enable_Player_Combos(dialog, true);
 		}
 	}
 	if (wcscmp(Narrow_To_Wide(who), Session.GameName) == 0) { // RA2: the host's own entry is always accepted
-		status = 1; // RA2: as above
+		status = 1;
 	}
 
 	int offset = -1;
@@ -577,13 +577,13 @@ void Net2SetAccept(char const * who, int status) // RA2: as above
 /// player.</param>
 /// <returns>Returns with the player's accept status, or -1 if no such player is in the
 /// game.</returns>
-int Net2GetAccept(char const * who) // RA2: as above
+int Net2GetAccept(char const * who)
 {
 	if (who == NULL) {
 		who = Session.Handle;
 	}
 	if (wcscmp(Narrow_To_Wide(who), Session.GameName) == 0) { // RA2: the host is always accepted
-		return(1); // RA2: as above
+		return(1);
 	}
 
 	int offset = -1;
@@ -772,27 +772,27 @@ bool Decrypt_Serial(char * buffer)
 /// <summary>
 /// Starts the game the player has joined.
 /// </summary>
-bool Net_Join_Dialog(void) // RA2: as above
+bool Net_Join_Dialog(void)
 {
-	RulesID = Rule->Get_Rule_Unique_ID(); // RA2: as above
-	Rule->Load_Art_INI(); // RA2: as above
-	ArtID = Rule->Get_Art_Unique_ID(); // RA2: as above
-	AIID = Rule->Get_AI_Unique_ID(); // RA2: as above
+	RulesID = Rule->Get_Rule_Unique_ID();
+	Rule->Load_Art_INI();
+	ArtID = Rule->Get_Art_Unique_ID();
+	AIID = Rule->Get_AI_Unique_ID();
 	Decrypt_Serial(SerialNumber);
-	Ipx.Set_Timing(30, -1, 600, true); // RA2: as above
+	Ipx.Set_Timing(30, -1, 600, true);
 	Session.NetStealth = false;
 	Session.GameName[0] = 0;
 	Session.NetOpen = true;
-	Net2OptionsLocked = false; // RA2: as above
-	OwnerDraw::Register_Window_Classes(); // RA2: as above
-	HWND dialog = (HWND)WS_Create_Dialog(ProgramInstance, IDD_MPLAYER_GAME_LIST, MainWindow, (DLGPROC)MPlayer_Game_List_Dialog_Proc, 0); // RA2: as above
-	Show_Dialog(dialog, IDD_MPLAYER_GAME_LIST); // RA2: as above
-	ShowWindow(dialog, SW_SHOWNORMAL); // RA2: as above
-	Net2DisplayUsersFull(false); // RA2: as above
+	Net2OptionsLocked = false;
+	OwnerDraw::Register_Window_Classes();
+	HWND dialog = (HWND)WS_Create_Dialog(ProgramInstance, IDD_MPLAYER_GAME_LIST, MainWindow, (DLGPROC)MPlayer_Game_List_Dialog_Proc, 0);
+	Show_Dialog(dialog, IDD_MPLAYER_GAME_LIST);
+	ShowWindow(dialog, SW_SHOWNORMAL);
+	Net2DisplayUsersFull(false);
 	CurGame = 0;
 	_netresponse = 0;
 	JoinState = JOIN_NOTHING;
-	Net2JoinListEnabled = true; // RA2: as above
+	Net2JoinListEnabled = true;
 
 	while (true) {
 		//.....................................................................
@@ -803,12 +803,12 @@ bool Net_Join_Dialog(void) // RA2: as above
 			Sleep(0);
 			Call_Back();
 			Ipx.Service();
-			Title_Screen_Restore(false); // RA2: as above
-			MessageLoopCount++; // RA2: as above
+			Title_Screen_Restore(false);
+			MessageLoopCount++;
 			MSG msg;
-			while (Peek_Windows_Message(&msg, 0, 0, 0, 1)) { // RA2: as above
+			while (Peek_Windows_Message(&msg, 0, 0, 0, 1)) {
 				TranslateMessage(&msg);
-				DispatchMessageA(&msg); // RA2: as above
+				DispatchMessageA(&msg);
 			}
 
 			Call_Back();
@@ -817,10 +817,10 @@ bool Net_Join_Dialog(void) // RA2: as above
 			}
 
 			if (WS_Top_Window()) {
-				Send_Join_Queries(0, 0, 0, 0); // RA2: as above
+				Send_Join_Queries(0, 0, 0, 0);
 				Get_Join_Responses();
-				if (WS_Top_Window_ID() == IDD_MPLAYER_HOST) { // RA2: as above
-					Send_Lobby_Options(false, false); // RA2: as above
+				if (WS_Top_Window_ID() == IDD_MPLAYER_HOST) {
+					Send_Lobby_Options(false, false);
 				}
 				Net2ServiceGameList();
 			}
@@ -829,16 +829,16 @@ bool Net_Join_Dialog(void) // RA2: as above
 		//.....................................................................
 		//	-1 = user selected Cancel
 		//.....................................................................
-		if (_netresponse == IDC_CANCEL || _netresponse == IDCANCEL) { // RA2: as above
+		if (_netresponse == IDC_CANCEL || _netresponse == IDCANCEL) {
 			Session.Write_MultiPlayer_Settings();
-			if (WS_Top_Window_ID() == IDD_MPLAYER_GAME_LIST) { // RA2: as above
+			if (WS_Top_Window_ID() == IDD_MPLAYER_GAME_LIST) {
 				if (JoinState > JOIN_NOTHING) {
 					Unjoin_Game(CurGame);
 					Ipx.Service();
 				}
 				WS_Destroy_Dialog(0, 0);
-				Clear_Slot_Lists(); // RA2: as above
-				Fill_Slots(); // RA2: as above
+				Clear_Slot_Lists();
+				Fill_Slots();
 				Clear_Vector(&Session.Players);
 				Clear_Vector(&Session.Games);
 				Clear_Vector(&Session.Chat);
@@ -846,16 +846,16 @@ bool Net_Join_Dialog(void) // RA2: as above
 				Ipx.Service();
 				return(false);
 			}
-			if (WS_Top_Window_ID() == IDD_MPLAYER_HOST) { // RA2: as above
+			if (WS_Top_Window_ID() == IDD_MPLAYER_HOST) {
 				Unjoin_Game(CurGame);
 				JoinState = JOIN_NOTHING;
 				WS_Destroy_Dialog(WS_Top_Window(), 0);
-				Reset_Slots(); // RA2: as above
-				dialog = (HWND)WS_Create_Dialog(ProgramInstance, IDD_MPLAYER_GAME_LIST, MainWindow, (DLGPROC)MPlayer_Game_List_Dialog_Proc, 0); // RA2: as above
-				Show_Dialog(dialog, IDD_MPLAYER_GAME_LIST); // RA2: as above
-				ShowWindow(dialog, SW_SHOWNORMAL); // RA2: as above
+				Reset_Slots();
+				dialog = (HWND)WS_Create_Dialog(ProgramInstance, IDD_MPLAYER_GAME_LIST, MainWindow, (DLGPROC)MPlayer_Game_List_Dialog_Proc, 0);
+				Show_Dialog(dialog, IDD_MPLAYER_GAME_LIST);
+				ShowWindow(dialog, SW_SHOWNORMAL);
 				Send_Join_Queries(0, 0, 1, 0);
-			} else if (WS_Top_Window_ID() == IDD_MPLAYER_GUEST) { // RA2: as above
+			} else if (WS_Top_Window_ID() == IDD_MPLAYER_GUEST) {
 				if (JoinState == JOIN_CONFIRMED) {
 					Unjoin_Game(CurGame);
 					JoinState = JOIN_NOTHING;
@@ -865,19 +865,19 @@ bool Net_Join_Dialog(void) // RA2: as above
 					// in my Chat vector (but not to myself, index 0)
 					//...............................................................
 					GlobalPacketType packet;
-					memset(&packet, 0, sizeof(packet)); // RA2: as above
+					memset(&packet, 0, sizeof(packet));
 					packet.Command = NET_SIGN_OFF;
 					strcpy(packet.Name, Session.Handle);
 					for (int i = 1; i < Session.Chat.Count(); i++) {
-						Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.Chat[i]->Address); // RA2: as above
+						Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.Chat[i]->Address);
 						Call_Back();
 					}
-					Ipx.Send_Global_Message(&packet, sizeof(packet), 0, 0); // RA2: as above
+					Ipx.Send_Global_Message(&packet, sizeof(packet), 0, 0);
 					if (Session.IsBridge) {
 						Ipx.Send_Global_Message(&packet, sizeof(packet), 0, &Session.BridgeNet);
 					}
 				}
-				CDTimerClass<SystemTimerClass> timeout = 600; // RA2: as above
+				CDTimerClass<SystemTimerClass> timeout = 600;
 				while (Ipx.Global_Num_Send() > 0) {
 					if (Ipx.Service() == 0) {
 						break;
@@ -893,30 +893,30 @@ bool Net_Join_Dialog(void) // RA2: as above
 				_netresponse = 0;
 				CurGame = 0;
 				Clear_Vector(&Session.Players);
-				Clear_Slot_Lists(); // RA2: as above
-				Reset_Slots(); // RA2: as above
-				dialog = (HWND)WS_Create_Dialog(ProgramInstance, IDD_MPLAYER_GAME_LIST, MainWindow, (DLGPROC)MPlayer_Game_List_Dialog_Proc, 0); // RA2: as above
-				Show_Dialog(dialog, IDD_MPLAYER_GAME_LIST); // RA2: as above
-				ShowWindow(dialog, SW_SHOWNORMAL); // RA2: as above
+				Clear_Slot_Lists();
+				Reset_Slots();
+				dialog = (HWND)WS_Create_Dialog(ProgramInstance, IDD_MPLAYER_GAME_LIST, MainWindow, (DLGPROC)MPlayer_Game_List_Dialog_Proc, 0);
+				Show_Dialog(dialog, IDD_MPLAYER_GAME_LIST);
+				ShowWindow(dialog, SW_SHOWNORMAL);
 			} else {
 				if (JoinState == JOIN_CONFIRMED) {
 					Unjoin_Game(CurGame);
 					JoinState = JOIN_NOTHING;
 				} else {
 					GlobalPacketType packet;
-					memset(&packet, 0, sizeof(packet)); // RA2: as above
+					memset(&packet, 0, sizeof(packet));
 					packet.Command = NET_SIGN_OFF;
 					strcpy(packet.Name, Session.Handle);
 					for (int i = 1; i < Session.Chat.Count(); i++) {
-						Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.Chat[i]->Address); // RA2: as above
+						Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.Chat[i]->Address);
 						Call_Back();
 					}
-					Ipx.Send_Global_Message(&packet, sizeof(packet), 0, 0); // RA2: as above
+					Ipx.Send_Global_Message(&packet, sizeof(packet), 0, 0);
 					if (Session.IsBridge) {
 						Ipx.Send_Global_Message(&packet, sizeof(packet), 0, &Session.BridgeNet);
 					}
 				}
-				CDTimerClass<SystemTimerClass> timeout = 600; // RA2: as above
+				CDTimerClass<SystemTimerClass> timeout = 600;
 				while (Ipx.Global_Num_Send() > 0) {
 					if (Ipx.Service() == 0) {
 						break;
@@ -931,68 +931,68 @@ bool Net_Join_Dialog(void) // RA2: as above
 				_netresponse = 0;
 				CurGame = 0;
 				Clear_Vector(&Session.Players);
-				Clear_Slot_Lists(); // RA2: as above
-				Reset_Slots(); // RA2: as above
-				dialog = (HWND)WS_Create_Dialog(ProgramInstance, IDD_MPLAYER_GAME_LIST, MainWindow, (DLGPROC)MPlayer_Game_List_Dialog_Proc, 0); // RA2: as above
-				Show_Dialog(dialog, IDD_MPLAYER_GAME_LIST); // RA2: as above
-				ShowWindow(dialog, SW_SHOWNORMAL); // RA2: as above
+				Clear_Slot_Lists();
+				Reset_Slots();
+				dialog = (HWND)WS_Create_Dialog(ProgramInstance, IDD_MPLAYER_GAME_LIST, MainWindow, (DLGPROC)MPlayer_Game_List_Dialog_Proc, 0);
+				Show_Dialog(dialog, IDD_MPLAYER_GAME_LIST);
+				ShowWindow(dialog, SW_SHOWNORMAL);
 			}
 		}
 
 		//.....................................................................
 		//	0 = user has joined an existing game; save values & return
 		//.....................................................................
-		if (_netresponse == 0x6CD) { // RA2: as above
+		if (_netresponse == 0x6CD) {
 			Session.NetStealth = false;
 			Session.Write_MultiPlayer_Settings();
-			if (Request_To_Join(CurGame, ObserverMode != 0)) { // RA2: as above
+			if (Request_To_Join(CurGame, ObserverMode != 0)) {
 				JoinState = JOIN_WAIT_CONFIRM;
 			} else {
-				HWND top = WS_Top_Window(); // RA2: as above
-				if (top) { // RA2: as above
-					EnableWindow(top, TRUE); // RA2: as above
-					HWND button = GetDlgItem(top, IDC_YOURNAME); // RA2: as above
-					if (button) { // RA2: as above
-						EnableWindow(button, TRUE); // RA2: as above
+				HWND top = WS_Top_Window();
+				if (top) {
+					EnableWindow(top, TRUE);
+					HWND button = GetDlgItem(top, IDC_YOURNAME);
+					if (button) {
+						EnableWindow(button, TRUE);
 					}
 				}
 			}
-			if (Session.MPGameMode) { // RA2: as above
-				Session.MPGameMode->vt_entry_24(); // RA2: as above
+			if (Session.MPGameMode) {
+				Session.MPGameMode->vt_entry_24();
 			}
 		}
 
 		//.....................................................................
 		//	1 = user requests New Network Game
 		//.....................................................................
-		if (_netresponse == 0x6CE) { // RA2: as above
+		if (_netresponse == 0x6CE) {
 			Session.NetStealth = false;
 			Session.Write_MultiPlayer_Settings();
-			if (Request_To_Join(CurGame, true)) { // RA2: as above
+			if (Request_To_Join(CurGame, true)) {
 				JoinState = JOIN_WAIT_CONFIRM;
 			} else {
-				HWND top = WS_Top_Window(); // RA2: as above
-				if (top) { // RA2: as above
-					EnableWindow(top, TRUE); // RA2: as above
-					HWND button = GetDlgItem(top, IDC_YOURNAME); // RA2: as above
-					if (button) { // RA2: as above
-						EnableWindow(button, TRUE); // RA2: as above
+				HWND top = WS_Top_Window();
+				if (top) {
+					EnableWindow(top, TRUE);
+					HWND button = GetDlgItem(top, IDC_YOURNAME);
+					if (button) {
+						EnableWindow(button, TRUE);
 					}
 				}
 			}
-			if (Session.MPGameMode) { // RA2: as above
-				Session.MPGameMode->vt_entry_24(); // RA2: as above
+			if (Session.MPGameMode) {
+				Session.MPGameMode->vt_entry_24();
 			}
 		}
 
-		if (_netresponse == 0x6CC) { // RA2: as above
+		if (_netresponse == 0x6CC) {
 			bool ok = true;
 
 			//...............................................................
 			// Force user to enter a name
 			//...............................................................
 			if (strlen(Session.Handle) < 1) {
-				ODMessageBox(StringTable::LoadString("TXT_NAME_BLANK", NULL, "D:\\Ra2\\netdlg2.cpp", 1571), 0, Net2Callback, false); // RA2: as above
+				ODMessageBox(StringTable::LoadString("TXT_NAME_BLANK", NULL, "D:\\Ra2\\netdlg2.cpp", 1571), 0, Net2Callback, false);
 				ok = false;
 			}
 
@@ -1000,8 +1000,8 @@ bool Net_Join_Dialog(void) // RA2: as above
 			// Ensure name is unique
 			//...............................................................
 			for (int i = 0; i < Session.Games.Count(); i++) {
-				if (ok && !_stricmp(Wide_To_Narrow(Session.Games[i]->Name), Session.Handle)) { // RA2: as above
-					ODMessageBox(StringTable::LoadString("TXT_GAMENAME_MUSTBE_UNIQUE", NULL, "D:\\Ra2\\netdlg2.cpp", 1581), 0, Net2Callback, false); // RA2: as above
+				if (ok && !_stricmp(Wide_To_Narrow(Session.Games[i]->Name), Session.Handle)) {
+					ODMessageBox(StringTable::LoadString("TXT_GAMENAME_MUSTBE_UNIQUE", NULL, "D:\\Ra2\\netdlg2.cpp", 1581), 0, Net2Callback, false);
 					ok = false;
 					break;
 				}
@@ -1011,7 +1011,7 @@ bool Net_Join_Dialog(void) // RA2: as above
 				//...............................................................
 				// Save player & game name
 				//...............................................................
-				wcscpy(Session.GameName, Narrow_To_Wide(Session.Handle)); // RA2: as above
+				wcscpy(Session.GameName, Narrow_To_Wide(Session.Handle));
 				Session.NetOpen = true;
 				Session.NetStealth = false;
 				Session.Options.ScenarioIndex = 0;
@@ -1028,39 +1028,39 @@ bool Net_Join_Dialog(void) // RA2: as above
 				//------------------------------------------------------------------------
 				// Add myself to the list, and to the Players vector.
 				//------------------------------------------------------------------------
-				NodeNameType *who = new NodeNameType; // RA2: as above
+				NodeNameType * who = new NodeNameType;
 				memset(who, 0, sizeof(*who));
-				wcscpy(who->Name, Narrow_To_Wide(Session.Handle)); // RA2: as above
-				strcpy(who->Slot.SerialPad, SerialNumber); // RA2: as above
-				who->Set_Country(Session.Chosen_House()); // RA2: as above
-				who->Set_Color(Session.Chosen_Color()); // RA2: as above
-				who->Player.Status = 1; // RA2: as above
-				who->Slot.SpectatorFlag = 0; // RA2: as above
-				LobbyObserverSlot = 7; // RA2: as above
-				if (Net2ObserverMode) { // RA2: as above
-					LobbyObserverSlot = 0; // RA2: as above
-					who->Slot.SpectatorFlag = -1; // RA2: as above
-				} else if (who->Get_Country() == -3) { // RA2: as above
-					who->Set_Country(-2); // RA2: as above
+				wcscpy(who->Name, Narrow_To_Wide(Session.Handle));
+				strcpy(who->Slot.SerialPad, SerialNumber);
+				who->Set_Country(Session.Chosen_House());
+				who->Set_Color(Session.Chosen_Color());
+				who->Player.Status = 1;
+				who->Slot.SpectatorFlag = 0;
+				LobbyObserverSlot = 7;
+				if (Net2ObserverMode) {
+					LobbyObserverSlot = 0;
+					who->Slot.SpectatorFlag = -1;
+				} else if (who->Get_Country() == -3) {
+					who->Set_Country(-2);
 				}
 				Session.Players.Add(who);
-				if (Session.MPGameMode) { // RA2: as above
-					Session.MPGameMode->vt_entry_24(); // RA2: as above
+				if (Session.MPGameMode) {
+					Session.MPGameMode->vt_entry_24();
 				}
-				Clear_Slot_Lists(); // RA2: as above
-				Reset_Slots(); // RA2: as above
-				Seat_First_Player(0); // RA2: as above
-				if (LobbyObserverSlot == 0) { // RA2: as above
-					Session.Slots[0]->Set_Country(-3); // RA2: as above
-					Session.Slots[0]->Slot.SpectatorFlag = -1; // RA2: as above
+				Clear_Slot_Lists();
+				Reset_Slots();
+				Seat_First_Player(0);
+				if (LobbyObserverSlot == 0) {
+					Session.Slots[0]->Set_Country(-3);
+					Session.Slots[0]->Slot.SpectatorFlag = -1;
 				}
 				JoinState = JOIN_CONFIRMED;
 
-				NodeNameType *game = new NodeNameType; // RA2: as above
-				wcscpy(game->Name, Narrow_To_Wide(Session.Handle)); // RA2: as above
+				NodeNameType * game = new NodeNameType;
+				wcscpy(game->Name, Narrow_To_Wide(Session.Handle));
 				game->Address = Session.GAddress;
 				game->Game.IsOpen = true;
-				game->Game.LastTime = TickCount(); // RA2: as above
+				game->Game.LastTime = TickCount();
 				Session.Games.Add(game);
 
 				CurGame = Session.Games.Count() - 1;
@@ -1069,178 +1069,178 @@ bool Net_Join_Dialog(void) // RA2: as above
 				//	Pop up the New Network Game dialog; if user selects OK, return
 				//	'true'; otherwise, return to the Join Dialog.
 				//..................................................................
-				HWND host = (HWND)WS_Create_Dialog(ProgramInstance, IDD_MPLAYER_HOST, MainWindow, (DLGPROC)MPlayer_Host_Dialog_Proc, 0); // RA2: as above
-				Show_Dialog(host, IDD_MPLAYER_HOST); // RA2: as above
-				SendMessageA(host, OD_SETTOP, 0, 1); // RA2: as above
-				ShowWindow(host, SW_SHOWNORMAL); // RA2: as above
+				HWND host = (HWND)WS_Create_Dialog(ProgramInstance, IDD_MPLAYER_HOST, MainWindow, (DLGPROC)MPlayer_Host_Dialog_Proc, 0);
+				Show_Dialog(host, IDD_MPLAYER_HOST);
+				SendMessageA(host, OD_SETTOP, 0, 1);
+				ShowWindow(host, SW_SHOWNORMAL);
 			} else {
-				HWND top = WS_Top_Window(); // RA2: as above
-				if (top) { // RA2: as above
-					EnableWindow(top, TRUE); // RA2: as above
-					HWND button = GetDlgItem(top, IDC_YOURNAME); // RA2: as above
-					if (button) { // RA2: as above
-						EnableWindow(button, TRUE); // RA2: as above
+				HWND top = WS_Top_Window();
+				if (top) {
+					EnableWindow(top, TRUE);
+					HWND button = GetDlgItem(top, IDC_YOURNAME);
+					if (button) {
+						EnableWindow(button, TRUE);
 					}
 				}
 			}
 		}
 
-		if (_netresponse == 1 && WS_Top_Window_ID() == IDD_MPLAYER_GUEST) { // RA2: as above
-			while (WS_Destroy_Dialog(0, 0) == true) { // RA2: as above
+		if (_netresponse == 1 && WS_Top_Window_ID() == IDD_MPLAYER_GUEST) {
+			while (WS_Destroy_Dialog(0, 0) == true) {
 			}
-			if (JoinState == JOIN_GAME_START) { // RA2: as above
+			if (JoinState == JOIN_GAME_START) {
 				if (!Net2ReadyToGo(0)) {
 					_netresponse = IDCANCEL;
-					Net2OptionsLocked = false; // RA2: as above
+					Net2OptionsLocked = false;
 					continue;
 				}
-				Net2OptionsLocked = true; // RA2: as above
-			} else if (JoinState == JOIN_GAME_START_LOAD) { // RA2: as above
+				Net2OptionsLocked = true;
+			} else if (JoinState == JOIN_GAME_START_LOAD) {
 				Net2ReadyToGo(1);
 			}
 			_netresponse = 0;
 
 			PregameSetup();
-			Session.FrameSendRate = 5; // RA2: as above
+			Session.FrameSendRate = 5;
 			Session.LatencyFudge = 0;
 			Session.PrecalcMaxAhead = 0;
 			Session.PrecalcDesiredFrameRate = 0;
-			if (Session.CommProtocol == COMM_PROTOCOL_MULTI_E_COMP) { // RA2: as above
-				Session.MaxAhead = ((Ipx.Global_Response_Time() / 8 + Session.FrameSendRate - 1) / Session.FrameSendRate) * Session.FrameSendRate > Session.FrameSendRate * 2 ? ((Ipx.Global_Response_Time() / 8 + Session.FrameSendRate - 1) / Session.FrameSendRate) * Session.FrameSendRate : Session.FrameSendRate * 2; // RA2: as above
+			if (Session.CommProtocol == COMM_PROTOCOL_MULTI_E_COMP) {
+				Session.MaxAhead = ((Ipx.Global_Response_Time() / 8 + Session.FrameSendRate - 1) / Session.FrameSendRate) * Session.FrameSendRate > Session.FrameSendRate * 2 ? ((Ipx.Global_Response_Time() / 8 + Session.FrameSendRate - 1) / Session.FrameSendRate) * Session.FrameSendRate : Session.FrameSendRate * 2;
 			} else {
-				Session.MaxAhead = (int)Ipx.Global_Response_Time() / 8 > 2 ? (int)Ipx.Global_Response_Time() / 8 : 2; // RA2: as above
+				Session.MaxAhead = (int)Ipx.Global_Response_Time() / 8 > 2 ? (int)Ipx.Global_Response_Time() / 8 : 2;
 			}
 			Session.NetOpen = false;
 			Session.Write_MultiPlayer_Settings();
 			return(true);
 		}
 
-		if (_netresponse == IDC_GO) { // RA2: as above
-			Net2OptionsLocked = false; // RA2: as above
+		if (_netresponse == IDC_GO) {
+			Net2OptionsLocked = false;
 			Session.Write_MultiPlayer_Settings();
 		}
-		int count = Session.Players.Count(); // RA2: as above
-		int observers = 0; // RA2: as above
-		for (int i = 0; i < count; i++) { // RA2: as above
-			if (Session.Players[i]->Slot.SpectatorFlag == -1) { // RA2: as above
-				observers++; // RA2: as above
+		int count = Session.Players.Count();
+		int observers = 0;
+		for (int i = 0; i < count; i++) {
+			if (Session.Players[i]->Slot.SpectatorFlag == -1) {
+				observers++;
 			}
 		}
-		if (_netresponse == IDC_GO) { // RA2: as above
-			if (count - observers <= 1) { // RA2: as above
-				Lobby_Chat_Printf(-1, StringTable::LoadString("TXT_ONLY_ONE", NULL, "D:\\Ra2\\netdlg2.cpp", 1760)); // RA2: as above
+		if (_netresponse == IDC_GO) {
+			if (count - observers <= 1) {
+				Lobby_Chat_Printf(-1, StringTable::LoadString("TXT_ONLY_ONE", NULL, "D:\\Ra2\\netdlg2.cpp", 1760));
 				_netresponse = 0;
-				EnableWindow(GetDlgItem(WS_Top_Window(), IDC_GO), TRUE); // RA2: as above
+				EnableWindow(GetDlgItem(WS_Top_Window(), IDC_GO), TRUE);
 			}
-			if (_netresponse == IDC_GO) { // RA2: as above
-				bool nomap = false; // RA2: as above
-				for (int i = 1; i < count; i++) { // RA2: as above
-					NodeNameType *player = Session.Players[i]; // RA2: as above
-					if (player->Slot.Unknown7F == 0) { // RA2: as above
-						Lobby_Chat_Printf(-1, StringTable::LoadString("GUI:HostNoMap", NULL, "D:\\Ra2\\netdlg2.cpp", 1772), player->Name, Session.Options.ScenarioDescription); // RA2: as above
-						nomap = true; // RA2: as above
+			if (_netresponse == IDC_GO) {
+				bool nomap = false;
+				for (int i = 1; i < count; i++) {
+					NodeNameType * player = Session.Players[i];
+					if (player->Slot.Unknown7F == 0) {
+						Lobby_Chat_Printf(-1, StringTable::LoadString("GUI:HostNoMap", NULL, "D:\\Ra2\\netdlg2.cpp", 1772), player->Name, Session.Options.ScenarioDescription);
+						nomap = true;
 					}
 				}
-				if (nomap) { // RA2: as above
+				if (nomap) {
 					_netresponse = 0;
-					EnableWindow(GetDlgItem(WS_Top_Window(), IDC_GO), TRUE); // RA2: as above
+					EnableWindow(GetDlgItem(WS_Top_Window(), IDC_GO), TRUE);
 				}
 			}
 		}
-		MultiplayerGameMode *mode = Session.MPGameMode; // RA2: as above
-		if (_netresponse == IDC_GO) { // RA2: as above
-			int map_players = RandomMapWaypointCount(Session.Options.ScenarioIndex); // RA2: as above
-			if (map_players < Session.Options.AIPlayers - observers + count) { // RA2: as above
-				Lobby_Chat_Printf(-1, StringTable::LoadString("TXT_SCENARIO_TOO_SMALL", NULL, "D:\\Ra2\\netdlg2.cpp", 1791), map_players); // RA2: as above
-				EnableWindow(GetDlgItem(WS_Top_Window(), IDC_GO), TRUE); // RA2: as above
+		MultiplayerGameMode * mode = Session.MPGameMode;
+		if (_netresponse == IDC_GO) {
+			int map_players = RandomMapWaypointCount(Session.Options.ScenarioIndex);
+			if (map_players < Session.Options.AIPlayers - observers + count) {
+				Lobby_Chat_Printf(-1, StringTable::LoadString("TXT_SCENARIO_TOO_SMALL", NULL, "D:\\Ra2\\netdlg2.cpp", 1791), map_players);
+				EnableWindow(GetDlgItem(WS_Top_Window(), IDC_GO), TRUE);
 				_netresponse = 0;
 			}
 			{
-				WideWstring message; // RA2: as above
-				if (!mode->CheckStartConditions(&message)) { // RA2: as above
-					Lobby_Chat_Printf(-1, message.get()); // RA2: as above
-					EnableWindow(GetDlgItem(WS_Top_Window(), IDC_GO), TRUE); // RA2: as above
+				WideWstring message;
+				if (!mode->CheckStartConditions(&message)) {
+					Lobby_Chat_Printf(-1, message.get());
+					EnableWindow(GetDlgItem(WS_Top_Window(), IDC_GO), TRUE);
 					_netresponse = 0;
 				}
 			}
-			if (_netresponse == IDC_GO) { // RA2: as above
-				for (int i = 0; i < count; i++) { // RA2: as above
+			if (_netresponse == IDC_GO) {
+				for (int i = 0; i < count; i++) {
 					if (Session.Players[i]->Player.Status == 0) {
-						Dispatch_Game_Mode(); // RA2: as above
-						Lobby_Chat_Printf(-1, StringTable::LoadString("GUI:HostGameStartHost", NULL, "D:\\Ra2\\netdlg2.cpp", 1817)); // RA2: as above
+						Dispatch_Game_Mode();
+						Lobby_Chat_Printf(-1, StringTable::LoadString("GUI:HostGameStartHost", NULL, "D:\\Ra2\\netdlg2.cpp", 1817));
 						_netresponse = 0;
-						EnableWindow(GetDlgItem(WS_Top_Window(), IDC_GO), TRUE); // RA2: as above
+						EnableWindow(GetDlgItem(WS_Top_Window(), IDC_GO), TRUE);
 						break;
 					}
 				}
-				if (_netresponse == IDC_GO) { // RA2: as above
-					Net2OptionsLocked = true; // RA2: as above
+				if (_netresponse == IDC_GO) {
+					Net2OptionsLocked = true;
 					int i;
 					for (i = 0; i < Session.Players.Count(); i++) {
-						if (Session.Players[i]->Slot.SpectatorFlag == -1) { // RA2: as above
-							Session.Players[i]->Set_Color(-2); // RA2: as above
+						if (Session.Players[i]->Slot.SpectatorFlag == -1) {
+							Session.Players[i]->Set_Color(-2);
 						}
 					}
-					mode->vt_entry_58(); // RA2: as above
-					Session.Assign_Random_Choices(); // RA2: as above
-					Send_Lobby_Options(true, true); // RA2: as above
+					mode->vt_entry_58();
+					Session.Assign_Random_Choices();
+					Send_Lobby_Options(true, true);
 					{
 						GlobalPacketType packet;
-						memset(&packet, 0, sizeof(packet)); // RA2: as above
-						packet.Command = NET_COMMAND_16; // RA2: as above
+						memset(&packet, 0, sizeof(packet));
+						packet.Command = NET_COMMAND_16;
 						strcpy(packet.Name, Session.Handle);
-						Get_Slot_Names(packet.Slots.Names); // RA2: as above
-						int players = Session.Players.Count(); // RA2: as above
-						for (i = 1; i < players; i++) { // RA2: as above
-							Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.Players[i]->Address); // RA2: as above
+						Get_Slot_Names(packet.Slots.Names);
+						int players = Session.Players.Count();
+						for (i = 1; i < players; i++) {
+							Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.Players[i]->Address);
 							Call_Back();
 						}
 					}
-					mode->vt_entry_54(); // RA2: as above
-					if (MultiplayerMapPreview != 0) { // RA2: as above
+					mode->vt_entry_54();
+					if (MultiplayerMapPreview != 0) {
 						delete MultiplayerMapPreview;
 						MultiplayerMapPreview = 0;
 					}
 					PregameSetup();
-					Session.FrameSendRate = 5; // RA2: as above
+					Session.FrameSendRate = 5;
 					Session.LatencyFudge = 0;
 					Session.PrecalcMaxAhead = 0;
 					Session.PrecalcDesiredFrameRate = 0;
-					if (Session.CommProtocol == COMM_PROTOCOL_MULTI_E_COMP) { // RA2: as above
-						Session.MaxAhead = ((Ipx.Global_Response_Time() / 8 + Session.FrameSendRate - 1) / Session.FrameSendRate) * Session.FrameSendRate > Session.FrameSendRate * 2 ? ((Ipx.Global_Response_Time() / 8 + Session.FrameSendRate - 1) / Session.FrameSendRate) * Session.FrameSendRate : Session.FrameSendRate * 2; // RA2: as above
+					if (Session.CommProtocol == COMM_PROTOCOL_MULTI_E_COMP) {
+						Session.MaxAhead = ((Ipx.Global_Response_Time() / 8 + Session.FrameSendRate - 1) / Session.FrameSendRate) * Session.FrameSendRate > Session.FrameSendRate * 2 ? ((Ipx.Global_Response_Time() / 8 + Session.FrameSendRate - 1) / Session.FrameSendRate) * Session.FrameSendRate : Session.FrameSendRate * 2;
 					} else {
-						Session.MaxAhead = (int)Ipx.Global_Response_Time() / 8 > 2 ? (int)Ipx.Global_Response_Time() / 8 : 2; // RA2: as above
+						Session.MaxAhead = (int)Ipx.Global_Response_Time() / 8 > 2 ? (int)Ipx.Global_Response_Time() / 8 : 2;
 					}
-					Ipx.Set_Timing(30 > Ipx.Global_Response_Time() + 2 ? 30 : Ipx.Global_Response_Time() + 2, -1, 600, true); // RA2: as above
+					Ipx.Set_Timing(30 > Ipx.Global_Response_Time() + 2 ? 30 : Ipx.Global_Response_Time() + 2, -1, 600, true);
 
 				/*
 				 * Not the GO button -- there is nothing to do this pass, so reset
 				 * the response and fall back through the main message loop.
 				 */
 					GlobalPacketType packet;
-					memset(&packet, 0, sizeof(packet)); // RA2: as above
-					packet.Command = NET_GO; // RA2: as above
-					packet.Progress.Percent = Session.MaxAhead;   // NET_GO carries MaxAhead at +0x2F // RA2: as above
+					memset(&packet, 0, sizeof(packet));
+					packet.Command = NET_GO;
+					packet.Progress.Percent = Session.MaxAhead;   // NET_GO carries MaxAhead at +0x2F
 					for (i = 1; i < Session.Players.Count(); i++) {
-						Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.Players[i]->Address); // RA2: as above
+						Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.Players[i]->Address);
 					}
 
-					CDTimerClass<SystemTimerClass> timeout = 1200; // RA2: as above
+					CDTimerClass<SystemTimerClass> timeout = 1200;
 					while (Ipx.Global_Num_Send() > 0 && !timeout) {
 						Call_Back();
 					}
 
-					int responses[8]; // RA2: as above
+					int responses[8];
 					memset(responses, 0, sizeof(responses));
 					int num_responses = 0;
 					bool send_scenario = false;
 					DebugString("About to wait for 'GO' response.\n");
 				CDTimerClass<SystemTimerClass> response_timer;    // timeout timer for waiting for responses
-					response_timer = 600; // RA2: as above
+				response_timer = 600;
 					do {
 						Call_Back();
-						if (Ipx.Get_Global_Message(&Session.GPacket, &Session.GPacketlen, &Session.GAddress, &Session.GProductID) // RA2: as above
-							&& Session.GProductID == 0xAA03) { // RA2: as above
+					if (Ipx.Get_Global_Message(&Session.GPacket, &Session.GPacketlen, &Session.GAddress, &Session.GProductID)
+							&& Session.GProductID == 0xAA03) {
 							for (i = 1; i < Session.Players.Count(); i++) {
 								if (Session.Players[i]->Address == Session.GAddress) {
 									if (!responses[i]) {
@@ -1262,20 +1262,20 @@ bool Net_Join_Dialog(void) // RA2: as above
 					} while (num_responses < Session.Players.Count() - 1 && response_timer);
 
 					WS_Destroy_Dialog(0, 0);
-					Darken_Surface(NULL, true); // RA2: as above
+					Darken_Surface(NULL, true);
 					if (send_scenario) {
 						memset(Session.ScenarioRequests, 0, sizeof(Session.ScenarioRequests));
 						Session.RequestCount = 0;
 						for (i = 1; i < Session.Players.Count(); i++) {
-							if (responses[i] == 0x10) { // RA2: as above
-								Session.ScenarioRequests[Session.RequestCount] = i; // RA2: as above
-								Session.RequestCount++; // RA2: as above
+							if (responses[i] == 0x10) {
+								Session.ScenarioRequests[Session.RequestCount] = i;
+								Session.RequestCount++;
 							}
 						}
-						Send_Remote_File(Scen->ScenarioName, 3, false, true); // RA2: as above
+						Send_Remote_File(Scen->ScenarioName, 3, false, true);
 					}
-					Ipx.Set_Timing(Ipx.Global_Response_Time() + 2 > 30 ? Ipx.Global_Response_Time() + 2 : 30, // RA2: as above
-						-1, 120 > Ipx.Global_Response_Time() * 8 ? 120 : Ipx.Global_Response_Time() * 8, true); // RA2: as above
+					Ipx.Set_Timing(Ipx.Global_Response_Time() + 2 > 30 ? Ipx.Global_Response_Time() + 2 : 30,
+						-1, 120 > Ipx.Global_Response_Time() * 8 ? 120 : Ipx.Global_Response_Time() * 8, true);
 					break;
 				}
 			}
@@ -1291,13 +1291,13 @@ bool Net_Join_Dialog(void) // RA2: as above
 
 bool Net2ReadyToGo(int load_game)
 {
-	Ipx.Set_Timing(Ipx.Global_Response_Time() + 2 > 30 ? Ipx.Global_Response_Time() + 2 : 30, -1, 1000, true); // RA2: as above
-	if (Find_Local_Scenario(Session.ScenarioFileName, Session.ScenarioFileLength, Session.ScenarioDigest, Session.ScenarioIsOfficial, true) == true) { // RA2: as above
+	Ipx.Set_Timing(Ipx.Global_Response_Time() + 2 > 30 ? Ipx.Global_Response_Time() + 2 : 30, -1, 1000, true);
+	if (Find_Local_Scenario(Session.ScenarioFileName, Session.ScenarioFileLength, Session.ScenarioDigest, Session.ScenarioIsOfficial, true) == true) {
 		DebugString("Found local scenario, file name is %d\n", Session.ScenarioFileName);
 		GlobalPacketType packet;
-		memset(&packet, 0, sizeof(packet)); // RA2: as above
+		memset(&packet, 0, sizeof(packet));
 		packet.Command = NET_READY_TO_GO;
-		Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.HostAddress); // RA2: as above
+		Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.HostAddress);
 		while (Ipx.Global_Num_Send() > 0 && Ipx.Service() != 0) {
 			Call_Back();
 		}
@@ -1308,19 +1308,19 @@ bool Net2ReadyToGo(int load_game)
 		// play.  Try to bail gracefully.
 		//.....................................................................
 		DebugString("Failed to find local scenario, file name is %d\n", Session.ScenarioFileName);
-		if ((Session.ScenarioIsOfficial && !Session.Is_Random_Map()) || !Get_File_From_Host(Session.ScenarioFileName, 3, true)) { // RA2: as above
+		if ((Session.ScenarioIsOfficial && !Session.Is_Random_Map()) || !Get_File_From_Host(Session.ScenarioFileName, 3, true)) {
 			Session.Options.ScenarioIndex = -1;
-			WWMessageBox(L" ").Process(StringTable::LoadString("TXT_UNABLE_PLAY_WAAUGH", NULL, "D:\\Ra2\\netdlg2.cpp", 678), // RA2: as above
-				StringTable::LoadString("TXT_OK", NULL, "D:\\Ra2\\netdlg2.cpp", 678), NULL, NULL, false); // RA2: as above
+			WWMessageBox(L" ").Process(StringTable::LoadString("TXT_UNABLE_PLAY_WAAUGH", NULL, "D:\\Ra2\\netdlg2.cpp", 678),
+				StringTable::LoadString("TXT_OK", NULL, "D:\\Ra2\\netdlg2.cpp", 678), NULL, NULL, false);
 			GlobalPacketType packet;
-			memset(&packet, 0, sizeof(packet)); // RA2: as above
+			memset(&packet, 0, sizeof(packet));
 			packet.Command = NET_SIGN_OFF;
 			strcpy(packet.Name, Session.Handle);
 			for (int i = 1; i < Session.Chat.Count(); i++) {
-				Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.Chat[i]->Address); // RA2: as above
+				Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.Chat[i]->Address);
 				Call_Back();
 			}
-			Ipx.Send_Global_Message(&packet, sizeof(packet), 0, NULL); // RA2: as above
+			Ipx.Send_Global_Message(&packet, sizeof(packet), 0, NULL);
 			if (Session.IsBridge) {
 				Ipx.Send_Global_Message(&packet, sizeof(packet), 0, &Session.BridgeNet);
 			}
@@ -1335,13 +1335,13 @@ bool Net2ReadyToGo(int load_game)
 	// Prepare to load the scenario.
 	//---------------------------------------------------------------------
 	strcpy(Scen->ScenarioName, Session.ScenarioFileName);
-	int response = Ipx.Global_Response_Time(); // RA2: as above
-	if (response < 20) { // RA2: as above
-		DebugString("IPX.Global_Response_Time() == %d. Adjusting to 20\n", response); // RA2: as above
-		response = 20; // RA2: as above
+	int response = Ipx.Global_Response_Time();
+	if (response < 20) {
+		DebugString("IPX.Global_Response_Time() == %d. Adjusting to 20\n", response);
+		response = 20;
 	}
-	Ipx.Set_Timing(response, -1, response * 8 < 120 ? 120 : response * 8, true); // RA2: as above
-	Ipx.Set_External_Timing(60, -1, 600); // RA2: as above
+	Ipx.Set_Timing(response, -1, response * 8 < 120 ? 120 : response * 8, true);
+	Ipx.Set_External_Timing(60, -1, 600);
 	return(true);
 }
 
@@ -1556,34 +1556,34 @@ LRESULT CALLBACK MPlayer_Game_List_Dialog_Proc(HWND window, UINT message, WPARAM
 
 void Send_Chat_Message(HWND dialog, int color, int recipients) // RA2: 0x005BEE20; sends the text of the chat line to the lobby
 {
-	wchar_t text[112]; // RA2: as above
+	wchar_t text[112];
 
-	HWND edit = GetDlgItem(dialog, IDC_INPUT); // RA2: as above
-	SendMessage(edit, 0x4B3, 0x6F, (LPARAM)text); // RA2: as above
-	text[0x6F] = 0; // RA2: as above
-	int length = wcslen(text); // RA2: as above
-	edit = GetDlgItem(dialog, IDC_INPUT); // RA2: as above
-	SendMessage(edit, OD_SETTEXTW, 0, (LPARAM)L""); // RA2: as above
-	InvalidateRect(dialog, NULL, 1); // RA2: as above
-	if (length > 2) { // RA2: as above
-		Lobby_Chat_Printf(color, L"[%s] %s", Narrow_To_Wide(Session.Handle), text); // RA2: as above
+	HWND edit = GetDlgItem(dialog, IDC_INPUT);
+	SendMessage(edit, 0x4B3, 0x6F, (LPARAM)text);
+	text[0x6F] = 0;
+	int length = wcslen(text);
+	edit = GetDlgItem(dialog, IDC_INPUT);
+	SendMessage(edit, OD_SETTEXTW, 0, (LPARAM)L"");
+	InvalidateRect(dialog, NULL, 1);
+	if (length > 2) {
+		Lobby_Chat_Printf(color, L"[%s] %s", Narrow_To_Wide(Session.Handle), text);
 		GlobalPacketType packet;
-		memset(&packet, 0, sizeof(packet)); // RA2: as above
-		packet.Command = NET_MESSAGE; // RA2: as above
+		memset(&packet, 0, sizeof(packet));
+		packet.Command = NET_MESSAGE;
 		strcpy(packet.Name, Session.Handle);
-		wcscpy((wchar_t *)packet.Message.Buf, text); // RA2: as above
-		packet.Message.Color = recipients; // RA2: as above
-		packet.Message.NameCRC = Compute_Name_CRC(Session.GameName); // RA2: as above
+		wcscpy((wchar_t *)packet.Message.Buf, text);
+		packet.Message.Color = recipients;
+		packet.Message.NameCRC = Compute_Name_CRC(Session.GameName);
 		if (JoinState == JOIN_CONFIRMED) {
-			int count = Session.Players.Count(); // RA2: as above
-			for (int i = 1; i < count; i++) { // RA2: as above
-				Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.Players[i]->Address); // RA2: as above
+			int count = Session.Players.Count();
+			for (int i = 1; i < count; i++) {
+				Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.Players[i]->Address);
 				Call_Back();
 			}
 		} else {
-			int count = Session.Chat.Count(); // RA2: as above
-			for (int i = 1; i < count; i++) { // RA2: as above
-				Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.Chat[i]->Address); // RA2: as above
+			int count = Session.Chat.Count();
+			for (int i = 1; i < count; i++) {
+				Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.Chat[i]->Address);
 				Call_Back();
 			}
 		}
@@ -1848,62 +1848,62 @@ LRESULT CALLBACK MPlayer_Host_Dialog_Proc(HWND window, UINT message, WPARAM wpar
 
 LRESULT CALLBACK Options_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x005BF9B0; the game options of the lobby dialog
 {
-	if (!Net2OptionsLocked) { // RA2: as above
+	if (!Net2OptionsLocked) {
 		switch (message) {
-			case OD_SUBCLASSED: // RA2: as above
-			Fill_Options_Dialog(window, 1); // RA2: as above
+			case OD_SUBCLASSED:
+				Fill_Options_Dialog(window, 1);
 			return(0);
-			case WM_HSCROLL: // RA2: as above
-				if (GetDlgItem(window, IDC_GAME_SPEED_SLIDER) == (HWND)lparam) { // RA2: as above
-					Session.Options.GameSpeed = 6 - SendDlgItemMessage(window, IDC_GAME_SPEED_SLIDER, TBM_GETPOS, 0, 0); // RA2: as above
+			case WM_HSCROLL:
+				if (GetDlgItem(window, IDC_GAME_SPEED_SLIDER) == (HWND)lparam) {
+					Session.Options.GameSpeed = 6 - SendDlgItemMessage(window, IDC_GAME_SPEED_SLIDER, TBM_GETPOS, 0, 0);
 			}
-				if (GetDlgItem(window, IDC_CREDITS) == (HWND)lparam) { // RA2: as above
-					Session.Options.Credits = SendDlgItemMessage(window, IDC_CREDITS, TBM_GETPOS, 0, 0); // RA2: as above
+				if (GetDlgItem(window, IDC_CREDITS) == (HWND)lparam) {
+					Session.Options.Credits = SendDlgItemMessage(window, IDC_CREDITS, TBM_GETPOS, 0, 0);
 			}
-				if (GetDlgItem(window, IDC_UNITCOUNT) == (HWND)lparam) { // RA2: as above
-					Session.Options.UnitCount = SendDlgItemMessage(window, IDC_UNITCOUNT, TBM_GETPOS, 0, 0); // RA2: as above
+				if (GetDlgItem(window, IDC_UNITCOUNT) == (HWND)lparam) {
+					Session.Options.UnitCount = SendDlgItemMessage(window, IDC_UNITCOUNT, TBM_GETPOS, 0, 0);
 			}
 			return(0);
-			case WM_COMMAND: // RA2: as above
-			switch ((unsigned short)wparam) { // RA2: as above
-				case IDC_SHORT_GAME: // RA2: as above
+			case WM_COMMAND:
+				switch ((unsigned short)wparam) {
+					case IDC_SHORT_GAME:
 				Session.Options.ShortGame = false;
-					if (SendDlgItemMessage(window, IDC_SHORT_GAME, BM_GETCHECK, 0, 0) == BST_CHECKED) { // RA2: as above
+						if (SendDlgItemMessage(window, IDC_SHORT_GAME, BM_GETCHECK, 0, 0) == BST_CHECKED) {
 					Session.Options.ShortGame = true;
 					if (!Session.Options.Bases) {
 						Session.Options.Bases = true;
-							SendDlgItemMessage(window, IDC_BASES, BM_SETCHECK, BST_CHECKED, 0); // RA2: as above
+								SendDlgItemMessage(window, IDC_BASES, BM_SETCHECK, BST_CHECKED, 0);
 					}
 				}
 				return(0);
-				case IDC_CRATES: // RA2: as above
+					case IDC_CRATES:
 				Session.Options.Goodies = false;
-					if (SendDlgItemMessage(window, IDC_CRATES, BM_GETCHECK, 0, 0) == BST_CHECKED) { // RA2: as above
+						if (SendDlgItemMessage(window, IDC_CRATES, BM_GETCHECK, 0, 0) == BST_CHECKED) {
 					Session.Options.Goodies = true;
 				}
 				return(0);
-				case IDC_REDEPLOY_MCV: // RA2: as above
+					case IDC_REDEPLOY_MCV:
 				Session.Options.MCVRedeploy = false;
-					if (SendDlgItemMessage(window, IDC_REDEPLOY_MCV, BM_GETCHECK, 0, 0) == BST_CHECKED) { // RA2: as above
+						if (SendDlgItemMessage(window, IDC_REDEPLOY_MCV, BM_GETCHECK, 0, 0) == BST_CHECKED) {
 					Session.Options.MCVRedeploy = true;
 				}
 				return(0);
-				case IDC_BRIDGE_DESTROY: // RA2: as above
+					case IDC_BRIDGE_DESTROY:
 				Session.Options.BridgeDestruction = false;
-					if (SendDlgItemMessage(window, IDC_BRIDGE_DESTROY, BM_GETCHECK, 0, 0) == BST_CHECKED) { // RA2: as above
+						if (SendDlgItemMessage(window, IDC_BRIDGE_DESTROY, BM_GETCHECK, 0, 0) == BST_CHECKED) {
 					Session.Options.BridgeDestruction = true;
 				}
 				return(0);
-			case 0x69D: // RA2: as above
-				Session.Options.BuildOffAlly = false; // RA2: as above
-						if (SendDlgItemMessage(window, 0x69D, BM_GETCHECK, 0, 0) == BST_CHECKED) { // RA2: as above
-					Session.Options.BuildOffAlly = true; // RA2: as above
+					case 0x69D:
+						Session.Options.BuildOffAlly = false;
+						if (SendDlgItemMessage(window, 0x69D, BM_GETCHECK, 0, 0) == BST_CHECKED) {
+							Session.Options.BuildOffAlly = true;
 				}
 				return(0);
-			case 0x69A: // RA2: as above
-				Session.Options.SWAllowed = false; // RA2: as above
-						if (SendDlgItemMessage(window, 0x69A, BM_GETCHECK, 0, 0) == BST_CHECKED) { // RA2: as above
-					Session.Options.SWAllowed = true; // RA2: as above
+					case 0x69A:
+						Session.Options.SWAllowed = false;
+						if (SendDlgItemMessage(window, 0x69A, BM_GETCHECK, 0, 0) == BST_CHECKED) {
+							Session.Options.SWAllowed = true;
 				}
 				return(0);
 			}
@@ -1922,55 +1922,55 @@ LRESULT CALLBACK Options_Dialog_Proc(HWND window, UINT message, WPARAM wparam, L
  * OUTPUT:                                                                                     *
  *      1 = Packet sent, 0 = wasn't                                                            *
  *=============================================================================================*/
-int Request_To_Join(int join_index, bool observer) // RA2: as above
+int Request_To_Join(int join_index, bool observer)
 {
-	if (join_index < 1) { // RA2: as above
-		Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("TXT_MUST_SELECT_GAME", NULL, "D:\\Ra2\\netdlg2.cpp", 3423)); // RA2: as above
-		VocClass::PlayGlobal(Rule->SystemError, 1.0f, 0x2000, NULL); // RA2: as above
+	if (join_index < 1) {
+		Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("TXT_MUST_SELECT_GAME", NULL, "D:\\Ra2\\netdlg2.cpp", 3423));
+		VocClass::PlayGlobal(Rule->SystemError, 1.0f, 0x2000, NULL);
 		return(0);
 	}
-	if (Session.Games.Count() <= 1 || join_index > Session.Games.Count()) { // RA2: as above
-		Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("TXT_NOTHING_TO_JOIN", NULL, "D:\\Ra2\\netdlg2.cpp", 3430)); // RA2: as above
-		VocClass::PlayGlobal(Rule->SystemError, 1.0f, 0x2000, NULL); // RA2: as above
+	if (Session.Games.Count() <= 1 || join_index > Session.Games.Count()) {
+		Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("TXT_NOTHING_TO_JOIN", NULL, "D:\\Ra2\\netdlg2.cpp", 3430));
+		VocClass::PlayGlobal(Rule->SystemError, 1.0f, 0x2000, NULL);
 		return(0);
 	}
-	if (strlen(Session.Handle) == 0) { // RA2: as above
-		Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("TXT_NAME_ERROR", NULL, "D:\\Ra2\\netdlg2.cpp", 3438)); // RA2: as above
-		VocClass::PlayGlobal(Rule->SystemError, 1.0f, 0x2000, NULL); // RA2: as above
+	if (strlen(Session.Handle) == 0) {
+		Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("TXT_NAME_ERROR", NULL, "D:\\Ra2\\netdlg2.cpp", 3438));
+		VocClass::PlayGlobal(Rule->SystemError, 1.0f, 0x2000, NULL);
 		return(0);
 	}
-	if (strcmp(Session.Handle, Wide_To_Narrow(LobbyEntryTexts[0])) == 0 // RA2: as above
-		|| strcmp(Session.Handle, Wide_To_Narrow(LobbyEntryTexts[1])) == 0 // RA2: as above
-		|| strcmp(Session.Handle, Wide_To_Narrow(LobbyEntryTexts[2])) == 0 // RA2: as above
-		|| strcmp(Session.Handle, Wide_To_Narrow(LobbyEntryTexts[3])) == 0 // RA2: as above
-		|| strcmp(Session.Handle, Wide_To_Narrow(LobbyEntryTexts[4])) == 0 // RA2: as above
-		|| strcmp(Session.Handle, Wide_To_Narrow(LobbyEntryTexts[5])) == 0 // RA2: as above
-		|| strcmp(Session.Handle, Wide_To_Narrow(LobbyEntryTexts[6])) == 0 // RA2: as above
-		|| Is_Lobby_Name(Session.Handle)) { // RA2: as above
-		Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("ERROR:NameIsReservedWord", NULL, "D:\\Ra2\\netdlg2.cpp", 3453)); // RA2: as above
-		VocClass::PlayGlobal(Rule->SystemError, 1.0f, 0x2000, NULL); // RA2: as above
+	if (strcmp(Session.Handle, Wide_To_Narrow(LobbyEntryTexts[0])) == 0
+		|| strcmp(Session.Handle, Wide_To_Narrow(LobbyEntryTexts[1])) == 0
+		|| strcmp(Session.Handle, Wide_To_Narrow(LobbyEntryTexts[2])) == 0
+		|| strcmp(Session.Handle, Wide_To_Narrow(LobbyEntryTexts[3])) == 0
+		|| strcmp(Session.Handle, Wide_To_Narrow(LobbyEntryTexts[4])) == 0
+		|| strcmp(Session.Handle, Wide_To_Narrow(LobbyEntryTexts[5])) == 0
+		|| strcmp(Session.Handle, Wide_To_Narrow(LobbyEntryTexts[6])) == 0
+		|| Is_Lobby_Name(Session.Handle)) {
+		Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("ERROR:NameIsReservedWord", NULL, "D:\\Ra2\\netdlg2.cpp", 3453));
+		VocClass::PlayGlobal(Rule->SystemError, 1.0f, 0x2000, NULL);
 		return(0);
 	}
-	if (!Session.Games[join_index]->Game.IsOpen) { // RA2: as above
-		Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("TXT_GAME_IS_CLOSED", NULL, "D:\\Ra2\\netdlg2.cpp", 3461)); // RA2: as above
-		VocClass::PlayGlobal(Rule->SystemError, 1.0f, 0x2000, NULL); // RA2: as above
+	if (!Session.Games[join_index]->Game.IsOpen) {
+		Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("TXT_GAME_IS_CLOSED", NULL, "D:\\Ra2\\netdlg2.cpp", 3461));
+		VocClass::PlayGlobal(Rule->SystemError, 1.0f, 0x2000, NULL);
 		return(0);
 	}
 	GlobalPacketType packet;
-	memset(&packet, 0, sizeof(packet)); // RA2: as above
-	packet.Command = NET_QUERY_JOIN; // RA2: as above
+	memset(&packet, 0, sizeof(packet));
+	packet.Command = NET_QUERY_JOIN;
 	strcpy(packet.Name, Session.Handle);
-	strcpy(packet.Serial, SerialNumber); // RA2: as above
-	packet.PlayerInfo.House = Session.Chosen_House(); // RA2: as above
-	packet.PlayerInfo.Color = Session.Chosen_Color(); // RA2: as above
-	packet.PlayerInfo.MinVersion = VerNum.Min_Version(); // RA2: as above
-	packet.PlayerInfo.MaxVersion = VerNum.Max_Version(); // RA2: as above
-	packet.PlayerInfo.CheatCheck = RulesID; // RA2: as above
-	packet.PlayerInfo.ArtCheatCheck = ArtID; // RA2: as above
-	packet.PlayerInfo.AICheatCheck = AIID; // RA2: as above
-	packet.PlayerInfo.BuildNumber = Build_Number(); // RA2: as above
-	packet.PlayerInfo.Flag = observer; // RA2: as above
-	Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.Games[join_index]->Address); // RA2: as above
+	strcpy(packet.Serial, SerialNumber);
+	packet.PlayerInfo.House = Session.Chosen_House();
+	packet.PlayerInfo.Color = Session.Chosen_Color();
+	packet.PlayerInfo.MinVersion = VerNum.Min_Version();
+	packet.PlayerInfo.MaxVersion = VerNum.Max_Version();
+	packet.PlayerInfo.CheatCheck = RulesID;
+	packet.PlayerInfo.ArtCheatCheck = ArtID;
+	packet.PlayerInfo.AICheatCheck = AIID;
+	packet.PlayerInfo.BuildNumber = Build_Number();
+	packet.PlayerInfo.Flag = observer;
+	Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.Games[join_index]->Address);
 	return(1);
 }
 
@@ -1978,24 +1978,24 @@ int Request_To_Join(int join_index, bool observer) // RA2: as above
 /***********************************************************************************************
  * Unjoin_Game -- Sends a SIGN_OFF to the game's owner and the other players                   *
  *=============================================================================================*/
-void Unjoin_Game(int game_index) // RA2: as above
+void Unjoin_Game(int game_index)
 {
 	GlobalPacketType packet;
-	memset(&packet, 0, sizeof(packet)); // RA2: as above
+	memset(&packet, 0, sizeof(packet));
 	packet.Command = NET_SIGN_OFF;
 	strcpy(packet.Name, Session.Handle);
 	for (int i = 1; i < Session.Players.Count(); i++) {
-		Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.Players[i]->Address); // RA2: as above
+		Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.Players[i]->Address);
 		Call_Back();
 	}
 	if (JoinState == JOIN_WAIT_CONFIRM || JoinState == JOIN_CONFIRMED) {
 		if (!Session.Games[game_index]->Address.Is_Broadcast()) {
-			Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.Games[game_index]->Address); // RA2: as above
+			Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.Games[game_index]->Address);
 		}
 	}
-	Ipx.Send_Global_Message(&packet, sizeof(packet), 0, NULL); // RA2: as above
+	Ipx.Send_Global_Message(&packet, sizeof(packet), 0, NULL);
 	Clear_Slot_Lists(); // RA2: the lobby's slots are cleared
-	Fill_Slots(); // RA2: as above
+	Fill_Slots();
 	Clear_Vector(&Session.Players);
 	Session.GameName[0] = 0;
 }
@@ -2006,49 +2006,49 @@ void Unjoin_Game(int game_index) // RA2: as above
  *=============================================================================================*/
 static void Send_Join_Queries(int gamenow, int playernow, int chatnow, int init)
 {
-	static CDTimerClass<SystemTimerClass> gametimer; // RA2: as above
-	static CDTimerClass<SystemTimerClass> playertimer; // RA2: as above
-	static CDTimerClass<SystemTimerClass> chattimer; // RA2: as above
+	static CDTimerClass<SystemTimerClass> gametimer;
+	static CDTimerClass<SystemTimerClass> playertimer;
+	static CDTimerClass<SystemTimerClass> chattimer;
 	GlobalPacketType packet;
 
 	if (init) {
-		gametimer = 120; // RA2: as above
-		playertimer = 35; // RA2: as above
-		chattimer = 83; // RA2: as above
+		gametimer = 120;
+		playertimer = 35;
+		chattimer = 83;
 	}
 
-	if (!gametimer || gamenow) { // RA2: as above
-		gametimer = 120; // RA2: as above
-		if (WS_Top_Window_ID() != IDD_MPLAYER_HOST || gamenow) { // RA2: as above
-			memset(&packet, 0, sizeof(packet)); // RA2: as above
+	if (!gametimer || gamenow) {
+		gametimer = 120;
+		if (WS_Top_Window_ID() != IDD_MPLAYER_HOST || gamenow) {
+			memset(&packet, 0, sizeof(packet));
 			packet.Command = NET_QUERY_GAME;
 			strcpy(packet.Name, Session.Handle);
-			Ipx.Send_Global_Message(&packet, sizeof(packet), 0, NULL); // RA2: as above
+			Ipx.Send_Global_Message(&packet, sizeof(packet), 0, NULL);
 			if (Session.IsBridge) {
 				Ipx.Send_Global_Message(&packet, sizeof(packet), 0, &Session.BridgeNet);
 			}
 		}
 	}
 
-	if ((CurGame > 0 && CurGame < Session.Games.Count() && !playertimer) || playernow) { // RA2: as above
-		playertimer = 35; // RA2: as above
-		memset(&packet, 0, sizeof(packet)); // RA2: as above
+	if ((CurGame > 0 && CurGame < Session.Games.Count() && !playertimer) || playernow) {
+		playertimer = 35;
+		memset(&packet, 0, sizeof(packet));
 		packet.Command = NET_QUERY_PLAYER;
-		strcpy(packet.Name, Wide_To_Narrow(Session.Games[CurGame]->Name)); // RA2: as above
-		Ipx.Send_Global_Message(&packet, sizeof(packet), 0, NULL); // RA2: as above
+		strcpy(packet.Name, Wide_To_Narrow(Session.Games[CurGame]->Name));
+		Ipx.Send_Global_Message(&packet, sizeof(packet), 0, NULL);
 		if (Session.IsBridge) {
 			Ipx.Send_Global_Message(&packet, sizeof(packet), 0, &Session.BridgeNet);
 		}
 	}
 
-	if ((!chattimer && JoinState < JOIN_CONFIRMED) || chatnow) { // RA2: as above
-		chattimer = 83; // RA2: as above
-		memset(&packet, 0, sizeof(packet)); // RA2: as above
+	if ((!chattimer && JoinState < JOIN_CONFIRMED) || chatnow) {
+		chattimer = 83;
+		memset(&packet, 0, sizeof(packet));
 		packet.Command = NET_CHAT_ANNOUNCE;
 		strcpy(packet.Name, Session.Handle);
 		packet.Chat.ID = Session.UniqueID;
-		packet.Chat.Color = Session.PrefColor; // RA2: as above
-		Ipx.Send_Global_Message(&packet, sizeof(packet), 0, NULL); // RA2: as above
+		packet.Chat.Color = Session.PrefColor;
+		Ipx.Send_Global_Message(&packet, sizeof(packet), 0, NULL);
 		if (Session.IsBridge) {
 			Ipx.Send_Global_Message(&packet, sizeof(packet), 0, &Session.BridgeNet);
 		}
@@ -2059,48 +2059,48 @@ static void Send_Join_Queries(int gamenow, int playernow, int chatnow, int init)
 /// <summary>
 /// Answers the queries other machines send to this one.
 /// </summary>
-bool Process_Global_Packet(GlobalPacketType * packet, IPXAddressClass * address) // RA2: as above
+bool Process_Global_Packet(GlobalPacketType * packet, IPXAddressClass * address)
 {
-	if (packet->Command == NET_QUERY_GAME && !Session.NetStealth) { // RA2: as above
-		if (wcslen(Session.GameName) > 0) { // RA2: as above
-			if (!Session.NetOpen || _stricmp(Session.Handle, Wide_To_Narrow(Session.GameName)) == 0) { // RA2: as above
-				if (_stricmp(Session.Handle, Wide_To_Narrow(Session.GameName)) != 0 && !ScenarioActive) { // RA2: as above
+	if (packet->Command == NET_QUERY_GAME && !Session.NetStealth) {
+		if (wcslen(Session.GameName) > 0) {
+			if (!Session.NetOpen || _stricmp(Session.Handle, Wide_To_Narrow(Session.GameName)) == 0) {
+				if (_stricmp(Session.Handle, Wide_To_Narrow(Session.GameName)) != 0 && !ScenarioActive) {
 					return(true);
 				}
-				GlobalPacketType answer; // RA2: as above
-				memset(&answer, 0, sizeof(answer)); // RA2: as above
-				answer.Command = NET_ANSWER_GAME; // RA2: as above
-				strcpy(answer.Name, Wide_To_Narrow(Session.GameName)); // RA2: as above
-				answer.GameInfo.IsOpen = Session.NetOpen; // RA2: as above
-				Ipx.Send_Global_Message(&answer, sizeof(answer), 1, address); // RA2: as above
+				GlobalPacketType answer;
+				memset(&answer, 0, sizeof(answer));
+				answer.Command = NET_ANSWER_GAME;
+				strcpy(answer.Name, Wide_To_Narrow(Session.GameName));
+				answer.GameInfo.IsOpen = Session.NetOpen;
+				Ipx.Send_Global_Message(&answer, sizeof(answer), 1, address);
 			}
 		}
 		return(true);
 	}
-	if (packet->Command == NET_QUERY_PLAYER) { // RA2: as above
-		if (_stricmp(packet->Name, Wide_To_Narrow(Session.GameName)) == 0 // RA2: as above
-			&& wcslen(Session.GameName) > 0 && !Session.NetStealth && JoinState >= JOIN_CONFIRMED) { // RA2: as above
-			GlobalPacketType answer; // RA2: as above
-			memset(&answer, 0, sizeof(answer)); // RA2: as above
-			answer.Command = NET_ANSWER_PLAYER; // RA2: as above
-			strcpy(answer.Name, Session.Handle); // RA2: as above
-			strcpy(answer.Serial, SerialNumber); // RA2: as above
-			answer.PlayerInfo.House = Session.Chosen_House(); // RA2: as above
-			answer.PlayerInfo.Color = Session.Chosen_Color(); // RA2: as above
-			answer.PlayerInfo.NameCRC = Compute_Name_CRC(Session.GameName); // RA2: as above
-			answer.PlayerInfo.Slot = Session.LocalSlot; // RA2: as above
-			answer.PlayerInfo.Flag = Session.LocalSlot == LobbyObserverSlot; // RA2: as above
-			if (Session.Players.Count() == 0) { // RA2: as above
+	if (packet->Command == NET_QUERY_PLAYER) {
+		if (_stricmp(packet->Name, Wide_To_Narrow(Session.GameName)) == 0
+			&& wcslen(Session.GameName) > 0 && !Session.NetStealth && JoinState >= JOIN_CONFIRMED) {
+			GlobalPacketType answer;
+			memset(&answer, 0, sizeof(answer));
+			answer.Command = NET_ANSWER_PLAYER;
+			strcpy(answer.Name, Session.Handle);
+			strcpy(answer.Serial, SerialNumber);
+			answer.PlayerInfo.House = Session.Chosen_House();
+			answer.PlayerInfo.Color = Session.Chosen_Color();
+			answer.PlayerInfo.NameCRC = Compute_Name_CRC(Session.GameName);
+			answer.PlayerInfo.Slot = Session.LocalSlot;
+			answer.PlayerInfo.Flag = Session.LocalSlot == LobbyObserverSlot;
+			if (Session.Players.Count() == 0) {
 				return(true);
 			}
-			if (Session.Players[0]->Slot.SpectatorFlag != -1) { // RA2: as above
-				answer.PlayerInfo.Flag = 0; // RA2: as above
+			if (Session.Players[0]->Slot.SpectatorFlag != -1) {
+				answer.PlayerInfo.Flag = 0;
 			}
-			Ipx.Send_Global_Message(&answer, sizeof(answer), 1, address); // RA2: as above
-			if (_stricmp(packet->Name, Wide_To_Narrow(Session.Players[0]->Name)) == 0) { // RA2: as above
-				Send_Lobby_Options(true, true); // RA2: as above
-				if (Session.MPGameMode) { // RA2: as above
-					Session.MPGameMode->vt_entry_50(); // RA2: as above
+			Ipx.Send_Global_Message(&answer, sizeof(answer), 1, address);
+			if (_stricmp(packet->Name, Wide_To_Narrow(Session.Players[0]->Name)) == 0) {
+				Send_Lobby_Options(true, true);
+				if (Session.MPGameMode) {
+					Session.MPGameMode->vt_entry_50();
 				}
 			}
 			return(true);
@@ -2110,47 +2110,47 @@ bool Process_Global_Packet(GlobalPacketType * packet, IPXAddressClass * address)
 }
 
 
-void Get_Join_Responses(void) // RA2: as above
+void Get_Join_Responses(void)
 {
-	NodeNameType *who; // RA2: as above
+	NodeNameType * who;
 	int i;
 	int found;
-	int why; // RA2: as above
-	wchar_t txt[80]; // RA2: as above
+	int why;
+	wchar_t txt[80];
 	bool display_users = false;
 	bool display_games = false;
 
 	while (_netresponse == 0) {
 		Call_Back();
-		if (!Ipx.Get_Global_Message(&Session.GPacket, &Session.GPacketlen, &Session.GAddress, &Session.GProductID)) { // RA2: as above
+		if (!Ipx.Get_Global_Message(&Session.GPacket, &Session.GPacketlen, &Session.GAddress, &Session.GProductID)) {
 			break;
 		}
-		if (Session.GProductID != 0xAA03) { // RA2: as above
+		if (Session.GProductID != 0xAA03) {
 			continue;
 		}
-		if (Process_Global_Packet(&Session.GPacket, &Session.GAddress)) { // RA2: as above
+		if (Process_Global_Packet(&Session.GPacket, &Session.GAddress)) {
 			continue;
 		}
 
 		// The commands of TibSun's Get_Join_Responses, in its order (RA2 adds the map preview,
 		// slot and observer packets).
-		if (Session.GPacket.Command == NET_PREVIEW_MODE) { // RA2: as above
-			if (WS_Top_Window_ID() == IDD_MPLAYER_GUEST) { // RA2: as above
+		if (Session.GPacket.Command == NET_PREVIEW_MODE) {
+			if (WS_Top_Window_ID() == IDD_MPLAYER_GUEST) {
 				Receive_Random_Map_Preview();
 			}
-		} else if (Session.GPacket.Command == NET_REQ_PREVIEW) { // RA2: as above
-			if (WS_Top_Window_ID() == IDD_MPLAYER_HOST) { // RA2: as above
-				Enable_Start_Button(); // RA2: as above
+		} else if (Session.GPacket.Command == NET_REQ_PREVIEW) {
+			if (WS_Top_Window_ID() == IDD_MPLAYER_HOST) {
+				Enable_Start_Button();
 				display_users = true;
-				Send_Map_Preview(MultiplayerMapPreview); // RA2: as above
+				Send_Map_Preview(MultiplayerMapPreview);
 			}
-		} else if (Session.GPacket.Command == NET_ANSWER_GAME) { // RA2: as above
+		} else if (Session.GPacket.Command == NET_ANSWER_GAME) {
 			// NET_ANSWER_GAME
 			found = 0;
 			for (i = 1; i < Session.Games.Count(); i++) {
-				if (!_stricmp(Wide_To_Narrow(Session.Games[i]->Name), Session.GPacket.Name)) { // RA2: as above
+				if (!_stricmp(Wide_To_Narrow(Session.Games[i]->Name), Session.GPacket.Name)) {
 					found = 1;
-					Session.Games[i]->Game.LastTime = TickCount(); // RA2: as above
+					Session.Games[i]->Game.LastTime = TickCount();
 					if (Session.Games[i]->Game.IsOpen != Session.GPacket.GameInfo.IsOpen) {
 						display_games = true;
 						Session.Games[i]->Game.IsOpen = Session.GPacket.GameInfo.IsOpen;
@@ -2159,41 +2159,41 @@ void Get_Join_Responses(void) // RA2: as above
 						}
 						if (JoinState < JOIN_CONFIRMED) {
 							if (Session.Games[i]->Game.IsOpen) {
-								swprintf(txt, StringTable::LoadString("TXT_S_FORMED_NEW_GAME", NULL, "D:\\Ra2\\netdlg2.cpp", 3940), Narrow_To_Wide(Session.GPacket.Name)); // RA2: as above
-								VocClass::PlayGlobal(Rule->GameForming, 1.0f, 0x2000, 0); // RA2: as above
+								swprintf(txt, StringTable::LoadString("TXT_S_FORMED_NEW_GAME", NULL, "D:\\Ra2\\netdlg2.cpp", 3940), Narrow_To_Wide(Session.GPacket.Name));
+								VocClass::PlayGlobal(Rule->GameForming, 1.0f, 0x2000, 0);
 							} else {
-								swprintf(txt, StringTable::LoadString("TXT_GAME_NOW_IN_PROGRESS", NULL, "D:\\Ra2\\netdlg2.cpp", 3945), Narrow_To_Wide(Session.GPacket.Name)); // RA2: as above
-								VocClass::PlayGlobal(Rule->GameClosed, 1.0f, 0x2000, 0); // RA2: as above
+								swprintf(txt, StringTable::LoadString("TXT_GAME_NOW_IN_PROGRESS", NULL, "D:\\Ra2\\netdlg2.cpp", 3945), Narrow_To_Wide(Session.GPacket.Name));
+								VocClass::PlayGlobal(Rule->GameClosed, 1.0f, 0x2000, 0);
 							}
-							Lobby_Chat_Printf(ColorSystem, txt); // RA2: as above
+							Lobby_Chat_Printf(ColorSystem, txt);
 						}
 					}
 					break;
 				}
 			}
-			if (found == 0) { // RA2: as above
+			if (found == 0) {
 				who = new NodeNameType;
-				wcscpy(who->Name, Narrow_To_Wide(Session.GPacket.Name)); // RA2: as above
+				wcscpy(who->Name, Narrow_To_Wide(Session.GPacket.Name));
 				who->Address = Session.GAddress;
 				who->Game.IsOpen = Session.GPacket.GameInfo.IsOpen;
-				who->Game.LastTime = TickCount(); // RA2: as above
-				Session.Games.Add(who); // RA2: as above
+				who->Game.LastTime = TickCount();
+				Session.Games.Add(who);
 				for (i = 1; i < Session.Chat.Count(); i++) {
-					if (Session.Chat[i]->Address == Session.GAddress) { // RA2: as above
+					if (Session.Chat[i]->Address == Session.GAddress) {
 						delete Session.Chat[i];
 						Session.Chat.Delete(Session.Chat[i]);
 						break;
 					}
 				}
 				if (Session.GPacket.GameInfo.IsOpen && JoinState < JOIN_CONFIRMED) {
-					swprintf(txt, StringTable::LoadString("TXT_S_FORMED_NEW_GAME", NULL, "D:\\Ra2\\netdlg2.cpp", 3986), Narrow_To_Wide(Session.GPacket.Name)); // RA2: as above
-					Lobby_Chat_Printf(ColorSystem, txt); // RA2: as above
-					VocClass::PlayGlobal(Rule->GameForming, 1.0f, 0x2000, 0); // RA2: as above
+					swprintf(txt, StringTable::LoadString("TXT_S_FORMED_NEW_GAME", NULL, "D:\\Ra2\\netdlg2.cpp", 3986), Narrow_To_Wide(Session.GPacket.Name));
+					Lobby_Chat_Printf(ColorSystem, txt);
+					VocClass::PlayGlobal(Rule->GameForming, 1.0f, 0x2000, 0);
 				}
 				display_users = true;
 				display_games = true;
 			}
-		} else if (Session.GPacket.Command == NET_ANSWER_PLAYER) { // RA2: as above
+		} else if (Session.GPacket.Command == NET_ANSWER_PLAYER) {
 			// NET_ANSWER_PLAYER
 			found = 0;
 			for (i = 0; i < Session.Players.Count(); i++) {
@@ -2202,94 +2202,94 @@ void Get_Join_Responses(void) // RA2: as above
 					break;
 				}
 			}
-			if (Session.Games.Count() && Session.GPacket.PlayerInfo.NameCRC != (int)Compute_Name_CRC(Session.GameName)) { // RA2: as above
+			if (Session.Games.Count() && Session.GPacket.PlayerInfo.NameCRC != (int)Compute_Name_CRC(Session.GameName)) {
 				found = 1;
 			}
-			if (!_stricmp(Session.Handle, Session.GPacket.Name)) { // RA2: as above
+			if (!_stricmp(Session.Handle, Session.GPacket.Name)) {
 				found = 1;
 			}
-			if (found == 0) { // RA2: as above
+			if (found == 0) {
 				who = new NodeNameType;
 				memset(who, 0, sizeof(*who));
-				wcscpy(who->Name, Narrow_To_Wide(Session.GPacket.Name)); // RA2: as above
-				strcpy(who->Slot.SerialPad, Session.GPacket.Serial); // RA2: as above
+				wcscpy(who->Name, Narrow_To_Wide(Session.GPacket.Name));
+				strcpy(who->Slot.SerialPad, Session.GPacket.Serial);
 				who->Address = Session.GAddress;
-				who->Set_Country(Session.GPacket.PlayerInfo.House); // RA2: as above
-				who->Set_Color(Session.GPacket.PlayerInfo.Color); // RA2: as above
-				if (Session.GPacket.PlayerInfo.Flag) { // RA2: as above
-					who->Slot.SpectatorFlag = -1; // RA2: as above
+				who->Set_Country(Session.GPacket.PlayerInfo.House);
+				who->Set_Color(Session.GPacket.PlayerInfo.Color);
+				if (Session.GPacket.PlayerInfo.Flag) {
+					who->Slot.SpectatorFlag = -1;
 				}
 				Session.Players.Add(who);
-				Set_Player_Slot(Session.GPacket.PlayerInfo.Slot, who); // RA2: as above
+				Set_Player_Slot(Session.GPacket.PlayerInfo.Slot, who);
 				for (i = 1; i < Session.Chat.Count(); i++) {
-					if (Session.Chat[i]->Address == Session.GAddress) { // RA2: as above
+					if (Session.Chat[i]->Address == Session.GAddress) {
 						delete Session.Chat[i];
 						Session.Chat.Delete(Session.Chat[i]);
 						break;
 					}
 				}
-				Enable_Start_Button(); // RA2: as above
-				HWND dialog = WS_Find_Dialog(IDD_MPLAYER_GUEST); // RA2: as above
-				Enable_Player_Combos(dialog, true); // RA2: as above
+				Enable_Start_Button();
+				HWND dialog = WS_Find_Dialog(IDD_MPLAYER_GUEST);
+				Enable_Player_Combos(dialog, true);
 				DebugString("New Player");
 				display_users = true;
-				if (JoinState >= JOIN_CONFIRMED) { // RA2: as above
-					VocClass::PlayGlobal(Rule->PlayerJoined, 1.0f, 0x2000, 0); // RA2: as above
+				if (JoinState >= JOIN_CONFIRMED) {
+					VocClass::PlayGlobal(Rule->PlayerJoined, 1.0f, 0x2000, 0);
 				}
 			}
-		} else if (Session.GPacket.Command == NET_COMMAND_16) { // RA2: as above
-			if (!Is_Host()) { // RA2: as above
-				Set_Slot_Names(Session.GPacket.Slots.Names); // RA2: as above
+		} else if (Session.GPacket.Command == NET_COMMAND_16) {
+			if (!Is_Host()) {
+				Set_Slot_Names(Session.GPacket.Slots.Names);
 				display_users = true;
 			}
-		} else if (Session.GPacket.Command == NET_COMMAND_28) { // RA2: as above
-			if (!Is_Host()) { // RA2: as above
-				Handle_Start_Reminder(); // RA2: as above
+		} else if (Session.GPacket.Command == NET_COMMAND_28) {
+			if (!Is_Host()) {
+				Handle_Start_Reminder();
 			}
-		} else if (Session.GPacket.Command == NET_CONFIRM_JOIN) { // RA2: as above
+		} else if (Session.GPacket.Command == NET_CONFIRM_JOIN) {
 			// NET_CONFIRM_JOIN
-			if (JoinState != JOIN_CONFIRMED) { // RA2: as above
-				wcscpy(Session.GameName, Narrow_To_Wide(Session.GPacket.Name)); // RA2: as above
-				Session.Set_Side(Session.GPacket.PlayerInfo.House, false); // RA2: as above
-				Session.Set_Color(Session.GPacket.PlayerInfo.Color, false); // RA2: as above
+			if (JoinState != JOIN_CONFIRMED) {
+				wcscpy(Session.GameName, Narrow_To_Wide(Session.GPacket.Name));
+				Session.Set_Side(Session.GPacket.PlayerInfo.House, false);
+				Session.Set_Color(Session.GPacket.PlayerInfo.Color, false);
 				JoinState = JOIN_CONFIRMED;
 				Session.HostAddress = Session.GAddress;
 				Clear_Vector(&Session.Players);
 				who = new NodeNameType;
 				memset(who, 0, sizeof(*who));
-				wcscpy(who->Name, Narrow_To_Wide(Session.Handle)); // RA2: as above
-				who->Set_Country(Session.Chosen_House()); // RA2: as above
-				who->Set_Color(Session.Chosen_Color()); // RA2: as above
-				LobbyObserverSlot = Session.GPacket.PlayerInfo.Flag; // RA2: as above
-				if (Session.GPacket.PlayerInfo.Slot == (int)Session.GPacket.PlayerInfo.Flag && Session.GPacket.PlayerInfo.House == -3) { // RA2: as above
-					who->Slot.SpectatorFlag = -1; // RA2: as above
+				wcscpy(who->Name, Narrow_To_Wide(Session.Handle));
+				who->Set_Country(Session.Chosen_House());
+				who->Set_Color(Session.Chosen_Color());
+				LobbyObserverSlot = Session.GPacket.PlayerInfo.Flag;
+				if (Session.GPacket.PlayerInfo.Slot == (int)Session.GPacket.PlayerInfo.Flag && Session.GPacket.PlayerInfo.House == -3) {
+					who->Slot.SpectatorFlag = -1;
 				}
 				Session.Players.Add(who);
-				Net2JoinListEnabled = false; // RA2: as above
+				Net2JoinListEnabled = false;
 				WS_Destroy_Dialog(0, 0);
 				_netresponse = 0;
-				Clear_Slot_Lists(); // RA2: as above
-				Reset_Slots(); // RA2: as above
-				Seat_First_Player(Session.GPacket.PlayerInfo.Slot); // RA2: as above
-				HWND dialog = (HWND)WS_Create_Dialog(ProgramInstance, IDD_MPLAYER_GUEST, MainWindow, (DLGPROC)MPlayer_Guest_Dialog_Proc, 0); // RA2: as above
-				Show_Dialog(dialog, IDD_MPLAYER_GUEST); // RA2: as above
-				ShowWindow(dialog, SW_SHOWNORMAL); // RA2: as above
+				Clear_Slot_Lists();
+				Reset_Slots();
+				Seat_First_Player(Session.GPacket.PlayerInfo.Slot);
+				HWND dialog = (HWND)WS_Create_Dialog(ProgramInstance, IDD_MPLAYER_GUEST, MainWindow, (DLGPROC)MPlayer_Guest_Dialog_Proc, 0);
+				Show_Dialog(dialog, IDD_MPLAYER_GUEST);
+				ShowWindow(dialog, SW_SHOWNORMAL);
 				display_users = true;
 				Send_Join_Queries(1, 1, 1, 0);
 			}
-		} else if (Session.GPacket.Command == NET_REJECT_JOIN) { // RA2: as above
+		} else if (Session.GPacket.Command == NET_REJECT_JOIN) {
 			// NET_REJECT_JOIN
 			why = REJECT_DUPLICATE_NAME;
 			if (JoinState == JOIN_CONFIRMED) {
 				GlobalPacketType packet;
-				memset(&packet, 0, sizeof(packet)); // RA2: as above
+				memset(&packet, 0, sizeof(packet));
 				packet.Command = NET_SIGN_OFF;
 				strcpy(packet.Name, Session.Handle);
 				for (i = 1; i < Session.Players.Count(); i++) {
-					Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.Players[i]->Address); // RA2: as above
+					Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.Players[i]->Address);
 					Call_Back();
 				}
-				Ipx.Send_Global_Message(&packet, sizeof(packet), 0, 0); // RA2: as above
+				Ipx.Send_Global_Message(&packet, sizeof(packet), 0, 0);
 				if (Session.IsBridge) {
 					Ipx.Send_Global_Message(&packet, sizeof(packet), 0, &Session.BridgeNet);
 				}
@@ -2297,52 +2297,52 @@ void Get_Join_Responses(void) // RA2: as above
 					Call_Back();
 				}
 				Session.GameName[0] = 0;
-				Clear_Slot_Lists(); // RA2: as above
-				Fill_Slots(); // RA2: as above
+				Clear_Slot_Lists();
+				Fill_Slots();
 				Clear_Vector(&Session.Players);
 				Clear_Vector(&Session.Chat);
 				CurGame = 0;
-				Net2JoinListEnabled = true; // RA2: as above
+				Net2JoinListEnabled = true;
 				JoinState = JOIN_REJECTED;
 				why = REJECT_BY_OWNER;
 				display_users = true;
-			} else if (JoinState == JOIN_WAIT_CONFIRM) { // RA2: as above
-				why = Session.GPacket.Reject.Why; // RA2: as above
+			} else if (JoinState == JOIN_WAIT_CONFIRM) {
+				why = Session.GPacket.Reject.Why;
 				JoinState = JOIN_REJECTED;
 			}
 			if (JoinState == JOIN_REJECTED) {
-				Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("TXT_REQUEST_DENIED", NULL, "D:\\Ra2\\netdlg2.cpp", 4239)); // RA2: as above
-				VocClass::PlayGlobal(Rule->SystemError, 1.0f, 0x2000, 0); // RA2: as above
-				wchar_t const *item = 0; // RA2: as above
-				if (why == REJECT_DUPLICATE_NAME) { // RA2: as above
-					item = StringTable::LoadString("TXT_NAME_MUSTBE_UNIQUE", NULL, "D:\\Ra2\\netdlg2.cpp", 4245); // RA2: as above
-				} else if (why == REJECT_GAME_FULL) { // RA2: as above
-					if (ObserverMode == 0) { // RA2: as above
-						item = StringTable::LoadString("TXT_GAME_FULL", NULL, "D:\\Ra2\\netdlg2.cpp", 4247); // RA2: as above
+				Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("TXT_REQUEST_DENIED", NULL, "D:\\Ra2\\netdlg2.cpp", 4239));
+				VocClass::PlayGlobal(Rule->SystemError, 1.0f, 0x2000, 0);
+				wchar_t const * item = 0;
+				if (why == REJECT_DUPLICATE_NAME) {
+					item = StringTable::LoadString("TXT_NAME_MUSTBE_UNIQUE", NULL, "D:\\Ra2\\netdlg2.cpp", 4245);
+				} else if (why == REJECT_GAME_FULL) {
+					if (ObserverMode == 0) {
+						item = StringTable::LoadString("TXT_GAME_FULL", NULL, "D:\\Ra2\\netdlg2.cpp", 4247);
 					} else {
-						item = StringTable::LoadString("TXT_OBSERVER_FULL", NULL, "D:\\Ra2\\netdlg2.cpp", 4249); // RA2: as above
+						item = StringTable::LoadString("TXT_OBSERVER_FULL", NULL, "D:\\Ra2\\netdlg2.cpp", 4249);
 					}
-				} else if (why == REJECT_VERSION_TOO_OLD) { // RA2: as above
-					item = StringTable::LoadString("TXT_YOURGAME_OUTDATED", NULL, "D:\\Ra2\\netdlg2.cpp", 4251); // RA2: as above
-				} else if (why == REJECT_VERSION_TOO_NEW) { // RA2: as above
-					item = StringTable::LoadString("TXT_DESTGAME_OUTDATED", NULL, "D:\\Ra2\\netdlg2.cpp", 4253); // RA2: as above
-				} else if (why == REJECT_MISMATCH) { // RA2: as above
-					item = StringTable::LoadString("TXT_MISMATCH", NULL, "D:\\Ra2\\netdlg2.cpp", 4255); // RA2: as above
-				} else if (why == REJECT_DISBANDED) { // RA2: as above
-					item = StringTable::LoadString("TXT_GAME_CANCELLED", NULL, "D:\\Ra2\\netdlg2.cpp", 4257); // RA2: as above
-				} else if (why == REJECT_DUPLICATE_SERIAL) { // RA2: as above
-					item = StringTable::LoadString("TXT_SERIAL_DUP", NULL, "D:\\Ra2\\netdlg2.cpp", 4259); // RA2: as above
+				} else if (why == REJECT_VERSION_TOO_OLD) {
+					item = StringTable::LoadString("TXT_YOURGAME_OUTDATED", NULL, "D:\\Ra2\\netdlg2.cpp", 4251);
+				} else if (why == REJECT_VERSION_TOO_NEW) {
+					item = StringTable::LoadString("TXT_DESTGAME_OUTDATED", NULL, "D:\\Ra2\\netdlg2.cpp", 4253);
+				} else if (why == REJECT_MISMATCH) {
+					item = StringTable::LoadString("TXT_MISMATCH", NULL, "D:\\Ra2\\netdlg2.cpp", 4255);
+				} else if (why == REJECT_DISBANDED) {
+					item = StringTable::LoadString("TXT_GAME_CANCELLED", NULL, "D:\\Ra2\\netdlg2.cpp", 4257);
+				} else if (why == REJECT_DUPLICATE_SERIAL) {
+					item = StringTable::LoadString("TXT_SERIAL_DUP", NULL, "D:\\Ra2\\netdlg2.cpp", 4259);
 				}
 				if (item) {
-					ODMessageBox(item, 0, Net2Callback, false); // RA2: as above
+					ODMessageBox(item, 0, Net2Callback, false);
 				}
-				if (WS_Top_Window_ID() == IDD_MPLAYER_GAME_LIST) { // RA2: as above
+				if (WS_Top_Window_ID() == IDD_MPLAYER_GAME_LIST) {
 					HWND window = WS_Top_Window();
-					if (window) { // RA2: as above
-						EnableWindow(window, TRUE); // RA2: as above
-						HWND button = GetDlgItem(window, IDC_YOURNAME); // RA2: as above
-						if (button) { // RA2: as above
-							EnableWindow(button, TRUE); // RA2: as above
+					if (window) {
+						EnableWindow(window, TRUE);
+						HWND button = GetDlgItem(window, IDC_YOURNAME);
+						if (button) {
+							EnableWindow(button, TRUE);
 						}
 					}
 				} else {
@@ -2350,137 +2350,137 @@ void Get_Join_Responses(void) // RA2: as above
 				}
 				Send_Join_Queries(0, 0, 1, 0);
 			}
-		} else if (Session.GPacket.Command == NET_PUB_GAMEOPT) { // RA2: as above
+		} else if (Session.GPacket.Command == NET_PUB_GAMEOPT) {
 			// NET_PUB_GAMEOPT
 			for (i = 0; i < Session.Players.Count(); i++) {
-				if (!_stricmp(Wide_To_Narrow(Session.Players[i]->Name), Session.GPacket.Name)) { // RA2: as above
-					if (i != -1 && !Net2OptionsLocked) { // RA2: as above
-						Net2DecodeGameopt(Session.GPacket.Options.Buf, Session.GPacket.Name); // RA2: as above
+				if (!_stricmp(Wide_To_Narrow(Session.Players[i]->Name), Session.GPacket.Name)) {
+					if (i != -1 && !Net2OptionsLocked) {
+						Net2DecodeGameopt(Session.GPacket.Options.Buf, Session.GPacket.Name);
 					}
 					break;
 				}
 			}
-		} else if (Session.GPacket.Command == NET_PRIV_GAMEOPT) { // RA2: as above
+		} else if (Session.GPacket.Command == NET_PRIV_GAMEOPT) {
 			// NET_PRIV_GAMEOPT
-			char *opts = strdup(&Session.GPacket.Options.Buf[1]); // RA2: as above
-			for (i = 0; i < 8; i++) { // RA2: as above
-				char *name = Wide_To_Narrow(Session.Slots[i]->Name); // RA2: as above
-				if (!_stricmp(name, Session.GPacket.Name)) { // RA2: as above
-					if (i != -1 && !Net2OptionsLocked) { // RA2: as above
-						char *tok = strtok(opts, ","); // RA2: as above
+			char * opts = strdup(&Session.GPacket.Options.Buf[1]);
+			for (i = 0; i < 8; i++) {
+				char * name = Wide_To_Narrow(Session.Slots[i]->Name);
+				if (!_stricmp(name, Session.GPacket.Name)) {
+					if (i != -1 && !Net2OptionsLocked) {
+						char * tok = strtok(opts, ",");
 						int newhouse = 0;
 						if (tok) {
 							newhouse = atol(tok);
 						}
-						tok = strtok(0, ","); // RA2: as above
+						tok = strtok(0, ",");
 						int newcolor = 0;
 						if (tok) {
-							newcolor = atol(tok); // RA2: as above
+							newcolor = atol(tok);
 						}
-						HWND dialog = WS_Find_Dialog(IDD_MPLAYER_HOST); // RA2: as above
-						if (!dialog) { // RA2: as above
-							dialog = WS_Find_Dialog(IDD_MPLAYER_GUEST); // RA2: as above
+						HWND dialog = WS_Find_Dialog(IDD_MPLAYER_HOST);
+						if (!dialog) {
+							dialog = WS_Find_Dialog(IDD_MPLAYER_GUEST);
 						}
-						bool house_changed = Session.Slots[i]->Get_Country() != newhouse; // RA2: as above
-						if (house_changed) { // RA2: as above
-							Session.Slots[i]->Set_Country(newhouse); // RA2: as above
+						bool house_changed = Session.Slots[i]->Get_Country() != newhouse;
+						if (house_changed) {
+							Session.Slots[i]->Set_Country(newhouse);
 						}
-						bool color_changed = Session.Slots[i]->Get_Color() != newcolor; // RA2: as above
-						if (color_changed) { // RA2: as above
-							if (Session.Is_Color_Used(newcolor)) { // RA2: as above
-								newcolor = -2; // RA2: as above
+						bool color_changed = Session.Slots[i]->Get_Color() != newcolor;
+						if (color_changed) {
+							if (Session.Is_Color_Used(newcolor)) {
+								newcolor = -2;
 							}
-							Session.Slots[i]->Set_Color(newcolor); // RA2: as above
+							Session.Slots[i]->Set_Color(newcolor);
 						}
-						if (house_changed || color_changed) { // RA2: as above
+						if (house_changed || color_changed) {
 							display_users = true;
-							Send_Lobby_Options(true, false); // RA2: as above
+							Send_Lobby_Options(true, false);
 						}
 					}
 					break;
 				}
 			}
 			free(opts);
-		} else if (Session.GPacket.Command == NET_SIGN_OFF) { // RA2: as above
+		} else if (Session.GPacket.Command == NET_SIGN_OFF) {
 			// NET_SIGN_OFF
 			for (i = 1; i < Session.Games.Count(); i++) {
-				if (!_stricmp(Wide_To_Narrow(Session.Games[i]->Name), Session.GPacket.Name) && Session.Games[i]->Address == Session.GAddress) { // RA2: as above
-					if (i == CurGame) { // RA2: as above
-						Clear_Slot_Lists(); // RA2: as above
-						Fill_Slots(); // RA2: as above
+				if (!_stricmp(Wide_To_Narrow(Session.Games[i]->Name), Session.GPacket.Name) && Session.Games[i]->Address == Session.GAddress) {
+					if (i == CurGame) {
+						Clear_Slot_Lists();
+						Fill_Slots();
 						Clear_Vector(&Session.Players);
-						if (WS_Top_Window_ID() != IDD_MPLAYER_GAME_LIST && WS_Top_Window_ID() == IDD_MPLAYER_GUEST) { // RA2: as above
+						if (WS_Top_Window_ID() != IDD_MPLAYER_GAME_LIST && WS_Top_Window_ID() == IDD_MPLAYER_GUEST) {
 							_netresponse = IDCANCEL;
 						}
 					}
-					if (JoinState > JOIN_NOTHING && i == CurGame) { // RA2: as above
+					if (JoinState > JOIN_NOTHING && i == CurGame) {
 						JoinState = JOIN_REJECTED;
 						why = REJECT_DISBANDED;
 					}
 					delete Session.Games[i];
 					Session.Games.Delete(Session.Games[i]);
-					CurGame = i - 1; // RA2: as above
+					CurGame = i - 1;
 					display_games = true;
 					Send_Join_Queries(0, 1, 1, 0);
 				}
 			}
 			bool player_removed = false;
-			Release_Slot_By_Address(Session.GAddress); // RA2: as above
+			Release_Slot_By_Address(Session.GAddress);
 			for (i = 0; i < Session.Players.Count(); i++) {
 				if (Session.Players[i]->Address == Session.GAddress) {
 					delete Session.Players[i];
 					Session.Players.Delete(Session.Players[i]);
 					player_removed = true;
-					if (JoinState >= JOIN_CONFIRMED) { // RA2: as above
-						VocClass::PlayGlobal(Rule->PlayerLeft, 1.0f, 0x2000, 0); // RA2: as above
+					if (JoinState >= JOIN_CONFIRMED) {
+						VocClass::PlayGlobal(Rule->PlayerLeft, 1.0f, 0x2000, 0);
 					}
 				}
 			}
 			for (i = 1; i < Session.Chat.Count(); i++) {
-				if (Session.Chat[i]->Address == Session.GAddress) { // RA2: as above
+				if (Session.Chat[i]->Address == Session.GAddress) {
 					delete Session.Chat[i];
 					Session.Chat.Delete(Session.Chat[i]);
 				}
 			}
 			if (player_removed) {
-				Enable_Start_Button(); // RA2: as above
-				HWND dialog = WS_Find_Dialog(IDD_MPLAYER_GUEST); // RA2: as above
-				Enable_Player_Combos(dialog, true); // RA2: as above
-				if (WS_Top_Window_ID() == 0x6B) { // RA2: as above
+				Enable_Start_Button();
+				HWND dialog = WS_Find_Dialog(IDD_MPLAYER_GUEST);
+				Enable_Player_Combos(dialog, true);
+				if (WS_Top_Window_ID() == 0x6B) {
 					HWND window = WS_Top_Window();
-					int index = SendDlgItemMessageA(window, 0x6EB, 0x188, 0, 0); // RA2: as above
+					int index = SendDlgItemMessageA(window, 0x6EB, 0x188, 0, 0);
 					if (index != -1) {
-						MultiplayerGameMode *row = (MultiplayerGameMode *)SendDlgItemMessageA(window, 0x6EB, 0x199, index, 0); // RA2: as above
-						row->vt_entry_78(); // RA2: as above
+						MultiplayerGameMode * row = (MultiplayerGameMode *)SendDlgItemMessageA(window, 0x6EB, 0x199, index, 0);
+						row->vt_entry_78();
 					}
 				} else {
-					Session.MPGameMode->vt_entry_78(); // RA2: as above
+					Session.MPGameMode->vt_entry_78();
 				}
 			}
 			display_users = true;
-		} else if (Session.GPacket.Command == NET_GO || Session.GPacket.Command == NET_LOADGAME) { // RA2: as above
+		} else if (Session.GPacket.Command == NET_GO || Session.GPacket.Command == NET_LOADGAME) {
 			// NET_GO, NET_LOADGAME
 			if (JoinState == JOIN_CONFIRMED) {
-				Session.MaxAhead = Session.GPacket.Progress.Percent; // RA2: as above
+				Session.MaxAhead = Session.GPacket.Progress.Percent;
 				Session.HostAddress = Session.GAddress;
 				Session.NumPlayers = Session.Players.Count();
-				_netresponse = 1; // RA2: as above
-				if (Session.GPacket.Command == NET_GO) { // RA2: as above
+				_netresponse = 1;
+				if (Session.GPacket.Command == NET_GO) {
 					JoinState = JOIN_GAME_START;
-				} else if (Session.GPacket.Command == NET_LOADGAME) { // RA2: as above
+				} else if (Session.GPacket.Command == NET_LOADGAME) {
 					JoinState = JOIN_GAME_START_LOAD;
 				}
 			}
-		} else if (Session.GPacket.Command == NET_CHAT_ANNOUNCE) { // RA2: as above
+		} else if (Session.GPacket.Command == NET_CHAT_ANNOUNCE) {
 			// NET_CHAT_ANNOUNCE
 			if (Session.GPacket.Chat.ID == Session.UniqueID) {
 				continue;
 			}
 			found = 0;
 			for (i = 0; i < Session.Chat.Count(); i++) {
-				if (Session.Chat[i]->Address == Session.GAddress) { // RA2: as above
-					wcscpy(Session.Chat[i]->Name, Narrow_To_Wide(Session.GPacket.Name)); // RA2: as above
-					Session.Chat[i]->Chat.LastTime = TickCount(); // RA2: as above
+				if (Session.Chat[i]->Address == Session.GAddress) {
+					wcscpy(Session.Chat[i]->Name, Narrow_To_Wide(Session.GPacket.Name));
+					Session.Chat[i]->Chat.LastTime = TickCount();
 					Session.Chat[i]->Chat.LastChance = 0;
 					Session.Chat[i]->Chat.Color = Session.GPacket.Chat.Color;
 					found = 1;
@@ -2492,9 +2492,9 @@ void Get_Join_Responses(void) // RA2: as above
 			}
 			if (!found) {
 				who = new NodeNameType;
-				wcscpy(who->Name, Narrow_To_Wide(Session.GPacket.Name)); // RA2: as above
+				wcscpy(who->Name, Narrow_To_Wide(Session.GPacket.Name));
 				who->Address = Session.GAddress;
-				who->Chat.LastTime = TickCount(); // RA2: as above
+				who->Chat.LastTime = TickCount();
 				who->Chat.LastChance = 0;
 				who->Chat.Color = Session.GPacket.Chat.Color;
 				Session.Chat.Add(who);
@@ -2502,43 +2502,43 @@ void Get_Join_Responses(void) // RA2: as above
 					display_users = true;
 				}
 			}
-		} else if (Session.GPacket.Command == NET_CHAT_REQUEST) { // RA2: as above
+		} else if (Session.GPacket.Command == NET_CHAT_REQUEST) {
 			// NET_CHAT_REQUEST
 			if (JoinState != JOIN_WAIT_CONFIRM && JoinState != JOIN_CONFIRMED) {
 				GlobalPacketType packet;
-				memset(&packet, 0, sizeof(packet)); // RA2: as above
+				memset(&packet, 0, sizeof(packet));
 				packet.Command = NET_CHAT_ANNOUNCE;
 				strcpy(packet.Name, Session.Handle);
 				packet.Chat.ID = Session.UniqueID;
-				packet.Chat.Color = Session.PrefColor; // RA2: as above
-				Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.GAddress); // RA2: as above
+				packet.Chat.Color = Session.PrefColor;
+				Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.GAddress);
 				Call_Back();
 			}
-		} else if (Session.GPacket.Command == NET_MESSAGE) { // RA2: as above
+		} else if (Session.GPacket.Command == NET_MESSAGE) {
 			// NET_MESSAGE
-			int color = Session.GPacket.Message.Color; // RA2: as above
+			int color = Session.GPacket.Message.Color;
 			if (JoinState == JOIN_CONFIRMED) {
-				if (Session.GPacket.Message.NameCRC == (int)Compute_Name_CRC(Session.GameName)) { // RA2: as above
-					Lobby_Chat_Printf(color, L"[%s] %s", Narrow_To_Wide(Session.GPacket.Name), Session.GPacket.Message.Buf); // RA2: as above
-					VocClass::PlayGlobal(Rule->IncomingMessage, 1.0f, 0x2000, 0); // RA2: as above
+				if (Session.GPacket.Message.NameCRC == (int)Compute_Name_CRC(Session.GameName)) {
+					Lobby_Chat_Printf(color, L"[%s] %s", Narrow_To_Wide(Session.GPacket.Name), Session.GPacket.Message.Buf);
+					VocClass::PlayGlobal(Rule->IncomingMessage, 1.0f, 0x2000, 0);
 				}
 			} else {
-				Lobby_Chat_Printf(color, L"[%s] %s", Narrow_To_Wide(Session.GPacket.Name), Session.GPacket.Message.Buf); // RA2: as above
-				VocClass::PlayGlobal(Rule->IncomingMessage, 1.0f, 0x2000, 0); // RA2: as above
+				Lobby_Chat_Printf(color, L"[%s] %s", Narrow_To_Wide(Session.GPacket.Name), Session.GPacket.Message.Buf);
+				VocClass::PlayGlobal(Rule->IncomingMessage, 1.0f, 0x2000, 0);
 			}
-		} else if (Session.GPacket.Command == NET_QUERY_JOIN) { // RA2: as above
+		} else if (Session.GPacket.Command == NET_QUERY_JOIN) {
 			// NET_QUERY_JOIN
 			GlobalPacketType packet;
 			if (!Session.Players.Count()) {
-				memset(&packet, 0, sizeof(packet)); // RA2: as above
+				memset(&packet, 0, sizeof(packet));
 				packet.Command = NET_REJECT_JOIN;
-				packet.Reject.Why = REJECT_DISBANDED; // RA2: as above
-				Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.GAddress); // RA2: as above
+				packet.Reject.Why = REJECT_DISBANDED;
+				Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.GAddress);
 			} else {
 			found = 0;
-			int resend = 0; // RA2: as above
+			int resend = 0;
 			for (i = 1; i < Session.Players.Count(); i++) {
-				if (!_stricmp(Wide_To_Narrow(Session.Players[i]->Name), Session.GPacket.Name)) { // RA2: as above
+				if (!_stricmp(Wide_To_Narrow(Session.Players[i]->Name), Session.GPacket.Name)) {
 					if (Session.Players[i]->Address != Session.GAddress) {
 						found = 1;
 					} else {
@@ -2547,142 +2547,142 @@ void Get_Join_Responses(void) // RA2: as above
 					break;
 				}
 			}
-			if (!_stricmp(Wide_To_Narrow(Session.Players[0]->Name), Session.GPacket.Name)) { // RA2: as above
+			if (!_stricmp(Wide_To_Narrow(Session.Players[0]->Name), Session.GPacket.Name)) {
 				found = 1;
 			}
 			if (found) {
-				memset(&packet, 0, sizeof(packet)); // RA2: as above
+				memset(&packet, 0, sizeof(packet));
 				packet.Command = NET_REJECT_JOIN;
-				packet.Reject.Why = REJECT_DUPLICATE_NAME; // RA2: as above
-				Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.GAddress); // RA2: as above
+				packet.Reject.Why = REJECT_DUPLICATE_NAME;
+				Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.GAddress);
 				continue;
 			}
 			if (!resend) {
-				if (Session.GPacket.PlayerInfo.Flag != 1 && Is_All_Slots_Filled()) { // RA2: as above
-					memset(&packet, 0, sizeof(packet)); // RA2: as above
+				if (Session.GPacket.PlayerInfo.Flag != 1 && Is_All_Slots_Filled()) {
+					memset(&packet, 0, sizeof(packet));
 					packet.Command = NET_REJECT_JOIN;
-					packet.Reject.Why = REJECT_GAME_FULL; // RA2: as above
-					Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.GAddress); // RA2: as above
+					packet.Reject.Why = REJECT_GAME_FULL;
+					Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.GAddress);
 					continue;
 				}
-				if (Session.GPacket.PlayerInfo.Flag == 1 && Is_Observer_Slot_Full()) { // RA2: as above
-					memset(&packet, 0, sizeof(packet)); // RA2: as above
+				if (Session.GPacket.PlayerInfo.Flag == 1 && Is_Observer_Slot_Full()) {
+					memset(&packet, 0, sizeof(packet));
 					packet.Command = NET_REJECT_JOIN;
-					packet.Reject.Why = REJECT_GAME_FULL; // RA2: as above
-					Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.GAddress); // RA2: as above
+					packet.Reject.Why = REJECT_GAME_FULL;
+					Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.GAddress);
 					continue;
 				}
 			}
 			bool match = true;
 			if (!resend) {
-				if (Session.GPacket.PlayerInfo.CheatCheck != RulesID) { // RA2: as above
-					match = false; // RA2: as above
+				if (Session.GPacket.PlayerInfo.CheatCheck != RulesID) {
+					match = false;
 				}
-				if (Session.GPacket.PlayerInfo.AICheatCheck != Rule->Get_AI_Unique_ID()) { // RA2: as above
-					match = false; // RA2: as above
+				if (Session.GPacket.PlayerInfo.AICheatCheck != Rule->Get_AI_Unique_ID()) {
+					match = false;
 				}
-				if (Session.GPacket.PlayerInfo.ArtCheatCheck != ArtID) { // RA2: as above
-					match = false; // RA2: as above
+				if (Session.GPacket.PlayerInfo.ArtCheatCheck != ArtID) {
+					match = false;
 				}
-				if (Session.GPacket.PlayerInfo.BuildNumber != Build_Number()) { // RA2: as above
-					match = false; // RA2: as above
+				if (Session.GPacket.PlayerInfo.BuildNumber != Build_Number()) {
+					match = false;
 				}
 			}
 			int dups = 0;
 			for (i = 0; i < Session.Players.Count(); i++) {
-				if (!strcmp(Session.Players[i]->Slot.SerialPad, Session.GPacket.Serial)) { // RA2: as above
+				if (!strcmp(Session.Players[i]->Slot.SerialPad, Session.GPacket.Serial)) {
 					dups++;
 				}
 			}
 			if (!match) {
-				memset(&packet, 0, sizeof(packet)); // RA2: as above
+				memset(&packet, 0, sizeof(packet));
 				packet.Command = NET_REJECT_JOIN;
-				packet.Reject.Why = REJECT_MISMATCH; // RA2: as above
-				Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.GAddress); // RA2: as above
+				packet.Reject.Why = REJECT_MISMATCH;
+				Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.GAddress);
 				continue;
 			}
 			if (!resend) {
-				unsigned long version = VerNum.Clip_Version(Session.GPacket.PlayerInfo.MinVersion, Session.GPacket.PlayerInfo.MaxVersion); // RA2: as above
+				unsigned long version = VerNum.Clip_Version(Session.GPacket.PlayerInfo.MinVersion, Session.GPacket.PlayerInfo.MaxVersion);
 				Session.PlayingAgainstVersion = version;
 				if (version == 0) {
-					memset(&packet, 0, sizeof(packet)); // RA2: as above
+					memset(&packet, 0, sizeof(packet));
 					packet.Command = NET_REJECT_JOIN;
-					packet.Reject.Why = REJECT_VERSION_TOO_OLD; // RA2: as above
-					Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.GAddress); // RA2: as above
+					packet.Reject.Why = REJECT_VERSION_TOO_OLD;
+					Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.GAddress);
 					continue;
 				}
-				if (version == 0xFFFFFFFF) { // RA2: as above
-					memset(&packet, 0, sizeof(packet)); // RA2: as above
+				if (version == 0xFFFFFFFF) {
+					memset(&packet, 0, sizeof(packet));
 					packet.Command = NET_REJECT_JOIN;
-					packet.Reject.Why = REJECT_VERSION_TOO_NEW; // RA2: as above
-					Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.GAddress); // RA2: as above
+					packet.Reject.Why = REJECT_VERSION_TOO_NEW;
+					Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.GAddress);
 					continue;
 				}
 				Session.CommProtocol = VerNum.Version_Protocol(version);
 				who = new NodeNameType;
 				memset(who, 0, sizeof(*who));
-				wcscpy(who->Name, Narrow_To_Wide(Session.GPacket.Name)); // RA2: as above
+				wcscpy(who->Name, Narrow_To_Wide(Session.GPacket.Name));
 				who->Address = Session.GAddress;
-				if (Session.MPGameMode) { // RA2: as above
-					who->Set_Country(!Session.MPGameMode->IsCountryAllowed(Session.GPacket.PlayerInfo.House) ? Session.MPGameMode->DefaultCountry() : Session.GPacket.PlayerInfo.House); // RA2: as above
+				if (Session.MPGameMode) {
+					who->Set_Country(!Session.MPGameMode->IsCountryAllowed(Session.GPacket.PlayerInfo.House) ? Session.MPGameMode->DefaultCountry() : Session.GPacket.PlayerInfo.House);
 				}
-				strcpy(who->Slot.SerialPad, Session.GPacket.Serial); // RA2: as above
-				int color = Session.GPacket.PlayerInfo.Color; // RA2: as above
-				if (Is_Color_Taken(color)) { // RA2: as above
-					color = -2; // RA2: as above
+				strcpy(who->Slot.SerialPad, Session.GPacket.Serial);
+				int color = Session.GPacket.PlayerInfo.Color;
+				if (Is_Color_Taken(color)) {
+					color = -2;
 				}
-				if (Session.GPacket.PlayerInfo.Flag == 1) { // RA2: as above
-					color = -2; // RA2: as above
-					who->Set_Country(-3); // RA2: as above
-					who->Slot.SpectatorFlag = -1; // RA2: as above
+				if (Session.GPacket.PlayerInfo.Flag == 1) {
+					color = -2;
+					who->Set_Country(-3);
+					who->Slot.SpectatorFlag = -1;
 				} else {
-					who->Slot.SpectatorFlag = 0; // RA2: as above
-					if (Session.GPacket.PlayerInfo.House == -3) { // RA2: as above
-						if (Session.MPGameMode) { // RA2: as above
-							who->Set_Country(Session.MPGameMode->DefaultCountry()); // RA2: as above
+					who->Slot.SpectatorFlag = 0;
+					if (Session.GPacket.PlayerInfo.House == -3) {
+						if (Session.MPGameMode) {
+							who->Set_Country(Session.MPGameMode->DefaultCountry());
 						} else {
-							who->Set_Country(-2); // RA2: as above
+							who->Set_Country(-2);
 						}
 					}
 				}
-				who->Set_Color(color); // RA2: as above
+				who->Set_Color(color);
 				Session.Players.Add(who);
-				int slot = Assign_Slot(who); // RA2: as above
-				Enable_Start_Button(); // RA2: as above
-				memset(&packet, 0, sizeof(packet)); // RA2: as above
+				int slot = Assign_Slot(who);
+				Enable_Start_Button();
+				memset(&packet, 0, sizeof(packet));
 				packet.Command = NET_CONFIRM_JOIN;
 				strcpy(packet.Name, Session.Handle);
 				display_users = true;
-				packet.PlayerInfo.House = who->Get_Country(); // RA2: as above
-				packet.PlayerInfo.Color = who->Get_Color(); // RA2: as above
-				packet.PlayerInfo.Flag = LobbyObserverSlot; // RA2: as above
-				packet.PlayerInfo.Slot = slot; // RA2: as above
-				Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.GAddress); // RA2: as above
-				VocClass::PlayGlobal(Rule->PlayerJoined, 1.0f, 0x2000, 0); // RA2: as above
-				if (Session.MPGameMode) { // RA2: as above
-					int rows = Session.MPGameMode->vt_entry_80(); // RA2: as above
-					if (rows != -1) { // RA2: as above
-						Session.ScenarioMaxPlayers = rows; // RA2: as above
+				packet.PlayerInfo.House = who->Get_Country();
+				packet.PlayerInfo.Color = who->Get_Color();
+				packet.PlayerInfo.Flag = LobbyObserverSlot;
+				packet.PlayerInfo.Slot = slot;
+				Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.GAddress);
+				VocClass::PlayGlobal(Rule->PlayerJoined, 1.0f, 0x2000, 0);
+				if (Session.MPGameMode) {
+					int rows = Session.MPGameMode->vt_entry_80();
+					if (rows != -1) {
+						Session.ScenarioMaxPlayers = rows;
 					}
 				}
-				Send_Lobby_Options(true, false); // RA2: as above
-				GlobalPacketType slots; // RA2: as above
-				memset(&slots, 0, sizeof(slots)); // RA2: as above
-				slots.Command = NET_COMMAND_16; // RA2: as above
-				strcpy(slots.Name, Session.Handle); // RA2: as above
-				Get_Slot_Names(slots.Slots.Names); // RA2: as above
-				int count = Session.Players.Count(); // RA2: as above
-				for (i = 1; i < count; i++) { // RA2: as above
-					Ipx.Send_Global_Message(&slots, sizeof(slots), 1, &Session.Players[i]->Address); // RA2: as above
+				Send_Lobby_Options(true, false);
+				GlobalPacketType slots;
+				memset(&slots, 0, sizeof(slots));
+				slots.Command = NET_COMMAND_16;
+				strcpy(slots.Name, Session.Handle);
+				Get_Slot_Names(slots.Slots.Names);
+				int count = Session.Players.Count();
+				for (i = 1; i < count; i++) {
+					Ipx.Send_Global_Message(&slots, sizeof(slots), 1, &Session.Players[i]->Address);
 					Call_Back();
 				}
-				Handle_Mode_Selection(); // RA2: as above
+				Handle_Mode_Selection();
 			}
 			}
 		}
 	}
 	if (display_users) {
-		Net2DisplayUsersFull(false); // RA2: as above
+		Net2DisplayUsersFull(false);
 	}
 	if (display_games) {
 		Net2DisplayGameList();
@@ -2694,8 +2694,8 @@ LRESULT CALLBACK MPlayer_Guest_Dialog_Proc(HWND window, UINT message, WPARAM wpa
 {
 	switch (message) {
 	case WM_DESTROY:
-		if (Progress.Has_Dialog()) { // RA2: as above
-			Progress.Clear_Dialog(); // RA2: as above
+		if (Progress.Has_Dialog()) {
+			Progress.Clear_Dialog();
 		}
 		if (MultiplayerMapPreview != NULL) {
 			delete MultiplayerMapPreview;
@@ -2704,154 +2704,154 @@ LRESULT CALLBACK MPlayer_Guest_Dialog_Proc(HWND window, UINT message, WPARAM wpa
 		}
 		break;
 	case WM_DRAWITEM:
-		Dialog_On_WM_DRAWITEM(lparam); // RA2: as above
+		Dialog_On_WM_DRAWITEM(lparam);
 		// fall through
 	case WM_ERASEBKGND:
 		return(1);
 	case WM_PAINT:
-		Dialog_On_WM_PAINT(window); // RA2: as above
+		Dialog_On_WM_PAINT(window);
 		if (MultiplayerMapPreview != NULL) {
 			MultiplayerMapPreview->Blit_Preview(window);
 		}
-		if (Progress.Has_Dialog()) { // RA2: as above
-			Progress.Display_Progress(Point2D(-1, -1)); // RA2: as above
+		if (Progress.Has_Dialog()) {
+			Progress.Display_Progress(Point2D(-1, -1));
 		}
-		Slide_Pending_Dialog(window); // RA2: as above
+		Slide_Pending_Dialog(window);
 		ValidateRect(window, NULL);
 		return(0);
-	case WM_NCHITTEST: { // the tool tip of the control under the cursor // RA2: as above
-		HWND tip = GetDlgItem(window, 0x695); // RA2: as above
-		if (tip != NULL) { // RA2: as above
-			POINT point; // RA2: as above
-			point.x = lparam & 0xFFFF; // RA2: as above
-			point.y = (unsigned long)lparam >> 16; // RA2: as above
-			RECT rect; // RA2: as above
-			GetWindowRect(window, &rect); // RA2: as above
-			point.x -= rect.left; // RA2: as above
-			point.y -= rect.top; // RA2: as above
-			wchar_t const * text = L""; // RA2: as above
-			HWND control = ChildWindowFromPointEx(window, point, CWP_SKIPINVISIBLE); // RA2: as above
-			if (control != NULL) { // RA2: as above
-				char const * label = OwnerDraw::Control_Tooltip_Label((unsigned int)window, control); // RA2: as above
-				if (label != NULL) { // RA2: as above
-					text = StringTable::LoadString(label, NULL, "D:\\Ra2\\netdlg2.cpp", 3143); // RA2: as above
+	case WM_NCHITTEST: { // the tool tip of the control under the cursor
+		HWND tip = GetDlgItem(window, 0x695);
+		if (tip != NULL) {
+			POINT point;
+			point.x = lparam & 0xFFFF;
+			point.y = (unsigned long)lparam >> 16;
+			RECT rect;
+			GetWindowRect(window, &rect);
+			point.x -= rect.left;
+			point.y -= rect.top;
+			wchar_t const * text = L"";
+			HWND control = ChildWindowFromPointEx(window, point, CWP_SKIPINVISIBLE);
+			if (control != NULL) {
+				char const * label = OwnerDraw::Control_Tooltip_Label((unsigned int)window, control);
+				if (label != NULL) {
+					text = StringTable::LoadString(label, NULL, "D:\\Ra2\\netdlg2.cpp", 3143);
 				}
 			}
-			SendMessage(tip, OD_SETTEXTW, 0, (LPARAM)text); // RA2: as above
+			SendMessage(tip, OD_SETTEXTW, 0, (LPARAM)text);
 			return(0);
 		}
 		break;
 	}
 	case WM_COMMAND:
-		switch ((unsigned short)wparam) { // RA2: as above
-			case IDCANCEL: // RA2: as above
-			if (!Net2OptionsLocked) { // RA2: as above
+		switch ((unsigned short)wparam) {
+			case IDCANCEL:
+				if (!Net2OptionsLocked) {
 				_netresponse = IDCANCEL;
 				return(0);
 			}
 			break;
-		case 0x510: // RA2: as above
-		case 0x513: // RA2: as above
-		case 0x514: // RA2: as above
-		case 0x51E: // RA2: as above
-		case 0x51F: // RA2: as above
-		case 0x520: // RA2: as above
-		case 0x521: // RA2: as above
-		case 0x522: // RA2: as above
-		case 0x523: // RA2: as above
-		case 0x524: // RA2: as above
-		case 0x525: // RA2: as above
-		case 0x526: // RA2: as above
-		case 0x527: // RA2: as above
-		case 0x528: // RA2: as above
-		case 0x6A1: // RA2: as above
-		case 0x6A2: // RA2: as above
-			if ((unsigned short)(wparam >> 16) == CBN_SELCHANGE) { // RA2: as above
-				int id = (unsigned short)wparam; // RA2: as above
-				int side_player = Side_Combo_Player(id); // RA2: as above
-				int color_player = Color_Combo_Player(id); // RA2: as above
-				int player = side_player > color_player ? side_player : color_player; // RA2: as above
-				int side_id = Player_Side_Combo_ID(player); // RA2: as above
-				int color_id = Player_Color_Combo_ID(player); // RA2: as above
-				if (player == side_player) { // RA2: as above
-					Set_Slot_Country(window, side_id); // RA2: as above
+			case 0x510:
+			case 0x513:
+			case 0x514:
+			case 0x51E:
+			case 0x51F:
+			case 0x520:
+			case 0x521:
+			case 0x522:
+			case 0x523:
+			case 0x524:
+			case 0x525:
+			case 0x526:
+			case 0x527:
+			case 0x528:
+			case 0x6A1:
+			case 0x6A2:
+				if ((unsigned short)(wparam >> 16) == CBN_SELCHANGE) {
+					int id = (unsigned short)wparam;
+					int side_player = Side_Combo_Player(id);
+					int color_player = Color_Combo_Player(id);
+					int player = side_player > color_player ? side_player : color_player;
+					int side_id = Player_Side_Combo_ID(player);
+					int color_id = Player_Color_Combo_ID(player);
+					if (player == side_player) {
+						Set_Slot_Country(window, side_id);
 				} else {
-					Set_Slot_Color(window, color_id); // RA2: as above
+						Set_Slot_Color(window, color_id);
 				}
-				char text[64]; // RA2: as above
-				int side = Side_Combo_Data(window, side_id, -1); // RA2: as above
-				int color = Color_Combo_Data(window, color_id, -1); // RA2: as above
-				sprintf(text, "R%d,%d", side, color); // RA2: as above
-				Send_Player_Choice(Wide_To_Narrow(Session.GameName), text); // RA2: as above
+					char text[64];
+					int side = Side_Combo_Data(window, side_id, -1);
+					int color = Color_Combo_Data(window, color_id, -1);
+					sprintf(text, "R%d,%d", side, color);
+					Send_Player_Choice(Wide_To_Narrow(Session.GameName), text);
 				return(0);
 			}
 			break;
-			case IDC_INPUT: // RA2: as above
-			Limit_Name_Text((HWND)lparam); // RA2: as above
-				if ((unsigned short)(wparam >> 16) == EN_MAXTEXT) { // RA2: as above
-				Send_Chat_Message(window, ColorMe, ColorUser); // RA2: as above
+			case IDC_INPUT:
+				Limit_Name_Text((HWND)lparam);
+				if ((unsigned short)(wparam >> 16) == EN_MAXTEXT) {
+					Send_Chat_Message(window, ColorMe, ColorUser);
 				return(0);
 			}
 			break;
-			case IDC_ACCEPT: // RA2: as above
-			if (Session.Players.Count() != 0) { // RA2: as above
+			case IDC_ACCEPT:
+				if (Session.Players.Count() != 0) {
 				Session.Players[0]->Player.Status = 1;
-				char text[64]; // RA2: as above
-				sprintf(text, "A1"); // RA2: as above
-				Send_Host_Option(text); // RA2: as above
-				Enable_Player_Combos(window, false); // RA2: as above
-					HWND button = GetDlgItem(window, IDC_ACCEPT); // RA2: as above
-				EnableWindow(button, FALSE); // RA2: as above
-				InvalidateRect(button, NULL, FALSE); // RA2: as above
-				SendMessage(button, 0x4DC, 0, 0); // RA2: as above
-				Net2DisplayUsersFull(false); // RA2: as above
+					char text[64];
+					sprintf(text, "A1");
+					Send_Host_Option(text);
+					Enable_Player_Combos(window, false);
+					HWND button = GetDlgItem(window, IDC_ACCEPT);
+					EnableWindow(button, FALSE);
+					InvalidateRect(button, NULL, FALSE);
+					SendMessage(button, 0x4DC, 0, 0);
+					Net2DisplayUsersFull(false);
 				return(0);
 			}
 			break;
 		}
 		break;
-	case OD_SUBCLASSED: // RA2: as above
-		Fill_Side_Combos(window); // RA2: as above
-		Init_Color_Entries(); // RA2: as above
-		Fill_Color_Combos(window); // RA2: as above
-		Lock_Slots(window, Session.LocalSlot); // RA2: as above
-		Select_Player_Side(window, Session.LocalSlot); // RA2: as above
-		Select_Player_Color(window, Session.LocalSlot); // RA2: as above
-		EnableWindow(GetDlgItem(window, IDC_ACCEPT), FALSE); // RA2: as above
-		LobbyDialogFlag = false; // RA2: as above
-		Net2SetAccept(NULL, 0); // RA2: as above
-		Net2DisplayUsersFull(false); // RA2: as above
+	case OD_SUBCLASSED:
+		Fill_Side_Combos(window);
+		Init_Color_Entries();
+		Fill_Color_Combos(window);
+		Lock_Slots(window, Session.LocalSlot);
+		Select_Player_Side(window, Session.LocalSlot);
+		Select_Player_Color(window, Session.LocalSlot);
+		EnableWindow(GetDlgItem(window, IDC_ACCEPT), FALSE);
+		LobbyDialogFlag = false;
+		Net2SetAccept(NULL, 0);
+		Net2DisplayUsersFull(false);
 		Net2DisplayGameList();
-		Fill_Options_Dialog(window, 1); // RA2: as above
-		Set_Scenario_Info_From_Index(-1); // RA2: as above
-		Session.ScenarioMaxPlayers = 8; // RA2: as above
+		Fill_Options_Dialog(window, 1);
+		Set_Scenario_Info_From_Index(-1);
+		Session.ScenarioMaxPlayers = 8;
 		return(0);
-	case 0x4E9: { // the tool tip text of a combo box item // RA2: as above
-		ToolTipTextRequest * request = (ToolTipTextRequest *)lparam; // RA2: as above
-		request->Text = NULL; // RA2: as above
-		if (request->Window != NULL && request->Item != -1) { // RA2: as above
-			int id = GetDlgCtrlID(request->Window); // RA2: as above
-			if (Control_Slot(id) == -1) { // RA2: as above
-				if (Side_Combo_Player(id) == -1) { // RA2: as above
-					if (Color_Combo_Player(id) != -1) { // RA2: as above
-						request->Text = Color_Name(Color_Combo_Data(window, id, request->Item)); // RA2: as above
+	case 0x4E9: { // the tool tip text of a combo box item
+		ToolTipTextRequest * request = (ToolTipTextRequest *)lparam;
+		request->Text = NULL;
+		if (request->Window != NULL && request->Item != -1) {
+			int id = GetDlgCtrlID(request->Window);
+			if (Control_Slot(id) == -1) {
+				if (Side_Combo_Player(id) == -1) {
+					if (Color_Combo_Player(id) != -1) {
+						request->Text = Color_Name(Color_Combo_Data(window, id, request->Item));
 						return(1);
 					}
 				} else {
-					int side = Side_Combo_Data(window, id, request->Item); // RA2: as above
-					if (side != -1) { // RA2: as above
-						request->Text = Side_Name(side); // RA2: as above
+					int side = Side_Combo_Data(window, id, request->Item);
+					if (side != -1) {
+						request->Text = Side_Name(side);
 						return(1);
 					}
 				}
 			} else {
-				request->Text = Entry_Type_Name((NodeNameType *)Combo_Selected_Data(window, id, request->Item)); // RA2: as above
+				request->Text = Entry_Type_Name((NodeNameType *)Combo_Selected_Data(window, id, request->Item));
 			}
 		}
 		return(1);
 	}
-	case 0x4EC: // RA2: as above
-		Dialog_On_OD_4EC(window); // RA2: as above
+	case 0x4EC:
+		Dialog_On_OD_4EC(window);
 		break;
 	}
 	return(0);
@@ -2861,18 +2861,18 @@ LRESULT CALLBACK MPlayer_Guest_Dialog_Proc(HWND window, UINT message, WPARAM wpa
 
 void Join_Lobby_Start_Reminder(void) // RA2: 0x005C28E0; reminds the joiner that the host starts the game
 {
-	HWND dialog = WS_Top_Window(); // RA2: as above
-	HWND item = GetDlgItem(dialog, IDC_ACCEPT); // RA2: as above
-	if (Net2GetAccept(NULL) != 1) { // RA2: as above
-		SendMessage(item, 0x4DC, 0, 1); // RA2: as above
-		Lobby_Chat_Printf(-1, StringTable::LoadString("GUI:HostGameStartJoiner", NULL, "D:\\Ra2\\netdlg2.cpp", 4958)); // RA2: as above
+	HWND dialog = WS_Top_Window();
+	HWND item = GetDlgItem(dialog, IDC_ACCEPT);
+	if (Net2GetAccept(NULL) != 1) {
+		SendMessage(item, 0x4DC, 0, 1);
+		Lobby_Chat_Printf(-1, StringTable::LoadString("GUI:HostGameStartJoiner", NULL, "D:\\Ra2\\netdlg2.cpp", 4958));
 	}
 }
 
 
 void __cdecl Join_Lobby_Reset_Ready(void) // RA2: 0x005C2940; sends message 0x4DC to the ready button of the joiner's lobby
 {
-	HWND dialog = WS_Top_Window(); // RA2: as above
-	HWND button = GetDlgItem(dialog, IDC_ACCEPT); // RA2: as above
-	SendMessage(button, 0x4DC, 0, 0); // RA2: as above
+	HWND dialog = WS_Top_Window();
+	HWND button = GetDlgItem(dialog, IDC_ACCEPT);
+	SendMessage(button, 0x4DC, 0, 0);
 }

@@ -33,7 +33,7 @@ char *Build_Version_String(char * buffer, int buflen);
 
 // Declarations moved from the units that used them (one declaration per name).
 extern wchar_t IMEResultString[256]; // RA2: characters received through WM_IME_CHAR (winstub.cpp)
-extern int IMEComposing; // RA2: as above
-extern wchar_t IMECompositionString[256]; // RA2: as above
-extern int IMECompositionCursorPos; // RA2: as above
-extern int IMECompositionStringLength; // RA2: as above
+extern int IMEComposing;
+extern wchar_t IMECompositionString[256];
+extern int IMECompositionCursorPos;
+extern int IMECompositionStringLength;

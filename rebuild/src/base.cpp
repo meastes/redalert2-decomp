@@ -245,7 +245,7 @@ BuildingClass * BaseClass::Get_Building(int index) const
 
 					int upgrades = 0;
 					for (int u = 0; u < ARRAY_SIZE(bldg->Upgrades); u++) { // RA2: Get_Building at 0x42C0A0 matches only so
-						if (bldg->Upgrades[u] == btype) { // RA2: as above
+						if (bldg->Upgrades[u] == btype) {
 							upgrades++;
 						}
 					}
@@ -404,20 +404,20 @@ int BaseClass::Next_Buildable_Index(StructType type)
 		if (type == STRUCT_NONE) {
 			if (!Is_Built(i)) {
 				if (Session.Type == GAME_NORMAL || !Nodes[i].Placed) { // RA2: byte at node +8 (Placed) tested outside a normal game
-					return(i); // RA2: as above
-				} // RA2: as above
+					return(i);
+				}
 				if (House->Can_Rebuild_Node(Nodes[i])) { // RA2: HouseClass::Can_Rebuild_Node 0x4F64C0
 					Nodes[i].CellID = CELL_NONE; // RA2: the node's cell is cleared so it is placed anew
-					return(i); // RA2: as above
-				} // RA2: as above
-			} // RA2: as above
-		} else { // RA2: as above
-			if (Nodes[i].Type == type && !Is_Built(i)) { // RA2: as above
-				return(i); // RA2: as above
-			} // RA2: as above
-		} // RA2: as above
-	} // RA2: as above
-	return(-1); // RA2: as above
+					return(i);
+				}
+			}
+		} else {
+			if (Nodes[i].Type == type && !Is_Built(i)) {
+				return(i);
+			}
+		}
+	}
+	return(-1);
 }
 
 

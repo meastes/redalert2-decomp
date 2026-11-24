@@ -40,33 +40,33 @@ MovieSubtitles * __fastcall Subtitles_Open(char const * name) // RA2: 0x0069B190
 {
 	char fname[256]; // RA2: the file name without path and extension
 
-	if (name != NULL && strlen(name) != 0) { // RA2: as above
-		MovieSubtitles * subs = new MovieSubtitles; // RA2: as above
-		if (subs != NULL) { // RA2: as above
-			_splitpath(name, NULL, NULL, fname, NULL); // RA2: as above
-			if (subs->Load_Sub_Titles(fname) == true) { // RA2: as above
+	if (name != NULL && strlen(name) != 0) {
+		MovieSubtitles * subs = new MovieSubtitles;
+		if (subs != NULL) {
+			_splitpath(name, NULL, NULL, fname, NULL);
+			if (subs->Load_Sub_Titles(fname) == true) {
 				BSurface * surface = new BSurface(640, 255, 2); // RA2: the 16 bit surface the lines are drawn on
-				if (surface != NULL) { // RA2: as above
-					surface->Fill(0); // RA2: as above
-					subs->SubSurface = surface; // RA2: as above
+				if (surface != NULL) {
+					surface->Fill(0);
+					subs->SubSurface = surface;
 				}
 			}
 		}
-		return subs; // RA2: as above
+		return subs;
 	}
-	return NULL; // RA2: as above
+	return NULL;
 }
 
 /// <summary>
 /// RA2: starts without subtitles, without a callback and with an empty caption rectangle.
 /// </summary>
 MovieSubtitles::MovieSubtitles(void) // RA2: 0x0069B280
-	: mSubTitles(NULL), // RA2: as above
-	mSubTitleIndex(0), // RA2: as above
-	mActiveSubTitle(NULL), // RA2: as above
-	Callback(NULL), // RA2: as above
-	SubSurface(NULL), // RA2: as above
-	CaptionRect(0, 0, 0, 0) // RA2: as above
+	: mSubTitles(NULL),
+	mSubTitleIndex(0),
+	mActiveSubTitle(NULL),
+	Callback(NULL),
+	SubSurface(NULL),
+	CaptionRect(0, 0, 0, 0)
 {
 }
 
@@ -75,17 +75,17 @@ MovieSubtitles::MovieSubtitles(void) // RA2: 0x0069B280
 /// </summary>
 MovieSubtitles::~MovieSubtitles(void) // RA2: 0x0069B2A0
 {
-	if (mSubTitles != NULL) { // RA2: as above
-		for (int i = 0; i < mSubTitles->Count(); i++) { // RA2: as above
-			SubTitle * subtitle = (*mSubTitles)[i]; // RA2: as above
-			if (subtitle != NULL) { // RA2: as above
-				delete subtitle; // RA2: as above
+	if (mSubTitles != NULL) {
+		for (int i = 0; i < mSubTitles->Count(); i++) {
+			SubTitle * subtitle = (*mSubTitles)[i];
+			if (subtitle != NULL) {
+				delete subtitle;
 			}
 		}
-		delete mSubTitles; // RA2: as above
+		delete mSubTitles;
 	}
-	if (SubSurface != NULL) { // RA2: as above
-		delete SubSurface; // RA2: as above
+	if (SubSurface != NULL) {
+		delete SubSurface;
 	}
 }
 
@@ -94,23 +94,23 @@ MovieSubtitles::~MovieSubtitles(void) // RA2: 0x0069B2A0
 /// </summary>
 bool MovieSubtitles::Load_Sub_Titles(char const * moviename) // RA2: 0x0069B300
 {
-	if (moviename != NULL && strlen(moviename) != 0) { // RA2: as above
+	if (moviename != NULL && strlen(moviename) != 0) {
 		CCFileClass file("subtitle.txt"); // RA2: the subtitle control file (0x007F62DC)
 
-		if (file.Is_Available()) { // RA2: as above
-			FileStraw input(file); // RA2: as above
-			SubTitleParserClass parser(input); // RA2: as above
+		if (file.Is_Available()) {
+			FileStraw input(file);
+			SubTitleParserClass parser(input);
 
-			mSubTitles = parser.Get_Sub_Titles(moviename); // RA2: as above
+			mSubTitles = parser.Get_Sub_Titles(moviename);
 
-			if (mSubTitles == NULL) { // RA2: as above
-				return false; // RA2: as above
+			if (mSubTitles == NULL) {
+				return false;
 			}
 
-			return true; // RA2: as above
+			return true;
 		}
 	}
-	return false; // RA2: as above
+	return false;
 }
 
 /// <summary>
@@ -119,42 +119,42 @@ bool MovieSubtitles::Load_Sub_Titles(char const * moviename) // RA2: 0x0069B300
 /// </summary>
 bool MovieSubtitles::Process(unsigned long movietime) // RA2: 0x0069B420
 {
-	if (mSubTitles == NULL) { // RA2: as above
-		return false; // RA2: as above
+	if (mSubTitles == NULL) {
+		return false;
 	}
 
-	bool changed = false; // RA2: as above
-	while (mSubTitleIndex < mSubTitles->Count()) { // RA2: as above
-		SubTitle * subtitle = (*mSubTitles)[mSubTitleIndex]; // RA2: as above
-		if (subtitle->Get_Display_Time() > movietime) { // RA2: as above
-			break; // RA2: as above
+	bool changed = false;
+	while (mSubTitleIndex < mSubTitles->Count()) {
+		SubTitle * subtitle = (*mSubTitles)[mSubTitleIndex];
+		if (subtitle->Get_Display_Time() > movietime) {
+			break;
 		}
-		mActiveSubTitle = subtitle; // RA2: as above
-		mSubTitleIndex++; // RA2: as above
-		if (Callback != NULL) { // RA2: as above
-			Callback(subtitle); // RA2: as above
-		} else { // RA2: as above
-			Draw_Sub_Title(subtitle); // RA2: as above
-			changed = true; // RA2: as above
+		mActiveSubTitle = subtitle;
+		mSubTitleIndex++;
+		if (Callback != NULL) {
+			Callback(subtitle);
+		} else {
+			Draw_Sub_Title(subtitle);
+			changed = true;
 		}
 	}
 
-	if (mActiveSubTitle != NULL) { // RA2: as above
-		if (movietime >= mActiveSubTitle->Get_Display_Time() + mActiveSubTitle->Get_Display_Duration()) { // RA2: as above
-			mActiveSubTitle = NULL; // RA2: as above
-			if (Callback == NULL && SubSurface != NULL) { // RA2: as above
-				Rect & caption = CaptionRect; // RA2: as above
+	if (mActiveSubTitle != NULL) {
+		if (movietime >= mActiveSubTitle->Get_Display_Time() + mActiveSubTitle->Get_Display_Duration()) {
+			mActiveSubTitle = NULL;
+			if (Callback == NULL && SubSurface != NULL) {
+				Rect & caption = CaptionRect;
 				SubSurface->Fill_Rect(caption, 0); // RA2: wipes the caption that ended
-				changed = true; // RA2: as above
+				changed = true;
 				PreviousRect = caption; // RA2: remembers what was wiped
 				caption.X = 0; // RA2: the caption rectangle is emptied member by member
-				caption.Y = 0; // RA2: as above
-				caption.Width = 0; // RA2: as above
-				caption.Height = 0; // RA2: as above
+				caption.Y = 0;
+				caption.Width = 0;
+				caption.Height = 0;
 			}
 		}
 	}
-	return changed; // RA2: as above
+	return changed;
 }
 
 /// <summary>
@@ -162,8 +162,8 @@ bool MovieSubtitles::Process(unsigned long movietime) // RA2: 0x0069B420
 /// </summary>
 void MovieSubtitles::Reset(void) // RA2: 0x0069B4E0
 {
-	mSubTitleIndex = 0; // RA2: as above
-	mActiveSubTitle = NULL; // RA2: as above
+	mSubTitleIndex = 0;
+	mActiveSubTitle = NULL;
 }
 
 /// <summary>
@@ -171,7 +171,7 @@ void MovieSubtitles::Reset(void) // RA2: 0x0069B4E0
 /// </summary>
 void MovieSubtitles::SetCallback(void (__fastcall * callback)(void *)) // RA2: 0x0069B4F0
 {
-	Callback = callback; // RA2: as above
+	Callback = callback;
 }
 
 /// <summary>
@@ -180,36 +180,36 @@ void MovieSubtitles::SetCallback(void (__fastcall * callback)(void *)) // RA2: 0
 /// </summary>
 void MovieSubtitles::Draw_Sub_Title(SubTitle * subtitle) // RA2: 0x0069B500
 {
-	if (SubSurface != NULL) { // RA2: as above
-		Rect & caption = CaptionRect; // RA2: as above
+	if (SubSurface != NULL) {
+		Rect & caption = CaptionRect;
 		SubSurface->Fill_Rect(caption, 0); // RA2: wipes the last caption
-		BitFont * font = BitFont::Instance; // RA2: as above
-		unsigned long rgb = subtitle->Get_RGB_Color(); // RA2: as above
+		BitFont * font = BitFont::Instance;
+		unsigned long rgb = subtitle->Get_RGB_Color();
 		font->Set_Color(DSurface::Build_Hicolor_Pixel((rgb >> 16) & 0xFF, (rgb >> 8) & 0xFF, rgb & 0xFF)); // RA2: the colour as a 16 bit pixel
-		int width = SubSurface->Get_Width(); // RA2: as above
-		int height = SubSurface->Get_Height(); // RA2: as above
+		int width = SubSurface->Get_Width();
+		int height = SubSurface->Get_Height();
 		LTRBStruct bounds; // RA2: the whole surface
-		bounds.Left = 0; // RA2: as above
-		bounds.Top = 0; // RA2: as above
-		bounds.Right = width; // RA2: as above
-		bounds.Bottom = height; // RA2: as above
-		font->Set_Bounds(&bounds); // RA2: as above
-		wchar_t const * text = subtitle->Get_Caption(); // RA2: as above
-		int textwidth; // RA2: as above
-		int textheight; // RA2: as above
-		font->Text_Dimensions(text, &textwidth, &textheight, width); // RA2: as above
-		int x = 0; // RA2: as above
+		bounds.Left = 0;
+		bounds.Top = 0;
+		bounds.Right = width;
+		bounds.Bottom = height;
+		font->Set_Bounds(&bounds);
+		wchar_t const * text = subtitle->Get_Caption();
+		int textwidth;
+		int textheight;
+		font->Text_Dimensions(text, &textwidth, &textheight, width);
+		int x = 0;
 		int y = (subtitle->Get_Line_Position() - 1) * font->LineHeight; // RA2: lines count from 1
-		if (subtitle->Get_Alignment() == SubTitle::Center) { // RA2: as above
-			x = (width - textwidth) / 2; // RA2: as above
-		} else if (subtitle->Get_Alignment() == SubTitle::Right) { // RA2: as above
-			x = width - textwidth; // RA2: as above
+		if (subtitle->Get_Alignment() == SubTitle::Center) {
+			x = (width - textwidth) / 2;
+		} else if (subtitle->Get_Alignment() == SubTitle::Right) {
+			x = width - textwidth;
 		}
-		BitText::Instance->Draw_Text(font, SubSurface, text, x, y, width, height, 0, 0, 0); // RA2: as above
-		PreviousRect = caption; // RA2: as above
+		BitText::Instance->Draw_Text(font, SubSurface, text, x, y, width, height, 0, 0, 0);
+		PreviousRect = caption;
 		caption.X = x; // RA2: the caption rectangle takes the drawn text's place
-		caption.Y = y; // RA2: as above
-		caption.Width = textwidth; // RA2: as above
-		caption.Height = textheight; // RA2: as above
+		caption.Y = y;
+		caption.Width = textwidth;
+		caption.Height = textheight;
 	}
 }

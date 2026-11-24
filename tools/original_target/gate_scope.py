@@ -15,10 +15,14 @@
   land_rebuild_lane.sh), neither main's whole-file exact gate nor native ctest (the native tree
   is generated from src/, which the rebuild never edits).
 * "none": documentation only.
+* "frozen" (user decision 2026-11-22, brought into force on 2026-11-24: rebuild/ is the tree of record):
+  the change touches src/ or main's catalog (manifests/original_target/), frozen at the tag
+  src-final. Refused: nothing lands there (tests/test_src_frozen.py fails on it).
 
 Shared tools (SHARED_PREFIXES: the canonical tools both trees run, and the toolchain pins) also
 need the rebuild gate: a change touching them runs both trees' gates ("rebuild_gate": true
-beside scope "exact").
+beside scope "exact"): the rebuild's whole-file build (`./build.command`) and the frozen tree's
+(`./build.command --tree src`, which must still reproduce the original from src-final).
 
 Which native tests (lane P2, 2026-11-16; the ctest labels of native/CMakeLists.txt):
 
@@ -43,11 +47,15 @@ DOC_PREFIXES = ('docs/', 'README', 'THIRD_PARTY.md', 'AGENTS.md', 'CLAUDE.md', '
 # The rebuild tree (AGENTS.md: on main in its own rebuild/ folder, gated separately).
 REBUILD_PREFIXES = ('rebuild/',)
 # Paths both trees' builds read: a change here runs main's gates and the rebuild gate.
-SHARED_PREFIXES = ('tools/original_target/', 'manifests/toolchain.json')
+SHARED_PREFIXES = ('tools/original_target/', 'manifests/toolchain.json', 'build.command')
+# Frozen at the tag src-final (rebuild/ is the tree of record from 2026-11-24): read-only reference text.
+FROZEN_PREFIXES = ('src/', 'manifests/original_target/')
 
 
 def classify(path):
-    """'native', 'rebuild', 'doc' or 'exact' for one repository path."""
+    """'frozen', 'native', 'rebuild', 'doc' or 'exact' for one repository path."""
+    if path.startswith(FROZEN_PREFIXES):
+        return 'frozen'
     if path.startswith(REBUILD_PREFIXES):
         return 'rebuild'
     if path.startswith(NATIVE_PREFIXES):
@@ -82,7 +90,7 @@ def areas(paths):
     for p in paths:
         if p in SLOW_SCRIPTS:
             found.add(SLOW_SCRIPTS[p])
-        if classify(p) in ('doc', 'rebuild'):
+        if classify(p) in ('doc', 'rebuild', 'frozen'):
             continue
         for area, pattern in AREAS.items():
             if re.search(pattern, p, re.I):
@@ -106,6 +114,8 @@ def tier(paths, requested='auto', history=None, now=None):
 
 def scope(paths):
     kinds = {classify(p) for p in paths}
+    if 'frozen' in kinds:
+        return 'frozen'
     if 'exact' in kinds:
         return 'exact'
     if 'native' in kinds:
@@ -160,7 +170,8 @@ def main():
     args = parser.parse_args()
     paths = changed_paths(args.base)
     out = dict(scope=scope(paths), rebuild_gate=rebuild_gate(paths), paths=len(paths),
-               exact_paths=[p for p in paths if classify(p) == 'exact'][:20])
+               exact_paths=[p for p in paths if classify(p) == 'exact'][:20],
+               frozen_paths=[p for p in paths if classify(p) == 'frozen'][:20])
     if args.tests:
         import native_gate
         chosen, touched, reason = tier(paths, 'auto', native_gate.read_history())

@@ -140,12 +140,12 @@ int Straw::Get(void * source, int slen)
 /// RA2: a subtitle that shows at once, for 20 seconds, in white, on line 15, centered, without text.
 /// </summary>
 SubTitle::SubTitle(void) // RA2: 0x0069B0C0
-	: TimeStamp(0), // RA2: as above
-	Duration(20 * 60), // RA2: as above
-	RGBColor(0x00FFFFFF), // RA2: as above
-	LinePosition(15), // RA2: as above
-	Align(Center), // RA2: as above
-	Caption(NULL) // RA2: as above
+	: TimeStamp(0),
+	Duration(20 * 60),
+	RGBColor(0x00FFFFFF),
+	LinePosition(15),
+	Align(Center),
+	Caption(NULL)
 {
 }
 
@@ -154,8 +154,8 @@ SubTitle::SubTitle(void) // RA2: 0x0069B0C0
 /// </summary>
 SubTitle::~SubTitle(void) // RA2: 0x0069B0F0
 {
-	if (Caption != NULL) { // RA2: as above
-		delete [] Caption; // RA2: as above
+	if (Caption != NULL) {
+		delete[] Caption;
 	}
 }
 
@@ -164,7 +164,7 @@ SubTitle::~SubTitle(void) // RA2: 0x0069B0F0
 /// </summary>
 void SubTitle::Set_RGB_Color(unsigned char red, unsigned char green, unsigned char blue) // RA2: 0x0069B100
 {
-	RGBColor = (((unsigned long)red << 16) | ((unsigned long)green << 8) | (unsigned long)blue); // RA2: as above
+	RGBColor = (((unsigned long)red << 16) | ((unsigned long)green << 8) | (unsigned long)blue);
 }
 
 /// <summary>
@@ -172,17 +172,17 @@ void SubTitle::Set_RGB_Color(unsigned char red, unsigned char green, unsigned ch
 /// </summary>
 void SubTitle::Set_Caption(wchar_t * string) // RA2: 0x0069B120
 {
-	if (Caption != NULL) { // RA2: as above
-		delete [] Caption; // RA2: as above
-		Caption = NULL; // RA2: as above
+	if (Caption != NULL) {
+		delete[] Caption;
+		Caption = NULL;
 	}
 
-	if (string != NULL) { // RA2: as above
-		unsigned int length = wcslen(string); // RA2: as above
-		Caption = new wchar_t[length + 1]; // RA2: as above
+	if (string != NULL) {
+		unsigned int length = wcslen(string);
+		Caption = new wchar_t[length + 1];
 
-		if (Caption != NULL) { // RA2: as above
-			wcscpy(Caption, string); // RA2: as above
+		if (Caption != NULL) {
+			wcscpy(Caption, string);
 		}
 	}
 }

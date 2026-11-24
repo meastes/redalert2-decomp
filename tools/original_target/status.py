@@ -23,6 +23,9 @@ from build import FIXED_LAYOUT
 
 REPOSITORY = Path(__file__).resolve().parents[2]
 BEGIN, END = '<!-- generated:status -->', '<!-- /generated:status -->'
+# rebuild/ is the exact-match tree of record from this day (user, 2026-11-24, in the owner session); src/ and
+# manifests/original_target/ are frozen at the tag src-final and shown as the reference column.
+FROZEN_ON = '2026-11-24'
 
 
 def evidenced_inline_asm(region):
@@ -716,23 +719,25 @@ def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, reposi
     if level:
         fl_body, fl_pad = int(level), int(r['function_level_padding_bytes'])
         fl_repro = fl_body + cat['evidenced_inline_asm'] + fl_pad + lib_bytes + asm_bytes
-        repro_cell = '**{} function-level** ({:,} B) ({} whole-unit, {:,} B)'.format(pct(fl_repro), fl_repro,
-                                                                                    pct(whole_repro), whole_repro)
-        body_cell = '**{:,} B, {} function-level** ({:,} B, {} whole-unit); gap to main {} ({} whole-unit)'.format(
-            fl_body, pct(fl_body), cat['body'], pct(cat['body']), kb(main['body'] - fl_body), kb(main['body'] - cat['body']))
-        pad_cell = '{:,} B function-level ({:,} B whole-unit)'.format(fl_pad, cat['padding'])
+        # Headline whole-unit (the tree of record's build: every row of a catalogued unit exact in one compile),
+        # function-level beside it, labelled (each function checked on its own, as ra2-decomp reports).
+        repro_cell = '**{} whole-unit** ({:,} B) ({} function-level, {:,} B)'.format(pct(whole_repro), whole_repro,
+                                                                                    pct(fl_repro), fl_repro)
+        body_cell = '**{:,} B, {} whole-unit** ({:,} B, {} function-level); gap to src-final {} ({} function-level)'.format(
+            cat['body'], pct(cat['body']), fl_body, pct(fl_body), kb(main['body'] - cat['body']), kb(main['body'] - fl_body))
+        pad_cell = '{:,} B whole-unit ({:,} B function-level)'.format(cat['padding'], fl_pad)
     else:
         repro_cell = '{} whole-unit ({:,} B); function-level from the next gated landing'.format(pct(whole_repro),
                                                                                                  whole_repro)
-        body_cell = '{:,} B, {} whole-unit; gap to main {}; function-level from the next gated landing'.format(
+        body_cell = '{:,} B, {} whole-unit; gap to src-final {}; function-level from the next gated landing'.format(
             cat['body'], pct(cat['body']), kb(main['body'] - cat['body']))
         pad_cell = '{:,} B whole-unit'.format(cat['padding'])
     if r.get('clean_function_level_source_share_of_text') and level:
         fl_b, w_b = (('{:,} B, '.format(int(r['clean_function_level_c_body_bytes'])),
                       '{:,} B, '.format(int(r['clean_c_body_bytes']))) if r.get('clean_c_body_bytes') else ('', ''))
-        clean_cell = ('**{}{} function-level** ({}{} whole-unit) of .text; left out: judgment calls {:,} rows / {:,} B (of '
+        clean_cell = ('**{}{} whole-unit** ({}{} function-level) of .text; left out: judgment calls {:,} rows / {:,} B (of '
                       'which header-form dependents {:,} / {:,} B), count-sensitive {:,} rows / {:,} B').format(
-            fl_b, r['clean_function_level_source_share_of_text'], w_b, r['clean_source_share_of_text'],
+            w_b, r['clean_source_share_of_text'], fl_b, r['clean_function_level_source_share_of_text'],
             int(r['judgment_any_rows']),
             int(r['judgment_any_bytes']), int(r['header_dependent_rows']), int(r['header_dependent_bytes']),
             int(r['count_sensitive_rows']), int(r['count_sensitive_bytes']))
@@ -740,17 +745,18 @@ def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, reposi
         clean_cell = 'from the next gated landing'
     # Exact with no soft judgment and judgment by kind (review session request, 2026-11-23, lane O63).
     if r.get('soft_free_function_level_c_body_bytes'):
-        soft_cell = ('**{:,} B, {} function-level** ({:,} B, {} whole-unit); left out: soft judgment rows {:,} / {:,} B '
+        soft_cell = ('**{:,} B, {} whole-unit** ({:,} B, {} function-level); left out: soft judgment rows {:,} / {:,} B '
                      '(kinds iii, iv-b, vii and header-form dependents of such a form), count-sensitive {:,} rows / '
                      '{:,} B').format(
+            int(r['soft_free_c_body_bytes']), r['soft_free_source_share_of_text'],
             int(r['soft_free_function_level_c_body_bytes']), r['soft_free_function_level_source_share_of_text'],
-            int(r['soft_free_c_body_bytes']), r['soft_free_source_share_of_text'], int(r['soft_judgment_rows']),
+            int(r['soft_judgment_rows']),
             int(r['soft_judgment_bytes']), int(r['count_sensitive_rows']), int(r['count_sensitive_bytes']))
         kind_cell = r.get('judgment_by_kind') or 'none'
     else:
         soft_cell = kind_cell = 'from the next gated landing'
-    lines = ['| Tree (built and gated separately; numbers side by side, never added) | `src/` (exact-match record) '
-             '| `rebuild/` (clean tree in progress; last gated landing {}) |'.format(r['time_utc']),
+    lines = ['| Tree (built separately; numbers side by side, never added) | `src/` at src-final (frozen {}) '
+             '| `rebuild/` (tree of record; last gated landing {}) |'.format(FROZEN_ON, r['time_utc']),
              '| --- | ---: | ---: |',
              '| Reproduced .text (both trees: C/C++ body + evidenced inline asm + frozen padding + linked library '
              'members + assembled handwritten asm, the six lines below) | {} ({:,} B) | {} |'.format(
@@ -811,6 +817,44 @@ def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, reposi
                   '/ {:,} B |'.format(int(r['helper_asm_rows']), int(r['helper_asm_bytes'])),
                   '| Rebuild asm bytes not yet flagged (main flags them; header-template attribution to fix) | | {:,} '
                   'rows / {:,} B |'.format(int(r.get('asm_unflagged_rows') or 0), int(r.get('asm_unflagged_bytes') or 0))]
+    return [rebuild_first(line) for line in lines] + ['']
+
+
+def rebuild_first(line):
+    """One table row with the tree of record's column first: '| label | src-final | rebuild |' becomes
+    '| label | rebuild | src-final |' (rebuild/ is the tree of record from 2026-11-24)."""
+    cells = line.strip().strip('|').split('|')
+    if len(cells) != 3 or not line.startswith('|') or not line.endswith('|'):
+        raise ValueError('status row with other than three cells: ' + line[:80])
+    label, frozen, rebuild = (c.strip() for c in cells)
+    return '| {} | {} | {} |'.format(label, rebuild, frozen).replace('|  |', '| |')
+
+
+def rebuild_history_lines(repository=REPOSITORY, limit=12):
+    """Matched C/C++ body bytes per gated landing of the tree of record (rebuild/manifest/progress.csv, whole-unit),
+    with bytes per hour since the previous row that changed them; the last LIMIT such rows."""
+    import csv
+    from datetime import datetime
+    path = Path(repository) / 'rebuild/manifest/progress.csv'
+    if not path.exists():
+        return []
+    rows = [r for r in csv.DictReader(path.open()) if r.get('tree') in ('rebuild-trial', 'main') and r.get('c_body_bytes')]
+    kept = []
+    for r in rows:
+        if not kept or int(r['c_body_bytes']) != int(kept[-1]['c_body_bytes']):
+            kept.append(r)
+    if len(kept) < 2:
+        return []
+    when = lambda r: datetime.strptime(r['time_utc'], '%Y-%m-%dT%H:%MZ')
+    lines = ['Rebuild history (rebuild/manifest/progress.csv; C/C++ body bytes whole-unit per gated landing that changed '
+             'them, and per hour since the previous one):', '',
+             '| Landing (UTC) | Functions | C/C++ body bytes | +Body | +Body/hour |', '| --- | ---: | ---: | ---: | ---: |']
+    window = kept[-(limit + 1):]
+    for previous, row in zip(window, window[1:]):
+        added = int(row['c_body_bytes']) - int(previous['c_body_bytes'])
+        hours = (when(row) - when(previous)).total_seconds() / 3600
+        lines.append('| {} | {:,} | {:,} | {:+,} | {} |'.format(row['time_utc'], int(row['functions_exact']),
+                     int(row['c_body_bytes']), added, '{:,.0f}'.format(added / hours) if hours > 0 else ''))
     return lines + ['']
 
 
@@ -829,8 +873,10 @@ def render(catalog, text, rows, funcs=None, lib=None, asm=None, drafts=(0, 0, 0.
                      if not evidenced_inline_asm(r) and not any(r.get(flag) is True for flag in JUDGMENT_FLAGS))
     revised_bytes = asm.get('revised_bytes', 0) if asm else 0
     lines = [BEGIN, ''] + rebuild_lines(text, now, lib_bytes, asm_bytes, judgment, main_clean, main_catalog=catalog,
-                                        revised_bytes=revised_bytes) + [
-             '| Measure | Value |', '| --- | ---: |',
+                                        revised_bytes=revised_bytes) + rebuild_history_lines() + [
+             'src-final: `src/` and main\'s catalog (manifests/original_target/), frozen at the tag src-final on {} '
+             '(read-only reference; `./build.command --tree src` still reproduces the original from them):'.format(FROZEN_ON),
+             '', '| src-final measure | Value |', '| --- | ---: |',
              '| **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + '
              'evidenced inline asm + frozen padding + linked library members + assembled handwritten asm; 100% when done) '
              '| **{:,} of {:,} ({:.2f}%)** |'.format(reproduced, text, 100.0 * reproduced / text),
@@ -903,7 +949,8 @@ def render(catalog, text, rows, funcs=None, lib=None, asm=None, drafts=(0, 0, 0.
                  modules['proven'][1]['rtti'], modules['proven'][1]['vtable'], modules['proven'][1]['string'],
                  modules['proven'][2]), '']
     if rows:
-        lines += ['Manifest history (body bytes added per commit, and per hour since the previous commit):', '',
+        lines += ['src/ manifest history, frozen at src-final (body bytes added per commit, and per hour since the '
+                  'previous commit):', '',
                   '| Commit | Time | Regions | Body bytes | +Body | +Body/hour |',
                   '| --- | --- | ---: | ---: | ---: | ---: |']
         previous = None

@@ -3095,7 +3095,10 @@
    "?GetItem@?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UBE?AV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@H@Z": "004f6ec0",
    "_$S228": "00a40ef0",
    "??_C@_0O@FMGG@TXT_LOW_POWER?$AA@": "007da260",
-   "_?low_power_notice@?HJ@??AI@HouseClass@@UAEXXZ@4HA": "00a40fc8"
+   "_?low_power_notice@?HJ@??AI@HouseClass@@UAEXXZ@4HA": "00a40fc8",
+   "_?$S232@?DK@??Where_To_Place_Building@HouseClass@@QAE?AVCell@@PAVBuildingTypeClass@@P6IHABV2@ABV3@HH@ZH@Z@4EA": "00a40fc0",
+   "_?scan_offsets@?DK@??Where_To_Place_Building@HouseClass@@QAE?AVCell@@PAVBuildingTypeClass@@P6IHABV2@ABV3@HH@ZH@Z@4PAUFacing_Offset@@A": "00a40f60",
+   "_?step_offsets@?DK@??Where_To_Place_Building@HouseClass@@QAE?AVCell@@PAVBuildingTypeClass@@P6IHABV2@ABV3@HH@ZH@Z@4PAUFacing_Offset@@A": "00a40f80"
   },
   "partial_ok": true
  },
@@ -108719,7 +108722,7 @@
   "status": "catalogued",
   "range": [
    "0072d370",
-   "00730310"
+   "007304c0"
   ],
   "mischa85": "tibsun: functions compiled from src/wdtsel.cpp, without gaps; matched except ?Pick_Territory@Selection@WorldDominationTour@@QAE?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@XZ and ?Do_Target_Anim@Selection@WorldDominationTour@@QAEXABV?$rc_ptr@VState@WorldDominationTour@@@@_N1@Z; two placed by the gap; ??0Selection@WorldDominationTour@@QAE@ABV?$rc_ptr@VCampaign@WorldDominationTour@@@@H@Z not placed",
   "main_options": [
@@ -109141,6 +109144,14 @@
     "main_source": "src/recovered/wdtsel.cpp"
    },
    {
+    "entry": "00730340",
+    "body": 25,
+    "padding": 7,
+    "symbol": "??0?$VectorCursor@PAVMSSfxEntry@@V?$DynamicVectorClass@PAVMSSfxEntry@@@@@@QAE@AAV?$DynamicVectorClass@PAVMSSfxEntry@@@@H@Z",
+    "main_symbol": "??0?$VectorCursor@PAVMSSfxEntry@@V?$DynamicVectorClass@PAVMSSfxEntry@@@@@@QAE@AAV?$DynamicVectorClass@PAVMSSfxEntry@@@@I@Z",
+    "main_source": "src/recovered/wdtsel.cpp"
+   },
+   {
     "entry": "00730360",
     "body": 14,
     "padding": 2,
@@ -109165,6 +109176,14 @@
     "main_source": "src/recovered/wdtsel.cpp"
    },
    {
+    "entry": "007303a0",
+    "body": 14,
+    "padding": 2,
+    "symbol": "??B?$VectorCursor@PAVMSAnim@@V?$DynamicVectorClass@PAVMSAnim@@@@@@UBE_NXZ",
+    "main_symbol": "?unknown_in_range_007303a0@seed_007303a0@@YI_NH@Z",
+    "main_source": "src/recovered/wdtsel.cpp"
+   },
+   {
     "entry": "007303b0",
     "body": 32,
     "padding": 0,
@@ -109178,6 +109197,14 @@
     "padding": 0,
     "symbol": "??_G?$VectorCursor@V?$rc_ptr@VTerritory@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@@@UAEPAXI@Z",
     "main_symbol": "??_G?$VectorCursor@V?$rc_ptr@VTerritory@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@@@UAEPAXI@Z",
+    "main_source": "src/recovered/wdtsel.cpp"
+   },
+   {
+    "entry": "007303f0",
+    "body": 32,
+    "padding": 0,
+    "symbol": "??_G?$VectorCursor@PAVMSAnim@@V?$DynamicVectorClass@PAVMSAnim@@@@@@UAEPAXI@Z",
+    "main_symbol": "??_G?$VectorCursor@PAVMSAnim@@V?$DynamicVectorClass@PAVMSAnim@@@@@@UAEPAXI@Z",
     "main_source": "src/recovered/wdtsel.cpp"
    },
    {
@@ -109210,6 +109237,30 @@
     "padding": 10,
     "symbol": "??F?$VectorCursor@V?$rc_ptr@VTerritory@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@@@UAEAAV0@XZ",
     "main_symbol": "?get@Leaf_730440@@QAEIXZ",
+    "main_source": "src/recovered/wdtsel.cpp"
+   },
+   {
+    "entry": "00730450",
+    "body": 6,
+    "padding": 10,
+    "symbol": "??E?$VectorCursor@PAVMSAnim@@V?$DynamicVectorClass@PAVMSAnim@@@@@@UAEAAV0@XZ",
+    "main_symbol": "?get@Leaf_730450@@QAEIXZ",
+    "main_source": "src/recovered/wdtsel.cpp"
+   },
+   {
+    "entry": "00730460",
+    "body": 6,
+    "padding": 10,
+    "symbol": "??F?$VectorCursor@PAVMSAnim@@V?$DynamicVectorClass@PAVMSAnim@@@@@@UAEAAV0@XZ",
+    "main_symbol": "?get@Leaf_730460@@QAEIXZ",
+    "main_source": "src/recovered/wdtsel.cpp"
+   },
+   {
+    "entry": "00730470",
+    "body": 74,
+    "padding": 6,
+    "symbol": "??0?$VectorClass@PAVMSAnim@@@@QAE@HPBQAVMSAnim@@@Z",
+    "main_symbol": "?get@Storage_730470@@QAEPAXIPAI@Z",
     "main_source": "src/recovered/wdtsel.cpp"
    },
    {

@@ -39,14 +39,14 @@
 #include "always.h"
 
 #include "palette.h"
-#include "hashtable.h" // RA2: as above
-#include "scheme.h" // RA2: as above
+#include "hashtable.h"
+#include "scheme.h"
 
 #include <cstring>
 #include "globals.h"
-#include "_theater.h" // RA2: as above
-#include "_palette.h" // RA2: as above
-#include "mixfile.h" // RA2: as above
+#include "_theater.h"
+#include "_palette.h"
+#include "mixfile.h"
 
 
 /***********************************************************************************************
@@ -289,7 +289,7 @@ int PaletteClass::Closest_Color(RGBClass const & rgb) const
 
 
 class SchemeNode { // RA2: the schemes generated from one palette file
-	public: // RA2: as above
+	public:
 		SchemeNode(char const * name, DynamicVectorClass<ColorScheme *> * schemes); // RA2: 0x00603200
 		~SchemeNode(void); // RA2: 0x00603240
 		void Replace(DynamicVectorClass<ColorScheme *> * schemes); // RA2: 0x006032A0
@@ -299,7 +299,7 @@ class SchemeNode { // RA2: the schemes generated from one palette file
 		DynamicVectorClass<ColorScheme *> * Schemes; // RA2: +0x100
 };
 
-typedef HashTableClass<HashString, SchemeNode *> SchemeHashTable; // RA2: as above
+typedef HashTableClass<HashString, SchemeNode *> SchemeHashTable;
 
 struct SchemeTable : public SchemeHashTable { // RA2: the members of the table that the executable has out of line
 	SchemeNode ** Find(HashString const & key); // RA2: 0x006050C0
@@ -310,27 +310,27 @@ int __fastcall SchemeHash(HashString const & key); // RA2: 0x00603610, defined b
 
 static inline bool Add_Node(SchemeTable * table, HashString const & key, SchemeNode * const & node) // RA2: files a node under its name, the executable has it inline
 {
-	SchemeHashTable::BucketType & bucket = table->Buckets[table->HashFunction(key) % table->NumBuckets]; // RA2: as above
-	bool found = false; // RA2: as above
-	for (int index = bucket.Count() - 1; index >= 0; index--) { // RA2: as above
-		if (bucket[index].Key == key) { // RA2: as above
-			found = true; // RA2: as above
-			break; // RA2: as above
+	SchemeHashTable::BucketType & bucket = table->Buckets[table->HashFunction(key) % table->NumBuckets];
+	bool found = false;
+	for (int index = bucket.Count() - 1; index >= 0; index--) {
+		if (bucket[index].Key == key) {
+			found = true;
+			break;
 		}
 	}
-	if (found) { // RA2: as above
-		return(false); // RA2: as above
+	if (found) {
+		return(false);
 	}
-	return(bucket.Add(SchemeHashTable::ObjectType(key, node))); // RA2: as above
+	return(bucket.Add(SchemeHashTable::ObjectType(key, node)));
 }
 
 class SchemeLibrary { // RA2: the table of palette files and the list of player colors
-	public: // RA2: as above
+	public:
 		SchemeLibrary(void) : // RA2: 0x00604120
-			Mode(-1), // RA2: as above
-			Names(new DynamicVectorClass<char *>), // RA2: as above
-			Colors(new DynamicVectorClass<HSVClass>), // RA2: as above
-			Table((SchemeTable *)new SchemeHashTable(10, 31, (SchemeHashTable::HASH_FUNC)SchemeHash)) // RA2: as above
+			Mode(-1),
+			Names(new DynamicVectorClass<char *>),
+			Colors(new DynamicVectorClass<HSVClass>),
+			Table((SchemeTable *)new SchemeHashTable(10, 31, (SchemeHashTable::HASH_FUNC)SchemeHash))
 		{
 		}
 		~SchemeLibrary(void); // RA2: 0x00604250
@@ -350,80 +350,80 @@ class SchemeLibrary { // RA2: the table of palette files and the list of player 
 
 inline SchemeLibrary * Scheme_Library(void) // RA2: the library is made on first use
 {
-	if (TheSchemeLibrary == NULL) { // RA2: as above
-		TheSchemeLibrary = new SchemeLibrary; // RA2: as above
+	if (TheSchemeLibrary == NULL) {
+		TheSchemeLibrary = new SchemeLibrary;
 	}
-	return(TheSchemeLibrary); // RA2: as above
+	return(TheSchemeLibrary);
 }
 
 SchemeNode::SchemeNode(char const * name, DynamicVectorClass<ColorScheme *> * schemes) // RA2: 0x00603200
 {
-	strcpy(Name, name); // RA2: as above
-	Schemes = schemes; // RA2: as above
+	strcpy(Name, name);
+	Schemes = schemes;
 }
 
 
 SchemeNode::~SchemeNode(void) // RA2: 0x00603240, only deletes the schemes
 {
-	Release(); // RA2: as above
+	Release();
 }
 
 
 void SchemeNode::Replace(DynamicVectorClass<ColorScheme *> * schemes) // RA2: 0x006032A0, deletes the schemes and takes new ones
 {
-	Release(); // RA2: as above
-	Schemes = schemes; // RA2: as above
+	Release();
+	Schemes = schemes;
 }
 
 
 void SchemeNode::Release(void) // RA2: 0x00603320, deletes the schemes (the executable calls it for the delete of a node too)
 {
-	if (Schemes) { // RA2: as above
-		int count = Schemes->Count(); // RA2: as above
-		for (int index = 0; index < count; index++) { // RA2: as above
-			delete (*Schemes)[index]; // RA2: as above
+	if (Schemes) {
+		int count = Schemes->Count();
+		for (int index = 0; index < count; index++) {
+			delete (*Schemes)[index];
 		}
-		delete Schemes; // RA2: as above
-		Schemes = NULL; // RA2: as above
+		delete Schemes;
+		Schemes = NULL;
 	}
 }
 
 
 DynamicVectorClass<ColorScheme *> * __fastcall Generate_Palette(char const * name) // RA2: 0x00603380, the schemes of a palette file, generated on first use
 {
-	SchemeLibrary * library = Scheme_Library(); // RA2: as above
-	DynamicVectorClass<ColorScheme *> * schemes = library->Lookup(name); // RA2: as above
-	if (schemes != NULL) { // RA2: as above
-		return(schemes); // RA2: as above
+	SchemeLibrary * library = Scheme_Library();
+	DynamicVectorClass<ColorScheme *> * schemes = library->Lookup(name);
+	if (schemes != NULL) {
+		return(schemes);
 	}
-	TheSchemeLibrary->Add(name); // RA2: as above
-	return(TheSchemeLibrary->Lookup(name)); // RA2: as above
+	TheSchemeLibrary->Add(name);
+	return(TheSchemeLibrary->Lookup(name));
 }
 
 
 int __fastcall SchemeHash(HashString const & key) // RA2: 0x00603610, the bucket of a palette name
 {
-	char const * str = key.Str; // RA2: as above
-	int hash = 0; // RA2: as above
-	while (*str) { // RA2: as above
-		hash = (*str++ + hash * 26) % 31; // RA2: as above
+	char const * str = key.Str;
+	int hash = 0;
+	while (*str) {
+		hash = (*str++ + hash * 26) % 31;
 	}
-	return(hash); // RA2: as above
+	return(hash);
 }
 
 
 
 DynamicVectorClass<ColorScheme *> * SchemeListIterator::Next(void) // RA2: 0x00603640, the next palette's schemes
 {
-	HashString * key = TheSchemeLibrary->Table->Next(this); // RA2: as above
-	if (key == NULL) { // RA2: as above
-		return(NULL); // RA2: as above
+	HashString * key = TheSchemeLibrary->Table->Next(this);
+	if (key == NULL) {
+		return(NULL);
 	}
-	SchemeNode ** node = TheSchemeLibrary->Table->Find(*key); // RA2: as above
-	if (node == NULL) { // RA2: as above
-		return(NULL); // RA2: as above
+	SchemeNode ** node = TheSchemeLibrary->Table->Find(*key);
+	if (node == NULL) {
+		return(NULL);
 	}
-	return((*node)->Schemes); // RA2: as above
+	return((*node)->Schemes);
 }
 
 
@@ -440,29 +440,29 @@ void __fastcall Set_Scheme_Table_Theater(TheaterType theater) // RA2: 0x00603750
 
 void SchemeLibrary_Free(void) // RA2: 0x00603950, empties the lists of player colors
 {
-	SchemeLibrary * library = Scheme_Library(); // RA2: as above
-	int count = library->Names->Count(); // RA2: as above
-	for (int index = 0; index < count; index++) { // RA2: as above
-		delete (*TheSchemeLibrary->Names)[index]; // RA2: as above
+	SchemeLibrary * library = Scheme_Library();
+	int count = library->Names->Count();
+	for (int index = 0; index < count; index++) {
+		delete (*TheSchemeLibrary->Names)[index];
 	}
-	TheSchemeLibrary->Names->Clear(); // RA2: as above
-	TheSchemeLibrary->Colors->Clear(); // RA2: as above
+	TheSchemeLibrary->Names->Clear();
+	TheSchemeLibrary->Colors->Clear();
 }
 
 
 void __fastcall SchemeLibrary_Add(char const * name, HSVClass const & color) // RA2: 0x00603A60, records a player color
 {
-	Scheme_Library(); // RA2: as above
-	char * copy = new char[256]; // RA2: as above
-	strcpy(copy, name); // RA2: as above
-	TheSchemeLibrary->Names->Add(copy); // RA2: as above
-	TheSchemeLibrary->Colors->Add(color); // RA2: as above
+	Scheme_Library();
+	char * copy = new char[256];
+	strcpy(copy, name);
+	TheSchemeLibrary->Names->Add(copy);
+	TheSchemeLibrary->Colors->Add(color);
 }
 
 
 int Scheme_List_Count(void) // RA2: 0x00603C10, how many player colors there are
 {
-	return(Scheme_Library()->Names->Count()); // RA2: as above
+	return(Scheme_Library()->Names->Count());
 }
 
 
@@ -470,14 +470,14 @@ int Scheme_List_Count(void) // RA2: 0x00603C10, how many player colors there are
 int Palette_Scheme_Count(void) // RA2: 0x00603D50, how many palettes have a scheme list
 {
 	Scheme_Library(); // RA2: makes the library on first use (ra2-decomp's twin FUN_00626DA0 calls it bare)
-	SchemeListIterator it; // RA2: as above
-	int count = 0; // RA2: as above
-	DynamicVectorClass<ColorScheme *> * schemes = it.Next(); // RA2: as above
-	while (schemes != NULL) { // RA2: as above
-		count++; // RA2: as above
-		schemes = it.Next(); // RA2: as above
+	SchemeListIterator it;
+	int count = 0;
+	DynamicVectorClass<ColorScheme *> * schemes = it.Next();
+	while (schemes != NULL) {
+		count++;
+		schemes = it.Next();
 	}
-	return(count); // RA2: as above
+	return(count);
 }
 #endif
 
@@ -602,33 +602,33 @@ void SchemeLibrary::Set_Mode(int mode) // RA2: 0x00604AD0, the theater; every fi
 
 SchemeNode ** SchemeTable::Find(HashString const & key) // RA2: 0x006050C0, the node filed under a name
 {
-	SchemeHashTable::BucketType & bucket = Buckets[HashFunction(key) % NumBuckets]; // RA2: as above
-	for (int index = bucket.Count() - 1; index >= 0; index--) { // RA2: as above
-		SchemeHashTable::ObjectType * object = &bucket[index]; // RA2: as above
-		if (object->Key == key) { // RA2: as above
-			return(&object->Value); // RA2: as above
+	SchemeHashTable::BucketType & bucket = Buckets[HashFunction(key) % NumBuckets];
+	for (int index = bucket.Count() - 1; index >= 0; index--) {
+		SchemeHashTable::ObjectType * object = &bucket[index];
+		if (object->Key == key) {
+			return(&object->Value);
 		}
 	}
-	return(NULL); // RA2: as above
+	return(NULL);
 }
 
 
 HashString * SchemeTable::Next(HashIterator * it) // RA2: 0x00605120, the next name in the walk over the table
 {
-	if (!it->OutOfBuckets) { // RA2: as above
-		while (it->BucketIndex < NumBuckets) { // RA2: as above
-			SchemeHashTable::BucketType & bucket = Buckets[it->BucketIndex]; // RA2: as above
-			while (it->InBucketIndex < bucket.Count()) { // RA2: as above
-				SchemeHashTable::ObjectType * object = &bucket[it->InBucketIndex]; // RA2: as above
-				it->InBucketIndex++; // RA2: as above
-				if (!!object->Key) { // RA2: as above
-					return(&object->Key); // RA2: as above
+	if (!it->OutOfBuckets) {
+		while (it->BucketIndex < NumBuckets) {
+			SchemeHashTable::BucketType & bucket = Buckets[it->BucketIndex];
+			while (it->InBucketIndex < bucket.Count()) {
+				SchemeHashTable::ObjectType * object = &bucket[it->InBucketIndex];
+				it->InBucketIndex++;
+				if (!!object->Key) {
+					return(&object->Key);
 				}
 			}
-			it->BucketIndex++; // RA2: as above
-			it->InBucketIndex = 0; // RA2: as above
+			it->BucketIndex++;
+			it->InBucketIndex = 0;
 		}
-		it->OutOfBuckets = true; // RA2: as above
+		it->OutOfBuckets = true;
 	}
-	return(NULL); // RA2: as above
+	return(NULL);
 }

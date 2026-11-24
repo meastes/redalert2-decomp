@@ -19,43 +19,43 @@
 
 #include "geometry.h" // RA2: the geometry constants come before the rectangle of rect.h (the executable initializes them first)
 #include "always.h" // RA2: the includes this file needs
-#include "vector.h" // RA2: as above
-#include "mpcoop.h" // RA2: as above
-#include "ccini.h" // RA2: as above
-#include "ccfile.h" // RA2: as above
-#include "stringtable.h" // RA2: as above
-#include "session.h" // RA2: as above
-#include "globals.h" // RA2: as above
-#include "houstype.h" // RA2: as above
-#include "scenario.h" // RA2: as above
-#include "gadget.h" // RA2: as above
-#include "_rules.h" // RA2: as above
-#include "rules.h" // RA2: as above
-#include "mplayer.h" // RA2: as above
-#include "mplayerscore.h" // RA2: as above
-#include "mouse.h" // RA2: as above
-#include "wonline.h" // RA2: as above
-#include "ipxmgr.h" // RA2: as above
-#include "_WSProto.h" // RA2: as above
-#include "wsproto.h" // RA2: as above
-#include "goptions.h" // RA2: as above
-#include "_tooltip.h" // RA2: as above
-#include "tooltip.h" // RA2: as above
-#include "cctooltip.h" // RA2: as above
-#include "ownertalk.h" // RA2: as above
-#include "connect.h" // RA2: as above
-#include "queue.h" // RA2: as above
-#include "_map.h" // RA2: as above
-#include "house.h" // RA2: as above
-#include "netshare.h" // RA2: as above
-#include "windlg.h" // RA2: as above
-#include "dbgprint.h" // RA2: as above
-#include <windows.h> // RA2: as above
-#undef LoadString // RA2: as above
-#include <stdio.h> // RA2: as above
-#include <string.h> // RA2: as above
-#include <stdlib.h> // RA2: as above
-#include "rect.h" // RA2: as above
+#include "vector.h"
+#include "mpcoop.h"
+#include "ccini.h"
+#include "ccfile.h"
+#include "stringtable.h"
+#include "session.h"
+#include "globals.h"
+#include "houstype.h"
+#include "scenario.h"
+#include "gadget.h"
+#include "_rules.h"
+#include "rules.h"
+#include "mplayer.h"
+#include "mplayerscore.h"
+#include "mouse.h"
+#include "wonline.h"
+#include "ipxmgr.h"
+#include "_WSProto.h"
+#include "wsproto.h"
+#include "goptions.h"
+#include "_tooltip.h"
+#include "tooltip.h"
+#include "cctooltip.h"
+#include "ownertalk.h"
+#include "connect.h"
+#include "queue.h"
+#include "_map.h"
+#include "house.h"
+#include "netshare.h"
+#include "windlg.h"
+#include "dbgprint.h"
+#include <windows.h>
+#undef LoadString
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include "rect.h"
 
 
 void __fastcall Fill_Side_Combos(HWND dialog); // RA2: 0x004D16D0 (netdlg2.cpp)
@@ -79,26 +79,26 @@ const int IDC_CAMPAIGN_DESCRIPTION = 0x72F; // RA2: the lobby's control that sho
 /// </summary>
 int __fastcall Map_Player_Count(char const * filename) // RA2: 0x005A2800
 {
-	if (filename == NULL) { // RA2: as above
-		return(0); // RA2: as above
+	if (filename == NULL) {
+		return(0);
 	}
-	CCFileClass file(filename); // RA2: as above
-	INIClass ini; // RA2: as above
-	if (!ini.Load(file, false)) { // RA2: as above
-		return(0); // RA2: as above
+	CCFileClass file(filename);
+	INIClass ini;
+	if (!ini.Load(file, false)) {
+		return(0);
 	}
-	int count = 0; // RA2: as above
-	for (int i = 0; i < 8; i++) { // RA2: as above
-		char key[32]; // RA2: as above
-		sprintf(key, "%d", i); // RA2: as above
-		if (ini.Get_Int("Waypoints", key, -1) != -1) { // RA2: as above
-			count++; // RA2: as above
+	int count = 0;
+	for (int i = 0; i < 8; i++) {
+		char key[32];
+		sprintf(key, "%d", i);
+		if (ini.Get_Int("Waypoints", key, -1) != -1) {
+			count++;
 		}
 	}
-	if (count == 0) { // RA2: as above
-		count = ini.Get_Int("RandomMap", "NumPlayers", 0); // RA2: as above
+	if (count == 0) {
+		count = ini.Get_Int("RandomMap", "NumPlayers", 0);
 	}
-	return(count); // RA2: as above
+	return(count);
 }
 
 /// <summary>
@@ -108,31 +108,31 @@ MPCooperative::MPCooperative(WideWstring const & title, WideWstring const & tool
 	MultiplayerGameMode(title, tooltip, inifile, mapfilter, false, modeindex) // RA2: the computer players are never allowed
 {
 	Campaigns = new CoopCampListClass; // RA2: 0x00490510
-	Campaign = NULL; // RA2: as above
-	Field48 = 0; // RA2: as above
-	CampaignIndex = 0; // RA2: as above
-	ScoreScreen = NULL; // RA2: as above
-	unknown_4 = false; // RA2: as above
-	SavedCampaignChosen = false; // RA2: as above
-	SaveListed = false; // RA2: as above
-	LoadedRecord = 0; // RA2: as above
-	PlayersChanged = true; // RA2: as above
-	for (int j = CampaignStates.Count() - 1; j >= 0; j--) { // RA2: as above
-		CoopCampaignClass * state = CampaignStates[j]; // RA2: as above
-		if (state) { // RA2: as above
-			delete state; // RA2: as above
+	Campaign = NULL;
+	Field48 = 0;
+	CampaignIndex = 0;
+	ScoreScreen = NULL;
+	unknown_4 = false;
+	SavedCampaignChosen = false;
+	SaveListed = false;
+	LoadedRecord = 0;
+	PlayersChanged = true;
+	for (int j = CampaignStates.Count() - 1; j >= 0; j--) {
+		CoopCampaignClass * state = CampaignStates[j];
+		if (state) {
+			delete state;
 		}
 	}
 	DynamicVectorClass<CoopCampaignClass *> * states = &CampaignStates; // RA2: the vector is reached through a pointer
-	int max = states->Length(); // RA2: as above
-	states->Clear(); // RA2: as above
-	states->Resize(max, NULL); // RA2: as above
-	int count; // RA2: as above
-	Campaigns->Get_Count(&count); // RA2: as above
-	for (int i = 0; i < count; i++) { // RA2: as above
-		CoopCampaignClass * state = new CoopCampaignClass; // RA2: as above
-		state->Load_Campaign(i); // RA2: as above
-		states->Add(state); // RA2: as above
+	int max = states->Length();
+	states->Clear();
+	states->Resize(max, NULL);
+	int count;
+	Campaigns->Get_Count(&count);
+	for (int i = 0; i < count; i++) {
+		CoopCampaignClass * state = new CoopCampaignClass;
+		state->Load_Campaign(i);
+		states->Add(state);
 	}
 }
 
@@ -141,32 +141,32 @@ MPCooperative::MPCooperative(WideWstring const & title, WideWstring const & tool
 /// </summary>
 MPCooperative::~MPCooperative(void) // RA2: 0x005A2B50
 {
-	if (Campaigns) { // RA2: as above
-		delete Campaigns; // RA2: as above
-		Campaigns = NULL; // RA2: as above
+	if (Campaigns) {
+		delete Campaigns;
+		Campaigns = NULL;
 	}
-	if (Campaign) { // RA2: as above
-		delete Campaign; // RA2: as above
-		Campaign = NULL; // RA2: as above
+	if (Campaign) {
+		delete Campaign;
+		Campaign = NULL;
 	}
-	for (int j = CampaignStates.Count() - 1; j >= 0; j--) { // RA2: as above
-		CoopCampaignClass * state = CampaignStates[j]; // RA2: as above
-		if (state) { // RA2: as above
-			delete state; // RA2: as above
+	for (int j = CampaignStates.Count() - 1; j >= 0; j--) {
+		CoopCampaignClass * state = CampaignStates[j];
+		if (state) {
+			delete state;
 		}
 	}
-	CampaignStates.Clear(); // RA2: as above
-	for (int i = SavedPlayers.Count() - 1; i >= 0; i--) { // RA2: as above
-		delete SavedPlayers[i]; // RA2: as above
+	CampaignStates.Clear();
+	for (int i = SavedPlayers.Count() - 1; i >= 0; i--) {
+		delete SavedPlayers[i];
 	}
-	int max = SavedPlayers.Length(); // RA2: as above
-	SavedPlayers.Clear(); // RA2: as above
-	SavedPlayers.Resize(max, NULL); // RA2: as above
-	if (ScoreScreen) { // RA2: as above
-		delete ScoreScreen; // RA2: as above
-		ScoreScreen = NULL; // RA2: as above
+	int max = SavedPlayers.Length();
+	SavedPlayers.Clear();
+	SavedPlayers.Resize(max, NULL);
+	if (ScoreScreen) {
+		delete ScoreScreen;
+		ScoreScreen = NULL;
 	}
-	unknown_4 = false; // RA2: as above
+	unknown_4 = false;
 }
 
 /// <summary>
@@ -174,29 +174,29 @@ MPCooperative::~MPCooperative(void) // RA2: 0x005A2B50
 /// </summary>
 bool MPCooperative::IsCountryAllowed(int country) // RA2: 0x005A2CD0
 {
-	if (Campaigns == NULL) { // RA2: as above
-		return(true); // RA2: as above
+	if (Campaigns == NULL) {
+		return(true);
 	}
-	CoopCampEntry * record; // RA2: as above
-	Campaigns->Get_Record(CampaignIndex, &record); // RA2: as above
-	if (record == NULL) { // RA2: as above
-		return(true); // RA2: as above
+	CoopCampEntry * record;
+	Campaigns->Get_Record(CampaignIndex, &record);
+	if (record == NULL) {
+		return(true);
 	}
-	bool found = false; // RA2: as above
-	if (country == -2) { // RA2: as above
-		if (record->Players.Count() > 1) { // RA2: as above
-			return(true); // RA2: as above
+	bool found = false;
+	if (country == -2) {
+		if (record->Players.Count() > 1) {
+			return(true);
 		}
-	} else if (country == -3) { // RA2: as above
-		return(true); // RA2: as above
+	} else if (country == -3) {
+		return(true);
 	}
-	for (int i = 0; i < record->Players.Count(); i++) { // RA2: as above
-		if (Find_Country_Index(record->Players[i]) == country) { // RA2: as above
-			found = true; // RA2: as above
-			break; // RA2: as above
+	for (int i = 0; i < record->Players.Count(); i++) {
+		if (Find_Country_Index(record->Players[i]) == country) {
+			found = true;
+			break;
 		}
 	}
-	return(found); // RA2: as above
+	return(found);
 }
 
 /// <summary>
@@ -204,24 +204,24 @@ bool MPCooperative::IsCountryAllowed(int country) // RA2: 0x005A2CD0
 /// </summary>
 bool MPCooperative::AssignTeams(void) // RA2: 0x005A2D70
 {
-	for (int j = CampaignStates.Count() - 1; j >= 0; j--) { // RA2: as above
-		CoopCampaignClass * state = CampaignStates[j]; // RA2: as above
-		if (state) { // RA2: as above
-			delete state; // RA2: as above
+	for (int j = CampaignStates.Count() - 1; j >= 0; j--) {
+		CoopCampaignClass * state = CampaignStates[j];
+		if (state) {
+			delete state;
 		}
 	}
 	DynamicVectorClass<CoopCampaignClass *> * states = &CampaignStates; // RA2: as in the constructor
-	int max = states->Length(); // RA2: as above
-	states->Clear(); // RA2: as above
-	states->Resize(max, NULL); // RA2: as above
-	int count; // RA2: as above
-	Campaigns->Get_Count(&count); // RA2: as above
-	for (int i = 0; i < count; i++) { // RA2: as above
-		CoopCampaignClass * state = new CoopCampaignClass; // RA2: as above
-		state->Load_Campaign(i); // RA2: as above
-		states->Add(state); // RA2: as above
+	int max = states->Length();
+	states->Clear();
+	states->Resize(max, NULL);
+	int count;
+	Campaigns->Get_Count(&count);
+	for (int i = 0; i < count; i++) {
+		CoopCampaignClass * state = new CoopCampaignClass;
+		state->Load_Campaign(i);
+		states->Add(state);
 	}
-	return(true); // RA2: as above
+	return(true);
 }
 
 /// <summary>
@@ -229,22 +229,22 @@ bool MPCooperative::AssignTeams(void) // RA2: 0x005A2D70
 /// </summary>
 int MPCooperative::Find_Campaign_Index(void) // RA2: 0x005A2E50
 {
-	if (Campaigns == NULL) { // RA2: as above
-		return(-1); // RA2: as above
+	if (Campaigns == NULL) {
+		return(-1);
 	}
-	int found = -1; // RA2: as above
-	for (int i = 0; i < Campaigns->Count; i++) { // RA2: as above
-		CoopCampEntry * record; // RA2: as above
-		Campaigns->Get_Record(i, &record); // RA2: as above
-		for (int map = 0; map < 3; map++) { // RA2: as above
-			if (Session.Options.ScenarioIndex != 0) { // RA2: as above
-				if (strnicmp(Session.Scenarios[Session.Options.ScenarioIndex]->Get_Filename(), &record->Maps[map * _MAX_PATH], strlen(&record->Maps[map * _MAX_PATH])) == 0) { // RA2: as above
-					found = i; // RA2: as above
+	int found = -1;
+	for (int i = 0; i < Campaigns->Count; i++) {
+		CoopCampEntry * record;
+		Campaigns->Get_Record(i, &record);
+		for (int map = 0; map < 3; map++) {
+			if (Session.Options.ScenarioIndex != 0) {
+				if (strnicmp(Session.Scenarios[Session.Options.ScenarioIndex]->Get_Filename(), &record->Maps[map * _MAX_PATH], strlen(&record->Maps[map * _MAX_PATH])) == 0) {
+					found = i;
 				}
 			}
 		}
 	}
-	return(found); // RA2: as above
+	return(found);
 }
 
 /// <summary>
@@ -252,80 +252,80 @@ int MPCooperative::Find_Campaign_Index(void) // RA2: 0x005A2E50
 /// </summary>
 void MPCooperative::vt_entry_20(void) // RA2: 0x005A2EF0
 {
-	if (Campaigns == NULL) { // RA2: as above
-		return; // RA2: as above
+	if (Campaigns == NULL) {
+		return;
 	}
-	LobbyObserverSlot = -1; // RA2: as above
-	DebugString("Sending observer slot of 8"); // RA2: as above
-	Send_Host_Option("O8"); // RA2: as above
-	if (WS_Find_Dialog(0xC2) != NULL || WS_Find_Dialog(0xBC) != NULL) { // RA2: as above
-		if (Campaign != NULL) { // RA2: as above
-			int type; // RA2: as above
-			Campaign->Get_Campaign_Type(&type); // RA2: as above
-			if ((Find_Campaign_Index() != type && WS_Top_Window_ID() == 0x6B) || WS_Top_Window_ID() != 0x6B) { // RA2: as above
-				delete Campaign; // RA2: as above
-				Campaign = NULL; // RA2: as above
+	LobbyObserverSlot = -1;
+	DebugString("Sending observer slot of 8");
+	Send_Host_Option("O8");
+	if (WS_Find_Dialog(0xC2) != NULL || WS_Find_Dialog(0xBC) != NULL) {
+		if (Campaign != NULL) {
+			int type;
+			Campaign->Get_Campaign_Type(&type);
+			if ((Find_Campaign_Index() != type && WS_Top_Window_ID() == 0x6B) || WS_Top_Window_ID() != 0x6B) {
+				delete Campaign;
+				Campaign = NULL;
 			}
 		}
-		if (Campaign != NULL) { // RA2: as above
-			if (Session.Players.Count() == 2) { // RA2: as above
-				Campaign->Set_Names(Session.Players[0]->Name, Session.Players[1]->Name); // RA2: as above
-			} else { // RA2: as above
-				Campaign->Set_Names(L"", L""); // RA2: as above
+		if (Campaign != NULL) {
+			if (Session.Players.Count() == 2) {
+				Campaign->Set_Names(Session.Players[0]->Name, Session.Players[1]->Name);
+			} else {
+				Campaign->Set_Names(L"", L"");
 			}
 		}
 	}
-	if (Campaign == NULL) { // RA2: as above
-		Campaign = new CoopCampaignClass; // RA2: as above
-		if (Campaign == NULL) { // RA2: as above
-			return; // RA2: as above
+	if (Campaign == NULL) {
+		Campaign = new CoopCampaignClass;
+		if (Campaign == NULL) {
+			return;
 		}
-		Campaign->Load_Campaign(0); // RA2: as above
-		int index = Find_Campaign_Index(); // RA2: as above
-		if (index < 0) { // RA2: as above
-			CampaignIndex = 0; // RA2: as above
-			char * name = NULL; // RA2: as above
-			Campaign->Get_Map_Name(&name, 0); // RA2: as above
-			int i; // RA2: as above
-			for (i = 0; i < Session.Scenarios.Count(); i++) { // RA2: as above
-				if (strnicmp(Session.Scenarios[i]->Get_Filename(), name, strlen(name)) == 0) { // RA2: as above
-					Session.Options.ScenarioIndex = i; // RA2: as above
-					Set_Scenario_Info_From_Index(i); // RA2: as above
-					break; // RA2: as above
+		Campaign->Load_Campaign(0);
+		int index = Find_Campaign_Index();
+		if (index < 0) {
+			CampaignIndex = 0;
+			char * name = NULL;
+			Campaign->Get_Map_Name(&name, 0);
+			int i;
+			for (i = 0; i < Session.Scenarios.Count(); i++) {
+				if (strnicmp(Session.Scenarios[i]->Get_Filename(), name, strlen(name)) == 0) {
+					Session.Options.ScenarioIndex = i;
+					Set_Scenario_Info_From_Index(i);
+					break;
 				}
 			}
-			if (i == Session.Scenarios.Count()) { // RA2: as above
-				Session.Options.ScenarioIndex = 0; // RA2: as above
-				Set_Scenario_Info_From_Index(0); // RA2: as above
+			if (i == Session.Scenarios.Count()) {
+				Session.Options.ScenarioIndex = 0;
+				Set_Scenario_Info_From_Index(0);
 			}
-		} else { // RA2: as above
-			CampaignIndex = index; // RA2: as above
-			CoopCampEntry * record; // RA2: as above
-			Campaigns->Get_Record(index, &record); // RA2: as above
-			char * name = NULL; // RA2: as above
-			Campaign->Get_Map_Name(&name, 0); // RA2: as above
-			DebugString("@@@ Looking for %s", Session.Scenarios[Session.Options.ScenarioIndex]->Get_Filename()); // RA2: as above
-			if (strnicmp(Session.Scenarios[Session.Options.ScenarioIndex]->Get_Filename(), name, strlen(name)) != 0) { // RA2: as above
-				int other = (index == 0); // RA2: as above
-				do { // RA2: as above
-					Campaign->Load_Campaign(other); // RA2: as above
-					Campaign->Load_Campaign(index); // RA2: as above
-					Campaign->Get_Map_Name(&name, 0); // RA2: as above
-				} while (strnicmp(Session.Scenarios[Session.Options.ScenarioIndex]->Get_Filename(), name, strlen(name)) != 0); // RA2: as above
+		} else {
+			CampaignIndex = index;
+			CoopCampEntry * record;
+			Campaigns->Get_Record(index, &record);
+			char * name = NULL;
+			Campaign->Get_Map_Name(&name, 0);
+			DebugString("@@@ Looking for %s", Session.Scenarios[Session.Options.ScenarioIndex]->Get_Filename());
+			if (strnicmp(Session.Scenarios[Session.Options.ScenarioIndex]->Get_Filename(), name, strlen(name)) != 0) {
+				int other = (index == 0);
+				do {
+					Campaign->Load_Campaign(other);
+					Campaign->Load_Campaign(index);
+					Campaign->Get_Map_Name(&name, 0);
+				} while (strnicmp(Session.Scenarios[Session.Options.ScenarioIndex]->Get_Filename(), name, strlen(name)) != 0);
 			}
 		}
 	}
-	PlayersChanged = true; // RA2: as above
-	int type; // RA2: as above
-	HWND dialog = GameoptWindow(); // RA2: as above
-	if (dialog != NULL) { // RA2: as above
-		Refresh_Player_Sides(dialog); // RA2: as above
-		HWND item = GetDlgItem(dialog, IDC_CAMPAIGN_DESCRIPTION); // RA2: as above
-		if (item != NULL && Campaign != NULL && Campaign->Get_Campaign_Type(&type)) { // RA2: as above
-			char label[64]; // RA2: as above
-			sprintf(label, "NAME:COOPDESC%d", type + 1); // RA2: as above
-			SendMessageA(item, ST_SETTEXT, 0, (LPARAM)StringTable::LoadString(label, NULL, "D:\\Ra2\\MPCoop.cpp", 0x157)); // RA2: as above
-			ShowWindow(item, SW_SHOW); // RA2: as above
+	PlayersChanged = true;
+	int type;
+	HWND dialog = GameoptWindow();
+	if (dialog != NULL) {
+		Refresh_Player_Sides(dialog);
+		HWND item = GetDlgItem(dialog, IDC_CAMPAIGN_DESCRIPTION);
+		if (item != NULL && Campaign != NULL && Campaign->Get_Campaign_Type(&type)) {
+			char label[64];
+			sprintf(label, "NAME:COOPDESC%d", type + 1);
+			SendMessageA(item, ST_SETTEXT, 0, (LPARAM)StringTable::LoadString(label, NULL, "D:\\Ra2\\MPCoop.cpp", 0x157));
+			ShowWindow(item, SW_SHOW);
 		}
 	}
 }
@@ -335,7 +335,7 @@ void MPCooperative::vt_entry_20(void) // RA2: 0x005A2EF0
 /// </summary>
 void MPCooperative::vt_entry_24(void) // RA2: 0x005A31F0
 {
-	PlayersChanged = true; // RA2: as above
+	PlayersChanged = true;
 }
 
 /// <summary>
@@ -343,26 +343,26 @@ void MPCooperative::vt_entry_24(void) // RA2: 0x005A31F0
 /// </summary>
 int MPCooperative::FirstValidMapIndex(void) // RA2: 0x005A3200
 {
-	int count = 0; // RA2: as above
-	char * name = NULL; // RA2: as above
-	if (Campaigns == NULL) { // RA2: as above
-		Campaigns = new CoopCampListClass; // RA2: as above
+	int count = 0;
+	char * name = NULL;
+	if (Campaigns == NULL) {
+		Campaigns = new CoopCampListClass;
 	}
-	Campaigns->Get_Count(&count); // RA2: as above
-	if (count != 0) { // RA2: as above
-		if (Campaign == NULL) { // RA2: as above
-			Campaign = new CoopCampaignClass; // RA2: as above
+	Campaigns->Get_Count(&count);
+	if (count != 0) {
+		if (Campaign == NULL) {
+			Campaign = new CoopCampaignClass;
 		}
-		Campaign->Load_Campaign(0); // RA2: as above
-		Campaign->Get_Map_Name(&name, 0); // RA2: as above
-		for (int i = 0; i < Session.Scenarios.Count(); i++) { // RA2: as above
-			if (strnicmp(Session.Scenarios[i]->Get_Filename(), name, strlen(name)) == 0) { // RA2: as above
-				return(i); // RA2: as above
+		Campaign->Load_Campaign(0);
+		Campaign->Get_Map_Name(&name, 0);
+		for (int i = 0; i < Session.Scenarios.Count(); i++) {
+			if (strnicmp(Session.Scenarios[i]->Get_Filename(), name, strlen(name)) == 0) {
+				return(i);
 			}
 		}
-		AssignTeams(); // RA2: as above
+		AssignTeams();
 	}
-	return(-1); // RA2: as above
+	return(-1);
 }
 
 /// <summary>
@@ -370,10 +370,10 @@ int MPCooperative::FirstValidMapIndex(void) // RA2: 0x005A3200
 /// </summary>
 bool MPCooperative::CheckStartConditions(WideWstring * message) // RA2: 0x005A32E0
 {
-	if (Session.Players.Count() == 2 && Campaign != NULL) { // RA2: as above
-		Campaign->Set_Names(Session.Players[0]->Name, Session.Players[1]->Name); // RA2: as above
+	if (Session.Players.Count() == 2 && Campaign != NULL) {
+		Campaign->Set_Names(Session.Players[0]->Name, Session.Players[1]->Name);
 	}
-	return(MultiplayerGameMode::CheckStartConditions(message)); // RA2: as above
+	return(MultiplayerGameMode::CheckStartConditions(message));
 }
 
 /// <summary>
@@ -381,51 +381,51 @@ bool MPCooperative::CheckStartConditions(WideWstring * message) // RA2: 0x005A32
 /// </summary>
 bool MPCooperative::AssignTeamsAtStart(void) // RA2: 0x005A3320
 {
-	if (Campaigns == NULL || Campaign == NULL) { // RA2: as above
-		return(false); // RA2: as above
+	if (Campaigns == NULL || Campaign == NULL) {
+		return(false);
 	}
-	int count; // RA2: as above
-	Campaigns->Get_Count(&count); // RA2: as above
-	int selected = Get_Selected_Scenario_Row(); // RA2: as above
-	if (selected >= count) { // RA2: as above
-		if (Session.Players.Count() == 2) { // RA2: as above
-			Campaign->Set_Names(Session.Players[0]->Name, Session.Players[1]->Name); // RA2: as above
+	int count;
+	Campaigns->Get_Count(&count);
+	int selected = Get_Selected_Scenario_Row();
+	if (selected >= count) {
+		if (Session.Players.Count() == 2) {
+			Campaign->Set_Names(Session.Players[0]->Name, Session.Players[1]->Name);
 		}
-		if (!Campaign->Load_Saved_Campaign()) { // RA2: as above
-			return(false); // RA2: as above
+		if (!Campaign->Load_Saved_Campaign()) {
+			return(false);
 		}
-		SavedCampaignChosen = true; // RA2: as above
-	} else if (WS_Top_Window_ID() == 0x6B) { // RA2: as above
-		delete Campaign; // RA2: as above
-		Campaign = CampaignStates[selected]; // RA2: as above
-		CampaignStates[selected] = new CoopCampaignClass; // RA2: as above
-		CampaignStates[selected]->Load_Campaign(selected); // RA2: as above
-		LoadedRecord = selected; // RA2: as above
-		if (Session.Players.Count() == 2) { // RA2: as above
-			Campaign->Set_Names(Session.Players[0]->Name, Session.Players[1]->Name); // RA2: as above
+		SavedCampaignChosen = true;
+	} else if (WS_Top_Window_ID() == 0x6B) {
+		delete Campaign;
+		Campaign = CampaignStates[selected];
+		CampaignStates[selected] = new CoopCampaignClass;
+		CampaignStates[selected]->Load_Campaign(selected);
+		LoadedRecord = selected;
+		if (Session.Players.Count() == 2) {
+			Campaign->Set_Names(Session.Players[0]->Name, Session.Players[1]->Name);
 		}
 	}
-	CoopCampEntry * record; // RA2: as above
-	Campaigns->Get_Record(CampaignIndex, &record); // RA2: as above
-	if (record == NULL) { // RA2: as above
-		return(false); // RA2: as above
+	CoopCampEntry * record;
+	Campaigns->Get_Record(CampaignIndex, &record);
+	if (record == NULL) {
+		return(false);
 	}
-	int players = record->Players.Count(); // RA2: as above
-	if (players == 0) { // RA2: as above
-		return(false); // RA2: as above
+	int players = record->Players.Count();
+	if (players == 0) {
+		return(false);
 	}
-	Refresh_Player_Sides(GameoptWindow()); // RA2: as above
-	for (int i = 0; i < Session.Players.Count(); i++) { // RA2: as above
-		if (!IsCountryAllowed(Session.Players[i]->Get_Country())) { // RA2: as above
-			if (players > 1) { // RA2: as above
-				Session.Players[i]->Set_Country(-2); // RA2: as above
-			} else { // RA2: as above
-				int house = Find_Country_Index(record->Players[0]); // RA2: as above
-				Session.Players[i]->Set_Country(house); // RA2: as above
+	Refresh_Player_Sides(GameoptWindow());
+	for (int i = 0; i < Session.Players.Count(); i++) {
+		if (!IsCountryAllowed(Session.Players[i]->Get_Country())) {
+			if (players > 1) {
+				Session.Players[i]->Set_Country(-2);
+			} else {
+				int house = Find_Country_Index(record->Players[0]);
+				Session.Players[i]->Set_Country(house);
 			}
 		}
 	}
-	return(true); // RA2: as above
+	return(true);
 }
 
 /// <summary>
@@ -433,18 +433,18 @@ bool MPCooperative::AssignTeamsAtStart(void) // RA2: 0x005A3320
 /// </summary>
 int MPCooperative::DefaultCountry(void) // RA2: 0x005A34B0
 {
-	CoopCampEntry * record; // RA2: as above
-	Campaigns->Get_Record(CampaignIndex, &record); // RA2: as above
-	if (record == NULL) { // RA2: as above
-		return(-2); // RA2: as above
+	CoopCampEntry * record;
+	Campaigns->Get_Record(CampaignIndex, &record);
+	if (record == NULL) {
+		return(-2);
 	}
-	if (record->Players.Count() == 0) { // RA2: as above
-		return(-2); // RA2: as above
+	if (record->Players.Count() == 0) {
+		return(-2);
 	}
-	if (record->Players.Count() > 1) { // RA2: as above
-		return(-2); // RA2: as above
+	if (record->Players.Count() > 1) {
+		return(-2);
 	}
-	return(Find_Country_Index(record->Players[0])); // RA2: as above
+	return(Find_Country_Index(record->Players[0]));
 }
 
 /// <summary>
@@ -452,21 +452,21 @@ int MPCooperative::DefaultCountry(void) // RA2: 0x005A34B0
 /// </summary>
 bool MPCooperative::vt_entry_48(int index, DynamicVectorClass<int> picks, char const * map, char const * name) // RA2: 0x005A3500
 {
-	if (Campaign == NULL) { // RA2: as above
-		Recreate_Campaign(); // RA2: as above
-		PlayersChanged = true; // RA2: as above
+	if (Campaign == NULL) {
+		Recreate_Campaign();
+		PlayersChanged = true;
 	}
-	if (Campaign != NULL && Campaigns != NULL) { // RA2: as above
-		int type; // RA2: as above
-		Campaign->Get_Campaign_Type(&type); // RA2: as above
-		if (type != index) { // RA2: as above
-			PlayersChanged = true; // RA2: as above
+	if (Campaign != NULL && Campaigns != NULL) {
+		int type;
+		Campaign->Get_Campaign_Type(&type);
+		if (type != index) {
+			PlayersChanged = true;
 		}
-		Campaign->Set_Campaign_Info(*Campaigns, index, picks, map, name); // RA2: as above
-		CampaignIndex = index; // RA2: as above
-		return(true); // RA2: as above
+		Campaign->Set_Campaign_Info(*Campaigns, index, picks, map, name);
+		CampaignIndex = index;
+		return(true);
 	}
-	return(false); // RA2: as above
+	return(false);
 }
 
 /// <summary>
@@ -474,15 +474,15 @@ bool MPCooperative::vt_entry_48(int index, DynamicVectorClass<int> picks, char c
 /// </summary>
 bool MPCooperative::vt_entry_4C(unsigned index, unsigned time, MPlayerScoreType * scores) // RA2: 0x005A35D0
 {
-	if (Campaign == NULL) { // RA2: as above
-		return(false); // RA2: as above
+	if (Campaign == NULL) {
+		return(false);
 	}
-	HWND lobby = GameoptWindow(); // RA2: as above
-	if (lobby != NULL && PlayersChanged) { // RA2: as above
-		Refresh_Player_Sides(lobby); // RA2: as above
-		PlayersChanged = false; // RA2: as above
+	HWND lobby = GameoptWindow();
+	if (lobby != NULL && PlayersChanged) {
+		Refresh_Player_Sides(lobby);
+		PlayersChanged = false;
 	}
-	return(Campaign->Add_Score(index, time, scores[0], scores[1])); // RA2: as above
+	return(Campaign->Add_Score(index, time, scores[0], scores[1]));
 }
 
 /// <summary>
@@ -490,31 +490,31 @@ bool MPCooperative::vt_entry_4C(unsigned index, unsigned time, MPlayerScoreType 
 /// </summary>
 void MPCooperative::Fill_House_Combo(HWND dialog, int id) // RA2: 0x005A3650
 {
-	int count = HouseTypes.Count(); // RA2: as above
-	if (count != 0) { // RA2: as above
-		HWND combo = GetDlgItem(dialog, id); // RA2: as above
-		ShowWindow(combo, SW_HIDE); // RA2: as above
-		SendMessageA(combo, CB_RESETCONTENT, 0, 0); // RA2: as above
-		CoopCampEntry * record; // RA2: as above
-		Campaigns->Get_Record(CampaignIndex, &record); // RA2: as above
-		if (record != NULL) { // RA2: as above
-			int players = record->Players.Count(); // RA2: as above
-			if (players != 0) { // RA2: as above
-				if (players > 1) { // RA2: as above
-					wchar_t const * name = StringTable::LoadString("GUI:Random", NULL, "D:\\Ra2\\MPCoop.cpp", 0x225); // RA2: as above
-					LRESULT index = SendMessageA(combo, CB_ADDITEM, 0, (LPARAM)name); // RA2: as above
-					SendMessageA(combo, CB_SETITEMDATA, index, -2); // RA2: as above
+	int count = HouseTypes.Count();
+	if (count != 0) {
+		HWND combo = GetDlgItem(dialog, id);
+		ShowWindow(combo, SW_HIDE);
+		SendMessageA(combo, CB_RESETCONTENT, 0, 0);
+		CoopCampEntry * record;
+		Campaigns->Get_Record(CampaignIndex, &record);
+		if (record != NULL) {
+			int players = record->Players.Count();
+			if (players != 0) {
+				if (players > 1) {
+					wchar_t const * name = StringTable::LoadString("GUI:Random", NULL, "D:\\Ra2\\MPCoop.cpp", 0x225);
+					LRESULT index = SendMessageA(combo, CB_ADDITEM, 0, (LPARAM)name);
+					SendMessageA(combo, CB_SETITEMDATA, index, -2);
 				}
-				for (int i = 0; i < players; i++) { // RA2: as above
-					int house = Find_Country_Index(record->Players[i]); // RA2: as above
-					if (house >= 0 && house < count) { // RA2: as above
-						wchar_t const * name = HouseTypes[house]->UIName; // RA2: as above
-						LRESULT index = SendMessageA(combo, CB_ADDITEM, 0, (LPARAM)name); // RA2: as above
-						SendMessageA(combo, CB_SETITEMDATA, index, house); // RA2: as above
+				for (int i = 0; i < players; i++) {
+					int house = Find_Country_Index(record->Players[i]);
+					if (house >= 0 && house < count) {
+						wchar_t const * name = HouseTypes[house]->UIName;
+						LRESULT index = SendMessageA(combo, CB_ADDITEM, 0, (LPARAM)name);
+						SendMessageA(combo, CB_SETITEMDATA, index, house);
 					}
 				}
-				SendMessageA(combo, CB_SETCURSEL, 0, 0); // RA2: as above
-				ShowWindow(combo, SW_SHOW); // RA2: as above
+				SendMessageA(combo, CB_SETCURSEL, 0, 0);
+				ShowWindow(combo, SW_SHOW);
 			}
 		}
 	}
@@ -525,36 +525,36 @@ void MPCooperative::Fill_House_Combo(HWND dialog, int id) // RA2: 0x005A3650
 /// </summary>
 void MPCooperative::Refresh_Player_Sides(HWND dialog) // RA2: 0x005A3760
 {
-	if (dialog != NULL) { // RA2: as above
-		int count = Session.ScenarioMaxPlayers; // RA2: as above
-		CoopCampEntry * record; // RA2: as above
-		Campaigns->Get_Record(CampaignIndex, &record); // RA2: as above
-		if (record != NULL) { // RA2: as above
-			int players = record->Players.Count(); // RA2: as above
-			if (players != 0) { // RA2: as above
-				for (int i = 0; i < count; i++) { // RA2: as above
-					int id = Player_Side_Combo_ID(i); // RA2: as above
-					Fill_House_Combo(dialog, id); // RA2: as above
-					if (players > 1) { // RA2: as above
-						Select_Side_Combo(dialog, id, -2); // RA2: as above
-						Session.Slots[i]->Set_Country(-2); // RA2: as above
-					} else { // RA2: as above
-						int house = Find_Country_Index(record->Players[0]); // RA2: as above
-						Select_Side_Combo(dialog, id, house); // RA2: as above
-						Session.Slots[i]->Set_Country(house); // RA2: as above
+	if (dialog != NULL) {
+		int count = Session.ScenarioMaxPlayers;
+		CoopCampEntry * record;
+		Campaigns->Get_Record(CampaignIndex, &record);
+		if (record != NULL) {
+			int players = record->Players.Count();
+			if (players != 0) {
+				for (int i = 0; i < count; i++) {
+					int id = Player_Side_Combo_ID(i);
+					Fill_House_Combo(dialog, id);
+					if (players > 1) {
+						Select_Side_Combo(dialog, id, -2);
+						Session.Slots[i]->Set_Country(-2);
+					} else {
+						int house = Find_Country_Index(record->Players[0]);
+						Select_Side_Combo(dialog, id, house);
+						Session.Slots[i]->Set_Country(house);
 					}
 				}
-				Hide_Slot_Controls(dialog, count); // RA2: as above
-				HWND lobby = GameoptWindow(); // RA2: as above
-				int type; // RA2: as above
-				if (lobby != NULL && Campaign != NULL && Campaign->Get_Campaign_Type(&type)) { // RA2: as above
-					char label[64]; // RA2: as above
-					sprintf(label, "NAME:COOPDESC%d", type + 1); // RA2: as above
-					HWND item = GetDlgItem(lobby, IDC_CAMPAIGN_DESCRIPTION); // RA2: as above
-					if (item != NULL) { // RA2: as above
-						SendMessageA(item, ST_SETTEXT, 0, (LPARAM)StringTable::LoadString(label, NULL, "D:\\Ra2\\MPCoop.cpp", 0x273)); // RA2: as above
-						ShowWindow(item, SW_SHOW); // RA2: as above
-						InvalidateRect(item, NULL, FALSE); // RA2: as above
+				Hide_Slot_Controls(dialog, count);
+				HWND lobby = GameoptWindow();
+				int type;
+				if (lobby != NULL && Campaign != NULL && Campaign->Get_Campaign_Type(&type)) {
+					char label[64];
+					sprintf(label, "NAME:COOPDESC%d", type + 1);
+					HWND item = GetDlgItem(lobby, IDC_CAMPAIGN_DESCRIPTION);
+					if (item != NULL) {
+						SendMessageA(item, ST_SETTEXT, 0, (LPARAM)StringTable::LoadString(label, NULL, "D:\\Ra2\\MPCoop.cpp", 0x273));
+						ShowWindow(item, SW_SHOW);
+						InvalidateRect(item, NULL, FALSE);
 					}
 				}
 			}
@@ -567,16 +567,16 @@ void MPCooperative::Refresh_Player_Sides(HWND dialog) // RA2: 0x005A3760
 /// </summary>
 bool MPCooperative::vt_entry_50(void) // RA2: 0x005A38D0
 {
-	if (Campaign == NULL) { // RA2: as above
-		return(false); // RA2: as above
+	if (Campaign == NULL) {
+		return(false);
 	}
-	Campaign->Get_Campaign_Type(&CampaignIndex); // RA2: as above
-	HWND lobby = GameoptWindow(); // RA2: as above
-	if (lobby != NULL && PlayersChanged) { // RA2: as above
-		Refresh_Player_Sides(lobby); // RA2: as above
-		PlayersChanged = false; // RA2: as above
+	Campaign->Get_Campaign_Type(&CampaignIndex);
+	HWND lobby = GameoptWindow();
+	if (lobby != NULL && PlayersChanged) {
+		Refresh_Player_Sides(lobby);
+		PlayersChanged = false;
 	}
-	return(Campaign->Send_Campaign_Options(*Campaigns)); // RA2: as above
+	return(Campaign->Send_Campaign_Options(*Campaigns));
 }
 
 /// <summary>
@@ -584,13 +584,13 @@ bool MPCooperative::vt_entry_50(void) // RA2: 0x005A38D0
 /// </summary>
 void MPCooperative::Fill_Player_Colors(void) // RA2: 0x005A3920; the executable expands it in vt_entry_54 and keeps this copy
 {
-	int i; // RA2: as above
-	for (i = 0; i < 8; i++) { // RA2: as above
-		PlayerColors[i] = -2; // RA2: as above
+	int i;
+	for (i = 0; i < 8; i++) {
+		PlayerColors[i] = -2;
 	}
-	int count = Session.Players.Count(); // RA2: as above
-	for (i = 0; i < count; i++) { // RA2: as above
-		PlayerColors[i] = Session.Players[i]->Get_Color_Or_Random(); // RA2: as above
+	int count = Session.Players.Count();
+	for (i = 0; i < count; i++) {
+		PlayerColors[i] = Session.Players[i]->Get_Color_Or_Random();
 	}
 }
 
@@ -599,53 +599,53 @@ void MPCooperative::Fill_Player_Colors(void) // RA2: 0x005A3920; the executable 
 /// </summary>
 bool MPCooperative::vt_entry_54(void) // RA2: 0x005A3960
 {
-	CoopCampEntry * record; // RA2: as above
-	Campaigns->Get_Record(CampaignIndex, &record); // RA2: as above
-	char message[400]; // RA2: as above
-	sprintf(message, "C1,%d", record->MapCount); // RA2: as above
-	for (int list = 0; list < 8; list++) { // RA2: as above
-		int length = HouseChoices[list].Length(); // RA2: as above
-		HouseChoices[list].Clear(); // RA2: as above
-		HouseChoices[list].Resize(length); // RA2: as above
-		length = ColorChoices[list].Length(); // RA2: as above
-		ColorChoices[list].Clear(); // RA2: as above
-		ColorChoices[list].Resize(length); // RA2: as above
+	CoopCampEntry * record;
+	Campaigns->Get_Record(CampaignIndex, &record);
+	char message[400];
+	sprintf(message, "C1,%d", record->MapCount);
+	for (int list = 0; list < 8; list++) {
+		int length = HouseChoices[list].Length();
+		HouseChoices[list].Clear();
+		HouseChoices[list].Resize(length);
+		length = ColorChoices[list].Length();
+		ColorChoices[list].Clear();
+		ColorChoices[list].Resize(length);
 	}
-	int players = Session.Players.Count(); // RA2: as above
-	for (int map = 0; map < record->MapCount; map++) { // RA2: as above
-		Fill_Player_Colors(); // RA2: as above
-		for (int slot = 0; slot < 8; slot++) { // RA2: as above
-			if (slot < players) { // RA2: as above
-				HouseChoices[slot].Add(RandomHumanCountryIndex()); // RA2: as above
-				ColorChoices[slot].Add(PlayerColors[slot]); // RA2: as above
-			} else { // RA2: as above
-				HouseChoices[slot].Add(RandomAICountryIndex()); // RA2: as above
-				int color; // RA2: as above
-				bool taken; // RA2: as above
-				do { // RA2: as above
-					color = Scen->RandomNumber(0, 7); // RA2: as above
-					taken = false; // RA2: as above
-					if (color != -2) { // RA2: as above
-						for (int i = 0; i < 8; i++) { // RA2: as above
-							if (PlayerColors[i] == color) { // RA2: as above
-								taken = true; // RA2: as above
-								break; // RA2: as above
+	int players = Session.Players.Count();
+	for (int map = 0; map < record->MapCount; map++) {
+		Fill_Player_Colors();
+		for (int slot = 0; slot < 8; slot++) {
+			if (slot < players) {
+				HouseChoices[slot].Add(RandomHumanCountryIndex());
+				ColorChoices[slot].Add(PlayerColors[slot]);
+			} else {
+				HouseChoices[slot].Add(RandomAICountryIndex());
+				int color;
+				bool taken;
+				do {
+					color = Scen->RandomNumber(0, 7);
+					taken = false;
+					if (color != -2) {
+						for (int i = 0; i < 8; i++) {
+							if (PlayerColors[i] == color) {
+								taken = true;
+								break;
 							}
 						}
 					}
-				} while (taken); // RA2: as above
-				PlayerColors[slot] = color; // RA2: as above
-				ColorChoices[slot].Add(color); // RA2: as above
+				} while (taken);
+				PlayerColors[slot] = color;
+				ColorChoices[slot].Add(color);
 			}
-			char text[16]; // RA2: as above
-			sprintf(text, ",%d,%d", HouseChoices[slot][map], ColorChoices[slot][map]); // RA2: as above
-			strcat(message, text); // RA2: as above
+			char text[16];
+			sprintf(text, ",%d,%d", HouseChoices[slot][map], ColorChoices[slot][map]);
+			strcat(message, text);
 		}
 	}
-	DebugString("@@@@ Sending campaign game AI settings: %s\n", message); // RA2: as above
-	Send_Host_Option(message); // RA2: as above
-	DebugString("@@@@ Sent\n"); // RA2: as above
-	return(true); // RA2: as above
+	DebugString("@@@@ Sending campaign game AI settings: %s\n", message);
+	Send_Host_Option(message);
+	DebugString("@@@@ Sent\n");
+	return(true);
 }
 
 /// <summary>
@@ -655,30 +655,30 @@ bool MPCooperative::vt_entry_54(void) // RA2: 0x005A3960
 /// <param name="text">The rest of the option, split at the commas.</param>
 void MPCooperative::vt_entry_64(unsigned kind, char * text) // RA2: 0x005A3CA0
 {
-	if (kind == 1) { // RA2: as above
-		int rounds = atol(strtok(text, ",")); // RA2: as above
-		int i; // RA2: as above
-		for (i = 0; i < 8; i++) { // RA2: as above
-			int capacity = HouseChoices[i].Length(); // RA2: as above
-			HouseChoices[i].Clear(); // RA2: as above
-			HouseChoices[i].Resize(capacity); // RA2: as above
-			capacity = ColorChoices[i].Length(); // RA2: as above
-			ColorChoices[i].Clear(); // RA2: as above
-			ColorChoices[i].Resize(capacity); // RA2: as above
+	if (kind == 1) {
+		int rounds = atol(strtok(text, ","));
+		int i;
+		for (i = 0; i < 8; i++) {
+			int capacity = HouseChoices[i].Length();
+			HouseChoices[i].Clear();
+			HouseChoices[i].Resize(capacity);
+			capacity = ColorChoices[i].Length();
+			ColorChoices[i].Clear();
+			ColorChoices[i].Resize(capacity);
 		}
-		for (int round = 0; round < rounds; round++) { // RA2: as above
-			for (i = 0; i < 8; i++) { // RA2: as above
-				char * token = strtok(NULL, ","); // RA2: as above
-				if (token != NULL) { // RA2: as above
-					HouseChoices[i].Add(atol(token)); // RA2: as above
-				} else { // RA2: as above
-					HouseChoices[i].Add(-1); // RA2: as above
+		for (int round = 0; round < rounds; round++) {
+			for (i = 0; i < 8; i++) {
+				char * token = strtok(NULL, ",");
+				if (token != NULL) {
+					HouseChoices[i].Add(atol(token));
+				} else {
+					HouseChoices[i].Add(-1);
 				}
-				token = strtok(NULL, ","); // RA2: as above
-				if (token != NULL) { // RA2: as above
-					ColorChoices[i].Add(atol(token)); // RA2: as above
-				} else { // RA2: as above
-					ColorChoices[i].Add(-1); // RA2: as above
+				token = strtok(NULL, ",");
+				if (token != NULL) {
+					ColorChoices[i].Add(atol(token));
+				} else {
+					ColorChoices[i].Add(-1);
 				}
 			}
 		}
@@ -690,20 +690,20 @@ void MPCooperative::vt_entry_64(unsigned kind, char * text) // RA2: 0x005A3CA0
 /// </summary>
 bool MPCooperative::UnfixAlliances(void) // RA2: 0x005A3EE0
 {
-	HWND dialog = GameoptWindow(); // RA2: as above
-	if (dialog != NULL && Campaign != NULL) { // RA2: as above
-		int type; // RA2: as above
-		if (Campaign->Get_Campaign_Type(&type)) { // RA2: as above
-			char label[64]; // RA2: as above
-			sprintf(label, "NAME:COOPDESC%d", type + 1); // RA2: as above
-			HWND item = GetDlgItem(dialog, IDC_CAMPAIGN_DESCRIPTION); // RA2: as above
-			if (item != NULL) { // RA2: as above
-				SendMessageA(item, ST_SETTEXT, 0, (LPARAM)StringTable::LoadString(label, NULL, "D:\\Ra2\\MPCoop.cpp", 0x31E)); // RA2: as above
-				ShowWindow(item, SW_SHOW); // RA2: as above
+	HWND dialog = GameoptWindow();
+	if (dialog != NULL && Campaign != NULL) {
+		int type;
+		if (Campaign->Get_Campaign_Type(&type)) {
+			char label[64];
+			sprintf(label, "NAME:COOPDESC%d", type + 1);
+			HWND item = GetDlgItem(dialog, IDC_CAMPAIGN_DESCRIPTION);
+			if (item != NULL) {
+				SendMessageA(item, ST_SETTEXT, 0, (LPARAM)StringTable::LoadString(label, NULL, "D:\\Ra2\\MPCoop.cpp", 0x31E));
+				ShowWindow(item, SW_SHOW);
 			}
 		}
 	}
-	return(true); // RA2: as above
+	return(true);
 }
 
 /// <summary>
@@ -711,7 +711,7 @@ bool MPCooperative::UnfixAlliances(void) // RA2: 0x005A3EE0
 /// </summary>
 void MPCooperative::PopulateTeamDropdownForPlayer(HWND hwnd, int index) // RA2: 0x005A3F70
 {
-	MultiplayerGameMode::PopulateTeamDropdownForPlayer(hwnd, index); // RA2: as above
+	MultiplayerGameMode::PopulateTeamDropdownForPlayer(hwnd, index);
 }
 
 /// <summary>
@@ -723,63 +723,63 @@ void MPCooperative::PopulateTeamDropdownForPlayer(HWND hwnd, int index) // RA2: 
 /// <param name="satisfied">One flag per starting cell: taken or not.</param>
 Cell * MPCooperative::AssignStartingPositionsToHouse(Cell * result, int house, DynamicVectorClass<Cell> * coords, unsigned char * satisfied) // RA2: 0x005A3F90
 {
-	int count = 0; // RA2: as above
-	int i; // RA2: as above
-	for (i = 0; i < coords->Count(); i++) { // RA2: as above
-		if (satisfied[i]) { // RA2: as above
-			count++; // RA2: as above
+	int count = 0;
+	int i;
+	for (i = 0; i < coords->Count(); i++) {
+		if (satisfied[i]) {
+			count++;
 		}
 	}
-	int index; // RA2: as above
-	if (count == 0) { // RA2: as above
-		index = Scen->RandomNumber(0, coords->Count() - 1); // RA2: as above
-		satisfied[index] = true; // RA2: as above
+	int index;
+	if (count == 0) {
+		index = Scen->RandomNumber(0, coords->Count() - 1);
+		satisfied[index] = true;
 		*result = (*coords)[index];
-		return(result); // RA2: as above
-	} else { // RA2: as above
-		int nearest = -1; // RA2: as above
-		int nearest_index = -1; // RA2: as above
-		if (count == 1) { // RA2: as above
-			for (i = 0; i < coords->Count(); i++) { // RA2: as above
-				if (!satisfied[i]) { // RA2: as above
-					int sum = 0; // RA2: as above
-					for (int j = 0; j < coords->Count(); j++) { // RA2: as above
-						if (satisfied[j]) { // RA2: as above
-							sum += (*coords)[i].Distance_To((*coords)[j]); // RA2: as above
+		return(result);
+	} else {
+		int nearest = -1;
+		int nearest_index = -1;
+		if (count == 1) {
+			for (i = 0; i < coords->Count(); i++) {
+				if (!satisfied[i]) {
+					int sum = 0;
+					for (int j = 0; j < coords->Count(); j++) {
+						if (satisfied[j]) {
+							sum += (*coords)[i].Distance_To((*coords)[j]);
 						}
 					}
-					if (sum < nearest || nearest < 0) { // RA2: as above
-						nearest = sum; // RA2: as above
-						nearest_index = i; // RA2: as above
+					if (sum < nearest || nearest < 0) {
+						nearest = sum;
+						nearest_index = i;
 					}
 				}
 			}
-			satisfied[nearest_index] = true; // RA2: as above
+			satisfied[nearest_index] = true;
 			*result = (*coords)[nearest_index];
-			return(result); // RA2: as above
-		} else { // RA2: as above
-			int farthest = -1; // RA2: as above
-			int farthest_index = -1; // RA2: as above
-			for (i = 0; i < coords->Count(); i++) { // RA2: as above
-				if (!satisfied[i]) { // RA2: as above
-					int sum = 0; // RA2: as above
-					for (int j = 0; j < coords->Count(); j++) { // RA2: as above
-						if (satisfied[j]) { // RA2: as above
-							sum += (*coords)[i].Distance_To((*coords)[j]); // RA2: as above
+			return(result);
+		} else {
+			int farthest = -1;
+			int farthest_index = -1;
+			for (i = 0; i < coords->Count(); i++) {
+				if (!satisfied[i]) {
+					int sum = 0;
+					for (int j = 0; j < coords->Count(); j++) {
+						if (satisfied[j]) {
+							sum += (*coords)[i].Distance_To((*coords)[j]);
 						}
 					}
-					if (sum > farthest) { // RA2: as above
-						farthest = sum; // RA2: as above
-						farthest_index = i; // RA2: as above
+					if (sum > farthest) {
+						farthest = sum;
+						farthest_index = i;
 					}
 				}
 			}
-			index = farthest_index; // RA2: as above
+			index = farthest_index;
 		}
 	}
-	satisfied[index] = true; // RA2: as above
+	satisfied[index] = true;
 	*result = (*coords)[index];
-	return(result); // RA2: as above
+	return(result);
 }
 
 /// <summary>
@@ -787,19 +787,19 @@ Cell * MPCooperative::AssignStartingPositionsToHouse(Cell * result, int house, D
 /// </summary>
 bool MPCooperative::StartingPositionsToHouseBaseCells(char unused) // RA2: 0x005A4170
 {
-	DynamicVectorClass<Cell> cells = Build_Start_Waypoint_List(unused); // RA2: as above
-	unsigned char taken[16]; // RA2: as above
-	memset(taken, 0, sizeof(taken)); // RA2: as above
-	for (int i = 0; i < Houses.Count(); i++) { // RA2: as above
-		HouseClass * house = Houses[i]; // RA2: as above
-		if (!house->Class->IsMultiplayPassive) { // RA2: as above
-			DebugString("Assigning Starting Points for house %d (%s)\n", i, house->Class->Name()); // RA2: as above
-			Cell cell; // RA2: as above
-			Cell chosen = *AssignStartingPositionsToHouse(&cell, i, &cells, taken); // RA2: as above
-			house->Center = Coord(chosen); // RA2: as above
+	DynamicVectorClass<Cell> cells = Build_Start_Waypoint_List(unused);
+	unsigned char taken[16];
+	memset(taken, 0, sizeof(taken));
+	for (int i = 0; i < Houses.Count(); i++) {
+		HouseClass * house = Houses[i];
+		if (!house->Class->IsMultiplayPassive) {
+			DebugString("Assigning Starting Points for house %d (%s)\n", i, house->Class->Name());
+			Cell cell;
+			Cell chosen = *AssignStartingPositionsToHouse(&cell, i, &cells, taken);
+			house->Center = Coord(chosen);
 		}
 	}
-	return(true); // RA2: as above
+	return(true);
 }
 
 /// <summary>
@@ -807,43 +807,43 @@ bool MPCooperative::StartingPositionsToHouseBaseCells(char unused) // RA2: 0x005
 /// </summary>
 bool MPCooperative::vt_entry_58(void) // RA2: 0x005A4250
 {
-	int players = RandomMapWaypointCount(Session.Options.ScenarioIndex) - 2; // RA2: as above
-	DebugString("@@@@ Adding %d AI players\n", players); // RA2: as above
-	if (players <= 0) { // RA2: as above
-		return(false); // RA2: as above
+	int players = RandomMapWaypointCount(Session.Options.ScenarioIndex) - 2;
+	DebugString("@@@@ Adding %d AI players\n", players);
+	if (players <= 0) {
+		return(false);
 	}
-	int added = 0; // RA2: as above
-	Session.Options.AIPlayers = players; // RA2: as above
-	CoopCampEntry * record; // RA2: as above
-	Campaigns->Get_Record(CampaignIndex, &record); // RA2: as above
-	if (record == NULL) { // RA2: as above
-		return(false); // RA2: as above
+	int added = 0;
+	Session.Options.AIPlayers = players;
+	CoopCampEntry * record;
+	Campaigns->Get_Record(CampaignIndex, &record);
+	if (record == NULL) {
+		return(false);
 	}
-	if (record->Enemies.Count() == 0) { // RA2: as above
-		return(false); // RA2: as above
+	if (record->Enemies.Count() == 0) {
+		return(false);
 	}
-	for (int slot = 2; slot < 8; slot++) { // RA2: as above
-		if (added < players) { // RA2: as above
-			DebugString("@@@@ Setting slot %d for AI\n", slot); // RA2: as above
-			char * name = record->AIName; // RA2: as above
-			if (strcmp(name, "Normal") == 0) { // RA2: as above
-				Session.Options.AISlots.Difficulties[slot] = 1; // RA2: as above
-			} else if (strcmp(name, "Hard") == 0) { // RA2: as above
-				Session.Options.AISlots.Difficulties[slot] = 0; // RA2: as above
-			} else { // RA2: as above
-				Session.Options.AISlots.Difficulties[slot] = 2; // RA2: as above
+	for (int slot = 2; slot < 8; slot++) {
+		if (added < players) {
+			DebugString("@@@@ Setting slot %d for AI\n", slot);
+			char * name = record->AIName;
+			if (strcmp(name, "Normal") == 0) {
+				Session.Options.AISlots.Difficulties[slot] = 1;
+			} else if (strcmp(name, "Hard") == 0) {
+				Session.Options.AISlots.Difficulties[slot] = 0;
+			} else {
+				Session.Options.AISlots.Difficulties[slot] = 2;
 			}
-			DebugString("@@@@     AI difficulty: %d\n", Session.Options.AISlots.Difficulties[slot]); // RA2: as above
-			Session.Options.AISlots.Countries[slot] = -2; // RA2: as above
-			Session.Options.AISlots.Colors[slot] = -2; // RA2: as above
-			added++; // RA2: as above
-		} else { // RA2: as above
-			Session.Options.AISlots.Difficulties[slot] = -1; // RA2: as above
-			Session.Options.AISlots.Countries[slot] = -1; // RA2: as above
-			Session.Options.AISlots.Colors[slot] = -1; // RA2: as above
+			DebugString("@@@@     AI difficulty: %d\n", Session.Options.AISlots.Difficulties[slot]);
+			Session.Options.AISlots.Countries[slot] = -2;
+			Session.Options.AISlots.Colors[slot] = -2;
+			added++;
+		} else {
+			Session.Options.AISlots.Difficulties[slot] = -1;
+			Session.Options.AISlots.Countries[slot] = -1;
+			Session.Options.AISlots.Colors[slot] = -1;
 		}
 	}
-	return(true); // RA2: as above
+	return(true);
 }
 
 /// <summary>
@@ -851,27 +851,27 @@ bool MPCooperative::vt_entry_58(void) // RA2: 0x005A4250
 /// </summary>
 bool MPCooperative::AllyTeams(void) // RA2: 0x005A43C0
 {
-	DebugString("@@@@ Making Alliances\n"); // RA2: as above
-	for (int i = 0; i < Houses.Count(); i++) { // RA2: as above
-		HouseClass * first = Houses[i]; // RA2: as above
-		DebugString("@@@@     House1 = %s\n", Wide_To_Narrow(first->UIName)); // RA2: as above
-		if (!first->Class->IsMultiplayPassive && first->IsHuman) { // RA2: as above
-			for (int j = i + 1; j < Houses.Count(); j++) { // RA2: as above
-				HouseClass * second = Houses[j]; // RA2: as above
-				DebugString("@@@@         House2 = %s\n", Wide_To_Narrow(second->UIName)); // RA2: as above
-				if (!second->Class->IsMultiplayPassive && second->IsHuman) { // RA2: as above
-					char * second_name = Wide_To_Narrow(second->UIName); // RA2: as above
-					char * first_name = Wide_To_Narrow(first->UIName); // RA2: as above
-					DebugString("@@@@ Making Allies of %s(%d/%d/%d) and %s(%d/%d/%d)\n", // RA2: as above
-						first_name, first->Class->House, first->Class->Side, first->Class->Scheme, // RA2: as above
-						second_name, second->Class->House, second->Class->Side, second->Class->Scheme); // RA2: as above
-					first->Make_Ally(second, false); // RA2: as above
-					second->Make_Ally(first, false); // RA2: as above
+	DebugString("@@@@ Making Alliances\n");
+	for (int i = 0; i < Houses.Count(); i++) {
+		HouseClass * first = Houses[i];
+		DebugString("@@@@     House1 = %s\n", Wide_To_Narrow(first->UIName));
+		if (!first->Class->IsMultiplayPassive && first->IsHuman) {
+			for (int j = i + 1; j < Houses.Count(); j++) {
+				HouseClass * second = Houses[j];
+				DebugString("@@@@         House2 = %s\n", Wide_To_Narrow(second->UIName));
+				if (!second->Class->IsMultiplayPassive && second->IsHuman) {
+					char * second_name = Wide_To_Narrow(second->UIName);
+					char * first_name = Wide_To_Narrow(first->UIName);
+					DebugString("@@@@ Making Allies of %s(%d/%d/%d) and %s(%d/%d/%d)\n",
+						first_name, first->Class->House, first->Class->Side, first->Class->Scheme,
+						second_name, second->Class->House, second->Class->Side, second->Class->Scheme);
+					first->Make_Ally(second, false);
+					second->Make_Ally(first, false);
 				}
 			}
 		}
 	}
-	return(true); // RA2: as above
+	return(true);
 }
 
 /// <summary>
@@ -879,23 +879,23 @@ bool MPCooperative::AllyTeams(void) // RA2: 0x005A43C0
 /// </summary>
 int MPCooperative::RandomHumanCountryIndex(void) // RA2: 0x005A4540
 {
-	int count = HouseTypes.Count(); // RA2: as above
-	bool found = false; // RA2: as above
-	int campaign = 0; // RA2: as above
-	Campaign->Get_Campaign_Type(&campaign); // RA2: as above
-	CoopCampEntry * record; // RA2: as above
-	Campaigns->Get_Record(campaign, &record); // RA2: as above
-	int house; // RA2: as above
-	do { // RA2: as above
-		house = Scen->RandomNumber(0, count - 1); // RA2: as above
-		for (int i = 0; i < record->Players.Count(); i++) { // RA2: as above
-			if (house == Find_Country_Index(record->Players[i])) { // RA2: as above
-				found = true; // RA2: as above
+	int count = HouseTypes.Count();
+	bool found = false;
+	int campaign = 0;
+	Campaign->Get_Campaign_Type(&campaign);
+	CoopCampEntry * record;
+	Campaigns->Get_Record(campaign, &record);
+	int house;
+	do {
+		house = Scen->RandomNumber(0, count - 1);
+		for (int i = 0; i < record->Players.Count(); i++) {
+			if (house == Find_Country_Index(record->Players[i])) {
+				found = true;
 			}
 		}
-	} while (!found); // RA2: as above
-	DebugString("@@@@ Choosing a random player house: %d(%s)\n", house, Wide_To_Narrow(HouseTypes[house]->UIName)); // RA2: as above
-	return(house); // RA2: as above
+	} while (!found);
+	DebugString("@@@@ Choosing a random player house: %d(%s)\n", house, Wide_To_Narrow(HouseTypes[house]->UIName));
+	return(house);
 }
 
 /// <summary>
@@ -903,23 +903,23 @@ int MPCooperative::RandomHumanCountryIndex(void) // RA2: 0x005A4540
 /// </summary>
 int MPCooperative::RandomAICountryIndex(void) // RA2: 0x005A45F0
 {
-	int count = HouseTypes.Count(); // RA2: as above
-	bool found = false; // RA2: as above
-	int campaign = 0; // RA2: as above
-	Campaign->Get_Campaign_Type(&campaign); // RA2: as above
-	CoopCampEntry * record; // RA2: as above
-	Campaigns->Get_Record(campaign, &record); // RA2: as above
-	int house; // RA2: as above
-	do { // RA2: as above
-		house = Scen->RandomNumber(0, count - 1); // RA2: as above
-		for (int i = 0; i < record->Enemies.Count(); i++) { // RA2: as above
-			if (house == Find_Country_Index(record->Enemies[i])) { // RA2: as above
-				found = true; // RA2: as above
+	int count = HouseTypes.Count();
+	bool found = false;
+	int campaign = 0;
+	Campaign->Get_Campaign_Type(&campaign);
+	CoopCampEntry * record;
+	Campaigns->Get_Record(campaign, &record);
+	int house;
+	do {
+		house = Scen->RandomNumber(0, count - 1);
+		for (int i = 0; i < record->Enemies.Count(); i++) {
+			if (house == Find_Country_Index(record->Enemies[i])) {
+				found = true;
 			}
 		}
-	} while (!found); // RA2: as above
-	DebugString("@@@@ Choosing a random AI house: %d(%s)\n", house, Wide_To_Narrow(HouseTypes[house]->UIName)); // RA2: as above
-	return(house); // RA2: as above
+	} while (!found);
+	DebugString("@@@@ Choosing a random AI house: %d(%s)\n", house, Wide_To_Narrow(HouseTypes[house]->UIName));
+	return(house);
 }
 
 /// <summary>
@@ -927,7 +927,7 @@ int MPCooperative::RandomAICountryIndex(void) // RA2: 0x005A45F0
 /// </summary>
 bool MPCooperative::OnGameStart(void) // RA2: 0x005A46A0
 {
-	return(MultiplayerGameMode::OnGameStart()); // RA2: as above
+	return(MultiplayerGameMode::OnGameStart());
 }
 
 /// <summary>
@@ -935,7 +935,7 @@ bool MPCooperative::OnGameStart(void) // RA2: 0x005A46A0
 /// </summary>
 bool MPCooperative::IsAIAllowed(void) // RA2: 0x005A46B0
 {
-	return(false); // RA2: as above
+	return(false);
 }
 
 /// <summary>
@@ -944,83 +944,83 @@ bool MPCooperative::IsAIAllowed(void) // RA2: 0x005A46B0
 /// <param name="player_wins">Whether the local player won.</param>
 void MPCooperative::vt_entry_88(bool player_wins) // RA2: 0x005A46C0
 {
-	bool win = false; // RA2: as above
-	for (int i = 0; i < Houses.Count(); i++) { // RA2: as above
-		if (Houses[i] != NULL && Houses[i]->Is_Human_Player() && !Houses[i]->IsDefeated) { // RA2: as above
-			win = true; // RA2: as above
+	bool win = false;
+	for (int i = 0; i < Houses.Count(); i++) {
+		if (Houses[i] != NULL && Houses[i]->Is_Human_Player() && !Houses[i]->IsDefeated) {
+			win = true;
 		}
 	}
-	DebugString("@@@@ End-of-Game: PlayerWins:%d, win:%d\n", player_wins, win); // RA2: as above
-	if (win) { // RA2: as above
-		int scheme = GadgetClass::Get_Color_Scheme(); // RA2: as above
-		if (Campaign != NULL) { // RA2: as above
-			Campaign->Next_Map(); // RA2: as above
-			if (Campaign->Save_Campaign()) { // RA2: as above
-				Session.Messages.Add_Message(NULL, 0, StringTable::LoadString("TXT_COOP_SAVE_SUCCESS", NULL, "D:\\Ra2\\MPCoop.cpp", 0x42E), scheme, TextPrintType(TPF_6PT_GRAD | TPF_NOSHADOW), (int)(Rule->MessageDelay * 900.0), false); // RA2: as above
-			} else { // RA2: as above
-				Session.Messages.Add_Message(NULL, 0, StringTable::LoadString("TXT_COOP_SAVE_FAILED", NULL, "D:\\Ra2\\MPCoop.cpp", 0x430), scheme, TextPrintType(TPF_6PT_GRAD | TPF_NOSHADOW), (int)(Rule->MessageDelay * 900.0), false); // RA2: as above
+	DebugString("@@@@ End-of-Game: PlayerWins:%d, win:%d\n", player_wins, win);
+	if (win) {
+		int scheme = GadgetClass::Get_Color_Scheme();
+		if (Campaign != NULL) {
+			Campaign->Next_Map();
+			if (Campaign->Save_Campaign()) {
+				Session.Messages.Add_Message(NULL, 0, StringTable::LoadString("TXT_COOP_SAVE_SUCCESS", NULL, "D:\\Ra2\\MPCoop.cpp", 0x42E), scheme, TextPrintType(TPF_6PT_GRAD | TPF_NOSHADOW), (int)(Rule->MessageDelay * 900.0), false);
+			} else {
+				Session.Messages.Add_Message(NULL, 0, StringTable::LoadString("TXT_COOP_SAVE_FAILED", NULL, "D:\\Ra2\\MPCoop.cpp", 0x430), scheme, TextPrintType(TPF_6PT_GRAD | TPF_NOSHADOW), (int)(Rule->MessageDelay * 900.0), false);
 			}
 		}
 	}
-	wcscpy(HostName, Session.GameName); // RA2: as above
-	Scen->IsSkipScore = true; // RA2: as above
-	Scen->IsEndOfGame = false; // RA2: as above
-	Scen->IsNoMapSel = true; // RA2: as above
-	Scen->IsOneTimeOnly = false; // RA2: as above
-	Clear_Vector(&SavedPlayers); // RA2: as above
-	LocalPlayer = 0; // RA2: as above
-	for (int p = 0; p < Session.Players.Count(); p++) { // RA2: as above
-		NodeNameType * entry = new NodeNameType; // RA2: as above
-		wcscpy(entry->Name, Session.Players[p]->Name); // RA2: as above
-		entry->Slot.Clan = Session.Players[p]->Slot.Clan; // RA2: as above
-		entry->Slot.Country = Session.Players[p]->Slot.Country; // RA2: as above
-		entry->Slot.ColorIdx = Session.Players[p]->Slot.ColorIdx; // RA2: as above
-		entry->Slot.HouseIndex = Session.Players[p]->Slot.HouseIndex; // RA2: as above
-		strcpy(entry->Player.Serial, Session.Players[p]->Player.Serial); // RA2: as above
-		entry->Slot.InitialCountry = Session.Players[p]->Slot.InitialCountry; // RA2: as above
-		entry->Slot.InitialColor = Session.Players[p]->Slot.InitialColor; // RA2: as above
-		entry->Slot.SpectatorFlag = Session.Players[p]->Slot.SpectatorFlag; // RA2: as above
-		entry->Slot.Time = Session.Players[p]->Slot.Time; // RA2: as above
-		entry->Slot.Unknown77 = Session.Players[p]->Slot.Unknown77; // RA2: as above
-		entry->Slot.Clan = Session.Players[p]->Slot.Clan; // RA2: as above
-		entry->Address = Session.Players[p]->Address; // RA2: as above
-		SavedPlayers.Add(entry); // RA2: as above
-		if (Session.HostAddress == Session.Players[p]->Address) { // RA2: as above
-			LocalPlayer = p; // RA2: as above
+	wcscpy(HostName, Session.GameName);
+	Scen->IsSkipScore = true;
+	Scen->IsEndOfGame = false;
+	Scen->IsNoMapSel = true;
+	Scen->IsOneTimeOnly = false;
+	Clear_Vector(&SavedPlayers);
+	LocalPlayer = 0;
+	for (int p = 0; p < Session.Players.Count(); p++) {
+		NodeNameType * entry = new NodeNameType;
+		wcscpy(entry->Name, Session.Players[p]->Name);
+		entry->Slot.Clan = Session.Players[p]->Slot.Clan;
+		entry->Slot.Country = Session.Players[p]->Slot.Country;
+		entry->Slot.ColorIdx = Session.Players[p]->Slot.ColorIdx;
+		entry->Slot.HouseIndex = Session.Players[p]->Slot.HouseIndex;
+		strcpy(entry->Player.Serial, Session.Players[p]->Player.Serial);
+		entry->Slot.InitialCountry = Session.Players[p]->Slot.InitialCountry;
+		entry->Slot.InitialColor = Session.Players[p]->Slot.InitialColor;
+		entry->Slot.SpectatorFlag = Session.Players[p]->Slot.SpectatorFlag;
+		entry->Slot.Time = Session.Players[p]->Slot.Time;
+		entry->Slot.Unknown77 = Session.Players[p]->Slot.Unknown77;
+		entry->Slot.Clan = Session.Players[p]->Slot.Clan;
+		entry->Address = Session.Players[p]->Address;
+		SavedPlayers.Add(entry);
+		if (Session.HostAddress == Session.Players[p]->Address) {
+			LocalPlayer = p;
 		}
 	}
-	memcpy(Addresses, Session.SlotAddresses, sizeof(Addresses)); // RA2: as above
-	memcpy(PlayerStates, Session.WolPlayerState, sizeof(PlayerStates)); // RA2: as above
-	memcpy(PlayerPortBases, Session.PlayerPortBase, sizeof(PlayerPortBases)); // RA2: as above
-	memcpy(PlayerPorts, Session.PlayerPorts, sizeof(PlayerPorts)); // RA2: as above
-	wcscpy(MasterName, Session.MasterPlayerName); // RA2: as above
-	MasterID = Session.MasterPlayerID; // RA2: as above
-	SavedField74 = Session.House; // RA2: as above
-	Seed = ::Seed; // RA2: as above
-	TechLevel = BuildLevel; // RA2: as above
-	UnitCount = Session.Options.UnitCount; // RA2: as above
-	Credits = Session.Options.Credits; // RA2: as above
-	FogOfWar = Session.Options.FogOfWar; // RA2: as above
-	BridgeDestruction = Session.Options.BridgeDestruction; // RA2: as above
-	Goodies = Session.Options.Goodies; // RA2: as above
-	MCVRedeploy = Session.Options.MCVRedeploy; // RA2: as above
-	AlliesAllowed = Session.Options.AlliesAllowed; // RA2: as above
-	HarvTruce = Session.Options.HarvTruce; // RA2: as above
-	Bases = Session.Options.Bases; // RA2: as above
-	CTF = Session.Options.CTF; // RA2: as above
-	AIPlayers = Session.Options.AIPlayers; // RA2: as above
-	AIDifficulty = Session.Options.AIDifficulty; // RA2: as above
-	ShortGame = Session.Options.ShortGame; // RA2: as above
-	SWAllowed = Session.Options.SWAllowed; // RA2: as above
-	BuildOffAlly = Session.Options.BuildOffAlly; // RA2: as above
-	CrapEngineers = Session.Options.CrapEngineers; // RA2: as above
-	GameSpeed = Session.Options.GameSpeed; // RA2: as above
-	Session.MultiplayerObserver = false; // RA2: as above
-	Map.Set_Cursor_Shape(NULL); // RA2: as above
+	memcpy(Addresses, Session.SlotAddresses, sizeof(Addresses));
+	memcpy(PlayerStates, Session.WolPlayerState, sizeof(PlayerStates));
+	memcpy(PlayerPortBases, Session.PlayerPortBase, sizeof(PlayerPortBases));
+	memcpy(PlayerPorts, Session.PlayerPorts, sizeof(PlayerPorts));
+	wcscpy(MasterName, Session.MasterPlayerName);
+	MasterID = Session.MasterPlayerID;
+	SavedField74 = Session.House;
+	Seed = ::Seed;
+	TechLevel = BuildLevel;
+	UnitCount = Session.Options.UnitCount;
+	Credits = Session.Options.Credits;
+	FogOfWar = Session.Options.FogOfWar;
+	BridgeDestruction = Session.Options.BridgeDestruction;
+	Goodies = Session.Options.Goodies;
+	MCVRedeploy = Session.Options.MCVRedeploy;
+	AlliesAllowed = Session.Options.AlliesAllowed;
+	HarvTruce = Session.Options.HarvTruce;
+	Bases = Session.Options.Bases;
+	CTF = Session.Options.CTF;
+	AIPlayers = Session.Options.AIPlayers;
+	AIDifficulty = Session.Options.AIDifficulty;
+	ShortGame = Session.Options.ShortGame;
+	SWAllowed = Session.Options.SWAllowed;
+	BuildOffAlly = Session.Options.BuildOffAlly;
+	CrapEngineers = Session.Options.CrapEngineers;
+	GameSpeed = Session.Options.GameSpeed;
+	Session.MultiplayerObserver = false;
+	Map.Set_Cursor_Shape(NULL);
 	Map.PendingObjectPtr = 0; // RA2: nothing is being placed any more
-	Map.PendingObject = 0; // RA2: as above
-	Map.PendingHouse = HOUSE_NONE; // RA2: as above
-	for (int row = 0; row < 4; row++) { // RA2: as above
+	Map.PendingObject = 0;
+	Map.PendingHouse = HOUSE_NONE;
+	for (int row = 0; row < 4; row++) {
 		Session.Score[row].Kills[Session.CurGame] = -1; // RA2: the first four score records have no kills for the game that follows
 	}
 }
@@ -1033,82 +1033,82 @@ void MPCooperative::vt_entry_88(bool player_wins) // RA2: 0x005A46C0
 /// <param name="map">The selected scenario.</param>
 void MPCooperative::DrawTeamDropdown(HWND list, DynamicVectorClass<MultiMission const *> * maps, MultiMission const * map) // RA2: 0x005A4B70
 {
-	unknown_4 = true; // RA2: as above
-	if (ScoreScreen == NULL) { // RA2: as above
-		ScoreScreen = new CampaignScoreClass; // RA2: as above
+	unknown_4 = true;
+	if (ScoreScreen == NULL) {
+		ScoreScreen = new CampaignScoreClass;
 	}
-	SendMessageA(list, LB_RESETCONTENT, 0, 0); // RA2: as above
-	SaveListed = false; // RA2: as above
-	if (Campaign == NULL) { // RA2: as above
-		if (Session.Players.Count() == 2) { // RA2: as above
-			Campaign = new CoopCampaignClass(Session.Players[0]->Name, Session.Players[1]->Name); // RA2: as above
+	SendMessageA(list, LB_RESETCONTENT, 0, 0);
+	SaveListed = false;
+	if (Campaign == NULL) {
+		if (Session.Players.Count() == 2) {
+			Campaign = new CoopCampaignClass(Session.Players[0]->Name, Session.Players[1]->Name);
 		}
-	} else if (Session.Players.Count() != 2) { // RA2: as above
-		Campaign->Set_Names(L"", L""); // RA2: as above
+	} else if (Session.Players.Count() != 2) {
+		Campaign->Set_Names(L"", L"");
 	}
-	if (CampaignStates.Count() == 0) { // RA2: as above
-		int records; // RA2: as above
-		Campaigns->Get_Count(&records); // RA2: as above
-		for (int r = 0; r < records; r++) { // RA2: as above
-			CoopCampaignClass * state = new CoopCampaignClass; // RA2: as above
-			state->Load_Campaign(r); // RA2: as above
-			CampaignStates.Add(state); // RA2: as above
+	if (CampaignStates.Count() == 0) {
+		int records;
+		Campaigns->Get_Count(&records);
+		for (int r = 0; r < records; r++) {
+			CoopCampaignClass * state = new CoopCampaignClass;
+			state->Load_Campaign(r);
+			CampaignStates.Add(state);
 		}
 	}
-	DynamicVectorClass<wchar_t *> names; // RA2: as above
-	Campaigns->Copy_Names(names); // RA2: as above
-	int count = names.Length(); // RA2: as above
-	int i; // RA2: as above
-	for (i = 0; i < count; i++) { // RA2: as above
-		if (names[i] != NULL) { // RA2: as above
-			char * mapname; // RA2: as above
-			CampaignStates[i]->Get_Map_Name(&mapname, -1); // RA2: as above
-			int map_count = maps->Count(); // RA2: as above
-			char name[260]; // RA2: as above
-			MultiMission const * found = NULL; // RA2: as above
-			sprintf(name, "%s.MAP", mapname); // RA2: as above
-			for (int k = 0; k < map_count; k++) { // RA2: as above
-				if (found != NULL) { // RA2: as above
-					break; // RA2: as above
+	DynamicVectorClass<wchar_t *> names;
+	Campaigns->Copy_Names(names);
+	int count = names.Length();
+	int i;
+	for (i = 0; i < count; i++) {
+		if (names[i] != NULL) {
+			char * mapname;
+			CampaignStates[i]->Get_Map_Name(&mapname, -1);
+			int map_count = maps->Count();
+			char name[260];
+			MultiMission const * found = NULL;
+			sprintf(name, "%s.MAP", mapname);
+			for (int k = 0; k < map_count; k++) {
+				if (found != NULL) {
+					break;
 				}
-				char const * scenario = (*maps)[k]->Get_Filename(); // RA2: as above
-				if (stricmp(scenario, name) == 0) { // RA2: as above
-					found = (*maps)[k]; // RA2: as above
+				char const * scenario = (*maps)[k]->Get_Filename();
+				if (stricmp(scenario, name) == 0) {
+					found = (*maps)[k];
 				}
 			}
-			if (found != NULL) { // RA2: as above
-				wchar_t text[260]; // RA2: as above
-				swprintf(text, L"%d. %s", i + 1, names[i]); // RA2: as above
-				SendMessageA(list, LB_ADDITEM, 0, (LPARAM)text); // RA2: as above
-				SendMessageA(list, LB_SETITEMDATA, i, (LPARAM)found); // RA2: as above
-			} else { // RA2: as above
-				DebugString("@@@@ Could not find %s for %s\n", name, names[i]); // RA2: as above
+			if (found != NULL) {
+				wchar_t text[260];
+				swprintf(text, L"%d. %s", i + 1, names[i]);
+				SendMessageA(list, LB_ADDITEM, 0, (LPARAM)text);
+				SendMessageA(list, LB_SETITEMDATA, i, (LPARAM)found);
+			} else {
+				DebugString("@@@@ Could not find %s for %s\n", name, names[i]);
 			}
-			delete names[i]; // RA2: as above
+			delete names[i];
 		}
 	}
-	if (Campaign != NULL && Campaign->Has_Saved_Campaign() && !SaveListed) { // RA2: as above
-		char name[260]; // RA2: as above
-		Campaign->Saved_Map_Is_Undefined(name); // RA2: as above
-		strcat(name, ".MAP"); // RA2: as above
-		int map_count = maps->Count(); // RA2: as above
-		MultiMission const * found = NULL; // RA2: as above
-		for (int k = 0; k < map_count; k++) { // RA2: as above
-			if (found != NULL) { // RA2: as above
-				break; // RA2: as above
+	if (Campaign != NULL && Campaign->Has_Saved_Campaign() && !SaveListed) {
+		char name[260];
+		Campaign->Saved_Map_Is_Undefined(name);
+		strcat(name, ".MAP");
+		int map_count = maps->Count();
+		MultiMission const * found = NULL;
+		for (int k = 0; k < map_count; k++) {
+			if (found != NULL) {
+				break;
 			}
-			char const * scenario = (*maps)[k]->Get_Filename(); // RA2: as above
-			if (stricmp(scenario, name) == 0) { // RA2: as above
-				found = (*maps)[k]; // RA2: as above
+			char const * scenario = (*maps)[k]->Get_Filename();
+			if (stricmp(scenario, name) == 0) {
+				found = (*maps)[k];
 			}
 		}
-		if (found != NULL) { // RA2: as above
-			SendMessageA(list, LB_ADDITEM, 0, (LPARAM)StringTable::LoadString("TXT_COOP_USE_SAVE", NULL, "D:\\Ra2\\MPCoop.cpp", 0x528)); // RA2: as above
-			SendMessageA(list, LB_SETITEMDATA, i, (LPARAM)found); // RA2: as above
-			SaveListed = true; // RA2: as above
+		if (found != NULL) {
+			SendMessageA(list, LB_ADDITEM, 0, (LPARAM)StringTable::LoadString("TXT_COOP_USE_SAVE", NULL, "D:\\Ra2\\MPCoop.cpp", 0x528));
+			SendMessageA(list, LB_SETITEMDATA, i, (LPARAM)found);
+			SaveListed = true;
 		}
 	}
-	SendMessageA(list, LB_SETCURSEL, 0, 0); // RA2: as above
+	SendMessageA(list, LB_SETCURSEL, 0, 0);
 }
 
 /// <summary>
@@ -1116,16 +1116,16 @@ void MPCooperative::DrawTeamDropdown(HWND list, DynamicVectorClass<MultiMission 
 /// </summary>
 bool MPCooperative::Recreate_Campaign(void) // RA2: 0x005A4F20
 {
-	if (Campaign != NULL) { // RA2: as above
-		delete Campaign; // RA2: as above
+	if (Campaign != NULL) {
+		delete Campaign;
 	}
-	Campaign = NULL; // RA2: as above
-	Campaign = new CoopCampaignClass; // RA2: as above
-	Campaign->Load_Campaign(0); // RA2: as above
-	if (Session.Players.Count() == 2) { // RA2: as above
-		Campaign->Set_Names(Session.Players[0]->Name, Session.Players[1]->Name); // RA2: as above
+	Campaign = NULL;
+	Campaign = new CoopCampaignClass;
+	Campaign->Load_Campaign(0);
+	if (Session.Players.Count() == 2) {
+		Campaign->Set_Names(Session.Players[0]->Name, Session.Players[1]->Name);
 	}
-	return((Campaign != NULL) ? true : false); // RA2: as above
+	return((Campaign != NULL) ? true : false);
 }
 
 /// <summary>
@@ -1133,17 +1133,17 @@ bool MPCooperative::Recreate_Campaign(void) // RA2: 0x005A4F20
 /// </summary>
 void MPCooperative::vt_entry_84(void) // RA2: 0x005A4F90
 {
-	HWND dialog = GameoptWindow(); // RA2: as above
-	if (dialog != NULL) { // RA2: as above
-		HWND item = GetDlgItem(dialog, IDC_CAMPAIGN_DESCRIPTION); // RA2: as above
-		if (item != NULL) { // RA2: as above
-			SendMessageA(item, ST_SETTEXT, 0, (LPARAM)L""); // RA2: as above
-			ShowWindow(item, SW_HIDE); // RA2: as above
+	HWND dialog = GameoptWindow();
+	if (dialog != NULL) {
+		HWND item = GetDlgItem(dialog, IDC_CAMPAIGN_DESCRIPTION);
+		if (item != NULL) {
+			SendMessageA(item, ST_SETTEXT, 0, (LPARAM)L"");
+			ShowWindow(item, SW_HIDE);
 		}
-		Fill_Side_Combos(dialog); // RA2: as above
+		Fill_Side_Combos(dialog);
 	}
-	for (int i = 0; i < Session.Players.Count(); i++) { // RA2: as above
-		Session.Players[i]->Slot.SpectatorFlag = i; // RA2: as above
+	for (int i = 0; i < Session.Players.Count(); i++) {
+		Session.Players[i]->Slot.SpectatorFlag = i;
 	}
 }
 
@@ -1152,57 +1152,57 @@ void MPCooperative::vt_entry_84(void) // RA2: 0x005A4F90
 /// </summary>
 void MPCooperative::vt_entry_78(void) // RA2: 0x005A5000
 {
-	if (WS_Top_Window_ID() == 0x6B) { // RA2: as above
-		if (SaveListed) { // RA2: as above
-			HWND list = GetDlgItem(WS_Top_Window(), IDC_SCENARIO_LIST); // RA2: as above
-			int count = SendMessageA(list, LB_GETCOUNT, 0, 0); // RA2: as above
-			if (count == -1) { // RA2: as above
-				if (Campaign != NULL) { // RA2: as above
-					Campaign->Set_Names(L"", L""); // RA2: as above
+	if (WS_Top_Window_ID() == 0x6B) {
+		if (SaveListed) {
+			HWND list = GetDlgItem(WS_Top_Window(), IDC_SCENARIO_LIST);
+			int count = SendMessageA(list, LB_GETCOUNT, 0, 0);
+			if (count == -1) {
+				if (Campaign != NULL) {
+					Campaign->Set_Names(L"", L"");
 				}
-				return; // RA2: as above
+				return;
 			}
-			if (SendMessageA(list, LB_GETCURSEL, 0, 0) == count - 1) { // RA2: as above
-				SendMessageA(list, LB_SETCURSEL, count - 2, 0); // RA2: as above
+			if (SendMessageA(list, LB_GETCURSEL, 0, 0) == count - 1) {
+				SendMessageA(list, LB_SETCURSEL, count - 2, 0);
 			}
-			SendMessageA(list, LB_DELETESTRING, count - 1, 0); // RA2: as above
-			SaveListed = false; // RA2: as above
+			SendMessageA(list, LB_DELETESTRING, count - 1, 0);
+			SaveListed = false;
 		}
-	} else { // RA2: as above
-		if (Campaign != NULL && SavedCampaignChosen) { // RA2: as above
-			if (LoadedRecord != 0) { // RA2: as above
-				Campaign->Load_Campaign(0); // RA2: as above
-				Campaign->Load_Campaign(LoadedRecord); // RA2: as above
-			} else { // RA2: as above
-				Campaign->Load_Campaign(1); // RA2: as above
-				Campaign->Load_Campaign(LoadedRecord); // RA2: as above
+	} else {
+		if (Campaign != NULL && SavedCampaignChosen) {
+			if (LoadedRecord != 0) {
+				Campaign->Load_Campaign(0);
+				Campaign->Load_Campaign(LoadedRecord);
+			} else {
+				Campaign->Load_Campaign(1);
+				Campaign->Load_Campaign(LoadedRecord);
 			}
-			char * map; // RA2: as above
-			Campaign->Get_Map_Name(&map, -1); // RA2: as above
-			int count = Session.Scenarios.Count(); // RA2: as above
-			char name[260]; // RA2: as above
-			sprintf(name, "%s.MAP", map); // RA2: as above
-			int i; // RA2: as above
-			for (i = 0; i < count; i++) { // RA2: as above
-				char const * scenario = Session.Scenarios[i]->Get_Filename(); // RA2: as above
-				if (stricmp(scenario, name) == 0) { // RA2: as above
-					break; // RA2: as above
+			char * map;
+			Campaign->Get_Map_Name(&map, -1);
+			int count = Session.Scenarios.Count();
+			char name[260];
+			sprintf(name, "%s.MAP", map);
+			int i;
+			for (i = 0; i < count; i++) {
+				char const * scenario = Session.Scenarios[i]->Get_Filename();
+				if (stricmp(scenario, name) == 0) {
+					break;
 				}
 			}
-			Session.Options.ScenarioIndex = i; // RA2: as above
-			Scen->Scenario = i; // RA2: as above
-			Set_Scenario_Info_From_Index(i); // RA2: as above
+			Session.Options.ScenarioIndex = i;
+			Scen->Scenario = i;
+			Set_Scenario_Info_From_Index(i);
 		}
-		HWND dialog = GameoptWindow(); // RA2: as above
-		if (dialog != NULL) { // RA2: as above
-			Set_Item_Text(dialog, this); // RA2: as above
-			Set_Skirmish_Dialog_Text(dialog); // RA2: as above
-			Update_Network_Dialog_Preview(dialog); // RA2: as above
+		HWND dialog = GameoptWindow();
+		if (dialog != NULL) {
+			Set_Item_Text(dialog, this);
+			Set_Skirmish_Dialog_Text(dialog);
+			Update_Network_Dialog_Preview(dialog);
 		}
-		Send_Lobby_Options(true, true); // RA2: as above
+		Send_Lobby_Options(true, true);
 	}
-	if (Campaign != NULL) { // RA2: as above
-		Campaign->Set_Names(L"", L""); // RA2: as above
+	if (Campaign != NULL) {
+		Campaign->Set_Names(L"", L"");
 	}
 }
 
@@ -1211,44 +1211,44 @@ void MPCooperative::vt_entry_78(void) // RA2: 0x005A5000
 /// </summary>
 void MPCooperative::vt_entry_7C(void) // RA2: 0x005A5190
 {
-	if (Campaign == NULL) { // RA2: as above
-		Campaign = new CoopCampaignClass; // RA2: as above
-		Campaign->Load_Campaign(0); // RA2: as above
+	if (Campaign == NULL) {
+		Campaign = new CoopCampaignClass;
+		Campaign->Load_Campaign(0);
 	}
-	if (Campaign != NULL) { // RA2: as above
-		if (Session.Players.Count() == 2) { // RA2: as above
-			Campaign->Set_Names(Session.Players[0]->Name, Session.Players[1]->Name); // RA2: as above
+	if (Campaign != NULL) {
+		if (Session.Players.Count() == 2) {
+			Campaign->Set_Names(Session.Players[0]->Name, Session.Players[1]->Name);
 		}
-		vt_entry_50(); // RA2: as above
-		if (Campaign->Has_Saved_Campaign()) { // RA2: as above
-			if (WS_Top_Window_ID() == 0x6B) { // RA2: as above
-				if (!SaveListed) { // RA2: as above
-					char name[260]; // RA2: as above
-					Campaign->Saved_Map_Is_Undefined(name); // RA2: as above
-					strcat(name, ".MAP"); // RA2: as above
-					MultiMission * map = NULL; // RA2: as above
-					int count = Session.Scenarios.Count(); // RA2: as above
-					for (int i = 0; i < count; i++) { // RA2: as above
-						if (map != NULL) { // RA2: as above
-							break; // RA2: as above
+		vt_entry_50();
+		if (Campaign->Has_Saved_Campaign()) {
+			if (WS_Top_Window_ID() == 0x6B) {
+				if (!SaveListed) {
+					char name[260];
+					Campaign->Saved_Map_Is_Undefined(name);
+					strcat(name, ".MAP");
+					MultiMission * map = NULL;
+					int count = Session.Scenarios.Count();
+					for (int i = 0; i < count; i++) {
+						if (map != NULL) {
+							break;
 						}
-						char const * scenario = Session.Scenarios[i]->Get_Filename(); // RA2: as above
-						if (stricmp(scenario, name) == 0) { // RA2: as above
-							map = Session.Scenarios[i]; // RA2: as above
+						char const * scenario = Session.Scenarios[i]->Get_Filename();
+						if (stricmp(scenario, name) == 0) {
+							map = Session.Scenarios[i];
 						}
 					}
-					if (map != NULL) { // RA2: as above
-						HWND list = GetDlgItem(WS_Top_Window(), IDC_SCENARIO_LIST); // RA2: as above
-						int rows = SendMessageA(list, LB_GETCOUNT, 0, 0); // RA2: as above
-						if (rows != -1) { // RA2: as above
-							SendMessageA(list, LB_ADDITEM, 0, (LPARAM)StringTable::LoadString("TXT_COOP_USE_SAVE", NULL, "D:\\Ra2\\MPCoop.cpp", 0x5E1)); // RA2: as above
-							SendMessageA(list, LB_SETITEMDATA, rows, (LPARAM)map); // RA2: as above
-							SaveListed = true; // RA2: as above
+					if (map != NULL) {
+						HWND list = GetDlgItem(WS_Top_Window(), IDC_SCENARIO_LIST);
+						int rows = SendMessageA(list, LB_GETCOUNT, 0, 0);
+						if (rows != -1) {
+							SendMessageA(list, LB_ADDITEM, 0, (LPARAM)StringTable::LoadString("TXT_COOP_USE_SAVE", NULL, "D:\\Ra2\\MPCoop.cpp", 0x5E1));
+							SendMessageA(list, LB_SETITEMDATA, rows, (LPARAM)map);
+							SaveListed = true;
 						}
 					}
 				}
-			} else { // RA2: as above
-				Lobby_Chat_Printf(-1, StringTable::LoadString("TXT_SAVE_CAMP_AVAILABLE", NULL, "D:\\Ra2\\MPCoop.cpp", 0x5E7)); // RA2: as above
+			} else {
+				Lobby_Chat_Printf(-1, StringTable::LoadString("TXT_SAVE_CAMP_AVAILABLE", NULL, "D:\\Ra2\\MPCoop.cpp", 0x5E7));
 			}
 		}
 	}
@@ -1259,7 +1259,7 @@ void MPCooperative::vt_entry_7C(void) // RA2: 0x005A5190
 /// </summary>
 int MPCooperative::vt_entry_80(void) // RA2: 0x005A5340
 {
-	return(2); // RA2: as above
+	return(2);
 }
 
 /// <summary>
@@ -1267,52 +1267,52 @@ int MPCooperative::vt_entry_80(void) // RA2: 0x005A5340
 /// </summary>
 bool MPCooperative::vt_entry_90(void) // RA2: 0x005A5350
 {
-	if (ScoreScreen == NULL) { // RA2: as above
-		ScoreScreen = new CampaignScoreClass; // RA2: as above
+	if (ScoreScreen == NULL) {
+		ScoreScreen = new CampaignScoreClass;
 	}
-	if (Campaign == NULL) { // RA2: as above
-		return(false); // RA2: as above
+	if (Campaign == NULL) {
+		return(false);
 	}
-	if (Campaigns == NULL) { // RA2: as above
-		return(false); // RA2: as above
+	if (Campaigns == NULL) {
+		return(false);
 	}
-	DynamicVectorClass<MPlayerScoreType *> scores; // RA2: as above
-	int time; // RA2: as above
-	Campaign->Get_Player_Scores(scores, &time); // RA2: as above
-	CoopCampEntry * record = NULL; // RA2: as above
-	int type; // RA2: as above
-	if (!Campaign->Get_Campaign_Type(&type)) { // RA2: as above
-		type = -1; // RA2: as above
-	} else { // RA2: as above
-		Campaigns->Get_Record(type, &record); // RA2: as above
+	DynamicVectorClass<MPlayerScoreType *> scores;
+	int time;
+	Campaign->Get_Player_Scores(scores, &time);
+	CoopCampEntry * record = NULL;
+	int type;
+	if (!Campaign->Get_Campaign_Type(&type)) {
+		type = -1;
+	} else {
+		Campaigns->Get_Record(type, &record);
 	}
-	int difficulty = -1; // RA2: as above
-	if (type == 0 || type == 1) { // RA2: as above
-		difficulty = DIFF_EASY; // RA2: as above
-	} else if (type == 2 || type == 3) { // RA2: as above
-		difficulty = DIFF_NORMAL; // RA2: as above
-	} else if (type == 4) { // RA2: as above
-		difficulty = DIFF_HARD; // RA2: as above
+	int difficulty = -1;
+	if (type == 0 || type == 1) {
+		difficulty = DIFF_EASY;
+	} else if (type == 2 || type == 3) {
+		difficulty = DIFF_NORMAL;
+	} else if (type == 4) {
+		difficulty = DIFF_HARD;
 	}
-	int count; // RA2: as above
-	Campaign->Get_Map_Count(&count); // RA2: as above
-	int current; // RA2: as above
-	Campaign->Get_Current_Map(&current); // RA2: as above
-	if (record != NULL) { // RA2: as above
-		ScoreScreen->Presentation(scores, Scen->ElapsedTimer(), current < count, difficulty, record->Name); // RA2: as above
-	} else { // RA2: as above
-		ScoreScreen->Presentation(scores, Scen->ElapsedTimer(), current < count, difficulty, L""); // RA2: as above
+	int count;
+	Campaign->Get_Map_Count(&count);
+	int current;
+	Campaign->Get_Current_Map(&current);
+	if (record != NULL) {
+		ScoreScreen->Presentation(scores, Scen->ElapsedTimer(), current < count, difficulty, record->Name);
+	} else {
+		ScoreScreen->Presentation(scores, Scen->ElapsedTimer(), current < count, difficulty, L"");
 	}
-	while (scores.Count() != 0) { // RA2: as above
-		if (scores[0] != NULL) { // RA2: as above
-			delete scores[0]; // RA2: as above
+	while (scores.Count() != 0) {
+		if (scores[0] != NULL) {
+			delete scores[0];
 		}
-		scores[0] = NULL; // RA2: as above
-		scores.Delete_Index(0); // RA2: as above
+		scores[0] = NULL;
+		scores.Delete_Index(0);
 	}
-	bool result = CampaignScoreDone; // RA2: as above
-	CampaignScoreDone = false; // RA2: as above
-	return(result); // RA2: as above
+	bool result = CampaignScoreDone;
+	CampaignScoreDone = false;
+	return(result);
 }
 
 /// <summary>
@@ -1321,40 +1321,40 @@ bool MPCooperative::vt_entry_90(void) // RA2: 0x005A5350
 /// <param name="show">Whether the screen is shown.</param>
 void MPCooperative::vt_entry_8C(bool show) // RA2: 0x005A5570
 {
-	if (Campaign != NULL) { // RA2: as above
-		int count; // RA2: as above
-		Campaign->Get_Map_Count(&count); // RA2: as above
-		int current; // RA2: as above
-		Campaign->Get_Current_Map(&current); // RA2: as above
-		if (show && current >= count) { // RA2: as above
-			CampaignEndScoreClass * score = new CampaignEndScoreClass; // RA2: as above
-			if (score != NULL) { // RA2: as above
-				DynamicVectorClass<MPlayerScoreType *> scores; // RA2: as above
-				int time; // RA2: as above
-				Campaign->Get_Player_Scores(scores, &time); // RA2: as above
-				CoopCampEntry * record = NULL; // RA2: as above
-				int type; // RA2: as above
-				if (!Campaign->Get_Campaign_Type(&type)) { // RA2: as above
-					type = -1; // RA2: as above
-				} else { // RA2: as above
-					Campaigns->Get_Record(type, &record); // RA2: as above
+	if (Campaign != NULL) {
+		int count;
+		Campaign->Get_Map_Count(&count);
+		int current;
+		Campaign->Get_Current_Map(&current);
+		if (show && current >= count) {
+			CampaignEndScoreClass * score = new CampaignEndScoreClass;
+			if (score != NULL) {
+				DynamicVectorClass<MPlayerScoreType *> scores;
+				int time;
+				Campaign->Get_Player_Scores(scores, &time);
+				CoopCampEntry * record = NULL;
+				int type;
+				if (!Campaign->Get_Campaign_Type(&type)) {
+					type = -1;
+				} else {
+					Campaigns->Get_Record(type, &record);
 				}
-				int difficulty = -1; // RA2: as above
-				if (type == 0 || type == 1) { // RA2: as above
-					difficulty = DIFF_EASY; // RA2: as above
-				} else if (type == 2 || type == 3) { // RA2: as above
-					difficulty = DIFF_NORMAL; // RA2: as above
-				} else if (type == 4) { // RA2: as above
-					difficulty = DIFF_HARD; // RA2: as above
+				int difficulty = -1;
+				if (type == 0 || type == 1) {
+					difficulty = DIFF_EASY;
+				} else if (type == 2 || type == 3) {
+					difficulty = DIFF_NORMAL;
+				} else if (type == 4) {
+					difficulty = DIFF_HARD;
 				}
-				score->Presentation(scores, time, difficulty, type + 1, record->Name); // RA2: as above
-				delete score; // RA2: as above
-				while (scores.Count() != 0) { // RA2: as above
-					if (scores[0] != NULL) { // RA2: as above
-						delete scores[0]; // RA2: as above
+				score->Presentation(scores, time, difficulty, type + 1, record->Name);
+				delete score;
+				while (scores.Count() != 0) {
+					if (scores[0] != NULL) {
+						delete scores[0];
 					}
-					scores[0] = NULL; // RA2: as above
-					scores.Delete_Index(0); // RA2: as above
+					scores[0] = NULL;
+					scores.Delete_Index(0);
 				}
 			}
 		}
@@ -1366,207 +1366,207 @@ void MPCooperative::vt_entry_8C(bool show) // RA2: 0x005A5570
 /// </summary>
 void MPCooperative::vt_entry_94(void) // RA2: 0x005A5720
 {
-	NetNumType net; // RA2: as above
-	NetNodeType node; // RA2: as above
-	unsigned short port; // RA2: as above
-	char * map; // RA2: as above
-	Campaign->Get_Map_Name(&map, -1); // RA2: as above
-	char name[260]; // RA2: as above
-	sprintf(name, "%s.MAP", map); // RA2: as above
-	strcpy(Scen->NextScenarioName, name); // RA2: as above
-	Scen->Campaign = CAMPAIGN_NONE; // RA2: as above
-	Scen->IsSkipScore = true; // RA2: as above
-	int count = Session.Scenarios.Count(); // RA2: as above
-	sprintf(name, "%s.MAP", map); // RA2: as above
-	for (int i = 0; i < count; i++) { // RA2: as above
-		if (strncmp(name, Session.Scenarios[i]->Get_Filename(), _MAX_PATH) == 0) { // RA2: as above
-			Session.Options.ScenarioIndex = i; // RA2: as above
-			break; // RA2: as above
+	NetNumType net;
+	NetNodeType node;
+	unsigned short port;
+	char * map;
+	Campaign->Get_Map_Name(&map, -1);
+	char name[260];
+	sprintf(name, "%s.MAP", map);
+	strcpy(Scen->NextScenarioName, name);
+	Scen->Campaign = CAMPAIGN_NONE;
+	Scen->IsSkipScore = true;
+	int count = Session.Scenarios.Count();
+	sprintf(name, "%s.MAP", map);
+	for (int i = 0; i < count; i++) {
+		if (strncmp(name, Session.Scenarios[i]->Get_Filename(), _MAX_PATH) == 0) {
+			Session.Options.ScenarioIndex = i;
+			break;
 		}
 	}
-	GameID = 0; // RA2: as above
-	GameProduct = g_GameSKU; // RA2: as above
-	WestwoodOnline_Tournament = 0; // RA2: as above
-	strcpy(PlayerNickname, g_NickName.get()); // RA2: as above
-	wcscpy(Session.GameName, HostName); // RA2: as above
-	Clear_Vector(&Session.Players); // RA2: as above
-	Session.NumPlayers = 0; // RA2: as above
-	for (int p = 0; p < SavedPlayers.Count(); p++) { // RA2: as above
-		NodeNameType * entry = new NodeNameType; // RA2: as above
-		wcscpy(entry->Name, SavedPlayers[p]->Name); // RA2: as above
-		entry->Slot.Clan = SavedPlayers[p]->Slot.Clan; // RA2: as above
-		entry->Slot.Country = SavedPlayers[p]->Slot.Country; // RA2: as above
-		entry->Slot.ColorIdx = SavedPlayers[p]->Slot.ColorIdx; // RA2: as above
-		entry->Slot.HouseIndex = SavedPlayers[p]->Slot.HouseIndex; // RA2: as above
-		strcpy(entry->Player.Serial, SavedPlayers[p]->Player.Serial); // RA2: as above
-		entry->Slot.InitialCountry = SavedPlayers[p]->Slot.InitialCountry; // RA2: as above
-		entry->Slot.InitialColor = SavedPlayers[p]->Slot.InitialColor; // RA2: as above
-		entry->Slot.SpectatorFlag = SavedPlayers[p]->Slot.SpectatorFlag; // RA2: as above
-		entry->Slot.Time = SavedPlayers[p]->Slot.Time; // RA2: as above
-		entry->Slot.Unknown77 = SavedPlayers[p]->Slot.Unknown77; // RA2: as above
-		entry->Slot.Clan = SavedPlayers[p]->Slot.Clan; // RA2: as above
-		entry->Address = SavedPlayers[p]->Address; // RA2: as above
-		Session.Players.Add(entry); // RA2: as above
-		Session.NumPlayers++; // RA2: as above
+	GameID = 0;
+	GameProduct = g_GameSKU;
+	WestwoodOnline_Tournament = 0;
+	strcpy(PlayerNickname, g_NickName.get());
+	wcscpy(Session.GameName, HostName);
+	Clear_Vector(&Session.Players);
+	Session.NumPlayers = 0;
+	for (int p = 0; p < SavedPlayers.Count(); p++) {
+		NodeNameType * entry = new NodeNameType;
+		wcscpy(entry->Name, SavedPlayers[p]->Name);
+		entry->Slot.Clan = SavedPlayers[p]->Slot.Clan;
+		entry->Slot.Country = SavedPlayers[p]->Slot.Country;
+		entry->Slot.ColorIdx = SavedPlayers[p]->Slot.ColorIdx;
+		entry->Slot.HouseIndex = SavedPlayers[p]->Slot.HouseIndex;
+		strcpy(entry->Player.Serial, SavedPlayers[p]->Player.Serial);
+		entry->Slot.InitialCountry = SavedPlayers[p]->Slot.InitialCountry;
+		entry->Slot.InitialColor = SavedPlayers[p]->Slot.InitialColor;
+		entry->Slot.SpectatorFlag = SavedPlayers[p]->Slot.SpectatorFlag;
+		entry->Slot.Time = SavedPlayers[p]->Slot.Time;
+		entry->Slot.Unknown77 = SavedPlayers[p]->Slot.Unknown77;
+		entry->Slot.Clan = SavedPlayers[p]->Slot.Clan;
+		entry->Address = SavedPlayers[p]->Address;
+		Session.Players.Add(entry);
+		Session.NumPlayers++;
 	}
-	int computers = Session.Scenarios[Session.Options.ScenarioIndex]->MaxPlayers - 2; // RA2: as above
-	if (computers > 0) { // RA2: as above
-		Session.Options.AIPlayers = computers; // RA2: as above
-		int used = 0; // RA2: as above
-		CoopCampEntry * record; // RA2: as above
-		Campaigns->Get_Record(CampaignIndex, &record); // RA2: as above
-		int current; // RA2: as above
-		Campaign->Get_Current_Map(&current); // RA2: as above
-		for (int slot = 2; slot < 8; slot++) { // RA2: as above
-			if (used < computers) { // RA2: as above
-				if (strcmp(record->AIName, "Normal") == 0) { // RA2: as above
-					Session.Options.AISlots.Difficulties[slot] = 1; // RA2: as above
-				} else if (strcmp(record->AIName, "Hard") == 0) { // RA2: as above
-					Session.Options.AISlots.Difficulties[slot] = 0; // RA2: as above
-				} else { // RA2: as above
-					Session.Options.AISlots.Difficulties[slot] = 2; // RA2: as above
+	int computers = Session.Scenarios[Session.Options.ScenarioIndex]->MaxPlayers - 2;
+	if (computers > 0) {
+		Session.Options.AIPlayers = computers;
+		int used = 0;
+		CoopCampEntry * record;
+		Campaigns->Get_Record(CampaignIndex, &record);
+		int current;
+		Campaign->Get_Current_Map(&current);
+		for (int slot = 2; slot < 8; slot++) {
+			if (used < computers) {
+				if (strcmp(record->AIName, "Normal") == 0) {
+					Session.Options.AISlots.Difficulties[slot] = 1;
+				} else if (strcmp(record->AIName, "Hard") == 0) {
+					Session.Options.AISlots.Difficulties[slot] = 0;
+				} else {
+					Session.Options.AISlots.Difficulties[slot] = 2;
 				}
-				Session.Options.AISlots.Countries[slot] = HouseChoices[slot][current]; // RA2: as above
-				Session.Options.AISlots.Colors[slot] = ColorChoices[slot][current]; // RA2: as above
-				used++; // RA2: as above
-			} else { // RA2: as above
-				Session.Options.AISlots.Countries[slot] = -1; // RA2: as above
-				Session.Options.AISlots.Colors[slot] = -1; // RA2: as above
+				Session.Options.AISlots.Countries[slot] = HouseChoices[slot][current];
+				Session.Options.AISlots.Colors[slot] = ColorChoices[slot][current];
+				used++;
+			} else {
+				Session.Options.AISlots.Countries[slot] = -1;
+				Session.Options.AISlots.Colors[slot] = -1;
 			}
 		}
 	}
-	Session.HostAddress = Session.Players[LocalPlayer]->Address; // RA2: as above
-	wcscpy(Session.MasterPlayerName, Session.Players[LocalPlayer]->Name); // RA2: as above
-	Session.MasterPlayerID = -1; // RA2: as above
-	Session.House = (HousesType)SavedField74; // RA2: as above
-	PacketTransport->Clear_Broadcast_Addresses(); // RA2: as above
-	char address[32] = "xxx.xxx.xxx.xxx"; // RA2: as above
-	for (int n = 1; n < Session.Players.Count(); n++) { // RA2: as above
-		Session.Players[n]->Address.Get_Address(net, node, &port); // RA2: as above
-		PacketTransport->Set_Broadcast_Address(address, port); // RA2: as above
+	Session.HostAddress = Session.Players[LocalPlayer]->Address;
+	wcscpy(Session.MasterPlayerName, Session.Players[LocalPlayer]->Name);
+	Session.MasterPlayerID = -1;
+	Session.House = (HousesType)SavedField74;
+	PacketTransport->Clear_Broadcast_Addresses();
+	char address[32] = "xxx.xxx.xxx.xxx";
+	for (int n = 1; n < Session.Players.Count(); n++) {
+		Session.Players[n]->Address.Get_Address(net, node, &port);
+		PacketTransport->Set_Broadcast_Address(address, port);
 	}
-	memcpy(Session.SlotAddresses, Addresses, sizeof(Addresses)); // RA2: as above
-	memcpy(Session.WolPlayerState, PlayerStates, sizeof(PlayerStates)); // RA2: as above
-	memcpy(Session.PlayerPortBase, PlayerPortBases, sizeof(PlayerPortBases)); // RA2: as above
-	memcpy(Session.PlayerPorts, PlayerPorts, sizeof(PlayerPorts)); // RA2: as above
-	wcscpy(Session.MasterPlayerName, MasterName); // RA2: as above
-	Session.MasterPlayerID = MasterID; // RA2: as above
-	::Seed = Seed; // RA2: as above
-	BuildLevel = TechLevel; // RA2: as above
-	Session.Options.UnitCount = UnitCount; // RA2: as above
-	Session.Options.Credits = Credits; // RA2: as above
-	Session.Options.FogOfWar = FogOfWar; // RA2: as above
-	Session.Options.BridgeDestruction = BridgeDestruction; // RA2: as above
-	Session.Options.Goodies = Goodies; // RA2: as above
-	Session.Options.MCVRedeploy = MCVRedeploy; // RA2: as above
-	Session.Options.AlliesAllowed = AlliesAllowed; // RA2: as above
-	Session.Options.HarvTruce = HarvTruce; // RA2: as above
-	Session.Options.Bases = Bases; // RA2: as above
-	Session.Options.CTF = CTF; // RA2: as above
-	Session.Options.AIDifficulty = (DiffType)AIDifficulty; // RA2: as above
-	Session.Options.ShortGame = ShortGame; // RA2: as above
-	Session.Options.SWAllowed = SWAllowed; // RA2: as above
-	Session.Options.BuildOffAlly = BuildOffAlly; // RA2: as above
-	Session.Options.CrapEngineers = CrapEngineers; // RA2: as above
-	Session.Options.GameSpeed = GameSpeed; // RA2: as above
-	Set_Scenario_Info_From_Index(Session.Options.ScenarioIndex); // RA2: as above
-	Options.GameSpeed = Session.Options.GameSpeed; // RA2: as above
-	Scen->Scenario = Session.Options.ScenarioIndex; // RA2: as above
-	switch (Session.Options.GameSpeed) { // RA2: as above
-		case 0: // RA2: as above
-			Session.MaxAhead = 40; // RA2: as above
-			Session.PrecalcDesiredFrameRate = 60; // RA2: as above
-			Session.FrameSendRate = 10; // RA2: as above
-			break; // RA2: as above
-		case 1: // RA2: as above
-			Session.MaxAhead = 40; // RA2: as above
-			Session.PrecalcDesiredFrameRate = 45; // RA2: as above
-			Session.FrameSendRate = 10; // RA2: as above
-			break; // RA2: as above
-		case 2: // RA2: as above
-			Session.MaxAhead = 30; // RA2: as above
-			Session.PrecalcDesiredFrameRate = 30; // RA2: as above
-			break; // RA2: as above
-		case 3: // RA2: as above
-			Session.MaxAhead = 20; // RA2: as above
-			Session.PrecalcDesiredFrameRate = 20; // RA2: as above
-			break; // RA2: as above
-		case 4: // RA2: as above
-			Session.MaxAhead = 20; // RA2: as above
-			Session.PrecalcDesiredFrameRate = 15; // RA2: as above
-			break; // RA2: as above
-		case 5: // RA2: as above
-			Session.MaxAhead = 20; // RA2: as above
-			Session.PrecalcDesiredFrameRate = 12; // RA2: as above
-			break; // RA2: as above
-		default: // RA2: as above
-			Session.MaxAhead = 10; // RA2: as above
-			Session.PrecalcDesiredFrameRate = 10; // RA2: as above
-			break; // RA2: as above
+	memcpy(Session.SlotAddresses, Addresses, sizeof(Addresses));
+	memcpy(Session.WolPlayerState, PlayerStates, sizeof(PlayerStates));
+	memcpy(Session.PlayerPortBase, PlayerPortBases, sizeof(PlayerPortBases));
+	memcpy(Session.PlayerPorts, PlayerPorts, sizeof(PlayerPorts));
+	wcscpy(Session.MasterPlayerName, MasterName);
+	Session.MasterPlayerID = MasterID;
+	::Seed = Seed;
+	BuildLevel = TechLevel;
+	Session.Options.UnitCount = UnitCount;
+	Session.Options.Credits = Credits;
+	Session.Options.FogOfWar = FogOfWar;
+	Session.Options.BridgeDestruction = BridgeDestruction;
+	Session.Options.Goodies = Goodies;
+	Session.Options.MCVRedeploy = MCVRedeploy;
+	Session.Options.AlliesAllowed = AlliesAllowed;
+	Session.Options.HarvTruce = HarvTruce;
+	Session.Options.Bases = Bases;
+	Session.Options.CTF = CTF;
+	Session.Options.AIDifficulty = (DiffType)AIDifficulty;
+	Session.Options.ShortGame = ShortGame;
+	Session.Options.SWAllowed = SWAllowed;
+	Session.Options.BuildOffAlly = BuildOffAlly;
+	Session.Options.CrapEngineers = CrapEngineers;
+	Session.Options.GameSpeed = GameSpeed;
+	Set_Scenario_Info_From_Index(Session.Options.ScenarioIndex);
+	Options.GameSpeed = Session.Options.GameSpeed;
+	Scen->Scenario = Session.Options.ScenarioIndex;
+	switch (Session.Options.GameSpeed) {
+		case 0:
+			Session.MaxAhead = 40;
+			Session.PrecalcDesiredFrameRate = 60;
+			Session.FrameSendRate = 10;
+			break;
+		case 1:
+			Session.MaxAhead = 40;
+			Session.PrecalcDesiredFrameRate = 45;
+			Session.FrameSendRate = 10;
+			break;
+		case 2:
+			Session.MaxAhead = 30;
+			Session.PrecalcDesiredFrameRate = 30;
+			break;
+		case 3:
+			Session.MaxAhead = 20;
+			Session.PrecalcDesiredFrameRate = 20;
+			break;
+		case 4:
+			Session.MaxAhead = 20;
+			Session.PrecalcDesiredFrameRate = 15;
+			break;
+		case 5:
+			Session.MaxAhead = 20;
+			Session.PrecalcDesiredFrameRate = 12;
+			break;
+		default:
+			Session.MaxAhead = 10;
+			Session.PrecalcDesiredFrameRate = 10;
+			break;
 	}
-	Session.PrecalcMaxAhead = 0; // RA2: as above
-	if (!unknown_4) { // RA2: as above
-		Session.PrecalcDesiredFrameRate = 0; // RA2: as above
+	Session.PrecalcMaxAhead = 0;
+	if (!unknown_4) {
+		Session.PrecalcDesiredFrameRate = 0;
 	}
-	int ping = 0; // RA2: as above
-	for (int k = 0; k < Session.Players.Count(); k++) { // RA2: as above
-		if (PlayerPings[k] > ping) { // RA2: as above
-			ping = PlayerPings[k]; // RA2: as above
+	int ping = 0;
+	for (int k = 0; k < Session.Players.Count(); k++) {
+		if (PlayerPings[k] > ping) {
+			ping = PlayerPings[k];
 		}
 	}
-	Session.LatencyFudge = 1; // RA2: as above
-	if (ping == 0 || ping == 1000) { // RA2: as above
-		Session.PrecalcDesiredFrameRate = 0; // RA2: as above
-		DebugString("Ping times not available\n"); // RA2: as above
-	} else { // RA2: as above
-		DebugString("Max ping is %d ms\n", ping); // RA2: as above
-		if (ping > 1000) { // RA2: as above
-			Session.LatencyFudge = 2; // RA2: as above
-		} else if (ping < 600) { // RA2: as above
-			Session.LatencyFudge = 1; // RA2: as above
+	Session.LatencyFudge = 1;
+	if (ping == 0 || ping == 1000) {
+		Session.PrecalcDesiredFrameRate = 0;
+		DebugString("Ping times not available\n");
+	} else {
+		DebugString("Max ping is %d ms\n", ping);
+		if (ping > 1000) {
+			Session.LatencyFudge = 2;
+		} else if (ping < 600) {
+			Session.LatencyFudge = 1;
 		}
-		int retry = ping * 60 / 1000; // RA2: as above
-		retry += retry * 120 / 100; // RA2: as above
-		Ipx.Set_Timing(retry, -1, retry * 8, true); // RA2: as above
-		if (unknown_4) { // RA2: as above
-			Ipx.Set_Lobby_Timing(5, -1, 120); // RA2: as above
-			if (unknown_4) { // RA2: as above
-				switch (Session.LatencyFudge) { // RA2: as above
-					case 0: // RA2: as above
-					case 1: // RA2: as above
-						Session.PrecalcMaxAhead = Session.MaxAhead; // RA2: as above
-						break; // RA2: as above
-					case 2: // RA2: as above
-						Session.PrecalcMaxAhead = Session.MaxAhead / 2 + Session.MaxAhead; // RA2: as above
-						break; // RA2: as above
-					case 3: // RA2: as above
-						Session.PrecalcMaxAhead = Session.MaxAhead * 2; // RA2: as above
-						break; // RA2: as above
+		int retry = ping * 60 / 1000;
+		retry += retry * 120 / 100;
+		Ipx.Set_Timing(retry, -1, retry * 8, true);
+		if (unknown_4) {
+			Ipx.Set_Lobby_Timing(5, -1, 120);
+			if (unknown_4) {
+				switch (Session.LatencyFudge) {
+					case 0:
+					case 1:
+						Session.PrecalcMaxAhead = Session.MaxAhead;
+						break;
+					case 2:
+						Session.PrecalcMaxAhead = Session.MaxAhead / 2 + Session.MaxAhead;
+						break;
+					case 3:
+						Session.PrecalcMaxAhead = Session.MaxAhead * 2;
+						break;
 				}
 				Session.PrecalcMaxAhead = (unsigned int)Session.PrecalcMaxAhead / 10 * 10; // RA2: an unsigned division
 			}
 		}
 	}
-	Session.MaxMaxAhead = Session.MaxAhead; // RA2: as above
-	memset(Session.ConnectionStats, 0, sizeof(Session.ConnectionStats)); // RA2: as above
-	Squad1Names[0] = '\0'; // RA2: as above
-	Options.GameSpeed = Session.Options.GameSpeed; // RA2: as above
-	Squad2Names[0] = '\0'; // RA2: as above
-	PregameSetup(); // RA2: as above
-	DoList.Init(); // RA2: as above
-	OutList.Init(); // RA2: as above
-	ToolTips->Activate(false); // RA2: as above
-	DebugString("@@@@ Before destroying connections players.count() = %d\n", Session.Players.Count()); // RA2: as above
-	while (Ipx.Num_Connections()) { // RA2: as above
-		Ipx.Delete_Connection(Ipx.Connection_ID(0)); // RA2: as above
+	Session.MaxMaxAhead = Session.MaxAhead;
+	memset(Session.ConnectionStats, 0, sizeof(Session.ConnectionStats));
+	Squad1Names[0] = '\0';
+	Options.GameSpeed = Session.Options.GameSpeed;
+	Squad2Names[0] = '\0';
+	PregameSetup();
+	DoList.Init();
+	OutList.Init();
+	ToolTips->Activate(false);
+	DebugString("@@@@ Before destroying connections players.count() = %d\n", Session.Players.Count());
+	while (Ipx.Num_Connections()) {
+		Ipx.Delete_Connection(Ipx.Connection_ID(0));
 	}
-	if (Session.ViaPacketRouter) { // RA2: as above
-		if (PacketRouterConnection) { // RA2: as above
-			OwnerTalk.Send_Shutdown(); // RA2: as above
+	if (Session.ViaPacketRouter) {
+		if (PacketRouterConnection) {
+			OwnerTalk.Send_Shutdown();
 		}
-		Session.ViaPacketRouter = false; // RA2: as above
+		Session.ViaPacketRouter = false;
 	}
-	DebugString("@@@@ After destroying connections players.count() = %d\n", Session.Players.Count()); // RA2: as above
+	DebugString("@@@@ After destroying connections players.count() = %d\n", Session.Players.Count());
 }
 
 /// <summary>
@@ -1574,32 +1574,32 @@ void MPCooperative::vt_entry_94(void) // RA2: 0x005A5720
 /// </summary>
 void MPCooperative::vt_entry_98(void) // RA2: 0x005A6040
 {
-	Clear_Vector(&Session.Players); // RA2: as above
-	Session.NumPlayers = 0; // RA2: as above
-	for (int i = 0; i < SavedPlayers.Count(); i++) { // RA2: as above
-		for (int h = 0; h < Houses.Count(); h++) { // RA2: as above
-			if (wcsicmp(Houses[h]->UIName, SavedPlayers[i]->Name) == 0) { // RA2: as above
-				SavedPlayers[i]->Slot.HouseIndex = h; // RA2: as above
-				NodeNameType * entry = new NodeNameType; // RA2: as above
-				wcscpy(entry->Name, SavedPlayers[i]->Name); // RA2: as above
-				entry->Slot.Clan = SavedPlayers[i]->Slot.Clan; // RA2: as above
-				entry->Slot.Country = SavedPlayers[i]->Slot.Country; // RA2: as above
-				entry->Slot.ColorIdx = SavedPlayers[i]->Slot.ColorIdx; // RA2: as above
-				strcpy(entry->Player.Serial, SavedPlayers[i]->Player.Serial); // RA2: as above
-				entry->Slot.InitialCountry = SavedPlayers[i]->Slot.InitialCountry; // RA2: as above
-				entry->Slot.InitialColor = SavedPlayers[i]->Slot.InitialColor; // RA2: as above
-				entry->Slot.SpectatorFlag = SavedPlayers[i]->Slot.SpectatorFlag; // RA2: as above
-				entry->Slot.Time = SavedPlayers[i]->Slot.Time; // RA2: as above
-				entry->Slot.Unknown77 = SavedPlayers[i]->Slot.Unknown77; // RA2: as above
-				entry->Slot.Clan = SavedPlayers[i]->Slot.Clan; // RA2: as above
-				NetNumType net; // RA2: as above
-				NetNodeType node; // RA2: as above
-				unsigned short socket; // RA2: as above
-				SavedPlayers[i]->Address.Get_Address(net, node, &socket); // RA2: as above
-				entry->Address.Set_Address(net, node, socket); // RA2: as above
-				Session.Players.Add(entry); // RA2: as above
-				Session.NumPlayers++; // RA2: as above
-				break; // RA2: as above
+	Clear_Vector(&Session.Players);
+	Session.NumPlayers = 0;
+	for (int i = 0; i < SavedPlayers.Count(); i++) {
+		for (int h = 0; h < Houses.Count(); h++) {
+			if (wcsicmp(Houses[h]->UIName, SavedPlayers[i]->Name) == 0) {
+				SavedPlayers[i]->Slot.HouseIndex = h;
+				NodeNameType * entry = new NodeNameType;
+				wcscpy(entry->Name, SavedPlayers[i]->Name);
+				entry->Slot.Clan = SavedPlayers[i]->Slot.Clan;
+				entry->Slot.Country = SavedPlayers[i]->Slot.Country;
+				entry->Slot.ColorIdx = SavedPlayers[i]->Slot.ColorIdx;
+				strcpy(entry->Player.Serial, SavedPlayers[i]->Player.Serial);
+				entry->Slot.InitialCountry = SavedPlayers[i]->Slot.InitialCountry;
+				entry->Slot.InitialColor = SavedPlayers[i]->Slot.InitialColor;
+				entry->Slot.SpectatorFlag = SavedPlayers[i]->Slot.SpectatorFlag;
+				entry->Slot.Time = SavedPlayers[i]->Slot.Time;
+				entry->Slot.Unknown77 = SavedPlayers[i]->Slot.Unknown77;
+				entry->Slot.Clan = SavedPlayers[i]->Slot.Clan;
+				NetNumType net;
+				NetNodeType node;
+				unsigned short socket;
+				SavedPlayers[i]->Address.Get_Address(net, node, &socket);
+				entry->Address.Set_Address(net, node, socket);
+				Session.Players.Add(entry);
+				Session.NumPlayers++;
+				break;
 			}
 		}
 	}
@@ -1611,10 +1611,10 @@ void MPCooperative::vt_entry_98(void) // RA2: 0x005A6040
 bool MPCooperative::vt_entry_9C(DynamicVectorClass<int> list, int * result) // RA2: 0x005A6230
 {
 	*result = 0;
-	if (Campaign != NULL) { // RA2: as above
-		return(true); // RA2: as above
+	if (Campaign != NULL) {
+		return(true);
 	}
-	return(false); // RA2: as above
+	return(false);
 }
 
 /// <summary>
@@ -1622,7 +1622,7 @@ bool MPCooperative::vt_entry_9C(DynamicVectorClass<int> list, int * result) // R
 /// </summary>
 bool MPCooperative::vt_entry_04(void) // RA2: 0x005A6280
 {
-	return(true); // RA2: as above
+	return(true);
 }
 
 /// <summary>
@@ -1630,7 +1630,7 @@ bool MPCooperative::vt_entry_04(void) // RA2: 0x005A6280
 /// </summary>
 bool MPCooperative::vt_entry_08(void) // RA2: 0x005A6290
 {
-	return(true); // RA2: as above
+	return(true);
 }
 
 /// <summary>
@@ -1638,5 +1638,5 @@ bool MPCooperative::vt_entry_08(void) // RA2: 0x005A6290
 /// </summary>
 bool MPCooperative::vt_entry_A0(void) // RA2: 0x005A62A0
 {
-	return(false); // RA2: as above
+	return(false);
 }

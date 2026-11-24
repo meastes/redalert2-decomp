@@ -64,7 +64,7 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
   dumps, disassembly, Ghidra exports, scaffolding, experiments and build outputs
   stay ignored under `private/` or `build/`; never stage them. Original
   installations and `outpost2-native` are read-only. Tracked: accepted source in
-  `src/`, authored tools/tests, byte-free manifests, docs.
+  `rebuild/` (and the frozen `src/`), authored tools/tests, byte-free manifests, docs.
 - **External references:** public/recomp/YRpp material supplies hypotheses only;
   verify on the exact target and check licenses (`THIRD_PARTY.md`). Exception
   (user, 2026-11-06; extended 2026-11-09): text from ra2-decomp, the TibSun archive,
@@ -93,14 +93,17 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
   User decision (2026-11-19): The rebuild lives on main in its own `rebuild/` folder beside
   `src/`, built and gated separately: a commit touching only `rebuild/` runs the rebuild gate
   (catalog, structure gate, whole-file build); a commit touching shared tools runs both trees'
-  gates. `src/` stays the complete exact-match record the ports build from. Whether the
-  rebuild replaces `src/` remains the user's decision at parity of main's matched bytes.
-  Rebuild-only commits publish at most hourly.
-  User decision (2026-11-22, confirmed in the owner session): from 2026-11-29, `rebuild/` is the
-  exact-match tree of record: acceptance, STATUS and the public snapshot follow it. `src/` is retired
-  at the tag `src-final`, read-only, kept as reference text; the native ports keep building from it
-  until a separate ports repository consumes the rebuild at a pinned commit. Creating or publishing
-  that repository is the user's decision.
+  gates. Rebuild-only commits publish at most hourly.
+  User decision (2026-11-22; brought into force by the user, 2026-11-24, in the owner session:
+  rebuild/ is the tree of record from today): `rebuild/` is the exact-match tree of record.
+  Acceptance, STATUS, ByteMatch and the public snapshot follow it. `src/` and main's catalog
+  (`manifests/original_target/`) are frozen at the tag `src-final`: read-only, never edited, kept as
+  reference text and as evidence the rebuild's rows cite. `build.command --tree src` still reproduces
+  the original from them. The exceptions recorded above apply to the tree of record as they stand,
+  including the 2026-11-24 flagged variation forms (each flagged by kind, counted on the judgment line
+  and the STATUS kinds line, replaced whenever matching reference text appears). The native ports keep
+  building from `src/` until a separate ports repository consumes the rebuild at a pinned commit;
+  creating or publishing that repository is the user's decision.
   From every commit: one source file per original unit, one header and one definition
   per class, no per-unit views or `RA2_` switches, members as members, address-suffixed names
   minimal and never growing silently, no tool data inside sources. Acceptance is main's exact
@@ -123,24 +126,23 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
 
 ## How to work
 
-1. **Pick by class or family, not by single function.** `class_inventory.py`
-   ranks vtables by remaining bytes; `sweep_seeds.py` ranks every unrecovered
-   function by how close its Ghidra seed already compiles. Recover a class's
-   layout once from its constructors/vptr stores, put it in `src/shared/`, then
-   sweep its slots and constructors with those types.
-2. **Seed, then iterate.** `seed_candidate.py` turns the Ghidra export into a
-   compilable scratch candidate; `diff_candidate.py [--watch]` compiles it with
-   the real compiler and shows an aligned, scored instruction diff. Iterating on
-   near misses (statement order, temporaries, types, expression shape, inline
+1. **Pick by unit or family, not by single function.** `rebuild/tools/tail.py` and the
+   twin map (`rebuild/tools/twinmap.py`) rank parked functions; the frozen `src/` is the
+   answer key. A class's layout lives once in its header under `rebuild/include/` (one
+   header per class); sweep its unit with those types.
+2. **Iterate.** Edit the unit in `rebuild/src/<unit>.cpp` and run `rebuild/tools/rebuild.py
+   check <unit>`, which compiles it with the real compiler and compares every row.
+   Iterating on near misses (statement order, temporaries, types, expression shape, inline
    splits, option variant) is the normal work, not a forbidden "steering". A
    miss is never "closed": record its best score and move on when the time box
    (about 30 minutes per KB of body, capped at four hours) runs out; anyone may resume it.
-3. **Accept in bulk.** Promote exact candidates through `compile_candidates.py`
-   (strict audit) into `src/recovered/` and the canonical manifest. No
-   separate reviewer is required for source, tools or build changes; the
-   strict audit and the exact whole-file build are the checks.
-4. **Build periodically.** Run the full `./build.command` before each commit
-   that changes accepted source or build logic, not for every candidate.
+3. **Land in bulk.** Exact units go through the rebuild landing: `rebuild.py check` /
+   `catalog` (the structure gate), then the owner's landing script (house format, catalog,
+   whole-file build, progress.csv). No separate reviewer is required for source, tools or
+   build changes; the catalog audit and the exact whole-file build are the checks.
+4. **Build periodically.** Run the full `./build.command` (the rebuild; add `--tree src` when
+   a shared tool changes) before each commit that changes accepted source or build logic,
+   not for every candidate.
 5. **Record briefly.** Commit accepted source with a short message. Regenerate
    numbers with `tools/original_target/status.py --write`; update `HANDOFF.md`
    with what is in flight and the next target. No per-batch cost receipts, hash
@@ -150,8 +152,8 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
 
 The executable carries MSVC RTTI: original class names and inheritance for
 every polymorphic class (`docs/CLASS_HIERARCHY.md`, `manifests/rtti_classes.json`).
-Class-owned sources live in `src/recovered/classes/<Class>/`; use the original
-class names for shared layouts and members.
+Sources live one per original unit in `rebuild/src/`, one header per class in
+`rebuild/include/`; use the original class names for shared layouts and members.
 
 Name understood operations, parameters and fields as you match them, with the
 original address as a suffix; keep honest `unknown_0xNN` names for the rest.
@@ -159,14 +161,17 @@ Prefer real shared types over per-function owner classes and register-named
 locals. Existing transliterated sources (`unsigned int ecx = ...`) may be
 replaced whenever a class sweep touches them, provided the replacement still
 matches exactly. Formatting and renaming earn no matched-byte credit but are
-welcome. Standing rename lane (user, 2026-11-09): one lane, counted within the lane
-total, renames toward Westwood/TibSun names first, then ra2-decomp, then mischa85
-names.csv, then RTTI names (order changed by the user, 2026-11-15); YRpp-only names stay until better evidenced; one class per round; no
-source-shape change; whole-file exact build gates every round. Canonical source in `src/recovered/` is authoritative. Accepted seed sources
-carry a `seed-generated` marker line: `regenerate_seeds.py` may rewrite marked
-files (the build proves they still match); delete the marker when editing a
-file by hand and it is never regenerated. Ghidra type names come from
-`src/shared/ghidra_types.hpp` until real types replace them.
+welcome. Canonical source in `rebuild/` is authoritative.
+
+Retired with `src/` (frozen at `src-final`; kept here as the record of how it was built): the
+standing rename lane (user, 2026-11-09: one lane, counted within the lane total, renames toward
+Westwood/TibSun names first, then ra2-decomp, then mischa85 names.csv, then RTTI names, order
+changed by the user 2026-11-15; YRpp-only names stay until better evidenced; one class per round;
+no source-shape change; whole-file exact build gates every round), the seed tools
+(`seed_candidate.py`, `sweep_seeds.py`, `class_inventory.py`, `regenerate_seeds.py` and the
+`seed-generated` marker), `compile_candidates.py` acceptance into `src/recovered/`, and Ghidra type
+names from `src/shared/ghidra_types.hpp`. Renames toward those sources continue in `rebuild/` under
+the same order.
 
 ## Ownership and workers
 
@@ -214,9 +219,10 @@ and preserve unexpected changes rather than overwriting them.
 Every status (each landing and lane hand-back) uses this order, in plain words, with a
 function's name rather than its address where it has one:
 1. What happened since the last status.
-2. Measures table (user, 2026-11-22), rebuild first, main as the fixed reference column until
-   `src/` retires: Reproduced .text % (like for like); C/C++ bodies matched, padding separate
-   (bytes, %, gap to main in KB: the parity line); exact with no judgment call (bytes, %);
+2. Measures table (user, 2026-11-22), rebuild first, src-final as the frozen reference column:
+   Reproduced .text % (like for like); C/C++ bodies matched, padding separate
+   (bytes, %, gap to main in KB: the parity line, kept until "matched in src-final, not yet in
+   the rebuild" is zero); exact with no judgment call (bytes, %);
    judgment calls (rows, bytes, one named definition for both trees); tail (parked functions and
    bytes, count and bytes of those >= 1 KB; variations held for the user's list, rows and bytes);
    since the last status (+rows/+bytes split by Fable lanes, Opus lanes, Windows workers;

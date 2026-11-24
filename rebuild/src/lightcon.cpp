@@ -190,8 +190,8 @@ void LightConvertClass::Apply_Tint(int red_tint, int green_tint, int blue_tint, 
 
 				if (IntensityLevels > 1) {
 					interp_red = red_step * 2 * level / level_count; // RA2: the tint scales with the level; the compiler turns the product into a running sum
-					interp_green = green_step * 2 * level / level_count; // RA2: as above
-					interp_blue = blue_step * 2 * level / level_count; // RA2: as above
+					interp_green = green_step * 2 * level / level_count;
+					interp_blue = blue_step * 2 * level / level_count;
 					if (level > max_level) {
 						interp_intensity = 0x10000;
 					} else {

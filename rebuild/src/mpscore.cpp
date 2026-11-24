@@ -64,13 +64,13 @@ int __stdcall MP_Score_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPA
 */
 static int const MPScoreControls[MAX_MULTI_NAMES][MPSCORE_COLUMNS] = { // RA2: 0x007E5518
 	{1041, 1049, 1699, 1701, 1702}, // RA2: the first row
-	{1042, 1050, 1700, 1703, 1704}, // RA2: as above
-	{1043, 1051, 1705, 1706, 1707}, // RA2: as above
-	{1044, 1052, 1708, 1709, 1710}, // RA2: as above
-	{1045, 1053, 1711, 1712, 1713}, // RA2: as above
-	{1046, 1054, 1714, 1715, 1716}, // RA2: as above
-	{1047, 1055, 1717, 1718, 1719}, // RA2: as above
-	{1048, 1056, 1720, 1721, 1722} // RA2: as above
+	{ 1042, 1050, 1700, 1703, 1704 },
+	{ 1043, 1051, 1705, 1706, 1707 },
+	{ 1044, 1052, 1708, 1709, 1710 },
+	{ 1045, 1053, 1711, 1712, 1713 },
+	{ 1046, 1054, 1714, 1715, 1716 },
+	{ 1047, 1055, 1717, 1718, 1719 },
+	{ 1048, 1056, 1720, 1721, 1722 }
 };
 
 static MPlayerScoreType * SortedScores[MAX_MULTI_NAMES]; // RA2: 0x00A715F0, the score table ordered by score
@@ -91,9 +91,9 @@ int __cdecl MP_Score_Compare(void const * left, void const * right);
 /// </summary>
 MPScoreScreen::MPScoreScreen(void) // RA2: 0x005AAA20
 {
-	ReservedB = ReservedA = 0; // RA2: as above
+	ReservedB = ReservedA = 0;
 	for (int index = 0; index < MAX_MULTI_NAMES; index++) { // RA2: the executable clears the table with one rep stosd
-		SortedScores[index] = NULL; // RA2: as above
+		SortedScores[index] = NULL;
 	}
 }
 
@@ -108,12 +108,12 @@ void MPScoreScreen::Presentation(void) // RA2: 0x005AAA40
 {
 	Load_MP_Score_Art(Scen->IsGDI == false); // RA2: the side of the art is 1 unless the scenario is GDI's
 	Rect rect(0, 0, VideoModeWidth, VideoModeHeight); // RA2: the whole screen
-	Draw_MP_Score_Screen(HiddenSurface, rect); // RA2: as above
-	Update_Visible_Surface(true, HiddenSurface, NULL); // RA2: as above
+	Draw_MP_Score_Screen(HiddenSurface, rect);
+	Update_Visible_Surface(true, HiddenSurface, NULL);
 	Dialog_Box(MPSCORE_DIALOG, MP_Score_Dialog_Proc, false); // RA2: the dialog is shown without its own fade
-	Draw_MP_Score_Screen(HiddenSurface, rect); // RA2: as above
-	Update_Visible_Surface(true, HiddenSurface, NULL); // RA2: as above
-	Free_MP_Score_Art(); // RA2: as above
+	Draw_MP_Score_Screen(HiddenSurface, rect);
+	Update_Visible_Surface(true, HiddenSurface, NULL);
+	Free_MP_Score_Art();
 }
 
 
@@ -129,11 +129,11 @@ void __fastcall MP_Score_Format_Time(wchar_t * buffer, int time) // RA2: 0x005AA
 		if (time / 3600 > 99) { // RA2: more than 99 hours
 			time = 359999; // RA2: 99:59:59
 		}
-		int hours = time / 3600; // RA2: as above
-		time -= hours * 3600; // RA2: as above
-		int minutes = time / 60; // RA2: as above
-		time -= minutes * 60; // RA2: as above
-		swprintf(buffer, StringTable::LoadString("TXT_TIME_FORMAT_HOURS", NULL, "D:\\Ra2\\MPScore.cpp", 129), hours, minutes, time); // RA2: as above
+		int hours = time / 3600;
+		time -= hours * 3600;
+		int minutes = time / 60;
+		time -= minutes * 60;
+		swprintf(buffer, StringTable::LoadString("TXT_TIME_FORMAT_HOURS", NULL, "D:\\Ra2\\MPScore.cpp", 129), hours, minutes, time);
 	}
 }
 
@@ -146,10 +146,10 @@ void __fastcall MP_Score_Format_Time(wchar_t * buffer, int time) // RA2: 0x005AA
 /// <param name="value">The number to show.</param>
 void __fastcall MP_Score_Set_Number(HWND dialog, int id, int value) // RA2: 0x005AAB80
 {
-	wchar_t text[32]; // RA2: as above
-	swprintf(text, L"%d", value); // RA2: as above
-	HWND item = GetDlgItem(dialog, id); // RA2: as above
-	SendMessage(item, MPSCORE_SET_TEXT, 0, (LPARAM)text); // RA2: as above
+	wchar_t text[32];
+	swprintf(text, L"%d", value);
+	HWND item = GetDlgItem(dialog, id);
+	SendMessage(item, MPSCORE_SET_TEXT, 0, (LPARAM)text);
 }
 
 
@@ -163,53 +163,53 @@ void MP_Score_Tally(void) // RA2: 0x005AABD0
 {
 	Session.NumScores = 0; // RA2: the table starts empty
 	int count = Houses.Count(); // RA2: also bounds the buildings killed loop below
-	for (int index = 0; index < count; index++) { // RA2: as above
-		HouseClass * house = Houses[index]; // RA2: as above
+	for (int index = 0; index < count; index++) {
+		HouseClass * house = Houses[index];
 		if (house != NULL && house->Class->IsMultiplayPassive != true && house != ObserverHouse) { // RA2: only real players
-			int slot = Session.NumScores++; // RA2: as above
-			Session.Score[slot].Wins = 0; // RA2: as above
+			int slot = Session.NumScores++;
+			Session.Score[slot].Wins = 0;
 			wcscpy(Session.Score[slot].Name, house->UIName); // RA2: the player's name
 			Session.Score[slot].Lost[0] = 0; // RA2: the totals are in the first game's entries
-			Session.Score[slot].Kills[0] = 0; // RA2: as above
-			Session.Score[slot].Built[0] = 0; // RA2: as above
-			Session.Score[slot].Score[0] = 0; // RA2: as above
+			Session.Score[slot].Kills[0] = 0;
+			Session.Score[slot].Built[0] = 0;
+			Session.Score[slot].Score[0] = 0;
 			Session.Score[slot].Scheme = house->Scheme; // RA2: the colour of the player
 			if (!house->IsDefeated) { // RA2: the player is still in the game
-				Session.Score[slot].Wins++; // RA2: as above
-				Session.Winner = slot; // RA2: as above
+				Session.Score[slot].Wins++;
+				Session.Winner = slot;
 			}
 
-			int kills = 0; // RA2: as above
+			int kills = 0;
 			int unit;
 			for (unit = 0; unit < 20; unit++) { // RA2: the units killed, per unit type slot
-				kills += house->UnitsKilled[unit]; // RA2: as above
+				kills += house->UnitsKilled[unit];
 			}
 			for (unit = 0; unit < count; unit++) { // RA2: the executable bounds the buildings by the number of houses, not by the 20 entries
-				kills += house->BuildingsKilled[unit]; // RA2: as above
+				kills += house->BuildingsKilled[unit];
 			}
-			Session.Score[slot].Kills[0] = kills; // RA2: as above
-			Session.Score[slot].Lost[0] = house->BuildingsLost + house->UnitsLost; // RA2: as above
+			Session.Score[slot].Kills[0] = kills;
+			Session.Score[slot].Lost[0] = house->BuildingsLost + house->UnitsLost;
 
 			int built = house->PBQuantity.Total(); // RA2: buildings built
 			built += house->PUQuantity.Total(); // RA2: units built
 			built += house->PIQuantity.Total(); // RA2: infantry built
 			built += house->PAQuantity.Total(); // RA2: aircraft built
-			Session.Score[slot].Built[0] = built; // RA2: as above
+			Session.Score[slot].Built[0] = built;
 
-			if (house->PointTotal > 0) { // RA2: as above
-				Session.Score[slot].Score[0] += house->PointTotal; // RA2: as above
+			if (house->PointTotal > 0) {
+				Session.Score[slot].Score[0] += house->PointTotal;
 			}
 			if (!house->IsDefeated) { // RA2: the winner's bonus
-				int score = Session.Score[slot].Score[0]; // RA2: as above
-				Session.Score[slot].Score[0] = Random_Pick(score / 2, score) + score / 2 + score; // RA2: as above
+				int score = Session.Score[slot].Score[0];
+				Session.Score[slot].Score[0] = Random_Pick(score / 2, score) + score / 2 + score;
 			}
 
 			DebugString("%hs: %s\n Scheme: %d\n Lost = %d\n Kills = %d\n Built = %d\n Score = %d\n", // RA2: the narrow name is printed by %hs
-				Session.Score[slot].Name, // RA2: as above
-				Session.Score[slot].Wins > 0 ? "Winner" : "Loser", // RA2: as above
-				Session.Score[slot].Scheme, Session.Score[slot].Lost[0], // RA2: as above
-				Session.Score[slot].Kills[0], Session.Score[slot].Built[0], // RA2: as above
-				Session.Score[slot].Score[0]); // RA2: as above
+				Session.Score[slot].Name,
+				Session.Score[slot].Wins > 0 ? "Winner" : "Loser",
+				Session.Score[slot].Scheme, Session.Score[slot].Lost[0],
+				Session.Score[slot].Kills[0], Session.Score[slot].Built[0],
+				Session.Score[slot].Score[0]);
 		}
 	}
 }
@@ -220,12 +220,12 @@ void MP_Score_Tally(void) // RA2: 0x005AABD0
 /// </summary>
 void MP_Score_Sort(void) // RA2: 0x005AADD0
 {
-	int count = Session.NumScores; // RA2: as above
-	for (int index = 0; index < count; index++) { // RA2: as above
-		SortedScores[index] = &Session.Score[index]; // RA2: as above
+	int count = Session.NumScores;
+	for (int index = 0; index < count; index++) {
+		SortedScores[index] = &Session.Score[index];
 	}
-	if (count > 1) { // RA2: as above
-		qsort(SortedScores, count, sizeof(MPlayerScoreType *), MP_Score_Compare); // RA2: as above
+	if (count > 1) {
+		qsort(SortedScores, count, sizeof(MPlayerScoreType *), MP_Score_Compare);
 	}
 }
 
@@ -238,12 +238,12 @@ void MP_Score_Sort(void) // RA2: 0x005AADD0
 /// <returns>int; negative when the first entry's score is higher, positive when it is lower, 0 when equal.</returns>
 int __cdecl MP_Score_Compare(void const * left, void const * right) // RA2: 0x005AAE10
 {
-	MPlayerScoreType const * a = *(MPlayerScoreType const * const *)left; // RA2: as above
-	MPlayerScoreType const * b = *(MPlayerScoreType const * const *)right; // RA2: as above
+	MPlayerScoreType const * a = *(MPlayerScoreType const * const *)left;
+	MPlayerScoreType const * b = *(MPlayerScoreType const * const *)right;
 	if (a->Score[0] == b->Score[0]) { // RA2: the score is the first game's entry
-		return(0); // RA2: as above
+		return(0);
 	}
-	return a->Score[0] > b->Score[0] ? -1 : 1; // RA2: as above
+	return a->Score[0] > b->Score[0] ? -1 : 1;
 }
 
 
@@ -261,87 +261,87 @@ int __cdecl MP_Score_Compare(void const * left, void const * right) // RA2: 0x00
 int __stdcall MP_Score_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x005AAE40
 {
 	int rc = OwnerDraw::Default_Dialog_Proc(window, message, wparam, lparam); // RA2: the common owner draw handling comes first
-	if (rc != 0) { // RA2: as above
-		return rc; // RA2: as above
+	if (rc != 0) {
+		return rc;
 	}
 
 	int * done = (int *)GetWindowLong(window, DWL_USER); // RA2: set by Dialog_Box, the flag that ends the dialog
-	switch (message) { // RA2: as above
+	switch (message) {
 		case WM_PAINT: // RA2: 0x0F
 		{
-			RECT first; // RA2: as above
-			RECT last; // RA2: as above
+			RECT first;
+			RECT last;
 			HWND item = GetDlgItem(window, MPSCORE_GAME_LABEL); // RA2: the top left of the table
-			Get_Display_Rect(item, &first); // RA2: as above
+			Get_Display_Rect(item, &first);
 			int id = MPScoreControls[Session.NumScores - 1][MPSCORE_COLUMNS - 1]; // RA2: the score of the last row is the bottom right
-			item = GetDlgItem(window, id); // RA2: as above
-			Get_Display_Rect(item, &last); // RA2: as above
-			Rect area(first.left, first.top, last.right - first.left, last.bottom - first.top); // RA2: as above
-			Inflate_Rect(area, -4, -8); // RA2: as above
+			item = GetDlgItem(window, id);
+			Get_Display_Rect(item, &last);
+			Rect area(first.left, first.top, last.right - first.left, last.bottom - first.top);
+			Inflate_Rect(area, -4, -8);
 			Blend_Rect(&area, AlternateSurface, 0, 0x9F); // RA2: a dark veil behind the table
 			break;
 		}
 
 		case WM_COMMAND: // RA2: 0x111
-			if ((unsigned short)wparam == MPSCORE_CONTINUE) { // RA2: as above
-				*done = 1; // RA2: as above
+			if ((unsigned short)wparam == MPSCORE_CONTINUE) {
+				*done = 1;
 				break;
 			}
 			break;
 
 		case MPSCORE_INIT: // RA2: 0x497
 		{
-			wchar_t text[32]; // RA2: as above
+			wchar_t text[32];
 			Theme.Play_Song((ThemeType)Theme.From_Name("SCORE")); // RA2: the score theme
 			if (Session.Type == GAME_INTERNET) { // RA2: an Internet game shows its number
-				swprintf(text, StringTable::LoadString("TXT_GAME", NULL, "D:\\Ra2\\MPScore.cpp", 284), GameID); // RA2: as above
-			} else { // RA2: as above
+				swprintf(text, StringTable::LoadString("TXT_GAME", NULL, "D:\\Ra2\\MPScore.cpp", 284), GameID);
+			} else {
 				swprintf(text, StringTable::LoadString("TXT_GAME", NULL, "D:\\Ra2\\MPScore.cpp", 286), Session.GamesPlayed); // RA2: other games show the count of games played (0x00A3F58C)
 			}
-			wchar_t const * title; // RA2: as above
-			if (Session.Type == GAME_SKIRMISH) { // RA2: as above
-				title = StringTable::LoadString("GUI:SkirmishScore", NULL, "D:\\Ra2\\MPScore.cpp", 290); // RA2: as above
-			} else { // RA2: as above
-				title = StringTable::LoadString("GUI:MultiplayerScore", NULL, "D:\\Ra2\\MPScore.cpp", 292); // RA2: as above
+			wchar_t const * title;
+			if (Session.Type == GAME_SKIRMISH) {
+				title = StringTable::LoadString("GUI:SkirmishScore", NULL, "D:\\Ra2\\MPScore.cpp", 290);
+			} else {
+				title = StringTable::LoadString("GUI:MultiplayerScore", NULL, "D:\\Ra2\\MPScore.cpp", 292);
 			}
-			HWND item = GetDlgItem(window, MPSCORE_TITLE); // RA2: as above
-			SendMessage(item, MPSCORE_SET_TEXT, 0, (LPARAM)title); // RA2: as above
-			item = GetDlgItem(window, MPSCORE_GAME_LABEL); // RA2: as above
-			SendMessage(item, MPSCORE_SET_TEXT, 0, (LPARAM)text); // RA2: as above
+			HWND item = GetDlgItem(window, MPSCORE_TITLE);
+			SendMessage(item, MPSCORE_SET_TEXT, 0, (LPARAM)title);
+			item = GetDlgItem(window, MPSCORE_GAME_LABEL);
+			SendMessage(item, MPSCORE_SET_TEXT, 0, (LPARAM)text);
 			MP_Score_Format_Time(text, Scen->ElapsedTimer / 60); // RA2: the timer counts frames, 60 to the second
-			item = GetDlgItem(window, MPSCORE_TIME); // RA2: as above
-			SendMessage(item, MPSCORE_SET_TEXT, 0, (LPARAM)text); // RA2: as above
-			MP_Score_Tally(); // RA2: as above
-			MP_Score_Sort(); // RA2: as above
-			for (int row = 0; row < Session.NumScores; row++) { // RA2: as above
-				ColorScheme * scheme = ColorSchemes[SortedScores[row]->Scheme]; // RA2: as above
+			item = GetDlgItem(window, MPSCORE_TIME);
+			SendMessage(item, MPSCORE_SET_TEXT, 0, (LPARAM)text);
+			MP_Score_Tally();
+			MP_Score_Sort();
+			for (int row = 0; row < Session.NumScores; row++) {
+				ColorScheme * scheme = ColorSchemes[SortedScores[row]->Scheme];
 				RGBClass color = scheme->HSV; // RA2: HSVClass converts to RGBClass
 				unsigned long rgb = color.Get_Red() | (color.Get_Green() << 8) | (color.Get_Blue() << 16); // RA2: a COLORREF
 				int id = MPScoreControls[row][0]; // RA2: the name
-				wchar_t const * name = SortedScores[row]->Name; // RA2: as above
-				item = GetDlgItem(window, id); // RA2: as above
-				SendMessage(item, MPSCORE_SET_TEXT, 0, (LPARAM)name); // RA2: as above
-				item = GetDlgItem(window, id); // RA2: as above
-				SendMessage(item, MPSCORE_SET_COLOR, 0, rgb); // RA2: as above
+				wchar_t const * name = SortedScores[row]->Name;
+				item = GetDlgItem(window, id);
+				SendMessage(item, MPSCORE_SET_TEXT, 0, (LPARAM)name);
+				item = GetDlgItem(window, id);
+				SendMessage(item, MPSCORE_SET_COLOR, 0, rgb);
 				id = MPScoreControls[row][1]; // RA2: the kills
-				MP_Score_Set_Number(window, id, SortedScores[row]->Kills[0]); // RA2: as above
-				item = GetDlgItem(window, id); // RA2: as above
-				SendMessage(item, MPSCORE_SET_COLOR, 0, rgb); // RA2: as above
+				MP_Score_Set_Number(window, id, SortedScores[row]->Kills[0]);
+				item = GetDlgItem(window, id);
+				SendMessage(item, MPSCORE_SET_COLOR, 0, rgb);
 				id = MPScoreControls[row][2]; // RA2: the losses
-				MP_Score_Set_Number(window, id, SortedScores[row]->Lost[0]); // RA2: as above
-				item = GetDlgItem(window, id); // RA2: as above
-				SendMessage(item, MPSCORE_SET_COLOR, 0, rgb); // RA2: as above
+				MP_Score_Set_Number(window, id, SortedScores[row]->Lost[0]);
+				item = GetDlgItem(window, id);
+				SendMessage(item, MPSCORE_SET_COLOR, 0, rgb);
 				id = MPScoreControls[row][3]; // RA2: the buildings built
-				MP_Score_Set_Number(window, id, SortedScores[row]->Built[0]); // RA2: as above
-				item = GetDlgItem(window, id); // RA2: as above
-				SendMessage(item, MPSCORE_SET_COLOR, 0, rgb); // RA2: as above
+				MP_Score_Set_Number(window, id, SortedScores[row]->Built[0]);
+				item = GetDlgItem(window, id);
+				SendMessage(item, MPSCORE_SET_COLOR, 0, rgb);
 				id = MPScoreControls[row][4]; // RA2: the score
-				MP_Score_Set_Number(window, id, SortedScores[row]->Score[0]); // RA2: as above
-				item = GetDlgItem(window, id); // RA2: as above
-				SendMessage(item, MPSCORE_SET_COLOR, 0, rgb); // RA2: as above
+				MP_Score_Set_Number(window, id, SortedScores[row]->Score[0]);
+				item = GetDlgItem(window, id);
+				SendMessage(item, MPSCORE_SET_COLOR, 0, rgb);
 			}
 			break;
 		}
 	}
-	return(0); // RA2: as above
+	return(0);
 }

@@ -167,7 +167,7 @@ void MapPreviewClass::Create_Preview(void)
 
 			// The cell's two preview pixels, relative to the bounding box.
 			Point2D offset = pixel - Point2D(minx, miny); // RA2: RA2's form
-			Rect area(2 * offset.X, offset.Y, 2, 1); // RA2: as above
+			Rect area(2 * offset.X, offset.Y, 2, 1);
 
 			bool hasradarcolor = false;
 			int level = 100;
@@ -216,8 +216,8 @@ void MapPreviewClass::Create_Preview(void)
 				}
 			}
 
-			SurfacePtr->Put_Pixel_Clip(Point2D(area.X, area.Y), lowcolor, SurfacePtr->Get_Rect()); // RA2: as above
-			SurfacePtr->Put_Pixel_Clip(Point2D(area.X + 1, area.Y), highcolor, SurfacePtr->Get_Rect()); // RA2: as above
+			SurfacePtr->Put_Pixel_Clip(Point2D(area.X, area.Y), lowcolor, SurfacePtr->Get_Rect());
+			SurfacePtr->Put_Pixel_Clip(Point2D(area.X + 1, area.Y), highcolor, SurfacePtr->Get_Rect());
 		}
 		cptr = Map.Iterate();
 	}
@@ -226,10 +226,10 @@ void MapPreviewClass::Create_Preview(void)
 		if (Scen->Is_Valid_Waypoint(i)) {
 			Cell cell = Scen->Get_Waypoint_Cell(i);
 			Point2D pixel = Cell_To_Preview_Pixel(cell);
-			pixel = pixel - Point2D(minx, miny); // RA2: as above
+			pixel = pixel - Point2D(minx, miny);
 			Rect rect;
-			rect.X = 2 * pixel.X - 1; // RA2: as above
-			rect.Y = pixel.Y - 1; // RA2: as above
+			rect.X = 2 * pixel.X - 1;
+			rect.Y = pixel.Y - 1;
 			rect.Width = 4;
 			rect.Height = 4;
 			SurfacePtr->Fill_Rect(SurfacePtr->Get_Rect(), rect, DSurface::Build_Hicolor_Pixel(240, 0, 0));

@@ -79,7 +79,7 @@ struct HashIterator { // RA2: where a walk over the table stands
 
 struct SchemeListIterator : public HashIterator { // RA2: the walk over the palette files' scheme lists (ion.cpp uses it for the storm tints)
 	DynamicVectorClass<ColorScheme *> * Next(void); // RA2: 0x00603640
-	SchemeListIterator(void) { BucketIndex = 0; InBucketIndex = 0; OutOfBuckets = false; } // RA2: as above
+	SchemeListIterator(void) { BucketIndex = 0; InBucketIndex = 0; OutOfBuckets = false; }
 };
 
 DynamicVectorClass<ColorScheme *> * __fastcall Generate_Palette(char const * name);

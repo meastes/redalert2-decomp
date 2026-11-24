@@ -422,7 +422,7 @@ void DisplayClass::Set_View_Dimensions(Rect const & dimensions)
 	**	properly set.
 	*/
 	Session.Messages.Init(
-		TacticalRect.X + 3, TacticalRect.Y,     // x,y for messages // RA2: as above
+		TacticalRect.X + 3, TacticalRect.Y,     // x,y for messages
 		6,                                  // max # msgs
 		MAX_MESSAGE_LENGTH-14,              // max msg length
 		7 * 2/*RESFACTOR*/,                 // font height in pixels
@@ -430,7 +430,7 @@ void DisplayClass::Set_View_Dimensions(Rect const & dimensions)
 		0,                                  /// enable edit overflow
 		20,                                 // min,
 		MAX_MESSAGE_LENGTH - 14,            // max for trimming overflow
-		TacticalRect.Width - 6);                // Width in pixels of buffer // RA2: as above
+		TacticalRect.Width - 6);                // Width in pixels of buffer
 
 	Session.Messages.Set_Width(TacticalRect.Width);
 
@@ -480,22 +480,22 @@ void DisplayClass::Set_Cursor_Shape(Cell const * list)
 
 void DisplayClass::Set_Copy_Cursor_Shape(Cell const * list) // RA2: RA2's form
 {
-	if (CopyCursorSize) { // RA2: as above
-		Mark_Foundation_Copy(CopyZoneCell+CopyZoneOffset, false); // RA2: as above
+	if (CopyCursorSize) {
+		Mark_Foundation_Copy(CopyZoneCell + CopyZoneOffset, false);
 	}
-	CopyZoneOffset = CELL_NONE; // RA2: as above
+	CopyZoneOffset = CELL_NONE;
 
 	if (list) {
-		static Cell _list[50]; // RA2: as above
+		static Cell _list[50];
 
 		memcpy(_list, list, sizeof(_list));
-		CopyCursorSize = _list; // RA2: as above
-		Cell dim = Get_Occupy_Dimensions(CopyCursorSize); // RA2: as above
+		CopyCursorSize = _list;
+		Cell dim = Get_Occupy_Dimensions(CopyCursorSize);
 		dim -= Cell(1,1);
-		CopyZoneOffset = -dim / 2; // RA2: as above
-		Mark_Foundation_Copy(CopyZoneCell+CopyZoneOffset, true); // RA2: as above
+		CopyZoneOffset = -dim / 2;
+		Mark_Foundation_Copy(CopyZoneCell + CopyZoneOffset, true);
 	} else {
-		CopyCursorSize = 0; // RA2: as above
+		CopyCursorSize = 0;
 	}
 }
 
@@ -506,12 +506,12 @@ static inline Rect Foundation_Rect(Cell const & origin, BuildingTypeClass const 
 {
 	int height = building->Height();
 	int width = building->Width();
-	return Rect(origin.X, origin.Y, width, height); // RA2: as above
+	return Rect(origin.X, origin.Y, width, height);
 }
 
-static inline Coord Foundation_Cell_Center(Cell const & cell) // RA2: as above
+static inline Coord Foundation_Cell_Center(Cell const & cell)
 {
-	return(cell.As_Coord()); // RA2: as above
+	return(cell.As_Coord());
 }
 
 
@@ -563,22 +563,22 @@ bool DisplayClass::Passes_Proximity_Check(ObjectTypeClass const * object, Houses
 	}
 
 	BuildingTypeClass const * building = static_cast<BuildingTypeClass const *>(object); // RA2: RA2's form
-	Rect footprint = Foundation_Rect(trycell, building); // RA2: as above
-	int adj = building->Adjacent + 1; // RA2: as above
-	Rect range(footprint.X - adj, footprint.Y - adj, footprint.Width + adj * 2, footprint.Height + adj * 2); // RA2: as above
+	Rect footprint = Foundation_Rect(trycell, building);
+	int adj = building->Adjacent + 1;
+	Rect range(footprint.X - adj, footprint.Y - adj, footprint.Width + adj * 2, footprint.Height + adj * 2);
 	bool retval = false;
 
-	for (int x = range.X; x < range.X + range.Width; x++) { // RA2: as above
-		for (int y = range.Y; y < range.Y + range.Height; y++) { // RA2: as above
+	for (int x = range.X; x < range.X + range.Width; x++) {
+		for (int y = range.Y; y < range.Y + range.Height; y++) {
 			Cell newcell(x, y);
 
-			if (!footprint.Is_Point_Within(Point2D(newcell.X, newcell.Y))) { // RA2: as above
-				BuildingClass * newbase = Map[newcell].Cell_Building(); // RA2: as above
-				if (newbase) { // RA2: as above
-					if (newbase->House->HeapID == house && newbase->Class->IsBase) { // RA2: as above
+			if (!footprint.Is_Point_Within(Point2D(newcell.X, newcell.Y))) {
+				BuildingClass * newbase = Map[newcell].Cell_Building();
+				if (newbase) {
+					if (newbase->House->HeapID == house && newbase->Class->IsBase) {
 						retval = true;
 					}
-					if (Session.Options.BuildOffAlly && newbase->House->Is_Ally(Houses[house]) && newbase->Class->EligibleForAllyBuilding) { // RA2: as above
+					if (Session.Options.BuildOffAlly && newbase->House->Is_Ally(Houses[house]) && newbase->Class->EligibleForAllyBuilding) {
 						retval = true;
 					}
 				}
@@ -610,28 +610,28 @@ bool DisplayClass::Passes_Shroud_Check(ObjectTypeClass const * object, HousesTyp
 	if (house != PlayerPtr->HeapID || Debug_Map) { // RA2: RA2's form
 		return(true);
 	}
-	if (list == NULL || trycell == CELL_NONE || object == NULL || object->RTTI != RTTI_BUILDINGTYPE) { // RA2: as above
+	if (list == NULL || trycell == CELL_NONE || object == NULL || object->RTTI != RTTI_BUILDINGTYPE) {
 		return(true);
 	}
 
-	BuildingTypeClass const * building = static_cast<BuildingTypeClass const *>(object); // RA2: as above
-	Rect footprint = Foundation_Rect(trycell, building); // RA2: as above
-	int x = footprint.X; // RA2: as above
-	if (x < footprint.X + footprint.Width) { // RA2: as above
-		do { // RA2: as above
-			for (int y = footprint.Y; y < footprint.Y + footprint.Height; ++y) { // RA2: as above
-				Coord coord = Foundation_Cell_Center(Cell(x, y)); // RA2: as above
+	BuildingTypeClass const * building = static_cast<BuildingTypeClass const *>(object);
+	Rect footprint = Foundation_Rect(trycell, building);
+	int x = footprint.X;
+	if (x < footprint.X + footprint.Width) {
+		do {
+			for (int y = footprint.Y; y < footprint.Y + footprint.Height; ++y) {
+				Coord coord = Foundation_Cell_Center(Cell(x, y));
 				coord.Z = Map.Get_Height_GL(coord);
 				if (Map.Is_Shrouded(coord)) {
 					if (building->ToTile == NULL) {
 						return(false);
 					}
-					goto done; // RA2: as above
+					goto done;
 				}
 			}
-		} while (++x < footprint.X + footprint.Width); // RA2: as above
+		} while (++x < footprint.X + footprint.Width);
 	}
-done: // RA2: as above
+done:
 	return(true);
 }
 
@@ -815,15 +815,15 @@ void DisplayClass::Mark_Foundation_Copy(Cell const & pos, bool on) // RA2: RA2's
 
 	if (pos == CELL_NONE) return;
 
-	ptr = CopyCursorSize; // RA2: as above
+	ptr = CopyCursorSize;
 	while (*ptr != REFRESH_EOL) {
 		Cell cell = Cell(pos + *ptr++);
 		if (In_Radar(cell)) {
 			cellptr = &(*this)[cell];
 			if (on) {
-				cellptr->IsFoundationCopyHere = true; // RA2: as above
+				cellptr->IsFoundationCopyHere = true;
 			} else {
-				cellptr->IsFoundationCopyHere = false; // RA2: as above
+				cellptr->IsFoundationCopyHere = false;
 			}
 		}
 	}
@@ -1053,7 +1053,7 @@ bool DisplayClass::Map_Cell(Cell const & cell, HouseClass * house)
 		int	shadow;
 		int fog;
 
-		Cell c = (AdjacentCell[dir & 0x07] + cell); // RA2: as above
+		Cell c = (AdjacentCell[dir & 0x07] + cell);
 		CellClass * cptr = &(*this)[c];
 
 		if (c != cell && !cptr->IsVisible) {
@@ -1066,7 +1066,7 @@ bool DisplayClass::Map_Cell(Cell const & cell, HouseClass * house)
 					cptr->IsVisible = true;
 					TacticalMap->Flag_Cell(*cptr);
 					for (int dir2 = FACING_FIRST; dir2 < FACING_COUNT; dir2++) {
-						Cell cc = (AdjacentCell[dir2 & 0x07] + c); // RA2: as above
+						Cell cc = (AdjacentCell[dir2 & 0x07] + c);
 						CellClass * scptr = &(*this)[cc];
 						signed char sframe = TacticalMap->Cell_Shadow(cc, false);
 						if (sframe != scptr->ShadowFrame) {
@@ -1097,7 +1097,7 @@ bool DisplayClass::Map_Cell(Cell const & cell, HouseClass * house)
 					cptr->IsFogVisible = true;
 					TacticalMap->Flag_Cell(*cptr);
 					for (int dir2 = FACING_FIRST; dir2 < FACING_COUNT; dir2++) {
-						Cell cc = (AdjacentCell[dir2 & 0x07] + c); // RA2: as above
+						Cell cc = (AdjacentCell[dir2 & 0x07] + c);
 						CellClass * fcptr = &(*this)[cc];
 						signed char fframe = TacticalMap->Cell_Shadow(cc, true);
 						if (fframe != fcptr->FogFrame) {
@@ -1141,10 +1141,10 @@ bool DisplayClass::RevealFogShroud(Cell const & cell, HouseClass * house, bool i
 	cellptr->IsToFog = false;
 	cellptr->IsFogMapped = true;
 
-	if (increase) { // RA2: as above
-		cellptr->IncreaseShroudCounter(); // RA2: as above
+	if (increase) {
+		cellptr->IncreaseShroudCounter();
 	} else {
-		cellptr->ReduceShroudCounter(); // RA2: as above
+		cellptr->ReduceShroudCounter();
 	}
 
 	signed char sframe = TacticalMap->Cell_Shadow(cell, false);
@@ -1325,7 +1325,7 @@ bool DisplayClass::Shadow_Map_Cell(Cell const & cell, HouseClass * house)
 	for (int dir = FACING_FIRST; dir < FACING_COUNT; dir++) {
 		int	shadow;
 
-		Cell c = (AdjacentCell[dir & 0x07] + cell); // RA2: as above
+		Cell c = (AdjacentCell[dir & 0x07] + cell);
 		CellClass * cptr = &(*this)[c];
 
 		if (c != cell && !cptr->IsVisible) {
@@ -1338,7 +1338,7 @@ bool DisplayClass::Shadow_Map_Cell(Cell const & cell, HouseClass * house)
 					cptr->IsVisible = true;
 					TacticalMap->Flag_Cell(*cptr);
 					for (int dir2 = FACING_FIRST; dir2 < FACING_COUNT; dir2++) {
-						Cell cc = (AdjacentCell[dir2 & 0x07] + c); // RA2: as above
+						Cell cc = (AdjacentCell[dir2 & 0x07] + c);
 						CellClass * scptr = &(*this)[cc];
 						signed char sframe = TacticalMap->Cell_Shadow(cc, false);
 						if (sframe != scptr->ShadowFrame) {
@@ -1532,10 +1532,10 @@ Cell DisplayClass::Calculated_Cell(SourceType dir, Cell const & waypoint, Cell c
 	int x;
 	int y;
 	int start; // RA2: RA2's form
-	Cell fallback; // RA2: as above
-	int zone = -1; // RA2: as above
+	Cell fallback;
+	int zone = -1;
 
-	Cell trycell(0, 0); // RA2: as above
+	Cell trycell(0, 0);
 	if (waypoint != CELL_NONE) {
 		trycell = waypoint;
 	}
@@ -1550,16 +1550,16 @@ Cell DisplayClass::Calculated_Cell(SourceType dir, Cell const & waypoint, Cell c
 	Point2D trypoint = Cell_To_LocalRect_Point(Point2D(trycell.X, trycell.Y));
 
 	if (trycell != CELL_NONE) {
-		int left = trypoint.X - LocalRect.X; // RA2: as above
-		x = (left < LocalRect.X + (LocalRect.Width - trypoint.X) // RA2: as above
-			? left : LocalRect.X + (LocalRect.Width - trypoint.X)) * 2; // RA2: as above
+		int left = trypoint.X - LocalRect.X;
+		x = (left < LocalRect.X + (LocalRect.Width - trypoint.X)
+					? left : LocalRect.X + (LocalRect.Width - trypoint.X)) * 2;
 		y = trypoint.Y - 2 * LocalRect.Y;
-		y = min(y, -trypoint.Y + 2 * (LocalRect.Y + LocalRect.Height)); // RA2: as above
+		y = min(y, -trypoint.Y + 2 * (LocalRect.Y + LocalRect.Height));
 
 		if (x < y) {
 			vert = true;
 			horz = false;
-			if ((trypoint.X - LocalRect.X) < LocalRect.Width / 2) { // RA2: as above
+			if ((trypoint.X - LocalRect.X) < LocalRect.Width / 2) {
 				x = -1;
 				dir = SOURCE_WEST;
 			} else {
@@ -1567,11 +1567,11 @@ Cell DisplayClass::Calculated_Cell(SourceType dir, Cell const & waypoint, Cell c
 				dir = SOURCE_EAST;
 			}
 			y = 0;
-			start = trypoint.Y - LocalRect.Y; // RA2: as above
+			start = trypoint.Y - LocalRect.Y;
 		} else {
 			vert = false;
 			horz = true;
-			if ((trypoint.Y - 2 * LocalRect.Y) < (2 * LocalRect.Height) / 2) { // RA2: as above
+			if ((trypoint.Y - 2 * LocalRect.Y) < (2 * LocalRect.Height) / 2) {
 				y = -1;
 				dir = SOURCE_NORTH;
 			} else {
@@ -1579,54 +1579,54 @@ Cell DisplayClass::Calculated_Cell(SourceType dir, Cell const & waypoint, Cell c
 				dir = SOURCE_SOUTH;
 			}
 			x = 0;
-			start = trypoint.X - LocalRect.X; // RA2: as above
+			start = trypoint.X - LocalRect.X;
 		}
 	} else {
-		y = x = 0; // RA2: as above
+		y = x = 0;
 		switch (dir) {
 			default:
 			case SOURCE_NORTH:
 				horz = true;
-				start = Random_Pick(1, LocalRect.Width) - 1; // RA2: as above
+				start = Random_Pick(1, LocalRect.Width) - 1;
 				break;
 
 			case SOURCE_SOUTH:
 				horz = true;
 				y = 2 * LocalRect.Height + 2;
-				start = Random_Pick(1, LocalRect.Width) - 1; // RA2: as above
+				start = Random_Pick(1, LocalRect.Width) - 1;
 				break;
 
 			case SOURCE_EAST:
 				vert = true;
 				x = LocalRect.Width;
-				start = Random_Pick(1, 2 * LocalRect.Height) - 1; // RA2: as above
+				start = Random_Pick(1, 2 * LocalRect.Height) - 1;
 				break;
 
 			case SOURCE_WEST:
 				vert = true;
-				start = Random_Pick(0, 2 * LocalRect.Height) - 1; // RA2: as above
+				start = Random_Pick(0, 2 * LocalRect.Height) - 1;
 				break;
 		}
 	}
 
-	Point2D defaultPoint = LocalRect_To_Cell_Point(Point2D(1, LocalRect.Width / 2)); // RA2: as above
-	fallback = Cell(defaultPoint.X, defaultPoint.Y); // RA2: as above
+	Point2D defaultPoint = LocalRect_To_Cell_Point(Point2D(1, LocalRect.Width / 2));
+	fallback = Cell(defaultPoint.X, defaultPoint.Y);
 
 	if (vert) {
 		int modifier = (dir != SOURCE_EAST) ? 1 : -1;
 
-		for (int index = 0; index < LocalRect.Height * 2; index++) { // RA2: as above
-			int yy = (start + index) % (LocalRect.Height * 2); // RA2: as above
+		for (int index = 0; index < LocalRect.Height * 2; index++) {
+			int yy = (start + index) % (LocalRect.Height * 2);
 
-			Point2D outcellPoint = LocalRect_To_Cell_Point(Point2D(x, yy)); // RA2: as above
-			Cell outcell(outcellPoint.X, outcellPoint.Y); // RA2: as above
-			Point2D incellPoint = LocalRect_To_Cell_Point(Point2D(x + modifier, yy)); // RA2: as above
+			Point2D outcellPoint = LocalRect_To_Cell_Point(Point2D(x, yy));
+			Cell outcell(outcellPoint.X, outcellPoint.Y);
+			Point2D incellPoint = LocalRect_To_Cell_Point(Point2D(x + modifier, yy));
 
-			if (Good_Reinforcement_Cell(outcell, Cell(incellPoint.X, incellPoint.Y), loco, zone, mzone)) { // RA2: as above
-				return outcell; // RA2: as above
+			if (Good_Reinforcement_Cell(outcell, Cell(incellPoint.X, incellPoint.Y), loco, zone, mzone)) {
+				return outcell;
 			}
 		}
-	} else if (horz) { // RA2: as above
+	} else if (horz) {
 		int modifier = (dir == SOURCE_NORTH) ? 1 : -1;
 
 		if (dir == SOURCE_SOUTH) {
@@ -1634,51 +1634,51 @@ Cell DisplayClass::Calculated_Cell(SourceType dir, Cell const & waypoint, Cell c
 
 			for (x = 0; x < LocalRect.Width; x++) {
 				for (y = 0; y < 15; y++) {
-					Point2D newcellPoint = LocalRect_To_Cell_Point(Point2D(x, y + 2 * LocalRect.Height)); // RA2: as above
-					Cell newcell(newcellPoint.X, newcellPoint.Y); // RA2: as above
-					if (!In_Local_Radar(newcell, true) && Good_Reinforcement_Cell(newcell, trycell, loco, zone, mzone)) { // RA2: as above
+					Point2D newcellPoint = LocalRect_To_Cell_Point(Point2D(x, y + 2 * LocalRect.Height));
+					Cell newcell(newcellPoint.X, newcellPoint.Y);
+					if (!In_Local_Radar(newcell, true) && Good_Reinforcement_Cell(newcell, trycell, loco, zone, mzone)) {
 						cells.Add(newcell);
 						break;
 					}
 				}
 			}
-			int count = cells.Count(); // RA2: as above
+			int count = cells.Count();
 
 			if (trycell == CELL_NONE) {
-				if (count > 0) { // RA2: as above
-					fallback = cells[Random_Pick(0, count - 1)]; // RA2: as above
+				if (count > 0) {
+					fallback = cells[Random_Pick(0, count - 1)];
 				} else {
-					fallback = CELL_NONE; // RA2: as above
+					fallback = CELL_NONE;
 				}
 			} else {
 				int dist = -1;
 				Cell best = CELL_NONE;
-				for (int i = 0; i < count; i++) { // RA2: as above
+				for (int i = 0; i < count; i++) {
 					int d = trycell.Distance_To(cells[i]);
 					if (dist == -1 || d < dist) {
 						best = cells[i];
 						dist = d;
 					}
 				}
-				fallback = best; // RA2: as above
+				fallback = best;
 			}
 
 		} else {
-			for (int index = 0; index < LocalRect.Width; index++) { // RA2: as above
-				int xx = (start + index) % LocalRect.Width; // RA2: as above
+			for (int index = 0; index < LocalRect.Width; index++) {
+				int xx = (start + index) % LocalRect.Width;
 
-				Point2D outcellPoint = LocalRect_To_Cell_Point(Point2D(xx, y)); // RA2: as above
-				Cell outcell(outcellPoint.X, outcellPoint.Y); // RA2: as above
-				Point2D incellPoint = LocalRect_To_Cell_Point(Point2D(xx, y + modifier)); // RA2: as above
+				Point2D outcellPoint = LocalRect_To_Cell_Point(Point2D(xx, y));
+				Cell outcell(outcellPoint.X, outcellPoint.Y);
+				Point2D incellPoint = LocalRect_To_Cell_Point(Point2D(xx, y + modifier));
 
-				if (Good_Reinforcement_Cell(outcell, Cell(incellPoint.X, incellPoint.Y), loco, zone, mzone)) { // RA2: as above
-					return outcell; // RA2: as above
+				if (Good_Reinforcement_Cell(outcell, Cell(incellPoint.X, incellPoint.Y), loco, zone, mzone)) {
+					return outcell;
 				}
 			}
 		}
 	}
 
-	return fallback; // RA2: as above
+	return fallback;
 }
 
 
@@ -1711,7 +1711,7 @@ Cell DisplayClass::Calculated_Cell(SourceType dir, Cell const & waypoint, Cell c
  *=============================================================================================*/
 bool DisplayClass::Good_Reinforcement_Cell(Cell const & outcell, Cell const & incell, SpeedType loco, int zone, MZoneType mzone) const
 {
-	if (loco == SPEED_WINGED) { // RA2: as above
+	if (loco == SPEED_WINGED) {
 		return(true);
 	}
 
@@ -1838,12 +1838,12 @@ void DisplayClass::Mouse_Right_Press(Point2D const & point)
 /// </summary>
 void DisplayClass::Mouse_Right_Release(Point2D const & point)
 {
-	ObjectClass * pending = PendingObjectPtr; // RA2: as above
-	bool techno; // RA2: as above
-	if (pending != NULL) { // RA2: as above
-		techno = (pending->AbstractFlags & ABSTRACT_TECHNO); // RA2: as above
+	ObjectClass * pending = PendingObjectPtr;
+	bool techno;
+	if (pending != NULL) {
+		techno = (pending->AbstractFlags & ABSTRACT_TECHNO);
 	}
-	if (pending != NULL && techno) { // RA2: as above
+	if (pending != NULL && techno) {
 		//PendingObjectPtr->Transmit_Message(RADIO_OVER_OUT);
 		PendingObjectPtr = NULL;
 		PendingObject = NULL;
@@ -1864,8 +1864,8 @@ void DisplayClass::Mouse_Right_Release(Point2D const & point)
 					} else {
 						if (IsWaypointMode) {
 							Waypoint_Mode_Control(0);
-						} else if (IsBeaconMode) { // RA2: as above
-							Place_Beacon_Mode_Control(0); // RA2: as above
+						} else if (IsBeaconMode) {
+							Place_Beacon_Mode_Control(0);
 						} else {
 							Unselect_All();
 						}
@@ -2272,38 +2272,38 @@ void DisplayClass::Mouse_Left_Release(Coord const & coord, Cell const & cell, Ob
 		if (PendingObject->RTTI == RTTI_BUILDINGTYPE) {
 			TPoint2D<short> const * placement = &cell; // RA2: meastes adds through a pointer to the click cell
 			Cell const where = placement->operator+(ZoneOffset); // RA2: the click cell plus the zone offset
-			ProximityCheck = Passes_Proximity_Check(PendingObject, PendingHouse, CursorSize, where); // RA2: as above
+			ProximityCheck = Passes_Proximity_Check(PendingObject, PendingHouse, CursorSize, where);
 		}
-		if (PendingObject->RTTI == RTTI_BUILDINGTYPE && object && object->RTTI == RTTI_BUILDING && ((BuildingClass *)object)->Can_Upgrade((BuildingTypeClass const *)PendingObject, PlayerPtr)) { // RA2: as above
-			ProximityCheck = true; // RA2: as above
+		if (PendingObject->RTTI == RTTI_BUILDINGTYPE && object && object->RTTI == RTTI_BUILDING && ((BuildingClass *)object)->Can_Upgrade((BuildingTypeClass const *)PendingObject, PlayerPtr)) {
+			ProximityCheck = true;
 		}
 		if (ProximityCheck && ShroudCheck) {
 			TechnoTypeClass const * techno_type = dynamic_cast<TechnoTypeClass const *>(PendingObject); // RA2: the event carries the naval flag
-			bool naval = techno_type && techno_type->Naval; // RA2: as above
-			ObjectClass * pending = PendingObjectPtr; // RA2: as above
-			OutList.Add(EventClass(PlayerPtr->HeapID, EventClass::PLACE, pending->RTTI, PendingObject->Fetch_Heap_ID(), naval, cell + ZoneOffset)); // RA2: as above
+			bool naval = techno_type && techno_type->Naval;
+			ObjectClass * pending = PendingObjectPtr;
+			OutList.Add(EventClass(PlayerPtr->HeapID, EventClass::PLACE, pending->RTTI, PendingObject->Fetch_Heap_ID(), naval, cell + ZoneOffset));
 			pending = PendingObjectPtr; // RA2: forgets the placed building in the sidebar tabs
-			BuildingClass * placed; // RA2: as above
-			if (!pending) { // RA2: as above
-				placed = NULL; // RA2: as above
+			BuildingClass * placed;
+			if (!pending) {
+				placed = NULL;
 			} else {
-				placed = pending->RTTI == RTTI_BUILDING ? (BuildingClass *)pending : NULL; // RA2: as above
+				placed = pending->RTTI == RTTI_BUILDING ? (BuildingClass *)pending : NULL;
 			}
-			Clear_Sidebar_Tab_Object(placed); // RA2: as above
-			if (!Debug_Map) { // RA2: as above
+			Clear_Sidebar_Tab_Object(placed);
+			if (!Debug_Map) {
 				CopyPendingObject = PendingObject; // RA2: the placed object is kept for the copy cursor
-				CopyPendingObjectPtr = PendingObjectPtr; // RA2: as above
-				CopyZoneCell = cell; // RA2: as above
-				CopyZoneOffset = ZoneOffset; // RA2: as above
-				CopyCursorSize = CursorSize; // RA2: as above
-				CopyPendingHouse = PendingHouse; // RA2: as above
-				if (PendingObject) { // RA2: as above
+				CopyPendingObjectPtr = PendingObjectPtr;
+				CopyZoneCell = cell;
+				CopyZoneOffset = ZoneOffset;
+				CopyCursorSize = CursorSize;
+				CopyPendingHouse = PendingHouse;
+				if (PendingObject) {
 					Map.Set_Copy_Cursor_Shape(PendingObject->Occupy_List(true)); // RA2: 0x499070, the copy footprint (the exe calls it before the plain Set_Cursor_Shape)
 				}
-				Map.Set_Cursor_Shape(NULL); // RA2: as above
-				Map.PendingObjectPtr = NULL; // RA2: as above
-				Map.PendingObject = NULL; // RA2: as above
-				Map.PendingHouse = HOUSE_NONE; // RA2: as above
+				Map.Set_Cursor_Shape(NULL);
+				Map.PendingObjectPtr = NULL;
+				Map.PendingObject = NULL;
+				Map.PendingHouse = HOUSE_NONE;
 			}
 		} else {
 			Queue_Speech("EVA_CannotDeployHere", -1, -1); // RA2: the EVA line by name
@@ -2313,105 +2313,105 @@ void DisplayClass::Mouse_Left_Release(Coord const & coord, Cell const & cell, Ob
 		if (IsRubberBand) {
 			TacticalMap->IsToRedraw = true;
 			if (!Keyboard->Down(KN_LSHIFT)) {
-				if (TacticalMap->Rubber_Band_Contains_Selectable()) { // RA2: as above
-					Unselect_All(); // RA2: as above
+				if (TacticalMap->Rubber_Band_Contains_Selectable()) {
+					Unselect_All();
 				} else {
-					continue_select = 1; // RA2: as above
+					continue_select = 1;
 				}
 			}
 			TacticalMap->Select_Rubber_Band(Bandbox_Selection_Callback);
-			TechnoClass::Reset_Action_Line_Timer(); // RA2: as above
+			TechnoClass::Reset_Action_Line_Timer();
 			IsRubberBand = false;
-			Set_Default_Mouse(MOUSE_NORMAL, wsmall); // RA2: as above
-			IsTentative = false; // RA2: as above
+			Set_Default_Mouse(MOUSE_NORMAL, wsmall);
+			IsTentative = false;
 			drag_select_aborted = true;
-			if (!continue_select) { // RA2: as above
-				Clear_Attack_Move_Flag(); // RA2: as above
-				return; // RA2: as above
+			if (!continue_select) {
+				Clear_Attack_Move_Flag();
+				return;
 			}
 		}
-		if (action == ACTION_TOGGLE_SELECT) { // RA2: as above
-			if (!object || !CurrentObject.Count() || !CurrentObject[0]->Owner_HouseClass()->Is_Player_Control()) { // RA2: as above
-				action = ACTION_SELECT; // RA2: as above
-			} else if (object->IsSelected) { // RA2: as above
+		if (action == ACTION_TOGGLE_SELECT) {
+			if (!object || !CurrentObject.Count() || !CurrentObject[0]->Owner_HouseClass()->Is_Player_Control()) {
+				action = ACTION_SELECT;
+			} else if (object->IsSelected) {
 				if (Is_Type_Select_Key_Held()) { // RA2: with the type select key the whole type is toggled
-					Unselect_Type(object->Class_Of()->IniName); // RA2: as above
+					Unselect_Type(object->Class_Of()->IniName);
 				} else {
-					object->Unselect(); // RA2: as above
+					object->Unselect();
 				}
 			} else {
-				if (Is_Type_Select_Key_Held()) { // RA2: as above
-					Select_Type(object->Class_Of()->IniName); // RA2: as above
+				if (Is_Type_Select_Key_Held()) {
+					Select_Type(object->Class_Of()->IniName);
 				} else {
-					object->Select(); // RA2: as above
+					object->Select();
 				}
 			}
 		}
-		if ((action == ACTION_SELECT && object) || (action == ACTION_NONE && object && object->CanBeSelected() && !object->IsSelected)) { // RA2: as above
-			if (object->RTTI != RTTI_BUILDING || ((BuildingClass *)object)->House->Is_Player_Control() || ((BuildingClass *)object)->TranslucencyLevel != 15 || ((TechnoClass *)object)->Is_Sensed_By_Player()) { // RA2: as above
-				Unselect_All(); // RA2: as above
-				if (Is_Type_Select_Key_Held()) { // RA2: as above
-					Select_Type(object->Class_Of()->IniName); // RA2: as above
+		if ((action == ACTION_SELECT && object) || (action == ACTION_NONE && object && object->CanBeSelected() && !object->IsSelected)) {
+			if (object->RTTI != RTTI_BUILDING || ((BuildingClass *)object)->House->Is_Player_Control() || ((BuildingClass *)object)->TranslucencyLevel != 15 || ((TechnoClass *)object)->Is_Sensed_By_Player()) {
+				Unselect_All();
+				if (Is_Type_Select_Key_Held()) {
+					Select_Type(object->Class_Of()->IniName);
 				} else {
-					object->Select(); // RA2: as above
+					object->Select();
 				}
-				Set_Default_Mouse(MOUSE_NORMAL, wsmall); // RA2: as above
-				TechnoClass::Reset_Action_Line_Timer(); // RA2: as above
+				Set_Default_Mouse(MOUSE_NORMAL, wsmall);
+				TechnoClass::Reset_Action_Line_Timer();
 			}
 		}
 		if (action == ACTION_SELECT_BEACON) { // RA2: beacons
-			Coord point = cell.As_Coord(Map[cell].Height * LEVEL_LEPTON_H); // RA2: as above
-			BeaconManager.Select_Beacon(point); // RA2: as above
-		} else if (action != ACTION_NONE && action != ACTION_SELECT) { // RA2: as above
+			Coord point = cell.As_Coord(Map[cell].Height * LEVEL_LEPTON_H);
+			BeaconManager.Select_Beacon(point);
+		} else if (action != ACTION_NONE && action != ACTION_SELECT) {
 			bool allowed = true; // RA2: planning mode may refuse the action
-			if (action != ACTION_TOGGLE_SELECT && action != ACTION_REPAIR && action != ACTION_SELL && action != ACTION_SELL_UNIT && action != ACTION_NO_SELL && action != ACTION_NO_REPAIR && action != ACTION_TOGGLE_POWER && action != ACTION_NO_TOGGLE_POWER && action != ACTION_NUKE_BOMB && action != ACTION_IRON_CURTAIN && action != ACTION_LIGHTNING_STORM && action != ACTION_CHRONOSPHERE && action != ACTION_CHRONO_WARP && action != ACTION_PARA_DROP && action != ACTION_AMER_PARA_DROP && action != ACTION_SELECT_NODE && action != ACTION_PLACE_BEACON) { // RA2: as above
-				bool execute = Is_Planning_Selection_Valid(); // RA2: as above
-				bool add = Planning_Can_Add(); // RA2: as above
-				allowed = execute && add; // RA2: as above
+			if (action != ACTION_TOGGLE_SELECT && action != ACTION_REPAIR && action != ACTION_SELL && action != ACTION_SELL_UNIT && action != ACTION_NO_SELL && action != ACTION_NO_REPAIR && action != ACTION_TOGGLE_POWER && action != ACTION_NO_TOGGLE_POWER && action != ACTION_NUKE_BOMB && action != ACTION_IRON_CURTAIN && action != ACTION_LIGHTNING_STORM && action != ACTION_CHRONOSPHERE && action != ACTION_CHRONO_WARP && action != ACTION_PARA_DROP && action != ACTION_AMER_PARA_DROP && action != ACTION_SELECT_NODE && action != ACTION_PLACE_BEACON) {
+				bool execute = Is_Planning_Selection_Valid();
+				bool add = Planning_Can_Add();
+				allowed = execute && add;
 			}
-			if (allowed) { // RA2: as above
+			if (allowed) {
 				Active_Click(object, cell, action);
-				TechnoClass::Reset_Action_Line_Timer(); // RA2: as above
+				TechnoClass::Reset_Action_Line_Timer();
 				if (action == ACTION_TOGGLE_POWER) {
-					if (object->RTTI == RTTI_BUILDING) { // RA2: as above
-						if (((BuildingClass *)object)->IsOn) { // RA2: as above
-							OutList.Add(EventClass(PlayerPtr->HeapID, EventClass::POWEROFF, TargetClass(object))); // RA2: as above
+					if (object->RTTI == RTTI_BUILDING) {
+						if (((BuildingClass *)object)->IsOn) {
+							OutList.Add(EventClass(PlayerPtr->HeapID, EventClass::POWEROFF, TargetClass(object)));
 						} else {
-							OutList.Add(EventClass(PlayerPtr->HeapID, EventClass::POWERON, TargetClass(object))); // RA2: as above
+							OutList.Add(EventClass(PlayerPtr->HeapID, EventClass::POWERON, TargetClass(object)));
 						}
 					}
-				} else if (action == ACTION_PLACE_BEACON) { // RA2: as above
-					if (MuteSWLaunches == 0) { // RA2: as above
-						Coord point = cell.As_Coord(Map[cell].Height * LEVEL_LEPTON_H); // RA2: as above
-						BeaconManager.Place_Beacon(PlayerPtr->HeapID, point, -1); // RA2: as above
+				} else if (action == ACTION_PLACE_BEACON) {
+					if (MuteSWLaunches == 0) {
+						Coord point = cell.As_Coord(Map[cell].Height * LEVEL_LEPTON_H);
+						BeaconManager.Place_Beacon(PlayerPtr->HeapID, point, -1);
 					}
-					Map.Place_Beacon_Mode_Control(0); // RA2: as above
-					Set_Default_Mouse(MOUSE_NORMAL, wsmall); // RA2: as above
-				} else if (action == ACTION_REPAIR) { // RA2: as above
-					if (object->RTTI == RTTI_BUILDING) { // RA2: as above
-						OutList.Add(EventClass(PlayerPtr->HeapID, EventClass::REPAIR, TargetClass(object))); // RA2: as above
+					Map.Place_Beacon_Mode_Control(0);
+					Set_Default_Mouse(MOUSE_NORMAL, wsmall);
+				} else if (action == ACTION_REPAIR) {
+					if (object->RTTI == RTTI_BUILDING) {
+						OutList.Add(EventClass(PlayerPtr->HeapID, EventClass::REPAIR, TargetClass(object)));
 					}
-				} else if (action == ACTION_SELL_UNIT) { // RA2: as above
-					if (object) { // RA2: as above
-						RTTIType kind = object->RTTI; // RA2: as above
-						if (kind > RTTI_NONE && kind <= RTTI_AIRCRAFT) { // RA2: as above
+				} else if (action == ACTION_SELL_UNIT) {
+					if (object) {
+						RTTIType kind = object->RTTI;
+						if (kind > RTTI_NONE && kind <= RTTI_AIRCRAFT) {
 							OutList.Add(EventClass(PlayerPtr->HeapID, EventClass::SELL, TargetClass(object)));
 						}
 					}
-				} else if (action == ACTION_SELL) { // RA2: as above
-					if (object) { // RA2: as above
+				} else if (action == ACTION_SELL) {
+					if (object) {
 						OutList.Add(EventClass(PlayerPtr->HeapID, EventClass::SELL, TargetClass(object)));
 					} else {
 						OutList.Add(EventClass(PlayerPtr->HeapID, EventClass::SELLCELL, cell));
 					}
 				}
-				SuperWeaponTypeClass * stype = SuperWeaponTypeClass::From_Action(action); // RA2: as above
-				if (stype) { // RA2: as above
+				SuperWeaponTypeClass * stype = SuperWeaponTypeClass::From_Action(action);
+				if (stype) {
 					OutList.Add(EventClass(PlayerPtr->HeapID, EventClass::SPECIAL_PLACE, stype->HeapID, cell));
 				}
 			}
 		}
-		IsTentative = false; // RA2: as above
+		IsTentative = false;
 	}
 	Clear_Attack_Move_Flag(); // RA2: every path ends by clearing the attack move flag
 }
@@ -2435,19 +2435,19 @@ void Bandbox_Selection_Callback(ObjectClass *object)
 	HouseClass *house = object->Owner_HouseClass();
 	BuildingClass *bptr = object->Fetch_RTTI() == RTTI_BUILDING ? (BuildingClass *)object : NULL; // RA2: RA2's form
 
-	if (house != NULL && house->Is_Player_Control() && object->CanBeSelected()) { // RA2: as above
+	if (house != NULL && house->Is_Player_Control() && object->CanBeSelected()) {
 		if (bptr != NULL) {
-			BuildingTypeClass * type = bptr->Class; // RA2: as above
-			if (type->UndeploysInto == NULL) { // RA2: as above
+			BuildingTypeClass * type = bptr->Class;
+			if (type->UndeploysInto == NULL) {
 				return;
 			}
-			for (int index = 0; index < Rule->BuildConst.Count(); index++) { // RA2: as above
-				if (Rule->BuildConst[index] == type) { // RA2: as above
+			for (int index = 0; index < Rule->BuildConst.Count(); index++) {
+				if (Rule->BuildConst[index] == type) {
 					return;
 				}
 			}
 		}
-		if (!object->IsInLimbo && object->Select()) { // RA2: as above
+		if (!object->IsInLimbo && object->Select()) {
 			AllowVoice = false;
 		}
 	}
@@ -2518,7 +2518,7 @@ T Bound2(T original, T minval, T maxval)
  *=============================================================================================*/
 void DisplayClass::Mouse_Left_Held(Point2D const & point)
 {
-	if (IsRubberBand && !IsWaypointMode && !IsBeaconMode) { // RA2: as above
+	if (IsRubberBand && !IsWaypointMode && !IsBeaconMode) {
 		Rect rect = TacticalRect;
 		Point2D npoint = point;
 		int x = Bound2(npoint.X, 0, rect.Width);
@@ -2545,7 +2545,7 @@ void DisplayClass::Mouse_Left_Held(Point2D const & point)
 			if ((point - (Point2D &)BandX).Length() > 4) {
 				IsRubberBand = true;
 				IsTentative = false;
-				if (!IsWaypointMode && !IsBeaconMode) { // RA2: as above
+				if (!IsWaypointMode && !IsBeaconMode) {
 					TacticalMap->IsToRedraw = true;
 					TacticalMap->Start_Rubber_Band((Point2D &)BandX);
 					Map.Override_Mouse_Shape(MOUSE_NORMAL);
@@ -2597,8 +2597,8 @@ void DisplayClass::Compute_Start_Pos(void)
 	if (num != 0) {
 		coord /= num;
 	} else {
-		coord.X = PlayerPtr->Center.X; // RA2: as above
-		coord.Y = PlayerPtr->Center.Y; // RA2: as above
+		coord.X = PlayerPtr->Center.X;
+		coord.Y = PlayerPtr->Center.Y;
 	}
 
 	/*
@@ -2841,8 +2841,8 @@ void DisplayClass::Place_Beacon_Mode_Control(int control) // RA2: RA2's form
 			break;
 	}
 
-	if (mode != IsBeaconMode && !PendingObject) { // RA2: as above
-		if (mode && !BeaconManager.CanPlaceBeacon(PlayerPtr->HeapID)) { // RA2: as above
+	if (mode != IsBeaconMode && !PendingObject) {
+		if (mode && !BeaconManager.CanPlaceBeacon(PlayerPtr->HeapID)) {
 			mode = false;
 		}
 		IsSellMode = false;
@@ -2851,10 +2851,10 @@ void DisplayClass::Place_Beacon_Mode_Control(int control) // RA2: RA2's form
 		IsRepairMode = false;
 		Set_Default_Mouse(MOUSE_NORMAL, false);
 		if (mode) {
-			IsBeaconMode = true; // RA2: as above
+			IsBeaconMode = true;
 			Unselect_All();
 		} else {
-			IsBeaconMode = false; // RA2: as above
+			IsBeaconMode = false;
 			Revert_Mouse_Shape();
 		}
 	}
@@ -3308,7 +3308,7 @@ void DisplayClass::Read_INI(CCINIClass const & ini)
 
 	Map.Set_Local_Dimensions(LocalRect);
 
-	Map.Get_Max_Level(); // RA2: as above
+	Map.Get_Max_Level();
 
 	LastTheater = Scen->Theater;
 }
@@ -3564,31 +3564,31 @@ void DisplayClass::Restore_Map_State(void * stash)
 
 void DisplayClass::Reveal_Technos(bool units_only, bool is_fog) // RA2: RA2's form
 {
-	int count = Technos.Count(); // RA2: as above
-	for (int index = 0; index < count; index++) { // RA2: as above
-		TechnoClass * tech = Technos[index]; // RA2: as above
-		if (tech != NULL && !tech->IsInLimbo) { // RA2: as above
-			if (tech->Fetch_RTTI() == RTTI_BUILDING && units_only) continue; // RA2: as above
+	int count = Technos.Count();
+	for (int index = 0; index < count; index++) {
+		TechnoClass * tech = Technos[index];
+		if (tech != NULL && !tech->IsInLimbo) {
+			if (tech->Fetch_RTTI() == RTTI_BUILDING && units_only) continue;
 
 			if (tech->House->Is_Player_Control()) {
 				if (tech->IsDiscoveredByPlayer) {
-					tech->UpdateSight(false, false, false, NULL); // RA2: as above
-					Coord c = tech->Position; // RA2: as above
-					Map.RevealArea3(c, 0, tech->LastSightRange + 3, 0); // RA2: as above
-					if (tech->Techno_Type_Class()->GapGenerator) { // RA2: as above
-						tech->CreateGap(); // RA2: as above
+					tech->UpdateSight(false, false, false, NULL);
+					Coord c = tech->Position;
+					Map.RevealArea3(c, 0, tech->LastSightRange + 3, 0);
+					if (tech->Techno_Type_Class()->GapGenerator) {
+						tech->CreateGap();
 					}
 				}
-			} else if (tech->Fetch_RTTI() == RTTI_BUILDING && Rule->IsAllyReveal && tech->House->Is_Ally(PlayerPtr)) { // RA2: as above
-				tech->UpdateSight(false, is_fog, false, NULL); // RA2: as above
-				Coord c = tech->Position; // RA2: as above
-				Map.RevealArea3(c, 0, tech->LastSightRange + 3, 0); // RA2: as above
-			} else if (tech->Fetch_RTTI() == RTTI_BUILDING && tech->Techno_Type_Class()->RevealToAll && !tech->House->Is_Player_Control()) { // RA2: as above
-				tech->UpdateSight(false, false, true, PlayerPtr); // RA2: as above
-				Coord c = tech->Position; // RA2: as above
-				Map.RevealArea3(c, 0, tech->LastSightRange + 3, 0); // RA2: as above
-			} else if (tech->Techno_Type_Class()->GapGenerator) { // RA2: as above
-				tech->CreateGap(); // RA2: as above
+			} else if (tech->Fetch_RTTI() == RTTI_BUILDING && Rule->IsAllyReveal && tech->House->Is_Ally(PlayerPtr)) {
+				tech->UpdateSight(false, is_fog, false, NULL);
+				Coord c = tech->Position;
+				Map.RevealArea3(c, 0, tech->LastSightRange + 3, 0);
+			} else if (tech->Fetch_RTTI() == RTTI_BUILDING && tech->Techno_Type_Class()->RevealToAll && !tech->House->Is_Player_Control()) {
+				tech->UpdateSight(false, false, true, PlayerPtr);
+				Coord c = tech->Position;
+				Map.RevealArea3(c, 0, tech->LastSightRange + 3, 0);
+			} else if (tech->Techno_Type_Class()->GapGenerator) {
+				tech->CreateGap();
 			}
 		}
 	}
@@ -3597,23 +3597,23 @@ void DisplayClass::Reveal_Technos(bool units_only, bool is_fog) // RA2: RA2's fo
 
 void DisplayClass::Update_Technos_Visibility(bool units_only, bool is_fog) // RA2: RA2's form
 {
-	int count = Technos.Count(); // RA2: as above
-	for (int index = 0; index < count; index++) { // RA2: as above
-		TechnoClass * tech = Technos[index]; // RA2: as above
-		if (tech != NULL && !tech->IsInLimbo) { // RA2: as above
-			if (tech->Fetch_RTTI() == RTTI_BUILDING && units_only) continue; // RA2: as above
+	int count = Technos.Count();
+	for (int index = 0; index < count; index++) {
+		TechnoClass * tech = Technos[index];
+		if (tech != NULL && !tech->IsInLimbo) {
+			if (tech->Fetch_RTTI() == RTTI_BUILDING && units_only) continue;
 
 			if (tech->House->Is_Player_Control()) {
 				if (tech->IsDiscoveredByPlayer) {
-					tech->RemoveSight(false, false, false, NULL); // RA2: as above
-					if (tech->Techno_Type_Class()->GapGenerator) { // RA2: as above
-						tech->DestroyGap(); // RA2: as above
+					tech->RemoveSight(false, false, false, NULL);
+					if (tech->Techno_Type_Class()->GapGenerator) {
+						tech->DestroyGap();
 					}
 				}
-			} else if (tech->Fetch_RTTI() == RTTI_BUILDING && Rule->IsAllyReveal && tech->House->Is_Ally(PlayerPtr)) { // RA2: as above
-				tech->RemoveSight(false, is_fog, false, NULL); // RA2: as above
-			} else if (tech->Techno_Type_Class()->GapGenerator) { // RA2: as above
-				tech->DestroyGap(); // RA2: as above
+			} else if (tech->Fetch_RTTI() == RTTI_BUILDING && Rule->IsAllyReveal && tech->House->Is_Ally(PlayerPtr)) {
+				tech->RemoveSight(false, is_fog, false, NULL);
+			} else if (tech->Techno_Type_Class()->GapGenerator) {
+				tech->DestroyGap();
 			}
 		}
 	}
@@ -3643,15 +3643,15 @@ void DisplayClass::All_To_Look(bool units_only, bool is_fog)
 {
 	for (int index = 0; index < Layer[LAYER_GROUND].Count(); index++) {
 		ObjectClass * object = Layer[LAYER_GROUND][index]; // RA2: RA2's form
-		if (object != NULL && (object->AbstractFlags & ABSTRACT_TECHNO)) { // RA2: as above
-			TechnoClass * tech = (TechnoClass *)object; // RA2: as above
-			if (tech->Fetch_RTTI() == RTTI_BUILDING && units_only) continue; // RA2: as above
+		if (object != NULL && (object->AbstractFlags & ABSTRACT_TECHNO)) {
+			TechnoClass * tech = (TechnoClass *)object;
+			if (tech->Fetch_RTTI() == RTTI_BUILDING && units_only) continue;
 
 			if (tech->House->Is_Player_Control()) {
 				if (tech->IsDiscoveredByPlayer) {
 					tech->Look(false, is_fog);
 				}
-			} else if (tech->Fetch_RTTI() == RTTI_BUILDING && Rule->IsAllyReveal && tech->House->Is_Ally(PlayerPtr)) { // RA2: as above
+			} else if (tech->Fetch_RTTI() == RTTI_BUILDING && Rule->IsAllyReveal && tech->House->Is_Ally(PlayerPtr)) {
 				tech->Look(is_fog, false);
 			}
 		}
@@ -3737,8 +3737,8 @@ void DisplayClass::Center_Map(void)
 				}
 			}
 
-			coord -= bestc; // RA2: as above
-			center = coord / (CurrentObject.Count() - 1); // RA2: as above
+			coord -= bestc;
+			center = coord / (CurrentObject.Count() - 1);
 		}
 
 		TacticalMap->Set_Tactical_Position(center);
@@ -3803,28 +3803,28 @@ char const * DisplayClass::Help_Text(int id)
 	ObjectClass * object;
 	bool fog, shadow;
 
-	int left = TacticalRect.X; // RA2: as above
-	int top = TacticalRect.Y; // RA2: as above
-	Point2D xy = MouseCursor->Get_Mouse_Point(); // RA2: as above
-	Point2D point(xy.X - left, xy.Y - top); // RA2: as above
-	Map.Resolve_Point(point, cell, coord, object, fog, shadow); // RA2: as above
+	int left = TacticalRect.X;
+	int top = TacticalRect.Y;
+	Point2D xy = MouseCursor->Get_Mouse_Point();
+	Point2D point(xy.X - left, xy.Y - top);
+	Map.Resolve_Point(point, cell, coord, object, fog, shadow);
 
-	if (CursorCheat) { // RA2: as above
-		swprintf(_buffer, L"(%d,%d)", coord.X / 256, coord.Y / 256); // RA2: as above
-		return((char const *)_buffer); // RA2: as above
+	if (CursorCheat) {
+		swprintf(_buffer, L"(%d,%d)", coord.X / 256, coord.Y / 256);
+		return((char const *)_buffer);
 	}
 
 	/*
 	**	Give a generic help message when over shadow terrain.
 	*/
 	if (!Map[coord].IsMapped && MainWindow) {
-		return((char const *)StringTable::LoadString("TXT_SHADOW", NULL, "D:\\Ra2\\Display.CPP", 4976)); // RA2: as above
+		return((char const *)StringTable::LoadString("TXT_SHADOW", NULL, "D:\\Ra2\\Display.CPP", 4976));
 	}
 
 	if (object == NULL) {
 		return(NULL);
 	}
-	TechnoClass * techno = (object != NULL && (object->AbstractFlags & ABSTRACT_TECHNO)) ? (TechnoClass *)object : NULL; // RA2: as above
+	TechnoClass * techno = (object != NULL && (object->AbstractFlags & ABSTRACT_TECHNO)) ? (TechnoClass *)object : NULL;
 	if (techno != NULL && !techno->IsOwnedByPlayer) {
 		if (techno->Cloak == CLOAKED && !Map[techno->Center_Coord()].Is_Sensed(PlayerPtr->HeapID)) {
 			return(NULL);
@@ -3835,11 +3835,11 @@ char const * DisplayClass::Help_Text(int id)
 	}
 
 	if (object != NULL) {
-		wchar_t const * text = object->Full_Name(); // RA2: as above
-		if (techno == NULL) { // RA2: as above
-			text = (wchar_t const *)(*this)[cell].Tiberium_Name(); // RA2: as above
+		wchar_t const * text = object->Full_Name();
+		if (techno == NULL) {
+			text = (wchar_t const *)(*this)[cell].Tiberium_Name();
 		}
-		return((char const *)text); // RA2: as above
+		return((char const *)text);
 	}
 
 	return(NULL);
@@ -3926,41 +3926,41 @@ void DisplayClass::Active_Click(ObjectClass * object, Cell cell, ActionType acti
 	}
 	cell = Map.Clip_To_Map(cell);
 	WaypointClass * waypoint = PlayerPtr->Waypoint_At(cell);
-	if (waypoint) { // RA2: as above
+	if (waypoint) {
 		PlayerPtr->Fetch_Waypoint_Data(waypoint, waypoint_path, waypoint_id);
 	}
 	for (index = 0; index < CurrentObject.Count(); index++) {
-		selected = CurrentObject[index]; // RA2: as above
-		selected->Set_Waypoint_Path(waypoint_path, waypoint_id); // RA2: as above
-		if (CurrentObject[index] && CurrentObject[index]->Is_Foot()) { // RA2: as above
-			selected = CurrentObject[index]; // RA2: as above
-			static_cast<TechnoClass *>(selected)->IsOnPatrol = false; // RA2: as above
+		selected = CurrentObject[index];
+		selected->Set_Waypoint_Path(waypoint_path, waypoint_id);
+		if (CurrentObject[index] && CurrentObject[index]->Is_Foot()) {
+			selected = CurrentObject[index];
+			static_cast<TechnoClass *>(selected)->IsOnPatrol = false;
 		}
 	}
 	if (object) {
 		for (index = 0; index < CurrentObject.Count(); index++) {
-			selected = CurrentObject[index]; // RA2: as above
-			CurrentObject[index]->Active_Click_With(selected->What_Action(object), object, false); // RA2: as above
+			selected = CurrentObject[index];
+			CurrentObject[index]->Active_Click_With(selected->What_Action(object), object, false);
 			AllowVoice = false;
 		}
 	} else if (action == ACTION_MOVE || action == ACTION_PATROL_WAYPOINT) {
 		for (index = 0; index < CurrentObject.Count(); index++) {
-			selected = CurrentObject[index]; // RA2: as above
-			CurrentObject[index]->Active_Click_With(selected->What_Action(cell), cell, cell, false); // RA2: as above
+			selected = CurrentObject[index];
+			CurrentObject[index]->Active_Click_With(selected->What_Action(cell), cell, cell, false);
 			AllowVoice = false;
 		}
-	} else if (action == ACTION_NOMOVE) { // RA2: as above
-		int count = CurrentObject.Count(); // RA2: as above
-		for (index = 0; index < count; index++) { // RA2: as above
-			selected = CurrentObject[index]; // RA2: as above
-			CurrentObject[index]->Active_Click_With(selected->What_Action(cell), cell, cell, false); // RA2: as above
+	} else if (action == ACTION_NOMOVE) {
+		int count = CurrentObject.Count();
+		for (index = 0; index < count; index++) {
+			selected = CurrentObject[index];
+			CurrentObject[index]->Active_Click_With(selected->What_Action(cell), cell, cell, false);
 			AllowVoice = false;
 		}
 	} else {
 		for (index = 0; index < CurrentObject.Count(); index++) {
-			Cell empty(-1, -1); // RA2: as above
-			selected = CurrentObject[index]; // RA2: as above
-			CurrentObject[index]->Active_Click_With(selected->What_Action(cell), cell, empty, false); // RA2: as above
+			Cell empty(-1, -1);
+			selected = CurrentObject[index];
+			CurrentObject[index]->Active_Click_With(selected->What_Action(cell), cell, empty, false);
 			AllowVoice = false;
 		}
 	}
@@ -3992,7 +3992,7 @@ ActionType DisplayClass::Action_To_Waypoint_Action(ActionType action, Cell const
 				return(ACTION_ATTACK_WAYPOINT);
 			case ACTION_ENTER:
 			case ACTION_CAPTURE:
-			case ACTION_EATEN: // RA2: as above
+			case ACTION_EATEN:
 				return(ACTION_ENTER_WAYPOINT);
 			default:
 				return(action);

@@ -623,11 +623,11 @@ boolean STDMETHODCALLTYPE DriveLocomotionClass::Process(void)
 		if (TrackNumber == -1 && (Is_Moving() || LinkedTo->Path[0] != FACING_NONE) && (LinkedTo->Fetch_RTTI() != RTTI_UNIT || !((UnitClass*)LinkedTo)->IsDumping)) { // RA2: Fetch_RTTI() is the virtual slot, not the RTTI member
 			bool res = false;
 			if (LinkedTo->Fetch_RTTI() == RTTI_UNIT && LinkedTo->NavCom != NULL && LinkedTo->NavCom->Fetch_RTTI() == RTTI_INFANTRY) { // RA2: a unit chasing an infantry NavCom follows its coordinate
-				Coord dest = LinkedTo->NavCom->Destination_Coord(LinkedTo); // RA2: as above
-				if (dest != DestinationCoord) { // RA2: as above
-					Move_To(dest); // RA2: as above
-				} // RA2: as above
-			} // RA2: as above
+				Coord dest = LinkedTo->NavCom->Destination_Coord(LinkedTo);
+				if (dest != DestinationCoord) {
+					Move_To(dest);
+				}
+			}
 			Start_Of_Move(res);
 			if (res) return(false);
 			if (!LinkedTo->IsActive) return(false);
@@ -1010,7 +1010,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 	actual = SpeedAccum + (just_started ? 0 : maxspeed); // RA2: the speed accumulation comes before the next facing is read
 
 	FacingType		nextface;		// Next facing queued in path. // RA2: declared after actual
-	nextface = LinkedTo->Path[0]; // RA2: as above
+	nextface = LinkedTo->Path[0];
 
 	if (nextface == FACING_COUNT && TrackNumber == -1) {
 		LinkedTo->Mark(MARK_UP);
@@ -1026,7 +1026,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 			LinkedTo->CurrentTube = tubenum;
 			TPoint2D<short> const & enter = tube->Enter; // RA2: the entry point is held in a reference before the tube direction is set
 			LinkedTo->CurrentTubeDir = FACING_FIRST;
-			LinkedTo->LastTubeCoord = Map[Adjacent_Cell(Cell(enter), tube->Dirs[0])].Cell_Coord(); // RA2: as above
+			LinkedTo->LastTubeCoord = Map[Adjacent_Cell(Cell(enter), tube->Dirs[0])].Cell_Coord();
 			int current_height = Map.Get_Height_GL(LinkedTo->PositionCoord);
 			Cell exit = tube->Exit; // RA2: the exit cell is a new local, read before the count
 			int count = tube->Count;
@@ -1103,10 +1103,10 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 				dir = ptr[TrackIndex].Facing;
 				Coord newcoord = Coord(Smooth_Turn(offset, dir), 0);
 				Cell newcoord_cell = newcoord.As_Cell(); // RA2: both cells are read into locals before the comparison
-				Cell linked_coord_cell = LinkedTo->PositionCoord.As_Cell(); // RA2: as above
+				Cell linked_coord_cell = LinkedTo->PositionCoord.As_Cell();
 				Cell newcell = newcoord.As_Cell();
 
-				if (newcoord_cell != linked_coord_cell) { // RA2: as above
+				if (newcoord_cell != linked_coord_cell) {
 					LinkedTo->Mark(MARK_UP);
 					LinkedTo->PositionCoord = newcoord;
 					CellClass * oldcellptr = &Map[oldcell];
@@ -1118,8 +1118,8 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 						LinkedTo->IsOnBridge = false;
 					}
 					if (LinkedTo->TClass->IsTrain) { // RA2: the train test with the unit in a local, as ra2-decomp's matched Yuri's Revenge twin of Drive's While_Moving (src/drive.cpp, GAMEMD 0x4B0F20) has it
-						UnitClass * unit = (UnitClass *)LinkedTo; // RA2: as above
-						if (!unit->IsFollowing) { // RA2: as above
+						UnitClass * unit = (UnitClass *)LinkedTo;
+						if (!unit->IsFollowing) {
 							bool is_bridge = LinkedTo->IsOnBridge || (LinkedTo->PositionCoord.Z >= (Map.Get_Height_GL(LinkedTo->PositionCoord) + BRIDGE_LEPTON_HEIGHT));
 							ObjectClass * occupier = is_bridge ? Map[newcell].Cell_Bridge_Occupier() : Map[newcell].Cell_Occupier(); // RA2: one conditional expression over the two accessors
 							while (occupier != NULL) {
@@ -1141,7 +1141,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 						OverlayTypeClass * otype = OverlayTypes[newcellptr->Overlay];
 						if (IsRocking && (LinkedTo->TClass->IsCrusher || LinkedTo->Has_Ability(ABILITY_CRUSHER)) && otype->HeapID == OVERLAY_SANDBAG_WALL) {
 							LinkedTo->IsCrushing = true;
-							if (LinkedTo->Techno_Type_Class()->IsTiltsWhenCrushes) { // RA2: as above
+							if (LinkedTo->Techno_Type_Class()->IsTiltsWhenCrushes) {
 								LinkedTo->RockingForwardsPerFrame = -0.02f;
 							}
 						}
@@ -1265,7 +1265,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 
 				bool arrived = false;
 				if (LinkedTo->NavCom != NULL && LinkedTo->PositionCell == LinkedTo->NavCom->Destination_Coord(LinkedTo).As_Cell()) { // RA2: Destination_Coord takes the unit
-					if (abs(LinkedTo->Destination_Coord(LinkedTo).Z - DestinationCoord.Z) < 2 * LEVEL_LEPTON_H) { // RA2: as above
+					if (abs(LinkedTo->Destination_Coord(LinkedTo).Z - DestinationCoord.Z) < 2 * LEVEL_LEPTON_H) {
 						arrived = true;
 						DestinationCoord = COORD_NONE;
 						Stop_Driver();
@@ -1335,7 +1335,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 
 			Coord partial(0, 0, 0);
 			movement = Lerp(partial, movement, SpeedAccum / 7.0); // RA2: the blended step overwrites the movement /// 7 == (CELL_LEPTON / ((CELL_PIXEL_W + CELL_PIXEL_H) / 2))
-			Coord partialcoord = oldcoord + movement; // RA2: as above
+			Coord partialcoord = oldcoord + movement;
 
 			CellClass * oldcellptr = &Map[oldcoord];
 			CellClass * partialcellptr = &Map[partialcoord];
@@ -1402,18 +1402,18 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
  *=============================================================================================*/
 bool DriveLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool force_straight) // RA2: ra2-decomp's twin text
 {
-	FacingType facing = LinkedTo->Path[0];				// Direction movement will commence. // RA2: as above
+	FacingType facing = LinkedTo->Path[0];				// Direction movement will commence.
 
-	if (!Is_Moving() && facing == FACING_NONE) { // RA2: as above
-		IsTurretLockedDown = false; // RA2: as above
-		Stop_Driver(); // RA2: as above
-		if (LinkedTo->Get_Mission() == MISSION_MOVE) { // RA2: as above
-			stop_processing = LinkedTo->Enter_Idle_Mode(false, true); // RA2: as above
+	if (!Is_Moving() && facing == FACING_NONE) {
+		IsTurretLockedDown = false;
+		Stop_Driver();
+		if (LinkedTo->Get_Mission() == MISSION_MOVE) {
+			stop_processing = LinkedTo->Enter_Idle_Mode(false, true);
 		}
-		return(false);		// Why is it calling this routine!?! // RA2: as above
+		return(false);		// Why is it calling this routine!?!
 	}
 
-	if (DestinationCoord == COORD_NONE) return(false); // RA2: as above
+	if (DestinationCoord == COORD_NONE) return(false);
 
 	if (LinkedTo->IsBeingWarpedOut() || LinkedTo->IsWarpingIn()) return(false); // RA2: a unit being warped out or in does not start a move (tested before the spawn manager; ship tests it after)
 	if (LinkedTo->SpawnManager != NULL && LinkedTo->SpawnManager->CountLaunchingSpawns() != 0) return(true); // RA2: wait while spawns are launching
@@ -1423,12 +1423,12 @@ bool DriveLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, boo
 	**	Reduce the path length if the target is a unit and the
 	**	range to the unit is less than the precalculated path steps.
 	*/
-	if (facing != FACING_NONE) { // RA2: as above
+	if (facing != FACING_NONE) {
 		if ((LinkedTo->NavCom != NULL && LinkedTo->NavCom->Fetch_RTTI() == RTTI_UNIT) || (LinkedTo->NavCom != NULL && LinkedTo->NavCom->Fetch_RTTI() == RTTI_INFANTRY)) { // RA2: Fetch_RTTI() tests instead of dynamic_cast
-			int dist = LinkedTo->Distance(DestinationCoord) / CELL_LEPTON_W; // RA2: as above
-			if (dist < CONQUER_PATH_MAX) { // RA2: as above
-				LinkedTo->Path[dist] = FACING_NONE; // RA2: as above
-				facing = LinkedTo->Path[0];		// Maybe needed. // RA2: as above
+			int dist = LinkedTo->Distance(DestinationCoord) / CELL_LEPTON_W;
+			if (dist < CONQUER_PATH_MAX) {
+				LinkedTo->Path[dist] = FACING_NONE;
+				facing = LinkedTo->Path[0];		// Maybe needed.
 			}
 		}
 	}
@@ -1437,29 +1437,29 @@ bool DriveLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, boo
 	**	If the path is invalid at this point, then generate one. If
 	**	generating a new path fails, then abort NavCom.
 	*/
-	if (facing == FACING_NONE) { // RA2: as above
+	if (facing == FACING_NONE) {
 
 		/*
 		**	If after a path search, there is still no valid path, then set the
 		**	NavCom to null and let the script take care of assigning a new
 		**	navigation target.
 		*/
-		if (LinkedTo->PathDelay != 0) { // RA2: as above
-			return(false); // RA2: as above
+		if (LinkedTo->PathDelay != 0) {
+			return(false);
 		}
-		LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>((int)(Rule->PathDelay * TICKS_PER_MINUTE)); // RA2: as above
+		LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>((int)(Rule->PathDelay * TICKS_PER_MINUTE));
 
-		if (!LinkedTo->Basic_Path(DestinationCoord.As_Cell(), 0, 0)) { // RA2: as above
-			if (LinkedTo == NULL) { // RA2: as above
-				stop_processing = true; // RA2: as above
-				return(false); // RA2: as above
+		if (!LinkedTo->Basic_Path(DestinationCoord.As_Cell(), 0, 0)) {
+			if (LinkedTo == NULL) {
+				stop_processing = true;
+				return(false);
 			}
 			if (!LinkedTo->Is_In_Same_Zone(DestinationCoord)) { // RA2: a failed zone test comes first and gives up the destination
-				LinkedTo->Assign_Destination(NULL, true); // RA2: as above
-				return(false); // RA2: as above
+				LinkedTo->Assign_Destination(NULL, true);
+				return(false);
 			}
 
-			if (DestinationCoord == COORD_NONE) return(false); // RA2: as above
+			if (DestinationCoord == COORD_NONE) return(false);
 
 			/*
 			**	If the unit is close enough to the target then just stop
@@ -1468,55 +1468,55 @@ bool DriveLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, boo
 			**	desired. This is quite necessary since it is typical to move
 			**	several units with the same mouse click.
 			*/
-			if (!LinkedTo->Is_On_Priority_Mission() && LinkedTo->Distance(DestinationCoord) < Rule->CloseEnoughDistance && (LinkedTo->Get_Mission() == MISSION_MOVE || LinkedTo->Get_Mission() == MISSION_GUARD_AREA)) { // RA2: as above
-				Stop_Driver(); // RA2: as above
-				if (Abandon_Navigation()) return(true); // RA2: as above
-				if (!LinkedTo->IsActive) return(false); // RA2: as above
+			if (!LinkedTo->Is_On_Priority_Mission() && LinkedTo->Distance(DestinationCoord) < Rule->CloseEnoughDistance && (LinkedTo->Get_Mission() == MISSION_MOVE || LinkedTo->Get_Mission() == MISSION_GUARD_AREA)) {
+				Stop_Driver();
+				if (Abandon_Navigation()) return(true);
+				if (!LinkedTo->IsActive) return(false);
 			} else {
 				/*
 				**	If a basic path could not be found, but the immediate move destination is
 				**	blocked by a friendly temporary blockage, then cause that blockage
 				**	to scatter.
 				*/
-				Cell cell = Adjacent_Cell(LinkedTo->Center_Coord().As_Cell(), LinkedTo->PrimaryFacing.Current().As_Dir8()); // RA2: as above
-				if (Map.In_Local_Radar(cell, true)) { // RA2: as above
-					MoveType ok = LinkedTo->Can_Enter_Cell(&Map[cell], LinkedTo->PrimaryFacing.Current().As_Dir8(), LinkedTo->Get_Cell_Height(), 0, true); // RA2: as above
-					if (ok == MOVE_CLOSED_GATE) { // RA2: as above
-						Incoming(cell); // RA2: as above
-					} else if (ok == MOVE_TEMP) { // RA2: as above
-						CellClass * cellptr = &Map[cell]; // RA2: as above
-						TechnoClass * blockage = cellptr->Cell_Techno(Point2D(0, 0), LinkedTo->Get_Coord().Z > Map.Get_Height_GL(Coord(cell.X * CELL_LEPTON_W + CELL_LEPTON_W / 2, cell.Y * CELL_LEPTON_H + CELL_LEPTON_H / 2, 0)) + 2 * LEVEL_LEPTON_H); // RA2: as above
-						if (blockage != NULL && LinkedTo->House->Is_Ally(blockage) && !LinkedTo->TClass->IsTrain) { // RA2: as above
+				Cell cell = Adjacent_Cell(LinkedTo->Center_Coord().As_Cell(), LinkedTo->PrimaryFacing.Current().As_Dir8());
+				if (Map.In_Local_Radar(cell, true)) {
+					MoveType ok = LinkedTo->Can_Enter_Cell(&Map[cell], LinkedTo->PrimaryFacing.Current().As_Dir8(), LinkedTo->Get_Cell_Height(), 0, true);
+					if (ok == MOVE_CLOSED_GATE) {
+						Incoming(cell);
+					} else if (ok == MOVE_TEMP) {
+						CellClass * cellptr = &Map[cell];
+						TechnoClass * blockage = cellptr->Cell_Techno(Point2D(0, 0), LinkedTo->Get_Coord().Z > Map.Get_Height_GL(Coord(cell.X * CELL_LEPTON_W + CELL_LEPTON_W / 2, cell.Y * CELL_LEPTON_H + CELL_LEPTON_H / 2, 0)) + 2 * LEVEL_LEPTON_H);
+						if (blockage != NULL && LinkedTo->House->Is_Ally(blockage) && !LinkedTo->TClass->IsTrain) {
 
 							/*
 							**	If the target can be told to get out of the way, only bother
 							**	to do so if we aren't very close to the target and this
 							**	object can just say "good enough" and stop here.
 							*/
-							if (LinkedTo->Distance(DestinationCoord) < Rule->CloseEnoughDistance && !LinkedTo->HasAnyLink()) { // RA2: as above
-								if (abs(DestinationCoord.Z - LinkedTo->PositionCoord.Z) < 2 * LEVEL_LEPTON_H) { // RA2: as above
-									if (Map[LinkedTo->Get_Coord()].Land_Type() != LAND_TUNNEL) { // RA2: as above
-										Stop_Driver(); // RA2: as above
+							if (LinkedTo->Distance(DestinationCoord) < Rule->CloseEnoughDistance && !LinkedTo->HasAnyLink()) {
+								if (abs(DestinationCoord.Z - LinkedTo->PositionCoord.Z) < 2 * LEVEL_LEPTON_H) {
+									if (Map[LinkedTo->Get_Coord()].Land_Type() != LAND_TUNNEL) {
+										Stop_Driver();
 										if (Abandon_Navigation()) return(true); // RA2: the result is tested here, not returned as it is (the exe repeats the inlined call at this site)
-										return(false); // RA2: as above
+										return(false);
 									}
 								}
 							}
 
-							bool is_bridge = cellptr->IsUnderBridge && abs(LinkedTo->PositionCoord.Z / LEVEL_LEPTON_H - cellptr->Height) > 2; // RA2: as above
-							cellptr->Incoming(COORD_NONE, true, true, is_bridge); // RA2: as above
+							bool is_bridge = cellptr->IsUnderBridge && abs(LinkedTo->PositionCoord.Z / LEVEL_LEPTON_H - cellptr->Height) > 2;
+							cellptr->Incoming(COORD_NONE, true, true, is_bridge);
 						}
 					}
 				}
 
-				if (LinkedTo->TryTryAgain > 0) { // RA2: as above
-					LinkedTo->TryTryAgain--; // RA2: as above
+				if (LinkedTo->TryTryAgain > 0) {
+					LinkedTo->TryTryAgain--;
 				} else {
-					Stop_Driver(); // RA2: as above
-					if (Abandon_Navigation()) return(true); // RA2: as above
-					if (!LinkedTo->IsActive) return(false); // RA2: as above
-					if (LinkedTo->IsNewNavCom) VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000, 0); // RA2: as above
-					LinkedTo->IsNewNavCom = false; // RA2: as above
+					Stop_Driver();
+					if (Abandon_Navigation()) return(true);
+					if (!LinkedTo->IsActive) return(false);
+					if (LinkedTo->IsNewNavCom) VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000, 0);
+					LinkedTo->IsNewNavCom = false;
 				}
 			}
 
@@ -1526,24 +1526,24 @@ bool DriveLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, boo
 			**	TarCom, then give this unit a range limit so that it might not pick
 			**	a "can't reach" target again.
 			*/
-			if (!Is_Moving() && LinkedTo->TarCom != NULL && !LinkedTo->IsCloseEnoughToAttack(LinkedTo->TarCom)) { // RA2: as above
-				LinkedTo->IsScanLimited = true; // RA2: as above
-				if (LinkedTo->Team != NULL) LinkedTo->Team->Scan_Limit(); // RA2: as above
-				LinkedTo->Assign_Target(NULL); // RA2: as above
+			if (!Is_Moving() && LinkedTo->TarCom != NULL && !LinkedTo->IsCloseEnoughToAttack(LinkedTo->TarCom)) {
+				LinkedTo->IsScanLimited = true;
+				if (LinkedTo->Team != NULL) LinkedTo->Team->Scan_Limit();
+				LinkedTo->Assign_Target(NULL);
 			}
 
 			/*
 			**	Stop the movement, for now, and let the subsequent logic in later game
 			**	frames resume movement as appropriate.
 			*/
-			Stop_Driver(); // RA2: as above
-			TrackNumber = -1; // RA2: as above
-			IsTurretLockedDown = false; // RA2: as above
-			return(false); // RA2: as above
+			Stop_Driver();
+			TrackNumber = -1;
+			IsTurretLockedDown = false;
+			return(false);
 		}
 
-		if (LinkedTo->Path[0] == FACING_COUNT) { // RA2: as above
-			return(false); // RA2: as above
+		if (LinkedTo->Path[0] == FACING_COUNT) {
+			return(false);
 		}
 
 		/*
@@ -1551,39 +1551,39 @@ bool DriveLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, boo
 		**	blocked by a friendly temporary blockage, then cause that blockage
 		**	to scatter.
 		*/
-		Cell cell = Adjacent_Cell(LinkedTo->Center_Coord().As_Cell(), LinkedTo->Path[0]); // RA2: as above
-		if (Map.In_Local_Radar(cell, true)) { // RA2: as above
-			MoveType ok = LinkedTo->Can_Enter_Cell(&Map[cell], LinkedTo->Path[0], LinkedTo->Get_Cell_Height(), 0, true); // RA2: as above
+		Cell cell = Adjacent_Cell(LinkedTo->Center_Coord().As_Cell(), LinkedTo->Path[0]);
+		if (Map.In_Local_Radar(cell, true)) {
+			MoveType ok = LinkedTo->Can_Enter_Cell(&Map[cell], LinkedTo->Path[0], LinkedTo->Get_Cell_Height(), 0, true);
 
-			if (ok == MOVE_CLOSED_GATE) { // RA2: as above
-				Incoming(cell); // RA2: as above
-			} else if (ok == MOVE_TEMP) { // RA2: as above
-				CellClass * cellptr = &Map[cell]; // RA2: as above
-				TechnoClass * blockage = cellptr->Cell_Techno(Point2D(0, 0), LinkedTo->Get_Coord().Z > Map.Get_Height_GL(cell) + 2 * LEVEL_LEPTON_H); // RA2: as above
-				if (blockage != NULL && LinkedTo->House->Is_Ally(blockage) && !LinkedTo->TClass->IsTrain) { // RA2: as above
+			if (ok == MOVE_CLOSED_GATE) {
+				Incoming(cell);
+			} else if (ok == MOVE_TEMP) {
+				CellClass * cellptr = &Map[cell];
+				TechnoClass * blockage = cellptr->Cell_Techno(Point2D(0, 0), LinkedTo->Get_Coord().Z > Map.Get_Height_GL(cell) + 2 * LEVEL_LEPTON_H);
+				if (blockage != NULL && LinkedTo->House->Is_Ally(blockage) && !LinkedTo->TClass->IsTrain) {
 
 					/*
 					**	If the target can be told to get out of the way, only bother
 					**	to do so if we aren't very close to the target and this
 					**	object can just say "good enough" and stop here.
 					*/
-					if (LinkedTo->Distance(DestinationCoord) < Rule->CloseEnoughDistance && !LinkedTo->HasAnyLink()) { // RA2: as above
-						if (abs(DestinationCoord.Z - LinkedTo->PositionCoord.Z) < 2 * LEVEL_LEPTON_H) { // RA2: as above
-							if (Map[LinkedTo->Get_Coord()].Land_Type() != LAND_TUNNEL) { // RA2: as above
-								Stop_Driver(); // RA2: as above
-								return(Abandon_Navigation()); // RA2: as above
+					if (LinkedTo->Distance(DestinationCoord) < Rule->CloseEnoughDistance && !LinkedTo->HasAnyLink()) {
+						if (abs(DestinationCoord.Z - LinkedTo->PositionCoord.Z) < 2 * LEVEL_LEPTON_H) {
+							if (Map[LinkedTo->Get_Coord()].Land_Type() != LAND_TUNNEL) {
+								Stop_Driver();
+								return(Abandon_Navigation());
 							}
 						}
 					}
 
-					bool is_bridge = cellptr->IsUnderBridge && abs(LinkedTo->PositionCoord.Z / LEVEL_LEPTON_H - cellptr->Height) > 2; // RA2: as above
-					cellptr->Incoming(COORD_NONE, true, true, is_bridge); // RA2: as above
+					bool is_bridge = cellptr->IsUnderBridge && abs(LinkedTo->PositionCoord.Z / LEVEL_LEPTON_H - cellptr->Height) > 2;
+					cellptr->Incoming(COORD_NONE, true, true, is_bridge);
 				}
 			}
 		}
 
-		LinkedTo->TryTryAgain = FootClass::PATH_RETRY; // RA2: as above
-		facing = LinkedTo->Path[0]; // RA2: as above
+		LinkedTo->TryTryAgain = FootClass::PATH_RETRY;
+		facing = LinkedTo->Path[0];
 	}
 
 	/*
@@ -1591,43 +1591,43 @@ bool DriveLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, boo
 	 * because the path was already valid (facing != FACING_NONE on entry) or because
 	 * a new path was just successfully generated.
 	 */
-	if (facing == FACING_COUNT) { // RA2: as above
-		return(false); // RA2: as above
+	if (facing == FACING_COUNT) {
+		return(false);
 	}
 
 	/*
 	**	Determine the coordinate of the next cell to move into.
 	*/
-	Coord dest = Adjacent_Cell(LinkedTo->PositionCoord, facing); // RA2: as above
+	Coord dest = Adjacent_Cell(LinkedTo->PositionCoord, facing);
 
-	CellClass const & here = Map[LinkedTo->Get_Coord()]; // RA2: as above
-	int cell_height = here.Height + (LinkedTo->IsOnBridge ? BRIDGE_CELL_HEIGHT : 0); // RA2: as above
+	CellClass const & here = Map[LinkedTo->Get_Coord()];
+	int cell_height = here.Height + (LinkedTo->IsOnBridge ? BRIDGE_CELL_HEIGHT : 0);
 
 	/*
 	 * If this move crosses a bridge transition, force a full scan next process.
 	 */
-	CellClass const & next = Map[Adjacent_Cell(LinkedTo->PositionCoord, facing)]; // RA2: as above
-	if (LinkedTo->IsOnBridge ^ next.IsUnderBridge) { // RA2: as above
-		LinkedTo->IsPlanningToLook = true; // RA2: as above
+	CellClass const & next = Map[Adjacent_Cell(LinkedTo->PositionCoord, facing)];
+	if (LinkedTo->IsOnBridge ^ next.IsUnderBridge) {
+		LinkedTo->IsPlanningToLook = true;
 	}
-	if (!LinkedTo->Is_Ready_To_Move()) { // RA2: as above
-		return(true); // RA2: as above
+	if (!LinkedTo->Is_Ready_To_Move()) {
+		return(true);
 	}
-	if (!Incoming(dest.As_Cell())) { // RA2: as above
-		return(true); // RA2: as above
+	if (!Incoming(dest.As_Cell())) {
+		return(true);
 	}
 
 	/*
 	**	Set the facing correctly if it isn't already correct. This
 	**	means starting a rotation track if necessary.
 	*/
-	if (DirType(DIR_MIN) < (LinkedTo->PrimaryFacing.Current() - DirType(facing))) { // RA2: as above
+	if (DirType(DIR_MIN) < (LinkedTo->PrimaryFacing.Current() - DirType(facing))) {
 
 		/*
 		**	Request a change of facing.
 		*/
-		Do_Turn((DirStruct &)DirType(facing)); // RA2: as above
-		return(true); // RA2: as above
+		Do_Turn((DirStruct &)DirType(facing));
+		return(true);
 
 	} else {
 
@@ -1637,20 +1637,20 @@ bool DriveLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, boo
 		**	reason), then abort the path list and set the speed to zero. The
 		**	next time this routine is called, a new path will be generated.
 		*/
-		Cell destcell = dest.As_Cell(); // RA2: as above
-		CellClass * destptr = &Map[destcell]; // RA2: as above
-		bool crushable_dest = false; // RA2: as above
-		LinkedTo->Mark(MARK_UP); // RA2: as above
-		MoveType cando = LinkedTo->Can_Enter_Cell(destptr, facing, cell_height, 0, true); // RA2: as above
-		LinkedTo->Mark(MARK_DOWN); // RA2: as above
+		Cell destcell = dest.As_Cell();
+		CellClass * destptr = &Map[destcell];
+		bool crushable_dest = false;
+		LinkedTo->Mark(MARK_UP);
+		MoveType cando = LinkedTo->Can_Enter_Cell(destptr, facing, cell_height, 0, true);
+		LinkedTo->Mark(MARK_DOWN);
 
 		/*
 		 * A train ignores all blockages, and a crusher rolls straight over sandbags.
 		 */
-		if (cando < MOVE_NO && LinkedTo->TClass->IsTrain) { // RA2: as above
-			cando = MOVE_OK; // RA2: as above
-		} else if ((cando == MOVE_DESTROYABLE || cando == MOVE_FRIENDLY_DESTROYABLE) && LinkedTo->TClass->IsCrusher && destptr->Overlay == OVERLAY_SANDBAG_WALL) { // RA2: as above
-			cando = MOVE_OK; // RA2: as above
+		if (cando < MOVE_NO && LinkedTo->TClass->IsTrain) {
+			cando = MOVE_OK;
+		} else if ((cando == MOVE_DESTROYABLE || cando == MOVE_FRIENDLY_DESTROYABLE) && LinkedTo->TClass->IsCrusher && destptr->Overlay == OVERLAY_SANDBAG_WALL) {
+			cando = MOVE_OK;
 		}
 
 
@@ -1658,38 +1658,38 @@ bool DriveLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, boo
 		 * If the destination cell holds a crushable overlay, then remember to drive
 		 * straight through it rather than curving around.
 		 */
-		if (destptr->Overlay != OVERLAY_NONE && cando == MOVE_OK && OverlayTypes[destptr->Overlay]->IsCrushable) { // RA2: as above
-			crushable_dest = true; // RA2: as above
+		if (destptr->Overlay != OVERLAY_NONE && cando == MOVE_OK && OverlayTypes[destptr->Overlay]->IsCrushable) {
+			crushable_dest = true;
 		}
 
-		if (cando != MOVE_OK) { // RA2: as above
+		if (cando != MOVE_OK) {
 			/*
 			 * The destination cell cannot be entered. Handle each blockage type.
 			 */
-			if (cando == MOVE_CLOSED_GATE) { // RA2: as above
-				Incoming(destcell); // RA2: as above
+			if (cando == MOVE_CLOSED_GATE) {
+				Incoming(destcell);
 			}
 
 			/*
 			**	If a temporary friendly object is blocking the path, then cause it to
 			**	get out of the way.
 			*/
-			else if (cando == MOVE_TEMP) { // RA2: as above
-				if (!LinkedTo->TClass->IsTrain) { // RA2: as above
-					if (retry) { // RA2: as above
-						LinkedTo->Path[0] = FACING_NONE; // RA2: as above
-						LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0); // RA2: as above
-						return(Start_Of_Move(stop_processing, false, false)); // RA2: as above
+			else if (cando == MOVE_TEMP) {
+				if (!LinkedTo->TClass->IsTrain) {
+					if (retry) {
+						LinkedTo->Path[0] = FACING_NONE;
+						LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0);
+						return(Start_Of_Move(stop_processing, false, false));
 					}
-					if (LinkedTo->Distance(DestinationCoord) >= Rule->CloseEnoughDistance // RA2: as above
-						|| abs(DestinationCoord.Z - LinkedTo->PositionCoord.Z) >= 2 * LEVEL_LEPTON_H // RA2: as above
-						|| Map[LinkedTo->Get_Coord()].Land_Type() == LAND_TUNNEL) { // RA2: as above
-						bool is_bridge = Map[destcell].IsUnderBridge && abs(LinkedTo->PositionCoord.Z / LEVEL_LEPTON_H - Map[destcell].Height) > 2; // RA2: as above
-						Map[destcell].Incoming(COORD_NONE, true, true, is_bridge); // RA2: as above
+					if (LinkedTo->Distance(DestinationCoord) >= Rule->CloseEnoughDistance
+						|| abs(DestinationCoord.Z - LinkedTo->PositionCoord.Z) >= 2 * LEVEL_LEPTON_H
+						|| Map[LinkedTo->Get_Coord()].Land_Type() == LAND_TUNNEL) {
+						bool is_bridge = Map[destcell].IsUnderBridge && abs(LinkedTo->PositionCoord.Z / LEVEL_LEPTON_H - Map[destcell].Height) > 2;
+						Map[destcell].Incoming(COORD_NONE, true, true, is_bridge);
 					} else {
-						Stop_Driver(); // RA2: as above
-						if (Abandon_Navigation()) { // RA2: as above
-							return(true); // RA2: as above
+						Stop_Driver();
+						if (Abandon_Navigation()) {
+							return(true);
 						}
 					}
 				}
@@ -1697,82 +1697,82 @@ bool DriveLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, boo
 			/*
 			**	If a cloaked object is blocking, then shimmer the cell.
 			*/
-			} else if (cando == MOVE_CLOAK) { // RA2: as above
-				Map[destcell].Shimmer(); // RA2: as above
-				if (retry) { // RA2: as above
-					LinkedTo->Path[0] = FACING_NONE; // RA2: as above
-					return(Start_Of_Move(stop_processing, false, false)); // RA2: as above
+			} else if (cando == MOVE_CLOAK) {
+				Map[destcell].Shimmer();
+				if (retry) {
+					LinkedTo->Path[0] = FACING_NONE;
+					return(Start_Of_Move(stop_processing, false, false));
 				}
 
-				Stop_Driver(); // RA2: as above
-				return(Abandon_Navigation()); // RA2: as above
+				Stop_Driver();
+				return(Abandon_Navigation());
 			}
 
-			Stop_Driver(); // RA2: as above
-			if (cando == MOVE_MOVING_BLOCK) { // RA2: as above
+			Stop_Driver();
+			if (cando == MOVE_MOVING_BLOCK) {
 
 				/*
 				 * If this is a temporary blockage, try once more to path around it.
 				 */
-				if (!LinkedTo->IsToPathAroundBlockage) { // RA2: as above
-					LinkedTo->IsToPathAroundBlockage = true; // RA2: as above
-					LinkedTo->BlockagePathDelay = CDTimerClass<FrameTimerClass>(Rule->BlockagePathDelay); // RA2: as above
+				if (!LinkedTo->IsToPathAroundBlockage) {
+					LinkedTo->IsToPathAroundBlockage = true;
+					LinkedTo->BlockagePathDelay = CDTimerClass<FrameTimerClass>(Rule->BlockagePathDelay);
 				}
-				if (LinkedTo->PathDelay == 0) { // RA2: as above
-					bool around_blockage = LinkedTo->IsToPathAroundBlockage && LinkedTo->BlockagePathDelay == 0; // RA2: as above
-					bool ok = LinkedTo->Basic_Path(DestinationCoord.As_Cell(), 0, (around_blockage != NULL) + 1); // RA2: as above
-					if (LinkedTo == NULL) { // RA2: as above
-						stop_processing = true; // RA2: as above
-						return(false); // RA2: as above
+				if (LinkedTo->PathDelay == 0) {
+					bool around_blockage = LinkedTo->IsToPathAroundBlockage && LinkedTo->BlockagePathDelay == 0;
+					bool ok = LinkedTo->Basic_Path(DestinationCoord.As_Cell(), 0, (around_blockage != NULL) + 1);
+					if (LinkedTo == NULL) {
+						stop_processing = true;
+						return(false);
 					}
-					if (ok || LinkedTo->Is_In_Same_Zone(DestinationCoord)) { // RA2: as above
-						LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>((int)(Rule->PathDelay * TICKS_PER_MINUTE)); // RA2: as above
-						return(true); // RA2: as above
+					if (ok || LinkedTo->Is_In_Same_Zone(DestinationCoord)) {
+						LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>((int)(Rule->PathDelay * TICKS_PER_MINUTE));
+						return(true);
 					}
-					LinkedTo->Assign_Destination(NULL, true); // RA2: as above
-					return(false); // RA2: as above
+					LinkedTo->Assign_Destination(NULL, true);
+					return(false);
 				}
 			}
 			/*
 			** If blocked by a moving block then just exit start of move and
 			** try again next tick.
 			*/
-			if (cando == MOVE_DESTROYABLE || cando == MOVE_FRIENDLY_DESTROYABLE) { // RA2: as above
-				if (retry) { // RA2: as above
-					LinkedTo->Path[0] = FACING_NONE;		// Path is blocked! // RA2: as above
-					LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0); // RA2: as above
-					return(Start_Of_Move(stop_processing, false, false)); // RA2: as above
+			if (cando == MOVE_DESTROYABLE || cando == MOVE_FRIENDLY_DESTROYABLE) {
+				if (retry) {
+					LinkedTo->Path[0] = FACING_NONE;		// Path is blocked!
+					LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0);
+					return(Start_Of_Move(stop_processing, false, false));
 				}
 
 				/*
 				 * An enemy unit, building, or wall is blocking. Pick a fight with it.
 				 */
-				if (Map[destcell].Cell_Object(Point2D(0, 0), 0)) { // RA2: as above
-					if (!LinkedTo->House->Is_Ally(Map[destcell].Cell_Object(Point2D(0, 0), 0))) { // RA2: as above
-						LinkedTo->Override_Mission(MISSION_ATTACK, Map[destcell].Cell_Object(Point2D(0, 0), 0), 0); // RA2: as above
+				if (Map[destcell].Cell_Object(Point2D(0, 0), 0)) {
+					if (!LinkedTo->House->Is_Ally(Map[destcell].Cell_Object(Point2D(0, 0), 0))) {
+						LinkedTo->Override_Mission(MISSION_ATTACK, Map[destcell].Cell_Object(Point2D(0, 0), 0), 0);
 					}
 				} else {
-					if (Map[destcell].Overlay != OVERLAY_NONE && OverlayTypes[Map[destcell].Overlay]->IsWall) { // RA2: as above
-						LinkedTo->Override_Mission(MISSION_ATTACK, &Map[destcell], 0); // RA2: as above
+					if (Map[destcell].Overlay != OVERLAY_NONE && OverlayTypes[Map[destcell].Overlay]->IsWall) {
+						LinkedTo->Override_Mission(MISSION_ATTACK, &Map[destcell], 0);
 					}
 				}
 			} else {
-				if (LinkedTo->IsNewNavCom) VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000, 0); // RA2: as above
+				if (LinkedTo->IsNewNavCom) VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000, 0);
 			}
 
 
-			if (cando == MOVE_NO && retry) { // RA2: as above
-				LinkedTo->Path[0] = FACING_NONE; // RA2: as above
-				LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0); // RA2: as above
-				return(Start_Of_Move(stop_processing, false, false)); // RA2: as above
-			} else if (cando == MOVE_NO && !retry) { // RA2: as above
-				Stop_Driver(); // RA2: as above
-				return(Abandon_Navigation()); // RA2: as above
+			if (cando == MOVE_NO && retry) {
+				LinkedTo->Path[0] = FACING_NONE;
+				LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0);
+				return(Start_Of_Move(stop_processing, false, false));
+			} else if (cando == MOVE_NO && !retry) {
+				Stop_Driver();
+				return(Abandon_Navigation());
 			}
 
-			LinkedTo->IsNewNavCom = false; // RA2: as above
-			TrackNumber = -1; // RA2: as above
-			return(true); // RA2: as above
+			LinkedTo->IsNewNavCom = false;
+			TrackNumber = -1;
+			return(true);
 		}
 
 		/*
@@ -1781,48 +1781,48 @@ bool DriveLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, boo
 		 * is clamped to a maximum of full speed and scaled according to whether
 		 * the unit is travelling uphill or downhill.
 		 */
-		int height; // RA2: as above
-		LandType ground; // RA2: as above
-		if (abs(cell_height - Map[destcell].Height) < 2) { // RA2: as above
-			height = Map[destcell].Height; // RA2: as above
-			ground = Map[destcell].Land_Type(); // RA2: as above
+		int height;
+		LandType ground;
+		if (abs(cell_height - Map[destcell].Height) < 2) {
+			height = Map[destcell].Height;
+			ground = Map[destcell].Land_Type();
 		} else {
-			height = cell_height; // RA2: as above
-			ground = LAND_ROAD; // RA2: as above
+			height = cell_height;
+			ground = LAND_ROAD;
 		}
 
-		TechnoTypeClass const * ttype = LinkedTo->TClass; // RA2: as above
-		double speed = Ground[ground].Cost[ttype->Speed]; // RA2: as above
-		if (speed > 1.0) speed = 1.0; // RA2: as above
+		TechnoTypeClass const * ttype = LinkedTo->TClass;
+		double speed = Ground[ground].Cost[ttype->Speed];
+		if (speed > 1.0) speed = 1.0;
 
-		int destheight = Map.Get_Height_GL(Map[destcell].Cell_Coord()); // RA2: as above
-		int unitheight = Map.Get_Height_GL(LinkedTo->PositionCoord); // RA2: as above
+		int destheight = Map.Get_Height_GL(Map[destcell].Cell_Coord());
+		int unitheight = Map.Get_Height_GL(LinkedTo->PositionCoord);
 		if (destheight > unitheight && LinkedTo->Fetch_RTTI() == RTTI_UNIT) { // RA2: one condition per arm
-			if (LinkedTo->TClass->Speed == SPEED_TRACK) { // RA2: as above
-				speed *= Rule->TrackedUphill; // RA2: as above
+			if (LinkedTo->TClass->Speed == SPEED_TRACK) {
+				speed *= Rule->TrackedUphill;
 			} else {
-				speed *= Rule->WheeledUphill; // RA2: as above
+				speed *= Rule->WheeledUphill;
 			}
-		} else if (destheight < unitheight && LinkedTo->Fetch_RTTI() == RTTI_UNIT) { // RA2: as above
-			if (LinkedTo->TClass->Speed == SPEED_TRACK) { // RA2: as above
-				speed *= Rule->TrackedDownhill; // RA2: as above
+		} else if (destheight < unitheight && LinkedTo->Fetch_RTTI() == RTTI_UNIT) {
+			if (LinkedTo->TClass->Speed == SPEED_TRACK) {
+				speed *= Rule->TrackedDownhill;
 			} else {
-				speed *= Rule->WheeledDownhill; // RA2: as above
+				speed *= Rule->WheeledDownhill;
 			}
 		}
-		if (speed == 0.0) speed = 0.5; // RA2: as above
+		if (speed == 0.0) speed = 0.5;
 
 		/*
 		**	A damaged unit has a reduced speed.
 		*/
-		if (LinkedTo->HealthRatio <= Rule->ConditionYellow) { // RA2: as above
-			speed *= 0.75;	// Three quarters speed. // RA2: as above
+		if (LinkedTo->HealthRatio <= Rule->ConditionYellow) {
+			speed *= 0.75;	// Three quarters speed.
 		}
-		if (TrackNumber < FACING_COUNT * FACING_COUNT) { // RA2: as above
-			TargetSpeed = speed; // RA2: as above
+		if (TrackNumber < FACING_COUNT * FACING_COUNT) {
+			TargetSpeed = speed;
 		} else {
-			if (speed != LinkedTo->Speed) { // RA2: as above
-				LinkedTo->Set_Speed(speed);		// Full speed. // RA2: as above
+			if (speed != LinkedTo->Speed) {
+				LinkedTo->Set_Speed(speed);		// Full speed.
 			}
 		}
 
@@ -1830,36 +1830,36 @@ bool DriveLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, boo
 		**	Reserve the destination cell so that it won't become
 		**	occupied AS this unit is moving into it.
 		*/
-		LinkedTo->Overrun_Square(dest.As_Cell(), true); // RA2: as above
+		LinkedTo->Overrun_Square(dest.As_Cell(), true);
 
 		/*
 		**	Determine which track to use (based on recorded path).
 		*/
-		FacingType nextface = LinkedTo->Path[1]; // RA2: as above
-		if (nextface == FACING_NONE) { // RA2: as above
-			if (LinkedTo->Distance(DestinationCoord) > 2 * CELL_LEPTON_W) { // RA2: as above
+		FacingType nextface = LinkedTo->Path[1];
+		if (nextface == FACING_NONE) {
+			if (LinkedTo->Distance(DestinationCoord) > 2 * CELL_LEPTON_W) {
 
 				/*
 				 * The end of the path was reached but the destination is still far away.
 				 * Regenerate the path so that movement can continue.
 				 */
-				int patharg = LinkedTo->TClass->IsTrain ? 1 : 0; // RA2: as above
-				bool found = LinkedTo->Basic_Path(DestinationCoord.As_Cell(), patharg, 0); // RA2: as above
-				if (!found) { // RA2: as above
-					if (LinkedTo == NULL) { // RA2: as above
-						stop_processing = true; // RA2: as above
-						return(found); // RA2: as above
+				int patharg = LinkedTo->TClass->IsTrain ? 1 : 0;
+				bool found = LinkedTo->Basic_Path(DestinationCoord.As_Cell(), patharg, 0);
+				if (!found) {
+					if (LinkedTo == NULL) {
+						stop_processing = true;
+						return(found);
 					}
-					if (!LinkedTo->Is_In_Same_Zone(DestinationCoord)) { // RA2: as above
-						LinkedTo->Assign_Destination(NULL, true); // RA2: as above
+					if (!LinkedTo->Is_In_Same_Zone(DestinationCoord)) {
+						LinkedTo->Assign_Destination(NULL, true);
 					}
 				}
-				nextface = LinkedTo->Path[1]; // RA2: as above
+				nextface = LinkedTo->Path[1];
 			}
 		}
-		if (nextface == FACING_COUNT) nextface = facing; // RA2: as above
-		if (nextface == FACING_NONE || force_straight) { // RA2: as above
-			nextface = facing; // RA2: as above
+		if (nextface == FACING_COUNT) nextface = facing;
+		if (nextface == FACING_NONE || force_straight) {
+			nextface = facing;
 		}
 
 		/*
@@ -1867,72 +1867,72 @@ bool DriveLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, boo
 		 * overlay (such as a fence), then don't curve. Instead, drive straight
 		 * through it and flag the unit as rocking from the crush.
 		 */
-		CellClass const * adjcell; // RA2: as above
-		if (nextface != FACING_NONE && (adjcell = &destptr->Adjacent_Cell(nextface)) != 0 && adjcell->Overlay != OVERLAY_NONE && OverlayTypes[adjcell->Overlay]->IsCrushable || crushable_dest) { // RA2: as above
-			nextface = facing; // RA2: as above
-			IsRocking = true; // RA2: as above
+		CellClass const * adjcell;
+		if (nextface != FACING_NONE && (adjcell = &destptr->Adjacent_Cell(nextface)) != 0 && adjcell->Overlay != OVERLAY_NONE && OverlayTypes[adjcell->Overlay]->IsCrushable || crushable_dest) {
+			nextface = facing;
+			IsRocking = true;
 		} else {
-			IsRocking = false; // RA2: as above
+			IsRocking = false;
 		}
 
-		IsOnShortTrack = false; // RA2: as above
-		TrackNumber = facing * FACING_COUNT + nextface; // RA2: as above
-		if (TrackControl[TrackNumber].Track == 0) { // RA2: as above
-			TrackNumber = facing * FACING_COUNT + facing; // RA2: as above
+		IsOnShortTrack = false;
+		TrackNumber = facing * FACING_COUNT + nextface;
+		if (TrackControl[TrackNumber].Track == 0) {
+			TrackNumber = facing * FACING_COUNT + facing;
 		}
 
-		if (TrackControl[TrackNumber].Flag & F_D) { // RA2: as above
+		if (TrackControl[TrackNumber].Flag & F_D) {
 			/*
 			**	If the middle cell of a two cell track contains a crate,
 			**	the check for goodies before movement starts.
 			*/
-			MoveType nextcando; // RA2: as above
-			if (!Map[destcell].Goodie_Check(LinkedTo) && !LinkedTo->IsInLimbo) { // RA2: as above
-				nextcando = MOVE_NO; // RA2: as above
-				if (!LinkedTo->IsActive) return(false); // RA2: as above
+			MoveType nextcando;
+			if (!Map[destcell].Goodie_Check(LinkedTo) && !LinkedTo->IsInLimbo) {
+				nextcando = MOVE_NO;
+				if (!LinkedTo->IsActive) return(false);
 			} else {
-				if (!LinkedTo->IsActive) return(false); // RA2: as above
-				dest = Adjacent_Cell(dest, nextface); // RA2: as above
-				destcell = dest.As_Cell(); // RA2: as above
-				nextcando = LinkedTo->Can_Enter_Cell(&Map[destcell], nextface, height, 0, true); // RA2: as above
-				if (nextcando < MOVE_NO && LinkedTo->TClass->IsTrain) { // RA2: as above
-					nextcando = MOVE_OK; // RA2: as above
-				} else if ((nextcando == MOVE_FRIENDLY_DESTROYABLE || nextcando == MOVE_DESTROYABLE) && LinkedTo->TClass->IsCrusher && Map[destcell].Overlay == OVERLAY_SANDBAG_WALL) { // RA2: as above
-					nextcando = MOVE_OK; // RA2: as above
+				if (!LinkedTo->IsActive) return(false);
+				dest = Adjacent_Cell(dest, nextface);
+				destcell = dest.As_Cell();
+				nextcando = LinkedTo->Can_Enter_Cell(&Map[destcell], nextface, height, 0, true);
+				if (nextcando < MOVE_NO && LinkedTo->TClass->IsTrain) {
+					nextcando = MOVE_OK;
+				} else if ((nextcando == MOVE_FRIENDLY_DESTROYABLE || nextcando == MOVE_DESTROYABLE) && LinkedTo->TClass->IsCrusher && Map[destcell].Overlay == OVERLAY_SANDBAG_WALL) {
+					nextcando = MOVE_OK;
 				}
 			}
-			if (!LinkedTo->IsActive) return(false); // RA2: as above
+			if (!LinkedTo->IsActive) return(false);
 
-			if (nextcando != MOVE_OK) { // RA2: as above
+			if (nextcando != MOVE_OK) {
 
-				if (nextcando == MOVE_CLOSED_GATE) { // RA2: as above
-					Incoming(destcell); // RA2: as above
+				if (nextcando == MOVE_CLOSED_GATE) {
+					Incoming(destcell);
 				}
-				else if (nextcando == MOVE_MOVING_BLOCK) { // RA2: as above
-					return(Start_Of_Move(stop_processing, retry, true)); // RA2: as above
+				else if (nextcando == MOVE_MOVING_BLOCK) {
+					return(Start_Of_Move(stop_processing, retry, true));
 				}
 
 				/*
 				**	If a temporary friendly object is blocking the path, then cause it to
 				**	get out of the way.
 				*/
-				else if (nextcando == MOVE_TEMP) { // RA2: as above
-					if (!LinkedTo->TClass->IsTrain) { // RA2: as above
-						if (retry) { // RA2: as above
-							LinkedTo->Path[0] = FACING_NONE; // RA2: as above
-							LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0); // RA2: as above
-							return(Start_Of_Move(stop_processing, false, false)); // RA2: as above
+				else if (nextcando == MOVE_TEMP) {
+					if (!LinkedTo->TClass->IsTrain) {
+						if (retry) {
+							LinkedTo->Path[0] = FACING_NONE;
+							LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0);
+							return(Start_Of_Move(stop_processing, false, false));
 						}
-						if (LinkedTo->Distance(DestinationCoord) >= Rule->CloseEnoughDistance // RA2: as above
-							|| abs(DestinationCoord.Z - LinkedTo->PositionCoord.Z) >= 2 * LEVEL_LEPTON_H // RA2: as above
-							|| Map[LinkedTo->Get_Coord()].Land_Type() == LAND_TUNNEL) { // RA2: as above
-							CellClass * cellptr = &Map[destcell]; // RA2: as above
-							bool is_bridge = cellptr->IsUnderBridge && abs(LinkedTo->PositionCoord.Z / LEVEL_LEPTON_H - cellptr->Height) > 2; // RA2: as above
-							cellptr->Incoming(COORD_NONE, true, true, is_bridge); // RA2: as above
+						if (LinkedTo->Distance(DestinationCoord) >= Rule->CloseEnoughDistance
+							|| abs(DestinationCoord.Z - LinkedTo->PositionCoord.Z) >= 2 * LEVEL_LEPTON_H
+							|| Map[LinkedTo->Get_Coord()].Land_Type() == LAND_TUNNEL) {
+							CellClass * cellptr = &Map[destcell];
+							bool is_bridge = cellptr->IsUnderBridge && abs(LinkedTo->PositionCoord.Z / LEVEL_LEPTON_H - cellptr->Height) > 2;
+							cellptr->Incoming(COORD_NONE, true, true, is_bridge);
 						} else {
-							Stop_Driver(); // RA2: as above
-							if (Abandon_Navigation()) { // RA2: as above
-								return(true); // RA2: as above
+							Stop_Driver();
+							if (Abandon_Navigation()) {
+								return(true);
 							}
 						}
 					}
@@ -1941,24 +1941,24 @@ bool DriveLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, boo
 				/*
 				**	If a cloaked object is blocking, then shimmer the cell.
 				*/
-				else if (nextcando == MOVE_CLOAK) { // RA2: as above
-					Map[destcell].Shimmer(); // RA2: as above
-					if (retry) { // RA2: as above
-						LinkedTo->Path[0] = FACING_NONE; // RA2: as above
-						return(Start_Of_Move(stop_processing, false, false)); // RA2: as above
+				else if (nextcando == MOVE_CLOAK) {
+					Map[destcell].Shimmer();
+					if (retry) {
+						LinkedTo->Path[0] = FACING_NONE;
+						return(Start_Of_Move(stop_processing, false, false));
 					}
-					Stop_Driver(); // RA2: as above
-					return(Abandon_Navigation()); // RA2: as above
+					Stop_Driver();
+					return(Abandon_Navigation());
 				}
 
-				else if (nextcando == MOVE_NO) { // RA2: as above
-					if (retry) { // RA2: as above
-						LinkedTo->Path[0] = FACING_NONE;		// Path is blocked! // RA2: as above
-						LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0); // RA2: as above
-						return(Start_Of_Move(stop_processing, false, false)); // RA2: as above
+				else if (nextcando == MOVE_NO) {
+					if (retry) {
+						LinkedTo->Path[0] = FACING_NONE;		// Path is blocked!
+						LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0);
+						return(Start_Of_Move(stop_processing, false, false));
 					}
-					Stop_Driver(); // RA2: as above
-					return(Abandon_Navigation()); // RA2: as above
+					Stop_Driver();
+					return(Abandon_Navigation());
 				}
 
 				/*
@@ -1968,33 +1968,33 @@ bool DriveLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, boo
 				 * gets one more pass (which picks the fight); everything else falls
 				 * into the track-start logic below, which stops the unit.
 				 */
-				LinkedTo->Path[0] = FACING_NONE;		// Path is blocked! // RA2: as above
-				TrackNumber = -1; // RA2: as above
-				dest = COORD_NONE; // RA2: as above
-				if (nextcando == MOVE_DESTROYABLE || nextcando == MOVE_FRIENDLY_DESTROYABLE) { // RA2: as above
-					return(Start_Of_Move(stop_processing, retry, true)); // RA2: as above
+				LinkedTo->Path[0] = FACING_NONE;		// Path is blocked!
+				TrackNumber = -1;
+				dest = COORD_NONE;
+				if (nextcando == MOVE_DESTROYABLE || nextcando == MOVE_FRIENDLY_DESTROYABLE) {
+					return(Start_Of_Move(stop_processing, retry, true));
 				}
 
 			} else {
-				memcpy(&LinkedTo->Path[0], &LinkedTo->Path[2], sizeof(LinkedTo->Path[0]) * (CONQUER_PATH_MAX - 2)); // RA2: as above
-				LinkedTo->Path[CONQUER_PATH_MAX - 2] = FACING_NONE; // RA2: as above
-				LinkedTo->IsPlanningToLook = true; // RA2: as above
+				memcpy(&LinkedTo->Path[0], &LinkedTo->Path[2], sizeof(LinkedTo->Path[0]) * (CONQUER_PATH_MAX - 2));
+				LinkedTo->Path[CONQUER_PATH_MAX - 2] = FACING_NONE;
+				LinkedTo->IsPlanningToLook = true;
 			}
 		} else {
-			memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * (CONQUER_PATH_MAX - 1)); // RA2: as above
+			memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * (CONQUER_PATH_MAX - 1));
 		}
 
-		LinkedTo->Path[CONQUER_PATH_MAX - 1] = FACING_NONE; // RA2: as above
-		LinkedTo->LastPathingCell = dest.As_Cell(); // RA2: as above
-		LinkedTo->IsNewNavCom = false; // RA2: as above
-		TrackIndex = 0; // RA2: as above
-		if (!Start_Driver(dest)) { // RA2: as above
-			TrackNumber = -1; // RA2: as above
-			LinkedTo->Path[0] = FACING_NONE; // RA2: as above
-			LinkedTo->Set_Speed(0); // RA2: as above
+		LinkedTo->Path[CONQUER_PATH_MAX - 1] = FACING_NONE;
+		LinkedTo->LastPathingCell = dest.As_Cell();
+		LinkedTo->IsNewNavCom = false;
+		TrackIndex = 0;
+		if (!Start_Driver(dest)) {
+			TrackNumber = -1;
+			LinkedTo->Path[0] = FACING_NONE;
+			LinkedTo->Set_Speed(0);
 		}
 	}
-	return(false); // RA2: as above
+	return(false);
 }
 
 
@@ -2163,8 +2163,8 @@ bool DriveLocomotionClass::Abandon_Navigation(void)
 		LinkedTo->Assign_Destination(0, true); // RA2: RA2's form
 		return(false);
 	}
-	LinkedTo->Abort_Motion(); // RA2: as above
-	return LinkedTo->Enter_Idle_Mode(false, true); // RA2: as above
+	LinkedTo->Abort_Motion();
+	return LinkedTo->Enter_Idle_Mode(false, true);
 }
 
 

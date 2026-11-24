@@ -27,7 +27,7 @@
 /// </summary>
 static inline unsigned char WDT_Unbias(unsigned char const &value) // RA2: no such routine in TibSun, whose triples treat a byte above 0x7F as the default
 {
-	return(value > 0x7F ? value - 0x80 : value); // RA2: as above
+	return(value > 0x7F ? value - 0x80 : value);
 }
 
 
@@ -42,7 +42,7 @@ static inline unsigned char WDT_Unbias(unsigned char const &value) // RA2: no su
 /// <returns>The counted pointer to the new territory.</returns>
 rc_ptr<WDTTerritory> __fastcall WDTTerritory::Create(void) // RA2: 0x0072BDC0; no such routine in TibSun, which makes its territories with new
 {
-	return(rc_ptr<WDTTerritory>(new WDTTerritory())); // RA2: as above
+	return(rc_ptr<WDTTerritory>(new WDTTerritory()));
 }
 
 
@@ -117,7 +117,7 @@ WDTTerritory::~WDTTerritory(void)
 /// <returns>The counted pointer to the new state.</returns>
 rc_ptr<WDTState> __fastcall WDTState::Create(void *data) // RA2: 0x0072BEB0; no such routine in TibSun
 {
-	return(rc_ptr<WDTState>(new WDTState(data))); // RA2: as above
+	return(rc_ptr<WDTState>(new WDTState(data)));
 }
 
 
@@ -410,52 +410,52 @@ bool WDTState::Create_Territories(void * data, int size)
 		terr->Seed = PEEK_AT(data, pos++) << 8;
 		terr->Seed += PEEK_AT(data, pos++);
 		terr->UnitCount = PEEK_AT(data, pos++) + 0x80; // RA2: adds 0x80 (TibSun: subtracts it)
-		terr->TechLevel = PEEK_AT(data, pos++) + 0x80; // RA2: as above
+		terr->TechLevel = PEEK_AT(data, pos++) + 0x80;
 		terr->StartingCredits = PEEK_AT(data, pos++) << 8;
 		terr->StartingCredits += PEEK_AT(data, pos++);
 		unsigned int packed = PEEK_AT(data, pos++) - 0x80; // RA2: one byte holds the map type in its low and the theater in its high nibble (TibSun: Biome)
-		terr->MapType = packed & 0x0F; // RA2: as above
-		terr->Theater = (packed >> 4) & 0x0F; // RA2: as above
+		terr->MapType = packed & 0x0F;
+		terr->Theater = (packed >> 4) & 0x0F;
 		terr->Time = PEEK_AT(data, pos++) + 0x80; // RA2: adds 0x80
-		terr->Width = PEEK_AT(data, pos++) + 0x80; // RA2: as above
-		terr->Height = PEEK_AT(data, pos++) + 0x80; // RA2: as above
-		terr->NumPlayers = PEEK_AT(data, pos++) + 0x80; // RA2: as above
+		terr->Width = PEEK_AT(data, pos++) + 0x80;
+		terr->Height = PEEK_AT(data, pos++) + 0x80;
+		terr->NumPlayers = PEEK_AT(data, pos++) + 0x80;
 		terr->Resources = PEEK_AT(data, pos++) - 0x80; // RA2: the resources (TibSun: Veinholes)
 
 		/*
 		 * Ranged Values
 		 */
 		terr->CliffsMin = WDT_Unbias(PEEK_AT(data, pos)); pos++; // RA2: every value of a triple only drops the high bit, in order
-		terr->CliffsMax = WDT_Unbias(PEEK_AT(data, pos)); pos++; // RA2: as above
-		terr->CliffsDefault = WDT_Unbias(PEEK_AT(data, pos)); pos++; // RA2: as above
+		terr->CliffsMax = WDT_Unbias(PEEK_AT(data, pos)); pos++;
+		terr->CliffsDefault = WDT_Unbias(PEEK_AT(data, pos)); pos++;
 
-		terr->AccessibilityMin = WDT_Unbias(PEEK_AT(data, pos)); pos++; // RA2: as above
-		terr->AccessibilityMax = WDT_Unbias(PEEK_AT(data, pos)); pos++; // RA2: as above
-		terr->AccessibilityDefault = WDT_Unbias(PEEK_AT(data, pos)); pos++; // RA2: as above
+		terr->AccessibilityMin = WDT_Unbias(PEEK_AT(data, pos)); pos++;
+		terr->AccessibilityMax = WDT_Unbias(PEEK_AT(data, pos)); pos++;
+		terr->AccessibilityDefault = WDT_Unbias(PEEK_AT(data, pos)); pos++;
 
-		terr->HillsMin = WDT_Unbias(PEEK_AT(data, pos)); pos++; // RA2: as above
-		terr->HillsMax = WDT_Unbias(PEEK_AT(data, pos)); pos++; // RA2: as above
-		terr->HillsDefault = WDT_Unbias(PEEK_AT(data, pos)); pos++; // RA2: as above
+		terr->HillsMin = WDT_Unbias(PEEK_AT(data, pos)); pos++;
+		terr->HillsMax = WDT_Unbias(PEEK_AT(data, pos)); pos++;
+		terr->HillsDefault = WDT_Unbias(PEEK_AT(data, pos)); pos++;
 
-		terr->TiberiumAmountMin = WDT_Unbias(PEEK_AT(data, pos)); pos++; // RA2: as above
-		terr->TiberiumAmountMax = WDT_Unbias(PEEK_AT(data, pos)); pos++; // RA2: as above
-		terr->TiberiumAmountDefault = WDT_Unbias(PEEK_AT(data, pos)); pos++; // RA2: as above
+		terr->TiberiumAmountMin = WDT_Unbias(PEEK_AT(data, pos)); pos++;
+		terr->TiberiumAmountMax = WDT_Unbias(PEEK_AT(data, pos)); pos++;
+		terr->TiberiumAmountDefault = WDT_Unbias(PEEK_AT(data, pos)); pos++;
 
-		terr->TiberiumFieldsMin = WDT_Unbias(PEEK_AT(data, pos)); pos++; // RA2: as above
-		terr->TiberiumFieldsMax = WDT_Unbias(PEEK_AT(data, pos)); pos++; // RA2: as above
-		terr->TiberiumFieldsDefault = WDT_Unbias(PEEK_AT(data, pos)); pos++; // RA2: as above
+		terr->TiberiumFieldsMin = WDT_Unbias(PEEK_AT(data, pos)); pos++;
+		terr->TiberiumFieldsMax = WDT_Unbias(PEEK_AT(data, pos)); pos++;
+		terr->TiberiumFieldsDefault = WDT_Unbias(PEEK_AT(data, pos)); pos++;
 
-		terr->WaterMin = WDT_Unbias(PEEK_AT(data, pos)); pos++; // RA2: as above
-		terr->WaterMax = WDT_Unbias(PEEK_AT(data, pos)); pos++; // RA2: as above
-		terr->WaterDefault = WDT_Unbias(PEEK_AT(data, pos)); pos++; // RA2: as above
+		terr->WaterMin = WDT_Unbias(PEEK_AT(data, pos)); pos++;
+		terr->WaterMax = WDT_Unbias(PEEK_AT(data, pos)); pos++;
+		terr->WaterDefault = WDT_Unbias(PEEK_AT(data, pos)); pos++;
 
-		terr->VegetationMin = WDT_Unbias(PEEK_AT(data, pos)); pos++; // RA2: as above
-		terr->VegetationMax = WDT_Unbias(PEEK_AT(data, pos)); pos++; // RA2: as above
-		terr->VegetationDefault = WDT_Unbias(PEEK_AT(data, pos)); pos++; // RA2: as above
+		terr->VegetationMin = WDT_Unbias(PEEK_AT(data, pos)); pos++;
+		terr->VegetationMax = WDT_Unbias(PEEK_AT(data, pos)); pos++;
+		terr->VegetationDefault = WDT_Unbias(PEEK_AT(data, pos)); pos++;
 
-		terr->CitiesMin = WDT_Unbias(PEEK_AT(data, pos)); pos++; // RA2: as above
-		terr->CitiesMax = WDT_Unbias(PEEK_AT(data, pos)); pos++; // RA2: as above
-		terr->CitiesDefault = WDT_Unbias(PEEK_AT(data, pos)); pos++; // RA2: as above
+		terr->CitiesMin = WDT_Unbias(PEEK_AT(data, pos)); pos++;
+		terr->CitiesMax = WDT_Unbias(PEEK_AT(data, pos)); pos++;
+		terr->CitiesDefault = WDT_Unbias(PEEK_AT(data, pos)); pos++;
 
 		/*
 		 * User Modifiable Values

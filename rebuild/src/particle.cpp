@@ -263,18 +263,18 @@ void ParticleClass::Gas_Behavior_AI(void)
 	RemainingDC--;
 
 	if (RemainingDC == 0 && Class->Damage) { // RA2: no WEAKGAS test and no Visceroid spawn
-		RemainingDC = Class->MaxDC; // RA2: as above
-		ObjectClass * occupier = Map[Get_Coord()].Cell_Occupier(); // RA2: as above
-		while (occupier) { // RA2: as above
-			Coord delta = Get_Coord() - occupier->Get_Coord(); // RA2: as above
-			ObjectClass * next = occupier->Next; // RA2: as above
-			if (occupier->IsActive) { // RA2: as above
-				if (occupier->Strength > 0) { // RA2: as above
-					int damage = Class->Damage; // RA2: as above
+		RemainingDC = Class->MaxDC;
+		ObjectClass * occupier = Map[Get_Coord()].Cell_Occupier();
+		while (occupier) {
+			Coord delta = Get_Coord() - occupier->Get_Coord();
+			ObjectClass * next = occupier->Next;
+			if (occupier->IsActive) {
+				if (occupier->Strength > 0) {
+					int damage = Class->Damage;
 					occupier->Take_Damage(damage, TacticalMap->Z_Lepton_To_Pixel(abs(delta.X) + abs(delta.Y)), Class->Warhead, 0, 0, 0); // RA2: the result is not kept
 				}
 			}
-			occupier = next; // RA2: as above
+			occupier = next;
 		}
 	}
 	if ((Fetch_ID() + (Class->MaxEC - RemainingEC)) % ((Fetch_ID() & 1) + Class->StateAIAdvance) == 0) { // RA2: Fetch_ID first, then the EC difference; the divisor adds the ID bit first
@@ -285,7 +285,7 @@ void ParticleClass::Gas_Behavior_AI(void)
 			IsToDie = true;
 			return; // RA2: returns here
 		}
-		StateAI = 0; // RA2: as above
+		StateAI = 0;
 	}
 }
 
