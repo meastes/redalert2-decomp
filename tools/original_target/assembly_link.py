@@ -11,6 +11,13 @@ build.py (assembly_build.py) re-assembles, patches and proves each row again
 before linking it in place of scaffold. Evidenced handwritten assembly is its own
 ledger category, not C/C++ credit.
 
+Revised, binary-derived lines (user decision 2026-11-24): the allowlisted procedures
+of the ra2-decomp `src/ra2asm` files in src/recovered/asm/ra2asm (assembly_tools.
+REVISED_ALLOWLIST) are placed after every archive procedure, so they never displace
+an archive row; each carries `revised: binary-derived` and its cited archive parent,
+and an archive miss of the same procedure leaves the miss list. Their own category:
+Reproduced .text only, never C/C++.
+
     python3 tools/original_target/assembly_link.py --write     # manifests/original_target/assembly.json
 """
 import argparse
@@ -49,15 +56,20 @@ def main():
     base, text = LI.load_text(Path(config['executable']))
     accepted = accepted_extents()
     work = REPOSITORY / 'build/assembly-link'
-    objects = AT.assemble(config, SOURCES, work)
+    revised_sources = sorted(AT.REVISED_ALLOWLIST)
+    objects = AT.assemble_ledger(config, SOURCES, revised_sources, work)
     taken = bytearray(len(text))
     rows, misses = [], []
     candidates = []
     for source, obj in objects.items():
         symbols, sections = AT.read_object(obj.read_bytes())
+        allowed = AT.REVISED_ALLOWLIST.get(source)
         for si, start, end, name in AT.procedures(symbols, sections):
-            candidates.append((end - start, source, sections[si], start, end, name))
-    for _, source, sec, start, end, name in sorted(candidates, key=lambda c: -c[0]):
+            if allowed is not None and name not in allowed:
+                continue                      # per-source allowlist: the archive keeps every other procedure
+            candidates.append((allowed is not None, end - start, source, sections[si], start, end, name))
+    # Archive procedures first (longest first), then the revised ones (longest first).
+    for revised, _, source, sec, start, end, name in sorted(candidates, key=lambda c: (c[0], -c[1])):
         placed = False
         for trim in range(0, 64):
             L = end - start - trim
@@ -94,19 +106,34 @@ def main():
             taken[h:h + L] = b'\1' * L
             rows.append(dict(entry='%08x' % va, bytes=L, source=source, source_sha256=AT.sha((REPOSITORY / source).read_bytes()),
                              section=sec['name'], section_index=sec['index'], symbol=name, section_offset=start,
-                             trimmed_fill=trim, relocations=relocations, sha256=AT.sha(original)))
+                             trimmed_fill=trim, relocations=relocations, sha256=AT.sha(original),
+                             **(dict(revised=AT.REVISED_FLAG, archive_parent=AT.REVISED_ALLOWLIST[source][name])
+                                if revised else {})))
             placed = True
             break
         if not placed:
             misses.append(dict(source=source, symbol=name, bytes=end - start, reason='no exact placement'))
     rows.sort(key=lambda r: int(r['entry'], 16))
+    # An archive procedure that a revised row reproduces is no longer a miss (its bytes are built).
+    revised_placed = {r['symbol'] for r in rows if r.get('revised')}
+    misses = [m for m in misses if not (m['source'] in SOURCES and m['symbol'] in revised_placed)]
     doc = dict(schema='original-target-assembly-v1',
                scope='Evidenced handwritten assembly: TibSun archive .asm sources adopted unchanged, assembled with the pinned MASM, '
                      'each procedure proven against the original bytes; own ledger category, not C/C++ credit.',
                archive=ARCHIVE, assembler=dict(flags=AT.ML_FLAGS, **assembler), sources=SOURCES,
-               includes={i: AT.sha((REPOSITORY / i).read_bytes()) for i in INCLUDES}, regions=rows, misses=misses)
+               includes={i: AT.sha((REPOSITORY / i).read_bytes()) for i in INCLUDES},
+               revised=dict(scope='Revised, binary-derived lines (user decision 2026-11-24): the allowlisted procedures of '
+                                  'ra2-decomp src/ra2asm text adopted unchanged, each revising a cited TibSun archive '
+                                  'procedure with lines derived from the binary; own ledger category, Reproduced .text '
+                                  'only, never C/C++; rows flagged revised: binary-derived.',
+                            reference=AT.REVISED_REFERENCE, sources=revised_sources,
+                            allowlist={s: sorted(v) for s, v in AT.REVISED_ALLOWLIST.items()}),
+               regions=rows, misses=misses)
+    AT.validate_manifest(doc)
     total = sum(r['bytes'] for r in rows)
-    print('assembly regions: %d procedures, %s B; misses: %d' % (len(rows), format(total, ','), len(misses)))
+    revised_total = sum(r['bytes'] for r in rows if r.get('revised'))
+    print('assembly regions: %d procedures, %s B (of which revised, binary-derived: %d procedures, %s B); misses: %d'
+          % (len(rows), format(total, ','), len(revised_placed), format(revised_total, ','), len(misses)))
     for m in misses:
         print('  miss', m)
     if args.write:

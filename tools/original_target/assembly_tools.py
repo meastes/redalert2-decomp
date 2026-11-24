@@ -19,6 +19,73 @@ DEFAULT_ASSEMBLER = REPOSITORY / 'private/original-target-20261020/toolchain/mas
 ML_FLAGS = ['/nologo', '/c', '/coff', '/Cx']
 REL_SIZES = {0x06: 4, 0x07: 4, 0x14: 4, 0x0B: 2, 0x0C: 2, 0x0D: 2, 0x0E: 2, 0x0F: 2, 0x10: 2, 0x11: 2}
 
+# Revised, binary-derived lines (user decision 2026-11-24, in the owner session; AGENTS.md "No fake source"): a
+# procedure whose TibSun archive parent is cited, carrying RA2's revisions of it as derived from the binary, taken
+# from ra2-decomp's src/ra2asm text adopted unchanged (GPL-3.0-or-later, EA section 7 and OpenTS notices kept;
+# THIRD_PARTY.md). Its own ledger category: Reproduced .text only, never C/C++. The allowlist is per source: only
+# these procedures are taken from each file (its other procedures, e.g. Draw_Voxel_Regular_ASM/Reverse_ASM, stay
+# built from the archive text), each with the archive parent it revises. Diffs against the archive: lane O72's
+# bundle item (d); evidence: lane O71 (both under private/dossiers).
+REVISED_DIRECTORY = 'src/recovered/asm/ra2asm'
+REVISED_FLAG = 'binary-derived'
+REVISED_REFERENCE = dict(name='gibbo101/ra2-decomp', commit='f70722414a172d30d124b7271a87d55657d259d8',
+                         path='src/ra2asm/<file>.asm',
+                         licence='GPL-3.0-or-later, Copyright 2026 ra2-decomp contributors, with the Electronic Arts '
+                                 '(section 7 terms) and OpenTS notices kept; adopted unchanged (THIRD_PARTY.md), '
+                                 'user decision 2026-11-24')
+REVISED_ALLOWLIST = {
+    REVISED_DIRECTORY + '/detproc.asm': {
+        '_Detect_MMX_Availability': 'TibSun code/detproc.asm Detect_MMX_Availability'},
+    REVISED_DIRECTORY + '/isoasm.asm': {
+        '_Iso_Blit_Asm1': 'TibSun code/isoasm.asm Iso_Blit_Asm1'},
+    REVISED_DIRECTORY + '/winasm.asm': {
+        '_Draw_Voxel_Regular_Normals_ASM': 'TibSun code/winasm.asm Draw_Voxel_Regular_Normals_ASM',
+        '_Draw_Voxel_Reverse_Normals_ASM': 'TibSun code/winasm.asm Draw_Voxel_Reverse_Normals_ASM',
+        '_Draw_Voxel_Regular_Lighting_Normals_ASM': 'TibSun code/winasm.asm Draw_Voxel_Regular_Lighting_Normals_ASM',
+        '_Draw_Voxel_Reverse_Lighting_Normals_ASM': 'TibSun code/winasm.asm Draw_Voxel_Reverse_Lighting_Normals_ASM'},
+}
+REVISED_NOTICES = (b'SPDX-License-Identifier: GPL-3.0-or-later', b'Copyright 2026 ra2-decomp contributors',
+                   b'Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors', b"EA's GPL Section 7 terms apply")
+
+
+def validate_manifest(doc, repository=REPOSITORY):
+    """The strict audit's checks of the assembly ledger's two categories (raises SystemExit): rows from the archive
+    sources carry no revised flag; rows from a revised source are on the allowlist, carry `revised: binary-derived`
+    and their cited archive parent; the revised sources are exactly the allowlisted files, present with their
+    notices; no procedure is placed from both categories."""
+    def require(condition, message):
+        if not condition:
+            raise SystemExit('assembly ledger audit: ' + message)
+    revised = doc.get('revised') or {}
+    sources = revised.get('sources', [])
+    require(sorted(sources) == sorted(REVISED_ALLOWLIST) if sources else True,
+            'revised sources differ from the allowlist in assembly_tools.py')
+    require(not (set(sources) & set(doc.get('sources', []))), 'a source listed in both categories')
+    for source in sources:
+        path = Path(repository) / source
+        require(path.exists(), 'missing revised source %s' % source)
+        head = path.read_bytes()[:600]
+        require(all(n in head for n in REVISED_NOTICES), 'revised source %s lost its licence notices' % source)
+    for source in doc.get('sources', []):
+        require(source not in REVISED_ALLOWLIST and not source.startswith(REVISED_DIRECTORY + '/'),
+                'revised source %s listed as archive text' % source)
+    seen = {}
+    for row in doc.get('regions', []):
+        flag = row.get('revised')
+        if row['source'] in sources:
+            allowed = REVISED_ALLOWLIST[row['source']]
+            require(row['symbol'] in allowed, 'procedure %s of %s is not on the revised allowlist'
+                    % (row['symbol'], row['source']))
+            require(flag == REVISED_FLAG and row.get('archive_parent') == allowed[row['symbol']],
+                    'revised procedure %s needs revised: %s and its archive parent' % (row['symbol'], REVISED_FLAG))
+        else:
+            require(row['source'] in doc.get('sources', []), 'row %s from an unlisted source' % row['symbol'])
+            require(flag is None and 'archive_parent' not in row,
+                    'archive procedure %s carries a revised flag' % row['symbol'])
+        require(row['symbol'] not in seen, 'procedure %s placed twice (%s, %s)'
+                % (row['symbol'], seen.get(row['symbol']), row['source']))
+        seen[row['symbol']] = row['source']
+
 
 def sha(data):
     return hashlib.sha256(data).hexdigest()
@@ -40,6 +107,15 @@ def check_assembler(config, pinned):
         if pinned and pinned.get(name) != found[name]:
             raise SystemExit('assembler: %s does not match the pin in manifests/toolchain.json' % name)
     return found
+
+
+def assemble_ledger(config, archive, revised, destination):
+    """Assemble both categories' sources; the revised files share their archive parents' names, so they assemble in
+    a folder of their own. Returns {source: object path}."""
+    objects = assemble(config, archive, Path(destination))
+    if revised:
+        objects.update(assemble(config, revised, Path(destination) / 'revised'))
+    return objects
 
 
 def assemble(config, sources, destination):

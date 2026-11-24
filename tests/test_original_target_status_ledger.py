@@ -175,12 +175,29 @@ class RebuildCategoryLineTests(unittest.TestCase):
     def line(self, lines, start):
         return [l for l in lines if l.startswith(start)][0]
 
-    def test_reproduced_is_the_sum_of_the_same_five_categories_in_both_trees(self):
+    def test_reproduced_is_the_sum_of_the_same_categories_in_both_trees(self):
         lines = self.lines(dict(self.BASE, **self.BODY))
         self.assertEqual(self.line(lines, '| Reproduced .text'),
                          '| Reproduced .text (both trees: C/C++ body + evidenced inline asm + frozen padding + linked '
-                         'library members + assembled handwritten asm, the five lines below) | 13.00% (130 B) '
+                         'library members + assembled handwritten asm, the six lines below) | 13.00% (130 B) '
                          '| **11.40% function-level** (114 B) (10.20% whole-unit, 102 B) |')
+
+    def test_revised_assembly_has_its_own_line_and_no_cpp_credit(self):
+        """Revised, binary-derived lines (user decision 2026-11-24): split off the assembled line, inside Reproduced
+        only; the C/C++ line does not move."""
+        import csv, tempfile
+        row = dict(self.BASE, **self.BODY)
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / 'rebuild/manifest/progress.csv'
+            path.parent.mkdir(parents=True)
+            with path.open('w', newline='') as f:
+                w = csv.DictWriter(f, fieldnames=list(row)); w.writeheader(); w.writerow(row)
+            lines = status.rebuild_lines(1000, self.MAIN, 5, 3, (2, 30), 70, repository=d, categories=self.CAT,
+                                         revised_bytes=2)
+        self.assertTrue(self.line(lines, '| Assembled handwritten assembly (the same').endswith('| 1 B | 1 B |'))
+        self.assertTrue(self.line(lines, '| Assembled handwritten assembly, revised').endswith('| 2 B | 2 B |'))
+        self.assertIn('| 13.00% (130 B) |', self.line(lines, '| Reproduced .text'))
+        self.assertEqual(self.line(lines, '| C/C++ bodies matched'), self.line(self.lines(row), '| C/C++ bodies matched'))
 
     def test_cpp_line_is_body_bytes_with_the_gap_to_main(self):
         lines = self.lines(dict(self.BASE, **self.BODY))
@@ -278,3 +295,54 @@ class RebuildCategoryLineTests(unittest.TestCase):
                                 dependents='a 00403000; b 0x401000'))
                 w.writerow(dict(header='c.h', member='C', judgment='ra2-decomp form', dependents='c 00404000'))
             self.assertEqual(status.rebuild_flagged_judgment(catalog, d), (2, 107))
+
+
+class AssemblyLedgerAuditTests(unittest.TestCase):
+    """The strict audit of the assembly ledger's revised, binary-derived category (user decision 2026-11-24)."""
+    def setUp(self):
+        import assembly_tools as AT
+        self.AT = AT
+        self.source = next(iter(AT.REVISED_ALLOWLIST))
+        self.symbol = next(iter(AT.REVISED_ALLOWLIST[self.source]))
+        self.parent = AT.REVISED_ALLOWLIST[self.source][self.symbol]
+
+    def doc(self, rows, revised=True):
+        import tempfile
+        self.tmp = tempfile.TemporaryDirectory()
+        root = Path(self.tmp.name)
+        for source in self.AT.REVISED_ALLOWLIST:
+            (root / source).parent.mkdir(parents=True, exist_ok=True)
+            (root / source).write_bytes(b'; ' + b'\n; '.join(self.AT.REVISED_NOTICES) + b'\n')
+        doc = dict(sources=['src/recovered/asm/a.asm'], regions=rows,
+                   revised=dict(sources=sorted(self.AT.REVISED_ALLOWLIST)) if revised else {})
+        return doc, root
+
+    def tearDown(self):
+        if hasattr(self, 'tmp'):
+            self.tmp.cleanup()
+
+    def test_flagged_allowlisted_row_passes(self):
+        doc, root = self.doc([dict(source='src/recovered/asm/a.asm', symbol='_A'),
+                              dict(source=self.source, symbol=self.symbol, revised='binary-derived',
+                                   archive_parent=self.parent)])
+        self.AT.validate_manifest(doc, root)
+
+    def test_refusals(self):
+        bad = [
+            [dict(source=self.source, symbol=self.symbol)],                                     # no flag
+            [dict(source=self.source, symbol='_Draw_Voxel_Regular_ASM', revised='binary-derived',
+                  archive_parent='x')],                                                         # not allowlisted
+            [dict(source='src/recovered/asm/a.asm', symbol='_A', revised='binary-derived')],     # flag on archive
+            [dict(source='src/recovered/asm/a.asm', symbol=self.symbol),
+             dict(source=self.source, symbol=self.symbol, revised='binary-derived', archive_parent=self.parent)],
+        ]
+        for rows in bad:
+            doc, root = self.doc(rows)
+            with self.assertRaises(SystemExit):
+                self.AT.validate_manifest(doc, root)
+
+    def test_notices_required(self):
+        doc, root = self.doc([])
+        (root / self.source).write_bytes(b'; no notices\n')
+        with self.assertRaises(SystemExit):
+            self.AT.validate_manifest(doc, root)

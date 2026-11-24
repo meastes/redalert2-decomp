@@ -129,6 +129,15 @@ inspection tools; VC6 and CrossOver are legitimate user-supplied local build too
   RA2 body matches a YR twin may be adopted into `src/` adapted to our headers (their names follow YRpp and must be
   mapped to ours); an adopted file keeps their SPDX and copyright lines and the commit subject says
   "from ra2-decomp <YR address>". Acceptance is unchanged: strict audit and exact whole-file build.
+  Adopted 2026-11-24 (lane O73, user decision in the owner session, AGENTS.md exception "revised, binary-derived
+  lines"): `src/ra2asm/detproc.asm`, `isoasm.asm` and `winasm.asm` at commit `f70722414a172d30d124b7271a87d55657d259d8`,
+  copied unchanged into `src/recovered/asm/ra2asm/` with their SPDX line, the ra2-decomp copyright and the Electronic
+  Arts (GPL section 7 terms) and OpenTS lines; each file's own header marks it as a modified version of the TibSun
+  archive's same-named file ("as Red Alert 2 revised it"). Only six procedures are taken from them
+  (`tools/original_target/assembly_tools.py` REVISED_ALLOWLIST): Detect_MMX_Availability, Iso_Blit_Asm1 and the four
+  Draw_Voxel_*_Normals_ASM routines; each is a TibSun archive procedure with RA2's revisions derived from the binary,
+  credited to Reproduced .text only. Listed in `rebuild/manifest/adopted.csv`. Acceptance is unchanged: each procedure
+  is assembled with the pinned MASM and proved against the original at build time.
   Adopted 2026-11-11 (Scout1266, owner ruling under DECISIONS row 24): the member AbstractClass::Is_Techno from
   include/abstract.h:92 (header inline in src/shared/abstract_class.hpp; its COMDAT 0x006F8A70 is emitted by
   UICmnds.cpp); the body is respelled to the out-of-line bytes.

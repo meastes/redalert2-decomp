@@ -36,6 +36,34 @@
   "src/recovered/asm/indextb.inc": "651804cdecebc6d2c378d29c686aa6a6243325b7b792c92d694b5bcf63018230",
   "src/recovered/asm/nybbtb.inc": "e7665bb37ee9fb36e717cc9b0b687ca1b7fb1f1174906093cdf1a17208e0e239"
  },
+ "revised": {
+  "scope": "Revised, binary-derived lines (user decision 2026-11-24): the allowlisted procedures of ra2-decomp src/ra2asm text adopted unchanged, each revising a cited TibSun archive procedure with lines derived from the binary; own ledger category, Reproduced .text only, never C/C++; rows flagged revised: binary-derived.",
+  "reference": {
+   "name": "gibbo101/ra2-decomp",
+   "commit": "f70722414a172d30d124b7271a87d55657d259d8",
+   "path": "src/ra2asm/<file>.asm",
+   "licence": "GPL-3.0-or-later, Copyright 2026 ra2-decomp contributors, with the Electronic Arts (section 7 terms) and OpenTS notices kept; adopted unchanged (THIRD_PARTY.md), user decision 2026-11-24"
+  },
+  "sources": [
+   "src/recovered/asm/ra2asm/detproc.asm",
+   "src/recovered/asm/ra2asm/isoasm.asm",
+   "src/recovered/asm/ra2asm/winasm.asm"
+  ],
+  "allowlist": {
+   "src/recovered/asm/ra2asm/detproc.asm": [
+    "_Detect_MMX_Availability"
+   ],
+   "src/recovered/asm/ra2asm/isoasm.asm": [
+    "_Iso_Blit_Asm1"
+   ],
+   "src/recovered/asm/ra2asm/winasm.asm": [
+    "_Draw_Voxel_Regular_Lighting_Normals_ASM",
+    "_Draw_Voxel_Regular_Normals_ASM",
+    "_Draw_Voxel_Reverse_Lighting_Normals_ASM",
+    "_Draw_Voxel_Reverse_Normals_ASM"
+   ]
+  }
+ },
  "regions": [
   {
    "entry": "0077edd0",
@@ -181,6 +209,67 @@
    "sha256": "07bd49c746bc83042ad798de2b8a96fc76162b9f448d8844e741a707bbe2dfa0"
   },
   {
+   "entry": "0077f14d",
+   "bytes": 194,
+   "source": "src/recovered/asm/ra2asm/detproc.asm",
+   "source_sha256": "2bf22cea53157d0808979a78b6038a398dd5d76b9c1321a9a05ad5b33e779c91",
+   "section": ".text",
+   "section_index": 0,
+   "symbol": "_Detect_MMX_Availability",
+   "section_offset": 0,
+   "trimmed_fill": 0,
+   "relocations": [
+    {
+     "offset": 11,
+     "type": 6,
+     "resolved": 8394148
+    },
+    {
+     "offset": 72,
+     "type": 6,
+     "resolved": 8394149
+    },
+    {
+     "offset": 78,
+     "type": 6,
+     "resolved": 8394153
+    },
+    {
+     "offset": 84,
+     "type": 6,
+     "resolved": 8394157
+    },
+    {
+     "offset": 90,
+     "type": 6,
+     "resolved": 8394161
+    },
+    {
+     "offset": 121,
+     "type": 6,
+     "resolved": 8394148
+    },
+    {
+     "offset": 140,
+     "type": 6,
+     "resolved": 8394147
+    },
+    {
+     "offset": 170,
+     "type": 6,
+     "resolved": 8394146
+    },
+    {
+     "offset": 184,
+     "type": 6,
+     "resolved": 8394146
+    }
+   ],
+   "sha256": "388f311f9bf6cee8eafb8a61877ea7972efede64bbd9837beea72e173dc93b40",
+   "revised": "binary-derived",
+   "archive_parent": "TibSun code/detproc.asm Detect_MMX_Availability"
+  },
+  {
    "entry": "0077f20f",
    "bytes": 101,
    "source": "src/recovered/asm/detproc.asm",
@@ -259,6 +348,21 @@
    "trimmed_fill": 0,
    "relocations": [],
    "sha256": "4afffd6178c8a00d8296e619e2cade64918d1f970c84cda68a23e65906006b50"
+  },
+  {
+   "entry": "0077f2d0",
+   "bytes": 271,
+   "source": "src/recovered/asm/ra2asm/isoasm.asm",
+   "source_sha256": "4158bf2a57567fbf582659ba4ec1c82f41ea00a9733c0bb0bcee2bccdb9371db",
+   "section": ".text",
+   "section_index": 0,
+   "symbol": "_Iso_Blit_Asm1",
+   "section_offset": 0,
+   "trimmed_fill": 0,
+   "relocations": [],
+   "sha256": "ca3236b832fcf91b1cd731e977070c3bc12f2ab00b0ae2718b05257e5fa3d935",
+   "revised": "binary-derived",
+   "archive_parent": "TibSun code/isoasm.asm Iso_Blit_Asm1"
   },
   {
    "entry": "0077f3df",
@@ -1761,6 +1865,150 @@
    "sha256": "f60ba5306bf4df8512fbe926e6edc2aeb7064e0eaabae24e3b945d8066f68222"
   },
   {
+   "entry": "00798a00",
+   "bytes": 256,
+   "source": "src/recovered/asm/ra2asm/winasm.asm",
+   "source_sha256": "108dfd27fe7eecead0392e59a8799748f9c2da80cee3c4b2784b839def7ce23e",
+   "section": ".text$mmx",
+   "section_index": 2,
+   "symbol": "_Draw_Voxel_Regular_Normals_ASM",
+   "section_offset": 0,
+   "trimmed_fill": 0,
+   "relocations": [
+    {
+     "offset": 29,
+     "type": 6,
+     "resolved": 11504144
+    },
+    {
+     "offset": 200,
+     "type": 6,
+     "resolved": 11504144
+    },
+    {
+     "offset": 231,
+     "type": 6,
+     "resolved": 11416584
+    }
+   ],
+   "sha256": "b5f58b57cc607f55b488d75abc426d5452b9ab20b935e63c3dbfdf8c711733d0",
+   "revised": "binary-derived",
+   "archive_parent": "TibSun code/winasm.asm Draw_Voxel_Regular_Normals_ASM"
+  },
+  {
+   "entry": "00798b00",
+   "bytes": 256,
+   "source": "src/recovered/asm/ra2asm/winasm.asm",
+   "source_sha256": "108dfd27fe7eecead0392e59a8799748f9c2da80cee3c4b2784b839def7ce23e",
+   "section": ".text$mmx",
+   "section_index": 2,
+   "symbol": "_Draw_Voxel_Reverse_Normals_ASM",
+   "section_offset": 256,
+   "trimmed_fill": 0,
+   "relocations": [
+    {
+     "offset": 29,
+     "type": 6,
+     "resolved": 11504144
+    },
+    {
+     "offset": 216,
+     "type": 6,
+     "resolved": 11416584
+    },
+    {
+     "offset": 233,
+     "type": 6,
+     "resolved": 11504144
+    }
+   ],
+   "sha256": "bf163ead8c5bb7c6d13f93bf733b1e0b5955c20255644b2796b207a63419677a",
+   "revised": "binary-derived",
+   "archive_parent": "TibSun code/winasm.asm Draw_Voxel_Reverse_Normals_ASM"
+  },
+  {
+   "entry": "00798c00",
+   "bytes": 288,
+   "source": "src/recovered/asm/ra2asm/winasm.asm",
+   "source_sha256": "108dfd27fe7eecead0392e59a8799748f9c2da80cee3c4b2784b839def7ce23e",
+   "section": ".text$mmx",
+   "section_index": 2,
+   "symbol": "_Draw_Voxel_Regular_Lighting_Normals_ASM",
+   "section_offset": 512,
+   "trimmed_fill": 0,
+   "relocations": [
+    {
+     "offset": 29,
+     "type": 6,
+     "resolved": 11504144
+    },
+    {
+     "offset": 200,
+     "type": 6,
+     "resolved": 11504144
+    },
+    {
+     "offset": 227,
+     "type": 6,
+     "resolved": 11505168
+    },
+    {
+     "offset": 242,
+     "type": 6,
+     "resolved": 11486728
+    },
+    {
+     "offset": 248,
+     "type": 6,
+     "resolved": 11416584
+    }
+   ],
+   "sha256": "37f09c76994764f5e8d8e8eff563e788512817dd303c944c6b82050ec1fac8d8",
+   "revised": "binary-derived",
+   "archive_parent": "TibSun code/winasm.asm Draw_Voxel_Regular_Lighting_Normals_ASM"
+  },
+  {
+   "entry": "00798d20",
+   "bytes": 288,
+   "source": "src/recovered/asm/ra2asm/winasm.asm",
+   "source_sha256": "108dfd27fe7eecead0392e59a8799748f9c2da80cee3c4b2784b839def7ce23e",
+   "section": ".text$mmx",
+   "section_index": 2,
+   "symbol": "_Draw_Voxel_Reverse_Lighting_Normals_ASM",
+   "section_offset": 800,
+   "trimmed_fill": 0,
+   "relocations": [
+    {
+     "offset": 29,
+     "type": 6,
+     "resolved": 11504144
+    },
+    {
+     "offset": 212,
+     "type": 6,
+     "resolved": 11505168
+    },
+    {
+     "offset": 228,
+     "type": 6,
+     "resolved": 11486728
+    },
+    {
+     "offset": 234,
+     "type": 6,
+     "resolved": 11416584
+    },
+    {
+     "offset": 251,
+     "type": 6,
+     "resolved": 11504144
+    }
+   ],
+   "sha256": "72643702fd605ea119c8d32c6b126b15a6c86ee645a61636f1f8fcf7bbd60334",
+   "revised": "binary-derived",
+   "archive_parent": "TibSun code/winasm.asm Draw_Voxel_Reverse_Lighting_Normals_ASM"
+  },
+  {
    "entry": "00798e40",
    "bytes": 246,
    "source": "src/recovered/asm/winasm.asm",
@@ -2072,42 +2320,6 @@
   }
  ],
  "misses": [
-  {
-   "source": "src/recovered/asm/winasm.asm",
-   "symbol": "_Draw_Voxel_Regular_Lighting_Normals_ASM",
-   "bytes": 272,
-   "reason": "no exact placement"
-  },
-  {
-   "source": "src/recovered/asm/winasm.asm",
-   "symbol": "_Draw_Voxel_Reverse_Lighting_Normals_ASM",
-   "bytes": 272,
-   "reason": "no exact placement"
-  },
-  {
-   "source": "src/recovered/asm/isoasm.asm",
-   "symbol": "_Iso_Blit_Asm1",
-   "bytes": 271,
-   "reason": "no exact placement"
-  },
-  {
-   "source": "src/recovered/asm/winasm.asm",
-   "symbol": "_Draw_Voxel_Regular_Normals_ASM",
-   "bytes": 256,
-   "reason": "no exact placement"
-  },
-  {
-   "source": "src/recovered/asm/winasm.asm",
-   "symbol": "_Draw_Voxel_Reverse_Normals_ASM",
-   "bytes": 256,
-   "reason": "no exact placement"
-  },
-  {
-   "source": "src/recovered/asm/detproc.asm",
-   "symbol": "_Detect_MMX_Availability",
-   "bytes": 167,
-   "reason": "no exact placement"
-  },
   {
    "source": "src/recovered/asm/cmathstuff.asm",
    "symbol": "_sub_6B2310",

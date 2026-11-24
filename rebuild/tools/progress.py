@@ -5,7 +5,13 @@ import csv, json, time, datetime
 import rebuild as R, catalog_io
 START = datetime.datetime(2026, 11, 17, 18, 17, tzinfo=datetime.timezone.utc)
 TEXT = 3769805                       # .text bytes (docs/STATUS.md denominator)
-LIBRARY, ASSEMBLY = 89127, 16999     # linked library and assembled bytes the build reproduces (receipt)
+LIBRARY = 89127                      # linked library bytes the build reproduces (receipt)
+# Assembled handwritten asm, read from the ledger both builds assemble (manifests/original_target/assembly.json):
+# ASSEMBLY the archive text adopted unchanged (16,999 B), REVISED the revised, binary-derived lines (user decision
+# 2026-11-24, lane O73: six ra2-decomp src/ra2asm procedures, 1,553 B), on its own column; both in reproduced.
+_asm_rows = json.load(open(R.ROOT / 'manifests/original_target/assembly.json'))['regions']
+REVISED = sum(r['bytes'] for r in _asm_rows if r.get('revised'))
+ASSEMBLY = sum(r['bytes'] for r in _asm_rows) - REVISED
 cat = catalog_io.load(R.MANIFEST / 'catalog')
 prov = {r['entry']: r['class'] for r in csv.DictReader(open(R.MANIFEST / 'provenance.csv'))}
 split = {k: [0, 0] for k in 'abc'}
@@ -48,10 +54,11 @@ line = dict(time_utc=now.strftime('%Y-%m-%dT%H:%MZ'), units=units, functions_exa
             workers_functions=workers[0], workers_bytes=workers[1],
             lane_hours='%.2f' % ((now - START).total_seconds() / 3600),
             source_share_of_text='%.3f%%' % (100.0 * (body_b - asm_b) / TEXT),
-            reproduced_text='%.3f%%' % (100.0 * (all_b + LIBRARY + ASSEMBLY) / TEXT),
+            reproduced_text='%.3f%%' % (100.0 * (all_b + LIBRARY + ASSEMBLY + REVISED) / TEXT),
             # The categories of Reproduced, each on its own (main's STATUS lines): C/C++ body, evidenced inline
             # asm (inline_asm_bytes below), frozen padding, linked library members, assembled handwritten asm.
-            c_body_bytes=body_b - asm_b, padding_bytes=pad_b, library_bytes=LIBRARY, assembly_bytes=ASSEMBLY)
+            c_body_bytes=body_b - asm_b, padding_bytes=pad_b, library_bytes=LIBRARY, assembly_bytes=ASSEMBLY,
+            revised_assembly_bytes=REVISED)
 # Structure beside the percent (user, 2026-11-17): the census gate's measures, the units still held
 # (pending), and the functions not exact in any unit with their bytes (1 KB and over apart: the trend).
 import rebuild_census
@@ -97,7 +104,8 @@ line.update(duplicates=m['duplicates'], externs_landed=ext_landed, externs_all=m
             function_level_source_share_of_text='%.3f%%' % (100.0 * (m['function_level_body_bytes'] - asm_b) / TEXT),
             function_level_c_body_bytes=m['function_level_body_bytes'] - asm_b,
             function_level_padding_bytes=m['function_level_bytes'] - m['function_level_body_bytes'],
-            function_level_reproduced_text='%.3f%%' % (100.0 * (m['function_level_bytes'] + LIBRARY + ASSEMBLY) / TEXT),
+            function_level_reproduced_text='%.3f%%' % (100.0 * (m['function_level_bytes'] + LIBRARY + ASSEMBLY + REVISED)
+                                                     / TEXT),
             # Exact with no judgment call (user-approved process change, 2026-11-22, lane O37): the two headline
             # figures from source with every flagged row left out (judgment notes in provenance.csv, rows listed as
             # dependents of a flagged header form in header_judgments.csv, and count-sensitive rows), bytes body
@@ -138,6 +146,13 @@ if not any('Draw_Shroud_Or_Fog_Shape' in r.get('note', '') for r in rows):
         'series break: status.py HANDWRITTEN gains CellClass::Draw_Shroud_Or_Fog_Shape 0x474260-0x474503 (675 B, '
         'the author\'s __asm block, lane O72): the in-scope denominator (main STATUS) and both trees\' ByteMatch '
         'scope drop by 675 B; the columns of this file are shares of all .text and do not move')) if n)
+# Lane O73 (2026-11-24, user decision): the revised, binary-derived assembly category; marked once.
+if not any(r.get('revised_assembly_bytes') for r in rows):
+    line['note'] = '; '.join(n for n in (line['note'], (
+        'series break: Reproduced .text gains the revised, binary-derived assembly category (user decision 2026-11-24, '
+        'lane O73): six ra2-decomp src/ra2asm procedures, %s B, in revised_assembly_bytes and in reproduced_text and '
+        'function_level_reproduced_text (both trees); assembly_bytes stays the archive text; the C/C++ columns do not '
+        'move' % format(REVISED, ','))) if n)
 rows.append({k: str(v) for k, v in line.items()})
 with open(path, 'w', newline='') as f:
     w = csv.DictWriter(f, fieldnames=list(line), restval=''); w.writeheader(); w.writerows(rows)

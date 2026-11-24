@@ -1099,6 +1099,16 @@ def separate_unit_populations(catalog):
     return {p['id'] for p in catalog.get('populations', []) if p.get('separate_units')}
 
 
+def validate_assembly_ledger(repository):
+    """Both trees assemble manifests/original_target/assembly.json: its archive rows carry no revised flag; its
+    revised, binary-derived rows (user decision 2026-11-24) are on the per-source allowlist with their cited archive
+    parent and the adopted files keep their notices (assembly_tools.validate_manifest)."""
+    path = Path(repository) / 'manifests/original_target/assembly.json'
+    if path.exists():
+        import assembly_tools
+        assembly_tools.validate_manifest(json.loads(path.read_text()), repository)
+
+
 def validate_catalog(repository, catalog, modules=True):
     """Validate the catalog against the tree; return {path: bytes} of every
     source and header read (resolved paths), for callers that check the same
@@ -1191,6 +1201,7 @@ def validate_catalog(repository, catalog, modules=True):
         entries.add(va); orders.add(row['source_order'])
         cursor = va + row['full_extent_bytes']
     require(bool(entries), 'Empty canonical source catalog')
+    validate_assembly_ledger(repository)
     # Draft-only files (non_exact.json: a non-exact draft of a unit without a module, guarded by
     # RA2_NON_MATCHING) are the only uncatalogued sources; the exact build never compiles them.
     if tree.REBUILD:

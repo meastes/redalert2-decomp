@@ -252,10 +252,14 @@ HANDWRITTEN = (
     # (OPEN_MISSES Abuf490, Scout845, Scout848 ruling, Scout922: ra2-decomp .asm twins). Extended to 0x781C8C (owner,
     # 2026-11-07): library_identity.py finds no archive member before typinfo.obj at 0x781C8C and the run jumps back
     # into 0x780xxx, so it is the tail of the same handwritten family.
+    # The range classifies .text (it stays out of the in-scope denominator); the procedures assembly.json builds inside
+    # it are reproduced, not scaffolding: the archive rows, and since 2026-11-24 (user decision, lane O73) the revised,
+    # binary-derived Detect_MMX_Availability 0x77F14D and Iso_Blit_Asm1 0x77F2D0 (ra2-decomp src/ra2asm).
     (0x77EDD0, 0x781C8C, 'VQA32 assembly tail'),
     # Westwood MMX lighting code inside the CRT band (owner, 2026-11-07, library_identity.py): push-ebp prologues,
     # 256-byte-aligned entries, called from LightConvertClass::Set_Tint 0x538D54 and SpotLightClass 0x5DDE06; no
-    # archive member matches. 25 inventory rows.
+    # archive member matches. 25 inventory rows. Reproduced inside it (lane O73, 2026-11-24): the archive's
+    # winasm.asm rows and the revised, binary-derived *_Normals_ASM 0x798A00/0x798B00/0x798C00/0x798D20.
     (0x797440, 0x7995CC, 'MMX lighting assembly'),
 )
 
@@ -369,7 +373,10 @@ def load_assembly(repository=REPOSITORY):
     if not path.exists():
         return None
     regions = json.loads(path.read_text())['regions']
-    return dict(bytes=sum(r['bytes'] for r in regions), regions=len(regions))
+    # Revised, binary-derived lines (user decision 2026-11-24): their own sub-line; Reproduced .text only.
+    revised = [r for r in regions if r.get('revised')]
+    return dict(bytes=sum(r['bytes'] for r in regions), regions=len(regions),
+                revised_bytes=sum(r['bytes'] for r in revised), revised_regions=len(revised))
 
 
 def load_library(repository=REPOSITORY):
@@ -680,7 +687,7 @@ def kb(value):
 
 
 def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, repository=REPOSITORY, categories=None,
-                  main_catalog=None):
+                  main_catalog=None, revised_bytes=0):
     """Main's tree and the rebuild tree (rebuild/, on main since 2026-11-19) side by side, never added, on the same
     category lines (lane O41, 2026-11-22; AGENTS.md status measures): Reproduced .text is the sum of C/C++ body,
     evidenced inline asm, frozen padding, linked library members and assembled handwritten asm in both trees. The
@@ -688,7 +695,8 @@ def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, reposi
     own, as ra2-decomp reports) and structure from the last gated-landing row of rebuild/manifest/progress.csv. Both
     builds link the same library members and assemble the same procedures (manifests/original_target/library.json,
     assembly.json). MAIN is coverage() of main's catalog; JUDGMENT main's (regions, body bytes); MAIN_CLEAN main's
-    C/C++ body bytes outside its judgment-flagged rows."""
+    C/C++ body bytes outside its judgment-flagged rows. ASM_BYTES is all assembled bytes; REVISED_BYTES the part of
+    it in the revised, binary-derived category (user decision 2026-11-24), shown on its own line."""
     import csv
     path = Path(repository) / 'rebuild/manifest/progress.csv'
     if not path.exists():
@@ -745,7 +753,7 @@ def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, reposi
              '| `rebuild/` (clean tree in progress; last gated landing {}) |'.format(r['time_utc']),
              '| --- | ---: | ---: |',
              '| Reproduced .text (both trees: C/C++ body + evidenced inline asm + frozen padding + linked library '
-             'members + assembled handwritten asm, the five lines below) | {} ({:,} B) | {} |'.format(
+             'members + assembled handwritten asm, the six lines below) | {} ({:,} B) | {} |'.format(
                  pct(reproduced), reproduced, repro_cell),
              '| C/C++ bodies matched (body bytes: no padding, no evidenced inline asm; the parity line) | {:,} B, {} '
              '| {} |'.format(main['body'], pct(main['body']), body_cell),
@@ -755,7 +763,10 @@ def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, reposi
              '| Linked library members (the same archive members in both builds) | {:,} B | {:,} B |'.format(
                  lib_bytes, lib_bytes),
              '| Assembled handwritten assembly (the same adopted TibSun .asm procedures in both builds) | {:,} B '
-             '| {:,} B |'.format(asm_bytes, asm_bytes),
+             '| {:,} B |'.format(asm_bytes - revised_bytes, asm_bytes - revised_bytes),
+             '| Assembled handwritten assembly, revised (binary-derived lines: ra2-decomp src/ra2asm text revising a '
+             'cited TibSun archive procedure, allowlisted and flagged; Reproduced .text only, never C/C++; user '
+             '2026-11-24) | {:,} B | {:,} B |'.format(revised_bytes, revised_bytes),
              '| C/C++ bodies, exact with no judgment call (each tree\'s judgment rows left out) | {:,} B, {} | {} |'.format(
                  main_clean, pct(main_clean), clean_cell),
              '| C/C++ bodies, exact with no soft judgment (only the judgment rows resting on a choice left out: '
@@ -816,7 +827,9 @@ def render(catalog, text, rows, funcs=None, lib=None, asm=None, drafts=(0, 0, 0.
     reproduced = now['body'] + now['evidenced_inline_asm'] + now['padding'] + lib_bytes + asm_bytes
     main_clean = sum(r['body_bytes'] for r in catalog['regions']
                      if not evidenced_inline_asm(r) and not any(r.get(flag) is True for flag in JUDGMENT_FLAGS))
-    lines = [BEGIN, ''] + rebuild_lines(text, now, lib_bytes, asm_bytes, judgment, main_clean, main_catalog=catalog) + [
+    revised_bytes = asm.get('revised_bytes', 0) if asm else 0
+    lines = [BEGIN, ''] + rebuild_lines(text, now, lib_bytes, asm_bytes, judgment, main_clean, main_catalog=catalog,
+                                        revised_bytes=revised_bytes) + [
              '| Measure | Value |', '| --- | ---: |',
              '| **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + '
              'evidenced inline asm + frozen padding + linked library members + assembled handwritten asm; 100% when done) '
@@ -851,7 +864,12 @@ def render(catalog, text, rows, funcs=None, lib=None, asm=None, drafts=(0, 0, 0.
              ] if lib else []) + [
              ] + ([
              '| Handwritten assembly reproduced from adopted TibSun .asm sources (manifests/original_target/assembly.json; '
-             'own ledger) | {:,} in {:,} procedures |'.format(asm['bytes'], asm['regions']),
+             'own ledger) | {:,} in {:,} procedures |'.format(asm['bytes'] - revised_bytes,
+                                                             asm['regions'] - asm.get('revised_regions', 0)),
+             '| Handwritten assembly reproduced from revised, binary-derived lines (ra2-decomp src/ra2asm text revising a '
+             'cited TibSun archive procedure; per-source allowlist, rows flagged revised: binary-derived; Reproduced '
+             '.text only, never C/C++; user decision 2026-11-24) | {:,} in {:,} procedures |'.format(
+                 revised_bytes, asm.get('revised_regions', 0)),
              ] if asm else []) + [
              '| Handwritten blitter/codec assembly bytes ({} owner-ruled ranges plus evidenced inline asm; '
              'own ledger) | {:,} ({:.2f}% of .text) |'.format(len(HANDWRITTEN), split['asm'], 100.0 * split['asm'] / text),

@@ -865,7 +865,7 @@ def _build(args,config,catalog,catalog_blobs,audit,tools,library,assembly,genera
                                                            'assembly_tools.py','assembly_build.py','assembly_link.py','generated_data.py','job_control.py']],
             *generated_data.inputs(generated),
             *([library_build.MANIFEST] if library else []),
-            *([assembly_build.MANIFEST, *[REPOSITORY/s for s in assembly['sources']], *[REPOSITORY/s for s in assembly.get('includes', {})]] if assembly else [])]
+            *([assembly_build.MANIFEST, *[REPOSITORY/s for s in assembly['sources'] + assembly_build.revised_sources(assembly)], *[REPOSITORY/s for s in assembly.get('includes', {})]] if assembly else [])]
     for population in catalog['populations']:
         reference = population.get('compiler_output_policy')
         if reference:
@@ -911,6 +911,7 @@ def _build(args,config,catalog,catalog_blobs,audit,tools,library,assembly,genera
                   library_regions=0 if not library else len(library['regions']),
                   assembly_bytes=0 if not assembly else sum(r['bytes'] for r in assembly['regions']),
                   assembly_regions=0 if not assembly else len(assembly['regions']),
+                  revised_assembly_bytes=0 if not assembly else sum(r['bytes'] for r in assembly['regions'] if r.get('revised')),
                   generated_data_bytes=json.loads((destination/'integration-receipt.json').read_text()).get('generated_data_bytes', 0),
                   toolchain=tools,authored_dependencies=fingerprints,seconds=time.monotonic()-started,
                   stages=stages.items,lock_waits=lock_waits(destination),

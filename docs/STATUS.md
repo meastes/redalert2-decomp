@@ -9,14 +9,15 @@ the native port is in progress. Per-batch evidence through A15 is in
 
 <!-- generated:status -->
 
-| Tree (built and gated separately; numbers side by side, never added) | `src/` (exact-match record) | `rebuild/` (clean tree in progress; last gated landing 2026-11-24T06:53Z) |
+| Tree (built and gated separately; numbers side by side, never added) | `src/` (exact-match record) | `rebuild/` (clean tree in progress; last gated landing 2026-11-24T11:20Z) |
 | --- | ---: | ---: |
-| Reproduced .text (both trees: C/C++ body + evidenced inline asm + frozen padding + linked library members + assembled handwritten asm, the five lines below) | 93.54% (3,526,174 B) | **92.90% function-level** (3,502,337 B) (92.57% whole-unit, 3,489,537 B) |
+| Reproduced .text (both trees: C/C++ body + evidenced inline asm + frozen padding + linked library members + assembled handwritten asm, the six lines below) | 93.58% (3,527,727 B) | **92.95% function-level** (3,503,890 B) (92.61% whole-unit, 3,491,090 B) |
 | C/C++ bodies matched (body bytes: no padding, no evidenced inline asm; the parity line) | 3,274,492 B, 86.86% | **3,250,938 B, 86.24% function-level** (3,238,660 B, 85.91% whole-unit); gap to main 23.6 KB (35.8 KB whole-unit) |
 | Evidenced inline assembly (cited TibSun `__asm`; not C/C++ credit) | 2,514 B | 2,555 B in 8 rows (whole-unit) |
 | Frozen padding of accepted rows | 143,042 B | 142,718 B function-level (142,196 B whole-unit) |
 | Linked library members (the same archive members in both builds) | 89,127 B | 89,127 B |
 | Assembled handwritten assembly (the same adopted TibSun .asm procedures in both builds) | 16,999 B | 16,999 B |
+| Assembled handwritten assembly, revised (binary-derived lines: ra2-decomp src/ra2asm text revising a cited TibSun archive procedure, allowlisted and flagged; Reproduced .text only, never C/C++; user 2026-11-24) | 1,553 B | 1,553 B |
 | C/C++ bodies, exact with no judgment call (each tree's judgment rows left out) | 3,245,325 B, 86.09% | **3,116,121 B, 82.660% function-level** (3,105,756 B, 82.385% whole-unit) of .text; left out: judgment calls 80 rows / 132,904 B (of which header-form dependents 7 / 23,173 B), count-sensitive 1 rows / 1,913 B |
 | C/C++ bodies, exact with no soft judgment (only the judgment rows resting on a choice left out: in the rebuild kinds iii author idiom unreferenced at the line, iv-b looked-up local no reference has, vii other; main's flags are all choices, so its figure is the line above) | 3,245,325 B, 86.09% | **3,221,267 B, 85.449% function-level** (3,210,902 B, 85.174% whole-unit); left out: soft judgment rows 8 / 27,758 B (kinds iii, iv-b, vii and header-form dependents of such a form), count-sensitive 1 rows / 1,913 B |
 | Rebuild judgment calls by kind (function-level, rows/body bytes; i reference form chosen by caller evidence, ii sibling-image helper form, iii author idiom unreferenced at the line, iv-a twin or reference text at this or a sibling site, iv-b looked-up local no reference has, v image-derived or frozen bound, vi header-form dependent, joined two references joined at one site, vii other; kinds tagged in provenance.csv and header_judgments.csv) | | iii 1/747; iv-a 55/82264; iv-b 3/13846; v 7/6073; vi 8/23522; joined 3/4453; vii 3/1999 |
@@ -31,7 +32,7 @@ the native port is in progress. Per-batch evidence through A15 is in
 
 | Measure | Value |
 | --- | ---: |
-| **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + evidenced inline asm + frozen padding + linked library members + assembled handwritten asm; 100% when done) | **3,526,174 of 3,769,805 (93.54%)** |
+| **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + evidenced inline asm + frozen padding + linked library members + assembled handwritten asm; 100% when done) | **3,527,727 of 3,769,805 (93.58%)** |
 | Judgment-call bytes (accepted rows resting on a flagged, unprovable choice: count_calibrated, split_declaration, declarations_only; read from the manifest) | 29,167 in 10 regions (0.77% of .text) |
 | Accepted regions | 17,910 |
 | Matched C/C++ body bytes | 3,274,492 (86.86% of .text) |
@@ -54,6 +55,7 @@ the native port is in progress. Per-batch evidence through A15 is in
 | C runtime / library bytes (.text >= 0x781000; library ledger, not source credit) | 87,989 (2.33% of .text; 110 matched) |
 | Linked library bytes (identified archive members built from the pinned SP3 LIBCMT/COMSUPP and VC98 import libraries; manifests/original_target/library.json; not source credit) | 89,127 in 899 sections (2.36% of .text) |
 | Handwritten assembly reproduced from adopted TibSun .asm sources (manifests/original_target/assembly.json; own ledger) | 16,999 in 51 procedures |
+| Handwritten assembly reproduced from revised, binary-derived lines (ra2-decomp src/ra2asm text revising a cited TibSun archive procedure; per-source allowlist, rows flagged revised: binary-derived; Reproduced .text only, never C/C++; user decision 2026-11-24) | 1,553 in 6 procedures |
 | Handwritten blitter/codec assembly bytes (10 owner-ruled ranges plus evidenced inline asm; own ledger) | 23,831 (0.63% of .text) |
 | In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) | 3,274,382 of 3,514,967 (93.16%) |
 | In-scope functions matched (game code below 0x781000, handwritten ranges and known false rows excluded) | 17,892 of 17,985 (99.48%) |
@@ -67,7 +69,7 @@ the native port is in progress. Per-batch evidence through A15 is in
 | Structure: RA2_ preprocessor switches ((b); include guards excluded) | 260 distinct in 199 files |
 | Structure: "// @ref" comment lines ((f)) | 0 in 0 files |
 | Structure: extern declarations in .cpp files ((g)) | 4,741 lines, 2,614 names, 486 files |
-| Original .text scaffold bytes | 243,631 |
+| Original .text scaffold bytes | 242,078 |
 | Logical .text bytes | 3,769,805 |
 | Compiler populations | 603 |
 | Compile path (build environment, with the pinned VC6 SP3 8447 compiler; docs/ORIGINAL_TARGET_BUILD.md "Fixed compile folder") | `<drive>:\private\tmp\ra2c\XXXXXXXX\gNNNN\accepted.cpp; /I <drive>:\private\tmp\ra2c\XXXXXXXX\src; TMP <drive>:\private\tmp\ra2c\XXXXXXXX\tmp-N` |

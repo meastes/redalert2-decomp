@@ -79,7 +79,9 @@ dependencies:
 
 - **The rebuild's whole-file build** assembles the 16 handwritten assembly sources from
   `src/recovered/asm` (`tools/original_target/assembly_link.py`, not switched by `RA2_TREE`). Cut
-  on the day by step 12.
+  on the day by step 12. Since 2026-11-24 (lane O73) it also assembles the revised, binary-derived
+  sources in `src/recovered/asm/ra2asm/` (allowlist `assembly_tools.REVISED_ALLOWLIST`, a hard-coded
+  path too): step 12 moves them to `rebuild/asm/ra2asm/` with the allowlist keys.
 - **The rebuild's catalog** keeps main's frozen evidence on every row: bounds, body and padding
   hashes, and the `bound_population` (main's population that froze the row). Its build config is
   main's private config plus one entry per rebuild population pointing at main's inventory
@@ -108,7 +110,7 @@ catalog, sorted by what happens to each.
 | `tools/original_target/tree.py` | `RA2_TREE` picks `src/recovered`+`src/shared` (default) or `rebuild/` | Default stays `main` on the day. Flip the default to `rebuild` one week later (step 11), once the landing scripts have run on `RA2_TREE=rebuild` alone |
 | `build.py`, `canonical.py`, `generated_data.py`, `data_bindings.py`, `source_paths.py` (tree-aware through `tree.py`) | Either tree | Unchanged; the rebuild via `RA2_TREE=rebuild` |
 | `catalog_io.py`, `verify_manifest.py`, `coff.py`, `cleanup_census.py` (shared, used by rebuild tools) | Either catalog | Unchanged |
-| `assembly_link.py` | `src/recovered/asm` (hard-coded) | `rebuild/asm/` through `tree.py`, on the day (step 12) |
+| `assembly_link.py`, `assembly_tools.py` | `src/recovered/asm`, `src/recovered/asm/ra2asm` (hard-coded) | `rebuild/asm/` through `tree.py`, on the day (step 12) |
 | `status.py` | Main's catalog (headline) plus the rebuild's catalog and `progress.csv` | Headline: the rebuild's whole-unit figure, function-level beside it and labelled. `src-final` figures computed from the frozen catalog (they cannot change), and the "matched in src-final, not yet in the rebuild" line |
 | `bytematch_report.py` | Main by default, `--tree rebuild` for the rebuild series | Default `--tree rebuild`. Main's series stops |
 | `gate_scope.py` | Path prefixes | Adds the frozen scope (step 3) |

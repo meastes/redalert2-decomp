@@ -90,6 +90,23 @@ trimmed), relocation values from the original, SHA-256 of the original bytes.
 At build time `assembly_build.py` re-assembles the sources under the compiler
 lock, patches each row and proves it equal to the original before it joins the
 placement container; the receipt reports `assembly_bytes`/`assembly_regions`.
+
+Revised, binary-derived lines (user decision 2026-11-24, AGENTS.md "No fake
+source"): `src/recovered/asm/ra2asm/` holds ra2-decomp's `src/ra2asm` files
+(f707224; detproc.asm, isoasm.asm, winasm.asm) adopted unchanged with their
+notices. Each revises a TibSun archive procedure with lines read off the binary.
+Only the procedures on the per-source allowlist (`assembly_tools.py`
+`REVISED_ALLOWLIST`, six procedures, 1,553 B) are taken; `assembly_link.py`
+assembles these files in a folder of their own (same names as the archive files),
+places them after every archive procedure, and records each row with
+`revised: binary-derived` and its cited `archive_parent`; an archive miss of the
+same procedure leaves `misses`. The manifest's `revised` block names the
+reference, sources and allowlist. `assembly_tools.validate_manifest` (run by the
+strict audit, `canonical.validate_assembly_ledger`, and by `assembly_build.load`)
+refuses an unflagged revised row, a procedure off the allowlist, a flag on an
+archive row, a procedure placed from both, or a revised file without its notices.
+STATUS shows the category on its own line in both trees; it counts toward
+Reproduced .text only, never C/C++, and the receipt adds `revised_assembly_bytes`.
 Procedures the original changed (`Iso_Blit_Asm1`: two `add` operands;
 `Detect_MMX_Availability`; the four `Draw_Voxel_*_Normals_ASM` RA2 dropped) and
 RA2-only code in the MMX block are listed under `misses` and stay scaffold.
