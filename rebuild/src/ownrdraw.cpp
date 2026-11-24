@@ -7291,7 +7291,7 @@ static void Stop_Static_Movie(HWND window, StaticRecord * data) // RA2: as above
 **	RA2: the window procedure of the static controls: text (typed out), an image, a shape or its
 **	animation, or a movie.
 */
-#ifdef RA2_NON_MATCHING // not exact: 3067 bytes differ against the image bound 005f2b50 (4512 body bytes, image_bounds.csv; 4326 before): the record through ra2-decomp's Get_Data (its sibling dialog procedures, flagged: another site), the cases in the image's dispatch order with the real Control_Frame_Delay and Control_Animation_Rate calls, both movie starts written out
+#ifdef RA2_NON_MATCHING // not exact: 3067 bytes differ against the image-derived bound 005f2b50 (4512 body bytes, image_bounds.csv; 4326 before): the record through ra2-decomp's Get_Data (its sibling dialog procedures, flagged: another site), the cases in the image's dispatch order with the real Control_Frame_Delay and Control_Animation_Rate calls, both movie starts written out
 LRESULT __stdcall Static_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
 	StaticRecord * data = (StaticRecord *)Get_Data(window);

@@ -136,7 +136,7 @@ void __fastcall Set_Skirmish_Dialog_Text(HWND dialog); // RA2: 0x005C34B0
 void __fastcall Load_Random_Map_Preview(HWND dialog); // RA2: 0x005CC800
 void __fastcall Clear_Observer_Slots(HWND dialog); // RA2: 0x005CB560
 bool __fastcall Reset_AI_Slots(HWND dialog); // RA2: 0x005CACB0
-void __fastcall Change_Slot_Type(HWND dialog, int id, int data, int mode); // RA2: 0x005CBF20
+void __fastcall Change_Slot_Type(HWND dialog, int id, NodeNameType * node, int mode); // RA2: 0x005CBF20
 void __fastcall Seat_First_Player(int slot); // RA2: 0x005C8CD0
 void __fastcall Set_Player_Slot(int slot, NodeNameType * node); // RA2: 0x005C8CC0
 void __fastcall Set_Slot_Names(wchar_t const * list); // RA2: 0x005C8DD0
@@ -1668,7 +1668,7 @@ LRESULT CALLBACK MPlayer_Host_Dialog_Proc(HWND window, UINT message, WPARAM wpar
 					}
 					if (Is_Host()) {
 						int node = Combo_Selected_Data(window, LOWORD(wparam), -1);
-						Change_Slot_Type(window, LOWORD(wparam), node, 2);
+						Change_Slot_Type(window, LOWORD(wparam), (NodeNameType *)node, 2);
 					}
 					break;
 

@@ -1176,6 +1176,7 @@ symbol,address,evidence
 ?Catch_Fire@ObjectClass@@UAE_NXZ,0x005D2D00,slot +164 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Catch_Fire@ObjectClass@@UAE_NXZ
 ?Center_Coord@AbstractClass@@UBE?AVCoord@@XZ,0x00410260,slot +4c of ??_7TeamClass@@6BIPersistStream@@@ at 007ac94c; main row ?Center_Coord@AbstractClass@@UBE?AUCoordStruct@@XZ
 ?Center_Coord@ObjectClass@@UBE?AVCoord@@XZ,0x005D4E40,slot +4c of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?Center_Coord@ObjectClass@@UBE?AUCoordStruct@@XZ
+?Change_Slot_Type@@YIXPAUHWND__@@HPAUNodeNameType@@H@Z,0x005CBF20,image bound 005cbf20 (2003 B): the entry is a NodeNameType pointer as in ra2-decomp's banked text for the twin 0x005EC9F0 (lane F59); mischa85's names.csv has the int form ?Change_Slot_Type@@YIXPAUHWND__@@HHH@Z (inferred)
 ?CheckStartConditions@MultiplayerGameMode@@UAE_NPAVWideWstring@@@Z,0x005B73A0,slot +18 of ??_7Megawealth@@6B@ at 007a6aa0; main row ?CheckStartConditions@MultiplayerGameMode@@UAE_NPAVWideString@@@Z
 ?Cheer@TechnoClass@@UAEXXZ,0x0041B3E0,slot +338 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?get@Leaf_41b3e0@@QAEXXZ
 ?Choice_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z,0x00600D50,inferred: ownrdraw rows 00600c80 differ only at its sites

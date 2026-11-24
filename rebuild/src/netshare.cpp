@@ -44,6 +44,7 @@
 #include "sendfile.h"
 #include "session.h"
 #include "stimer.h"
+#include "swap.h" // RA2: Change_Slot_Type exchanges the chosen and the seated entry (ra2-decomp's banked text)
 #include "wdtnet.h"
 #include "windlg.h"
 #include "wolapi.h" // RA2: main has no include/wolapi/; the part of the WOL API this file uses is one flat header
@@ -3115,7 +3116,7 @@ inline HWND Find_Lobby_Dialog(void) // RA2: the lobby dialog of the session type
 	return(dialog); // RA2: as above
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 4 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 4 bytes differ (adopted text); exact with the twin's order of the four locals (open ahead of closed) once the seven lobby entries are separate globals, the twin's form (lane F59, held: OnPrivateGameOptions then turns by one byte)
 void __fastcall Set_Slot_Names(wchar_t const * list) // RA2: 0x005C8DD0, not in TibSun; takes the slot names the host sent, seats the entries and sets the observer's combo boxes
 {
 	if (*list == L'\0') { // RA2: as above
@@ -4071,7 +4072,7 @@ void __fastcall Change_Slot_Count(HWND dialog, int old_count, int count, Multipl
 }
 
 
-void __fastcall Change_Slot_Type(HWND dialog, int id, int data, int mode); // RA2: 0x005CBF20, defined below
+void __fastcall Change_Slot_Type(HWND dialog, int id, NodeNameType * node, int mode); // RA2: 0x005CBF20, defined below
 Wstring Wstring_Narrow(WideWstring const & text); // RA2: 0x00771280, as wonline.cpp
 
 void __fastcall Change_Slot_Range(HWND dialog, int first, int count) // RA2: 0x005CB3F0, not in TibSun; the entries chosen in the combo boxes of count slots from the first one on are seated, empty ones become open or closed, then the controls are shown
@@ -4085,12 +4086,12 @@ void __fastcall Change_Slot_Range(HWND dialog, int first, int count) // RA2: 0x0
 		NodeNameType * open = LobbyEntries[0]; // RA2: the open and closed entries are read once, before the test: the executable loads both into registers there
 		NodeNameType * closed = LobbyEntries[1]; // RA2: as above
 		if (entry != (NodeNameType *)-1 && entry != NULL && entry != open && entry != closed && entry != LobbyEntries[6] && entry != LobbyEntries[5]) { // RA2: as above
-			Change_Slot_Type(dialog, id, (int)entry, 0); // RA2: as above
+			Change_Slot_Type(dialog, id, entry, 0); // RA2: as above
 		} else if (i != LobbyObserverSlot) { // RA2: as above
 			if (i < limit) { // RA2: as above
-				Change_Slot_Type(dialog, id, (int)open, 0); // RA2: as above
+				Change_Slot_Type(dialog, id, open, 0); // RA2: as above
 			} else {
-				Change_Slot_Type(dialog, id, (int)closed, 0); // RA2: as above
+				Change_Slot_Type(dialog, id, closed, 0); // RA2: as above
 			}
 		}
 	}
@@ -4109,11 +4110,11 @@ void __fastcall Clear_Observer_Slots(HWND dialog) // RA2: 0x005CB560, not in Tib
 			NodeNameType * entry = Session.Slots[slot]; // RA2: as above
 			if (slot < limit) { // RA2: as above
 				if (entry == LobbyEntries[6] || entry->Slot.SpectatorFlag == -1) { // RA2: as above
-					Change_Slot_Type(dialog, id, (int)LobbyEntries[0], 1); // RA2: as above
+					Change_Slot_Type(dialog, id, LobbyEntries[0], 1); // RA2: as above
 					changed = true; // RA2: as above
 				}
 			} else if (entry == LobbyEntries[6] || entry->Slot.SpectatorFlag == -1) { // RA2: as above
-				Change_Slot_Type(dialog, id, (int)LobbyEntries[1], 1); // RA2: as above
+				Change_Slot_Type(dialog, id, LobbyEntries[1], 1); // RA2: as above
 				changed = true; // RA2: as above
 			}
 		}
@@ -4130,7 +4131,7 @@ void __fastcall Clear_Observer_Slots(HWND dialog) // RA2: 0x005CB560, not in Tib
 			}
 		}
 		Show_Observer_Slot_Controls(dialog); // RA2: as above
-		Change_Slot_Type(dialog, Get_Slot_Control_Id(LobbyObserverSlot), (int)entry, 1); // RA2: as above
+		Change_Slot_Type(dialog, Get_Slot_Control_Id(LobbyObserverSlot), entry, 1); // RA2: as above
 	}
 	if (changed) { // RA2: as above
 		Set_Slot_Country(dialog, Player_Side_Combo_ID(LobbyObserverSlot)); // RA2: as above
@@ -4146,10 +4147,10 @@ void __fastcall Close_Slots_From(HWND dialog, int first) // RA2: 0x005CB7C0, not
 		int id = Get_Slot_Control_Id(slot); // RA2: as above
 		if (slot < limit) { // RA2: as above
 			if (slot != LobbyObserverSlot) { // RA2: as above
-				Change_Slot_Type(dialog, id, (int)LobbyEntries[0], 1); // RA2: as above
+				Change_Slot_Type(dialog, id, LobbyEntries[0], 1); // RA2: as above
 			}
 		} else if (slot != LobbyObserverSlot) { // RA2: as above
-			Change_Slot_Type(dialog, id, (int)LobbyEntries[1], 1); // RA2: as above
+			Change_Slot_Type(dialog, id, LobbyEntries[1], 1); // RA2: as above
 		}
 	}
 	Hide_Slot_Controls(dialog, first); // RA2: as above
@@ -4208,10 +4209,10 @@ void __fastcall Change_Scenario_Slots(HWND dialog, int previous, int scenario) /
 			int id = Get_Slot_Control_Id(slot); // RA2: as above
 			if (slot < limit) { // RA2: as above
 				if (slot != LobbyObserverSlot) { // RA2: as above
-					Change_Slot_Type(dialog, id, (int)LobbyEntries[0], 1); // RA2: as above
+					Change_Slot_Type(dialog, id, LobbyEntries[0], 1); // RA2: as above
 				}
 			} else if (slot != LobbyObserverSlot) { // RA2: as above
-				Change_Slot_Type(dialog, id, (int)LobbyEntries[1], 1); // RA2: as above
+				Change_Slot_Type(dialog, id, LobbyEntries[1], 1); // RA2: as above
 			}
 		}
 		Hide_Slot_Controls(dialog, first); // RA2: as above
@@ -4284,212 +4285,111 @@ void Send_Player_List(void); // RA2: 0x0073C480, defined in wonline.cpp
 void __fastcall Kick_Channel_User(wchar_t const * name); // RA2: 0x0075CAE0, looks the channel user up by name and has the chat service remove it (WOL)
 void Update_Channel_Player_Limit(void); // RA2: 0x00749F20, tells the chat service the channel's new player limit (WOL)
 
-#ifdef RA2_NON_MATCHING // not exact: 1745 bytes differ by position against the image-derived bound 005cbf20 (2,003 B; ours 1,984 B; 2 literals unbound): the image's 26 calls in another order (Reject_Join and Send_Slot_Names 0x13 bytes later, the side-combo fill 176 bytes later). The Yuri's Revenge twin (0x5EC9F0) is unmatched in ra2-decomp at 86.4 (dialog and slot exchange edi and ebp); its attempt text is not in their repository
-void __fastcall Change_Slot_Type(HWND dialog, int id, int data, int mode) // RA2: 0x005CBF20, not in TibSun; seats an entry in the slot of a combo box: a computer player is refused beside an observer, a player who is replaced is turned away, and the boxes follow the new entry; mode 1 and 2 tell the other players, mode 2 sends the lobby options as well
+#ifdef RA2_NON_MATCHING // not exact: 11 bytes differ against the image-derived bound 005cbf20 (2,003 B, ours 2,003 B; previously 1,745): ra2-decomp's banked text for the Yuri's Revenge twin (0x5EC9F0) in this tree's names, the entry as a NodeNameType pointer. Left: the load order of three lobby entries ahead of the first player test and the registers of the three computer entries in the count loop; 6 bytes (the count loop's load order alone) with the seven lobby entries as separate globals, the twin's form (lane F59, held)
+void __fastcall Change_Slot_Type(HWND dialog, int id, NodeNameType * node, int mode) // RA2: 0x005CBF20, not in TibSun; seats an entry in the slot of a combo box: a computer player is refused beside an observer, a player who is replaced is turned away, and the boxes follow the new entry; mode 1 and 2 tell the other players, mode 2 sends the lobby options as well
 {
-	NodeNameType * entry = (NodeNameType *)data; // RA2: as above
-	NodeNameType * choice = entry; // RA2: as above
-	int slot; // RA2: as above
-	if (id == 1041) { // RA2: as above
-		slot = 0; // RA2: as above
-	} else if (id == 1042) { // RA2: as above
-		slot = 1; // RA2: as above
-	} else if (id == 1043) { // RA2: as above
-		slot = 2; // RA2: as above
-	} else if (id == 1044) { // RA2: as above
-		slot = 3; // RA2: as above
-	} else if (id == 1045) { // RA2: as above
-		slot = 4; // RA2: as above
-	} else if (id == 1046) { // RA2: as above
-		slot = 5; // RA2: as above
-	} else if (id == 1047) { // RA2: as above
-		slot = 6; // RA2: as above
-	} else {
-		slot = id == 1048 ? 7 : -1; // RA2: as above
-	}
-	NodeNameType * seated = Session.Slots[slot]; // RA2: as above
-	NodeNameType * previous = seated; // RA2: as above
-	if (!(Is_AI_Entry(choice) && slot != LobbyObserverSlot)) { // RA2: as above
-		if (choice == LobbyEntries[6]) { // RA2: as above
-			bool booted = false; // RA2: as above
-			for (int i = 0; i < 8; i++) { // RA2: as above
-				NodeNameType * closed = LobbyEntries[1]; // RA2: as above
-				if (i != slot && Is_AI_Entry(Session.Slots[i])) { // RA2: as above
-					int other; // RA2: as above
-					if (i == 0) { // RA2: as above
-						other = 1041; // RA2: as above
-					} else if (i == 1) { // RA2: as above
-						other = 1042; // RA2: as above
-					} else if (i == 2) { // RA2: as above
-						other = 1043; // RA2: as above
-					} else if (i == 3) { // RA2: as above
-						other = 1044; // RA2: as above
-					} else if (i == 4) { // RA2: as above
-						other = 1045; // RA2: as above
-					} else if (i == 5) { // RA2: as above
-						other = 1046; // RA2: as above
-					} else if (i == 6) { // RA2: as above
-						other = 1047; // RA2: as above
-					} else {
-						other = i == 7 ? 1048 : -1; // RA2: as above
-					}
-					HWND combo = GetDlgItem(dialog, other); // RA2: as above
-					ShowWindow(combo, SW_HIDE); // RA2: as above
-					int count = SendDlgItemMessageA(dialog, other, CB_GETCOUNT, 0, 0); // RA2: as above
-					for (int index = 0; index < count; index++) { // RA2: as above
-						if (SendDlgItemMessageA(dialog, other, CB_GETITEMDATA, index, 0) == (int)closed) { // RA2: as above
-							SendDlgItemMessageA(dialog, other, CB_SETCURSEL, index, 0); // RA2: as above
-							break; // RA2: as above
-						}
-					}
-					ShowWindow(combo, SW_SHOW); // RA2: as above
-					Change_Slot_Type(dialog, other, (int)LobbyEntries[1], 0); // RA2: as above
-					booted = true; // RA2: as above
-				}
+	NodeNameType * newnode = node;
+	int slot = Control_Slot(id);
+	NodeNameType * old = Session.Slots[slot];
+
+	if (Is_AI_Entry(node) && slot != LobbyObserverSlot) {
+		if (ObserverMode || (LobbyObserverSlot > 0 && (Session.Slots[LobbyObserverSlot]->Slot.SpectatorFlag == -1 || Session.Slots[LobbyObserverSlot] == LobbyEntries[6]))) {
+			Lobby_Chat_Printf(-1, StringTable::LoadString("TXT_NO_AI_WITH_OBSERVER", NULL, "D:\\Ra2\\netshare.cpp", 5538));
+			swap(node, old);
+			if (Is_AI_Entry(node)) {
+				node = LobbyEntries[1];
 			}
-			if (booted) { // RA2: as above
-				Lobby_Chat_Printf(-1, StringTable::LoadString("TXT_OBSERVER_BOOTED_AI", NULL, "D:\\Ra2\\netshare.cpp", 5567)); // RA2: as above
+			Select_Combo_By_Data(dialog, id, (int)node);
+		}
+	} else if (node == LobbyEntries[6]) {
+		bool booted = false;
+		for (int j = 0; j < 8; j++) {
+			if (j != slot && Is_AI_Entry(Session.Slots[j])) {
+				int slot_id = Get_Slot_Control_Id(j);
+				Select_Combo_By_Data(dialog, slot_id, (int)LobbyEntries[1]);
+				Change_Slot_Type(dialog, slot_id, LobbyEntries[1], false);
+				booted = true;
 			}
 		}
-	} else if (ObserverMode != 0 || (LobbyObserverSlot > 0 && (Session.Slots[LobbyObserverSlot]->Slot.SpectatorFlag == -1 || Session.Slots[LobbyObserverSlot] == LobbyEntries[6]))) { // RA2: as above
-		Lobby_Chat_Printf(-1, StringTable::LoadString("TXT_NO_AI_WITH_OBSERVER", NULL, "D:\\Ra2\\netshare.cpp", 5538)); // RA2: as above
-		previous = choice; // RA2: as above
-		choice = seated; // RA2: as above
-		if (Is_AI_Entry(choice)) { // RA2: as above
-			choice = LobbyEntries[1]; // RA2: as above
+		if (booted) {
+			Lobby_Chat_Printf(-1, StringTable::LoadString("TXT_OBSERVER_BOOTED_AI", NULL, "D:\\Ra2\\netshare.cpp", 5567));
 		}
-		HWND combo = GetDlgItem(dialog, id); // RA2: as above
-		ShowWindow(combo, SW_HIDE); // RA2: as above
-		int count = SendDlgItemMessageA(dialog, id, CB_GETCOUNT, 0, 0); // RA2: as above
-		for (int index = 0; index < count; index++) { // RA2: as above
-			if (SendDlgItemMessageA(dialog, id, CB_GETITEMDATA, index, 0) == (int)choice) { // RA2: as above
-				SendDlgItemMessageA(dialog, id, CB_SETCURSEL, index, 0); // RA2: as above
-				break; // RA2: as above
-			}
-		}
-		ShowWindow(combo, SW_SHOW); // RA2: as above
 	}
-	if (entry == previous) { // RA2: as above
-		return; // RA2: as above
+
+	if (newnode == old) {
+		return;
 	}
-	Session.Slots[slot] = entry; // RA2: as above
-	if (mode == 1 || mode == 2) { // RA2: as above
-		if (!Is_Real_Player_Entry(entry) && Is_Real_Player_Entry(previous)) { // RA2: as above
-			if (g_pChat == NULL) { // RA2: as above
-				Reject_Join(previous); // RA2: as above
+	Session.Slots[slot] = newnode;
+
+	if (mode == 1 || mode == 2) {
+		if (!Is_Real_Player_Entry(newnode) && Is_Real_Player_Entry(old)) {
+			if (g_pChat != NULL) {
+				Kick_Channel_User(old->Name);
 			} else {
-				Kick_Channel_User(previous->Name); // RA2: as above
+				Reject_Join(old);
 			}
 		}
-		if (g_pChat == NULL) { // RA2: as above
-			Send_Slot_Names(); // RA2: as above
+		if (g_pChat != NULL) {
+			Send_Player_List();
 		} else {
-			Send_Player_List(); // RA2: as above
+			Send_Slot_Names();
 		}
 	}
-	bool ai_now; // RA2: as above
-	if (Is_AI_Entry(entry)) { // RA2: as above
-		ai_now = true; // RA2: as above
-	} else {
-		ai_now = false; // RA2: as above
+
+	bool new_ai = Is_AI_Entry(newnode);
+	bool old_ai = Is_AI_Entry(old);
+	bool new_obs = newnode == LobbyEntries[6] || (Is_Real_Player_Entry(newnode) && newnode->Slot.SpectatorFlag == -1);
+	bool old_obs = old == LobbyEntries[6] || (Is_Real_Player_Entry(old) && old->Slot.SpectatorFlag == -1);
+
+	if (new_obs) {
+		Fill_Observer_Combo(dialog, Player_Side_Combo_ID(slot));
+		SendMessageA(GetDlgItem(dialog, Get_Slot_Control_Id(slot)), 0x4F1, 0, 1);
+		int color = Player_Color_Combo_ID(slot);
+		Fill_Random_Color_Combo(dialog, color);
+		Select_Color_Combo(dialog, color, 8);
+		Update_Slot_Controls(dialog, slot, false);
+		Session.Options.AISlots.Difficulties[slot] = -1;
+		Session.Options.AISlots.Countries[slot] = -1;
+		Session.Options.AISlots.Colors[slot] = -1;
+	} else if (old_obs) {
+		Fill_Side_Combo(dialog, Player_Side_Combo_ID(slot));
+		SendMessageA(GetDlgItem(dialog, Get_Slot_Control_Id(slot)), 0x4F1, 0, 0);
+		int color = Player_Color_Combo_ID(slot);
+		Fill_Random_Color_Combo(dialog, color);
+		Select_Color_Combo(dialog, color, -2);
+		Update_Slot_Controls(dialog, slot, false);
+		Session.Options.AISlots.Difficulties[slot] = -1;
+		Session.Options.AISlots.Countries[slot] = -1;
+		Session.Options.AISlots.Colors[slot] = -1;
 	}
-	bool ai_before; // RA2: as above
-	if (Is_AI_Entry(previous)) { // RA2: as above
-		ai_before = true; // RA2: as above
-	} else {
-		ai_before = false; // RA2: as above
+
+	if (new_ai) {
+		Update_Slot_Controls(dialog, slot, true);
+		Session.Options.AISlots.Difficulties[slot] = Get_AI_Difficulty(newnode);
+		Session.Options.AISlots.Countries[slot] = -2;
+		Session.Options.AISlots.Colors[slot] = -2;
+	} else if (old_ai) {
+		Update_Slot_Controls(dialog, slot, false);
+		Session.Options.AISlots.Difficulties[slot] = -1;
+		Session.Options.AISlots.Countries[slot] = -1;
+		Session.Options.AISlots.Colors[slot] = -1;
 	}
-	bool observer_now; // RA2: as above
-	if (entry == LobbyEntries[6]) { // RA2: as above
-		observer_now = true; // RA2: as above
-	} else if (!Is_Real_Player_Entry(entry)) { // RA2: as above
-		observer_now = false; // RA2: as above
-	} else if (entry->Slot.SpectatorFlag == -1) { // RA2: as above
-		observer_now = true; // RA2: as above
-	} else {
-		observer_now = false; // RA2: as above
+
+	if (g_pChat != NULL) {
+		Update_Channel_Player_Limit();
 	}
-	bool observer_before = previous == LobbyEntries[6] || (Is_Real_Player_Entry(previous) && previous->Slot.SpectatorFlag == -1); // RA2: as above
-	if (observer_now || observer_before) { // RA2: as above
-		if (observer_now) { // RA2: as above
-			int side = Player_Side_Combo_ID(slot); // RA2: as above
-			Fill_Observer_Combo(dialog, side); // RA2: as above
-			int control; // RA2: as above
-			if (slot == 0) { // RA2: as above
-				control = 1041; // RA2: as above
-			} else if (slot == 1) { // RA2: as above
-				control = 1042; // RA2: as above
-			} else if (slot == 2) { // RA2: as above
-				control = 1043; // RA2: as above
-			} else if (slot == 3) { // RA2: as above
-				control = 1044; // RA2: as above
-			} else if (slot == 4) { // RA2: as above
-				control = 1045; // RA2: as above
-			} else if (slot == 5) { // RA2: as above
-				control = 1046; // RA2: as above
-			} else if (slot == 6) { // RA2: as above
-				control = 1047; // RA2: as above
+
+	bool ai_changed = new_ai || old_ai;
+	bool obs_changed = new_obs || old_obs;
+	if (ai_changed || obs_changed) {
+		Session.Options.AIPlayers = Count_AI_Slots();
+		if (mode == 2) {
+			if (g_pChat != NULL) {
+				Redraw_Player_List();
 			} else {
-				control = slot == 7 ? 1048 : -1; // RA2: as above
+				Net2DisplayUsers();
 			}
-			SendMessageA(GetDlgItem(dialog, control), 0x4F1, 0, 1); // RA2: as above
-			int color = Player_Color_Combo_ID(slot); // RA2: as above
-			Fill_Random_Color_Combo(dialog, color); // RA2: as above
-			Select_Color_Combo(dialog, color, 8); // RA2: as above
-		} else {
-			int side = Player_Side_Combo_ID(slot); // RA2: as above
-			Fill_Side_Combo(dialog, side); // RA2: as above
-			int control; // RA2: as above
-			if (slot == 0) { // RA2: as above
-				control = 1041; // RA2: as above
-			} else if (slot == 1) { // RA2: as above
-				control = 1042; // RA2: as above
-			} else if (slot == 2) { // RA2: as above
-				control = 1043; // RA2: as above
-			} else if (slot == 3) { // RA2: as above
-				control = 1044; // RA2: as above
-			} else if (slot == 4) { // RA2: as above
-				control = 1045; // RA2: as above
-			} else if (slot == 5) { // RA2: as above
-				control = 1046; // RA2: as above
-			} else if (slot == 6) { // RA2: as above
-				control = 1047; // RA2: as above
-			} else {
-				control = slot == 7 ? 1048 : -1; // RA2: as above
-			}
-			SendMessageA(GetDlgItem(dialog, control), 0x4F1, 0, 0); // RA2: as above
-			int color = Player_Color_Combo_ID(slot); // RA2: as above
-			Fill_Random_Color_Combo(dialog, color); // RA2: as above
-			Select_Color_Combo(dialog, color, -2); // RA2: as above
-		}
-		Update_Slot_Controls(dialog, slot, false); // RA2: as above
-		Session.Options.AISlots.Difficulties[slot] = -1; // RA2: as above
-		Session.Options.AISlots.Countries[slot] = -1; // RA2: as above
-		Session.Options.AISlots.Colors[slot] = -1; // RA2: as above
-	}
-	if (ai_now) { // RA2: as above
-		Update_Slot_Controls(dialog, slot, true); // RA2: as above
-		Session.Options.AISlots.Difficulties[slot] = Get_AI_Difficulty(entry); // RA2: as above
-		Session.Options.AISlots.Countries[slot] = -2; // RA2: as above
-		Session.Options.AISlots.Colors[slot] = -2; // RA2: as above
-	} else if (ai_before) { // RA2: as above
-		Update_Slot_Controls(dialog, slot, false); // RA2: as above
-		Session.Options.AISlots.Difficulties[slot] = -1; // RA2: as above
-		Session.Options.AISlots.Countries[slot] = -1; // RA2: as above
-		Session.Options.AISlots.Colors[slot] = -1; // RA2: as above
-	}
-	if (g_pChat != NULL) { // RA2: as above
-		Update_Channel_Player_Limit(); // RA2: as above
-	}
-	if (ai_now || ai_before || observer_now || observer_before) { // RA2: as above
-		Session.Options.AIPlayers = Count_AI_Slots(); // RA2: as above
-		if (mode == 2) { // RA2: as above
-			if (g_pChat != NULL) { // RA2: as above
-				Redraw_Player_List(); // RA2: as above
-			} else {
-				Net2DisplayUsers(); // RA2: as above
-			}
-			Send_Lobby_Options(true, false); // RA2: as above
+			Send_Lobby_Options(true, false);
 		}
 	}
 }
@@ -4499,7 +4399,7 @@ void __fastcall Select_Entry_Kind(HWND dialog, int id, int kind) // RA2: 0x005CC
 {
 	NodeNameType * entry = Get_Kind_Entry(kind); // RA2: as above
 	Select_Combo_By_Data(dialog, id, (int)entry); // RA2: as above
-	Change_Slot_Type(dialog, id, (int)entry, 0); // RA2: as above
+	Change_Slot_Type(dialog, id, entry, 0); // RA2: as above
 }
 
 void __fastcall Load_Random_Map_Preview(HWND dialog) // RA2: 0x005CC800, not in TibSun; the preview of a random map is read from RandMap.img, any other map's is drawn

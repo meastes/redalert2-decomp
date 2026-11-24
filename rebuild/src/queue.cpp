@@ -2995,7 +2995,7 @@ static int Add_Compressed_Events(void *buf, int bufsize, int frame_delay,
  * HISTORY:                                                                *
  *   11/21/1995 DRD : Created.                                             *
  *=========================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: against the image bound (1,455 B) 972 bytes differ (was 1,375; the megamission Slot byte and the flat saved-count table as ra2-decomp's event.h and queue.cpp have them, TibSun's memcpy record copies); main: best 57.62, tried 6 times (register, frame, inline)
+#ifdef RA2_NON_MATCHING // not exact: against the image bound (1,455 B) 945 bytes differ (was 972; the archive decrements numunits before copying the next target; the megamission Slot byte and the flat saved-count table as ra2-decomp's event.h and queue.cpp have them, TibSun's memcpy record copies); main: best 57.62, tried 6 times (register, frame, inline)
 int Extract_Compressed_Events(void * buf, int bufsize)
 {
 	int pos = 0;                // current buffer parsing position
@@ -3114,9 +3114,9 @@ int Extract_Compressed_Events(void * buf, int bufsize)
 									return(-1);
 								}
 								count++;
+								numunits--;
 								memcpy(&eventdata.Data.MegaMission.Whom, ((char *)buf) + pos, datasize);
 								memcpy(list++, &eventdata.Data.MegaMission.Whom, datasize); // RA2: save the decoded target in this run
-								numunits--;
 								units++; // RA2: as above
 								SavedUnitCounts[index] = units; // RA2: as above
 								if (numunits == 1) {

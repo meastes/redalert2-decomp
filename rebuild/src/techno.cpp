@@ -4583,7 +4583,7 @@ static inline Rect Target_Laser_Rect(Point2D const & point)
  *   07/03/1995 JLB : Moving platforms fire inaccurate projectiles.                            *
  *   02/22/1996 JLB : Handles camera "weapon" case.                                            *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 4371 bytes differ (6019-byte body; previously 4596; native turret and mission reads, frame 0xa4; Horizontal_Speed still expands)
+#ifdef RA2_NON_MATCHING // not exact: 3479 bytes differ (6019-byte body; previously 4371; ra2-decomp's banked forms: every call and the frame are the image's; 39 instructions in six operand-order sites that follow the function's count of inline sites)
 BulletClass * TechnoClass::Fire_At(AbstractClass * target, int which)
 {
 	WeaponTypeClass * weapon = Get_Class_Weapon_Data(which)->Weapon;
@@ -4678,9 +4678,10 @@ BulletClass * TechnoClass::Fire_At(AbstractClass * target, int which)
 				DirType facing(Random_Double(0.0, M_PI * 2));
 				displacement = Move_Coord(displacement, facing, spread);
 			} else {
-				float length = Vector3((float)displacement.X, (float)displacement.Y, (float)displacement.Z).Length();
+				TPoint3D<float> vec(displacement.X, displacement.Y, displacement.Z);
+				float distance = vec.Length();
 				int spread = Random_Pick(0, Rule->BallisticScatter);
-				spread *= (int)length;
+				spread *= (int)distance;
 				spread /= Weapon_Range(which);
 				DirType facing(Random_Double(0.0, M_PI * 2));
 				displacement = Move_Coord(displacement, facing, spread);
@@ -4707,11 +4708,12 @@ BulletClass * TechnoClass::Fire_At(AbstractClass * target, int which)
 			}
 			bullet->MaxSpeed = weapon->MaxSpeed;
 		}
-		velocity.Set(100.0, 0.0, 0.0);
+		velocity.Set(0.0, 0.0, 0.0);
 		velocity.Set_Speed((double)speed);
 		if (segments > 0) {
-			double angle = (2.0 * M_PI / segments) * RadialFireSegment - M_PI / 2.0;
-			velocity.Set_Yaw(DirType(PrimaryFacing.Current().As_Radian() + angle));
+			double angle = M_PI / segments * RadialFireSegment - M_PI_2;
+			DirType yaw(PrimaryFacing.Current().As_Radian() + angle);
+			velocity.Set_Yaw(yaw);
 			RadialFireSegment++;
 			if (RadialFireSegment >= segments) {
 				RadialFireSegment = 0;
@@ -4887,8 +4889,8 @@ BulletClass * TechnoClass::Fire_At(AbstractClass * target, int which)
 		}
 		Limbo();
 		if (weapon->WarheadPtr->Parasite) {
-			if ((target->AbstractFlags & ABSTRACT_FOOT)) {
-				static_cast<FootClass *>(target)->LastBeParasitedStartFrame = Frame + 20;
+			if (As_Foot(target) != NULL) {
+				As_Foot(target)->LastBeParasitedStartFrame = Frame + 20;
 			}
 			bullet->Limbo();
 			bullet->Set_Bullet_Data(weapon->Bullet, target, this, firepower, weapon->WarheadPtr, weapon->MaxSpeed, weapon->IsBright);

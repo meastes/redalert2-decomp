@@ -373,7 +373,7 @@ void ParticleClass::Smoke_Behavior_AI(void)
 /// wall, at which point it glances off along the slope and is flagged for death.
 /// Its color is blended a step further along the type's color list each frame.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 694 bytes differ (ra2-decomp's Ballistic_Move level: call list and frame size the image's, slot order and registers not); main: best 66.45, tried 6 times (inline, ruling, frame)
+#ifdef RA2_NON_MATCHING // not exact: 694 bytes differ (ra2-decomp's Ballistic_Move level: call list and frame size the image's, slot order and registers not; exact in scratch with one piece of ra2-decomp's held helper form, a payback parameter and its ally check, dead at every caller: variation list, lane F58); main: best 66.45, tried 6 times (inline, ruling, frame)
 void ParticleClass::Spark_Behavior_AI(void)
 {
 	Coord coord = PositionCoord;

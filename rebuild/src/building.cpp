@@ -2573,7 +2573,7 @@ void BuildingClass::Leave_Rubble(void) // RA2: not in TibSun, at 0x43EBA0
  *   11/22/1994 JLB : Shares base damage handler for techno objects.                           *
  *   07/15/1995 JLB : Power ratio gets adjusted.                                               *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 1321 bytes differ by position, one cause (723 = 723 instructions otherwise): at the run-away loop the image expands Length (the square root 0x4BA410 called) and calls it (0x41B780) at the destroyed-contacts loop; this calls it at both. The loop is Red Alert 2's own (ra2-decomp's Yuri's Revenge twin has none), and the twin's forms after it (PositionCoord at the sound, the animation pointer inside the sparky block) give the same bytes
+#ifdef RA2_NON_MATCHING // not exact: 1318 bytes differ by position with BuildingRunAwayOnDamage bound at 0x007CF670, one cause (723 = 723 instructions otherwise): at the run-away loop the image expands Length (the square root 0x4BA410 called) and calls it (0x41B780) at the destroyed-contacts loop; this calls it at both. The loop is Red Alert 2's own (ra2-decomp's Yuri's Revenge twin has none), and the twin's forms after it (PositionCoord at the sound, the animation pointer inside the sparky block) give the same bytes
 ResultType BuildingClass::Take_Damage(int & damage, int distance, WarheadTypeClass const * warhead, TechnoClass * source, bool forced, bool no_crew)
 {
 	ResultType res = RESULT_NONE;
@@ -3141,7 +3141,7 @@ none: // RA2: as above
  *   04/10/1995 JLB : Handles building production by computer.                                 *
  *   06/17/1995 JLB : Handles refinery exit.                                                   *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row yet (image-derived bound 00440520-00441eab, 6539+5, in image_bounds.csv); 4867 bytes differ against it; the cloning-vat loop calls the image's own Exit_New_Object (0x4538D0) for each vat (was 4888 with it written out); common ScenarioInit success return restored, all 146 calls in order (3569 and frame 0x12c only with copy locals in inline.h Direction(Cell, Cell), refused: variation_candidates.csv); previous 5824 (lane O20, 2026-11-22: mission/radio slots, archive target, cached count; was 6093 against main's extent); previous frame 0x14c against 0x12c, the spawn cell kept in registers, two shared return tails, loop index spills; main: best 92.27, tried 12 times (frame, register, inline)
+#ifdef RA2_NON_MATCHING // not exact: no row yet (image-derived bound 00440520-00441eab, 6539+5, in image_bounds.csv); 4862 bytes differ against it; the cloning-vat loop calls the image's own Exit_New_Object (0x4538D0) for each vat (was 4888 with it written out); common ScenarioInit success return restored, all 146 calls in order (3569 and frame 0x12c only with copy locals in inline.h Direction(Cell, Cell), refused: variation_candidates.csv); previous 5824 (lane O20, 2026-11-22: mission/radio slots, archive target, cached count; was 6093 against main's extent); previous frame 0x14c against 0x12c, the spawn cell kept in registers, two shared return tails, loop index spills; main: best 92.27, tried 12 times (frame, register, inline)
 #include "airctype.h"
 #include "targetcell.h"
 int BuildingClass::Exit_Object(TechnoClass * base)

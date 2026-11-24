@@ -6438,7 +6438,7 @@ DirType UnitClass::Turret_Facing(void) const
 /// <param name="xdrawpoint">The pixel position to center the unit's model upon.</param>
 /// <param name="xcliprect">The clipping rectangle to draw within.</param>
 /// <param name="brightness">The lighting level to draw the unit at.</param>
-#ifdef RA2_NON_MATCHING // not exact: no row yet (image-derived bound 006ff690-007005a5, 3861+11, in image_bounds.csv); 2470 bytes differ against it, 75 of 1076 instructions (lane O28, 2026-11-22: ra2-decomp's Is_Barrel_Ahead and shadow-key goto; was 123); open: the original calls Is_Present 0x70A350 out of line at the barrel_cached site (the body is exact but for that and the Is_Archive_Same 0x70A3F0 binding when three more inline sites are pending after it, a probe, not a source)
+#ifdef RA2_NON_MATCHING // not exact: no row yet (image-derived bound 006ff690-007005a5, 3861+11, in image_bounds.csv); 2468 bytes differ against it with Is_Archive_Same bound at 0x0070A3F0, 75 of 1076 instructions (lane O28, 2026-11-22: ra2-decomp's Is_Barrel_Ahead and shadow-key goto; was 123); open: the original calls Is_Present 0x70A350 out of line at the barrel_cached site (the body is exact but for that and the Is_Archive_Same 0x70A3F0 binding when three more inline sites are pending after it, a probe, not a source)
 #include "spawnmanager.h"
 
 static inline bool Is_Barrel_Ahead(FacingClass const & facing) // RA2: ra2-decomp include/voxfacing.h

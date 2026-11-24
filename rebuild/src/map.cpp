@@ -12634,191 +12634,169 @@ bool MapClass::Damage_Bridge(Cell const & cell)
 /// </summary>
 /// <param name="cell">The cell the repair attempt was aimed at.</param>
 /// <returns>bool; Is there a repairable bridge within reach of this cell?</returns>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00569320 has no row); 1332 of 2109 bytes differ against the image-derived bound, 2026-11-23 (lane F42): the four walks back as `walk -= Cell(..)`, the tile type pointer with the cell difference, the vector test before the connection pointer; with six empty inline sites before the last return 15 bytes differ (the probe cell's home slot, 0x14 in the executable), so the executable has that many more inline sites after the bridge walk
-bool MapClass::Can_Repair_Bridge(Cell const & cell) // RA2: as above
+#ifdef RA2_NON_MATCHING // not exact: 12 of 2109 bytes differ against the image-derived bound 00569320 (was 1332): three stores of the walk's search cell, which the image keeps in offset's frame slot [esp+0x14] and this text in topleft's [esp+0x2c], the state ra2-decomp's bank records for the twin; the three function statics are not bound while the draft is guarded; twenty declaration orders, scopes and loop forms do not move the slot (lane F58, 2026-11-24)
+bool MapClass::Can_Repair_Bridge(Cell const & cell) // RA2: 0x00569320; ra2-decomp's flag-free text of its twin (Yuri's Revenge 0x00587410, branch banked-forms, banks/0x00587410_bridge.cpp) in this tree's names
 {
-	static short _x[] = { // RA2: as above
-		1, 1, 0, 2, 2, 2, 0, 0, // RA2: as above
-		0, 0, 0, 2, 2, 2, 2, 2 // RA2: as above
+	static short _x[] = {
+		1, 1, 0, 2, 2, 2, 0, 0,
+		0, 0, 0, 2, 2, 2, 2, 2
 	};
-	static short _y[] = { // RA2: as above
-		2, 2, 2, 1, 1, 0, 2, 2, // RA2: as above
-		2, 2, 2, 0, 0, 0, 0, 0 // RA2: as above
+	static short _y[] = {
+		2, 2, 2, 1, 1, 0, 2, 2,
+		2, 2, 2, 0, 0, 0, 0, 0
 	};
-	static FacingType _facings[] = { // RA2: as above
-		FACING_E,       FACING_E,    FACING_W,    FACING_S,    FACING_S,    FACING_N, FACING_NONE, FACING_NONE, // RA2: as above
-		FACING_NONE, FACING_NONE, FACING_NONE, FACING_NONE, FACING_NONE, FACING_NONE, FACING_NONE, FACING_NONE // RA2: as above
+	static FacingType _facings[] = {
+		FACING_E, FACING_E, FACING_W, FACING_S, FACING_S, FACING_N, FACING_NONE, FACING_NONE,
+		FACING_NONE, FACING_NONE, FACING_NONE, FACING_NONE, FACING_NONE, FACING_NONE, FACING_NONE, FACING_NONE
 	};
 
-	bool found = false; // RA2: as above
-	bool second_low_bridge = false; // RA2: the second low bridge kind (overlays 0xCD-0xE8) is searched as well
-	CellClass * cellptr = NULL; // RA2: as above
-	int offset = -1; // RA2: as above
+	bool found = false;
+	bool second_low_bridge = false;
+	CellClass * cellptr = NULL;
+	int offset = -1;
 
-	for (int y = -2; y < 3; y++) { // RA2: as above
-		for (int x = -2; x < 3; x++) { // RA2: as above
+	for (int y = -2; y < 3; y++) {
+		for (int x = -2; x < 3; x++) {
+			int ittype = Map[Cell(Cell(x, y) + cell)].ITType;
 
-			IsometricTileType ittype = Map[Cell(cell + Cell(x, y))].ITType; // RA2: as above
-
-			if (ittype >= IsometricTileTypeClass::TrainBridgeSet && ittype < IsometricTileTypeClass::TrainBridgeSet + TRAIN_BRIDGE_COUNT) { // RA2: as above
-				found = true; // RA2: as above
-				cellptr = &Map[Cell(cell + Cell(x, y))]; // RA2: as above
-				offset = ittype - IsometricTileTypeClass::TrainBridgeSet; // RA2: as above
-			} else if (ittype >= IsometricTileTypeClass::BridgeSet && ittype < IsometricTileTypeClass::BridgeSet + BRIDGE_COUNT) { // RA2: as above
-				found = true; // RA2: as above
-				cellptr = &Map[Cell(cell + Cell(x, y))]; // RA2: as above
-				offset = ittype - IsometricTileTypeClass::BridgeSet; // RA2: as above
-			} else {
-				if (Is_Low_Bridge(Cell(x, y) + cell)) { // RA2: the sum is written offset first
-					found = false; // RA2: as above
-					second_low_bridge = false; // RA2: as above
-					cellptr = &Map[Cell(cell + Cell(x, y))]; // RA2: as above
-				} else if (Is_Low_Bridge2(Cell(x, y) + cell)) { // RA2: the second low bridge kind
-					found = false; // RA2: as above
-					second_low_bridge = true; // RA2: as above
-					cellptr = &Map[Cell(cell + Cell(x, y))]; // RA2: as above
-				}
+			if (ittype >= IsometricTileTypeClass::TrainBridgeSet && ittype < IsometricTileTypeClass::TrainBridgeSet + TRAIN_BRIDGE_COUNT) {
+				found = true;
+				cellptr = &Map[Cell(Cell(x, y) + cell)];
+				offset = ittype - IsometricTileTypeClass::TrainBridgeSet;
+			} else if (ittype >= IsometricTileTypeClass::BridgeSet && ittype < IsometricTileTypeClass::BridgeSet + BRIDGE_COUNT) {
+				found = true;
+				cellptr = &Map[Cell(Cell(x, y) + cell)];
+				offset = ittype - IsometricTileTypeClass::BridgeSet;
+			} else if (Is_Low_Bridge(Cell(x, y) + cell)) {
+				found = false;
+				second_low_bridge = false;
+				cellptr = &Map[Cell(Cell(x, y) + cell)];
+			} else if (Is_Low_Bridge2(Cell(x, y) + cell)) {
+				found = false;
+				second_low_bridge = true;
+				cellptr = &Map[Cell(Cell(x, y) + cell)];
 			}
 		}
 	}
 
-	switch (found) { // RA2: a switch on the flag (an if/else keeps the flag in a register, the executable keeps it in memory)
-		case false: // RA2: as above
-			if (cellptr != NULL) { // RA2: as above
+	if (found) {
+		IsometricTileTypeClass * isotype = IsometricTileTypes[cellptr->ITType];
+		Cell topleft = cellptr->CellID - Cell(cellptr->SubTile % isotype->Width, cellptr->SubTile / isotype->Width);
+		Cell search = Cell(_x[offset], _y[offset]) + topleft;
+		FacingType dir = _facings[offset];
 
-				if (second_low_bridge) { // RA2: the second low bridge kind uses overlays 0xCD-0xE8 and huts 0xE7/0xE8
-					int overlay = cellptr->Overlay; // RA2: as above
-
-					if (overlay >= 0xcd && overlay <= 0xd5 || overlay >= 0xdf && overlay <= 0xe2 || overlay == 0xe7) { // RA2: as above
-						for (Cell walk = cellptr->CellID;; walk -= Cell(1, 0)) { // RA2: the step back is a cell difference (the executable stores Y again after the decrement)
-							if (!Is_Low_Bridge2(walk)) { // RA2: as above
-								break; // RA2: as above
-							}
-							int hut = Map[walk].Overlay; // RA2: as above
-							if (hut == 0xe7 || hut == 0xe8) { // RA2: as above
-								return(true); // RA2: as above
-							}
-						}
-
-						for (Cell scan = cellptr->CellID; ; scan.X++) { // RA2: as above
-							if (!Is_Low_Bridge2(scan)) { // RA2: as above
-								break; // RA2: as above
-							}
-							int hut = Map[scan].Overlay; // RA2: as above
-							if (hut == 0xe7 || hut == 0xe8) { // RA2: as above
-								return(true); // RA2: as above
-							}
-						}
-
-					} else { // RA2: as above
-
-						for (Cell scan = cellptr->CellID; ; scan.Y++) { // RA2: as above
-							if (!Is_Low_Bridge2(scan)) { // RA2: as above
-								break; // RA2: as above
-							}
-							int hut = Map[scan].Overlay; // RA2: as above
-							if (hut == 0xe7 || hut == 0xe8) { // RA2: as above
-								return(true); // RA2: as above
-							}
-						}
-
-						for (Cell walk = cellptr->CellID;; walk -= Cell(0, 1)) { // RA2: as above (X is stored again)
-							if (!Is_Low_Bridge2(walk)) { // RA2: as above
-								break; // RA2: as above
-							}
-							int hut = Map[walk].Overlay; // RA2: as above
-							if (hut == 0xe7 || hut == 0xe8) { // RA2: as above
-								return(true); // RA2: as above
-							}
-						}
-					}
-				} else if (cellptr->Overlay >= OVERLAY_LOWBRIDGE_01 && cellptr->Overlay <= OVERLAY_LOWBRIDGE_09 || // RA2: as above
-					cellptr->Overlay >= OVERLAY_LOWBRIDGE_19 && cellptr->Overlay <= OVERLAY_LOWBRIDGE_22 || // RA2: as above
-					cellptr->Overlay == OVERLAY_LOWBRIDGE_27) { // RA2: as above
-
-					for (Cell walk = cellptr->CellID;; walk -= Cell(1, 0)) { // RA2: the step back is a cell difference (the executable stores Y again after the decrement)
-						if (!Is_Low_Bridge(walk)) { // RA2: as above
-							break; // RA2: as above
-						}
-						OverlayType overlay = Map[walk].Overlay; // RA2: as above
-						if (overlay == OVERLAY_LOWBRIDGE_27 || overlay == OVERLAY_LOWBRIDGE_28) { // RA2: as above
-							return(true); // RA2: as above
-						}
-					}
-
-					for (Cell scan = cellptr->CellID; ; scan.X++) { // RA2: as above
-						if (!Is_Low_Bridge(scan)) { // RA2: as above
-							break; // RA2: as above
-						}
-						OverlayType overlay = Map[scan].Overlay; // RA2: as above
-						if (overlay == OVERLAY_LOWBRIDGE_27 || overlay == OVERLAY_LOWBRIDGE_28) { // RA2: as above
-							return(true); // RA2: as above
-						}
-					}
-
-				} else { // RA2: as above
-
-					for (Cell scan = cellptr->CellID; ; scan.Y++) { // RA2: as above
-						if (!Is_Low_Bridge(scan)) { // RA2: as above
-							break; // RA2: as above
-						}
-						OverlayType overlay = Map[scan].Overlay; // RA2: as above
-						if (overlay == OVERLAY_LOWBRIDGE_27 || overlay == OVERLAY_LOWBRIDGE_28) { // RA2: as above
-							return(true); // RA2: as above
-						}
-					}
-
-					for (Cell walk = cellptr->CellID;; walk -= Cell(0, 1)) { // RA2: as above (X is stored again)
-						if (!Is_Low_Bridge(walk)) { // RA2: as above
-							break; // RA2: as above
-						}
-						OverlayType overlay = Map[walk].Overlay; // RA2: as above
-						if (overlay == OVERLAY_LOWBRIDGE_27 || overlay == OVERLAY_LOWBRIDGE_28) { // RA2: as above
-							return(true); // RA2: as above
-						}
-					}
+		if (dir != FACING_NONE) {
+			Cell entry = search;
+			while (true) {
+				int index = Zone_Connection_Index(search, 3, 0);
+				if (index < 0) {
+					break;
 				}
-			}
-			break; // RA2: as above
-
-		default: { // RA2: as above
-
-			IsometricTileTypeClass * type = IsometricTileTypes[cellptr->ITType]; // RA2: the tile type is kept, its width read at both uses
-			Cell topleft = cellptr->CellID - Cell(cellptr->SubTile % type->Width, cellptr->SubTile / type->Width); // RA2: both terms are computed before the cell difference
-
-			Cell search = topleft + Cell(_x[offset], _y[offset]); // RA2: the probe cell is the variable and the walked entry a copy of it
-			FacingType dir = _facings[offset]; // RA2: as above
-
-			if (dir != FACING_NONE) { // RA2: as above
-				Cell entry = search; // RA2: as above
-				while (true) { // RA2: as above
-					int index = Zone_Connection_Index(search, 3, 0); // RA2: as above
-					if (index < 0) { // RA2: as above
-						break; // RA2: as above
-					}
-					if (!ZoneConnections[index].IsPassable) { // RA2: the test reads the vector, the pointer is taken after it
-						return(true); // RA2: as above
-					}
-					ZoneConnectionClass * con = &ZoneConnections[index]; // RA2: as above
-					Cell next; // RA2: the next probe cell is built in a temporary
-					if (con->From == entry) { // RA2: as above
-						entry = con->To; // RA2: as above
-						next = Adjacent_Cell(entry, dir); // RA2: as above
-					} else { // RA2: as above
-						if (con->To != entry) { // RA2: as above
-							return(true); // RA2: as above
-						}
-						entry = con->From; // RA2: as above
-						next = Adjacent_Cell(entry, dir); // RA2: as above
-					}
-					search = next; // RA2: as above
+				if (!ZoneConnections[index].IsPassable) {
+					return(true);
 				}
+				ZoneConnectionClass * con = &ZoneConnections[index];
+				Cell next;
+				if (con->From == entry) {
+					entry = con->To;
+					next = Adjacent_Cell(entry, dir);
+				} else if (con->To == entry) {
+					entry = con->From;
+					next = Adjacent_Cell(entry, dir);
+				} else {
+					return(true);
+				}
+				search = next;
 			}
-			break; // RA2: as above
 		}
+		return(false);
 	}
 
-	return(false); // RA2: as above
+	if (cellptr == NULL) {
+		return(false);
+	}
+
+	if (second_low_bridge) {
+		int overlay = cellptr->Overlay;
+		Cell walk;
+		Cell scan;
+		if (overlay >= 0xcd && overlay <= 0xd5 || overlay >= 0xdf && overlay <= 0xe2 || overlay == 0xe7) {
+			walk = cellptr->CellID;
+			while (Is_Low_Bridge2(walk)) {
+				int end = Map[walk].Overlay;
+				if (end == 0xe7 || end == 0xe8) {
+					return(true);
+				}
+				walk -= Cell(1, 0);
+			}
+			scan = cellptr->CellID;
+			while (Is_Low_Bridge2(scan)) {
+				int end = Map[scan].Overlay;
+				if (end == 0xe7 || end == 0xe8) {
+					return(true);
+				}
+				scan.X++;
+			}
+			return(false);
+		}
+		scan = cellptr->CellID;
+		while (Is_Low_Bridge2(scan)) {
+			int end = Map[scan].Overlay;
+			if (end == 0xe7 || end == 0xe8) {
+				return(true);
+			}
+			scan.Y++;
+		}
+		walk = cellptr->CellID;
+		while (Is_Low_Bridge2(walk)) {
+			int end = Map[walk].Overlay;
+			if (end == 0xe7 || end == 0xe8) {
+				return(true);
+			}
+			walk -= Cell(0, 1);
+		}
+		return(false);
+	} else {
+		int overlay = cellptr->Overlay;
+		Cell walk;
+		Cell scan;
+		if (overlay >= OVERLAY_LOWBRIDGE_01 && overlay <= OVERLAY_LOWBRIDGE_09 || overlay >= OVERLAY_LOWBRIDGE_19 && overlay <= OVERLAY_LOWBRIDGE_22 || overlay == OVERLAY_LOWBRIDGE_27) {
+			walk = cellptr->CellID;
+			while (Is_Low_Bridge(walk)) {
+				int end = Map[walk].Overlay;
+				if (end == OVERLAY_LOWBRIDGE_27 || end == OVERLAY_LOWBRIDGE_28) {
+					return(true);
+				}
+				walk -= Cell(1, 0);
+			}
+			scan = cellptr->CellID;
+			while (Is_Low_Bridge(scan)) {
+				int end = Map[scan].Overlay;
+				if (end == OVERLAY_LOWBRIDGE_27 || end == OVERLAY_LOWBRIDGE_28) {
+					return(true);
+				}
+				scan.X++;
+			}
+			return(false);
+		}
+		scan = cellptr->CellID;
+		while (Is_Low_Bridge(scan)) {
+			int end = Map[scan].Overlay;
+			if (end == OVERLAY_LOWBRIDGE_27 || end == OVERLAY_LOWBRIDGE_28) {
+				return(true);
+			}
+			scan.Y++;
+		}
+		walk = cellptr->CellID;
+		while (Is_Low_Bridge(walk)) {
+			int end = Map[walk].Overlay;
+			if (end == OVERLAY_LOWBRIDGE_27 || end == OVERLAY_LOWBRIDGE_28) {
+				return(true);
+			}
+			walk -= Cell(0, 1);
+		}
+		return(false);
+	}
 }
 #endif
 

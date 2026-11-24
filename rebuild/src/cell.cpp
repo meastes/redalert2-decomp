@@ -1867,7 +1867,7 @@ bool CellClass::Draw_Placement_Cursor(Point2D const & xpoint, Rect const & clipr
 /// <param name="drawpoint">The pixel position to draw the shape at.</param>
 /// <param name="cliprect">The clipping rectangle to draw within.</param>
 /// <param name="shapenum">The shroud shape to draw.</param>
-#ifdef RA2_NON_MATCHING // not exact: against the image bound (675 B) 646 bytes differ (was 721; the clipped extents named, the contiguous raster as counted loops; left: the ebp frame and the full-width compare at 0x79DAD0), 2026-11-23
+#ifdef RA2_NON_MATCHING // not exact: against the image bound (675 B) 646 bytes differ (was 721; the clipped extents named, the contiguous raster as counted loops; left: the ebp frame and the full-width compare at 0x79DAD0: the contiguous raster is the author's own assembly, an ebp frame in an /O2 unit, the loop registers loaded from named locals, `cmp eax, dword ptr [0x79DAD0]` and `dec / jg` latches; the archive has no __asm here and ra2-decomp rebuilds the function as MASM in src/ra2asm/cell.asm, so this draft cannot become exact as C++, lane F58), 2026-11-23
 void CellClass::Draw_Shroud_Or_Fog_Shape(Point2D const & drawpoint, Rect const & cliprect, int shapenum)
 {
 	static bool shapes_loaded = false;

@@ -2088,7 +2088,7 @@ void Draw_Player_List(int keep_selection, bool force)
 
 bool __fastcall Local_User_Is_Channel_Owner(void);
 void Set_Wait_Window_Text(LPARAM text); // RA2: 0x0074D750, defined below
-void __fastcall Change_Slot_Type(HWND dialog, int id, int data, int mode); // RA2: 0x005CBF20, defined in netshare.cpp
+void __fastcall Change_Slot_Type(HWND dialog, int id, NodeNameType * node, int mode); // RA2: 0x005CBF20, defined in netshare.cpp
 int __fastcall Assign_Slot(NodeNameType * entry); // RA2: 0x005C9170, defined in netshare.cpp
 NodeNameType * __fastcall Find_Lobby_Name(wchar_t const * name); // RA2: 0x005C8B20, defined in netshare.cpp
 namespace OwnerDraw { BOOL __stdcall Set_Paint_Disabled(HWND window, LPARAM lparam); } // RA2: 0x005ECF40, defined in ownrdraw.cpp
@@ -3648,7 +3648,7 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 							host = Find_Owner_User();
 							if (host && stricmp((char *)host->name, g_NickName.text()) == 0) {
 								if (Is_All_Slots_Filled()) {
-									Change_Slot_Type(window, Get_Slot_Control_Id(row), (int)LobbyEntries[6], 0);
+									Change_Slot_Type(window, Get_Slot_Control_Id(row), LobbyEntries[6], 0);
 									changed = true;
 									Send_Player_List();
 									Send_Lobby_Options(true, false);
@@ -3656,9 +3656,9 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 								} else {
 									player->Set_Country(-2);
 									player->Slot.SpectatorFlag = 0;
-									Change_Slot_Type(window, Get_Slot_Control_Id(LobbyObserverSlot), (int)LobbyEntries[6], 0);
+									Change_Slot_Type(window, Get_Slot_Control_Id(LobbyObserverSlot), LobbyEntries[6], 0);
 									index = Assign_Slot(player);
-									Change_Slot_Type(window, Get_Slot_Control_Id(index), (int)player, 0);
+									Change_Slot_Type(window, Get_Slot_Control_Id(index), player, 0);
 									Send_Player_List();
 								}
 							}
@@ -3668,13 +3668,13 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 							host = Find_Owner_User();
 							if (host && stricmp((char *)host->name, g_NickName.text()) == 0) {
 								if (Is_Observer_Slot_Full()) {
-									Change_Slot_Type(window, Get_Slot_Control_Id(index), (int)LobbyEntries[0], 0);
+									Change_Slot_Type(window, Get_Slot_Control_Id(index), LobbyEntries[0], 0);
 									Send_Player_List();
 								} else {
 									player->Set_Country(-3);
 									player->Slot.SpectatorFlag = -1;
-									Change_Slot_Type(window, Get_Slot_Control_Id(index), (int)LobbyEntries[0], 0);
-									Change_Slot_Type(window, Get_Slot_Control_Id(LobbyObserverSlot), (int)player, 0);
+									Change_Slot_Type(window, Get_Slot_Control_Id(index), LobbyEntries[0], 0);
+									Change_Slot_Type(window, Get_Slot_Control_Id(LobbyObserverSlot), player, 0);
 									Send_Player_List();
 									Fill_Observer_Combo(window, Player_Side_Combo_ID(LobbyObserverSlot));
 									int observer_control = Get_Slot_Control_Id(LobbyObserverSlot);
@@ -3862,7 +3862,7 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 			return(S_OK);
 		}
 		STDMETHOD(OnUserIP)(HRESULT, User *) { return(S_OK); }
-#ifdef RA2_NON_MATCHING // not exact: 2701 bytes differ (main-derived tree; getValue and HRESULT switch; keyHash still expands where the original calls it)
+#ifdef RA2_NON_MATCHING // not exact: 2765 bytes differ by position, one call and 61 instruction lines (main-derived tree, the find results as the image's if / else if chain; the image calls keyHash 0x00767CD0 under the first lookup's expanded getPointer and ours expands it; ra2-decomp's matched twin, Yuri's Revenge 0x007A9970, expands it too, so its text does not settle the level; in scratch the row is the image's code when the lookup sits in an inline function with one more inline site after it, lane F58)
 		STDMETHOD(OnFind)(HRESULT r, Channel * chan)
 		{
 			unsigned int status = 0;
@@ -3910,22 +3910,17 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 					SMessagePrintf(ColorSystem, StringTable::LoadString("TXT_FINDOK", NULL, "D:\\Ra2\\wonline.cpp", 7086), name);
 				} else {
 					if (g_BuddyFindName.length() > 0) g_BuddyChannels.remove(g_BuddyFindName);
-					switch (r) {
-						case CHAT_S_FIND_NOCHAN:
+					if (r == CHAT_S_FIND_NOCHAN) {
 						status = 3;
 						SMessagePrintf(ColorSystem, StringTable::LoadString("TXT_FINDNONE", NULL, "D:\\Ra2\\wonline.cpp", 7095));
-							break;
-						case CHAT_S_FIND_NOTHERE:
+					} else if (r == CHAT_S_FIND_NOTHERE) {
 						status = 2;
 						SMessagePrintf(ColorSystem, StringTable::LoadString("TXT_FINDGONE", NULL, "D:\\Ra2\\wonline.cpp", 7099));
-							break;
-						case CHAT_S_FIND_OFF:
+					} else if (r == CHAT_S_FIND_OFF) {
 						status = 1;
 						SMessagePrintf(ColorSystem, StringTable::LoadString("TXT_FINDDISABLED", NULL, "D:\\Ra2\\wonline.cpp", 7103));
-							break;
-						default:
+					} else {
 						SMessagePrintf(ColorSystem, StringTable::LoadString("TXT_FINDFAILED", NULL, "D:\\Ra2\\wonline.cpp", 7106));
-							break;
 					}
 				}
 				if (g_BuddyFindName.length() > 0) {
@@ -7894,7 +7889,7 @@ BOOL CALLBACK Wonline_Game_Options_Dialog_Proc(HWND window,UINT message,WPARAM w
         case 0x415: case 0x416: case 0x417: case 0x418:
             if((unsigned short)(wparam>>16)!=1 || WolOptionsLocked) goto host_unhandled;
             if(!Is_Host()) goto host_unhandled;
-            { int entry=Combo_Selected_Data(window,command,-1); Change_Slot_Type(window,command,entry,2); }
+			{ int entry = Combo_Selected_Data(window, command, -1); Change_Slot_Type(window, command, (NodeNameType *)entry, 2); }
             return 0;
         case 0x522: case 0x523: case 0x524: case 0x525: case 0x526: case 0x527: case 0x528: case 0x6a2:
             if((unsigned short)(wparam>>16)!=1 || WolOptionsLocked) goto host_unhandled;

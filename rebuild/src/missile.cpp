@@ -44,7 +44,7 @@
 /// <param name="level">Should the projectile hold its height (no climb or dive steering)?</param>
 /// <returns>Returns with the distance still to be covered, with the vertical component
 /// discounted. A projectile with nothing to home on levels out, advances and returns its speed.</returns>
-#ifdef RA2_NON_MATCHING // not exact: against the image bound (2,101 B) 191 bytes differ (was 1,332; ra2-decomp's text with the archive's named level-turn arguments, TibSun missile.cpp:100, and the copy-initialised direction temporary of ra2-decomp's matched Fire_At, aircraft.cpp:831; the worker's ternaries and parenthesised Speed, 13 B, held on variation_candidates.csv); main: best 99.22, tried 4 times (order, float, register)
+#ifdef RA2_NON_MATCHING // not exact: 191 bytes differ against the image-derived bound 00593870 (2,101 B) (was 1,332; ra2-decomp's text with the archive's named level-turn arguments, TibSun missile.cpp:100, and the copy-initialised direction temporary of ra2-decomp's matched Fire_At, aircraft.cpp:831; the worker's ternaries and parenthesised Speed, 13 B, held on variation_candidates.csv); main: best 99.22, tried 4 times (order, float, register)
 int Projectile_Motion(Coord & coord, TVelocity3D<double> & velocity, Coord const & target_coord, DirType const & rot, bool aircraft, bool airburst, bool veryhigh, bool level)
 {
 	if (target_coord == COORD_NONE) {

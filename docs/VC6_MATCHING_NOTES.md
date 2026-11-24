@@ -5135,3 +5135,87 @@ opened, for what a change costs the unit's exact rows), run.sh.
 - The register state left (zero in ebp, the parent in edi, the window reloaded from its slot in the image) did not
   move for some twenty spellings or for use-count probes: with the calls right, a whole-function register state is
   again not a matter of text.
+
+## A matched twin shows a level only where its own image refuses the call; a wrapper's size is charged to the root, a second site inside it halves the share; read the reference's other branches (found in the rebuild (lane F58, high))
+
+Found in the rebuild (lane F58, high); no row landed, one row measured exact under a held twin form, one "new
+evidence" row refuted. Lane tools in build/r/f58: v.py (edit sets and header edit sets against one unit, guards opened
+by a substring, image-bound rows, call list and instruction diff per variant), bis.sh, callers.py, refs.py, yr.py.
+
+- wonline CChatEventSink::OnFind 0x762F70: before adopting a matched twin for an inline-level miss, read the same
+  sites in the twin's image. Yuri's Revenge 0x7A9970 expands keyHash at the first lookup and shrinkVector in the
+  find queue, where RA2 calls both: the larger function has the larger budget, every level expands, and the twin's
+  matched text (lookup direct, queue written out) carries no information about levels. Compiled here it was eleven
+  calls worse than the draft.
+- Which budget is charged, measured in place with spends and nested probes: an inline wrapper's own size is taken
+  from the root's budget, so padding a wrapper around a lookup lowers the lookup's share only by the pad over the
+  sites left (612 units of pad did not refuse a 48-unit keyHash). A second inline site after the lookup inside the
+  wrapper halves the share at once. OnFind is the image's code, registers included, with the lookup in an inline
+  function that holds getValue and one more site and is 12 to 48 units over the bare wrapper; with 0 the 48 units
+  the refused keyHash gives back expand shrinkVector later, with 60 later sites starve.
+- A largest-accepted-spend sweep at several places of a root (bis.sh) reads the remaining budget along the function
+  and tells forward order from a wrong reading: here over 972 at the top, 732 to 792 before the queue, 312 to 372 in
+  the else branch. Check that a spend was refused by the object's symbols (the spend function emitted out of line),
+  not by an unknown call target in the diff: an unbound template member looks the same.
+- A callee with one caller in the whole image (callers.py: keyHash 0x767CD0 only from OnFind, 0x767550 only from
+  Player_Info_Tooltip) is a refused site, never a design: look for the level above it, not for a declaration.
+- ownrdraw Is_Listed_Kind 0x5E0DA0: a return type or a cast at the call does not enter the inline decision. The
+  mischa85 form (unsigned int, callers testing `(char)f(kind) != 0`) left all three callers expanded and its casts
+  turned a count-sensitive row of the unit. A "matched" name in a reference's names.csv is evidence for the callee
+  only; check that the reference has matched a caller before taking its call form as evidence for the call.
+- particle Spark_Behavior_AI 0x609540: a reference repository can hold its near-misses on another branch
+  (ra2-decomp banked-forms: 130 files, 56 addresses, one score line each). List a reference's remote branches at each
+  pull. Its held helper form (a payback parameter, NULL at every caller) makes the row exact here through one dead
+  statement; the sixteen subsets of its four pieces show which piece each row answers to (Spark to the ally check
+  alone, BounceClass::AI against the early return), and operator[] spellings of the same reads do nothing, so the
+  piece is not a site count. Dead code at every caller is a variation row whoever wrote it.
+- cell Draw_Shroud_Or_Fog_Shape 0x474260: an ebp frame in an /O2 unit with no alloca or setjmp is the mark of an
+  `__asm` block, and the block is the stretch whose registers are loaded from named frame slots and whose loops close
+  with `dec / jg`. Check the frame before drafting loops: with no archive `__asm` at that point the row has no C++
+  form under the rules (ra2-decomp keeps such functions as MASM in src/ra2asm).
+- map Can_Repair_Bridge 0x569320: a reference's banked near-miss can be worth more than its score line says. The
+  twin's flag-free text took the draft from 1,332 bytes to three instructions in one compile (an `if (found)` in
+  place of a switch on the flag, `while (true)` with the two arms joined by `search = next`). In this function
+  `for (;;)` is not `while (true)` (one more call), and a declared-then-assigned Cell costs an inline site (the
+  default constructor) that turns a lookup into a call: keep the twin's initialised declarations.
+
+## A swap by reference shows a parameter's type; one array against separate globals shows in hoisted loads; x87 operand orders follow the count of local symbols (found in the rebuild (lane F59, high))
+
+Found in the rebuild (lane F59, high); two drafts placed from ra2-decomp's banked texts (4,371 to 3,479 and 1,745 to 11
+bytes), one nine-lane row measured exact under a held global form. Lane tools in build/r/f59: v.py (F58's, with a
+frame-slot-blind instruction diff, the hunk positions per variant, regex edits and byte-exact manifest edits), pat.py
+and refs2.py (a byte pattern or the loads of one global across the image, with the row that holds each), da.py.
+
+- techno TechnoClass::Fire_At 0x6CA890: read a diff with the frame slots masked before counting it. The draft's 531
+  differing lines were 133 once `[esp + n]` was blind: one inline decision and a handful of operand orders, with every
+  slot displaced by one frame-size step.
+- Which helper spelling restores a refused inline is measured one site at a time: of the bank's nine As_Foot and
+  As_Building uses, the single pair `As_Foot(target) != NULL` / `As_Foot(target)->...` keeps Horizontal_Speed out of
+  line; the others compile to the same bytes or re-read the flags after a call (the image tests them once).
+- The x87 order of a sum of squares, of `X *= scale` (scale duplicated against the member loaded first) and the
+  operand an `and` writes all follow the function's count of local symbols. One unit each: a referenced int local
+  (a dead store counts, an unreferenced int does not), a class local, an inline expansion; a constructor with a base
+  constructor is two. The states come in windows, not a period (0-2, 3-5, 6-7, 8, 9-12, 13, 14-29 here), and from 30
+  on the same count turns an inline decision. Survey with referenced ints, which cost no inline budget; class-typed
+  probes refuse a helper before the window is found.
+- Read the same site in the twin's image before treating an order as text: Yuri's Revenge sums the flak vector X, Y,
+  Z where RA2 has Z, X, Y under the same source, so no spelling of Length is the answer.
+- netshare Change_Slot_Type 0x5CBF20: a `swap(a, b)` of a parameter and a local decides which of the two is cached in
+  a register, and through that whether the compiler can prove a later equality. With the entry as an int and a cast
+  local the function returned early from the refused branch and 393 lines differed; with the parameter itself a
+  pointer, 18. A draft that differs in whole-function register roles around a by-reference helper has a parameter or
+  local of the wrong type or one copy too many.
+- A name's signature in one reference (mischa85's inferred int) is checked against the other reference's text and
+  the image bound's twin name before a draft is scored on it.
+- Loads of several globals hoisted ahead of an expanded predicate come in an order that tells one array from
+  separate variables. With `LobbyEntries[7]` the three loads ahead of Is_Real_Player_Entry are reversed and the
+  count loop's registers rotated; as seven globals (the twin's declarations) both sites are the image's, their
+  declaration order and names do not matter, and Set_Slot_Names 0x5C8DD0 is exact with the twin's own text. Under
+  the array the tree's rows had needed "read once into locals" forms to be exact.
+- A global form is measured on every row that reads it before it is believed: the same change turns
+  CChatEventSink::OnPrivateGameOptions 0x761C50 by one byte, a `lea` operand order that follows the parity of the
+  function's distinct data symbols (one lobby symbol: exact; two: turned; three: exact). Two rows that disagree
+  about one declaration are a held form, with both figures, for a ruling.
+- VC6 drops a compare the left side of an `||` has already decided: `x == A || (P(x) && ...)` with P testing
+  `x != A` compiles without the second test. A written-out predicate that omits one entry of the helper's list is
+  the helper after such an `||`.
