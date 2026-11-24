@@ -466,9 +466,10 @@ int Scheme_List_Count(void) // RA2: 0x00603C10, how many player colors there are
 }
 
 
+#ifdef RA2_NON_MATCHING // not exact: 119 bytes differ (ra2-decomp's bare Scheme_Library() call; operand order in the loop): exact only with an unread `SchemeLibrary * library = Scheme_Library();` local, refused (an unread local does no work; owner ruling 2026-11-24, variation answer)
 int Palette_Scheme_Count(void) // RA2: 0x00603D50, how many palettes have a scheme list
 {
-	SchemeLibrary * library = Scheme_Library(); // RA2: the executable keeps the library in a local here (the loop's register use depends on it)
+	Scheme_Library(); // RA2: makes the library on first use (ra2-decomp's twin FUN_00626DA0 calls it bare)
 	SchemeListIterator it; // RA2: as above
 	int count = 0; // RA2: as above
 	DynamicVectorClass<ColorScheme *> * schemes = it.Next(); // RA2: as above
@@ -478,6 +479,7 @@ int Palette_Scheme_Count(void) // RA2: 0x00603D50, how many palettes have a sche
 	}
 	return(count); // RA2: as above
 }
+#endif
 
 
 void SchemeLibrary_Destroy(void) // RA2: 0x00603FA0, deletes the library

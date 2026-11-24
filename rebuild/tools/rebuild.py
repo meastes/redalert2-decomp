@@ -38,7 +38,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'tools/original_target'))
 
 import catalog_io                                   # noqa: E402
-from verify_manifest import Audit                   # noqa: E402
+from verify_manifest import Audit, SCOPE_TABLE_NAME, SCOPE_TABLE_REFERENCE   # noqa: E402
 
 REBUILD = ROOT / 'rebuild'
 MANIFEST = REBUILD / 'manifest'
@@ -499,6 +499,11 @@ def resolver(unit, info):
             (own_rows if mine else rows)[row['symbol']] = int(row['entry'], 16)
 
     def resolve(name):
+        # A __try scope table (`$T<n>`): n is the unit's declaration count, so the unit states the table's
+        # address under the bare name `$T`, as main's catalog does (verify_manifest.SCOPE_TABLE_REFERENCE).
+        if SCOPE_TABLE_NAME.fullmatch(name):
+            value = info.get('references', {}).get(SCOPE_TABLE_REFERENCE)
+            return (int(value, 16), 'unit') if value else (None, 'unbound')
         per_unit = name.startswith(('_$E', '_$S', '$T'))
         # Only a select-any copy (a template member or compiler-emitted helper) may exist at several
         # addresses; an ordinary function's row in its own unit outranks a name main's population gives it.
@@ -604,6 +609,8 @@ def learn_bindings(unit, info, inferred):
             print('  conflicting sites for %s: %s' % (name, {('%08x' % t): v for t, v in targets.items()}))
             continue
         (target, sites), = targets.items()
+        if SCOPE_TABLE_NAME.fullmatch(name):
+            name = SCOPE_TABLE_REFERENCE
         if name.startswith(PER_UNIT) or '@?' in name or not name.startswith('?'):   # C-named statics are per unit
             info.setdefault('references', {})[name] = '%08x' % target
         elif name not in known:

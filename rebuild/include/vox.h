@@ -69,6 +69,9 @@ class VoxClass
 		int State; // RA2: +0x48; VoxSpeechState
 };
 
+template<class T> class DynamicVectorClass;
+extern DynamicVectorClass<VoxClass *> Voxs; // RA2: 0x00AD0930; the EVA voices (vox.cpp)
+
 int Speech_Init(void); // RA2: 0x007156D0; makes the "EVA Stream" stream, 0 without one. Returns int, so the names.csv row ?Speech_Init@@YIXXZ is stale
 void Speech_Shutdown(void); // RA2: 0x00715780
 void Flush_Speech(void); // RA2: 0x007157B0; drops every waiting speech

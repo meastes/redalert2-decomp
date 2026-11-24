@@ -462,7 +462,6 @@ LONG Top_Level_Exception_Filter(EXCEPTION_POINTERS *e_info)
 /// player is told by way of a message box if a support DLL could not be prepared.
 /// </summary>
 /// <returns>bool; Did the preparation fail? Note the sense -- true means trouble.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 7223 bytes differ (frame layout, and the original calls the first factory's constructor and INIClass() out of line where this expands them); RegisterClasses and Init_Keys are expanded into it
 static bool RegisterClasses(void)
 {
 
@@ -495,23 +494,23 @@ static bool RegisterClasses(void)
 	RegisterServer();
 
 	DWORD dwRegister;
-	IClassFactory *t;
+	IClassFactory * factory;
 
 	/// Handy macros to easily register the class factories.
 
 	/// Register a class-object with OLE.
 	#define REGISTER_CLASS(_class, _clsid) \
 		{ \
-			t = new TClassFactory<_class>; \
-			CoRegisterClassObject(_clsid, t, CLSCTX_INPROC_SERVER, REGCLS_MULTIPLEUSE, &dwRegister); \
+			factory = new TClassFactory<_class>; \
+			CoRegisterClassObject(_clsid, factory, CLSCTX_INPROC_SERVER, REGCLS_MULTIPLEUSE, &dwRegister); \
 			RegisteredClasses.Add(dwRegister); \
 		} \
 
 	/// Register a class-object with OLE (precreated factory).
 	#define REGISTER_FACT_CLASS(_class, _fact, _clsid) \
 		{ \
-			t = _fact; \
-			CoRegisterClassObject(_clsid, t, CLSCTX_INPROC_SERVER, REGCLS_MULTIPLEUSE, &dwRegister); \
+			factory = _fact; \
+			CoRegisterClassObject(_clsid, factory, CLSCTX_INPROC_SERVER, REGCLS_MULTIPLEUSE, &dwRegister); \
 			RegisteredClasses.Add(dwRegister); \
 		}
 
@@ -631,6 +630,59 @@ static void Init_Keys(void) // RA2: moved here from init.cpp; WinMain calls it b
 
 
 
+// RA2: create the mouse after the primary surface and window exist.
+inline void Init_Mouse(void)
+{
+	MouseCursor = new WWMouseClass(VisibleSurface, MainWindow);
+}
+
+// RA2: the language archive uses the fast key loaded during startup.
+inline void Init_Language(void)
+{
+	LanguageMix = new MFCD("LANGUAGE.MIX", &FastKey);
+}
+
+// RA2: read the optional destination network from RA2.INI.
+inline void Read_Destination_Network(void)
+{
+	char netbuf[INIClass::MAX_LINE_LENGTH];
+	memset(netbuf, 0, sizeof(netbuf));
+	char * net_ptr = netbuf; // RA2: the scan starts at the beginning of the entry
+	bool found = ConfigINI.Get_String("Network", "DestNet", 0, netbuf, sizeof(netbuf)) ? true : false;
+	if (found && net_ptr && strlen(netbuf)) {
+
+		NetNumType net;
+		NetNodeType node;
+
+		/*
+		**	Scan thestring, pulling off each address piece
+		*/
+		int i = 0;
+		char * p = strtok(netbuf, ".");
+		int x;
+		while (p) {
+			sscanf(p, "%x", &x);			// convert from hex string to int
+			if (i < 4) {
+				net[i] = (char)x;			// fill NetNum
+			} else {
+				node[i - 4] = (char)x;		// fill NetNode
+			}
+			i++;
+			p = strtok(NULL, ".");
+		}
+
+		/*
+		**	If all the address components were successfully read, fill in the
+		**	BridgeNet with a broadcast address to the network across the bridge.
+		*/
+		if (i >= 4) {
+			Session.IsBridge = 1;
+			memset(node, 0xff, 6);
+			Session.BridgeNet = IPXAddressClass(net, node, 0);
+		}
+	}
+}
+
 /***********************************************************************************************
  * main -- Initial startup routine (preps library systems).                                    *
  *                                                                                             *
@@ -736,10 +788,10 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 		//
 		// Find the previous instance
 		//
-		HWND main_wnd = ::FindWindow (APP_GUID, NULL);
-		if (main_wnd != NULL) {
-			::SetForegroundWindow (main_wnd);
-			::ShowWindow (main_wnd, SW_RESTORE);
+		HWND window = ::FindWindow(APP_GUID, NULL);
+		if (window != NULL) {
+			::SetForegroundWindow(window);
+			::ShowWindow(window, SW_RESTORE);
 		}
 		if (AppMutex != NULL) {
 			CloseHandle(AppMutex);
@@ -826,7 +878,7 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 	_makepath(path, drive, dir, NULL, NULL);
 	SetCurrentDirectory(path);
 
-	int error_code = EXIT_FAILURE;
+	int retval = EXIT_FAILURE;
 
 	if (Parse_Command_Line(argc, argv)) {
 
@@ -846,42 +898,7 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 			}
 		}
 
-		char netbuf[INIClass::MAX_LINE_LENGTH];
-		memset(netbuf, 0, sizeof(netbuf));
-		char * netptr = netbuf; // RA2: the scan starts at the beginning of the entry
-		bool has_destination_network = ConfigINI.Get_String("Network", "DestNet", 0, netbuf, sizeof(netbuf)) ? true : false;
-		if (has_destination_network && netptr && strlen(netbuf)) {
-
-			NetNumType net;
-			NetNodeType node;
-
-			/*
-			**	Scan thestring, pulling off each address piece
-			*/
-			int i = 0;
-			char * p = strtok(netbuf, ".");
-			int x;
-			while (p) {
-				sscanf(p, "%x", &x);			// convert from hex string to int
-				if (i < 4) {
-					net[i] = (char)x;			// fill NetNum
-				} else {
-					node[i-4] = (char)x;		// fill NetNode
-				}
-				i++;
-				p = strtok(NULL, ".");
-			}
-
-			/*
-			**	If all the address components were successfully read, fill in the
-			**	BridgeNet with a broadcast address to the network across the bridge.
-			*/
-			if (i >= 4) {
-				Session.IsBridge = 1;
-				memset(node, 0xff, 6);
-				Session.BridgeNet = IPXAddressClass(net, node, 0);
-			}
-		}
+		Read_Destination_Network();
 
 		Keyboard = new KeyboardClass();
 
@@ -909,10 +926,10 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 		DebugString("Init Encryption Keys.\n"); // RA2: moved here from Init_Game
 		Init_Keys();
 
-		DiskID cd = CD::Get_Required_Disk(); // RA2: the language archive is opened from the local files
+		DiskID cur_cd = CD::Get_Required_Disk(); // RA2: the language archive is opened from the local files
 		CD::Set_Required_Disk(DISK_LOCAL);
-		LanguageMix = new MFCD("LANGUAGE.MIX", &FastKey);
-		CD::Set_Required_Disk(cd);
+		Init_Language();
+		CD::Set_Required_Disk(cur_cd);
 
 		atexit(Prog_End);
 
@@ -956,7 +973,8 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 			Create_Main_Window(instance, command_show, 640, 400);
 			Prep_Direct_Draw();
 			if (WindowedMode) {
-				VisibleRect = Rect(0,0,640,400);
+				Rect rect1(0, 0, 640, 400);
+				VisibleRect = rect1;
 				VideoModeWidth = 640;
 				VideoModeHeight = 400;
 				VideoModeBitsPerPixel = HicolorFlag ? 16 : 8;
@@ -964,11 +982,13 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 				/*
 				** Set 640x400 video mode. If its not available then try for 640x480
 				*/
-				VisibleRect = Rect(0,0,640,400);
+				Rect rect2(0, 0, 640, 400);
+				VisibleRect = rect2;
 				video_success = Set_Video_Mode(MainWindow, 640, 400, HicolorFlag ? 16 : 8);
 				if (!video_success) {
 					video_success = Set_Video_Mode(MainWindow, 640, 480, HicolorFlag ? 16 : 8);
-					VisibleRect = Rect(0,0,640,480);
+					Rect rect3(0, 0, 640, 480);
+					VisibleRect = rect3;
 					if (!video_success) {
 						Destroy_Direct_Draw();
 						Message_Box_Wide(MainWindow, StringTable::LoadString("TXT_VIDEO_ERROR", NULL, "D:\\Ra2\\Startup.CPP", 2049), StringTable::LoadString("TXT_SHORT_TITLE", NULL, "D:\\Ra2\\Startup.CPP", 2050), MB_ICONEXCLAMATION);
@@ -980,7 +1000,8 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 			Create_Main_Window(instance, command_show, Options.ScreenWidth, Options.ScreenHeight);
 			Prep_Direct_Draw();
 			if (WindowedMode) {
-				VisibleRect = Rect(0,0,Options.ScreenWidth,Options.ScreenHeight);
+				Rect rect4(0, 0, Options.ScreenWidth, Options.ScreenHeight);
+				VisibleRect = rect4;
 				VideoModeWidth = Options.ScreenWidth;
 				VideoModeHeight = Options.ScreenHeight;
 				VideoModeBitsPerPixel = HicolorFlag ? 16 : 8;
@@ -989,13 +1010,15 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 				 * Set desired video mode. If its not available then try for 640x480
 				 */
 				video_success = Set_Video_Mode(MainWindow, Options.ScreenWidth, Options.ScreenHeight, HicolorFlag ? 16 : 8);
-				VisibleRect = Rect(0,0,Options.ScreenWidth,Options.ScreenHeight);
+				Rect rect5(0, 0, Options.ScreenWidth, Options.ScreenHeight);
+				VisibleRect = rect5;
 				if (!video_success) {
 					if (Options.ScreenWidth != 640 || Options.ScreenHeight != 480) {
 						Options.ScreenWidth = 640;
 						Options.ScreenHeight = 480;
 						video_success = Set_Video_Mode(MainWindow, Options.ScreenWidth, Options.ScreenHeight, HicolorFlag ? 16 : 8);
-						VisibleRect = Rect(0,0,Options.ScreenWidth,Options.ScreenHeight);
+						Rect rect6(0, 0, Options.ScreenWidth, Options.ScreenHeight);
+						VisibleRect = rect6;
 					}
 					if (!video_success) {
 						Destroy_Direct_Draw();
@@ -1016,8 +1039,8 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 
 		VisibleSurface = DSurface::Create_Primary();
 
-		int visible_bpp = VisibleSurface->Bytes_Per_Pixel();
-		HicolorFlag = visible_bpp == 2;
+		int bpp = VisibleSurface->Bytes_Per_Pixel();
+		HicolorFlag = bpp == 2;
 		if (!HicolorFlag) {
 			Message_Box_Wide(MainWindow, StringTable::LoadString("TXT_INVALIDMODE", NULL, "D:\\Ra2\\Startup.CPP", 2118), StringTable::LoadString("TXT_SHORT_TITLE", NULL, "D:\\Ra2\\Startup.CPP", 2118), MB_ICONEXCLAMATION);
 			Emergency_Exit();
@@ -1042,11 +1065,16 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 		Mono_Window_Init(ProgramInstance, MainWindow, WindowedMode); // RA2
 		Planning_Reset(); // RA2
 
-		Rect sidebar_rect(0, 0, SidebarWidth, VisibleRect.Height);
-		Rect tile_rect(0,0,VisibleRect.Width-sidebar_rect.Width, sidebar_rect.Height);
-		Rect composite_rect(0,0,VisibleRect.Width-sidebar_rect.Width, sidebar_rect.Height);
+		{
+			int sidebar_width = SidebarWidth;
+			int screen_height = VisibleRect.Height;
+			Rect side_rect(0, 0, sidebar_width, screen_height);
+			Rect tile_rect(0, 0, VisibleRect.Width - side_rect.Width, side_rect.Height);
+			int width = tile_rect.Width;
+			Rect composite_rect(0, 0, width, side_rect.Height);
 
-		Allocate_Surfaces(VisibleRect, composite_rect, tile_rect, sidebar_rect, false);
+			Allocate_Surfaces(VisibleRect, composite_rect, tile_rect, side_rect, false);
+		}
 		if (UseDirect3D) { // RA2
 			Init_Direct3D();
 		}
@@ -1058,7 +1086,7 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 
 		AlphaBuffer = new ABuffer(Rect(TacticalRect.X, TacticalRect.Y, 480, 480 - TacticalRect.Y));
 
-		MouseCursor = new WWMouseClass(VisibleSurface, MainWindow);
+		Init_Mouse();
 		MouseCursor->Hide_Mouse(); // RA2: hidden until the game shows it
 
 		CDFileClass::Set_CD_Drive (CDList.Get_First_CD_Drive());
@@ -1067,15 +1095,15 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 		**	Check for forced intro movie run disabling. If the conquer
 		**	configuration file says "no", then don't run the intro.
 		*/
-		int disk = CD::Get_Current_Disk(60); // RA2: any disc; the registry options can set EscapeMovies
+		int disk_number = CD::Get_Current_Disk(60); // RA2: any disc; the registry options can set EscapeMovies
 		Get_Performance_Profile();
-		if (!Special.IsFromInstall && disk > -1) {
+		if (!Special.IsFromInstall && disk_number > -1) {
 			Special.IsFromInstall = ConfigINI.Get_Bool("Intro", "Play", true);
 		}
 
-		WOLOptionsClass options;
-		options.Load();
-		if (!options.Is_Bit0_Clear() && !options.Is_Bit2_Clear() && !options.Is_Bit1_Clear()) {
+		WOLOptionsClass wolopt;
+		wolopt.Load();
+		if (!wolopt.Is_Bit0_Clear() && !wolopt.Is_Bit2_Clear() && !wolopt.Is_Bit1_Clear()) {
 			Special.IsEscapeMovies = true;
 		}
 
@@ -1084,7 +1112,7 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 		**	gonna change it to say "no" in the future.
 		*/
 		if (Special.IsFromInstall == true) {
-			if (disk > -1) {
+			if (disk_number > -1) {
 				Special.IsFromInstall = ConfigINI.Put_Bool("Intro", "Play", false);
 			}
 			cfile->Close();
@@ -1144,7 +1172,7 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 			Windows_Message_Handler();
 		}while (ReadyToQuit == 1);
 
-		error_code = EXIT_SUCCESS;
+		retval = EXIT_SUCCESS;
 	}
 
 	Free_Game_Modes(); // RA2: the RA2 systems free what they hold
@@ -1169,9 +1197,8 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 	CoDisconnectObject((LPUNKNOWN)&ApplicationInstance, 0);
 	OleUninitialize();
 
-	return(error_code);
+	return(retval);
 }
-#endif
 
 
 

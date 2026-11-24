@@ -1461,73 +1461,91 @@ void BulletClass::Detonate(Coord const &position)
 /// impact, ring by ring within the weapon's range, and the rest at random cells nearby (a negative count:
 /// fewer the farther the impact is from the firer). Ported from meastes 0x462C50.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 1787 bytes differ
 void BulletClass::Shrapnel(void) // RA2: at 0x462C50
 {
-	int shrapnel = Class->ShrapnelCount;
+	int configured = Class->ShrapnelCount;
 	int count;
-	if (shrapnel < 0) {
+	if (configured < 0) {
 		if (Payback == NULL) {
 			count = 3;
 		} else {
-			Coord here = Get_Coord();
-			count = -shrapnel - ::Distance(Payback->Center_Coord(), here) / CELL_LEPTON_W;
-			if (count <= 0) return;
+			count = -configured - ::Distance(Payback->Center_Coord(), PositionCoord) / CELL_LEPTON;
+			if (count <= 0) {
+				return;
+			}
 		}
 	} else {
-		count = shrapnel;
+		count = configured;
 	}
-	if (Get_Cell_Ptr()->Cell_Occupier() == NULL) return;
-	if (Get_Cell_Ptr()->Cell_Occupier()->Fetch_RTTI() == RTTI_BUILDING) return;
 
-	WeaponTypeClass const * weapon = Class->ShrapnelWeapon;
-	BulletTypeClass const * projectile = weapon->Bullet;
-	Cell origin = Get_Cell();
-	int range = weapon->Range / CELL_LEPTON_W;
+	if (Get_Cell_Ptr()->Cell_Occupier() == NULL ||
+		Get_Cell_Ptr()->Cell_Occupier()->Fetch_RTTI() == RTTI_BUILDING) {
+		return;
+	}
+
+	WeaponTypeClass * weapon = Class->ShrapnelWeapon;
+	BulletTypeClass const * type = weapon->Bullet;
+	Cell center = Get_Cell();
+	int range = weapon->Range / CELL_LEPTON;
 	int fired = 0;
 	TVelocity3D<double> velocity;
 	for (int radius = 1; radius <= range; radius++) {
 		int end = MapClass::RadiusCount[radius];
 		for (int index = MapClass::RadiusCount[radius - 1]; index < end; index++) {
-			CellClass * cellptr = &Map[origin + MapClass::RadiusOffset[index]];
-			ObjectClass * target = cellptr->Cell_Occupier();
-			if (target != NULL && target != Payback && Payback != NULL && !Payback->House->Is_Ally(target)) {
-				BulletClass * fragment = projectile->Create_Bullet(target, Payback, weapon->Attack, weapon->WarheadPtr, weapon->MaxSpeed, weapon->IsBright);
-				if (fragment != NULL) {
+			CellClass * cellptr = &Map[center + MapClass::RadiusOffset[index]];
+			ObjectClass * object = cellptr->Cell_Occupier();
+			if (object != NULL && object != Payback && Payback != NULL &&
+				!Payback->House->Is_Ally(object)) {
+				BulletClass * bullet = type->Create_Bullet(object, Payback,
+					weapon->Attack, weapon->WarheadPtr, weapon->MaxSpeed, weapon->IsBright);
+				if (bullet != NULL) {
 					velocity.Set(0, 0, 0);
-					velocity.Set_Yaw(::Direction(Get_Coord(), target->Center_Coord()));
-					velocity.Set_Pitch(DirType(0x2000));
+					velocity.Set_Yaw(::Direction(PositionCoord, object->Center_Coord()));
+					velocity.Set_Pitch(DirType(DIR_NE));
 					velocity.Set_Speed(weapon->MaxSpeed);
-					fragment->Unlimbo(Get_Coord(), velocity);
-					Coord source = Get_Coord();
-					if (weapon->IsLaser && Payback != NULL) Payback->Laser_Zap(target, 0, weapon, source);
-					if (weapon->IsElectricBolt && Payback != NULL) Payback->Electric_Zap(target, weapon, source);
+					bullet->Unlimbo(PositionCoord, velocity);
+					Coord source;
+					source = PositionCoord;
+					if (weapon->IsLaser && Payback != NULL) {
+						Payback->Laser_Zap(object, 0, weapon, source);
+					}
+					if (weapon->IsElectricBolt && Payback != NULL) {
+						Payback->Electric_Zap(object, weapon, source);
+					}
 				}
-				if (++fired == count) return;
+				fired++;
+				if (fired == count) {
+					return;
+				}
 			}
 		}
 	}
-	if (fired < count) {
-		int remaining = count - fired;
-		do {
-			Cell cell = Get_Cell();
-			cell.X += Random_Pick(-2, 2);
-			cell.Y += Random_Pick(-2, 2);
-			BulletClass * fragment = projectile->Create_Bullet(&Map[cell], Payback, weapon->Attack, weapon->WarheadPtr, weapon->MaxSpeed, weapon->IsBright);
-			if (fragment != NULL) {
-				velocity.Set(0, 0, 0);
-				velocity.Set_Yaw(::Direction(Get_Coord(), Map[cell].Center_Coord()));
-				velocity.Set_Speed(weapon->MaxSpeed);
-				velocity.Set_Pitch(DirType(0x2000));
-				fragment->Unlimbo(Get_Coord(), velocity);
-				Coord source = Get_Coord();
-				if (weapon->IsLaser && Payback != NULL) Payback->Laser_Zap(&Map[cell], 0, weapon, source);
-				if (weapon->IsElectricBolt && Payback != NULL) Payback->Electric_Zap(&Map[cell], weapon, source);
+
+	for (; fired < count; fired++) {
+		Cell cell;
+		cell = Get_Cell();
+		cell.X += Random_Pick(-2, 2);
+		cell.Y += Random_Pick(-2, 2);
+		BulletClass * bullet = type->Create_Bullet(&Map[cell], Payback,
+			weapon->Attack, weapon->WarheadPtr, weapon->MaxSpeed, weapon->IsBright);
+		if (bullet != NULL) {
+			velocity.Set(0, 0, 0);
+			CellClass & destination = Map[cell];
+			velocity.Set_Yaw(::Direction(PositionCoord, destination.Center_Coord()));
+			velocity.Set_Speed(weapon->MaxSpeed);
+			velocity.Set_Pitch(DirType(DIR_NE));
+			bullet->Unlimbo(PositionCoord, velocity);
+			Coord source;
+			source = PositionCoord;
+			if (weapon->IsLaser && Payback != NULL) {
+				Payback->Laser_Zap(&Map[cell], 0, weapon, source);
 			}
-		} while (--remaining != 0);
+			if (weapon->IsElectricBolt && Payback != NULL) {
+				Payback->Electric_Zap(&Map[cell], weapon, source);
+			}
+		}
 	}
 }
-#endif
 
 
 

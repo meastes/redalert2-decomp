@@ -2504,7 +2504,8 @@ symbol,address,evidence
 ?Place_Firestorm_Wall@MapClass@@QAEXABVCell@@PAVHouseClass@@PBVBuildingTypeClass@@@Z,0x0056A480,inferred: house rows 004e6950 differ only at its sites
 ?Place_Wall@MapClass@@QAEXABVCell@@PAVHouseClass@@PBVBuildingTypeClass@@@Z,0x0056A660,inferred: house rows 004e6950 differ only at its sites
 ?PlanningMouseDown@@3VPoint2D@@A,0x00A76728,inferred: planmgr rows 00613e10 00613e10 00617860 00617860 differ only at its sites
-?Planning_Order_Kind@@YIHPAVTechnoClass@@PBVEventClass@@@Z,0x00615A80,inferred: planmgr rows 00614ec0 differ only at its sites
+?Planning_Cell_Mission@@YI_NHVxTargetClass@@@Z,0x006159E0,inferred: planmgr rows 00614ec0 differ only at its sites
+?Planning_Order_Kind@@YIHPAVTechnoClass@@ABVEventClass@@@Z,0x00615A80,inferred: planmgr rows 00614ec0 differ only at its sites
 ?Player_Assign_Mission@TechnoClass@@UAE_NW4MissionType@@PAVAbstractClass@@11@Z,0x006CC2A0,slot +324 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Player_Assign_Mission@TechnoClass@@UAE_NHPAVAbstractClass@@00@Z
 ?Plot_On_Radar@TechnoClass@@UBEXXZ,0x006D7530,slot +42c of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot266@TechnoClass@@UAEXXZ
 ?Point_Copy@@YI?AVPoint2D@@PBV1@@Z,0x006F1AE0,inferred: ownrdraw rows 005e5150 005e5150 005e5150 005e5150 differ only at its sites

@@ -856,7 +856,6 @@ void TechnoClass::Init(void)
 /// This constructor serves the load process, which is about to overwrite every member from
 /// the save file. The object still joins the global techno list if it is not already on it.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 93 bytes differ (RA2 timers and turret sound added; the original expands Technos.Add inline here, this text calls it)
 TechnoClass::TechnoClass(NoInitClass const & x) :
 	BASECLASS(x),
 	FlasherClass(x),
@@ -888,11 +887,10 @@ TechnoClass::TechnoClass(NoInitClass const & x) :
 		}
 	}
 	TurretRotateSoundController.Init(); // RA2: the turret sound is reset
-	if (!found) {
+	if (found == false) {
 		Technos.Add(this);
 	}
 }
-#endif
 
 
 /// <summary>

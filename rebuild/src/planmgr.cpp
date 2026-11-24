@@ -318,8 +318,7 @@ int PlanningNodeClass::Find_Member(TechnoClass * techno) // RA2: 0x00611050
 TechnoClass * PlanningNodeClass::Member_Owner(int index) // RA2: 0x00611090
 {
 	PlanningMemberClass * member = PlanningMembers[index];
-	TechnoClass * owner = member->Owner;
-	return owner;
+	return member->Get_Owner();
 }
 
 Rect __fastcall Planning_Centered_Rect(Point2D center, int size); // RA2: as above
@@ -1499,50 +1498,20 @@ inline bool __fastcall Planning_Target_Fits(int mission, TargetClass target) // 
 	return false; // RA2: as above
 }
 
-inline bool Planning_Token_Looped(PlanningTokenClass * token) // RA2: no function of its own; the path of the token has closed a loop
-{
-	return token->Loop_Start_Positive() || token->Loop_Start_Zero(); // RA2: as above
-}
-
-inline void __fastcall Planning_Attach_Order(PlanningNodeClass * const & node, PlanningTokenClass * token, TechnoClass * techno, EventClass * event) // RA2: no function of its own; puts the techno on the node: with the members of the last node of its path, or alone
-{
-	PlanningNodeClass * last = token->Last_Node(); // RA2: as above
-	if (last) { // RA2: as above
-		Planning_Copy_Members(node, last, *event); // RA2: as above
-	} else { // RA2: as above
-		node->Add_Member(techno, event); // RA2: as above
-	}
-}
-
 inline int Planning_Token_Index(PlanningTokenClass * token, PlanningNodeClass * node) // RA2: no function of its own; the index of a node in the path of a token
 {
 	return token->Node_Index(node); // RA2: as above
 }
 
 int __fastcall Planning_Count(int house); // RA2: 0x00616D50
-inline PlanningNodeClass * __fastcall Planning_Find_Lead_Node(int house, int id, Coord coord) // RA2: no function of its own; the planned node whose lead order is at a coordinate (of an id and a house unless -1)
-{
-	int count = PlanningNodeClass::Unknown1.Count(); // RA2: as above
-	for (int i = 0; i < count; i++) { // RA2: as above
-		PlanningNodeClass * node = PlanningNodeClass::Unknown1[i]; // RA2: as above
-		if (node->Lead_At(Coord(coord)) && (id == -1 || id == node->Id)) { // RA2: as above
-			int owner = Planning_House(node->Member_Owner(0));
-			if (house == -1 || house == owner) { // RA2: as above
-				return node; // RA2: as above
-			}
-		}
-	}
-	return NULL; // RA2: as above
-}
-
 PlanningNodeClass * __fastcall Planning_Pick_Drawn(Point2D point); // RA2: 0x00616140
 int __fastcall Planning_Selection_Node_State(PlanningNodeClass * node); // RA2: 0x00617A10
 void __fastcall Planning_Message(char const * label); // RA2: 0x00616FB0
 void __fastcall Planning_Refuse(char const * label); // RA2: 0x00616FD0
 bool __fastcall Planning_Terminal_Mission(int mission); // RA2: 0x006159C0
-bool __fastcall Planning_Cell_Mission(int mission, TargetClass target); // RA2: 0x006159E0
-void __fastcall Planning_Refuse_Order(EventClass const * event); // RA2: 0x00617020
-int __fastcall Planning_Event_Result(PlanningTokenClass * token, EventClass const * event); // RA2: 0x006171E0
+bool __fastcall Planning_Cell_Mission(int mission, xTargetClass target); // RA2: 0x006159E0
+void __fastcall Planning_Refuse_Order(EventClass const & event); // RA2: 0x00617020
+int __fastcall Planning_Event_Result(PlanningTokenClass * token, EventClass const & event); // RA2: 0x006171E0
 void __fastcall Planning_Recount(int house); // RA2: 0x00616D00
 void __fastcall Planning_Set_Pending_Refusal(int value); // RA2: 0x00617240
 PlanningTokenClass * __fastcall Planning_New_Token(TechnoClass * techno); // RA2: 0x00615820
@@ -1553,8 +1522,6 @@ void __fastcall Planning_Cancel_Token(TechnoClass * techno); // RA2: 0x006155E0
 bool __fastcall Planning_Same_Last_Node(PlanningTokenClass * first, PlanningTokenClass * second); // RA2: 0x00616BD0
 void __fastcall Planning_Set_Selected_Node(PlanningNodeClass * node); // RA2: 0x00617E20
 
-void __fastcall Planning_Execute(EventClass * event); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 272 bytes differ by position, ours 62 longer; ra2-decomp's whole twin text (Yuri's Revenge 0x00637E00) in this tree's names, with the twin's node search (the coordinate before the id) and the twin's Lead_At. All inline budget, in the delete arm only: the executable expands Member_Owner inside the second Planning_Find_Node and calls Node_At, ours the reverse. Diagnostic (lane F37): with the selected node stored directly, one to six empty inline sites anywhere between Commit_Plans and the delete arm's search are exact byte for byte (after the search, or in the last arm: not); with the twin's `return member->Get_Owner();` Member_Owner the text as it stands is exact, but that form loses Planning_Add_Order and Planning_Connect_Selection. Lane F43: the root is under the 1000 floor (1 to 16 dead stores of root text move nothing), so only site counts decide. Read with one empty site at five places: the count of sites after Commit_Plans may not fall, the count after Planning_Path_Add may not rise, and the count after the delete arm's search must be one lower: the selected node stored directly plus one empty site in the connect arm or at the head of the delete arm is exact, the same site ahead of Commit_Plans is not. No reference form found for the pair (an explicit Coord copy or the coordinate as a call argument is no site); ra2-decomp stores the selected node directly in its Connect_Selection twin, not here
 void __fastcall Planning_Execute(EventClass * event) // RA2: 0x00614BA0; carries out a planning event: plan commit restarts the paths of the event's house, plan connect adds the node at the second target's coordinate to the first target's path, plan node delete takes the node at the target's coordinate out of every path (remembering the next node for the player); any other event is an order for its techno
 {
 	if (event->Type == EventClass::PLAN_COMMIT) { // RA2: as above
@@ -1593,34 +1560,25 @@ void __fastcall Planning_Execute(EventClass * event) // RA2: 0x00614BA0; carries
 		Planning_Add_Order(techno, event); // RA2: as above
 	}
 }
-#endif
 
 bool __fastcall Planning_Add_Order(TechnoClass * techno, EventClass * event) // RA2: 0x00614EC0; plans an order for a techno: adds it to the node at the order's coordinate, or to a new node, unless the order or the techno's path refuses it
 {
-	if (!techno) { // RA2: as above
-		return false; // RA2: as above
-	}
-	bool player = event->ID == PlayerPtr->HeapID; // RA2: as above
-	Coord const & coord = Planning_Event_Coord(*event); // RA2: as above
-	if (coord == Coord(-1, -1, -1)) { // RA2: as above
-		return false; // RA2: as above
-	}
-	int id = event->Frame; // RA2: as above
-	PlanningNodeClass * node = Planning_Find_Lead_Node(event->ID, id, coord); // RA2: as above
-	if (node && node->Has_Member(techno)) { // RA2: as above
-		return true; // RA2: as above
-	}
-	int kind = Planning_Order_Kind(techno, (EventClass const *)event); // RA2: as above
-	if (kind != -1) { // RA2: as above
-		if (!player) { // RA2: as above
-			return false; // RA2: as above
-		}
-		if (kind == 0) { // RA2: as above
-			Planning_Refuse_Order(event); // RA2: as above
-		} else if (kind == 1) { // RA2: as above
-			Planning_Refuse("MSG:PostTerminatingCommand"); // RA2: as above
-		} else if (kind == 2) { // RA2: as above
-			Planning_Refuse("MSG:PostContinualCommand"); // RA2: as above
+	if (techno == NULL) return false; // RA2: as above
+	bool mine = event->ID == PlayerPtr->HeapID; // RA2: as above
+	Coord where = Planning_Event_Coord(*event); // RA2: as above
+	if (where == Coord(-1, -1, -1)) return false; // RA2: as above
+	PlanningNodeClass * node = Planning_Find_Node(event->ID, where, event->Frame); // RA2: as above
+	if (node && node->Has_Member(techno)) return true; // RA2: as above
+	int status = Planning_Order_Kind(techno, *event); // RA2: as above
+	if (status != -1) { // RA2: as above
+		if (mine) { // RA2: as above
+			if (status == 0) { // RA2: as above
+				Planning_Refuse_Order(*event); // RA2: as above
+			} else if (status == 1) { // RA2: as above
+				Planning_Refuse("MSG:PostTerminatingCommand"); // RA2: as above
+			} else if (status == 2) { // RA2: as above
+				Planning_Refuse("MSG:PostContinualCommand"); // RA2: as above
+			}
 		}
 		return false; // RA2: as above
 	}
@@ -1628,23 +1586,24 @@ bool __fastcall Planning_Add_Order(TechnoClass * techno, EventClass * event) // 
 	if (!token) { // RA2: as above
 		token = Planning_New_Token(techno); // RA2: as above
 	}
-	if (player) { // RA2: as above
-		int result = Planning_Event_Result(token, (EventClass const *)event); // RA2: as above
-		if (result != -1) { // RA2: as above
-			Planning_Set_Pending_Refusal(result); // RA2: as above
+	if (mine) { // RA2: as above
+		int refusal = Planning_Event_Result(token, *event); // RA2: as above
+		if (refusal != -1) { // RA2: as above
+			Planning_Set_Pending_Refusal(refusal); // RA2: as above
 		}
 	}
-	if (Planning_Token_Looped(token)) { // RA2: as above
-		if (player) { // RA2: as above
+	if (token->Loop_Start_Valid()) { // RA2: as above
+		if (mine) { // RA2: as above
 			Planning_Refuse("MSG:PostLoop"); // RA2: as above
 		}
 		return false; // RA2: as above
 	}
-	if (token->Node_Count() == 0) { // RA2: as above
+	int count = token->Node_Count(); // RA2: as above
+	if (count == 0) { // RA2: as above
 		PlanningTokenClass::Technos.Add(techno); // RA2: as above
 		Planning_Recount(event->ID); // RA2: as above
-	} else if (token->Node_Count() == 16) { // RA2: as above
-		if (player) { // RA2: as above
+	} else if (count == 16) { // RA2: as above
+		if (mine) { // RA2: as above
 			Planning_Refuse("MSG:NodeMaximum"); // RA2: as above
 		}
 		return false; // RA2: as above
@@ -1653,8 +1612,13 @@ bool __fastcall Planning_Add_Order(TechnoClass * techno, EventClass * event) // 
 		node = new PlanningNodeClass(event->Frame); // RA2: as above
 		PlanningNodeClass::Unknown1.Add(node); // RA2: as above
 	}
-	Planning_Attach_Order(node, token, techno, event); // RA2: as above
-	if (player) { // RA2: as above
+	PlanningNodeClass * last = token->Last_Node(); // RA2: as above
+	if (last) { // RA2: as above
+		Planning_Copy_Members(node, last, *event); // RA2: as above
+	} else { // RA2: as above
+		node->Add_Member(techno, event); // RA2: as above
+	}
+	if (mine) { // RA2: as above
 		VocClass::PlayGlobal(Rule->AddPlanningModeCommandSound, 1.0f, 0x2000); // RA2: as above
 	}
 	return true; // RA2: as above
@@ -1752,13 +1716,13 @@ bool __fastcall Planning_Terminal_Mission(int mission) // RA2: 0x006159C0 (no fu
 	return mission == MISSION_ENTER || mission == MISSION_CAPTURE || mission == MISSION_EATEN; // RA2: as above
 }
 
-bool __fastcall Planning_Cell_Mission(int mission, TargetClass target) // RA2: 0x006159E0; an attack or an area guard aimed at a cell, or for the area guard at nothing
+bool __fastcall Planning_Cell_Mission(int mission, xTargetClass target) // RA2: 0x006159E0; an attack or an area guard aimed at a cell, or for the area guard at nothing
 {
 	if (mission == MISSION_ATTACK || mission == MISSION_GUARD_AREA) { // RA2: as above
 		if (RTTIType(target) == RTTI_CELL) { // RA2: as above
 			return true; // RA2: as above
 		}
-		if (mission == MISSION_GUARD_AREA && !target.Is_Valid()) { // RA2: as above
+		if (mission == MISSION_GUARD_AREA && (RTTIType)target == RTTI_NONE) { // RA2: as above
 			return true; // RA2: as above
 		}
 	}
@@ -1777,24 +1741,36 @@ bool __fastcall Planning_Mission_Allows(TechnoClass * techno) // RA2: 0x00615A10
 	return false; // RA2: as above
 }
 
-int __fastcall Planning_Order_Kind(TechnoClass * techno, EventClass const * event) // RA2: 0x00615A80; how an order relates to the path of the techno: 0 refused outright, 1 and 2 past a terminating or a continual order, -1 taken
+static inline TargetClass Planning_Target(xTargetClass const & packed)
 {
-	if (Planning_Stop_Type(event->Type)) { // RA2: as above
+	TargetClass target;
+	static_cast<xTargetClass &>(target) = packed;
+	return target;
+}
+
+static inline EventClass Last_Planning_Event(PlanningTokenClass * token)
+{
+	return token->Event_At(token->Node_Count() - 1);
+}
+
+int __fastcall Planning_Order_Kind(TechnoClass * techno, EventClass const & event) // RA2: 0x00615A80; how an order relates to the path of the techno: 0 refused outright, 1 and 2 past a terminating or a continual order, -1 taken
+{
+	if (Planning_Stop_Type(event.Type)) { // RA2: as above
 		return 0; // RA2: as above
 	}
-	int order_mission = event->CurrentMission(); // RA2: as above
-	TargetClass const & target = event->Target(); // RA2: as above
-	if (Planning_Order_Stays_Put(techno, order_mission, target)) { // RA2: as above
+	int mission = event.Data.MegaMission.Mission; // RA2: as above
+	xTargetClass const & target = event.Data.MegaMission.Target; // RA2: as above
+	if (Planning_Order_Stays_Put(techno, mission, Planning_Target(target))) { // RA2: as above
 		return 0; // RA2: as above
 	}
 	PlanningTokenClass * token = techno->Get_Planning_Token(); // RA2: as above
 	if (token != NULL && token->Node_Count() > 0) { // RA2: as above
-		EventClass last_event = token->Event_At(token->Node_Count() - 1); // RA2: as above
-		EventClass const * targets = (EventClass const *)&last_event; // RA2: as above
-		if (Planning_Terminal_Mission(targets->CurrentMission())) { // RA2: as above
+		EventClass previous = Last_Planning_Event(token); // RA2: as above
+		int last = previous.Data.MegaMission.Mission; // RA2: as above
+		if (Planning_Terminal_Mission(last)) { // RA2: as above
 			return 1; // RA2: as above
 		}
-		if (Planning_Cell_Mission(targets->CurrentMission(), targets->Target())) { // RA2: as above
+		if (Planning_Target_Fits(last, Planning_Target(previous.Data.MegaMission.Target))) { // RA2: as above
 			return 2; // RA2: as above
 		}
 	}
@@ -2062,21 +2038,13 @@ void __fastcall Planning_Path_Append(TechnoClass * techno, PlanningNodeClass * n
 	}
 }
 
-void __fastcall Planning_Copy_Members(PlanningNodeClass * node, PlanningNodeClass * from, EventClass event) // RA2: 0x006167F0; adds every member of one node to another, each with a copy of the event aimed at its techno
+void __fastcall Planning_Copy_Members(PlanningNodeClass * node, PlanningNodeClass * last, EventClass event) // RA2: 0x006167F0; adds every member of one node to another, each with a copy of the event aimed at its techno
 {
-	int count = from->PlanningMembers.Count(); // RA2: as above
-	for (int i = 0; i < count; i++) { // RA2: as above
-		TechnoClass * techno = from->PlanningMembers[i]->Owner; // RA2: as above
-		event.Data.Target.Whom = TargetClass(techno); // RA2: as above
-		PlanningMemberClass * member = new PlanningMemberClass; // RA2: as above
-		member->Owner = techno; // RA2: as above
-		EventClass * copy = new EventClass; // RA2: as above
-		*copy = event; // RA2: as above
-		member->Packet = copy; // RA2: as above
-		node->PlanningMembers.Add(member); // RA2: as above
-		PlanningTokenClass * token = techno->Get_Planning_Token(); // RA2: as above
-		token->Add_Node(node); // RA2: as above
-		node->Assign_Branch(member); // RA2: as above
+	int count = last->PlanningMembers.Count();
+	for (int i = 0; i < count; i++) {
+		TechnoClass * owner = last->Member_Owner(i);
+		event.Data.Target.Whom = TargetClass(owner);
+		node->Add_Member(owner, &event);
 	}
 }
 
@@ -2186,7 +2154,7 @@ bool __fastcall Planning_Same_Last_Node(PlanningTokenClass * first, PlanningToke
 void __fastcall Planning_Recount(int house) // RA2: 0x00616D00; raises the count of a house
 {
 	if (house >= 0 && house < 8) { // RA2: as above
-		PlanningUnitCounts[house]++; // RA2: as above
+		PlanningUnitCounts[house] = PlanningUnitCounts[house] + 1; // RA2: as above
 	}
 }
 
@@ -2272,13 +2240,13 @@ void __fastcall Planning_Refuse(char const * label) // RA2: 0x00616FD0; shows a 
 	}
 }
 
-void __fastcall Planning_Refuse_Order(EventClass const * event) // RA2: 0x00617020; says why planning mode refuses an order of this type
+void __fastcall Planning_Refuse_Order(EventClass const & event) // RA2: 0x00617020; says why planning mode refuses an order of this type
 {
-	if (event->Type == EventClass::DEPLOY) { // RA2: as above
+	if (event.Type == EventClass::DEPLOY) { // RA2: as above
 		Planning_Refuse("MSG:PlanningModeNoDeploy"); // RA2: as above
-	} else if (event->Type == EventClass::IDLE) { // RA2: as above
+	} else if (event.Type == EventClass::IDLE) { // RA2: as above
 		Planning_Refuse("MSG:PlanningModeNoStop"); // RA2: as above
-	} else if (event->Type == EventClass::SCATTER) { // RA2: as above
+	} else if (event.Type == EventClass::SCATTER) { // RA2: as above
 		Planning_Refuse("MSG:PlanningModeNoScatter"); // RA2: as above
 	}
 }
@@ -2294,10 +2262,10 @@ void __fastcall Planning_Refuse_Selection(int kind) // RA2: 0x00617100; says why
 	}
 }
 
-int __fastcall Planning_Event_Result(PlanningTokenClass * token, EventClass const * event) // RA2: 0x006171E0; what planning mode shows for an order: 0 for one that ends the path, 2 at the last free node, -1 for none
+int __fastcall Planning_Event_Result(PlanningTokenClass * token, EventClass const & event) // RA2: 0x006171E0; what planning mode shows for an order: 0 for one that ends the path, 2 at the last free node, -1 for none
 {
-	int mission = event->CurrentMission(); // RA2: as above
-	TargetClass const & target = event->Target(); // RA2: as above
+	int mission = event.Data.MegaMission.Mission; // RA2: as above
+	xTargetClass const & target = event.Data.MegaMission.Target; // RA2: as above
 	if (Planning_Terminal_Mission(mission)) { // RA2: as above
 		return 0; // RA2: as above
 	}
@@ -2477,6 +2445,16 @@ PlanningNodeClass * __fastcall Planning_Get_Picked_Node(void) // RA2: 0x00617AE0
 	return PlanningPickedNode; // RA2: as above
 }
 
+static inline void Connect_Node_Target(PlanningNodeClass * node, TechnoClass * techno)
+{
+	EventClass packet = node->Get_Event(0);
+	AbstractClass * target = packet.First_Target_Object();
+	if (target) {
+		EventClass event(PlayerPtr->HeapID, EventClass::PLAN_CONNECT, TargetClass(techno), TargetClass(target));
+		Add_Outgoing_Event(event);
+	}
+}
+
 void __cdecl Planning_Connect_Selection(void) // RA2: 0x00617AF0 (called Planning_Connect_Selection by us); lets go of the picked node and asks all players to connect each selected object (and the owners of the last node of its path) to it, or with nothing selected keeps the node as the selected one
 {
 	PlanningNodeClass * selected = Planning_Get_Picked_Node(); // RA2: as above
@@ -2509,13 +2487,14 @@ void __cdecl Planning_Connect_Selection(void) // RA2: 0x00617AF0 (called Plannin
 		}
 		int total = units.Count(); // RA2: as above
 		for (int k = 0; k < total; k++) { // RA2: as above
-			Planning_Send_Pair(units[k], selected); // RA2: as above
+			TechnoClass * techno = units[k];
+			Connect_Node_Target(selected, techno);
 		}
 		if (total > 0) { // RA2: as above
 			Planning_Help(3); // RA2: as above
 		}
 	} else { // RA2: as above
-		Planning_Set_Selected_Node(selected); // RA2: as above
+		PlanningSelectedNode = selected; // RA2: as above
 		Planning_Help(4); // RA2: as above
 	}
 }

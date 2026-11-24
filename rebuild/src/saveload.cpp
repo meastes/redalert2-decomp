@@ -566,7 +566,6 @@ static int Reconcile_Players(void)
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact as a landing: the text is exact, but eight of its result checks (Save_Misc_Values, the tactical map, the tracker, kamikaze and bomb lists, the two sound tables, the theme) go through `res` with no reference text at their place; with ra2-decomp's twin's forms alone (`res` at the list saves, its Save_Vector body) one list save is called where the executable expands it
 bool Put_All(IStream * stream, int save_net)
 {
 	HRESULT res;
@@ -887,7 +886,6 @@ bool Put_All(IStream * stream, int save_net)
 	}
 	return(true);
 }
-#endif
 
 
 

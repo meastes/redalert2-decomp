@@ -210,7 +210,7 @@ void __stdcall Planning_Send_Event(EventClass event); // RA2: 0x614B70
 void __cdecl Planning_Hover(void); // RA2: 0x615C00
 void __fastcall Planning_Refuse_Command(int kind); // RA2: 0x617250
 bool __fastcall Planning_Mission_Allows(TechnoClass * techno); // RA2: 0x615A10
-int __fastcall Planning_Order_Kind(TechnoClass * techno, EventClass const * event); // RA2: 0x615A80; how an order relates to the path of the techno: 0 refused outright, 1 and 2 past a terminating or a continual order, -1 taken
+int __fastcall Planning_Order_Kind(TechnoClass * techno, EventClass const & event); // RA2: 0x615A80; how an order relates to the path of the techno: 0 refused outright, 1 and 2 past a terminating or a continual order, -1 taken
 void __fastcall Planning_Path_Append(TechnoClass * techno, PlanningNodeClass * node); // RA2: 0x6165A0; gives the techno the rest of the path of the node's first member from the node on
 void __fastcall Planning_Copy_Members(PlanningNodeClass * node, PlanningNodeClass * from, EventClass event); // RA2: 0x6167F0; adds every member of one node to another, each with a copy of the event aimed at its techno
 void __fastcall Planning_Remove_Node(PlanningNodeClass * node); // RA2: 0x616960; takes a node out of the paths of its members

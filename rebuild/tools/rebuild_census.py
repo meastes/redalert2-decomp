@@ -309,10 +309,17 @@ HEX_ENTRY = re.compile(r'\b(?:0x)?(?=[0-9A-Fa-f]*[0-9])([0-9A-Fa-f]{6,8})\b')
 #         each side's form cannot stand whole (review spot-check, owner 2026-11-23; non-soft)
 #   vii   anything else (coined helpers, composites, choices the image does not fix); held items not in the tree
 #         belong in variation_candidates.csv, not header_judgments.csv (their dependents are not judgment rows)
+# Flagged variation forms (AGENTS.md exception, user 2026-11-24; lane O78), each a choice no reference shows at the line:
+#   helper             an inferred inline helper where the image's expansion depth shows a helper existed
+#   spelling           an alternative spelling of a statement or condition
+#   compiler-local     a named local chosen for the compiler (it holds a value the function uses)
+#   readability-alias  a copy with a more meaningful name or type than what it copies, one copy per value, used
+#                      from then on in place of the original, no copy of a copy
 # SOFT_KINDS rest on a choice and are left out of "exact with no soft judgment"; a header-form dependent is soft when
 # any form it rests on is of a soft kind. An untagged note counts as vii (soft) and is listed as unclassified.
-JUDGMENT_KINDS = ('i', 'ii', 'iii', 'iv-a', 'iv-b', 'v', 'vi', 'joined', 'vii')
-SOFT_KINDS = frozenset(('iii', 'iv-b', 'vii'))
+JUDGMENT_KINDS = ('i', 'ii', 'iii', 'iv-a', 'iv-b', 'v', 'vi', 'joined', 'vii',
+                  'helper', 'spelling', 'compiler-local', 'readability-alias')
+SOFT_KINDS = frozenset(('iii', 'iv-b', 'vii', 'helper', 'spelling', 'compiler-local', 'readability-alias'))
 KIND_PREFIX = re.compile(r'\s*\[(%s)\]\s*' % '|'.join(re.escape(k) for k in sorted(JUDGMENT_KINDS, key=len, reverse=True)))
 
 

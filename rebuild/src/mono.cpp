@@ -198,7 +198,6 @@ void Mono_Window_Create(void)
 /// priority, Q W E O speak the next voice, L and T play test sounds, [ and ] start and stop
 /// streams, N S stop sounds, A I M and the angle brackets change the page.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 759 of 1148 bytes differ by position, ours 308 bytes longer (ra2-decomp's twin text, src/motlib.cpp FUN_005BC6E0, in this tree's names with the unit's View, Mono_View_Page and Disable where the twin writes their bodies out): the image calls MonoClass::Clear at the A, I and M keys and expands it at the angle brackets, ours expands it at all five; the image has five or more inline sites after the last page key that this text lacks (exact with the four speech keys through one file inline, which no reference has: variation_candidates.csv)
 #include "audplay.h"
 #include "auddsnd.h"
 #include "audioctl.h"
@@ -207,7 +206,6 @@ void Mono_Window_Create(void)
 #include "vox.h"
 #include "vector.h"
 
-// Voxs (vox.cpp, 0x00AD0930) has no header declaration yet: the draft compiles once vox.h declares it (a line there moves queue Print_CRCs)
 void Audio_Stop_All(void);
 
 static AudioStreamer * MonoStreams[5]; // RA2: 0x00A70DEC, the test streams the [ key starts
@@ -217,6 +215,16 @@ static int MonoVoiceIndex; // RA2: 0x00A70EF0, the next voice the speech keys pl
 static AudioController * MonoTestHandle; // RA2: 0x00A70EF4
 static int MonoStreamCount; // RA2: 0x00A70EF8
 static int MonoVoicePriority; // RA2: 0x00A70EFC, set by the keys 1 to 4
+
+// Queues the next test voice, wrapping back to the first after the seventeenth or the last loaded one.
+static inline void Mono_Test_Speech(int type, int priority)
+{
+	if (MonoVoiceIndex > 16 || MonoVoiceIndex >= Voxs.Count()) {
+		MonoVoiceIndex = 0;
+	}
+	Queue_Speech(MonoVoiceIndex, type, priority);
+	MonoVoiceIndex++;
+}
 
 BOOL CALLBACK Mono_Dialog_Proc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 {
@@ -246,35 +254,19 @@ BOOL CALLBACK Mono_Dialog_Proc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam
 				return FALSE;
 			case 'Q':
 			case 'q':
-				if (MonoVoiceIndex > 16 || MonoVoiceIndex >= Voxs.Count()) {
-					MonoVoiceIndex = 0;
-				}
-				Queue_Speech(MonoVoiceIndex, VOXSPEECH_QUEUE, MonoVoicePriority);
-				MonoVoiceIndex++;
+				Mono_Test_Speech(VOXSPEECH_QUEUE, MonoVoicePriority);
 				return FALSE;
 			case 'W':
 			case 'w':
-				if (MonoVoiceIndex > 16 || MonoVoiceIndex >= Voxs.Count()) {
-					MonoVoiceIndex = 0;
-				}
-				Queue_Speech(MonoVoiceIndex, VOXSPEECH_STANDARD, MonoVoicePriority);
-				MonoVoiceIndex++;
+				Mono_Test_Speech(VOXSPEECH_STANDARD, MonoVoicePriority);
 				return FALSE;
 			case 'E':
 			case 'e':
-				if (MonoVoiceIndex > 16 || MonoVoiceIndex >= Voxs.Count()) {
-					MonoVoiceIndex = 0;
-				}
-				Queue_Speech(MonoVoiceIndex, VOXSPEECH_INTERRUPT, MonoVoicePriority);
-				MonoVoiceIndex++;
+				Mono_Test_Speech(VOXSPEECH_INTERRUPT, MonoVoicePriority);
 				return FALSE;
 			case 'O':
 			case 'o':
-				if (MonoVoiceIndex > 16 || MonoVoiceIndex >= Voxs.Count()) {
-					MonoVoiceIndex = 0;
-				}
-				Queue_Speech(MonoVoiceIndex, -1, -1);
-				MonoVoiceIndex++;
+				Mono_Test_Speech(-1, -1);
 				return FALSE;
 			case 'L':
 			case 'l':
@@ -361,7 +353,6 @@ BOOL CALLBACK Mono_Dialog_Proc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam
 	}
 	return FALSE;
 }
-#endif
 
 
 /// <summary>

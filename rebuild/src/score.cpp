@@ -111,7 +111,6 @@ bool StillUpdating;
 
 
 
-#ifdef RA2_NON_MATCHING // not exact: 279 bytes differ (RA2 campaign score screen)
 #include "fame.h"
 #include "mouse.h"
 #include <stdio.h>
@@ -390,7 +389,6 @@ void ScoreClass::Presentation()
 #undef PRINT
 #undef LOAD
 #undef WIPE
-#endif
 
 /// <summary>
 /// Adds an object to the score screen's animation list.
@@ -412,9 +410,8 @@ int ScoreClass::Alloc_Object(ScoreAnimClass *obj)
 /// <returns>bool; Is the object gone from the animation list?</returns>
 bool ScoreClass::Score_Object_Not_Present(ScoreAnimClass * obj)
 {
-	int index = ScoreObjs.ID(obj);
-	bool absent = index == -1;
-	return(absent);
+	bool done = ScoreObjs.ID(obj) == -1 ? true : false;
+	return(done);
 }
 
 
@@ -427,10 +424,8 @@ bool ScoreClass::Score_Object_Not_Present(ScoreAnimClass * obj)
 /// <param name="obj">The score screen object to wait on.</param>
 void ScoreClass::Wait_For_Print(ScoreAnimClass * obj)
 {
-	if (!Score_Object_Not_Present(obj)) {
-		do {
-			Call_Back_Delay(1);
-		} while (!Score_Object_Not_Present(obj));
+	while (!Score_Object_Not_Present(obj)) {
+		Call_Back_Delay(1);
 	}
 }
 

@@ -333,7 +333,6 @@ void Selection::Update_Hovered_Territory(Point2D const & point)
 /// </summary>
 /// <param name="point">The point to look up, relative to the campaign map.</param>
 /// <returns>bool; Is there a conflict waiting on the territory selected?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 2 bytes differ against the image bound 0072e780 (1531 body bytes; register choice for the two X-coordinate loads): ra2-decomp text at its own site with RA2's Get_ID/Owner_Of/Get_Target accessors (was 1325; 841 with main's coined Walk_Territories wrapper, not taken)
 void Selection::Do_Target_Anim(rc_ptr<State> const & state, bool show_targets, bool silent)
 {
 	Remove_Target_Anims();
@@ -357,7 +356,7 @@ void Selection::Do_Target_Anim(rc_ptr<State> const & state, bool show_targets, b
 		if (!show_targets || new_state != 1) {
 			continue;
 		}
-		Point2D target(WorldMap->Origin + it->Get_Target());
+		Point2D const & target = WorldMap->Origin + it->Get_Target();
 
 		if (ZoomingTarget != NULL) {
 			CCFileClass file(ZoomingTarget->Get_Filename());
@@ -401,7 +400,6 @@ void Selection::Do_Target_Anim(rc_ptr<State> const & state, bool show_targets, b
 
 	CurrentState = state;
 }
-#endif
 
 
 

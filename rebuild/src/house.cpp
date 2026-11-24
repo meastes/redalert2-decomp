@@ -6596,9 +6596,10 @@ Cell HouseClass::Find_Cell_In_Zone(TechnoClass const * techno, ZoneType zone) co
 /// <returns>Returns with the direction rotated back one facing.</returns>
 static DirType const & Rotate_Back_One_Facing(DirType & dir)
 {
+	int const facing_mask = (FACING_COUNT - 1) * (DIR_STEP_8 << 8);
 	DirType sector(dir);
 	int back = sector.Snap_To_8().As_Int() - 1;
-	dir.Raw = (dir.Raw & ~0xE000) | (back & 0xE000);
+	dir.Raw = (dir.Raw & ~facing_mask) | (back & facing_mask);
 	return(dir);
 }
 
@@ -6619,7 +6620,6 @@ static DirType const & Rotate_Back_One_Facing(DirType & dir)
  * HISTORY:                                                                                    *
  *   11/04/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: against the image bound (1,276 B) 119 bytes differ (Rotate_Back_One_Facing in the form ra2-decomp's attempts.csv reads from Yuri's Revenge's out-of-line copy FUN_0050DF30: in place, a const reference back, the literal mask 0xE000; with the mask as a named local the row is exact, held on variation_candidates.csv as kind C; the archive's by-value helper is 1,173 B off); main: best 54.60, tried 5 times (frame, ruling, switch)
 Cell HouseClass::Random_Cell_In_Zone(ZoneType zone) const
 {
 	Coord coord;
@@ -6711,7 +6711,6 @@ Cell HouseClass::Random_Cell_In_Zone(ZoneType zone) const
 	}
 	return(cell);
 }
-#endif
 
 
 /// <summary>

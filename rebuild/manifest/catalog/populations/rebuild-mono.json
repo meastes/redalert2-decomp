@@ -72,6 +72,33 @@
     "__imp__GetWindowRect@8": 7971736,
     "__imp__MoveWindow@24": 7971808,
     "__imp__ReleaseDC@8": 7971960,
+    "__imp__InvalidateRect@12": 7971988,
+    "__imp__BeginPaint@8": 7972088,
+    "?Clear@MonoClass@@QAEXXZ": 5890704,
+    "__imp__EndPaint@8": 7972080,
+    "_MonoTestHandle": 10948340,
+    "_MonoTestController": 10948208,
+    "?Init@AudioController@@QAEXXZ": 4217840,
+    "_MonoVoicePriority": 10948348,
+    "_MonoVoiceIndex": 10948336,
+    "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A": 11340080,
+    "?Queue_Speech@@YIXHHH@Z": 7428288,
+    "?AudioControllerGetEvent@@YIPAVAudioEvent@@PAUAudioController@@@Z": 4219200,
+    "?End@AudioController@@QAEXXZ": 4218848,
+    "??_C@_0BD@KMLH@TestEnvelopeFShift?$AA@": 8268508,
+    "?From_Name@VocClass@@SI?AW4VocType@@PBD@Z": 7424320,
+    "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z": 7421360,
+    "??_C@_0L@HJPA@TestEffect?$AA@": 8268496,
+    "_MonoStreamCount": 10948344,
+    "?AudioGetDevice@@YIPAUAudioDevice@@XZ": 4222784,
+    "?AudioStreamerCreate@@YIPAUAudioStreamer@@PAUAudioDevice@@_K@Z": 4224912,
+    "_MonoStreams": 10948076,
+    "??_C@_09NOGH@intro?4wav?$AA@": 8268484,
+    "?AudioStreamerPlayWAV@@YIHPAUAudioStreamer@@PBDH@Z": 4225680,
+    "?AudioStreamerDestroy@@YIXPAUAudioStreamer@@@Z": 4225472,
+    "?AudioStreamerStop@@YIXPAUAudioStreamer@@@Z": 4226656,
+    "_MonoAudioToggle": 10948332,
+    "?Audio_Stop_All@@YIXXZ": 4222496,
     "?Map_Character@MonoClass@@QAEDD@Z": 5892448,
     "_vsprintf": 7883194,
     "?Print@MonoClass@@QAEXPBD@Z": 5891792,
@@ -112,7 +139,6 @@
     "?Get_Handle@MonoClass@@QBEHXZ": 5890608,
     "?Set_Cursor@MonoClass@@QAEXHH@Z": 5890624,
     "?Sub_Window@MonoClass@@QAEXHHHH@Z": 5890656,
-    "?Clear@MonoClass@@QAEXXZ": 5890704,
     "?Is_Changed@MonoClass@@QBE_NXZ": 5890784,
     "?View@MonoClass@@QAEXXZ": 5890800,
     "?Set_Default_Attribute@MonoClass@@QAEXW4MonoAttribute@1@@Z": 5890928,
@@ -179,7 +205,7 @@
           "resolved": 10948124
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5887376,
@@ -248,7 +274,7 @@
           "resolved": 10948136
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5887408,
@@ -301,7 +327,7 @@
           "resolved": 10948320
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5887456,
@@ -354,7 +380,7 @@
           "resolved": 10948248
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5887488,
@@ -407,7 +433,7 @@
           "resolved": 10948240
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5887520,
@@ -460,7 +486,7 @@
           "resolved": 10948144
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5887552,
@@ -513,7 +539,7 @@
           "resolved": 10948104
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5887584,
@@ -598,7 +624,7 @@
           "resolved": 10948328
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5887616,
@@ -659,7 +685,7 @@
           "resolved": 10948152
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5887680,
@@ -720,7 +746,7 @@
           "resolved": 10948232
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5887728,
@@ -781,7 +807,7 @@
           "resolved": 10948312
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5887776,
@@ -826,7 +852,7 @@
           "resolved": 10948130
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5887824,
@@ -879,7 +905,7 @@
           "resolved": 10948200
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5887840,
@@ -1076,7 +1102,7 @@
           "resolved": 7971724
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5887872,
@@ -1200,7 +1226,7 @@
           "resolved": 10948368
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5888256,
@@ -1308,7 +1334,7 @@
           "resolved": 7971724
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5888368,
@@ -1400,7 +1426,7 @@
           "resolved": 7971724
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5888448,
@@ -1460,7 +1486,7 @@
           "resolved": 7971992
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5888512,
@@ -1504,7 +1530,7 @@
           "resolved": 10948361
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5888544,
@@ -1541,7 +1567,7 @@
           "resolved": 10948364
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5888576,
@@ -1578,7 +1604,7 @@
           "resolved": 10948160
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5888592,
@@ -1647,7 +1673,7 @@
           "resolved": 4044
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5888608,
@@ -1699,7 +1725,7 @@
           "resolved": 10948192
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5888720,
@@ -1991,10 +2017,815 @@
           "resolved": 7971960
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5888816,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5889248,
+      "method": "0059dce0",
+      "body_bytes": 1148,
+      "body_sha256": "00444eddaef3f0e9ffd20ec500f4ad7ca34816dc9e74a6df88156e3c0de317d0",
+      "padding_bytes": 4,
+      "full_extent_bytes": 1152,
+      "full_extent_sha256": "c97d566d848b88828750770fbd2d7531d0d57f8de8a7216e3861705faae97e30",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 144,
+      "symbol": "?Mono_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+      "symbol_prefix": "?Mono_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "__imp__InvalidateRect@12",
+          "target": 7971988,
+          "addend": 0,
+          "resolved": 7971988
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "__imp__BeginPaint@8",
+          "target": 7972088,
+          "addend": 0,
+          "resolved": 7972088
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "?Current@MonoClass@@2PAV1@A",
+          "target": 10948364,
+          "addend": 0,
+          "resolved": 10948364
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 68,
+          "kind": 20,
+          "symbol": "?Clear@MonoClass@@QAEXXZ",
+          "target": 5890704,
+          "addend": 0,
+          "resolved": 1384
+        },
+        {
+          "offset": 83,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 3417
+        },
+        {
+          "offset": 95,
+          "kind": 6,
+          "symbol": "__imp__EndPaint@8",
+          "target": 7972080,
+          "addend": 0,
+          "resolved": 7972080
+        },
+        {
+          "offset": 125,
+          "kind": 6,
+          "symbol": "_MonoTestHandle",
+          "target": 10948340,
+          "addend": 0,
+          "resolved": 10948340
+        },
+        {
+          "offset": 134,
+          "kind": 6,
+          "symbol": "_MonoTestController",
+          "target": 10948208,
+          "addend": 0,
+          "resolved": 10948208
+        },
+        {
+          "offset": 140,
+          "kind": 6,
+          "symbol": "_MonoTestHandle",
+          "target": 10948340,
+          "addend": 0,
+          "resolved": 10948340
+        },
+        {
+          "offset": 145,
+          "kind": 20,
+          "symbol": "?Init@AudioController@@QAEXXZ",
+          "target": 4217840,
+          "addend": 0,
+          "resolved": 4293295739
+        },
+        {
+          "offset": 169,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5890320,
+          "addend": 0,
+          "resolved": 5890320
+        },
+        {
+          "offset": 176,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5890252,
+          "addend": 0,
+          "resolved": 5890252
+        },
+        {
+          "offset": 187,
+          "kind": 6,
+          "symbol": "_MonoVoicePriority",
+          "target": 10948348,
+          "addend": 0,
+          "resolved": 10948348
+        },
+        {
+          "offset": 202,
+          "kind": 6,
+          "symbol": "_MonoVoiceIndex",
+          "target": 10948336,
+          "addend": 0,
+          "resolved": 10948336
+        },
+        {
+          "offset": 213,
+          "kind": 6,
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "target": 11340080,
+          "addend": 16,
+          "resolved": 11340096
+        },
+        {
+          "offset": 223,
+          "kind": 6,
+          "symbol": "_MonoVoiceIndex",
+          "target": 10948336,
+          "addend": 0,
+          "resolved": 10948336
+        },
+        {
+          "offset": 228,
+          "kind": 6,
+          "symbol": "_MonoVoicePriority",
+          "target": 10948348,
+          "addend": 0,
+          "resolved": 10948348
+        },
+        {
+          "offset": 239,
+          "kind": 20,
+          "symbol": "?Queue_Speech@@YIXHHH@Z",
+          "target": 7428288,
+          "addend": 0,
+          "resolved": 1538797
+        },
+        {
+          "offset": 244,
+          "kind": 6,
+          "symbol": "_MonoVoiceIndex",
+          "target": 10948336,
+          "addend": 0,
+          "resolved": 10948336
+        },
+        {
+          "offset": 252,
+          "kind": 6,
+          "symbol": "_MonoVoiceIndex",
+          "target": 10948336,
+          "addend": 0,
+          "resolved": 10948336
+        },
+        {
+          "offset": 267,
+          "kind": 6,
+          "symbol": "_MonoVoiceIndex",
+          "target": 10948336,
+          "addend": 0,
+          "resolved": 10948336
+        },
+        {
+          "offset": 278,
+          "kind": 6,
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "target": 11340080,
+          "addend": 16,
+          "resolved": 11340096
+        },
+        {
+          "offset": 288,
+          "kind": 6,
+          "symbol": "_MonoVoiceIndex",
+          "target": 10948336,
+          "addend": 0,
+          "resolved": 10948336
+        },
+        {
+          "offset": 294,
+          "kind": 6,
+          "symbol": "_MonoVoicePriority",
+          "target": 10948348,
+          "addend": 0,
+          "resolved": 10948348
+        },
+        {
+          "offset": 305,
+          "kind": 6,
+          "symbol": "_MonoVoiceIndex",
+          "target": 10948336,
+          "addend": 0,
+          "resolved": 10948336
+        },
+        {
+          "offset": 316,
+          "kind": 6,
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "target": 11340080,
+          "addend": 16,
+          "resolved": 11340096
+        },
+        {
+          "offset": 326,
+          "kind": 6,
+          "symbol": "_MonoVoiceIndex",
+          "target": 10948336,
+          "addend": 0,
+          "resolved": 10948336
+        },
+        {
+          "offset": 331,
+          "kind": 6,
+          "symbol": "_MonoVoicePriority",
+          "target": 10948348,
+          "addend": 0,
+          "resolved": 10948348
+        },
+        {
+          "offset": 345,
+          "kind": 6,
+          "symbol": "_MonoVoiceIndex",
+          "target": 10948336,
+          "addend": 0,
+          "resolved": 10948336
+        },
+        {
+          "offset": 356,
+          "kind": 6,
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "target": 11340080,
+          "addend": 16,
+          "resolved": 11340096
+        },
+        {
+          "offset": 366,
+          "kind": 6,
+          "symbol": "_MonoVoiceIndex",
+          "target": 10948336,
+          "addend": 0,
+          "resolved": 10948336
+        },
+        {
+          "offset": 382,
+          "kind": 6,
+          "symbol": "_MonoTestHandle",
+          "target": 10948340,
+          "addend": 0,
+          "resolved": 10948340
+        },
+        {
+          "offset": 387,
+          "kind": 20,
+          "symbol": "?AudioControllerGetEvent@@YIPAVAudioEvent@@PAUAudioController@@@Z",
+          "target": 4219200,
+          "addend": 0,
+          "resolved": 4293296857
+        },
+        {
+          "offset": 393,
+          "kind": 6,
+          "symbol": "_MonoTestHandle",
+          "target": 10948340,
+          "addend": 0,
+          "resolved": 10948340
+        },
+        {
+          "offset": 402,
+          "kind": 20,
+          "symbol": "?End@AudioController@@QAEXXZ",
+          "target": 4218848,
+          "addend": 0,
+          "resolved": 4293296490
+        },
+        {
+          "offset": 424,
+          "kind": 6,
+          "symbol": "??_C@_0BD@KMLH@TestEnvelopeFShift?$AA@",
+          "target": 8268508,
+          "addend": 0,
+          "resolved": 8268508
+        },
+        {
+          "offset": 429,
+          "kind": 20,
+          "symbol": "?From_Name@VocClass@@SI?AW4VocType@@PBD@Z",
+          "target": 7424320,
+          "addend": 0,
+          "resolved": 1534639
+        },
+        {
+          "offset": 441,
+          "kind": 20,
+          "symbol": "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z",
+          "target": 7421360,
+          "addend": 0,
+          "resolved": 1531667
+        },
+        {
+          "offset": 464,
+          "kind": 6,
+          "symbol": "??_C@_0L@HJPA@TestEffect?$AA@",
+          "target": 8268496,
+          "addend": 0,
+          "resolved": 8268496
+        },
+        {
+          "offset": 472,
+          "kind": 6,
+          "symbol": "_MonoStreamCount",
+          "target": 10948344,
+          "addend": 0,
+          "resolved": 10948344
+        },
+        {
+          "offset": 487,
+          "kind": 20,
+          "symbol": "?AudioGetDevice@@YIPAUAudioDevice@@XZ",
+          "target": 4222784,
+          "addend": 0,
+          "resolved": 4293300341
+        },
+        {
+          "offset": 494,
+          "kind": 20,
+          "symbol": "?AudioStreamerCreate@@YIPAUAudioStreamer@@PAUAudioDevice@@_K@Z",
+          "target": 4224912,
+          "addend": 0,
+          "resolved": 4293302462
+        },
+        {
+          "offset": 500,
+          "kind": 6,
+          "symbol": "_MonoStreamCount",
+          "target": 10948344,
+          "addend": 0,
+          "resolved": 10948344
+        },
+        {
+          "offset": 509,
+          "kind": 6,
+          "symbol": "_MonoStreams",
+          "target": 10948076,
+          "addend": 0,
+          "resolved": 10948076
+        },
+        {
+          "offset": 518,
+          "kind": 6,
+          "symbol": "??_C@_09NOGH@intro?4wav?$AA@",
+          "target": 8268484,
+          "addend": 0,
+          "resolved": 8268484
+        },
+        {
+          "offset": 525,
+          "kind": 20,
+          "symbol": "?AudioStreamerPlayWAV@@YIHPAUAudioStreamer@@PBDH@Z",
+          "target": 4225680,
+          "addend": 0,
+          "resolved": 4293303199
+        },
+        {
+          "offset": 532,
+          "kind": 6,
+          "symbol": "_MonoStreamCount",
+          "target": 10948344,
+          "addend": 0,
+          "resolved": 10948344
+        },
+        {
+          "offset": 541,
+          "kind": 6,
+          "symbol": "_MonoStreamCount",
+          "target": 10948344,
+          "addend": 0,
+          "resolved": 10948344
+        },
+        {
+          "offset": 558,
+          "kind": 6,
+          "symbol": "_MonoStreams",
+          "target": 10948076,
+          "addend": 0,
+          "resolved": 10948076
+        },
+        {
+          "offset": 563,
+          "kind": 20,
+          "symbol": "?AudioStreamerDestroy@@YIXPAUAudioStreamer@@@Z",
+          "target": 4225472,
+          "addend": 0,
+          "resolved": 4293302953
+        },
+        {
+          "offset": 579,
+          "kind": 6,
+          "symbol": "_MonoStreamCount",
+          "target": 10948344,
+          "addend": 0,
+          "resolved": 10948344
+        },
+        {
+          "offset": 590,
+          "kind": 6,
+          "symbol": "_MonoStreams",
+          "target": 10948076,
+          "addend": 4294967292,
+          "resolved": 10948072
+        },
+        {
+          "offset": 596,
+          "kind": 6,
+          "symbol": "_MonoStreamCount",
+          "target": 10948344,
+          "addend": 0,
+          "resolved": 10948344
+        },
+        {
+          "offset": 601,
+          "kind": 20,
+          "symbol": "?AudioStreamerStop@@YIXPAUAudioStreamer@@@Z",
+          "target": 4226656,
+          "addend": 0,
+          "resolved": 4293304099
+        },
+        {
+          "offset": 607,
+          "kind": 6,
+          "symbol": "_MonoStreamCount",
+          "target": 10948344,
+          "addend": 0,
+          "resolved": 10948344
+        },
+        {
+          "offset": 614,
+          "kind": 6,
+          "symbol": "_MonoStreams",
+          "target": 10948076,
+          "addend": 0,
+          "resolved": 10948076
+        },
+        {
+          "offset": 619,
+          "kind": 20,
+          "symbol": "?AudioStreamerDestroy@@YIXPAUAudioStreamer@@@Z",
+          "target": 4225472,
+          "addend": 0,
+          "resolved": 4293302897
+        },
+        {
+          "offset": 635,
+          "kind": 6,
+          "symbol": "_MonoAudioToggle",
+          "target": 10948332,
+          "addend": 0,
+          "resolved": 10948332
+        },
+        {
+          "offset": 650,
+          "kind": 6,
+          "symbol": "_MonoAudioToggle",
+          "target": 10948332,
+          "addend": 0,
+          "resolved": 10948332
+        },
+        {
+          "offset": 664,
+          "kind": 20,
+          "symbol": "?Audio_Stop_All@@YIXXZ",
+          "target": 4222496,
+          "addend": 0,
+          "resolved": 4293299876
+        },
+        {
+          "offset": 681,
+          "kind": 6,
+          "symbol": "_MonoPages",
+          "target": 10948160,
+          "addend": 20,
+          "resolved": 10948180
+        },
+        {
+          "offset": 687,
+          "kind": 6,
+          "symbol": "?Current@MonoClass@@2PAV1@A",
+          "target": 10948364,
+          "addend": 0,
+          "resolved": 10948364
+        },
+        {
+          "offset": 692,
+          "kind": 20,
+          "symbol": "?Clear@MonoClass@@QAEXXZ",
+          "target": 5890704,
+          "addend": 0,
+          "resolved": 760
+        },
+        {
+          "offset": 698,
+          "kind": 6,
+          "symbol": "?Current@MonoClass@@2PAV1@A",
+          "target": 10948364,
+          "addend": 0,
+          "resolved": 10948364
+        },
+        {
+          "offset": 711,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 2789
+        },
+        {
+          "offset": 728,
+          "kind": 6,
+          "symbol": "_MonoPages",
+          "target": 10948160,
+          "addend": 28,
+          "resolved": 10948188
+        },
+        {
+          "offset": 736,
+          "kind": 6,
+          "symbol": "_MonoPages",
+          "target": 10948160,
+          "addend": 24,
+          "resolved": 10948184
+        },
+        {
+          "offset": 743,
+          "kind": 6,
+          "symbol": "?Current@MonoClass@@2PAV1@A",
+          "target": 10948364,
+          "addend": 0,
+          "resolved": 10948364
+        },
+        {
+          "offset": 764,
+          "kind": 6,
+          "symbol": "_MonoPages",
+          "target": 10948160,
+          "addend": 0,
+          "resolved": 10948160
+        },
+        {
+          "offset": 772,
+          "kind": 6,
+          "symbol": "?Current@MonoClass@@2PAV1@A",
+          "target": 10948364,
+          "addend": 0,
+          "resolved": 10948364
+        },
+        {
+          "offset": 835,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 2665
+        },
+        {
+          "offset": 846,
+          "kind": 6,
+          "symbol": "?Current@MonoClass@@2PAV1@A",
+          "target": 10948364,
+          "addend": 0,
+          "resolved": 10948364
+        },
+        {
+          "offset": 867,
+          "kind": 6,
+          "symbol": "_MonoPages",
+          "target": 10948160,
+          "addend": 0,
+          "resolved": 10948160
+        },
+        {
+          "offset": 875,
+          "kind": 6,
+          "symbol": "?Current@MonoClass@@2PAV1@A",
+          "target": 10948364,
+          "addend": 0,
+          "resolved": 10948364
+        },
+        {
+          "offset": 938,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 2562
+        },
+        {
+          "offset": 959,
+          "kind": 6,
+          "symbol": "_MonoWindow",
+          "target": 10948368,
+          "addend": 0,
+          "resolved": 10948368
+        },
+        {
+          "offset": 965,
+          "kind": 6,
+          "symbol": "_MonoWindowRequested",
+          "target": 10948361,
+          "addend": 0,
+          "resolved": 10948361
+        },
+        {
+          "offset": 979,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 986,
+          "kind": 6,
+          "symbol": "__imp__ShowWindow@8",
+          "target": 7971992,
+          "addend": 0,
+          "resolved": 7971992
+        },
+        {
+          "offset": 1004,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889990,
+          "addend": 0,
+          "resolved": 5889990
+        },
+        {
+          "offset": 1008,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5890092,
+          "addend": 0,
+          "resolved": 5890092
+        },
+        {
+          "offset": 1012,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889428,
+          "addend": 0,
+          "resolved": 5889428
+        },
+        {
+          "offset": 1016,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889927,
+          "addend": 0,
+          "resolved": 5889927
+        },
+        {
+          "offset": 1020,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889551,
+          "addend": 0,
+          "resolved": 5889551
+        },
+        {
+          "offset": 1024,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889974,
+          "addend": 0,
+          "resolved": 5889974
+        },
+        {
+          "offset": 1028,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889628,
+          "addend": 0,
+          "resolved": 5889628
+        },
+        {
+          "offset": 1032,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889982,
+          "addend": 0,
+          "resolved": 5889982
+        },
+        {
+          "offset": 1036,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889882,
+          "addend": 0,
+          "resolved": 5889882
+        },
+        {
+          "offset": 1040,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889591,
+          "addend": 0,
+          "resolved": 5889591
+        },
+        {
+          "offset": 1044,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889448,
+          "addend": 0,
+          "resolved": 5889448
+        },
+        {
+          "offset": 1048,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889911,
+          "addend": 0,
+          "resolved": 5889911
+        },
+        {
+          "offset": 1052,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889704,
+          "addend": 0,
+          "resolved": 5889704
+        },
+        {
+          "offset": 1056,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889513,
+          "addend": 0,
+          "resolved": 5889513
+        },
+        {
+          "offset": 1060,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889718,
+          "addend": 0,
+          "resolved": 5889718
+        },
+        {
+          "offset": 1064,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889826,
+          "addend": 0,
+          "resolved": 5889826
+        },
+        {
+          "offset": 1068,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889815,
+          "addend": 0,
+          "resolved": 5889815
+        }
+      ],
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
+      "source": "rebuild/src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5889248,
       "source_quality_family": "rebuild"
     },
     {
@@ -2043,7 +2874,7 @@
           "resolved": 10948272
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5890400,
@@ -2079,7 +2910,7 @@
           "resolved": 2181
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5890448,
@@ -2106,7 +2937,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5890592,
@@ -2134,7 +2965,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5890608,
@@ -2162,7 +2993,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5890624,
@@ -2189,7 +3020,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5890656,
@@ -2226,7 +3057,7 @@
           "resolved": 1980
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5890704,
@@ -2253,7 +3084,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5890784,
@@ -2322,7 +3153,7 @@
           "resolved": 1840
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5890800,
@@ -2358,7 +3189,7 @@
           "resolved": 10948362
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5890928,
@@ -2403,7 +3234,7 @@
           "resolved": 1677
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5890960,
@@ -2447,7 +3278,7 @@
           "resolved": 1296
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5891088,
@@ -2491,7 +3322,7 @@
           "resolved": 981
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5891472,
@@ -2543,7 +3374,7 @@
           "resolved": 683
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5891792,
@@ -2595,7 +3426,7 @@
           "resolved": 4294966939
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5892080,
@@ -2663,7 +3494,7 @@
           "resolved": 4294966841
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5892160,
@@ -2715,7 +3546,7 @@
           "resolved": 4294966774
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5892256,
@@ -2783,7 +3614,7 @@
           "resolved": 4294966664
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5892320,
@@ -2811,7 +3642,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5892448,
@@ -2928,7 +3759,7 @@
           "resolved": 7970928
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5892560,
@@ -3076,7 +3907,7 @@
           "resolved": 7971960
         }
       ],
-      "source_sha256": "70b5b0e9c06804362dd2060262984d832384b95d6dea086843c39440db49903a",
+      "source_sha256": "e31070b4a80655120d70d65006a4b187808257b0515507d03468f09f74ce2d44",
       "source": "rebuild/src/mono.cpp",
       "population": "rebuild-mono",
       "source_order": 5892752,

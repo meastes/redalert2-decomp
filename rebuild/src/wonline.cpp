@@ -9579,7 +9579,6 @@ bool __fastcall Find_Local_Address(IPXAddressClass * address) // RA2: 0x0074FCB0
 	return(found);
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 32 bytes differ, 2 real diff lines (main's text): in the host's answer loop the two Session.Players[i] loads address [esi + eax + 4] where this build gives [eax + esi + 4]; the order answers to the expanded Set_Connection_Status(i, 0) in that loop: with its test written out at the site the loads are the image's (no reference writes it out; held on variation_candidates.csv, lane F45)
 int __fastcall Negotiate_Scenario_Transfer(bool connected) // RA2: 0x00750330, its caller's debug text "Negotiate_Scenario_Transfer failed" names it (wonline.h's Sync_Scenario_With_Guests): the host waits for each guest's answer (ready, wants the scenario, don't go, has none), sends the scenario to those that asked and then GO or DONT_GO; a guest checks its copy of the scenario, answers the host, takes the file and waits for GO; 0 to go on, 1 when the start is called off, 2 when the scenarios do not match
 {
 	GlobalPacketType packet; // RA2: as above
@@ -9623,7 +9622,9 @@ int __fastcall Negotiate_Scenario_Transfer(bool connected) // RA2: 0x00750330, i
 							responses[i] = Session.GPacket.Command; // RA2: as above
 							++num_responses; // RA2: as above
 							dont_go = true; // RA2: as above
-							Set_Connection_Status(i, 0); // RA2: expanded here
+							if (i < Session.Players.Count() && g_ConnectionStatus[i] < g_ConnectionStatusRank[i]) { // RA2: Set_Connection_Status(i, 0) written out
+								g_ConnectionStatus[i] = 0; // RA2: as above
+							}
 						}
 						if (Session.GPacket.Command == NET_NO_SCENARIO) { // RA2: as above
 							DebugString("Packet type is NET_NO_SCENARIO\n"); // RA2: as above
@@ -9763,7 +9764,6 @@ done:
 	}
 	return(result); // RA2: as above
 }
-#endif
 
 bool Handle_Preview_Download(void) // RA2: 0x00750D10 (the archive's name, TibSun wonline.cpp:9830; ra2-decomp's YR twin 0x00796710): a guest of a game channel takes the map preview from the host when the host's NET_PREVIEW_MODE packet is waiting in the global channel; true when the preview was received
 {
@@ -11960,17 +11960,6 @@ LRESULT CALLBACK Add_Buddy_Dialog_Proc(HWND window, UINT message, WPARAM wparam,
 	return(FALSE);
 }
 
-BOOL CALLBACK Buddy_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 1728 bytes differ (provisional: two unresolved ArrayList<Wstring>::remove references; main's text and helpers, Reset_Buddy_Ladders expands as in the original; 2258 before the nested WM_INITDIALOG test): best of 150 forms (top-level case order, main's Run_Add_Buddy_Dialog and Start_Buddy_Refresh helpers, the page dialog in place or called, Reset_Buddy_State flat or with main's Restart_Buddy_Requests): both expanded Refresh_Buddy_Status copies call ArrayList<Wstring>::remove(Wstring &, int) out of line where the original expands it (inline budget)
-void __fastcall Get_Window_Item_Text(HWND window, int index, Wstring & text); // RA2: 0x00600EB0, defined in ownrdraw.cpp
-
-inline void Run_Add_Buddy_Dialog(HWND window) // RA2: main's helper
-{
-	SimpleWonlineDialogControl add; // RA2: as above
-	OwnerDraw::Controlled_Dialog(0x115, (DLGPROC)Add_Buddy_Dialog_Proc, &add); // RA2: as above
-	Fill_Buddy_List(window); // RA2: as above
-}
-
 inline void Start_Buddy_Refresh(HWND window, HWND refresh) // RA2: main's helper
 {
 	SendMessageA(refresh, 0x4AA, 0, (LPARAM)SurfaceCache.GetSurface("wodref.pcx", 0)); // RA2: as above
@@ -11980,12 +11969,10 @@ inline void Start_Buddy_Refresh(HWND window, HWND refresh) // RA2: main's helper
 
 BOOL CALLBACK Buddy_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x00758750, the buddy list dialog (0x116) (main's text)
 {
-	if (message == WM_INITDIALOG) {
-		if (lparam) SetWindowLongA(window, 8, *(long *)(lparam + 4));
-	}
+	if (message == WM_INITDIALOG && lparam) SetWindowLongA(window, DWL_USER, *(long *)(lparam + 4));
 	BOOL result = OwnerDraw::Default_Dialog_Proc(window, message, wparam, lparam); // RA2: as above
 	if (result) return(result);
-	OwnerDraw::DialogControl * control = (OwnerDraw::DialogControl *)GetWindowLongA(window, 8); // RA2: as above
+	OwnerDraw::DialogControl * control = (OwnerDraw::DialogControl *)GetWindowLongA(window, DWL_USER); // RA2: as above
 	switch (message) {
 	case WM_ERASEBKGND:
 		return(TRUE);
@@ -12002,19 +11989,6 @@ BOOL CALLBACK Buddy_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 	case WM_DRAWITEM:
 		Dialog_On_WM_DRAWITEM(lparam); // RA2: as above
 		return(TRUE);
-	case WM_TIMER:
-		switch (wparam) {
-		case 0x704:
-			KillTimer(window, 0x704); // RA2: as above
-			EnableWindow(GetDlgItem(window, 0x704), TRUE); // RA2: as above
-			return(FALSE);
-		case 0:
-			if ((unsigned long)(time(NULL) - g_BuddyRefreshTime) > 30) {
-				Refresh_Buddy_Status(); // RA2: as above
-			}
-			return(FALSE);
-		}
-		return(FALSE);
 	case WM_COMMAND:
 		if (control->Is_Done()) return(FALSE);
 		switch (LOWORD(wparam)) {
@@ -12073,9 +12047,12 @@ BOOL CALLBACK Buddy_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 			Update_Observer_Buttons(NULL); // RA2: as above
 			return(FALSE);
 		}
-		case 0x702:
-			Run_Add_Buddy_Dialog(window); // RA2: as above
+		case 0x702: {
+			SimpleWonlineDialogControl add; // RA2: as above
+			OwnerDraw::Controlled_Dialog(0x115, (DLGPROC)Add_Buddy_Dialog_Proc, &add); // RA2: as above
+			Fill_Buddy_List(window); // RA2: as above
 			return(FALSE);
+		}
 		case 0x703: {
 			HWND list = GetDlgItem(window, 0x689); // RA2: as above
 			int selected = SendMessageA(list, LB_GETCURSEL, 0, 0); // RA2: as above
@@ -12096,6 +12073,19 @@ BOOL CALLBACK Buddy_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 			return(FALSE);
 		}
 		return(FALSE);
+	case WM_TIMER:
+		switch (wparam) {
+			case 0x704:
+				KillTimer(window, 0x704); // RA2: as above
+				EnableWindow(GetDlgItem(window, 0x704), TRUE); // RA2: as above
+				return(FALSE);
+			case 0:
+				if ((unsigned long)(time(NULL) - g_BuddyRefreshTime) > 30) {
+					Refresh_Buddy_Status(); // RA2: as above
+				}
+				return(FALSE);
+		}
+		return(FALSE);
 	case 0x497: {
 		Update_Observer_Buttons(window); // RA2: as above
 		HWND list = GetDlgItem(window, 0x689); // RA2: as above
@@ -12113,7 +12103,6 @@ BOOL CALLBACK Buddy_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 	}
 	return(FALSE);
 }
-#endif
 
 bool __fastcall Find_Channel_By_Name(Wstring const & name, ArrayList<Channel> const & channels, Channel & channel) // RA2: 0x007592D0, copies the channel of this name out of the list; cleared and false when there is none (ra2-decomp's twin, Yuri's Revenge 0x0079F0A0)
 {

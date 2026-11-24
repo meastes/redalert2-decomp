@@ -386,7 +386,9 @@ def write():
                 needed.add(own)
             for binding in result['relocations']:
                 if binding['symbol'] != '$local':
-                    table[binding['symbol']] = binding['target']
+                    # A scope table goes under the bare `$T` the audit reads (rebuild.resolver).
+                    scope = R.SCOPE_TABLE_NAME.fullmatch(binding['symbol'])
+                    table[R.SCOPE_TABLE_REFERENCE if scope else binding['symbol']] = binding['target']
             regions.append(region)
         if has_asm:
             helper_reached_flags([r for r in regions if r['source'] == info['source']], source_text)
@@ -397,7 +399,8 @@ def write():
         coff = Coff(Path(last['object']).read_bytes())
         for symbol in coff.symbols.values():
             name = symbol['name']
-            if name.startswith(('.', '$L', '$SG')) or symbol['storage'] not in (2, 3) or name in table:
+            if name.startswith(('.', '$L', '$SG')) or symbol['storage'] not in (2, 3) or name in table or \
+                    R.SCOPE_TABLE_NAME.fullmatch(name):
                 continue
             address, label = resolve(name)
             if address is not None:

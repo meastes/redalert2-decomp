@@ -1270,6 +1270,77 @@ void __fastcall Select_By_Rank(bool flag)
 	AttackMoveMode = false;
 }
 
+void __fastcall Select_By_Type(bool flag); // RA2: the definition is not exact yet
+#ifdef RA2_NON_MATCHING // not exact: 10 bytes differ against the image-derived bound 006f81b0 (741 B + 11), same size and calls; ra2-decomp's twin text (Yuri's Revenge 0x007339B0) with its name test (the id read ahead of the null test) and its SmartPtr selection list. Left: the mixed-kind loop's exit branch (the image leaves through jge and loops back through jmp, ours the reverse; a flag, an index test, continue and a loop-header test do not move it) and one store scheduled across pop ebp at the end
+char * __fastcall Pick_Type_By_Cost(TechnoList const & objects, char const * name, int limit, int * best);
+
+// RA2: remembers the kind of object the last type selection picked and its total cost (0x00AC1250, 0x00AC1348).
+char LastTypeName[100];
+int LastTypeCost;
+
+/// <summary>
+/// Selects the type-select list's objects of the next kind by total cost (the costliest, when the list is new), and
+/// reports the kind, or "mixed" when the current selection holds objects of other kinds; ra2-decomp's twin text
+/// (Yuri's Revenge 0x007339B0).
+/// </summary>
+void __fastcall Select_By_Type(bool flag)
+{
+	wchar_t buffer[256];
+	if (MuteSWLaunches != 0) {
+		return;
+	}
+	int cost;
+	char * name;
+	if (TypeSelectMode != 5) {
+		Refresh_Type_Select_List();
+		TacticalMap->Unselect_All();
+		name = Pick_Type_By_Cost(*TypeSelectList, NULL, INT_MAX, &cost);
+	} else {
+		name = Pick_Type_By_Cost(*TypeSelectList, LastTypeName, LastTypeCost, &cost);
+		if (flag) {
+			TacticalMap->Unselect_All();
+		}
+	}
+	TechnoList * list = TypeSelectList;
+	int count = list->Count();
+	for (int index = 0; index < count; index++) {
+		TechnoClass * techno = (*list)[index];
+		char const * id = techno->Class_Of()->IniName;
+		if (name != NULL && strcmp(id, name) == 0) {
+			techno->Select();
+		}
+	}
+	wchar_t const * text = NULL;
+	SmartPtr<TechnoList> objects(Collect_Selected_Technos());
+	int objects_count = objects->Count();
+	for (int check = 0; check < objects_count; check++) {
+		TechnoClass * item = (*objects)[check];
+		char const * id = item->Class_Of()->IniName;
+		if (name == NULL || strcmp(id, name) != 0) {
+			text = StringTable::LoadString("MSG:Mixed", NULL, "D:\\Ra2\\UICmnds.cpp", 0x62d);
+			break;
+		}
+	}
+	if (text == NULL && CurrentObject.Count() > 0) {
+		text = CurrentObject[0]->Class_Of()->UIName;
+	}
+	Get_Selection_Info_Text(buffer, text);
+	Show_Player_Message(buffer, -1);
+	LastTypeCost = cost;
+	strcpy(LastTypeName, name);
+	if (name != NULL) {
+		delete[] name;
+	}
+	int commands = objects->Count();
+	TypeSelectMode = 0;
+	if (commands != 0) {
+		TypeSelectMode = 5;
+	}
+	AttackMoveMode = false;
+	delete objects;
+}
+#endif
+
 /// <summary>
 /// Collects the type names of a list of objects, each once.
 /// </summary>

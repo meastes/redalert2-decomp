@@ -15,7 +15,7 @@ JUDGMENT  --judgment=ENTRY:NOTE flags a judgment call (AGENTS.md Decision policy
           accepted form); --judgment=ENTRY: clears it. A row's flag is kept when the unit is rewritten.
           The census counts the flagged rows and their bytes. NOTE starts with its kind in brackets
           ("[iv-a] twin statement ..."; kinds i, ii, iii, iv-a, iv-b, v, vi, joined, vii as listed in rebuild_census.py,
-          lane O63); an untagged note counts as vii (soft) and is listed as unclassified."""
+          lane O63; flagged variation forms helper, spelling, compiler-local, readability-alias, lane O78); an untagged note counts as vii (soft) and is listed as unclassified."""
 import csv, json, sys
 import rebuild as R
 PATH = R.MANIFEST / 'provenance.csv'

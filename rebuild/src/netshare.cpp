@@ -30,6 +30,7 @@
 #include "lzostraw.h"
 #include "mapgen.h"
 #include "modemhst.h"
+#include "narrow.h" // RA2: ra2-decomp's Narrow_Text at the two preview debug lines of Send_Map_Preview
 #include "mplayer.h" // RA2: Clear_Vector
 #include "srfcache.h" // RA2: the images of the slots
 #include "msgbox.h"
@@ -2625,7 +2626,6 @@ bool Set_Scenario_Info_From_Index(int index)
 /// </summary>
 /// <remarks>Only the game host should call this routine.</remarks>
 void __fastcall Send_Map_Preview(MapPreviewClass * preview); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: against the image bound (1,325 B) 1,131 bytes differ by position (was 1,247; ra2-decomp's twin text, Yuri's Revenge 0x005E7EB0, in this tree's names): the constant 0 takes ebx for the whole function where the image keeps the packet length 455 in ebx through the two message loops and clears ebx only for the file block, so the row is one use of the constant 0 over, or one of 455 short, ahead of the file block; the node test written `== true` (3 bytes off, a compare the image does not make) is held on variation_candidates.csv (lanes F45, O58); exact in scratch with ra2-decomp's Narrow_Text (narrow.h) at the two `no preview download possible` lines, which the twin's own text of this function does not use: held on variation_candidates.csv, kind C (lane F49, owner ruling 2026-11-23)
 void __fastcall Send_Map_Preview(MapPreviewClass * preview) // RA2: 0x005C7EF0, TibSun's Send_Preview_To_Guests takes no preview; it is called when a guest asks for the preview
 {
 	CDTimerClass<SystemTimerClass> response_timer;
@@ -2666,12 +2666,12 @@ void __fastcall Send_Map_Preview(MapPreviewClass * preview) // RA2: 0x005C7EF0, 
 							}
 							DebugString(
 								"Player %s has different local and external IPs - no preview download possible\n",
-								Wide_To_Narrow(
+								Narrow_Text(
 									Session.Players[peer]->Name));
 						} else {
 							DebugString(
 								"Player %s has a NAT - no preview download possible\n",
-								Wide_To_Narrow(
+								Narrow_Text(
 									Session.Players[peer]->Name));
 						}
 						goto no_preview;
@@ -2770,7 +2770,6 @@ void __fastcall Send_Map_Preview(MapPreviewClass * preview) // RA2: 0x005C7EF0, 
 		}
 	}
 }
-#endif
 
 
 /// <summary>

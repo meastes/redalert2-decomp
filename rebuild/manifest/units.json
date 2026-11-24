@@ -1234,6 +1234,15 @@
     "main_source": "src/recovered/house.cpp"
    },
    {
+    "entry": "004eca50",
+    "body": 1276,
+    "padding": 4,
+    "symbol": "?Random_Cell_In_Zone@HouseClass@@QBE?AVCell@@W4ZoneType@@@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "004ecf50",
     "body": 33,
     "padding": 15,
@@ -6835,7 +6844,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "catalogued",
+  "status": "pending",
   "range": [
    "005a6e70",
    "005a71c0"
@@ -33044,6 +33053,14 @@
     "main_source": "src/recovered/motlib.cpp"
    },
    {
+    "entry": "0059dce0",
+    "body": 1148,
+    "padding": 4,
+    "symbol": "?Mono_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+    "main_symbol": "?Mono_Dialog_Proc_0059dce0@@YGHPAUHWND__@@IIJ@Z",
+    "main_source": "src/recovered/motlib.cpp"
+   },
+   {
     "entry": "0059e160",
     "body": 48,
     "padding": 0,
@@ -33233,7 +33250,14 @@
    "_RAD_60": "00a70e30",
    "_RAD_90": "00a70e08",
    "_RECT_NONE": "00a70e10",
-   "?Mono_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z": "0059dce0"
+   "?Mono_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z": "0059dce0",
+   "_MonoAudioToggle": "00a70eec",
+   "_MonoStreamCount": "00a70ef8",
+   "_MonoStreams": "00a70dec",
+   "_MonoTestController": "00a70e70",
+   "_MonoTestHandle": "00a70ef4",
+   "_MonoVoiceIndex": "00a70ef0",
+   "_MonoVoicePriority": "00a70efc"
   },
   "note": "Range widened to 0x59D590-0x59EB60 (owner ruling with review agreement, lane C1D; DECISIONS 'unit boundary settled by data layout'): the 13 head initializers (RECT_NONE, geometry.h's twelve; modemreg ends at 0x59D590) and the mono window functions 0x59D780-0x59DB30 that main and ra2-decomp label motlib: MonoWindowAllowed 0xA70F08, MonoWindowRequested 0xA70F09 and MonoClass::Enabled 0xA70F0A share one 4-byte slot, the window, MonoClass and geometry statics interleave in one .bss block, YR packs them the same way. Mono_Window_Create 0x59DB30 held (its callback declaration moves Print_CRCs by 4 B); Mono_Dialog_Proc 0x59DCE0 (1,148 B) is mono's, not yet drafted"
  },
@@ -65551,7 +65575,7 @@
    "/Gy",
    "/Gr"
   ],
-  "status": "catalogued",
+  "status": "pending",
   "range": [
    "005a2610",
    "005a6e70"
@@ -66688,7 +66712,7 @@
     "entry": "00667410",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E91",
+    "symbol": "_$E165",
     "main_symbol": "_$E65",
     "main_source": "src/recovered/score.cpp"
    },
@@ -66942,8 +66966,6 @@
    }
   ],
   "references": {
-   "_$E91": "00667410",
-   "_?$S90@?1??Animate_Cursor@ScoreClass@@AAEXHH@Z@4EA": "00ab6f18",
    "_?_lastpos@?1??Animate_Cursor@ScoreClass@@AAEXHH@Z@4HA": "00ab6fa0",
    "_?_state@?1??Animate_Cursor@ScoreClass@@AAEXHH@Z@4HA": "00ab6f88",
    "_?_timer@?1??Animate_Cursor@ScoreClass@@AAEXHH@Z@4V?$CDTimerClass@VSystemTimerClass@@@@A": "00ab6f50",
@@ -66970,7 +66992,9 @@
    "?String_Width@ScoreFontClass@@UAEHPBG@Z": "00667a60",
    "?Print_String@ScoreFontClass@@UAEXPAVSurface@@PBGHHH@Z": "00667c70",
    "?Print_Char@ScoreFontClass@@UAEXPAVSurface@@GHHH_N@Z": "00667b60",
-   "?text_sounds@@3PAUScoreTextSoundStruct@@A": "00ab6fa8"
+   "?text_sounds@@3PAUScoreTextSoundStruct@@A": "00ab6fa8",
+   "_$E165": "00667410",
+   "_?$S164@?1??Animate_Cursor@ScoreClass@@AAEXHH@Z@4EA": "00ab6f18"
   },
   "partial_ok": true
  },
@@ -90195,6 +90219,15 @@
     "main_source": "src/recovered/netshare.cpp"
    },
    {
+    "entry": "005c7ef0",
+    "body": 1325,
+    "padding": 3,
+    "symbol": "?Send_Map_Preview@@YIXPAVMapPreviewClass@@@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "005c8420",
     "body": 177,
     "padding": 15,
@@ -90970,7 +91003,12 @@
    "?ColorPriv@@3KB": "007a7368",
    "?expand@?$Dictionary@VWideWstring@@_N@@AAEXXZ": "005cda50",
    "??_C@_0BI@HJFD@TXT_NO_AI_WITH_OBSERVER?$AA@": "007e73ec",
-   "??_C@_0BH@GAJA@TXT_OBSERVER_BOOTED_AI?$AA@": "007e73d4"
+   "??_C@_0BH@GAJA@TXT_OBSERVER_BOOTED_AI?$AA@": "007e73d4",
+   "??_C@_0CA@DIKN@Creating?5low?9res?5preview?5image?6?$AA@": "007e719c",
+   "??_C@_0CC@OLL@Sending?5public?5options?5string?5?$CFs@": "007e71f0",
+   "??_C@_0DD@FMAM@Waiting?5for?5?$CFd?5players?5to?5signal@": "007e71bc",
+   "??_C@_0DE@JGDI@Player?5?$CFs?5has?5a?5NAT?5?9?5no?5preview@": "007e7264",
+   "??_C@_0EP@CBDM@Player?5?$CFs?5has?5different?5local?5an@": "007e7214"
   },
   "partial_ok": true
  },
@@ -119109,6 +119147,15 @@
     "main_source": "src/recovered/mainopt.cpp"
    },
    {
+    "entry": "00542590",
+    "body": 1996,
+    "padding": 4,
+    "symbol": "?Main_Options_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "00542d60",
     "body": 1909,
     "padding": 11,
@@ -119181,12 +119228,14 @@
    "_DetailLabels": "007dfd80",
    "_DifficultyLabels": "007dfd8c",
    "_ScrollLabels": "007dfd98",
-   "_InitialResolution": "007dfdb4",
    "??_C@_0N@IJDA@?$CFd?5x?5?$CFd?5x?516?$AA@": "007dfdf4",
    "_?_current_mode@?1??Display_Options_Dialog_Body@@YIHPAUHWND__@@II@Z@4HA": "007dfdbc",
    "_?_initialized@?1??Display_Options_Dialog_Body@@YIHPAUHWND__@@II@Z@4_NA": "007dfdc4",
    "_?_modes@?1??Display_Options_Dialog_Body@@YIHPAUHWND__@@II@Z@4PAHA": "00a6ed14",
-   "_?_previous_mode@?1??Display_Options_Dialog_Body@@YIHPAUHWND__@@II@Z@4HA": "007dfdc0"
+   "_?_previous_mode@?1??Display_Options_Dialog_Body@@YIHPAUHWND__@@II@Z@4HA": "007dfdc0",
+   "_?_modes@?1??Main_Options_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z@4PAHA": "00a6ed10",
+   "_?_current_mode@?1??Main_Options_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z@4HA": "007dfdb4",
+   "_?_initialized@?1??Main_Options_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z@4_NA": "00a6ed0c"
   },
   "partial_ok": true
  },
@@ -129420,7 +129469,7 @@
     "entry": "006159e0",
     "body": 42,
     "padding": 6,
-    "symbol": "?Planning_Cell_Mission@@YI_NHVTargetClass@@@Z",
+    "symbol": "?Planning_Cell_Mission@@YI_NHVxTargetClass@@@Z",
     "main_symbol": "?Planning_Cell_Mission@@YI_NHVTargetClass@@@Z",
     "main_source": "src/recovered/planmgr.cpp"
    },
@@ -129436,7 +129485,7 @@
     "entry": "00615a80",
     "body": 221,
     "padding": 3,
-    "symbol": "?Planning_Order_Kind@@YIHPAVTechnoClass@@PBVEventClass@@@Z",
+    "symbol": "?Planning_Order_Kind@@YIHPAVTechnoClass@@ABVEventClass@@@Z",
     "main_symbol": "?Planning_Order_Kind@@YIHPAVTechnoClass@@PBUPlanningEventTargets@@@Z",
     "main_source": "src/recovered/planmgr.cpp"
    },
@@ -129669,7 +129718,7 @@
     "entry": "00617020",
     "body": 216,
     "padding": 8,
-    "symbol": "?Planning_Refuse_Order@@YIXPBVEventClass@@@Z",
+    "symbol": "?Planning_Refuse_Order@@YIXABVEventClass@@@Z",
     "main_symbol": "?Planning_Refuse_Order@@YIXPBVEventClass@@@Z",
     "main_source": "src/recovered/planmgr.cpp"
    },
@@ -129685,7 +129734,7 @@
     "entry": "006171e0",
     "body": 91,
     "padding": 5,
-    "symbol": "?Planning_Event_Result@@YIHPAVPlanningTokenClass@@PBVEventClass@@@Z",
+    "symbol": "?Planning_Event_Result@@YIHPAVPlanningTokenClass@@ABVEventClass@@@Z",
     "main_symbol": "?Planning_Event_Result@@YIHPAVPlanningTokenClass@@PBUPlanningEventTargets@@@Z",
     "main_source": "src/recovered/planmgr.cpp"
    },
@@ -142590,7 +142639,16 @@
    "??_C@_0BK@KKII@WOL?3MatchErrorJoiningGame?$AA@": "00800260",
    "??_C@_0BL@MMJA@WOL?3MatchErrorCreatingGame?$AA@": "008002d8",
    "??_C@_0BN@HPDK@WOL?3MatchGameChannelNotFound?$AA@": "00800290",
-   "??_C@_0BO@IDGM@WOL?3MatchAttemptingToFindGame?$AA@": "008002b0"
+   "??_C@_0BO@IDGM@WOL?3MatchAttemptingToFindGame?$AA@": "008002b0",
+   "??_C@_0BG@CCBD@Packet?5is?5RA2?5packet?6?$AA@": "007ff8c0",
+   "??_C@_0CB@CCKL@Packet?5type?5is?5NET_REQ_SCENARIO?6@": "007ff89c",
+   "??_C@_0CA@GBEP@Packet?5type?5is?5NET_READY_TO_GO?6?$AA@": "007ff87c",
+   "??_C@_0BM@HGOO@Packet?5type?5is?5NET_DONT_GO?6?$AA@": "007ff860",
+   "??_C@_0CA@EHFL@Packet?5type?5is?5NET_NO_SCENARIO?6?$AA@": "007ff840",
+   "??_C@_0BG@BIFK@Sent?5NET_NO_SCENARIO?6?$AA@": "007ff828",
+   "??_C@_0CD@BEIF@About?5to?5wait?5for?5?8GO?8?5from?5host@": "007ff804",
+   "??_C@_0BG@PLKK@Got?5NET_GO?5from?5host?6?$AA@": "007ff7ec",
+   "??_C@_0BL@FHNA@Got?5NET_DONT_GO?5from?5host?6?$AA@": "007ff7d0"
   },
   "partial_ok": true,
   "parked_rows": [
@@ -148748,6 +148806,15 @@
     "main_source": "src/recovered/uicmnds/unknown_veterancy_rank_index.cpp"
    },
    {
+    "entry": "006f81b0",
+    "body": 741,
+    "padding": 11,
+    "symbol": "?Select_By_Type@@YIX_N@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "006f84a0",
     "body": 307,
     "padding": 13,
@@ -148871,7 +148938,9 @@
    "?TypeSelectKeyTime@@3KA": "00ac1340",
    "?Jump_To_Radar_Event@@YIXXZ": "006f88f0",
    "?Recall_Radar_Event_Cell@@YI?AVCell@@XZ": "0063c6f0",
-   "?Recall_Previous_Radar_Event_Cell@@YI?AVCell@@XZ": "0063c720"
+   "?Recall_Previous_Radar_Event_Cell@@YI?AVCell@@XZ": "0063c720",
+   "?LastTypeName@@3PADA": "00ac1250",
+   "?LastTypeCost@@3HA": "00ac1348"
   },
   "partial_ok": true
  },
@@ -153156,7 +153225,6 @@
    "?Sounds01Mix@@3PAVMixFileClass@@A": "008374fc",
    "?LanguageMix@@3PAVMixFileClass@@A": "008374bc",
    "?UnkBuffer@@3PAVBuffer@@A": "00a35e20",
-   "$T131522": "007ab990",
    "__controlfp": "00785049",
    "_set_control_word": "0077f0f4",
    "_RegisterTheseDLLs": "007ab988",
@@ -153166,7 +153234,9 @@
    "?Init_Direct3D@@YAJXZ": "004b1340",
    "?Is_Bit2_Clear@WOLOptionsClass@@QAE_NXZ": "004ff2d0",
    "?NoExceptionHandler@@3_NA": "00a4168c",
-   "?Mono_Window_Shutdown@@YIXXZ": "0059d900"
+   "?Mono_Window_Shutdown@@YIXXZ": "0059d900",
+   "$T": "007ab990",
+   "??_C@_0N@JHAF@blowfish?4dll?$AA@": "007f4cd0"
   },
   "partial_ok": true,
   "parked_rows": [
@@ -160504,7 +160574,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "catalogued",
+  "status": "pending",
   "range": [
    "005aa530",
    "005aa830"
@@ -160722,7 +160792,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "catalogued",
+  "status": "pending",
   "range": [
    "005ac140",
    "005ac540"
@@ -160936,7 +161006,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "catalogued",
+  "status": "pending",
   "range": [
    "005ab3b0",
    "005abbd0"
@@ -161605,7 +161675,7 @@
    "/Gy",
    "/Gr"
   ],
-  "status": "catalogued",
+  "status": "pending",
   "range": [
    "005a74b0",
    "005a7530"

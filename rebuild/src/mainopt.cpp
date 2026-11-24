@@ -99,8 +99,6 @@ OptionsClass TempOptions;
 static char const * DetailLabels[3] = { "TXT_LOW", "TXT_MEDIUM", "TXT_HIGH" };
 static char const * DifficultyLabels[3] = { "TXT_EASY", "TXT_NORMAL", "TXT_HARD" };
 static char const * ScrollLabels[7] = { "TXT_SLOWEST", "TXT_SLOWER", "TXT_SLOW", "TXT_MEDIUM", "TXT_FAST", "TXT_FASTER", "TXT_FASTEST" };
-static int InitialResolution = -1;
-static bool OptionsReady;
 static int CurrentNetCard = -1;
 
 
@@ -296,212 +294,181 @@ void Main_Options_Dialog(void)
 /// that it can bring up the appropriate sub dialog. The sound button is disabled when there
 /// is no audio hardware to talk to.
 /// </summary>
-#if 0
-BOOL CALLBACK Main_Options_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
+BOOL CALLBACK Main_Options_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x00542590; ra2-decomp's twin text (Yuri's Revenge 0x0055FDB0) with RA2's display mode trial on a resolution change
 {
+	static int * _modes = NULL;
+	static int _current_mode = -1;
+	static bool _initialized = false;
 	int rc = OwnerDraw::Default_Dialog_Proc(window, message, wparam, lparam);
-	if (rc != 0) {
-		return(rc);
-	}
-
-	int * result = (int *)GetWindowLong(window, DWL_USER);
-	HWND control = (HWND)lparam;
-	switch (message) {
-		case WM_COMMAND:
-			switch (LOWORD(wparam)) {
-				case IDC_OPTMAIN_NETWORK:
-				case IDC_OPTMAIN_KEYBOARD:
-					delete [] ResolutionModes;
-					ResolutionModes = NULL;
-					*result = LOWORD(wparam);
-					break;
-
-				case IDC_OPTMAIN_OK:
-					if (HIWORD(wparam) == 0) {
-						delete [] ResolutionModes;
-						ResolutionModes = NULL;
-						*(int *)GetWindowLong(window, DWL_USER) = IDC_OPTMAIN_MAINMENU;
-					}
-					break;
-
-				case IDC_OPTMAIN_RESOLUTION:
-					if (HIWORD(wparam) == CBN_SELCHANGE) {
-						Center_Window_Within_Window(window, MainWindow);
-						HWND combo = GetDlgItem(window, IDC_OPTMAIN_RESOLUTION);
-						if (combo == NULL) {
-							return(0);
+	if (rc == 0) {
+		int * result = (int *)GetWindowLong(window, DWL_USER);
+		switch (message) {
+			case WM_COMMAND:
+				switch (LOWORD(wparam)) {
+					case IDC_OPTMAIN_NETWORK:
+					case IDC_OPTMAIN_KEYBOARD:
+						delete[] _modes;
+						_modes = NULL;
+						*result = LOWORD(wparam);
+						break;
+					case 0x686:
+						if (HIWORD(wparam) == 0) {
+							delete[] _modes;
+							_modes = NULL;
+							*(int *)GetWindowLong(window, DWL_USER) = IDC_OPTMAIN_MAINMENU;
 						}
-						int item = ComboBox_GetCurSel(combo);
-						int mode = ComboBox_GetItemData(combo, item);
-						TempOptions.ScreenWidth = ResolutionModes[mode].Width;
-						TempOptions.ScreenHeight = ResolutionModes[mode].Height;
-						if (TempOptions.ScreenWidth == Options.ScreenWidth && TempOptions.ScreenHeight == Options.ScreenHeight) {
-							return(0);
-						}
-						if (Mode_Prompt_Dialog()) {
-							if (Debug_IngameModeChange) {
-								Options.ScreenWidth = TempOptions.ScreenWidth;
-								Options.ScreenHeight = TempOptions.ScreenHeight;
-								return(0);
+						break;
+					case 0x6ED:
+						if (HIWORD(wparam) == CBN_SELCHANGE) {
+							Center_Window_Within_Window(window, MainWindow);
+							HWND list = GetDlgItem(window, 0x6ED);
+							if (list) {
+								int selected = ComboBox_GetCurSel(list);
+								int index = ComboBox_GetItemData(list, selected);
+								TempOptions.ScreenWidth = _modes[2 * index];
+								TempOptions.ScreenHeight = _modes[2 * index + 1];
+								if (TempOptions.ScreenWidth != Options.ScreenWidth || TempOptions.ScreenHeight != Options.ScreenHeight) {
+									if (Mode_Prompt_Dialog()) {
+										if (Debug_IngameModeChange) {
+											Options.ScreenWidth = TempOptions.ScreenWidth;
+											Options.ScreenHeight = TempOptions.ScreenHeight;
+										} else if (Test_Display_Mode_Dialog(TempOptions.ScreenWidth, TempOptions.ScreenHeight)) {
+											Options.ScreenWidth = TempOptions.ScreenWidth;
+											Options.ScreenHeight = TempOptions.ScreenHeight;
+											Relayout_Interface_Art(TempOptions.ScreenWidth, TempOptions.ScreenHeight);
+											Darken_Surface(NULL, true);
+										} else {
+											ComboBox_SetCurSel(list, _current_mode);
+										}
+									} else {
+										ComboBox_SetCurSel(list, _current_mode);
+									}
+								}
 							}
-							if (Test_Display_Mode_Dialog(TempOptions.ScreenWidth, TempOptions.ScreenHeight)) {
-								Options.ScreenWidth = TempOptions.ScreenWidth;
-								Options.ScreenHeight = TempOptions.ScreenHeight;
-								Relayout_Interface_Art(TempOptions.ScreenWidth, TempOptions.ScreenHeight);
-								Darken_Surface(NULL, true);
-								return(0);
-							}
-							ComboBox_SetCurSel(combo, InitialResolution);
-							return(0);
 						}
-						ComboBox_SetCurSel(combo, InitialResolution);
-						return(0);
+						break;
+				}
+				break;
+			case WM_DESTROY:
+				if (_modes != NULL) {
+					delete[] _modes;
+					_modes = NULL;
+				}
+				break;
+			case WM_HSCROLL:
+				if (LOWORD(wparam) == SB_THUMBTRACK) {
+					int index = HIWORD(wparam);
+					char const * name;
+					HWND handle = NULL;
+					if ((HWND)lparam == GetDlgItem(window, IDC_DETAIL_LEVEL_SLIDER)) {
+						int detail = index;
+						if (index) detail = 2;
+						name = DetailLabels[detail];
+						handle = GetDlgItem(window, IDC_DETAIL_LEVEL_LABEL);
+					} else if ((HWND)lparam == GetDlgItem(window, IDC_DIFFICULTY_SLIDER)) {
+						name = DifficultyLabels[index];
+						handle = GetDlgItem(window, IDC_DIFFICULTY_LABEL);
+					} else if ((HWND)lparam == GetDlgItem(window, IDC_SCROLL_SPEED_SLIDER)) {
+						name = ScrollLabels[index];
+						handle = GetDlgItem(window, IDC_SCROLL_SPEED_LABEL);
+					} else if ((HWND)lparam == GetDlgItem(window, IDC_MUSIC_VOLUME)) {
+						if (_initialized) Options.Set_Score_Volume(SendMessage((HWND)lparam, TBM_GETPOS, 0, 0) * 0.1, true);
+					} else if ((HWND)lparam == GetDlgItem(window, IDC_SOUND_VOLUME)) {
+						if (_initialized) Options.Set_Sound_Volume(SendMessage((HWND)lparam, TBM_GETPOS, 0, 0) * 0.1, true);
+					} else if ((HWND)lparam == GetDlgItem(window, IDC_VOICE_VOLUME)) {
+						if (_initialized) Options.Set_Voice_Volume(SendMessage((HWND)lparam, TBM_GETPOS, 0, 0) * 0.1, true);
 					}
-					break;
-			}
-			return(0);
-
-		case WM_DESTROY:
-			if (ResolutionModes) {
-				delete [] ResolutionModes;
-				ResolutionModes = NULL;
-			}
-			return(0);
-
-		case WM_HSCROLL: {
-			if (LOWORD(wparam) != TB_THUMBTRACK) {
-				return(0);
-			}
-			int position = HIWORD(wparam);
-			char const * name;
-			HWND text;
-			if (control == GetDlgItem(window, IDC_DETAIL_LEVEL_SLIDER)) {
-				int index = position;
-				if (position) {
-					index = 2;
+					if (handle) {
+						wchar_t const * text = StringTable::LoadString(name, NULL, "D:\\Ra2\\MainOpt.cpp", 550);
+						SendMessage(handle, OD_SETTEXTW, 0, (LPARAM)text);
+					}
 				}
-				name = DetailLabels[index];
-				text = GetDlgItem(window, IDC_DETAIL_LEVEL_LABEL);
-			} else if (control == GetDlgItem(window, IDC_DIFFICULTY_SLIDER)) {
-				name = DifficultyLabels[position];
-				text = GetDlgItem(window, IDC_DIFFICULTY_LABEL);
-			} else if (control == GetDlgItem(window, IDC_SCROLL_SPEED_SLIDER)) {
-				name = ScrollLabels[position];
-				text = GetDlgItem(window, IDC_SCROLL_SPEED_LABEL);
-			} else {
-				if (!OptionsReady) {
-					return(0);
+				break;
+			case OD_SUBCLASSED: {
+				_initialized = false;
+				HWND handle = GetDlgItem(window, IDC_DETAIL_LEVEL_SLIDER);
+				if (handle) {
+					SendMessage(handle, OD_TRACKNUMBERS, 0, 0);
+					Slider_SetRange(handle, 0, 1);
+					Slider_SetPos(handle, Options.DetailLevel != 0);
 				}
-				if (control == GetDlgItem(window, IDC_MUSIC_VOLUME)) {
-					Options.Set_Score_Volume((float)(SendMessage(control, TBM_GETPOS, 0, 0) * 0.1), true);
-				} else if (control == GetDlgItem(window, IDC_SOUND_VOLUME)) {
-					Options.Set_Sound_Volume((float)(SendMessage(control, TBM_GETPOS, 0, 0) * 0.1), true);
-				} else if (control == GetDlgItem(window, IDC_VOICE_VOLUME)) {
-					Options.Set_Voice_Volume((float)(SendMessage(control, TBM_GETPOS, 0, 0) * 0.1), true);
+				HWND list = GetDlgItem(window, 0x6ED);
+				if (Options.AllowHiResModes) {
+					_modes = EnumDisplayModes(640, 480, 4096, 4096, 16);
+				} else {
+					_modes = EnumDisplayModes(640, 480, 1024, 768, 16);
 				}
-				return(0);
-			}
-			if (text) {
-				SendMessage(text, OD_SETTEXTW, 0, (LPARAM)StringTable::LoadString(name, NULL, "D:\\Ra2\\MainOpt.cpp", 550));
-			}
-			return(0);
-		}
-
-		case OD_SUBCLASSED: {
-			OptionsReady = false;
-			HWND slider = GetDlgItem(window, IDC_DETAIL_LEVEL_SLIDER);
-			if (slider) {
-				SendMessage(slider, OD_TRACKNUMBERS, 0, 0);
-				SendMessage(slider, TBM_SETRANGE, TRUE, MAKELONG(0, 1));
-				SendMessage(slider, TBM_SETPOS, TRUE, Options.DetailLevel != 0);
-			}
-
-			HWND combo = GetDlgItem(window, IDC_OPTMAIN_RESOLUTION);
-			if (Options.AllowHiResModes) {
-				ResolutionModes = (ModeSize *)EnumDisplayModes(640, 480, 4096, 4096, 16);
-			} else {
-				ResolutionModes = (ModeSize *)EnumDisplayModes(640, 480, 1024, 768, 16);
-			}
-			int * modes = (int *)ResolutionModes;
-			int item_index = 0;
-			int selected = -1;
-			int count = 0;
-			if (modes != NULL) {
-				while (*modes != 0) {
-					int width = *modes++;
-					int height = *modes++;
-					if (Options.AllowHiResModes || width == 640 || width == 800 || width == 1024) {
-						if (width == TempOptions.ScreenWidth && height == TempOptions.ScreenHeight) {
-							selected = count;
+				int * modes = _modes;
+				int initial_mode = -1;
+				int mode_index = 0;
+				int item_index = 0;
+				if (modes != NULL) {
+					while (*modes != 0) {
+						int width = *modes++;
+						int height = *modes++;
+						if (Options.AllowHiResModes || width == 640 || width == 800 || width == 1024) {
+							if (width == TempOptions.ScreenWidth && height == TempOptions.ScreenHeight) initial_mode = mode_index;
+							char buffer[64];
+							sprintf(buffer, "%d x %d x 16", width, height);
+							int index = SendMessage(list, 0x4BC, 0, (LPARAM)buffer);
+							ComboBox_SetItemData(list, index, item_index);
+							mode_index++;
+							item_index++;
+						} else {
+							item_index++;
 						}
-						char buffer[64];
-						sprintf(buffer, "%d x %d x 16", width, height);
-						int item = ComboBox_AddString(combo, buffer);
-						ComboBox_SetItemData(combo, item, item_index);
-						count++;
 					}
-					item_index++;
 				}
+				ComboBox_SetCurSel(list, initial_mode);
+				_current_mode = initial_mode;
+				handle = GetDlgItem(window, IDC_DIFFICULTY_SLIDER);
+				if (handle) {
+					SendMessage(handle, OD_TRACKNUMBERS, 0, 0);
+					Slider_SetRange(handle, 0, 2);
+					Slider_SetPos(handle, Options.Difficulty);
+				}
+				handle = GetDlgItem(window, IDC_TARGET_LINES);
+				if (handle) Button_SetCheck(handle, Options.ActionLines != false);
+				handle = GetDlgItem(window, 0x604);
+				if (handle) Button_SetCheck(handle, Options.IsShowHidden != false);
+				handle = GetDlgItem(window, IDC_TOOLTIPS);
+				if (handle) Button_SetCheck(handle, Options.ToolTips != false);
+				handle = GetDlgItem(window, IDC_SCROLL_SPEED_SLIDER);
+				if (handle) {
+					SendMessage(handle, OD_TRACKNUMBERS, 0, 0);
+					Slider_SetRange(handle, 0, 6);
+					Slider_SetPos(handle, 6 - Options.ScrollRate);
+				}
+				int available = AudioDeviceAvailable();
+				handle = GetDlgItem(window, IDC_MUSIC_VOLUME);
+				if (handle) {
+					SendMessage(handle, OD_TRACKSILENT, 0, 0);
+					Slider_SetRange(handle, 0, 10);
+					Slider_SetPos(handle, (int)(Options.ScoreVolume * 10.0 + 0.5));
+					EnableWindow(handle, available);
+				}
+				handle = GetDlgItem(window, IDC_SOUND_VOLUME);
+				if (handle) {
+					SendMessage(handle, OD_TRACKSILENT, 0, 0);
+					Slider_SetRange(handle, 0, 10);
+					Slider_SetPos(handle, (int)(Options.SoundVolume * 10.0 + 0.5));
+					EnableWindow(handle, available);
+				}
+				handle = GetDlgItem(window, IDC_VOICE_VOLUME);
+				if (handle) {
+					SendMessage(handle, OD_TRACKSILENT, 0, 0);
+					Slider_SetRange(handle, 0, 10);
+					Slider_SetPos(handle, (int)(Options.VoiceVolume * 10.0 + 0.5));
+					EnableWindow(handle, available);
+				}
+				_initialized = true;
+				break;
 			}
-			ComboBox_SetCurSel(combo, selected);
-			InitialResolution = selected;
-
-			slider = GetDlgItem(window, IDC_DIFFICULTY_SLIDER);
-			if (slider) {
-				SendMessage(slider, OD_TRACKNUMBERS, 0, 0);
-				SendMessage(slider, TBM_SETRANGE, TRUE, MAKELONG(0, 2));
-				SendMessage(slider, TBM_SETPOS, TRUE, Options.Difficulty);
-			}
-
-			HWND box = GetDlgItem(window, IDC_TARGET_LINES);
-			if (box) {
-				SendMessage(box, BM_SETCHECK, Options.ActionLines != 0, 0);
-			}
-			box = GetDlgItem(window, IDC_SHOW_HIDDEN);
-			if (box) {
-				SendMessage(box, BM_SETCHECK, Options.IsShowHidden != 0, 0);
-			}
-			box = GetDlgItem(window, IDC_TOOLTIPS);
-			if (box) {
-				SendMessage(box, BM_SETCHECK, Options.ToolTips != 0, 0);
-			}
-
-			slider = GetDlgItem(window, IDC_SCROLL_SPEED_SLIDER);
-			if (slider) {
-				SendMessage(slider, OD_TRACKNUMBERS, 0, 0);
-				SendMessage(slider, TBM_SETRANGE, TRUE, MAKELONG(0, 6));
-				SendMessage(slider, TBM_SETPOS, TRUE, 6 - Options.ScrollRate);
-			}
-
-			int sound = AudioDeviceAvailable();
-			slider = GetDlgItem(window, IDC_MUSIC_VOLUME);
-			if (slider) {
-				SendMessage(slider, OD_TRACKSILENT, 0, 0);
-				SendMessage(slider, TBM_SETRANGE, TRUE, MAKELONG(0, 10));
-				SendMessage(slider, TBM_SETPOS, TRUE, (int)(Options.ScoreVolume * 10.0 + 0.5));
-				EnableWindow(slider, sound);
-			}
-			slider = GetDlgItem(window, IDC_SOUND_VOLUME);
-			if (slider) {
-				SendMessage(slider, OD_TRACKSILENT, 0, 0);
-				SendMessage(slider, TBM_SETRANGE, TRUE, MAKELONG(0, 10));
-				SendMessage(slider, TBM_SETPOS, TRUE, (int)(Options.SoundVolume * 10.0 + 0.5));
-				EnableWindow(slider, sound);
-			}
-			slider = GetDlgItem(window, IDC_VOICE_VOLUME);
-			if (slider) {
-				SendMessage(slider, OD_TRACKSILENT, 0, 0);
-				SendMessage(slider, TBM_SETRANGE, TRUE, MAKELONG(0, 10));
-				SendMessage(slider, TBM_SETPOS, TRUE, (int)(Options.VoiceVolume * 10.0 + 0.5));
-				EnableWindow(slider, sound);
-			}
-			OptionsReady = true;
-			return(0);
 		}
+		return 0;
 	}
-	return(0);
+	return rc;
 }
-#endif
 
 
 /// <summary>
