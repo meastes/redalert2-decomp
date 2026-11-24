@@ -222,7 +222,7 @@ void STDMETHODCALLTYPE WalkLocomotionClass::Force_Immediate_Destination(CoordStr
  * HISTORY:                                                                                    *
  *   07/29/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: against the image bound (4,967 B) 4,595 bytes differ (was 4,626; the tube position as TibSun hover.cpp computes it, Map[Adjacent_Cell(enter, dir)].Cell_Coord() - Coord(enter) + LinkedTo->PositionCoord; the second three-axis Coord constructor still expanded; before that the mech sibling's tube and end-of-move text, LinkedTo passed where the image passes it; 118 of 119 calls in order; by position the older text gave 4,551); main: best 89.83, tried 12 times (frame, inline, register)
+#ifdef RA2_NON_MATCHING // not exact: against the image-derived bound 0071e220 (4,967 B) 4,301 bytes differ (was 4,595; TibSun walk.cpp's tube intermediates (visual_cell, enter_coord, visual_coord) and the single arrival test of ra2-decomp's banked form banks/0x0075AEC0_returns.cpp (11df85d) bring back the second three-axis Coord constructor: all 119 calls in native order; before that TibSun hover.cpp's one-line tube position 4,595 and the mech sibling's tube and end-of-move text); main: best 89.83, tried 12 times (frame, inline, register)
 void WalkLocomotionClass::Movement_AI(bool first_pass)
 {
 	if (HeadToCoord == COORD_NONE) {
@@ -298,8 +298,8 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 					LinkedTo->Clear_Occupy_Bit(LinkedTo->Get_Coord());
 
 					TubeClass * tube_ptr = Tubes[tube];
-					Cell exit = tube_ptr->Get_Exit();
-					HeadToCoord = exit.As_Coord();
+					Cell cell = tube_ptr->Get_Exit();
+					HeadToCoord = Coord(cell, 0);
 
 					memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * (CONQUER_PATH_MAX - 1));
 					LinkedTo->Path[CONQUER_PATH_MAX - 1] = FACING_NONE;
@@ -307,10 +307,15 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 					LinkedTo->CurrentTube = tube;
 					LinkedTo->CurrentTubeDir = FACING_FIRST;
 
-					LinkedTo->LastTubeCoord = Map[Adjacent_Cell((Cell)tube_ptr->Enter, tube_ptr->Dirs[0])].Cell_Coord() - Coord((Cell)tube_ptr->Enter) + LinkedTo->PositionCoord;
+					cell = tube_ptr->Enter;
+					Cell visual_cell = Adjacent_Cell(cell, tube_ptr->Dirs[0]);
+					Coord enter_coord(cell);
+					Coord visual_coord = Map[visual_cell].Cell_Coord();
+					LinkedTo->LastTubeCoord = LinkedTo->Get_Coord() + (visual_coord - enter_coord);
 
-					int start_h = Map.Get_Height_GL(LinkedTo->PositionCoord);
-					LinkedTo->LastTubeCoord.Z = start_h + (Map.Get_Height_GL(tube_ptr->Get_Exit()) - start_h) / tube_ptr->Get_Count();
+					int start_h = Map.Get_Height_GL(LinkedTo->Get_Coord());
+					cell = tube_ptr->Get_Exit();
+					LinkedTo->LastTubeCoord.Z = start_h + (Map.Get_Height_GL(Coord(cell, 0)) - start_h) / tube_ptr->Get_Count();
 					return;
 				}
 
@@ -477,22 +482,14 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 			LinkedTo->Per_Cell_Process(PCP_END);
 
 			if (LinkedTo && LinkedTo->IsActive && !LinkedTo->IsInLimbo && !LinkedTo->IsFalling) {
-				if (DestinationCoord == COORD_NONE) {
+				if (DestinationCoord == COORD_NONE ||
+					(LinkedTo->Destination_Coord().As_Cell() == DestinationCoord.As_Cell() &&
+						abs(LinkedTo->Destination_Coord().Z - DestinationCoord.Z) < 2 * LEVEL_LEPTON_H)) {
 					LinkedTo->Assign_Destination(NULL);
 					LinkedTo->Set_Speed(0.0);
 					HeadToCoord = COORD_NONE;
 					Stop_Moving();
 					IsReallyMoving = false;
-				} else {
-					if (LinkedTo->Destination_Coord().As_Cell() == DestinationCoord.As_Cell()) {
-						if (abs(LinkedTo->Destination_Coord().Z - DestinationCoord.Z) < 2 * LEVEL_LEPTON_H) {
-							LinkedTo->Assign_Destination(NULL);
-							LinkedTo->Set_Speed(0.0);
-							HeadToCoord = COORD_NONE;
-							Stop_Moving();
-							IsReallyMoving = false;
-						}
-					}
 				}
 
 				LinkedTo->Mark(MARK_DOWN);

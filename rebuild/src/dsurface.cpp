@@ -1486,7 +1486,7 @@ bool DSurface::Draw_Depth_Glow_Line(Rect const & cliprect, Point2D const & start
 /// <param name="blend_blue">Should the blue channel be blended?</param>
 /// <param name="intensity">The weight used when sampling the falloff gradient.</param>
 /// <returns>bool; Was any part of the line drawn?</returns>
-#if 0
+#ifdef RA2_NON_MATCHING // not exact: 5842 bytes differ against the image-derived bound 004ac650 (6064 body bytes, 0 padding) (TibSun dsurface.cpp text as is, formerly under #if 0; the per-channel MIN clamps and paired buffer steps of ra2-decomp's attempt note 030e779 score worse)
 bool DSurface::Draw_Depth_Antialiased_Line(Rect const & cliprect, Point2D const & startpoint, Point2D const & endpoint, RGBClass & color, int start_depth, int end_depth, bool write_depth, bool blend_red, bool blend_green, bool blend_blue, float intensity)
 {
 	static int GradientTable[257];

@@ -47,7 +47,7 @@ techno,006c1f10,TechnoClass::TechnoClass,409,inline_call,93,a,"variation_candida
 techno,006c2c40,TechnoClass::Draw_Post_Render,3341,inline_call,3138,a,"variation_candidates.csv: main's coined unit-local readers Mouse_Hover_Flag and Techno_Is_Selected (techno.cpp, 'its site decides the temporaries')",,yes,,,,A,structure,no,3341
 techtype,006d9b40,TechnoTypeClass::TechnoTypeClass,2961,register_order,15,a,"variation_candidates.csv: main's coined `Leptons` class for GuardRange (a class with an inline constructor, after YRpp's name)",,yes,,,,B,structure,yes,-8262
 unit,006ff690,UnitClass::Unit_Draw_Voxel,3861,no_row,2468,a,"variation_candidates.csv: main's coined Unit_Voxel_Loaded_007005b0 (two uses; 0x7005B0 is Unit_Draw_Shape) and Position_Coord_004f3f40 accessor, which add about three pending inline site",,yes,,,,,,,
-walk,0071e220,WalkLocomotionClass::Movement_AI,4967,no_row,4595,a,"variation_candidates.csv: an unnamed As_Radian angle in inline.h Move_Coord (TibSun's and ra2-decomp's text name the double), and only together with In_Radio_Contact for the radio test w",,yes,,,,,,,
+walk,0071e220,WalkLocomotionClass::Movement_AI,4967,no_row,4301,a,"variation_candidates.csv: an unnamed As_Radian angle in inline.h Move_Coord (TibSun's and ra2-decomp's text name the double), and only together with In_Radio_Contact for the radio test w",,yes,,,,,,,
 wdtsel,0072e780,WorldDominationTour::Selection::Do_Target_Anim,1531,register_order,,a,"variation_candidates.csv: kind C (a sibling-site idiom over the twin's own text at this site): `Point2D const & target = WorldMap->Origin + it->Get_Target();`, a const reference bound to",,yes,,,,,,,
 wonline,007469c0,Wonline_Main_Dialog_Proc,7172,inline_call,1257,a,variation_candidates.csv: main's Make_Room level under Add_At (src/shared/wol_sink.hpp RA2_WOL_INT_ARRAY_MAKE_ROOM) with main's chain of inline helpers above it: the two growVector calls,,yes,,,,B,structure,no,7172
 wonline,0074a120,Player_Info_Tooltip,959,inline_call,857,a,"variation_candidates.csv: main's Key_Hash specialisation switch, as CChatEventSink::OnFind 0x762F70",,yes,,,,B,structure,not tested,959
@@ -149,6 +149,7 @@ bullet,004642a0,??Y?$TVelocity3D@N@@QAEAAU0@ABU0@@Z,33,no_draft,,e,no draft yet,
 combuf,,CommBufferClass::Mono_Debug_Print,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 combuf,,CommBufferClass::Mono_Debug_Print2,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 drive,,DriveLocomotionClass::Draw_Matrix,0,unplaced,708,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
+dsurface,004ac650,DSurface::Draw_Depth_Antialiased_Line,6064,no_row,5842,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 fly,004be720,FlyLocomotionClass::Nearing_Target,1633,inline_call,562,e,stays a flagged draft,,yes,,,,A,structure,no,1633
 fly,004bfb30,UnknownFacingDir::Magnitude_At_Least_004bfb30,36,no_draft,,e,no draft yet,,no,,,,,,,
 infantry,,InfantryClass::Is_Immobilized,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
@@ -208,7 +209,7 @@ palette,00603750,Set_Scheme_Table_Theater,504,no_row,454,e,"no row of its own ye
 particle,,ParticleClass::Web_Behavior_AI,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 partsys,,ParticleSystemClass::Web_AI,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 planmgr,00614ba0,Planning_Execute,786,inline_call,272,e,stays a flagged draft,,yes,,,,,,,
-queue,006282d0,Extract_Compressed_Events,1455,no_row,945,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
+queue,006282d0,Extract_Compressed_Events,1455,no_row,934,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 reinf,0063a880,Do_Chrono_Reinforcements,1567,no_row,84,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 scenario,0065b780,ScenarioClass::ScenarioClass,171,inline_call,,e,stays a flagged draft,,yes,,,,,,,
 ship,,ShipLocomotionClass::Draw_Matrix,0,unplaced,714,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
@@ -221,7 +222,7 @@ tab,,TabClass::Hilite_Tab,0,unplaced,,e,no row of the original matches the draft
 tab,,TabClass::Set_Active,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 tactical,,Tactical::Draw_Radial_Indicators,0,unplaced,820,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 tactical,006a45a0,Tactical::Render,3288,no_row,2650,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
-tactical,006a8560,Tactical::Draw_Tiles,824,no_row,main best 63.04%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
+tactical,006a8560,Tactical::Draw_Tiles,824,no_row,535,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 tactical,006ac7a0,_$E298,1,no_draft,,e,no draft yet,,no,,,,,,,
 techno,,TechnoClass::Find_Docking_Bay,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 techno,,TechnoClass::Weed_Load,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
@@ -249,7 +250,7 @@ wonline,00767cd0,WolNameTable::Key_Hash_00767cd0,29,no_draft,,e,no draft yet,,no
 (total),,flex b: 78 functions,6310,,,b,,,,,,,,,,
 (total),,flex c: 1 functions,1913,,,c,,,,,,,,,,
 (total),,flex d: 3 functions,219,,,d,,,,,,,,,,
-(total),,flex e: 105 functions,64998,,,e,,,,,,,,,,
+(total),,flex e: 106 functions,71062,,,e,,,,,,,,,,
 (total),,no draft yet: 19 functions,1507,,,e,,,no,,,,,,,
 (gap),,79 functions,10880,,,,,,,guard-open exact (not probed),unknown until probed,,,,,
 (gap),,1 functions,1920,,,,,,,exact form parked count-sensitive,a count-holding declaration,,,,,

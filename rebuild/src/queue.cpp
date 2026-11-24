@@ -2995,7 +2995,7 @@ static int Add_Compressed_Events(void *buf, int bufsize, int frame_delay,
  * HISTORY:                                                                *
  *   11/21/1995 DRD : Created.                                             *
  *=========================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: against the image bound (1,455 B) 945 bytes differ (was 972; the archive decrements numunits before copying the next target; the megamission Slot byte and the flat saved-count table as ra2-decomp's event.h and queue.cpp have them, TibSun's memcpy record copies); main: best 57.62, tried 6 times (register, frame, inline)
+#ifdef RA2_NON_MATCHING // not exact: against the image-derived bound 006282d0 (1,455 B) 934 bytes differ (was 945; TibSun queue.cpp sets the first event pointer after the frame-info data size, RA2's sender capture follows it; before that the archive's numunits decrement before the next target copy; the megamission Slot byte and the flat saved-count table as ra2-decomp's event.h and queue.cpp have them, TibSun's memcpy record copies); main: best 57.62, tried 6 times (register, frame, inline)
 int Extract_Compressed_Events(void * buf, int bufsize)
 {
 	int pos = 0;                // current buffer parsing position
@@ -3011,8 +3011,6 @@ int Extract_Compressed_Events(void * buf, int bufsize)
 	// Clear work event structure
 	//------------------------------------------------------------------------
 	memset (&eventdata, 0, sizeof(EventClass));
-	event = (EventClass *)(((char *)buf) + pos);
-	house = event->ID; // RA2: as above
 
 	//------------------------------------------------------------------------
 	// Assume the first event is a FRAMEINFO event
@@ -3022,6 +3020,9 @@ int Extract_Compressed_Events(void * buf, int bufsize)
 	//------------------------------------------------------------------------
 	datasize = (offsetof(EventClass, Data) +
 		size_of(EventClass, Data.FrameInfo)) - size_of(EventClass, Type);
+
+	event = (EventClass *)(((char *)buf) + pos);
+	house = event->ID; // RA2: as above
 
 	while ((unsigned)leftover >= (datasize + size_of(EventClass, Type)) ) {
 

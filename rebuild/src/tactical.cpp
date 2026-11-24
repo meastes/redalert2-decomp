@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ * Draw_Tiles uses tile positioning from gibbo101/ra2-decomp.
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -2517,16 +2519,18 @@ void Tactical::Draw_Tile_Shadows(Rect const & area, Rect const & cliprect)
 /// </summary>
 /// <param name="cell">The cell whose tile needs refreshing.</param>
 /// <param name="cliprect">Not referenced; the tiles clip to the tactical rectangle.</param>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006a8560 has no row); main: best 63.04, tried 7 times (inline, frame, register)
+#ifdef RA2_NON_MATCHING // not exact: 535 bytes differ against the image-derived bound 006a8560 (824 body bytes, 8 padding) (was 923; the two projected pixel positions and the shared last-subtile bound as ra2-decomp's banked form banks/0x006D7F20_tact.cpp (11df85d) has them, RA2's elevation test kept; 10 of 10 calls in order, frame 0x48 against 0x44); main: best 63.04, tried 7 times (inline, frame, register)
 void Tactical::Draw_Tiles(Cell const & cell, Rect const & cliprect)
 {
 	CellClass * basecell = &Map[cell];
 
 	Coord coord = Coord_Whole(Coord(cell));
-	Point2D screen = Coord_To_Pixel_Absolute(coord);
+	Point2D screen;
+	Coord_To_Pixel(coord, screen);
 	if (basecell->Height < 2) {
-		Point2D pixel = screen - Point2D(TacPixelX, TacPixelY);
-		pixel.X -= ISO_TILE_PIXEL_W / 2;
+		Point2D pixel;
+		pixel.X = screen.X - ISO_TILE_PIXEL_W / 2;
+		pixel.Y = screen.Y;
 		basecell->Draw_It(pixel, TacticalRect, 0);
 	}
 
@@ -2590,8 +2594,9 @@ void Tactical::Draw_Tiles(Cell const & cell, Rect const & cliprect)
 						if (set == NULL) {
 							continue;
 						}
-						if (subtile >= set->Tile_Count() - 1) {
-							subtile = set->Tile_Count() - 1;
+						int last = set->Tile_Count() - 1;
+						if (subtile >= last) {
+							subtile = last;
 						}
 						IsoTileRecord const * record = set->Fetch_Record_Pointer_Unsafe(subtile);
 						if (record == NULL || !record->IsHasExtraData) {
@@ -2606,8 +2611,7 @@ void Tactical::Draw_Tiles(Cell const & cell, Rect const & cliprect)
 				coord = Coord_Whole(Coord(above));
 				Point2D pixel;
 				Coord_To_Pixel(coord, pixel);
-				pixel.X -= ISO_TILE_PIXEL_W / 2;
-				Map[above].Draw_It(pixel, TacticalRect, 0);
+				Map[above].Draw_It(pixel - Point2D(ISO_TILE_PIXEL_W / 2, 0), TacticalRect, 0);
 			}
 		}
 		x++;
