@@ -31,7 +31,11 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
   (user, 2026-11-07): "evidenced inline assembly" — an `__asm` block only where
   the TibSun archive shows the author's own `__asm` at that point (cited), with the
   archive's instructions only, flagged `inline_asm: evidenced` in the manifest,
-  enforced by the strict audit and reported as its own category. Exception
+  enforced by the strict audit and reported as its own category. Exception (user, 2026-11-24,
+  in the owner session): "revised, binary-derived lines" — a MASM procedure whose TibSun archive parent
+  is cited, carrying RA2's revisions of it as derived from the binary (ra2-decomp `src/ra2asm`, attributed,
+  shown as a diff against the archive), is credited to Reproduced .text only, never C/C++; its own STATUS
+  sub-line, strict-audit flag and per-source allowlist; both trees' ledgers. Exception
   (user, 2026-11-13, "Let's go with option 2 then", confirmed in the owner
   session): exact matching on the unmatched tail stops; the best drafts of
   unmatched functions are tracked in their unit's source under a non-matching

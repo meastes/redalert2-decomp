@@ -222,7 +222,7 @@ void STDMETHODCALLTYPE WalkLocomotionClass::Force_Immediate_Destination(CoordStr
  * HISTORY:                                                                                    *
  *   07/29/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: against the image-derived bound 0071e220 (4,967 B) 4,301 bytes differ (was 4,595; TibSun walk.cpp's tube intermediates (visual_cell, enter_coord, visual_coord) and the single arrival test of ra2-decomp's banked form banks/0x0075AEC0_returns.cpp (11df85d) bring back the second three-axis Coord constructor: all 119 calls in native order; before that TibSun hover.cpp's one-line tube position 4,595 and the mech sibling's tube and end-of-move text); main: best 89.83, tried 12 times (frame, inline, register)
+#ifdef RA2_NON_MATCHING // not exact: against the image-derived bound 0071e220 (4,967 B) 3,611 bytes differ (was 4,301; the end of the move as TibSun walk.cpp and ra2-decomp's banked form banks/0x0075AEC0_returns.cpp (11df85d) both write it: old and new cells tested directly, veins triggered inside the moved arm, IsNewNavCom cleared on both exits; TibSun walk.cpp's tube intermediates and the bank's single arrival test bring back the second three-axis Coord constructor: all 119 calls in native order; before that TibSun hover.cpp's one-line tube position 4,595); main: best 89.83, tried 12 times (frame, inline, register)
 void WalkLocomotionClass::Movement_AI(bool first_pass)
 {
 	if (HeadToCoord == COORD_NONE) {
@@ -515,8 +515,7 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 		Coord new_coord = Move_Coord(LinkedTo->Get_Coord(), face, speed);
 		Cell new_cell = new_coord.As_Cell();
 
-		bool moved = (old_cell != new_cell);
-		if (moved) {
+		if (old_cell != new_cell) {
 			LinkedTo->Mark(MARK_UP);
 			LinkedTo->Set_Coord(new_coord);
 
@@ -534,17 +533,16 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 
 			LinkedTo->Set_Height_AGL(0);
 			LinkedTo->Mark(MARK_DOWN);
+			Map[LinkedTo->Get_Coord()].Trigger_Veins();
+			LinkedTo->IsNewNavCom = false;
 		} else {
 			bool was_down = LinkedTo->IsDown;
 			LinkedTo->IsDown = false;
 			LinkedTo->Set_Coord(new_coord);
 			LinkedTo->Set_Height_AGL(0);
 			LinkedTo->IsDown = was_down;
+			LinkedTo->IsNewNavCom = false;
 		}
-		if (moved) {
-			Map[LinkedTo->Get_Coord()].Trigger_Veins();
-		}
-		LinkedTo->IsNewNavCom = false;
 	}
 }
 #endif
