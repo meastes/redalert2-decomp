@@ -214,7 +214,7 @@ void LoadProgressManager::Load_Mixes(void)
 /// <summary>
 /// Whether the local player watches the game instead of playing it.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00535bf0 has no row); 1906 of 3978 bytes differ against the frozen image bound (image_bounds.csv) (was 3730; all 85 calls and the 0x1184 stack probe match)
+#ifdef RA2_NON_MATCHING // not exact: 1906 bytes differ against the image-derived bound 00535bf0 (3,978 body bytes, 6 padding) (was 3730; all 85 calls and the 0x1184 stack probe match)
 ConvertClass * __cdecl Get_Load_Screen_Drawer(void); // RA2: 0x006F2450
 ConvertClass * __cdecl Get_Load_Screen_Side_Drawer(void); // RA2: 0x006F2470
 ConvertClass * __cdecl Get_Splash_Bar_Drawer(void); // RA2: 0x006F2490

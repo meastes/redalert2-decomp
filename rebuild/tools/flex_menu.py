@@ -200,7 +200,7 @@ def main():
             if (u, i) in used or 'count-sensitive' in label:
                 continue
             m = re.search(r'\(([0-9a-f]{8}) has no row\)', label) or \
-                re.search(r'image-derived bound ([0-9a-f]{8})-', label)
+                re.search(r'image-derived bound ([0-9a-f]{8})\b', label)
             # The guard's function definitions (declarations and inline/static helpers set apart): the draft
             # is named after the one the label or the queue places, else the first that is not a helper
             # (lane O33's find: Unit_Draw_Voxel showed as its helper Is_Barrel_Ahead).

@@ -10,14 +10,14 @@ building,00440520,BuildingClass::Exit_Object,6505,no_row,4867,a,"variation_candi
 bullet,00462c50,BulletClass::Shrapnel,2757,inline_call,1787,a,"variation_candidates.csv: a split declaration `Cell cell; cell = Get_Cell();` in the second loop, found by a count probe (the Cell default constructor is the extra inline-candidate site ",,yes,,,,C,strictness,yes,2757
 combat,0047e2c0,Explosion_Damage,4611,register_order,,a,variation_candidates.csv: main's Coord::operator+ form and coined Explosion_Length / Coord_Length(Coord_Difference) helpers (their named double locals supply the local count),,yes,,,,A,structure,no,4611
 coord,00491750,Coord_Scatter,289,inline_call,173,a,variation_candidates.csv: ra2-decomp's pass-through _Move_Coord (return(Move_Coord(...))) with its lock expression,,yes,,,,C,strictness,yes,289
-dropship,004a6b90,Dropship_Screen,10797,inline_body,,a,"variation_candidates.csv: unsigned VectorClass index (operator[] / body casts) plus caller repairs: reaches the function-wide signedness-conversion window; costs 15 exact rows (26,806 B)",,yes,,,,B,structure,not tested,-16009
+dropship,004a6b90,Dropship_Screen,10797,inline_body,4453,a,"variation_candidates.csv: unsigned VectorClass index (operator[] / body casts) plus caller repairs: reaches the function-wide signedness-conversion window; costs 15 exact rows (26,806 B)",,yes,,,,B,structure,not tested,-16009
 foot,004cbb40,FootClass::Search_For_Tiberium_Weighted,1467,inline_body,1045,a,variation_candidates.csv: main's inline Tiberium_Value wrapper around each tiberium read (a budget form),,yes,,,,,,,
 house,004eca50,HouseClass::Random_Cell_In_Zone,1253,no_row,119,a,variation_candidates.csv: kind C (a statement form chosen for the budget): Rotate_Back_One_Facing with a named mask local (`int const facing_mask = (FACING_COUNT - 1) * (DIR_STEP_8 << 8),,yes,,,,,,,
 house,004f03c0,HouseClass::Where_To_Place_Building,2629,inline_body,800,a,"variation_candidates.csv: main's shared-header overload Adjacent_Cell(Cell const &, int) with the offset as left operand (src/shared/infantry.hpp:319) at the reverse step, where ra2-deco",,yes,,,,E,,not tested,2629
 house,004f1190,HouseClass::AI_Build_Defense,3264,register_order,5,a,"variation_candidates.csv: worker form (held, lane O40 2026-11-22): coined reference alias BaseClass & base = Base; before the type_id read, every later Base.Nodes access through it (no r",,yes,,,,C,strictness,yes,3264
 init,00519500,Allocate_Surfaces,1118,inline_body,1015,a,variation_candidates.csv: main's inline Memory_Flag(bool) helper,,yes,,,,A,structure,no,1118
 ldprgmgr,00535bf0,LoadProgressManager::Draw,3978,no_row,1906,a,"variation_candidates.csv: codex1 r2698 (refs/c1pk/r2698, 75f8a9f509): the briefing and loading origins bound as `Point2D const & brief_origin = Copy_Point(&area);` / `loading_origin` (a ",,yes,,,,,,,
-map,005484e0,MapClass::Set_Map_Dimensions,5322,no_row,3658,a,variation_candidates.csv: a Cell operator+= forwarder in coord.h in the TPoint3D idiom (TPoint2D<short> const & operator += (TPoint2D<short> const & rvalue) {BASECLASS::operator += (rval,,yes,,,,,,,
+map,005484e0,MapClass::Set_Map_Dimensions,5322,no_row,3665,a,variation_candidates.csv: a Cell operator+= forwarder in coord.h in the TPoint3D idiom (TPoint2D<short> const & operator += (TPoint2D<short> const & rvalue) {BASECLASS::operator += (rval,,yes,,,,,,,
 map,00564b60,MapClass::Register_Zone_Connection_Entries,1025,inline_call,74,a,variation_candidates.csv: main's record helper Set_Zone_Record with a SubzoneConnectionStruct temporary and count locals,,yes,,,,A,structure,no,1025
 mech,005919a0,MechLocomotionClass::Movement_AI,5575,no_row,951,a,"variation_candidates.csv: worker form (held, lane O34 2026-11-22): pass-through aliases RulesClass const & rules = *Rule; and FootClass * unit = LinkedTo; (twice), Cell const & enter = t",,yes,,,,,,,
 netshare,005c7ef0,Send_Map_Preview,1325,no_row,1131,a,"variation_candidates.csv: kind C (a twin helper overriding the twin's own text at its own site): ra2-decomp's Narrow_Text (include/narrow.h, 61ba2ad) at the two `no preview download poss",,yes,,,,,,,
@@ -36,7 +36,7 @@ sidebar,006819a0,SidebarClass::Reposition_Sidebar,1314,register_order,54,a,varia
 skirmish,006829f0,Skirmish_On_WM_COMMAND,3264,inline_call,2819,a,variation_candidates.csv: main's hypothesized Get_Item wrapper with its row helper and looked-up locals; codex1 r2686 (results only),,yes,,,,D,structure,not tested,3264
 startup,0068e280,WinMain,10076,inline_call,7223,a,"variation_candidates.csv: main's text: coined inline helpers Init_Mouse, Init_Language and Read_Destination_Network (TibSun writes the DestNet scan, LANGUAGE.MIX and WWMouseClass stateme",,yes,,,,A,structure,no,10076
 strtable,006f8e30,StringTable::LoadFile,1134,inline_call,783,a,"variation_candidates.csv: main's coined Open_File / Close_File wrappers (one of two fopen sites, three fclose sites)",,yes,,,,A,structure,yes,1134
-strtable,006f9790,Read_Text_File,1317,no_row,1237,a,"variation_candidates.csv: none yet: the jabber and widening blocks as one static function Translate_Copy(wchar_t *, char *) (a flag cleared at its top, compared with 1; a `case 0: return",,yes,,,,,,,
+strtable,006f9790,Read_Text_File,1317,no_row,755,a,variation_candidates.csv: none yet for the last block,,yes,,,,,,,
 techno,006c1f10,TechnoClass::TechnoClass,409,inline_call,93,a,"variation_candidates.csv: lane F21 form (held, 2026-11-22): `if (found == false) { Technos.Add(this); }` where the TibSun archive, ra2-decomp's twin (YR 0x6F4300) and main all write `if ",,yes,,,,C,strictness,yes,409
 techno,006c2c40,TechnoClass::Draw_Post_Render,3341,inline_call,3138,a,"variation_candidates.csv: main's coined unit-local readers Mouse_Hover_Flag and Techno_Is_Selected (techno.cpp, 'its site decides the temporaries')",,yes,,,,A,structure,no,3341
 techtype,006d9b40,TechnoTypeClass::TechnoTypeClass,2961,register_order,15,a,"variation_candidates.csv: main's coined `Leptons` class for GuardRange (a class with an inline constructor, after YRpp's name)",,yes,,,,B,structure,yes,-8262
@@ -51,6 +51,7 @@ wonline,00758750,Buddy_Dialog_Proc,2935,calls_differ,1728,a,"variation_candidate
 wonline,00759370,Run_Online_Menu,2687,calls_differ,2579,a,"variation_candidates.csv: main's coined single-caller helpers Request_Buddy_Game_List and Report_Disconnected (2391 bytes differ with them, the second lookup bound to a const reference o",,yes,,,,,,,
 wonline,00759e20,Start_Quick_Match,2202,inline_call,1350,a,"variation_candidates.csv: main's .Count read for the one g_UserList.length() > 1 test after Reset_Buddy_State (no inline site), but Count is the private Entries_ in the reference arrayli",,yes,,,,C,strictness,no,2202
 wonline,00762f70,CChatEventSink::OnFind,2867,inline_call,,a,variation_candidates.csv: main's Key_Hash specialisation switch (src/shared/wol_dictionary.hpp RA2_WOL_DICTIONARY_KEY_SPECIALIZATIONS: keyHash declared in the class and defined per key t,,yes,,,,B,structure,not tested,2867
+xsurface,00773f00,XSurface::Plot_Line,511,no_row,9,a,variation_candidates.csv: kind B (a statement written in both arms of an if/else): `int dy = end.Y - start.Y; int pitch; if (dy >= 0) { pitch = 1; dy = abs(dy); } else { pitch = -1; dy =,,yes,,,,,,,
 combat,0047fcf0,?Clear@?$DynamicVectorClass@PAUDamageGroup@@@@UAEXXZ,42,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
 combat,0047fd20,?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
 combat,0047fd40,?GetItem@?$VectorClass@PAUDamageGroup@@@@UBEPAUDamageGroup@@H@Z,13,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
@@ -211,7 +212,7 @@ particle,00609540,ParticleClass::Spark_Behavior_AI,1069,inline_body,694,e,stays 
 partsys,,ParticleSystemClass::Web_AI,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 planmgr,00614ba0,Planning_Execute,786,inline_call,272,e,stays a flagged draft,,yes,,,,,,,
 queue,006282d0,Extract_Compressed_Events,1455,no_row,972,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
-reinf,,Do_Chrono_Reinforcements,0,unplaced,84,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
+reinf,0063a880,Do_Chrono_Reinforcements,1567,no_row,84,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 scenario,0065b780,ScenarioClass::ScenarioClass,171,inline_call,,e,stays a flagged draft,,yes,,,,,,,
 ship,,ShipLocomotionClass::Draw_Matrix,0,unplaced,714,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 sidebar,,SidebarClass::Abandon_Production,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
@@ -247,12 +248,11 @@ wonline,0075f530,CChatEventSink::OnChannelJoin,5780,inline_body,,e,stays a flagg
 wonline,00767550,?keyHash@?$Dictionary@VWstring@@ULadder@WOL@@@@AAEIABVWstring@@@Z,29,no_draft,,e,no draft yet,,no,,,,,,,
 wonline,00767bb0,WolNameTable::Get_Pointer_00767bb0,107,no_draft,,e,no draft yet,,no,,,,,,,
 wonline,00767cd0,WolNameTable::Key_Hash_00767cd0,29,no_draft,,e,no draft yet,,no,,,,,,,
-xsurface,,XSurface::Plot_Line,0,unplaced,9,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
-(total),,flex a: 46 functions,150413,,,a,,,,,,,,,,
+(total),,flex a: 47 functions,150924,,,a,,,,,,,,,,
 (total),,flex b: 78 functions,6310,,,b,,,,,,,,,,
 (total),,flex c: 1 functions,1913,,,c,,,,,,,,,,
 (total),,flex d: 3 functions,219,,,d,,,,,,,,,,
-(total),,flex e: 115 functions,53918,,,e,,,,,,,,,,
+(total),,flex e: 114 functions,55485,,,e,,,,,,,,,,
 (total),,no draft yet: 19 functions,1507,,,e,,,no,,,,,,,
 (gap),,79 functions,10880,,,,,,,guard-open exact (not probed),unknown until probed,,,,,
 (gap),,1 functions,1920,,,,,,,exact form parked count-sensitive,a count-holding declaration,,,,,

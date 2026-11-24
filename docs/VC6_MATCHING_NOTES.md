@@ -5066,3 +5066,42 @@ others), cnt.py (declarations ahead of a function), ils.py (il_lab over scratch 
   additions: something in it weighs like the missing inner-loop reference.
 - A guard label saying "no bound" or "unplaced" is checked against image_bounds.csv before anything else: two of this
   lane's rows had bounds, and the score on the bound named the one call that differs.
+
+## What counts as an inline site behind a nest; a reference's function boundaries move the count; a register pair no spelling moves (found in the rebuild (lane F56, high))
+
+Found in the rebuild (lane F56, high); no row landed, two drafts placed on true counts, one row measured exact under
+three forms and held for a ruling. Lane tools in build/r/f56: rv.py / lf.py / gv.py (a Python list of edit sets against
+one guarded draft, five at a time, with the call list, bytes and hunk count), st.py (reads a register state out of the
+saved diffs), ord.py (the object's function order for a variant), h1.py (header variants against several units).
+
+- strtable LoadFile 0x6F8E30 (1,134 B): the share of a nested helper (lane F14: the header reader must get 155 to
+  185 units, ours got 385) is the root's remaining budget over the sites still to come. Measured with empty inline
+  sites and with linkage changes: a file-static function is a site whatever its size and whether or not it is then
+  expanded (Read_Text_File static: one more); a plain function is a site only when it is small (Get_Str_Option(),
+  6 bytes: one more; Read_Text_File plain: none); a member function defined out of class is none (Is_Initialized,
+  ReadFile); a site ahead of the nest is none. So a call the image keeps as a call still tells linkage when a nest
+  ahead of it is short of sites.
+- A written-out block that the reference has as its own function is a site, and can be more than one: the counting
+  pass as Generals' getStringCount (static, expanded, same bytes) took the row from four sites short to two. Take the
+  reference's function boundaries before counting sites; main's four coined wrapper sites were covering for two real
+  boundaries.
+- The image keeps every external function, called or not (GetLanguage, GetLanguageName, Get_Str_Option,
+  Get_Jabber_Option, Is_Narrow_Text and Is_Language_English have no caller), so a helper with no body in the image
+  was static or inline, and a helper with a body may be either. A helper that would be expanded if it were static
+  (Read_Text_Entry into Read_Text_File) is plain.
+- LoadFile is exact with any two of three unevidenced sites (Read_Text_File static, ReadFile a static function, the
+  option through Get_Str_Option()); three break it. When several equal forms close a site count, list them all with
+  what each touches (here: a parked function's linkage, a twin-named member, an accessor nothing calls) and leave the
+  choice to a ruling.
+- strtable Read_Text_File 0x6F9790: bind a parked draft's globals in symbols.csv before reading its score (755 by
+  position was 740 with 21 instruction groups, all in one block). The block's register pair (run start in ecx, input
+  in edx in the image; esi and ecx here) did not move for some 430 spellings, loop heads, types, signatures, linkages
+  and probe sites. What moves it is not text: the run start takes ecx only when the input loses its register (a
+  block of the loop removed), and then the input lives in a new frame slot. A state that survives every spelling and
+  flips only on removing code is decided by which web is coloured first; the image also loads the first character
+  through al (ours through bl in every state), so the two differ in one more web than the pair.
+- palette: a member declaration added to a template class in a header four units include (hashtable.h, the twin's
+  Find and Next) turned both count-watch rows by 4 bytes; a forward declaration of a struct did not. Check the two
+  count-watch units first when a header gains a declaration, before the unit the change is for.
+- A guard label saying "no independent bound" was wrong a third time (palette Set_Scheme_Table_Theater): the lane
+  sweep that fixes labels from image_bounds.csv is worth one run over every guard.

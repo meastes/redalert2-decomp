@@ -5634,7 +5634,7 @@ int __fastcall Hash_CtrlMsg(int *); // RA2: as above
 namespace OwnerDraw { // RA2: as above
 LRESULT __stdcall Owner_Button_Proc(HWND, UINT, WPARAM, LPARAM); // RA2: as above
 LRESULT __stdcall List_Proc(HWND, UINT, WPARAM, LPARAM); // RA2: as above
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005ee460 has no row); 4898 bytes differ against the frozen image bound (image_bounds.csv); TibSun CtrlProc's getTail and named WM_SYSKEYUP/VK_TAB, same score
+#ifdef RA2_NON_MATCHING // not exact: 4898 bytes differ against the image-derived bound 005ee460 (7,252 body bytes, 12 padding); TibSun CtrlProc's getTail and named WM_SYSKEYUP/VK_TAB give the same score
 LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
 	static POINT min_update_rect = {0xFFFFFF, 0xFFFFFF};

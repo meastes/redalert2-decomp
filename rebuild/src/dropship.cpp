@@ -228,7 +228,7 @@ int DropshipLoadoutClass::Get_Allowable_Index(TechnoTypeClass * ttype)
 /// <remarks>The alpha and depth buffers are re-created around this screen, so anything
 /// held in them beforehand is lost.</remarks>
 void Dropship_Screen(void); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 20 instruction lines differ at five operand-order sites (RA2 body; frame exact with the twin's dissolve index; exact when VectorClass::operator[] indexes unsigned, which costs other units exact rows)
+#ifdef RA2_NON_MATCHING // not exact: 4453 bytes differ against the 10,797-byte original body; 20 instruction lines differ at five operand-order sites (RA2 body; frame exact with the twin's dissolve index; exact when VectorClass::operator[] indexes unsigned, which costs other units exact rows)
 void Dropship_Screen(void)
 {
 	int i;

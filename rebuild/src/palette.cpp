@@ -427,7 +427,7 @@ DynamicVectorClass<ColorScheme *> * SchemeListIterator::Next(void) // RA2: 0x006
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00603750 has no row); 454 of 504 bytes differ against main's extent (register allocation: the library pointer in ebp, not edi; Scheme_Library and Set_Mode expand inline), main: best 70.35
+#ifdef RA2_NON_MATCHING // not exact: 454 bytes differ by position against the image-derived bound 00603750 (504 B; ours 512 B, the image's calls): one register exchange, the library pointer in ebp where the image has edi, and the vectors' growth step, a bucket and a node in edi where it has ebp. Added reads of the library, declaration counts and the twin's table form leave it there
 void __fastcall Set_Scheme_Table_Theater(TheaterType theater) // RA2: 0x00603750, switches the library to the theater (made on first use)
 {
 	SchemeLibrary * library = Scheme_Library();
