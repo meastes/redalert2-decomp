@@ -7342,15 +7342,8 @@ LRESULT __stdcall Static_Proc(HWND window, UINT message, WPARAM wparam, LPARAM l
 				Surface * surface = new BSurface(client.right + 1, client.bottom + 1, 2);
 				data->Back = surface;
 				++Surface_Count;
-				Rect destination, source;
-				destination.X = 0;
-				destination.Y = 0;
-				destination.Width = client.right + 1;
-				destination.Height = client.bottom + 1;
-				source.X = display.left;
-				source.Y = display.top;
-				source.Width = client.right + 1;
-				source.Height = client.bottom + 1;
+				Rect destination(0, 0, client.right + 1, client.bottom + 1);
+				Rect source(display.left, display.top, client.right + 1, client.bottom + 1);
 				surface->Blit_From(destination, *AlternateSurface, source, false, true);
 			}
 			RECT area;
@@ -10649,7 +10642,7 @@ TextNode * NodeList::Add_Node(int length)
 	return node;
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 6554 bytes differ against the image-derived bound 005f4ba0 (6,895 body bytes) (was 6582; the text query's shared result with the signed clamp, and the item sentinel tested before null, as ra2-decomp's banked form banks/0x00617250_odh.cpp (11df85d) has them)
+#ifdef RA2_NON_MATCHING // not exact: 6538 bytes differ against the image-derived bound 005f4ba0 (6,895 body bytes) (was 6554; the item-data and selection cases first in the order of ra2-decomp's banked form banks/0x00617250_odh.cpp (11df85d), RA2 case bodies and fall-through groups kept; the text query's shared result with the signed clamp and the item sentinel tested before null as the bank has them)
 namespace OwnerDraw {
 
 LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
@@ -10665,6 +10658,40 @@ LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lp
 	if (!data) return CallWindowProcA(previous, window, message, wparam, lparam);
 
 	switch (message) {
+		case WM_DESTROY:
+			SendMessageA(window, CB_SHOWDROPDOWN, FALSE, 0);
+			break;
+		case CB_GETITEMDATA:
+		case CB_SETITEMDATA:
+		case LB_GETITEMDATA:
+		case LB_SETITEMDATA: {
+			TextNode * node = (TextNode *)CallWindowProcA(previous, window, CB_GETITEMDATA, wparam, 0);
+			if (!node || node == (TextNode *)CB_ERR) return CB_ERR;
+			if (message == CB_GETITEMDATA || message == LB_GETITEMDATA) return node->Reserved_04;
+			node->Reserved_04 = lparam;
+			return (LRESULT)node;
+		}
+		case CB_GETCURSEL:
+			return data->HadTabStop;
+		case CB_SETCURSEL: {
+			data->HadTabStop = wparam;
+			if (wparam == (WPARAM)-1) {
+				SendMessageA(window, 0x4b4, 0, (LPARAM) "");
+			} else {
+				TextNode * node = (TextNode *)CallWindowProcA(previous, window, CB_GETITEMDATA, wparam, 0);
+				if (node != (TextNode *)CB_ERR && node != NULL) {
+					if (node->Reserved_0C) SendMessageA(window, OD_SETTEXTW, 0, (LPARAM)node->Data);
+					else {
+						char text[128];
+						WideToCharString(text, node->Data, sizeof(text));
+						SendMessageA(window, 0x4b4, 0, (LPARAM)text);
+					}
+				}
+			}
+			InvalidateRect(window, NULL, FALSE);
+			if ((GetWindowLongA(window, GWL_STYLE) & 3) == CBS_DROPDOWN) return 0;
+			break;
+		}
 		case WM_PAINT: {
 			static wchar_t text[256];
 			LRESULT dropped = SendMessageA(window, CB_GETDROPPEDSTATE, 0, 0);
@@ -10796,9 +10823,6 @@ LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lp
 		}
 
 
-		case WM_DESTROY:
-			SendMessageA(window, CB_SHOWDROPDOWN, FALSE, 0);
-			break;
 		case WM_ERASEBKGND:
 			return 0;
 		case WM_LBUTTONDOWN:
@@ -10852,37 +10876,6 @@ LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lp
 				return result;
 			}
 			break;
-		case CB_GETCURSEL:
-			return data->HadTabStop;
-		case CB_SETCURSEL: {
-			data->HadTabStop = wparam;
-			if (wparam == (WPARAM)-1) {
-				SendMessageA(window, 0x4b4, 0, (LPARAM) "");
-			} else {
-				TextNode * node = (TextNode *)CallWindowProcA(previous, window, CB_GETITEMDATA, wparam, 0);
-				if (node != (TextNode *)CB_ERR && node != NULL) {
-					if (node->Reserved_0C) SendMessageA(window, OD_SETTEXTW, 0, (LPARAM)node->Data);
-					else {
-						char text[128];
-						WideToCharString(text, node->Data, sizeof(text));
-						SendMessageA(window, 0x4b4, 0, (LPARAM)text);
-					}
-			}
-		}
-			InvalidateRect(window, NULL, FALSE);
-			if ((GetWindowLongA(window, GWL_STYLE) & 3) == CBS_DROPDOWN) return 0;
-			break;
-		}
-		case CB_GETITEMDATA:
-		case CB_SETITEMDATA:
-		case LB_GETITEMDATA:
-		case LB_SETITEMDATA: {
-			TextNode * node = (TextNode *)CallWindowProcA(previous, window, CB_GETITEMDATA, wparam, 0);
-			if (!node || node == (TextNode *)CB_ERR) return CB_ERR;
-			if (message == CB_GETITEMDATA || message == LB_GETITEMDATA) return node->Reserved_04;
-			node->Reserved_04 = lparam;
-			return (LRESULT)node;
-		}
 		case 0x4b8:
 		case 0x4b9:
 		case 0x4ba:

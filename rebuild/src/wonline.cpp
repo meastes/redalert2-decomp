@@ -8929,7 +8929,7 @@ bool __fastcall Start_Talking_To(int player, int pair_slot, int retries)
 	int attempt = 0;
 	unsigned short previous_port = 0;
 	unsigned short source_port = 0;
-	for (;;) {
+	do {
 		Resend_Pending_Requests();
 		if (negotiate_port) {
 			source_port = 0;
@@ -9041,13 +9041,17 @@ bool __fastcall Start_Talking_To(int player, int pair_slot, int retries)
 				++packet_index;
 			} while (timer);
 		}
-		if ((received && Session.ConnectionResults[pair_slot >> 1][pair_slot & 1] == 11) || attempt >= retries) {
-			return received;
+		if (received && Session.ConnectionResults[pair_slot >> 1][pair_slot & 1] == 11) {
+			break;
+		}
+		if (attempt >= retries) {
+			break;
 		}
 		++attempt;
 		Send_Public_Options(attempt + 1, Wide_To_Narrow(Session.Slots[player]->Name));
 		DebugString("Trying again - trying = %d\n", attempt);
-	}
+	} while (true);
+	return received;
 }
 #endif
 

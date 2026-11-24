@@ -1,24 +1,22 @@
 unit,entry,function,bytes,bucket,best,flex,flex_note,also,draft,gap_reason,allowance,brings,main_form,main_form_cost,tested_exact,net_bytes
-(summary),,main's accepted forms the rebuild's rules refuse: 23 rows / 67534 B,,,,,,,,,,,,,,
+(summary),,main's accepted forms the rebuild's rules refuse: 22 rows / 64270 B,,,,,,,,,,,,,,
 (main forms),,A: 11 rows,23781,,,,,,,,,,A,,3 rows,8073
 (main forms),,B: 8 rows,30099,,,,,,,,,,B,,0 rows,0
-(main forms),,C: 4 rows,13654,,,,,,,,,,C,,3 rows,11452
+(main forms),,C: 3 rows,10390,,,,,,,,,,C,,2 rows,8188
 (main forms),,D: 0 rows,0,,,,,,,,,,D,,0 rows,0
-(main forms),,E: 3 rows,3965,,,,,,,,,,E,,0 rows,0
+(main forms),,E: 2 rows,1336,,,,,,,,,,E,,0 rows,0
 building,0043ee70,BuildingClass::Take_Damage,2501,inline_call,1309,a,variation_candidates.csv: main's coined Damage_Object_Distance / Damage_Object_Distance_Squared helpers with an explicit sqrt (main src/recovered/building.cpp:2029-2131),,yes,,,,A,structure,no,2501
 building,00440520,BuildingClass::Exit_Object,6505,no_row,3380,a,"variation_candidates.csv: worker form (refused, owner 2026-11-22): inline.h Direction(Cell const &, Cell const &) rewritten with copy locals short x1 = cell1.X; short x2 = cell2.X; befor",,yes,,,,,,,
 bullet,0045f710,BulletClass::AI,6438,no_row,4639,a,"variation_candidates.csv: ra2-decomp banked forms banks/0x004666E0_ballistic.cpp / _bullet.cpp with overlay _bullet_velocity.h (11df85d; codex1 r2835 d066cb0e31, r2837 e3df88b874): the b",,yes,,,,,,,
 coord,00491750,Coord_Scatter,289,inline_call,173,a,variation_candidates.csv: ra2-decomp's pass-through _Move_Coord (return(Move_Coord(...))) with its lock expression,,yes,,,,C,strictness,yes,289
 dropship,004a6b90,Dropship_Screen,10797,inline_body,4453,a,"variation_candidates.csv: unsigned VectorClass index (operator[] / body casts) plus caller repairs: reaches the function-wide signedness-conversion window; costs 26 exact rows (47,385 B)",,yes,,,,B,structure,yes,-36588
 foot,004cbb40,FootClass::Search_For_Tiberium_Weighted,1467,inline_body,1045,a,variation_candidates.csv: main's inline Tiberium_Value wrapper around each tiberium read (a budget form),,yes,,,,,,,
-house,004f03c0,HouseClass::Where_To_Place_Building,2629,inline_body,763,a,"variation_candidates.csv: main's shared-header overload Adjacent_Cell(Cell const &, int) with the offset as left operand (src/shared/infantry.hpp:319) at the reverse step, where ra2-deco",,yes,,,,E,,not tested,2629
-house,004f1190,HouseClass::AI_Build_Defense,3264,register_order,5,a,"variation_candidates.csv: worker form (held, lane O40 2026-11-22): coined reference alias BaseClass & base = Base; before the type_id read, every later Base.Nodes access through it (no r",,yes,,,,C,strictness,yes,3264
 init,00519500,Allocate_Surfaces,1118,inline_body,1015,a,variation_candidates.csv: main's inline Memory_Flag(bool) helper,,yes,,,,A,structure,no,1118
 ldprgmgr,00535bf0,LoadProgressManager::Draw,3978,no_row,1906,a,"variation_candidates.csv: codex1 r2698 (refs/c1pk/r2698, 75f8a9f509): the briefing and loading origins bound as `Point2D const & brief_origin = Copy_Point(&area);` / `loading_origin` (a ",,yes,,,,,,,
 map,005484e0,MapClass::Set_Map_Dimensions,5322,no_row,3665,a,variation_candidates.csv: a Cell operator+= forwarder in coord.h in the TPoint3D idiom (TPoint2D<short> const & operator += (TPoint2D<short> const & rvalue) {BASECLASS::operator += (rval,,yes,,,,,,,
 map,00564b60,MapClass::Register_Zone_Connection_Entries,1025,inline_call,74,a,variation_candidates.csv: main's record helper Set_Zone_Record with a SubzoneConnectionStruct temporary and count locals,,yes,,,,A,structure,no,1025
 map,00569320,MapClass::Can_Repair_Bridge,2109,no_row,3,a,"variation_candidates.csv: kind T (an evidenced twin header form held behind the count-sensitive exact rows map Zone_Reset 0x54EBD0, queue Print_CRCs 0x62A360 and sidebar SelectClass::Act",,yes,,,,,,,
-mapgen,0056e100,MapRegionClass::Create_Region_From_Cell,1678,inline_call,313,a,"variation_candidates.csv: ra2-decomp banked form banks/0x0058C800_ra2a_zone.cpp (11df85d; codex1 r2834 c347413fff, r2840 2749351c97): a single-use static inline Create_Seed_Region(cptr, ",,yes,,,,A,structure,no,1678
+mapgen,0056e100,MapRegionClass::Create_Region_From_Cell,1678,inline_call,1,a,"variation_candidates.csv: ra2-decomp banked form banks/0x0058C800_ra2a_zone.cpp (11df85d; codex1 r2834 c347413fff, r2840 2749351c97): a single-use static inline Create_Seed_Region(cptr, ",,yes,,,,A,structure,no,1678
 missile,00593870,Projectile_Motion,2101,no_row,191,a,"variation_candidates.csv: kind C (statement and header forms chosen for the inline budget): codex1 r2713 (refs/c1pk/r2713, 39886119e8): ternaries for cell_distance (`airburst || veryhigh",,yes,,,,,,,
 netshare,005c8dd0,Set_Slot_Names,920,register_order,4,a,"variation_candidates.csv: kind B (data form): the seven fixed lobby entries as separate globals (ra2-decomp: DAT_00AC119C..B4) in place of LobbyEntries[7] (mischa85: one array, inferred)",,yes,,,,A,structure,yes,920
 ownrdraw,005e0760,Is_Tested_Control,1594,inline_call,1444,a,variation_candidates.csv: none admissible: as Enable_Animated_Control 0x5E4780 (the declared-only second name for Is_Listed_Kind),,yes,,,,B,structure,no,1594
@@ -56,11 +54,6 @@ dropship,004aa080,??_G?$DynamicVectorClass@PAVTechnoTypeClass@@@@UAEPAXI@Z,73,ex
 dropship,004aa120,??_G?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEPAXI@Z,73,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
 dropship,004aa1c0,??_G?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEPAXI@Z,73,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
 fly,004bfb60,??8?$TPoint2D@H@@QBE_NABV0@@Z,37,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
-house,004f0e10,_$E234,1,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
-house,004f0e20,_$E233,1,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
-house,004f6e60,?Clear@?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEXXZ,53,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
-house,004f6ea0,?ID@?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
-house,004f88a0,??_G?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z,84,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
 map,0056a9f0,??4AbstractClass@@QAEAAV0@ABV0@@Z,39,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
 mapgen,0058db80,??4?$DynamicVectorClass@H@@QAEAAV0@ABV0@@Z,132,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
 mapgen,0058dc70,??0?$TypeList@PBVBuildingTypeClass@@@@QAE@XZ,34,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
@@ -165,7 +158,7 @@ objtype,,ObjectTypeClass::Theater_Naming_Convention,0,unplaced,,e,no row of the 
 ownrdraw,,Enable_Animated_Control,0,unplaced,2216,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 ownrdraw,005f00c0,unknown_modal_list_atexit_5f00c0,23,no_draft,,e,no draft yet,,no,,,,,,,
 ownrdraw,005f00e0,unknown_active_messages_atexit_5f00e0,291,no_draft,,e,no draft yet,,no,,,,,,,
-ownrdraw,005f4ba0,Combo_Proc,6895,no_row,6554,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
+ownrdraw,005f4ba0,Combo_Proc,6895,no_row,6538,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 ownrdraw,005f6690,List_Proc,14618,no_row,13847,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 ownrdraw,00601410,Leaf_601410::get,21,not_emitted,,e,stays a flagged draft,,yes,,,,E,,not tested,21
 ownrdraw,00601490,?Clear_Vector@?$WolArrayList@UUnknownListEntry_6017c0@@@@QAEXXZ,68,no_draft,,e,no draft yet,,no,,,,,,,
@@ -212,14 +205,14 @@ wonline,0075f530,CChatEventSink::OnChannelJoin,5780,inline_body,,e,stays a flagg
 wonline,00767550,?keyHash@?$Dictionary@VWstring@@ULadder@WOL@@@@AAEIABVWstring@@@Z,29,no_draft,,e,no draft yet,,no,,,,,,,
 wonline,00767bb0,WolNameTable::Get_Pointer_00767bb0,107,no_draft,,e,no draft yet,,no,,,,,,,
 wonline,00767cd0,WolNameTable::Key_Hash_00767cd0,29,no_draft,,e,no draft yet,,no,,,,,,,
-(total),,flex a: 41 functions,122323,,,a,,,,,,,,,,
-(total),,flex b: 60 functions,4856,,,b,,,,,,,,,,
+(total),,flex a: 39 functions,116430,,,a,,,,,,,,,,
+(total),,flex b: 55 functions,4690,,,b,,,,,,,,,,
 (total),,flex c: 1 functions,1913,,,c,,,,,,,,,,
 (total),,flex d: 3 functions,219,,,d,,,,,,,,,,
 (total),,flex e: 102 functions,74642,,,e,,,,,,,,,,
 (total),,no draft yet: 19 functions,1507,,,e,,,no,,,,,,,
-(gap),,60 functions,5264,,,,,,,guard-open exact (not probed),unknown until probed,,,,,
+(gap),,55 functions,5040,,,,,,,guard-open exact (not probed),unknown until probed,,,,,
 (gap),,1 functions,1920,,,,,,,exact form parked count-sensitive,a count-holding declaration,,,,,
-(gap),,61 functions,7184,,,,,,,total: function-level minus whole-unit,,,,,,
+(gap),,56 functions,6960,,,,,,,total: function-level minus whole-unit,,,,,,
 (gap),,0 functions,0,,,,,,,exact but unbound / data not bound,an unverified reference,,,,,
 (not counted),,3 functions,219,unbound,,,,,,differ only at unbound references: counted at neither level,an unverified reference,,,,,

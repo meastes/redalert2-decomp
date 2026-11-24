@@ -445,11 +445,11 @@ void LoadProgressManager::Draw(void)
 		char const * name = low_res ? Scen->LS640BkgdName : Scen->LS800BkgdName;
 		if (*name != '\0') {
 			LoadMessage = NULL;
-			if (Scen->LSLoadMessage[0] != '\0') {
+			if (*Scen->LSLoadMessage) {
 				LoadMessage = StringTable::LoadString(Scen->LSLoadMessage, NULL, "D:\\Ra2\\LdPrgMgr.cpp", 591);
 			}
 			LoadBriefing = NULL;
-			if (Scen->LSBrief[0] != '\0') {
+			if (*Scen->LSBrief) {
 				LoadBriefing = StringTable::LoadString(Scen->LSBrief, NULL, "D:\\Ra2\\LdPrgMgr.cpp", 595);
 			}
 			int side = Progress.Get_Side();

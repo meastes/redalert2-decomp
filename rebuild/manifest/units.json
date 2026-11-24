@@ -171504,5 +171504,52 @@
   ],
   "references": {},
   "note": "new unit (owner ruling, lane C1D, codex1 r2761): MSSfx constructor, destructor and Play; positive sources TibSun code/mssfx.cpp and ra2-decomp src/mssfx.cpp (the same three members in one file, YR 0x5D5820-0x5D5860); the span 0x5B69B0-0x5B6A00 exactly fills the gap between msgloop's last row and mstimer's first, with no interleaving; link order alphabetical (msgloop, mssfx, mstimer); mischa85 leaves it unassigned (unk_005B6210, absence); main files the rows under src/recovered/mssfx with no rebuild unit. The destructor's padding (2 nops) is a correction of main's zero-padding frozen bound (kind v), from the aligned split of main's own pass"
+ },
+ "ending": {
+  "core": [
+   "004b5810",
+   "004b5830"
+  ],
+  "symbol_overrides": {},
+  "source": "rebuild/src/ending.cpp",
+  "options": [
+   "/O2",
+   "/Ob2",
+   "/G5",
+   "/Gy",
+   "/Gr"
+  ],
+  "status": "catalogued",
+  "range": [
+   "004b5810",
+   "004b5830"
+  ],
+  "mischa85": "none: the two one-return functions between empulse (ends 0x4B5810) and enviro (starts 0x4B5830); main filed them under empulse by address. Unit by cross-game layout: six accepted symbols on each side map in order to Yuri's Revenge at +0x106B0, and between them the YR image names GDI_Ending then Nod_Ending (ra2-decomp); TibSun ending.cpp defines both, in that order, with their sequences disabled; link order alphabetical (empulse, ending, enviro)",
+  "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy"
+   ]
+  ],
+  "rows": [
+   {
+    "entry": "004b5810",
+    "body": 1,
+    "padding": 15,
+    "symbol": "?GDI_Ending@@YIXXZ",
+    "main_symbol": "?unknown_empty_004b5810@@YAXXZ",
+    "main_source": "src/recovered/empulse.cpp"
+   },
+   {
+    "entry": "004b5820",
+    "body": 1,
+    "padding": 15,
+    "symbol": "?Nod_Ending@@YIXXZ",
+    "main_symbol": "?unknown_empty_004b5820@@YAXXZ",
+    "main_source": "src/recovered/empulse.cpp"
+   }
+  ]
  }
 }

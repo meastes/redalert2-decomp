@@ -697,6 +697,18 @@ double MapRegionClass::Get_Angle_Score(const Cell & cell1, const Cell & cell2, d
 
 
 
+#ifdef RA2_NON_MATCHING // not exact: 1 of 1678 bytes differ against the image bound (was 313; flagged variation forms if it lands: helper (the seed region built by a file inline, ra2-decomp's banked form banks/0x0058C800_ra2a_zone.cpp (11df85d) Create_Seed_Region; without it the bank falls to 86.2%) and compiler-local (the pending count held across the loop and refreshed after each cell); the side test through the file's In_Zone_Map_Bounds and one shared reset return as in the bank; the one byte is lea esi,[eax+ecx] against [ecx+eax] in the first side test; exact only with the zone-neighbor cell form, which costs Create_Zone_Region 0x575D20 370 bytes, refused)
+static inline bool In_Zone_Map_Bounds(Cell const & cell);
+
+
+static inline MapRegionClass * Create_Seed_Region(CellClass * cptr, int cell_height, bool has_water)
+{
+	MapRegionClass * region = new MapRegionClass(cptr->Fetch_CellID());
+	region->CellHeight = cell_height;
+	region->ContainsWater = has_water;
+	return(region);
+}
+
 /// <summary>
 /// Creates a region grown out from a seed cell.
 /// This routine gathers up every cell reachable from the seed that shares its height and
@@ -707,8 +719,7 @@ double MapRegionClass::Get_Angle_Score(const Cell & cell1, const Cell & cell2, d
 /// <param name="cptr">The cell to grow the region out from.</param>
 /// <returns>Returns with the region created. NULL is returned when the patch was
 /// dissolved rather than kept.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 313 bytes differ (adopted text; the count named in the loop; the reset returns straight after its wipe, so VectorClass<Cell>::Clear is called out of line at the border-list return as in the image; the other cleanup and the point comparison inside the recount are still expanded)
-MapRegionClass * MapRegionClass::Create_Region_From_Cell(CellClass * cptr) // RA2: RA2's form (0x56E100): green-LAT ground counts as water-like and the wipes call Clear_Region_Cells
+MapRegionClass * MapRegionClass::Create_Region_From_Cell(CellClass * cptr) // RA2: green-LAT ground counts as water-like and the wipes call Clear_Region_Cells
 {
 	int i;
 	int region_id = MapRegionClass::TotalCount;
@@ -721,10 +732,10 @@ MapRegionClass * MapRegionClass::Create_Region_From_Cell(CellClass * cptr) // RA
 	int cell_height = cptr->Height;
 	int processed_count = 0;
 
-	while (cells.Count()) {
-		int count = cells.Count(); // RA2: the count is read once; the image indexes with it and takes one off again for the delete
-		Cell cell = cells[count - 1];
-		cells.Delete_Index(count - 1);
+	int pending = cells.Count();
+	while (pending) {
+		Cell cell = cells[pending - 1];
+		cells.Delete_Index(pending - 1);
 
 		CellData::Set_Spread(cell, region_id);
 		CellData::Set_Region(cell, region_id);
@@ -747,6 +758,7 @@ MapRegionClass * MapRegionClass::Create_Region_From_Cell(CellClass * cptr) // RA
 		}
 
 		processed_count++;
+		pending = cells.Count();
 	}
 
 	if (processed_count < 75 && !has_water) {
@@ -772,29 +784,28 @@ MapRegionClass * MapRegionClass::Create_Region_From_Cell(CellClass * cptr) // RA
 			}
 
 			delete region_cells;
-			if (reset_done) { // RA2: release the border list before returning
-				return(NULL);
-			}
 		} else {
-			Cell side_cell = Cell(-1, 0) + cptr->Fetch_CellID(); // RA2: try west first, then fetch the origin again for the northern neighbor
-			if (!My_In_Radar(side_cell)) {
-				side_cell = cptr->Fetch_CellID() + Cell(0, -1);
+			Cell side_cell = cptr->Fetch_CellID() - Cell(1, 0); // RA2: try west first, then fetch the origin again for the northern neighbor
+			if (!In_Zone_Map_Bounds(side_cell)) {
+				side_cell = cptr->Fetch_CellID() - Cell(0, 1);
 			}
 
 			if (My_In_Radar(side_cell)) {
 				int id = CellData::Get_Region(side_cell);
 				int height = Map[side_cell].Height;
 
-				RandomMapGen.Clear_Region_Cells(region_id, id, height, ISOTILE_CLEAR); // RA2: the side-cell wipe completes this region
-				return(NULL);
+				RandomMapGen.Clear_Region_Cells(region_id, id, height, ISOTILE_CLEAR);
+
+				reset_done = true;
 			}
+		}
+
+		if (reset_done) {
+			return(NULL);
 		}
 	}
 
-	MapRegionClass * region = new MapRegionClass(cptr->Fetch_CellID());
-	region->CellHeight = cell_height;
-	region->ContainsWater = has_water;
-	region->CellCount = 0;
+	MapRegionClass * region = Create_Seed_Region(cptr, cell_height, has_water);
 	region->Recount_Cells();
 	return(region);
 }

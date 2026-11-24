@@ -248,7 +248,7 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 								LinkedTo->TryTryAgain--;
 							} else {
 								if (LinkedTo->IsNewNavCom) {
-									VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000, 0); // RA2: as in drive.cpp
+									VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000); // RA2: as in drive.cpp
 								}
 								LinkedTo->IsNewNavCom = false;
 

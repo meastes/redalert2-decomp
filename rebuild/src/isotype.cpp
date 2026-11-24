@@ -1871,12 +1871,16 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
 										IsoDrawData.DestPtr += start;
 										IsoDrawData.DepthPtr += start;
 										IsoDrawData.DepthPtr = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)IsoDrawData.DepthPtr);
-										for (int run = *IsoDrawData.RowRunLength; run > 0; --run) {
-											*IsoDrawData.DepthPtr = IsoDrawData.FillDepth;
-											*IsoDrawData.DestPtr = (unsigned short)IsoDrawData.FogColor;
-											++IsoDrawData.DestPtr;
-											++IsoDrawData.DepthPtr;
-											IsoDrawData.DepthPtr = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)IsoDrawData.DepthPtr);
+										int run = *IsoDrawData.RowRunLength;
+										if (run > 0) {
+											do {
+												*IsoDrawData.DepthPtr = IsoDrawData.FillDepth;
+												*IsoDrawData.DestPtr = (unsigned short)IsoDrawData.FogColor;
+												++IsoDrawData.DestPtr;
+												++IsoDrawData.DepthPtr;
+												IsoDrawData.DepthPtr = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)IsoDrawData.DepthPtr);
+												--run;
+											} while (run != 0);
 										}
 										IsoDrawData.DestPtr = (unsigned short *)((char *)IsoDrawData.RowDest + IsoDrawData.SurfacePitch);
 										IsoDrawData.DepthPtr = &IsoDrawData.RowDepth[IsoDrawData.DepthWidth];

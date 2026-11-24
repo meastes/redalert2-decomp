@@ -1313,7 +1313,7 @@ void Tactical::Render(Surface * surface, bool fullredraw, int drawpass)
 		composite->Unlock();
 		int line = 0;
 		if (Scen->MissionTimer.Is_Active()) {
-			Draw_Timer(0, ColorSchemes[PlayerPtr->Scheme], Scen->MissionTimer / 15, Scen->MissionTimerTextCSF, NULL, NULL);
+			Draw_Timer(0, ColorSchemes[PlayerPtr->Scheme], Scen->MissionTimer.Value() / 15, Scen->MissionTimerTextCSF, NULL, NULL);
 			line = 1;
 		}
 		count = TimedSuperWeapons.Count();
