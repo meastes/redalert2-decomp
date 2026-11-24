@@ -5649,7 +5649,7 @@ int __fastcall Hash_CtrlMsg(int *); // RA2: as above
 namespace OwnerDraw { // RA2: as above
 LRESULT __stdcall Owner_Button_Proc(HWND, UINT, WPARAM, LPARAM); // RA2: as above
 LRESULT __stdcall List_Proc(HWND, UINT, WPARAM, LPARAM); // RA2: as above
-#ifdef RA2_NON_MATCHING // not exact: 4898 bytes differ against the image-derived bound 005ee460 (7,252 body bytes, 12 padding); TibSun CtrlProc's getTail and named WM_SYSKEYUP/VK_TAB give the same score
+#ifdef RA2_NON_MATCHING // not exact: 4892 bytes differ against the image-derived bound 005ee460 (7,252 body bytes, 12 padding) (was 4898; one Point2D window offset as ra2-decomp's banked form banks/0x00610CA0_odh.cpp (11df85d) has it); TibSun CtrlProc's getTail and named WM_SYSKEYUP/VK_TAB give the same score
 LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
 	static POINT min_update_rect = {0xFFFFFF, 0xFFFFFF};
@@ -5699,8 +5699,7 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 	Get_Display_Rect(window, &display_rect);
 	RECT window_rect;
 	GetWindowRect(window, &window_rect);
-	int offset_x = window_rect.left - display_rect.left;
-	int offset_y = window_rect.top - display_rect.top;
+	Point2D offset(window_rect.left - display_rect.left, window_rect.top - display_rect.top);
 
 
 	static ArrayList<HWND> hwndarray;
@@ -6237,7 +6236,7 @@ cleanup:
                     *(int *)((char *)data + 0x1FC) = 2;
                     if (GetWindowLongA(window, 4) && Play_Dialog_Move_In(window)) *(int *)((char *)data + 0x1FC) = 3; // RA2: as above
                     Rect whole(min_update_rect.x, min_update_rect.y, max_update_rect.x - min_update_rect.x, max_update_rect.y - min_update_rect.y); // RA2: as above
-                    destination = Offset_Rect(whole, offset_x, offset_y); // RA2: as above
+					destination = Offset_Rect(whole, offset.X, offset.Y); // RA2: as above
                     VisibleSurface->Lock();
                     AlternateSurface->Lock();
                     VisibleSurface->Blit_From(destination, *AlternateSurface, whole, false, true); // RA2: as above
@@ -6251,7 +6250,7 @@ cleanup:
                         SendMessageA(child, 0x4AF, 0, 0); // RA2: as above
                     }
                 } else {
-                    destination = Offset_Rect(source, offset_x, offset_y); // RA2: as above
+					destination = Offset_Rect(source, offset.X, offset.Y); // RA2: as above
                     char class_name[128];
                     GetClassNameA(window, class_name, sizeof(class_name)); // RA2: as above
                     if (strcmp(class_name, "ComboBox") == 0) {

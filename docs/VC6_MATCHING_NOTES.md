@@ -5219,3 +5219,12 @@ and refs2.py (a byte pattern or the loads of one global across the image, with t
 - VC6 drops a compare the left side of an `||` has already decided: `x == A || (P(x) && ...)` with P testing
   `x != A` compiles without the second test. A written-out predicate that omits one entry of the helper's list is
   the helper after such an `||`.
+- map Can_Repair_Bridge 0x569320: bind a guarded draft's function statics (`_?_x@?1??Function@...`, with the
+  leading underscore, in the unit's references) before reading its score: 12 bytes were 3. The image's frame is
+  coloured by lifetime (offset, the search cell and four later walk cells share one slot; a dead reference
+  parameter's home holds a local), so a slot miss is an interference miss: the image's search cell does not
+  interfere with offset. Scopes, declaration order, named temporaries and added locals do not change that here, and
+  one referenced local is enough to turn an inline decision in this function.
+- Landing order: format (fmtnew) before the catalog graft. A line formatted after the graft leaves the catalog
+  with the old source hash and the owner's whole-file build stops with "Source hash drift"; the lane's own build
+  passes only because it ran before the format step.

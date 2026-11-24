@@ -12634,7 +12634,7 @@ bool MapClass::Damage_Bridge(Cell const & cell)
 /// </summary>
 /// <param name="cell">The cell the repair attempt was aimed at.</param>
 /// <returns>bool; Is there a repairable bridge within reach of this cell?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 12 of 2109 bytes differ against the image-derived bound 00569320 (was 1332): three stores of the walk's search cell, which the image keeps in offset's frame slot [esp+0x14] and this text in topleft's [esp+0x2c], the state ra2-decomp's bank records for the twin; the three function statics are not bound while the draft is guarded; twenty declaration orders, scopes and loop forms do not move the slot (lane F58, 2026-11-24)
+#ifdef RA2_NON_MATCHING // not exact: 3 of 2109 bytes differ against the image-derived bound 00569320 (was 1332; 12 before the three function statics were bound): one byte in each of three instructions, the frame slot of the walk's search cell, which the image keeps in offset's slot [esp+0x14] (with the low bridge walks' cells) and this text in topleft's [esp+0x2c], the state ra2-decomp's bank records for the twin; declaration orders, scopes, loop forms (lane F58), a named offset cell, an inner block and added locals (lane F59) do not move the slot
 bool MapClass::Can_Repair_Bridge(Cell const & cell) // RA2: 0x00569320; ra2-decomp's flag-free text of its twin (Yuri's Revenge 0x00587410, branch banked-forms, banks/0x00587410_bridge.cpp) in this tree's names
 {
 	static short _x[] = {

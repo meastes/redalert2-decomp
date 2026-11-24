@@ -171,7 +171,6 @@ void STDMETHODCALLTYPE MechLocomotionClass::Force_Immediate_Destination(CoordStr
 /// </summary>
 /// <param name="continue_moving">Should the routine pick a fresh step immediately when the
 /// one it chose turns out to be unusable?</param>
-#ifdef RA2_NON_MATCHING // not exact: against the image bound (5,575 B) 951 bytes differ (was 4,352; the public mech text's navigation-flag write, moved-cell test and tube exit; before that the archive's mech.cpp path and tube logic, the crusher's sandbag test as YR's and TibSun's drive have it, the docking arguments the image passes; one instruction left, the second adjacent-cell addition after Per_Cell_Process); main: best 89.00, tried 13 times (frame, inline, register)
 void MechLocomotionClass::Movement_AI(bool continue_moving) // RA2: defined here, between Force_Immediate_Destination and Mark_Head_To
 {
 	if (LinkedTo->PrimaryFacing.Is_Rotating()) {
@@ -423,8 +422,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving) // RA2: defined here
 					if (Mark_Head_To(head_coord)) {
 
 						if (LinkedTo->Path[0] != FACING_NONE && LinkedTo->Path[0] != FACING_COUNT) {
-							Cell cell = Adjacent_Cell(LinkedTo->Get_Cell(), LinkedTo->Path[0]);
-							CellClass * cellptr = &Map[cell];
+							CellClass * cellptr = &Map[Adjacent_Cell(LinkedTo->Get_Cell(), LinkedTo->Path[0])];
 							if (cellptr->Overlay != OVERLAY_NONE) {
 								OverlayTypeClass * otype = OverlayTypes[cellptr->Overlay];
 								if ((LinkedTo->TClass->IsCrusher || LinkedTo->Has_Ability(ABILITY_CRUSHER)) && otype->HeapID == OVERLAY_SANDBAG_WALL) {
@@ -507,9 +505,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving) // RA2: defined here
 			if (LinkedTo->IsInLimbo || LinkedTo->IsFalling) return;
 
 			if (LinkedTo->Path[0] != FACING_NONE && LinkedTo->Path[0] != FACING_COUNT) {
-				Cell check_coord = Adjacent_Cell(LinkedTo->Get_Cell(), LinkedTo->Path[0]);
-
-				CellClass * cellptr = &Map[check_coord];
+				CellClass * cellptr = &Map[Adjacent_Cell(LinkedTo->Get_Cell(), LinkedTo->Path[0])];
 				if (cellptr->Overlay != OVERLAY_NONE) {
 					OverlayTypeClass * otype = OverlayTypes[cellptr->Overlay];
 					if ((LinkedTo->TClass->IsCrusher || LinkedTo->Has_Ability(ABILITY_CRUSHER)) && otype->HeapID == OVERLAY_SANDBAG_WALL) {
@@ -581,7 +577,6 @@ void MechLocomotionClass::Movement_AI(bool continue_moving) // RA2: defined here
 	}
 	LinkedTo->IsNewNavCom = false;
 }
-#endif
 
 
 /// <summary>

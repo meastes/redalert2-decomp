@@ -119397,6 +119397,15 @@
     "main_source": "src/recovered/mech.cpp"
    },
    {
+    "entry": "005919a0",
+    "body": 5575,
+    "padding": 9,
+    "symbol": "?Movement_AI@MechLocomotionClass@@AAEX_N@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "00592f70",
     "body": 419,
     "padding": 13,
@@ -138624,7 +138633,10 @@
    "??_7?$VectorClass@W4PassabilityType@@@@6B@": "007a5a98",
    "_?_bridge_subtiles1@?1??Compute_Zone_Connections@MapClass@@QAEXXZ@4PAHA": "007e0244",
    "_?_bridge_subtiles2@?1??Compute_Zone_Connections@MapClass@@QAEXXZ@4PAHA": "007e02c4",
-   "_?_facings@?1??Compute_Zone_Connections@MapClass@@QAEXXZ@4PAW4FacingType@@A": "007e0284"
+   "_?_facings@?1??Compute_Zone_Connections@MapClass@@QAEXXZ@4PAW4FacingType@@A": "007e0284",
+   "_?_x@?1??Can_Repair_Bridge@MapClass@@QAE_NABVCell@@@Z@4PAFA": "007e0514",
+   "_?_y@?1??Can_Repair_Bridge@MapClass@@QAE_NABVCell@@@Z@4PAFA": "007e0534",
+   "_?_facings@?1??Can_Repair_Bridge@MapClass@@QAE_NABVCell@@@Z@4PAW4FacingType@@A": "007e0554"
   },
   "partial_ok": true,
   "count_watch": {

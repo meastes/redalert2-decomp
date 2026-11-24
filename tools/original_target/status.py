@@ -232,8 +232,21 @@ HANDWRITTEN = (
     # BlitTrans BlitForward specialisations (TibSun blitblit.h `__asm`; Surf66 list, Scout848 ruling); 45 B and 70 B.
     (0x775980, 0x7759AD, 'BlitTrans<uchar>::BlitForward'),
     (0x4861C0, 0x486206, 'BlitTrans BlitForward'),
+    # CellClass::Draw_Shroud_Or_Fog_Shape: a C function whose contiguous-raster branch is the author's `__asm`
+    # block 0x4744CB-0x4744FA (owner, lane O72, 2026-11-24, after lanes F58 and O71). Image evidence: an ebp frame
+    # in a frame-pointer-omitting unit (its fog twin 0x474510 and the function ending at 0x47425F have none); the
+    # compiler spills ecx/eax to [ebp-24h]/[ebp+8] and the block reloads them at once into edx/ecx, then loads
+    # esi, edi, ebx from named slots; it compares with the .rdata dword 0x79DAD0 (0xFE, read by no other site)
+    # where the wrapped C branch beside it uses the immediate 0FEh; `dec / jg` latches with no zero-trip guard.
+    # The archive's cell.cpp:2025 is plain C with two for-loop pairs: RA2 replaced the non-wrapping pair with the
+    # block. No archive `__asm`, so no evidenced inline asm (BlitTransLucent50 precedent). ra2-decomp files the
+    # YR twin 0x47EFE0 as MASM (f707224 src/ra2asm/cell.asm, not adopted: its prologue and frame are compiler
+    # output written as assembly, test (a)). Image bound 0x474260-0x474503 (rebuild image_bounds.csv); 675 B.
+    (0x474260, 0x474503, 'CellClass::Draw_Shroud_Or_Fog_Shape'),
     # BlitForward with a C prologue and an `__asm` 50% translucent blend (owner, 2026-11-08, Scout1030): TibSun's
-    # BlitTransLucent50 is plain C, so the evidenced inline-asm exception does not apply; 90 B.
+    # BlitTransLucent50 is plain C, so the evidenced inline-asm exception does not apply; 90 B. ra2-decomp's
+    # f707224 src/ra2asm/convert.asm (YR twin 0x492830) reproduces these 90 B (lane O71); not adopted: its C
+    # prologue written out as assembly fails test (a). No credit change (owner, lane O72, 2026-11-24).
     (0x487080, 0x4870DA, 'BlitTransLucent50 BlitForward'),
     # VQA32 MASM tail: AudioUnzap, VQA_LCW_Uncompress, sosCODEC, ASM_UnVQ_*, cpuid/rdtsc/FPU helpers
     # (OPEN_MISSES Abuf490, Scout845, Scout848 ruling, Scout922: ra2-decomp .asm twins). Extended to 0x781C8C (owner,

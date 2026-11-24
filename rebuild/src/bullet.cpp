@@ -300,7 +300,7 @@ bool BulletClass::Mark(MarkType mark)
  * HISTORY:                                                                                    *
  *   05/02/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 4639 bytes differ at 0045f710 (6438 body bytes, image_bounds.csv).
+#ifdef RA2_NON_MATCHING // not exact: 4639 bytes differ against the image-derived bound 0045f710 (6438 body bytes, image_bounds.csv).
 #include "ion.h"
 #include "revent.h"
 void BulletClass::AI(void)

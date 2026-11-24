@@ -132,6 +132,12 @@ if not any(r.get('c_body_bytes') for r in rows):
     line['note'] = ('series break: source_share_of_text, function_level_source_share_of_text and the clean source '
                     'shares count C/C++ body bytes only (padding in padding_bytes, as on main); rows before this held '
                     'the accepted rows\' padding too')
+# Lane O72 (2026-11-24): status.py HANDWRITTEN gains the cell range; marked once, on the first row after it.
+if not any('Draw_Shroud_Or_Fog_Shape' in r.get('note', '') for r in rows):
+    line['note'] = '; '.join(n for n in (line['note'], (
+        'series break: status.py HANDWRITTEN gains CellClass::Draw_Shroud_Or_Fog_Shape 0x474260-0x474503 (675 B, '
+        'the author\'s __asm block, lane O72): the in-scope denominator (main STATUS) and both trees\' ByteMatch '
+        'scope drop by 675 B; the columns of this file are shares of all .text and do not move')) if n)
 rows.append({k: str(v) for k, v in line.items()})
 with open(path, 'w', newline='') as f:
     w = csv.DictWriter(f, fieldnames=list(line), restval=''); w.writeheader(); w.writerows(rows)

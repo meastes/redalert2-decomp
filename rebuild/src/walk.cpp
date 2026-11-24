@@ -222,7 +222,7 @@ void STDMETHODCALLTYPE WalkLocomotionClass::Force_Immediate_Destination(CoordStr
  * HISTORY:                                                                                    *
  *   07/29/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: against the image bound (4,967 B) 4,626 bytes differ (the mech sibling's tube and end-of-move text, LinkedTo passed where the image passes it; 118 of 119 calls in order, the three-axis coordinate constructor expanded; by position the older text gave 4,551); main: best 89.83, tried 12 times (frame, inline, register)
+#ifdef RA2_NON_MATCHING // not exact: against the image bound (4,967 B) 4,595 bytes differ (was 4,626; the tube position as TibSun hover.cpp computes it, Map[Adjacent_Cell(enter, dir)].Cell_Coord() - Coord(enter) + LinkedTo->PositionCoord; the second three-axis Coord constructor still expanded; before that the mech sibling's tube and end-of-move text, LinkedTo passed where the image passes it; 118 of 119 calls in order; by position the older text gave 4,551); main: best 89.83, tried 12 times (frame, inline, register)
 void WalkLocomotionClass::Movement_AI(bool first_pass)
 {
 	if (HeadToCoord == COORD_NONE) {
@@ -307,9 +307,7 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 					LinkedTo->CurrentTube = tube;
 					LinkedTo->CurrentTubeDir = FACING_FIRST;
 
-					Coord enter = (Cell)tube_ptr->Enter;
-					Coord offset = Map[Adjacent_Cell((Cell)tube_ptr->Enter, tube_ptr->Dirs[0])].Cell_Coord() - enter;
-					LinkedTo->LastTubeCoord = LinkedTo->PositionCoord + offset;
+					LinkedTo->LastTubeCoord = Map[Adjacent_Cell((Cell)tube_ptr->Enter, tube_ptr->Dirs[0])].Cell_Coord() - Coord((Cell)tube_ptr->Enter) + LinkedTo->PositionCoord;
 
 					int start_h = Map.Get_Height_GL(LinkedTo->PositionCoord);
 					LinkedTo->LastTubeCoord.Z = start_h + (Map.Get_Height_GL(tube_ptr->Get_Exit()) - start_h) / tube_ptr->Get_Count();

@@ -31,11 +31,17 @@ import sys
 
 import rebuild as R
 from guard import demangle
+import status                                       # noqa: E402 (tools/original_target, on the path rebuild sets)
 
 MAN = R.MANIFEST
 OUT = MAN / 'flex_menu.csv'
 GUARD = re.compile(r'^#ifdef RA2_NON_MATCHING\b[^\n]*', re.M)
 DEF = re.compile(r'^[A-Za-z_][^\n;{}()]*?\b((?:[A-Za-z_]\w*::)*~?[A-Za-z_]\w*|operator\s*[^\s(]+)\s*\(', re.M)
+
+
+def handwritten(entry):
+    """True for an entry inside an owner-ruled handwritten-assembly range (status.py HANDWRITTEN)."""
+    return any(a <= int(entry, 16) < b for a, b, _ in status.HANDWRITTEN)
 
 
 def guards(text):
@@ -229,6 +235,11 @@ def main():
                 e = a.group(1).lower().zfill(8) if a else ''
             if e and (u, e) in known:
                 continue
+            # A draft inside an owner-ruled handwritten-assembly range (status.py HANDWRITTEN) is out of the
+            # in-scope tail: no flex lands it as C++ (lane O72: cell Draw_Shroud_Or_Fog_Shape 0x474260).
+            if e and handwritten(e):
+                known.add((u, e))
+                continue
             size = sizes.get(e, ('', ''))[0] if e else ''
             if not size and e in image:
                 size = image[e]['body_bytes']
@@ -244,7 +255,7 @@ def main():
         # no_draft_queue.csv is refreshed only by nodraft_queue.py: a function whose row the unit's current check
         # finds exact has landed, not "no draft yet" (lane O65: Zone_Reset, One_Time and Compute_Zone_Connections
         # were listed so after landing).
-        if (r['unit'], r['entry']) in known or current.get((r['unit'], r['entry'])) == 'exact':
+        if (r['unit'], r['entry']) in known or current.get((r['unit'], r['entry'])) == 'exact' or handwritten(r['entry']):
             continue
         rows.append(dict(unit=r['unit'], entry=r['entry'], function=demangle(r['symbol']) or r['symbol'],
                          bytes=int(r['bytes'] or 0), bucket='no_draft (%s)' % r['group'], label='', draft='no'))
