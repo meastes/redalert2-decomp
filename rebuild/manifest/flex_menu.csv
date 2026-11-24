@@ -28,7 +28,7 @@ netshare,005c8dd0,Set_Slot_Names,920,register_order,4,a,"variation_candidates.cs
 ownrdraw,005e0760,Is_Tested_Control,1594,inline_call,1444,a,variation_candidates.csv: none admissible: as Enable_Animated_Control 0x5E4780 (the declared-only second name for Is_Listed_Kind),,yes,,,,B,structure,no,1594
 ownrdraw,005e4780,OwnerDraw::Enable_Animated_Control,2468,inline_call,,a,variation_candidates.csv: none admissible: main and ra2-decomp both reach the out-of-line Is_Listed_Kind call through a declared-only second name for the predicate (main's Is_Listed_Kind,,yes,,,,B,structure,no,2468
 ownrdraw,005e9410,Adjust_Control_Position,1938,no_row,1749,a,variation_candidates.csv: none admissible: as Enable_Animated_Control 0x5E4780 (the declared-only second name for Is_Listed_Kind); main also needed two dead self-assignments for the last,,yes,,,,,,,
-ownrdraw,005ee460,Control_Proc,7252,no_row,4892,a,"variation_candidates.csv: codex1 r2692 (refs/c1pk/r2692, 80ab511e9b): three coined record blocks ({ unsigned int control_key = (unsigned int)window; WinData *record = NULL; Control_Table",,yes,,,,,,,
+ownrdraw,005ee460,Control_Proc,7252,no_row,4884,a,"variation_candidates.csv: codex1 r2692 (refs/c1pk/r2692, 80ab511e9b): three coined record blocks ({ unsigned int control_key = (unsigned int)window; WinData *record = NULL; Control_Table",,yes,,,,,,,
 ownrdraw,005f2b50,Static_Proc,4512,no_row,3067,a,"variation_candidates.csv: codex1 r2703 (refs/c1pk/r2703, 89cb227e56): WinData plain members for +0x58..+0x60, +0x78..+0xAC, +0xB4/+0xB8 (one declaration each), ControlAnimationState and ",,yes,,,,,,,
 ownrdraw,005fee70,Dialog_On_WM_PAINT,1281,inline_call,536,a,variation_candidates.csv: main's coined callee declarations / helpers,,yes,,,,B,structure,not tested,1281
 particle,00609540,ParticleClass::Spark_Behavior_AI,1069,inline_body,694,a,"variation_candidates.csv: none in main (non-exact there, 66.45); ra2-decomp's held form (branch banked-forms 11df85d, banks/0x0062C6E0_ballistic.h and .cpp): Ballistic_Move gains a Techn",,yes,,,,,,,
@@ -194,9 +194,9 @@ netshare,005cd770,??0?$DynamicVectorClass@PBVMultiMission@@@@QAE@IPBQBVMultiMiss
 objtype,,ObjectTypeClass::Theater_Naming_Convention,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 ownrdraw,,Combo_Proc,0,unplaced,6583,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 ownrdraw,,Enable_Animated_Control,0,unplaced,2216,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
-ownrdraw,,List_Proc,0,unplaced,14527,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 ownrdraw,005f00c0,unknown_modal_list_atexit_5f00c0,23,no_draft,,e,no draft yet,,no,,,,,,,
 ownrdraw,005f00e0,unknown_active_messages_atexit_5f00e0,291,no_draft,,e,no draft yet,,no,,,,,,,
+ownrdraw,005f6690,List_Proc,14618,no_row,13847,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 ownrdraw,00601410,Leaf_601410::get,21,not_emitted,,e,stays a flagged draft,,yes,,,,E,,not tested,21
 ownrdraw,00601490,?Clear_Vector@?$WolArrayList@UUnknownListEntry_6017c0@@@@QAEXXZ,68,no_draft,,e,no draft yet,,no,,,,,,,
 ownrdraw,00601850,?Shrink_Vector@?$WolArrayList@UUnknownListEntry_6017c0@@@@QAE_NXZ,136,no_draft,,e,no draft yet,,no,,,,,,,
@@ -240,7 +240,7 @@ wdtnet,,WDTState::To_String,0,unplaced,,e,no row of the original matches the dra
 wdtnet,,WDTTerritory::Get_Game_Options,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 wdtnet,,WDTTerritory::To_String,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 wdtsel,,Selection::Do_Target_Anim,0,unplaced,2,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
-wonline,,Start_Talking_To,0,unplaced,2261,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
+wonline,0074e5e0,Start_Talking_To,2456,no_row,2112,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 wonline,0075f530,CChatEventSink::OnChannelJoin,5780,inline_body,,e,stays a flagged draft,,yes,,,,,,,
 wonline,00767550,?keyHash@?$Dictionary@VWstring@@ULadder@WOL@@@@AAEIABVWstring@@@Z,29,no_draft,,e,no draft yet,,no,,,,,,,
 wonline,00767bb0,WolNameTable::Get_Pointer_00767bb0,107,no_draft,,e,no draft yet,,no,,,,,,,
@@ -249,7 +249,7 @@ wonline,00767cd0,WolNameTable::Key_Hash_00767cd0,29,no_draft,,e,no draft yet,,no
 (total),,flex b: 78 functions,6310,,,b,,,,,,,,,,
 (total),,flex c: 1 functions,1913,,,c,,,,,,,,,,
 (total),,flex d: 3 functions,219,,,d,,,,,,,,,,
-(total),,flex e: 105 functions,47924,,,e,,,,,,,,,,
+(total),,flex e: 105 functions,64998,,,e,,,,,,,,,,
 (total),,no draft yet: 19 functions,1507,,,e,,,no,,,,,,,
 (gap),,79 functions,10880,,,,,,,guard-open exact (not probed),unknown until probed,,,,,
 (gap),,1 functions,1920,,,,,,,exact form parked count-sensitive,a count-holding declaration,,,,,

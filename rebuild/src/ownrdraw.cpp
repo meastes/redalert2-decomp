@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2026 OpenTS contributors
  * Copyright 2026 ra2-decomp contributors
+ * Control_Proc uses rectangle translations from gibbo101/ra2-decomp.
+ * List_Proc follows the list-box message order in gibbo101/ra2-decomp.
  * Ported to RA2 1.006 by RedAlert2 contributors, 2026 (from the RA2 recovery of
  * meastes/ra2-decomp and Ghidra).
  *
@@ -360,13 +362,6 @@ void __fastcall Show_Dialog_With_Flag(HWND dialog); // RA2: 0x5115F0
 namespace OwnerDraw { LRESULT __stdcall New_Edit_Window_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam); } // RA2: 0x5EAD00
 void IME_Update_Composition(void); // RA2: 0x737E30
 
-/*
-**	RA2: the rectangle moved by (x, y).
-*/
-inline Rect __cdecl Offset_Rect(Rect const & rect, int x, int y) // RA2: as above
-{
-	return(Rect(rect.X + x, rect.Y + y, rect.Width, rect.Height)); // RA2: as above
-}
 namespace OwnerDraw { void Shutdown(void); } // RA2: 0x5EAC20
 
 
@@ -5649,7 +5644,7 @@ int __fastcall Hash_CtrlMsg(int *); // RA2: as above
 namespace OwnerDraw { // RA2: as above
 LRESULT __stdcall Owner_Button_Proc(HWND, UINT, WPARAM, LPARAM); // RA2: as above
 LRESULT __stdcall List_Proc(HWND, UINT, WPARAM, LPARAM); // RA2: as above
-#ifdef RA2_NON_MATCHING // not exact: 4892 bytes differ against the image-derived bound 005ee460 (7,252 body bytes, 12 padding) (was 4898; one Point2D window offset as ra2-decomp's banked form banks/0x00610CA0_odh.cpp (11df85d) has it); TibSun CtrlProc's getTail and named WM_SYSKEYUP/VK_TAB give the same score
+#ifdef RA2_NON_MATCHING // not exact: 4884 bytes differ against the image-derived bound 005ee460 (7,252 body bytes, 12 padding) (was 4892; window offset and rectangle translations as ra2-decomp's banked form banks/0x00610CA0_odh.cpp (11df85d) has it); TibSun CtrlProc's getTail and named WM_SYSKEYUP/VK_TAB give the same score
 LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
 	static POINT min_update_rect = {0xFFFFFF, 0xFFFFFF};
@@ -6236,7 +6231,8 @@ cleanup:
                     *(int *)((char *)data + 0x1FC) = 2;
                     if (GetWindowLongA(window, 4) && Play_Dialog_Move_In(window)) *(int *)((char *)data + 0x1FC) = 3; // RA2: as above
                     Rect whole(min_update_rect.x, min_update_rect.y, max_update_rect.x - min_update_rect.x, max_update_rect.y - min_update_rect.y); // RA2: as above
-					destination = Offset_Rect(whole, offset.X, offset.Y); // RA2: as above
+					destination = whole;
+					destination += offset; // RA2: as above
                     VisibleSurface->Lock();
                     AlternateSurface->Lock();
                     VisibleSurface->Blit_From(destination, *AlternateSurface, whole, false, true); // RA2: as above
@@ -6250,7 +6246,8 @@ cleanup:
                         SendMessageA(child, 0x4AF, 0, 0); // RA2: as above
                     }
                 } else {
-					destination = Offset_Rect(source, offset.X, offset.Y); // RA2: as above
+					destination = source;
+					destination += offset; // RA2: as above
                     char class_name[128];
                     GetClassNameA(window, class_name, sizeof(class_name)); // RA2: as above
                     if (strcmp(class_name, "ComboBox") == 0) {
@@ -11007,7 +11004,7 @@ LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lp
 }
 #endif
 
-#ifdef RA2_NON_MATCHING // not exact: 14527 bytes differ
+#ifdef RA2_NON_MATCHING // not exact: 13847 bytes differ against the image-derived bound 005f6690 (14,618 body bytes, 6 padding) (was 14527; the message groups in the order of ra2-decomp's banked form banks/0x00618D40_lbh.cpp (11df85d), each RA2 handler and fall-through chain kept)
 namespace OwnerDraw {
 
 LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
@@ -11068,309 +11065,6 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 	}
 
 	switch (message) {
-		case WM_DELETEITEM: {
-			result = 1;
-			DELETEITEMSTRUCT * item = (DELETEITEMSTRUCT *)lparam;
-			TextNode ** link = &data->Nodes;
-			while (*link) {
-				TextNode * node = *link;
-				if (node == (TextNode *)item->itemData) {
-					*link = node->Next;
-					operator delete(node);
-					break;
-				}
-				link = &node->Next;
-			}
-			break;
-		}
-		case WM_SIZE: {
-			if ((int)data->ScrollBar > 1) {
-				RECT parent_display;
-				Get_Display_Rect(GetParent(window), &parent_display);
-				RECT win_display;
-				Get_Display_Rect(window, &win_display);
-				MoveWindow(data->ScrollBar, win_display.right - parent_display.left, win_display.top - parent_display.top, scrollbar_width, win_display.bottom - win_display.top, TRUE);
-			}
-			Surface * surface = data->Back;
-			if (surface != NULL) {
-				if ((unsigned short)lparam != surface->Get_Width() || HIWORD(lparam) != surface->Get_Height()) {
-					WinData * cache_data = NULL;
-					Control_Table.getPointer((unsigned int)window, &cache_data);
-					if (cache_data != NULL && cache_data->Back != NULL) {
-						delete cache_data->Back;
-						cache_data->Back = NULL;
-						Surface_Count--;
-					}
-				}
-			}
-			break;
-		}
-		case WM_SETFONT: {
-			HDC dc = GetDC(window);
-			TEXTMETRIC tm;
-			GetTextMetrics(dc, &tm);
-			ReleaseDC(window, dc);
-			SendMessage(window, LB_SETITEMHEIGHT, (WPARAM)-1, (unsigned short)(LOWORD(tm.tmHeight) + 2));
-			data->Font = (BitFont *)wparam;
-			return(0);
-		}
-		case WM_PAINT: {
-			BitFont * font = data->Font;
-			call_default = false;
-			Draw_Dimmed_Back(content_rect, window, data->TextStyle);
-			Draw_Frame(AlternateSurface, content_rect, 1, -1);
-
-			int fill_color = Color_To_Pixel(Fill_Color);
-
-			RECT update_rect;
-			if (!GetUpdateRect(window, &update_rect, FALSE)) {
-				break;
-			}
-
-			int count = SendMessage(window, LB_GETCOUNT, 0, 0);
-			int index = SendMessage(window, LB_GETTOPINDEX, 0, 0);
-			while (index < count) {
-				RECT item_rect;
-				if (SendMessage(window, LB_GETITEMRECT, index, (LPARAM)&item_rect) != -1) {
-					if (client_rect.top + item_rect.bottom > client_rect.bottom) {
-						break;
-					}
-					{
-						WNDPROC proc = NULL;
-						Window_Proc_Table.getValue(window, proc);
-						string[0] = 0;
-						TextNode * item = (TextNode *)CallWindowProcA(proc, window, LB_GETITEMDATA, index, 0);
-						if (!item || item == (TextNode *)LB_ERR) item = (TextNode *)CallWindowProcA(proc, window, CB_GETITEMDATA, index, 0);
-						if (item && item != (TextNode *)LB_ERR) {
-							wcsncpy(string, item->Data, 512);
-							string[511] = 0;
-						}
-					}
-
-					ArrayList<ColumnData> * columns = (ArrayList<ColumnData> *)data->HadTabStop;
-					if (columns != NULL) {
-						if (SendMessage(window, LB_GETSEL, index, 0) > 0) {
-							Rect fill;
-							fill.X = item_rect.left + display_rect.left;
-							fill.Y = item_rect.top + display_rect.top;
-							fill.Width = item_rect.right - item_rect.left;
-							fill.Height = item_rect.bottom - item_rect.top;
-							AlternateSurface->Fill_Rect(fill, fill_color);
-						}
-
-						HDC dc = GetDC(window);
-						for (int col = 0; col < columns->length(); col++) {
-							ColumnData * column = NULL;
-							columns->getPointer(&column, col);
-							CellData * cell = NULL;
-							column->cells.getPointer(&cell, index);
-							if (cell == NULL || cell->type == CellData::INVALID) {
-								continue;
-							}
-
-							if (cell->type == CellData::TEXT || cell->type == CellData::PRIMARY) {
-								Rect text_rect;
-								text_rect.X = display_rect.left + item_rect.left + column->xPos;
-								text_rect.Y = display_rect.top + item_rect.top;
-								text_rect.Width = 0;
-								text_rect.Height = 0;
-								if (cell->type == CellData::TEXT) {
-									wcsncpy(string, cell->string.get(), 512);
-									string[511] = 0;
-								} else if (cell->type == CellData::PRIMARY) {
-									{
-										WNDPROC proc = NULL;
-										Window_Proc_Table.getValue(window, proc);
-										string[0] = 0;
-										TextNode * item = (TextNode *)CallWindowProcA(proc, window, LB_GETITEMDATA, index, 0);
-										if (!item || item == (TextNode *)LB_ERR) item = (TextNode *)CallWindowProcA(proc, window, CB_GETITEMDATA, index, 0);
-										if (item && item != (TextNode *)LB_ERR) {
-											wcsncpy(string, item->Data, 512);
-											string[511] = 0;
-										}
-									}
-								}
-								COLORREF text_color = cell->color;
-								if (text_color == -1) {
-									text_color = Text_Color;
-								}
-								int max_width = column->width;
-								if (max_width == 0) {
-									max_width = 0xFFFF;
-								}
-								if (display_rect.right - max_width - column->xPos - item_rect.left - display_rect.left < 0) {
-									max_width = display_rect.right - column->xPos - item_rect.left - display_rect.left;
-								}
-								SendMessage(window, OD_RESTOREDC, 0, (LPARAM)dc);
-								int width, height;
-								int length = wcslen(string);
-								font->Text_Dimensions(string, &width, &height, 0);
-								while (length && width > max_width) {
-									string[--length] = 0;
-									if (length <= 508) wcscat(string, L"...");
-									font->Text_Dimensions(string, &width, &height, 0);
-								}
-								OD_Draw_Text(text_color, font, text_rect, string, wcslen(string), 0, 0, NULL, 0);
-							} else if (cell->type == CellData::SURFACE) {
-								Surface * surface = cell->surf;
-								if (surface != NULL) {
-									int height = surface->Get_Height();
-									int width = surface->Get_Width();
-									Rect surface_rect;
-									surface_rect.Width = width;
-									surface_rect.X = display_rect.left + item_rect.left + column->xPos;
-									surface_rect.Height = height;
-									surface_rect.Y = display_rect.top + item_rect.top + (item_rect.bottom - item_rect.top - height) / 2;
-									SurfaceCache.DrawTrans(surface_rect, *AlternateSurface, *surface, (255 >> DSurface::RedLeft << DSurface::RedRight) | (255u >> DSurface::BlueLeft << DSurface::BlueRight));
-								}
-							} else {
-								int ping = cell->pingtime;
-								Rect ping_rect;
-								ping_rect.X = display_rect.left + item_rect.left + column->xPos;
-								ping_rect.Y = display_rect.top + item_rect.top;
-								ping_rect.Width = 28;
-								ping_rect.Height = 12;
-								unsigned color;
-								if (ping < 300) {
-									color = DSurface::Build_Hicolor_Pixel(0, 192, 0);
-								} else if (ping < 500) {
-									color = DSurface::Build_Hicolor_Pixel(192, 192, 0);
-								} else {
-									color = DSurface::Build_Hicolor_Pixel(192, 0, 0);
-								}
-								Draw_Progress_Fill(ping_rect, AlternateSurface, color, (ping << 16) / 1000);
-							}
-						}
-						ReleaseDC(window, dc);
-					} else {
-						ArrayList<int> * row_colors = (ArrayList<int> *)data->ItemState;
-						COLORREF text_color;
-						int * color_ptr = NULL;
-						if (row_colors == NULL || !row_colors->getPointer(&color_ptr, index) || *color_ptr == -1) {
-							text_color = Text_Color;
-						} else {
-							text_color = *color_ptr;
-						}
-
-						if (SendMessage(window, LB_GETSEL, index, 0) > 0) {
-							Rect fill;
-							fill.X = item_rect.left + display_rect.left;
-							fill.Y = item_rect.top + display_rect.top;
-							fill.Height = item_rect.bottom - item_rect.top;
-							fill.Width = item_rect.right - item_rect.left;
-							AlternateSurface->Fill_Rect(fill, fill_color);
-						}
-
-						Rect text_rect;
-						text_rect.X = item_rect.left + display_rect.left + 2;
-						text_rect.Y = display_rect.top + item_rect.top;
-						text_rect.Width = item_rect.right - item_rect.left;
-						text_rect.Height = item_rect.bottom - item_rect.top;
-						OD_Draw_Text(text_color, font, text_rect, string, wcslen(string), 0, 0, NULL, 0);
-					}
-				}
-				index++;
-			}
-			ValidateRect(window, &update_rect);
-			break;
-		}
-		case WM_ERASEBKGND:
-			return(0);
-		case WM_VSCROLL: {
-			call_default = false;
-			LRESULT position = SendMessage(data->ScrollBar, SBM_GETPOS, 0, 0);
-			if (position != SendMessage(window, LB_GETTOPINDEX, 0, 0)) {
-				SendMessage(window, LB_SETTOPINDEX, position, 0);
-			}
-			break;
-		}
-		case LB_DELETESTRING: {
-			ArrayList<int> * row_colors = (ArrayList<int> *)data->ItemState;
-			if (row_colors != NULL && row_colors->length() > (int)wparam) {
-				row_colors->remove((int)wparam);
-			}
-			ArrayList<int> * sel_states = (ArrayList<int> *)data->RangeMax;
-			if (sel_states != NULL && sel_states->length() > (int)wparam) {
-				sel_states->remove((int)wparam);
-			}
-			ArrayList<ColumnData> * columns = (ArrayList<ColumnData> *)data->HadTabStop;
-			if (columns != NULL) {
-				for (int col = 0; col < columns->length(); col++) {
-					ColumnData * column = NULL;
-					columns->getPointer(&column, col);
-					if (column->cells.length() != 0) {
-						column->cells.remove((int)wparam);
-					}
-				}
-			}
-			break;
-		}
-		case WM_NCDESTROY:
-		case LB_RESETCONTENT: {
-			ArrayList<int> * row_colors = (ArrayList<int> *)data->ItemState;
-			if (row_colors != NULL) {
-				delete row_colors;
-			}
-			ArrayList<int> * sel_states = (ArrayList<int> *)data->RangeMax;
-			if (sel_states != NULL) {
-				delete sel_states;
-			}
-			data->ItemState = 0;
-			data->RangeMax = 0;
-			data->Position = 0;
-			data->IsEditFocus = -1;
-
-			ArrayList<ColumnData> * columns = (ArrayList<ColumnData> *)data->HadTabStop;
-			if (columns != NULL) {
-				for (int col = 0; col < columns->length(); col++) {
-					ColumnData * column = NULL;
-					columns->getPointer(&column, col);
-					column->cells.clear();
-				}
-			}
-
-			if (message == WM_NCDESTROY) {
-				if (columns != NULL) {
-					delete columns;
-				}
-				data->HadTabStop = 0;
-			} else {
-				parent = GetParent(window);
-				SendMessage(parent, WM_COMMAND, (GetWindowLong(window, GWL_ID) & 0xFFFF) | 0x10000, (LPARAM)window);
-			}
-			break;
-		}
-		case LB_SETSEL: {
-			int index = (int)lparam;
-			if (index < -1) {
-				return(-1);
-			}
-			ArrayList<int> * sel_states = (ArrayList<int> *)data->RangeMax;
-			if (sel_states == NULL) {
-				sel_states = new ArrayList<int>;
-				data->RangeMax = (int)sel_states;
-			}
-			if (index >= SendMessage(window, LB_GETCOUNT, 0, 0) - 1) {
-				index = SendMessage(window, LB_GETCOUNT, 0, 0) - 1;
-			}
-			if (index >= sel_states->length()) {
-				int unselected = 0;
-				sel_states->setSize(index + 1, unselected);
-			}
-			if (index == -1) {
-				for (int i = 0; i < sel_states->length(); i++) {
-					int selected = (int)wparam;
-					sel_states->replace(selected, i);
-				}
-			} else {
-				int selected = (int)wparam;
-				sel_states->replace(selected, index);
-			}
-			parent = GetParent(window);
-			SendMessage(parent, WM_COMMAND, (GetWindowLong(window, GWL_ID) & 0xFFFF) | 0x10000, (LPARAM)window);
-			InvalidateRect(window, NULL, FALSE);
-			return(0);
-		}
 		case CB_GETITEMDATA:
 		case CB_SETITEMDATA:
 		case LB_GETITEMDATA:
@@ -11403,6 +11097,37 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 				data->Position = index;
 				InvalidateRect(window, NULL, FALSE);
 			}
+			return(0);
+		}
+		case LB_SETSEL: {
+			int index = (int)lparam;
+			if (index < -1) {
+				return(-1);
+			}
+			ArrayList<int> * sel_states = (ArrayList<int> *)data->RangeMax;
+			if (sel_states == NULL) {
+				sel_states = new ArrayList<int>;
+				data->RangeMax = (int)sel_states;
+			}
+			if (index >= SendMessage(window, LB_GETCOUNT, 0, 0) - 1) {
+				index = SendMessage(window, LB_GETCOUNT, 0, 0) - 1;
+			}
+			if (index >= sel_states->length()) {
+				int unselected = 0;
+				sel_states->setSize(index + 1, unselected);
+			}
+			if (index == -1) {
+				for (int i = 0; i < sel_states->length(); i++) {
+					int selected = (int)wparam;
+					sel_states->replace(selected, i);
+				}
+			} else {
+				int selected = (int)wparam;
+				sel_states->replace(selected, index);
+			}
+			parent = GetParent(window);
+			SendMessage(parent, WM_COMMAND, (GetWindowLong(window, GWL_ID) & 0xFFFF) | 0x10000, (LPARAM)window);
+			InvalidateRect(window, NULL, FALSE);
 			return(0);
 		}
 		case LB_GETTOPINDEX:
@@ -11812,6 +11537,278 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 		}
 		case 0x4ef:
 			return (LRESULT)data->ScrollBar;
+		case WM_VSCROLL: {
+			call_default = false;
+			LRESULT position = SendMessage(data->ScrollBar, SBM_GETPOS, 0, 0);
+			if (position != SendMessage(window, LB_GETTOPINDEX, 0, 0)) {
+				SendMessage(window, LB_SETTOPINDEX, position, 0);
+			}
+			break;
+		}
+		case LB_DELETESTRING: {
+			ArrayList<int> * row_colors = (ArrayList<int> *)data->ItemState;
+			if (row_colors != NULL && row_colors->length() > (int)wparam) {
+				row_colors->remove((int)wparam);
+			}
+			ArrayList<int> * sel_states = (ArrayList<int> *)data->RangeMax;
+			if (sel_states != NULL && sel_states->length() > (int)wparam) {
+				sel_states->remove((int)wparam);
+			}
+			ArrayList<ColumnData> * columns = (ArrayList<ColumnData> *)data->HadTabStop;
+			if (columns != NULL) {
+				for (int col = 0; col < columns->length(); col++) {
+					ColumnData * column = NULL;
+					columns->getPointer(&column, col);
+					if (column->cells.length() != 0) {
+						column->cells.remove((int)wparam);
+					}
+				}
+			}
+			break;
+		}
+		case WM_NCDESTROY:
+		case LB_RESETCONTENT: {
+			ArrayList<int> * row_colors = (ArrayList<int> *)data->ItemState;
+			if (row_colors != NULL) {
+				delete row_colors;
+			}
+			ArrayList<int> * sel_states = (ArrayList<int> *)data->RangeMax;
+			if (sel_states != NULL) {
+				delete sel_states;
+			}
+			data->ItemState = 0;
+			data->RangeMax = 0;
+			data->Position = 0;
+			data->IsEditFocus = -1;
+
+			ArrayList<ColumnData> * columns = (ArrayList<ColumnData> *)data->HadTabStop;
+			if (columns != NULL) {
+				for (int col = 0; col < columns->length(); col++) {
+					ColumnData * column = NULL;
+					columns->getPointer(&column, col);
+					column->cells.clear();
+				}
+			}
+
+			if (message == WM_NCDESTROY) {
+				if (columns != NULL) {
+					delete columns;
+				}
+				data->HadTabStop = 0;
+			} else {
+				parent = GetParent(window);
+				SendMessage(parent, WM_COMMAND, (GetWindowLong(window, GWL_ID) & 0xFFFF) | 0x10000, (LPARAM)window);
+			}
+			break;
+		}
+		case WM_DELETEITEM: {
+			result = 1;
+			DELETEITEMSTRUCT * item = (DELETEITEMSTRUCT *)lparam;
+			TextNode ** link = &data->Nodes;
+			while (*link) {
+				TextNode * node = *link;
+				if (node == (TextNode *)item->itemData) {
+					*link = node->Next;
+					operator delete(node);
+					break;
+				}
+				link = &node->Next;
+			}
+			break;
+		}
+		case WM_SIZE: {
+			if ((int)data->ScrollBar > 1) {
+				RECT parent_display;
+				Get_Display_Rect(GetParent(window), &parent_display);
+				RECT win_display;
+				Get_Display_Rect(window, &win_display);
+				MoveWindow(data->ScrollBar, win_display.right - parent_display.left, win_display.top - parent_display.top, scrollbar_width, win_display.bottom - win_display.top, TRUE);
+			}
+			Surface * surface = data->Back;
+			if (surface != NULL) {
+				if ((unsigned short)lparam != surface->Get_Width() || HIWORD(lparam) != surface->Get_Height()) {
+					WinData * cache_data = NULL;
+					Control_Table.getPointer((unsigned int)window, &cache_data);
+					if (cache_data != NULL && cache_data->Back != NULL) {
+						delete cache_data->Back;
+						cache_data->Back = NULL;
+						Surface_Count--;
+					}
+				}
+			}
+			break;
+		}
+		case WM_SETFONT: {
+			HDC dc = GetDC(window);
+			TEXTMETRIC tm;
+			GetTextMetrics(dc, &tm);
+			ReleaseDC(window, dc);
+			SendMessage(window, LB_SETITEMHEIGHT, (WPARAM)-1, (unsigned short)(LOWORD(tm.tmHeight) + 2));
+			data->Font = (BitFont *)wparam;
+			return(0);
+		}
+		case WM_ERASEBKGND:
+			return(0);
+		case WM_PAINT: {
+			BitFont * font = data->Font;
+			call_default = false;
+			Draw_Dimmed_Back(content_rect, window, data->TextStyle);
+			Draw_Frame(AlternateSurface, content_rect, 1, -1);
+
+			int fill_color = Color_To_Pixel(Fill_Color);
+
+			RECT update_rect;
+			if (!GetUpdateRect(window, &update_rect, FALSE)) {
+				break;
+			}
+
+			int count = SendMessage(window, LB_GETCOUNT, 0, 0);
+			int index = SendMessage(window, LB_GETTOPINDEX, 0, 0);
+			while (index < count) {
+				RECT item_rect;
+				if (SendMessage(window, LB_GETITEMRECT, index, (LPARAM)&item_rect) != -1) {
+					if (client_rect.top + item_rect.bottom > client_rect.bottom) {
+						break;
+					}
+					{
+						WNDPROC proc = NULL;
+						Window_Proc_Table.getValue(window, proc);
+						string[0] = 0;
+						TextNode * item = (TextNode *)CallWindowProcA(proc, window, LB_GETITEMDATA, index, 0);
+						if (!item || item == (TextNode *)LB_ERR) item = (TextNode *)CallWindowProcA(proc, window, CB_GETITEMDATA, index, 0);
+						if (item && item != (TextNode *)LB_ERR) {
+							wcsncpy(string, item->Data, 512);
+							string[511] = 0;
+						}
+					}
+
+					ArrayList<ColumnData> * columns = (ArrayList<ColumnData> *)data->HadTabStop;
+					if (columns != NULL) {
+						if (SendMessage(window, LB_GETSEL, index, 0) > 0) {
+							Rect fill;
+							fill.X = item_rect.left + display_rect.left;
+							fill.Y = item_rect.top + display_rect.top;
+							fill.Width = item_rect.right - item_rect.left;
+							fill.Height = item_rect.bottom - item_rect.top;
+							AlternateSurface->Fill_Rect(fill, fill_color);
+						}
+
+						HDC dc = GetDC(window);
+						for (int col = 0; col < columns->length(); col++) {
+							ColumnData * column = NULL;
+							columns->getPointer(&column, col);
+							CellData * cell = NULL;
+							column->cells.getPointer(&cell, index);
+							if (cell == NULL || cell->type == CellData::INVALID) {
+								continue;
+							}
+
+							if (cell->type == CellData::TEXT || cell->type == CellData::PRIMARY) {
+								Rect text_rect;
+								text_rect.X = display_rect.left + item_rect.left + column->xPos;
+								text_rect.Y = display_rect.top + item_rect.top;
+								text_rect.Width = 0;
+								text_rect.Height = 0;
+								if (cell->type == CellData::TEXT) {
+									wcsncpy(string, cell->string.get(), 512);
+									string[511] = 0;
+								} else if (cell->type == CellData::PRIMARY) {
+									{
+										WNDPROC proc = NULL;
+										Window_Proc_Table.getValue(window, proc);
+										string[0] = 0;
+										TextNode * item = (TextNode *)CallWindowProcA(proc, window, LB_GETITEMDATA, index, 0);
+										if (!item || item == (TextNode *)LB_ERR) item = (TextNode *)CallWindowProcA(proc, window, CB_GETITEMDATA, index, 0);
+										if (item && item != (TextNode *)LB_ERR) {
+											wcsncpy(string, item->Data, 512);
+											string[511] = 0;
+										}
+									}
+								}
+								COLORREF text_color = cell->color;
+								if (text_color == -1) {
+									text_color = Text_Color;
+								}
+								int max_width = column->width;
+								if (max_width == 0) {
+									max_width = 0xFFFF;
+								}
+								if (display_rect.right - max_width - column->xPos - item_rect.left - display_rect.left < 0) {
+									max_width = display_rect.right - column->xPos - item_rect.left - display_rect.left;
+								}
+								SendMessage(window, OD_RESTOREDC, 0, (LPARAM)dc);
+								int width, height;
+								int length = wcslen(string);
+								font->Text_Dimensions(string, &width, &height, 0);
+								while (length && width > max_width) {
+									string[--length] = 0;
+									if (length <= 508) wcscat(string, L"...");
+									font->Text_Dimensions(string, &width, &height, 0);
+								}
+								OD_Draw_Text(text_color, font, text_rect, string, wcslen(string), 0, 0, NULL, 0);
+							} else if (cell->type == CellData::SURFACE) {
+								Surface * surface = cell->surf;
+								if (surface != NULL) {
+									int height = surface->Get_Height();
+									int width = surface->Get_Width();
+									Rect surface_rect;
+									surface_rect.Width = width;
+									surface_rect.X = display_rect.left + item_rect.left + column->xPos;
+									surface_rect.Height = height;
+									surface_rect.Y = display_rect.top + item_rect.top + (item_rect.bottom - item_rect.top - height) / 2;
+									SurfaceCache.DrawTrans(surface_rect, *AlternateSurface, *surface, (255 >> DSurface::RedLeft << DSurface::RedRight) | (255u >> DSurface::BlueLeft << DSurface::BlueRight));
+								}
+							} else {
+								int ping = cell->pingtime;
+								Rect ping_rect;
+								ping_rect.X = display_rect.left + item_rect.left + column->xPos;
+								ping_rect.Y = display_rect.top + item_rect.top;
+								ping_rect.Width = 28;
+								ping_rect.Height = 12;
+								unsigned color;
+								if (ping < 300) {
+									color = DSurface::Build_Hicolor_Pixel(0, 192, 0);
+								} else if (ping < 500) {
+									color = DSurface::Build_Hicolor_Pixel(192, 192, 0);
+								} else {
+									color = DSurface::Build_Hicolor_Pixel(192, 0, 0);
+								}
+								Draw_Progress_Fill(ping_rect, AlternateSurface, color, (ping << 16) / 1000);
+							}
+						}
+						ReleaseDC(window, dc);
+					} else {
+						ArrayList<int> * row_colors = (ArrayList<int> *)data->ItemState;
+						COLORREF text_color;
+						int * color_ptr = NULL;
+						if (row_colors == NULL || !row_colors->getPointer(&color_ptr, index) || *color_ptr == -1) {
+							text_color = Text_Color;
+						} else {
+							text_color = *color_ptr;
+						}
+
+						if (SendMessage(window, LB_GETSEL, index, 0) > 0) {
+							Rect fill;
+							fill.X = item_rect.left + display_rect.left;
+							fill.Y = item_rect.top + display_rect.top;
+							fill.Height = item_rect.bottom - item_rect.top;
+							fill.Width = item_rect.right - item_rect.left;
+							AlternateSurface->Fill_Rect(fill, fill_color);
+						}
+
+						Rect text_rect;
+						text_rect.X = item_rect.left + display_rect.left + 2;
+						text_rect.Y = display_rect.top + item_rect.top;
+						text_rect.Width = item_rect.right - item_rect.left;
+						text_rect.Height = item_rect.bottom - item_rect.top;
+						OD_Draw_Text(text_color, font, text_rect, string, wcslen(string), 0, 0, NULL, 0);
+					}
+				}
+				index++;
+			}
+			ValidateRect(window, &update_rect);
+			break;
+		}
 	}
 
 	/*

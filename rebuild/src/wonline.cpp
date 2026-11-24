@@ -8881,7 +8881,7 @@ void __fastcall Queue_Peer_Timeout(int peer) // RA2: 0x0074E590, not in TibSun: 
 
 bool __fastcall Start_Talking_To(int player, int pair_slot, int retries); // RA2: 0x0074E5E0, the executable's debug text "Start_Talking_To player %d, retries = %d" names it: makes the connection to one peer by port probes, tries again up to the number of retries; true when it is made
 
-#ifdef RA2_NON_MATCHING // not exact: 2261 bytes differ
+#ifdef RA2_NON_MATCHING // not exact: 2112 bytes differ against the image-derived bound 0074e5e0 (2,456 body bytes, 8 padding) (was 2261; the peer-name and firewall tests as ra2-decomp's banked form banks/0x00793D20_nat.cpp (11df85d) writes them, RA2's packet filtering, port storage and retries kept; all 66 calls in order)
 bool __fastcall Start_Talking_To(int player, int pair_slot, int retries)
 {
 	CDTimerClass<SystemTimerClass> timer;
@@ -8906,15 +8906,24 @@ bool __fastcall Start_Talking_To(int player, int pair_slot, int retries)
 		return false;
 	}
 
-	for (i = 0; i < MAX_PLAYERS && Session.NatPeerNames[i][0]; ++i) {
-		if (!stricmp(Session.NatPeerNames[i], Wide_To_Narrow(Session.Slots[player]->Name))) {
+	for (i = 0; i < MAX_PLAYERS; i++) {
+		if (Session.NatPeerNames[i][0] == 0) {
+			break;
+		}
+		if (stricmp(Session.NatPeerNames[i], Wide_To_Narrow(Session.Slots[player]->Name)) == 0) {
 			negotiate_port = false;
 			break;
 		}
 	}
-	if (negotiate_port && (!Session.WolPlayerState[player] || (Session.WolPlayerState[player] & 1))
-		&& (!(FirewallHelper.Detected & 0xffff) || (FirewallHelper.Detected & 1))) {
-		negotiate_port = false;
+
+	int theirs = Session.WolPlayerState[player];
+	if (negotiate_port) {
+		if (theirs == 0 || (theirs & 1)) {
+			int mine = (unsigned short)FirewallHelper.Detected;
+			if (mine == 0 || (mine & 1)) {
+				negotiate_port = false;
+			}
+		}
 	}
 
 	int attempt = 0;
