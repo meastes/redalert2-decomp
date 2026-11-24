@@ -9,7 +9,9 @@
   },
   "references": {
     "__real@4@00000000000000000000": 7972664,
+    "?Inverse@@YI?AVQuaternion@@ABV1@@Z": 6432240,
     "??D@YI?AVQuaternion@@ABV0@0@Z": 6431744,
+    "??0Quaternion@@QAE@MMMM@Z": 6431072,
     "?sqrt@fastmath@@YANN@Z": 4957200,
     "__real@4@3ffeb504f30000000000": 8029784,
     "__real@4@3ffeb504f367f3bcd800": 8029780,
@@ -27,14 +29,13 @@
     "?acos@fastmath@@YANN@Z": 4957568,
     "__real@8@3fffc90fdaa221688800": 8029792,
     "__real@8@3ffe8000000000000000": 7972648,
-    "??0Quaternion@@QAE@MMMM@Z": 6431072,
     "?Set@Quaternion@@QAEXMMMM@Z": 6431104,
     "?Normalize@Quaternion@@QAEXXZ": 6431136,
     "??AQuaternion@@QAEAAMH@Z": 6431280,
     "??AQuaternion@@QBE?BMH@Z": 6431296,
     "??4Quaternion@@QAE?AV0@ABV0@@Z": 6431312,
+    "?Make_Closest@Quaternion@@QAEAAV1@ABV1@@Z": 6431376,
     "??K@YI?AVQuaternion@@ABV0@0@Z": 6432112,
-    "?Inverse@@YI?AVQuaternion@@ABV1@@Z": 6432240,
     "?Conjugate@@YI?AVQuaternion@@ABV1@@Z": 6432320,
     "?Trackball@@YI?AVQuaternion@@MMMMM@Z": 6432400,
     "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z": 6433200,
@@ -64,7 +65,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "603f2e3e81ff441ab1979f8e770092c20668d93a6125d345953b04cd21a7915d",
+      "source_sha256": "2891588b66f42dd2b2947c8a1356d1f71392c4f2dcceef85259fae414e591e6a",
       "source": "rebuild/src/quat.cpp",
       "population": "rebuild-quat",
       "source_order": 6431072,
@@ -91,7 +92,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "603f2e3e81ff441ab1979f8e770092c20668d93a6125d345953b04cd21a7915d",
+      "source_sha256": "2891588b66f42dd2b2947c8a1356d1f71392c4f2dcceef85259fae414e591e6a",
       "source": "rebuild/src/quat.cpp",
       "population": "rebuild-quat",
       "source_order": 6431104,
@@ -127,7 +128,7 @@
           "resolved": 7972664
         }
       ],
-      "source_sha256": "603f2e3e81ff441ab1979f8e770092c20668d93a6125d345953b04cd21a7915d",
+      "source_sha256": "2891588b66f42dd2b2947c8a1356d1f71392c4f2dcceef85259fae414e591e6a",
       "source": "rebuild/src/quat.cpp",
       "population": "rebuild-quat",
       "source_order": 6431136,
@@ -154,7 +155,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "603f2e3e81ff441ab1979f8e770092c20668d93a6125d345953b04cd21a7915d",
+      "source_sha256": "2891588b66f42dd2b2947c8a1356d1f71392c4f2dcceef85259fae414e591e6a",
       "source": "rebuild/src/quat.cpp",
       "population": "rebuild-quat",
       "source_order": 6431232,
@@ -181,7 +182,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "603f2e3e81ff441ab1979f8e770092c20668d93a6125d345953b04cd21a7915d",
+      "source_sha256": "2891588b66f42dd2b2947c8a1356d1f71392c4f2dcceef85259fae414e591e6a",
       "source": "rebuild/src/quat.cpp",
       "population": "rebuild-quat",
       "source_order": 6431280,
@@ -208,7 +209,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "603f2e3e81ff441ab1979f8e770092c20668d93a6125d345953b04cd21a7915d",
+      "source_sha256": "2891588b66f42dd2b2947c8a1356d1f71392c4f2dcceef85259fae414e591e6a",
       "source": "rebuild/src/quat.cpp",
       "population": "rebuild-quat",
       "source_order": 6431296,
@@ -235,11 +236,82 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "603f2e3e81ff441ab1979f8e770092c20668d93a6125d345953b04cd21a7915d",
+      "source_sha256": "2891588b66f42dd2b2947c8a1356d1f71392c4f2dcceef85259fae414e591e6a",
       "source": "rebuild/src/quat.cpp",
       "population": "rebuild-quat",
       "source_order": 6431312,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6431376,
+      "method": "00622290",
+      "body_bytes": 358,
+      "body_sha256": "f2f29adf80282ce043cc5493e92b5aa05610efeaf58701c3bb72f734898ad797",
+      "padding_bytes": 10,
+      "full_extent_bytes": 368,
+      "full_extent_sha256": "8e3016634ba739e37cff3fd024e642c01cd89501b783141c24b5dd241c2fe011",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Image-derived bound (rebuild/manifest/image_bounds.csv, image_bounds.py; start end of bound exact row 00622250, end bound row)",
+      "padding_provenance": null,
+      "bound": "image-derived",
+      "symbol": "?Make_Closest@Quaternion@@QAEAAV1@ABV1@@Z",
+      "symbol_prefix": "?Make_Closest@Quaternion@@QAEAAV1@ABV1@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 47,
+          "kind": 20,
+          "symbol": "?Inverse@@YI?AVQuaternion@@ABV1@@Z",
+          "target": 6432240,
+          "addend": 0,
+          "resolved": 813
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "??D@YI?AVQuaternion@@ABV0@0@Z",
+          "target": 6431744,
+          "addend": 0,
+          "resolved": 303
+        },
+        {
+          "offset": 132,
+          "kind": 20,
+          "symbol": "??0Quaternion@@QAE@MMMM@Z",
+          "target": 6431072,
+          "addend": 0,
+          "resolved": 4294966856
+        },
+        {
+          "offset": 170,
+          "kind": 20,
+          "symbol": "?Inverse@@YI?AVQuaternion@@ABV1@@Z",
+          "target": 6432240,
+          "addend": 0,
+          "resolved": 690
+        },
+        {
+          "offset": 184,
+          "kind": 20,
+          "symbol": "??D@YI?AVQuaternion@@ABV0@0@Z",
+          "target": 6431744,
+          "addend": 0,
+          "resolved": 180
+        }
+      ],
+      "source_sha256": "2891588b66f42dd2b2947c8a1356d1f71392c4f2dcceef85259fae414e591e6a",
+      "source": "rebuild/src/quat.cpp",
+      "population": "rebuild-quat",
+      "source_order": 6431376,
+      "source_quality_family": "rebuild",
+      "bound_population": "image-bounds"
     },
     {
       "entry": 6431744,
@@ -271,7 +343,7 @@
           "resolved": 7972664
         }
       ],
-      "source_sha256": "603f2e3e81ff441ab1979f8e770092c20668d93a6125d345953b04cd21a7915d",
+      "source_sha256": "2891588b66f42dd2b2947c8a1356d1f71392c4f2dcceef85259fae414e591e6a",
       "source": "rebuild/src/quat.cpp",
       "population": "rebuild-quat",
       "source_order": 6431744,
@@ -307,7 +379,7 @@
           "resolved": 4294966839
         }
       ],
-      "source_sha256": "603f2e3e81ff441ab1979f8e770092c20668d93a6125d345953b04cd21a7915d",
+      "source_sha256": "2891588b66f42dd2b2947c8a1356d1f71392c4f2dcceef85259fae414e591e6a",
       "source": "rebuild/src/quat.cpp",
       "population": "rebuild-quat",
       "source_order": 6432112,
@@ -334,7 +406,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "603f2e3e81ff441ab1979f8e770092c20668d93a6125d345953b04cd21a7915d",
+      "source_sha256": "2891588b66f42dd2b2947c8a1356d1f71392c4f2dcceef85259fae414e591e6a",
       "source": "rebuild/src/quat.cpp",
       "population": "rebuild-quat",
       "source_order": 6432240,
@@ -361,7 +433,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "603f2e3e81ff441ab1979f8e770092c20668d93a6125d345953b04cd21a7915d",
+      "source_sha256": "2891588b66f42dd2b2947c8a1356d1f71392c4f2dcceef85259fae414e591e6a",
       "source": "rebuild/src/quat.cpp",
       "population": "rebuild-quat",
       "source_order": 6432320,
@@ -549,7 +621,7 @@
           "resolved": 4293491550
         }
       ],
-      "source_sha256": "603f2e3e81ff441ab1979f8e770092c20668d93a6125d345953b04cd21a7915d",
+      "source_sha256": "2891588b66f42dd2b2947c8a1356d1f71392c4f2dcceef85259fae414e591e6a",
       "source": "rebuild/src/quat.cpp",
       "population": "rebuild-quat",
       "source_order": 6432400,
@@ -617,7 +689,7 @@
           "resolved": 4293491268
         }
       ],
-      "source_sha256": "603f2e3e81ff441ab1979f8e770092c20668d93a6125d345953b04cd21a7915d",
+      "source_sha256": "2891588b66f42dd2b2947c8a1356d1f71392c4f2dcceef85259fae414e591e6a",
       "source": "rebuild/src/quat.cpp",
       "population": "rebuild-quat",
       "source_order": 6433200,
@@ -765,7 +837,7 @@
           "resolved": 4293490810
         }
       ],
-      "source_sha256": "603f2e3e81ff441ab1979f8e770092c20668d93a6125d345953b04cd21a7915d",
+      "source_sha256": "2891588b66f42dd2b2947c8a1356d1f71392c4f2dcceef85259fae414e591e6a",
       "source": "rebuild/src/quat.cpp",
       "population": "rebuild-quat",
       "source_order": 6433472,
@@ -873,7 +945,7 @@
           "resolved": 7972648
         }
       ],
-      "source_sha256": "603f2e3e81ff441ab1979f8e770092c20668d93a6125d345953b04cd21a7915d",
+      "source_sha256": "2891588b66f42dd2b2947c8a1356d1f71392c4f2dcceef85259fae414e591e6a",
       "source": "rebuild/src/quat.cpp",
       "population": "rebuild-quat",
       "source_order": 6433888,
@@ -925,7 +997,7 @@
           "resolved": 7976952
         }
       ],
-      "source_sha256": "603f2e3e81ff441ab1979f8e770092c20668d93a6125d345953b04cd21a7915d",
+      "source_sha256": "2891588b66f42dd2b2947c8a1356d1f71392c4f2dcceef85259fae414e591e6a",
       "source": "rebuild/src/quat.cpp",
       "population": "rebuild-quat",
       "source_order": 6434480,

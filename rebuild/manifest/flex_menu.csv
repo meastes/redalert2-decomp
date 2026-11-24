@@ -20,7 +20,7 @@ init,00519500,Allocate_Surfaces,1118,inline_body,1015,a,variation_candidates.csv
 ldprgmgr,00535bf0,LoadProgressManager::Draw,3978,no_row,1906,a,"variation_candidates.csv: codex1 r2698 (refs/c1pk/r2698, 75f8a9f509): the briefing and loading origins bound as `Point2D const & brief_origin = Copy_Point(&area);` / `loading_origin` (a ",,yes,,,,,,,
 map,005484e0,MapClass::Set_Map_Dimensions,5322,no_row,3665,a,variation_candidates.csv: a Cell operator+= forwarder in coord.h in the TPoint3D idiom (TPoint2D<short> const & operator += (TPoint2D<short> const & rvalue) {BASECLASS::operator += (rval,,yes,,,,,,,
 map,00564b60,MapClass::Register_Zone_Connection_Entries,1025,inline_call,74,a,variation_candidates.csv: main's record helper Set_Zone_Record with a SubzoneConnectionStruct temporary and count locals,,yes,,,,A,structure,no,1025
-map,00569320,MapClass::Can_Repair_Bridge,2109,no_row,3,a,variation_candidates.csv: kind C3-like (a test that does no work): the zone walk's loop test `while (!broken)` on a flag that is always true when tested (banks/0x00587410_bridge_flag.cpp,,yes,,,,,,,
+map,00569320,MapClass::Can_Repair_Bridge,2109,no_row,3,a,"variation_candidates.csv: kind T (an evidenced twin header form held behind the count-sensitive exact rows map Zone_Reset 0x54EBD0, queue Print_CRCs 0x62A360 and sidebar SelectClass::Act",,yes,,,,,,,
 mapgen,0056e100,MapRegionClass::Create_Region_From_Cell,1678,inline_call,313,a,"variation_candidates.csv: ra2-decomp banked form banks/0x0058C800_ra2a_zone.cpp (11df85d; codex1 r2834 c347413fff, r2840 2749351c97): a single-use static inline Create_Seed_Region(cptr, ",,yes,,,,A,structure,no,1678
 missile,00593870,Projectile_Motion,2101,no_row,191,a,"variation_candidates.csv: kind C (statement and header forms chosen for the inline budget): codex1 r2713 (refs/c1pk/r2713, 39886119e8): ternaries for cell_distance (`airburst || veryhigh",,yes,,,,,,,
 netshare,005c7ef0,Send_Map_Preview,1325,no_row,1131,a,"variation_candidates.csv: kind C (a twin helper overriding the twin's own text at its own site): ra2-decomp's Narrow_Text (include/narrow.h, 61ba2ad) at the two `no preview download poss",,yes,,,,,,,
@@ -227,7 +227,6 @@ tactical,006ac7a0,_$E298,1,no_draft,,e,no draft yet,,no,,,,,,,
 techno,,TechnoClass::Find_Docking_Bay,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 techno,,TechnoClass::Weed_Load,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 techno,006ca890,TechnoClass::Fire_At,6019,inline_call,3479,e,stays a flagged draft,,yes,,,,A,structure,yes,6019
-techno,006d24e0,TechnoClass::Techno_Render_Voxel_Object,814,inline_body,611,e,stays a flagged draft,,yes,,,,A,structure,no,814
 techtype,,TechnoTypeClass::In_Range,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 techtype,,TechnoTypeClass::Set_Weapon,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 unit,,UnitClass::EMPulse_Blast,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
@@ -250,7 +249,7 @@ wonline,00767cd0,WolNameTable::Key_Hash_00767cd0,29,no_draft,,e,no draft yet,,no
 (total),,flex b: 78 functions,6310,,,b,,,,,,,,,,
 (total),,flex c: 1 functions,1913,,,c,,,,,,,,,,
 (total),,flex d: 3 functions,219,,,d,,,,,,,,,,
-(total),,flex e: 106 functions,77957,,,e,,,,,,,,,,
+(total),,flex e: 105 functions,77143,,,e,,,,,,,,,,
 (total),,no draft yet: 19 functions,1507,,,e,,,no,,,,,,,
 (gap),,79 functions,10880,,,,,,,guard-open exact (not probed),unknown until probed,,,,,
 (gap),,1 functions,1920,,,,,,,exact form parked count-sensitive,a count-holding declaration,,,,,

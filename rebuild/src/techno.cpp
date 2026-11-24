@@ -4583,7 +4583,7 @@ static inline Rect Target_Laser_Rect(Point2D const & point)
  *   07/03/1995 JLB : Moving platforms fire inaccurate projectiles.                            *
  *   02/22/1996 JLB : Handles camera "weapon" case.                                            *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 3479 bytes differ (6019-byte body; previously 4371; ra2-decomp's banked forms: every call and the frame are the image's; 39 instructions in six operand-order sites that follow the function's count of inline sites)
+#ifdef RA2_NON_MATCHING // not exact: 3479 bytes differ (6019-byte body; previously 4371; ra2-decomp's banked forms: every call and the frame are the image's; 39 instructions in operand-order sites. The count of local symbols (period 32, the same from any place and for int, double and class locals) moves the Set_Yaw, Set_Pitch and two of the Set_Speed sites: at 9 to 12 more the frame and all but 14 bytes are the image's. The flak sum (the image squares Z, X, Y), the X product of Set_Speed and the ZAdjust mask stay at every count; no spelling of TPoint3D::Length moves the sum, and the mask alone answers to `MIN(dy / -4, 0)`, which neither the archive nor the bank has (lane F60))
 BulletClass * TechnoClass::Fire_At(AbstractClass * target, int which)
 {
 	WeaponTypeClass * weapon = Get_Class_Weapon_Data(which)->Weapon;
@@ -7152,8 +7152,7 @@ void TechnoClass::Techno_Draw_Voxel_Shadow(VoxelDataStruct const & voxeldata, in
 /// </summary>
 /// <param name="voxeldata">The voxel and motion libraries to render from.</param>
 /// <returns>Returns with the surface region the object was rendered into.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 611 bytes differ (main-derived voxel effects)
-SurfaceRegion TechnoClass::Techno_Render_Voxel_Object(VoxelDataStruct const & voxeldata, Matrix3D const & matrix, Point2D const & point, Rect const & xcliprect, int frame, ShapeFlags_Type flags, int brightness) const
+SurfaceRegion TechnoClass::Techno_Render_Voxel_Object(VoxelDataStruct const & voxeldata, Matrix3D const & matrix, Point2D const & point, Rect const & xcliprect, int frame, ShapeFlags_Type flags, int brightness) const // RA2: 0x6D24E0; ra2-decomp's matched twin (Yuri's Revenge 0x706ED0, 658a178) less its UseBuffer, DoubleThick and tint parts
 {
 	Matrix3D mtx = matrix;
 	Matrix3D mtx2 = matrix;
@@ -7185,7 +7184,7 @@ SurfaceRegion TechnoClass::Techno_Render_Voxel_Object(VoxelDataStruct const & vo
 		if (SinkingYOffset > 0) {
 			cliprect = Intersect(cliprect, Rect(0, 0, TacticalRect.Width, SinkingYOffset - TacticalMap->TacPixelY));
 		} else if (IsSinking) {
-			((TechnoClass *)this)->SinkingYOffset = (short)(TacticalMap->TacPixelY + point.Y + region.Bounds.Height + region.Point.Y); // RA2: includes the rendered origin
+			((TechnoClass *)this)->SinkingYOffset = TacticalMap->TacPixelY + point.Y + region.Point.Y + region.Bounds.Height;
 		}
 	}
 
@@ -7206,7 +7205,6 @@ SurfaceRegion TechnoClass::Techno_Render_Voxel_Object(VoxelDataStruct const & vo
 
 	return(region);
 }
-#endif
 
 
 /// <summary>

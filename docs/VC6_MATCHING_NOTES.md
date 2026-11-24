@@ -5228,3 +5228,38 @@ and refs2.py (a byte pattern or the loads of one global across the image, with t
 - Landing order: format (fmtnew) before the catalog graft. A line formatted after the graft leaves the catalog
   with the old source hash and the owner's whole-file build stops with "Source hash drift"; the lane's own build
   passes only because it ran before the format step.
+
+## A matched twin that misses by one inline decision is read against its headers' operators; a member moves one edge of a count window; a count is surveyed over its whole period before a site is given to it (found in the rebuild (lane F60, high))
+
+Found in the rebuild (lane F60, high); no row landed, one row measured exact under a held twin header form, one earlier
+reading corrected. Lane tools in build/r/f60: v.py (F59's, with a `refs` entry per variant for scratch symbol
+bindings), run.sh and run2.sh (one line per variant; run2 adds the starts of the slot-blind hunks), F59's pat.py,
+refs2.py, da.py and bis.sh.
+
+- map Can_Repair_Bridge 0x569320: when a twin's matched text compiles here with every register right and one inline
+  decision wrong, diff the twin's headers for the operators the function expands before touching the text. The
+  recorded header diff (twin_header_diffs.csv) lists methods by name and does not see operators: ra2-decomp's coord.h
+  gives Cell its own `operator ==`, and that member alone makes the matched text exact. The same body reached through
+  the base template (`TPoint2D<short>::operator ==`) leaves the last nested lookup of the function expanded.
+- Tell a resolution effect from a count before pricing it: forward declarations (1 to 32) and inline definitions
+  (1 to 8) ahead of the function did nothing, the one member did. A header form that works only as itself is evidence
+  about the callee chosen, not about a counter.
+- A reference's member can be its own matching device. The twin pairs `Cell::operator ==` with a TPoint2D operator
+  declared without a body and defined out of line per unit, so a site calls or expands by its operand type; the
+  archive and mischa85 have one inline operator. Say so in the hold; the image's 35-byte out-of-line copy fits either
+  name.
+- Zone_Reset 0x54EBD0 has two limits, not one window that shifts. Forward declarations on its own line: exact at 0 to
+  2 and 56 to 66. With one inline member added to a class in a shared header the upper edge comes down by 4 (56 to
+  62), with two by 8 (56 to 58), and the lower edge stays at 56; a member declaration without a body moves neither.
+  So an added inline member needs a removed inline member to pay for it, and forward declarations cannot stand in:
+  search evidenced removals, not `struct` lines.
+- One includer run prices a header form for the whole tree (282 units in about four minutes at six jobs): the Cell
+  member turns exactly the three known count-sensitive rows (Zone_Reset, Print_CRCs, SelectClass::Action) and renames
+  one out-of-line copy. Put the header back and run the includers again before any other measurement.
+- techno Fire_At 0x6CA890: survey a count over a whole period and from several places before saying a site follows
+  it. Here the period is 32, the place does not matter, int, double and class locals share the counter, and three of
+  the sites (the flak sum, the X product of Set_Speed, the ZAdjust mask) do not move anywhere in it. A site that stays
+  through a full period is text or another mechanism; a sum whose order no spelling of the callee changes (three
+  groupings of Length compiled to the same bytes) is neither that callee's text nor the count.
+- A probe that changes an inline decision is not a count probe: extra basic blocks move the prologue, and the
+  archive's one-expression `zadjust` expands Horizontal_Speed at every count. Read the call list of each probe.
