@@ -1313,23 +1313,23 @@ void Tactical::Render(Surface * surface, bool fullredraw, int drawpass)
 		composite->Unlock();
 		int line = 0;
 		if (Scen->MissionTimer.Is_Active()) {
-			Draw_Timer(0, ColorSchemes[PlayerPtr->Scheme], Scen->MissionTimer.Value() / 15, Scen->MissionTimerTextCSF, NULL, NULL);
+			Draw_Timer(0, ColorSchemes[PlayerPtr->Scheme], Scen->MissionTimer.Value() / TICKS_PER_SECOND, Scen->MissionTimerTextCSF, NULL, NULL);
 			line = 1;
 		}
 		count = TimedSuperWeapons.Count();
 		for (i = 0; i < count; i++) {
 			SuperClass * super = TimedSuperWeapons[i];
-			if (!super->IsSuspended || Session.Type != GAME_NORMAL || super->Control != super->Class->RechargeTime) {
-				Draw_Timer(line, ColorSchemes[super->House->Scheme], super->Control / 15, super->Class->UIName,
+			if (!super->IsSuspended || Session.Type != GAME_NORMAL || super->Control.Value() != super->Class->RechargeTime) {
+				Draw_Timer(line, ColorSchemes[super->House->Scheme], super->Control.Value() / TICKS_PER_SECOND, super->Class->UIName,
 					(unsigned __int64 *)&super->BlinkInfo.Data0, &super->BlinkInfo.State);
 				line++;
 			}
 		}
 		count = Houses.Count();
 		for (i = 0; i < count; i++) {
-			int time = Houses[i]->PowerBlackoutTimer;
+			int time = Houses[i]->PowerBlackoutTimer.Value();
 			if (time > 0) {
-				Draw_Timer(line, ColorSchemes[Houses[i]->Scheme], time / 15,
+				Draw_Timer(line, ColorSchemes[Houses[i]->Scheme], time / TICKS_PER_SECOND,
 					StringTable::LoadString("MSG:BlackoutTimer", NULL, "D:\\Ra2\\Tactical.CPP", 444), NULL, NULL);
 				line++;
 			}

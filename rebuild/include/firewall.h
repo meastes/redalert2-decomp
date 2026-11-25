@@ -28,6 +28,9 @@ class FirewallHelperClass
 		int Rank_B(int flags); // RA2: 0x005BAF20, how many connection attempts it takes
 		unsigned short Get_Next_Mangled_Source_Port(unsigned short source_port); // RA2: 0x005BAF50, the port a peer will be seen on
 
+		bool Is_Netgear(int behavior) { if ((behavior & 8) != 0) { return(true); } return(false); }
+		bool Is_Netgear(void) { if ((Detected & 8) != 0) { return(true); } return(false); }
+
 		int Detected; // RA2: +0x00
 		int Settings; // RA2: +0x04
 		int Delta; // RA2: +0x08

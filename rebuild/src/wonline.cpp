@@ -8977,7 +8977,7 @@ bool __fastcall Start_Talking_To(int player, int pair_slot, int retries)
 			memset(&probe, 0, 0x2f);
 			probe.Command = NET_PORT_PROBE;
 			strcpy(probe.Name, g_NickName.get());
-			if ((FirewallHelper.Detected & 8) && !(Session.WolPlayerState[player] & 8)) {
+			if (FirewallHelper.Is_Netgear() && !FirewallHelper.Is_Netgear(Session.WolPlayerState[player])) {
 				DebugString("Doing the netgear sleep thing\n");
 				CDTimerClass<SystemTimerClass> delay(240);
 				while (delay) {

@@ -961,7 +961,7 @@ bool XSurface::Fill_Rect_Trans(Rect const & rect, RGBClass const & color, unsign
 /// <param name="cliprect">The clipping rectangle to draw within.</param>
 /// <param name="color">The raw color value to draw the ellipse with.</param>
 /// <returns>bool; Was the ellipse drawn?</returns>
-#if 0
+#ifdef RA2_NON_MATCHING // not exact: 1244 bytes differ against the image-derived bound 007746c0 (1478 body bytes, 10 padding); the TibSun ellipse renderer, with all seven virtual calls in retail order
 bool XSurface::Draw_Ellipse(Point2D point, int radx, int rady, Rect cliprect, int color)
 {
 	int pitch = Stride() >> 1;
