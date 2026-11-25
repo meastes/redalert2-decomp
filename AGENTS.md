@@ -68,7 +68,9 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
 - **External references:** public/recomp/YRpp material supplies hypotheses only;
   verify on the exact target and check licenses (`THIRD_PARTY.md`). Exception
   (user, 2026-11-06; extended 2026-11-09): text from ra2-decomp, the TibSun archive,
-  mischa85/RedAlert2, electronicarts/CnC_Renegade and (2026-11-23) Generals' GameText.cpp may be adopted with attribution
+  mischa85/RedAlert2, electronicarts/CnC_Renegade, (2026-11-23) Generals' GameText.cpp and (2026-11-25)
+  RobinDigitalPro/ra2-1001-decomp (repack baseline; text partly shared with mischa85's and ours, so not independent
+  evidence there) may be adopted with attribution
   (`THIRD_PARTY.md`);
   acceptance is unchanged. Standing pulls (user, 2026-11-09): at each landing
   point pull `private/reference/ra2-decomp` and `private/reference/mischa85-RedAlert2`

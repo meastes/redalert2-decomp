@@ -329,3 +329,12 @@ The Windows task downloaded the release archive, preserved its license and teste
 base menu/minimize/restore presentation; output is altered host presentation, not
 an original pixel oracle. WINDOWS_TESTING.md (`historical-final:historical/native-reconstruction/docs/WINDOWS_TESTING.md`) records
 archive/DLL hashes, configuration and private provenance. No code was incorporated.
+
+- **RobinDigitalPro/ra2-1001-decomp** (github.com/RobinDigitalPro/ra2-1001-decomp, cloned 2026-11-25 into the ignored
+  `private/reference/robin-ra2-1001-decomp/`): a byte-matching rebuild of Red Alert 2 GAME.EXE 1.001, GPL-3.0-or-later with
+  Electronic Arts' section 7 terms. Exception (user decision, 2026-11-25, in the owner session): its text may be adopted
+  with attribution like ra2-decomp and mischa85 (SPDX and copyright lines kept, marked modified, provenance recorded).
+  Cautions: its baseline is an old repack with no-CD patches, so disc-check functions are patch deltas, not original
+  code; part of its text descends from mischa85/RedAlert2 and from this repository, so it is not independent evidence
+  where it does; its match counts are its own claims. Acceptance is unchanged. Notes repository
+  RobinDigitalPro/ra2-decomp-help (MIT) is read as a reference only.
