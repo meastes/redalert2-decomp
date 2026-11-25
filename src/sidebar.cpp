@@ -1133,10 +1133,10 @@ bool SidebarClass::Stop_Tab_Flash(int index)
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: 480 bytes differ (adopted text)
 void SidebarClass::AI(KeyNumType & input, Point2D const & xy)
 {
-	Point2D point = xy - Point2D(SidebarRect.X, 0);
+	Point2D const sidebar_origin(SidebarRect.X, SidebarRect.Y); // RA2: ra2-decomp's form (4fa48b2): the mouse position is taken relative to the sidebar's origin
+	Point2D point = xy - Point2D(sidebar_origin.X, 0);
 	if (!Debug_Map) {
 		Activate(1);	// Force the sidebar always on in Win95 mode
 		for (int index = 0; index < 4; index++) {
@@ -1208,7 +1208,6 @@ void SidebarClass::AI(KeyNumType & input, Point2D const & xy)
 	}
 	PowerClass::AI(input, xy);
 }
-#endif
 
 
 
@@ -1823,7 +1822,9 @@ bool SidebarClass::StripClass::AI(KeyNumType & input, Point2D const & xy) // RA2
 	if (!IsScrolling && Scroller) {
 		int columns = COLUMNS; // RA2: two cameos to a row
 		int rows = Map.Max_Visible(); // RA2: the rows are computed once and used twice
-		if (BuildableCount <= rows * 2) { // RA2: two cameos to a row
+		int count = BuildableCount;
+		int visible = rows * 2; // RA2: two cameos to a row
+		if (count <= visible) {
 			Scroller = 0;
 		} else {
 
@@ -1844,7 +1845,7 @@ bool SidebarClass::StripClass::AI(KeyNumType & input, Point2D const & xy) // RA2
 				}
 
 			} else {
-				if ((TopIndex + rows) * 2 >= BuildableCount) { // RA2: two cameos to a row
+				if ((TopIndex + rows) * columns >= count) {
 					Scroller = 0;
 				} else {
 					Scroller--;
@@ -1892,14 +1893,16 @@ bool SidebarClass::StripClass::AI(KeyNumType & input, Point2D const & xy) // RA2
 		}
 	}
 
-	if (Map.RedrawUntilFrame > Frame) { // RA2: the sidebar was asked to redraw for a few more frames
+	bool flash_active = Map.RedrawUntilFrame > Frame; // RA2: the sidebar was asked to redraw for a few more frames
+	if (flash_active) {
 		redraw = true;
 	}
 
 	/*
 	**	The tab flashes while something on its strip can be placed.
 	*/
-	if (ID == 0 || ID == 1) { // RA2: the structure and defense tabs
+	bool building_tab = ID == 0 || ID == 1; // RA2: the structure and defense tabs
+	if (building_tab) {
 		bool ready = false;
 		for (int index = 0; index < BuildableCount; index++) {
 			if (Buildables[index].BuildableType == RTTI_SPECIAL) {
@@ -1937,9 +1940,11 @@ bool SidebarClass::StripClass::AI(KeyNumType & input, Point2D const & xy) // RA2
 		for (int index = 0; index < BuildableCount; index++) {
 			FactoryClass * factory = Buildables[index].Factory;
 
-			if (factory && factory->Has_Changed()) {
+			bool changed = factory && factory->Has_Changed();
+			if (changed) {
 				redraw = true;
-				if (factory->Has_Completed()) {
+				bool completed = factory->Has_Completed();
+				if (completed) {
 
 					/*
 					**	Construction has been completed. Announce this fact to the player and
@@ -1981,7 +1986,8 @@ bool SidebarClass::StripClass::AI(KeyNumType & input, Point2D const & xy) // RA2
 				Buildables[index].Progress.Set_Rate(0);
 				Buildables[index].Progress.Set_Stage(0);
 			}
-			if (Buildables[index].Progress.Graphic_Logic()) {
+			bool advanced = Buildables[index].Progress.Graphic_Logic();
+			if (advanced) {
 				redraw = true;
 				if (Buildables[index].Progress.Fetch_Stage() >= 53) { // RA2: the clock has 54 frames; at the last one it stops and keeps the stage
 					Buildables[index].Progress.Set_Rate(0);
@@ -2076,8 +2082,11 @@ int SidebarClass::StripClass::Get_Progress(int index)
 	if (Buildables[index].Factory) {
 		progress = Buildables[index].Factory->Completion();
 	}
-	if (Buildables[index].Unknown_10 == 1 && Buildables[index].Progress.Fetch_Stage() > progress) {
-		progress = (progress + Buildables[index].Progress.Fetch_Stage()) / 2;
+	if (Buildables[index].Unknown_10 == 1) {
+		int stage = Buildables[index].Progress.Fetch_Stage();
+		if (stage > progress) {
+			progress = (progress + stage) / 2;
+		}
 	}
 	return progress;
 }

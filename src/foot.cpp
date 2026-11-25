@@ -4812,7 +4812,7 @@ Cell FootClass::Search_For_Tiberium(int rad, bool allow_weighted)
 /// <param name="rad">The limit of the search, expressed in cells from this object.</param>
 /// <returns>Returns with the cell of the Tiberium chosen. Otherwise, CELL_NONE is
 /// returned.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 1045 bytes differ; ra2-decomp's twin text (Yuri's Revenge 0x004DD2F0) with RA2's harvester count in place of YR's CountResourceGatherers: the distribution's vector constructor 0x4CE710 is now called as in the image; left are the four Cell sums ahead of Tiberium_Check (the image computes X with lea and stores X before Y) and the lea/push pairs ahead of Add. Any archive form in place of the twin's max/MAX forms expands the constructor again (1207 B; lane O49)
+#ifdef RA2_NON_MATCHING // not exact: 2 bytes differ; RobinDigitalPro's ra2-1001-decomp text (src/m85/src/foot.cpp at bd7e611, itself on ra2-decomp's twin): the weight as one conditional converted after the join and the cell read through Fetch_CellID give the image's four Cell sums and every call; left is the register of the CELL_NONE return (image edx, here ecx). With `cellptr->CellID` the tail register is the image's but the vector constructor expands (1207 B); the twin's (int)MAX form keeps the sums wrong (1045 B). The sums follow two counts (one more referenced local, or five more parenthesised products, turn them); the tail follows neither (lane F63)
 Cell FootClass::Search_For_Tiberium_Weighted(int rad)
 {
 	DiscreteDistributionClass<CellClass> celldist;
@@ -4823,15 +4823,21 @@ Cell FootClass::Search_For_Tiberium_Weighted(int rad)
 	}
 
 	int numharv = House->AUQuantity.Value(House->Get_First_Ownable(Rule->HarvesterUnit)->HeapID); // RA2: the first harvester this house may own, not the list's first
-	numharv = max(1, numharv);
+	if (numharv < 1) {
+		numharv = 1;
+	}
 
 	for (int radius = 1; radius < rad; radius++) {
-		int share = radius * 3 / numharv; // RA2: three cells per ring step
+		int ringspan = radius * 3; // RA2: three cells per ring step
+		int share = ringspan / numharv;
 		bool northrun = false;
 		bool southrun = false;
 		bool westrun = false;
 		bool eastrun = false;
-		int divisor = max(1, share);
+		int divisor = 1;
+		if (share >= 1) {
+			divisor = share;
+		}
 		double scale = 1.0 / (double)divisor;
 		for (int x = -radius; x <= radius; x++) {
 			Cell cell;
@@ -4839,7 +4845,7 @@ Cell FootClass::Search_For_Tiberium_Weighted(int rad)
 			if (Tiberium_Check(cell)) {
 				if (!northrun) {
 					CellClass *cptr = &Map[cell];
-					int intweight = (int)MAX(1.0, cptr->Tiberium_Value() * scale);
+					int intweight = (cptr->Tiberium_Value() * scale < 1.0) ? 1.0 : cptr->Tiberium_Value() * scale;
 					northrun = true;
 					celldist.Add(cptr, intweight);
 				}
@@ -4851,7 +4857,7 @@ Cell FootClass::Search_For_Tiberium_Weighted(int rad)
 			if (Tiberium_Check(cell)) {
 				if (!southrun) {
 					CellClass *cptr = &Map[cell];
-					int intweight = (int)MAX(1.0, cptr->Tiberium_Value() * scale);
+					int intweight = (cptr->Tiberium_Value() * scale < 1.0) ? 1.0 : cptr->Tiberium_Value() * scale;
 					southrun = true;
 					celldist.Add(cptr, intweight);
 				}
@@ -4863,7 +4869,7 @@ Cell FootClass::Search_For_Tiberium_Weighted(int rad)
 			if (Tiberium_Check(cell)) {
 				if (!westrun) {
 					CellClass *cptr = &Map[cell];
-					int intweight = (int)MAX(1.0, cptr->Tiberium_Value() * scale);
+					int intweight = (cptr->Tiberium_Value() * scale < 1.0) ? 1.0 : cptr->Tiberium_Value() * scale;
 					westrun = true;
 					celldist.Add(cptr, intweight);
 				}
@@ -4875,7 +4881,7 @@ Cell FootClass::Search_For_Tiberium_Weighted(int rad)
 			if (Tiberium_Check(cell)) {
 				if (!eastrun) {
 					CellClass *cptr = &Map[cell];
-					int intweight = (int)MAX(1.0, cptr->Tiberium_Value() * scale);
+					int intweight = (cptr->Tiberium_Value() * scale < 1.0) ? 1.0 : cptr->Tiberium_Value() * scale;
 					eastrun = true;
 					celldist.Add(cptr, intweight);
 				}
@@ -4887,7 +4893,7 @@ Cell FootClass::Search_For_Tiberium_Weighted(int rad)
 
 	CellClass *cellptr = celldist.Sample();
 	if (cellptr != NULL) {
-		return(cellptr->CellID);
+		return(cellptr->Fetch_CellID());
 	}
 	return(CELL_NONE);
 }

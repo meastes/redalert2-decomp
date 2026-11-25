@@ -6554,407 +6554,480 @@ void * g_OptionsDialogMemory; // RA2: freed when the options dialog (700) closes
 wchar_t g_PingTooltip[256]; // RA2: the text Player_Ping_Tooltip returns
 
 
-#ifdef RA2_NON_MATCHING // not exact: 1257 bytes differ (4 unresolved references; provisional comparison) (main-derived tree; all eight growVector calls are present; four placement-new calls remain)
 int g_LastJoinedGameIndex = -1; // RA2: the game list entry the join button last tried
 int g_LastSelectedGameIndex = -1; // RA2: the game list entry last selected
 char g_LastSelectedGameName[17]; // RA2: the name of the game channel last selected
-inline void Refresh_Game_Channels()
+
+// RA2: 0x007469C0, the lobby dialog (0x113). ra2-decomp's twin text (Yuri's Revenge 0x0078AC10, matched there, 71abb6a)
+// in this tree's names with RA2's cases; where a case leaves through the shared return or a break follows the
+// earlier tree's accepted text (src-final), which the image's shared SetFocus tail needs.
+BOOL CALLBACK Wonline_Main_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-	if(!Request_Game_Channel_List(1,false)) SetEvent(g_WaitEventHandles[5]);
-}
-inline void Refresh_Chat_Channels()
-{
-	if(!Request_Chat_Channel_List(false)) SetEvent(g_WaitEventHandles[5]);
-}
-inline void Update_Game_Channels(HWND window)
-{
-	if(WS_Top_Window()==window) Refresh_Game_Channels();
-}
-inline void Update_Chat_Channels(HWND window)
-{
-	if(WS_Top_Window()==window) Refresh_Chat_Channels();
-}
-inline bool Request_Channel_Lists()
-{
-	return Request_Chat_Channel_List(true) && Request_Game_Channel_List(1,false);
-}
-inline void Refresh_Channel_Lists()
-{
-	if(!Request_Channel_Lists()) SetEvent(g_WaitEventHandles[5]);
-}
-inline void On_Lobby_Timer(HWND window,WPARAM timer)
-{
-	switch(timer) {
-	case 0x55d:
-		KillTimer(window,0x55d);
-		EnableWindow(GetDlgItem(window,0x55d),1);
-		break;
-	case 1:
-		Update_Chat_Channels(window);
-		break;
-	case 0:
-		Update_Game_Channels(window);
-		break;
+	int rc = OwnerDraw::Default_Dialog_Proc(window, message, wparam, lparam);
+	if (rc) {
+		return rc;
 	}
-}
-inline void On_Refresh_Lists(HWND window)
-{
-	EnableWindow(GetDlgItem(window,0x53d),0);
-	Refresh_Channel_Lists();
-	EnableWindow(GetDlgItem(window,0x53d),1);
-}
-int __stdcall Wonline_Main_Dialog_Proc(HWND window,UINT message,WPARAM wparam,LPARAM lparam)
-{
-	int handled=OwnerDraw::Default_Dialog_Proc(window,message,wparam,lparam);
-	if(handled) return handled;
-	switch(message) {
-	case 2:
-		KillTimer(window,0);
-		KillTimer(window,0x55d);
-		Save_Observer_Mode();
-		return 0;
-	case 0x2b:
-		Dialog_On_WM_DRAWITEM(lparam);
-		return 1;
-	case 0xf:
-		Dialog_On_WM_PAINT(window);
-		Slide_Pending_Dialog(window);
-		ValidateRect(window,0);
-		return 0;
-	case 7:
-		SetFocus(GetDlgItem(window,0x540));
-		break;
-	case 0x14:
-		return 1;
-	case 0x18:
-		return 0;
-	case 0x111:
-		switch((int)(wparam&0xffff)) {
-		case 0x53d: {
-			int selection=SendMessageA((HWND)lparam,0x188,0,0);
-			if(selection==-1) return 0;
-			int data=SendMessageA((HWND)lparam,0x199,selection,0);
-			if((unsigned short)(wparam>>16)==1 && data!=-1) {
-				Channel lobby;
-				if(g_UserChannels.get(lobby,data) && strcmp((char *)lobby.name,(char *)g_CurrentChannel.name) && strcmp((char *)lobby.name,(char *)g_PendingChannel.name)) {
-					g_JoinLobbyNow=1;
-					g_LobbyNumber=atol((char *)lobby.name+strlen("Lob_33_"));
-					SetEvent(g_WaitEventHandles[9]);
-				}
+	switch (message) {
+		case WM_TIMER:
+			switch (wparam) {
+				case 0x55D:
+					KillTimer(window, 0x55D);
+					EnableWindow(GetDlgItem(window, 0x55D), TRUE);
+					return FALSE;
+
+				case 1:
+					if (WS_Top_Window() == window && !Request_Chat_Channel_List(false)) {
+						SetEvent(g_WaitEventHandles[5]);
+					}
+					break;
+
+				case 0:
+					if (WS_Top_Window() == window && !Request_Game_Channel_List(1, false)) {
+						SetEvent(g_WaitEventHandles[5]);
+					}
+					break;
 			}
-			return 0;
-		}
-		case 0x53e:
-			return 0;
-		case 0x3ed: {
-			HWND input=GetDlgItem(window,0x540);
-			WideWstring text=Limit_Name_Text(input);
-			SendMessageA(input,0x4b2,0,(LPARAM)L"");
-			SetFocus(input);
-			InvalidateRect(input,0,0);
-			int color=ColorAction;
-			if(strlen((char *)g_CurrentChannel.name)==0)
-				Lobby_Chat_Printf(-1,StringTable::LoadString("TXT_NOT_IN_CHAN",0,"D:\\Ra2\\wonline.cpp",0x2c52));
-			else if(text.length()>0) {
-				if(Send_Chat_Action(text)) color=ColorPrivAction;
-				Lobby_Chat_Printf(color,L"%hs %s",g_NickName,text.get());
-			} else Lobby_Chat_Printf(-1,StringTable::LoadString("TXT_ENTER_MESSAGE",0,"D:\\Ra2\\wonline.cpp",0x2c5a));
-			return 0;
-		}
-		case 0x540: {
-			wchar_t nickname[16],primary_command[64],alternate_command[64];
-			HWND input=GetDlgItem(window,0x540);
-			WideWstring text=Limit_Name_Text(input);
-			if((unsigned short)(wparam>>16)==0x501) {
-				SendMessageA(input,0x4b2,0,(LPARAM)L"");
-				if(text.length()>0) {
-					int parsed=Parse_Page_Command(text.get());
-					if(parsed!=0) {
-						if(parsed==1) {
-							int count=0;
-							unsigned length=text.length()+1;
-							wchar_t *copy=(wchar_t *)operator new(length*2);
-							wcscpy(primary_command,StringTable::LoadString("TXT_PAGE_COMMAND",0,"D:\\Ra2\\wonline.cpp",0x2bd9));
-							if(!copy) return 0;
-							copy=wcsncpy(copy,text.get(),length);
-							if(!copy) return 0;
-							wchar_t *body=copy+wcslen(primary_command);
-							while(*body && wcsncmp(body,L" ",1)==0) ++body;
-							while(*body) {
-								if(wcsncmp(body,L" ",1)==0 || count>10) break;
-								nickname[count++]=*body++;
+			break;
+
+		case 0x593:
+			EnableWindow(GetDlgItem(window, 0x53D), FALSE);
+			if (!Request_Chat_Channel_List(true) || !Request_Game_Channel_List(1, false)) {
+				SetEvent(g_WaitEventHandles[5]);
+			}
+			EnableWindow(GetDlgItem(window, 0x53D), TRUE);
+			break;
+
+		case WM_DESTROY:
+			KillTimer(window, 0);
+			KillTimer(window, 0x55D);
+			Save_Observer_Mode();
+			return FALSE;
+
+		case WM_DRAWITEM:
+			Dialog_On_WM_DRAWITEM(lparam);
+			return TRUE;
+
+		case WM_ERASEBKGND:
+			return TRUE;
+
+		case WM_PAINT:
+			Dialog_On_WM_PAINT(window);
+			Slide_Pending_Dialog(window);
+			ValidateRect(window, NULL);
+			return FALSE;
+
+		case WM_SHOWWINDOW:
+			return FALSE;
+
+		case WM_COMMAND:
+			switch (LOWORD(wparam)) {
+				case 0x53D: {
+					int index = SendMessage((HWND)lparam, LB_GETCURSEL, 0, 0);
+					if (index == -1) {
+						return FALSE;
+					}
+					int extra = SendMessage((HWND)lparam, LB_GETITEMDATA, index, 0);
+					if (HIWORD(wparam) == LBN_SELCHANGE && extra != -1) {
+						Channel chan;
+						if (g_UserChannels.get(chan, extra)) {
+							if (strcmp((char *)chan.name, (char *)g_CurrentChannel.name) != 0 && strcmp((char *)chan.name, (char *)g_PendingChannel.name) != 0) {
+								g_JoinLobbyNow = 1;
+								g_LobbyNumber = atol((char *)chan.name + strlen("Lob_33_"));
+								SetEvent(g_WaitEventHandles[9]);
+								return FALSE;
 							}
-							nickname[count]=0;
-							while(*body && wcsncmp(body,L" ",1)==0) ++body;
-							if(count>10) Lobby_Chat_Printf(-1,StringTable::LoadString("TXT_NAME_TOO_LONG",0,"D:\\Ra2\\wonline.cpp",0x2bf7));
-							else if(count==0) Lobby_Chat_Printf(-1,StringTable::LoadString("TXT_NO_NAME_SPECIFIED",0,"D:\\Ra2\\wonline.cpp",0x2bf9));
-							else if(wcslen(body)>0) Lobby_Chat_Printf(ColorPriv,L"[%hs > %s] %s",g_NickName,nickname,body);
-							else Lobby_Chat_Printf(-1,StringTable::LoadString("TXT_CANT_SEND_BLANK_PAGE",0,"D:\\Ra2\\wonline.cpp",0x2bff));
-							operator delete(copy);
 						}
-					} else if(Reply_To_Last_Pager(text.get())) {
-						unsigned length=text.length()+1;
-						wchar_t *copy=(wchar_t *)operator new(length*2);
-						wcscpy(primary_command,StringTable::LoadString("TXT_REPLY_COMMAND",0,"D:\\Ra2\\wonline.cpp",0x2c11));
-						wcscpy(alternate_command,StringTable::LoadString("TXT_REPLY_COMMAND_SHORT",0,"D:\\Ra2\\wonline.cpp",0x2c12));
-						if(!copy) return 0;
-						copy=wcsncpy(copy,text.get(),length);
-						if(!copy) return 0;
-						wchar_t *body=copy+(wcsncmp(copy,primary_command,wcslen(primary_command))==0 ? wcslen(primary_command):wcslen(alternate_command));
-						while(*body && wcsncmp(body,L" ",1)==0) ++body;
-						wcscpy(nickname,Narrow_To_Wide(LastPagerName));
-						if(wcslen(nickname)>0 && wcslen(body)>0)
-							Lobby_Chat_Printf(ColorPriv,L"[%hs > %s] %s",g_NickName,nickname,body);
-						else if(wcslen(nickname)>0)
-							Lobby_Chat_Printf(-1,StringTable::LoadString("TXT_CANT_SEND_BLANK_PAGE",0,"D:\\Ra2\\wonline.cpp",0x2c2f));
-						operator delete(copy);
-					} else if(!Parse_Online_Command(text.get())) {
-						if(strlen((char *)g_CurrentChannel.name)==0) {
-							Lobby_Chat_Printf(-1,StringTable::LoadString("TXT_NOT_IN_CHAN",0,"D:\\Ra2\\wonline.cpp",0x2c38));
-							return 0;
-						}
-						int color=ColorMe;
-						if(Send_Chat_Message(text)==1) color=ColorPriv;
-						Lobby_Chat_Printf(color,L"[%hs] %s",g_NickName,text.get());
 					}
+					return FALSE;
+				}
+
+				case 0x53E:
+					return FALSE;
+
+				case 0x3ED: {
+					HWND input = GetDlgItem(window, 0x540);
+					WideWstring text = Limit_Name_Text(input);
+					SendMessage(input, 0x4B2, 0, (LPARAM)L"");
+					SetFocus(input);
+					InvalidateRect(input, NULL, FALSE);
+					int color = ColorAction;
+					if (strlen((char *)g_CurrentChannel.name) == 0) {
+						Lobby_Chat_Printf(-1, StringTable::LoadString("TXT_NOT_IN_CHAN", NULL, "D:\\Ra2\\wonline.cpp", 0x2C52));
+					} else if (text.length() > 0) {
+						if (Send_Chat_Action(text)) {
+							color = ColorPrivAction;
+						}
+						wchar_t * message_text = text.get();
+						Lobby_Chat_Printf(color, L"%hs %s", g_NickName.c_str(), message_text);
+					} else {
+						Lobby_Chat_Printf(-1, StringTable::LoadString("TXT_ENTER_MESSAGE", NULL, "D:\\Ra2\\wonline.cpp", 0x2C5A));
+					}
+					return FALSE;
+				}
+
+				case 0x540: {
+					wchar_t nickname[16];
+					wchar_t primary_command[64];
+					wchar_t alternate_command[64];
+					HWND input = GetDlgItem(window, 0x540);
+					WideWstring text = Limit_Name_Text(input);
+					if (HIWORD(wparam) == 0x501) {
+						SendMessage(input, 0x4B2, 0, (LPARAM)L"");
+						if (text.length() > 0) {
+							int parsed = Parse_Page_Command(text.get());
+							if (parsed != 0) {
+								if (parsed == 1) {
+									int count = 0;
+									unsigned length = text.length() + 1;
+									wchar_t * copy = (wchar_t *)operator new(length * 2);
+									wcscpy(primary_command, StringTable::LoadString("TXT_PAGE_COMMAND", NULL, "D:\\Ra2\\wonline.cpp", 0x2BD9));
+									if (!copy) {
+										return FALSE;
+									}
+									copy = wcsncpy(copy, text.get(), length);
+									if (!copy) {
+										return FALSE;
+									}
+									wchar_t * body = copy + wcslen(primary_command);
+									while (*body && wcsncmp(body, L" ", 1) == 0) {
+										++body;
+									}
+									while (*body) {
+										if (wcsncmp(body, L" ", 1) == 0 || count > 10) {
+											break;
+										}
+										nickname[count++] = *body++;
+									}
+									nickname[count] = 0;
+									while (*body && wcsncmp(body, L" ", 1) == 0) {
+										++body;
+									}
+									if (count > 10) {
+										Lobby_Chat_Printf(-1, StringTable::LoadString("TXT_NAME_TOO_LONG", NULL, "D:\\Ra2\\wonline.cpp", 0x2BF7));
+									} else if (count == 0) {
+										Lobby_Chat_Printf(-1, StringTable::LoadString("TXT_NO_NAME_SPECIFIED", NULL, "D:\\Ra2\\wonline.cpp", 0x2BF9));
+									} else if (wcslen(body) > 0) {
+										Lobby_Chat_Printf(ColorPriv, L"[%hs > %s] %s", g_NickName.c_str(), nickname, body);
+									} else {
+										Lobby_Chat_Printf(-1, StringTable::LoadString("TXT_CANT_SEND_BLANK_PAGE", NULL, "D:\\Ra2\\wonline.cpp", 0x2BFF));
+									}
+									operator delete(copy);
+								}
+							} else if (Reply_To_Last_Pager(text.get())) {
+								unsigned length = text.length() + 1;
+								wchar_t * copy = (wchar_t *)operator new(length * 2);
+								wcscpy(primary_command, StringTable::LoadString("TXT_REPLY_COMMAND", NULL, "D:\\Ra2\\wonline.cpp", 0x2C11));
+								wcscpy(alternate_command, StringTable::LoadString("TXT_REPLY_COMMAND_SHORT", NULL, "D:\\Ra2\\wonline.cpp", 0x2C12));
+								if (!copy) {
+									return FALSE;
+								}
+								copy = wcsncpy(copy, text.get(), length);
+								if (!copy) {
+									return FALSE;
+								}
+								wchar_t * body = copy + (wcsncmp(copy, primary_command, wcslen(primary_command)) == 0
+														  ? wcslen(primary_command)
+														  : wcslen(alternate_command));
+								while (*body && wcsncmp(body, L" ", 1) == 0) {
+									++body;
+								}
+								wcscpy(nickname, Narrow_To_Wide(LastPagerName));
+								if (wcslen(nickname) > 0 && wcslen(body) > 0) {
+									Lobby_Chat_Printf(ColorPriv, L"[%hs > %s] %s", g_NickName.c_str(), nickname, body);
+								} else if (wcslen(nickname) > 0) {
+									Lobby_Chat_Printf(-1, StringTable::LoadString("TXT_CANT_SEND_BLANK_PAGE", NULL, "D:\\Ra2\\wonline.cpp", 0x2C2F));
+								}
+								operator delete(copy);
+							} else if (!Parse_Online_Command(text.get())) {
+								if (strlen((char *)g_CurrentChannel.name) == 0) {
+									Lobby_Chat_Printf(-1, StringTable::LoadString("TXT_NOT_IN_CHAN", NULL, "D:\\Ra2\\wonline.cpp", 0x2C38));
+								} else {
+									int color = ColorMe;
+									if (Send_Chat_Message(text) == 1) {
+										color = ColorPriv;
+									}
+									wchar_t * message_text = text.get();
+									Lobby_Chat_Printf(color, L"[%hs] %s", g_NickName.c_str(), message_text);
+								}
+							}
+						}
+					}
+					return FALSE;
+				}
+
+				case 0x55D:
+					EnableWindow((HWND)lparam, FALSE);
+					SetTimer(window, 0x55D, 3000, NULL);
+					if (!Queue_Channel_List_Request(0x21, 1, false)) {
+						SetEvent(g_WaitEventHandles[5]);
+					}
+					break;
+
+				case 0x558: // RA2: the tournament page button, which Yuri's Revenge dropped
+					ViewHTML("http://www.westwood.com/westwoodonline/tournaments/redalert2/", 0);
+					SetFocus(GetDlgItem(window, 0x540));
+					break;
+
+				case 0x547:
+				case 0x5C0:
+				case 0x686:
+					OwnerDraw::Set_Dialog_Waiting(window);
+					SetEvent(g_WaitEventHandles[6]);
+					return FALSE;
+
+				case 0x61F: {
+					OwnerDraw::Slide_Dialog(window, false);
+					Darken_Surface(NULL, true);
+					HWND dialog = OwnerDraw::Begin_Dialog(0x2BC, (DLGPROC)WOL_Options_Dialog_Proc, 0);
+					ShowWindow(dialog, SW_SHOWNORMAL);
+					int result = WS_Wait_Dialog(dialog, Wait_Callback_Thunk, 0, 1, 1);
+					InvalidateRect(window, NULL, FALSE);
+					ShowWindow(window, SW_SHOW);
+					OwnerDraw::Set_Paint_Disabled(window, 0);
+					if (result == 2) {
+						Apply_WOL_Settings();
+					} else {
+						g_AllowPage = g_NewAllowPage;
+						g_AllowFind = g_NewAllowFind;
+						g_LangFilter = g_NewLangFilter;
+						g_LobbyMusic = g_NewLobbyMusic;
+						g_ShowAllChannels = g_NewShowAllChannels;
+						g_DisplayAsian = g_NewDisplayAsian;
+						g_DisplayLatin = g_NewDisplayLatin;
+						Write_WOL_Settings();
+						Apply_WOL_Settings();
+					}
+					SetFocus(GetDlgItem(window, 0x540));
+					return FALSE;
+				}
+
+				case 0x62D: {
+					HWND list = GetDlgItem(window, 0x6EE);
+					int index = SendMessage(list, LB_GETCURSEL, 0, 0);
+					bool joined = false;
+					int extra = -1;
+					if (index != -1) {
+						extra = SendMessage(list, LB_GETITEMDATA, index, 0);
+						if (extra >= 0 && extra < g_GameChannelList.length()) {
+							Channel chan;
+							memset(&chan, 0, sizeof(chan));
+							g_GameChannelList.get(chan, extra);
+							joined = Can_Join_Channel(&chan, extra != g_LastJoinedGameIndex, ObserverMode != 0);
+							if (joined) {
+								EnableWindow(GetDlgItem(window, 0x62B), FALSE);
+								EnableWindow(GetDlgItem(window, 0x62D), FALSE);
+								SendMessage(GetDlgItem(window, 0x6EE), LB_SETCURSEL, -1, 0);
+								EnableWindow(GetDlgItem(window, 0x689), FALSE);
+								EnableWindow(GetDlgItem(window, 0x558), FALSE);
+								EnableWindow(GetDlgItem(window, 0x61F), FALSE);
+								EnableWindow(GetDlgItem(window, 0x686), FALSE);
+								bool started = Join_Game_Channel(&chan, ObserverMode == 1);
+								EnableWindow(GetDlgItem(window, 0x62B), TRUE);
+								EnableWindow(GetDlgItem(window, 0x689), TRUE);
+								EnableWindow(GetDlgItem(window, 0x558), TRUE);
+								EnableWindow(GetDlgItem(window, 0x61F), TRUE);
+								EnableWindow(GetDlgItem(window, 0x686), TRUE);
+								if (started) {
+									OwnerDraw::Slide_Dialog(window, false);
+									Darken_Surface(NULL, true);
+									ShowWindow(window, SW_HIDE);
+									OwnerDraw::Set_Paint_Disabled(window, 1);
+								}
+							}
+						}
+					}
+					g_LastJoinedGameIndex = extra;
+					EnableWindow((HWND)lparam, joined);
+					SetFocus(GetDlgItem(window, 0x540));
+					break;
+				}
+
+				case 0x62B: {
+					EnableWindow((HWND)lparam, FALSE);
+					EnableWindow(GetDlgItem(window, 0x62D), FALSE);
+					SendMessage(GetDlgItem(window, 0x6EE), LB_SETCURSEL, -1, 0);
+					EnableWindow(GetDlgItem(window, 0x689), FALSE);
+					EnableWindow(GetDlgItem(window, 0x558), FALSE);
+					EnableWindow(GetDlgItem(window, 0x61F), FALSE);
+					EnableWindow(GetDlgItem(window, 0x686), FALSE);
+					bool created = Host_Game();
+					EnableWindow((HWND)lparam, TRUE);
+					EnableWindow(GetDlgItem(window, 0x689), TRUE);
+					EnableWindow(GetDlgItem(window, 0x558), TRUE);
+					EnableWindow(GetDlgItem(window, 0x61F), TRUE);
+					EnableWindow(GetDlgItem(window, 0x686), TRUE);
+					if (!created) {
+						SetFocus(GetDlgItem(window, 0x540));
+					}
+					break;
+				}
+
+				case 0x608: {
+					WideWstring text;
+					HWND input = GetDlgItem(window, 0x540);
+					Get_Window_Wide_Text(input, text);
+					SendMessage(input, 0x4B2, 0, (LPARAM)L"");
+					SetFocus(input);
+					if (g_OwnSquadID) {
+						User user;
+						memset(&user, 0, sizeof(user));
+						strcpy((char *)user.name, "0");
+						g_pChat->RequestPrivateUnicodeMessage(&user, text.get());
+					} else {
+						Lobby_Chat_Printf(-1, StringTable::LoadString("TXT_NOSQUAD", NULL, "D:\\Ra2\\wonline.cpp", 0x2C74));
+					}
+					return FALSE;
+				}
+
+				case 0x689:
+					Online_Session_State = 4;
+					Online_Session_Return = 3;
+					OwnerDraw::Set_Dialog_Waiting(window);
+					SetEvent(g_WaitEventHandles[6]);
+					return FALSE;
+
+				case 0x6EE: {
+					bool dblclk = false;
+					switch (HIWORD(wparam)) {
+						case LBN_SELCHANGE:
+							break;
+
+						case LBN_DBLCLK:
+							dblclk = true;
+							break;
+
+						default:
+							return FALSE;
+					}
+					int index = SendMessage((HWND)lparam, LB_GETCURSEL, 0, 0);
+					int extra = -1;
+					bool joinable = false;
+					if (index != -1) {
+						extra = SendMessage((HWND)lparam, LB_GETITEMDATA, index, 0);
+						if (extra >= 0 && extra < g_GameChannelList.length()) {
+							Channel chan;
+							memset(&chan, 0, sizeof(chan));
+							g_GameChannelList.get(chan, extra);
+							if (g_LastSelectedGameIndex == -1) {
+								g_LastSelectedGameName[0] = 0;
+							}
+							int changed = strcmp(g_LastSelectedGameName, (char *)chan.name);
+							joinable = Can_Join_Channel(&chan, dblclk || changed != 0, ObserverMode != 0);
+							strcpy(g_LastSelectedGameName, (char *)chan.name);
+							if (joinable && dblclk) {
+								EnableWindow(GetDlgItem(window, 0x62B), FALSE);
+								EnableWindow(GetDlgItem(window, 0x62D), FALSE);
+								SendMessage(GetDlgItem(window, 0x6EE), LB_SETCURSEL, -1, 0);
+								EnableWindow(GetDlgItem(window, 0x689), FALSE);
+								EnableWindow(GetDlgItem(window, 0x558), FALSE);
+								EnableWindow(GetDlgItem(window, 0x61F), FALSE);
+								EnableWindow(GetDlgItem(window, 0x686), FALSE);
+								if (Join_Game_Channel(&chan, ObserverMode == 1)) {
+									OwnerDraw::Slide_Dialog(window, false);
+									Darken_Surface(NULL, true);
+									ShowWindow(window, SW_HIDE);
+									OwnerDraw::Set_Paint_Disabled(window, 1);
+								}
+								EnableWindow(GetDlgItem(window, 0x62B), TRUE);
+								EnableWindow(GetDlgItem(window, 0x689), TRUE);
+								EnableWindow(GetDlgItem(window, 0x558), TRUE);
+								EnableWindow(GetDlgItem(window, 0x61F), TRUE);
+								EnableWindow(GetDlgItem(window, 0x686), TRUE);
+							}
+						} else {
+							g_LastSelectedGameName[0] = 0;
+						}
+					}
+					int selected = SendMessage((HWND)lparam, LB_GETCURSEL, 0, 0);
+					if (!g_GameListRefreshing || selected != -1) {
+						g_LastSelectedGameIndex = extra;
+					}
+					if (g_GameListRefreshing && selected == -1) {
+						g_GameListRefreshing = 0;
+					}
+					HWND join_button = GetDlgItem(window, 0x62D);
+					EnableWindow(join_button, joinable);
+					return FALSE;
+				}
+
+				case 0x75F:
+				case 0x760: {
+					int checked = 0;
+					HWND item = GetDlgItem(window, 0x760);
+					if (item) {
+						checked = SendMessage(item, BM_GETCHECK, 0, 0);
+					}
+					if (LOWORD(wparam) == 0x75F) {
+						checked = !checked;
+					}
+					ObserverMode = checked;
+					Update_Observer_Buttons(NULL);
+					return FALSE;
+				}
+
+			}
+			return FALSE;
+
+		case WM_SETFOCUS:
+			SetFocus(GetDlgItem(window, 0x540));
+			return FALSE;
+
+		case 0x497:
+			Update_Observer_Buttons(window);
+			SendDlgItemMessage(window, 0x3ED, 0x49C, 0, (LPARAM)SurfaceCache.GetSurface("wouact.pcx", NULL));
+			SendDlgItemMessage(window, 0x3ED, 0x4AA, 0, (LPARAM)SurfaceCache.GetSurface("wodact.pcx", NULL));
+			SendDlgItemMessage(window, 0x55D, 0x49C, 0, (LPARAM)SurfaceCache.GetSurface("wouref.pcx", NULL));
+			SendDlgItemMessage(window, 0x55D, 0x4AA, 0, (LPARAM)SurfaceCache.GetSurface("wodref.pcx", NULL));
+			g_Col_GameIcon = 2;
+			g_Col_GamePrivate = 19;
+			g_Col_GameObserver = 36;
+			g_Col_GameName = 53;
+			g_Col_GamePingTime = 200;
+			SendDlgItemMessage(window, 0x6EE, 0x4A6, g_Col_GamePingTime - g_Col_GameName, g_Col_GameName);
+			SendDlgItemMessage(window, 0x6EE, 0x4A6, 0, g_Col_GameIcon);
+			SendDlgItemMessage(window, 0x6EE, 0x4A6, 0, g_Col_GamePrivate);
+			SendDlgItemMessage(window, 0x6EE, 0x4A6, 0, g_Col_GamePingTime);
+			SendDlgItemMessage(window, 0x6EE, 0x4A6, 0, g_Col_GameObserver);
+			g_Col_ChanName = 2;
+			SendDlgItemMessage(window, 0x53D, 0x4A6, 0, g_Col_ChanName);
+			g_Col_Chanop = 2;
+			g_Col_Username = 18;
+			g_Col_Rank = 115;
+			SendDlgItemMessage(window, 0x53E, 0x4A6, g_Col_Rank - g_Col_Username, g_Col_Username);
+			SendDlgItemMessage(window, 0x53E, 0x4A6, 0, g_Col_Chanop);
+			SendDlgItemMessage(window, 0x53E, 0x4A6, 0, g_Col_Rank);
+			Refresh_Lobby_List();
+			Refresh_Game_List();
+			Draw_Player_List(0, false);
+			SetFocus(GetDlgItem(window, 0x540));
+			SetTimer(window, 0, 30000, NULL);
+			SetTimer(window, 1, 53000, NULL);
+			return FALSE;
+
+		case 0x4E9: {
+			ToolTipTextRequest * request = (ToolTipTextRequest *)lparam;
+			if (request) {
+				switch (GetDlgCtrlID(request->Window)) {
+					case 0x6EE:
+						request->Text = Game_List_Tooltip(request->Window, request->Item);
+						break;
+
+					case 0x53E:
+						request->Text = User_List_Tooltip(request->Window, request->Item);
+						break;
 				}
 			}
-			return 0;
+			return FALSE;
 		}
-		case 0x55d:
-			EnableWindow((HWND)lparam,0);
-			SetTimer(window,0x55d,3000,0);
-			Refresh_Game_Channels();
-			break;
-		case 0x558:
-			ViewHTML("http://www.westwood.com/westwoodonline/tournaments/redalert2/",0);
-			SetFocus(GetDlgItem(window,0x540));
-			break;
-		case 0x608: {
-			WideWstring text;
-			HWND input=GetDlgItem(window,0x540);
-			Get_Window_Wide_Text(input,text);
-			SendMessageA(input,0x4b2,0,(LPARAM)L"");
-			SetFocus(input);
-			if(g_OwnSquadID) {
-				User user;
-				memset(&user,0,sizeof(user));
-				strcpy((char *)user.name,"0");
-				g_pChat->RequestPrivateUnicodeMessage(&user, text.get());
-			} else Lobby_Chat_Printf(-1,StringTable::LoadString("TXT_NOSQUAD",0,"D:\\Ra2\\wonline.cpp",0x2c74));
-			return 0;
-		}
-		case 0x62d: {
-			HWND list=GetDlgItem(window,0x6ee);
-			int selection=SendMessageA(list,0x188,0,0);
-			bool enable=false;
-			int data=-1;
-			if(selection!=-1) {
-				data=SendMessageA(list,0x199,selection,0);
-				if(data>=0 && data<g_GameChannelList.length()) {
-					Channel game;
-					memset(&game,0,sizeof(game));
-					g_GameChannelList.get(game,data);
-					enable=Can_Join_Channel(&game,data!=g_LastJoinedGameIndex,ObserverMode!=0);
-					if(enable) {
-						EnableWindow(GetDlgItem(window,0x62b),0);
-						EnableWindow(GetDlgItem(window,0x62d),0);
-						SendMessageA(GetDlgItem(window,0x6ee),0x186,-1,0);
-						EnableWindow(GetDlgItem(window,0x689),0);
-						EnableWindow(GetDlgItem(window,0x558),0);
-						EnableWindow(GetDlgItem(window,0x61f),0);
-						EnableWindow(GetDlgItem(window,0x686),0);
-						bool joined=Join_Game_Channel(&game,ObserverMode==1);
-						EnableWindow(GetDlgItem(window,0x62b),1);
-						EnableWindow(GetDlgItem(window,0x689),1);
-						EnableWindow(GetDlgItem(window,0x558),1);
-						EnableWindow(GetDlgItem(window,0x61f),1);
-						EnableWindow(GetDlgItem(window,0x686),1);
-						if(joined) {
-							OwnerDraw::Slide_Dialog(window,false);
-							Darken_Surface(0,true);
-							ShowWindow(window,0);
-							OwnerDraw::Set_Paint_Disabled(window,1);
-						}
-					}
-				}
-			}
-			g_LastJoinedGameIndex=data;
-			EnableWindow((HWND)lparam,enable);
-			SetFocus(GetDlgItem(window,0x540));
-			break;
-		}
-		case 0x62b: {
-			EnableWindow((HWND)lparam,0);
-			EnableWindow(GetDlgItem(window,0x62d),0);
-			SendMessageA(GetDlgItem(window,0x6ee),0x186,-1,0);
-			EnableWindow(GetDlgItem(window,0x689),0);
-			EnableWindow(GetDlgItem(window,0x558),0);
-			EnableWindow(GetDlgItem(window,0x61f),0);
-			EnableWindow(GetDlgItem(window,0x686),0);
-			bool hosted=Host_Game();
-			EnableWindow((HWND)lparam,1);
-			EnableWindow(GetDlgItem(window,0x689),1);
-			EnableWindow(GetDlgItem(window,0x558),1);
-			EnableWindow(GetDlgItem(window,0x61f),1);
-			EnableWindow(GetDlgItem(window,0x686),1);
-			if(!hosted) SetFocus(GetDlgItem(window,0x540));
-			break;
-		}
-		case 0x61f: {
-			OwnerDraw::Slide_Dialog(window,false);
-			Darken_Surface(0,true);
-			HWND dialog=OwnerDraw::Begin_Dialog(700,WOL_Options_Dialog_Proc,0);
-			ShowWindow(dialog,1);
-			int result=WS_Wait_Dialog(dialog,Wait_Callback_Thunk,0,true,true);
-			InvalidateRect(window,0,0);
-			ShowWindow(window,5);
-			OwnerDraw::Set_Paint_Disabled(window,0);
-			if(result==2) Apply_WOL_Settings();
-			else {
-				g_AllowPage=g_NewAllowPage;
-				g_AllowFind=g_NewAllowFind;
-				g_LangFilter=g_NewLangFilter;
-				g_LobbyMusic=g_NewLobbyMusic;
-				g_ShowAllChannels=g_NewShowAllChannels;
-				g_DisplayAsian=g_NewDisplayAsian;
-				g_DisplayLatin=g_NewDisplayLatin;
-				Write_WOL_Settings();
-				Apply_WOL_Settings();
-			}
-			SetFocus(GetDlgItem(window,0x540));
-			return 0;
-		}
-		case 0x547: case 0x5c0: case 0x686:
-			OwnerDraw::Set_Dialog_Waiting(window);
-			SetEvent(g_WaitEventHandles[6]);
-			return 0;
-		case 0x689:
-			Online_Session_State=4;
-			Online_Session_Return=3;
-			OwnerDraw::Set_Dialog_Waiting(window);
-			SetEvent(g_WaitEventHandles[6]);
-			return 0;
-		case 0x6ee: {
-			bool activate=false;
-			switch(wparam>>16) {
-			case 1: break;
-			case 2: activate=true; break;
-			default: return 0;
-			}
-			int selection=SendMessageA((HWND)lparam,0x188,0,0);
-			int data=-1;
-			bool enable=false;
-			if(selection!=-1) {
-				data=SendMessageA((HWND)lparam,0x199,selection,0);
-				if(data>=0 && data<g_GameChannelList.length()) {
-					Channel game;
-					memset(&game,0,sizeof(game));
-					g_GameChannelList.get(game,data);
-					if(g_LastSelectedGameIndex==-1) g_LastSelectedGameName[0]=0;
-					int changed=strcmp(g_LastSelectedGameName,(char *)game.name);
-					enable=Can_Join_Channel(&game,activate || changed,ObserverMode!=0);
-					strcpy(g_LastSelectedGameName,(char *)game.name);
-					if(enable && activate) {
-						EnableWindow(GetDlgItem(window,0x62b),0);
-						EnableWindow(GetDlgItem(window,0x62d),0);
-						SendMessageA(GetDlgItem(window,0x6ee),0x186,-1,0);
-						EnableWindow(GetDlgItem(window,0x689),0);
-						EnableWindow(GetDlgItem(window,0x558),0);
-						EnableWindow(GetDlgItem(window,0x61f),0);
-						EnableWindow(GetDlgItem(window,0x686),0);
-						if(Join_Game_Channel(&game,ObserverMode==1)) {
-							OwnerDraw::Slide_Dialog(window,false);
-							Darken_Surface(0,true);
-							ShowWindow(window,0);
-							OwnerDraw::Set_Paint_Disabled(window,1);
-						}
-						EnableWindow(GetDlgItem(window,0x62b),1);
-						EnableWindow(GetDlgItem(window,0x689),1);
-						EnableWindow(GetDlgItem(window,0x558),1);
-						EnableWindow(GetDlgItem(window,0x61f),1);
-						EnableWindow(GetDlgItem(window,0x686),1);
-					}
-				} else g_LastSelectedGameName[0]=0;
-			}
-			int current=SendMessageA((HWND)lparam,0x188,0,0);
-			if(!g_GameListRefreshing || current!=-1) g_LastSelectedGameIndex=data;
-			if(g_GameListRefreshing && current==-1) g_GameListRefreshing=false;
-			HWND join=GetDlgItem(window,0x62d);
-			EnableWindow(join,enable);
-			return 0;
-		}
-		case 0x75f: case 0x760: {
-			int checked=0;
-			HWND button=GetDlgItem(window,0x760);
-			if(button) checked=SendMessageA(button,0xf0,0,0);
-			if((unsigned short)wparam==0x75f) checked=!checked;
-			ObserverMode=checked;
-			Update_Observer_Buttons(0);
-			return 0;
-		}
-		}
-		return 0;
-	case 0x497: {
-		Update_Observer_Buttons(window);
-		SendDlgItemMessageA(window,0x3ed,0x49c,0,(LPARAM)SurfaceCache.GetSurface("wouact.pcx",0));
-		SendDlgItemMessageA(window,0x3ed,0x4aa,0,(LPARAM)SurfaceCache.GetSurface("wodact.pcx",0));
-		SendDlgItemMessageA(window,0x55d,0x49c,0,(LPARAM)SurfaceCache.GetSurface("wouref.pcx",0));
-		SendDlgItemMessageA(window,0x55d,0x4aa,0,(LPARAM)SurfaceCache.GetSurface("wodref.pcx",0));
-		g_Col_GameIcon=2;
-		g_Col_GamePrivate=0x13;
-		g_Col_GameObserver=0x24;
-		g_Col_GameName=0x35;
-		g_Col_GamePingTime=200;
-		SendDlgItemMessageA(window,0x6ee,0x4a6,g_Col_GamePingTime-g_Col_GameName,g_Col_GameName);
-		SendDlgItemMessageA(window,0x6ee,0x4a6,0,g_Col_GameIcon);
-		SendDlgItemMessageA(window,0x6ee,0x4a6,0,g_Col_GamePrivate);
-		SendDlgItemMessageA(window,0x6ee,0x4a6,0,g_Col_GamePingTime);
-		SendDlgItemMessageA(window,0x6ee,0x4a6,0,g_Col_GameObserver);
-		g_Col_ChanName=2;
-		SendDlgItemMessageA(window,0x53d,0x4a6,0,g_Col_ChanName);
-		g_Col_Chanop=2;
-		g_Col_Username=0x12;
-		g_Col_Rank=0x73;
-		SendDlgItemMessageA(window,0x53e,0x4a6,g_Col_Rank-g_Col_Username,g_Col_Username);
-		SendDlgItemMessageA(window,0x53e,0x4a6,0,g_Col_Chanop);
-		SendDlgItemMessageA(window,0x53e,0x4a6,0,g_Col_Rank);
-		Refresh_Lobby_List();
-		Refresh_Game_List();
-		Draw_Player_List(0,false);
-		SetFocus(GetDlgItem(window,0x540));
-		SetTimer(window,0,30000,0);
-		SetTimer(window,1,53000,0);
-		return 0;
+
+		case 0x4ED:
+			ShowWindow(window, SW_HIDE);
+			OwnerDraw::Set_Paint_Disabled(window, 1);
+			return FALSE;
+
 	}
-	case 0x113:
-		On_Lobby_Timer(window,wparam);
-		break;
-	case 0x4e9: {
-		ToolTipTextRequest *request=(ToolTipTextRequest *)lparam;
-		if(request) {
-			switch(GetDlgCtrlID((HWND)request->Window)) {
-			case 0x6ee:
-				request->Text=Game_List_Tooltip((HWND)request->Window,request->Item);
-				break;
-			case 0x53e:
-				request->Text=User_List_Tooltip((HWND)request->Window,request->Item);
-				break;
-			}
-		}
-		return 0;
-	}
-	case 0x593:
-		On_Refresh_Lists(window);
-		break;
-	case 0x4ed:
-		ShowWindow(window,0);
-		OwnerDraw::Set_Paint_Disabled(window,1);
-		return 0;
-	}
-	return 0;
+	return FALSE;
 }
-#endif
 
 
 BOOL CALLBACK WOL_Find_Page_Dialog_Proc(HWND window,UINT message,WPARAM wparam,LPARAM lparam)

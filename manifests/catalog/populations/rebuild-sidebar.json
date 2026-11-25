@@ -173,6 +173,13 @@
     "?Zap@LinkClass@@UAEXXZ": 5476336,
     "?Add_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z": 5114560,
     "?Start_Flashing@ShapeButtonClass@@QAE_NHH_N@Z": 6771408,
+    "?AI@StripClass@SidebarClass@@QAE_NAAW4KeyNumType@@ABVPoint2D@@@Z": 6811728,
+    "?Rule@@3PAVRulesClass@@A": 8624200,
+    "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z": 7421360,
+    "?Sell_Mode_Control@DisplayClass@@QAEXH@Z": 4835264,
+    "?Repair_Mode_Control@DisplayClass@@QAEXH@Z": 4835872,
+    "?AI@ShapeButtonClass@@QAE_NXZ": 6771488,
+    "?AI@PowerClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z": 6409264,
     "?Recalc@StripClass@SidebarClass@@QAE_NXZ": 6816464,
     "?SuperWeaponTypes@@3V?$DynamicVectorClass@PAVSuperWeaponTypeClass@@@@A": 10748728,
     "?Fetch_Techno_Type@@YIPBVTechnoTypeClass@@W4RTTIType@@H@Z": 4729856,
@@ -201,13 +208,9 @@
     "?Override_Mouse_Shape@MouseClass@@UAE_NW4MouseType@@_N@Z": 5894736,
     "?Dynamic_Cast@@YIPAVTechnoClass@@PAVAbstractClass@@@Z": 4250656,
     "?Set_Cursor_Shape@DisplayClass@@QAEXPBVCell@@@Z": 4820752,
-    "?Rule@@3PAVRulesClass@@A": 8624200,
-    "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z": 7421360,
     "??_C@_0N@BEKL@EVA_Canceled?$AA@": 8339220,
     "??0EventClass@@QAE@HEW4RTTIType@@HH@Z": 4940416,
     "??0EventClass@@QAE@HEHABVCell@@@Z": 4940912,
-    "?Repair_Mode_Control@DisplayClass@@QAEXH@Z": 4835872,
-    "?Sell_Mode_Control@DisplayClass@@QAEXH@Z": 4835264,
     "?Unselect_All@@YIXXZ": 4729792,
     "??_C@_0BB@ICHJ@EVA_SelectTarget?$AA@": 8339200,
     "?Impatient_Click@SuperClass@@QBEXXZ": 6936192,
@@ -365,7 +368,6 @@
     "?Blit_Display@GScreenClass@@UAEXXZ": 5114960,
     "?Render@GScreenClass@@UAEXXZ": 5114672,
     "?SetButtons@GScreenClass@@UAE_NAAVGadgetClass@@@Z": 5114528,
-    "?AI@SidebarClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z": 6806672,
     "?Input@GScreenClass@@UAEXAAW4KeyNumType@@AAH1@Z": 5114320,
     "?Init@GScreenClass@@UAEXW4TheaterType@@@Z": 5114208,
     "??_GSidebarClass@@UAEPAXI@Z": 6825120,
@@ -385,7 +387,6 @@
     "?Init_Clear@RadarClass@@UAEXXZ": 6484576,
     "?One_Time@RadarClass@@UAEXXZ": 6484336,
     "??_GRadarClass@@UAEPAXI@Z": 6507216,
-    "?AI@PowerClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z": 6409264,
     "??_GPowerClass@@UAEPAXI@Z": 6410784,
     "?RevealFogShroud@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@_N@Z": 4825024,
     "?Map_Cell@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z": 4823984,
@@ -426,6 +427,7 @@
     "?Select_Tab@SidebarClass@@QAEXH@Z": 6805904,
     "?Start_Tab_Flash@SidebarClass@@QAEXH@Z": 6806528,
     "?Stop_Tab_Flash@SidebarClass@@QAE_NH@Z": 6806640,
+    "?AI@SidebarClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z": 6806672,
     "?Recalc@SidebarClass@@QAEXXZ": 6808000,
     "?Cameos_Width@SidebarClass@@SIHH@Z": 6809152,
     "?Cameos_Height@SidebarClass@@SIHH@Z": 6809168,
@@ -436,7 +438,6 @@
     "?Step@StripClass@SidebarClass@@QAE_N_N@Z": 6811376,
     "?Page@StripClass@SidebarClass@@QAE_N_N@Z": 6811504,
     "?Flag_To_Redraw@StripClass@SidebarClass@@QAEXXZ": 6811696,
-    "?AI@StripClass@SidebarClass@@QAE_NAAW4KeyNumType@@ABVPoint2D@@@Z": 6811728,
     "?Activate@StripClass@SidebarClass@@QAEXXZ": 6813312,
     "?Deactivate@StripClass@SidebarClass@@QAEXXZ": 6813488,
     "?Get_Progress@StripClass@SidebarClass@@QAEHH@Z": 6813632,
@@ -553,7 +554,7 @@
           "resolved": 11245204
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6795968,
@@ -620,7 +621,7 @@
           "resolved": 11245216
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796000,
@@ -671,7 +672,7 @@
           "resolved": 11258960
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796048,
@@ -722,7 +723,7 @@
           "resolved": 11258848
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796080,
@@ -773,7 +774,7 @@
           "resolved": 11258840
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796112,
@@ -824,7 +825,7 @@
           "resolved": 11245224
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796144,
@@ -875,7 +876,7 @@
           "resolved": 11244664
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796176,
@@ -958,7 +959,7 @@
           "resolved": 11259064
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796208,
@@ -1017,7 +1018,7 @@
           "resolved": 11245232
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796272,
@@ -1076,7 +1077,7 @@
           "resolved": 11258832
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796320,
@@ -1135,7 +1136,7 @@
           "resolved": 11258952
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796368,
@@ -1178,7 +1179,7 @@
           "resolved": 11245210
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796416,
@@ -1229,7 +1230,7 @@
           "resolved": 11258824
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796432,
@@ -1304,7 +1305,7 @@
           "resolved": 1078448
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796464,
@@ -1363,7 +1364,7 @@
           "resolved": 4293213058
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796512,
@@ -1422,7 +1423,7 @@
           "resolved": 1078390
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796544,
@@ -1481,7 +1482,7 @@
           "resolved": 4294941618
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796576,
@@ -1540,7 +1541,7 @@
           "resolved": 1078326
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796608,
@@ -1599,7 +1600,7 @@
           "resolved": 4294941554
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796640,
@@ -1658,7 +1659,7 @@
           "resolved": 1078247
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796672,
@@ -1717,7 +1718,7 @@
           "resolved": 4294941462
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796720,
@@ -1776,7 +1777,7 @@
           "resolved": 1078166
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796768,
@@ -1835,7 +1836,7 @@
           "resolved": 4294941394
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796800,
@@ -1894,7 +1895,7 @@
           "resolved": 1078102
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796832,
@@ -1953,7 +1954,7 @@
           "resolved": 4294941330
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796864,
@@ -2020,7 +2021,7 @@
           "resolved": 1077998
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796896,
@@ -2079,7 +2080,7 @@
           "resolved": 4293212582
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796976,
@@ -2122,7 +2123,7 @@
           "resolved": 8041204
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6797024,
@@ -2197,7 +2198,7 @@
           "resolved": 11971
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6797056,
@@ -2328,7 +2329,7 @@
           "resolved": 8041480
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6797232,
@@ -2354,7 +2355,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6797440,
@@ -2413,7 +2414,7 @@
           "resolved": 11244672
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6797456,
@@ -2456,7 +2457,7 @@
           "resolved": 11918
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6797488,
@@ -2707,7 +2708,7 @@
           "resolved": 11259264
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6797584,
@@ -2830,7 +2831,7 @@
           "resolved": 11259252
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6797920,
@@ -3441,7 +3442,7 @@
           "resolved": 10908
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6798032,
@@ -4020,7 +4021,7 @@
           "resolved": 11259180
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6798736,
@@ -4399,7 +4400,7 @@
           "resolved": 4294938802
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6799296,
@@ -4450,7 +4451,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6799616,
@@ -4557,7 +4558,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6799696,
@@ -4600,7 +4601,7 @@
           "resolved": 4293281431
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6800080,
@@ -4651,7 +4652,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6800144,
@@ -4702,7 +4703,7 @@
           "resolved": 4293281119
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6800240,
@@ -4728,7 +4729,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6800464,
@@ -4754,7 +4755,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6800576,
@@ -5061,7 +5062,7 @@
           "resolved": 11259268
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6800688,
@@ -5240,7 +5241,7 @@
           "resolved": 4293208129
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6801488,
@@ -5451,7 +5452,7 @@
           "resolved": 4293207824
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6801680,
@@ -6022,7 +6023,7 @@
           "resolved": 4293206936
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6802000,
@@ -6089,7 +6090,7 @@
           "resolved": 8623652
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6802896,
@@ -6148,7 +6149,7 @@
           "resolved": 11259236
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6803088,
@@ -6863,7 +6864,7 @@
           "resolved": 8624476
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6803328,
@@ -7378,7 +7379,7 @@
           "resolved": 11259268
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6804512,
@@ -7653,7 +7654,7 @@
           "resolved": 4293203921
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6805472,
@@ -8000,7 +8001,7 @@
           "resolved": 4293203297
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6805904,
@@ -8075,7 +8076,7 @@
           "resolved": 4293274941
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6806528,
@@ -8118,10 +8119,509 @@
           "resolved": 4294932091
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6806640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6806672,
+      "method": "0067dc90",
+      "body_bytes": 1315,
+      "body_sha256": "e54e9694a54c59c65d8d5be79858be1596b1fff0e237c1df0946bea544e42765",
+      "padding_bytes": 13,
+      "full_extent_bytes": 1328,
+      "full_extent_sha256": "4848e9b145932ab6fb07bdaa6cdb3f45c4801fe0b22ccace672df77a087f2a4b",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AI@SidebarClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z",
+      "symbol_prefix": "?AI@SidebarClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?SidebarRect@@3V?$TRect@H@@A",
+          "target": 8623648,
+          "addend": 0,
+          "resolved": 8623648
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "?Debug_Map@@3_NA",
+          "target": 10751251,
+          "addend": 0,
+          "resolved": 10751251
+        },
+        {
+          "offset": 78,
+          "kind": 20,
+          "symbol": "?AI@StripClass@SidebarClass@@QAE_NAAW4KeyNumType@@ABVPoint2D@@@Z",
+          "target": 6811728,
+          "addend": 0,
+          "resolved": 4974
+        },
+        {
+          "offset": 131,
+          "kind": 6,
+          "symbol": "?SidebarShapes@SidebarClass@@2PAPBVShapeSet@@A",
+          "target": 11259168,
+          "addend": 16,
+          "resolved": 11259184
+        },
+        {
+          "offset": 183,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 297,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 320,
+          "kind": 20,
+          "symbol": "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z",
+          "target": 7421360,
+          "addend": 0,
+          "resolved": 614364
+        },
+        {
+          "offset": 329,
+          "kind": 20,
+          "symbol": "?Sell_Mode_Control@DisplayClass@@QAEXH@Z",
+          "target": 4835264,
+          "addend": 0,
+          "resolved": 4292995555
+        },
+        {
+          "offset": 347,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 370,
+          "kind": 20,
+          "symbol": "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z",
+          "target": 7421360,
+          "addend": 0,
+          "resolved": 614314
+        },
+        {
+          "offset": 379,
+          "kind": 20,
+          "symbol": "?Repair_Mode_Control@DisplayClass@@QAEXH@Z",
+          "target": 4835872,
+          "addend": 0,
+          "resolved": 4292996113
+        },
+        {
+          "offset": 438,
+          "kind": 6,
+          "symbol": "?TabButton@SidebarClass@@2PAVShapeButtonClass@@A",
+          "target": 11244808,
+          "addend": 0,
+          "resolved": 11244808
+        },
+        {
+          "offset": 443,
+          "kind": 20,
+          "symbol": "?Turn_Off@ToggleClass@@QAEXXZ",
+          "target": 7254384,
+          "addend": 0,
+          "resolved": 447265
+        },
+        {
+          "offset": 470,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 490,
+          "kind": 20,
+          "symbol": "?Max_Visible@SidebarClass@@QAEHXZ",
+          "target": 6824096,
+          "addend": 0,
+          "resolved": 16930
+        },
+        {
+          "offset": 512,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 533,
+          "kind": 6,
+          "symbol": "?SelectButton@StripClass@SidebarClass@@2PAVSelectClass@12@A",
+          "target": 11245376,
+          "addend": 0,
+          "resolved": 11245376
+        },
+        {
+          "offset": 539,
+          "kind": 20,
+          "symbol": "?Remove_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z",
+          "target": 5114624,
+          "addend": 0,
+          "resolved": 4293274705
+        },
+        {
+          "offset": 562,
+          "kind": 6,
+          "symbol": "?TabButton@SidebarClass@@2PAVShapeButtonClass@@A",
+          "target": 11244808,
+          "addend": 0,
+          "resolved": 11244808
+        },
+        {
+          "offset": 567,
+          "kind": 20,
+          "symbol": "?Turn_On@ToggleClass@@QAEXXZ",
+          "target": 7254368,
+          "addend": 0,
+          "resolved": 447125
+        },
+        {
+          "offset": 594,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 610,
+          "kind": 20,
+          "symbol": "?Get_Doubled_Row_Count@SidebarClass@@QAEHXZ",
+          "target": 6824176,
+          "addend": 0,
+          "resolved": 16890
+        },
+        {
+          "offset": 642,
+          "kind": 6,
+          "symbol": "?SelectButton@StripClass@SidebarClass@@2PAVSelectClass@12@A",
+          "target": 11245376,
+          "addend": 0,
+          "resolved": 11245376
+        },
+        {
+          "offset": 647,
+          "kind": 20,
+          "symbol": "?Zap@LinkClass@@UAEXXZ",
+          "target": 5476336,
+          "addend": 0,
+          "resolved": 4293636309
+        },
+        {
+          "offset": 655,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 676,
+          "kind": 6,
+          "symbol": "?SelectButton@StripClass@SidebarClass@@2PAVSelectClass@12@A",
+          "target": 11245376,
+          "addend": 0,
+          "resolved": 11245376
+        },
+        {
+          "offset": 682,
+          "kind": 20,
+          "symbol": "?Add_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z",
+          "target": 5114560,
+          "addend": 0,
+          "resolved": 4293274498
+        },
+        {
+          "offset": 695,
+          "kind": 6,
+          "symbol": "?IsSidebarRedrawPending@SidebarClass@@2_NA",
+          "target": 8614851,
+          "addend": 0,
+          "resolved": 8614851
+        },
+        {
+          "offset": 701,
+          "kind": 20,
+          "symbol": "?Update_Build_Buttons@SidebarClass@@QAEXXZ",
+          "target": 6801488,
+          "addend": 0,
+          "resolved": 4294961407
+        },
+        {
+          "offset": 714,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 743,
+          "kind": 6,
+          "symbol": "?ScrollDownButton@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11258856,
+          "addend": 36,
+          "resolved": 11258892
+        },
+        {
+          "offset": 763,
+          "kind": 6,
+          "symbol": "?ScrollDownButton@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11258856,
+          "addend": 44,
+          "resolved": 11258900
+        },
+        {
+          "offset": 778,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 789,
+          "kind": 6,
+          "symbol": "?SidebarRect@@3V?$TRect@H@@A",
+          "target": 8623648,
+          "addend": 12,
+          "resolved": 8623660
+        },
+        {
+          "offset": 795,
+          "kind": 6,
+          "symbol": "?StripTop@SidebarClass@@2HA",
+          "target": 11259236,
+          "addend": 0,
+          "resolved": 11259236
+        },
+        {
+          "offset": 838,
+          "kind": 6,
+          "symbol": "?SidebarRect@@3V?$TRect@H@@A",
+          "target": 8623648,
+          "addend": 4,
+          "resolved": 8623652
+        },
+        {
+          "offset": 888,
+          "kind": 6,
+          "symbol": "?SidebarRect@@3V?$TRect@H@@A",
+          "target": 8623648,
+          "addend": 4,
+          "resolved": 8623652
+        },
+        {
+          "offset": 942,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 971,
+          "kind": 6,
+          "symbol": "?ScrollUpButton@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11259072,
+          "addend": 36,
+          "resolved": 11259108
+        },
+        {
+          "offset": 988,
+          "kind": 6,
+          "symbol": "?ScrollUpButton@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11259072,
+          "addend": 44,
+          "resolved": 11259116
+        },
+        {
+          "offset": 1003,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 1061,
+          "kind": 6,
+          "symbol": "?SidebarRect@@3V?$TRect@H@@A",
+          "target": 8623648,
+          "addend": 12,
+          "resolved": 8623660
+        },
+        {
+          "offset": 1070,
+          "kind": 6,
+          "symbol": "?StripTop@SidebarClass@@2HA",
+          "target": 11259236,
+          "addend": 0,
+          "resolved": 11259236
+        },
+        {
+          "offset": 1077,
+          "kind": 6,
+          "symbol": "?SidebarRect@@3V?$TRect@H@@A",
+          "target": 8623648,
+          "addend": 4,
+          "resolved": 8623652
+        },
+        {
+          "offset": 1121,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 1132,
+          "kind": 20,
+          "symbol": "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z",
+          "target": 7421360,
+          "addend": 0,
+          "resolved": 613552
+        },
+        {
+          "offset": 1139,
+          "kind": 6,
+          "symbol": "?TabButton@SidebarClass@@2PAVShapeButtonClass@@A",
+          "target": 11244808,
+          "addend": 0,
+          "resolved": 11244808
+        },
+        {
+          "offset": 1147,
+          "kind": 20,
+          "symbol": "?AI@ShapeButtonClass@@QAE_NXZ",
+          "target": 6771488,
+          "addend": 0,
+          "resolved": 4294930961
+        },
+        {
+          "offset": 1162,
+          "kind": 6,
+          "symbol": "?TabButton@SidebarClass@@2PAVShapeButtonClass@@A",
+          "target": 11244808,
+          "addend": 384,
+          "resolved": 11245192
+        },
+        {
+          "offset": 1181,
+          "kind": 6,
+          "symbol": "?IsToBlitSidebar@SidebarClass@@2_NA",
+          "target": 11259268,
+          "addend": 0,
+          "resolved": 11259268
+        },
+        {
+          "offset": 1188,
+          "kind": 6,
+          "symbol": "?IsSidebarRedrawPending@SidebarClass@@2_NA",
+          "target": 8614851,
+          "addend": 0,
+          "resolved": 8614851
+        },
+        {
+          "offset": 1213,
+          "kind": 6,
+          "symbol": "?Repair@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11245240,
+          "addend": 45,
+          "resolved": 11245285
+        },
+        {
+          "offset": 1222,
+          "kind": 6,
+          "symbol": "?Repair@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11245240,
+          "addend": 0,
+          "resolved": 11245240
+        },
+        {
+          "offset": 1227,
+          "kind": 20,
+          "symbol": "?Turn_Off@ToggleClass@@QAEXXZ",
+          "target": 7254384,
+          "addend": 0,
+          "resolved": 446481
+        },
+        {
+          "offset": 1242,
+          "kind": 6,
+          "symbol": "?Upgrade@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11258968,
+          "addend": 45,
+          "resolved": 11259013
+        },
+        {
+          "offset": 1251,
+          "kind": 6,
+          "symbol": "?Upgrade@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11258968,
+          "addend": 0,
+          "resolved": 11258968
+        },
+        {
+          "offset": 1256,
+          "kind": 20,
+          "symbol": "?Turn_Off@ToggleClass@@QAEXXZ",
+          "target": 7254384,
+          "addend": 0,
+          "resolved": 446452
+        },
+        {
+          "offset": 1273,
+          "kind": 20,
+          "symbol": "?AI@PowerClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z",
+          "target": 6409264,
+          "addend": 0,
+          "resolved": 4294568611
+        },
+        {
+          "offset": 1288,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        }
+      ],
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
+      "source": "src/sidebar.cpp",
+      "population": "rebuild-sidebar",
+      "source_order": 6806672,
       "source_quality_family": "rebuild"
     },
     {
@@ -8153,7 +8653,7 @@
           "resolved": 8440
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6808000,
@@ -8188,7 +8688,7 @@
           "resolved": 11259240
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6809152,
@@ -8223,7 +8723,7 @@
           "resolved": 11259244
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6809168,
@@ -8298,7 +8798,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6809184,
@@ -8349,7 +8849,7 @@
           "resolved": 11244672
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6809376,
@@ -8392,7 +8892,7 @@
           "resolved": 10748732
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6809408,
@@ -8427,7 +8927,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6809456,
@@ -8526,7 +9026,7 @@
           "resolved": 8600128
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6809568,
@@ -8633,7 +9133,7 @@
           "resolved": 8614851
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6809840,
@@ -8716,7 +9216,7 @@
           "resolved": 4293271786
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6810016,
@@ -8799,7 +9299,7 @@
           "resolved": 1067737
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6810144,
@@ -8850,7 +9350,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6810896,
@@ -8917,7 +9417,7 @@
           "resolved": 8614851
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6811120,
@@ -8976,7 +9476,7 @@
           "resolved": 8623652
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6811232,
@@ -9035,7 +9535,7 @@
           "resolved": 8623652
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6811376,
@@ -9094,7 +9594,7 @@
           "resolved": 8623652
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6811504,
@@ -9137,7 +9637,7 @@
           "resolved": 4293269856
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6811696,
@@ -9661,7 +10161,7 @@
           "resolved": 6812702
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6811728,
@@ -9840,7 +10340,7 @@
           "resolved": 11244676
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6813056,
@@ -9947,7 +10447,7 @@
           "resolved": 8614851
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6813312,
@@ -10030,7 +10530,7 @@
           "resolved": 4293268310
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6813488,
@@ -10065,7 +10565,7 @@
           "resolved": 4293107987
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6813632,
@@ -10108,7 +10608,7 @@
           "resolved": 8041340
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6818208,
@@ -10134,7 +10634,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6818256,
@@ -11689,7 +12189,7 @@
           "resolved": 4292878023
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6818288,
@@ -11780,7 +12280,7 @@
           "resolved": 11259268
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6821376,
@@ -11855,7 +12355,7 @@
           "resolved": 11259268
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6821456,
@@ -11890,7 +12390,7 @@
           "resolved": 10751300
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6821520,
@@ -11933,7 +12433,7 @@
           "resolved": 4294040466
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6821552,
@@ -11977,7 +12477,7 @@
           "resolved": 4293259902
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6821584,
@@ -12003,7 +12503,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6821680,
@@ -12046,7 +12546,7 @@
           "resolved": 6
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6821696,
@@ -12137,7 +12637,7 @@
           "resolved": 8614851
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6821840,
@@ -12180,7 +12680,7 @@
           "resolved": 10751304
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6822064,
@@ -12216,7 +12716,7 @@
           "resolved": 4293303350
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6822096,
@@ -12242,7 +12742,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6822208,
@@ -12269,7 +12769,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6822272,
@@ -13392,7 +13892,7 @@
           "resolved": 432550
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6822304,
@@ -13675,7 +14175,7 @@
           "resolved": 4294956281
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6823632,
@@ -13734,7 +14234,7 @@
           "resolved": 8623652
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6824096,
@@ -13793,7 +14293,7 @@
           "resolved": 8623652
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6824176,
@@ -13964,7 +14464,7 @@
           "resolved": 4292543001
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6824256,
@@ -13999,7 +14499,7 @@
           "resolved": 4294642006
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6824592,
@@ -14035,7 +14535,7 @@
           "resolved": 4294642534
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6824608,
@@ -14151,7 +14651,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6824624,
@@ -14186,7 +14686,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6824960,
@@ -14229,7 +14729,7 @@
           "resolved": 1046758
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6825024,
@@ -14272,7 +14772,7 @@
           "resolved": 1046726
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6825056,
@@ -14307,7 +14807,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6825088,
@@ -14366,7 +14866,7 @@
           "resolved": 1046623
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6825120,
@@ -14409,7 +14909,7 @@
           "resolved": 7989532
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6825200,
@@ -14461,7 +14961,7 @@
           "resolved": 8023976
         }
       ],
-      "source_sha256": "5d4b35b8d28e9e5e88c53184d66f9c909972e02c651ecc945b7465b3ab7968ac",
+      "source_sha256": "e4bb231ec24ebb8ac1bf49d2c7e3b9d964d5ee28bc3558228d84e21c6da8e37b",
       "source": "src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6825344,

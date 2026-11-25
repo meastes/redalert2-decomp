@@ -467,14 +467,15 @@ int StringTable::ReadFile(char const * name) // RA2: 0x006F9400
 	return 1;
 }
 
-#ifdef RA2_NON_MATCHING // not exact: the jabber block of the expanded Translate_Copy keeps the run start in esi and the input in ecx where the image has ecx and edx (0x6F99E1 to 0x6F9AB3, same instructions but two copies, and the first character through al); 740 bytes differ by position against the image-derived bound 006f9790 (1,469 B; ours 1,469 B, the image's calls, every reference bound): 21 groups of instructions, all in that block but the switch table offset one byte later. Text from Generals GameText.cpp (parseStringFile), modified for RA2: several strings to a label, the tables allocated here
+#ifdef RA2_NON_MATCHING // not exact: 6 bytes differ against the image-derived bound 006f9790 (1,469 B, the image's calls, every reference bound): two instructions of the jabber block's entry change places (the image copies the first character to the loop's register before it stores the advanced input, here after). The first character as its own local, from RobinDigitalPro's ra2-1001-decomp, gives the image's registers through the whole block (740 B without it); robin's own text compiled here is the same 6 B. Not a count (1 to 8 referenced locals in the root), not the declaration place, not the order of the read, the copy and the step in the text; one more local in the helper stops Collapse_White_Space expanding (lane F63). Text from Generals GameText.cpp (parseStringFile), modified for RA2: several strings to a label, the tables allocated here
 /// <summary>
 /// Copies a string into a wide buffer, resolving its backslash escapes. With the jabber option every run of
 /// letters is written backwards first.
 /// </summary>
 /// <remarks>From Generals GameText.cpp (GameTextManager::translateCopy), Copyright 2025 Electronic Arts Inc.,
 /// GPL-3.0-or-later; modified: RA2's globals, no munkee branch, no format-word flag, and the escape cases
-/// store through the pointer and step it once after the switch (RA2: the image's register ranks).</remarks>
+/// store through the pointer and step it once after the switch (RA2: the image's register ranks); the jabber
+/// loop's first character is read into its own local (robin-ra2-1001-decomp).</remarks>
 static void Translate_Copy(wchar_t * outbuf, char * inbuf)
 {
 	int slash = FALSE;
@@ -483,8 +484,9 @@ static void Translate_Copy(wchar_t * outbuf, char * inbuf)
 		char *firstLetter = NULL, *lastLetter;
 		char * b = ReversedText;
 		char ch;
+		char first = *inbuf++; // RA2: the first character is read apart from the loop's (RobinDigitalPro's ra2-1001-decomp, src/m85/src/strtable.cpp at bd7e611)
 
-		while ((ch = *inbuf++) != 0) {
+		for (ch = first; ch != 0; ch = *inbuf++) {
 			if (!((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))) {
 				if (firstLetter) {
 					lastLetter = b - 1;

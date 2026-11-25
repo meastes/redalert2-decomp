@@ -1146,6 +1146,7 @@ symbol,address,evidence
 ?CLSID_BombClass@@3U_GUID@@B,0x007A1E00,inferred: bomb rows 00436100 00436100 00436100 00436100 differ only at its sites
 ?COORD_NONE@@3VCoord@@B,0x00A71740,inferred: mpsiegeteam rows 005abda0 005abda0 005abda0 differ only at its sites
 ?CPUModel@@3DA,0x008015A4,"the CPUID model byte detproc.asm stores (mov [x], dl after the family); the address mischa85 names _CPUModel; read twice by Get_CPU_Type 0x004D2A60"
+?CSFName@@3PADA,0x00AC5388,strtable: the name buffer LoadFile 0x6F8E30 copies the file name into (+0x57); used only by the parked draft
 ?CacheBMP@SurfaceCacheClass@@QAE_NPBDPAXHH@Z,0x0068C040,inferred: wonline rows 0075ef30 differ only at its sites
 ?CanAttackOnTheMove@TechnoClass@@UBE_NXZ,0x006D8F40,slot +450 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?CanAttackOnTheMove@TechnoClass@@UAE_NXZ
 ?CanBeSelected@ObjectClass@@UBE_NXZ,0x005D54B0,slot +134 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?CanBeSelected@ObjectClass@@UAE_NXZ
@@ -2374,6 +2375,7 @@ symbol,address,evidence
 ?Join_Selected_Lobby@@YIH_N@Z,0x00744930,inferred: wonline rows 00741750 00741750 differ only at its sites
 ?JumpJet_To_Walk@FootClass@@UAE_NXZ,0x0041B480,slot +488 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?get@Leaf_41b480@@QAE_NXZ
 ?Jump_To_Radar_Event@@YIXXZ,0x006F88F0,inferred: init rows 0051c640 differ only at its sites
+?LabelBuffer@@3PADA,0x00AC4380,strtable: the fourth argument of both Read_Text_Entry calls (LoadFile +0x252 and Read_Text_File +0x209); used only by the two parked drafts
 ?Laser_Zap@TechnoClass@@QAEPAVLaserDrawClass@@PAVAbstractClass@@HPBVWeaponTypeClass@@ABVCoord@@@Z,0x006C9DF0,called at 0x6C9DF0 by BulletClass::Shrapnel 0x462C50 (lane O2 probe: the twin-mapped text exact with it bound); main's unknown_6c9df0 (non-exact)
 ?LastAdjacentZone@@3HA,0x00A6FC34,main: the accepted map.cpp rows name this global unknown_zone_a6fc34 (0x00A6FC34) (lane R5)
 ?LastHealthKind@@3HA,0x007F8BD8,inferred: uicmnds rows 006f7b80 006f7b80 differ only at its sites
@@ -2830,6 +2832,7 @@ symbol,address,evidence
 ?RevealFogShroud@RadarClass@@UAE_NABVCell@@PAVHouseClass@@_N@Z,0x0062FCA0,slot +94 of ??_7MouseClass@@6BSidebarClass@@@ at 0079a954; main row ?RevealFogShroud@RadarClass@@UAE_NABVCell@@PAVHouseClass@@_N@Z
 ?Revealed@ObjectClass@@UAE_NPAVHouseClass@@@Z,0x005D4230,slot +184 of ??_7MissionClass@@6BIPersistStream@@@ at 007a61fc; main row ?Revealed@ObjectClass@@UAE_NPAVHouseClass@@@Z
 ?Revealed@TechnoClass@@UAE_NPAVHouseClass@@@Z,0x006C2440,slot +184 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?Revealed@TechnoClass@@UAE_NPAVHouseClass@@@Z
+?ReversedText@@3PADA,0x00ACD410,strtable: the buffer the jabber block of Read_Text_File 0x6F9790 writes (+0x25D) and reads back (+0x338); used only by the parked draft
 ?Revert_Mouse_Shape@MouseClass@@UAEXXZ,0x0059F080,slot +54 of ??_7MouseClass@@6BSidebarClass@@@ at 0079a950; main row ?Revert_Mouse_Shape@MouseClass@@UAEXXZ
 ?Risk@TechnoClass@@UBEHXZ,0x006D3E50,slot +2a4 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot168@TechnoClass@@UAEHXZ
 ?Rocking_AI@TechnoClass@@UAEXXZ,0x006D6230,slot +3b8 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot237@TechnoClass@@UAEXXZ
@@ -2965,6 +2968,8 @@ symbol,address,evidence
 ?TealColor@@3VRGBClass@@A,0x00AC1008,inferred: txtlabel2 rows 006f1a40 006f1a40 006f1a40 differ only at its sites
 ?Techno_Type_Class@ObjectClass@@UBEPBVTechnoTypeClass@@XZ,0x005D5440,slot +84 of ??_7MissionClass@@6BIPersistStream@@@ at 007a61fc; main row ?Techno_Type_Class@ObjectClass@@UAEPAVTechnoTypeClass@@XZ
 ?Techno_Type_Class@TechnoClass@@UBEPBVTechnoTypeClass@@XZ,0x006C12C0,slot +84 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Techno_Type_Class@TechnoClass@@UAEPAVTechnoTypeClass@@XZ
+?TextBuffer@@3PADA,0x00AC3378,strtable: the third argument of both Read_Text_Entry calls (LoadFile 0x6F8E30 +0x257 and Read_Text_File 0x6F9790 +0x20E); used only by the two parked drafts
+?TextFile@@3PAU_iobuf@@A,0x00AD0430,strtable: the file LoadFile 0x6F8E30 opens (+0x18D) and Read_Text_File reads (+0x11); used only by the two parked drafts
 ?Threat_Range@TechnoClass@@UBEHH@Z,0x006D31E0,slot +2f4 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot188@TechnoClass@@UAEHH@Z
 ?ThumbWasActive@@3_NA,0x007D9FE8,inferred: house rows 004e77f0 004e77f0 004e77f0 differ only at its sites
 ?Tiberium_Load@TechnoClass@@UBENXZ,0x006D3EA0,slot +298 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot165@TechnoClass@@UAENXZ
@@ -3101,6 +3106,9 @@ symbol,address,evidence
 ?g_LastChatListTime@@3HA,0x00B2ABD0,inferred: wonline rows 0073e8d0 differ only at its sites
 ?g_LastGameListTime@@3HA,0x00B2ABD4,inferred: wonline rows 0073e8d0 differ only at its sites
 ?g_LastIgnoredStatus@@3JA,0x00B2AC00,inferred: wonline rows 00751c30 differ only at its sites
+?g_LastJoinedGameIndex@@3HA,0x007FD378,inferred: wonline rows 007469c0 007469c0 differ only at its sites
+?g_LastSelectedGameIndex@@3HA,0x007FD37C,inferred: wonline rows 007469c0 007469c0 differ only at its sites
+?g_LastSelectedGameName@@3PADA,0x00B2AC84,inferred: wonline rows 007469c0 007469c0 007469c0 007469c0 differ only at its sites
 ?g_LastWDTUserTeamRequestTime@@3IA,0x00B28FF8,inferred: wonline rows 0073e8d0 differ only at its sites
 ?g_ListIconHeight@@3HA,0x007FD304,inferred: wonline rows 0075ef30 differ only at its sites
 ?g_MatchOpponent@@3VWstring@@A,0x00B2997C,inferred: wonline rows 0073bd80 differ only at its sites
@@ -3208,8 +3216,3 @@ _IID_IRegistrar,0x007AF6C0,"ATL 3.0 select-any GUID (atliface.h): its 16 bytes o
 _LIBID_ATLLib,0x007AF6E0,"ATL 3.0 select-any GUID (atliface.h): its 16 bytes occur once in the image, right after wolapi_i.c's ids in wonline's .rdata"
 __GUID_92fea800_a184_11d1_b70a_00a024ddafd1,0x007CFC30,"main: accepted rows of 7 populations refer to the __uuidof(IPiggyback) copy there (writable data, the select-any GUID); IID_IPiggyback is the .rdata copy at 0x007A2050"
 __purecall,0x004B8960,slot +10 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?get@Leaf_4b8960@@QAEHXZ
-?TextBuffer@@3PADA,0x00AC3378,strtable: the third argument of both Read_Text_Entry calls (LoadFile 0x6F8E30 +0x257 and Read_Text_File 0x6F9790 +0x20E); used only by the two parked drafts
-?LabelBuffer@@3PADA,0x00AC4380,strtable: the fourth argument of both Read_Text_Entry calls (LoadFile +0x252 and Read_Text_File +0x209); used only by the two parked drafts
-?CSFName@@3PADA,0x00AC5388,strtable: the name buffer LoadFile 0x6F8E30 copies the file name into (+0x57); used only by the parked draft
-?ReversedText@@3PADA,0x00ACD410,strtable: the buffer the jabber block of Read_Text_File 0x6F9790 writes (+0x25D) and reads back (+0x338); used only by the parked draft
-?TextFile@@3PAU_iobuf@@A,0x00AD0430,strtable: the file LoadFile 0x6F8E30 opens (+0x18D) and Read_Text_File reads (+0x11); used only by the two parked drafts

@@ -5348,3 +5348,81 @@ of variants of one statement).
   Green with Blue, Green, Red, so the row is not a count either.
 - A worktree needs the `private` link beside `build/r` (rebuild.py reads private/original-target.interactive.json), and the
   copied `build/r/last` can be older than the tree: `--base` then reports rows as changed that are only missing there.
+
+## A third reference's "N bytes off" is first reproduced in its own tree, then diffed token by token; a landed row moves the unit's local count for rows after it; parenthesised products count (found in the rebuild (lane F63, high))
+
+Found in the rebuild (lane F63, high); one row landed on ra2-decomp's twin line (SidebarClass::AI, with twin locals in
+two exact rows to keep the unit's count), two drafts brought to 2 and 6 bytes on RobinDigitalPro's 1.001 texts, two
+Robin leads read and refused. Lane tools in build/r/f63: v.py (compile a scratch copy of a unit, compare rows, `--diff`,
+`--base`), v3.py and t3.py (several rows per variant on one line), t.py (named text edits), mk.py (open guards by a
+substring), swap.py and hyb.py (a reference's function, or its hunks ahead of a function, in our unit), rv.py (a Robin
+unit with Robin's headers, relocations masked, `--where` for the differing instructions), da.py.
+
+- foot Search_For_Tiberium_Weighted 0x4CBB40: reproduce a reference's score in its own tree before porting its text,
+  then port the function with no edit at all. The first port replaced `cellptr->Fetch_CellID()` by the member (our
+  draft's spelling) and read 1,207 bytes where Robin's tree read 2; a bisect over the 191 hunks ahead of the function
+  found nothing, because the difference was the port. An accessor is an inline site: with it the distribution's
+  vector constructor is called as in the image, without it the constructor expands.
+- When a reference's unit compiles against our headers, compile it whole (delete what does not compile) and read
+  every row: it separates header effects from text effects in one run.
+- Parentheses count. `MAX(1.0, x)` and the same conditional written without the macro's parentheses differ by the
+  state of four Cell sums: each parenthesised product is a unit of a count (1 to 4 keep the sums, 5 turn them), a
+  parenthesised literal or call is none, and a named local is a unit of another count that does not pay for them.
+  A macro and its written-out body are two texts for this measure.
+- One site can be right under each of two texts and under neither together (the sums with the conditional, the
+  return's register with the member read directly). Say which statement each site follows; do not sum the bytes.
+- sidebar StripClass::Draw_It 0x67F800: a reference's near match can rest on its header. Robin's 5 bytes are its
+  dsurface.h, where the RGB overload of Build_Hicolor_Pixel is written out green first; here it turns the outline
+  right and the text pixel wrong. Diff the headers of every inline the function expands before the function text.
+- strtable Read_Text_File 0x6F9790: two copies of a loop's read with the first through another register is a first
+  value held in its own local (740 to 6 bytes). The helper sits at the inline limit: one more local in it and a
+  sibling helper is called, which reads as a far worse score and is not a verdict on the form tried.
+- sidebar SidebarClass::AI 0x67DC90: screen a twin statement by statement on the adopted text before taking it
+  whole. The whole twin text was 1,298 bytes; one line of it (a Point2D local built from SidebarRect) is exact.
+- A row that lands changes the count for every later row of the unit, and a guarded draft counts nothing while its
+  guard is closed. With AI compiled, SelectClass::Action and Reposition_Sidebar turned by 4 bytes each; with
+  Activate's draft compiled too they were exact again. Survey with the landing state (the new row open, the
+  remaining guards closed): referenced ints in a small function ahead give each row's window (Action from 8,
+  Reposition_Sidebar 4 to 9), and a probe function of its own costs units as well, so read the two surveys apart.
+- Meet such a window with reference text first: the twin's named locals in the rows between (seven in
+  StripClass::AI, one in Get_Progress) are one unit each, move no byte of their own rows and are flagged [iv-a] as
+  a count-calibrated choice between two reference texts. The windows are not linear in a later row's own locals
+  (Reposition_Sidebar with 0 to 3 of its six named values: 4 to 58 bytes), so measure, do not subtract.
+- A worktree's copied build/r/last names objects of the lane it was copied from; the catalog needs every unit
+  checked once in the new worktree (441 units, about ten minutes at six jobs) before `fastcat.py catalog`.
+
+## A dispatcher's case order sets the inline budget of its expanded sites; a twin is ported whole before any of its forms is judged; a shared call tail records which cases leave by break (found in the rebuild (lane F64, high))
+
+Found in the rebuild (lane F64, high); one row landed on ra2-decomp's twin text with the earlier tree's leaves at five
+places (wonline Wonline_Main_Dialog_Proc 0x7469C0, 7,172 B, from 1,257). Lane tools in build/r/f64: v.py (compile a
+scratch copy of a unit with chosen guards open, compare every row, `--diff`, `--base`), t.py (one-shot text
+replacements on a function text, spliced and scored), reorder.py (case blocks of a switch in a given order), da.py.
+
+- A placement new called out of line under an expanded chain is the depth limit, not the budget (a callee of 40 IL
+  units or less is free at any budget). A member expanded where the image calls it (growVector here) is the
+  budget. The draft's three levels of single-caller inline helpers over the request were too deep (four placement
+  new calls); with the helpers written out at their sites the depth was right and the budget too large (growVector
+  expanded, 2,288 B). Neither is a header question: the row had been parked for a Make_Room level in arraylist.h.
+- The budget a site gets is the root budget divided by the inline-candidate sites from it to the end of the body
+  (the N_i of the /Ob2 rule), so the place of a case in a dispatcher's text decides what its expansions may take.
+  The twin has the timer and refresh cases first: with every later candidate site still ahead of them the request
+  expands and growVector does not. The same cases written out at the end of the switch expand it.
+- The object's block order did not show this. Moving the timer cases from last to first, the options case past two
+  others, or the focus case ahead of the command switch left the layout as it was each time, so the image's block
+  order is no evidence of the text's case order here; the inline decisions are.
+- Port a twin whole before judging its forms. Three of them were needed together: the direct calls and case order
+  (budget), `g_NickName.c_str()` (four more candidate sites, and with them the image's length) and the message text
+  held in a named local ahead of the call (without it the name is loaded before `text.get()` and kept in a
+  register; with it the load follows the call as in the image). The accessor alone reads as a regression of
+  5,450 bytes by position.
+- A shared tail tells how cases leave. The image keeps one `SetFocus(GetDlgItem(window, 0x540))` at the
+  tournament button's case; the options case jumps to its start, the join and host cases to its last two
+  instructions. The twin's break-and-return layout (a default in both switches, a break after the inner one)
+  compiles the join and host tails in place (44 B). The merge needs all of: no default in either switch, a return
+  right after the inner switch, the options case returning, the join and host cases breaking. Each alone and each
+  pair changes other blocks or nothing, so such leaves are tried as a set taken from the other reference (here the
+  earlier tree's accepted text), not one at a time.
+- Where a break and a return reach the same statement the bytes can still differ: `break` in an inner switch whose
+  end is `return 0` and a `return 0` written in the case are two texts for the tail merge.
+- The copied build/r/last was current enough here: `fastcat.py catalog` rechecked nine units by itself and wrote the
+  catalog in under a minute; only the worked unit's population changed.
