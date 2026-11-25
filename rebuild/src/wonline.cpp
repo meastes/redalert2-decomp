@@ -9006,15 +9006,7 @@ bool __fastcall Start_Talking_To(int player, int pair_slot, int retries)
 								if (Session.Players[player_index]->Address.Is_Same_Node(sender) && !stricmp(Wide_To_Narrow(Session.Slots[player]->Name), packet.Name)) {
 									DebugString("Got NET_PORT_PROBE packet from %s\n", packet.Name);
 									Send_Public_Options(11, packet.Name);
-									if (player_index >= 0 && player_index < Session.Players.Count()) {
-										HWND window = WS_Find_Dialog(300);
-										if (window) {
-											HWND control = GetDlgItem(window, g_PlayerCheckBoxIDs[player_index]);
-											g_PlayerChecked[player_index] = true;
-											SendMessage(control, BM_SETCHECK, 1, 0);
-											PostMessage(window, WM_PAINT, 0, 0);
-										}
-									}
+									Mark_Player_Checked(player_index);
 									Queue_Peer_Timeout(player);
 									received = true;
 									int port = source_port;

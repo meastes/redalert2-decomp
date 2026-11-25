@@ -941,24 +941,40 @@ bool __fastcall Is_Tested_Control(unsigned int key, HWND window)
 	Control_Table.getPointer(key, &record);
 	int kind = record != 0 ? record->Kind : 0;
 	int id = GetDlgCtrlID(window);
-	bool general = ((((((((kind == 0x10c) || (kind == 0x94)) || (kind == 0xa3)) ||
-						   ((kind == 0x73 || (kind == 0xd8)))) || (kind == 0xbbb)) ||
-						 (((kind == 0xf5 || (kind == 0x105)) ||
-							 ((kind == 0xe2 || (((kind == 0xd5 || (kind == 0x2b5)) || (kind == 0xb7)))))))) ||
-						(((kind == 0x2b4 || (kind == 0xbc7)) ||
-							((kind == 0x101 ||
-								((((kind == 0x129 || (kind == 0xbc6)) ||
-									  ((kind == 0xd7 || (((kind == 0x108 || (kind == 0xbc)) || (kind == 0xbd)))))) ||
-									((kind == 0xbb || (kind == 0xb5)))))))))) ||
-					   ((kind == 0xbba ||
-						   (((kind == 0xff || (kind == 0x6b)) ||
-							   ((kind == 0x100 ||
-								   ((((kind == 0x102 || (kind == 0xb8)) || (kind == 0xd6)) ||
-									   ((kind == 0x103 || Is_Listed_Kind(kind)))))))))))) && (id == 0x694)
-          ;
-	if (general) {
+	if ((kind == 0x10c ||
+			kind == 0x94 ||
+			kind == 0xa3 ||
+			kind == 0x73 ||
+			kind == 0xd8 ||
+			kind == 0xbbb ||
+			kind == 0xf5 ||
+			kind == 0x105 ||
+			kind == 0xe2 ||
+			kind == 0xd5 ||
+			kind == 0x2b5 ||
+			kind == 0xb7 ||
+			kind == 0x2b4 ||
+			kind == 0xbc7 ||
+			kind == 0x101 ||
+			kind == 0x129 ||
+			kind == 0xbc6 ||
+			kind == 0xd7 ||
+			kind == 0x108 ||
+			kind == 0xbc ||
+			kind == 0xbd ||
+			kind == 0xbb ||
+			kind == 0xb5 ||
+			kind == 0xbba ||
+			kind == 0xff ||
+			kind == 0x6b ||
+			kind == 0x100 ||
+			kind == 0x102 ||
+			kind == 0xb8 ||
+			kind == 0xd6 ||
+			kind == 0x103 ||
+			Is_Listed_Kind(kind)) && id == 0x694) {
 		return true;
-    }
+	}
 	bool dual_rail = (((kind == 0xbc) || (kind == 0xbd)) ||
 						 ((kind == 0x102 || ((kind == 0xc2 || (kind == 0xc9)))))) &&
 		((id == 0x6ec || (id == 0x5a8)));
@@ -5737,7 +5753,7 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 		if (message == WM_SYSKEYUP || message == WM_SYSKEYDOWN || message == WM_SYSCOMMAND || message == WM_SYSCHAR) {
 			forward = 1;
 		}
-		if (message == 0x49b || message == WM_TIMER || message == 0x4ad) {
+		if (message == OD_GETTIPTEXT || message == WM_TIMER || message == OD_GETCELLTIP) {
 			forward = 0;
 		}
 		if (!allow && !forward) {
@@ -5795,8 +5811,8 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 
 	WinData * data = Get_Record(window);
 
-	if (message == 0x4a0) {
-		result = (data && data->ScrollBar != 0);
+	if (message == OD_HASATTACHED) {
+		result = (data != NULL && data->ScrollBar != NULL);
 		goto cleanup;
 	}
 
@@ -5804,7 +5820,7 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 	 * Save the device context's current font / colors so they can be
 	 * restored by OD_RESTOREDC.
 	 */
-	if (message == 0x49f && data) {
+	if (message == OD_SAVEDC && data) {
 		HDC hdc = (HDC)lparam;
 		HGDIOBJ old = SelectObject(hdc, GetStockObject(0xd));
 		(*(HFONT *)((char *)data + 0x1E8)) = (HFONT)old;
@@ -5819,7 +5835,7 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 	/*
 	 * Restore the device context state saved by OD_SAVEDC.
 	 */
-	if (message == 0x49e && data) {
+	if (message == OD_RESTOREDC && data) {
 		HDC hdc = (HDC)lparam;
 		SelectObject(hdc, (*(HFONT *)((char *)data + 0x1E8)));
 		SetBkMode(hdc, (*(int *)((char *)data + 0x1EC)));
@@ -5832,9 +5848,9 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 	/*
 	 * Toggle paint suppression for this control (and its linked window).
 	 */
-	if (message == 0x49d && data) {
+	if (message == OD_DISABLEPAINT && data) {
 		{
-			HWND linked = (HWND)data->ScrollBar;
+			HWND linked = data->ScrollBar;
 			result = data->SkipCheckPaint;
 			data->SkipCheckPaint = lparam;
 			if (linked != 0) {
@@ -5851,7 +5867,7 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 	/*
 	 * Push a window to the top of the modal stack.
 	 */
-	if (message == 0x4a9) {
+	if (message == OD_SETTOP) {
 		HWND topwindow = 0;
 		hwndarray.getTail(topwindow);
 		result = (LRESULT)topwindow;
@@ -5958,7 +5974,7 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 			result = (LRESULT)data->AlternateImage;
 			data->AlternateImage = (Surface *)lparam;
 			goto cleanup;
-		} else if (message == 0x49a) {
+		} else if (message == OD_TOOLTIPS) {
 			result = (*(int *)((char *)data + 0x24));
 			(*(int *)((char *)data + 0x24)) = lparam;
 			goto cleanup;
@@ -6002,7 +6018,7 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 			result = *(int *)((char *)data + 0x30);
             *(int *)((char *)data + 0x30) = wparam;
 			allow_proc = false;
-		} else if (message == 0x4B2) {
+		} else if (message == OD_SETTEXTW) {
 			wchar_t const * text = data->Text;
 			wchar_t const * new_text = (wchar_t const *)lparam;
 			bool either = text != 0 || new_text != 0;
@@ -9628,7 +9644,7 @@ void __fastcall Dialog_On_WM_PAINT(HWND window)
 				shape = Art_Popup_Back;
 			}
 			ConvertClass * drawer = Get_Dialog_Drawer();
-			Draw_Shape(*surface, *drawer, (ShapeSet const *)shape, 0, Point2D(0, 0), to, ShapeFlags_Type(0x400), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0));
+			Draw_Shape(*surface, *drawer, (ShapeSet const *)shape, 0, Point2D(0, 0), to, SHAPE_WIN_REL);
 		} else {
 			Surface * back = SurfaceCache.GetSurface(OwnerDraw::Dialog_Back_Name, 0);
 
@@ -10641,7 +10657,7 @@ TextNode * NodeList::Add_Node(int length)
 	return node;
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 6502 bytes differ against the image-derived bound 005f4ba0 (6,895 body bytes) (was 6538; the dropdown's visible rows computed before the count is read, as ra2-decomp's banked form banks/0x00617250_odh.cpp (11df85d) has it; the item-data and selection cases first in the bank's order, RA2 case bodies and fall-through groups kept; the text query's shared result with the signed clamp and the item sentinel tested before null as the bank has them)
+#ifdef RA2_NON_MATCHING // not exact: 6501 bytes differ against the image-derived bound 005f4ba0 (6,895 body bytes) (was 6502; the forwarded dropdown result returned on its own path, as ra2-decomp's attempt f9e49e2 separates it; the dropdown's visible rows computed before the count is read, as ra2-decomp's banked form banks/0x00617250_odh.cpp (11df85d) has it; the item-data and selection cases first in the bank's order, RA2 case bodies and fall-through groups kept; the text query's shared result with the signed clamp and the item sentinel tested before null as the bank has them)
 namespace OwnerDraw {
 
 LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
@@ -10977,12 +10993,15 @@ LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lp
 			break;
 		case 0x4e8: {
 			HWND drop = (HWND)data->IsEditFocus;
-			if (!drop) return -1;
-			RECT combo, child;
-			GetWindowRect(window, &combo);
-			GetWindowRect(drop, &child);
-			return SendMessageA(drop, message, 0, MAKELPARAM(LOWORD(lparam) + combo.left - child.left, HIWORD(lparam) + combo.top - child.top));
-	}
+			LRESULT drop_result = CB_ERR;
+			if (drop) {
+				RECT combo, child;
+				GetWindowRect(window, &combo);
+				GetWindowRect(drop, &child);
+				drop_result = SendMessageA(drop, message, 0, MAKELPARAM(LOWORD(lparam) + combo.left - child.left, HIWORD(lparam) + combo.top - child.top));
+			}
+			return drop_result;
+		}
 		case OD_SUBCLASSED: {
 			int initialized;
 			memcpy(&initialized, data->Reserved_18 + 4, sizeof(initialized));
@@ -11005,7 +11024,7 @@ LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lp
 }
 #endif
 
-#ifdef RA2_NON_MATCHING // not exact: 13847 bytes differ against the image-derived bound 005f6690 (14,618 body bytes, 6 padding) (was 14527; the message groups in the order of ra2-decomp's banked form banks/0x00618D40_lbh.cpp (11df85d), each RA2 handler and fall-through chain kept)
+#ifdef RA2_NON_MATCHING // not exact: 13841 bytes differ against the image-derived bound 005f6690 (14,618 body bytes, 6 padding) (was 13847; the selection-change notifications sent with MAKEWPARAM and the SDK LBN_ codes; before that 14527; the message groups in the order of ra2-decomp's banked form banks/0x00618D40_lbh.cpp (11df85d), each RA2 handler and fall-through chain kept)
 namespace OwnerDraw {
 
 LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
@@ -11127,7 +11146,7 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 				sel_states->replace(selected, index);
 			}
 			parent = GetParent(window);
-			SendMessage(parent, WM_COMMAND, (GetWindowLong(window, GWL_ID) & 0xFFFF) | 0x10000, (LPARAM)window);
+			SendMessage(parent, WM_COMMAND, MAKEWPARAM(GetWindowLong(window, GWL_ID), LBN_SELCHANGE), (LPARAM)window);
 			InvalidateRect(window, NULL, FALSE);
 			return(0);
 		}
@@ -11204,7 +11223,7 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 				}
 			}
 			parent = GetParent(window);
-			SendMessage(parent, WM_COMMAND, (GetWindowLong(window, GWL_ID) & 0xFFFF) | 0x10000, (LPARAM)window);
+			SendMessage(parent, WM_COMMAND, MAKEWPARAM(GetWindowLong(window, GWL_ID), LBN_SELCHANGE), (LPARAM)window);
 			InvalidateRect(window, NULL, FALSE);
 			return(0);
 		}
@@ -11254,11 +11273,11 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 				sel_states->replace(selected, i);
 			}
 			parent = GetParent(window);
-			SendMessage(parent, WM_COMMAND, (GetWindowLong(window, GWL_ID) & 0xFFFF) | 0x10000, (LPARAM)window);
+			SendMessage(parent, WM_COMMAND, MAKEWPARAM(GetWindowLong(window, GWL_ID), LBN_SELCHANGE), (LPARAM)window);
 			return(0);
 		}
 		case WM_LBUTTONDBLCLK:
-			PostMessage(parent, WM_COMMAND, (GetWindowLong(window, GWL_ID) & 0xFFFF) | 0x20000, (LPARAM)window);
+			PostMessage(parent, WM_COMMAND, MAKEWPARAM(GetWindowLong(window, GWL_ID), LBN_DBLCLK), (LPARAM)window);
 			return(0);
 		case WM_LBUTTONDOWN: {
 			int top = SendMessage(window, LB_GETTOPINDEX, 0, 0);
@@ -11279,14 +11298,14 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			}
 			SendMessage(window, OD_DISABLEPAINT, 0, paint_disabled);
 			parent = GetParent(window);
-			SendMessage(parent, WM_COMMAND, (GetWindowLong(window, GWL_ID) & 0xFFFF) | 0x10000, (LPARAM)window);
+			SendMessage(parent, WM_COMMAND, MAKEWPARAM(GetWindowLong(window, GWL_ID), LBN_SELCHANGE), (LPARAM)window);
 			return(0);
 		}
 		case WM_RBUTTONDOWN:
 			SendMessage(window, LB_SETSEL, 0, -1);
 			SendMessage(window, LB_SETCURSEL, (WPARAM)-1, 0);
 			parent = GetParent(window);
-			SendMessage(parent, WM_COMMAND, (GetWindowLong(window, GWL_ID) & 0xFFFF) | 0x10000, (LPARAM)window);
+			SendMessage(parent, WM_COMMAND, MAKEWPARAM(GetWindowLong(window, GWL_ID), LBN_SELCHANGE), (LPARAM)window);
 			InvalidateRect(window, NULL, FALSE);
 			return(0);
 		case OD_SETCOLOR: {
@@ -11598,7 +11617,7 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 				data->HadTabStop = 0;
 			} else {
 				parent = GetParent(window);
-				SendMessage(parent, WM_COMMAND, (GetWindowLong(window, GWL_ID) & 0xFFFF) | 0x10000, (LPARAM)window);
+				SendMessage(parent, WM_COMMAND, MAKEWPARAM(GetWindowLong(window, GWL_ID), LBN_SELCHANGE), (LPARAM)window);
 			}
 			break;
 		}

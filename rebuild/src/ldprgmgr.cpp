@@ -458,15 +458,15 @@ void LoadProgressManager::Draw(void)
 
 			Point2D point(TitleBarRect.X, TitleBarRect.Y);
 			if (TitleBarShape != NULL) {
-				Draw_Shape(*ProgressSurface, *title_drawer, TitleBarShape, 0, point, screen, SHAPE_WIN_REL, NULL, 0, ZGRAD_GROUND, 1000, NULL, 0, Point2D(0, 0));
+				Draw_Shape(*ProgressSurface, *title_drawer, TitleBarShape, 0, point, screen, SHAPE_WIN_REL);
 			} else {
 				ProgressSurface->Fill_Rect(screen, TitleBarRect, background);
 			}
 			point.Y = PictureRect.Y;
-			Draw_Shape(*ProgressSurface, *picture_drawer, PictureShape, 0, point, screen, SHAPE_WIN_REL, NULL, 0, ZGRAD_GROUND, 1000, NULL, 0, Point2D(0, 0));
+			Draw_Shape(*ProgressSurface, *picture_drawer, PictureShape, 0, point, screen, SHAPE_WIN_REL);
 			point.Y = TextBarRect.Y;
 			if (TextBarShape != NULL) {
-				Draw_Shape(*ProgressSurface, *bar_drawer, TextBarShape, 0, point, screen, SHAPE_WIN_REL, NULL, 0, ZGRAD_GROUND, 1000, NULL, 0, Point2D(0, 0));
+				Draw_Shape(*ProgressSurface, *bar_drawer, TextBarShape, 0, point, screen, SHAPE_WIN_REL);
 			} else {
 				ProgressSurface->Fill_Rect(screen, TextBarRect, background);
 			}
@@ -508,7 +508,7 @@ void LoadProgressManager::Draw(void)
 		PictureShape = (ShapeSet *)Load_Alloc_Data(filename, PictureShapeLoaded);
 		ConvertClass * drawer = Get_MP_Load_Drawer();
 		Point2D point = Copy_Point(&PictureRect);
-		Draw_Shape(*ProgressSurface, *drawer, PictureShape, 0, point, screen, SHAPE_WIN_REL, NULL, 0, ZGRAD_GROUND, 1000, NULL, 0, Point2D(0, 0));
+		Draw_Shape(*ProgressSurface, *drawer, PictureShape, 0, point, screen, SHAPE_WIN_REL);
 
 		ColorScheme * scheme = Progress.Text_Scheme();
 		RGBClass pixel_color = scheme->HSV;

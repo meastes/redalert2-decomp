@@ -3408,7 +3408,7 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 
 							Cell where = House->Where_To_Go((FootClass *)base);
 							if (where != CELL_NONE && Class->ToBuild != RTTI_NONE) {
-								base->Assign_Archive_Target(&Map[where]);
+								base->ArchiveTarget = &Map[where];
 								((FootClass *)base)->Queue_Navigation_List(&Map[where]);
 							} else {
 								base->Assign_Archive_Target(NULL);

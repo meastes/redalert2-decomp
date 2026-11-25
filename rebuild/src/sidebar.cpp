@@ -1161,28 +1161,28 @@ void SidebarClass::AI(KeyNumType & input, Point2D const & xy)
 
 		Activate_Demolish(PlayerPtr->CurBuildings > 0);
 
-		if (input == 0x8066) {
-			VocClass::PlayGlobal(Rule->GUIMainButtonSound, 1.0f, 0x2000, 0);
+		if (input == (102 | KN_BUTTON)) {
+			VocClass::PlayGlobal(Rule->GUIMainButtonSound, 1.0f, 0x2000, NULL);
 			Sell_Mode_Control(-1);
-		} else if (input == 0x8065) {
-			VocClass::PlayGlobal(Rule->GUIMainButtonSound, 1.0f, 0x2000, 0);
+		} else if (input == (101 | KN_BUTTON)) {
+			VocClass::PlayGlobal(Rule->GUIMainButtonSound, 1.0f, 0x2000, NULL);
 			Repair_Mode_Control(-1);
-		} else if (input >= 0x80CB && input < 0x80CF) {
-			Select_Tab(input - 0x80CB);
-			VocClass::PlayGlobal(Rule->GUITabSound, 1.0f, 0x2000, 0);
-		} else if ((input & ~0x4000) == (ScrollDownButton.ID | 0x8000)) {
+		} else if (input >= (203 | KN_BUTTON) && input < (207 | KN_BUTTON)) {
+			Select_Tab(input - (203 | KN_BUTTON));
+			VocClass::PlayGlobal(Rule->GUITabSound, 1.0f, 0x2000, NULL);
+		} else if ((input & ~KN_UNK) == (ScrollDownButton.ID | KN_BUTTON)) {
 			ScrollDownButton.IsPressed = false;
 			if (!Column[ActiveTabIndex].Page(false)) {
-				VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000, 0);
+				VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000, NULL);
 			} else {
-				VocClass::PlayGlobal(Rule->GUITabSound, 1.0f, 0x2000, 0);
+				VocClass::PlayGlobal(Rule->GUITabSound, 1.0f, 0x2000, NULL);
 			}
-		} else if ((input & ~0x4000) == (ScrollUpButton.ID | 0x8000)) {
+		} else if ((input & ~KN_UNK) == (ScrollUpButton.ID | KN_BUTTON)) {
 			ScrollUpButton.IsPressed = false;
 			if (!Column[ActiveTabIndex].Page(true)) {
-				VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000, 0);
+				VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000, NULL);
 			} else {
-				VocClass::PlayGlobal(Rule->GUITabSound, 1.0f, 0x2000, 0);
+				VocClass::PlayGlobal(Rule->GUITabSound, 1.0f, 0x2000, NULL);
 			}
 		}
 

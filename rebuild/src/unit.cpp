@@ -6613,7 +6613,7 @@ void UnitClass::Unit_Draw_Voxel(Point2D xdrawpoint, Rect xcliprect, int brightne
 			shadow_drawpoint.Y -= 14;
 		}
 
-		int height = Get_Height_AGL();
+		int height = HeightAGL;
 		CellClass * cellptr = &Map[Get_Coord()];
 
 		if (IsInTransport) {
@@ -6631,7 +6631,7 @@ void UnitClass::Unit_Draw_Voxel(Point2D xdrawpoint, Rect xcliprect, int brightne
 		} else {
 			shadow_surface = composite;
 			if (Class->BalloonHover || Class->Speed == SPEED_TRACK || Class->Speed == SPEED_WHEEL) {
-				if (Get_Height_AGL() <= 0) {
+				if (HeightAGL <= 0) {
 					key |= 0x80000000;
 				} else {
 					key = -1;
@@ -6639,7 +6639,7 @@ void UnitClass::Unit_Draw_Voxel(Point2D xdrawpoint, Rect xcliprect, int brightne
 			}
 		}
 
-		if (Get_Height_AGL() > 0) {
+		if (HeightAGL > 0) {
 			Draw_Voxel_Shadow(drawclass->Voxel, drawclass->ShadowIndex, key, &drawclass->ShadowVoxelIndex, xcliprect, shadow_drawpoint, Get_Isometric_View_Matrix() * main_matrix, true, shadow_surface, Locomotion->Shadow_Point().X, Locomotion->Shadow_Point().Y + 1);
 		} else {
 			Draw_Voxel_Shadow(drawclass->Voxel, drawclass->ShadowIndex, key, &drawclass->ShadowVoxelIndex, xcliprect, shadow_drawpoint, Get_Isometric_View_Matrix() * main_matrix, true, shadow_surface, Locomotion->Shadow_Point().X, Locomotion->Shadow_Point().Y);

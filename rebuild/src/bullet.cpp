@@ -608,7 +608,7 @@ void BulletClass::AI(void)
 			 */
 			velocity.Z -= gravity;
 
-			Point3D old_coord((int)position.X, (int)position.Y, (int)position.Z);
+			Point3D old_coord(position.X, position.Y, position.Z);
 			position += velocity;
 
 			Coord new_coord(position.X, position.Y, position.Z);
@@ -710,7 +710,7 @@ void BulletClass::AI(void)
 				forced = true;
 			}
 		bounced:
-			coord = Coord((int)position.X, (int)position.Y, (int)position.Z);
+			coord = Coord(position.X, position.Y, position.Z);
 		}
 
 		Cell here = coord.As_Cell();

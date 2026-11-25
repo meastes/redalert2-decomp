@@ -290,7 +290,7 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 				}
 			}
 
-			FacingType dir = (FacingType)LinkedTo->Path[0];
+			FacingType dir = LinkedTo->Path[0];
 			if (dir == FACING_COUNT) {
 				int tube = Map[LinkedTo->Get_Coord()].Tube;
 				if (tube >= 0 && tube < Tubes.Count()) {

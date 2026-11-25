@@ -3104,7 +3104,7 @@ int Extract_Compressed_Events(void * buf, int bufsize)
 						memcpy(&MegamissionUnitLists[index][0], &eventdata.Data.MegaMission.Whom, datasize);
 						int units = 1;
 						SavedUnitCounts[index] = units;
-						if (eventdata.Frame == 0 || eventdata.Type == 0) {
+						if (eventdata.Frame == 0 || eventdata.Type == EventClass::EMPTY) {
 							DebugString("Frame %d:Empty megamission decoded\n", Frame);
 						}
 
@@ -3141,7 +3141,7 @@ int Extract_Compressed_Events(void * buf, int bufsize)
 						datasize = sizeof(eventdata.Data.MegaMission.Whom);
 						numunits = SavedUnitCounts[index];
 						memcpy(&eventdata.Data.MegaMission.Whom, &MegamissionUnitLists[index][0], datasize);
-						if (eventdata.Frame == 0 || eventdata.Type == 0) {
+						if (eventdata.Frame == 0 || eventdata.Type == EventClass::EMPTY) {
 							DebugString("Frame %d:Empty megamission decoded from slot %d. Player %d\n", Frame, eventdata.Data.MegaMission.Slot, house);
 						}
 						if (numunits) {
@@ -3171,7 +3171,7 @@ int Extract_Compressed_Events(void * buf, int bufsize)
 					break;
 			}
 
-			if (eventdata.Frame == 0 || eventdata.Type == 0) {
+			if (eventdata.Frame == 0 || eventdata.Type == EventClass::EMPTY) {
 				DebugString("Frame %d: Empty event being added to queue\n", Frame);
 			}
 			if ( !DoList.Add( eventdata ) ) {

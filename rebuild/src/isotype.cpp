@@ -1744,7 +1744,7 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
 			if (set != NULL) {
 				if (use_z) {
 					IsoDrawData.BaseDepth = (unsigned short)(LOWORD(DepthBuffer->Bounds.Y) + LOWORD(DepthBuffer->ScrollOffset) - y - LOWORD(set->Height));
-					IsoDrawData.BaseDepth = (int)&((unsigned char *)IsoDrawData.BaseDepth)[height * set->Height / -2];
+					IsoDrawData.BaseDepth += height * set->Height / -2;
 				}
 
 				int spanw = ISO_DRAW_WIDTH;
