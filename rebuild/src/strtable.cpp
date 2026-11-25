@@ -283,17 +283,17 @@ int StringTable::LoadFile(char const * filename) // RA2: 0x006F8E30
 	if (StringValueCount == 0 || StringLabelCount == 0) {
 		return 0;
 	}
-	StringLabels = (CSFLabel *)::operator new(StringLabelCount * sizeof(CSFLabel)); // RA2: the three tables are made one after the other
+	StringLabels = new CSFLabel[StringLabelCount]; // RA2: the three tables are made one after the other
 	if (StringLabels == 0) {
 		return 0;
 	}
 	memset(StringLabels, 0, StringLabelCount * sizeof(CSFLabel));
-	StringValues = (wchar_t **)::operator new(StringValueCount * sizeof(wchar_t *));
+	StringValues = new wchar_t *[StringValueCount];
 	if (StringValues == 0) {
 		return 0;
 	}
 	memset(StringValues, 0, StringValueCount * sizeof(wchar_t *));
-	StringExtraValues = (char **)::operator new(StringValueCount * sizeof(char *));
+	StringExtraValues = new char *[StringValueCount];
 	if (StringExtraValues == 0) {
 		return 0;
 	}
@@ -701,7 +701,7 @@ void StringTable::Unload(void) // RA2: 0x006F9D90
 				delete StringValues[index];
 			}
 		}
-		delete StringValues;
+		delete[] StringValues;
 		StringValues = 0;
 	}
 	if (StringExtraValues) { // RA2: the speech names
@@ -710,11 +710,11 @@ void StringTable::Unload(void) // RA2: 0x006F9D90
 				delete StringExtraValues[index];
 			}
 		}
-		delete StringExtraValues;
+		delete[] StringExtraValues;
 		StringExtraValues = 0;
 	}
 	if (StringLabels) { // RA2: the labels
-		delete StringLabels;
+		delete[] StringLabels;
 		StringLabels = 0;
 	}
 	CSFString * chunk = LastLoadedString; // RA2: the texts made up for missing labels

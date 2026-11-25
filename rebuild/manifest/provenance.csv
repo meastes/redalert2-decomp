@@ -13340,6 +13340,7 @@ teamtype,006c0250,?Fetch_RTTI@TeamTypeClass@@UBE?AW4RTTIType@@XZ,6,a,mischa85,ye
 teamtype,006c0260,?Fetch_Object_Size@TeamTypeClass@@UBEHXZ,6,a,mischa85,yes,,"filed tail (lane R23): link order, the unit's object defines the kept copy; main's module map: uicmnds",
 teamtype,006c0270,?Fetch_Heap_ID@TeamTypeClass@@UBEHXZ,7,a,mischa85,yes,,"filed tail (lane R23): link order, the unit's object defines the kept copy",
 teamtype,006c0280,??_GTeamTypeClass@@UAEPAXI@Z,214,a,mischa85,yes,,"filed tail (lane R23): link order, the unit's object defines the kept copy",
+techno,004a4d20,??R?$CDTimerClass@VFrameTimerClass@@@@QBEHXZ,28,a,"CDTimerClass<FrameTimerClass>::operator() from the timer template; the ordinary techno unit emits it exact (TechnoClass::Update_Iron_Tint calls it twice; tunnel also emits it, techno is first in link order)",yes,1,"c2land C1U (codex1 r3082): refiled from drive, whose ordinary object does not emit it. Calibration: no",
 techno,006c0a50,_$E2,23,a,mischa85,edit,,,
 techno,006c0a70,_$E5,40,a,mischa85,edit,,,
 techno,006c0aa0,_$E8,19,a,mischa85,edit,,,

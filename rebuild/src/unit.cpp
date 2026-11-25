@@ -6487,7 +6487,7 @@ void UnitClass::Unit_Draw_Voxel(Point2D xdrawpoint, Rect xcliprect, int brightne
 	int tkey = key;
 	if (key != -1) {
 		tkey = (tkey & ~0x1f) | SecondaryFacing.Current().As_Dir32();
-		if (Techno_Type_Class()->TurretOffset == 0) {
+		if (TClass->TurretOffset == 0) {
 			tkey &= ~0x3e0;
 		}
 	}

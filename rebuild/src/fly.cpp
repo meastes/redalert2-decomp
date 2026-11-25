@@ -1151,8 +1151,7 @@ int FlyLocomotionClass::Nearing_Target(bool stage_approach, CoordStruct coord)
 		}
 
 		if (turn) {
-			DirType desired = LinkedTo->Direction(coord); // RA2: ObjectClass::Direction
-			LinkedTo->PrimaryFacing.Set_Desired(desired);
+			LinkedTo->PrimaryFacing.Set_Desired(LinkedTo->Direction(coord)); // RA2: ObjectClass::Direction
 		}
 	}
 

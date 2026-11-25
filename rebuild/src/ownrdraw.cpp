@@ -11862,8 +11862,7 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 		}
 	} else if (needs_scrollbar == 0 && data->ScrollBar != NULL && !data->SkipCheckPaint) {
 		DestroyWindow(data->ScrollBar);
-		HWND scrollbar = data->ScrollBar;
-		Restore_Child(scrollbar, 0);
+		Restore_Child(data->ScrollBar, 0);
 		data->ScrollBar = NULL;
 		data->ScrollWidth = 0;
 		SetWindowPos(window, NULL, 0, 0, client_rect.right + Border_Width - client_rect.left + scrollbar_width + 1, client_rect.bottom + 2 * Border_Width - client_rect.top, SWP_NOMOVE);

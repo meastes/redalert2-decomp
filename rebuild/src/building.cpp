@@ -2633,7 +2633,7 @@ ResultType BuildingClass::Take_Damage(int & damage, int distance, WarheadTypeCla
 					for (int index = 0; index < contacts.Count(); index++) { // RA2: every contact, not just the first
 						TechnoClass * contact = contacts[index];
 						if (Distance_To(contact) < CELL_LEPTON || Class->IsHelipad) { // RA2: a helipad always destroys its contact
-							int strength = 10 * contact->Techno_Type_Class()->MaxStrength; // RA2: ten times the contact's full strength
+							int strength = 10 * contact->TClass->MaxStrength; // RA2: ten times the contact's full strength
 							contact->Take_Damage(strength, 0, Rule->C4Warhead, NULL, true, true);
 						} else {
 							Transmit_Message(RADIO_RUN_AWAY, contact);
@@ -2679,7 +2679,7 @@ ResultType BuildingClass::Take_Damage(int & damage, int distance, WarheadTypeCla
 						}
 					}
 
-					if (Techno_Type_Class()->DamageSound == -1) { // RA2: the building's own damage sound is unset, so the rules' one plays
+					if (TClass->DamageSound == -1) { // RA2: the building's own damage sound is unset, so the rules' one plays
 						VocClass::PlayIndexAtPos(Rule->BuildingDamageSound, Get_Coord(), 0);
 					}
 

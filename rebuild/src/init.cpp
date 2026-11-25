@@ -5144,8 +5144,8 @@ void Execute_Command(char const * name) // RA2: 0x00519480; the command takes a 
 /// <param name="sidebar_rect">The dimensions for the sidebar surface.</param>
 /// <param name="hidden_first">Should the hidden surface get first claim on video memory?</param>
 /// <returns>bool; Were the surfaces allocated?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 1015 bytes differ (adopted text)
-bool Allocate_Surfaces(const Rect & hidden_rect, const Rect & composite_rect, const Rect & tile_rect, const Rect & sidebar_rect, bool hidden_first) // RA2: 0x00519500; the composite and tile surfaces follow VideoBackBuffer, the sidebar surface AllowVRAMSidebar; compiles to the executable's 1120 bytes, but with the hidden and composite rectangles in the other two registers and the memory flags on the stack, so it is excepted
+#ifdef RA2_NON_MATCHING // not exact: 1016 bytes differ against the image-derived bound 00519500 (1118 body bytes, 2 padding) (adopted text; both hidden surfaces with the archive's DSurface default argument, same code; was recorded as 1015 before all operands were bound)
+bool Allocate_Surfaces(const Rect & hidden_rect, const Rect & composite_rect, const Rect & tile_rect, const Rect & sidebar_rect, bool hidden_first) // RA2: 0x00519500; the composite and tile surfaces follow VideoBackBuffer, the sidebar surface AllowVRAMSidebar; the composite, tile and sidebar constructor calls normalize the memory flags in the original
 {
 	DebugString("Allocating new surfaces\n");
 
@@ -5183,7 +5183,7 @@ bool Allocate_Surfaces(const Rect & hidden_rect, const Rect & composite_rect, co
 	bool sidebar_in_system = !Options.AllowVRAMSidebar; // RA2: as above for the sidebar surface
 
 	if (hidden_first && hidden_rect.Is_Valid()) {
-		HiddenSurface = new DSurface(hidden_rect.Width, hidden_rect.Height, false);
+		HiddenSurface = new DSurface(hidden_rect.Width, hidden_rect.Height);
 		HiddenSurface->Fill(0);
 
 		DebugString("HiddenSurface (%dx%d) %s\n", hidden_rect.Width, hidden_rect.Height,
@@ -5228,7 +5228,7 @@ bool Allocate_Surfaces(const Rect & hidden_rect, const Rect & composite_rect, co
 	}
 
 	if (!hidden_first && hidden_rect.Is_Valid()) {
-		HiddenSurface = new DSurface(hidden_rect.Width, hidden_rect.Height, false);
+		HiddenSurface = new DSurface(hidden_rect.Width, hidden_rect.Height);
 		HiddenSurface->Fill(0);
 
 		DebugString("HiddenSurface (%dx%d) %s\n", hidden_rect.Width, hidden_rect.Height,

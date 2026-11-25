@@ -426,10 +426,6 @@ inline wchar_t const * Briefing(int side)
 /// </summary>
 void LoadProgressManager::Draw(void)
 {
-	wchar_t text[2048];
-	wchar_t unit_name[128];
-	char filename[32];
-
 	bool low_res = VideoModeWidth == LowResWidth;
 	ProgressSurface = new BSurface(VideoModeWidth, VideoModeHeight, 2);
 	if (ProgressSurface == NULL) {
@@ -489,6 +485,7 @@ void LoadProgressManager::Draw(void)
 					point.X = Scen->LS800BriefLocX + PictureRect.X;
 					point.Y = Scen->LS800BriefLocY + PictureRect.Y;
 				}
+				wchar_t text[2048];
 				wcscpy(text, LoadBriefing);
 				RGBClass pixel_color = scheme->HSV;
 				int pixel = DSurface::Build_Hicolor_Pixel(pixel_color.Get_Red(), pixel_color.Get_Green(), pixel_color.Get_Blue());
@@ -505,6 +502,7 @@ void LoadProgressManager::Draw(void)
 
 	{
 		int side = Session.Players[0]->Get_Country();
+		char filename[32];
 		char const * suffix = VideoModeWidth == LowResWidth ? Suffix640 : Suffix800;
 		Loading_Filename(filename, side, suffix);
 		PictureShape = (ShapeSet *)Load_Alloc_Data(filename, PictureShapeLoaded);
@@ -523,6 +521,7 @@ void LoadProgressManager::Draw(void)
 		Draw_Area_Text(country_name, ProgressSurface, area, pixel, 2);
 
 		if (!Is_Observer()) {
+			wchar_t unit_name[128];
 			wcscpy(unit_name, Unit_Name(side));
 			Upper_Case(unit_name);
 			area = Unit_Area();

@@ -222,7 +222,7 @@ void STDMETHODCALLTYPE WalkLocomotionClass::Force_Immediate_Destination(CoordStr
  * HISTORY:                                                                                    *
  *   07/29/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: against the image-derived bound 0071e220 (4,967 B) 3,580 bytes differ (was 3,581; the tube entrance read into its own Cell as ra2-decomp's ship tube block (PR257) does; the tube path shift sized by ARRAY_SIZE(LinkedTo->Path) as TibSun and the bank write it; the visual cell coordinate evaluated inside the LastTubeCoord sum as ra2-decomp's banked form banks/0x0075AEC0_returns.cpp (11df85d) has it; the end of the move as TibSun walk.cpp and the bank write it; TibSun walk.cpp's tube intermediates and the bank's single arrival test bring back the second three-axis Coord constructor: all 119 calls in native order); main: best 89.83, tried 12 times (frame, inline, register)
+#ifdef RA2_NON_MATCHING // not exact: against the image-derived bound 0071e220 (4,967 B) 3,483 bytes differ (was 3,580; the non-tube movement in the else branch as in the expansion walk bank; the tube entrance read into its own Cell as ra2-decomp's ship tube block (PR257) does; the tube path shift sized by ARRAY_SIZE(LinkedTo->Path) as TibSun and the bank write it; the visual cell coordinate evaluated inside the LastTubeCoord sum as ra2-decomp's banked form banks/0x0075AEC0_returns.cpp (11df85d) has it; the end of the move as TibSun walk.cpp and the bank write it; TibSun walk.cpp's tube intermediates and the bank's single arrival test bring back the second three-axis Coord constructor: all 119 calls in native order); main: best 89.83, tried 12 times (frame, inline, register)
 void WalkLocomotionClass::Movement_AI(bool first_pass)
 {
 	if (HeadToCoord == COORD_NONE) {
@@ -322,129 +322,129 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 				Stop_Moving();
 				LinkedTo->Assign_Destination(NULL);
 				return;
-			}
-
-			Coord coord = Adjacent_Cell(LinkedTo->Get_Coord(), dir);
-			Cell cell = coord;
-
-			if (LinkedTo->IsOnBridge ^ Map[Adjacent_Cell(LinkedTo->Get_Coord(), dir)].IsUnderBridge) {
-				LinkedTo->IsPlanningToLook = true;
-			}
-
-			MoveType move = LinkedTo->Can_Enter_Cell(&Map[cell], dir, LinkedTo->Get_Cell_Height(), NULL, true);
-			if (move != MOVE_OK) {
-				IsReallyMoving = false;
-				LinkedTo->Stop_Movement_Animation();
-
-				if (move == MOVE_TEMP) {
-					CellClass & cellptr = Map[cell];
-					if (first_pass) {
-						LinkedTo->Path[0] = FACING_NONE;
-						HeadToCoord = COORD_NONE;
-						LinkedTo->PathDelay = 0;
-						Movement_AI(false);
-					} else {
-						int dist = LinkedTo->Center_Coord().Distance_To(DestinationCoord);
-						if (dist < Rule->CloseEnoughDistance &&
-							!LinkedTo->HasAnyLink() /* RA2: HasAnyLink, not In_Radio_Contact */ &&
-							abs(DestinationCoord.Z - LinkedTo->Get_Coord().Z) < 2 * LEVEL_LEPTON_H &&
-							Map[LinkedTo->Get_Coord()].Land_Type() != LAND_TUNNEL) {
-
-							HeadToCoord = COORD_NONE;
-							Stop_Moving();
-							LinkedTo->Set_Speed(0.0);
-							LinkedTo->Assign_Destination(NULL);
-							LinkedTo->Path[0] = FACING_NONE;
-						} else {
-							bool isbridge = cellptr.IsUnderBridge && abs(LinkedTo->Get_Coord().Z / LEVEL_LEPTON_H - cellptr.Height) > 2;
-							cellptr.Incoming(COORD_NONE, true, true, isbridge);
-						}
-					}
-					return;
-				}
-
-				if (move == MOVE_MOVING_BLOCK) {
-					if (!LinkedTo->IsToPathAroundBlockage) {
-						LinkedTo->IsToPathAroundBlockage = true;
-						LinkedTo->BlockagePathDelay = Rule->BlockagePathDelay;
-					}
-
-					if (LinkedTo->PathDelay != 0) {
-						return;
-					}
-
-					bool blocked = LinkedTo->IsToPathAroundBlockage && LinkedTo->BlockagePathDelay == 0;
-					bool found = LinkedTo->Basic_Path(DestinationCoord.As_Cell(), 0, blocked ? 2 : 1);
-					LinkedTo->PathDelay = Rule->PathDelay * TICKS_PER_MINUTE;
-
-					if (!found) {
-						if (!LinkedTo->Is_In_Same_Zone(DestinationCoord)) {
-							LinkedTo->Assign_Destination(NULL);
-						} else {
-							LinkedTo->On_Movement_Blocked();
-						}
-					} else {
-						LinkedTo->JumpJet_To_Walk();
-					}
-					return;
-				}
-
-				if (move == MOVE_CLOSED_GATE) {
-					Map.Try_Open_Gate(LinkedTo, cell);
-					LinkedTo->TryTryAgain = FootClass::PATH_RETRY;
-					return;
-				}
-
-				if (move == MOVE_DESTROYABLE || move == MOVE_FRIENDLY_DESTROYABLE) {
-					ObjectClass * object = Map[cell].Cell_Object();
-					if (first_pass) {
-						LinkedTo->Path[0] = FACING_NONE;
-						HeadToCoord = COORD_NONE;
-						LinkedTo->PathDelay = 0;
-						Movement_AI(false);
-						return;
-					}
-
-					if (object != NULL) {
-						if (!LinkedTo->House->Is_Ally(object)) {
-							LinkedTo->Override_Mission(MISSION_ATTACK, object, NULL);
-						}
-					} else {
-						if (Map[cell].Overlay != OVERLAY_NONE && OverlayTypes[Map[cell].Overlay]->IsWall) {
-							LinkedTo->Override_Mission(MISSION_ATTACK, &Map[cell], NULL);
-						}
-					}
-				}
-
-				if (move != MOVE_CLOAK) {
-					if (move != MOVE_NO) {
-						LinkedTo->Path[0] = FACING_NONE;
-						LinkedTo->Set_Speed(0.0);
-						Stop_Moving();
-						LinkedTo->IsNewNavCom = false;
-						return;
-					}
-				} else {
-					Map[cell].Shimmer();
-				}
-
-				if (first_pass) {
-					LinkedTo->Path[0] = FACING_NONE;
-					HeadToCoord = COORD_NONE;
-					LinkedTo->PathDelay = 0;
-					Movement_AI(false);
-				}
-				return;
-			}
-
-			if (Mark_Head_To(coord)) {
-				IsReallyMoving = true;
-				if (!LinkedTo->IsActive) return;
-				DirStruct face = (DirStruct &)::Direction(LinkedTo->Center_Coord(), HeadToCoord);
-				Do_Turn(face);
-				LinkedTo->Set_Speed(1.0);
 			} else {
-				LinkedTo->Set_Speed(0.0);
+				Coord coord = Adjacent_Cell(LinkedTo->Get_Coord(), dir);
+				Cell cell = coord;
+
+				if (LinkedTo->IsOnBridge ^ Map[Adjacent_Cell(LinkedTo->Get_Coord(), dir)].IsUnderBridge) {
+					LinkedTo->IsPlanningToLook = true;
+				}
+
+				MoveType move = LinkedTo->Can_Enter_Cell(&Map[cell], dir, LinkedTo->Get_Cell_Height(), NULL, true);
+				if (move != MOVE_OK) {
+					IsReallyMoving = false;
+					LinkedTo->Stop_Movement_Animation();
+
+					if (move == MOVE_TEMP) {
+						CellClass & cellptr = Map[cell];
+						if (first_pass) {
+							LinkedTo->Path[0] = FACING_NONE;
+							HeadToCoord = COORD_NONE;
+							LinkedTo->PathDelay = 0;
+							Movement_AI(false);
+						} else {
+							int dist = LinkedTo->Center_Coord().Distance_To(DestinationCoord);
+							if (dist < Rule->CloseEnoughDistance &&
+								!LinkedTo->HasAnyLink() /* RA2: HasAnyLink, not In_Radio_Contact */ &&
+								abs(DestinationCoord.Z - LinkedTo->Get_Coord().Z) < 2 * LEVEL_LEPTON_H &&
+								Map[LinkedTo->Get_Coord()].Land_Type() != LAND_TUNNEL) {
+
+								HeadToCoord = COORD_NONE;
+								Stop_Moving();
+								LinkedTo->Set_Speed(0.0);
+								LinkedTo->Assign_Destination(NULL);
+								LinkedTo->Path[0] = FACING_NONE;
+							} else {
+								bool isbridge = cellptr.IsUnderBridge && abs(LinkedTo->Get_Coord().Z / LEVEL_LEPTON_H - cellptr.Height) > 2;
+								cellptr.Incoming(COORD_NONE, true, true, isbridge);
+							}
+						}
+						return;
+					}
+
+					if (move == MOVE_MOVING_BLOCK) {
+						if (!LinkedTo->IsToPathAroundBlockage) {
+							LinkedTo->IsToPathAroundBlockage = true;
+							LinkedTo->BlockagePathDelay = Rule->BlockagePathDelay;
+						}
+
+						if (LinkedTo->PathDelay != 0) {
+							return;
+						}
+
+						bool blocked = LinkedTo->IsToPathAroundBlockage && LinkedTo->BlockagePathDelay == 0;
+						bool found = LinkedTo->Basic_Path(DestinationCoord.As_Cell(), 0, blocked ? 2 : 1);
+						LinkedTo->PathDelay = Rule->PathDelay * TICKS_PER_MINUTE;
+
+						if (!found) {
+							if (!LinkedTo->Is_In_Same_Zone(DestinationCoord)) {
+								LinkedTo->Assign_Destination(NULL);
+							} else {
+								LinkedTo->On_Movement_Blocked();
+							}
+						} else {
+							LinkedTo->JumpJet_To_Walk();
+						}
+						return;
+					}
+
+					if (move == MOVE_CLOSED_GATE) {
+						Map.Try_Open_Gate(LinkedTo, cell);
+						LinkedTo->TryTryAgain = FootClass::PATH_RETRY;
+						return;
+					}
+
+					if (move == MOVE_DESTROYABLE || move == MOVE_FRIENDLY_DESTROYABLE) {
+						ObjectClass * object = Map[cell].Cell_Object();
+						if (first_pass) {
+							LinkedTo->Path[0] = FACING_NONE;
+							HeadToCoord = COORD_NONE;
+							LinkedTo->PathDelay = 0;
+							Movement_AI(false);
+							return;
+						}
+
+						if (object != NULL) {
+							if (!LinkedTo->House->Is_Ally(object)) {
+								LinkedTo->Override_Mission(MISSION_ATTACK, object, NULL);
+							}
+						} else {
+							if (Map[cell].Overlay != OVERLAY_NONE && OverlayTypes[Map[cell].Overlay]->IsWall) {
+								LinkedTo->Override_Mission(MISSION_ATTACK, &Map[cell], NULL);
+							}
+						}
+					}
+
+					if (move != MOVE_CLOAK) {
+						if (move != MOVE_NO) {
+							LinkedTo->Path[0] = FACING_NONE;
+							LinkedTo->Set_Speed(0.0);
+							Stop_Moving();
+							LinkedTo->IsNewNavCom = false;
+							return;
+						}
+					} else {
+						Map[cell].Shimmer();
+					}
+
+					if (first_pass) {
+						LinkedTo->Path[0] = FACING_NONE;
+						HeadToCoord = COORD_NONE;
+						LinkedTo->PathDelay = 0;
+						Movement_AI(false);
+					}
+					return;
+				}
+
+				if (Mark_Head_To(coord)) {
+					IsReallyMoving = true;
+					if (!LinkedTo->IsActive) return;
+					DirStruct face = (DirStruct &)::Direction(LinkedTo->Center_Coord(), HeadToCoord);
+					Do_Turn(face);
+					LinkedTo->Set_Speed(1.0);
+				} else {
+					LinkedTo->Set_Speed(0.0);
+				}
 			}
 		} else {
 			if (LinkedTo->Speed > 0.0) {

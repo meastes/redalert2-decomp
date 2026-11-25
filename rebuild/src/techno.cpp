@@ -1442,7 +1442,7 @@ void TechnoClass::Draw_Post_Render(Point2D const & point, Rect const & cliprect)
 					color = BLACK;
 				}
 
-				Point3D const & lepton = Techno_Type_Class()->Lepton_Dimensions(); // RA2: the dimensions come by reference
+				Point3D const & lepton = TClass->Lepton_Dimensions(); // RA2: the dimensions come by reference
 				Coord dim = lepton;
 				int x = dim.X / 2;
 				dim.Y /= 2; // RA2: the half is kept in the dimensions
