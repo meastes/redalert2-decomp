@@ -3173,12 +3173,10 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 
 			if (!HasFreeLink(base) && (!House->Ion_Sensitives_Should_Be_Offline() || air->Class->IsAirportBound)) {
 
-				if (air->Class->IsAirportBound) {
-					return(0);
-				}
+				if (!air->Class->IsAirportBound) {
 
 					/*
-					 * The aircraft has a pad to land on, so spawn it at the edge of the
+					 * The aircraft has no pad to land on, so spawn it at the edge of the
 					 * visible map and let it fly in.
 					 */
 					Cell edge = Cell(Map.LocalRect.X, -Map.LocalRect.X) + Cell(1, Map.PlayRect.Width) + Cell(Map.LocalRect.Y, Map.LocalRect.Y);
@@ -3198,7 +3196,6 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 						cell += Cell(random, random);
 					}
 
-
 					ScenarioInit++;
 					if (air->Unlimbo(Coord(cell, 0), DIR_N)) {
 						if (ArchiveTarget != NULL) {
@@ -3207,15 +3204,16 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 							Cell nearby = air->Nearby_Location(this);
 							if (nearby != CELL_NONE) {
 								air->Assign_Destination(&Map[nearby]);
-						} else {
+							} else {
 								air->Assign_Destination(NULL);
+							}
 						}
-					}
 						air->Set_Mission(MISSION_MOVE);
-					ScenarioInit--;
+						ScenarioInit--;
 						return(2);
-				}
+					}
 					ScenarioInit--;
+				}
 
 			} else {
 

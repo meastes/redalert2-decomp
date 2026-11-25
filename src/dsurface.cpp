@@ -1486,7 +1486,7 @@ bool DSurface::Draw_Depth_Glow_Line(Rect const & cliprect, Point2D const & start
 /// <param name="blend_blue">Should the blue channel be blended?</param>
 /// <param name="intensity">The weight used when sampling the falloff gradient.</param>
 /// <returns>bool; Was any part of the line drawn?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 5842 bytes differ against the image-derived bound 004ac650 (6064 body bytes, 0 padding) (TibSun dsurface.cpp text as is, formerly under #if 0; the per-channel MIN clamps and paired buffer steps of ra2-decomp's attempt note 030e779 score worse)
+#ifdef RA2_NON_MATCHING // not exact: 5778 bytes differ against the image-derived bound 004ac650 (6064 body bytes, 0 padding) (was 5842; the RA2 1.001 body's shape (RobinDigitalPro/ra2-1001-decomp): early return after unlocking a zero-length line, the alpha-dominant case first, its local declaration order (reference-borne, which 1.001 itself labels in places as compiler steering), RA2's pixel expressions and all four Unlock sites kept; 29 of 34 calls in order; before that TibSun dsurface.cpp text as is, formerly under #if 0)
 bool DSurface::Draw_Depth_Antialiased_Line(Rect const & cliprect, Point2D const & startpoint, Point2D const & endpoint, RGBClass & color, int start_depth, int end_depth, bool write_depth, bool blend_red, bool blend_green, bool blend_blue, float intensity)
 {
 	static int GradientTable[257];
@@ -1619,211 +1619,91 @@ bool DSurface::Draw_Depth_Antialiased_Line(Rect const & cliprect, Point2D const 
 	int abs_adelta = abs(adelta);
 	int adelta2 = 2 * abs_adelta;
 
-	if (dx != 0 || abs_dy != 0) {
+	if ((dx | abs_dy) == 0) {
+		Unlock();
+		return(false);
+	}
 
-		if (abs_adelta <= dx || abs_adelta <= abs_dy) {
+	if (abs_adelta > dx && abs_adelta > abs_dy) {
+
+		/*
+		 * The alpha gradient changes faster than either axis -- alpha drives the loop.
+		 */
+		int weight = 256;
+		if (dx > abs_dy) {
 
 			/*
-			 * Geometric stepping -- one of the two axes drives the loop while the alpha
-			 * gradient is advanced through a secondary DDA accumulator.
+			 * Alpha-dominant and shallow.
 			 */
-			int weight = 256;
-			if (dx > abs_dy) {
+			int grad = (int)((double)abs_dy / (double)xcount * 256.0);
+			int xoff = 0;
+			if (dx > 0) {
+				int otherweight = 0;
+				int neg_grad = -grad;
+				int neighoff = 2 * half_pitch;
+				do {
+					int cov = *abuffer;
+					if (z < *zbuffer) {
+						if (cov) {
+							int lidx = (int)((double)weight * intensity);
+							int oidx = (int)((double)otherweight * intensity);
+							int nf = GradientTable[oidx];
+							int nbk = GradientTable[256 - oidx];
+							int lf = GradientTable[lidx];
+							int lbk = GradientTable[256 - lidx];
 
-				/*
-				 * The slope is not steep -- step the X axis.
-				 */
-				int adda = adelta2 - dx;
-				int grad = (int)((double)abs_dy / (double)xcount * 256.0);
-				int xoff = 0;
-				if (dx > 0) {
-					int neg_grad = -grad;
-					int neighoff = 2 * half_pitch;
-					int otherweight = 0;
-					do {
-						int cov = *abuffer;
-						if (z < *zbuffer) {
-							if (cov) {
-								int lidx = (int)((double)weight * intensity);
-								int oidx = (int)((double)otherweight * intensity);
-								int lbk = GradientTable[256 - lidx];
-								int lf = GradientTable[lidx];
-								int nbk = GradientTable[256 - oidx];
-								int nf = GradientTable[oidx];
+							RGBClass line = Deconstruct_Hicolor_Pixel(*(unsigned short *)((char *)buffer + 2 * xoff));
+							RGBClass neighbor = Deconstruct_Hicolor_Pixel(*(unsigned short *)((char *)buffer + neighoff));
 
-								RGBClass line = Deconstruct_Hicolor_Pixel(*(unsigned short *)((char *)buffer + 2 * xoff));
-								RGBClass neighbor = Deconstruct_Hicolor_Pixel(*(unsigned short *)((char *)buffer + neighoff));
+							int outlg = line.Get_Green();
+							int outng = neighbor.Get_Green();
+							int outlr = line.Get_Red();
+							int outnr = neighbor.Get_Red();
+							int outlb = line.Get_Blue();
+							int outnb = neighbor.Get_Blue();
+							if (blend_red) {
+								outlr = (cov * (red * nf + line.Get_Red() * nbk)) >> 15;
+								outnr = (cov * (red * lf + neighbor.Get_Red() * lbk)) >> 15;
+							}
+							if (blend_green) {
+								outlg = (cov * (green * nf + line.Get_Green() * nbk)) >> 15;
+								outng = (cov * (green * lf + neighbor.Get_Green() * lbk)) >> 15;
+							}
+							if (blend_blue) {
+								outlb = (cov * (blue * nf + line.Get_Blue() * nbk)) >> 15;
+								outnb = (cov * (blue * lf + neighbor.Get_Blue() * lbk)) >> 15;
+							}
 
-								int outnr = neighbor.Get_Red();
-								int outlr = line.Get_Red();
-								int outng = neighbor.Get_Green();
-								int outlg = line.Get_Green();
-								int outnb = neighbor.Get_Blue();
-								int outlb = line.Get_Blue();
-								if (blend_red) {
-									outlr = (cov * (red * nf + line.Get_Red() * nbk)) >> 15;
-									outnr = (cov * (red * lf + neighbor.Get_Red() * lbk)) >> 15;
-								}
-								if (blend_green) {
-									outlg = (cov * (green * nf + line.Get_Green() * nbk)) >> 15;
-									outng = (cov * (green * lf + neighbor.Get_Green() * lbk)) >> 15;
-								}
-								if (blend_blue) {
-									outlb = (cov * (blue * nf + line.Get_Blue() * nbk)) >> 15;
-									outnb = (cov * (blue * lf + neighbor.Get_Blue() * lbk)) >> 15;
-								}
-
-								int wb = 255;
-								if (outnb <= 255) {
-									wb = outnb;
-								}
-								if (outng > 255) {
-									outng = 255;
-								}
-								if (outnr > 255) {
-									outnr = 255;
-								}
-								*(unsigned short *)((char *)buffer + 2 * xoff) = (unsigned short)Build_Hicolor_Pixel(outnr, outng, wb);
-								if (outlb > 255) {
-									outlb = 255;
-								}
-								if (outlg > 255) {
-									outlg = 255;
-								}
-								if (outlr > 255) {
-									outlr = 255;
-								}
-								*(unsigned short *)((char *)buffer + neighoff) = (unsigned short)Build_Hicolor_Pixel(outlr, outlg, outlb);
-								if (write_depth) {
-									*zbuffer = z;
-								}
+							int wb = MIN(255, outnb);
+							if (outng > 255) {
+								outng = 255;
+							}
+							if (outnr > 255) {
+								outnr = 255;
+							}
+							*(unsigned short *)((char *)buffer + 2 * xoff) = (unsigned short)Build_Hicolor_Pixel(outnr, outng, wb);
+							if (outlb > 255) {
+								outlb = 255;
+							}
+							if (outlg > 255) {
+								outlg = 255;
+							}
+							if (outlr > 255) {
+								outlr = 255;
+							}
+							*(unsigned short *)((char *)buffer + neighoff) = (unsigned short)Build_Hicolor_Pixel(outlr, outlg, outlb);
+							if (write_depth) {
+								*zbuffer = z;
 							}
 						}
+					}
 
-						weight -= grad;
-						otherweight -= neg_grad;
-						if (otherweight > 256) {
-							otherweight -= 256;
-							weight += 256;
-							buffer = (unsigned char *)buffer + pitch;
-							zbuffer += zwidth;
-							if (zwidth > 0) {
-								zbuffer = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)zbuffer);
-							} else {
-								zbuffer = (unsigned short *)DepthBuffer->Wrap_Underflow((unsigned int)zbuffer);
-							}
-							abuffer += zwidth;
-							if (zwidth > 0) {
-								abuffer = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)abuffer);
-							} else {
-								abuffer = (unsigned short *)AlphaBuffer->Wrap_Underflow((unsigned int)abuffer);
-							}
-							z += zwrap;
-						}
-
-						if (adda > 0) {
-							z += astep;
-							adda -= 2 * xcount;
-						}
-
-						adda += adelta2;
-						zbuffer++;
-						zbuffer = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)zbuffer);
-						abuffer++;
-						abuffer = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)abuffer);
-						xoff++;
-						neighoff += 2;
-					} while (xoff < xcount);
-				}
-			} else {
-
-				/*
-				 * The slope is steep -- step the Y axis.
-				 */
-				int adda = adelta2 - abs_dy;
-				int grad = (int)((double)xcount / (double)abs_dy * 256.0);
-				if (abs_dy > 0) {
-					int byteoff = 0;
-					int neg_grad = -grad;
-					int otherweight = 0;
-					int i = abs_dy;
-					do {
-						int cov = *abuffer;
-						if (z < *zbuffer) {
-							if (cov) {
-								int lidx = (int)((double)weight * intensity);
-								int oidx = (int)((double)otherweight * intensity);
-								int nbk = GradientTable[256 - oidx];
-								int lbk = GradientTable[256 - lidx];
-								int nf = GradientTable[oidx];
-								int lf = GradientTable[lidx];
-
-								RGBClass line = Deconstruct_Hicolor_Pixel(*(unsigned short *)((char *)buffer + byteoff));
-								RGBClass neighbor = Deconstruct_Hicolor_Pixel(*(unsigned short *)((char *)buffer + byteoff + 2));
-
-								int outlb = line.Get_Blue();
-								int outnb = neighbor.Get_Blue();
-								int outlr = line.Get_Red();
-								int outnr = neighbor.Get_Red();
-								int outng = neighbor.Get_Green();
-								int outlg = line.Get_Green();
-								if (blend_red) {
-									outlr = (cov * (red * lf + line.Get_Red() * lbk)) >> 15;
-									outnr = (cov * (red * nf + neighbor.Get_Red() * nbk)) >> 15;
-								}
-								if (blend_green) {
-									outlg = (cov * (green * lf + line.Get_Green() * lbk)) >> 15;
-									outng = (cov * (green * nf + neighbor.Get_Green() * nbk)) >> 15;
-								}
-								if (blend_blue) {
-									outlb = (cov * (blue * lf + line.Get_Blue() * lbk)) >> 15;
-									outnb = (cov * (blue * nf + neighbor.Get_Blue() * nbk)) >> 15;
-								}
-
-								int wb = MIN(255, outlb);
-								if (outlg > 255) {
-									outlg = 255;
-								}
-								if (outlr > 255) {
-									outlr = 255;
-								}
-								*(unsigned short *)((char *)buffer + byteoff) = (unsigned short)Build_Hicolor_Pixel(outlr, outlg, wb);
-								if (outnb > 255) {
-									outnb = 255;
-								}
-								if (outng > 255) {
-									outng = 255;
-								}
-								if (outnr > 255) {
-									outnr = 255;
-								}
-								*(unsigned short *)((char *)buffer + byteoff + 2) = (unsigned short)Build_Hicolor_Pixel(outnr, outng, outnb);
-								if (write_depth) {
-									*zbuffer = z;
-								}
-							}
-						}
-
-						weight -= grad;
-						otherweight -= neg_grad;
-						if (otherweight > 256) {
-							otherweight -= 256;
-							weight += 256;
-							byteoff += 2;
-							zbuffer++;
-							zbuffer = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)zbuffer);
-							abuffer++;
-							abuffer = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)abuffer);
-						}
-
-						if (adda > 0) {
-							z += astep;
-							adda -= dy2;
-						}
-
-						adda += adelta2;
+					weight -= grad;
+					otherweight -= neg_grad;
+					if (otherweight > 256) {
+						otherweight -= 256;
 						buffer = (unsigned char *)buffer + pitch;
-						z += zwrap;
+						weight += 256;
 						zbuffer += zwidth;
 						if (zwidth > 0) {
 							zbuffer = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)zbuffer);
@@ -1836,200 +1716,205 @@ bool DSurface::Draw_Depth_Antialiased_Line(Rect const & cliprect, Point2D const 
 						} else {
 							abuffer = (unsigned short *)AlphaBuffer->Wrap_Underflow((unsigned int)abuffer);
 						}
-						i--;
-					} while (i != 0);
-				}
+						z += zwrap;
+					}
 
+					z += astep;
+					zbuffer++;
+					zbuffer = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)zbuffer);
+					abuffer++;
+					abuffer = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)abuffer);
+					xoff += 2;
+					neighoff += 4;
+				} while (xoff < xcount);
 			}
-
 		} else {
 
 			/*
-			 * The alpha gradient changes faster than either axis -- alpha drives the loop.
+			 * Alpha-dominant and steep.
 			 */
-			int weight = 256;
-			if (dx > abs_dy) {
+			int grad = (int)((double)xcount / (double)abs_dy * 256.0);
+			if (abs_dy > 0) {
+				int otherweight = 0;
+				int neg_grad = -grad;
+				int i = abs_dy;
+				int byteoff = 0;
+				int yadjust = zwrap + astep;
+				do {
+					int cov = *abuffer;
+					if (z < *zbuffer) {
+						if (cov) {
+							int lidx = (int)((double)weight * intensity);
+							int oidx = (int)((double)otherweight * intensity);
+							int lf = GradientTable[lidx];
+							int lbk = GradientTable[256 - lidx];
+							int nbk = GradientTable[256 - oidx];
+							int nf = GradientTable[oidx];
 
-				/*
-				 * Alpha-dominant and shallow.
-				 */
-				int grad = (int)((double)abs_dy / (double)xcount * 256.0);
-				int xoff = 0;
-				if (dx > 0) {
-					int otherweight = 0;
-					int neg_grad = -grad;
-					int neighoff = 2 * half_pitch;
-					do {
-						int cov = *abuffer;
-						if (z < *zbuffer) {
-							if (cov) {
-								int lidx = (int)((double)weight * intensity);
-								int oidx = (int)((double)otherweight * intensity);
-								int nf = GradientTable[oidx];
-								int nbk = GradientTable[256 - oidx];
-								int lf = GradientTable[lidx];
-								int lbk = GradientTable[256 - lidx];
+							RGBClass line = Deconstruct_Hicolor_Pixel(*(unsigned short *)((char *)buffer + byteoff));
+							RGBClass neighbor = Deconstruct_Hicolor_Pixel(*(unsigned short *)((char *)buffer + byteoff + 2));
 
-								RGBClass line = Deconstruct_Hicolor_Pixel(*(unsigned short *)((char *)buffer + 2 * xoff));
-								RGBClass neighbor = Deconstruct_Hicolor_Pixel(*(unsigned short *)((char *)buffer + neighoff));
+							int outlb = line.Get_Blue();
+							int outnb = neighbor.Get_Blue();
+							int outnr = neighbor.Get_Red();
+							int outlr = line.Get_Red();
+							int outng = neighbor.Get_Green();
+							int outlg = line.Get_Green();
+							if (blend_red) {
+								outlr = (cov * (red * lf + line.Get_Red() * lbk)) >> 15;
+								outnr = (cov * (red * nf + neighbor.Get_Red() * nbk)) >> 15;
+							}
+							if (blend_green) {
+								outlg = (cov * (green * lf + line.Get_Green() * lbk)) >> 15;
+								outng = (cov * (green * nf + neighbor.Get_Green() * nbk)) >> 15;
+							}
+							if (blend_blue) {
+								outlb = (cov * (blue * lf + line.Get_Blue() * lbk)) >> 15;
+								outnb = (cov * (blue * nf + neighbor.Get_Blue() * nbk)) >> 15;
+							}
 
-								int outlg = line.Get_Green();
-								int outng = neighbor.Get_Green();
-								int outlr = line.Get_Red();
-								int outnr = neighbor.Get_Red();
-								int outlb = line.Get_Blue();
-								int outnb = neighbor.Get_Blue();
-								if (blend_red) {
-									outlr = (cov * (red * nf + line.Get_Red() * nbk)) >> 15;
-									outnr = (cov * (red * lf + neighbor.Get_Red() * lbk)) >> 15;
-								}
-								if (blend_green) {
-									outlg = (cov * (green * nf + line.Get_Green() * nbk)) >> 15;
-									outng = (cov * (green * lf + neighbor.Get_Green() * lbk)) >> 15;
-								}
-								if (blend_blue) {
-									outlb = (cov * (blue * nf + line.Get_Blue() * nbk)) >> 15;
-									outnb = (cov * (blue * lf + neighbor.Get_Blue() * lbk)) >> 15;
-								}
-
-								int wb = MIN(255, outnb);
-								if (outng > 255) {
-									outng = 255;
-								}
-								if (outnr > 255) {
-									outnr = 255;
-								}
-								*(unsigned short *)((char *)buffer + 2 * xoff) = (unsigned short)Build_Hicolor_Pixel(outnr, outng, wb);
-								if (outlb > 255) {
-									outlb = 255;
-								}
-								if (outlg > 255) {
-									outlg = 255;
-								}
-								if (outlr > 255) {
-									outlr = 255;
-								}
-								*(unsigned short *)((char *)buffer + neighoff) = (unsigned short)Build_Hicolor_Pixel(outlr, outlg, outlb);
-								if (write_depth) {
-									*zbuffer = z;
-								}
+							int wb = 255;
+							if (outlb <= 255) {
+								wb = outlb;
+							}
+							if (outlg > 255) {
+								outlg = 255;
+							}
+							if (outlr > 255) {
+								outlr = 255;
+							}
+							*(unsigned short *)((char *)buffer + byteoff) = (unsigned short)Build_Hicolor_Pixel(outlr, outlg, wb);
+							if (outnb > 255) {
+								outnb = 255;
+							}
+							if (outng > 255) {
+								outng = 255;
+							}
+							if (outnr > 255) {
+								outnr = 255;
+							}
+							*(unsigned short *)((char *)buffer + byteoff + 2) = (unsigned short)Build_Hicolor_Pixel(outnr, outng, outnb);
+							if (write_depth) {
+								*zbuffer = z;
 							}
 						}
+					}
 
-						weight -= grad;
-						otherweight -= neg_grad;
-						if (otherweight > 256) {
-							otherweight -= 256;
-							buffer = (unsigned char *)buffer + pitch;
-							weight += 256;
-							zbuffer += zwidth;
-							if (zwidth > 0) {
-								zbuffer = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)zbuffer);
-							} else {
-								zbuffer = (unsigned short *)DepthBuffer->Wrap_Underflow((unsigned int)zbuffer);
-							}
-							abuffer += zwidth;
-							if (zwidth > 0) {
-								abuffer = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)abuffer);
-							} else {
-								abuffer = (unsigned short *)AlphaBuffer->Wrap_Underflow((unsigned int)abuffer);
-							}
-							z += zwrap;
-						}
-
-						z += astep;
+					weight -= grad;
+					otherweight -= neg_grad;
+					if (otherweight > 256) {
+						otherweight -= 256;
+						weight += 256;
+						byteoff += 2;
 						zbuffer++;
 						zbuffer = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)zbuffer);
 						abuffer++;
 						abuffer = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)abuffer);
-						xoff += 2;
-						neighoff += 4;
-					} while (xoff < xcount);
-				}
-			} else {
+					}
 
-				/*
-				 * Alpha-dominant and steep.
-				 */
-				int grad = (int)((double)xcount / (double)abs_dy * 256.0);
-				if (abs_dy > 0) {
-					int otherweight = 0;
-					int neg_grad = -grad;
-					int i = abs_dy;
-					int byteoff = 0;
-					int yadjust = zwrap + astep;
-					do {
-						int cov = *abuffer;
-						if (z < *zbuffer) {
-							if (cov) {
-								int lidx = (int)((double)weight * intensity);
-								int oidx = (int)((double)otherweight * intensity);
-								int lf = GradientTable[lidx];
-								int lbk = GradientTable[256 - lidx];
-								int nbk = GradientTable[256 - oidx];
-								int nf = GradientTable[oidx];
+					buffer = (unsigned char *)buffer + pitch;
+					zbuffer += zwidth;
+					if (zwidth > 0) {
+						zbuffer = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)zbuffer);
+					} else {
+						zbuffer = (unsigned short *)DepthBuffer->Wrap_Underflow((unsigned int)zbuffer);
+					}
+					abuffer += zwidth;
+					if (zwidth > 0) {
+						abuffer = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)abuffer);
+					} else {
+						abuffer = (unsigned short *)AlphaBuffer->Wrap_Underflow((unsigned int)abuffer);
+					}
+					z += yadjust;
+					i--;
+				} while (i != 0);
+			}
 
-								RGBClass line = Deconstruct_Hicolor_Pixel(*(unsigned short *)((char *)buffer + byteoff));
-								RGBClass neighbor = Deconstruct_Hicolor_Pixel(*(unsigned short *)((char *)buffer + byteoff + 2));
+		}
+	} else {
 
-								int outlb = line.Get_Blue();
-								int outnb = neighbor.Get_Blue();
-								int outnr = neighbor.Get_Red();
-								int outlr = line.Get_Red();
-								int outng = neighbor.Get_Green();
-								int outlg = line.Get_Green();
-								if (blend_red) {
-									outlr = (cov * (red * lf + line.Get_Red() * lbk)) >> 15;
-									outnr = (cov * (red * nf + neighbor.Get_Red() * nbk)) >> 15;
-								}
-								if (blend_green) {
-									outlg = (cov * (green * lf + line.Get_Green() * lbk)) >> 15;
-									outng = (cov * (green * nf + neighbor.Get_Green() * nbk)) >> 15;
-								}
-								if (blend_blue) {
-									outlb = (cov * (blue * lf + line.Get_Blue() * lbk)) >> 15;
-									outnb = (cov * (blue * nf + neighbor.Get_Blue() * nbk)) >> 15;
-								}
+		/*
+		 * Geometric stepping -- one of the two axes drives the loop while the alpha
+		 * gradient is advanced through a secondary DDA accumulator.
+		 */
+		int weight = 256;
+		if (dx > abs_dy) {
 
-								int wb = 255;
-								if (outlb <= 255) {
-									wb = outlb;
-								}
-								if (outlg > 255) {
-									outlg = 255;
-								}
-								if (outlr > 255) {
-									outlr = 255;
-								}
-								*(unsigned short *)((char *)buffer + byteoff) = (unsigned short)Build_Hicolor_Pixel(outlr, outlg, wb);
-								if (outnb > 255) {
-									outnb = 255;
-								}
-								if (outng > 255) {
-									outng = 255;
-								}
-								if (outnr > 255) {
-									outnr = 255;
-								}
-								*(unsigned short *)((char *)buffer + byteoff + 2) = (unsigned short)Build_Hicolor_Pixel(outnr, outng, outnb);
-								if (write_depth) {
-									*zbuffer = z;
-								}
+			/*
+			 * The slope is not steep -- step the X axis.
+			 */
+			int adda = adelta2 - dx;
+			int grad = (int)((double)abs_dy / (double)xcount * 256.0);
+			int xoff = 0;
+			if (dx > 0) {
+				int neg_grad = -grad;
+				int neighoff = 2 * half_pitch;
+				int otherweight = 0;
+				do {
+					int cov = *abuffer;
+					if (z < *zbuffer) {
+						if (cov) {
+							int lidx = (int)((double)weight * intensity);
+							int oidx = (int)((double)otherweight * intensity);
+							int lbk = GradientTable[256 - lidx];
+							int lf = GradientTable[lidx];
+							int nbk = GradientTable[256 - oidx];
+							int nf = GradientTable[oidx];
+
+							RGBClass line = Deconstruct_Hicolor_Pixel(*(unsigned short *)((char *)buffer + 2 * xoff));
+							RGBClass neighbor = Deconstruct_Hicolor_Pixel(*(unsigned short *)((char *)buffer + neighoff));
+
+							int outnr = neighbor.Get_Red();
+							int outlr = line.Get_Red();
+							int outng = neighbor.Get_Green();
+							int outlg = line.Get_Green();
+							int outnb = neighbor.Get_Blue();
+							int outlb = line.Get_Blue();
+							if (blend_red) {
+								outlr = (cov * (red * nf + line.Get_Red() * nbk)) >> 15;
+								outnr = (cov * (red * lf + neighbor.Get_Red() * lbk)) >> 15;
+							}
+							if (blend_green) {
+								outlg = (cov * (green * nf + line.Get_Green() * nbk)) >> 15;
+								outng = (cov * (green * lf + neighbor.Get_Green() * lbk)) >> 15;
+							}
+							if (blend_blue) {
+								outlb = (cov * (blue * nf + line.Get_Blue() * nbk)) >> 15;
+								outnb = (cov * (blue * lf + neighbor.Get_Blue() * lbk)) >> 15;
+							}
+
+							int wb = 255;
+							if (outnb <= 255) {
+								wb = outnb;
+							}
+							if (outng > 255) {
+								outng = 255;
+							}
+							if (outnr > 255) {
+								outnr = 255;
+							}
+							*(unsigned short *)((char *)buffer + 2 * xoff) = (unsigned short)Build_Hicolor_Pixel(outnr, outng, wb);
+							if (outlb > 255) {
+								outlb = 255;
+							}
+							if (outlg > 255) {
+								outlg = 255;
+							}
+							if (outlr > 255) {
+								outlr = 255;
+							}
+							*(unsigned short *)((char *)buffer + neighoff) = (unsigned short)Build_Hicolor_Pixel(outlr, outlg, outlb);
+							if (write_depth) {
+								*zbuffer = z;
 							}
 						}
+					}
 
-						weight -= grad;
-						otherweight -= neg_grad;
-						if (otherweight > 256) {
-							otherweight -= 256;
-							weight += 256;
-							byteoff += 2;
-							zbuffer++;
-							zbuffer = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)zbuffer);
-							abuffer++;
-							abuffer = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)abuffer);
-						}
-
+					weight -= grad;
+					otherweight -= neg_grad;
+					if (otherweight > 256) {
+						otherweight -= 256;
+						weight += 256;
 						buffer = (unsigned char *)buffer + pitch;
 						zbuffer += zwidth;
 						if (zwidth > 0) {
@@ -2043,20 +1928,134 @@ bool DSurface::Draw_Depth_Antialiased_Line(Rect const & cliprect, Point2D const 
 						} else {
 							abuffer = (unsigned short *)AlphaBuffer->Wrap_Underflow((unsigned int)abuffer);
 						}
-						z += yadjust;
-						i--;
-					} while (i != 0);
-				}
+						z += zwrap;
+					}
 
+					if (adda > 0) {
+						z += astep;
+						adda -= 2 * xcount;
+					}
+
+					adda += adelta2;
+					zbuffer++;
+					zbuffer = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)zbuffer);
+					abuffer++;
+					abuffer = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)abuffer);
+					xoff++;
+					neighoff += 2;
+				} while (xoff < xcount);
 			}
+		} else {
+
+			/*
+			 * The slope is steep -- step the Y axis.
+			 */
+			int adda = adelta2 - abs_dy;
+			int grad = (int)((double)xcount / (double)abs_dy * 256.0);
+			if (abs_dy > 0) {
+				int byteoff = 0;
+				int neg_grad = -grad;
+				int otherweight = 0;
+				int i = abs_dy;
+				do {
+					int cov = *abuffer;
+					if (z < *zbuffer) {
+						if (cov) {
+							int lidx = (int)((double)weight * intensity);
+							int oidx = (int)((double)otherweight * intensity);
+							int nbk = GradientTable[256 - oidx];
+							int lbk = GradientTable[256 - lidx];
+							int nf = GradientTable[oidx];
+							int lf = GradientTable[lidx];
+
+							RGBClass line = Deconstruct_Hicolor_Pixel(*(unsigned short *)((char *)buffer + byteoff));
+							RGBClass neighbor = Deconstruct_Hicolor_Pixel(*(unsigned short *)((char *)buffer + byteoff + 2));
+
+							int outlb = line.Get_Blue();
+							int outnb = neighbor.Get_Blue();
+							int outlr = line.Get_Red();
+							int outnr = neighbor.Get_Red();
+							int outng = neighbor.Get_Green();
+							int outlg = line.Get_Green();
+							if (blend_red) {
+								outlr = (cov * (red * lf + line.Get_Red() * lbk)) >> 15;
+								outnr = (cov * (red * nf + neighbor.Get_Red() * nbk)) >> 15;
+							}
+							if (blend_green) {
+								outlg = (cov * (green * lf + line.Get_Green() * lbk)) >> 15;
+								outng = (cov * (green * nf + neighbor.Get_Green() * nbk)) >> 15;
+							}
+							if (blend_blue) {
+								outlb = (cov * (blue * lf + line.Get_Blue() * lbk)) >> 15;
+								outnb = (cov * (blue * nf + neighbor.Get_Blue() * nbk)) >> 15;
+							}
+
+							int wb = MIN(255, outlb);
+							if (outlg > 255) {
+								outlg = 255;
+							}
+							if (outlr > 255) {
+								outlr = 255;
+							}
+							*(unsigned short *)((char *)buffer + byteoff) = (unsigned short)Build_Hicolor_Pixel(outlr, outlg, wb);
+							if (outnb > 255) {
+								outnb = 255;
+							}
+							if (outng > 255) {
+								outng = 255;
+							}
+							if (outnr > 255) {
+								outnr = 255;
+							}
+							*(unsigned short *)((char *)buffer + byteoff + 2) = (unsigned short)Build_Hicolor_Pixel(outnr, outng, outnb);
+							if (write_depth) {
+								*zbuffer = z;
+							}
+						}
+					}
+
+					weight -= grad;
+					otherweight -= neg_grad;
+					if (otherweight > 256) {
+						otherweight -= 256;
+						weight += 256;
+						byteoff += 2;
+						zbuffer++;
+						zbuffer = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)zbuffer);
+						abuffer++;
+						abuffer = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)abuffer);
+					}
+
+					if (adda > 0) {
+						z += astep;
+						adda -= dy2;
+					}
+
+					adda += adelta2;
+					buffer = (unsigned char *)buffer + pitch;
+					z += zwrap;
+					zbuffer += zwidth;
+					if (zwidth > 0) {
+						zbuffer = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)zbuffer);
+					} else {
+						zbuffer = (unsigned short *)DepthBuffer->Wrap_Underflow((unsigned int)zbuffer);
+					}
+					abuffer += zwidth;
+					if (zwidth > 0) {
+						abuffer = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned int)abuffer);
+					} else {
+						abuffer = (unsigned short *)AlphaBuffer->Wrap_Underflow((unsigned int)abuffer);
+					}
+					i--;
+				} while (i != 0);
+			}
+
 		}
 
-		Unlock();
-		return(true);
 	}
 
 	Unlock();
-	return(false);
+	return(true);
 
 	}
 

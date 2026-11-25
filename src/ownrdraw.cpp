@@ -10657,7 +10657,7 @@ TextNode * NodeList::Add_Node(int length)
 	return node;
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 6501 bytes differ against the image-derived bound 005f4ba0 (6,895 body bytes) (was 6502; the forwarded dropdown result returned on its own path, as ra2-decomp's attempt f9e49e2 separates it; the dropdown's visible rows computed before the count is read, as ra2-decomp's banked form banks/0x00617250_odh.cpp (11df85d) has it; the item-data and selection cases first in the bank's order, RA2 case bodies and fall-through groups kept; the text query's shared result with the signed clamp and the item sentinel tested before null as the bank has them)
+#ifdef RA2_NON_MATCHING // not exact: 6541 bytes differ against the image-derived bound 005f4ba0 (6,895 body bytes) (image-faithful reads; position score 6541, was 6501: the dropdown handle is read from WinData again after ReleaseCapture and after notifying the parent, as the image does at 005f587b and 005f589e (RA2 1.001 cac41ca); owner ruling 2026-11-25; before that 6502; the forwarded dropdown result returned on its own path, as ra2-decomp's attempt f9e49e2 separates it; the dropdown's visible rows computed before the count is read, as ra2-decomp's banked form banks/0x00617250_odh.cpp (11df85d) has it; the item-data and selection cases first in the bank's order, RA2 case bodies and fall-through groups kept; the text query's shared result with the signed clamp and the item sentinel tested before null as the bank has them)
 namespace OwnerDraw {
 
 LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
@@ -10781,11 +10781,11 @@ LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lp
 			return 0;
 		}
 		case CB_SHOWDROPDOWN: {
-			HWND dropdown = (HWND)data->IsEditFocus;
 			if (!wparam) {
-				if (dropdown) {
+				if (data->IsEditFocus) {
 					ReleaseCapture();
-					SendMessageA(GetParent(window), OD_SETTOP, (WPARAM)dropdown, 0);
+					SendMessageA(GetParent(window), OD_SETTOP, data->IsEditFocus, 0);
+					HWND dropdown = (HWND)data->IsEditFocus;
 					DestroyWindow(dropdown);
 					WinData * removed = NULL;
 					Control_Table.getPointer((unsigned int)dropdown, &removed);
@@ -10799,7 +10799,7 @@ LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lp
 				}
 				return 1;
 			}
-			if (dropdown) return 1;
+			if (data->IsEditFocus) return 1;
 			RECT parent_rect, drop_rect;
 			Get_Display_Rect(GetParent(window), &parent_rect);
 			SendMessageA(window, CB_GETDROPPEDCONTROLRECT, 0, (LPARAM)&drop_rect);
@@ -10820,7 +10820,7 @@ LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lp
 			RECT parent_display, combo_display;
 			Get_Display_Rect(GetParent(window), &parent_display);
 			Get_Display_Rect(window, &combo_display);
-			dropdown = CreateWindowExA(0, "ComboDropWin", NULL, WS_CHILD, combo_display.left - parent_display.left,
+			HWND dropdown = CreateWindowExA(0, "ComboDropWin", NULL, WS_CHILD, combo_display.left - parent_display.left,
 				client.bottom + combo_display.top - parent_display.top + 1, client.right, height - height % item_height,
 				GetParent(window), NULL, ProgramInstance, window);
 			WinData * contents = NULL;

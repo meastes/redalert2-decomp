@@ -4,7 +4,7 @@ This project rebuilds the source code of Command & Conquer: Red Alert 2 (the 200
 game, version 1.006 of its `game.exe`) so that, compiled with the compiler Westwood used, it
 produces the original program again, byte for byte, in one source file per original source file,
 laid out like Westwood's own code. Most of the code is adopted from other projects, with credit; the
-largest source is mischa85's RedAlert2 (the split by source is below). What is not yet rebuilt from
+largest source is mischa85's RedAlert2 (STATUS gives the split by source). What is not yet rebuilt from
 source is still taken from the original; [docs/STATUS.md](docs/STATUS.md) says how much. It is a
 decompilation (source code worked back out of a compiled program by hand and with tools), not a
 remake: the game logic is the original's.
@@ -64,8 +64,8 @@ working notes (provenance classes, how the parked tail is worked, rulings) are i
 - **Placeholder names.** Many fields and variables, and some classes, still have honest
   stand-in names where nobody has worked out what they mean yet: a field such as `unknown_0x0c`,
   a class such as `UnknownAnimTechno`.
-- **102 functions not yet exact** (about 84 KB of machine code) are kept as labelled drafts behind
-  a switch; the exact build takes their bytes from the original.
+- **Functions not yet exact** are kept as labelled drafts behind a switch (STATUS counts them); the
+  exact build takes their bytes from the original.
 
 ## How exact matching works
 
