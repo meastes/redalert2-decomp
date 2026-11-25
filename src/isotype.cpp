@@ -1554,7 +1554,7 @@ struct IsoBlitState {
 #pragma pack(pop)
 
 
-#ifdef RA2_NON_MATCHING // not exact: 6013 bytes differ against the image-derived bound 0052c230 (6967 body bytes) (was 6016; the contiguous depth-only span walks its rows through zrow as TibSun isotype.cpp does)
+#ifdef RA2_NON_MATCHING // not exact: 5967 bytes differ against the image-derived bound 0052c230 (6967 body bytes) (was 6013; the clipped origin in separate mutable work_x and work_y, as RobinDigitalPro/ra2-1001-decomp fc60876 src/m85/src/isotype.cpp has it; before that 6016, the contiguous depth-only span walking its rows through zrow as TibSun isotype.cpp does)
 IsoBlitState IsoDrawData;
 unsigned short _iso_row_offsets[ISO_DRAW_WIDTH*ISO_DRAW_HEIGHT];
 unsigned char _iso_start_cols[ISO_DRAW_WIDTH*ISO_DRAW_HEIGHT];
@@ -1669,7 +1669,8 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
 				}
 			}
 		}
-		Point2D work(x, y);
+		int work_x = x;
+		int work_y = y;
 		bool clipped_out = false;
 		AlphaLightingRemapClass * aremap = AlphaLightingRemapInit.Init(drawer->IntensityLevels);
 		IsoDrawData.LightRemap = aremap->Get_Table(brightness);
@@ -1772,7 +1773,7 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
 					spanw = x - cliprect.X + IsoDrawData.SpanWidth;
 					IsoDrawData.ClipLeft = cliprect.X - x;
 					IsoDrawData.SpanWidth = spanw;
-					work.X = cliprect.X;
+					work_x = cliprect.X;
 					if (spanw <= 0) {
 						clipped_out = true;
 					}
@@ -1781,7 +1782,7 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
 					spanh = y - cliprect.Y + IsoDrawData.SpanHeight;
 					IsoDrawData.ClipTop = cliprect.Y - y;
 					IsoDrawData.SpanHeight = spanh;
-					work.Y = cliprect.Y;
+					work_y = cliprect.Y;
 					if (spanh <= 0) {
 						clipped_out = true;
 					}
@@ -1789,8 +1790,8 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
 
 				int right_clip = ISO_DRAW_WIDTH-1;
 				int clip_right = cliprect.Width + cliprect.X;
-				if (work.X + spanw > clip_right) {
-					int overhang = spanw - cliprect.Width - cliprect.X + work.X;
+				if (work_x + spanw > clip_right) {
+					int overhang = spanw - cliprect.Width - cliprect.X + work_x;
 					spanw -= overhang;
 					right_clip -= overhang;
 					IsoDrawData.SpanWidth = spanw;
@@ -1799,8 +1800,8 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
 					}
 				}
 				int clip_bottom = cliprect.Y + cliprect.Height;
-				if (IsoDrawData.SpanHeight + work.Y > clip_bottom) {
-					IsoDrawData.SpanHeight = cliprect.Height - work.Y + cliprect.Y;
+				if (IsoDrawData.SpanHeight + work_y > clip_bottom) {
+					IsoDrawData.SpanHeight = cliprect.Height - work_y + cliprect.Y;
 					if (IsoDrawData.SpanHeight <= 0) {
 						clipped_out = true;
 					}
@@ -1825,7 +1826,7 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
 						IsoDrawData.RowRunLength = &_iso_run_lengths[MAX(0, right_clip)][table_off];
 					}
 					IsoDrawData.SurfacePitch = surface.Stride();
-					IsoDrawData.DestPtr = (unsigned short *)surface.Lock(Point2D(work.X, work.Y));
+					IsoDrawData.DestPtr = (unsigned short *)surface.Lock(Point2D(work_x, work_y));
 					if (IsoDrawData.DestPtr == NULL) {
 						skip_extra = true;
 					} else {
@@ -1835,10 +1836,10 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
 						if (!record->IsHasZData) {
 							use_z = 0;
 						} else if (use_z) {
-							IsoDrawData.DepthPtr = (unsigned short *)DepthBuffer->Get_Buffer_Offset(Point2D(work.X, work.Y - TacticalRect.Y));
+							IsoDrawData.DepthPtr = (unsigned short *)DepthBuffer->Get_Buffer_Offset(Point2D(work_x, work_y - TacticalRect.Y));
 							IsoDrawData.DepthWidth = DepthBuffer->BufferWidth;
 						}
-						arow = (unsigned short *)AlphaBuffer->Get_Buffer_Offset(Point2D(work.X, work.Y - TacticalRect.Y));
+						arow = (unsigned short *)AlphaBuffer->Get_Buffer_Offset(Point2D(work_x, work_y - TacticalRect.Y));
 						IsoDrawData.AlphaPtr = arow;
 						IsoDrawData.AlphaWidth = AlphaBuffer->Get_Buffer_Width();
 						IsoDrawData.SrcPixel = (int)(record + 1);

@@ -214,7 +214,7 @@ void LoadProgressManager::Load_Mixes(void)
 /// <summary>
 /// Whether the local player watches the game instead of playing it.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 1906 bytes differ against the image-derived bound 00535bf0 (3,978 body bytes, 6 padding) (was 3730; all 85 calls and the 0x1184 stack probe match)
+#ifdef RA2_NON_MATCHING // not exact: 1828 bytes differ against the image-derived bound 00535bf0 (3,978 body bytes, 6 padding) (was 1906; the multiplayer unit name drawn into its own Rect, as RobinDigitalPro/ra2-1001-decomp 171f804 has it; before that 3730; all 85 calls and the 0x1184 stack probe match)
 ConvertClass * __cdecl Get_Load_Screen_Drawer(void); // RA2: 0x006F2450
 ConvertClass * __cdecl Get_Load_Screen_Side_Drawer(void); // RA2: 0x006F2470
 ConvertClass * __cdecl Get_Splash_Bar_Drawer(void); // RA2: 0x006F2490
@@ -524,9 +524,9 @@ void LoadProgressManager::Draw(void)
 			wchar_t unit_name[128];
 			wcscpy(unit_name, Unit_Name(side));
 			Upper_Case(unit_name);
-			area = Unit_Area();
+			Rect unit_area = Unit_Area();
 			int unit_pixel = DSurface::Build_Hicolor_Pixel(BlackColor);
-			Draw_Area_Text(unit_name, ProgressSurface, area, unit_pixel, 0);
+			Draw_Area_Text(unit_name, ProgressSurface, unit_area, unit_pixel, 0);
 
 			wchar_t const * brief = Briefing(side);
 			area = Get_Briefing_Area();

@@ -12,7 +12,7 @@ coord,00491750,Coord_Scatter,289,inline_call,173,a,variation_candidates.csv: ra2
 dropship,004a6b90,Dropship_Screen,10797,inline_body,4453,a,"variation_candidates.csv: unsigned VectorClass index (operator[] / body casts) plus caller repairs: reaches the function-wide signedness-conversion window; costs 26 exact rows (47,385 B)",,yes,,,,B,structure,yes,-36588
 foot,004cbb40,FootClass::Search_For_Tiberium_Weighted,1467,inline_body,2,a,variation_candidates.csv: main's inline Tiberium_Value wrapper around each tiberium read (a budget form),,yes,,,,,,,
 init,00519500,Allocate_Surfaces,1118,inline_body,1016,a,variation_candidates.csv: main's inline Memory_Flag(bool) helper,,yes,,,,A,structure,no,1118
-ldprgmgr,00535bf0,LoadProgressManager::Draw,3978,no_row,1906,a,"variation_candidates.csv: codex1 r2698 (refs/c1pk/r2698, 75f8a9f509): the briefing and loading origins bound as `Point2D const & brief_origin = Copy_Point(&area);` / `loading_origin` (a ",,yes,,,,,,,
+ldprgmgr,00535bf0,LoadProgressManager::Draw,3978,no_row,1828,a,"variation_candidates.csv: codex1 r2698 (refs/c1pk/r2698, 75f8a9f509): the briefing and loading origins bound as `Point2D const & brief_origin = Copy_Point(&area);` / `loading_origin` (a ",,yes,,,,,,,
 map,005484e0,MapClass::Set_Map_Dimensions,5322,no_row,3665,a,variation_candidates.csv: a Cell operator+= forwarder in coord.h in the TPoint3D idiom (TPoint2D<short> const & operator += (TPoint2D<short> const & rvalue) {BASECLASS::operator += (rval,,yes,,,,,,,
 map,00569320,MapClass::Can_Repair_Bridge,2109,no_row,3,a,"variation_candidates.csv: kind T (an evidenced twin header form held behind the count-sensitive exact rows map Zone_Reset 0x54EBD0, queue Print_CRCs 0x62A360 and sidebar SelectClass::Act",,yes,,,,,,,
 missile,00593870,Projectile_Motion,2101,no_row,179,a,"variation_candidates.csv: kind C (statement and header forms chosen for the inline budget): codex1 r2713 (refs/c1pk/r2713, 39886119e8): ternaries for cell_distance (`airburst || veryhigh",,yes,,,,,,,
@@ -106,7 +106,7 @@ dsurface,004ac650,DSurface::Draw_Depth_Antialiased_Line,6064,no_row,5842,e,"no r
 fly,004be720,FlyLocomotionClass::Nearing_Target,1633,inline_call,547,e,stays a flagged draft,,yes,,,,A,structure,no,1633
 fly,004bfb30,UnknownFacingDir::Magnitude_At_Least_004bfb30,36,no_draft,,e,no draft yet,,no,,,,,,,
 infantry,,InfantryClass::Is_Immobilized,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
-isotype,0052c230,IsometricTileTypeClass::Draw_Tile,6967,no_row,6013,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
+isotype,0052c230,IsometricTileTypeClass::Draw_Tile,6967,no_row,5967,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 keyboard,,WWKeyboardClass::Noop,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 map,,MapClass::Break_Ice,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 map,,MapClass::Crack_Ice,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,

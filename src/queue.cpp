@@ -3101,7 +3101,7 @@ int Extract_Compressed_Events(void * buf, int bufsize)
 						datasize = sizeof(eventdata.Data.MegaMission.Whom);
 						DebugString("Decoding new MEGAMISSION\n");
 						int index = eventdata.Data.MegaMission.Slot + house * ARRAY_SIZE(MegamissionCounts);
-						memcpy(&MegamissionUnitLists[index][0], &eventdata.Data.MegaMission.Whom, datasize);
+						MegamissionUnitLists[index][0] = eventdata.Data.MegaMission.Whom;
 						int units = 1;
 						SavedUnitCounts[index] = units;
 						if (eventdata.Frame == 0 || eventdata.Type == EventClass::EMPTY) {
