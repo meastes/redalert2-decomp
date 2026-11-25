@@ -1759,8 +1759,8 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
 				IsoDrawData.ClipLeft = 0;
 				IsoDrawData.ClipTop = 0;
 				IsoDrawData.RowSrcOffset = _iso_row_offsets;
-				IsoDrawData.RowStartCol = (unsigned char *)_iso_start_cols;
-				IsoDrawData.RowRunLength = (unsigned char *)_iso_run_lengths;
+				IsoDrawData.RowStartCol = _iso_start_cols;
+				IsoDrawData.RowRunLength = _iso_run_lengths[0];
 
 				/*
 				 * Clip the ISO_DRAW_WIDTHxISO_DRAW_HEIGHT tile diamond against the clip rectangle, adjusting
@@ -1822,8 +1822,8 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
 						}
 						int table_off = clip_x + ISO_DRAW_WIDTH * clip_y;
 						IsoDrawData.RowSrcOffset = &_iso_row_offsets[table_off];
-						IsoDrawData.RowStartCol = (unsigned char *)&_iso_start_cols[table_off];
-						IsoDrawData.RowRunLength = (unsigned char *)&_iso_run_lengths[MAX(0, right_clip)][table_off];
+						IsoDrawData.RowStartCol = &_iso_start_cols[table_off];
+						IsoDrawData.RowRunLength = &_iso_run_lengths[MAX(0, right_clip)][table_off];
 					}
 					IsoDrawData.SurfacePitch = surface.Stride();
 					IsoDrawData.DestPtr = (unsigned short *)surface.Lock(Point2D(work.X, work.Y));

@@ -398,7 +398,7 @@ void Dropship_Screen(void)
 	Point2D screen_origin((HiddenSurface->Get_Width() - drop_width) / 2, (HiddenSurface->Get_Height() - drop_height) / 2);
 
 	PaletteClass palette_data;
-	memmove(&palette_data, (unsigned char *)MFCD::Retrieve("DROPSHIP.PAL"), sizeof(palette_data));
+	memmove(&palette_data, MFCD::Retrieve("DROPSHIP.PAL"), sizeof(palette_data));
 	for (i = 0; i < 256; ++i) {
 		palette_data[i] = RGBClass(palette_data[i].Get_Red() * 4, palette_data[i].Get_Green() * 4, palette_data[i].Get_Blue() * 4);
 	}
@@ -406,7 +406,7 @@ void Dropship_Screen(void)
 	ConvertClass *drawer_dropship = new ConvertClass(palette_data, GamePalette, *VisibleSurface, 53, false); // RA2: the executable passes 53 as the dropship drawer's flags, not 63
 	ConvertClass *drawer_dropship_alpha = new ConvertClass(palette_data, GamePalette, *VisibleSurface, 1, false);
 
-	memmove(&palette_data, (unsigned char *)MFCD::Retrieve("CAMEO.PAL"), sizeof(palette_data));
+	memmove(&palette_data, MFCD::Retrieve("CAMEO.PAL"), sizeof(palette_data));
 	for (i = 0; i < 256; ++i) {
 		palette_data[i] = RGBClass(palette_data[i].Get_Red() * 4, palette_data[i].Get_Green() * 4, palette_data[i].Get_Blue() * 4);
 	}

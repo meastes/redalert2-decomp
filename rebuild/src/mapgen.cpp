@@ -697,17 +697,9 @@ double MapRegionClass::Get_Angle_Score(const Cell & cell1, const Cell & cell2, d
 
 
 
-#ifdef RA2_NON_MATCHING // not exact: 1 of 1678 bytes differ against the image bound (was 313; flagged variation forms if it lands: helper (the seed region built by a file inline, ra2-decomp's banked form banks/0x0058C800_ra2a_zone.cpp (11df85d) Create_Seed_Region; without it the bank falls to 86.2%) and compiler-local (the pending count held across the loop and refreshed after each cell); the side test through the file's In_Zone_Map_Bounds and one shared reset return as in the bank; the one byte is lea esi,[eax+ecx] against [ecx+eax] in the first side test; exact only with the zone-neighbor cell form, which costs Create_Zone_Region 0x575D20 370 bytes, refused)
 static inline bool In_Zone_Map_Bounds(Cell const & cell);
+static inline Cell Offset_Cell(Cell const & cell, int dx, int dy);
 
-
-static inline MapRegionClass * Create_Seed_Region(CellClass * cptr, int cell_height, bool has_water)
-{
-	MapRegionClass * region = new MapRegionClass(cptr->Fetch_CellID());
-	region->CellHeight = cell_height;
-	region->ContainsWater = has_water;
-	return(region);
-}
 
 /// <summary>
 /// Creates a region grown out from a seed cell.
@@ -740,18 +732,15 @@ MapRegionClass * MapRegionClass::Create_Region_From_Cell(CellClass * cptr) // RA
 		CellData::Set_Spread(cell, region_id);
 		CellData::Set_Region(cell, region_id);
 
-		Cell ncell;
 		for (i = 0; i < FACING_COUNT; i++) {
-			ncell = Adjacent_Cell(cell, (FacingType)i);
+			Cell ncell = Adjacent_Cell(cell, (FacingType)i);
 			CellData & ndata = MapRegionClass::Get_Cell_Data(ncell);
-			if (My_In_Radar(ncell)) {
-				if (ndata.RegionID == -1 && ndata.SpreadID != region_id) {
-					ndata.SpreadID = region_id;
-					if (Map[ncell].Height == cell_height) {
-						int n_has_water = Map[ncell].Is_Tile_With_Water() || Map[ncell].Is_Tile_Clear_To_Green_LAT();
-						if (!(has_water ^ n_has_water)) {
-							cells.Add(ncell);
-						}
+			if (My_In_Radar(ncell) && ndata.RegionID == -1 && ndata.SpreadID != region_id) {
+				ndata.SpreadID = region_id;
+				if (Map[ncell].Height == cell_height) {
+					int n_has_water = Map[ncell].Is_Tile_With_Water() || Map[ncell].Is_Tile_Clear_To_Green_LAT();
+					if (!(has_water ^ n_has_water)) {
+						cells.Add(ncell);
 					}
 				}
 			}
@@ -768,33 +757,25 @@ MapRegionClass * MapRegionClass::Create_Region_From_Cell(CellClass * cptr) // RA
 			DynamicVectorClass<Cell> * region_cells = RandomMapGen.Build_Region_Border_Cell_List(0);
 			Cell region_cell = (*region_cells)[Pick_Random_UInt(0, region_cells->Count() - 1)];
 
-			Cell ncell;
 			for (i = 0; i < FACING_COUNT; i++) {
-				ncell = Adjacent_Cell(region_cell, (FacingType)i);
-				if (My_In_Radar(ncell)) {
-					if (Map[ncell].Height != Map[region_cell].Height && !Map[ncell].Is_Tile_With_Water()) {
-						int height = Map[ncell].Height;
+				Cell ncell = Adjacent_Cell(region_cell, (FacingType)i);
+				if (My_In_Radar(ncell) && Map[ncell].Height != Map[region_cell].Height && !Map[ncell].Is_Tile_With_Water()) {
+					RandomMapGen.Clear_Region_Cells(0, -1, Map[ncell].Height, ISOTILE_CLEAR);
 
-						RandomMapGen.Clear_Region_Cells(0, -1, height, ISOTILE_CLEAR);
-
-						reset_done = true;
-						break;
-					}
+					reset_done = true;
+					break;
 				}
 			}
 
 			delete region_cells;
 		} else {
-			Cell side_cell = cptr->Fetch_CellID() - Cell(1, 0); // RA2: try west first, then fetch the origin again for the northern neighbor
-			if (!In_Zone_Map_Bounds(side_cell)) {
-				side_cell = cptr->Fetch_CellID() - Cell(0, 1);
+			Cell side_cell = Offset_Cell(cptr->Fetch_CellID(), -1, 0);
+			if (!My_In_Radar(side_cell)) {
+				side_cell = Offset_Cell(cptr->Fetch_CellID(), 0, -1);
 			}
 
-			if (My_In_Radar(side_cell)) {
-				int id = CellData::Get_Region(side_cell);
-				int height = Map[side_cell].Height;
-
-				RandomMapGen.Clear_Region_Cells(region_id, id, height, ISOTILE_CLEAR);
+			if (In_Zone_Map_Bounds(side_cell)) {
+				RandomMapGen.Clear_Region_Cells(region_id, CellData::Get_Region(side_cell), Map[side_cell].Height, ISOTILE_CLEAR);
 
 				reset_done = true;
 			}
@@ -805,11 +786,12 @@ MapRegionClass * MapRegionClass::Create_Region_From_Cell(CellClass * cptr) // RA
 		}
 	}
 
-	MapRegionClass * region = Create_Seed_Region(cptr, cell_height, has_water);
+	MapRegionClass * region = new MapRegionClass(cptr->Fetch_CellID());
+	region->CellHeight = cell_height;
+	region->ContainsWater = has_water;
 	region->Recount_Cells();
 	return(region);
 }
-#endif
 
 
 
@@ -2831,6 +2813,15 @@ MapRegionClass * MapRegionClass::From_ID(int id)
 /// <summary>
 /// RA2: is the cell within the playable diamond? (My_In_Radar with RA2's register use)
 /// </summary>
+/*
+**	RA2: the cell moved by (dx, dy); Create_Region_From_Cell's two side cells come through it (ra2-decomp 9f31c93,
+**	which took it from main's reconstruction).
+*/
+static inline Cell Offset_Cell(Cell const & cell, int dx, int dy)
+{
+	return Cell(cell.X + dx, cell.Y + dy);
+}
+
 static inline bool In_Zone_Map_Bounds(Cell const & cell)
 {
 	int x = cell.X;

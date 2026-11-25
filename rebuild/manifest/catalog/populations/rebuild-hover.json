@@ -237,6 +237,34 @@
   },
   "regions": [
     {
+      "entry": 4979552,
+      "method": "004bfb60",
+      "body_bytes": 37,
+      "body_sha256": "e856ed635c8c02fabc9769a85979334576e6053da8f68c93dcf55d518d4205ff",
+      "padding_bytes": 11,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "013d2a42fd2c7d2a6daacaeefd01e10287655d1d4ba566a8eb0b90dea087f22c",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$TPoint2D@H@@QBE_NABV0@@Z",
+      "symbol_prefix": "??8?$TPoint2D@H@@QBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "0e118b2b94368e4777b81c6055d7a26de06ccedd9ae5f3b28022563dfba2750e",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 4979552,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2508"
+    },
+    {
       "entry": 5224160,
       "method": "004fb6e0",
       "body_bytes": 40,
