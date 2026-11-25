@@ -33,8 +33,8 @@
 #include "surface.h"
 #include "voc.h"
 #include "windlg.h"
-#include "srfcache.h" // RA2
-#include "dsurface.h" // RA2
+#include "srfcache.h"
+#include "dsurface.h"
 
 Surface * __fastcall Country_Flag(int country); // RA2: 0x4D1120, the flag image of a country (-2 random, -3 observer)
 Rect __fastcall Get_Title_Screen_Area(void); // RA2: 0x6F1F30

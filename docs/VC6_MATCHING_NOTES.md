@@ -5426,3 +5426,11 @@ replacements on a function text, spliced and scored), reorder.py (case blocks of
   end is `return 0` and a `return 0` written in the case are two texts for the tail merge.
 - The copied build/r/last was current enough here: `fastcat.py catalog` rechecked nine units by itself and wrote the
   catalog in under a minute; only the worked unit's population changed.
+- sidebar StripClass::Draw_It 0x67F800 (left at 6 bytes; draft unchanged): the order of the three channel terms
+  follows where the pixel is evaluated, not only how it is spelled. From the by-value copy: a named local through
+  the inline gives Blue, Green, Red (the draft); the same call written as the Draw_Rect argument, or inside an
+  inline helper taking the colour by value, gives Green, Blue, Red (36 B); the expression written out in place of
+  the inline (Red | Green | Blue) is evaluated first term, third, second: Red, Blue, Green. The image's Blue, Red,
+  Green is none of these with a reference's operand order. ra2-decomp's two statements exactly as written (the
+  copy read through the three accessors, the text pixel straight from the global) are 45 B and turn
+  SelectClass::Action by 4 B through the added local.

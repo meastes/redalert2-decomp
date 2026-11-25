@@ -48,12 +48,12 @@ struct VQACacheHeader {
 	unsigned char	*file_buffer;
 };
 
-class MovieSubtitles; // RA2
+class MovieSubtitles;
 
 class VQAClass
 {
 	public:
-		MovieSubtitles * Subtitles; // RA2
+		MovieSubtitles * Subtitles;
 	private:
 		CCFileClass FileHandle;
 		bool IsFileOpen;

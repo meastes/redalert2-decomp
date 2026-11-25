@@ -183,7 +183,7 @@ void MessageListClass::Init(int x, int y, int max_msg, int maxchars,
 	int over_end, int width)
 {
 	Width = width - 8;
-	DebugString("MessageListClass::Init(Width: %d)\n", width - 8); // RA2: RA2's form
+	DebugString("MessageListClass::Init(Width: %d)\n", width - 8);
 	TextLabelClass * node = MessageList;
 	while (node) {
 		MessageList = (TextLabelClass *)node->Remove();
@@ -638,7 +638,7 @@ TextLabelClass * MessageListClass::Add_Edit(int color, // RA2: YR's wide-text fo
 void MessageListClass::Remove_Edit(void)
 {
 	if (IsEdit) {
-		IsEdit = false; // RA2: RA2's form
+		IsEdit = false;
 		delete EditLabel;
 		IME_Stub1();
 		if (AdjustEdit) {

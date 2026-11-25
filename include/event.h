@@ -45,7 +45,7 @@
 
 #include <cstring>
 
-class IPXAddressClass; // RA2
+class IPXAddressClass;
 
 /*
 **	This event class is used to contain all external game events (things that the player can
@@ -80,7 +80,7 @@ class EventClass
 			SCATTER,        // Request to scatter from current location.
 			DESTRUCT,       // Self destruct request (surrender action).
 			DEPLOY,         // MCV is to deploy at current location.
-			DETONATE,       // RA2
+			DETONATE,
 			PLACE,          // Place building at location specified.
 			OPTIONS,        // Bring up options screen.
 			GAMESPEED,      // Set game speed
@@ -117,15 +117,15 @@ class EventClass
 			REMOVEPLAYER,
 
 			LATENCYFUDGE,
-			MEGAFRAMEINFO,		// RA2
-			PACKET_TIMING,		// RA2
-			ABOUT_TO_EXIT,		// RA2
-			FALLBACK_HOST,		// RA2
-			ADDRESS_CHANGE,		// RA2
-			PLAN_CONNECT,		// RA2
-			PLAN_COMMIT,		// RA2
-			PLAN_NODE_DELETE,	// RA2
-			ALL_CHEER,			// RA2
+			MEGAFRAMEINFO,
+			PACKET_TIMING,
+			ABOUT_TO_EXIT,
+			FALLBACK_HOST,
+			ADDRESS_CHANGE,
+			PLAN_CONNECT,
+			PLAN_COMMIT,
+			PLAN_NODE_DELETE,
+			ALL_CHEER,
 
 			LAST_EVENT,			// one past the last event
 		};
@@ -177,8 +177,8 @@ class EventClass
 				char Slot;			// RA2: saved megamission list slot
 				xTargetClass	Target;			// Target to assign.
 				xTargetClass	Destination;	// Destination to assign.
-				xTargetClass	Follow;			// RA2
-				char			IsPlanningEvent;	// RA2
+				xTargetClass Follow;
+				char IsPlanningEvent;
 			} MegaMission;
 			struct {
 				xTargetClass	Whom;           // Whom to apply mission to.
@@ -203,12 +203,12 @@ class EventClass
 			struct {
 				RTTIType		Type;
 				int			ID;
-				BOOL			IsNaval;		// RA2
+				BOOL IsNaval;
 			} Specific;
 			struct {
 				RTTIType		Type;
-				int			ID;				// RA2
-				BOOL			IsNaval;		// RA2
+				int ID;
+				BOOL IsNaval;
 				xCell			Where;
 			} Place;
 			struct {
@@ -280,10 +280,10 @@ class EventClass
 		EventClass(int index, TargetClass src, MissionType mission, TargetClass target, TargetClass destination, SpeedType speed, MPHType maxspeed);
 
 		EventClass(int index, unsigned char type, RTTIType object, int id);
-		EventClass(int index, unsigned char type, RTTIType object, int id, BOOL naval); // RA2
-		EventClass(int index, unsigned char type, RTTIType object, int id, Cell const & cell); // RA2
-		EventClass(int index, unsigned char type, RTTIType object, int id, BOOL naval, Cell const & cell); // RA2
-		EventClass(int index, IPXAddressClass & addr, signed char value); // RA2
+		EventClass(int index, unsigned char type, RTTIType object, int id, BOOL naval);
+		EventClass(int index, unsigned char type, RTTIType object, int id, Cell const & cell);
+		EventClass(int index, unsigned char type, RTTIType object, int id, BOOL naval, Cell const & cell);
+		EventClass(int index, IPXAddressClass & addr, signed char value);
 		EventClass(int index, unsigned char type, RTTIType object, Cell const & cell);
 		EventClass(int index, unsigned char type, int id, Cell const & cell);
 		EventClass(int index, AnimType anim, HousesType owner, Coord const & coord);

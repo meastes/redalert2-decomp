@@ -16,18 +16,18 @@
 
 
 #include "teleport.h"
-#include "map.h" // RA2
-#include "cell.h" // RA2
-#include "overtype.h" // RA2
-#include "voc.h" // RA2
-#include "unittype.h" // RA2
-#include "unit.h" // RA2
-#include "parasite.h" // RA2
-#include "bullet.h" // RA2
-#include "anim.h" // RA2
+#include "map.h"
+#include "cell.h"
+#include "overtype.h"
+#include "voc.h"
+#include "unittype.h"
+#include "unit.h"
+#include "parasite.h"
+#include "bullet.h"
+#include "anim.h"
 #include "_map.h"
-#include "_rules.h" // RA2
-#include "rules.h" // RA2
+#include "_rules.h"
+#include "rules.h"
 
 #include "foot.h"
 #include "globals.h"

@@ -63,11 +63,11 @@
 #include "unit.h"
 #include "unittype.h"
 #include "vox.h"
-#include "iloco.h" // RA2
-#include "ipiggy.h" // RA2
-#include "scenario.h" // RA2
-#include "rules.h" // RA2
-#include "infatype.h" // RA2
+#include "iloco.h"
+#include "ipiggy.h"
+#include "scenario.h"
+#include "rules.h"
+#include "infatype.h"
 FootClass * _Create_Group(TeamTypeClass const * teamtype);
 static bool _Pop_Group_Out_Of_Object(FootClass * group, TechnoClass * object);
 

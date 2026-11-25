@@ -41,7 +41,7 @@
 class UnitClass;
 class BuildingClass;
 class WaypointClass;
-class ParasiteClass; // RA2
+class ParasiteClass;
 struct PathStruct;
 
 
@@ -425,13 +425,13 @@ class FootClass : public TechnoClass
 		virtual bool Is_Moving_Onto_Bridge(TechnoClass * docker = NULL) const override; // RA2: the docking object
 		virtual bool Occupies_Cells(void) const override {return(IsOccupyingCell);};
 		virtual void Delete_Me(void) override;
-		virtual void ReceiveGunner(FootClass * gunner); // RA2
-		virtual void RemoveGunner(FootClass * gunner); // RA2
+		virtual void ReceiveGunner(FootClass * gunner);
+		virtual void RemoveGunner(FootClass * gunner);
 		virtual bool Should_Delete_Off_Map(void);
 		virtual bool Is_Considered_Slow(void);
 		virtual bool Deploy_To_Fire(void) const {return(false);};
-		virtual void AddSensorsAt(Cell cell); // RA2
-		virtual void RemoveSensorsAt(Cell cell); // RA2
+		virtual void AddSensorsAt(Cell cell);
+		virtual void RemoveSensorsAt(Cell cell);
 		virtual bool IsParalyzed(void) const override; // RA2: 0x4CD080
 		virtual void IronCurtain(int duration) override; // RA2: 0x4CD3F0
 		virtual bool Crash(ObjectClass * killer) override; // RA2: 0x4CD4B0
@@ -472,7 +472,7 @@ class FootClass : public TechnoClass
 		virtual bool Is_Allowed_To_Leave_Map(void) const override;
 		virtual bool Is_Docked_For_Repair(void);
 		void Link_DropPod(void);
-		void Abort_Motion(void); // RA2
+		void Abort_Motion(void);
 		Cell Move_Order(Cell const & where, bool consider_fog);
 
 		/*
@@ -522,9 +522,9 @@ class FootClass : public TechnoClass
 		BuildingClass * Find_Adjacent_Overpowerable(void); // RA2: 0x4C45B0 (meastes unknown_4c45b0), the first adjacent Overpowerable building of this object's owner
 		bool Execute_Waypoint_Path(WaypointClass * waypoint); // RA2: returns whether the click succeeded (bool in al at 0x4CB110)
 		virtual int Offload_Tiberium_Bail(void);
-		virtual BuildingClass * TryNearestDockBuilding(TypeList<BuildingTypeClass *> * list, unsigned unk2, unsigned unk3) const; // RA2
-		virtual BuildingClass * FindCloserDockBuilding(BuildingTypeClass * type, unsigned unk2, unsigned unk3, int * distance) const; // RA2
-		virtual BuildingClass * FindNearestDockBuilding(BuildingTypeClass * type, unsigned unk2, unsigned unk3) const; // RA2
+		virtual BuildingClass * TryNearestDockBuilding(TypeList<BuildingTypeClass *> * list, unsigned unk2, unsigned unk3) const;
+		virtual BuildingClass * FindCloserDockBuilding(BuildingTypeClass * type, unsigned unk2, unsigned unk3, int * distance) const;
+		virtual BuildingClass * FindNearestDockBuilding(BuildingTypeClass * type, unsigned unk2, unsigned unk3) const;
 		virtual AbstractClass * Greatest_Threat(ThreatType threat, Coord const & coord, bool) const override;
 		virtual void Detach(AbstractClass const * target, bool all) override;
 		virtual void Detach_All(bool all=true) override;

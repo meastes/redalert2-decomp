@@ -29,7 +29,7 @@
 /// <param name="image_size">The backdrop offset that the item coordinates are relative to.</param>
 /// <returns>Returns with a pointer to the item created. If the section names no item
 /// identifier, then NULL is returned.</returns>
-GraphicMenuItem * GM_Read_Image_Item(Wstring const & name, INIClass const & ini, MSEngine & engine, Point2D & image_size) // RA2
+GraphicMenuItem * GM_Read_Image_Item(Wstring const & name, INIClass const & ini, MSEngine & engine, Point2D & image_size)
 {
 	int id = ini.Get_Int(name, "ID", -1);
 	if (id == -1) {
@@ -44,11 +44,11 @@ GraphicMenuItem * GM_Read_Image_Item(Wstring const & name, INIClass const & ini,
 	active_rect = ini.Get_Rect(name, "ActiveRect", active_rect);
 	active_rect += image_size;
 
-	Wstring image; // RA2
+	Wstring image;
 	Wstring highlighted;
 	Wstring disabled;
 
-	ini.Get_String(name, "Image", "", image); // RA2
+	ini.Get_String(name, "Image", "", image);
 	ini.Get_String(name, "Highlighted", "", highlighted);
 	ini.Get_String(name, "Disabled", "", disabled);
 	Wstring highlight_sound;
@@ -74,20 +74,20 @@ GraphicMenuItem * GM_Read_Image_Item(Wstring const & name, INIClass const & ini,
 /// <param name="disabled_image">Filename of the artwork shown while disabled.</param>
 /// <param name="highlight_sound">Filename of the sound to play as this item is selected.</param>
 /// <param name="select_vq">Filename of the movie to play when this item is chosen.</param>
-GraphicMenuImageItem::GraphicMenuImageItem(int id, MSEngine & engine, Point2D const & origin, Rect const & rect, Wstring const & image, Wstring const & highlight_image, Wstring const & disabled_image, Wstring const & highlight_sound, Wstring const & select_vq) : // RA2
+GraphicMenuImageItem::GraphicMenuImageItem(int id, MSEngine & engine, Point2D const & origin, Rect const & rect, Wstring const & image, Wstring const & highlight_image, Wstring const & disabled_image, Wstring const & highlight_sound, Wstring const & select_vq) :
 	GraphicMenuItem(id),
 	Engine(&engine),
-	ActiveRect(rect), // RA2
+	ActiveRect(rect),
 	Image(NULL),
 	HighlightImage(NULL),
 	DisabledImage(NULL),
 	HighlightSound(NULL)
 {
-	HighlightSound = highlight_sound.length() > 0 ? new MSSfxEntry("HighlightSound", highlight_sound) : NULL; // RA2
+	HighlightSound = highlight_sound.length() > 0 ? new MSSfxEntry("HighlightSound", highlight_sound) : NULL;
 
-	SelectVQ = select_vq; // RA2
+	SelectVQ = select_vq;
 
-	if (highlight_image.length() > 0) { // RA2
+	if (highlight_image.length() > 0) {
 		HighlightImage = new MSPCXAnim(highlight_image, engine.Get_Anims(), origin, true);
 		if (HighlightImage != NULL) {
 			HighlightImage->Set_Active(false);
@@ -95,14 +95,14 @@ GraphicMenuImageItem::GraphicMenuImageItem(int id, MSEngine & engine, Point2D co
 		}
 	}
 
-	if (image.length() > 0) { // RA2
+	if (image.length() > 0) {
 		Image = new MSPCXAnim(image, engine.Get_Anims(), origin, true);
 		if (Image != NULL) {
 			engine.Add_Animation(Image);
 		}
 	}
 
-	if (disabled_image.length() > 0) { // RA2
+	if (disabled_image.length() > 0) {
 		DisabledImage = new MSPCXAnim(disabled_image, engine.Get_Anims(), origin, true);
 		if (DisabledImage != NULL) {
 			DisabledImage->Set_Active(false);

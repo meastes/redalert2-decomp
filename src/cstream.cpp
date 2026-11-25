@@ -307,7 +307,7 @@ HRESULT CStreamClass::Write(const void *pv, ULONG cb, ULONG *pcbWritten)
 		return(E_POINTER);
 	}
 
-	if ((long)cb < 0) {	// RA2
+	if ((long)cb < 0) {
 		return(E_INVALIDARG);
 	}
 
@@ -327,7 +327,7 @@ HRESULT CStreamClass::Write(const void *pv, ULONG cb, ULONG *pcbWritten)
 		}
 
 		if (CurOffset > 0) {
-			write_size = (int)cb < BUFFER_SIZE - CurOffset ? cb : BUFFER_SIZE - CurOffset;	// RA2
+			write_size = (int)cb < BUFFER_SIZE - CurOffset ? cb : BUFFER_SIZE - CurOffset;
 
 			memmove((unsigned char *)DataBuffer + CurOffset, ptr, write_size);
 			temp_size = write_size + CurOffset;
@@ -360,7 +360,7 @@ HRESULT CStreamClass::Write(const void *pv, ULONG cb, ULONG *pcbWritten)
 		}
 
 		if (pcbWritten) {
-			*pcbWritten = cb;	// RA2
+			*pcbWritten = cb;
 		}
 	}
 

@@ -81,14 +81,14 @@
 #include "vector.h"
 #include "wspipx.h"
 #include "wsproto.h"
-#include "wspudp.h"	// RA2
+#include "wspudp.h"
 
 wchar_t * __fastcall Narrow_To_Wide(char const * narrow);	// RA2: 0x006FA180, a static buffer
 
 
 wchar_t * __fastcall Narrow_To_Wide(char const * narrow); // RA2: 0x006FA180, a static buffer
 
-#include "ownertalk.h"	// RA2
+#include "ownertalk.h"
 
 
 /***************************************************************************
@@ -315,7 +315,7 @@ int IPXManagerClass::Init(void)
 	// Allocate the Global Channel
 	//------------------------------------------------------------------------
 	GlobalChannel = new IPXGlobalConnClass (Glb_NumPackets, Glb_NumPackets * 2,
-		Glb_MaxPacketLen, ProductID, 0x1236); // RA2: RA2's form, as in YR's body; TibSun's form does not match
+		Glb_MaxPacketLen, ProductID, 0x1236); // RA2: as in YR's body
 	if (!GlobalChannel) {
 		return(0);
 	}
@@ -660,7 +660,7 @@ int IPXManagerClass::Delete_Connection(int id)
  *=========================================================================*/
 int IPXManagerClass::Num_Connections(void)
 {
-	return NumConnections; // RA2: RA2's form, as in YR's body; TibSun's form does not match
+	return NumConnections; // RA2: as in YR's body
 }
 
 
@@ -682,9 +682,9 @@ int IPXManagerClass::Num_Connections(void)
 int IPXManagerClass::Connection_ID(int index)
 {
 	if (index >= 0 && index < NumConnections) {
-		return Connection[index]->ID; // RA2: RA2's form, as in YR's body; TibSun's form does not match
+		return Connection[index]->ID; // RA2: as in YR's body
 	}
-	return CONNECTION_NONE; // RA2: RA2's form, as in YR's body; TibSun's form does not match
+	return CONNECTION_NONE; // RA2: as in YR's body
 }
 
 
@@ -703,16 +703,16 @@ int IPXManagerClass::Connection_ID(int index)
  * HISTORY:                                                                *
  *   01/19/1995 BR : Created.                                              *
  *=========================================================================*/
-wchar_t *IPXManagerClass::Connection_Name(int id) // RA2: RA2's form, as in YR's body; TibSun's form does not match
+wchar_t * IPXManagerClass::Connection_Name(int id) // RA2: as in YR's body
 {
 	int i;
 
 	for (i = 0; i < NumConnections; i++) {
 		if (Connection[i]->ID == id) {
-			return Connection[i]->Name; // RA2: RA2's form, as in YR's body; TibSun's form does not match
+			return Connection[i]->Name; // RA2: as in YR's body
 		}
 	}
-	return NULL; // RA2: RA2's form, as in YR's body; TibSun's form does not match
+	return NULL; // RA2: as in YR's body
 }
 
 
@@ -737,10 +737,10 @@ IPXAddressClass * IPXManagerClass::Connection_Address(int id)
 
 	for (i = 0; i < NumConnections; i++) {
 		if (Connection[i]->ID == id) {
-			return &Connection[i]->Address; // RA2: RA2's form, as in YR's body; TibSun's form does not match
+			return &Connection[i]->Address; // RA2: as in YR's body
 		}
 	}
-	return NULL; // RA2: RA2's form, as in YR's body; TibSun's form does not match
+	return NULL; // RA2: as in YR's body
 }
 
 
@@ -765,10 +765,10 @@ int IPXManagerClass::Connection_Index(int id)
 
 	for (i = 0; i < NumConnections; i++) {
 		if (Connection[i]->ID == id) {
-			return i; // RA2: RA2's form, as in YR's body; TibSun's form does not match
+			return i; // RA2: as in YR's body
 		}
 	}
-	return CONNECTION_NONE; // RA2: RA2's form, as in YR's body; TibSun's form does not match
+	return CONNECTION_NONE; // RA2: as in YR's body
 }
 
 int IPXManagerClass::Index_Of_Connection(IPXConnClass * connection) // RA2: 0x005257B0 vtable slot 19
@@ -930,9 +930,9 @@ int IPXManagerClass::Get_Global_Message(void *buf, int *buflen,
 	//------------------------------------------------------------------------
 	// Error if IPX not installed or not Listening
 	//------------------------------------------------------------------------
-	if (!IPXStatus || !Listening) return 0; // RA2: RA2's form, as in YR's body; TibSun's form does not match
+	if (!IPXStatus || !Listening) return 0; // RA2: as in YR's body
 
-	return GlobalChannel->Get_Packet(buf, buflen, address, product_id); // RA2: RA2's form, as in YR's body; TibSun's form does not match
+	return GlobalChannel->Get_Packet(buf, buflen, address, product_id); // RA2: as in YR's body
 }
 
 int IPXManagerClass::Peek_Global_Message(int index, void *buf, int *buflen, IPXAddressClass *address, // RA2: the lobby channel (magic 0xCDEF, members +0x18/+0x1C) and the multicast channel are part of the RA2 class
@@ -1017,7 +1017,7 @@ int IPXManagerClass::Send_Private_Message(void *buf, int buflen, int ack_req,
 	// Error if IPX not installed or not Listening
 	//------------------------------------------------------------------------
 	if (!IPXStatus || !Listening || (NumConnections == 0)) {
-		return 0; // RA2: RA2's form, as in YR's body; TibSun's form does not match
+		return 0; // RA2: as in YR's body
 	}
 
 	//------------------------------------------------------------------------
@@ -1032,7 +1032,7 @@ int IPXManagerClass::Send_Private_Message(void *buf, int buflen, int ack_req,
 		}
 
 		for (i = 0; i < NumConnections; i++) {
-			if (Connection[i]->Queue->Num_Send() == Connection[i]->Queue->Max_Send()) { // RA2: RA2's form, as in YR's body; TibSun's form does not match
+			if (Connection[i]->Queue->Num_Send() == Connection[i]->Queue->Max_Send()) { // RA2: as in YR's body
 				{ SendOverflows++; return 0; }
 			}
 		}
@@ -1041,9 +1041,9 @@ int IPXManagerClass::Send_Private_Message(void *buf, int buflen, int ack_req,
 		// Send packet to all connections
 		//.....................................................................
 		for (i = 0; i < NumConnections; i++) {
-			Connection[i]->Send_Packet(buf, buflen, ack_req, 0); // RA2: RA2's form, as in YR's body; TibSun's form does not match
+			Connection[i]->Send_Packet(buf, buflen, ack_req, 0); // RA2: as in YR's body
 		}
-		return 1; // RA2: RA2's form, as in YR's body; TibSun's form does not match
+		return 1; // RA2: as in YR's body
 	}
 
 	//------------------------------------------------------------------------
@@ -1051,12 +1051,12 @@ int IPXManagerClass::Send_Private_Message(void *buf, int buflen, int ack_req,
 	//------------------------------------------------------------------------
 	connect_idx = Connection_Index(conn_id);
 	if (connect_idx == CONNECTION_NONE) {
-		{ SendOverflows++; return 0; } // RA2: RA2's form, as in YR's body; TibSun's form does not match
+		{ SendOverflows++; return 0; } // RA2: as in YR's body
 	}
-	if (Connection[connect_idx]->Queue->Num_Send() == Connection[connect_idx]->Queue->Max_Send()) { // RA2: RA2's form, as in YR's body; TibSun's form does not match
+	if (Connection[connect_idx]->Queue->Num_Send() == Connection[connect_idx]->Queue->Max_Send()) { // RA2: as in YR's body
 		{ SendOverflows++; return 0; }
 	}
-	Connection[connect_idx]->Send_Packet(buf, buflen, ack_req, 0); // RA2: RA2's form, as in YR's body; TibSun's form does not match
+	Connection[connect_idx]->Send_Packet(buf, buflen, ack_req, 0); // RA2: as in YR's body
 	return 1;
 }
 
@@ -1088,7 +1088,7 @@ int IPXManagerClass::Get_Private_Message(void *buf, int *buflen, int *conn_id)
 	// Error if IPX not installed or not Listening
 	//------------------------------------------------------------------------
 	if (!IPXStatus || !Listening || (NumConnections == 0)) {
-		return 0; // RA2: RA2's form, as in YR's body; TibSun's form does not match
+		return 0; // RA2: as in YR's body
 	}
 
 	//------------------------------------------------------------------------
@@ -1118,14 +1118,14 @@ int IPXManagerClass::Get_Private_Message(void *buf, int *buflen, int *conn_id)
 		//.....................................................................
 		if (rc) {
 			(*conn_id) = c_id;
-			return 1; // RA2: RA2's form, as in YR's body; TibSun's form does not match
+			return 1; // RA2: as in YR's body
 		}
 	}
 
-	return 0; // RA2: RA2's form, as in YR's body; TibSun's form does not match
+	return 0; // RA2: as in YR's body
 }
 
-bool IPXManagerClass::Forward_Router_Packet(CommHeaderType *packet, void *buf, int buflen, // RA2: RA2's form, as in YR's body; TibSun's form does not match
+bool IPXManagerClass::Forward_Router_Packet(CommHeaderType * packet, void * buf, int buflen, // RA2: as in YR's body
 	IPXAddressClass *from, unsigned short port) // RA2: 0x00525DC0 an internet game's packet that came through (or is for) the packet router
 {
 	static unsigned long loopback[2] = { 0, htonl(0x7F000001) };
@@ -1449,7 +1449,7 @@ void IPXManagerClass::Set_Connection_Address(int id, IPXAddressClass *address) /
  *=========================================================================*/
 int IPXManagerClass::Get_Bad_Connection(void)
 {
-	return BadConnection; // RA2: RA2's form, as in YR's body; TibSun's form does not match
+	return BadConnection; // RA2: as in YR's body
 }
 
 
@@ -1473,7 +1473,7 @@ int IPXManagerClass::Global_Num_Send(void)
 	//------------------------------------------------------------------------
 	// Error if IPX not installed or not Listening
 	//------------------------------------------------------------------------
-	if (!IPXStatus || !Listening) return 0; // RA2: RA2's form, as in YR's body; TibSun's form does not match
+	if (!IPXStatus || !Listening) return 0; // RA2: as in YR's body
 
 	return GlobalChannel->Queue->Num_Send();
 }
@@ -1609,7 +1609,7 @@ int IPXManagerClass::Private_Num_Receive(int id)
 	//------------------------------------------------------------------------
 	// Error if IPX not installed or not Listening
 	//------------------------------------------------------------------------
-	if (!IPXStatus || !Listening || (NumConnections==0)) { // RA2: RA2's form, as in YR's body; TibSun's form does not match
+	if (!IPXStatus || !Listening || (NumConnections == 0)) { // RA2: as in YR's body
 		return(0);
 	}
 
@@ -1778,7 +1778,7 @@ unsigned int IPXManagerClass::Multicast_Response_Time(void) // RA2: 0x00526C70
 /// the session statistics, so that the end of game screen can report on how well the
 /// network behaved. The local player's own connection is passed over.
 /// </summary>
-namespace OwnerDraw { // RA2: RA2's form, as in YR's body; TibSun's form does not match
+namespace OwnerDraw { // RA2: as in YR's body
 void __fastcall WideToCharString(char * dest, wchar_t const * src, int count);
 }
 
@@ -1927,7 +1927,7 @@ void IPXManagerClass::Reset_Response_Time(bool zero)
 		Connection[i]->Queue->Reset_Response_Time(zero);
 	}
 
-	if (GlobalChannel) { // RA2: RA2's form, as in YR's body; TibSun's form does not match
+	if (GlobalChannel) { // RA2: as in YR's body
 		GlobalChannel->Queue->Reset_Response_Time(true);
 	}
 	if (LobbyChannel) { // RA2: the lobby channel (magic 0xCDEF, members +0x18/+0x1C) and the multicast channel are part of the RA2 class
@@ -2051,13 +2051,13 @@ void IPXManagerClass::Set_Bridge(NetNumType bridge)
  * HISTORY:                                                                *
  *   05/31/1995 BRR : Created.                                             *
  *=========================================================================*/
-void IPXManagerClass::Configure_Debug(int index, int type_offset, int type_size, // RA2: RA2's form, as in YR's body; TibSun's form does not match
+void IPXManagerClass::Configure_Debug(int index, int type_offset, int type_size, // RA2: as in YR's body
 	char ** names, int namestart, int namecount)
 {
-	if (index == CONNECTION_NONE) { // RA2: RA2's form, as in YR's body; TibSun's form does not match
+	if (index == CONNECTION_NONE) { // RA2: as in YR's body
 		GlobalChannel->Queue->Configure_Debug(type_offset, type_size, names,
 			namestart, namecount);
-	} else if (Connection[index]) { // RA2: RA2's form, as in YR's body; TibSun's form does not match
+	} else if (Connection[index]) { // RA2: as in YR's body
 		Connection[index]->Queue->Configure_Debug(type_offset, type_size, names,
 			namestart, namecount);
 	}
@@ -2080,7 +2080,7 @@ void IPXManagerClass::Configure_Debug(int index, int type_offset, int type_size,
  * HISTORY:                                                                *
  *   01/25/1995 BR : Created.                                              *
  *=========================================================================*/
-void IPXManagerClass::Mono_Debug_Print(int, int) // RA2: RA2's form, as in YR's body; TibSun's form does not match
+void IPXManagerClass::Mono_Debug_Print(int, int) // RA2: as in YR's body
 {
 }
 

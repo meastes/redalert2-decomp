@@ -72,4 +72,4 @@ WideWstring __fastcall Wide_From_7_Bit(Wstring const & string); // RA2: unpacks 
 // Declarations moved from the units that used them (one declaration per name).
 extern WideWstring __fastcall WideWstring_FromInt(int value); // RA2: 0x007710C0
 extern WideWstring __fastcall Int_To_WideString_Width(int value, int width); // RA2: 0x00771130
-WideWstring __fastcall operator+(wchar_t const * a, WideWstring const & b); // RA2
+WideWstring __fastcall operator+(wchar_t const * a, WideWstring const & b);

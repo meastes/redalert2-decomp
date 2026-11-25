@@ -288,7 +288,7 @@ void RadarEventClass::Draw(void)
 {
 	RGBClass color1 = Get_Max_Color();
 	RGBClass color2 = Get_Min_Color();
-	if (color1 == RGBClass(0, 0, 0)) { // RA2: RA2's form
+	if (color1 == RGBClass(0, 0, 0)) {
 		return;
 	}
 
@@ -507,7 +507,7 @@ bool RadarEventClass::Load(IStream * stream)
 RGBClass RadarEventClass::Get_Max_Color(void) const
 {
 	switch (Type) {
-		case RADAREVENT_COMBAT: // RA2: RA2's form
+		case RADAREVENT_COMBAT:
 		case RADAREVENT_BASE_ATTACKED:
 		case RADAREVENT_HARVESTER_ATTACKED:
 			return RGBClass(255, 0, 255);
@@ -534,7 +534,7 @@ RGBClass RadarEventClass::Get_Max_Color(void) const
 RGBClass RadarEventClass::Get_Min_Color(void) const
 {
 	switch (Type) {
-		case RADAREVENT_COMBAT: // RA2: RA2's form
+		case RADAREVENT_COMBAT:
 		case RADAREVENT_BASE_ATTACKED:
 		case RADAREVENT_HARVESTER_ATTACKED:
 			return RGBClass(128, 0, 128);

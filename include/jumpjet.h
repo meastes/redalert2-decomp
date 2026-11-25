@@ -52,7 +52,7 @@ class JumpjetLocomotionClass : public LocomotionClass
 		void Process_Hover(void);
 		void Process_Cruise(void);
 		void Process_Descent(void);
-		void Process_Crashing(void); // RA2
+		void Process_Crashing(void);
 		void Process_Unknown(void);
 		void Movement_AI(void);
 		Coord Closest_Free_Spot(Coord const & to) const;
@@ -97,7 +97,7 @@ class JumpjetLocomotionClass : public LocomotionClass
 			HOVERING,
 			CRUISING,
 			DESCENDING,
-			CRASHING, // RA2
+			CRASHING,
 			UNKNOWN,
 		} CurrentState;
 

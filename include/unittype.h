@@ -275,8 +275,8 @@ class UnitTypeClass : public TechnoTypeClass
 		virtual Point3D Lepton_Dimensions(void) const override;
 		virtual bool Create_And_Place(Cell const & cell, HouseClass * house = NULL) const override;
 		virtual ObjectClass * Create_One_Of(HouseClass * house) const override;
-		virtual bool CanUseWaypoint(void) const override; // RA2
-		virtual bool CanAttackMove(void) const override; // RA2
+		virtual bool CanUseWaypoint(void) const override;
+		virtual bool CanAttackMove(void) const override;
 		virtual int Repair_Step(void) const override;
 
 		TPoint2D<int> Turret_Adjust(Dir256 dir, TPoint2D<int> const & xy) const;

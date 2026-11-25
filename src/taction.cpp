@@ -251,7 +251,7 @@ TActionClass::TActionClass(void) :
 	Tag(NULL),
 	TriggerRect(0,0,0,0),
 	EffectLocation(0),
-	Value2(0) // RA2
+	Value2(0)
 {
 	Actions.Add(this);
 	HeapID = Actions.ID(this);

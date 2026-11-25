@@ -166,7 +166,7 @@ void MapPreviewClass::Create_Preview(void)
 			Point2D pixel = Cell_To_Preview_Pixel(cell);
 
 			// The cell's two preview pixels, relative to the bounding box.
-			Point2D offset = pixel - Point2D(minx, miny); // RA2: RA2's form
+			Point2D offset = pixel - Point2D(minx, miny);
 			Rect area(2 * offset.X, offset.Y, 2, 1);
 
 			bool hasradarcolor = false;

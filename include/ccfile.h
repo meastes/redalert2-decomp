@@ -52,7 +52,7 @@ class CCFileClass : public CDFileClass
 
 	public:
 		CCFileClass(char const * filename);
-		CCFileClass(Wstring const & filename); // RA2
+		CCFileClass(Wstring const & filename);
 		CCFileClass(void);
 		virtual ~CCFileClass(void) override {Position = 0;};
 

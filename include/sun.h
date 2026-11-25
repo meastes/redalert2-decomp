@@ -96,7 +96,7 @@
 */
 #define FAME_FILE_NAME			"HALLFAME.DAT"
 #define NET_SAVE_FILE_NAME		"SAVEGAME.NET"
-#define CONFIG_FILE_NAME		"RA2.INI" // RA2
+#define CONFIG_FILE_NAME "RA2.INI"
 
 
 /**********************************************************************

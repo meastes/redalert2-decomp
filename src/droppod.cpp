@@ -116,7 +116,7 @@ boolean STDMETHODCALLTYPE DropPodLocomotionClass::Process(void)
 			Explosion_Damage(coord, 100, LinkedTo, Rule->C4Warhead);
 			new AnimClass(Combat_Anim(100, Rule->C4Warhead, LAND_CLEAR, coord), coord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL | SHAPE_ZGRAD), Get_Explosion_Z(coord));
 		} else {
-			new AnimClass(Rule->DropPodPuff, coord); // RA2
+			new AnimClass(Rule->DropPodPuff, coord);
 			if (Flipped) {
 				new AnimClass(Rule->DropPod[1], coord);
 			} else {

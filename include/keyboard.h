@@ -58,7 +58,7 @@ class WWKeyboardClass
 		bool Put(unsigned short key);
 		void Clear(void);
 		char To_ASCII(unsigned short num);
-		char To_Char(unsigned short key); // RA2
+		char To_Char(unsigned short key);
 		bool Down(unsigned short key);
 
 		/* Define the main hook for the message processing loop.					*/
@@ -94,11 +94,11 @@ class WWKeyboardClass
 		bool Is_Buffer_Full(void) const;
 		bool Is_Buffer_Empty(void) const;
 		static bool Is_Mouse_Key(unsigned short key);
-		static bool Is_Wheel_Key(unsigned short key); // RA2
+		static bool Is_Wheel_Key(unsigned short key);
 		void Fill_Buffer_From_System(void);
 		bool Put_Key_Message(unsigned short vk_key, bool release = false);
 		bool Put_Mouse_Message(unsigned short vk_key, int x, int y, bool release = false);
-		bool Put_Char(char character); // RA2
+		bool Put_Char(char character);
 		int Available_Buffer_Room(void) const;
 		int Noop(void) const; /// Empty routine added in a TS patch.
 

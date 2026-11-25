@@ -110,7 +110,7 @@ int MissionClass::Do_MISSION_HARMLESS(void) {return(TICKS_PER_SECOND*30);};
 int MissionClass::Do_MISSION_AMBUSH(void) {return(TICKS_PER_SECOND*30);};
 int MissionClass::Do_MISSION_ATTACK(void) {return(TICKS_PER_SECOND*30);};
 int MissionClass::Do_MISSION_CAPTURE(void) {return(TICKS_PER_SECOND*30);};
-int MissionClass::Do_MISSION_EATEN(void) {return(TICKS_PER_SECOND*30);}; // RA2
+int MissionClass::Do_MISSION_EATEN(void) {return(TICKS_PER_SECOND * 30);};
 int MissionClass::Do_MISSION_GUARD(void) {return(TICKS_PER_SECOND*30);};
 int MissionClass::Do_MISSION_GUARD_AREA(void) {return(TICKS_PER_SECOND*30);};
 int MissionClass::Do_MISSION_HARVEST(void) {return(TICKS_PER_SECOND*30);};
@@ -128,9 +128,9 @@ int MissionClass::Do_MISSION_MISSILE(void) {return(TICKS_PER_SECOND*30);};
 int MissionClass::Do_MISSION_OPEN(void) {return(TICKS_PER_SECOND*30);};
 int MissionClass::Do_MISSION_RESCUE(void) {return(TICKS_PER_SECOND*30);};
 int MissionClass::Do_MISSION_PATROL(void) {return(TICKS_PER_SECOND*30);};
-int MissionClass::Do_MISSION_PARADROP_APPROACH(void) {return(TICKS_PER_SECOND*30);}; // RA2
-int MissionClass::Do_MISSION_PARADROP_OVERFLY(void) {return(TICKS_PER_SECOND*30);}; // RA2
-int MissionClass::Do_MISSION_WAIT(void) {return(TICKS_PER_SECOND*30);}; // RA2
+int MissionClass::Do_MISSION_PARADROP_APPROACH(void) {return(TICKS_PER_SECOND * 30);};
+int MissionClass::Do_MISSION_PARADROP_OVERFLY(void) {return(TICKS_PER_SECOND * 30);};
+int MissionClass::Do_MISSION_WAIT(void) {return(TICKS_PER_SECOND * 30);};
 
 
 /***********************************************************************************************
@@ -386,7 +386,7 @@ void MissionClass::QueueMission(MissionType mission, bool start)
  *=============================================================================================*/
 void MissionClass::Override_Mission(MissionType mission, AbstractClass *, AbstractClass *)
 {
-	if (CurrentMission == MISSION_WAIT && mission == MISSION_GUARD) return; // RA2
+	if (CurrentMission == MISSION_WAIT && mission == MISSION_GUARD) return;
 	if (CurrentMission == MISSION_DECONSTRUCTION) return;
 
 	if (MissionQueue != MISSION_NONE) {

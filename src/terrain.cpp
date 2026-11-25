@@ -971,7 +971,7 @@ void TerrainClass::Detach(AbstractClass const * target, bool all)
 bool TerrainClass::Unlimbo(Coord const & coord, Dir256 dir)
 {
 	if (BASECLASS::Unlimbo(coord, dir)) {
-		Cell cell(coord.X / 256, coord.Y / 256); // RA2: RA2's form
+		Cell cell(coord.X / 256, coord.Y / 256);
 		for (int facing = 0; facing < 8; facing++) {
 			CellClass & next = Map[cell + AdjacentCell[facing & 7]];
 			next.AdjacentObjectCount++;

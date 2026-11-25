@@ -45,14 +45,14 @@ public:
 	char			remove(int pos, int count);
 	char			removeChar(char c);
 	void			removeSpaces(void);
-	void			trimLeading(Wstring const& delim); // RA2
-	void			trimTrailing(Wstring const& delim); // RA2
+	void trimLeading(Wstring const & delim);
+	void trimTrailing(Wstring const & delim);
 	char const * c_str(void) const { return str; } // RA2: inline, as ra2-decomp's wstring.h has it
 	char*			get(void) const;
 	char			get(unsigned int index);
-	char*			text(void) const; // RA2
-	char			operator[](unsigned int index) const; // RA2
-	char			getChar(unsigned int index) const; // RA2
+	char * text(void) const;
+	char operator[](unsigned int index) const;
+	char getChar(unsigned int index) const;
 	unsigned int	length(void) const;
 	char			insert(char c, unsigned int pos);
 	char			insert(char const* instring, unsigned int pos);
@@ -62,12 +62,12 @@ public:
 	char			set(char c, unsigned int index);
 	void			setSize(int bytes);  // create an empty string
 	void			toLower(void);
-	Wstring			toLower(void) const; // RA2
+	Wstring toLower(void) const;
 	void			toUpper(void);
-	Wstring			toUpper(void) const; // RA2
-	int				toInt(void) const; // RA2
-	bool			containsAny(char const* chars) const; // RA2
-	bool			containsAny(Wstring const& chars) const; // RA2
+	Wstring toUpper(void) const;
+	int toInt(void) const;
+	bool containsAny(char const * chars) const;
+	bool containsAny(Wstring const & chars) const;
 	char			truncate(unsigned int len);
 	char			truncate(char c);  // trunc after char c
 	int				getToken(int offset, char const* delim, Wstring& out) const;

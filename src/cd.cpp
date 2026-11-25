@@ -89,7 +89,7 @@ bool CD::Force_Available(DiskID disk)
 		return(true);
 	}
 	if (_OverrideSwap == true) {
-		return(true); // RA2
+		return(true);
 	}
 	ThemePlaying = THEME_NONE;
 	return(BASECLASS::Force_Available(disk));

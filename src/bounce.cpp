@@ -86,7 +86,7 @@ void BounceClass::Init(Coord const & coord, double elasticity, double gravity, d
 		Random_Pick(-65535, 65535) * (1.0f / 65535.0f)
 	);
 
-	rotation_axis = Normalize_Axis(rotation_axis); // RA2
+	rotation_axis = Normalize_Axis(rotation_axis);
 	AngularVelocity = Axis_To_Quat(rotation_axis, rotation);
 	Matrix3D identity_matrix;
 	identity_matrix.Make_Identity();

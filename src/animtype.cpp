@@ -215,7 +215,7 @@ AnimTypeClass::~AnimTypeClass(void)
  *=============================================================================================*/
 void AnimTypeClass::Init(TheaterType theater)
 {
-	if (!Debug_Map && theater == LastTheater) { // RA2: RA2's form
+	if (!Debug_Map && theater == LastTheater) {
 		for (int index = 0; index < AnimTypes.Count(); index++) {
 			AnimTypeClass * anim = AnimTypes[index];
 			if (anim->IsNewTheater && anim->ImageData == 0) {
@@ -264,7 +264,7 @@ void AnimTypeClass::Init(TheaterType theater)
 /// <param name="theater">The theater to align the animation artwork with.</param>
 void AnimTypeClass::Init_Theater(TheaterType theater)
 {
-	if (!Debug_Map && theater == LastTheater) { // RA2: RA2's form
+	if (!Debug_Map && theater == LastTheater) {
 		return;
 	}
 	if (IsTheater && !IsDemandLoad) {
@@ -592,7 +592,7 @@ HRESULT STDMETHODCALLTYPE AnimTypeClass::GetClassID(CLSID * retval)
 /// <param name="crc">The checksum engine to submit this object's data to.</param>
 void AnimTypeClass::Compute_CRC(CRCEngine & crc) const
 {
-	ObjectTypeClass::Compute_CRC(crc); // RA2: RA2's form
+	ObjectTypeClass::Compute_CRC(crc);
 	crc((long)Layer);
 	crc(IsNormalized);
 	crc(IsFlat);
@@ -661,7 +661,7 @@ void AnimTypeClass::Detach(AbstractClass const * target, bool all)
 /// </returns>
 void const * AnimTypeClass::Get_Image_Data(void) const
 {
-	AnimTypeClass *self = (AnimTypeClass *)this; // RA2: RA2's form
+	AnimTypeClass * self = (AnimTypeClass *)this;
 	if (ImageData == 0 && IsDemandLoad) {
 		DebugString("Demand loading image for %s\n", (char const *)Full_Name());
 		char fullname[512];

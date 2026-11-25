@@ -105,7 +105,7 @@ CoordStruct STDMETHODCALLTYPE TunnelLocomotionClass::Destination(void)
 /// <param name="to">The location to travel to.</param>
 void STDMETHODCALLTYPE TunnelLocomotionClass::Move_To(CoordStruct to)
 {
-	if (!LinkedTo->IsUnderEMP() && !LinkedTo->IsParalyzed() && !LinkedTo->IsBeingWarpedOut() && !LinkedTo->IsWarpingIn()) { // RA2
+	if (!LinkedTo->IsUnderEMP() && !LinkedTo->IsParalyzed() && !LinkedTo->IsBeingWarpedOut() && !LinkedTo->IsWarpingIn()) {
 		Coord coord = to;
 		DestinationCoord = LinkedTo->Class_Of()->Coord_Fixup(to);
 		if (coord != COORD_NONE && LinkedTo->HeightAGL < 0) {
@@ -147,7 +147,7 @@ void STDMETHODCALLTYPE TunnelLocomotionClass::Stop_Moving(void)
 
 		case STATE_TUNNELING: {
 			Coord pos = LinkedTo->PositionCoord;
-			if ((Point2D(pos) - Point2D(DestinationCoord)).Length() > CELL_LEPTON_DIAG) { // RA2
+			if ((Point2D(pos) - Point2D(DestinationCoord)).Length() > CELL_LEPTON_DIAG) {
 
 				Cell cell = LinkedTo->PositionCell;
 				Cell nearby = Map.Nearby_Location(cell, SPEED_TRACK, Map.Get_Cell_Zone(cell), MZONE_NORMAL, false, Point2D(1, 1), false, false, true);
@@ -278,7 +278,7 @@ VisualType STDMETHODCALLTYPE TunnelLocomotionClass::Visual_Character(boolean fla
 void TunnelLocomotionClass::Process_Turning(void)
 {
 	if (!LinkedTo->PrimaryFacing.Is_Rotating()) {
-		Coord d = LinkedTo->PositionCoord; // RA2
+		Coord d = LinkedTo->PositionCoord;
 		d.X = DestinationCoord.X - d.X;
 		d.Y = DestinationCoord.Y - d.Y;
 		DirType dir = DirType(fastmath::atan2((double)-d.Y, (double)d.X));
@@ -287,7 +287,7 @@ void TunnelLocomotionClass::Process_Turning(void)
 		} else {
 			DigTimer = ((64.0 / LinkedTo->TClass->ROT) / Rule->TunnelSpeed);
 			State = STATE_DIGGING_IN;
-			VocClass::PlayAt(Rule->DigSound, LinkedTo->PositionCoord, NULL); // RA2
+			VocClass::PlayAt(Rule->DigSound, LinkedTo->PositionCoord, NULL);
 			new AnimClass(Rule->Dig, LinkedTo->PositionCoord);
 			IsUnderground = false;
 		}
@@ -301,10 +301,10 @@ void TunnelLocomotionClass::Process_Turning(void)
 /// </summary>
 void TunnelLocomotionClass::Process_Digging_In(void)
 {
-	if (DigTimer.Progress() == 1.0) { // RA2
+	if (DigTimer.Progress() == 1.0) {
 		LinkedTo->Set_Speed(1.0);
 		State = STATE_DESCENDING;
-		VocClass::PlayAt(Rule->DigSound, LinkedTo->PositionCoord, NULL); // RA2
+		VocClass::PlayAt(Rule->DigSound, LinkedTo->PositionCoord, NULL);
 		new AnimClass(Rule->Dig, LinkedTo->PositionCoord);
 		LinkedTo->Detach_All(false);
 	}
@@ -317,9 +317,9 @@ void TunnelLocomotionClass::Process_Digging_In(void)
 /// </summary>
 void TunnelLocomotionClass::Process_Aborting(void)
 {
-	if (DigTimer.Progress() == 1.0) { // RA2
+	if (DigTimer.Progress() == 1.0) {
 		State = STATE_IDLE;
-		LinkedTo->Abort_Motion(); // RA2
+		LinkedTo->Abort_Motion();
 	}
 }
 
@@ -386,7 +386,7 @@ void TunnelLocomotionClass::Process_Tunneling(void)
 
 		} else {
 			if (LinkedTo->HeightAGL > -50) {
-				VocClass::PlayAt(Rule->DigSound, LinkedTo->PositionCoord); // RA2
+				VocClass::PlayAt(Rule->DigSound, LinkedTo->PositionCoord);
 			}
 			State = STATE_ASCENDING;
 			LinkedTo->Mark(MARK_DOWN);
@@ -429,7 +429,7 @@ void TunnelLocomotionClass::Process_Ascending(void)
 		LinkedTo->PositionCoord = coord;
 
 		if (height <= -50 && LinkedTo->HeightAGL > -50) {
-			VocClass::PlayAt(Rule->DigSound, LinkedTo->PositionCoord, NULL); // RA2
+			VocClass::PlayAt(Rule->DigSound, LinkedTo->PositionCoord, NULL);
 			new AnimClass(Rule->Dig, LinkedTo->PositionCoord);
 		}
 	} else {
@@ -447,12 +447,12 @@ void TunnelLocomotionClass::Process_Ascending(void)
 /// </summary>
 void TunnelLocomotionClass::Process_Emerging(void)
 {
-	if (DigTimer.Progress() == 1.0) { // RA2
+	if (DigTimer.Progress() == 1.0) {
 		LinkedTo->Per_Cell_Process(PCP_END);
-		if (LinkedTo->IsActive && !LinkedTo->IsInLimbo && !LinkedTo->IsFalling) { // RA2
+		if (LinkedTo->IsActive && !LinkedTo->IsInLimbo && !LinkedTo->IsFalling) {
 			Stop_Moving();
 			State = STATE_IDLE;
-			LinkedTo->Abort_Motion(); // RA2
+			LinkedTo->Abort_Motion();
 		}
 	}
 }

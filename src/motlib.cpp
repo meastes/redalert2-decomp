@@ -80,10 +80,10 @@ BOOL MotionLibrary::Read_File(FileClass & file)
 	LayerCount = header.LayerCount;
 	FrameCount = header.FrameCount;
 
-	if (LayerMatrices != NULL) {	// RA2
+	if (LayerMatrices != NULL) {
 		delete [] LayerMatrices;
 	}
-	LayerMatrices = new Matrix3D[FrameCount * LayerCount];	// RA2
+	LayerMatrices = new Matrix3D[FrameCount * LayerCount];
 
 	if (LayerMatrices == NULL) {
 		LayerMatrices = NULL;

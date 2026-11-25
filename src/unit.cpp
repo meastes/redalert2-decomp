@@ -175,7 +175,7 @@
 #include "color.hh"
 #include "tube.hh"
 #include "ftimer.h"
-#include "temporal.h" // RA2
+#include "temporal.h"
 
 #include "capmgr.h" // RA2: CaptureManagerClass, read by Receive_Message
 
@@ -1214,7 +1214,7 @@ no_transport_room: // RA2: tested: separate returns repeat the epilogue; the got
  *=============================================================================================*/
 bool UnitClass::Unlimbo(Coord const & coord, Dir256 dir)
 {
-	if (FootClass::Unlimbo(coord, dir)) { // RA2: RA2's form
+	if (FootClass::Unlimbo(coord, dir)) {
 		SecondaryFacing.Set(dir);
 		if (IsCloakable && !IsLocked) {
 			Cloak = CLOAKED;
@@ -2227,7 +2227,7 @@ void UnitClass::Per_Cell_Process(PCPType reason)
 bool UnitClass::Render(Rect & rect, bool forced, bool extras_only) const
 {
 	if (IsTethered) {
-		TechnoClass *contact = Radio_Link(0); // RA2: RA2's form
+		TechnoClass * contact = Radio_Link(0);
 		if (contact->Fetch_RTTI() == RTTI_BUILDING && (contact->Get_Mission() == MISSION_UNLOAD || contact->MissionQueue == MISSION_UNLOAD)) {
 			DelayTimerClass * state = &contact->Door;
 			if (state->Is_Count_Up_Active() || state->Is_Count_Down_Active() || state->Is_Count_Up_Complete() || state->Is_Count_Down_Complete()) {
@@ -2568,7 +2568,7 @@ void UnitClass::Draw_It(Point2D const & point, Rect const & cliprect) const
  *=============================================================================================*/
 bool UnitClass::Harvesting(void)
 {
-	Coord position = Get_Coord(); // RA2: RA2's form
+	Coord position = Get_Coord();
 	CellClass * cell = &Map[position];
 	if (NavCom) {
 		return(true);
@@ -4073,7 +4073,7 @@ bool UnitClass::Flag_Remove(void)
  *=============================================================================================*/
 int UnitClass::Pip_Count(void) const
 {
-	switch (Class->PipScale) { // RA2: RA2's form
+	switch (Class->PipScale) {
 		case PIPSCALE_TIBERIUM:
 	{
 			double ratio = Storage.Get_Total_Amount() / Class->Capacity;
@@ -4330,7 +4330,7 @@ FireErrorType UnitClass::Can_Fire(AbstractClass * target, int which, bool ignore
  *=============================================================================================*/
 BulletClass * UnitClass::Fire_At(AbstractClass * target, int which)
 {
-	BulletClass *bullet = 0; // RA2: RA2's form
+	BulletClass * bullet = 0;
 	WeaponTypeClass * weapon = Get_Class_Weapon_Data(which)->Weapon;
 	if (!weapon) {
 		return(0);
@@ -4408,7 +4408,7 @@ ObjectTypeClass const * UnitClass::Class_Of(void) const
  *=============================================================================================*/
 double UnitClass::Tiberium_Load(void) const
 {
-	if (!Class->IsToHarvest && !Class->IsToVeinHarvest) { // RA2: RA2's form
+	if (!Class->IsToHarvest && !Class->IsToVeinHarvest) {
 		return 0.0;
 	}
 	return Storage.Get_Total_Amount() / Class->Capacity;
@@ -5020,7 +5020,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 AbstractClass * UnitClass::Greatest_Threat(ThreatType threat, Coord const & coord, bool onlyenemy) const
 {
 	if (House->Is_Human_Player() && Class->IsDeployToFire) {
-		return(0); // RA2: RA2's form
+		return(0);
 	}
 	if (!(threat & 0x1B978)) {
 		if (const_cast<UnitClass *>(this)->Has_Turret_Weapons()) {
@@ -5547,7 +5547,7 @@ static inline bool Is_Cell_Below(Cell const & a, Cell const & b)
 /// <returns>bool; Is the unit ready to begin its next mission?</returns>
 bool UnitClass::Ready_To_Commence(void)
 {
-	if (CurrentMission == MISSION_STICKY || CurrentMission == MISSION_RESCUE || IsDumping) { // RA2: RA2's form
+	if (CurrentMission == MISSION_STICKY || CurrentMission == MISSION_RESCUE || IsDumping) {
 		return(false);
 	}
 	if (MissionQueue != MISSION_ENTER && Locomotion->Is_Moving_Now() && HeightAGL >= 0

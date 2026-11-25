@@ -551,8 +551,8 @@ class HouseClass : public AbstractClass, public IHouse, public IPublicHouse, pub
 		FactoryClass * Primary_ForShips; // RA2: +0x52E4
 		FactoryClass * BuildingFactory;
 		FactoryClass * Primary_Unused1; // RA2: +0x52EC
-		FactoryClass * Primary_Unused2; // RA2
-		FactoryClass * Primary_Unused3; // RA2
+		FactoryClass * Primary_Unused2;
+		FactoryClass * Primary_Unused3;
 		FactoryClass * Primary_ForDefenses; // RA2: +0x52F8
 
 		/*
@@ -1146,7 +1146,7 @@ class HouseClass : public AbstractClass, public IHouse, public IPublicHouse, pub
 		TStringID<HOUSE_NAME_MAX> IniName;
 
 		TStringID<31> UINameString; // RA2: +0x15EF5
-		unsigned char : 8; // RA2
+		unsigned char : 8;
 		wchar_t UIName[21]; // RA2: +0x15F16
 
 		/*

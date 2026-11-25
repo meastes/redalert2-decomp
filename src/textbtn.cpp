@@ -78,7 +78,7 @@
  *                                                                                             *
  * HISTORY:  01/15/1995 JLB : Created.                                                         *
  *=============================================================================================*/
-TextButtonClass::TextButtonClass(unsigned id, wchar_t const * text, TextPrintType style, int x, int y, int w, int h, bool blackborder, bool nobackground) : // RA2
+TextButtonClass::TextButtonClass(unsigned id, wchar_t const * text, TextPrintType style, int x, int y, int w, int h, bool blackborder, bool nobackground) :
 	BASECLASS(id, x, y, w, h),
 	IsNoBackground(nobackground),
 	IsBlackBorder(blackborder),
@@ -86,12 +86,12 @@ TextButtonClass::TextButtonClass(unsigned id, wchar_t const * text, TextPrintTyp
 	PrintFlags(style)
 {
 	if (w == -1 || h == -1) {
-		BitFont * font = Font_From_TPF(PrintFlags); // RA2
+		BitFont * font = Font_From_TPF(PrintFlags);
 		if (w == -1) {
-			Width = font->String_Pixel_Width(String, 0) + 8; // RA2
+			Width = font->String_Pixel_Width(String, 0) + 8;
 		}
 		if (h == -1) {
-			Height = font->LineHeight + 2; // RA2
+			Height = font->LineHeight + 2;
 		}
 	}
 }
@@ -166,12 +166,12 @@ int TextButtonClass::Draw_Me(int forced)
  * HISTORY:                                                                                    *
  *   01/16/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
-void TextButtonClass::Set_Text(wchar_t const * text, bool resize) // RA2
+void TextButtonClass::Set_Text(wchar_t const * text, bool resize)
 {
 	String = text;
 	Flag_To_Redraw();
 	if (resize && String) {
-		BitFont * font = Font_From_TPF(PrintFlags); // RA2
+		BitFont * font = Font_From_TPF(PrintFlags);
 		Width = font->String_Pixel_Width(String, 0) + 8;
 		Height = font->LineHeight + 2;
 
@@ -241,7 +241,7 @@ void TextButtonClass::Draw_Background(void)
  * HISTORY:                                                                                    *
  *   01/19/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
-void TextButtonClass::Draw_Text(wchar_t const * text) // RA2
+void TextButtonClass::Draw_Text(wchar_t const * text)
 {
 	int scheme = GadgetClass::Get_Color_Scheme();
 
@@ -261,7 +261,7 @@ void TextButtonClass::Draw_Text(wchar_t const * text) // RA2
 			}
 		}
 
-		if (ColorSchemes.Count() != 0) { // RA2
+		if (ColorSchemes.Count() != 0) {
 			if (scheme <= 0 || scheme >= ColorSchemes.Count()) {
 				scheme = 0;
 			}

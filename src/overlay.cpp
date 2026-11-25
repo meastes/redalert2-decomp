@@ -159,7 +159,7 @@ bool OverlayClass::Mark(MarkType mark)
 
 	if (BASECLASS::Mark(mark)) {
 		if (mark == MARK_DOWN || mark == MARK_DOWN_FORCED) {
-			Cell cell = Get_Cell(); // RA2
+			Cell cell = Get_Cell();
 			CellClass * cellptr = &Map[cell];
 
 			OverlayType type = Class->HeapID;
@@ -281,14 +281,14 @@ bool OverlayClass::Mark(MarkType mark)
 						if (check_cell_class.Overlay == end_overlay && check_cell_class.OverlayData == 1) {
 							found_end = true;
 						} else {
-							work_cell = AdjacentCell[(int)join_direction & 7] + work_cell; // RA2
+							work_cell = AdjacentCell[(int)join_direction & 7] + work_cell;
 						}
 					}
 					if (found_end) {
 						FacingType fixup_direction = Facing_Add(FACING_180, join_direction);
 						work_cell = Adjacent_Cell(work_cell, fixup_direction);
 						int length = MAX(abs(work_cell.X - start_cell.X), abs(work_cell.Y - start_cell.Y));
-						for (i = length; i > 0; --i) { // RA2
+						for (i = length; i > 0; --i) {
 							for (int j = 0; j < 3; j++) {
 								CellClass *cptr = &Map[work_cell + _offset_fixup[(fixup_direction%4)/2][j]];
 								cptr->Overlay = OverlayType(_overlay_fixup[(fixup_direction%4)/2] + (Scen->RandomNumber()&0x03));
@@ -377,7 +377,7 @@ bool OverlayClass::Mark(MarkType mark)
 						clear = cellptr->Is_Clear_To_Move(SPEED_TRACK, false, false);
 					} else {
 						if (Class->HeapID == OVERLAY_BRIDGE1 || Class->HeapID == OVERLAY_BRIDGE2 ||
-								Class->HeapID == OVERLAY_BRIDGEHEAD21 || Class->HeapID == OVERLAY_BRIDGEHEAD22) { // RA2
+							Class->HeapID == OVERLAY_BRIDGEHEAD21 || Class->HeapID == OVERLAY_BRIDGEHEAD22) {
 							clear = true;
 						} else {
 							if (Class->HeapID == OVERLAY_TIBERIUM01) {
@@ -395,7 +395,7 @@ bool OverlayClass::Mark(MarkType mark)
 				if ((ScenarioInit || cellptr->Overlay == OVERLAY_NONE || !OverlayTypes[cellptr->Overlay]->IsOverrides) && clear) {
 
 					cellptr->Overlay = Class->HeapID;
-					if (type != OVERLAY_BRIDGE1 && type != OVERLAY_BRIDGE2 && type != OVERLAY_BRIDGEHEAD21 && type != OVERLAY_BRIDGEHEAD22) { // RA2
+					if (type != OVERLAY_BRIDGE1 && type != OVERLAY_BRIDGE2 && type != OVERLAY_BRIDGEHEAD21 && type != OVERLAY_BRIDGEHEAD22) {
 						cellptr->OverlayData = 0;
 					}
 
@@ -403,7 +403,7 @@ bool OverlayClass::Mark(MarkType mark)
 						cellptr->OverlayData = 1;
 						cellptr->Tiberium_Adjust();
 					}
-					if (Class->IsCrate) { // RA2
+					if (Class->IsCrate) {
 						cellptr->OverlayData = 255;
 					}
 				}

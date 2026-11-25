@@ -147,12 +147,12 @@ void Detach_This_From_All(AbstractClass const * target, bool all)
 		for (index = 0; index < ObjectPtrTracker.Count(); index++) {
 			ObjectPtrTracker[index]->Detach(target, all);
 		}
-		BombList.Detach((AbstractClass *)target); // RA2
-		Kamikazes.Remove((AbstractClass *)target); // RA2
-		if (rtti == RTTI_INFANTRY || rtti == RTTI_UNIT || rtti == RTTI_AIRCRAFT) { // RA2
+		BombList.Detach((AbstractClass *)target);
+		Kamikazes.Remove((AbstractClass *)target);
+		if (rtti == RTTI_INFANTRY || rtti == RTTI_UNIT || rtti == RTTI_AIRCRAFT) {
 			AircraftTracker.Detach((AbstractClass *)target);
 		}
-		Detach_From_Command_List((AbstractClass *)target); // RA2
+		Detach_From_Command_List((AbstractClass *)target);
 		if (TacticalMap != NULL) {
 			TacticalMap->Detach(target, true);
 		}

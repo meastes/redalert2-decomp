@@ -84,7 +84,7 @@ class RadioClass : public MissionClass
 		virtual ~RadioClass(void) override {/*Radio=0;*/};
 
 		virtual HRESULT STDMETHODCALLTYPE Load(IStream * stream) override;
-		virtual HRESULT STDMETHODCALLTYPE Save(IStream * stream, BOOL cleardirty) override; // RA2
+		virtual HRESULT STDMETHODCALLTYPE Save(IStream * stream, BOOL cleardirty) override;
 
 		/*---------------------------------------------------------------------
 		**	Member function prototypes.
@@ -92,14 +92,14 @@ class RadioClass : public MissionClass
 		bool In_Radio_Contact(void) const {return(RadioLinks[0] != 0);};
 		void Radio_Off(void) {RadioLinks[0] = 0;};
 		TechnoClass * Contact_With_Whom(void) const { return(Radio_Link(0)); }; // RA2: the first link through Radio_Link (main radio.hpp: Contact(0))
-		TechnoClass * Radio_Link(int index); // RA2
-		TechnoClass * Radio_Link(int index) const; // RA2
-		bool ContainsLink(TechnoClass const * techno) const; // RA2
-		int FindLinkIndex(TechnoClass const * techno) const; // RA2
-		bool HasFreeLink(void) const; // RA2
-		bool HasFreeLink(TechnoClass const * ignore) const; // RA2
-		bool HasAnyLink(void) const; // RA2
-		void SetLinkCount(int count); // RA2
+		TechnoClass * Radio_Link(int index);
+		TechnoClass * Radio_Link(int index) const;
+		bool ContainsLink(TechnoClass const * techno) const;
+		int FindLinkIndex(TechnoClass const * techno) const;
+		bool HasFreeLink(void) const;
+		bool HasFreeLink(TechnoClass const * ignore) const;
+		bool HasAnyLink(void) const;
+		void SetLinkCount(int count);
 
 		// Inherited from base class(es).
 		virtual void Detach(AbstractClass const * target, bool all = true) override;
@@ -107,8 +107,8 @@ class RadioClass : public MissionClass
 		virtual RadioMessageType Receive_Message(RadioClass * from, RadioMessageType message, int & param) override;
 		virtual RadioMessageType Transmit_Message(RadioMessageType message, int & param, RadioClass * to=NULL); // RA2: no default param
 		virtual RadioMessageType Transmit_Message(RadioMessageType message, RadioClass * to);
-		virtual RadioMessageType Transmit_Message(RadioMessageType message); // RA2
-		virtual void SendToEachLink(RadioMessageType command); // RA2
+		virtual RadioMessageType Transmit_Message(RadioMessageType message);
+		virtual void SendToEachLink(RadioMessageType command);
 #ifdef _DEBUG
 		virtual void Debug_Dump(MonoClass *mono) const override;
 #endif

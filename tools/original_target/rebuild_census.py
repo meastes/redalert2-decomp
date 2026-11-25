@@ -129,12 +129,26 @@ def helper_copies(tree, read):
 
 TWIN_HELPERS = 'manifests/twin_helpers.csv'
 TWIN_SRC = Path(__file__).resolve().parents[2] / 'private/reference/ra2-decomp/src'
+# A helper adopted from another reference's text names it in twin_path with a prefix (lane O93, 2026-11-25:
+# building's Silo_Storage_Frame and Refinery_Storage_Stage are mischa85's).
+TWIN_ROOTS = {'mischa85:': TWIN_SRC.parents[1] / 'mischa85-RedAlert2/src',
+              'robin:': TWIN_SRC.parents[1] / 'robin-ra2-1001-decomp/src/m85/src'}
+
+
+def twin_file(twin_path):
+    """The reference unit file a twin_helpers.csv twin_path names (ra2-decomp's src/ unless prefixed)."""
+    for prefix, root in TWIN_ROOTS.items():
+        if twin_path.startswith(prefix):
+            return root / twin_path[len(prefix):]
+    return TWIN_SRC / twin_path
 
 
 def twin_helpers(read):
     """[{unit, name, twin_path, note}]: unit-local helpers evidenced by the twin (review session, 2026-11-20): listed
     in manifests/twin_helpers.csv, kept only while the unit source defines the name `static` (or `static inline`; the twin's spelling, owner 2026-11-22) and the
-    ra2-decomp twin unit (twin_path, under private/reference/ra2-decomp) defines the same name file-locally;
+    ra2-decomp twin unit (twin_path, under private/reference/ra2-decomp; `mischa85:` or `robin:` before the path names
+    those references' unit) defines the same name file-locally; a row with no twin_path records a flagged [helper]
+    no reference has (listed, never evidenced);
     a listed helper either side lacks is not evidenced and counts as a copy again. Reported on its own census
     line, apart from the helper_copies budget (which may only fall)."""
     import csv, io
@@ -143,8 +157,8 @@ def twin_helpers(read):
     for r in rows:
         pat = re.compile(r'^[ \t]*static\s+(?:inline\s+)?[\w<>,\s\*&]+?\b%s\s*\(' % re.escape(r['name']), re.M)
         ours = read('src/%s.cpp' % r['unit']) or ''
-        twin = TWIN_SRC / r['twin_path']
-        if pat.search(C.code_only(ours)) and twin.exists() and twin_file_local(twin.read_text(errors='replace'), r['name']):
+        twin = twin_file(r['twin_path']) if r['twin_path'] else None
+        if twin is not None and pat.search(C.code_only(ours)) and twin.exists() and twin_file_local(twin.read_text(errors='replace'), r['name']):
             kept.append(r)
     return kept
 
@@ -315,11 +329,17 @@ HEX_ENTRY = re.compile(r'\b(?:0x)?(?=[0-9A-Fa-f]*[0-9])([0-9A-Fa-f]{6,8})\b')
 #   compiler-local     a named local chosen for the compiler (it holds a value the function uses)
 #   readability-alias  a copy with a more meaningful name or type than what it copies, one copy per value, used
 #                      from then on in place of the original, no copy of a copy
+# Reference-borne forms (owner ruling, 2026-11-25, lane O93, after the independent review of 40 rows): adopted
+# reference text (ra2-decomp, mischa85, robin) that carries a form we would refuse or flag had we coined it
+# (once-used copies, dead tests or discarded calls the image performs, pass-through locals or wrappers,
+# hand-expanded bodies, duplicated calls). The text stays (it matches); the row is flagged:
+#   reference-borne    a refused-if-coined form taken from adopted reference text; the note names the form
 # SOFT_KINDS rest on a choice and are left out of "exact with no soft judgment"; a header-form dependent is soft when
 # any form it rests on is of a soft kind. An untagged note counts as vii (soft) and is listed as unclassified.
 JUDGMENT_KINDS = ('i', 'ii', 'iii', 'iv-a', 'iv-b', 'v', 'vi', 'joined', 'vii',
-                  'helper', 'spelling', 'compiler-local', 'readability-alias')
-SOFT_KINDS = frozenset(('iii', 'iv-b', 'vii', 'helper', 'spelling', 'compiler-local', 'readability-alias'))
+                  'helper', 'spelling', 'compiler-local', 'readability-alias', 'reference-borne')
+SOFT_KINDS = frozenset(('iii', 'iv-b', 'vii', 'helper', 'spelling', 'compiler-local', 'readability-alias',
+                        'reference-borne'))
 KIND_PREFIX = re.compile(r'\s*\[(%s)\]\s*' % '|'.join(re.escape(k) for k in sorted(JUDGMENT_KINDS, key=len, reverse=True)))
 
 
@@ -743,7 +763,8 @@ def main(quiet=False):
         '%s %s (%s)' % (p.split('/')[-1][:-4], n, h) for p, n, h in copies) or 'none'))
     evidenced = twin_helpers(read)
     print('Report: unit-local helpers evidenced by the twin: %d%s' % (len(evidenced), ''.join(
-        (': ' if i == 0 else ', ') + '%s %s (ra2-decomp %s)' % (r['unit'], r['name'], r['twin_path'])
+        (': ' if i == 0 else ', ') + '%s %s (%s)' % (r['unit'], r['name'], r['twin_path'] if ':' in r['twin_path'] else
+                                 'ra2-decomp ' + r['twin_path'])
         for i, r in enumerate(evidenced))))
     listed = declared_never_defined.count()
     print('Gate (may only fall): declared, never defined %d (manifests/declared_never_defined.csv%s)' % (

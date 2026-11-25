@@ -289,7 +289,7 @@ AircraftClass::AircraftClass(AircraftTypeClass const * type, HouseClass * house)
  *=============================================================================================*/
 void AircraftClass::Init(void)
 {
-	TechnoClass::Init(); // RA2: RA2's form
+	TechnoClass::Init();
 	if (Class != 0) {
 		if (House != 0) {
 			DynamicVectorClass<TechnoTypeClass *> & types = (DynamicVectorClass<TechnoTypeClass *> &)House->Class->VeteranAircraft;
@@ -422,7 +422,7 @@ ULONG STDMETHODCALLTYPE AircraftClass::Release(void)
  *=============================================================================================*/
 bool AircraftClass::Unlimbo(Coord const & coord, Dir256 dir)
 {
-	Coord placed = coord; // RA2: RA2's form
+	Coord placed = coord;
 	if (!Class->MissileSpawn) {
 		if (!IsALoaner && Map.In_Local_Radar(coord)) {
 			placed.Z = Map.Get_Height_GL(coord);
@@ -1827,7 +1827,7 @@ bool AircraftClass::Enter_Idle_Mode(bool initial, bool resume_waypoint)
 		}
 		return(false);
 	}
-	int current_mission = CurrentMission; // RA2: RA2's form
+	int current_mission = CurrentMission;
 	bool mission_blocks_selection = current_mission == MISSION_RETREAT || (current_mission > MISSION_PATROL && current_mission <= MISSION_PARADROP_OVERFLY);
 	if (mission_blocks_selection) {
 		return(false);
@@ -2908,7 +2908,7 @@ FacingType AircraftClass::Desired_Load_Dir(ObjectClass * object, Cell & moveto) 
  *=============================================================================================*/
 MoveType AircraftClass::Can_Enter_Cell(CellClass const * cell, FacingType, int cell_height, CellClass const *, bool) const
 {
-	if (Team != 0 && Team->Is_Leaving_Map() && !Map.In_Local_Radar(cell, 1)) { // RA2: RA2's form
+	if (Team != 0 && Team->Is_Leaving_Map() && !Map.In_Local_Radar(cell, 1)) {
 		return(MOVE_OK);
 	}
 	TechnoClass * occupier = (TechnoClass *)cell->Cell_Occupier();
@@ -3515,14 +3515,14 @@ int AircraftClass::Do_MISSION_GUARD(void)
 int AircraftClass::Do_MISSION_GUARD_AREA(void)
 {
 	if (HeightAGL == Class->Flight_Level()) {
-		if (Team == NULL) Enter_Idle_Mode(false, true); // RA2: RA2's form
+		if (Team == NULL) Enter_Idle_Mode(false, true);
 		return(1);
 	}
-	if (Ammo == 0 && Is_Weapon_Equipped() && !HasAnyLink()) { // RA2
+	if (Ammo == 0 && Is_Weapon_Equipped() && !HasAnyLink()) {
 		Enter_Idle_Mode(false, true);
 	}
 	if (TarCom != NULL) {
-		QueueMission(MISSION_ATTACK, false); // RA2
+		QueueMission(MISSION_ATTACK, false);
 		return(1);
 	}
 	return(BASECLASS::Do_MISSION_GUARD_AREA());
@@ -3760,7 +3760,7 @@ LayerType AircraftClass::In_Which_Layer(void) const
  *=============================================================================================*/
 void AircraftClass::Look(bool incremental, bool dont_map)
 {
-	Coord coord; // RA2: RA2's form
+	Coord coord;
 	int sight = Class->SightRange;
 	if (HeightAGL == 0) {
 		sight = 1;
@@ -4028,7 +4028,7 @@ void AircraftClass::Debug_Dump(MonoClass * mono) const
 /// <returns>bool; Is the aircraft ready to commence?</returns>
 bool AircraftClass::Ready_To_Commence(void)
 {
-	if (CurrentMission == MISSION_STICKY || CurrentMission == MISSION_RESCUE || IsLockedStraight) { // RA2: RA2's form
+	if (CurrentMission == MISSION_STICKY || CurrentMission == MISSION_RESCUE || IsLockedStraight) {
 		return(false);
 	}
 	return(IsCarryallNotLanding ? true : false);
@@ -4049,7 +4049,7 @@ void AircraftClass::Compute_CRC(CRCEngine & crc) const
 {
 	BASECLASS::Compute_CRC(crc);
 	crc(Passenger);
-	crc(Unused_5B8); // RA2: RA2's form
+	crc(Unused_5B8);
 	crc(Unused_5B9);
 	crc((long)NumParadropsLeft);
 }
@@ -4084,7 +4084,7 @@ void AircraftClass::Detach(AbstractClass const * target, bool all)
 /// <returns>Returns with the height above ground level to settle at.</returns>
 LONG STDMETHODCALLTYPE AircraftClass::Landing_Altitude(void)
 {
-	if (Class->IsCarryall && !Cargo.Is_Something_Attached() && HasAnyLink()) { // RA2: RA2's form
+	if (Class->IsCarryall && !Cargo.Is_Something_Attached() && HasAnyLink()) {
 		TechnoClass * tptr = ((RadioClass const *)this)->Radio_Link(0); // RA2: the const Radio_Link (0x636E20)
 		if (Get_Mission() == MISSION_ENTER && tptr != NULL && tptr->Fetch_RTTI() == RTTI_BUILDING) {
 			BuildingTypeClass const * btype = ((BuildingClass *)tptr)->Class;
@@ -4110,7 +4110,7 @@ LONG STDMETHODCALLTYPE AircraftClass::Landing_Altitude(void)
 /// <returns>Returns with the facing to land at.</returns>
 LONG STDMETHODCALLTYPE AircraftClass::Landing_Direction(void)
 {
-	if (HasAnyLink()) { // RA2: RA2's form
+	if (HasAnyLink()) {
 		TechnoClass * tptr = ((RadioClass const *)this)->Radio_Link(0); // RA2: the const Radio_Link (0x636E20)
 		return(tptr->PrimaryFacing.Current().As_Dir8());
 	}
@@ -4205,7 +4205,7 @@ bool AircraftClass::Commence(void)
 /// <returns>bool; Should this aircraft be deleted when it flies off the map?</returns>
 bool AircraftClass::Should_Delete_Off_Map(void)
 {
-	if (TarCom == 0 && IsLocked && Get_Mission() != MISSION_PARADROP_APPROACH && Get_Mission() != MISSION_PARADROP_OVERFLY) { // RA2: RA2's form
+	if (TarCom == 0 && IsLocked && Get_Mission() != MISSION_PARADROP_APPROACH && Get_Mission() != MISSION_PARADROP_OVERFLY) {
 		if ((Team == 0 && IsALoaner) || (Team != 0 && Team->Is_Leaving_Map())) {
 			return(true);
 		}
@@ -4429,7 +4429,7 @@ HRESULT STDMETHODCALLTYPE AircraftClass::GetClassID(CLSID * retval)
 /// <returns>Returns with a pointer to the name given to this aircraft's type.</returns>
 wchar_t const * AircraftClass::Full_Name(void) const // RA2: wide
 {
-	return(Class->UIName); // RA2
+	return(Class->UIName);
 }
 
 

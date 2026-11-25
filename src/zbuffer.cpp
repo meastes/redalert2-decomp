@@ -159,7 +159,7 @@ void ZBuffer::Pan(int x, int y, unsigned short value)
 	if (abs(x_delta) > BufferWidth || abs(y_delta) > BufferHeight) {
 		Fill(value);
 		ScrollOffset = ZBUFFER_MAX;
-		return;	// RA2
+		return;
 	}
 
 	target_col = current_col + x_delta;

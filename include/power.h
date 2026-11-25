@@ -54,7 +54,7 @@ class PowerClass : public RadarClass
 		void Flash_Power(void);
 
 		virtual void Init_For_House(void) override;
-		virtual void DisposeOfArt(void) override; // RA2
+		virtual void DisposeOfArt(void) override;
 		virtual void Reposition_Sidebar(void) override;
 		virtual char const * Help_Text(int id) override;
 
@@ -64,9 +64,9 @@ class PowerClass : public RadarClass
 		enum PowerEnums {
 			GADGET_POWER=999,
 			POWER_X=5, // RA2: only for the GDI (Allied) sidebar; 0 otherwise
-			POWER_Y=69, // RA2
-			POWER_WIDTH=8, // RA2
-			POWER_PIP_HEIGHT=3, // RA2
+			POWER_Y = 69,
+			POWER_WIDTH = 8,
+			POWER_PIP_HEIGHT = 3,
 			POWER_PIP_EMPTY=0,
 			POWER_PIP_GREEN=1,
 			POWER_PIP_YELLOW=2,

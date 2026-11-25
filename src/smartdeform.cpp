@@ -500,7 +500,7 @@ bool Commit_Deform_Grid(Cell center, bool forced)
 				cell_bound = cellptr->Cell_Render_Rect();
 				int oldheight = cellptr->Height;
 				cellptr->Height = (char)(min_height / RAMP_HALF_HEIGHT);
-				Map.Lower_Max_Level(cellptr->Height); // RA2
+				Map.Lower_Max_Level(cellptr->Height);
 
 				if (oldheight != cellptr->Height) {
 					cellptr->Remove_Fogged_Objects();

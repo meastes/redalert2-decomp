@@ -98,14 +98,14 @@ class AITriggerTypeClass : public AbstractTypeClass
 
 	private:
 		bool Check_Enemy_Owns(HouseClass *house, HouseClass *enemy);
-		bool CivilianHouseOwns(HouseClass *house, HouseClass *enemy) const; // RA2
+		bool CivilianHouseOwns(HouseClass * house, HouseClass * enemy) const;
 		bool Check_House_Owns(HouseClass *house, HouseClass *enemy);
 		bool Check_Enemy_Yellow_Power(HouseClass *house, HouseClass *enemy);
 		bool Check_Enemy_Red_Power(HouseClass *house, HouseClass *enemy);
-		bool IronCurtainCharged(HouseClass *house, HouseClass *enemy) const; // RA2
-		bool ChronoSphereCharged(HouseClass *house, HouseClass *enemy) const; // RA2
+		bool IronCurtainCharged(HouseClass * house, HouseClass * enemy) const;
+		bool ChronoSphereCharged(HouseClass * house, HouseClass * enemy) const;
 		bool Check_Enemy_Money(HouseClass *house, HouseClass *enemy) const;
-		bool Can_Reach_Enemy(TeamTypeClass *team, HouseClass *house, HouseClass *enemy) const; // RA2
+		bool Can_Reach_Enemy(TeamTypeClass * team, HouseClass * house, HouseClass * enemy) const;
 
 	private:
 		/*

@@ -89,7 +89,7 @@ static int WS_Protocol_List[] = { 17, 1000, 0 };
  *    3/20/96 2:51PM ST : Created                                                              *
  *=============================================================================================*/
 WinsockInterfaceClass::WinsockInterfaceClass(void) :
-Socket(INVALID_SOCKET), // RA2
+	Socket(INVALID_SOCKET),
 AlternateSocket(INVALID_SOCKET)
 {
 	WinsockInitialised = false;
@@ -100,7 +100,7 @@ AlternateSocket(INVALID_SOCKET)
 
 		StaticOutBuffers[i].InUse = false;
 		StaticOutBuffers[i].IsAllocated = false;
-		StaticOutBuffers[i].IsAlternate = false; // RA2
+		StaticOutBuffers[i].IsAlternate = false;
 		StaticOutBuffers[i].Unused_18 = false;
 		StaticAltOutBuffers[i].InUse = false;
 		StaticAltOutBuffers[i].IsAllocated = false;
@@ -111,11 +111,11 @@ AlternateSocket(INVALID_SOCKET)
 	InBuffersUsed = 0;
 	OutBuffersUsed = 0;
 
-	AltOutBuffersUsed = 0; // RA2
+	AltOutBuffersUsed = 0;
 	InBufferArrayPos = 0;
 	OutBufferArrayPos = 0;
 
-	MaxPacketSize = 576; // RA2
+	MaxPacketSize = 576;
 	DebugString("WinsockInterface constructed\n");
 
 }
@@ -201,7 +201,7 @@ void WinsockInterfaceClass::Close_Socket (void)
 		closesocket (Socket);
 		Socket = INVALID_SOCKET;
 	}
-	if (AlternateSocket != INVALID_SOCKET) { // RA2
+	if (AlternateSocket != INVALID_SOCKET) {
 		closesocket(AlternateSocket);
 		AlternateSocket = INVALID_SOCKET;
 }
@@ -227,11 +227,11 @@ bool WinsockInterfaceClass::Start_Listening (void)
 	/*
 	**	Enable asynchronous events on the socket
 	*/
-	if (WSAAsyncSelect(Socket, MainWindow, Protocol_Event_Message(INVALID_SOCKET), FD_READ | FD_WRITE) == SOCKET_ERROR) { // RA2
+	if (WSAAsyncSelect(Socket, MainWindow, Protocol_Event_Message(INVALID_SOCKET), FD_READ | FD_WRITE) == SOCKET_ERROR) {
 		DebugString("Async select failed on primary socket - error code %d.\n", LAST_ERROR);
 		return(false);
 	}
-	if (AlternateSocket != INVALID_SOCKET) { // RA2
+	if (AlternateSocket != INVALID_SOCKET) {
 		if (WSAAsyncSelect(AlternateSocket, MainWindow, Protocol_Event_Message(AlternateSocket), FD_READ | FD_WRITE) == SOCKET_ERROR) {
 			DebugString("Async select failed on alternate socket - error code %d.\n", LAST_ERROR);
 			return(false);
@@ -257,7 +257,7 @@ bool WinsockInterfaceClass::Start_Listening (void)
  *=============================================================================================*/
 void WinsockInterfaceClass::Stop_Listening (void)
 {
-	if (Socket != INVALID_SOCKET && MainWindow) { // RA2
+	if (Socket != INVALID_SOCKET && MainWindow) {
 		WSAAsyncSelect(Socket, MainWindow, 0, 0);
 	}
 	if (AlternateSocket != INVALID_SOCKET && MainWindow) {
@@ -329,7 +329,7 @@ void WinsockInterfaceClass::Discard_Out_Buffers(void)
 	}
 	OutBuffersUsed = 0;
 	OutBufferArrayPos = 0;
-	while (AltOutBuffers.Count()) { // RA2
+	while (AltOutBuffers.Count()) {
 		packet = AltOutBuffers[0];
 		if (packet->IsAllocated) {
 			delete packet;
@@ -376,7 +376,7 @@ bool WinsockInterfaceClass::Init(void)
 	**	Create a buffer much larger than the sizeof (WSADATA) would indicate since Bounds Checker
 	**	says that a buffer of that size gets overrun.
 	*/
-	if (PacketLossPercent > 0 && !IsPacketLossReported) { // RA2
+	if (PacketLossPercent > 0 && !IsPacketLossReported) {
 		IsPacketLossReported = true;
 		MessageBox(MainWindow, "Warning - Packet Loss Simulation mode enabled", "Note", MB_OK);
 	}
@@ -420,7 +420,7 @@ bool WinsockInterfaceClass::Init(void)
 	/*
 	**	Everything is OK so return success
 	*/
-	MaxPacketSize = 546; // RA2
+	MaxPacketSize = 546;
 	char protocol_buffer[4096];
 	unsigned long protocol_buffer_len = sizeof(protocol_buffer);
 	int count = EnumProtocolsA(WS_Protocol_List, protocol_buffer, &protocol_buffer_len);
@@ -547,12 +547,12 @@ bool WinsockInterfaceClass::Passes_CRC_Check(WinsockBufferType * packet)
  * HISTORY:                                                                                    *
  *   3/2/00 12:39PM ST : Created                                                               *
  *=============================================================================================*/
-void *WinsockInterfaceClass::Get_New_Out_Buffer(bool alternate) // RA2
+void * WinsockInterfaceClass::Get_New_Out_Buffer(bool alternate)
 {
 	WinsockBufferType *buffer = NULL;
 	int pos;
 
-	if (!alternate) { // RA2
+	if (!alternate) {
 
 	/*
 	**	If there are no more free buffers in the heap then allocate one.
@@ -581,7 +581,7 @@ void *WinsockInterfaceClass::Get_New_Out_Buffer(bool alternate) // RA2
 		}
 	}
 
-		if (buffer != NULL) { // RA2
+		if (buffer != NULL) {
 			buffer->IsAlternate = false;
 			buffer->Unused_18 = false;
 		}
@@ -660,7 +660,7 @@ void *WinsockInterfaceClass::Get_New_In_Buffer(void)
 		}
 	}
 
-	if (buffer != NULL) { // RA2
+	if (buffer != NULL) {
 		buffer->IsAlternate = false;
 		buffer->Unused_18 = false;
 	}
@@ -686,7 +686,7 @@ void *WinsockInterfaceClass::Get_New_In_Buffer(void)
  * HISTORY:                                                                                    *
  *    3/20/96 2:58PM ST : Created                                                              *
  *=============================================================================================*/
-int WinsockInterfaceClass::Read(void *buffer, int &buffer_len, void *address, int &address_len, unsigned short &port) // RA2
+int WinsockInterfaceClass::Read(void * buffer, int & buffer_len, void * address, int & address_len, unsigned short & port)
 {
 	/*
 	**	Call the message loop in case there are any outstanding winsock READ messages.
@@ -710,7 +710,7 @@ int WinsockInterfaceClass::Read(void *buffer, int &buffer_len, void *address, in
 	**	Copy the data and the address it came from into the supplied buffers.
 	*/
 	memcpy(buffer, packet->Buffer, packet->BufferLen);
-	unsigned int copy_len = address_len; // RA2
+	unsigned int copy_len = address_len;
 	if (copy_len > sizeof(packet->Address)) {
 		copy_len = sizeof(packet->Address);
 	}
@@ -754,12 +754,12 @@ int WinsockInterfaceClass::Read(void *buffer, int &buffer_len, void *address, in
  * HISTORY:                                                                                    *
  *    3/20/96 3:00PM ST : Created                                                              *
  *=============================================================================================*/
-void WinsockInterfaceClass::WriteTo(void *buffer, int buffer_len, void *address, int address_len, bool alternate, bool flag, unsigned short port) // RA2
+void WinsockInterfaceClass::WriteTo(void * buffer, int buffer_len, void * address, int address_len, bool alternate, bool flag, unsigned short port)
 {
 	/*
 	**	Create a temporary holding area for the packet.
 	*/
-	WinsockBufferType *packet = (WinsockBufferType *)Get_New_Out_Buffer(alternate); // RA2
+	WinsockBufferType * packet = (WinsockBufferType *)Get_New_Out_Buffer(alternate);
 
 	/*
 	**	Copy the packet into the holding buffer.
@@ -768,16 +768,16 @@ void WinsockInterfaceClass::WriteTo(void *buffer, int buffer_len, void *address,
 	packet->BufferLen = buffer_len;
 	packet->IsBroadcast = false;
 //	memcpy ( packet->Address, address, sizeof (packet->Address) );
-	packet->Unused_18 = flag; // RA2
+	packet->Unused_18 = flag;
 	memcpy ( packet->Address, address, address_len );
 
-	packet->SrcPort = port; // RA2
+	packet->SrcPort = port;
 	Build_Packet_CRC(packet);
 
 	/*
 	**	Add it to our out list.
 	*/
-	SOCKET sock; // RA2
+	SOCKET sock;
 	if (alternate) {
 		AltOutBuffers.Add(packet);
 		sock = AlternateSocket;
@@ -787,7 +787,7 @@ void WinsockInterfaceClass::WriteTo(void *buffer, int buffer_len, void *address,
 	/*
 	**	Send a message to ourselves so that we can initiate a write if Winsock is idle.
 	*/
-		sock = Socket; // RA2
+	sock = Socket;
 	}
 	SendMessage(MainWindow, Protocol_Event_Message(sock), 0, (LONG)FD_WRITE);
 
@@ -813,12 +813,12 @@ void WinsockInterfaceClass::WriteTo(void *buffer, int buffer_len, void *address,
  * HISTORY:                                                                                    *
  *    3/20/96 3:00PM ST : Created                                                              *
  *=============================================================================================*/
-void WinsockInterfaceClass::Broadcast(void *buffer, int buffer_len, bool alternate) // RA2
+void WinsockInterfaceClass::Broadcast(void * buffer, int buffer_len, bool alternate)
 {
 	/*
 	**	Create a temporary holding area for the packet.
 	*/
-	WinsockBufferType *packet = (WinsockBufferType *)Get_New_Out_Buffer(alternate); // RA2
+	WinsockBufferType * packet = (WinsockBufferType *)Get_New_Out_Buffer(alternate);
 
 	/*
 	**	Copy the packet into the holding buffer.
@@ -835,7 +835,7 @@ void WinsockInterfaceClass::Broadcast(void *buffer, int buffer_len, bool alterna
 	/*
 	**	Add it to our out list.
 	*/
-	SOCKET sock; // RA2
+	SOCKET sock;
 	if (alternate) {
 		AltOutBuffers.Add(packet);
 		sock = AlternateSocket;
@@ -845,7 +845,7 @@ void WinsockInterfaceClass::Broadcast(void *buffer, int buffer_len, bool alterna
 	/*
 	**	Send a message to ourselves so that we can initiate a write if Winsock is idle.
 	*/
-		sock = Socket; // RA2
+	sock = Socket;
 	}
 	SendMessage(MainWindow, Protocol_Event_Message(sock), 0, (LONG)FD_WRITE);
 
@@ -897,7 +897,7 @@ void WinsockInterfaceClass::Clear_Socket_Error(SOCKET socket)
  * HISTORY:                                                                                    *
  *    8/5/97 12:07PM ST : Created                                                              *
  *=============================================================================================*/
-bool WinsockInterfaceClass::Set_Socket_Options(SOCKET socket) // RA2
+bool WinsockInterfaceClass::Set_Socket_Options(SOCKET socket)
 {
 	static int		socket_transmit_buffer_size = SOCKET_BUFFER_SIZE;
 	static int		socket_receive_buffer_size = SOCKET_BUFFER_SIZE;
@@ -905,7 +905,7 @@ bool WinsockInterfaceClass::Set_Socket_Options(SOCKET socket) // RA2
 	/*
 	**	Specify the size of the receive buffer.
 	*/
-	if (socket == INVALID_SOCKET) { // RA2
+	if (socket == INVALID_SOCKET) {
 		socket = Socket;
 	}
 	int err = setsockopt(socket, SOL_SOCKET, SO_RCVBUF, (char *)&socket_receive_buffer_size, sizeof(socket_receive_buffer_size));
@@ -918,7 +918,7 @@ bool WinsockInterfaceClass::Set_Socket_Options(SOCKET socket) // RA2
 	/*
 	**	Specify the size of the send buffer.
 	*/
-	err = setsockopt(socket, SOL_SOCKET, SO_SNDBUF, (char *)&socket_transmit_buffer_size, sizeof(socket_transmit_buffer_size)); // RA2
+	err = setsockopt(socket, SOL_SOCKET, SO_SNDBUF, (char *)&socket_transmit_buffer_size, sizeof(socket_transmit_buffer_size));
 	if ( err == INVALID_SOCKET ) {
 		DebugString("Failed to set socket option SO_SNDBUF - error code %d.\n", LAST_ERROR );
 	} else {

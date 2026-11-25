@@ -54,7 +54,7 @@ EXTERN_C const CLSID CLSID_BulletClass;
 EXTERN_C const CLSID CLSID_UnitClass;
 EXTERN_C const CLSID CLSID_ParticleClass;
 EXTERN_C const CLSID CLSID_ParticleTypeClass;
-EXTERN_C const CLSID CLSID_SpawnManagerClass; // RA2
+EXTERN_C const CLSID CLSID_SpawnManagerClass;
 EXTERN_C const CLSID CLSID_WaveClass;
 EXTERN_C const CLSID CLSID_BuildingLightClass;
 EXTERN_C const CLSID CLSID_TerrainClass;

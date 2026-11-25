@@ -111,7 +111,7 @@ class MissionClass : public ObjectClass
 		virtual int Do_MISSION_AMBUSH(void);
 		virtual int Do_MISSION_ATTACK(void);
 		virtual int Do_MISSION_CAPTURE(void);
-		virtual int Do_MISSION_EATEN(void); // RA2
+		virtual int Do_MISSION_EATEN(void);
 		virtual int Do_MISSION_GUARD(void);
 		virtual int Do_MISSION_GUARD_AREA(void);
 		virtual int Do_MISSION_HARVEST(void);
@@ -129,9 +129,9 @@ class MissionClass : public ObjectClass
 		virtual int Do_MISSION_OPEN(void);
 		virtual int Do_MISSION_RESCUE(void);
 		virtual int Do_MISSION_PATROL(void);
-		virtual int Do_MISSION_PARADROP_APPROACH(void); // RA2
-		virtual int Do_MISSION_PARADROP_OVERFLY(void); // RA2
-		virtual int Do_MISSION_WAIT(void); // RA2
+		virtual int Do_MISSION_PARADROP_APPROACH(void);
+		virtual int Do_MISSION_PARADROP_OVERFLY(void);
+		virtual int Do_MISSION_WAIT(void);
 
 		static bool Is_Recruitable_Mission(MissionType mission);
 

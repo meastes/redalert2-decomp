@@ -16,7 +16,7 @@
 
 GraphicMenuItem * GM_Read_Image_Item(Wstring const & name, INIClass const & ini, MSEngine & engine, Point2D & image_size); // RA2: Wstring
 GraphicMenuItem * GM_Read_Shortcut_Item(Wstring const & name, INIClass const & ini); // RA2: Wstring
-GraphicMenuItem * GM_Read_Anim_Item(Wstring const & name, INIClass const & ini, MSEngine & engine, Point2D & image_size); // RA2
+GraphicMenuItem * GM_Read_Anim_Item(Wstring const & name, INIClass const & ini, MSEngine & engine, Point2D & image_size);
 
 
 /// <summary>
@@ -34,20 +34,20 @@ GraphicMenuItem * GM_Read_Anim_Item(Wstring const & name, INIClass const & ini, 
 GraphicMenuItem * GM_Create_Item_From_INI(Wstring const & name, INIClass const & ini, MSEngine & engine, Point2D & image_size) // RA2: Wstring
 {
 	Wstring type;
-	ini.Get_String(name, "Type", "", type); // RA2
+	ini.Get_String(name, "Type", "", type);
 	GraphicMenuItem * item = NULL;
 
-	if (type == "Image") { // RA2
+	if (type == "Image") {
 		item = GM_Read_Image_Item(name, ini, engine, image_size);
-	} else if (type == "Shortcut") { // RA2
+	} else if (type == "Shortcut") {
 		item = GM_Read_Shortcut_Item(name, ini);
 	} else if (type == "Anim") { // RA2: anims instead of the version text
 		item = GM_Read_Anim_Item(name, ini, engine, image_size);
 	}
 
 	if (item != NULL) {
-		Wstring sound; // RA2
-		if (ini.Get_String(name, "SelectSound", "", sound) > 0) { // RA2
+		Wstring sound;
+		if (ini.Get_String(name, "SelectSound", "", sound) > 0) {
 			item->Set_Select_Sound(new MSSfxEntry("SelectSound", sound));
 		}
 	}

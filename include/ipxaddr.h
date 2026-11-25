@@ -56,7 +56,7 @@ class IPXAddressClass
 		.....................................................................*/
 		IPXAddressClass(void);
 		IPXAddressClass(NetNumType net, NetNodeType node); // RA2: not defined
-		IPXAddressClass(NetNumType net, NetNodeType node, unsigned short port); // RA2
+		IPXAddressClass(NetNumType net, NetNodeType node, unsigned short port);
 		IPXAddressClass(IPXHeaderType *header); // RA2: not defined
 
 		/*.....................................................................
@@ -64,16 +64,16 @@ class IPXAddressClass
 		in an IPX packet header.
 		.....................................................................*/
 		void Set_Address(NetNumType net, NetNodeType node); // RA2: not defined
-		void Set_Address(NetNumType net, NetNodeType node, unsigned short port); // RA2
+		void Set_Address(NetNumType net, NetNodeType node, unsigned short port);
 		void Set_Address(IPXHeaderType *header); // RA2: not defined
 		/*.....................................................................
 		Get the address values explicitly, or copy them into the DESTINATION
 		values in an IPX packet header.
 		.....................................................................*/
 		void Get_Address (NetNumType net, NetNodeType node);
-		void Get_Address(NetNumType net, NetNodeType node, unsigned short * port); // RA2
-		void Get_Node(NetNodeType node); // RA2
-		void Set_Node(NetNodeType node); // RA2
+		void Get_Address(NetNumType net, NetNodeType node, unsigned short * port);
+		void Get_Node(NetNodeType node);
+		void Set_Node(NetNodeType node);
 		void Set_Port(unsigned short port); // RA2: only for UDP addresses
 		unsigned short Get_Port(void) { return *(unsigned short *)NetworkNumber; } // RA2: the port of a UDP address
 		bool Is_Same_Node(IPXAddressClass & addr); // RA2: compares the node addresses only

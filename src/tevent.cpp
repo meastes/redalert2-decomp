@@ -732,7 +732,7 @@ char const * Name_From_Event(TEventType event)
  *=============================================================================================*/
 AttachType Attaches_To(TEventType event)
 {
-	int flags = ATTACH_NONE; // RA2: RA2's form
+	int flags = ATTACH_NONE;
 	switch (event) {
 		case TEVENT_NONE:
 		case TEVENT_PLAYER_ENTERED:

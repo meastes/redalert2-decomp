@@ -471,7 +471,7 @@ const char *IPXAddressClass::As_String(IPXAddressClass * address)
 	NetNumType num;
 	NetNodeType node;
 
-	if (!address) address = this; // RA2
+	if (!address) address = this;
 
 	memcpy(node,address->NodeAddress,6);
 

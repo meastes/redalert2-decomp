@@ -36,7 +36,7 @@
 #include "index.h"
 #include "listnode.h"
 
-class WideWstring; // RA2
+class WideWstring;
 
 #include <comdef.h>
 #include <cstdlib>
@@ -97,25 +97,25 @@ class INIClass {
 		*/
 		PKey Get_PKey(bool fast) const;
 		int Get_Time(char const * section, char const * entry, int defvalue) const; // RA2: hh:mm:ss as frames
-		bool Put_Time(char const * section, char const * entry, int value); // RA2
+		bool Put_Time(char const * section, char const * entry, int value);
 		bool Get_Bool(char const * section, char const * entry, bool defvalue=false) const;
-		bool Put_UnicodeString(char const * section, char const * entry, wchar_t const * string); // RA2
-		int Get_UnicodeString(char const * section, char const * entry, wchar_t const * defvalue, wchar_t * buffer, int size) const; // RA2
-		int ReadStringtableEntry(char const * section, char const * entry, wchar_t * buffer, char const * deflabel, int size) const; // RA2
+		bool Put_UnicodeString(char const * section, char const * entry, wchar_t const * string);
+		int Get_UnicodeString(char const * section, char const * entry, wchar_t const * defvalue, wchar_t * buffer, int size) const;
+		int ReadStringtableEntry(char const * section, char const * entry, wchar_t * buffer, char const * deflabel, int size) const;
 		int ReadStringtableEntry(char const * section, char const * entry, wchar_t * buffer, int size) const; // RA2 (YR name): a string table label read as wide text
 		class TechnoTypeClass * GetTechnoType(char const * section, char const * entry) const; // RA2 (YR name)
 		double Get_Float(char const * section, char const * entry, double defvalue=0.0) const;
 		int Get_Hex(char const * section, char const * entry, int defvalue=0) const;
 		int Get_Int(char const * section, char const * entry, int defvalue=0) const;
 		int Get_String(char const * section, char const * entry, char const * defvalue, char * buffer, int size) const;
-		int Entry_Count(Wstring const & section) const; // RA2
-		Wstring Get_Entry(Wstring const & section, int index) const; // RA2
-		int Get_Int(Wstring const & section, Wstring const & entry, int defvalue=0) const; // RA2
-		int Get_String(Wstring const & section, Wstring const & entry, Wstring const & defvalue, Wstring & result) const; // RA2
-		Rect const Get_Rect(Wstring const & section, Wstring const & entry, Rect const & defvalue) const; // RA2
-		TPoint3D<float> const Get_Point(Wstring const & section, Wstring const & entry, TPoint3D<float> const & defvalue) const; // RA2
-		TPoint2D<int> const Get_Point(Wstring const & section, Wstring const & entry, TPoint2D<int> const & defvalue) const; // RA2
-		TPoint3D<int> const Get_Point(Wstring const & section, Wstring const & entry, TPoint3D<int> const & defvalue) const; // RA2
+		int Entry_Count(Wstring const & section) const;
+		Wstring Get_Entry(Wstring const & section, int index) const;
+		int Get_Int(Wstring const & section, Wstring const & entry, int defvalue = 0) const;
+		int Get_String(Wstring const & section, Wstring const & entry, Wstring const & defvalue, Wstring & result) const;
+		Rect const Get_Rect(Wstring const & section, Wstring const & entry, Rect const & defvalue) const;
+		TPoint3D<float> const Get_Point(Wstring const & section, Wstring const & entry, TPoint3D<float> const & defvalue) const;
+		TPoint2D<int> const Get_Point(Wstring const & section, Wstring const & entry, TPoint2D<int> const & defvalue) const;
+		TPoint3D<int> const Get_Point(Wstring const & section, Wstring const & entry, TPoint3D<int> const & defvalue) const;
 		int Get_TextBlock(char const * section, char * buffer, int len) const;
 		int Get_UUBlock(char const * section, void * buffer, int len) const;
 		Rect const Get_Rect(char const * section, char const * entry, Rect const & defvalue) const;

@@ -99,7 +99,7 @@
 #include "voxdrsys.h"
 #include "warhead.h"
 #include "weapon.h"
-#include "radsite.h" // RA2
+#include "radsite.h"
 #include "trajhelp.h" // RA2: TrajectoryHelper::GetObstacle
 #include "globals.h"
 

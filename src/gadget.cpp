@@ -501,7 +501,7 @@ void GadgetClass::Draw_All(bool forced)
 
 GadgetClass * GadgetClass::Extract_Gadget_At(int x, int y) // RA2: the smallest enabled gadget whose rectangle holds the point
 {
-	GadgetClass * g = this;	// RA2
+	GadgetClass * g = this;
 	Rect best(0, 0, HighResWidth, HighResHeight);
 	GadgetClass * found = NULL;
 

@@ -21,6 +21,6 @@
 **	defines here are not defined yet).
 */
 DynamicVectorClass<MFCD *> ExpandMix;
-DynamicVectorClass<MixFileClass *> ScenarioMixFiles; // RA2
+DynamicVectorClass<MixFileClass *> ScenarioMixFiles;
 DynamicVectorClass<MFCD *> MapsMixLocal;
 DynamicVectorClass<MFCD *> MoviesMixLocal;

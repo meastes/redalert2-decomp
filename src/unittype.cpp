@@ -398,7 +398,7 @@ bool UnitTypeClass::Read_INI(CCINIClass const & ini)
 	if (BASECLASS::Read_INI(ini)) {
 		IsCrateGoodie = ini.Get_Bool(Name(), "CrateGoodie", IsCrateGoodie);
 		IsDeployToFire = ini.Get_Bool(Name(), "DeployToFire", IsDeployToFire);
-		IsSimpleDeployer = ini.Get_Bool(Name(), "IsSimpleDeployer", IsSimpleDeployer); // RA2
+		IsSimpleDeployer = ini.Get_Bool(Name(), "IsSimpleDeployer", IsSimpleDeployer);
 		IsToHarvest = ini.Get_Bool(Name(), "Harvester", IsToHarvest);
 		IsToVeinHarvest = ini.Get_Bool(Name(), "Weeder", IsToVeinHarvest);
 
@@ -428,7 +428,7 @@ bool UnitTypeClass::Read_INI(CCINIClass const & ini)
 		FiringFrames = ArtINI.Get_Int(Graphic_Name(), "FiringFrames", FiringFrames);
 		IsPassive = ini.Get_Bool(Name(), "Passive", IsPassive);
 		MovementRestrictedTo = ini.Get_LandType(Name(), "MovementRestrictedTo", MovementRestrictedTo);
-		CanBeach = ini.Get_Bool(Name(), "CanBeach", CanBeach); // RA2
+		CanBeach = ini.Get_Bool(Name(), "CanBeach", CanBeach);
 		IsSmallVisceroid = ini.Get_Bool(Name(), "SmallVisceroid", IsSmallVisceroid);
 		IsLargeVisceroid = ini.Get_Bool(Name(), "LargeVisceroid", IsLargeVisceroid);
 		IsNonVehicle = ini.Get_Bool(Name(), "NonVehicle", IsNonVehicle);

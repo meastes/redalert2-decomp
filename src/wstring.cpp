@@ -89,7 +89,7 @@ bool Wstring::operator==(IN char const* other) const
 	if ((str == NULL) && (other == NULL))
 		return(TRUE);
 
-	if ((str == NULL) || (other == NULL)) // RA2
+	if ((str == NULL) || (other == NULL))
 		return(FALSE);
 
 	if (strcmp(str, other) != 0)
@@ -128,10 +128,10 @@ bool Wstring::operator==(IN Wstring const& other) const
 /// NULL.</remarks>
 bool Wstring::operator!=(IN char const* other) const
 {
-	if ((str == NULL) && (other == NULL)) // RA2
+	if ((str == NULL) && (other == NULL))
 		return(FALSE);
 
-	if ((str == NULL) || (other == NULL)) // RA2
+	if ((str == NULL) || (other == NULL))
 		return(TRUE);
 
 	if (strcmp(str, other) != 0)
@@ -671,7 +671,7 @@ char Wstring::set(IN char const* s)
 	len = s ? (unsigned int)strlen(s) + 1 : 1; // RA2: a NULL string sets an empty one
 
 	str = new char[len];
-	str[0] = 0; // RA2
+	str[0] = 0;
 	if (s)
 		strcpy(str, s);
 
@@ -714,7 +714,7 @@ char Wstring::set(unsigned int size, IN char const* string)
 	str = new char[len];
 
 	// Copy the bytes in the string, and NULL-terminate it.
-	str[0] = 0; // RA2
+	str[0] = 0;
 	if (string)
 	strncpy(str, string, size);
 	str[size] = 0;

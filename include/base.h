@@ -54,8 +54,8 @@ class BaseNodeClass
 	public:
 		BaseNodeClass(void) {};
 		BaseNodeClass(StructType building, Cell const & cell); // RA2: defined in house.cpp; clears the placed flag and the attempt count
-		BaseNodeClass(StructType building, Cell cell, bool placed, int attempts) : Type(building), CellID(cell), Placed(placed), Attempts(attempts) {}; // RA2
-		BaseNodeClass(BaseNodeClass const & node) : Type(node.Type), CellID(node.CellID), Placed(node.Placed), Attempts(node.Attempts) {}; // RA2
+		BaseNodeClass(StructType building, Cell cell, bool placed, int attempts) : Type(building), CellID(cell), Placed(placed), Attempts(attempts) {};
+		BaseNodeClass(BaseNodeClass const & node) : Type(node.Type), CellID(node.CellID), Placed(node.Placed), Attempts(node.Attempts) {};
 		bool operator == (BaseNodeClass const & node);
 		bool operator != (BaseNodeClass const & node);
 		bool operator > (BaseNodeClass const & node);
@@ -109,9 +109,9 @@ class BaseClass
 		**	Tells if the given node has been built or not
 		*/
 		bool Is_Built(int index) const;
-		bool Is_Placed(int index) const; // RA2
-		void Mark_Node_Placed(BuildingClass * building); // RA2
-		int Failed_To_Place_Node(BaseNodeClass * node); // RA2
+		bool Is_Placed(int index) const;
+		void Mark_Node_Placed(BuildingClass * building);
+		int Failed_To_Place_Node(BaseNodeClass * node);
 
 		/*
 		**	Returns a pointer to the object for the given node

@@ -497,21 +497,21 @@ bool TriggerTypeClass::Read_INI(CCINIClass const & ini)
 		if (token != NULL && atoi(token) != 0) {
 			IsEnabledOnEasy = true;
 		} else {
-			IsEnabledOnEasy = false; // RA2
+			IsEnabledOnEasy = false;
 		}
 
 		token = strtok(NULL, ",");
 		if (token != NULL && atoi(token) != 0) {
 			IsEnabledOnMedium = true;
 		} else {
-			IsEnabledOnMedium = false; // RA2
+			IsEnabledOnMedium = false;
 		}
 
 		token = strtok(NULL, ",");
 		if (token != NULL && atoi(token) != 0) {
 			IsEnabledOnHard = true;
 		} else {
-			IsEnabledOnHard = false; // RA2
+			IsEnabledOnHard = false;
 		}
 
 		token = strtok(NULL, ",");

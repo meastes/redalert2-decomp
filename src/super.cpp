@@ -75,17 +75,17 @@
 #include "vector.h"
 #include "vox.h"
 #include "weapon.h"
-#include "revent.h"	// RA2
-#include "stringtable.h"	// RA2
-#include "ion.h"	// RA2
-#include "houstype.h"	// RA2
-#include "ilocos.h"	// RA2
-#include "loco.h"	// RA2
-#include "ipiggy.h"	// RA2
-#include "airctype.h"	// RA2
-#include "reinf.h"	// RA2
-#include "bullettype.h"	// RA2
-#include "anim.h"	// RA2
+#include "revent.h"
+#include "stringtable.h"
+#include "ion.h"
+#include "houstype.h"
+#include "ilocos.h"
+#include "loco.h"
+#include "ipiggy.h"
+#include "airctype.h"
+#include "reinf.h"
+#include "bullettype.h"
+#include "anim.h"
 
 // RA2: SuperClass in RA2's form, which shares none of YR's and few of TibSun's parts
 

@@ -152,7 +152,7 @@
 #include "ipiggy.h"
 #include "isotile.h"
 #include "isotype.h"
-#include "laser.h" // RA2
+#include "laser.h"
 #include "light.h"
 #include "lightcon.h"
 #include "mono.h"
@@ -949,7 +949,7 @@ void BuildingClass::Editor_Draw_It(Point2D const & xdrawpoint, Rect const & xcli
  *=============================================================================================*/
 void BuildingClass::Draw_It(Point2D const & xdrawpoint, Rect const & xcliprect) const
 {
-	Cell cell = Get_Cell(); // RA2: RA2's form
+	Cell cell = Get_Cell();
 
 	/*
 	**	The shape file to use for rendering depends on whether the building
@@ -1435,7 +1435,7 @@ void BuildingClass::Set_Turret_Index(int index)
 	if (index != TurretIndex && !Class->IsTurretAnimAVoxel) {
 		End_Anim(BANIM_TURRET);
 		if (index != -1) {
-			char buffer[64]; // RA2: RA2's form
+			char buffer[64];
 			strcpy(buffer, Class->GraphicName);
 			strcat(buffer, "_");
 			unsigned int len = strlen(buffer);
@@ -1466,7 +1466,7 @@ void BuildingClass::Set_Turret_Index(int index)
  *=============================================================================================*/
 int BuildingClass::Shape_Number(void) const
 {
-	BuildingTypeClass *type = Class; // RA2: RA2's form
+	BuildingTypeClass * type = Class;
 	unsigned int frame = (unsigned int)Fetch_Stage();
 	if (type->IsLaserFence) {
 		return LaserFenceFrame;
@@ -3965,7 +3965,7 @@ AbstractClass * BuildingClass::Greatest_Threat(ThreatType threat, Coord const & 
  *=============================================================================================*/
 void BuildingClass::Grand_Opening(bool captured)
 {
-	if (HasOpened && !captured) { // RA2: RA2's form
+	if (HasOpened && !captured) {
 		return;
 	}
 
@@ -4213,7 +4213,7 @@ void BuildingClass::Repair(int control)
 			break;
 	}
 
-	VocType soundid; // RA2: RA2's form
+	VocType soundid;
 	if (IsRepairing) {
 		if (Strength == Class->MaxStrength) {
 			soundid = Rule->ScoldSound;
@@ -4259,7 +4259,7 @@ void BuildingClass::Sell_Back(int control)
 		bool decon = false;
 		switch (control) {
 			case -1:
-				decon = (Get_Mission() != MISSION_DECONSTRUCTION); // RA2: RA2's form
+				decon = (Get_Mission() != MISSION_DECONSTRUCTION);
 				break;
 
 			case 0:
@@ -4698,7 +4698,7 @@ done:
  *=============================================================================================*/
 bool BuildingClass::Toggle_Primary(void)
 {
-	if (Class->ToBuild != RTTI_NONE) { // RA2: RA2's form
+	if (Class->ToBuild != RTTI_NONE) {
 		if (IsLeader) {
 			IsLeader = false;
 		} else {
@@ -6380,7 +6380,7 @@ int BuildingClass::Do_MISSION_MISSILE(void)
 					int strength = weap->Attack; // RA2: the weapon's damage, at full speed (ra2-decomp)
 					BulletClass * bullet = bullet_type->Create_Bullet(targ, this, strength, warhead, 255, true); // RA2: a BulletTypeClass member, no range
 					if (bullet) {
-						bullet->Set_Weapon_Type((WeaponTypeClass *)weap); // RA2
+						bullet->Set_Weapon_Type((WeaponTypeClass *)weap);
 						if (PsiWarnAnim != NULL) { // RA2: the warning follows the missile from now on
 							PsiWarnAnim->Set_Attached_Bullet(bullet);
 							PsiWarnAnim = NULL;
@@ -6506,7 +6506,7 @@ int BuildingClass::Do_MISSION_MISSILE(void)
 							TurretRecoil.Fire();
 							BarrelRecoil.Fire();
 							}
-						VocClass::PlayAt(weap->Sound.Pick(NonCriticalRandomNumber), Fire_Coord(0)); // RA2
+							VocClass::PlayAt(weap->Sound.Pick(NonCriticalRandomNumber), Fire_Coord(0));
 							Status = DONE;
 							return(1);
 						} else {
@@ -8005,7 +8005,7 @@ void BuildingClass::Update_Overpowerers(void) // RA2: not in TibSun, at 0x44B910
  *=============================================================================================*/
 void BuildingClass::Repair_AI(void)
 {
-	if (House->IQ >= Rule->IQRepairSell && Get_Mission() != MISSION_CONSTRUCTION && Get_Mission() != MISSION_DECONSTRUCTION && Can_Repair()) { // RA2: RA2's form
+	if (House->IQ >= Rule->IQRepairSell && Get_Mission() != MISSION_CONSTRUCTION && Get_Mission() != MISSION_DECONSTRUCTION && Can_Repair()) {
 		if (House->Available_Money() >= Rule->RepairThreshhold) {
 			if (!House->DidRepair && !IsRepairing && (IsCaptured || IsToRepair || House->Is_Human_Player())) {
 				House->DidRepair = true;
@@ -8201,13 +8201,8 @@ void BuildingClass::Animation_AI(void)
 		IsToDisplay = true;
 	}
 
-	if (Is_Turret_Equipped() && Is_Turret_Equipped() && Anims[BANIM_TURRET] != NULL) { // RA2: the turret animation follows the facing (Set_Turret_Frame inline)
-		int index = PrimaryFacing.Current().As_Dir32(); // RA2: Set_Turret_Frame inline
-		AnimClass * anim = Anims[BANIM_TURRET];
-		if (anim != NULL) {
-			anim->Set_Stage(BASECLASS::BodyShape[index]);
-			anim->Set_Step(0);
-		}
+	if (Is_Turret_Equipped()) {
+		Set_Turret_Frame();
 	}
 
 	/*
@@ -8509,7 +8504,7 @@ void BuildingClass::Create_Anim(char const * name, BAnimType anim, bool damaged,
 /// <param name="anim">The animation that is going away.</param>
 void BuildingClass::Detach_Anim(AnimClass * anim)
 {
-	if (!IsActive) { // RA2: RA2's form
+	if (!IsActive) {
 		return;
 	}
 	for (int index = 0; index < 18; ++index) {
@@ -8567,7 +8562,7 @@ void BuildingClass::Detach_Anim(AnimClass * anim)
 /// <param name="anim">The animation slot to stop, or BANIM_ALL for all of them.</param>
 void BuildingClass::End_Anim(BAnimType anim)
 {
-	if (anim == -2) { // RA2: RA2's form
+	if (anim == -2) {
 		for (int i = 0; i < 18; i++) {
 			AbstractClass * object = Anims[i];
 			if (object) {
@@ -8643,7 +8638,7 @@ void BuildingClass::Set_Anim_Damage_State(bool damaged)
 /// <param name="brightness">The brightness level to draw the animations at.</param>
 void BuildingClass::Set_Anim_Drawer(ConvertClass * drawer, int brightness)
 {
-	for (int index = 0; index < 18; index++) { // RA2: RA2's form
+	for (int index = 0; index < 18; index++) {
 		AnimClass * anim = static_cast<AnimClass *>(Anims[index]);
 		if (anim != 0) {
 			if (anim->Class != 0 && anim->Class->IsShouldUseCellDrawer) {
@@ -8844,7 +8839,7 @@ void BuildingClass::Power_On(void)
 /// </summary>
 void BuildingClass::Power_Off(void)
 {
-	HouseClass *house = House; // RA2: RA2's form
+	HouseClass * house = House;
 	IsPoweredOn = false;
 	int count = house->Buildings.Count();
 	for (int index = 0; index < count; index++) {
@@ -9275,7 +9270,7 @@ void BuildingClass::Disconnect_Laser_Fence(FacingType dir, bool explode)
 {
 	if (Class->IsLaserFencePost) {
 		int range = Class->ThreatRange >> 8;
-		if (range <= 1) range = 1; // RA2: RA2's form
+		if (range <= 1) range = 1;
 		unsigned axis = (unsigned)dir % 4;
 		Cell cell = Center_Coord().As_Cell();
 		for (int index = 0; index < range; ++index) {
@@ -9666,7 +9661,7 @@ void BuildingClass::Clear_Occupy_Bit(Coord const & coord)
 HRESULT STDMETHODCALLTYPE BuildingClass::Load(IStream *stream)
 {
 	TargetTracker.Remove_Index(Fetch_ID());
-	HRESULT result = TechnoClass::Load(stream); // RA2: RA2's form
+	HRESULT result = TechnoClass::Load(stream);
 	if (SUCCEEDED(result)) {
 		int count;
 		new (this) BuildingClass(NoInitClass());
@@ -9798,7 +9793,7 @@ bool BuildingClass::Ready_To_Commence(void)
 /// <param name="crc">The checksum engine to submit the building's state to.</param>
 void BuildingClass::Compute_CRC(CRCEngine & crc) const
 {
-	TechnoClass::Compute_CRC(crc); // RA2: RA2's form
+	TechnoClass::Compute_CRC(crc);
 	crc(CountDown.Value());
 	crc(CashProductionTimer.Value());
 	crc((long)BState);
@@ -9973,7 +9968,7 @@ void BuildingClass::Update_Power_State(void) // RA2: not in TibSun, at 0x44F8E0
 /// <param name="house">The house whose buildings are to be adjusted.</param>
 void Adjust_House_Power(HouseClass * house)
 {
-	int count = house->Buildings.Count(); // RA2: RA2's form
+	int count = house->Buildings.Count();
 	for (int index = 0; index < count; ++index) {
 		BuildingClass * building = house->Buildings[index];
 		if (building->IsActive && !building->IsInLimbo) {
@@ -10071,7 +10066,7 @@ void BuildingClass::Cloaking_AI(bool fast)
 		return;
 	}
 
-	Cell center = Cell(Center_Coord()); // RA2: RA2's form
+	Cell center = Cell(Center_Coord());
 
 	if (Cloak == CLOAKING) {
 		if (TranslucencyLevel < 15) {
@@ -10246,7 +10241,7 @@ bool BuildingClass::IsPowerOnline(void) const // RA2: Is_Powered_On is the IsPow
 /// objects standing there are hidden again. The house's other sensor arrays are then
 /// re-enabled, since their coverage may well have overlapped the area just given up.
 /// </summary>
-void BuildingClass::SensorArrayDeactivate(Cell cell) // RA2: RA2's form
+void BuildingClass::SensorArrayDeactivate(Cell cell)
 {
 	int range = Class->CloakRadiusInCells;
 	int range_squared = range * range;
@@ -11914,7 +11909,7 @@ RTTIType BuildingClass::Fetch_RTTI(void) const
 /// <returns>Returns with a pointer to the human readable name of this building.</returns>
 wchar_t const * BuildingClass::Full_Name(void) const // RA2: wide
 {
-	return(Class->UIName); // RA2
+	return(Class->UIName);
 }
 
 

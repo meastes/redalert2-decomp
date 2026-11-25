@@ -36,7 +36,7 @@ int __fastcall AudioDeviceAvailable(void); // RA2: whether the audio library has
 MapChoice::MapChoice(void)
 {
 	Stages.Clear();
-	AnimPaletteName.clear(); // RA2
+	AnimPaletteName.clear();
 	AnimEntries.Clear();
 }
 
@@ -59,17 +59,17 @@ MapChoice::~MapChoice(void)
 /// </summary>
 /// <param name="house_name">Name of the house whose campaign is being presented.</param>
 /// <returns>bool; Was the map selection data loaded?</returns>
-bool MapChoice::Initialize(Wstring const & side_name) // RA2
+bool MapChoice::Initialize(Wstring const & side_name)
 {
 	CCFileClass file;
 	INIClass ini;
-	Wstring section; // RA2
+	Wstring section;
 	Wstring buffer;
 	int index;
 
 	Deinit();
 
-	file.Open("MAPSEL.INI"); // RA2
+	file.Open("MAPSEL.INI");
 
 	if (!ini.Load(file)) {
 		DebugString("Failed to load MAPSEL.INI\n");
@@ -78,7 +78,7 @@ bool MapChoice::Initialize(Wstring const & side_name) // RA2
 
 	for (index = 1; index <= 100; index++) {
 
-		if (!ini.Get_String(side_name, Wstring_FromInt(index), NULL, buffer)) { // RA2
+		if (!ini.Get_String(side_name, Wstring_FromInt(index), NULL, buffer)) {
 			break;
 		}
 
@@ -96,39 +96,39 @@ bool MapChoice::Initialize(Wstring const & side_name) // RA2
 		return(false);
 	}
 
-	if (ini.Get_String(side_name, "Anims", NULL, section) > 0) { // RA2
+	if (ini.Get_String(side_name, "Anims", NULL, section) > 0) {
 
-		if (ini.Get_String(section, "TextRect", NULL, buffer) > 0) { // RA2
+		if (ini.Get_String(section, "TextRect", NULL, buffer) > 0) {
 
-			Wstring token; // RA2
+			Wstring token;
 			int pos = buffer.getToken(0, ",", token);
 			if (token.length() > 0) {
 				TextRect.X = token.toInt();
 			}
 
-			pos = buffer.getToken(pos, ",", token); // RA2
+			pos = buffer.getToken(pos, ",", token);
 			if (token.length() > 0) {
 				TextRect.Y = token.toInt();
 			}
 
-			pos = buffer.getToken(pos, ",", token); // RA2
+			pos = buffer.getToken(pos, ",", token);
 			if (token.length() > 0) {
 				TextRect.Width = token.toInt();
 			}
 
-			buffer.getToken(pos, ",", token); // RA2
+			buffer.getToken(pos, ",", token);
 			if (token.length() > 0) {
 				TextRect.Height = token.toInt();
 			}
 		}
 
-		if (ini.Get_String(section, "Palette", NULL, buffer) > 0) { // RA2
+		if (ini.Get_String(section, "Palette", NULL, buffer) > 0) {
 			AnimPaletteName = buffer;
 		}
 
 		for (index = 1; index <= 100; index++) {
 
-			if (!ini.Get_String(section, Wstring_FromInt(index), NULL, buffer)) { // RA2
+			if (!ini.Get_String(section, Wstring_FromInt(index), NULL, buffer)) {
 				break;
 			}
 
@@ -142,18 +142,18 @@ bool MapChoice::Initialize(Wstring const & side_name) // RA2
 		}
 	}
 
-	if (AudioDeviceAvailable()) { // RA2
+	if (AudioDeviceAvailable()) {
 		Wstring entry;
 
 		if (ini.Get_String(side_name, "Sounds", NULL, section) > 0) {
 			for (index = 0; index < ini.Entry_Count(section); index++) {
-				entry = ini.Get_Entry(section, index); // RA2
+				entry = ini.Get_Entry(section, index);
 
-				if (entry != (char const *)NULL && ini.Get_String(section, entry, NULL, buffer) > 0) { // RA2
+				if (entry != (char const *)NULL && ini.Get_String(section, entry, NULL, buffer) > 0) {
 
 					MSSfxEntry * sfx = new MSSfxEntry(entry, buffer);
 
-					if (sfx->Get_Name() == (char const *)NULL) { // RA2
+					if (sfx->Get_Name() == (char const *)NULL) {
 						delete sfx;
 					} else {
 						Add_Sound(sfx);
@@ -184,7 +184,7 @@ void MapChoice::Deinit(void)
 		}
 	}
 	SoundEntries.Clear();
-	TextRect.Set(0, 0, 640, 400); // RA2
+	TextRect.Set(0, 0, 640, 400);
 	for (i = 0; i < AnimEntries.Count(); i++) {
 		MSAnimEntry * anim = AnimEntries[i];
 		if (anim != NULL) {
@@ -209,7 +209,7 @@ void MapChoice::Deinit(void)
 /// </summary>
 /// <param name="name">Label of the stage to search for.</param>
 /// <returns>Returns with a pointer to the stage. Otherwise, NULL is returned.</returns>
-MapStage * MapChoice::Find_Stage_By_Name(Wstring const & name) // RA2
+MapStage * MapChoice::Find_Stage_By_Name(Wstring const & name)
 {
 	if (name != NULL) {
 		for (int index = 0; index < Stages.Count(); index++) {
@@ -280,12 +280,12 @@ short MapChoice::Get_Stage_ID(MapStage * stage)
 /// </summary>
 /// <param name="name">Name of the sound effect as the control file spells it.</param>
 /// <returns>Returns with a pointer to the sound effect. Otherwise, NULL is returned.</returns>
-MSSfxEntry * MapChoice::Find_Sound(Wstring const & name) // RA2
+MSSfxEntry * MapChoice::Find_Sound(Wstring const & name)
 {
-	if (!AudioDeviceAvailable()) return(NULL); // RA2
+	if (!AudioDeviceAvailable()) return(NULL);
 	for (int i = 0; i < SoundEntries.Count(); i++) {
 		MSSfxEntry * sfx = SoundEntries[i];
-		Wstring have = sfx->Name; // RA2
+		Wstring have = sfx->Name;
 		have.toLower();
 		Wstring wanted = name;
 		wanted.toLower();
@@ -306,22 +306,22 @@ MSSfxEntry * MapChoice::Find_Sound(Wstring const & name) // RA2
 /// </summary>
 /// <param name="ini">The map selection control file to read the stage from.</param>
 /// <param name="label">Name of the section that describes this stage.</param>
-MapStage::MapStage(INIClass const & ini, Wstring const & label) : // RA2
+MapStage::MapStage(INIClass const & ini, Wstring const & label) :
 	Targets(),
 	TextEntries(),
 	Selections()
 {
-	Wstring buffer; // RA2
+	Wstring buffer;
 	int index;
-	WideWstring text; // RA2
+	WideWstring text;
 	Wstring key;
 	int pos;
 	int count;
 	Point2D point;
 
-	StageLabel = label; // RA2
+	StageLabel = label;
 
-	ScenarioName = (char const *)NULL; // RA2
+	ScenarioName = (char const *)NULL;
 	if (ini.Get_String(label, "Scenario", NULL, buffer) > 0) {
 		ScenarioName = buffer;
 	}
@@ -331,24 +331,24 @@ MapStage::MapStage(INIClass const & ini, Wstring const & label) : // RA2
 		Description = StringTable::LoadString(buffer.get(), NULL, RA2_SOURCE, 482);
 	}
 
-	VoiceOver = (char const *)NULL; // RA2
+	VoiceOver = (char const *)NULL;
 	if (ini.Get_String(label, "VoiceOver", NULL, buffer) > 0) {
 		VoiceOver = buffer;
 	}
 
-	MapVQName = (char const *)NULL; // RA2
+	MapVQName = (char const *)NULL;
 	if (ini.Get_String(label, "MapVQ", NULL, buffer) > 0) {
 		MapVQName = buffer;
 	}
 
 	OverlayCount = 0;
-	for (index = 0; index < 2; index++) { // RA2
+	for (index = 0; index < 2; index++) {
 		OverlayNames[index] = (char const *)NULL;
 	}
 
-	if (ini.Get_String(label, "Overlays", NULL, buffer) > 0) { // RA2
+	if (ini.Get_String(label, "Overlays", NULL, buffer) > 0) {
 		index = 0;
-		Wstring token; // RA2
+		Wstring token;
 		pos = buffer.getToken(0, ",", token);
 		while (token.length() > 0 && index < 2) {
 			OverlayNames[index] = token;
@@ -359,13 +359,13 @@ MapStage::MapStage(INIClass const & ini, Wstring const & label) : // RA2
 		OverlayCount = index;
 	}
 
-	ClickMapName = (char const *)NULL; // RA2
+	ClickMapName = (char const *)NULL;
 	if (ini.Get_String(label, "ClickMap", NULL, buffer) > 0) {
 		ClickMapName = buffer;
 	}
 
 	for (index = 1; index < 8; index++) {
-		if (ini.Get_String(label, "Text" + Wstring_FromInt(index), NULL, buffer) > 0) { // RA2
+		if (ini.Get_String(label, "Text" + Wstring_FromInt(index), NULL, buffer) > 0) {
 			text = Wstring_ToWide(buffer);
 			MSTextEntry * entry = new MSTextEntry(text);
 			if (entry) {
@@ -374,9 +374,9 @@ MapStage::MapStage(INIClass const & ini, Wstring const & label) : // RA2
 		}
 	}
 
-	if (ini.Get_String(label, "Targets", NULL, buffer) > 0) { // RA2
+	if (ini.Get_String(label, "Targets", NULL, buffer) > 0) {
 
-		count = 0; // RA2
+		count = 0;
 		Wstring token;
 		pos = buffer.getToken(0, ",", token);
 		if (token.length() > 0) {
@@ -384,27 +384,27 @@ MapStage::MapStage(INIClass const & ini, Wstring const & label) : // RA2
 		}
 
 		for (index = 0; index < count; index++) {
-			point.X = -1; // RA2
+			point.X = -1;
 			point.Y = -1;
 
-			pos = buffer.getToken(pos, ",", token); // RA2
+			pos = buffer.getToken(pos, ",", token);
 			if (token.length() > 0) {
 				point.X = token.toInt();
 			}
 
-			pos = buffer.getToken(pos, ",", token); // RA2
+			pos = buffer.getToken(pos, ",", token);
 			if (token.length() > 0) {
 				point.Y = token.toInt();
 			}
 
-			Targets.Add(point); // RA2
+			Targets.Add(point);
 		}
 	}
 
-	for (index = 0; index < 256; index++) { // RA2
+	for (index = 0; index < 256; index++) {
 		if (ini.Get_String(label, Wstring_FromInt(index), NULL, buffer) > 0) {
 
-			MapSelection * selection = new MapSelection(buffer, index); // RA2
+			MapSelection * selection = new MapSelection(buffer, index);
 			if (selection) {
 				Selections.Add(selection);
 			}
@@ -446,10 +446,10 @@ MapStage::~MapStage(void)
 /// <returns>Returns with a pointer to the selection. Otherwise, NULL is returned.</returns>
 MapSelection * MapStage::Find_Selection_By_Name(char const * name) const
 {
-	Wstring wanted = name; // RA2
+	Wstring wanted = name;
 	wanted.toLower();
 	for (int i = 0; i < Selections.Count(); i++) {
-		if (Selections[i]->Get_Stage_Label() != NULL) { // RA2
+		if (Selections[i]->Get_Stage_Label() != NULL) {
 			Wstring label = Selections[i]->Get_Stage_Label();
 			label.toLower();
 			if (wanted == label) {
@@ -470,14 +470,14 @@ MapSelection * MapStage::Find_Selection_By_Name(char const * name) const
 /// <param name="index">Click map color of the region the player is pointing at.</param>
 /// <returns>Returns with the label of the stage that region selects, or NULL if the region
 /// is not selectable.</returns>
-Wstring MapStage::Find_Selection_By_Index(int index) const // RA2
+Wstring MapStage::Find_Selection_By_Index(int index) const
 {
 	for (int i = 0; i < Selections.Count(); i++) {
 		if ((char)index == Selections[i]->Get_Index()) {
 			return(Selections[i]->Get_Stage_Label());
 		}
 	}
-	return(Wstring((char const *)NULL)); // RA2
+	return(Wstring((char const *)NULL));
 }
 
 
@@ -487,26 +487,26 @@ Wstring MapStage::Find_Selection_By_Index(int index) const // RA2
 /// text itself.
 /// </summary>
 /// <param name="string">The control file line to parse; it is chopped up in place.</param>
-MSTextEntry::MSTextEntry(WideWstring const & string) : // RA2
+MSTextEntry::MSTextEntry(WideWstring const & string) :
 	XPos(0),
 	YPos(0),
 	StartTime(0),
-	String((wchar_t const *)NULL) // RA2
+	String((wchar_t const *)NULL)
 {
-	WideWstring token; // RA2
+	WideWstring token;
 	int pos = string.getToken(0, L",", token);
 	if (token.length() > 0) {
 		XPos = token.toInt();
 	}
-	pos = string.getToken(pos, L",", token); // RA2
+	pos = string.getToken(pos, L",", token);
 	if (token.length() > 0) {
 		YPos = token.toInt();
 	}
-	pos = string.getToken(pos, L",", token); // RA2
+	pos = string.getToken(pos, L",", token);
 	if (token.length() > 0) {
 		StartTime = token.toInt();
 	}
-	string.getToken(pos, L",", token); // RA2
+	string.getToken(pos, L",", token);
 	if (token.length() > 0) {
 		String = token;
 	}
@@ -519,26 +519,26 @@ MSTextEntry::MSTextEntry(WideWstring const & string) : // RA2
 /// play it at.
 /// </summary>
 /// <param name="string">The control file line to parse; it is chopped up in place.</param>
-MSAnimEntry::MSAnimEntry(Wstring const & string) : // RA2
+MSAnimEntry::MSAnimEntry(Wstring const & string) :
 	Filename((char const *)NULL),
 	XPos(0),
 	YPos(0),
 	Rate(0)
 {
-	Wstring token; // RA2
+	Wstring token;
 	int pos = string.getToken(0, ",", token);
 	if (token.length() > 0) {
 		Filename = token;
 	}
-	pos = string.getToken(pos, ",", token); // RA2
+	pos = string.getToken(pos, ",", token);
 	if (token.length() > 0) {
 		XPos = token.toInt();
 	}
-	pos = string.getToken(pos, ",", token); // RA2
+	pos = string.getToken(pos, ",", token);
 	if (token.length() > 0) {
 		YPos = token.toInt();
 	}
-	string.getToken(pos, ",", token); // RA2
+	string.getToken(pos, ",", token);
 	if (token.length() > 0) {
 		Rate = token.toInt();
 	}
@@ -554,20 +554,20 @@ MSAnimEntry::MSAnimEntry(Wstring const & string) : // RA2
 /// <param name="name">Name the map selection screen will ask for this sound by.</param>
 /// <param name="string">The control file line to parse; it is chopped up in place.</param>
 /// <remarks>Check Get_Name for NULL to tell whether the sound effect is usable.</remarks>
-MSSfxEntry::MSSfxEntry(Wstring const & name, Wstring const & string) : // RA2
+MSSfxEntry::MSSfxEntry(Wstring const & name, Wstring const & string) :
 	Name((char const *)NULL),
 	AllocLoaded(false),
 	Sample(NULL),
 	Volume(255)
 {
-	if (name != NULL && AudioDeviceAvailable()) { // RA2
+	if (name != NULL && AudioDeviceAvailable()) {
 		Wstring file_name;
 		int pos = string.getToken(0, ",", file_name);
 		Wstring volume_str;
 		string.getToken(pos, ",", volume_str);
 
 		if (volume_str != NULL) {
-			Volume = volume_str.toInt(); // RA2
+			Volume = volume_str.toInt();
 			if (Volume > 100) {
 				Volume = 100;
 			} else if (Volume < 0) {
@@ -577,7 +577,7 @@ MSSfxEntry::MSSfxEntry(Wstring const & name, Wstring const & string) : // RA2
 		}
 
 		if (Volume > 0 && file_name != NULL) {
-			Name = name; // RA2
+			Name = name;
 		}
 	}
 }

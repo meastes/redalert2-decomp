@@ -15,7 +15,7 @@
 
 #include "geometry.h"
 #include "abstype.h"
-#include "stringtable.h" // RA2
+#include "stringtable.h"
 
 #include "ccini.h"
 #include "crc.h"

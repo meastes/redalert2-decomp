@@ -213,7 +213,7 @@ class ObjectTypeClass : public AbstractTypeClass
 		virtual HRESULT STDMETHODCALLTYPE GetSizeMax(ULARGE_INTEGER *pcbSize) override;
 
 		static void One_Time(void);
-		static void Free_One_Time(void); // RA2
+		static void Free_One_Time(void);
 
 		char const * Graphic_Name(void) const {return(GraphicName);}
 		char const * Alpha_Graphic_Name(void) const {return(AlphaGraphicName);}
@@ -238,9 +238,9 @@ class ObjectTypeClass : public AbstractTypeClass
 		void Fetch_Voxel_Image(void);
 		void Fetch_Aux_Voxel_Image(void);
 		void Fetch_Normal_Image(void);
-		bool Load_Charger_Turret(char const * image, int index); // RA2
-		bool Load_Charger_Barrel(char const * image, int index); // RA2
-		void Free_Charger_Voxels(void); // RA2
+		bool Load_Charger_Turret(char const * image, int index);
+		bool Load_Charger_Barrel(char const * image, int index);
+		void Free_Charger_Voxels(void);
 
 		void Theater_Naming_Convention(char * name, TheaterType theater) const;
 

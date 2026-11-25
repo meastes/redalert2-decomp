@@ -73,14 +73,14 @@ DiskID DiskSwap::Get_Disk_ID(int cd_drive, int timeout)
 		  {
 
 			enum {
-				NUM_VOLUMES = 8, // RA2
+				NUM_VOLUMES = 8,
 			};
 			/*
 			**	Match the volume label to the list of known C&C volume labels.
 			*/
 			for (int i = 0; i < NUM_VOLUMES; i++)
 			{
-				sprintf(volname_label, "RA%d", i + 1); // RA2
+				sprintf(volname_label, "RA%d", i + 1);
 				if (!stricmp(volname_label,volume_name))
 				{
 					index = i;
@@ -117,7 +117,7 @@ DiskID DiskSwap::Get_Disk_ID(int cd_drive, int timeout)
 			 * Try opening '.dsk' to verify that the CD is really there and is what
 			 * it says it is.
 			 */
-			wsprintf(buffer, "%c:\\RA%d.dsk", cd, index + 1); // RA2
+			wsprintf(buffer, "%c:\\RA%d.dsk", cd, index + 1);
 
 			HANDLE handle = CreateFile(buffer, GENERIC_READ, FILE_SHARE_READ,NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 

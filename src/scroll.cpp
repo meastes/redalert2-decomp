@@ -226,9 +226,9 @@ ActionType ScrollClass::What_Action(Cell const & cell, ObjectClass * object, boo
 	*/
 	if (CurrentObject.Count()) {
 		if (object != NULL) {
-			action = Best_Selected_Object(NULL, object)->What_Action(object, false); // RA2
+			action = Best_Selected_Object(NULL, object)->What_Action(object, false);
 		} else {
-			action = Best_Selected_Object(&cell, NULL)->What_Action(cell, check_fog, false); // RA2
+			action = Best_Selected_Object(&cell, NULL)->What_Action(cell, check_fog, false);
 		}
 
 	} else {
@@ -312,7 +312,7 @@ ActionType ScrollClass::What_Action(Cell const & cell, ObjectClass * object, boo
 			} else if (waypoint != NULL) {
 				action = ACTION_SELECT_WAYPOINT;
 
-			} else if (PlayerPtr->SelectedPath != PATH_NONE && PlayerPtr->Can_Add_Waypoint_To_Path() && Map.In_Local_Radar(cell, true)) { // RA2
+			} else if (PlayerPtr->SelectedPath != PATH_NONE && PlayerPtr->Can_Add_Waypoint_To_Path() && Map.In_Local_Radar(cell, true)) {
 				action = ACTION_PLACE_WAYPOINT;
 
 			} else {
@@ -320,7 +320,7 @@ ActionType ScrollClass::What_Action(Cell const & cell, ObjectClass * object, boo
 			}
 		}
 
-		if (Map.IsBeaconMode) { // RA2
+		if (Map.IsBeaconMode) {
 			action = ACTION_PLACE_BEACON;
 		}
 
@@ -649,7 +649,7 @@ void ScrollClass::Message_Handler(HWND hwnd, UINT & message, UINT & wParam, LONG
 			point.X = pts.x - TacticalRect.X;
 			point.Y = pts.y - TacticalRect.Y;
 
-			Planning_Right_Press(point.X, point.Y); // RA2
+			Planning_Right_Press(point.X, point.Y);
 			if (IsMouseDown == false) {
 				if (Resolve_Point(point, cell, coord, object, fog, shadow)) {
 					Map.Mouse_Right_Press(point);
@@ -666,7 +666,7 @@ void ScrollClass::Message_Handler(HWND hwnd, UINT & message, UINT & wParam, LONG
 			pos.X = pts.x - TacticalRect.X;
 			pos.Y = pts.y - TacticalRect.Y;
 
-			Planning_Right_Release(pos.X, pos.Y); // RA2
+			Planning_Right_Release(pos.X, pos.Y);
 			if (IsMouseDown) {
 				Map.Mouse_Right_Release(point);
 				BASECLASS::Abort_Drag_Select();

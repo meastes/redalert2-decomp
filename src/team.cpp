@@ -1179,7 +1179,7 @@ bool TeamClass::Remove(FootClass * obj, int typeindex, bool no_idle) // RA2: no_
  *=============================================================================================*/
 int TeamClass::Recruit(int typeindex)
 {
-	Coord center = Zone != 0 ? Zone->Center_Coord() : COORD_NONE; // RA2: RA2's form
+	Coord center = Zone != 0 ? Zone->Center_Coord() : COORD_NONE;
 	if (Class->Get_Origin() != CELL_NONE) {
 		center = Class->Get_Origin().As_Coord();
 	}
@@ -1724,7 +1724,7 @@ bool TeamClass::Coordinate_Regroup(void)
  *=============================================================================================*/
 void TeamClass::Coordinate_Move(void)
 {
-	FootClass *unit = Member; // RA2: RA2's form
+	FootClass * unit = Member;
 	bool finished = true;
 	bool found = false;
 	if (unit == 0) {
@@ -2547,7 +2547,7 @@ void TeamClass::TMission_ATTACK(TeamMissionClass * mission, bool)
 		**	team members having any weapons, will a member without a weapon
 		**	be chosen.
 		*/
-		FootClass * leader = Fetch_A_Leader(); // RA2: RA2's form
+		FootClass * leader = Fetch_A_Leader();
 
 		/*
 		**	Have the team leader pick what the next team target will be.
@@ -2663,7 +2663,7 @@ void TeamClass::TMission_LOAD(TeamMissionClass * mission, bool)
 /// </summary>
 void TeamClass::TMission_DEPLOY(TeamMissionClass * mission, bool)
 {
-	FootClass *unit = Member; // RA2: RA2's form
+	FootClass * unit = Member;
 	bool finished = true;
 	while (unit != 0) {
 		Coordinate_Conscript(unit);
@@ -3337,7 +3337,7 @@ void TeamClass::TMission_MOVETO_FRIENDLY_BUILDING_WITH_PROPERTY(TeamMissionClass
 			int type = mission->Data.Type;
 			BuildingTypeClass * btype = BuildingTypes[type];
 
-			FootClass * leader = _Team_Leader(this); // RA2: _Team_Leader's form (Member read twice); Fetch_A_Leader's does not match
+			FootClass * leader = _Team_Leader(this); // RA2: _Team_Leader's form (Member read twice)
 
 			BuildingClass * bptr = Pick_Own_Building_With_Property(btype, NULL, leader, prop, false);
 			if (bptr != NULL) {

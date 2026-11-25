@@ -19,8 +19,8 @@
 
 class ShapeSet;
 class ConvertClass;
-class ColorScheme; // RA2
-class Surface; // RA2
+class ColorScheme;
+class Surface;
 
 class ProgressScreenClass : public INoticeSource // RA2: INoticeSource
 {

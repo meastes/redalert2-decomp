@@ -87,7 +87,7 @@ static inline int Power_X(void)
 
 
 void const * PowerClass::PowerPipShape;
-bool PowerClass::PowerPipShapeAllocated; // RA2
+bool PowerClass::PowerPipShapeAllocated;
 
 
 /***********************************************************************************************
@@ -589,7 +589,7 @@ void PowerClass::Reposition_Sidebar(void)
 		tt.Region.X = SidebarRect.X + Power_X();
 		tt.Region.Y = SidebarRect.Y + POWER_Y;
 		tt.Region.Width = POWER_WIDTH;
-		tt.Region.Height = PowerBarHeight; // RA2
+		tt.Region.Height = PowerBarHeight;
 
 		ToolTips->Remove(tt.ID);
 		ToolTips->Add(&tt);

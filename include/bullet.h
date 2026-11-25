@@ -109,7 +109,7 @@ class BulletClass : public ObjectClass
 		void LoseTarget(void); // RA2 (YR name)
 		void Shrapnel(void); // RA2 (YR name)
 		void ApplyRadiationToCell(Cell cell, int radius, int amount); // RA2 (YR name)
-		WeaponTypeClass * Get_Weapon_Type(void) const; // RA2
+		WeaponTypeClass * Get_Weapon_Type(void) const;
 		void InitScalable(void); // RA2 (YR name)
 		void NukeMaker(void); // RA2 (YR name)
 

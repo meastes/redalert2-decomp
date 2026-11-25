@@ -373,7 +373,7 @@ def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, reposi
     # Exact with no soft judgment and judgment by kind (review session request, 2026-11-23, lane O63).
     if r.get('soft_free_function_level_c_body_bytes'):
         soft_cell = ('**{:,} B, {} whole-unit** ({:,} B, {} function-level); left out: soft judgment rows {:,} / {:,} B '
-                     '(kinds iii, iv-b, vii and header-form dependents of such a form), count-sensitive {:,} rows / '
+                     '(kinds iii, iv-b, vii, the variation forms, reference-borne and header-form dependents of such a form), count-sensitive {:,} rows / '
                      '{:,} B').format(
             int(r['soft_free_c_body_bytes']), r['soft_free_source_share_of_text'],
             int(r['soft_free_function_level_c_body_bytes']), r['soft_free_function_level_source_share_of_text'],
@@ -409,12 +409,14 @@ def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, reposi
                  main_clean, pct(main_clean), clean_cell),
              '| C/C++ bodies, exact with no soft judgment (only the judgment rows resting on a choice left out: '
              'in the rebuild kinds iii author idiom unreferenced at the line, iv-b looked-up local no reference has, vii '
-             'other; main\'s flags are all choices, so its figure is the line above) | {:,} B, {} | {} |'.format(
+             'other, the flagged variation forms and reference-borne forms; main\'s flags are all choices, so its figure is the line above) | {:,} B, {} | {} |'.format(
                  main_clean, pct(main_clean), soft_cell),
              '| Rebuild judgment calls by kind (function-level, rows/body bytes; i reference form chosen by caller '
              'evidence, ii sibling-image helper form, iii author idiom unreferenced at the line, iv-a twin or reference '
              'text at this or a sibling site, iv-b looked-up local no reference has, v image-derived or frozen bound, vi '
-             'header-form dependent, joined two references joined at one site, vii other; kinds tagged in provenance.csv and header_judgments.csv) | | {} |'.format(
+             'header-form dependent, joined two references joined at one site, vii other; helper, spelling, compiler-local, '
+             'readability-alias flagged variation forms; reference-borne a refused-if-coined form in adopted reference '
+             'text; kinds tagged in provenance.csv and header_judgments.csv) | | {} |'.format(
                  kind_cell),
              '| Judgment calls, one definition for both trees (main\'s: the manifest flags {}; in the rebuild, the '
              'accepted rows whose provenance.csv judgment note, or a header_judgments.csv form they depend on, names '

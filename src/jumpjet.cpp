@@ -12,7 +12,7 @@
 #include "geometry.h" // RA2: the header statics, in the order of the unit's initializer table
 
 #include "jumpjet.h"
-#include "tracker.h" // RA2
+#include "tracker.h"
 
 #include "_map.h"
 #include "_rules.h"
@@ -21,13 +21,13 @@
 #include "foot.h"
 #include "globals.h"
 #include "house.h"
-#include "infantry.h" // RA2
+#include "infantry.h"
 #include "inline.h"
 #include "ion.h"
 #include "mouse.h"
 #include "rules.h"
-#include "unit.h" // RA2
-#include "unittype.h" // RA2
+#include "unit.h"
+#include "unittype.h"
 
 #include "layer.hh"
 
@@ -144,11 +144,11 @@ boolean STDMETHODCALLTYPE JumpjetLocomotionClass::Process(void)
 				Process_Descent();
 				break;
 
-			case CRASHING: // RA2
-				Process_Crashing(); // RA2
-				break; // RA2
+			case CRASHING:
+				Process_Crashing();
+				break;
 
-			case UNKNOWN: // RA2
+			case UNKNOWN:
 				Process_Unknown(); // RA2: the empty state; its call is expanded to nothing, and the case keeps its own switch table entry
 				break;
 

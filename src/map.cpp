@@ -1358,13 +1358,13 @@ void MapClass::Set_Local_Dimensions(Rect const & size)
 }
 
 
-void MapClass::RevealArea0(int, int, Coord const & coord, int sightrange, HouseClass * house, bool incremental, bool dont_map, bool unfog, bool byheight) // RA2: RA2's form
+void MapClass::RevealArea0(int, int, Coord const & coord, int sightrange, HouseClass * house, bool incremental, bool dont_map, bool unfog, bool byheight)
 {
 	RevealArea1(coord, sightrange, house, incremental, dont_map, unfog, byheight, true);
 }
 
 
-void MapClass::RevealArea1(Coord const & xcoord, int sightrange, HouseClass * house, bool incremental, bool dont_map, bool unfog, bool byheight, bool increase) // RA2: RA2's form
+void MapClass::RevealArea1(Coord const & xcoord, int sightrange, HouseClass * house, bool incremental, bool dont_map, bool unfog, bool byheight, bool increase)
 {
 	int xx;				// Center cell X coordinate (bounds checking).
 	Cell const * ptr;	// Offset pointer.
@@ -1622,7 +1622,7 @@ void MapClass::Sight_From(Coord const & xcoord, int sightrange, HouseClass * hou
 }
 
 
-void MapClass::RevealArea3(Coord const & coord, int start, int sightrange, int skip) // RA2: RA2's form
+void MapClass::RevealArea3(Coord const & coord, int start, int sightrange, int skip)
 {
 	if (sightrange > 11) {
 		sightrange = 11;
@@ -1660,7 +1660,7 @@ void MapClass::RevealArea3(Coord const & coord, int start, int sightrange, int s
 }
 
 
-void MapClass::Shroud_Gap_Area(Coord const & coord, int radius) // RA2: RA2's form
+void MapClass::Shroud_Gap_Area(Coord const & coord, int radius)
 {
 	Coord center = coord;
 	center.X += (TacticalMap->Z_Lepton_To_Pixel(center.Z) / -30) * 256;
@@ -1682,7 +1682,7 @@ void MapClass::Shroud_Gap_Area(Coord const & coord, int radius) // RA2: RA2's fo
 }
 
 
-void MapClass::Unshroud_Gap_Area(Coord const & coord, int radius) // RA2: RA2's form
+void MapClass::Unshroud_Gap_Area(Coord const & coord, int radius)
 {
 	Coord center = coord;
 	center.X += (TacticalMap->Z_Lepton_To_Pixel(center.Z) / -30) * 256;
@@ -1776,7 +1776,7 @@ void MapClass::Place_Down(Cell const & cell, ObjectClass * object)
 		List_Copy(object->Occupy_List(), ARRAY_SIZE(xlist), xlist);
 		Cell const * list = xlist;
 		while (*list != REFRESH_EOL) {
-			Cell newcell = cell + *list; // RA2: RA2's form
+			Cell newcell = cell + *list;
 			if (Is_Valid(newcell)) {
 				(*this)[newcell].Occupy_Down(object, object->IsOnBridge);
 				(*this)[newcell].Recalc_Attributes();
@@ -1785,7 +1785,7 @@ void MapClass::Place_Down(Cell const & cell, ObjectClass * object)
 		}
 
 		if (object->Fetch_RTTI() == RTTI_BUILDING) {
-			BuildingClass * building = object->Fetch_RTTI() == RTTI_BUILDING ? (BuildingClass *)object : NULL; // RA2: RA2's form
+			BuildingClass * building = object->Fetch_RTTI() == RTTI_BUILDING ? (BuildingClass *)object : NULL;
 			if (building->Class->CanHideThings) {
 				int height = building->Class->OccupyHeight - 1;
 				if (height <= 0) height = 1;
@@ -1866,7 +1866,7 @@ void MapClass::Pick_Up(Cell const & cell, ObjectClass * object)
 		List_Copy(object->Occupy_List(), ARRAY_SIZE(xlist), xlist);
 		Cell const * list = xlist;
 		while (*list != REFRESH_EOL) {
-			Cell newcell = cell + *list; // RA2: RA2's form
+			Cell newcell = cell + *list;
 			if (Is_Valid(newcell)) {
 				(*this)[newcell].Occupy_Up(object, object->IsOnBridge);
 				(*this)[newcell].Recalc_Attributes();
@@ -1875,7 +1875,7 @@ void MapClass::Pick_Up(Cell const & cell, ObjectClass * object)
 		}
 
 		if (object->Fetch_RTTI() == RTTI_BUILDING) {
-			BuildingClass * building = object->Fetch_RTTI() == RTTI_BUILDING ? (BuildingClass *)object : NULL; // RA2: RA2's form
+			BuildingClass * building = object->Fetch_RTTI() == RTTI_BUILDING ? (BuildingClass *)object : NULL;
 			if (building->Class->CanHideThings) {
 				int height = building->Class->OccupyHeight - 1;
 				if (height <= 0) height = 1;
@@ -3113,7 +3113,7 @@ bool MapClass::Place_Random_Crate(void)
 }
 
 
-bool MapClass::Place_Crate(Cell cell, CrateType type) // RA2: RA2's form
+bool MapClass::Place_Crate(Cell cell, CrateType type)
 {
 	if (Map[cell].Land_Type() == LAND_WATER) {
 		cell = Map.Nearby_Location(cell, SPEED_FLOAT);
@@ -4096,7 +4096,7 @@ bool MapClass::Register_Subzone_Connections(Cell const & cell)
  * HISTORY:                                                                                    *
  *   10/05/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
-Cell MapClass::Nearby_Location(Cell const & cell, SpeedType speed, int zone, MZoneType check, bool checkbridge, Point2D dimensions, bool checkoverlay, bool checkheight, bool checkburrow, bool allowunderbridge, Cell const & nearto, bool flag) const // RA2: RA2's form
+Cell MapClass::Nearby_Location(Cell const & cell, SpeedType speed, int zone, MZoneType check, bool checkbridge, Point2D dimensions, bool checkoverlay, bool checkheight, bool checkburrow, bool allowunderbridge, Cell const & nearto, bool flag) const
 {
 	Cell candidates[24];
 	int count = 0;
@@ -6069,7 +6069,7 @@ void MapClass::Repair_Bridge(Cell const & cell)
 }
 
 
-void MapClass::Destroy_Bridge2_Near(Cell const &cell) // RA2: RA2's form
+void MapClass::Destroy_Bridge2_Near(Cell const & cell)
 {
 	for (int x = -2; x < 3; ++x) {
 		for (int y = -2; y < 3; ++y) {
@@ -6177,7 +6177,7 @@ finished:
 }
 
 
-bool __fastcall Is_Bridge_Span_End(int tile, int kind, CellClass const *cell) // RA2: RA2's form
+bool __fastcall Is_Bridge_Span_End(int tile, int kind, CellClass const * cell)
 {
 	if (kind == 2) {
 		if (tile == IsometricTileTypeClass::BridgeBottomRight1 && cell->SubTile == 4) {
@@ -6208,7 +6208,7 @@ bool __fastcall Is_Bridge_Span_End(int tile, int kind, CellClass const *cell) //
 }
 
 
-void MapClass::Destroy_Low_Bridge_Span(Cell const &cell) // RA2: RA2's form
+void MapClass::Destroy_Low_Bridge_Span(Cell const & cell)
 {
 	int overlay = Map[cell].Overlay;
 
@@ -6236,7 +6236,7 @@ void MapClass::Destroy_Low_Bridge_Span(Cell const &cell) // RA2: RA2's form
 }
 
 
-void MapClass::Destroy_Low_Bridge2_Span(Cell const &cell) // RA2: RA2's form
+void MapClass::Destroy_Low_Bridge2_Span(Cell const & cell)
 {
 	int overlay = Map[cell].Overlay;
 
@@ -6264,7 +6264,7 @@ void MapClass::Destroy_Low_Bridge2_Span(Cell const &cell) // RA2: RA2's form
 }
 
 
-void MapClass::Destroy_Low_Bridge_Near(Cell const &cell) // RA2: RA2's form
+void MapClass::Destroy_Low_Bridge_Near(Cell const & cell)
 {
 	for (int x = -2; x < 3; ++x) {
 		for (int y = -2; y < 3; ++y) {
@@ -6372,7 +6372,7 @@ finished:
 }
 
 
-void MapClass::Destroy_Low_Bridge_EW(Cell const &cell) // RA2: RA2's form
+void MapClass::Destroy_Low_Bridge_EW(Cell const & cell)
 {
 	Cell cellnum = cell;
 	Cell center = cellnum;
@@ -6438,7 +6438,7 @@ void MapClass::Destroy_Low_Bridge_EW(Cell const &cell) // RA2: RA2's form
 }
 
 
-void MapClass::Destroy_Low_Bridge_NS(Cell const &cell) // RA2: RA2's form
+void MapClass::Destroy_Low_Bridge_NS(Cell const & cell)
 {
 	Cell cellnum = cell;
 	Cell center = cellnum;
@@ -6504,7 +6504,7 @@ void MapClass::Destroy_Low_Bridge_NS(Cell const &cell) // RA2: RA2's form
 }
 
 
-void MapClass::Destroy_Low_Bridge2_EW(Cell const &cell) // RA2: RA2's form
+void MapClass::Destroy_Low_Bridge2_EW(Cell const & cell)
 {
 	Cell cellnum = cell;
 	Cell center = cellnum;
@@ -6570,7 +6570,7 @@ void MapClass::Destroy_Low_Bridge2_EW(Cell const &cell) // RA2: RA2's form
 }
 
 
-void MapClass::Destroy_Low_Bridge2_NS(Cell const &cell) // RA2: RA2's form
+void MapClass::Destroy_Low_Bridge2_NS(Cell const & cell)
 {
 	Cell cellnum = cell;
 	Cell center = cellnum;
@@ -7354,7 +7354,7 @@ Cell MapClass::Pick_Random_Location(void) const
 }
 
 
-void MapClass::Spy_Satellite_Hide(void) // RA2: RA2's form
+void MapClass::Spy_Satellite_Hide(void)
 {
 	Map.Update_Technos_Visibility(false, false);
 	Reset_Iterator();
@@ -7429,7 +7429,7 @@ void MapClass::Reset_Shroud_All(void) // RA2: 0x55A070, every cell counts one mo
 }
 
 
-void MapClass::Spy_Satellite_Reveal(void) // RA2: RA2's form
+void MapClass::Spy_Satellite_Reveal(void)
 {
 	if (!PlayerPtr->IsVisionary) {
 		Map.Update_Technos_Visibility(false, false);
@@ -12184,7 +12184,7 @@ bool MapClass::Is_Under_Fog(Coord const & coord) // RA2: 0x568280, is the coordi
 /// under ObiWan sees through the fog, and nothing is reported as hidden from them.
 /// </summary>
 /// <returns>bool; Is the coordinate under the fog?</returns>
-bool MapClass::Is_Fogged(Coord const & coord) // RA2: RA2's form
+bool MapClass::Is_Fogged(Coord const & coord)
 {
 	CellClass * cptr;
 

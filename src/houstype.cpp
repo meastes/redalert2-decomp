@@ -86,25 +86,25 @@ HouseTypeClass::HouseTypeClass(char const * ininame) :
 	ROFBias(1.0),
 	CostBias(1.0),
 	BuildSpeedBias(1.0),
-	ArmorInfantryMult(1.0f), // RA2
-	ArmorUnitsMult(1.0f), // RA2
-	ArmorAircraftMult(1.0f), // RA2
-	ArmorBuildingsMult(1.0f), // RA2
-	ArmorDefensesMult(1.0f), // RA2
-	CostInfantryMult(1.0f), // RA2
-	CostUnitsMult(1.0f), // RA2
-	CostAircraftMult(1.0f), // RA2
-	CostBuildingsMult(1.0f), // RA2
-	CostDefensesMult(1.0f), // RA2
-	SpeedInfantryMult(1.0f), // RA2
-	SpeedUnitsMult(1.0f), // RA2
-	SpeedAircraftMult(1.0f), // RA2
-	BuildtimeInfantryMult(1.0f), // RA2
-	BuildtimeUnitsMult(1.0f), // RA2
-	BuildtimeAircraftMult(1.0f), // RA2
-	BuildtimeBuildingsMult(1.0f), // RA2
-	BuildtimeDefensesMult(1.0f), // RA2
-	IncomeMult(1.0f), // RA2
+	ArmorInfantryMult(1.0f),
+	ArmorUnitsMult(1.0f),
+	ArmorAircraftMult(1.0f),
+	ArmorBuildingsMult(1.0f),
+	ArmorDefensesMult(1.0f),
+	CostInfantryMult(1.0f),
+	CostUnitsMult(1.0f),
+	CostAircraftMult(1.0f),
+	CostBuildingsMult(1.0f),
+	CostDefensesMult(1.0f),
+	SpeedInfantryMult(1.0f),
+	SpeedUnitsMult(1.0f),
+	SpeedAircraftMult(1.0f),
+	BuildtimeInfantryMult(1.0f),
+	BuildtimeUnitsMult(1.0f),
+	BuildtimeAircraftMult(1.0f),
+	BuildtimeBuildingsMult(1.0f),
+	BuildtimeDefensesMult(1.0f),
+	IncomeMult(1.0f),
 	Scheme(0),
 	Prefix('A'),
 	IsMultiplay(false),

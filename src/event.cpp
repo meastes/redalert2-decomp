@@ -48,12 +48,12 @@
 #include "rect.h"
 
 #include "event.h"
-#include "ipxaddr.h" // RA2
+#include "ipxaddr.h"
 
 #include "_map.h"
 #include "_rules.h"
 #include "anim.h"
-#include "bomb.h" // RA2
+#include "bomb.h"
 #include "building.h"
 #include "cell.h"
 #include "conquer.h"
@@ -63,21 +63,21 @@
 #include "foot.h"
 #include "ftimer.h"
 #include "goptions.h"
-#include "ipxmgr.h" // RA2
+#include "ipxmgr.h"
 #include "house.h"
 #include "language\language.h"
 #include "mouse.h"
 #include "msgbox.h"
-#include "queue.h" // RA2
-#include "planning.h" // RA2
+#include "queue.h"
+#include "planning.h"
 #include "planmgr.h"
-#include "ownertalk.h" // RA2
+#include "ownertalk.h"
 #include "rules.h"
 #include "saveload.h"
 #include "scenario.h"
 #include "session.h"
 #include "spawnmanager.h"
-#include "stringtable.h" // RA2
+#include "stringtable.h"
 #include "surface.h"
 #include "techno.h"
 #include "unit.h"
@@ -818,7 +818,7 @@ void EventClass::Execute(void) // RA2: ra2-decomp's twin text
 		/*
 		**	The player's infantry cheer.
 		*/
-		case ALL_CHEER: // RA2
+		case ALL_CHEER:
 			if (house != NULL) {
 				house->Cheer();
 			}
@@ -1255,12 +1255,12 @@ void EventClass::Execute(void) // RA2: ra2-decomp's twin text
 			}
 			break;
 
-		case FALLBACK_HOST: // RA2
+		case FALLBACK_HOST:
 			DebugString("Received FALLBACKHOST event\n");
 			Session.LastTimingID = Data.General.Value;
 			break;
 
-		case ADDRESS_CHANGE: // RA2
+		case ADDRESS_CHANGE:
 		{
 			DebugString("Executing ADDRESSCHANGE event for player %d\n", Data.Address.Value);
 			NetNodeType node;
@@ -1283,7 +1283,7 @@ void EventClass::Execute(void) // RA2: ra2-decomp's twin text
 			break;
 		}
 
-		case ABOUT_TO_EXIT: // RA2
+		case ABOUT_TO_EXIT:
 		{
 			DebugString("Processing ABOUTTOEXIT event on frame %d\n", ::Frame);
 			if (Session.Am_I_Master()) {

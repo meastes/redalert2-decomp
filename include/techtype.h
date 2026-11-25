@@ -31,8 +31,8 @@ class UnitTypeClass;
 class ParticleSystemTypeClass;
 class AnimTypeClass;
 class WeaponTypeClass;
-class ColorScheme; // RA2
-class AircraftTypeClass; // RA2
+class ColorScheme;
+class AircraftTypeClass;
 
 
 /*
@@ -974,8 +974,8 @@ class TechnoTypeClass : public ObjectTypeClass
 		virtual HRESULT STDMETHODCALLTYPE Load(IStream * stream) override;
 		virtual HRESULT STDMETHODCALLTYPE Save(IStream * stream, BOOL cleardirty) override;
 		virtual HRESULT STDMETHODCALLTYPE GetSizeMax(ULARGE_INTEGER *pcbSize) override;
-		virtual bool CanUseWaypoint(void) const; // RA2
-		virtual bool CanAttackMove(void) const; // RA2
+		virtual bool CanUseWaypoint(void) const;
+		virtual bool CanAttackMove(void) const;
 
 		// RA2: Get_Object_Size_Delta is not in RA2's vtables (see abstract.h).
 		virtual void Compute_CRC(CRCEngine & crc) const override;
@@ -996,7 +996,7 @@ class TechnoTypeClass : public ObjectTypeClass
 		virtual bool Read_INI(CCINIClass const & ini) override;
 
 		WeaponDataStruct const * Get_Weapon(int which) const;
-		WeaponDataStruct const * Get_Elite_Weapon(int which) const; // RA2
+		WeaponDataStruct const * Get_Elite_Weapon(int which) const;
 		void Load_Palette(void); // RA2: 0x006DF620, builds the schemes of the Palette= file (meastes' name; outside this module)
 		bool Has_Turret_Weapons(void) const; // RA2: 0x6DF680
 		void Set_Turret_Weapon(int weapon, int which); // RA2: sets the weapon of one turret

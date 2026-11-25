@@ -480,7 +480,7 @@ float init_atan_tab(void) // RA2: returns the ratio limit
 	float size = ATAN_TABLE_SIZE;
 
 	float pi = M_PI;
-	float limit = tan_tab[ATAN_MAX_INDEX]; // RA2
+	float limit = tan_tab[ATAN_MAX_INDEX];
 	atan_tab[ATAN_TABLE_SIZE + 1] = pi/size/pi * limit;
 	float value = 0;
 	for (int i = 0; i != ATAN_TABLE_SIZE + 1; i++) {

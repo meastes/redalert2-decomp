@@ -24,9 +24,9 @@
 **	Each house has certain unalienable characteristics. This structure
 **	elaborates these.
 */
-class InfantryTypeClass; // RA2
-class UnitTypeClass; // RA2
-class AircraftTypeClass; // RA2
+class InfantryTypeClass;
+class UnitTypeClass;
+class AircraftTypeClass;
 
 class HouseTypeClass : public AbstractTypeClass
 {
@@ -70,24 +70,24 @@ class HouseTypeClass : public AbstractTypeClass
 		double BuildSpeedBias;
 
 		float ArmorInfantryMult; // RA2: +0x100
-		float ArmorUnitsMult; // RA2
-		float ArmorAircraftMult; // RA2
-		float ArmorBuildingsMult; // RA2
-		float ArmorDefensesMult; // RA2
-		float CostInfantryMult; // RA2
-		float CostUnitsMult; // RA2
-		float CostAircraftMult; // RA2
-		float CostBuildingsMult; // RA2
-		float CostDefensesMult; // RA2
-		float SpeedInfantryMult; // RA2
-		float SpeedUnitsMult; // RA2
-		float SpeedAircraftMult; // RA2
-		float BuildtimeInfantryMult; // RA2
-		float BuildtimeUnitsMult; // RA2
-		float BuildtimeAircraftMult; // RA2
-		float BuildtimeBuildingsMult; // RA2
-		float BuildtimeDefensesMult; // RA2
-		float IncomeMult; // RA2
+		float ArmorUnitsMult;
+		float ArmorAircraftMult;
+		float ArmorBuildingsMult;
+		float ArmorDefensesMult;
+		float CostInfantryMult;
+		float CostUnitsMult;
+		float CostAircraftMult;
+		float CostBuildingsMult;
+		float CostDefensesMult;
+		float SpeedInfantryMult;
+		float SpeedUnitsMult;
+		float SpeedAircraftMult;
+		float BuildtimeInfantryMult;
+		float BuildtimeUnitsMult;
+		float BuildtimeAircraftMult;
+		float BuildtimeBuildingsMult;
+		float BuildtimeDefensesMult;
+		float IncomeMult;
 		TypeList<InfantryTypeClass const *> VeteranInfantry; // RA2: +0x14C
 		TypeList<UnitTypeClass const *> VeteranUnits; // RA2: +0x168
 		TypeList<AircraftTypeClass const *> VeteranAircraft; // RA2: +0x184

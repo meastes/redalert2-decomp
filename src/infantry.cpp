@@ -126,7 +126,7 @@
 #include "piggyback.h" // RA2: Assign_Destination hands the locomotor over (ra2-decomp)
 #include "parasite.h" // RA2: Can_Enter_Cell reads the parasite victim
 #include "planning.h" // RA2: Planning_Allows_Event_Type
-#include "radsite.h" // RA2
+#include "radsite.h"
 #include "revent.h"
 #include "rules.h"
 #include "scheme.h"
@@ -148,7 +148,7 @@
 #include "weapon.h"
 
 #include "bench.hh"
-#include "stringtable.h" // RA2
+#include "stringtable.h"
 
 
 static ShapeSet const * InfantryShadowShape = NULL; // RA2: 0x00A41134; INFSHDW.SHP, loaded on first use
@@ -525,8 +525,8 @@ int InfantryClass::Shape_Number(void) const
 	}
 
 	InfantryTypeClass const * type = Class; // RA2: the disguise's sequences for those who cannot see through it
-	if (!IsClearlyVisibleTo(PlayerPtr)) { // RA2
-		type = (InfantryTypeClass const *)GetDisguise(true); // RA2
+	if (!IsClearlyVisibleTo(PlayerPtr)) {
+		type = (InfantryTypeClass const *)GetDisguise(true);
 	}
 
 	/*
@@ -3099,7 +3099,7 @@ capture: // RA2: structured forms do not match; the exe shares this return betwe
 finish: // RA2: structured forms do not match; the exe skips the tests above for the capture cases, and the goto form matches
 	if (House->Is_Player_Control() && action == ACTION_NONE) {
 		if (IsBeingWarpedOut() || IsWarpingIn()) {
-			goto done; // RA2: the exe returns through the shared tail with the action in its register; a plain return of the constant does not match
+			goto done; // RA2: the exe returns through the shared tail with the action in its register
 		}
 		action = ACTION_NOMOVE;
 	}
@@ -3206,14 +3206,14 @@ bool InfantryClass::Active_Click_With(ActionType action, Cell const & cell, Cell
 wchar_t const * InfantryClass::Full_Name(void) const // RA2: wide
 {
 	if (IsTechnician) {
-		return(StringTable::LoadString("TXT_TECHNICIAN", NULL, "D:\\Ra2\\Infantry.CPP", 4221)); // RA2
+		return(StringTable::LoadString("TXT_TECHNICIAN", NULL, "D:\\Ra2\\Infantry.CPP", 4221));
 	}
 
-	if (IsDisguised() && !House->Is_Ally(PlayerPtr)) { // RA2
-		return(GetDisguise(true)->UIName); // RA2
+	if (IsDisguised() && !House->Is_Ally(PlayerPtr)) {
+		return(GetDisguise(true)->UIName);
 	}
 
-	return(Class->UIName); // RA2
+	return(Class->UIName);
 }
 
 
@@ -4211,7 +4211,7 @@ int InfantryClass::Update_Deployed_Attack(void) // RA2: the executable's deploye
 				}
 				return(Current_Mission_Control().Normal_Delay() + Random_Pick(10, 20)); // RA2: the executable's deployed attack update
 			}
-			Reacquire_Target(); // RA2
+			Reacquire_Target();
 			return(Current_Mission_Control().Normal_Delay() + Random_Pick(0, 2));
 		}
 	} else {

@@ -53,7 +53,7 @@ class CDFileClass : public BufferIOFileClass
 
 	public:
 		CDFileClass(char const *filename);
-		CDFileClass(Wstring const & filename); // RA2
+		CDFileClass(Wstring const & filename);
 		CDFileClass(void);
 		virtual ~CDFileClass(void) override {};
 

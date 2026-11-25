@@ -160,7 +160,7 @@ class MSShapeAnim : public MSAnim
 		/*
 		 * Pointer to the shape data the animation frames are drawn from.
 		 */
-		SHPStruct * Shape; // RA2
+		SHPStruct * Shape;
 
 		/*
 		 * Pointer to the drawer that supplies the palette and blitters the shape is rendered
@@ -329,7 +329,7 @@ class MSVQAnim : public MSAnim
 {
 	public:
 		MSVQAnim(Wstring const & name, Surface * surface, MS_ANIM_LIST * vector, bool persistent=false); // RA2: Wstring name
-		MSVQAnim(Wstring const & name, Surface * surface, MS_ANIM_LIST * vector, Rect const & rect, bool persistent=false); // RA2
+		MSVQAnim(Wstring const & name, Surface * surface, MS_ANIM_LIST * vector, Rect const & rect, bool persistent = false);
 		virtual ~MSVQAnim(void) override;
 
 		virtual bool Advance(Surface * surface, Rect & rect) override;
@@ -401,7 +401,7 @@ class MSPrintAnim : public MSAnim
 		/*
 		 * This is the text being typed out, held in a copy of its own.
 		 */
-		WideWstring Text; // RA2
+		WideWstring Text;
 
 		/*
 		 * This is the index of the first character of the topmost line still shown. It is

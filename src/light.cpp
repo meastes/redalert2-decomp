@@ -49,7 +49,7 @@ LightSourceClass::LightSourceClass(Coord coord, int visibility, int intensity, i
 	RedTint(red),
 	GreenTint(green),
 	BlueTint(blue),
-	DetailLevel(2), // RA2
+	DetailLevel(2),
 	Position(coord),
 	Visibility(visibility),
 	IsEnabled(false)

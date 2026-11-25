@@ -217,7 +217,7 @@
 #include "bench.hh"
 #include "tube.hh"
 #include "ftimer.h"
-#include "trajhelp.h" // RA2
+#include "trajhelp.h"
 #include "ebolt.h" // RA2: Electric_Zap
 #include "radbeam.h" // RA2: Rad_Zap, Rad_Eruption
 #include "bomblist.h" // RA2: Limbo: BombList.Remove_Detector
@@ -663,7 +663,7 @@ int TechnoClass::Combat_Damage(int which) const
 {
 	int value = 0;
 
-	if (which == -1) { // RA2: RA2's form
+	if (which == -1) {
 		int divisor = 0;
 
 		if (Techno_Type_Class()->Has_Turret_Weapons()) {
@@ -1369,7 +1369,7 @@ void TechnoClass::Try_To_Cloak(void)
 void TechnoClass::Per_Cell_Process(PCPType why)
 {
 	if (why == PCP_END) {
-		if (TemporalImUsing != 0 && TemporalImUsing->Target != 0) { // RA2: RA2's form
+		if (TemporalImUsing != 0 && TemporalImUsing->Target != 0) {
 			TemporalImUsing->LetGo();
 		}
 		Cell cell = Center_Coord().As_Cell();
@@ -2226,15 +2226,15 @@ bool TechnoClass::In_Range(AbstractClass * target, int which) const
 	}
 
 	Coord coord = Center_Coord();
-	WeaponTypeClass * weapon = Get_Class_Weapon_Data(which)->Weapon; // RA2
+	WeaponTypeClass * weapon = Get_Class_Weapon_Data(which)->Weapon;
 	if (weapon != NULL && weapon->CellRangefinding) { // RA2: fires from the centre of its cell
-		coord = Map[Center_Coord().As_Cell()].Center_Coord(); // RA2
+		coord = Map[Center_Coord().As_Cell()].Center_Coord();
 	}
 	if (In_Air()) {
 		coord.Z = target->Center_Coord().Z;
 	}
 
-	return(In_Range(&coord, target, weapon)); // RA2
+	return(In_Range(&coord, target, weapon));
 }
 
 /// <summary>
@@ -2757,7 +2757,7 @@ bool TechnoClass::Evaluate_Object(ThreatType method, int mask, int range, Techno
 	}
 
 	if (method & THREAT_CIVILIANS) {
-		object->Owner_HouseClass(); /// The result is unused.
+		object->Owner_HouseClass();
 		BEnd(BENCH_EVAL_OBJECT);
 		return(false);
 	}
@@ -2935,7 +2935,7 @@ bool TechnoClass::Evaluate_Cell(ThreatType method, int mask, Cell const & cell, 
 	**	Fetch the techno object from the cell. If there is no
 	**	techno object there, then bail.
 	*/
-	CellClass * cellptr = reinterpret_cast<CellClass *>(&Map[cell]); // RA2: RA2's form
+	CellClass * cellptr = reinterpret_cast<CellClass *>(&Map[cell]);
 
 	/*
 	**	Don't consider for evaluation a cell that is not within the same zone. Only
@@ -3849,7 +3849,7 @@ bool TechnoClass::Should_Uncloak(void) const
  *=============================================================================================*/
 bool TechnoClass::Is_Ready_To_Cloak(void) const
 {
-	if (!Is_Allowed_To_Recloak()) { // RA2: RA2's form
+	if (!Is_Allowed_To_Recloak()) {
 		bool allowed = true;
 		if (Veterancy.Is_Veteran() || Veterancy.Is_Elite()) {
 			const TechnoTypeClass * type = Techno_Type_Class();
@@ -3914,7 +3914,7 @@ bool TechnoClass::Is_Ready_To_Cloak(void) const
  *=============================================================================================*/
 bool TechnoClass::Select(void)
 {
-	if ((IsDiscoveredByPlayer || House->Is_Player_Control() || !MainWindow) && BASECLASS::Select()) { // RA2: RA2's form
+	if ((IsDiscoveredByPlayer || House->Is_Player_Control() || !MainWindow) && BASECLASS::Select()) {
 		if (Tag) {
 			Tag->Spring(TEVENT_SELECTED, this, CELL_NONE, 0, 0);
 		}
@@ -4475,7 +4475,7 @@ void TechnoClass::Rad_Eruption(int spread) // RA2: not in TibSun, at 0x6CA340
 /// <returns>Returns with the pitch to set the barrel to.</returns>
 DirType TechnoClass::Barrel_Pitch(AbstractClass * target) const
 {
-	DirType dir((unsigned short)(Techno_Type_Class()->FireAngle << 8)); // RA2: RA2's form
+	DirType dir((unsigned short)(Techno_Type_Class()->FireAngle << 8));
 	if (target != 0) {
 		Coord end = Predict_Target_Coord();
 		int weapon;
@@ -5999,7 +5999,7 @@ void TechnoClass::Record_The_Kill(TechnoClass * source)
 {
 	int total_recorded = 0;
 	int points = TClass->Cost_Of(House);
-	if (IsActive && Tag != 0 && source != 0) { // RA2: RA2's form
+	if (IsActive && Tag != 0 && source != 0) {
 		Tag->Spring(TEVENT_ATTACKED, this, CELL_NONE, 0, 0);
 	}
 	if (IsActive) {
@@ -7236,7 +7236,7 @@ SurfaceRegion TechnoClass::Techno_Render_Voxel_Shadow(VoxelDataStruct const & vo
 	SurfaceRegion region = VoxelDrawSystem::Render();
 
 	if (!cached) {
-		Rect r = VoxelDrawSystem::Get_Surface()->Get_Rect(); /// The result is unused.
+		Rect r = VoxelDrawSystem::Get_Surface()->Get_Rect();
 		Point2D destination = region.Point + point; // RA2: the destination is a local
 		Blit_Block(*LogicalSurface, *NormalDrawer, *VoxelDrawSystem::Get_Surface(), region.Bounds, Point2D(destination.X, destination.Y), cliprect, NULL, NormalDrawer->Blitter_From_Flags(flags), Get_Z_Adjust(), Get_Z_Gradient(), 1000, 0); // RA2: the depth gradient and the last arguments are passed explicitly
 	}
@@ -9389,7 +9389,7 @@ void TechnoClass::Rocking_AI(void)
 Coord TechnoClass::Predict_Target_Coord(void) const
 {
 	Coord coord = COORD_NONE;
-	if (TarCom != 0) { // RA2: RA2's form
+	if (TarCom != 0) {
 		coord = TarCom->As_Coord();
 		if (TarCom != 0 && TarCom->Fetch_RTTI() == RTTI_UNIT) {
 			FootClass * unit = (FootClass *)TarCom;
@@ -9458,7 +9458,7 @@ bool TechnoClass::Should_Self_Heal_Now(void) const
 /// <returns>Returns with S_OK, or with the failure code from the base class.</returns>
 HRESULT STDMETHODCALLTYPE TechnoClass::Load(IStream * stream)
 {
-	HRESULT result = RadioClass::Load(stream); // RA2: RA2's form
+	HRESULT result = RadioClass::Load(stream);
 	if (FAILED(result)) {
 		return result;
 	}
@@ -9516,7 +9516,7 @@ HRESULT STDMETHODCALLTYPE TechnoClass::Save(IStream * stream, BOOL cleardirty) /
 /// </summary>
 void TechnoClass::Compute_CRC(CRCEngine & crc) const
 {
-	RadioClass::Compute_CRC(crc); // RA2: RA2's form
+	RadioClass::Compute_CRC(crc);
 	crc((long)Group);
 	crc((long)ActLike);
 	crc(ArmorBias);
@@ -9983,7 +9983,7 @@ int TechnoClass::Apparent_Brightness(int brightness) const
 /// <returns>bool; Should the object appear on the radar?</returns>
 bool TechnoClass::Is_Radar_Visible(DetectedType & detected) const
 {
-	TechnoTypeClass const *type = TClass; // RA2: RA2's form
+	TechnoTypeClass const * type = TClass;
 	if (type->IsInvisible || IsSinking) {
 		return(false);
 	}
@@ -10188,7 +10188,7 @@ void TechnoClass::Remove_Damage_Particle(void)
 /// <returns>bool; Was the enter mission assigned?</returns>
 bool TechnoClass::Enter_Object_Nearby(void)
 {
-	if (QueueUpToEnter == 0) { // RA2: RA2's form
+	if (QueueUpToEnter == 0) {
 		return(false);
 	}
 	if (((ObjectClass *)QueueUpToEnter)->IsActive) {
@@ -10282,24 +10282,24 @@ void TechnoClass::Update_Radar_Position(bool force_update)
 	bool visible = Is_Radar_Visible(detected);
 	Rect radar_rect = Map.RadarSurface->Get_Rect();
 
-	if (detected != DETECTED_NONE && visible) { // RA2
+	if (detected != DETECTED_NONE && visible) {
 		bool foot;
 		if (this != NULL) {
-			foot = (AbstractFlags & ABSTRACT_FOOT) != 0; // RA2
+			foot = (AbstractFlags & ABSTRACT_FOOT) != 0;
 		}
-		if (this == NULL || !foot || ((FootClass *)this)->CurrentTube < TUBE_FIRST) { // RA2
+		if (this == NULL || !foot || ((FootClass *)this)->CurrentTube < TUBE_FIRST) {
 			Submit_Radar_Event(RADAREVENT_ENEMY_SENSED, Get_Coord().As_Cell()); // RA2: no speech
 		}
 	}
 
-	if (!radar_rect.Is_Point_Within(point) && visible) { // RA2
+	if (!radar_rect.Is_Point_Within(point) && visible) {
 		visible = Map.In_Local_Radar(Get_Target_Cell_Ptr());
 		if (visible) {
 			point = Map.Coord_To_Radar_Pixel(Get_Coord(), true);
 		}
 	}
 
-	if (IsRadarTracked && (point != RadarPos || !visible)) { // RA2
+	if (IsRadarTracked && (point != RadarPos || !visible)) {
 		Radar_Untrack();
 	}
 
@@ -10309,7 +10309,7 @@ void TechnoClass::Update_Radar_Position(bool force_update)
 		Radar_Track();
 	}
 
-	if (House == PlayerPtr && RadarFlashTimer.Value() > 0 && RadarFlashTimer.Value() % Rule->FlashFrameTime == 0) { // RA2
+	if (House == PlayerPtr && RadarFlashTimer.Value() > 0 && RadarFlashTimer.Value() % Rule->FlashFrameTime == 0) {
 		Plot_On_Radar();
 	}
 }

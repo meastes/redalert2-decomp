@@ -85,8 +85,8 @@ class AircraftTypeClass : public TechnoTypeClass
 		virtual Point3D Lepton_Dimensions(void) const override;
 		virtual bool Create_And_Place(Cell const & cell, HouseClass * house = NULL) const override;
 		virtual ObjectClass * Create_One_Of(HouseClass * house) const override;
-		virtual bool CanUseWaypoint(void) const override; // RA2
-		virtual bool CanAttackMove(void) const override; // RA2
+		virtual bool CanUseWaypoint(void) const override;
+		virtual bool CanAttackMove(void) const override;
 		virtual Cell const * Occupy_List(bool placement=false) const override;
 
 		static void const * LRotorData;

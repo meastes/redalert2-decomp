@@ -2323,7 +2323,7 @@ bool XMP_Small_Divisors_Test(const digit * candidate, int precision)
 {
 	digit quotient[MAX_UNIT_PRECISION];
 
-	for (const unsigned short * ptr = primeTable; ptr < &primeTable[ARRAY_SIZE(primeTable)]; ptr++) {	// RA2
+	for (const unsigned short * ptr = primeTable; ptr < &primeTable[ARRAY_SIZE(primeTable)]; ptr++) {
 		if (XMP_Unsigned_Div_Int(quotient, candidate, *ptr, precision) == 0) return(false);
 	}
 	return(true);
@@ -2586,7 +2586,7 @@ bool XMP_Is_Prime(digit const * prime, int precision)
 	**	the theorum for several rounds to ensure a high degree of
 	**	confidence.
 	*/
-	if (!Fermat_Test(prime, primeTable, &primeTable[2], precision)) return(false);	// RA2
+	if (!Fermat_Test(prime, primeTable, &primeTable[2], precision)) return(false);
 
 	/*
 	**	If all of the above tests have not confirmed primality nor

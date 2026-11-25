@@ -231,7 +231,7 @@ ParticleClass * ParticleSystemClass::Spawn_Held_Particle(Coord const & coord1, C
 /// <returns>Returns with a pointer to the particle created. Otherwise, NULL is returned.</returns>
 ParticleClass * ParticleSystemClass::Spawn_Particle(ParticleTypeClass * type, Coord const & coord)
 {
-	ParticleClass * particle = new ParticleClass(type, coord, COORD_NONE, 0); // RA2: RA2's form
+	ParticleClass * particle = new ParticleClass(type, coord, COORD_NONE, 0);
 	if (particle != 0) {
 		SystemParticles.Add(particle);
 		return particle;

@@ -77,7 +77,7 @@ void Focus_Loss(void)
 {
 	DebugString("Focus_Loss()\n");
 	Pause_Ingame_Movie(true);
-	Audio_Focus_Lose();	// RA2
+	Audio_Focus_Lose();
 	if (MouseCursor) {
 		_MouseCaptured = MouseCursor->Is_Captured();
 		DebugString("Focus_Loss(): _MouseCaptured = %s\n", _MouseCaptured ? "true" : "false");
@@ -88,7 +88,7 @@ void Focus_Loss(void)
 void Focus_Restore(void)
 {
 	DebugString("Focus_Restore()\n");
-	Audio_Focus_Regain();	// RA2
+	Audio_Focus_Regain();
 	DebugString("Focus_Restore(): _MouseCaptured = %s\n", _MouseCaptured ? "true" : "false");
 	if (MouseCursor && _MouseCaptured == true && !Debug_Map) {
 		MouseCursor->Capture_Mouse();
@@ -111,7 +111,7 @@ void Focus_Restore(void)
 			}
 		}
 		if (SidebarSurface != NULL && ((DSurface *)SidebarSurface)->Restore_Check()) {
-			Map.IsForceCompleteRedraw = true;	// RA2
+			Map.IsForceCompleteRedraw = true;
 			if (!ScenarioActive || Frame > 16) {
 				SidebarSurface->Fill(0);
 			}
@@ -149,7 +149,7 @@ LRESULT CALLBACK Windows_Procedure(HWND hwnd, UINT message, UINT wParam, LONG lP
 		GetMenu(MainWindow);
 	}
 
-	if (IME_Service_Message(hwnd, message, wParam, lParam)) {	// RA2
+	if (IME_Service_Message(hwnd, message, wParam, lParam)) {
 		DebugString("Default\n");
 		return(IMEResult);
 	}
@@ -159,7 +159,7 @@ LRESULT CALLBACK Windows_Procedure(HWND hwnd, UINT message, UINT wParam, LONG lP
 			return(0);
 
 		case WM_PAINT:
-			if (SpecialDialog == SDLG_NONE) {	// RA2
+			if (SpecialDialog == SDLG_NONE) {
 				if (GameInFocus == true || WindowedMode == true) {
 					if (MouseCursor != NULL && VisibleSurface != NULL && HiddenSurface != NULL && CompositeSurface != NULL) {
 						if (ScenarioActive == true) {
@@ -261,7 +261,7 @@ LRESULT CALLBACK Windows_Procedure(HWND hwnd, UINT message, UINT wParam, LONG lP
 		return(0);
 	}
 
-	if (message == WM_IME_CHAR) {	// RA2
+	if (message == WM_IME_CHAR) {
 		int length = wcslen(IMEResultString);
 		char mb[4];
 		int wc;
@@ -338,9 +338,9 @@ HICON ProgramIcon;
 HCURSOR ProgramCursor;
 
 
-#define CC_ICON		93	// RA2
+#define CC_ICON 93
 #define CC_CURSOR	104
-#define WINDOW_NAME		"Red Alert 2"	// RA2
+#define WINDOW_NAME "Red Alert 2"
 
 void Create_Main_Window(HINSTANCE instance, int command_show, int width, int height)
 {
@@ -374,7 +374,7 @@ void Create_Main_Window(HINSTANCE instance, int command_show, int width, int hei
 		MainWindow = CreateWindowEx(WS_EX_TOPMOST, WINDOW_NAME, WINDOW_NAME, WS_POPUP|WS_CLIPCHILDREN, 0, 0, GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN), NULL, NULL, instance, NULL);
 	}
 
-	IMEContext = ImmGetContext(MainWindow);	// RA2
+	IMEContext = ImmGetContext(MainWindow);
 
 	ShowWindow(MainWindow, SW_NORMAL);
 	ShowCommand = command_show;

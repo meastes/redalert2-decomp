@@ -127,7 +127,7 @@ MixFileClass::MixFileClass(char const * filename, PKey const * key) :
 	*/
 	if (!CD::Force_Available()) {
 		Emergency_Exit();
-		Exit_Process(EXIT_FAILURE);	// RA2
+		Exit_Process(EXIT_FAILURE);
 	}
 
 	CCFileClass file(filename);		// Working file object.

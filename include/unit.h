@@ -36,7 +36,7 @@
 #include "foot.h"
 
 class Surface;
-class EBolt; // RA2
+class EBolt;
 
 /****************************************************************************
 **	For each instance of a unit (vehicle) in the game, there is one of

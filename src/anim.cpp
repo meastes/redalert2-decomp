@@ -1039,7 +1039,7 @@ void AnimClass::Set_Owner(HouseClass * house)
  *=============================================================================================*/
 LayerType AnimClass::In_Which_Layer(void) const
 {
-	if (xObject != 0) { // RA2: RA2's form
+	if (xObject != 0) {
 		return LAYER_GROUND;
 	}
 	if (Class != 0) {
@@ -1070,7 +1070,7 @@ LayerType AnimClass::In_Which_Layer(void) const
 void AnimClass::Start(void)
 {
 	Mark(MARK_CHANGE);
-	if (!IsInert && Class->StartSound != VOC_NONE) { // RA2: RA2's form
+	if (!IsInert && Class->StartSound != VOC_NONE) {
 		VocClass::PlayAt(Class->StartSound, Center_Coord(), &StartSoundAudioController);
 	} else {
 		StartSoundAudioController.Stop();
@@ -1135,7 +1135,7 @@ void AnimClass::Start(void)
  *=============================================================================================*/
 void AnimClass::Middle(void)
 {
-	Cell where = Center_Coord().As_Cell(); // RA2: RA2's form
+	Cell where = Center_Coord().As_Cell();
 	CellClass * cell = (CellClass *)&Map[where];
 	int width = 30;
 	int height = 30;
@@ -1186,7 +1186,7 @@ void AnimClass::Middle(void)
  *=============================================================================================*/
 void AnimClass::Detach(AbstractClass const * target, bool all)
 {
-	ObjectClass::Detach(target, all); // RA2: RA2's form
+	ObjectClass::Detach(target, all);
 	if (xObject == target) {
 		Map.Remove(this);
 		xObject = 0;
@@ -1301,7 +1301,7 @@ HRESULT STDMETHODCALLTYPE AnimClass::Load(IStream *stream)
 /// code.</returns>
 HRESULT STDMETHODCALLTYPE AnimClass::Save(IStream * stream, BOOL cleardirty)
 {
-	if (AlternativeDrawer != 0) { // RA2: RA2's form
+	if (AlternativeDrawer != 0) {
 		for (int index = ColorSchemes.Count() - 1; index >= 0; index--) {
 			if (AlternativeDrawer == ColorSchemes[index]->Converter) {
 				LightConvertIndex = index;
@@ -1323,7 +1323,7 @@ save:
 /// </summary>
 void AnimClass::Compute_CRC(CRCEngine & crc) const
 {
-	ObjectClass::Compute_CRC(crc); // RA2: RA2's form
+	ObjectClass::Compute_CRC(crc);
 	if (xObject != 0) {
 		crc(xObject->Fetch_ID());
 	}

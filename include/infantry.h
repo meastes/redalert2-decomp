@@ -231,7 +231,7 @@ class InfantryClass : public FootClass
 		/*
 		**	Movement and animation.
 		*/
-		virtual bool IsDeployed(void) const; // RA2
+		virtual bool IsDeployed(void) const;
 		bool Is_Deployer(void) const; // RA2: 0x5090A0
 		bool Has_Undeploy_Delay(void) const; // RA2: 0x5090B0
 		bool Is_Deploying(void) const; // RA2: 0x5090D0

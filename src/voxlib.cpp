@@ -644,7 +644,7 @@ int VoxelLibrary::Read_File(FileClass & file, int load_file_palette)
 		/*
 		 * Read the raw palette data.
 		 */
-		for (unsigned char * green = &VoxelRGBColors[0].Green; green < &VoxelRGBColors[VOXEL_PALETTE_SIZE].Green; green += sizeof(RGBStruct)) { // RA2
+		for (unsigned char * green = &VoxelRGBColors[0].Green; green < &VoxelRGBColors[VOXEL_PALETTE_SIZE].Green; green += sizeof(RGBStruct)) {
 			unsigned int channel = 0; // RA2: the three channels through one offset
 			file.Read(green + channel++ - 1, sizeof(unsigned char));
 			file.Read(green + channel++ - 1, sizeof(unsigned char));
@@ -710,7 +710,7 @@ int VoxelLibrary::Read_File(FileClass & file, int load_file_palette)
 		LayerInfos[i].Scale = layerinfo.Scale;
 		LayerInfos[i].Transform = (Matrix3DStruct &)Matrix3D(layerinfo.Transform);
 
-		Vector3 min; // RA2
+		Vector3 min;
 		min.X = layerinfo.MinBounds[0];
 		min.Y = layerinfo.MinBounds[1];
 		min.Z = layerinfo.MinBounds[2];
@@ -982,7 +982,7 @@ void VoxelLibrary::Render_Shadow(VoxelShadowRenderStruct & voxel, Vector3 & cent
 	arg.TransformMatrix[0].I = short(float(corner_0.X + 128 - center.X) * 256);
 	arg.TransformMatrix[0].J = short(float(corner_0.Y + 128 - center.Y) * 256);
 
-	voxel.ShadowX = voxel.ShadowX + center.X; // RA2
+	voxel.ShadowX = voxel.ShadowX + center.X;
 	voxel.ShadowY = voxel.ShadowY + center.Y;
 
 	arg.TransformMatrix[1].I = short((corner_x.X - corner_0.X) / x_size * 256.0f);

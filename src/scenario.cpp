@@ -181,8 +181,8 @@
 #include "narrow.h" // RA2: Narrow_Text, ra2-decomp 61ba2ad
 #include "stlscore.h" // RA2: the single player score screen (0x69A640)
 
-void Audio_Pause_All(void); // RA2
-void Audio_Resume_All(void); // RA2
+void Audio_Pause_All(void);
+void Audio_Resume_All(void);
 bool Wait_For_Players_To_Load(void); // RA2: defined after Read_Scenario
 void Reset_Group_Select(void); // RA2: 0x6F89E0, clears the control group last selected (GroupSelectGroup -1, GroupSelectFrame -100)
 void Clear_Sidebar_Tab_Object(TechnoClass * techno); // RA2: 0x6F8A20, forgets techno in the two sidebar tab slots (all of them for NULL); YR: TechnoClass::ClearSidebarTabObject
@@ -678,8 +678,8 @@ void Lock_Scenario_Input(void)
 
 	Scen->IsInputLocked = true;
 	IgnoreInput = true;
-	Keyboard->Clear(); // RA2
-	UnlockInputFrame = 0; // RA2
+	Keyboard->Clear();
+	UnlockInputFrame = 0;
 }
 
 
@@ -698,8 +698,8 @@ void Unlock_Scenario_Input(void)
 
 	Scen->IsInputLocked = false;
 	IgnoreInput = false;
-	Keyboard->Clear(); // RA2
-	UnlockInputFrame = 0; // RA2
+	Keyboard->Clear();
+	UnlockInputFrame = 0;
 }
 
 
@@ -3682,7 +3682,7 @@ static inline Point2D Header_Point(CellClass & cell)
 /// <param name="mplayer">Is the scenario being saved as a multiplayer map?</param>
 bool ScenarioClass::Write_INI(CCINIClass & ini, bool mplayer) const
 {
-	static char const * const BASIC = "Basic"; // RA2: RA2's form
+	static char const * const BASIC = "Basic";
 	ini.Clear(BASIC);
 	ini.Clear(BASIC, "CivEvac");
 	if (strlen(Scen->BriefingCSF) != 0) {
@@ -3820,7 +3820,7 @@ int Adjust_To_CPU_Timing(int time)
 /// </summary>
 void ScenarioClass::Compute_CRC(CRCEngine & crc) const
 {
-	crc(UIName); // RA2: RA2's form
+	crc(UIName);
 	crc((long)IntroMovie);
 	crc((long)BriefMovie);
 	crc((long)WinMovie);

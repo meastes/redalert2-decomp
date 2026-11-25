@@ -485,7 +485,7 @@ int RawFileClass::Read(void * buffer, int size)
 		if (bytesread == 0) break;
 	}
 	bytesread = total;
-	IsReadingAudioFile = false;	// RA2
+	IsReadingAudioFile = false;
 
 	/*
 	**	Close the file if it was opened by this routine and return

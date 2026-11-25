@@ -343,7 +343,7 @@ void WWMouseClass::Calc_Confining_Rect(void)
  *=============================================================================================*/
 int WWMouseClass::Get_Mouse_State(void) const
 {
-	return MouseState; // RA2: RA2's form
+	return MouseState;
 }
 
 
@@ -701,7 +701,7 @@ void WWMouseClass::Draw_Mouse(Surface * surface, bool issidebarsurface)
  *=============================================================================================*/
 void WWMouseClass::Erase_Mouse(Surface * surface, bool issidebarsurface)
 {
-	if (Is_Hidden() || !Is_Captured() || surface == 0 || surface == SurfacePtr || Alternate == 0 // RA2: RA2's form
+	if (Is_Hidden() || !Is_Captured() || surface == 0 || surface == SurfacePtr || Alternate == 0
 		|| SidebarAlternate == 0) {
 		return;
 	}
@@ -869,7 +869,7 @@ void WWMouseClass::Show_Mouse(void)
  *=============================================================================================*/
 void WWMouseClass::Hide_Mouse(void)
 {
-	Block_Mouse(); // RA2: RA2's form
+	Block_Mouse();
 	if (MouseState == 0) {
 		if (Is_Captured()) {
 			Low_Hide_Mouse();
@@ -938,7 +938,7 @@ void WWMouseClass::Capture_Mouse(void)
  *=============================================================================================*/
 void WWMouseClass::Release_Mouse(void)
 {
-	if (this != 0 && Is_Captured()) { // RA2: RA2's form
+	if (this != 0 && Is_Captured()) {
 		DebugString("Release_Mouse()\n");
 		Block_Mouse();
 		IsCaptured = false;
@@ -1102,7 +1102,7 @@ void WWMouseClass::Update_Mouse_Position(int x, int y, bool forced)
  *=============================================================================================*/
 void WWMouseClass::Process_Mouse(void)
 {
-	static bool forced = false; // RA2: RA2's form
+	static bool forced = false;
 	if (SurfacePtr != 0) {
 		Block_Mouse();
 

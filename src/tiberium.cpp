@@ -148,11 +148,11 @@ bool TiberiumClass::Read_INI(CCINIClass const & ini)
 
 			case 3:
 				Overlay = OverlayTypes[OVERLAY_TIBERIUM2_01];
-				goto ramp; // RA2
+				goto ramp;
 
 			case 4:
 				Overlay = OverlayTypes[OVERLAY_TIBERIUM3_01];
-				goto ramp; // RA2
+				goto ramp;
 
 			case 1:
 			default:

@@ -31,7 +31,7 @@ class MSFont
 		unsigned char Get_Blue(void) {return(Blue);}
 		int Get_Color(void) {return(Color);}
 
-		bool Init(bool use_side_palette); // RA2
+		bool Init(bool use_side_palette);
 
 		void Get_String_Rect(wchar_t const * string, Rect & rect); // RA2: wide
 

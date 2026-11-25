@@ -1284,7 +1284,7 @@ int FlyLocomotionClass::Nearing_Target(bool stage_approach, CoordStruct coord)
 /// <returns>Returns with the matrix to draw the aircraft with.</returns>
 Matrix3DStruct STDMETHODCALLTYPE FlyLocomotionClass::Draw_Matrix(int * key)
 {
-	Matrix3D transform; // RA2: RA2's form
+	Matrix3D transform;
 	transform.Make_Identity();
 	if (key != NULL) {
 		*key |= LinkedTo->SecondaryFacing.Current().As_Dir32() << 3;
@@ -1396,7 +1396,7 @@ void FlyLocomotionClass::Take_Off(void)
 /// </summary>
 void FlyLocomotionClass::Land(void)
 {
-	if (LinkedTo->Get_Mission() == MISSION_ENTER || !LinkedTo->Next_Planning_Node()) { // RA2: RA2's form
+	if (LinkedTo->Get_Mission() == MISSION_ENTER || !LinkedTo->Next_Planning_Node()) {
 		if (LinkedTo->Fetch_RTTI() == RTTI_AIRCRAFT) {
 			AircraftClass * aircraft = (AircraftClass *)LinkedTo;
 			if (aircraft->Class->IsAirportBound) {

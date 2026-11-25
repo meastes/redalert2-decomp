@@ -49,10 +49,10 @@ class UDPInterfaceClass : public WinsockInterfaceClass {
 		UDPInterfaceClass (void);
 		virtual ~UDPInterfaceClass(void) override;
 
-		virtual void WriteTo (void *buffer, int buffer_len, void *address, int address_len, bool alternate, bool flag, unsigned short port) override; // RA2
+		virtual void WriteTo(void * buffer, int buffer_len, void * address, int address_len, bool alternate, bool flag, unsigned short port) override;
 		virtual void Broadcast (void *buffer, int buffer_len, bool alternate) override;
-		virtual bool Start_Listening (void) override; // RA2
-		virtual void Stop_Listening (void) override; // RA2
+		virtual bool Start_Listening(void) override;
+		virtual void Stop_Listening(void) override;
 		virtual void Set_Broadcast_Address ( char const * address, unsigned short port ) override;
 		virtual void Clear_Broadcast_Addresses(void) override;
 
@@ -63,15 +63,15 @@ class UDPInterfaceClass : public WinsockInterfaceClass {
 		virtual int Get_Num_Local_Addresses(void) override;
 		virtual unsigned char *Get_Local_Address(int index) override;
 
-		virtual bool OpenSocket (unsigned short port = 0); // RA2
-		virtual unsigned short Get_Port (void); // RA2
-		virtual bool Init_Ports (void); // RA2
-		virtual bool Open_Port_Socket (unsigned short port); // RA2
-		virtual void Close_Port_Socket (unsigned short port); // RA2
-		virtual void Close_All_Port_Sockets (void); // RA2
-		virtual void Select_Port_Socket (unsigned short port); // RA2
-		virtual void Add_Peer (unsigned char *address, unsigned short port); // RA2
-		bool Is_Reachable (unsigned char *address, unsigned short port); // RA2
+		virtual bool OpenSocket(unsigned short port = 0);
+		virtual unsigned short Get_Port(void);
+		virtual bool Init_Ports(void);
+		virtual bool Open_Port_Socket(unsigned short port);
+		virtual void Close_Port_Socket(unsigned short port);
+		virtual void Close_All_Port_Sockets(void);
+		virtual void Select_Port_Socket(unsigned short port);
+		virtual void Add_Peer(unsigned char * address, unsigned short port);
+		bool Is_Reachable(unsigned char * address, unsigned short port);
 
 		static int UDPListenPort; // RA2: the port broadcasts go to when none is given
 
@@ -90,7 +90,7 @@ class UDPInterfaceClass : public WinsockInterfaceClass {
 		**	Address to use when broadcasting a packet.
 		*/
 		DynamicVectorClass <unsigned char *> BroadcastAddresses;
-		unsigned short BroadcastPorts[256]; // RA2
+		unsigned short BroadcastPorts[256];
 
 		/*
 		**	List of local addresses.

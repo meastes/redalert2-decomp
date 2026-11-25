@@ -143,7 +143,7 @@
 #include "tactical.h"
 #include "tag.h"
 #include "tagtype.h"
-#include "uicmnds.h" // RA2
+#include "uicmnds.h"
 #include "txtlabel2.h"
 #include "terrtype.h"
 #include "unittype.h"
@@ -151,8 +151,8 @@
 #include "vector3.h"
 #include "vox.h"
 #include "waypoint.h"
-#include "stringtable.h" // RA2
-#include "beacon.h" // RA2
+#include "stringtable.h"
+#include "beacon.h"
 #include "xpipe.h"
 #include "xstraw.h"
 #include "zbuffer.h"
@@ -478,7 +478,7 @@ void DisplayClass::Set_Cursor_Shape(Cell const * list)
 	}
 }
 
-void DisplayClass::Set_Copy_Cursor_Shape(Cell const * list) // RA2: RA2's form
+void DisplayClass::Set_Copy_Cursor_Shape(Cell const * list)
 {
 	if (CopyCursorSize) {
 		Mark_Foundation_Copy(CopyZoneCell + CopyZoneOffset, false);
@@ -562,7 +562,7 @@ bool DisplayClass::Passes_Proximity_Check(ObjectTypeClass const * object, Houses
 		return(true);
 	}
 
-	BuildingTypeClass const * building = static_cast<BuildingTypeClass const *>(object); // RA2: RA2's form
+	BuildingTypeClass const * building = static_cast<BuildingTypeClass const *>(object);
 	Rect footprint = Foundation_Rect(trycell, building);
 	int adj = building->Adjacent + 1;
 	Rect range(footprint.X - adj, footprint.Y - adj, footprint.Width + adj * 2, footprint.Height + adj * 2);
@@ -607,7 +607,7 @@ bool DisplayClass::Passes_Proximity_Check(ObjectTypeClass const * object, Houses
 /// routine always returns true.</returns>
 bool DisplayClass::Passes_Shroud_Check(ObjectTypeClass const * object, HousesType house, Cell const * list, Cell const & trycell) const
 {
-	if (house != PlayerPtr->HeapID || Debug_Map) { // RA2: RA2's form
+	if (house != PlayerPtr->HeapID || Debug_Map) {
 		return(true);
 	}
 	if (list == NULL || trycell == CELL_NONE || object == NULL || object->RTTI != RTTI_BUILDINGTYPE) {
@@ -808,7 +808,7 @@ void DisplayClass::Cursor_Mark(Cell const &pos, bool on)
 	}
 }
 
-void DisplayClass::Mark_Foundation_Copy(Cell const & pos, bool on) // RA2: RA2's form
+void DisplayClass::Mark_Foundation_Copy(Cell const & pos, bool on)
 {
 	Cell const * ptr;
 	CellClass * cellptr;
@@ -1130,7 +1130,7 @@ bool DisplayClass::Map_Cell(Cell const & cell, HouseClass * house)
 	return(changed);
 }
 
-bool DisplayClass::RevealFogShroud(Cell const & cell, HouseClass * house, bool increase) // RA2: RA2's form
+bool DisplayClass::RevealFogShroud(Cell const & cell, HouseClass * house, bool increase)
 {
 	CellClass * cellptr = &(*this)[cell];
 
@@ -1531,7 +1531,7 @@ Cell DisplayClass::Calculated_Cell(SourceType dir, Cell const & waypoint, Cell c
 	bool horz = false;
 	int x;
 	int y;
-	int start; // RA2: RA2's form
+	int start;
 	Cell fallback;
 	int zone = -1;
 
@@ -2433,7 +2433,7 @@ void DisplayClass::Mouse_Left_Release(Coord const & coord, Cell const & cell, Ob
 void Bandbox_Selection_Callback(ObjectClass *object)
 {
 	HouseClass *house = object->Owner_HouseClass();
-	BuildingClass *bptr = object->Fetch_RTTI() == RTTI_BUILDING ? (BuildingClass *)object : NULL; // RA2: RA2's form
+	BuildingClass * bptr = object->Fetch_RTTI() == RTTI_BUILDING ? (BuildingClass *)object : NULL;
 
 	if (house != NULL && house->Is_Player_Control() && object->CanBeSelected()) {
 		if (bptr != NULL) {
@@ -2653,7 +2653,7 @@ void DisplayClass::Sell_Mode_Control(int control)
 		IsRepairMode = false;
 		IsPowerMode = false;
 		IsWaypointMode = false;
-		IsBeaconMode = false; // RA2: RA2's form
+		IsBeaconMode = false;
 		if (mode && PlayerPtr->CurBuildings > 0) {
 			IsSellMode = true;
 			Unselect_All();
@@ -2698,7 +2698,7 @@ void DisplayClass::Waypoint_Mode_Control(int control, bool edit_selected_path)
 		IsRepairMode = false;
 		IsSellMode = false;
 		IsPowerMode = false;
-		IsBeaconMode = false; // RA2: RA2's form
+		IsBeaconMode = false;
 		PathType path = PlayerPtr->New_Waypoint_Path();
 		if (mode) {
 			if (path == PATH_NONE && (!edit_selected_path || PlayerPtr->SelectedPath == PATH_NONE)) {
@@ -2758,7 +2758,7 @@ void DisplayClass::Power_Mode_Control(int control)
 		IsRepairMode = false;
 		IsSellMode = false;
 		IsWaypointMode = false;
-		IsBeaconMode = false; // RA2: RA2's form
+		IsBeaconMode = false;
 		if (mode && PlayerPtr->CurBuildings > 0) {
 			IsPowerMode = true;
 			Unselect_All();
@@ -2810,7 +2810,7 @@ void DisplayClass::Repair_Mode_Control(int control)
 		IsSellMode = false;
 		IsPowerMode = false;
 		IsWaypointMode = false;
-		IsBeaconMode = false; // RA2: RA2's form
+		IsBeaconMode = false;
 		Set_Default_Mouse(MOUSE_NORMAL, false);
 		if (mode && PlayerPtr->CurBuildings > 0) {
 			IsRepairMode = true;
@@ -2824,7 +2824,7 @@ void DisplayClass::Repair_Mode_Control(int control)
 
 
 
-void DisplayClass::Place_Beacon_Mode_Control(int control) // RA2: RA2's form
+void DisplayClass::Place_Beacon_Mode_Control(int control)
 {
 	bool mode = IsRepairMode;
 	switch (control) {
@@ -3562,7 +3562,7 @@ void DisplayClass::Restore_Map_State(void * stash)
 	}
 }
 
-void DisplayClass::Reveal_Technos(bool units_only, bool is_fog) // RA2: RA2's form
+void DisplayClass::Reveal_Technos(bool units_only, bool is_fog)
 {
 	int count = Technos.Count();
 	for (int index = 0; index < count; index++) {
@@ -3595,7 +3595,7 @@ void DisplayClass::Reveal_Technos(bool units_only, bool is_fog) // RA2: RA2's fo
 }
 
 
-void DisplayClass::Update_Technos_Visibility(bool units_only, bool is_fog) // RA2: RA2's form
+void DisplayClass::Update_Technos_Visibility(bool units_only, bool is_fog)
 {
 	int count = Technos.Count();
 	for (int index = 0; index < count; index++) {
@@ -3642,7 +3642,7 @@ void DisplayClass::Update_Technos_Visibility(bool units_only, bool is_fog) // RA
 void DisplayClass::All_To_Look(bool units_only, bool is_fog)
 {
 	for (int index = 0; index < Layer[LAYER_GROUND].Count(); index++) {
-		ObjectClass * object = Layer[LAYER_GROUND][index]; // RA2: RA2's form
+		ObjectClass * object = Layer[LAYER_GROUND][index];
 		if (object != NULL && (object->AbstractFlags & ABSTRACT_TECHNO)) {
 			TechnoClass * tech = (TechnoClass *)object;
 			if (tech->Fetch_RTTI() == RTTI_BUILDING && units_only) continue;
@@ -3918,7 +3918,7 @@ HRESULT DisplayClass::Save(IStream * stream)
 void DisplayClass::Active_Click(ObjectClass * object, Cell cell, ActionType action)
 {
 	int index;
-	ObjectClass * selected; // RA2: RA2's form
+	ObjectClass * selected;
 	PathType waypoint_path = PATH_NONE;
 	char waypoint_id = 0;
 	if (Debug_Map) {

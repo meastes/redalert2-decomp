@@ -224,7 +224,7 @@ void CommBufferClass::Init(void)
 		SendQueue[i].SendCount = 0L;
 		SendQueue[i].BufLen = 0;
 		SendQueue[i].ExtraLen = 0;
-		SendQueue[i].Port = 0; // RA2
+		SendQueue[i].Port = 0;
 
 		SendIndex[i] = 0;
 	}
@@ -233,7 +233,7 @@ void CommBufferClass::Init(void)
 		ReceiveQueue[i].IsActive = 0;
 		ReceiveQueue[i].IsRead = 0;
 		ReceiveQueue[i].IsACK = 0;
-		ReceiveQueue[i].ReceiveTime = 0L; // RA2
+		ReceiveQueue[i].ReceiveTime = 0L;
 		ReceiveQueue[i].BufLen = 0;
 		ReceiveQueue[i].ExtraLen = 0;
 
@@ -288,7 +288,7 @@ void CommBufferClass::Init_Send_Queue(void)
 		SendQueue[i].BufLen = 0;
 		SendQueue[i].ExtraLen = 0;
 
-		SendQueue[i].Port = 0; // RA2
+		SendQueue[i].Port = 0;
 		SendIndex[i] = 0;
 	}
 
@@ -358,7 +358,7 @@ int CommBufferClass::Queue_Send(void * buf, int buflen, void * extrabuf,
 	//------------------------------------------------------------------------
 	// Copy the packet data
 	//------------------------------------------------------------------------
-	SendQueue[index].Port = port; // RA2
+	SendQueue[index].Port = port;
 	memcpy(SendQueue[index].Buffer, buf, buflen);
 
 	//------------------------------------------------------------------------
@@ -444,7 +444,7 @@ int CommBufferClass::UnQueue_Send(void * buf, int * buflen, int index,
 	//------------------------------------------------------------------------
 	// Set entry flags
 	//------------------------------------------------------------------------
-	if (port != NULL) { // RA2
+	if (port != NULL) {
 		(*port) = SendQueue[SendIndex[index]].Port;
 	}
 	SendQueue[SendIndex[index]].IsActive = 0;
@@ -459,7 +459,7 @@ int CommBufferClass::UnQueue_Send(void * buf, int * buflen, int index,
 	//------------------------------------------------------------------------
 	// Move Indices back one
 	//------------------------------------------------------------------------
-	SendQueue[SendIndex[index]].Port = 0; // RA2
+	SendQueue[SendIndex[index]].Port = 0;
 	for (i = index; i < SendCount - 1; i++) {
 		SendIndex[i] = SendIndex[i + 1];
 	}
@@ -554,7 +554,7 @@ int CommBufferClass::Queue_Receive(void * buf, int buflen, void * extrabuf,
 	ReceiveQueue[index].IsActive = 1;
 	ReceiveQueue[index].IsRead = 0;
 	ReceiveQueue[index].IsACK = 0;
-	ReceiveQueue[index].ReceiveTime = TickCount; // RA2
+	ReceiveQueue[index].ReceiveTime = TickCount;
 	ReceiveQueue[index].BufLen = buflen;
 
 	//------------------------------------------------------------------------

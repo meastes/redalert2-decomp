@@ -35,7 +35,7 @@ enum ActionType {
 	ACTION_TOGGLE_SELECT,	// Toggles select state of the object.
 	ACTION_CAPTURE,			// The unit will try to capture the object.
 	ACTION_REPAIR,			// The target object should be repaired.
-	ACTION_EATEN,			// RA2
+	ACTION_EATEN,
 	ACTION_SELL,			// The target building should be sold back.
 	ACTION_SELL_UNIT,		// The target unit should be sold back.
 	ACTION_NO_SELL,  		// No sell or no repair.
@@ -62,10 +62,10 @@ enum ActionType {
 	ACTION_ENTER_TUNNEL,
 	ACTION_NO_ENTER_TUNNEL,
 	ACTION_IRON_CURTAIN,	// RA2: that target object should be invulnerable.
-	ACTION_LIGHTNING_STORM,	// RA2
+	ACTION_LIGHTNING_STORM,
 	ACTION_CHRONOSPHERE,	// RA2: that target object should be teleported.
 	ACTION_CHRONO_WARP,		// RA2: teleport it to the given coordinates now.
-	ACTION_PARA_DROP,		// RA2
+	ACTION_PARA_DROP,
 	ACTION_PLACE_WAYPOINT,
 	ACTION_NO_PLACE_WAYPOINT,
 	ACTION_ENTER_WAYPOINT_MODE,
@@ -76,16 +76,16 @@ enum ActionType {
 	ACTION_ATTACK_WAYPOINT,
 	ACTION_ENTER_WAYPOINT,
 	ACTION_PATROL_WAYPOINT,
-	ACTION_AREA_ATTACK,		// RA2
-	ACTION_IVAN_BOMB,		// RA2
-	ACTION_NO_IVAN_BOMB,	// RA2
-	ACTION_DETONATE,		// RA2
-	ACTION_DETONATE_ALL,	// RA2
-	ACTION_DISARM_BOMB,		// RA2
-	ACTION_SELECT_NODE,		// RA2
+	ACTION_AREA_ATTACK,
+	ACTION_IVAN_BOMB,
+	ACTION_NO_IVAN_BOMB,
+	ACTION_DETONATE,
+	ACTION_DETONATE_ALL,
+	ACTION_DISARM_BOMB,
+	ACTION_SELECT_NODE,
 	ACTION_ATTACK_SUPPORT,
-	ACTION_PLACE_BEACON,	// RA2
-	ACTION_SELECT_BEACON,	// RA2
+	ACTION_PLACE_BEACON,
+	ACTION_SELECT_BEACON,
 	ACTION_ATTACK_MOVE_NAV,	// RA2: "AttackMoveNav", name at index 62 of the table at 0x79D888
 	ACTION_ATTACK_MOVE_TAR,	// RA2: "AttackMoveTar"
 	ACTION_DEMOLISH,		// RA2: "Demolish"

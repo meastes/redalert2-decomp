@@ -434,7 +434,7 @@ int BuildingLightClass::Detection_Radius(void) const
 	/// Not 112.0 / 15.0 -- that quotient is one ULP higher, and the difference is
 	/// visible here because the radius truncates: stages 15 and 30 would give 112
 	/// and 224 where the game gives 111 and 223.
-	static const double _scale = 5.973333333333333; // RA2
+	static const double _scale = 5.973333333333333;
 	int radius = (int)(Sweep_Stage() * _scale) + Rule->SpotlightRadius;
 	return(radius);
 }

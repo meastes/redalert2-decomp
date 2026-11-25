@@ -392,7 +392,7 @@ CellClass::CellClass(void) :
 int CellClass::Preview_Cell_Color(unsigned char & unknown, bool terrainonly) const
 {
 	unknown = 0;
-	BuildingClass *obj = (BuildingClass *)Cell_Building(); // RA2: RA2's form
+	BuildingClass * obj = (BuildingClass *)Cell_Building();
 
 	if (!terrainonly && obj != 0 && !obj->Class->IsInvisible && !obj->Class->IsInvisibleInGame && Building_Visual(obj) != VISUAL_HIDDEN) {
 		ColorScheme * scheme = ColorSchemes[obj->House->Scheme];
@@ -571,7 +571,7 @@ void CellClass::Cell_Color(RGBClass & lowcolor, RGBClass & highcolor) const
  *=============================================================================================*/
 TechnoClass * CellClass::Cell_Techno(Point2D const & xy, bool bridge, TechnoClass const * notthis) const
 {
-	ObjectClass *object; // RA2: RA2's form
+	ObjectClass * object;
 	Coord click;
 	TechnoClass * close = 0;
 	int distance = 0;
@@ -764,7 +764,7 @@ static inline CellClass const & LAT_Neighbor(CellClass const & cell, FacingType 
  *=============================================================================================*/
 bool CellClass::Is_Clear_To_Build(SpeedType loco, BuildingTypeClass * what, HouseClass * who) const
 {
-	if (ScenarioInit) { // RA2: RA2's form
+	if (ScenarioInit) {
 		return(true);
 	}
 
@@ -1358,7 +1358,7 @@ void CellClass::Recalc_Attributes(int cell_height)
 void CellClass::Destroy_Bridge(void)
 {
 	if (!Debug_Map) {
-		ObjectClass *occupier = OccupierPtr; // RA2: RA2's form
+		ObjectClass * occupier = OccupierPtr;
 		while (occupier != NULL) {
 			ObjectClass * next = occupier->Next;
 			occupier->Take_Damage(occupier->Strength, 0, Rule->C4Warhead, NULL, true, true);
@@ -1784,7 +1784,7 @@ InfantryClass * CellClass::Cell_Infantry(bool bridge) const
 /// <returns>bool; May the pending building be placed on this cell?</returns>
 bool CellClass::Draw_Placement_Cursor(Point2D const & xpoint, Rect const & cliprect, bool zeroalpha)
 {
-	Point2D point = Point2D(30, -1); // RA2: RA2's form
+	Point2D point = Point2D(30, -1);
 
 	bool ok = false;
 	if (IsCursorHere || IsFoundationCopyHere) {
@@ -1955,7 +1955,7 @@ void CellClass::Draw_Shroud_Or_Fog_Shape(Point2D const & drawpoint, Rect const &
 void CellClass::Draw_Fog_Shape(Point2D const & drawpoint, Rect const & cliprect, int shapenum)
 {
 	static bool shapes_loaded = false;
-	static ShapeSet const *shapes = 0; // RA2: RA2's form
+	static ShapeSet const * shapes = 0;
 	if (!shapes_loaded) {
 		shapes_loaded = true;
 		shapes = (ShapeSet const *)MFCD::Retrieve("FOG.SHP");
@@ -2316,7 +2316,7 @@ Rect CellClass::Cell_Render_Rect(void) const
 /// <returns>Returns with the offset to apply to the cell's draw position.</returns>
 Point2D CellClass::Overlay_Draw_Offset(void) const
 {
-	Point2D offset; // RA2: RA2's form
+	Point2D offset;
 	offset = ::Overlay_Draw_Offset(Overlay);
 	if (IsBridgeDeck) {
 		offset.Y -= 16;
@@ -5643,7 +5643,7 @@ bool CellClass::Is_Tile_Destroyable_Cliff(void) const
 /// </summary>
 void CellClass::Trigger_Veins(void)
 {
-	if (Overlay == OVERLAY_VEINS && OverlayData >= OVERLAYDATA_FIRST_SOLID_VEIN && !Ramp && !IsAnimAttached) { // RA2: RA2's form
+	if (Overlay == OVERLAY_VEINS && OverlayData >= OVERLAYDATA_FIRST_SOLID_VEIN && !Ramp && !IsAnimAttached) {
 		for (ObjectClass * object = Cell_Occupier(); object != NULL; object = object->Next) {
 			if (object->HeightAGL <= 5) {
 				bool is_techno;

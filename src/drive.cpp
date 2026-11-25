@@ -431,7 +431,7 @@ CoordStruct STDMETHODCALLTYPE DriveLocomotionClass::Head_To_Coord(void)
 /// <param name="to">The location to drive to.</param>
 void STDMETHODCALLTYPE DriveLocomotionClass::Move_To(CoordStruct to)
 {
-	if (!LinkedTo->IsUnderEMP() && !LinkedTo->IsParalyzed() && !LinkedTo->IsBeingWarpedOut() && !LinkedTo->IsWarpingIn()) { // RA2: as YR's; TibSun's form does not match (Drive's and Ship's copies match only so)
+	if (!LinkedTo->IsUnderEMP() && !LinkedTo->IsParalyzed() && !LinkedTo->IsBeingWarpedOut() && !LinkedTo->IsWarpingIn()) { // RA2: as YR's
 		DestinationCoord = to;
 		if (Coord(to) != COORD_NONE) {
 			if (Map[to].IsUnderBridge) {
@@ -2160,7 +2160,7 @@ ZGradientType STDMETHODCALLTYPE DriveLocomotionClass::Z_Gradient(void)
 bool DriveLocomotionClass::Abandon_Navigation(void)
 {
 	if (LinkedTo->RouteQueue.Count() == 0) {
-		LinkedTo->Assign_Destination(0, true); // RA2: RA2's form
+		LinkedTo->Assign_Destination(0, true);
 		return(false);
 	}
 	LinkedTo->Abort_Motion();
@@ -2206,9 +2206,9 @@ boolean STDMETHODCALLTYPE DriveLocomotionClass::Is_Moving_Here(CoordStruct to)
 
 					if (TrackIndex < cellidx && cellidx != -1) {
 						Point2D pt = Smooth_Turn(ptr[cellidx].Offset, dir);
-						Coord coord = LinkedTo->PositionCoord; // RA2: as YR's; TibSun's form does not match (Drive's and Ship's copies match only so)
-						coord.X = pt.X; // RA2: as YR's; TibSun's form does not match (Drive's and Ship's copies match only so)
-						coord.Y = pt.Y; // RA2: as YR's; TibSun's form does not match (Drive's and Ship's copies match only so)
+						Coord coord = LinkedTo->PositionCoord; // RA2: as YR's
+						coord.X = pt.X; // RA2: as YR's
+						coord.Y = pt.Y; // RA2: as YR's
 						if (coord.As_Cell() == ((Coord &)to).As_Cell() && abs(coord.Z - to.Z) <= LEVEL_LEPTON_H) {
 							return(true);
 						}

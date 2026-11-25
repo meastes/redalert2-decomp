@@ -201,21 +201,21 @@ class WinsockInterfaceClass {
 		*/
 		WinsockBufferType StaticInBuffers[WS_MAX_STATIC_BUFFERS];
 		WinsockBufferType StaticOutBuffers[WS_MAX_STATIC_BUFFERS];
-		WinsockBufferType StaticAltOutBuffers[WS_MAX_STATIC_BUFFERS]; // RA2
+		WinsockBufferType StaticAltOutBuffers[WS_MAX_STATIC_BUFFERS];
 
 		/*
 		**	Pointers to allow circular use of the buffer arrays.
 		*/
 		int InBufferArrayPos;
 		int OutBufferArrayPos;
-		int AltOutBufferArrayPos; // RA2
+		int AltOutBufferArrayPos;
 
 		/*
 		**	Usage count for each array.
 		*/
 		int InBuffersUsed;
 		int OutBuffersUsed;
-		int AltOutBuffersUsed; // RA2
+		int AltOutBuffersUsed;
 
 		/*
 		**	Is Winsock present and initialised?
@@ -247,5 +247,5 @@ class WinsockInterfaceClass {
 
 int __cdecl Get_Packet_Loss_Percent(void); // RA2: the percentage of received packets to drop on purpose
 void __fastcall Set_Packet_Loss_Percent(int percent); // RA2: 0x0076B9E0, stores PacketLossPercent (-DROP=)
-extern int PacketLossPercent; // RA2
+extern int PacketLossPercent;
 extern bool IsPacketLossReported; // RA2: the packet loss simulation was announced

@@ -55,10 +55,10 @@ class UnitClass;
 class TechnoClass;
 class TerrainClass;
 class IsometricTileTypeClass;
-class BuildingTypeClass; // RA2
-class FootClass; // RA2
-class RadSiteClass; // RA2
-class PixelFXClass; // RA2
+class BuildingTypeClass;
+class FootClass;
+class RadSiteClass;
+class PixelFXClass;
 template<class T> class DynamicVectorClass;
 
 typedef DynamicVectorClass<FoggedObjectClass *> FOGGED_OBJECT_LIST;
@@ -360,7 +360,7 @@ class CellClass : public AbstractClass
 		*/
 		unsigned IsCursorHere:1;
 
-		unsigned IsFoundationCopyHere:1; // RA2
+		unsigned IsFoundationCopyHere : 1;
 
 		/*
 		**	A mapped cell has some portion of it visible. Maybe it has a shroud piece

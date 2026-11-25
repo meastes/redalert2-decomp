@@ -69,7 +69,7 @@ class FactoryClass : public AbstractClass, private StageClass
 		bool Abandon(void);
 		bool Completed(void);
 		bool Has_Changed(void);
-		bool Is_On_Hold(void) const; // RA2
+		bool Is_On_Hold(void) const;
 		bool Has_Completed(void);
 		bool Is_Building(void) const {return(Fetch_Rate() != 0 && !IsSuspended);};
 		bool Is_Suspended(void) const {return(Object != NULL && IsSuspended);}

@@ -79,7 +79,7 @@ ConvertClass *Build_Light_Converter(HSVClass & hsv, const PaletteClass & base, c
 	*remapped = base;
 
 	double cos_step = 14.0 * M_PI / (180.0 * 3.0); // RA2: folds to the exe's value
-	double sin_step = 8.0 * M_PI / (180.0 * 3.0); // RA2
+	double sin_step = 8.0 * M_PI / (180.0 * 3.0);
 
 	for (int i = 0; i < 16; i++) {
 		double cosval = DEG_TO_RAD(20) + (i * cos_step);
@@ -119,7 +119,7 @@ ConvertClass *Build_Converter(HSVClass & hsv, const PaletteClass & base, const P
 	PaletteClass pal = base;
 
 	double cos_step = 14.0 * M_PI / (180.0 * 3.0); // RA2: folds to the exe's value
-	double sin_step = 8.0 * M_PI / (180.0 * 3.0); // RA2
+	double sin_step = 8.0 * M_PI / (180.0 * 3.0);
 
 	for (int i = 0; i < 16; i++) {
 		double cosval = DEG_TO_RAD(20) + (i * cos_step);
@@ -191,7 +191,7 @@ ColorScheme::ColorScheme(const char *name, HSVClass &hsv, const PaletteClass & b
 {
 	Converter = (LightConvertClass *)Build_Light_Converter(HSV, base, screenpalette, &Palette, *VisibleSurface, intensity_levels, NORMAL_LIGHT, NORMAL_LIGHT, NORMAL_LIGHT, _indexes);
 
-	if (add) {	// RA2
+	if (add) {
 		ColorSchemes.Add(this);
 		ID = ColorSchemes.Count();
 	}

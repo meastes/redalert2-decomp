@@ -218,7 +218,7 @@ VeinholeMonsterClass::~VeinholeMonsterClass(void)
 	IsInLimbo = true;
 	IsDown = false;
 
-	if (Strength > 0) { // RA2
+	if (Strength > 0) {
 		Detach_This_From_All(this);
 	}
 

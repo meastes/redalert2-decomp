@@ -286,7 +286,7 @@ LRESULT CALLBACK LoadOptionsClass::Load_Dialog_Proc(HWND window, UINT message, W
 {
 	int rc = OwnerDraw::Default_Dialog_Proc(window, message, wparam, lparam);
 
-	if (rc != 0) { // RA2: RA2's form
+	if (rc != 0) {
 		return rc;
 	}
 	switch (message) {
@@ -316,7 +316,7 @@ LRESULT CALLBACK LoadOptionsClass::Load_Dialog_Proc(HWND window, UINT message, W
 /// may type, and pass control activity along to the command handler.
 /// </summary>
 /// <returns>Returns with the message result, or FALSE if nothing here dealt with it.</returns>
-LRESULT __stdcall LoadOptionsClass::Save_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: RA2's form
+LRESULT __stdcall LoadOptionsClass::Save_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
 	int result = OwnerDraw::Default_Dialog_Proc(window, message, wparam, lparam);
 	if (result != 0) {
@@ -355,7 +355,7 @@ LRESULT __stdcall LoadOptionsClass::Save_Dialog_Proc(HWND window, UINT message, 
 /// <returns>Returns with the message result, or FALSE if nothing here dealt with it.</returns>
 LRESULT CALLBACK LoadOptionsClass::Delete_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-	int result = OwnerDraw::Default_Dialog_Proc(window, message, wparam, lparam); // RA2: RA2's form
+	int result = OwnerDraw::Default_Dialog_Proc(window, message, wparam, lparam);
 	if (result != 0) {
 		return result;
 	}
@@ -799,7 +799,7 @@ void LoadOptionsClass::Fill_List(HWND window)
 bool LoadOptionsClass::Files_Present(void)
 {
 	char pattern[64];
-	WIN32_FIND_DATA find; // RA2: RA2's form
+	WIN32_FIND_DATA find;
 	bool found = false;
 	sprintf(pattern, "*.%3s", Extension);
 	HANDLE handle = FindFirstFileA(pattern, &find);

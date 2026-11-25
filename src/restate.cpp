@@ -18,8 +18,8 @@
 #include "scenario.h"
 #include "stringtable.h"
 
-char const * MissionININame = "MISSION.INI"; // RA2
-char const * BriefingKey = "Briefing"; // RA2
+char const * MissionININame = "MISSION.INI";
+char const * BriefingKey = "Briefing";
 static wchar_t const * RestateText; // RA2: the briefing text the dialog shows
 
 int CALLBACK Restate_Mission_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam);

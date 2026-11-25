@@ -591,8 +591,8 @@ int UDPInterfaceClass::Message_Handler(HWND, UINT message, UINT wParam, LONG lPa
 			}
 
 			if (rc) {
-				in_addr from = addr.sin_addr; // RA2
-				DebugString("recvfrom %d.%d.%d.%d ; %d\n", from.S_un.S_un_b.s_b1, from.S_un.S_un_b.s_b2, from.S_un.S_un_b.s_b3, from.S_un.S_un_b.s_b4, ntohs(addr.sin_port)); // RA2
+				in_addr from = addr.sin_addr;
+				DebugString("recvfrom %d.%d.%d.%d ; %d\n", from.S_un.S_un_b.s_b1, from.S_un.S_un_b.s_b2, from.S_un.S_un_b.s_b3, from.S_un.S_un_b.s_b4, ntohs(addr.sin_port));
 				if (!alternate && !Session.ViaPacketRouter) {
 					for (int i = 0; i < LocalAddresses.Count(); i++) {
 						if (!memcmp(LocalAddresses[i], &addr.sin_addr.s_addr, 4)) return(0);

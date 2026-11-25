@@ -236,7 +236,7 @@ Point3D ObjectTypeClass::Pixel_Dimensions(void) const
  *=============================================================================================*/
 Point3D ObjectTypeClass::Lepton_Dimensions(void) const
 {
-	Point3D coord; // RA2: RA2's form
+	Point3D coord;
 	coord.X = 0x100;
 	coord.Y = 0x100;
 	coord.Z = LEVEL_LEPTON_H * 2;
@@ -646,7 +646,7 @@ void ObjectTypeClass::Free_Charger_Voxels(void) // RA2: not in TibSun, at 0x005D
 /// </summary>
 void ObjectTypeClass::Fetch_Voxel_Image(void)
 {
-	char name[256]; // RA2: RA2's form
+	char name[256];
 	char fullname[260];
 	bool failed = false;
 
@@ -938,7 +938,7 @@ void ObjectTypeClass::Fetch_Normal_Image(void)
 /// <returns>bool; Was the object type's section found and read?</returns>
 bool ObjectTypeClass::Read_INI(CCINIClass const & ini)
 {
-	if (AbstractTypeClass::Read_INI(ini)) { // RA2: RA2's form
+	if (AbstractTypeClass::Read_INI(ini)) {
 		char buffer[25];
 		strcpy(buffer, GraphicName);
 		ini.Get_String(IniName, "Image", buffer, GraphicName, sizeof(GraphicName));

@@ -279,7 +279,7 @@ void MSEngine::Add_Update_Rect(Rect const & rect)
 	int min_id = 0;
 
 	for (index = 0; index < RectCount; index++) {
-		Rect const & i_rect = Rects[index];	// RA2
+		Rect const & i_rect = Rects[index];
 		int i_rect_left = i_rect.X;
 		int i_rect_right = i_rect_left + i_rect.Width;
 		int i_rect_top = i_rect.Y;
@@ -471,7 +471,7 @@ bool MSEngine::Add_Sound_Effect(char const * name, char const * file_name)
 /// <param name="volume">Volume to play at, before the player's sound option is applied.</param>
 void MSEngine::Play_Sound_Effect(char const * name, int volume)
 {
-	if (name == NULL || !AudioDeviceAvailable()) { // RA2
+	if (name == NULL || !AudioDeviceAvailable()) {
 		return;
 	}
 

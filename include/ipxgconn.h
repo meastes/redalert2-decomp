@@ -153,9 +153,9 @@ class IPXGlobalConnClass : public IPXConnClass
 		virtual int Get_Packet (void * buf, int *buflen,
 			IPXAddressClass *address, unsigned short *product_id);
 		virtual int Peek_Packet(int index, int buf, int buflen, int address, int product_id, int packet_id); // RA2: pointers passed as ints
-		virtual void Mark_Packet_Read(int index); // RA2
-		virtual int Discard_Packets_To(IPXAddressClass *address, unsigned short port); // RA2
-		virtual void Discard_Old_Packets(unsigned age); // RA2
+		virtual void Mark_Packet_Read(int index);
+		virtual int Discard_Packets_To(IPXAddressClass * address, unsigned short port);
+		virtual void Discard_Old_Packets(unsigned age);
 
 		virtual int Discard_Undeliverable_Packets(void) override;
 
@@ -193,7 +193,7 @@ class IPXGlobalConnClass : public IPXConnClass
 		//.....................................................................
 		virtual int Send (char *buf, int buflen, void *extrabuf, int extralen, bool flag, unsigned short port) override; // RA2: flag and port
 		virtual int Send_To(char *buf, int buflen, IPXAddressClass *address,
-			NetNodeType immed, bool flag, unsigned short port) override; // RA2
+			NetNodeType immed, bool flag, unsigned short port) override;
 
 		//.....................................................................
 		// This routine is overloaded from SequencedConnClass, because the

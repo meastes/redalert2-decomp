@@ -524,7 +524,7 @@ int TechnoTypeClass::Time_To_Build(void) const
  *=============================================================================================*/
 int TechnoTypeClass::Cost_Of(HouseClass * house) const
 {
-	if (house) { // RA2: RA2's form
+	if (house) {
 		float factor = house->Cost_Multiplier(this);
 		return (int)(Raw_Cost() * factor);
 	}
@@ -579,7 +579,7 @@ int TechnoTypeClass::GetRefund(HouseClass * house, bool full) const // RA2: at 0
  *=============================================================================================*/
 void const * TechnoTypeClass::Get_Cameo_Data(void) const
 {
-	if (PlayerPtr && PlayerPtr->BarracksInfiltrated && Fetch_RTTI() == RTTI_INFANTRYTYPE && AltCameoData && IsTrainable) { // RA2: RA2's form
+	if (PlayerPtr && PlayerPtr->BarracksInfiltrated && Fetch_RTTI() == RTTI_INFANTRYTYPE && AltCameoData && IsTrainable) {
 		return AltCameoData;
 	}
 	if (PlayerPtr && PlayerPtr->WarFactoryInfiltrated && Fetch_RTTI() == RTTI_UNITTYPE && AltCameoData && IsTrainable) {
@@ -1195,7 +1195,7 @@ bool TechnoTypeClass::Legal_Placement(Cell const & pos, HouseClass * house) cons
 int TechnoTypeClass::Max_Pips(void) const
 {
 	switch (PipScale) {
-		case PIPSCALE_POWER: // RA2: RA2's form
+		case PIPSCALE_POWER:
 			return 10;
 		case PIPSCALE_AMMO:
 			return MaxAmmo;
@@ -1339,7 +1339,7 @@ HRESULT STDMETHODCALLTYPE TechnoTypeClass::Load(IStream *stream)
 /// <returns>Returns with S_OK if the object type was written, otherwise the failure code.</returns>
 HRESULT STDMETHODCALLTYPE TechnoTypeClass::Save(IStream *stream, int cleardirty)
 {
-	HRESULT result = ObjectTypeClass::Save(stream, cleardirty); // RA2: RA2's form
+	HRESULT result = ObjectTypeClass::Save(stream, cleardirty);
 	if (FAILED(result)) {
 		return result;
 	}
@@ -1375,7 +1375,7 @@ HRESULT STDMETHODCALLTYPE TechnoTypeClass::Save(IStream *stream, int cleardirty)
 /// <returns>Returns with S_OK, or the failure code reported by the base class.</returns>
 HRESULT STDMETHODCALLTYPE TechnoTypeClass::GetSizeMax(ULARGE_INTEGER *pcbSize)
 {
-	HRESULT result = ObjectTypeClass::GetSizeMax(pcbSize); // RA2: RA2's form
+	HRESULT result = ObjectTypeClass::GetSizeMax(pcbSize);
 	if (FAILED(result)) {
 		return result;
 	}
@@ -1407,7 +1407,7 @@ HRESULT STDMETHODCALLTYPE TechnoTypeClass::GetSizeMax(ULARGE_INTEGER *pcbSize)
 /// </summary>
 void TechnoTypeClass::Compute_CRC(class CRCEngine & crc) const
 {
-	AbstractTypeClass::Compute_CRC(crc); // RA2: RA2's form
+	AbstractTypeClass::Compute_CRC(crc);
 	crc(ThreatAvoidanceCoefficient);
 	crc((long)SlowdownDistance);
 	crc(DeaccelerationFactor);
@@ -1521,7 +1521,7 @@ void TechnoTypeClass::Compute_CRC(class CRCEngine & crc) const
 /// <returns>Returns with a pointer to the weapon data for that slot.</returns>
 WeaponDataStruct const * TechnoTypeClass::Get_Weapon(int which) const
 {
-	return &Weapons[which]; // RA2: RA2's form
+	return &Weapons[which];
 }
 
 

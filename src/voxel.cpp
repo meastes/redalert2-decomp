@@ -68,7 +68,7 @@ void Set_Voxel_Light_Angle(float angle)
 	Matrix3D mtx(true);
 	VoxelLightAngle = angle;
 	mtx.Rotate_Y(angle);
-	VoxelLightSource = mtx * Vector3(-0.70710599f, -0.70710599f, 0); // RA2
+	VoxelLightSource = mtx * Vector3(-0.70710599f, -0.70710599f, 0);
 	VoxelShadowLightVector = Vector3(-6 * VoxelLightSource.X, 0, 0);
 }
 

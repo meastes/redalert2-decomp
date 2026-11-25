@@ -438,7 +438,7 @@ void GScreenClass::Render(void)
 	}
 
 	if (Session.EnableMultiplayerDebug) {
-		Draw_Multiplayer_Debug(false); // RA2
+		Draw_Multiplayer_Debug(false);
 	}
 
 	MouseCursor->Draw_Mouse(CompositeSurface);

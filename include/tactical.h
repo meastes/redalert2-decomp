@@ -169,8 +169,8 @@ class Tactical : public AbstractClass
 		 * Object selection and the rubber band.
 		 */
 		void Select_These(Rect const & rect, void (*select_callback)(ObjectClass * object) = NULL);
-		void Unselect_All(void); // RA2
-		bool Unselect_Foreign_Object(void); // RA2
+		void Unselect_All(void);
+		bool Unselect_Foreign_Object(void);
 		ObjectClass * Get_Selectable_Object(Point2D const & point);
 		int Selectable_Count(void) const; // RA2: 0x6AC7B0; how many objects drew themselves in the last render pass and can be clicked
 		ObjectClass * Selectable_Object(int index) const; // RA2: 0x6AC7C0; the object that drew itself at that place in the last render pass
@@ -208,7 +208,7 @@ class Tactical : public AbstractClass
 		void Draw_Overlays(Rect const & area);
 		void Draw_Shroud(Rect const & area);
 		void Draw_Tiles(Rect const & area, Rect const & cliprect);
-		void Draw_Pixel_Effects(Rect const & area, Rect const & cliprect); // RA2
+		void Draw_Pixel_Effects(Rect const & area, Rect const & cliprect);
 		void Draw_Tile_Shadows(Rect const & area, Rect const & cliprect);
 		void Draw_Tiles(Cell const & cell, Rect const & cliprect);
 		void Draw_Tile_Shadows(int, Rect const & area);
@@ -444,7 +444,7 @@ class Tactical : public AbstractClass
 };
 
 
-class ColorScheme; // RA2
+class ColorScheme;
 void Draw_Timer(int line, ColorScheme * scheme, int value, wchar_t const * text, unsigned __int64 * flash_time, bool * flash); // RA2: not in TibSun, at 0x6A5280
 
 #ifdef _DEBUG

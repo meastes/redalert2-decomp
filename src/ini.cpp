@@ -69,8 +69,8 @@
 #include "always.h"
 
 #include "ini.h"
-#include "stringtable.h" // RA2
-#include "widewstring.h" // RA2
+#include "stringtable.h"
+#include "widewstring.h"
 
 #include "b64pipe.h"
 #include "b64straw.h"

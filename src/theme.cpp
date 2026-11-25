@@ -50,10 +50,10 @@
 #include "rect.h"
 
 #include "theme.h"
-#include "audio.h" // RA2
-#include "audplay.h" // RA2
+#include "audio.h"
+#include "audplay.h"
 #include "audsrc.h" // RA2: AudioFormat for Scan (auddsnd.h declares the same struct differently)
-#include "goptions.h" // RA2
+#include "goptions.h"
 #include "cd.h" // RA2: Play_Song asks CD for the current disk
 
 int __fastcall AudioDeviceAvailable(void); // RA2: 0x00406F30
@@ -171,7 +171,7 @@ void ThemeClass::Free_Themes(void)
 		delete Themes[0];
 		Themes.Delete_Index(0);
 	}
-	if (Stream != 0) { // RA2: RA2's form
+	if (Stream != 0) {
 		AudioStreamerFadeOut(Stream);
 		AudioStreamerWaitForFade(Stream);
 		AudioStreamerStop(Stream);
@@ -201,7 +201,7 @@ void ThemeClass::Free_Themes(void)
  *=============================================================================================*/
 void ThemeClass::Scan(void)
 {
-	if (ScoresPresent && AudioDeviceAvailable() && !Debug_Quiet) { // RA2: RA2's form
+	if (ScoresPresent && AudioDeviceAvailable() && !Debug_Quiet) {
 		for (int theme = 0; theme < Themes.Count(); theme++) {
 			char name[_MAX_FNAME + _MAX_EXT];
 			_makepath(name, NULL, NULL, Themes[theme]->Sound, ".WAV"); // RA2: the score's sound file, .WAV
@@ -317,7 +317,7 @@ wchar_t const * ThemeClass::Full_Name(ThemeType theme) const // RA2: wide
  *=============================================================================================*/
 void ThemeClass::AI(void)
 {
-	if (AudioDeviceAvailable() && !Debug_Quiet && ScoresPresent && Volume > 0) { // RA2: RA2's form
+	if (AudioDeviceAvailable() && !Debug_Quiet && ScoresPresent && Volume > 0) {
 		bool ready = false;
 		if (Stream != 0) {
 			if (IsFading && !AudioStreamerIsFading(Stream)) {
@@ -418,7 +418,7 @@ ThemeType ThemeClass::Next_Song(ThemeType theme) const
  *=============================================================================================*/
 void ThemeClass::Queue_Song(ThemeType theme)
 {
-	if (ScoresPresent && AudioDeviceAvailable() && !Debug_Quiet) { // RA2: RA2's form
+	if (ScoresPresent && AudioDeviceAvailable() && !Debug_Quiet) {
 		Pending = theme;
 		if (theme != THEME_NONE && theme != THEME_PICK_ANOTHER && theme != Score) {
 			DebugString("Theme::QueueSong(%d)\n", theme);
@@ -504,7 +504,7 @@ int ThemeClass::Play_Song(ThemeType theme)
  *=============================================================================================*/
 char const * ThemeClass::Theme_File_Name(ThemeType theme)
 {
-	static char name[256 + 256]; // RA2: RA2's form
+	static char name[256 + 256];
 
 	if ((unsigned)theme < (unsigned)Themes.Count()) {
 		_makepath(name, 0, 0, Themes[theme]->Sound, ".WAV");

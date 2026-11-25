@@ -182,7 +182,7 @@ inline int QueueClass<T,size>::Add(T const &q)
 {
 	if (Count < size) {
 		Array[Tail] = q;
-		Timings[Tail] = timeGetTime(); // RA2
+		Timings[Tail] = timeGetTime();
 		Tail = (Tail + 1) & (size-1);
 		((int &)Count) = Count + 1;
 		return(true);

@@ -166,11 +166,11 @@ void AITriggerTypeClass::Compute_CRC(CRCEngine & crc) const
 		case AIT_ENEMY_OWNS_X_COND_N:
 		case AIT_HOUSE_OWNS_X_COND_N:
 		case AIT_ENEMY_MONEY_COND_N:
-		case AIT_NEUTRAL_OWNS_X_COND_N: // RA2
+		case AIT_NEUTRAL_OWNS_X_COND_N:
 			crc(Params.Number);
 			crc(Params.Condition);
 			break;
-		case AIT_POWER_YELLOW: // RA2
+		case AIT_POWER_YELLOW:
 		case AIT_POWER_RED:
 		case AIT_IRON_CURTAIN_READY:
 		case AIT_CHRONOSPHERE_READY:
@@ -315,13 +315,13 @@ bool AITriggerTypeClass::Process(HouseClass *house, HouseClass *enemy, bool skip
 			case AIT_ENEMY_MONEY_COND_N:
 				res = Check_Enemy_Money(house, enemy);
 				break;
-			case AIT_IRON_CURTAIN_READY: // RA2
+			case AIT_IRON_CURTAIN_READY:
 				res = IronCurtainCharged(house, enemy);
 				break;
-			case AIT_CHRONOSPHERE_READY: // RA2
+			case AIT_CHRONOSPHERE_READY:
 				res = ChronoSphereCharged(house, enemy);
 				break;
-			case AIT_NEUTRAL_OWNS_X_COND_N: // RA2
+			case AIT_NEUTRAL_OWNS_X_COND_N:
 				res = CivilianHouseOwns(house, enemy);
 				break;
 		}
@@ -337,7 +337,7 @@ bool AITriggerTypeClass::Process(HouseClass *house, HouseClass *enemy, bool skip
 		return(false);
 	}
 
-	if (!Can_Reach_Enemy(TeamTypeOne, house, enemy)) { // RA2
+	if (!Can_Reach_Enemy(TeamTypeOne, house, enemy)) {
 		return(false);
 	}
 	if (TeamTypeTwo != NULL && !Can_Reach_Enemy(TeamTypeTwo, house, enemy)) {

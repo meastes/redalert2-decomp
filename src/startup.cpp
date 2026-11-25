@@ -202,7 +202,7 @@
 
 
 #define APP_GUID "29e3bb2a-2f36-11d3-a72c-0090272fa661"
-#define AUTOPLAY_GUID "01AF9993-3492-11d3-8F6F-0060089C05B1" // RA2
+#define AUTOPLAY_GUID "01AF9993-3492-11d3-8F6F-0060089C05B1"
 
 
 bool VideoBackBufferAllowed = true;
@@ -933,7 +933,7 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 
 		atexit(Prog_End);
 
-		Start_Mouse_Thread(); // RA2
+		Start_Mouse_Thread();
 
 		if (!StringTable::LoadFile("ra2.str")) { // RA2: the string table, in the three languages of the release when it cannot be read
 			MessageBox(NULL, "Unable to initialize 'ra2.csf', please reinstall Red Alert.\nKeine Initialisierung von 'ra2.csf' m\xf6glich. Bitte installieren Sie Red Alert erneut.\nInitialisation de 'ra2.csf' impossible. Veuillez r\xe9installer Red Alert.", "Red Alert 2", MB_ICONERROR);
@@ -1046,7 +1046,7 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 			Emergency_Exit();
 		}
 
-		if (!CopyProtection::NotifyLauncher()) { // RA2
+		if (!CopyProtection::NotifyLauncher()) {
 			DebugString("Failed to notify launcher\n");
 			exit(EXIT_FAILURE);
 		}
@@ -1062,8 +1062,8 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 			VisibleSurface->Fill(0);
 		}
 
-		Mono_Window_Init(ProgramInstance, MainWindow, WindowedMode); // RA2
-		Planning_Reset(); // RA2
+		Mono_Window_Init(ProgramInstance, MainWindow, WindowedMode);
+		Planning_Reset();
 
 		{
 			int sidebar_width = SidebarWidth;
@@ -1075,7 +1075,7 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 
 			Allocate_Surfaces(VisibleRect, composite_rect, tile_rect, side_rect, false);
 		}
-		if (UseDirect3D) { // RA2
+		if (UseDirect3D) {
 			Init_Direct3D();
 		}
 		LogicalSurface = HiddenSurface;
@@ -1147,7 +1147,7 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 
 		}
 
-		MouseCursor->Hide_Mouse(); // RA2
+		MouseCursor->Hide_Mouse();
 		HiddenSurface->Fill(0);
 		Update_Visible_Surface(true, HiddenSurface);
 
@@ -1277,7 +1277,7 @@ void __cdecl Prog_End(void)
 	Map.Free_Cells();
 	Map.Clear_Radar();
 
-	Reset_Surfaces(); // RA2
+	Reset_Surfaces();
 
 	if (DepthBuffer != NULL) {
 		delete DepthBuffer;
@@ -1366,7 +1366,7 @@ void __cdecl Prog_End(void)
 		TheaterDat = NULL;
 	}
 
-	if (GenericMix) { // RA2
+	if (GenericMix) {
 		delete GenericMix;
 		GenericMix = NULL;
 	}
@@ -1376,7 +1376,7 @@ void __cdecl Prog_End(void)
 		IsometricTheaterData = NULL;
 	}
 
-	if (IsoGenericMix) { // RA2
+	if (IsoGenericMix) {
 		delete IsoGenericMix;
 		IsoGenericMix = NULL;
 	}
@@ -1431,7 +1431,7 @@ void __cdecl Prog_End(void)
 		ConquerMix = NULL;
 	}
 
-	if (CameoMix != NULL) { // RA2
+	if (CameoMix != NULL) {
 		delete CameoMix;
 		CameoMix = NULL;
 	}
@@ -1451,7 +1451,7 @@ void __cdecl Prog_End(void)
 		LocalMix = NULL;
 	}
 
-	if (NeutralMix != NULL) { // RA2
+	if (NeutralMix != NULL) {
 		delete NeutralMix;
 		NeutralMix = NULL;
 	}
@@ -1466,7 +1466,7 @@ void __cdecl Prog_End(void)
 		Sounds01Mix = NULL;
 	}
 
-	while (ScenarioMixFiles.Count() > 0) { // RA2
+	while (ScenarioMixFiles.Count() > 0) {
 		delete ScenarioMixFiles[0];
 		ScenarioMixFiles.Delete_Index(0);
 	}
@@ -1496,7 +1496,7 @@ void __cdecl Prog_End(void)
 		GameMix = NULL;
 	}
 
-	if (LanguageMix != NULL) { // RA2
+	if (LanguageMix != NULL) {
 		delete LanguageMix;
 		LanguageMix = NULL;
 	}
@@ -1565,7 +1565,7 @@ void __cdecl Prog_End(void)
 		AppMutex = NULL;
 	}
 
-	Audio_File_Shutdown(); // RA2
+	Audio_File_Shutdown();
 	Theme.Free_Themes();
 	Audio_Shutdown();
 	StringTable::Unload();

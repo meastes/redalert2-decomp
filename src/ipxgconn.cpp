@@ -92,7 +92,7 @@ IPXGlobalConnClass::IPXGlobalConnClass (int numsend, int numreceive,
 
 	ProductID = product_id;
 	IsBridge = 0;
-	IsRouted = true; // RA2
+	IsRouted = true;
 	MaxRXIndex = numreceive;
 	LastPacketID = new unsigned int[MaxRXIndex];
 	LastAddress = new IPXAddressClass[MaxRXIndex];
@@ -155,8 +155,8 @@ int IPXGlobalConnClass::Send_Packet (void * buf, int buflen,
 	/*------------------------------------------------------------------------
 	Store the packet's Magic Number
 	------------------------------------------------------------------------*/
-	((GlobalHeaderType *)PacketBuf)->Header.ForwardAddress = 0; // RA2
-	((GlobalHeaderType *)PacketBuf)->Header.ForwardPort = 0; // RA2
+	((GlobalHeaderType *)PacketBuf)->Header.ForwardAddress = 0;
+	((GlobalHeaderType *)PacketBuf)->Header.ForwardPort = 0;
 	((GlobalHeaderType *)PacketBuf)->Header.MagicNumber = MagicNum;
 
 	/*------------------------------------------------------------------------
@@ -189,7 +189,7 @@ int IPXGlobalConnClass::Send_Packet (void * buf, int buflen,
 	Set this packet's destination address.  If no address is specified, use
 	a Broadcast address (which IPXAddressClass's default constructor creates).
 	------------------------------------------------------------------------*/
-	((GlobalHeaderType *)PacketBuf)->Header.ForwardMask = 0; // RA2
+	((GlobalHeaderType *)PacketBuf)->Header.ForwardMask = 0;
 	if (address != NULL) {
 		dest_addr = (*address);
 	}
@@ -278,7 +278,7 @@ int IPXGlobalConnClass::Receive_Packet (void * buf, int buflen,
 
 			bool send_ack = true;
 
-			DebugString("Queueing new global PACKET_DATA_ACK packet\n"); // RA2
+			DebugString("Queueing new global PACKET_DATA_ACK packet\n");
 
 			//..................................................................
 			// If it's not a resend, queue it; then, record the sender's address
@@ -310,9 +310,9 @@ int IPXGlobalConnClass::Receive_Packet (void * buf, int buflen,
 				ackpacket.Header.Code = PACKET_ACK;
 				ackpacket.Header.PacketID = packet->Header.PacketID;
 				ackpacket.ProductID = ProductID;
-				ackpacket.Header.ForwardMask = 0; // RA2
-				DebugString("Sending global ack packet to port %d\n", port); // RA2
-				ConnectionClass * router = PacketRouterConnection; // RA2
+				ackpacket.Header.ForwardMask = 0;
+				DebugString("Sending global ack packet to port %d\n", port);
+				ConnectionClass * router = PacketRouterConnection;
 				if (!Send ((char *)&ackpacket, sizeof(GlobalHeaderType),
 					address, sizeof(IPXAddressClass), this == router, port)) { // RA2: router flag and port
 					DebugString("Failed to ack global packet\n");
@@ -329,7 +329,7 @@ int IPXGlobalConnClass::Receive_Packet (void * buf, int buflen,
 		.....................................................................*/
 		case PACKET_DATA_NOACK:
 		{
-			DebugString("Queueing new global PACKET_DATA_NOACK packet\n"); // RA2
+			DebugString("Queueing new global PACKET_DATA_NOACK packet\n");
 			IPXAddressClass addr = *address; // RA2: the sender's address with its port
 			if (port != 0) {
 				addr.Set_Port(port);
@@ -345,7 +345,7 @@ int IPXGlobalConnClass::Receive_Packet (void * buf, int buflen,
 		ACK will be a leftover)
 		.....................................................................*/
 		case PACKET_ACK:
-			DebugString("Queueing new global PACKET_ACK packet\n"); // RA2
+			DebugString("Queueing new global PACKET_ACK packet\n");
 			for (i = 0; i < Queue->Num_Send(); i++) {
 				/*...............................................................
 				Get queue entry ptr
@@ -363,7 +363,7 @@ int IPXGlobalConnClass::Receive_Packet (void * buf, int buflen,
 				if (packet->Header.PacketID==entry_data->Header.PacketID &&
 					entry_data->Header.Code == PACKET_DATA_ACK) {
 					send_entry->IsACK = 1;
-					DebugString("Received global ack for packet %d\n", packet->Header.PacketID); // RA2
+					DebugString("Received global ack for packet %d\n", packet->Header.PacketID);
 					break;
 				}
 			}

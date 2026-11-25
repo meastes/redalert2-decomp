@@ -50,7 +50,7 @@ MSFont::MSFont(bool use_side_palette) :
 	Green(0),
 	Blue(0)
 {
-	Init(use_side_palette); // RA2
+	Init(use_side_palette);
 	InstanceCount++;
 }
 
@@ -67,7 +67,7 @@ MSFont::~MSFont(void)
 		for (int i = 0; i < ARRAY_SIZE(Sounds); i++) {
 			if (Sounds[i].Sample != NULL) {
 				Sounds[i].Sample = NULL;
-				Sounds[i].AllocLoaded = false; // RA2
+				Sounds[i].AllocLoaded = false;
 			}
 		}
 
@@ -97,15 +97,15 @@ MSFont::~MSFont(void)
 /// <param name="palette_name">The name of the palette to color the glyphs with.</param>
 /// <returns>bool; Was the font made ready for use?</returns>
 /// <remarks>The global CCPalette is overwritten with this font's palette.</remarks>
-bool MSFont::Init(bool use_side_palette) // RA2
+bool MSFont::Init(bool use_side_palette)
 {
 	CCFileClass file;
 
-	if (InstanceCount == 0) { // RA2
+	if (InstanceCount == 0) {
 		AllocLoaded = false;
 		FontFile = (ShapeSet *)MFCD::Retrieve("FULLFNT3.SHP");
 
-		if (FontFile == NULL) { // RA2
+		if (FontFile == NULL) {
 			file.Set_Name("FULLFNT3.SHP");
 			FontFile = (ShapeSet *)Load_Alloc_Data(file);
 			AllocLoaded = true;
@@ -170,11 +170,11 @@ bool MSFont::Init(bool use_side_palette) // RA2
 /// </summary>
 /// <param name="rect">The rectangle to fill in. It is anchored at the origin, since it
 /// describes the size of the text rather than where it will land.</param>
-void MSFont::Get_String_Rect(wchar_t const * string, Rect & rect) // RA2
+void MSFont::Get_String_Rect(wchar_t const * string, Rect & rect)
 {
 	int max_width = 0;
 
-	if (string != NULL && wcslen(string) != 0) { // RA2
+	if (string != NULL && wcslen(string) != 0) {
 
 		int height = FontHeight;
 
@@ -208,7 +208,7 @@ void MSFont::Get_String_Rect(wchar_t const * string, Rect & rect) // RA2
 /// Newlines are honored, so a multiple line string reports the width of its longest line.
 /// </summary>
 /// <returns>Returns with the width in pixels.</returns>
-int MSFont::Get_String_Width(wchar_t const * string) // RA2
+int MSFont::Get_String_Width(wchar_t const * string)
 {
 	int max_width = 0;
 
@@ -241,16 +241,16 @@ int MSFont::Get_String_Width(wchar_t const * string) // RA2
 /// </summary>
 /// <returns>Returns with the width in pixels. Characters below the space are worth
 /// nothing.</returns>
-int MSFont::Get_Character_Width(wchar_t character) // RA2
+int MSFont::Get_Character_Width(wchar_t character)
 {
-	unsigned char ch = (unsigned char)character; // RA2
+	unsigned char ch = (unsigned char)character;
 	CharToOemBuff((LPCSTR)&ch, (LPSTR)&ch, 1);
 
-	if (ch == ' ') { // RA2
+	if (ch == ' ') {
 		return(8);
 	}
 
-	if (ch > ' ') { // RA2
+	if (ch > ' ') {
 		int index = (0 >= ch - 33) ? 0 : ch - 33;
 		index = (216 <= index) ? 216 : index;
 
@@ -270,18 +270,18 @@ int MSFont::Get_Character_Width(wchar_t character) // RA2
 /// <param name="frame">The glyph frame to draw with. The print animations step through the
 /// frames to fade a character in.</param>
 /// <param name="do_sound">Should a typing sound accompany the character?</param>
-void MSFont::Draw_Character(Surface * surface, wchar_t character, int x, int y, int frame, bool do_sound) // RA2
+void MSFont::Draw_Character(Surface * surface, wchar_t character, int x, int y, int frame, bool do_sound)
 {
-	char ch = (char)character; // RA2
+	char ch = (char)character;
 	if (ch == 176) {
 		DebugString("Denzil!\n");
 	}
 
-	CharToOemBuff((LPCSTR)&ch, (LPSTR)&ch, 1); // RA2
+	CharToOemBuff((LPCSTR)&ch, (LPSTR)&ch, 1);
 
-	if ((unsigned char)ch > ' ') { // RA2
+	if ((unsigned char)ch > ' ') {
 
-		int index = (0 >= (unsigned char)ch - 33) ? 0 : (unsigned char)ch - 33; // RA2
+		int index = (0 >= (unsigned char)ch - 33) ? 0 : (unsigned char)ch - 33;
 		index = (216 <= index) ? 216 : index;
 
 		int shape_frame = index * 3;
@@ -298,7 +298,7 @@ void MSFont::Draw_Character(Surface * surface, wchar_t character, int x, int y, 
 /// </summary>
 /// <param name="x">The left edge to begin each line of the string at.</param>
 /// <param name="frame">The glyph frame to draw the text with.</param>
-void MSFont::Draw_String(Surface * surface, wchar_t const * string, int x, int y, int frame) // RA2
+void MSFont::Draw_String(Surface * surface, wchar_t const * string, int x, int y, int frame)
 {
 	int current_x = x;
 
@@ -308,11 +308,11 @@ void MSFont::Draw_String(Surface * surface, wchar_t const * string, int x, int y
 			y += FontHeight;
 		} else {
 			if (*string > ' ') {
-				char source = (char)*string; // RA2
+				char source = (char)*string;
 				char character;
 				CharToOemBuff((LPCSTR)&source, (LPSTR)&character, 1);
 
-				int index = (0 >= character - 33u) ? 0 : character - 33u; // RA2
+				int index = (0 >= character - 33u) ? 0 : character - 33u;
 				index = (216 <= index) ? 216 : index;
 
 				int shape_frame = index * 3;

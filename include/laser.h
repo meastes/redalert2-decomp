@@ -32,9 +32,9 @@ class LaserDrawClass : public StageClass
 		static void Draw_All(void);
 
 	public:
-		int Thickness; // RA2
-		bool IsHouseColor; // RA2
-		bool IsSupported; // RA2
+		int Thickness;
+		bool IsHouseColor;
+		bool IsSupported;
 
 		/*
 		 * These are the world coordinates of the two ends of the beam. Neither end follows

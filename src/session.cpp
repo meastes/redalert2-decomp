@@ -54,8 +54,8 @@
 #include "_keyboar.h"
 #include "_map.h"
 #include "_rules.h"
-#include "ownertalk.h" // RA2
-#include "_timer.h" // RA2
+#include "ownertalk.h"
+#include "_timer.h"
 #include "addon.h"
 #include "ccini.h"
 #include "conquer.h"
@@ -67,21 +67,21 @@
 #include "language\language.h"
 #include "mixfile.h"
 #include "cd.h"
-#include "_pk.h" // RA2
-#include "stringtable.h" // RA2
+#include "_pk.h"
+#include "stringtable.h"
 #include "firewall.h"
 #include "_rand.h"
-#include "houstype.h" // RA2
-#include "goptions.h" // RA2
-#include "auddsnd.h" // RA2
-#include "audlevel.h" // RA2
-#include "audattr.h" // RA2
-#include "movie.h" // RA2
-#include "vox.h" // RA2
-#include "voc.h" // RA2
-#include "_tooltip.h" // RA2
-#include "cctooltip.h" // RA2
-#include "tooltip.h" // RA2
+#include "houstype.h"
+#include "goptions.h"
+#include "auddsnd.h"
+#include "audlevel.h"
+#include "audattr.h"
+#include "movie.h"
+#include "vox.h"
+#include "voc.h"
+#include "_tooltip.h"
+#include "cctooltip.h"
+#include "tooltip.h"
 #include "msgloop.h"
 #include "multiplayer.h"
 #include "nullmgr.h"

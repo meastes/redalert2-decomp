@@ -90,7 +90,7 @@
  *                                                                         *
  * HISTORY:          01/05/1995 MML : Created.                             *
  *=========================================================================*/
-ListClass::ListClass(int id, int x, int y, int w, int h, TextPrintType flags, ShapeSet const * up, ShapeSet const * down) : // RA2
+ListClass::ListClass(int id, int x, int y, int w, int h, TextPrintType flags, ShapeSet const * up, ShapeSet const * down) :
 	BASECLASS(id, x, y, w, h, LEFTPRESS | LEFTRELEASE | KEYBOARD, false),
 	UpGadget(0, up, x+w, y),
 	DownGadget(0, down, x+w, y+h),
@@ -109,7 +109,7 @@ ListClass::ListClass(int id, int x, int y, int w, int h, TextPrintType flags, Sh
 	Tabs = 0;
 	SelectedIndex = 0;
 	CurrentTopIndex = 0;
-	BitFont * font = Font_From_TPF(TextFlags); // RA2
+	BitFont * font = Font_From_TPF(TextFlags);
 	LineHeight = font->LineHeight-1;
 	LineCount = (h-1) / LineHeight;
 }
@@ -190,7 +190,7 @@ ListClass::~ListClass(void)
  * WARNINGS:   none                                                                            *
  * HISTORY:    01/15/1995 JLB : Created.                                                       *
  *=============================================================================================*/
-int ListClass::Add_Item(wchar_t const * text) // RA2
+int ListClass::Add_Item(wchar_t const * text)
 {
 	if (text) {
 		List.Add(text);
@@ -268,7 +268,7 @@ void ListClass::Remove_Item(int index)
  * HISTORY:                                                                                    *
  *   01/15/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
-void ListClass::Remove_Item(wchar_t const * text) // RA2
+void ListClass::Remove_Item(wchar_t const * text)
 {
 	if (text) {
 		Remove_Item(List.ID(text));
@@ -449,7 +449,7 @@ void ListClass::Step(int up)
  * HISTORY:                                                                                    *
  *   01/16/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
-wchar_t const * ListClass::Get_Item(int index) const // RA2
+wchar_t const * ListClass::Get_Item(int index) const
 {
 	if (List.Count() == 0) {
 		return(NULL);
@@ -473,7 +473,7 @@ wchar_t const * ListClass::Get_Item(int index) const // RA2
  * HISTORY:                                                                                    *
  *   01/16/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
-wchar_t const * ListClass::Current_Item(void) const // RA2
+wchar_t const * ListClass::Current_Item(void) const
 {
 	if (List.Count() <= SelectedIndex) {
 		return(0);
@@ -523,7 +523,7 @@ int ListClass::Current_Index(void) const
  * HISTORY:                                                                                    *
  *   01/16/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
-void ListClass::Peer_To_Peer(unsigned flags, KeyNumType &, ControlClass & whom) // RA2
+void ListClass::Peer_To_Peer(unsigned flags, KeyNumType &, ControlClass & whom)
 {
 	if (flags & LEFTRELEASE) {
 		if (&whom == &UpGadget) {
@@ -888,7 +888,7 @@ LinkClass * ListClass::Remove(void)
  *=============================================================================================*/
 void ListClass::Set_Selected_Index(int index)
 {
-	if ((unsigned)index < (unsigned)List.Count()) { // RA2
+	if ((unsigned)index < (unsigned)List.Count()) {
 		SelectedIndex = index;
 		Flag_To_Redraw();
 		if (SelectedIndex < CurrentTopIndex) {
@@ -897,7 +897,7 @@ void ListClass::Set_Selected_Index(int index)
 		if (SelectedIndex >= CurrentTopIndex+LineCount) {
 			Set_View_Index(SelectedIndex-(LineCount-1));
 		}
-	} else { // RA2
+	} else {
 		SelectedIndex = 0;
 	}
 }
@@ -950,11 +950,11 @@ void ListClass::Flag_To_Redraw(void)
 /// the list. The comparison ignores case. If no entry matches, the selection is left alone.
 /// </summary>
 /// <param name="text">The text of the entry to select.</param>
-void ListClass::Set_Selected_Index(wchar_t const * text) // RA2
+void ListClass::Set_Selected_Index(wchar_t const * text)
 {
 	if (text && List.Count() > 0) {
 		for (int index = 0; index < List.Count(); index++) {
-			if (wcsicmp(List[index], text) == 0) { // RA2
+			if (wcsicmp(List[index], text) == 0) {
 				Set_Selected_Index(index);
 				break;
 			}

@@ -66,8 +66,8 @@ class TagClass;
 class WarheadTypeClass;
 class ShapeSet;
 class MonoClass;
-class BombClass; // RA2
-class LineTrail; // RA2
+class BombClass;
+class LineTrail;
 
 
 /**********************************************************************
@@ -327,7 +327,7 @@ class ObjectClass : public AbstractClass
 	private:
 		virtual void Mark_For_Redraw(void);
 	public:
-		virtual bool CanBeSelected(void) const; // RA2
+		virtual bool CanBeSelected(void) const;
 	private:
 
 	public:
@@ -342,7 +342,7 @@ class ObjectClass : public AbstractClass
 		virtual bool Select(void);
 		virtual void Unselect(void);
 		virtual void IronCurtain(int duration) {} // RA2: TechnoClass starts its IronCurtainTimer
-		virtual bool IsIronCurtained(void) const {return(false);} // RA2
+		virtual bool IsIronCurtained(void) const { return(false); }
 
 		/*
 		**	Combat related.

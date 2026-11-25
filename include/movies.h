@@ -156,7 +156,7 @@ class BinkHandle
 		bool Is_Finished(void) const; // RA2: have all the frames been shown?
 		bool Render_Frame(void); // RA2: draws the next frame to the surface if it is due
 		void Check_Frame_Ready(void);
-		void Set_Position(int x, int y); // RA2
+		void Set_Position(int x, int y);
 		void Set_Subtitle_Callback(void (__fastcall * callback)(void *));
 		void Goto_Frame(int frame);
 		int Frame_Time(void);

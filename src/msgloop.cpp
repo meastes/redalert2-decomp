@@ -99,7 +99,7 @@ void Windows_Message_Handler(void)
 
 	MSG msg;
 
-	MessageLoopCount++; // RA2
+	MessageLoopCount++;
 
 	/*
 	**	Process windows messages until the message queue is exhuasted.
@@ -109,7 +109,7 @@ void Windows_Message_Handler(void)
 			return;
 		}
 
-		CopyProtection::DispatchLauncherMessage(&msg); // RA2
+		CopyProtection::DispatchLauncherMessage(&msg);
 
 		if (ToolTips != NULL) {
 			ToolTips->Message_Handler(&msg);

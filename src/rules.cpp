@@ -2243,17 +2243,17 @@ bool RulesClass::Powerups(CCINIClass const & ini) // RA2: at 0x64D490
 				}
 
 				/*
-				**	Can it appear on water? // RA2
+				**	Can it appear on water?
 				*/
-				token = strtok(NULL, ","); // RA2
-				if (token != NULL) { // RA2
-					strtrim(token); // RA2
-					if (stricmp(token, "yes") == 0) { // RA2
-						CrateWater[crate] = true; // RA2
-					} else if (stricmp(token, "no") == 0) { // RA2
-						CrateWater[crate] = false; // RA2
-					} // RA2
-				} // RA2
+				token = strtok(NULL, ",");
+				if (token != NULL) {
+					strtrim(token);
+					if (stricmp(token, "yes") == 0) {
+						CrateWater[crate] = true;
+					} else if (stricmp(token, "no") == 0) {
+						CrateWater[crate] = false;
+					}
+				}
 
 				/*
 				**	Optional data number.
@@ -2486,7 +2486,7 @@ bool RulesClass::Read_AdvancedCommandBar(CCINIClass const & ini, bool multiplaye
 /// </summary>
 void RulesClass::Save(IStream * stream)
 {
-	stream->Write(this, sizeof(*this), 0); // RA2: RA2's form
+	stream->Write(this, sizeof(*this), 0);
 	AIIonCannonConYardValue.Save(stream);
 	AIIonCannonWarFactoryValue.Save(stream);
 	AIIonCannonPowerValue.Save(stream);
@@ -2997,7 +2997,7 @@ void RulesClass::Load(IStream * stream)
 void RulesClass::Detach(AbstractClass const * target, bool all)
 {
 	if (target == LargeVisceroid) {
-		LargeVisceroid = 0; // RA2: RA2's form
+		LargeVisceroid = 0;
 	}
 	if (target == SmallVisceroid) {
 		SmallVisceroid = 0;
@@ -3460,7 +3460,7 @@ int Coop_Camp_Unique_ID(void) // RA2: not in TibSun, at 0x652520
 int RulesClass::Get_Rule_Unique_ID(void)
 {
 	int id = RuleINI->Get_Unique_ID();
-	int count = MultiplayerGameMode::GetModeCount(); // RA2: RA2's form
+	int count = MultiplayerGameMode::GetModeCount();
 	for (int index = 1; index <= count; index++) {
 		MultiplayerGameMode * session = MultiplayerGameMode::Get(index);
 		if (session != 0) {

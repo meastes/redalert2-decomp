@@ -2232,7 +2232,7 @@ bool FootClass::Enter_Idle_Mode(bool initial, bool resume_waypoint) // RA2: both
 {
 	if (!IsIdle) {
 		IsIdle = true;
-		TechnoClass::Enter_Idle_Mode(initial, resume_waypoint); // RA2
+		TechnoClass::Enter_Idle_Mode(initial, resume_waypoint);
 
 		if (IsToScatter) {
 			IsToScatter = false;
@@ -2781,7 +2781,7 @@ void FootClass::Set_Follow_Target(AbstractClass * target) // RA2: not in TibSun,
  *=============================================================================================*/
 void FootClass::Assign_Destination(AbstractClass * target, bool)
 {
-	FollowTarget = NULL; // RA2: RA2's form
+	FollowTarget = NULL;
 	NavCom = target;
 
 	if (target != NULL) {
@@ -2926,7 +2926,7 @@ int FootClass::Rescue_Mission(AbstractClass * tarcom)
  *=============================================================================================*/
 void FootClass::Death_Announcement(TechnoClass const * ) const
 {
-	if (House->Is_Player_Control() && !Techno_Type_Class()->Spawned) { // RA2: RA2's form
+	if (House->Is_Player_Control() && !Techno_Type_Class()->Spawned) {
 		if (Submit_Radar_Event(RADAREVENT_UNIT_LOST, Get_Cell())) {
 			Queue_Speech("EVA_UnitLost", -1, -1);
 		}
@@ -3276,7 +3276,7 @@ bool FootClass::Can_Demolish(void) const
  *=============================================================================================*/
 void FootClass::Sell_Back(int control)
 {
-	if (control) { // RA2: RA2's form
+	if (control) {
 		if (House->Is_Player_Control()) {
 			Queue_Speech("EVA_UnitSold", -1, -1);
 			VocClass::PlayGlobal(Rule->SellSound, 1.0f, 0x2000, 0);
@@ -3977,7 +3977,7 @@ bool FootClass::Limbo(void)
 /// <returns>Returns with S_OK if the object was read successfully.</returns>
 HRESULT STDMETHODCALLTYPE FootClass::Load(IStream * stream)
 {
-	Locomotion.Attach(0); // RA2: RA2's form
+	Locomotion.Attach(0);
 	HRESULT result = TechnoClass::Load(stream);
 	if (SUCCEEDED(result)) {
 		int count;
@@ -4356,7 +4356,7 @@ void FootClass::Draw_Action_Line(bool force, int dashed) const // RA2: two argum
 /// <summary>
 /// Fetches the marker rectangle for an action line end point: a small block centered about the pixel.
 /// </summary>
-static inline Rect Action_Line_End_Rect(Point2D const & point) // RA2
+static inline Rect Action_Line_End_Rect(Point2D const & point)
 {
 	return(Rect(point - Point2D(2, 2), 3, 3));
 }
@@ -4365,7 +4365,7 @@ static inline Rect Action_Line_End_Rect(Point2D const & point) // RA2
 /// <summary>
 /// Fills the marker of an action line end point, clipped to the tactical map.
 /// </summary>
-static inline void Fill_Action_Line_End(Point2D const & point, int pixel) // RA2
+static inline void Fill_Action_Line_End(Point2D const & point, int pixel)
 {
 	CompositeSurface->Fill_Rect(Intersect(TacticalRect, Action_Line_End_Rect(point)), pixel);
 }
@@ -4379,7 +4379,7 @@ static inline void Fill_Action_Line_End(Point2D const & point, int pixel) // RA2
 /// </summary>
 void FootClass::Draw_Action_Line(void) const // RA2: TibSun's Draw_Action_Line, no longer virtual, at 0x4CAB90
 {
-	static bool _pattern[16] = { // RA2
+	static bool _pattern[16] = {
 		true,
 		true,
 		true,
@@ -4398,7 +4398,7 @@ void FootClass::Draw_Action_Line(void) const // RA2: TibSun's Draw_Action_Line, 
 		false
 	};
 
-	RGBClass white(255, 255, 255); // RA2
+	RGBClass white(255, 255, 255);
 	RGBClass color; // RA2: the owner's color
 
 	if (!TarCom && !NavCom) {
@@ -4432,8 +4432,8 @@ void FootClass::Draw_Action_Line(void) const // RA2: TibSun's Draw_Action_Line, 
 	start_point.Y += TacticalRect.Y;
 	end_point.Y += TacticalRect.Y;
 
-	color = House->RemapColorRGB; // RA2
-	int pixel = DSurface::Build_Hicolor_Pixel(color); // RA2
+	color = House->RemapColorRGB;
+	int pixel = DSurface::Build_Hicolor_Pixel(color);
 	Fill_Action_Line_End(start_point, pixel); // RA2: pixel
 	Fill_Action_Line_End(end_point, pixel); // RA2: pixel
 
@@ -5053,7 +5053,7 @@ bool FootClass::Is_Moving_Onto_Bridge(TechnoClass *techno) const // RA2: the doc
  *=============================================================================================*/
 bool FootClass::Is_LZ_Clear(AbstractClass * target) const
 {
-	if (target == 0) { // RA2: RA2's form
+	if (target == 0) {
 		return(false);
 	}
 	Cell cell = target->Center_Coord().As_Cell();
@@ -5295,7 +5295,7 @@ void FootClass::Advance_Waypoint_Path(void)
 /// </summary>
 void FootClass::Delete_Me(void)
 {
-	if (CaptureManager != 0) { // RA2: RA2's form
+	if (CaptureManager != 0) {
 		CaptureManager->FreeAll();
 	}
 	if (Team != 0) {
@@ -5473,7 +5473,7 @@ void FootClass::RemoveSensorsAt(Cell cell) // RA2: 0x4CD250
 					}
 					BuildingClass * building = cellptr->Cell_Building();
 					if (building != NULL) {
-						if (building->House != PlayerPtr && building->Visual_Character(false, NULL)) { // RA2: tested in a nested if here; the combined test does not match
+						if (building->House != PlayerPtr && building->Visual_Character(false, NULL)) { // RA2: tested in a nested if here
 							building->IsToDisplay = true;
 						}
 					}

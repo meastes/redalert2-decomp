@@ -164,7 +164,7 @@ void Draw_Shape(Surface & surface, ConvertClass & convert, ShapeSet const * shap
 		}
 	}
 
-done: // RA2
+done:
 	if (z_shape != NULL) {
 		delete z_shape;
 	}

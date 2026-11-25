@@ -88,7 +88,7 @@
 FactoryClass::FactoryClass(void) :
 	BASECLASS(),
 	QueuedObjects(),
-	OnHold(false), // RA2
+	OnHold(false),
 	IsDifferent(false),
 	Object(0),
 	Balance(0),
@@ -175,10 +175,10 @@ void FactoryClass::AI(void)
 				*/
 				if (cost > House->Available_Money()) {
 					Set_Stage(Fetch_Stage()-1);
-					OnHold = true; // RA2
+					OnHold = true;
 				} else {
 					House->Spend_Money(cost);
-					OnHold = false; // RA2
+					OnHold = false;
 					Balance -= cost;
 				}
 

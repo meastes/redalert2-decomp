@@ -1360,7 +1360,7 @@ void ObjectClass::Mark_For_Redraw(void)
  *=============================================================================================*/
 bool ObjectClass::Limbo(void)
 {
-	if (!GameActive || IsInLimbo) return(false); // RA2: RA2's form
+	if (!GameActive || IsInLimbo) return(false);
 	Unselect();
 	Detach_All(true);
 	Mark(MARK_UP);
@@ -1618,7 +1618,7 @@ void ObjectClass::Detach_All(bool all)
 RadioMessageType ObjectClass::Receive_Message(RadioClass *, RadioMessageType message, int & )
 {
 	switch (message) {
-	case 0x22: // RA2: RA2's form
+		case 0x22:
 		if (HealthRatio < Rule->ConditionGreen) {
 			return(RADIO_ROGER);
 		}
@@ -2175,7 +2175,7 @@ int ObjectClass::Health_Status(void) const // RA2: not in TibSun, at 0x5D46B0
 HRESULT STDMETHODCALLTYPE ObjectClass::Load(IStream * stream)
 {
 	HRESULT result = BASECLASS::Load(stream);
-	if (FAILED(result)) { // RA2: RA2's form
+	if (FAILED(result)) {
 		return result;
 	}
 	Swizzler.Swizzle((void **)&Next);
@@ -2514,7 +2514,7 @@ void ObjectClass::Editor_Draw_It(Point2D const & point, Rect const & cliprect) c
 /// <remarks>The object must not be referred to after this routine returns.</remarks>
 void ObjectClass::Delete_Me(void)
 {
-	if (AttachedBomb != 0) { // RA2: RA2's form
+	if (AttachedBomb != 0) {
 		AttachedBomb->Disarm();
 	}
 	Detach_This_From_All(this, true);

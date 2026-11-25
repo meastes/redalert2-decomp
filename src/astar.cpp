@@ -99,7 +99,7 @@ inline Cell Next_Cell(Cell const & cell, FacingType facing)
 Cell Follow_Path(Cell const & cell, int count, FacingType const * path)
 {
 	Cell result = cell;
-	for (int i = 0; ; i++) { // RA2
+	for (int i = 0;; i++) {
 		if (i >= count) {
 			return(result);
 		}
@@ -123,7 +123,7 @@ Cell Follow_Path(Cell const & cell, int count, FacingType const * path)
 double AStarClass::Get_Movement_Cost(CellClass **from, CellClass **to, bool bridge, MoveType move, FootClass * foot)
 {
 	static float _costs[MOVE_COUNT] = {
-		1.0, // RA2
+		1.0,
 		1000.0,
 		1.0,
 		1.0,
@@ -133,7 +133,7 @@ double AStarClass::Get_Movement_Cost(CellClass **from, CellClass **to, bool brid
 		10000.0
 	};
 
-	CellClass ** from_cells = from; // RA2
+	CellClass ** from_cells = from;
 	CellClass ** to_cells = to;
 	CellClass * from_cell = from_cells[0];
 	CellClass * to_cell = to_cells[0];
@@ -147,12 +147,12 @@ double AStarClass::Get_Movement_Cost(CellClass **from, CellClass **to, bool brid
 	bool on_bridge = bridge;
 
 	if (move == MOVE_MOVING_BLOCK) {
-		ObjectClass * object = cellptr->Cell_Occupier(on_bridge); // RA2
+		ObjectClass * object = cellptr->Cell_Occupier(on_bridge);
 		occupier = (FootClass *)object;
 		int depth = 0;
 		bool clear = false;
 		if (Avoidance == AVOIDANCE_NONE) {
-			for (; depth < 10; depth++) { // RA2
+			for (; depth < 10; depth++) {
 				if (occupier == NULL) {
 					clear = true;
 					break;
@@ -231,7 +231,7 @@ double AStarClass::Get_Movement_Cost(CellClass **from, CellClass **to, bool brid
 			multiplier = 2.0f;
 		}
 
-		float result = cost * multiplier; // RA2
+		float result = cost * multiplier;
 		return(result);
 
 	}
@@ -734,7 +734,7 @@ FacingType Facing_Between(Cell const & cell1, Cell const & cell2)
 /// the last one this routine handed out.</remarks>
 PathStruct * AStarClass::Build_Final_Path(RegularOpenNode *final_node, FacingType *moves)
 {
-	static PathStruct path; // RA2
+	static PathStruct path;
 
 	path.Cost			= int(final_node->Score);
 	path.Length 		= final_node->PathLength;
@@ -816,7 +816,7 @@ void AStarClass::Update_Map_Dimensions(Rect const & dimensions)
 /// Fetches the cell one step of a path leads to; a tunnel step leads to the exit of the
 /// tube under the cell.
 /// </summary>
-inline Cell Blocker_Path_Cell(Cell const & cell, FacingType facing) // RA2
+inline Cell Blocker_Path_Cell(Cell const & cell, FacingType facing)
 {
 	if (facing == TUNNEL) {
 		TubeType tube = (TubeType)Map[cell].Tube;
@@ -832,7 +832,7 @@ inline Cell Blocker_Path_Cell(Cell const & cell, FacingType facing) // RA2
 /// <summary>
 /// Fetches the cell next to a cell in the direction given.
 /// </summary>
-static inline Cell Forward_Cell(Cell const & cell, DirType const & dir) // RA2
+static inline Cell Forward_Cell(Cell const & cell, DirType const & dir)
 {
 	FacingType facing = dir.As_Dir8();
 	return Cell(cell + AdjacentCell[facing]);
@@ -854,7 +854,7 @@ void AStarClass::Apply_Path_Collision_Avoidance(FootClass * foot)
 	if (IsAvoidPathCollision) {
 		Cell current_cell = foot->Get_Cell();
 		CellClass * current_cell_ptr = &Map[current_cell];
-		CellClass * next_cell_ptr = &Map[Forward_Cell(current_cell, foot->PrimaryFacing.Current())]; // RA2
+		CellClass * next_cell_ptr = &Map[Forward_Cell(current_cell, foot->PrimaryFacing.Current())];
 
 		FootClass * blocker;
 		bool on_bridge;
@@ -898,7 +898,7 @@ void AStarClass::Apply_Path_Collision_Avoidance(FootClass * foot)
 
 				marked_path = true;
 				while (blocker->Path[index] != FACING_NONE && index < ARRAY_SIZE(blocker->Path)) {
-					blocker_cell = Blocker_Path_Cell(blocker_cell, blocker->Path[index]); // RA2
+					blocker_cell = Blocker_Path_Cell(blocker_cell, blocker->Path[index]);
 					Map[blocker_cell].IsPredictedPath = !Map[blocker_cell].IsPredictedPath;
 					index++;
 				}
@@ -993,7 +993,7 @@ void AStarClass::Cut_Corners(PathStruct * path, FootClass * foot)
 
 	max_len--;
 
-	FacingType leg2_dir = FACING_NONE; // RA2
+	FacingType leg2_dir = FACING_NONE;
 
 	unsigned int * heights = path->Height;
 	FacingType * moves = path->Command;
@@ -1007,10 +1007,10 @@ void AStarClass::Cut_Corners(PathStruct * path, FootClass * foot)
 	int leg1_len = 0;
 	int leg2_len = 0;
 
-	Cell start_cell = source; // RA2
+	Cell start_cell = source;
 	Cell cursor_cell = source;
 
-	FacingType leg1_dir = FACING_NONE; // RA2
+	FacingType leg1_dir = FACING_NONE;
 
 	while (leg1_start + leg1_len < max_len && leg2_start + leg2_len < max_len) {
 
@@ -1045,7 +1045,7 @@ void AStarClass::Cut_Corners(PathStruct * path, FootClass * foot)
 			leg1_len = 1;
 			found_corner = false;
 
-			cursor_cell = start_cell + AdjacentCell[(int)moves[leg1_start] & 0x07]; // RA2
+			cursor_cell = start_cell + AdjacentCell[(int)moves[leg1_start] & 0x07];
 			leg1_dir = moves[leg1_start];
 		}
 	}
@@ -1061,7 +1061,7 @@ void AStarClass::Cut_Corners(PathStruct * path, FootClass * foot)
 /// </summary>
 /// <param name="count">The number of moves to follow.</param>
 /// <returns>Returns with the cell reached at the end of the walk.</returns>
-static Cell Follow_Path2(Cell const & cell, int count, FacingType const * path) // RA2
+static Cell Follow_Path2(Cell const & cell, int count, FacingType const * path)
 {
 	return(Follow_Path(cell, count, path));
 }
@@ -1084,7 +1084,7 @@ int AStarClass::Try_Diagonal_Shortcut(FootClass * foot, FacingType * moves, unsi
 {
 	int first_leg_length = initial_first_leg_length;
 	int second_leg_length = initial_second_leg_length;
-	bool is_blocked; // RA2
+	bool is_blocked;
 	FacingType second_leg_direction = moves[first_leg_length];
 	FacingType first_leg_direction = moves[0];
 	FacingType diagonal_direction = FacingType((first_leg_direction + second_leg_direction) >> 1);
@@ -1095,7 +1095,7 @@ int AStarClass::Try_Diagonal_Shortcut(FootClass * foot, FacingType * moves, unsi
 	}
 
 	if (first_leg_direction == TUNNEL || second_leg_direction == TUNNEL) {
-		int total_length = first_leg_length + second_leg_length; // RA2
+		int total_length = first_leg_length + second_leg_length;
 		cell = Follow_Path2(cell, total_length, moves);
 		return(total_length);
 	}
@@ -1113,9 +1113,9 @@ int AStarClass::Try_Diagonal_Shortcut(FootClass * foot, FacingType * moves, unsi
 
 	while (second_leg_length > 0) {
 		int moves_remaining = second_leg_length * 2;
-		is_blocked = false; // RA2
+		is_blocked = false;
 		Cell scan_cell = Adjacent_Cell(diagonal_start_cell, diagonal_direction);
-		int leg_total = first_leg_length + second_leg_length; // RA2
+		int leg_total = first_leg_length + second_leg_length;
 		int scan_height = heights[leg_total - moves_remaining];
 		CellClass * scan_cell_ptr = &Map[scan_cell];
 
@@ -1137,7 +1137,7 @@ int AStarClass::Try_Diagonal_Shortcut(FootClass * foot, FacingType * moves, unsi
 
 		if (!is_blocked) {
 			FacingType * diagonal_moves = &moves[first_leg_length - second_leg_length];
-			int diagonal_count = 2 * second_leg_length; // RA2
+			int diagonal_count = 2 * second_leg_length;
 			for (int move_index = 0; move_index < diagonal_count; move_index++) {
 				diagonal_moves[move_index] = diagonal_direction;
 			}
@@ -1173,14 +1173,14 @@ int AStarClass::Try_Diagonal_Shortcut(FootClass * foot, FacingType * moves, unsi
  *=============================================================================================*/
 void AStarClass::Optimize_Moves(PathStruct * path, FootClass * foot)
 {
-	int splice_index; // RA2
+	int splice_index;
 	Cell splice_cell;
 	FacingType * moves = path->Command;
 	int max_len = path->Length;
 	max_len--;
 	int scan_index = 0;
 	int prev_turn_index = 0;
-	Cell cursor_cell = path->Start; // RA2
+	Cell cursor_cell = path->Start;
 	unsigned int * heights = path->Height;
 	int index;
 	int last_turn_index = 0;
@@ -1197,13 +1197,13 @@ void AStarClass::Optimize_Moves(PathStruct * path, FootClass * foot)
 
 		if (step == TUNNEL) {
 			cursor_cell = Adjacent_Cell(cursor_cell, FACING_N);
-			path_offset = Cell(0, 0); // RA2
+			path_offset = Cell(0, 0);
 			scan_index++;
 			prev_turn_index = scan_index;
 			max_axis_extent = 0;
 			max_dev_x = 0;
 			max_dev_y = 0;
-			candidate_offset = Cell(0, 0); // RA2
+			candidate_offset = Cell(0, 0);
 			last_turn_index = scan_index;
 			last_turn_cell = Cell(0, 0);
 			continue;
@@ -1214,7 +1214,7 @@ void AStarClass::Optimize_Moves(PathStruct * path, FootClass * foot)
 			continue;
 		}
 
-		Cell new_offset = Cell(path_offset + AdjacentCell[(int)move & 7]); // RA2
+		Cell new_offset = Cell(path_offset + AdjacentCell[(int)move & 7]);
 		Cell new_candidate_offset = AdjacentCell[(int)move & 7] + candidate_offset;
 		if (abs(new_candidate_offset.X) >= max_dev_x && abs(new_candidate_offset.Y) >= max_dev_y) {
 
@@ -1229,10 +1229,10 @@ void AStarClass::Optimize_Moves(PathStruct * path, FootClass * foot)
 			if (max_axis_extent < max_axis) {
 				max_axis_extent = max_axis;
 			} else {
-				splice_cell = cursor_cell; // RA2
+				splice_cell = cursor_cell;
 				Splice_Path(moves, scan_index, prev_turn_index, splice_index, splice_cell);
 
-				Plot_Straight_Line(&moves[splice_index], scan_index - splice_index + 1, splice_cell, // RA2
+				Plot_Straight_Line(&moves[splice_index], scan_index - splice_index + 1, splice_cell,
 				Cell(cursor_cell - splice_cell), foot, heights[splice_index], false);
 			}
 
@@ -1262,21 +1262,21 @@ void AStarClass::Optimize_Moves(PathStruct * path, FootClass * foot)
 		max_axis = max(abs(diff.X), abs(diff.Y));
 		if ((scan_index - last_turn_index - 1) > max_axis) {
 			scan_index--;
-			splice_cell = cursor_cell; // RA2
+			splice_cell = cursor_cell;
 			Splice_Path(moves, scan_index, last_turn_index, splice_index, splice_cell);
 
-			Plot_Straight_Line(&moves[splice_index], scan_index - splice_index + 1, splice_cell, // RA2
+			Plot_Straight_Line(&moves[splice_index], scan_index - splice_index + 1, splice_cell,
 				Cell(cursor_cell - splice_cell), foot, heights[splice_index], true);
 		}
 	}
 	index = 0;
 	int new_len = 0;
-	FacingType dir = moves[index]; // RA2
+	FacingType dir = moves[index];
 	while (dir != END && index < max_len) {
 		if (dir != EMPTY) {
 			moves[new_len++] = moves[index];
 		}
-		dir = moves[++index]; // RA2
+		dir = moves[++index];
 	}
 	int fill = new_len;
 	while (fill < path->Length + 1) {
@@ -1323,7 +1323,7 @@ void AStarClass::Splice_Path(FacingType * moves, int start_index, int end_index,
 			if (radius > max_radius) {
 				if (found) {
 					splice_index = cur_index + 1;
-					cell = ::Adjacent_Cell(base, Facing_Sub(back, 4)); // RA2
+					cell = ::Adjacent_Cell(base, Facing_Sub(back, 4));
 					return;
 				}
 				max_radius = radius;
@@ -1357,7 +1357,7 @@ void AStarClass::Splice_Path(FacingType * moves, int start_index, int end_index,
 /// <returns>bool; Was a clear route plotted?</returns>
 bool AStarClass::Plot_Straight_Line(FacingType * moves, int move_count, Cell const & from, Cell const & to, FootClass * foot, int cell_height, bool fearless)
 {
-	int first_dist; // RA2
+	int first_dist;
 	int second_dist;
 	int tries = 0;
 
@@ -1384,7 +1384,7 @@ bool AStarClass::Plot_Straight_Line(FacingType * moves, int move_count, Cell con
 	int y_dist = abs(y);
 	int x_dist = abs(x);
 
-	first_dist = MIN(x_dist, y_dist); // RA2
+	first_dist = MIN(x_dist, y_dist);
 	second_dist = MAX(x_dist, y_dist) - first_dist;
 
 	double avoidance = foot->Threat_Avoidance_Value();
@@ -1408,7 +1408,7 @@ bool AStarClass::Plot_Straight_Line(FacingType * moves, int move_count, Cell con
 
 			while (count1 > 0 && !blocked) {
 
-				current = current + AdjacentCell[(int)first_dir & 7]; // RA2
+				current = current + AdjacentCell[(int)first_dir & 7];
 				CellClass * cellptr = &Map[current];
 
 				if (avoid_threats && Map.Cell_Threat(current, *house) * avoidance >= 0.01) {
@@ -1432,7 +1432,7 @@ bool AStarClass::Plot_Straight_Line(FacingType * moves, int move_count, Cell con
 
 			while (count2 > 0 && !blocked) {
 
-				current = Cell(current + AdjacentCell[(int)second_dir & 7]); // RA2
+				current = Cell(current + AdjacentCell[(int)second_dir & 7]);
 				CellClass * cellptr = &Map[current];
 
 				if (avoid_threats && Map.Cell_Threat(current, *house) * avoidance >= 0.01) {
@@ -1694,9 +1694,9 @@ PathStruct * AStarClass::Find_Path(Cell const & from, Cell const & to, FootClass
 	MZoneType move_zone = mzone != MZONE_NONE ? mzone : foot->TClass->MZone;
 
 	if (foot->RTTI == RTTI_INFANTRY) {
-		if (((InfantryClass *)foot)->Class->JumpJet) { // RA2
+		if (((InfantryClass *)foot)->Class->JumpJet) {
 			move_zone = MZONE_INFANTRY;
-			CLSID clsid; // RA2
+			CLSID clsid;
 			IPersistPtr persist(foot->Locomotion);
 			persist->GetClassID(&clsid);
 		}
@@ -1733,7 +1733,7 @@ PathStruct * AStarClass::Find_Path(Cell const & from, Cell const & to, FootClass
 
 	while (true) {
 
-		if (!with_hs) { // RA2
+		if (!with_hs) {
 			DebugString("Warning.  A* without HS: (%d,%d) to (%d, %d)\n", hs_from.X, hs_from.Y, hs_to.X, hs_to.Y);
 		}
 
@@ -1949,7 +1949,7 @@ int AStarClass::Test_Cell_Walk(Cell const & from, Cell const & to, FootClass con
 	}
 
 	if (Find_Path_Hierarchical(hs_from, hs_to, mzone, foot)) {
-		int radius = MAX(abs(from.X - to.X), abs(from.Y - to.Y)); // RA2
+		int radius = MAX(abs(from.X - to.X), abs(from.Y - to.Y));
 		int node_count = HierSubzonePathCount[SUBZONE_FINE];
 		int distance = 2 * node_count - 2;
 

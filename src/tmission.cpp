@@ -87,7 +87,7 @@ char const * const TMissions[TMISSION_COUNT] = {
 	"Flash",
 	"Play Anim",
 	"Talk Bubble",
-	"Gather at enemy base", // RA2
+	"Gather at enemy base",
 	"Gather at base",
 	"Iron Curtain me",
 	"Chrono prep for ABwrd",
@@ -149,7 +149,7 @@ char const * const TMissionsHelp[TMISSION_COUNT] = {
 	"Flashes a team for a period of team.",
 	"Plays an anim over every unit in the team.",
 	"Displays talk bubble over first unit in the team.",
-	"Gathers the team outside the enemy base.", // RA2
+	"Gathers the team outside the enemy base.",
 	"Gathers the team outside its own base.",
 	"Asks for the Iron Curtain on the team.",
 	"Chronospheres the team next to a building with the property.",
@@ -241,7 +241,7 @@ NeedType TeamMission_Needs(TeamMissionType tmtype)
 		**	Team mission requires a target quarry value.
 		*/
 		case TMISSION_ATTACK:
-		case TMISSION_CHRONO_PREP_FOR_AQ: // RA2
+		case TMISSION_CHRONO_PREP_FOR_AQ:
 			return(NEED_QUARRY);
 
 		/*
@@ -340,8 +340,8 @@ NeedType TeamMission_Needs(TeamMissionType tmtype)
 		 */
 		case TMISSION_ATTACK_BUILDING_WITH_PROPERTY:
 		case TMISSION_MOVETO_BUILDING_WITH_PROPERTY:
-		case TMISSION_CHRONO_PREP_FOR_ABWRD: // RA2
-		case TMISSION_MOVETO_OWN_BUILDING: // RA2
+		case TMISSION_CHRONO_PREP_FOR_ABWRD:
+		case TMISSION_MOVETO_OWN_BUILDING:
 			return(NEED_BUILDING_ATTACK);
 
 		/*

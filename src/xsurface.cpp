@@ -463,7 +463,7 @@ bool XSurface::Draw_Depth_Antialiased_Line(Rect const & cliprect, Point2D const 
 }
 
 
-bool XSurface::Draw_RGB_Multiplying_Line(Rect const & cliprect, Point2D const & startpoint, Point2D const & endpoint, RGBClass const & color, float intensity, int start_depth, int end_depth) // RA2
+bool XSurface::Draw_RGB_Multiplying_Line(Rect const & cliprect, Point2D const & startpoint, Point2D const & endpoint, RGBClass const & color, float intensity, int start_depth, int end_depth)
 {
 	return(false);
 }

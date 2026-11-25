@@ -52,14 +52,14 @@
 /// <param name="h">The pixel height of the list box when it is dropped down.</param>
 /// <param name="up">The shape for the list's scroll up arrow.</param>
 /// <param name="down">The shape for the list's scroll down arrow and for the drop button.</param>
-DropListClass::DropListClass(int id, wchar_t * text, int max_len, TextPrintType flags, int x, int y, int w, int h, ShapeSet const * up, ShapeSet const * down) : // RA2
+DropListClass::DropListClass(int id, wchar_t * text, int max_len, TextPrintType flags, int x, int y, int w, int h, ShapeSet const * up, ShapeSet const * down) :
 	BASECLASS(id, text, max_len, flags, x, y, w, 18, ALPHANUMERIC),
 	IsDropped(false),
 	ListHeight(h),
 	DropButton(0, down, x+w, y),
 	List(0, x, y+down->Get_Height(), w+down->Get_Width(), h, flags, up, down)
 {
-	BitFont * font = Font_From_TPF(flags); // RA2
+	BitFont * font = Font_From_TPF(flags);
 	BASECLASS::Height = font->LineHeight+1;
 	List.Make_Peer(*this);
 	DropButton.Make_Peer(*this);
@@ -146,9 +146,9 @@ LinkClass * DropListClass::Remove(void)
 /// </summary>
 /// <param name="text">The text of the item to add.</param>
 /// <returns>Returns with the index the item was added at.</returns>
-int DropListClass::Add_Item(wchar_t const * text) // RA2
+int DropListClass::Add_Item(wchar_t const * text)
 {
-	wcsncpy(String, text, MaxLength); // RA2
+	wcsncpy(String, text, MaxLength);
 	Flag_To_Redraw();
 	return(List.Add_Item(text));
 }
@@ -158,7 +158,7 @@ int DropListClass::Add_Item(wchar_t const * text) // RA2
 /// Fetches the text of the currently selected item.
 /// </summary>
 /// <returns>Returns with a pointer to the text of the selected item.</returns>
-wchar_t const * DropListClass::Current_Item(void) // RA2
+wchar_t const * DropListClass::Current_Item(void)
 {
 	return(List.Current_Item());
 }
@@ -184,7 +184,7 @@ void DropListClass::Set_Selected_Index(int index)
 {
 	if ((unsigned)index < (unsigned)List.Count()) {
 		List.Set_Selected_Index(index);
-		wcscpy(String, List.Get_Item(Current_Index())); // RA2
+		wcscpy(String, List.Get_Item(Current_Index()));
 	} else {
 		String[0] = '\0';
 	}
@@ -226,7 +226,7 @@ void DropListClass::Peer_To_Peer(unsigned flags, KeyNumType & key, ControlClass 
 	}
 
 	if (&whom == &List) {
-		wcsncpy(String, List.Current_Item(), MaxLength); // RA2
+		wcsncpy(String, List.Current_Item(), MaxLength);
 		Flag_To_Redraw();
 		key = (KeyNumType)(ID | KN_BUTTON);
 	}
@@ -327,11 +327,11 @@ void DropListClass::Set_Position(int x, int y)
 /// list leaves the current selection alone.
 /// </summary>
 /// <param name="text">The text of the item to select.</param>
-void DropListClass::Set_Selected_Index(wchar_t const * text) // RA2
+void DropListClass::Set_Selected_Index(wchar_t const * text)
 {
 	if (text) {
 		for (int index = 0; index < Count(); index++) {
-			if (wcsicmp(text, List.Get_Item(index)) == 0) { // RA2
+			if (wcsicmp(text, List.Get_Item(index)) == 0) {
 				Set_Selected_Index(index);
 				break;
 			}

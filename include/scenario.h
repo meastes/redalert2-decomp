@@ -243,7 +243,7 @@ class ScenarioClass {
 		**	Description of the scenario.
 		*/
 		wchar_t Description[45]; // RA2: wide, +0x940
-		char UIName[32]; // RA2
+		char UIName[32];
 
 		/*
 		**	The filename of the introduction movie.
@@ -287,7 +287,7 @@ class ScenarioClass {
 		**	objectives" operation.
 		*/
 		wchar_t BriefingText[1024]; // RA2: wide, +0x9D8
-		char BriefingCSF[32]; // RA2
+		char BriefingCSF[32];
 
 		/*
 		**	This is the theme to start playing at the beginning of the action
@@ -617,8 +617,8 @@ bool Restate_Mission(char const * name, int button1, int button2);
 
 void Lock_Scenario_Input(void);
 void Unlock_Scenario_Input(void);
-void Hold_Scenario(int seconds); // RA2
-void Release_Scenario(void); // RA2
+void Hold_Scenario(int seconds);
+void Release_Scenario(void);
 
 void Pause_Scenario(void);
 void Resume_Scenario(void);

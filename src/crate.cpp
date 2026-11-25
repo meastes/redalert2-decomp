@@ -185,7 +185,7 @@ bool CrateClass::Get_Crate(Cell const & cell)
 		if (cellptr->Overlay != OVERLAY_NONE) {
 			if (OverlayTypes[cellptr->Overlay] == Rule->WoodCrateImg ||
 				OverlayTypes[cellptr->Overlay] == Rule->CrateImg ||
-			OverlayTypes[cellptr->Overlay] == Rule->WaterCrateImg) { // RA2
+				OverlayTypes[cellptr->Overlay] == Rule->WaterCrateImg) {
 
 				Rect dirty = Union(cellptr->Overlay_Render_Rect(), cellptr->Overlay_Shadow_Render_Rect());
 				dirty.Y -= TacticalRect.Y;

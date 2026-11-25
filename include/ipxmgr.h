@@ -313,8 +313,8 @@ class IPXManagerClass : public ConnManClass
 		IPXConnClass * Connection[CONNECT_MAX]; // array of connection object ptrs
 		int NumConnections;                     // # connection objects in use
 		IPXGlobalConnClass *GlobalChannel;      // the Global Channel
-		IPXGlobalConnClass *LobbyChannel;       // RA2
-		IPXConnClass *MulticastChannel;         // RA2
+		IPXGlobalConnClass * LobbyChannel;
+		IPXConnClass * MulticastChannel;
 
 		/*.....................................................................
 		Current queue for polling for received packets
@@ -327,9 +327,9 @@ class IPXManagerClass : public ConnManClass
 		unsigned int RetryDelta;
 		unsigned int MaxRetries;
 		unsigned int Timeout;
-		unsigned int SavedRetryDelta;		// RA2
-		unsigned int SavedMaxRetries;		// RA2
-		unsigned int SavedTimeout;			// RA2
+		unsigned int SavedRetryDelta;
+		unsigned int SavedMaxRetries;
+		unsigned int SavedTimeout;
 
 		/*---------------------------------------------------------------------
 		Real-mode memory pointers and such

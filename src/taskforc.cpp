@@ -18,7 +18,7 @@
 #include "rect.h"
 
 #include "taskforc.h"
-#include "session.h" // RA2
+#include "session.h"
 
 #include "ahtoi.h"
 #include "ccini.h"

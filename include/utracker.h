@@ -51,7 +51,7 @@ class UnitTrackerClass
 		void Increment_Unit_Total(int unit_type);
 		void Decrement_Unit_Total(int unit_type);
 		void Clear_Unit_Total(void);
-		void Populate_Unit_Count(int count); // RA2
+		void Populate_Unit_Count(int count);
 
 		int Get_Unit_Total(void); // RA2: the sum of all totals
 		int * Get_All_Totals(void);

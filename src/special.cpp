@@ -125,7 +125,7 @@ bool SpecialClass::operator==(const SpecialClass &that) const
 		IsShadowGrow == that.IsShadowGrow &&
 		IsSpeedBuild == that.IsSpeedBuild &&
 		IsFromInstall == that.IsFromInstall &&
-		IsEscapeMovies == that.IsEscapeMovies && // RA2
+			IsEscapeMovies == that.IsEscapeMovies &&
 		IsCaptureTheFlag == that.IsCaptureTheFlag &&
 		IsInert == that.IsInert &&
 		IsTGrowth == that.IsTGrowth &&

@@ -240,7 +240,7 @@ int ConnectionClass::Send_Packet (void * buf, int buflen, int ack_req, int extra
 	if (ack_req) {
 		((CommHeaderType *)PacketBuf)->Code = PACKET_DATA_ACK;
 		((CommHeaderType *)PacketBuf)->PacketID = NumSendAck;
-		DebugString("NumSendAck = %d\n", NumSendAck); // RA2
+		DebugString("NumSendAck = %d\n", NumSendAck);
 	} else {
 		((CommHeaderType *)PacketBuf)->Code = PACKET_DATA_NOACK;
 		((CommHeaderType *)PacketBuf)->PacketID = NumSendNoAck;
@@ -248,7 +248,7 @@ int ConnectionClass::Send_Packet (void * buf, int buflen, int ack_req, int extra
 	if (Session.Type == GAME_INTERNET && Session.ViaPacketRouter) { // RA2: routed packets carry their forward mask
 		((CommHeaderType *)PacketBuf)->ForwardMask = extra;
 	}
-	if (MaxPacketLen < buflen) { // RA2
+	if (MaxPacketLen < buflen) {
 		DebugString("MaxPacketLen = %d\n", MaxPacketLen);
 		DebugString("buflen = %d\n", buflen);
 		return(0);
@@ -317,7 +317,7 @@ int ConnectionClass::Receive_Packet (void * buf, int buflen)
 	------------------------------------------------------------------------*/
 	if (packet->Code == PACKET_ACK) {
 
-		DebugString("Received ACK for packet %d\n", packet->PacketID); // RA2
+		DebugString("Received ACK for packet %d\n", packet->PacketID);
 		for (i = 0; i < Queue->Num_Send(); i++) {
 			/*..................................................................
 			Get queue entry ptr
@@ -353,7 +353,7 @@ int ConnectionClass::Receive_Packet (void * buf, int buflen)
 		.....................................................................*/
 		if (Queue->Max_Receive() - Queue->Num_Receive() <= 1) {
 			MissedOverall++;
-			DebugString("Error - ConnectClass::Receive_Packet Queue full on PACKET_DATA_NOACK\n"); // RA2
+			DebugString("Error - ConnectClass::Receive_Packet Queue full on PACKET_DATA_NOACK\n");
 			return(0);
 		}
 
@@ -424,7 +424,7 @@ int ConnectionClass::Receive_Packet (void * buf, int buflen)
 			..................................................................*/
 			if (Queue->Max_Receive() - Queue->Num_Receive() <= 1) {
 				if (packet->PacketID != (LastSeqID + 1) ) {
-					DebugString("Error - ConnectClass::Receive_Packet Queue full on PACKET_DATA_ACK\n"); // RA2
+					DebugString("Error - ConnectClass::Receive_Packet Queue full on PACKET_DATA_ACK\n");
 					return(0);
 				}
 			}
@@ -433,7 +433,7 @@ int ConnectionClass::Receive_Packet (void * buf, int buflen)
 			If we can't queue the packet, return; don't send an ACK.
 			..................................................................*/
 			if (!Queue->Queue_Receive (buf, buflen, NULL, 0)) {
-				DebugString("Error - ConnectClass::Receive_Packet Queue->Queue_Receive error\n"); // RA2
+				DebugString("Error - ConnectClass::Receive_Packet Queue->Queue_Receive error\n");
 				return(0);
 			}
 
@@ -482,18 +482,18 @@ int ConnectionClass::Receive_Packet (void * buf, int buflen)
 		ackpacket.MagicNumber = Magic_Num();
 		ackpacket.Code = PACKET_ACK;
 		ackpacket.PacketID = packet->PacketID;
-		if (Session.ViaPacketRouter) { // RA2
+		if (Session.ViaPacketRouter) {
 			ackpacket.ForwardMask = packet->ForwardMask;
 		} else {
 			ackpacket.ForwardMask = 0;
 		}
-		DebugString("Sending ACK for packet %d to be forwarded to %02x\n", packet->PacketID, ackpacket.ForwardMask); // RA2
-		Send ((char *)&ackpacket, sizeof(CommHeaderType), NULL, 0, this == PacketRouterConnection, 0); // RA2
+		DebugString("Sending ACK for packet %d to be forwarded to %02x\n", packet->PacketID, ackpacket.ForwardMask);
+		Send((char *)&ackpacket, sizeof(CommHeaderType), NULL, 0, this == PacketRouterConnection, 0);
 
 		return(1);
 	}
 
-	DebugString("Error - ConnectClass::Receive_Packet did not understand packet->Code\n"); // RA2
+	DebugString("Error - ConnectClass::Receive_Packet did not understand packet->Code\n");
 	return(0);
 
 }	/* end of Receive_Packet */
@@ -692,7 +692,7 @@ int ConnectionClass::Service_Send_Queue (void)
 			Send the message
 			..................................................................*/
 			Send (send_entry->Buffer, send_entry->BufLen, send_entry->ExtraBuffer,
-				send_entry->ExtraLen, this == PacketRouterConnection, send_entry->Port); // RA2
+				send_entry->ExtraLen, this == PacketRouterConnection, send_entry->Port);
 
 			/*..................................................................
 			Fill in Time fields
@@ -739,7 +739,7 @@ int ConnectionClass::Service_Send_Queue (void)
 	If the connection is going bad, return an error
 	------------------------------------------------------------------------*/
 	if (bad_conn) {
-		DebugString("ConnectionClass::Service_Send_Queue bad connection\n"); // RA2
+		DebugString("ConnectionClass::Service_Send_Queue bad connection\n");
 		return(0);
 	} else {
 		return(1);

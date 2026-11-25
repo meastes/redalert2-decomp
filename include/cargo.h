@@ -66,7 +66,7 @@ class CargoClass {
 		bool Is_Something_Attached(void) const {return(CargoHold != 0);};
 		FootClass * Attached_Object(void) const;
 		FootClass * Detach_Object(void);
-		int GetTotalSize(void) const; // RA2
+		int GetTotalSize(void) const;
 		void Detach(FootClass * object);
 		void Attach(FootClass * object);
 

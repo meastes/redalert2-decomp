@@ -103,7 +103,7 @@ BitFont::InternalData * BitFont::Load_Data(char const * filename)
 	FontRangeType * ranges;
 	unsigned index;
 	int size;
-	FontShortHeaderType header;	// RA2
+	FontShortHeaderType header;
 	CCFileClass * file = new CCFileClass(filename);
 
 	if (file != NULL) {
@@ -127,7 +127,7 @@ BitFont::InternalData * BitFont::Load_Data(char const * filename)
 							file->Seek(0, SEEK_SET);
 							FontFileHeaderType header2;
 							if (file->Read(&header2, sizeof(header2)) != sizeof(header2)) goto failed;
-							data->FontHeight = header2.FontHeight;	// RA2
+							data->FontHeight = header2.FontHeight;
 							data->Lines = header2.Lines;
 							data->Stride = header2.Stride;
 							data->FontWidth = header2.FontWidth;
@@ -138,7 +138,7 @@ BitFont::InternalData * BitFont::Load_Data(char const * filename)
 							if (file->Read(ranges, header2.RangeCount * sizeof(FontRangeType)) != (int)(header2.RangeCount * sizeof(FontRangeType))) goto failed;
 							data->Count = 0;
 							for (index = 0; index < (unsigned)header2.RangeCount; index++) {
-								unsigned short symbol = ranges[index].Symbol;	// RA2
+								unsigned short symbol = ranges[index].Symbol;
 								for (int ch = ranges[index].First; ch <= ranges[index].Last; ch++, symbol++) {
 									data->SymbolTable[ch] = symbol + 1;
 									data->Count++;

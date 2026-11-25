@@ -39,8 +39,8 @@
 #include "side.hh"
 #include "theme.hh"
 
-struct AudioStreamer; // RA2
-struct IStream; // RA2
+struct AudioStreamer;
+struct IStream;
 class CCINIClass;
 
 struct ThemeControl {
@@ -108,8 +108,8 @@ class ThemeClass
 		ThemeType Next_Song(ThemeType index) const;
 		ThemeType What_Is_Playing(void) const {return(Score == THEME_NONE ? Pending : Score);} // RA2: the pending song when none plays
 		bool Is_Allowed(ThemeType index) const;
-		bool Is_Normal(ThemeType index) const; // RA2
-		char const * INI_Name(ThemeType index) const; // RA2
+		bool Is_Normal(ThemeType index) const;
+		char const * INI_Name(ThemeType index) const;
 		// RA2: TibSun's inline Is_Regular (no caller; the executable's equivalent is Is_Normal above) is removed
 		char const * Base_Name(ThemeType index) const;
 		wchar_t const * Full_Name(ThemeType index) const; // RA2: wide
@@ -117,7 +117,7 @@ class ThemeClass
 		int Play_Song(ThemeType index);
 		bool Still_Playing(void) const;
 		int Track_Length(ThemeType index) const;
-		void Fade_Stream(void); // RA2
+		void Fade_Stream(void);
 		long Save(IStream * stream); // RA2: an HRESULT, the result of the last write (0x6E8310; Put_All tests it)
 		long Load(IStream * stream); // RA2: an HRESULT
 		void Scan(void);

@@ -90,28 +90,28 @@
  *   01/05/1995 MML : Created.                                                                 *
  *   01/21/1995 JLB : Modified.                                                                *
  *=============================================================================================*/
-EditClass::EditClass(int id, wchar_t * text, int max_len, TextPrintType flags, int x, int y, int w, int h, EditStyle style) : // RA2
+EditClass::EditClass(int id, wchar_t * text, int max_len, TextPrintType flags, int x, int y, int w, int h, EditStyle style) :
 	BASECLASS(id, x, y, w, h, LEFTPRESS)
 {
 	TextFlags = (TextPrintType)(flags & ~(TPF_CENTER));
 	EditFlags = style;
-	String = text; // RA2
+	String = text;
 	MaxLength = max_len-1;
 	Length = wcslen(String);
 	((EditClass *)this)->Flag_To_Redraw();
 	Color = GadgetClass::Get_Color_Scheme();
 
 	if (w == -1 || h == -1) {
-		BitFont * font = Font_From_TPF(flags); // RA2
+		BitFont * font = Font_From_TPF(flags);
 
 		if (h == -1) {
-			Height = font->LineHeight+1; // RA2
+			Height = font->LineHeight + 1;
 		}
 		if (w == -1) {
-			if (wcslen(String) > 0) { // RA2
+			if (wcslen(String) > 0) {
 				Width = font->String_Pixel_Width(String, 0) + 6;
 			} else {
-				Width = (font->String_Pixel_Width(L"X", 0) * (MaxLength+1)) + 2; // RA2
+				Width = (font->String_Pixel_Width(L"X", 0) * (MaxLength + 1)) + 2;
 			}
     	}
 	}
@@ -156,11 +156,11 @@ EditClass::~EditClass(void)
  * HISTORY:                                                                                    *
  *   01/21/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
-void EditClass::Set_Text(wchar_t * text, int max_len) // RA2
+void EditClass::Set_Text(wchar_t * text, int max_len)
 {
 	String = text;
 	MaxLength = max_len-1;
-	Length = wcslen(String); // RA2
+	Length = wcslen(String);
 	Flag_To_Redraw();
 }
 
@@ -340,7 +340,7 @@ void EditClass::Draw_Background(void)
  * HISTORY:                                                                                    *
  *   01/21/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
-void EditClass::Draw_Text(wchar_t const * text) // RA2
+void EditClass::Draw_Text(wchar_t const * text)
 {
 	TextPrintType flags;
 
@@ -350,7 +350,7 @@ void EditClass::Draw_Text(wchar_t const * text) // RA2
 		flags = (TextPrintType)0;
 	}
 
-	Conquer_Clip_Text_Print(text, *LogicalSurface, LogicalSurface->Get_Rect(), Point2D(X+1, Y+1), ColorSchemes[Color], TBLACK, (TextPrintType)(TextFlags | flags), Width-2, 0); // RA2
+	Conquer_Clip_Text_Print(text, *LogicalSurface, LogicalSurface->Get_Rect(), Point2D(X + 1, Y + 1), ColorSchemes[Color], TBLACK, (TextPrintType)(TextFlags | flags), Width - 2, 0);
 	BitFont * font = Font_From_TPF(TextFlags);
 	if (Has_Focus() && wcslen(text) < (unsigned)MaxLength &&
 		(font->String_Pixel_Width(text, 0) + font->String_Pixel_Width(L"_", 0) < Width-2)) {
@@ -379,7 +379,7 @@ void EditClass::Draw_Text(wchar_t const * text) // RA2
  *=============================================================================================*/
 bool EditClass::Handle_Key(KeyASCIIType ascii)
 {
-	BitFont * font = Font_From_TPF(TextFlags); // RA2
+	BitFont * font = Font_From_TPF(TextFlags);
 
 	switch (ascii) {
 		/*
@@ -407,7 +407,7 @@ bool EditClass::Handle_Key(KeyASCIIType ascii)
 		case KA_BACKSPACE:
 			if (Length) {
 				Length--;
-				String[Length] = L'\0'; // RA2
+				String[Length] = L'\0';
 				Flag_To_Redraw();
 			}
 			break;
@@ -421,7 +421,7 @@ bool EditClass::Handle_Key(KeyASCIIType ascii)
 			/*
 			**	Don't add a character if the length is greater than edit width.
 			*/
-			if ((font->String_Pixel_Width(String, 0) + font->Char_Width(ascii)) >= (Width-2)) { // RA2
+			if ((font->String_Pixel_Width(String, 0) + font->Char_Width(ascii)) >= (Width - 2)) {
 				break;
 			}
 
@@ -459,7 +459,7 @@ bool EditClass::Handle_Key(KeyASCIIType ascii)
 			**	number from being returned just because the gadget has been edited.
 			*/
 			String[Length++] = ascii;
-			String[Length] = L'\0'; // RA2
+			String[Length] = L'\0';
 			Flag_To_Redraw();
 			break;
 	}
@@ -477,7 +477,7 @@ void EditClass::Set_Focus(void)
 {
 	Length = 0;
 	if (String) {
-		Length = wcslen(String); // RA2
+		Length = wcslen(String);
 	}
 	BASECLASS::Set_Focus();
 }

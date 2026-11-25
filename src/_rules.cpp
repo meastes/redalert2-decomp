@@ -22,7 +22,7 @@
 **	program's run, but may need to be referenced intermitently.
 */
 CCINIClass ArtINI;
-CCINIClass UIINI; // RA2
+CCINIClass UIINI;
 CCINIClass AIINI;
 CCINIClass EditorINI;
 CCINIClass ConfigINI;

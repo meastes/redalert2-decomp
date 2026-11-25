@@ -431,13 +431,13 @@ void Destroy_Direct_Draw(void)
 DWORD GetVideoMemory(void)
 {
 	HRESULT result;
-	DDCAPS video_capabilities;	// RA2
+	DDCAPS video_capabilities;
 	DDSURFACEDESC desc;
 	bool created = false;
 
 	if (DirectDrawObject == NULL) {
 		result = DirectDrawCreate(NULL, &DirectDrawObject, NULL);
-		Process_DD_Result(result, FALSE);	// RA2
+		Process_DD_Result(result, FALSE);
 		if (result == DD_OK) {
 			created = true;
 		} else {

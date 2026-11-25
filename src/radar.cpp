@@ -105,19 +105,19 @@
 #include "voc.h"
 #include "vox.h"
 #include "vqa.h"
-#include "audplay.h" // RA2
-#include "beacon.h" // RA2
-#include "cctooltip.h" // RA2
-#include "data.h" // RA2
-#include "multiplayer.h" // RA2
+#include "audplay.h"
+#include "beacon.h"
+#include "cctooltip.h"
+#include "data.h"
+#include "multiplayer.h"
 #include "ownrdraw.h" // RA2: the diplomacy dialog
-#include "scenario.h" // RA2
-#include "session.h" // RA2
-#include "stringtable.h" // RA2
-#include "tooltip.h" // RA2
-#include "_tooltip.h" // RA2
-#include "_zbuffer.h" // RA2
-#include "zbuffer.h" // RA2
+#include "scenario.h"
+#include "session.h"
+#include "stringtable.h"
+#include "tooltip.h"
+#include "_tooltip.h"
+#include "_zbuffer.h"
+#include "zbuffer.h"
 #include "globals.h"
 
 #define RA2_SOURCE "D:\\Ra2\\Radar.CPP"
@@ -230,7 +230,7 @@ RadarClass::RadarClass(void) :
 /// </summary>
 RadarClass::~RadarClass(void)
 {
-	MovieSound.Release(); // RA2
+	MovieSound.Release();
 	Clear_Radar();
 }
 
@@ -266,17 +266,17 @@ void RadarClass::One_Time(void)
 {
 	DebugString("RadarClass::One_Time()\n");
 	RadX = 0;
-	RadY = 16; // RA2
-	RadWidth = 48; // RA2
-	RadIHeight = 140; // RA2
-	RadPWidth = 108; // RA2
-	RadOffY = 140; // RA2
-	RadIWidth = 108; // RA2
-	RadOffX = 49; // RA2
+	RadY = 16;
+	RadWidth = 48;
+	RadIHeight = 140;
+	RadPWidth = 108;
+	RadOffY = 140;
+	RadIWidth = 108;
+	RadOffX = 49;
 
 	BASECLASS::One_Time();
 
-	RadarButton.Y = RadOffX; // RA2
+	RadarButton.Y = RadOffX;
 	RadarButton.Width = RadIHeight;
 	RadarButton.Height = RadPWidth;
 	RadarButton.Set_Flags(GadgetClass::FlagEnum(GadgetClass::FlagEnum::LEFTPRESS |
@@ -286,14 +286,14 @@ void RadarClass::One_Time(void)
 														GadgetClass::FlagEnum::RIGHTPRESS |
 														GadgetClass::FlagEnum::RIGHTRELEASE |
 														GadgetClass::FlagEnum::RIGHTUP));
-	TransmissionVoice = Vox_From_Name("EVA_IncomingTransmission"); // RA2
+	TransmissionVoice = Vox_From_Name("EVA_IncomingTransmission");
 }
 
 
 /// <summary>
 /// Frees the artwork of the two buttons beside the radar.
 /// </summary>
-void RadarClass::DisposeOfArt(void) // RA2
+void RadarClass::DisposeOfArt(void)
 {
 	if (IsBriefingButtonShapeLoaded) {
 		delete BriefingButtonShape;
@@ -330,8 +330,8 @@ void RadarClass::Init_Clear(void)
 
 	RadarState 				= RSTATE_INACTIVE;
 	RadarMode 				= RMODE_UNAVAILABLE;
-	IsMoviePlaying 			= false; // RA2
-	IsScenarioHeld 			= false; // RA2
+	IsMoviePlaying = false;
+	IsScenarioHeld = false;
 	RadarAnimFrame 			= 0;
 	DoesRadarExist 			= false;
 	IsToRedraw 				= true;
@@ -345,7 +345,7 @@ void RadarClass::Init_Clear(void)
 /// <summary>
 /// Adds or removes the two buttons beside the radar.
 /// </summary>
-void RadarClass::Set_Buttons(bool on) // RA2
+void RadarClass::Set_Buttons(bool on)
 {
 	if (on) {
 		Add_A_Button(BriefingButton);
@@ -366,7 +366,7 @@ void RadarClass::Init_For_House(void)
 	DebugString("RadarClass::Init_For_House()\n");
 	DisposeOfArt();
 
-	if (Scen->IsGDI) { // RA2
+	if (Scen->IsGDI) {
 		RadHeight = (SidebarWidth - 144) / 2 + 4;
 		BriefingButtonRect.X = RadX + 11;
 		BriefingButtonRect.Y = RadY + 4;
@@ -395,7 +395,7 @@ void RadarClass::Init_For_House(void)
 /// <summary>
 /// Sets up the two buttons beside the radar.
 /// </summary>
-void RadarClass::Init_IO(void) // RA2
+void RadarClass::Init_IO(void)
 {
 	BASECLASS::Init_IO();
 
@@ -619,7 +619,7 @@ bool RadarClass::Map_Cell(Cell const & cell, HouseClass * house)
 /// <summary>
 /// Hands the cell to the base class unchanged.
 /// </summary>
-bool RadarClass::RevealFogShroud(Cell const & cell, HouseClass * house, bool increase) // RA2
+bool RadarClass::RevealFogShroud(Cell const & cell, HouseClass * house, bool increase)
 {
 	if (BASECLASS::RevealFogShroud(cell, house, increase)) {
 		return(true);
@@ -653,7 +653,7 @@ void RadarClass::AI(KeyNumType & input, Point2D const & xy)
 {
 	BASECLASS::AI(input, xy);
 
-	int offset = Options.IsSidebarOnRight ? TacticalRect.Width : 0; // RA2
+	int offset = Options.IsSidebarOnRight ? TacticalRect.Width : 0;
 
 	Rect r1 = BriefingButtonRect;
 	r1.X += offset;
@@ -767,13 +767,13 @@ int RadarClass::RTacticalClass::Action(unsigned flags, KeyNumType & key)
 		**	If a super weapon is being aimed or there is a currently selected object, then the
 		**	action to perform if the left mouse button were clicked must be determined.
 		*/
-		ActionType action = ACTION_NONE; // RA2
-		bool multi_missile = Map.IsTargettingMode == SUPER_MULTI_MISSILE; // RA2
+		ActionType action = ACTION_NONE;
+		bool multi_missile = Map.IsTargettingMode == SUPER_MULTI_MISSILE;
 		bool iron_curtain = Map.IsTargettingMode == SUPER_IRON_CURTAIN;
 		bool lightning_storm = Map.IsTargettingMode == SUPER_LIGHTNING_STORM;
 		bool para_drop = Map.IsTargettingMode == SUPER_PARA_DROP;
 		bool amer_para_drop = Map.IsTargettingMode == SUPER_AMER_PARA_DROP;
-		bool right = (flags & (RIGHTPRESS|RIGHTRELEASE)) != 0; // RA2
+		bool right = (flags & (RIGHTPRESS | RIGHTRELEASE)) != 0;
 		if (!right && (CurrentObject.Count() || multi_missile || iron_curtain || lightning_storm || para_drop || amer_para_drop)) {
 			if (multi_missile) {
 				action = ACTION_NUKE_BOMB;
@@ -885,10 +885,10 @@ int RadarClass::RTacticalClass::Action(unsigned flags, KeyNumType & key)
 					}
 
 					Coord coord = Map[cell].Cell_Coord();
-					TacticalMap->Set_Tactical_Position(coord); // RA2
+					TacticalMap->Set_Tactical_Position(coord);
 					Map.Flag_To_Redraw(GS_REDRAW_TACTICAL);
 					if (DepthBuffer) {
-						DepthBuffer->Set_Scroll(ZBUFFER_MAX); // RA2
+						DepthBuffer->Set_Scroll(ZBUFFER_MAX);
 					}
 				}
 			}
@@ -1069,7 +1069,7 @@ void RadarClass::Reposition_Sidebar(void)
 {
 	BASECLASS::Reposition_Sidebar();
 
-	int offset = Options.IsSidebarOnRight ? TacticalRect.Width : 0; // RA2
+	int offset = Options.IsSidebarOnRight ? TacticalRect.Width : 0;
 
 	BriefingButton.DrawOffsetX = -offset;
 	BriefingButton.Set_Position(BriefingButtonRect.X + offset, BriefingButtonRect.Y);
@@ -1748,7 +1748,7 @@ void RadarClass::Plot_Radar_Pixel(Point2D const & point)
 	Coord coord = Radar_Pixel_To_Cell(point);
 	coord.Z = Map.Get_Height_GL(coord);
 	bool shadow = MainWindow && Map.Is_Shrouded(coord);
-	bool fog = MainWindow && Map.Is_Under_Fog(coord); // RA2
+	bool fog = MainWindow && Map.Is_Under_Fog(coord);
 
 	int hash = (point.X - 5 * point.Y) & 0xFF;
 	RADAR_HASH_TABLE::BucketType & bucket = RadarTrackingTable->Buckets[hash];
@@ -1823,7 +1823,7 @@ void RadarClass::Render_Tracked_Objects(void)
 
 				ColorScheme *scheme = ColorSchemes[tech->House->Scheme];
 
-				if (tech->IsDisguised()) { // RA2
+				if (tech->IsDisguised()) {
 					if (tech->GetDisguiseHouse(false) != NULL) {
 						scheme = ColorSchemes[tech->GetDisguiseHouse(false)->Scheme];
 					} else {
@@ -2450,12 +2450,12 @@ void RadarClass::Render_Radar(void)
 		PixelStack.Clear();
 
 		RadarEventClass::Draw_Events();
-		BeaconManager.Draw_On_Radar(RadarSurface, RadarSurface->Get_Rect()); // RA2
+		BeaconManager.Draw_On_Radar(RadarSurface, RadarSurface->Get_Rect());
 
 		if (is_tactical) {
 			if (FullRedraw) {
 				LastDrawRect = RadarRect;
-				Draw_Shape(*SidebarSurface, *SidebarDrawer, (ShapeSet const *)RadarAnim, 32, Point2D(RadX, RadWidth), SidebarSurface->Get_Rect()); // RA2
+				Draw_Shape(*SidebarSurface, *SidebarDrawer, (ShapeSet const *)RadarAnim, 32, Point2D(RadX, RadWidth), SidebarSurface->Get_Rect());
 			}
 
 			if (LastDrawRect.Is_Valid()) {
@@ -2492,7 +2492,7 @@ void RadarClass::Render_Radar(void)
 /// The EVA announcement plays first. Once it is done, and the other sound has faded, the
 /// radar switches over to movie mode.
 /// </summary>
-void RadarClass::Update_Transmission(void) // RA2
+void RadarClass::Update_Transmission(void)
 {
 	switch (TransmissionState) {
 		case 0:

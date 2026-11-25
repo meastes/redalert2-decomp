@@ -463,7 +463,7 @@ class BuildingClass : public TechnoClass
 		virtual void Init(void) override;
 		virtual void Detach(AbstractClass const * target, bool all) override;
 		virtual void Detach_All(bool all=true) override;
-		virtual int DistanceToDockingCoord(TechnoClass * docker) const; // RA2
+		virtual int DistanceToDockingCoord(TechnoClass * docker) const;
 		virtual void Grand_Opening(bool captured = false);
 		void Eject_Occupants(bool flag); // RA2: 0x452F50, empties a garrisoned building
 		virtual void Update_Buildables(void);
@@ -555,9 +555,9 @@ class BuildingClass : public TechnoClass
 		virtual void Do_Destruction(TechnoClass * last_contact, TechnoClass * source, bool forced, Cell const * offset);
 		virtual bool Toggle_Primary(void);
 		virtual void DisguiseDetectorActivate(Cell cell = Cell()); // RA2: my name; pairs with DisguiseDetectorDeactivate
-		virtual void SensorArrayDeactivate(Cell cell = Cell()); // RA2
-		virtual void SensorArrayActivate(Cell cell = Cell()); // RA2
-		virtual void DisguiseDetectorDeactivate(Cell cell = Cell()); // RA2
+		virtual void SensorArrayDeactivate(Cell cell = Cell());
+		virtual void SensorArrayActivate(Cell cell = Cell());
+		virtual void DisguiseDetectorDeactivate(Cell cell = Cell());
 		virtual unsigned entry_380(void); /// Returns 0. A reserved vtable slot that nothing implements.
 		void Turn_On(void);
 		void Turn_Off(void);
