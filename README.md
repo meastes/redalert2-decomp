@@ -39,6 +39,9 @@ measure; its frozen table is [docs/history/SRC_FINAL_STATUS.md](docs/history/SRC
 - **Reproduced**: the share of the program's machine code (its `.text` section) that the build
   makes from real inputs (source code, identified compiler library code, and handwritten
   assembly) instead of copying it from the original file. 100% is the finish line.
+- **Fuzzy (best draft scores)**: the figure ByteMatch shows as "Fuzzy match": each function not
+  yet exact counts at the share of its bytes its best measured draft already reproduces. It earns
+  no exact-match credit; [docs/STATUS.md](docs/STATUS.md) carries it.
 - **Matched exactly**: a function counts only when the compiler, given its recovered source,
   emits exactly the original bytes.
 - **Non-exact draft**: a readable best attempt at a function that does not yet compile to the

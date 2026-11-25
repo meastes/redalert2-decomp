@@ -388,6 +388,10 @@ def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, reposi
              '| Reproduced .text (both trees: C/C++ body + evidenced inline asm + frozen padding + linked library '
              'members + assembled handwritten asm, the six lines below) | {} ({:,} B) | {} |'.format(
                  pct(reproduced), reproduced, repro_cell),
+             '| Fuzzy (best draft scores): ByteMatch\'s fuzzy match, in-scope C/C++ bytes with each function not exact '
+             'counted at its best measured draft score against its image-derived bound, (body - differing) / body; no '
+             'exact-match credit (bytematch_report.py; progress.csv fuzzy_best_draft) | | {} |'.format(
+                 fuzzy_cell(r, repository)),
              '| C/C++ bodies matched (body bytes: no padding, no evidenced inline asm; the parity line) | {:,} B, {} '
              '| {} |'.format(main['body'], pct(main['body']), body_cell),
              '| Evidenced inline assembly (cited TibSun `__asm`; not C/C++ credit) | {:,} B | {:,} B in {:,} rows '
@@ -445,6 +449,22 @@ def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, reposi
                   '| Rebuild asm bytes not yet flagged (main flags them; header-template attribution to fix) | | {:,} '
                   'rows / {:,} B |'.format(int(r.get('asm_unflagged_rows') or 0), int(r.get('asm_unflagged_bytes') or 0))]
     return [rebuild_first(line) for line in lines] + ['']
+
+
+def fuzzy_cell(row, repository=REPOSITORY):
+    """STATUS's fuzzy (best draft scores) cell: the last gated landing's progress.csv fuzzy_best_draft, else the
+    figure measured now from the checkout (bytematch_report.fuzzy_figure), else a placeholder."""
+    if row.get('fuzzy_best_draft'):
+        return 'fuzzy (best draft scores): **{}**'.format(row['fuzzy_best_draft'])
+    try:
+        import bytematch_report
+        value = bytematch_report.fuzzy_figure(Path(repository))
+    except (OSError, ValueError, KeyError, SystemExit):
+        value = None
+    if value is None:
+        return 'from the next gated landing'
+    return 'fuzzy (best draft scores): **{:.2f}%** (measured from the checkout; progress.csv from the next gated ' \
+           'landing)'.format(value)
 
 
 def rebuild_first(line):

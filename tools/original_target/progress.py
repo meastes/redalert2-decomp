@@ -14,6 +14,14 @@ _asm_rows = json.load(open(R.ROOT / 'manifests/assembly.json'))['regions']
 REVISED = sum(r['bytes'] for r in _asm_rows if r.get('revised'))
 ASSEMBLY = sum(r['bytes'] for r in _asm_rows) - REVISED
 cat = catalog_io.load(R.MANIFEST / 'catalog')
+
+
+def _fuzzy():
+    import bytematch_report
+    value = bytematch_report.fuzzy_figure(R.ROOT)
+    return '' if value is None else '%.3f%%' % value
+
+
 prov = {r['entry']: r['class'] for r in csv.DictReader(open(R.MANIFEST / 'provenance.csv'))}
 split = {k: [0, 0] for k in 'abc'}
 workers_path = R.MANIFEST / 'workers.csv'
@@ -131,6 +139,9 @@ line.update(duplicates=m['duplicates'], externs_landed=ext_landed, externs_all=m
             soft_free_function_level_functions=m['soft_free_function_rows'],
             soft_free_function_level_c_body_bytes=m['soft_free_function_source_bytes'],
             soft_free_function_level_source_share_of_text='%.3f%%' % (100.0 * m['soft_free_function_source_bytes'] / TEXT),
+            # Fuzzy, best draft scores (lane O90, user 2026-11-25): ByteMatch's whole-project fuzzy_match_percent, every
+            # in-scope function not exact at its best measured draft score (bytematch_report.py), its own series.
+            fuzzy_best_draft=_fuzzy(),
             tree='rebuild-trial')
 path = R.MANIFEST / 'progress.csv'
 rows = list(csv.DictReader(open(path))) if path.exists() else []
@@ -154,6 +165,11 @@ if not any(r.get('revised_assembly_bytes') for r in rows):
         'lane O73): six ra2-decomp src/ra2asm procedures, %s B, in revised_assembly_bytes and in reproduced_text and '
         'function_level_reproduced_text (both trees); assembly_bytes stays the archive text; the C/C++ columns do not '
         'move' % format(REVISED, ','))) if n)
+# Lane O90 (2026-11-25): the fuzzy (best draft scores) column starts; a new series, no other column moves.
+if not any(r.get('fuzzy_best_draft') for r in rows):
+    line['note'] = '; '.join(n for n in (line['note'], (
+        'new series fuzzy_best_draft (lane O90): ByteMatch\'s fuzzy figure, each in-scope function not exact at its '
+        'best measured draft score against its image-derived bound; empty on earlier rows; no other column moves')) if n)
 rows.append({k: str(v) for k, v in line.items()})
 with open(path, 'w', newline='') as f:
     w = csv.DictWriter(f, fieldnames=list(line), restval=''); w.writeheader(); w.writerows(rows)

@@ -12,10 +12,19 @@ runtime, handwritten-assembly ranges, evidenced inline-asm regions and known fal
 procedures count as matched, as they do in the treemap.
 
 One unit per unit of the tree (manifests/units.json, source src/<unit>.cpp); in-scope functions in no
-unit go to unplaced/<treemap group>. Matched = catalogued in manifests/catalog. Others carry the tree's
-own recorded score: the unit's last check (build/r/last/<unit>.json, only when it is of the current
-source) or units.json parked_rows best_differing; count-sensitive rows are not matched. Library and
-handwritten assembly stay out of scope.
+unit go to unplaced/<treemap group>. Matched = catalogued in manifests/catalog; count-sensitive rows are not
+matched. Library and handwritten assembly stay out of scope.
+
+Fuzzy (lane O90, user 2026-11-25: "ByteMatch supports fuzzy match so we should report that number too"): each
+function not exact carries fuzzy_match_percent = (body bytes - differing bytes) / body bytes, clamped to [0, 100],
+from its best measured draft, the first that applies: the unit's last check of its current source
+(build/r/last/<unit>.json); the measured "N of M bytes differ" of its RA2_NON_MATCHING guard label; units.json
+parked_rows best_differing; a last check of an older source (marked so); else 0 (no draft, or no measurement).
+Only counts measured against the function's image-derived bound (its units.json row, else image_bounds.csv) are
+used; a draft with no bound scores 0. Units, categories and the whole report weight it by bytes, so the
+project's figure is ByteMatch's "Fuzzy match" and STATUS's "fuzzy (best draft scores)" line (progress.csv
+fuzzy_best_draft). Where each function's score came from is written beside the report
+(<report>-fuzzy-sources.json, not uploaded).
 
 The in-scope function set and byte denominator are src-final's, so the series stays comparable: the
 frozen treemap (build/treemap.json, written by treemap.py at src-final) and the in-scope row of
@@ -193,31 +202,164 @@ def assemble(units):
     return dict(measures=wire(total), units=[u['unit'] for u in units], version=2, categories=categories), total
 
 
+GUARD = re.compile(r'^#ifdef RA2_NON_MATCHING\b[^\n]*', re.M)
+DEF = re.compile(r'^[A-Za-z_][^\n;{}()]*?\b((?:[A-Za-z_]\w*::)*~?[A-Za-z_]\w*|operator\s*[^\s(]+)\s*\(', re.M)
+# Where a fuzzy score came from, best first (lane O90, user 2026-11-25: "ByteMatch supports fuzzy match so we should
+# report that number too"). Every score is a measured count of differing bytes against the function's
+# image-derived bound (its units.json row, or image_bounds.csv for a function with no row yet).
+SOURCES = ('check', 'label', 'parked', 'check (older source)', 'none')
+
+
+def fuzzy_percent(body, differing):
+    """ByteMatch's fuzzy_match_percent of one function: (body bytes - differing bytes) / body bytes, clamped to
+    [0, 100]. `differing` is rebuild.compare's count (bytes that differ by position plus the length difference);
+    a function with no bound (body 0 or None) or no measurement (differing None) scores 0."""
+    if not body or body <= 0 or differing is None:
+        return 0.0
+    return max(0.0, min(100.0, 100.0 * (body - differing) / body))
+
+
+def label_differing(label):
+    """(differing bytes, [bounds the label states]) of an RA2_NON_MATCHING guard label, or (None, []).
+    A count "by position" (rebuild.compare's measure) wins over an instruction-aligned one in the same label."""
+    found = re.search(r'\((\d[\d,]*) by position\b', label) or \
+        re.search(r'(\d[\d,]*) (?:of \d[\d,]* )?bytes differ', label)
+    if not found:
+        return None, []
+    stated = []
+    for pattern in (r'(?:\d[\d,]*) of (\d[\d,]*) bytes differ', r'bound[^()]{0,30}\((\d[\d,]*) (?:body bytes|B)\b',
+                    r'(\d[\d,]*) body bytes', r'(\d[\d,]*)-byte (?:original )?body', r', (\d[\d,]*)\+\d+, in image_bounds'):
+        stated += [int(m.replace(',', '')) for m in re.findall(pattern, label)]
+    return int(found.group(1).replace(',', '')), stated
+
+
+def guards(text):
+    """[(label, guarded text)] of every RA2_NON_MATCHING block of a source file (nested #if blocks kept inside)."""
+    out = []
+    for m in GUARD.finditer(text):
+        depth = 0
+        for line in re.finditer(r'^[ \t]*#[ \t]*(if|ifdef|ifndef|endif)\b[^\n]*', text[m.start():], re.M):
+            if line.group(1).startswith('if'):
+                depth += 1
+            else:
+                depth -= 1
+                if depth == 0:
+                    out.append((m.group(0), text[m.end():m.start() + line.start()]))
+                    break
+    return out
+
+
+def guard_entry(label, body, rows, bounded):
+    """The entry a guarded draft is measured at: an address the label names as the bound ("bound 00535bf0",
+    "differ at 005c3ff0", "(00445520 has no row)") when it is a row or an image-derived bound; else the first
+    function defined in the block (helpers set apart) whose name is one of `rows` (the unit's rows and its queued
+    functions with no row: dicts with 'entry' and 'symbol'); else a "RA2: 0x..." line near the top of the block.
+    None when none applies. Other addresses in a label (callees, sibling rows) never place it."""
+    from guard import demangle
+    for found in re.finditer(r'bound (?:0x)?([0-9A-Fa-f]{8})\b|differ at (?:0x)?([0-9A-Fa-f]{8})\b|'
+                             r'\(([0-9a-f]{8}) has no row\)', label):
+        entry = int(next(g for g in found.groups() if g), 16)
+        if entry in bounded:
+            return entry
+    names = {}
+    for row in rows:
+        q = demangle(row['symbol']) or row['symbol']
+        names.setdefault(q, int(row['entry'], 16))
+        names.setdefault(q.split('::')[-1], int(row['entry'], 16))
+    defs = []
+    for fm in list(DEF.finditer(body)) + list(re.finditer(r'^[ \t]*STDMETHOD_?\(\s*(?:\w+\s*,\s*)?(\w+)\)\s*\(', body, re.M)):
+        line = body[fm.start():body.find('\n', fm.end()) if '\n' in body[fm.end():] else len(body)]
+        if re.sub(r'//.*', '', line).rstrip().endswith(';'):
+            continue
+        defs.append((fm.group(1), bool(re.match(r'\s*((static\s+)?inline\b|static\b)', line))))
+    for name, helper in sorted(defs, key=lambda d: d[1]):
+        entry = names.get(name, names.get(name.split('::')[-1]))
+        if entry is not None:
+            return entry
+    found = re.search(r'RA2: 0x([0-9A-Fa-f]{6,8})', body[:400])
+    if found and int(found.group(1), 16) in bounded:
+        return int(found.group(1), 16)
+    return None
+
+
+def guard_scores(worktree, units, bounds):
+    """{entry: differing} from the guard labels of the tree's sources: a label's count is used only when the
+    function has an image-derived bound and every bound the label states is that bound; a label that states no
+    bound counts only for a function with a units.json row (the tree's checks compare against the row's bound)."""
+    import csv
+    queued = defaultdict(list)                    # functions with no row yet, by unit (named by nodraft_queue.py)
+    queue = worktree / 'manifests/no_draft_queue.csv'
+    for r in (csv.DictReader(open(queue, encoding='utf-8', errors='replace')) if queue.exists() else []):
+        if r.get('entry') and r.get('symbol'):
+            queued[r['unit']].append(dict(entry=r['entry'], symbol=r['symbol']))
+    out = {}
+    for unit, info in units.items():
+        source = worktree / info['source']
+        if not source.exists():
+            continue
+        row_entries = {int(r['entry'], 16) for r in info['rows']}
+        for label, body in guards(source.read_text(encoding='latin-1')):
+            differing, stated = label_differing(label)
+            if differing is None:
+                continue
+            entry = guard_entry(label, body, info['rows'] + queued[unit], bounds)
+            if entry is None or entry not in bounds:
+                continue
+            if stated and bounds[entry] not in stated:
+                continue                  # measured against another extent (main's map, a candidate's size)
+            if not stated and entry not in row_entries and not re.search(r'image.?(?:derived )?bound|image_bounds', label):
+                continue
+            out[entry] = min(differing, out.get(entry, differing))
+    return out
+
+
 def rebuild_scores(worktree):
-    """(unit of each entry, recorded score of each entry, count-sensitive entries) from the rebuild's
-    units.json and its last checks. A last check counts only when it is of the unit's current source."""
+    """(unit of each entry, {entry: (fuzzy percent, source)}, count-sensitive entries) from the tree's units.json,
+    its last checks (build/r/last) and its guard labels. Per function, the first that applies (SOURCES): the
+    unit's last check of its current source; the guard label's measured count; units.json parked_rows
+    best_differing; a last check of an older source of the unit (marked so); else 0. Each only when measured
+    against the function's image-derived bound (units.json row body, else image_bounds.csv)."""
+    import csv
     units = json.loads((worktree / 'manifests/units.json').read_text())
-    owner, score, sensitive = {}, {}, set()
+    owner, sensitive, bounds = {}, set(), {}
+    image = worktree / 'manifests/image_bounds.csv'
+    for r in (csv.DictReader(open(image)) if image.exists() else []):
+        if r['status'] == 'bound':
+            bounds[int(r['entry'], 16)] = int(r['body_bytes'])
     for unit, info in units.items():
         for row in info['rows']:
             owner[int(row['entry'], 16)] = unit
+            bounds[int(row['entry'], 16)] = row['body']
         sensitive |= {int(e, 16) for e in info.get('count_sensitive') or {}}
-        for row in info.get('parked_rows') or []:
-            if row.get('best_differing') is not None and row.get('body'):
-                score[int(row['entry'], 16)] = 100.0 * max(0, row['body'] - row['best_differing']) / row['body']
+    current, older = {}, {}
+    for unit, info in units.items():
         last_path = worktree / 'build/r/last' / (unit + '.json')
         source = worktree / info['source']
         if not last_path.exists() or not source.exists():
             continue
         last = json.loads(last_path.read_text())
-        if last.get('source_sha256') != hashlib.sha256(source.read_bytes()).hexdigest():
-            continue
+        into = current if last.get('source_sha256') == hashlib.sha256(source.read_bytes()).hexdigest() else older
         for r in last['results']:
             entry = int(r['entry'], 16)
+            if r.get('body') != bounds.get(entry):
+                continue
             if r['status'] == 'exact':
-                score[entry] = 100.0
-            elif r['status'] == 'differs' and r.get('size'):
-                score[entry] = max(score.get(entry, 0.0), 100.0 * max(0, r['size'] - r['differing']) / r['size'])
+                into[entry] = 0
+            elif r['status'] == 'differs' and r.get('differing') is not None:
+                into[entry] = r['differing']
+    labels = guard_scores(worktree, units, bounds)
+    parked = {}
+    for unit, info in units.items():
+        for row in info.get('parked_rows') or []:
+            entry = int(row['entry'], 16)
+            if row.get('best_differing') is not None and row.get('body') and row['body'] == bounds.get(entry):
+                parked[entry] = row['best_differing']
+    score = {}
+    for entry in set(current) | set(labels) | set(parked) | set(older):
+        for name, found in zip(SOURCES, (current, labels, parked, older)):
+            if entry in found:
+                score[entry] = (fuzzy_percent(bounds[entry], found[entry]), name)
+                break
     return units, owner, score, sensitive
 
 
@@ -233,7 +375,7 @@ def build_rebuild(treemap, worktree):
         unit = owner.get(r['entry'])
         groups[('rebuild', unit) if unit else ('unplaced', r['group'])].append(r)
     is_exact = lambda r: r['entry'] in accepted and r['entry'] not in sensitive  # noqa: E731
-    score_of = lambda r: score.get(r['entry'], 0.0)  # noqa: E731
+    score_of = lambda r: score.get(r['entry'], (0.0, 'none'))[0]  # noqa: E731
     units = []
     for (kind, key), group_rows in sorted(groups.items()):
         group_rows.sort(key=lambda r: r['entry'])
@@ -254,7 +396,27 @@ def build_rebuild(treemap, worktree):
                   and r['entry'] not in false_rows and r['entry'] not in sensitive
                   and r['entry'] not in main_asm)
     units.append(reconcile(units, matched))
-    return assemble(units)
+    # Where each in-scope function that is not exact took its fuzzy score from (not uploaded; the report's
+    # sidecar and the print line).
+    sources = []
+    for r in rows:
+        if not is_exact(r):
+            pct, name = score.get(r['entry'], (0.0, 'none'))
+            sources.append(dict(entry='%08x' % r['entry'], name=r['name'] or '', bytes=r['bytes'],
+                                fuzzy=round(pct, 3), source=name))
+    report, total = assemble(units)
+    return report, total, sources
+
+
+def fuzzy_figure(worktree=REPOSITORY, treemap=None):
+    """The tree's fuzzy figure (ByteMatch's whole-project fuzzy_match_percent, best draft scores) for STATUS and
+    progress.csv, or None when the frozen treemap is missing."""
+    path = Path(treemap or Path(worktree) / 'build/treemap.json')
+    if not path.exists():
+        path = REPOSITORY / 'build/treemap.json'
+    if not path.exists():
+        return None
+    return build_rebuild(json.loads(path.read_text()), Path(worktree))[1]['fuzzy_match_percent']
 
 
 def main():
@@ -272,10 +434,17 @@ def main():
     treemap = json.loads(args.treemap.read_text())
     if not treemap:
         sys.exit('empty treemap: regenerate it with treemap.py --json build/treemap.json')
-    report, total = build_rebuild(treemap, args.worktree)
+    report, total, sources = build_rebuild(treemap, args.worktree)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     data = json.dumps(report, separators=(',', ':')).encode()
     args.out.write_bytes(data)
+    args.out.with_name(args.out.stem + '-fuzzy-sources.json').write_text(json.dumps(sources, indent=1) + '\n')
+    by = Counter()
+    for s in sources:
+        by[s['source'], 'n'] += 1
+        by[s['source'], 'b'] += s['bytes']
+    print('fuzzy sources of the %d functions not exact: %s' % (len(sources), '; '.join(
+        '%s %d / %d B' % (name, by[name, 'n'], by[name, 'b']) for name in SOURCES if by[name, 'n'])))
     print('%s: %d units, %d/%d functions, %d/%d code bytes (%.2f%%), fuzzy %.2f%%' % (
         args.out, total['total_units'], total['matched_functions'], total['total_functions'],
         total['matched_code'], total['total_code'], total['matched_code_percent'], total['fuzzy_match_percent']))
