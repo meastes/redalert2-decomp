@@ -1,5 +1,5 @@
-"""job_control.py, gate_scope.py and native_gate.py (lane P1): stage timings, the full-build lock,
-the heavy-job slots, the gate split and the native gate's receipt parsing."""
+"""job_control.py and gate_scope.py (lane P1): stage timings, the full-build lock,
+the heavy-job slots and the gate split (one tree since lane O88, 2026-11-25)."""
 import json
 import os
 import pathlib
@@ -15,7 +15,6 @@ TOOLS = pathlib.Path(__file__).resolve().parents[1] / 'tools' / 'original_target
 sys.path.insert(0, str(TOOLS))
 import gate_scope
 import job_control
-import native_gate
 
 
 class StagesTests(unittest.TestCase):
@@ -147,23 +146,20 @@ class HeavySlotTests(unittest.TestCase):
 
 class GateScopeTests(unittest.TestCase):
     def test_classify(self):
-        self.assertEqual(gate_scope.scope(['native/platform/sdl/main.cpp', 'docs/HANDOFF.md']), 'native')
-        self.assertEqual(gate_scope.scope(['native/CMakeLists.txt', 'src/recovered/a.cpp']), 'frozen')
-        self.assertEqual(gate_scope.scope(['native/CMakeLists.txt', 'build.command']), 'exact')
+        self.assertEqual(gate_scope.scope(['build.command']), 'exact')
         self.assertEqual(gate_scope.scope(['tools/original_target/build.py']), 'exact')
         self.assertEqual(gate_scope.scope(['manifests/original_target/index.json']), 'frozen')
-        self.assertEqual(gate_scope.scope(['rebuild/src/facing.cpp', 'src/shared/x.hpp']), 'frozen')
-        self.assertEqual(gate_scope.classify('src/recovered/a.cpp'), 'frozen')
+        self.assertEqual(gate_scope.scope(['src/facing.cpp', 'manifests/original_target/index.json']), 'frozen')
         self.assertEqual(gate_scope.classify('manifests/toolchain.json'), 'exact')
+        self.assertEqual(gate_scope.classify('include/facing.h'), 'exact')
         self.assertEqual(gate_scope.scope(['docs/STATUS.md', 'AGENTS.md']), 'none')
         self.assertEqual(gate_scope.scope([]), 'none')
-        self.assertEqual(gate_scope.scope(['rebuild/src/facing.cpp', 'docs/STATUS.md']), 'rebuild')
-        self.assertEqual(gate_scope.scope(['rebuild/src/facing.cpp', 'native/x.cpp']), 'native')
-        self.assertEqual(gate_scope.scope(['rebuild/src/facing.cpp', 'tools/original_target/canonical.py']), 'exact')
+        self.assertEqual(gate_scope.scope(['src/facing.cpp', 'docs/STATUS.md']), 'exact')
+        self.assertEqual(gate_scope.scope(['src/facing.cpp', 'tools/original_target/canonical.py']), 'exact')
         self.assertTrue(gate_scope.rebuild_gate(['tools/original_target/canonical.py']))
-        self.assertTrue(gate_scope.rebuild_gate(['manifests/toolchain.json']))
-        self.assertTrue(gate_scope.rebuild_gate(['rebuild/manifest/units.json']))
-        self.assertFalse(gate_scope.rebuild_gate(['src/recovered/a.cpp', 'manifests/original_target/index.json']))
+        self.assertTrue(gate_scope.rebuild_gate(['manifests/units.json']))
+        self.assertFalse(gate_scope.rebuild_gate(['docs/HANDOFF.md']))
+        self.assertFalse(gate_scope.rebuild_gate(['manifests/original_target/index.json']))
 
     def test_changed_paths_and_resting_receipt(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -185,30 +181,6 @@ class GateScopeTests(unittest.TestCase):
                     dict(commit=git('rev-parse', 'HEAD'), whole_file_exact=False, time_utc='t3', gate='g')]
             (repo / 'build/whole-file-receipts.jsonl').write_text(''.join(json.dumps(r) + '\n' for r in rows))
             self.assertEqual(gate_scope.resting_receipt(repo)['commit'], base)
-
-
-class NativeGateParsingTests(unittest.TestCase):
-    def test_junit_and_ninja_log(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            tmp = pathlib.Path(tmp)
-            (tmp / 'r.xml').write_text('<testsuite><testcase name="a" time="1.5" status="run"/>'
-                                       '<testcase name="b" time="0.2"><failure/></testcase></testsuite>')
-            self.assertEqual(native_gate.junit_tests(tmp / 'r.xml'),
-                             [dict(name='a', seconds=1.5, status='run'), dict(name='b', seconds=0.2, status='failed')])
-            old = '# ninja log v5\n0\t100\t0\told.o\t1\n'
-            (tmp / '.ninja_log').write_text(old + '10\t4000\t0\ta.o\t2\n20\t1020\t0\tb.o\t3\n')
-            self.assertEqual(native_gate.ninja_steps(tmp)['steps'], 3)
-            self.assertEqual(native_gate.ninja_steps(tmp, 10 ** 6)['steps'], 3)     # recompacted: whole log
-            steps = native_gate.ninja_steps(tmp, len(old))
-            self.assertEqual(steps['steps'], 2)
-            self.assertEqual(steps['slowest'][0], dict(output='a.o', seconds=4.0))
-            self.assertEqual(native_gate.link_closure('x link-closure baseline: 12 undefined (baseline 12) ok'), 12)
-
-    def test_unconfigured_folder_refuses(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            receipt = native_gate.gate(pathlib.Path(tmp) / 'none', pathlib.Path(tmp) / 'logs')
-            self.assertFalse(receipt['ok'])
-            self.assertIn('not a configured native build', receipt['reason'])
 
 
 class GateConfigTests(unittest.TestCase):

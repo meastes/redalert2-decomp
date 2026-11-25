@@ -1,0 +1,1123 @@
+{
+  "id": "rebuild--rtti",
+  "population": {
+    "id": "rebuild--rtti",
+    "inventory_sha256": "f7e6938ba82b1f58a6e5486fe53182de54c1b304fd41b687eb5cbdb73ee90ae6",
+    "gaps_sha256": "a43c0adcad57c084b13d02132384d05b3018efaa756c5aa525cff7d2a756ccb6",
+    "historical_population_sha256": "798157b72ef6b1c4f43aaa4c30a1e1c21699d0f0fc67b671b4981e1741ecdbed",
+    "historical_acceptance_sha256": "6be0ed2ad91efb03a6c64858b008eb37f9c7924e4a4dea66e6b4ca3ad863a41b"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 8623728,
+    "_ISO_TILE_SIZE": 7973568,
+    "_LEPTONS_PER_PIXEL": 8623800,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 8623784,
+    "_ONE_RAD": 7973576,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 8623776,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 8623736,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 8623696,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 8623808,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 8623744,
+    "_CELL_DIAG_SLOPE_ANGLE": 8623768,
+    "_BRIDGE_LEPTON_HEIGHT": 8623792,
+    "_CELL_NONE": 8623720,
+    "_COORD_NONE": 8623752,
+    "_RECT_NONE": 8623704,
+    "?RTTIs@@3PAU__unnamed@@A": 8182136,
+    "_UNKNOWN_RTTI_NAME": 8182704,
+    "_stricmp": 7872288,
+    "??_C@_07GEO@RadSite?$AA@": 8182712,
+    "??_C@_08PLCG@Temporal?$AA@": 8182720,
+    "??_C@_04NDCH@Bomb?$AA@": 8182732,
+    "??_C@_08KJEC@Parasite?$AA@": 8182740,
+    "??_C@_0P@DJPK@CaptureManager?$AA@": 8182752,
+    "??_C@_0N@NKOL@SpawnManager?$AA@": 8182768,
+    "??_C@_08KEPL@NavyType?$AA@": 8182784,
+    "??_C@_0BA@MBGF@VeinholeMonster?$AA@": 8182796,
+    "??_C@_0L@DBJI@AlphaShape?$AA@": 8182812,
+    "??_C@_0N@COBG@FoggedObject?$AA@": 8182824,
+    "??_C@_06DLFO@Neuron?$AA@": 8182840,
+    "??_C@_0O@HJOM@AITriggerType?$AA@": 8182848,
+    "??_C@_09OAII@AITrigger?$AA@": 8182864,
+    "??_C@_0M@BHND@SuperWeapon?$AA@": 8182876,
+    "??_C@_0M@IMEL@TacticalMap?$AA@": 8182888,
+    "??_C@_07OBKE@EMPulse?$AA@": 8182900,
+    "??_C@_0M@FBHN@LightSource?$AA@": 8182908,
+    "??_C@_04MNPM@Tube?$AA@": 8182920,
+    "??_C@_08BKIC@Abstract?$AA@": 8182928,
+    "??_C@_08PLKM@Waypoint?$AA@": 8182940,
+    "??_C@_0M@FIJD@WarheadType?$AA@": 8182952,
+    "??_C@_0L@GMMI@WeaponType?$AA@": 8182964,
+    "??_C@_05MJIN@Event?$AA@": 8182976,
+    "??_C@_06NMFG@Action?$AA@": 8182984,
+    "??_C@_08EAIC@Tiberium?$AA@": 8182992,
+    "??_C@_07IACC@TagType?$AA@": 8183004,
+    "??_C@_03CHAC@Tag?$AA@": 8183012,
+    "??_C@_04PLDJ@Wave?$AA@": 8183016,
+    "??_C@_0O@EIKO@VoxelAnimType?$AA@": 8183024,
+    "??_C@_09EAIE@VoxelAnim?$AA@": 8183040,
+    "??_C@_08DMKJ@UnitType?$AA@": 8183052,
+    "??_C@_0M@LOG@TriggerType?$AA@": 8183064,
+    "??_C@_07LCDE@Trigger?$AA@": 8183076,
+    "??_C@_0M@FNPN@TerrainType?$AA@": 8183084,
+    "??_C@_07FCGA@Terrain?$AA@": 8183096,
+    "??_C@_08HNMP@TeamType?$AA@": 8183104,
+    "??_C@_04IDNB@Team?$AA@": 8183116,
+    "??_C@_09MNJN@TaskForce?$AA@": 8183124,
+    "??_C@_0BA@GBAN@SuperWeaponType?$AA@": 8183136,
+    "??_C@_07GALJ@Special?$AA@": 8183152,
+    "??_C@_0L@PMJL@SmudgeType?$AA@": 8183160,
+    "??_C@_06NNBP@Smudge?$AA@": 8183172,
+    "??_C@_04LJDI@Side?$AA@": 8183180,
+    "??_C@_0L@GLNP@ScriptType?$AA@": 8183188,
+    "??_C@_06GELG@Script?$AA@": 8183200,
+    "??_C@_0BD@KHGN@ParticleSystemType?$AA@": 8183208,
+    "??_C@_0P@DEGM@ParticleSystem?$AA@": 8183228,
+    "??_C@_0N@PKDJ@ParticleType?$AA@": 8183244,
+    "??_C@_08FFNH@Particle?$AA@": 8183260,
+    "??_C@_0M@LGDH@OverlayType?$AA@": 8183272,
+    "??_C@_07PJFM@Overlay?$AA@": 8183284,
+    "??_C@_05DOFP@Light?$AA@": 8183292,
+    "??_C@_0M@CGOC@IsotileType?$AA@": 8183300,
+    "??_C@_07PHAB@Isotile?$AA@": 8183312,
+    "??_C@_0N@BKGL@InfantryType?$AA@": 8183320,
+    "??_C@_08NHGF@Infantry?$AA@": 8183336,
+    "??_C@_09HKIL@HouseType?$AA@": 8183348,
+    "??_C@_05DIE@House?$AA@": 8183360,
+    "??_C@_07KJFI@Factory?$AA@": 8183368,
+    "??_C@_04HPIN@Cell?$AA@": 8183376,
+    "??_C@_08KLBJ@Campaign?$AA@": 8183384,
+    "??_C@_0L@MPJA@BulletType?$AA@": 8183396,
+    "??_C@_06PFCG@Bullet?$AA@": 8183408,
+    "??_C@_0N@LCFI@BuildingType?$AA@": 8183416,
+    "??_C@_08IIJK@Building?$AA@": 8183432,
+    "??_C@_08DNKA@AnimType?$AA@": 8183444,
+    "??_C@_04LFDA@Anim?$AA@": 8183456,
+    "??_C@_0N@BEIL@AircraftType?$AA@": 8183464,
+    "??_C@_08KGJO@Aircraft?$AA@": 8183480,
+    "??_C@_04CCAG@Unit?$AA@": 8183492,
+    "??_C@_06CPHF@?$DMnone?$DO?$AA@": 8183500,
+    "_$E2": 4249968,
+    "_$E5": 4250016,
+    "_$E8": 4250048,
+    "_$E11": 4250080,
+    "_$E14": 4250112,
+    "_$E17": 4250144,
+    "_$E20": 4250176,
+    "_$E23": 4250240,
+    "_$E26": 4250288,
+    "_$E29": 4250336,
+    "_$E32": 4250384,
+    "_$E35": 4250400,
+    "_$E38": 4250432,
+    "?Name_From_RTTI@@YIPBDW4RTTIType@@@Z": 4250464,
+    "?RTTI_From_Name@@YI?AW4RTTIType@@PBD@Z": 4250512,
+    "?Dynamic_Cast@@YIPBVTechnoClass@@PBVAbstractClass@@@Z": 4250576,
+    "?Dynamic_Cast@@YIPAVTechnoClass@@PAVAbstractClass@@@Z": 4250656
+  },
+  "regions": [
+    {
+      "entry": 4249968,
+      "method": "0040d970",
+      "body_bytes": 40,
+      "body_sha256": "599c7c3a4e8dbc6ee276876b7b90def6e964d8ea2125f7f61acd74ee92d70e69",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "bcd403883a68553fa1b38d0fee6a7ccd6b258b186d4bebbc96050a46e09305f3",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 3622959
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 707202
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8623728,
+          "addend": 0,
+          "resolved": 8623728
+        }
+      ],
+      "source_sha256": "8691a3d117977549da0f33d4fffe0e1e872a30e38072a963563570c051744d57",
+      "source": "src/_rtti.cpp",
+      "population": "rebuild--rtti",
+      "source_order": 4249968,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4250016,
+      "method": "0040d9a0",
+      "body_bytes": 19,
+      "body_sha256": "2ecf1d07dee520289dc3dc5c8758bebf40971473c80879a5aaf4d9666cec1d39",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "e0bff9e6c849016dee15e8ee288bd454ea0241319471f2a7c56d17472cd76d1e",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8623728,
+          "addend": 0,
+          "resolved": 8623728
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 7973568,
+          "addend": 0,
+          "resolved": 7973568
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 8623800,
+          "addend": 0,
+          "resolved": 8623800
+        }
+      ],
+      "source_sha256": "8691a3d117977549da0f33d4fffe0e1e872a30e38072a963563570c051744d57",
+      "source": "src/_rtti.cpp",
+      "population": "rebuild--rtti",
+      "source_order": 4250016,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4250048,
+      "method": "0040d9c0",
+      "body_bytes": 19,
+      "body_sha256": "3d72371132958785daa8533dccbe55671bf15cb8e4aa6c36365709200e38a0c4",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "9ec4c835b49b993cc8b5367706c37ee3e8d03ff129e1ed8841ebab798fbe3bd0",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 8623800,
+          "addend": 0,
+          "resolved": 8623800
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 8623784,
+          "addend": 0,
+          "resolved": 8623784
+        }
+      ],
+      "source_sha256": "8691a3d117977549da0f33d4fffe0e1e872a30e38072a963563570c051744d57",
+      "source": "src/_rtti.cpp",
+      "population": "rebuild--rtti",
+      "source_order": 4250048,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4250080,
+      "method": "0040d9e0",
+      "body_bytes": 19,
+      "body_sha256": "65440d35132866f05822e233cd9b2f3dd38bf7537a5661d17a731c65c4279bfe",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "87bcaf8e648282a34e82735456563af4a68ebb240d638d44007ad8bd7721ece4",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7973576,
+          "addend": 0,
+          "resolved": 7973576
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 8623776,
+          "addend": 0,
+          "resolved": 8623776
+        }
+      ],
+      "source_sha256": "8691a3d117977549da0f33d4fffe0e1e872a30e38072a963563570c051744d57",
+      "source": "src/_rtti.cpp",
+      "population": "rebuild--rtti",
+      "source_order": 4250080,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4250112,
+      "method": "0040da00",
+      "body_bytes": 19,
+      "body_sha256": "a690409430faa191523971d179cfa6b9f2a232e38ce7e5e0941e9c775729a405",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "7c1633f277b8a54046b2fef0f1101246f8aa9254ea95297b098089e26ac61ef9",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7973576,
+          "addend": 0,
+          "resolved": 7973576
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 8623736,
+          "addend": 0,
+          "resolved": 8623736
+        }
+      ],
+      "source_sha256": "8691a3d117977549da0f33d4fffe0e1e872a30e38072a963563570c051744d57",
+      "source": "src/_rtti.cpp",
+      "population": "rebuild--rtti",
+      "source_order": 4250112,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4250144,
+      "method": "0040da20",
+      "body_bytes": 19,
+      "body_sha256": "9f595cad59d4a80a1583fce2515f6e063e17f8832ebe6b112a118d66fc2c4e43",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "9df106911b406dd2c8cda1968990bd287f418fee5852a8f96c0840e96cc9e479",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7973576,
+          "addend": 0,
+          "resolved": 7973576
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 8623696,
+          "addend": 0,
+          "resolved": 8623696
+        }
+      ],
+      "source_sha256": "8691a3d117977549da0f33d4fffe0e1e872a30e38072a963563570c051744d57",
+      "source": "src/_rtti.cpp",
+      "population": "rebuild--rtti",
+      "source_order": 4250144,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4250176,
+      "method": "0040da40",
+      "body_bytes": 49,
+      "body_sha256": "893b5e366498dddfc724dc533fd81596aa74bc1044af2f44deeb357804d07fa0",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "3ec7d98f54af9d4e6decce4be1801dbd179d48dfc5859cc718eca7d263d680e6",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 8623696,
+          "addend": 0,
+          "resolved": 8623696
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 8623736,
+          "addend": 0,
+          "resolved": 8623736
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 707273
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8623728,
+          "addend": 0,
+          "resolved": 8623728
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3610277
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8623808,
+          "addend": 0,
+          "resolved": 8623808
+        }
+      ],
+      "source_sha256": "8691a3d117977549da0f33d4fffe0e1e872a30e38072a963563570c051744d57",
+      "source": "src/_rtti.cpp",
+      "population": "rebuild--rtti",
+      "source_order": 4250176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4250240,
+      "method": "0040da80",
+      "body_bytes": 33,
+      "body_sha256": "e15152b625711330535c87c01bebc6b168240d21872ec5d93cfbd3dfcf10c638",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "12b31b9feb7f24488109e88bb2fe3cbbb0f1984edad55d9be25be0f701bb8bf5",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8623808,
+          "addend": 0,
+          "resolved": 8623808
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 707353
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 8623744,
+          "addend": 0,
+          "resolved": 8623744
+        }
+      ],
+      "source_sha256": "8691a3d117977549da0f33d4fffe0e1e872a30e38072a963563570c051744d57",
+      "source": "src/_rtti.cpp",
+      "population": "rebuild--rtti",
+      "source_order": 4250240,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4250288,
+      "method": "0040dab0",
+      "body_bytes": 44,
+      "body_sha256": "8ecb27acb9be2725a6b5508d74a4a61b23b37b688bb2a1c5f445317c8bb7076e",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "0729f673de6abe74612dcf62b58e13aa71b5bc2d9f557353d224ae5063cb34a0",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8623808,
+          "addend": 0,
+          "resolved": 8623808
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8623728,
+          "addend": 0,
+          "resolved": 8623728
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 707294
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 8623768,
+          "addend": 0,
+          "resolved": 8623768
+        }
+      ],
+      "source_sha256": "8691a3d117977549da0f33d4fffe0e1e872a30e38072a963563570c051744d57",
+      "source": "src/_rtti.cpp",
+      "population": "rebuild--rtti",
+      "source_order": 4250288,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4250336,
+      "method": "0040dae0",
+      "body_bytes": 39,
+      "body_sha256": "1cab80d5557de7f168cc8b0c0217196a5646d477b63743d28b796e1aef5bafea",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "5f2242534773af11fcf6154a627019ee068e611775ad0cb1d67aff53905eba0b",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8623808,
+          "addend": 0,
+          "resolved": 8623808
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3610128
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 8623792,
+          "addend": 0,
+          "resolved": 8623792
+        }
+      ],
+      "source_sha256": "8691a3d117977549da0f33d4fffe0e1e872a30e38072a963563570c051744d57",
+      "source": "src/_rtti.cpp",
+      "population": "rebuild--rtti",
+      "source_order": 4250336,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4250384,
+      "method": "0040db10",
+      "body_bytes": 15,
+      "body_sha256": "30ffd430c75fd72a89e68122ccfd8c799749d1cb9b503f8409c8ce10ab79e94e",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "098a5f3e27acb9d6e0854bbf3eaea002abe12c2fb835c54d95ac0f78d2c922f4",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8623720,
+          "addend": 0,
+          "resolved": 8623720
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8623720,
+          "addend": 2,
+          "resolved": 8623722
+        }
+      ],
+      "source_sha256": "8691a3d117977549da0f33d4fffe0e1e872a30e38072a963563570c051744d57",
+      "source": "src/_rtti.cpp",
+      "population": "rebuild--rtti",
+      "source_order": 4250384,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4250400,
+      "method": "0040db20",
+      "body_bytes": 18,
+      "body_sha256": "68ed9984fb7ba07d832975c8114c36e83881678879da962f1c345db468790f4c",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "a243a26636ccf24b7cc2f1f542e9f6b9b196377c90afc66c733855b58c596cdb",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8623752,
+          "addend": 0,
+          "resolved": 8623752
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8623752,
+          "addend": 4,
+          "resolved": 8623756
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8623752,
+          "addend": 8,
+          "resolved": 8623760
+        }
+      ],
+      "source_sha256": "8691a3d117977549da0f33d4fffe0e1e872a30e38072a963563570c051744d57",
+      "source": "src/_rtti.cpp",
+      "population": "rebuild--rtti",
+      "source_order": 4250400,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4250432,
+      "method": "0040db40",
+      "body_bytes": 23,
+      "body_sha256": "7618a534e416e0dd3b0eecf2b22ea8982d4fcdd9531ddcd3affd28650f0a8c2e",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2b212813fa98305a477a28589e7f025d559c4d81b39acac5ab3717a01a014569",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8623704,
+          "addend": 0,
+          "resolved": 8623704
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8623704,
+          "addend": 4,
+          "resolved": 8623708
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8623704,
+          "addend": 8,
+          "resolved": 8623712
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8623704,
+          "addend": 12,
+          "resolved": 8623716
+        }
+      ],
+      "source_sha256": "8691a3d117977549da0f33d4fffe0e1e872a30e38072a963563570c051744d57",
+      "source": "src/_rtti.cpp",
+      "population": "rebuild--rtti",
+      "source_order": 4250432,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4250464,
+      "method": "0040db60",
+      "body_bytes": 36,
+      "body_sha256": "ea53d735ca62472e78bcf42523f6bd62800f46e580c3f64a45763c3e02a95d1c",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "ea72b45e6f5df99240b99c95fbaeb9fb25323a2e4915ac823c4fcd5ba8b00ffa",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Name_From_RTTI@@YIPBDW4RTTIType@@@Z",
+      "symbol_prefix": "?Name_From_RTTI@@YIPBDW4RTTIType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "?RTTIs@@3PAU__unnamed@@A",
+          "target": 8182136,
+          "addend": 4,
+          "resolved": 8182140
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "?RTTIs@@3PAU__unnamed@@A",
+          "target": 8182136,
+          "addend": 572,
+          "resolved": 8182708
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "_UNKNOWN_RTTI_NAME",
+          "target": 8182704,
+          "addend": 0,
+          "resolved": 8182704
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?RTTIs@@3PAU__unnamed@@A",
+          "target": 8182136,
+          "addend": 0,
+          "resolved": 8182136
+        }
+      ],
+      "source_sha256": "8691a3d117977549da0f33d4fffe0e1e872a30e38072a963563570c051744d57",
+      "source": "src/_rtti.cpp",
+      "population": "rebuild--rtti",
+      "source_order": 4250464,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4250512,
+      "method": "0040db90",
+      "body_bytes": 57,
+      "body_sha256": "0e73875ebfe07ea7ced767e5d373327407ac3e7eb31a6887acdc803f54cdc3af",
+      "padding_bytes": 7,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "efaf855c84fb86e7f4d05269eaf43f013e5bc704c99361265faeb027e2530f51",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?RTTI_From_Name@@YI?AW4RTTIType@@PBD@Z",
+      "symbol_prefix": "?RTTI_From_Name@@YI?AW4RTTIType@@PBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?RTTIs@@3PAU__unnamed@@A",
+          "target": 8182136,
+          "addend": 0,
+          "resolved": 8182136
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 3621755
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "?RTTIs@@3PAU__unnamed@@A",
+          "target": 8182136,
+          "addend": 568,
+          "resolved": 8182704
+        },
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "?RTTIs@@3PAU__unnamed@@A",
+          "target": 8182136,
+          "addend": 4,
+          "resolved": 8182140
+        }
+      ],
+      "source_sha256": "8691a3d117977549da0f33d4fffe0e1e872a30e38072a963563570c051744d57",
+      "source": "src/_rtti.cpp",
+      "population": "rebuild--rtti",
+      "source_order": 4250512,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4250576,
+      "method": "0040dbd0",
+      "body_bytes": 67,
+      "body_sha256": "4d63de5cee5c52c8f25ab93ba5a8f6ec78535e4060a5160e21b1bab9aaf92b1c",
+      "padding_bytes": 13,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "cc4e3ea8fe0fb2ef5f9aeb97ef26412036e0740b555b5d4abbe532728e67360c",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 23,
+      "symbol": "?Dynamic_Cast@@YIPBVTechnoClass@@PBVAbstractClass@@@Z",
+      "symbol_prefix": "?Dynamic_Cast@@YIPBVTechnoClass@@PBVAbstractClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4250628,
+          "addend": 0,
+          "resolved": 4250628
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4250620,
+          "addend": 0,
+          "resolved": 4250620
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4250609,
+          "addend": 0,
+          "resolved": 4250609
+        },
+        {
+          "offset": 48,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4250613,
+          "addend": 0,
+          "resolved": 4250613
+        }
+      ],
+      "source_sha256": "8691a3d117977549da0f33d4fffe0e1e872a30e38072a963563570c051744d57",
+      "source": "src/_rtti.cpp",
+      "population": "rebuild--rtti",
+      "source_order": 4250576,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4250656,
+      "method": "0040dc20",
+      "body_bytes": 67,
+      "body_sha256": "f3d090ea0f3e76e0cb17dfe6227956b72b5eb0d93a8163908d912b400ce04339",
+      "padding_bytes": 13,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "31c17a702864719bfb67763715d82e7811e3cc13d8eb65f75c041975c517bbcc",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 23,
+      "symbol": "?Dynamic_Cast@@YIPAVTechnoClass@@PAVAbstractClass@@@Z",
+      "symbol_prefix": "?Dynamic_Cast@@YIPAVTechnoClass@@PAVAbstractClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4250708,
+          "addend": 0,
+          "resolved": 4250708
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4250700,
+          "addend": 0,
+          "resolved": 4250700
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4250689,
+          "addend": 0,
+          "resolved": 4250689
+        },
+        {
+          "offset": 48,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4250693,
+          "addend": 0,
+          "resolved": 4250693
+        }
+      ],
+      "source_sha256": "8691a3d117977549da0f33d4fffe0e1e872a30e38072a963563570c051744d57",
+      "source": "src/_rtti.cpp",
+      "population": "rebuild--rtti",
+      "source_order": 4250656,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

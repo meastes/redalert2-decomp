@@ -1,0 +1,1604 @@
+{
+  "id": "rebuild-wolstart",
+  "population": {
+    "id": "rebuild-wolstart",
+    "inventory_sha256": "e8d7f124e173500ae9419f9c618712ee645beb7ac15e915df8d1c20c9419869e",
+    "gaps_sha256": "9db0e8660c408e402fe4e6816ab4b095f5d2d1ae1d077610898dc9c156daa084",
+    "historical_population_sha256": "f7340c3f958e9761cb8dc0424ff0627bbaf2c481fb48ff644e568ad5fcf98224",
+    "historical_acceptance_sha256": "5b995083cc87375828c0b476f988a9ac60cb3e199ad0692431b09cd7bd01da0a"
+  },
+  "references": {
+    "_RECT_NONE": 11691136,
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 11691160,
+    "_ISO_TILE_SIZE": 8058208,
+    "_LEPTONS_PER_PIXEL": 11691232,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 11691216,
+    "_ONE_RAD": 8058216,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 11691208,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 11691168,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 11691128,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 11691240,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 11691176,
+    "_CELL_DIAG_SLOPE_ANGLE": 11691200,
+    "_BRIDGE_LEPTON_HEIGHT": 11691224,
+    "_CELL_NONE": 11691152,
+    "_COORD_NONE": 11691184,
+    "?Online_Session_State@@3HA": 10736292,
+    "?MouseCursor@@3PAVMouse@@A": 8625256,
+    "?Reset_Channel_State@@YIXXZ": 7683856,
+    "?Theme@@3VThemeClass@@A": 10706296,
+    "??_C@_05KMPM@INTRO?$AA@": 8240272,
+    "?From_Name@ThemeClass@@QBE?AW4ThemeType@@PBD@Z": 7243024,
+    "?Queue_Song@ThemeClass@@QAEXW4ThemeType@@@Z": 7241248,
+    "?Read_WOL_Settings@@YIXXZ": 7587776,
+    "?Apply_WOL_Settings@@YIXXZ": 7588240,
+    "?g_NickName@@3VWstring@@A": 11693240,
+    "?length@Wstring@@QBEIXZ": 7792544,
+    "?WOL_Auto_Login_Persona@@YI?AVWstring@@XZ": 7573680,
+    "??4Wstring@@QAEAAV0@ABV0@@Z": 7789616,
+    "??1Wstring@@QAE@XZ": 7789024,
+    "?Load@WOLOptionsClass@@QAE_NXZ": 5239296,
+    "?Is_Bit1_Clear@WOLOptionsClass@@QAE_NXZ": 5239488,
+    "?WOL_Last_Valid_Persona@@YI?AVWstring@@XZ": 7574320,
+    "?Online_Login_Kind@@3HA": 11691248,
+    "?Login_Wonline@@YIHXZ": 7614416,
+    "?Online_Session_Return@@3HA": 10736296,
+    "?Run_Wonline_Selection_Dialog@@YIHXZ": 7680272,
+    "?Open_Buddy_Dialog@@YIXXZ": 7719840,
+    "?Start_Quick_Match@@YIHXZ": 7708192,
+    "?Run_Lobby_Session@@YIHPAUHWND__@@_N@Z": 7616288,
+    "?WDT_Setup_Game@@YIH_N@Z": 7769744,
+    "?Run_Online_Menu@@YIH_N@Z": 7705456,
+    "?Run_Wonline_Lobby@@YIHXZ": 7683952,
+    "?Logout_WOnline@@YIXXZ": 7610016,
+    "?Session@@3VSessionClass@@A": 10736280,
+    "?Shutdown_Chat@@YIXXZ": 7610496,
+    "?Close_All_Dialogs@@YIXXZ": 7683920,
+    "_$E2": 7577840,
+    "_$E5": 7577872,
+    "_$E8": 7577920,
+    "_$E11": 7577952,
+    "_$E14": 7577984,
+    "_$E17": 7578016,
+    "_$E20": 7578048,
+    "_$E23": 7578080,
+    "_$E26": 7578144,
+    "_$E29": 7578192,
+    "_$E32": 7578240,
+    "_$E35": 7578288,
+    "_$E38": 7578304,
+    "?Online_Session_Kind@@YIHXZ": 7578336,
+    "?Wonline_Main@@YIH_N@Z": 7578368,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_EWstring@@QAEPAXI@Z": 4239168,
+    "??3@YAXPAX@Z": 7871803,
+    "??_E?$rc_ptr@VWDTTerritory@@@@UAEPAXI@Z": 5367296,
+    "??_R0?AVrc_ptr_base@@@8": 8248008,
+    "??_7type_info@@6B@": 8066532,
+    "??1rc_ptr_base@@UAE@XZ": 6526224,
+    "??_7?$rc_ptr@VWDTTerritory@@@@6B@": 8013100,
+    "??_E?$rc_ptr@VConflict@WorldDominationTour@@@@UAEPAXI@Z": 7499616,
+    "??_7?$rc_ptr@VConflict@WorldDominationTour@@@@6B@": 8056812,
+    "??_E?$rc_ptr@VTerritory@WorldDominationTour@@@@UAEPAXI@Z": 7518528,
+    "??_7?$rc_ptr@VTerritory@WorldDominationTour@@@@6B@": 8057468,
+    "??_E?$rc_ptr@VGameOption@WorldDominationTour@@@@UAEPAXI@Z": 7504800,
+    "??_7?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@": 8057052,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104
+  },
+  "regions": [
+    {
+      "entry": 7577840,
+      "method": "0073a0f0",
+      "body_bytes": 23,
+      "body_sha256": "53c4785f572834f0135e9f1f79b5d82c43eeabe221f406de0224a161b4351568",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "c11f2400aadf52e6d568ae2ae5020d811449638d7af6375a206e5ef381596132",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11691136,
+          "addend": 0,
+          "resolved": 11691136
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11691136,
+          "addend": 4,
+          "resolved": 11691140
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11691136,
+          "addend": 8,
+          "resolved": 11691144
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11691136,
+          "addend": 12,
+          "resolved": 11691148
+        }
+      ],
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
+      "source": "src/wolstart.cpp",
+      "population": "rebuild-wolstart",
+      "source_order": 7577840,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7577872,
+      "method": "0073a110",
+      "body_bytes": 40,
+      "body_sha256": "96011108eda76c08863995ad800dff91efa992c39f8918a499c25a0dcdfbf19e",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "1f29085556aeae8523e3de81dc8644d9badb364853fed1b79d311bb91e08b95a",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 295055
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292346594
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11691160,
+          "addend": 0,
+          "resolved": 11691160
+        }
+      ],
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
+      "source": "src/wolstart.cpp",
+      "population": "rebuild-wolstart",
+      "source_order": 7577872,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7577920,
+      "method": "0073a140",
+      "body_bytes": 19,
+      "body_sha256": "4809d5bf2ed8153dd7ce6946a8e94f3707c9db1713e7684d91b954dcec902a18",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "e5cd31c5c1e1d80abcb81ea4be80726970cae7fc1d577155a2221c5c94dd5593",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11691160,
+          "addend": 0,
+          "resolved": 11691160
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8058208,
+          "addend": 0,
+          "resolved": 8058208
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11691232,
+          "addend": 0,
+          "resolved": 11691232
+        }
+      ],
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
+      "source": "src/wolstart.cpp",
+      "population": "rebuild-wolstart",
+      "source_order": 7577920,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7577952,
+      "method": "0073a160",
+      "body_bytes": 19,
+      "body_sha256": "b85a130ea670f304c06b9bcbd07218486100876ae3928d08935f085bb36ffcce",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2914c75994843444aae2b0922212605a7aa4ae21f52b87d8d9c1035a9d68024c",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11691232,
+          "addend": 0,
+          "resolved": 11691232
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 11691216,
+          "addend": 0,
+          "resolved": 11691216
+        }
+      ],
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
+      "source": "src/wolstart.cpp",
+      "population": "rebuild-wolstart",
+      "source_order": 7577952,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7577984,
+      "method": "0073a180",
+      "body_bytes": 19,
+      "body_sha256": "161addebc4e636934937174a6422ee15567a2aa117a99c6098a56a3efd3c860c",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2e0a657d566b2c54a4f95a58efa9ac9cb72acbf8c636f9f4ca7a1fd32ae5c296",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8058216,
+          "addend": 0,
+          "resolved": 8058216
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 11691208,
+          "addend": 0,
+          "resolved": 11691208
+        }
+      ],
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
+      "source": "src/wolstart.cpp",
+      "population": "rebuild-wolstart",
+      "source_order": 7577984,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7578016,
+      "method": "0073a1a0",
+      "body_bytes": 19,
+      "body_sha256": "e4f81dcfa848e2c9242695ec2d94209e22d658d5ed284f6f5710abab202bee11",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "701485192b0282881789565acad2a8a6d69e1af27ff0639b72dde0a23b1e94c4",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8058216,
+          "addend": 0,
+          "resolved": 8058216
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11691168,
+          "addend": 0,
+          "resolved": 11691168
+        }
+      ],
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
+      "source": "src/wolstart.cpp",
+      "population": "rebuild-wolstart",
+      "source_order": 7578016,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7578048,
+      "method": "0073a1c0",
+      "body_bytes": 19,
+      "body_sha256": "083c9864be96c1cb4f2f62c3319ad07d44319faa78a848727d20bd8f056242a9",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "6cf5dff6b55f1eecb2276ce936e83709b50570bf92ad7fda0b4d31bd9142000a",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8058216,
+          "addend": 0,
+          "resolved": 8058216
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11691128,
+          "addend": 0,
+          "resolved": 11691128
+        }
+      ],
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
+      "source": "src/wolstart.cpp",
+      "population": "rebuild-wolstart",
+      "source_order": 7578048,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7578080,
+      "method": "0073a1e0",
+      "body_bytes": 49,
+      "body_sha256": "786febbc22e6df5aa4e8aa52dc2372cdcc7f4604b9f8b4ccde370a56c6188a5d",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "46cdcc0f63b03e953cb933a1d07ce0460a4f528a73fa7ee643799e6ba952511e",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11691128,
+          "addend": 0,
+          "resolved": 11691128
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11691168,
+          "addend": 0,
+          "resolved": 11691168
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4292346665
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11691160,
+          "addend": 0,
+          "resolved": 11691160
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 282373
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11691240,
+          "addend": 0,
+          "resolved": 11691240
+        }
+      ],
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
+      "source": "src/wolstart.cpp",
+      "population": "rebuild-wolstart",
+      "source_order": 7578080,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7578144,
+      "method": "0073a220",
+      "body_bytes": 33,
+      "body_sha256": "5755d1b1addfa3184f14d89227f84ddaeccbd0dfe721c2c0451ee889a2d9a58c",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "60c1330fefca016d82fbfca8a087430ff6823b76d919de32121a03c16e1c406e",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11691240,
+          "addend": 0,
+          "resolved": 11691240
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292346745
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 11691176,
+          "addend": 0,
+          "resolved": 11691176
+        }
+      ],
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
+      "source": "src/wolstart.cpp",
+      "population": "rebuild-wolstart",
+      "source_order": 7578144,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7578192,
+      "method": "0073a250",
+      "body_bytes": 44,
+      "body_sha256": "1f2872e0a726e520139836912ae2f4a8f92b7279187786aad0d93398bd0c5d3d",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7493dcd9e5b9f63f4d40e00f24fca2f55bec41ce990930000a440b41781acfa8",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11691240,
+          "addend": 0,
+          "resolved": 11691240
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11691160,
+          "addend": 0,
+          "resolved": 11691160
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292346686
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 11691200,
+          "addend": 0,
+          "resolved": 11691200
+        }
+      ],
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
+      "source": "src/wolstart.cpp",
+      "population": "rebuild-wolstart",
+      "source_order": 7578192,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7578240,
+      "method": "0073a280",
+      "body_bytes": 39,
+      "body_sha256": "b9d42d112c6ea14c01268f954979513ee5b5fbca7978f9892448e0055e225083",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "a4c09b627ca5f8b24c0746c1ef4ea94b954d3ce0e3f7e1397f9452b16770fb3d",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11691240,
+          "addend": 0,
+          "resolved": 11691240
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 282224
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11691224,
+          "addend": 0,
+          "resolved": 11691224
+        }
+      ],
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
+      "source": "src/wolstart.cpp",
+      "population": "rebuild-wolstart",
+      "source_order": 7578240,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7578288,
+      "method": "0073a2b0",
+      "body_bytes": 15,
+      "body_sha256": "8dcd4ef1037b6baf8033bd9438a29a226add181ff49e98701227c21f4223b5a4",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "af22ea11841fe2bfda8975581ab709c00be2b2be145c8b7a2a962c404ee881a3",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11691152,
+          "addend": 0,
+          "resolved": 11691152
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11691152,
+          "addend": 2,
+          "resolved": 11691154
+        }
+      ],
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
+      "source": "src/wolstart.cpp",
+      "population": "rebuild-wolstart",
+      "source_order": 7578288,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7578304,
+      "method": "0073a2c0",
+      "body_bytes": 18,
+      "body_sha256": "ea00eed704b3b9e22f3d75f3d7e124c8f4adee0bbcf62c7ba1211116043bf746",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4dadafbdf54851082bb4e2fa9aadd4fce9f8f0bbf5c49f133d8f5b5e26319ae5",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11691184,
+          "addend": 0,
+          "resolved": 11691184
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11691184,
+          "addend": 4,
+          "resolved": 11691188
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11691184,
+          "addend": 8,
+          "resolved": 11691192
+        }
+      ],
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
+      "source": "src/wolstart.cpp",
+      "population": "rebuild-wolstart",
+      "source_order": 7578304,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7578336,
+      "method": "0073a2e0",
+      "body_bytes": 29,
+      "body_sha256": "fb33259dbc43271f978330bd6ef1dbb1b3f28edf2ba1d6b8cbc663c7cacd5d42",
+      "padding_bytes": 3,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "648abab8e946e0658f40afaa3add31113198d43730761f204c39247962bab530",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Online_Session_Kind@@YIHXZ",
+      "symbol_prefix": "?Online_Session_Kind@@YIHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Online_Session_State@@3HA",
+          "target": 10736292,
+          "addend": 0,
+          "resolved": 10736292
+        }
+      ],
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
+      "source": "src/wolstart.cpp",
+      "population": "rebuild-wolstart",
+      "source_order": 7578336,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7578368,
+      "method": "0073a300",
+      "body_bytes": 884,
+      "body_sha256": "3b1556db57a0320a9729207f68813e61180823511d35d3b7e594c76119ed3940",
+      "padding_bytes": 12,
+      "full_extent_bytes": 896,
+      "full_extent_sha256": "cb53332dc4d065aa6f84d4f0d06a9211d0468592fc9da19413ae8aeedf3f8504",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 24,
+      "symbol": "?Wonline_Main@@YIH_N@Z",
+      "symbol_prefix": "?Wonline_Main@@YIH_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 51,
+          "kind": 20,
+          "symbol": "?Reset_Channel_State@@YIXXZ",
+          "target": 7683856,
+          "addend": 0,
+          "resolved": 105433
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 4,
+          "resolved": 10706300
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 8,
+          "resolved": 10706304
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "??_C@_05KMPM@INTRO?$AA@",
+          "target": 8240272,
+          "addend": 0,
+          "resolved": 8240272
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 0,
+          "resolved": 10706296
+        },
+        {
+          "offset": 83,
+          "kind": 20,
+          "symbol": "?From_Name@ThemeClass@@QBE?AW4ThemeType@@PBD@Z",
+          "target": 7243024,
+          "addend": 0,
+          "resolved": 4294631865
+        },
+        {
+          "offset": 94,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 0,
+          "resolved": 10706296
+        },
+        {
+          "offset": 99,
+          "kind": 20,
+          "symbol": "?Queue_Song@ThemeClass@@QAEXW4ThemeType@@@Z",
+          "target": 7241248,
+          "addend": 0,
+          "resolved": 4294630073
+        },
+        {
+          "offset": 104,
+          "kind": 20,
+          "symbol": "?Read_WOL_Settings@@YIXXZ",
+          "target": 7587776,
+          "addend": 0,
+          "resolved": 9300
+        },
+        {
+          "offset": 110,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 18,
+          "resolved": 10706314
+        },
+        {
+          "offset": 116,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 18,
+          "resolved": 10706314
+        },
+        {
+          "offset": 126,
+          "kind": 20,
+          "symbol": "?Apply_WOL_Settings@@YIXXZ",
+          "target": 7588240,
+          "addend": 0,
+          "resolved": 9742
+        },
+        {
+          "offset": 131,
+          "kind": 6,
+          "symbol": "?g_NickName@@3VWstring@@A",
+          "target": 11693240,
+          "addend": 0,
+          "resolved": 11693240
+        },
+        {
+          "offset": 136,
+          "kind": 20,
+          "symbol": "?length@Wstring@@QBEIXZ",
+          "target": 7792544,
+          "addend": 0,
+          "resolved": 214036
+        },
+        {
+          "offset": 149,
+          "kind": 20,
+          "symbol": "?WOL_Auto_Login_Persona@@YI?AVWstring@@XZ",
+          "target": 7573680,
+          "addend": 0,
+          "resolved": 4294962455
+        },
+        {
+          "offset": 154,
+          "kind": 6,
+          "symbol": "?g_NickName@@3VWstring@@A",
+          "target": 11693240,
+          "addend": 0,
+          "resolved": 11693240
+        },
+        {
+          "offset": 160,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 211084
+        },
+        {
+          "offset": 169,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 210483
+        },
+        {
+          "offset": 174,
+          "kind": 6,
+          "symbol": "?g_NickName@@3VWstring@@A",
+          "target": 11693240,
+          "addend": 0,
+          "resolved": 11693240
+        },
+        {
+          "offset": 179,
+          "kind": 20,
+          "symbol": "?length@Wstring@@QBEIXZ",
+          "target": 7792544,
+          "addend": 0,
+          "resolved": 213993
+        },
+        {
+          "offset": 203,
+          "kind": 20,
+          "symbol": "?Load@WOLOptionsClass@@QAE_NXZ",
+          "target": 5239296,
+          "addend": 0,
+          "resolved": 4292628017
+        },
+        {
+          "offset": 212,
+          "kind": 20,
+          "symbol": "?Is_Bit1_Clear@WOLOptionsClass@@QAE_NXZ",
+          "target": 5239488,
+          "addend": 0,
+          "resolved": 4292628200
+        },
+        {
+          "offset": 225,
+          "kind": 20,
+          "symbol": "?WOL_Last_Valid_Persona@@YI?AVWstring@@XZ",
+          "target": 7574320,
+          "addend": 0,
+          "resolved": 4294963019
+        },
+        {
+          "offset": 230,
+          "kind": 6,
+          "symbol": "?g_NickName@@3VWstring@@A",
+          "target": 11693240,
+          "addend": 0,
+          "resolved": 11693240
+        },
+        {
+          "offset": 236,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 211008
+        },
+        {
+          "offset": 245,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 210407
+        },
+        {
+          "offset": 255,
+          "kind": 6,
+          "symbol": "?Online_Login_Kind@@3HA",
+          "target": 11691248,
+          "addend": 0,
+          "resolved": 11691248
+        },
+        {
+          "offset": 268,
+          "kind": 6,
+          "symbol": "?Online_Session_State@@3HA",
+          "target": 10736292,
+          "addend": 0,
+          "resolved": 10736292
+        },
+        {
+          "offset": 305,
+          "kind": 20,
+          "symbol": "?Login_Wonline@@YIHXZ",
+          "target": 7614416,
+          "addend": 0,
+          "resolved": 35739
+        },
+        {
+          "offset": 324,
+          "kind": 6,
+          "symbol": "?Online_Login_Kind@@3HA",
+          "target": 11691248,
+          "addend": 0,
+          "resolved": 11691248
+        },
+        {
+          "offset": 332,
+          "kind": 6,
+          "symbol": "?Online_Session_State@@3HA",
+          "target": 10736292,
+          "addend": 0,
+          "resolved": 10736292
+        },
+        {
+          "offset": 344,
+          "kind": 6,
+          "symbol": "?Online_Session_State@@3HA",
+          "target": 10736292,
+          "addend": 0,
+          "resolved": 10736292
+        },
+        {
+          "offset": 350,
+          "kind": 6,
+          "symbol": "?Online_Session_Return@@3HA",
+          "target": 10736296,
+          "addend": 0,
+          "resolved": 10736296
+        },
+        {
+          "offset": 355,
+          "kind": 20,
+          "symbol": "?Apply_WOL_Settings@@YIXXZ",
+          "target": 7588240,
+          "addend": 0,
+          "resolved": 9513
+        },
+        {
+          "offset": 360,
+          "kind": 6,
+          "symbol": "?Online_Session_State@@3HA",
+          "target": 10736292,
+          "addend": 0,
+          "resolved": 10736292
+        },
+        {
+          "offset": 376,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7579228,
+          "addend": 0,
+          "resolved": 7579228
+        },
+        {
+          "offset": 383,
+          "kind": 20,
+          "symbol": "?Run_Wonline_Selection_Dialog@@YIHXZ",
+          "target": 7680272,
+          "addend": 0,
+          "resolved": 101517
+        },
+        {
+          "offset": 407,
+          "kind": 20,
+          "symbol": "?Open_Buddy_Dialog@@YIXXZ",
+          "target": 7719840,
+          "addend": 0,
+          "resolved": 141061
+        },
+        {
+          "offset": 417,
+          "kind": 20,
+          "symbol": "?Start_Quick_Match@@YIHXZ",
+          "target": 7708192,
+          "addend": 0,
+          "resolved": 129403
+        },
+        {
+          "offset": 428,
+          "kind": 20,
+          "symbol": "?Run_Lobby_Session@@YIHPAUHWND__@@_N@Z",
+          "target": 7616288,
+          "addend": 0,
+          "resolved": 37488
+        },
+        {
+          "offset": 442,
+          "kind": 6,
+          "symbol": "?Online_Session_State@@3HA",
+          "target": 10736292,
+          "addend": 0,
+          "resolved": 10736292
+        },
+        {
+          "offset": 456,
+          "kind": 20,
+          "symbol": "?Open_Buddy_Dialog@@YIXXZ",
+          "target": 7719840,
+          "addend": 0,
+          "resolved": 141012
+        },
+        {
+          "offset": 463,
+          "kind": 20,
+          "symbol": "?WDT_Setup_Game@@YIH_N@Z",
+          "target": 7769744,
+          "addend": 0,
+          "resolved": 190909
+        },
+        {
+          "offset": 485,
+          "kind": 20,
+          "symbol": "?Run_Online_Menu@@YIH_N@Z",
+          "target": 7705456,
+          "addend": 0,
+          "resolved": 126599
+        },
+        {
+          "offset": 499,
+          "kind": 6,
+          "symbol": "?Online_Session_State@@3HA",
+          "target": 10736292,
+          "addend": 0,
+          "resolved": 10736292
+        },
+        {
+          "offset": 508,
+          "kind": 6,
+          "symbol": "?Online_Session_Return@@3HA",
+          "target": 10736296,
+          "addend": 0,
+          "resolved": 10736296
+        },
+        {
+          "offset": 514,
+          "kind": 6,
+          "symbol": "?Online_Session_Return@@3HA",
+          "target": 10736296,
+          "addend": 0,
+          "resolved": 10736296
+        },
+        {
+          "offset": 520,
+          "kind": 6,
+          "symbol": "?Online_Session_State@@3HA",
+          "target": 10736292,
+          "addend": 0,
+          "resolved": 10736292
+        },
+        {
+          "offset": 527,
+          "kind": 20,
+          "symbol": "?Run_Wonline_Lobby@@YIHXZ",
+          "target": 7683952,
+          "addend": 0,
+          "resolved": 105053
+        },
+        {
+          "offset": 559,
+          "kind": 6,
+          "symbol": "?Online_Session_State@@3HA",
+          "target": 10736292,
+          "addend": 0,
+          "resolved": 10736292
+        },
+        {
+          "offset": 565,
+          "kind": 6,
+          "symbol": "?Online_Login_Kind@@3HA",
+          "target": 11691248,
+          "addend": 0,
+          "resolved": 11691248
+        },
+        {
+          "offset": 592,
+          "kind": 6,
+          "symbol": "?Online_Session_State@@3HA",
+          "target": 10736292,
+          "addend": 0,
+          "resolved": 10736292
+        },
+        {
+          "offset": 627,
+          "kind": 20,
+          "symbol": "?Logout_WOnline@@YIXXZ",
+          "target": 7610016,
+          "addend": 0,
+          "resolved": 31017
+        },
+        {
+          "offset": 635,
+          "kind": 6,
+          "symbol": "?Online_Login_Kind@@3HA",
+          "target": 11691248,
+          "addend": 0,
+          "resolved": 11691248
+        },
+        {
+          "offset": 660,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 666,
+          "kind": 6,
+          "symbol": "?Online_Session_State@@3HA",
+          "target": 10736292,
+          "addend": 0,
+          "resolved": 10736292
+        },
+        {
+          "offset": 672,
+          "kind": 6,
+          "symbol": "?Online_Session_Return@@3HA",
+          "target": 10736296,
+          "addend": 0,
+          "resolved": 10736296
+        },
+        {
+          "offset": 677,
+          "kind": 20,
+          "symbol": "?Shutdown_Chat@@YIXXZ",
+          "target": 7610496,
+          "addend": 0,
+          "resolved": 31447
+        },
+        {
+          "offset": 687,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 18,
+          "resolved": 10706314
+        },
+        {
+          "offset": 692,
+          "kind": 20,
+          "symbol": "?Close_All_Dialogs@@YIXXZ",
+          "target": 7683920,
+          "addend": 0,
+          "resolved": 104856
+        },
+        {
+          "offset": 708,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 713,
+          "kind": 20,
+          "symbol": "?Shutdown_Chat@@YIXXZ",
+          "target": 7610496,
+          "addend": 0,
+          "resolved": 31411
+        },
+        {
+          "offset": 722,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 18,
+          "resolved": 10706314
+        },
+        {
+          "offset": 727,
+          "kind": 20,
+          "symbol": "?Close_All_Dialogs@@YIXXZ",
+          "target": 7683920,
+          "addend": 0,
+          "resolved": 104821
+        },
+        {
+          "offset": 743,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 749,
+          "kind": 6,
+          "symbol": "?Online_Session_State@@3HA",
+          "target": 10736292,
+          "addend": 0,
+          "resolved": 10736292
+        },
+        {
+          "offset": 755,
+          "kind": 6,
+          "symbol": "?Online_Session_Return@@3HA",
+          "target": 10736296,
+          "addend": 0,
+          "resolved": 10736296
+        },
+        {
+          "offset": 760,
+          "kind": 20,
+          "symbol": "?Shutdown_Chat@@YIXXZ",
+          "target": 7610496,
+          "addend": 0,
+          "resolved": 31364
+        },
+        {
+          "offset": 770,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 18,
+          "resolved": 10706314
+        },
+        {
+          "offset": 775,
+          "kind": 20,
+          "symbol": "?Close_All_Dialogs@@YIXXZ",
+          "target": 7683920,
+          "addend": 0,
+          "resolved": 104773
+        },
+        {
+          "offset": 795,
+          "kind": 20,
+          "symbol": "?Close_All_Dialogs@@YIXXZ",
+          "target": 7683920,
+          "addend": 0,
+          "resolved": 104753
+        },
+        {
+          "offset": 810,
+          "kind": 20,
+          "symbol": "?Shutdown_Chat@@YIXXZ",
+          "target": 7610496,
+          "addend": 0,
+          "resolved": 31314
+        },
+        {
+          "offset": 820,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 826,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 18,
+          "resolved": 10706314
+        },
+        {
+          "offset": 832,
+          "kind": 6,
+          "symbol": "?Online_Session_State@@3HA",
+          "target": 10736292,
+          "addend": 0,
+          "resolved": 10736292
+        },
+        {
+          "offset": 838,
+          "kind": 6,
+          "symbol": "?Online_Session_Return@@3HA",
+          "target": 10736296,
+          "addend": 0,
+          "resolved": 10736296
+        },
+        {
+          "offset": 843,
+          "kind": 20,
+          "symbol": "?Close_All_Dialogs@@YIXXZ",
+          "target": 7683920,
+          "addend": 0,
+          "resolved": 104705
+        },
+        {
+          "offset": 860,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7578748,
+          "addend": 0,
+          "resolved": 7578748
+        },
+        {
+          "offset": 864,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7578770,
+          "addend": 0,
+          "resolved": 7578770
+        },
+        {
+          "offset": 868,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7578819,
+          "addend": 0,
+          "resolved": 7578819
+        },
+        {
+          "offset": 872,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7578791,
+          "addend": 0,
+          "resolved": 7578791
+        },
+        {
+          "offset": 876,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7578850,
+          "addend": 0,
+          "resolved": 7578850
+        },
+        {
+          "offset": 880,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7578894,
+          "addend": 0,
+          "resolved": 7578894
+        }
+      ],
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
+      "source": "src/wolstart.cpp",
+      "population": "rebuild-wolstart",
+      "source_order": 7578368,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

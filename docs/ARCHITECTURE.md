@@ -29,11 +29,11 @@ scaffolding with exact compiler-output C/C++ in bulk.
    headers/layout differ; this is not recovery of all original linker metadata.
 
 [ORIGINAL_TARGET_BUILD.md](ORIGINAL_TARGET_BUILD.md) records exact existing paths,
-commands, hashes, section boundaries and limitations. Canonical accepted C/C++ lives in `rebuild/`, the tree of
-record since 2026-11-24 (user, in the owner session): one source per original unit in `rebuild/src/`, one header per
-class in `rebuild/include/`, assembly in `rebuild/asm/`, catalog `rebuild/manifest/catalog` (same schema and catalog_io,
-selected by `RA2_TREE=rebuild`; `./build.command`). The frozen tree, read-only at the tag `src-final` and still the
-native ports' input, keeps accepted C/C++ under tracked root `src/recovered/`, with
+commands, hashes, section boundaries and limitations. Canonical accepted C/C++ lives at the repository root
+since the layout move of 2026-11-25 (user decision 2026-11-24/25; the rebuild was the tree of record from 2026-11-24):
+one source per original unit in `src/`, one header per class in `include/`, assembly in `asm/`, catalog
+`manifests/catalog` (same schema and catalog_io; `./build.command`). The earlier tree, the tag `src-final` (no longer
+the native ports' input: they live in redalert2-modern), kept accepted C/C++ under root `src/recovered/`, with
 the catalog `manifests/original_target/` (sharded per population: `index.json`
 plus `populations/<id>.json`, read and written only through
 `tools/original_target/catalog_io.py`) recording source hashes, options,

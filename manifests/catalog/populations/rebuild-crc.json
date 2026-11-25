@@ -1,0 +1,409 @@
+{
+  "id": "rebuild-crc",
+  "population": {
+    "id": "rebuild-crc",
+    "inventory_sha256": "1c48aae63d8ba23b5cd31ddcaa2a0a9025cd783e14d07dd4274a6204d29794c7",
+    "gaps_sha256": "42e1ebe1deb2ab043abc09b0ce45004615ba0bf2817e3a3fad4eb00cc0a57553",
+    "historical_population_sha256": "9205c1109e6de8550a59910566d673b1affd372f50b86b3b51462f8cb4a53290",
+    "historical_acceptance_sha256": "0d5a2a9279c69725625be8bcb7b5e7f754f3a153f4bddda234d9cc5bca386560"
+  },
+  "references": {
+    "?_Table@CRC@@0PAIA": 8213764,
+    "??RCRCEngine@@QAEHPBXH@Z": 4800448,
+    "?Memory@CRC@@SIIPAEII@Z": 4800912,
+    "??RCRCEngine@@QAEXD@Z": 4799984,
+    "??RCRCEngine@@QAEX_N@Z": 4800128,
+    "??RCRCEngine@@QAEXF@Z": 4800272,
+    "??RCRCEngine@@QAEXH@Z": 4800304,
+    "??RCRCEngine@@QAEXM@Z": 4800336,
+    "??RCRCEngine@@QAEXN@Z": 4800368,
+    "??RCRCEngine@@QAEXPBD@Z": 4800400,
+    "?String@CRC@@SIIPBDI@Z": 4800976
+  },
+  "regions": [
+    {
+      "entry": 4799984,
+      "method": "00493df0",
+      "body_bytes": 129,
+      "body_sha256": "addc3cf28fdf334b280abccec45778f2bc8466b74446233c35bba59a165431c9",
+      "padding_bytes": 15,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "ef8f8815c74b81ea10edbd16c8d6dac61d8bc255b7c3c1f65d3809cd01808e0e",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??RCRCEngine@@QAEXD@Z",
+      "symbol_prefix": "??RCRCEngine@@QAEXD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 102,
+          "kind": 6,
+          "symbol": "?_Table@CRC@@0PAIA",
+          "target": 8213764,
+          "addend": 0,
+          "resolved": 8213764
+        }
+      ],
+      "source_sha256": "86533a7ba047d2309f06255fd0799f0e789e230e0a518647505c22dba9ac4c51",
+      "source": "src/crc.cpp",
+      "population": "rebuild-crc",
+      "source_order": 4799984,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4800128,
+      "method": "00493e80",
+      "body_bytes": 134,
+      "body_sha256": "712d8741d69e8bcac6ceb69baef9d59830ce075813afb4f8ac9c3b8acc82def0",
+      "padding_bytes": 10,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "e15865017959c416474a8b9b099c492cde71c3ab0a04e3b035382d7bb1aeb9f2",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??RCRCEngine@@QAEX_N@Z",
+      "symbol_prefix": "??RCRCEngine@@QAEX_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 110,
+          "kind": 6,
+          "symbol": "?_Table@CRC@@0PAIA",
+          "target": 8213764,
+          "addend": 0,
+          "resolved": 8213764
+        }
+      ],
+      "source_sha256": "86533a7ba047d2309f06255fd0799f0e789e230e0a518647505c22dba9ac4c51",
+      "source": "src/crc.cpp",
+      "population": "rebuild-crc",
+      "source_order": 4800128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4800272,
+      "method": "00493f10",
+      "body_bytes": 25,
+      "body_sha256": "647ac3a61d3501c201efcaeafc200ffd96eed32304e5f4679f7fc7117181a01a",
+      "padding_bytes": 7,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "0014250e7cd8760cda09ca4fd22b60c44be630ec9ef4ebf69945cba87f2b726c",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??RCRCEngine@@QAEXF@Z",
+      "symbol_prefix": "??RCRCEngine@@QAEXF@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEHPBXH@Z",
+          "target": 4800448,
+          "addend": 0,
+          "resolved": 154
+        }
+      ],
+      "source_sha256": "86533a7ba047d2309f06255fd0799f0e789e230e0a518647505c22dba9ac4c51",
+      "source": "src/crc.cpp",
+      "population": "rebuild-crc",
+      "source_order": 4800272,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4800304,
+      "method": "00493f30",
+      "body_bytes": 23,
+      "body_sha256": "dcf75144b8e7edae41920d611a98da4172a5c87eba6c6ad01d79c1c2a7a42781",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "496026e61018eb2d05649ece9e6dfeb5fe04242797661591a38d9bffce3c79fe",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??RCRCEngine@@QAEXH@Z",
+      "symbol_prefix": "??RCRCEngine@@QAEXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEHPBXH@Z",
+          "target": 4800448,
+          "addend": 0,
+          "resolved": 124
+        }
+      ],
+      "source_sha256": "86533a7ba047d2309f06255fd0799f0e789e230e0a518647505c22dba9ac4c51",
+      "source": "src/crc.cpp",
+      "population": "rebuild-crc",
+      "source_order": 4800304,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4800336,
+      "method": "00493f50",
+      "body_bytes": 23,
+      "body_sha256": "53d3a8c1ab8a7f3f0d2ef99feaecd6ff6523fc7e3f86b168ffe78e28dccb09a5",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "0c2f2121abf102ebc516794e53bb41c62c134e1ed56b45ba8569320c04ca7ca4",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??RCRCEngine@@QAEXM@Z",
+      "symbol_prefix": "??RCRCEngine@@QAEXM@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEHPBXH@Z",
+          "target": 4800448,
+          "addend": 0,
+          "resolved": 92
+        }
+      ],
+      "source_sha256": "86533a7ba047d2309f06255fd0799f0e789e230e0a518647505c22dba9ac4c51",
+      "source": "src/crc.cpp",
+      "population": "rebuild-crc",
+      "source_order": 4800336,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4800368,
+      "method": "00493f70",
+      "body_bytes": 31,
+      "body_sha256": "7db76ef11fba081a38ae623667d5e00529463f87d2ec34ef22467441785616e4",
+      "padding_bytes": 1,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "bf56c8f89c937d8a283283c94f10a7bb99511d680ee66c2aba6092a34dfaad3e",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??RCRCEngine@@QAEXN@Z",
+      "symbol_prefix": "??RCRCEngine@@QAEXN@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEHPBXH@Z",
+          "target": 4800448,
+          "addend": 0,
+          "resolved": 52
+        }
+      ],
+      "source_sha256": "86533a7ba047d2309f06255fd0799f0e789e230e0a518647505c22dba9ac4c51",
+      "source": "src/crc.cpp",
+      "population": "rebuild-crc",
+      "source_order": 4800368,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4800400,
+      "method": "00493f90",
+      "body_bytes": 38,
+      "body_sha256": "9a2507b9d8b4175f30e6335a158e69e43f09d9f0165769bb2cb5649f5079b28c",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "84e3d52b6b996fd4eced2cd0beddd4ac0f280e08871bc67c1332658093e50f57",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??RCRCEngine@@QAEXPBD@Z",
+      "symbol_prefix": "??RCRCEngine@@QAEXPBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 29,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEHPBXH@Z",
+          "target": 4800448,
+          "addend": 0,
+          "resolved": 15
+        }
+      ],
+      "source_sha256": "86533a7ba047d2309f06255fd0799f0e789e230e0a518647505c22dba9ac4c51",
+      "source": "src/crc.cpp",
+      "population": "rebuild-crc",
+      "source_order": 4800400,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4800448,
+      "method": "00493fc0",
+      "body_bytes": 457,
+      "body_sha256": "f6a3f603d9966e0d3f4167ff99a2a665a090e8a52d0c93e417163faffb346a67",
+      "padding_bytes": 7,
+      "full_extent_bytes": 464,
+      "full_extent_sha256": "2485e5d5a9527799e2155fb288a35fb7ba756400dac21053a293735cd63d80da",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??RCRCEngine@@QAEHPBXH@Z",
+      "symbol_prefix": "??RCRCEngine@@QAEHPBXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 108,
+          "kind": 20,
+          "symbol": "?Memory@CRC@@SIIPAEII@Z",
+          "target": 4800912,
+          "addend": 0,
+          "resolved": 352
+        },
+        {
+          "offset": 180,
+          "kind": 6,
+          "symbol": "?_Table@CRC@@0PAIA",
+          "target": 8213764,
+          "addend": 0,
+          "resolved": 8213764
+        },
+        {
+          "offset": 321,
+          "kind": 6,
+          "symbol": "?_Table@CRC@@0PAIA",
+          "target": 8213764,
+          "addend": 0,
+          "resolved": 8213764
+        },
+        {
+          "offset": 427,
+          "kind": 6,
+          "symbol": "?_Table@CRC@@0PAIA",
+          "target": 8213764,
+          "addend": 0,
+          "resolved": 8213764
+        }
+      ],
+      "source_sha256": "86533a7ba047d2309f06255fd0799f0e789e230e0a518647505c22dba9ac4c51",
+      "source": "src/crc.cpp",
+      "population": "rebuild-crc",
+      "source_order": 4800448,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4800912,
+      "method": "00494190",
+      "body_bytes": 55,
+      "body_sha256": "f1c550b9d6750dc2db6f100dde3a5e82e024aa044e057021cf0519be59c200de",
+      "padding_bytes": 9,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "715d7867396e8c65b56b41a0498289d99c83ed8a62e6f0d2a652fb303ad8474a",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Memory@CRC@@SIIPAEII@Z",
+      "symbol_prefix": "?Memory@CRC@@SIIPAEII@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "?_Table@CRC@@0PAIA",
+          "target": 8213764,
+          "addend": 0,
+          "resolved": 8213764
+        }
+      ],
+      "source_sha256": "86533a7ba047d2309f06255fd0799f0e789e230e0a518647505c22dba9ac4c51",
+      "source": "src/crc.cpp",
+      "population": "rebuild-crc",
+      "source_order": 4800912,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4800976,
+      "method": "004941d0",
+      "body_bytes": 51,
+      "body_sha256": "9f3d8605872ece278038d54db7503cd116780534dec3bbd4139c71c1bb9c9637",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "65ab85c96dc498c786b221d93507d998c96e66e3d3f580afd06fb2ba6ce7dd37",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?String@CRC@@SIIPBDI@Z",
+      "symbol_prefix": "?String@CRC@@SIIPBDI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "?_Table@CRC@@0PAIA",
+          "target": 8213764,
+          "addend": 0,
+          "resolved": 8213764
+        }
+      ],
+      "source_sha256": "86533a7ba047d2309f06255fd0799f0e789e230e0a518647505c22dba9ac4c51",
+      "source": "src/crc.cpp",
+      "population": "rebuild-crc",
+      "source_order": 4800976,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

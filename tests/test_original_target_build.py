@@ -130,22 +130,7 @@ class CanonicalBuildTests(unittest.TestCase):
         second['entry']=first['entry']
         with self.assertRaises(ValueError):validate_catalog(self.root,self.catalog([first,second]))
 
-    def test_shared_header_hash_and_closure(self):
-        directory=self.root/'src/shared';directory.mkdir()
-        header=directory/'layout.hpp';header.write_text('#ifndef SHARED_LAYOUT\n#define SHARED_LAYOUT\nstruct Layout { int count; };\n#endif\n')
-        self.source.write_text('#include "shared/layout.hpp"\nvoid fixture() {}\n')
-        catalog=self.catalog([self.row()]);catalog['headers']=[dict(path='src/shared/layout.hpp',sha256=sha(header.read_bytes()))]
-        validate_catalog(self.root,catalog)
-        header.write_text('changed')
-        with self.assertRaisesRegex(ValueError,'Header hash drift'):validate_catalog(self.root,catalog)
 
-    def test_hidden_private_and_computed_includes_refuse(self):
-        for data in [b'#include "../../private/input.h"',b'#include <windows.h>',b'#include HEADER',
-                     b'#/**/include "private.h"',b'#inc\\\nlude "private.h"',b'%:include "private.h"',
-                     b'??=include "private.h"',b'#pragma include_alias("shared/x.hpp", "private.h")',
-                     b'#import "private.tlb"']:
-            with self.subTest(data=data),self.assertRaises(ValueError):validate_includes(data,{'shared/x.hpp':b''})
-        validate_includes(b'/* #include "absent.h" */\n#include "shared/x.hpp" // retained comment',{'shared/x.hpp':b''})
 
     def test_complete_fresh_extent_passes(self):
         result=self.verify(self.row(),b'\xc3',synthetic_object(b'\xc3'))

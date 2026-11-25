@@ -1,0 +1,1243 @@
+{
+  "id": "rebuild-grphmimg",
+  "population": {
+    "id": "rebuild-grphmimg",
+    "inventory_sha256": "52b738f935747298be3c1947829e4971d8777d799b0e5d1318d0b546473e6b7c",
+    "gaps_sha256": "1801de4a64892115a246b4046ee4447ef6de69fcd3c50f221ddfcd70fac685cb",
+    "historical_population_sha256": "03bd290d5babc684de3daf8b7f09662f23b1429772c53894ae1c50e2e7c125f3",
+    "historical_acceptance_sha256": "9a9c9994ad129449a5334eb149674746c608fa8697b51781cf1f10650cf63fc7"
+  },
+  "references": {
+    "_RECT_NONE": 10751560,
+    "??_C@_02GMH@ID?$AA@": 8213160,
+    "??0Wstring@@QAE@PBD@Z": 7788832,
+    "?Get_Int@INIClass@@QBEHABVWstring@@0H@Z": 5298640,
+    "??1Wstring@@QAE@XZ": 7789024,
+    "??_C@_06GKHB@Origin?$AA@": 8232484,
+    "?Get_Point@INIClass@@QBE?BV?$TPoint2D@H@@ABVWstring@@0ABV2@@Z": 5306368,
+    "??_C@_0L@JDPA@ActiveRect?$AA@": 8232472,
+    "?Get_Rect@INIClass@@QBE?BV?$TRect@H@@ABVWstring@@0ABV2@@Z": 5300080,
+    "??0Wstring@@QAE@XZ": 7788816,
+    "??_C@_00A@?$AA@": 8635740,
+    "??_C@_05LADG@Image?$AA@": 8191452,
+    "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z": 5303104,
+    "??_C@_0M@PBGM@Highlighted?$AA@": 8232612,
+    "??_C@_08FGLH@Disabled?$AA@": 8232600,
+    "??_C@_0P@GEHN@HighlightSound?$AA@": 8232584,
+    "??_C@_08JGEI@SelectVQ?$AA@": 8232572,
+    "??2@YAPAXI@Z": 7872535,
+    "??0GraphicMenuImageItem@@QAE@HAAVMSEngine@@ABVPoint2D@@ABV?$TRect@H@@ABVWstring@@3333@Z": 5110576,
+    "??0GraphicMenuItem@@QAE@H@Z": 5112096,
+    "??_7GraphicMenuImageItem@@6B@": 8006580,
+    "?length@Wstring@@QBEIXZ": 7792544,
+    "??0MSSfxEntry@@QAE@ABVWstring@@0@Z": 5969328,
+    "??4Wstring@@QAEAAV0@ABV0@@Z": 7789616,
+    "??0MSPCXAnim@@QAE@ABVWstring@@PAV?$DynamicVectorClass@PAVMSAnim@@@@ABVPoint2D@@_N@Z": 5961616,
+    "?Add_Animation@MSEngine@@QAEHPAVMSAnim@@@Z": 5975392,
+    "??1MSSfxEntry@@QAE@XZ": 5969600,
+    "??3@YAXPAX@Z": 7871803,
+    "??1GraphicMenuItem@@UAE@XZ": 5112128,
+    "?Restore_Anims@MSEngine@@QAEXABV?$TRect@H@@@Z": 5978112,
+    "?Restore_And_Advance@MSEngine@@QAEXXZ": 5975952,
+    "?Play@MSSfxEntry@@QAEXXZ": 5969616,
+    "?Action@GraphicMenuItem@@UAEXPAVMSEngine@@@Z": 5112288,
+    "??0CCFileClass@@QAE@ABVWstring@@@Z": 4624272,
+    "??_7CCFileClass@@6B@": 7972512,
+    "??1Buffer@@QAE@XZ": 4424720,
+    "??_7CDFileClass@@6B@": 7972440,
+    "??1BufferIOFileClass@@UAE@XZ": 4387664,
+    "?AlternateSurface@@3PAVSurface@@A": 8624472,
+    "??0MSVQAnim@@QAE@ABVWstring@@PAVSurface@@PAV?$DynamicVectorClass@PAVMSAnim@@@@_N@Z": 5954960,
+    "?Wait_For_Anim@MSEngine@@QAEXPAVMSAnim@@I@Z": 5975856,
+    "_$E2": 5109744,
+    "?GM_Read_Image_Item@@YIPAVGraphicMenuItem@@ABVWstring@@ABVINIClass@@AAVMSEngine@@AAVPoint2D@@@Z": 5109776,
+    "?Is_Input_Key@GraphicMenuItem@@UAE_NW4KeyNumType@@@Z": 5112272,
+    "??_GGraphicMenuImageItem@@UAEPAXI@Z": 5111568,
+    "??_R0?AVGraphicMenuItem@@@8": 8232504,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVGraphicMenuImageItem@@@8": 8232624,
+    "??1GraphicMenuImageItem@@UAE@XZ": 5110992,
+    "?Is_Mouse_Over@GraphicMenuImageItem@@UAE_NABVPoint2D@@@Z": 5111056,
+    "?On_Selected_Change@GraphicMenuImageItem@@UAEX_N@Z": 5111136,
+    "?On_Enabled_Change@GraphicMenuImageItem@@UAEX_N@Z": 5111280,
+    "?Action@GraphicMenuImageItem@@UAEXPAVMSEngine@@@Z": 5111408,
+    "?Error@CCFileClass@@UAEXHHPBD@Z": 4624384,
+    "?Set_Date_Time@CCFileClass@@UAE_NI@Z": 4625408,
+    "?Get_Date_Time@CCFileClass@@UAEIXZ": 4625232,
+    "?Close@CCFileClass@@UAEXXZ": 4624880,
+    "?Write@CCFileClass@@UAEHPBXH@Z": 4624432,
+    "?Size@CCFileClass@@UAEHXZ": 4624720,
+    "?Seek@CCFileClass@@UAEHHH@Z": 4624624,
+    "?Read@CCFileClass@@UAEHPAXH@Z": 4624480,
+    "?Open@CCFileClass@@UAEHH@Z": 4624928,
+    "?Is_Open@CCFileClass@@UBE_NXZ": 4624864,
+    "?Is_Available@CCFileClass@@UAE_NH@Z": 4624800,
+    "??_GCCFileClass@@UAEPAXI@Z": 4200864,
+    "??_R0?AVCCFileClass@@@8": 8177840,
+    "?Error@RawFileClass@@UAEXHHPBD@Z": 6523696,
+    "?Set_Date_Time@RawFileClass@@UAE_NI@Z": 6525680,
+    "?Get_Date_Time@RawFileClass@@UAEIXZ": 6525600,
+    "?Close@BufferIOFileClass@@UAEXXZ": 4390304,
+    "?Write@BufferIOFileClass@@UAEHPBXH@Z": 4388912,
+    "?Size@BufferIOFileClass@@UAEHXZ": 4390272,
+    "?Seek@BufferIOFileClass@@UAEHHH@Z": 4390032,
+    "?Read@BufferIOFileClass@@UAEHPAXH@Z": 4389504,
+    "?Open@CDFileClass@@UAEHPBDH@Z": 4653648,
+    "?Open@CDFileClass@@UAEHH@Z": 4652560,
+    "?Is_Open@BufferIOFileClass@@UBE_NXZ": 4388608,
+    "?Is_Available@BufferIOFileClass@@UAE_NH@Z": 4388576,
+    "?Delete@RawFileClass@@UAEHXZ": 6525504,
+    "?Create@RawFileClass@@UAEHXZ": 6525440,
+    "?Set_Name@CDFileClass@@UAEPBDPBD@Z": 4653392,
+    "??_GCDFileClass@@UAEPAXI@Z": 4200784,
+    "??_R0?AVFileClass@@@8": 8177872,
+    "??_R0?AVRawFileClass@@@8": 8177896,
+    "??_R0?AVBufferIOFileClass@@@8": 8177928,
+    "??_R0?AVCDFileClass@@@8": 8177960,
+    "?File_Name@RawFileClass@@UBEPBDXZ": 4200768,
+    "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056
+  },
+  "regions": [
+    {
+      "entry": 5109744,
+      "method": "004df7f0",
+      "body_bytes": 23,
+      "body_sha256": "42c43f610eda788754620b4bca51ee9023e4417278bd6c51f9c6a84a68dc6e9c",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "886cff48c74366845ee533e8aeddab73ac73a49e1f594b10c5e487d813162d87",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10751560,
+          "addend": 0,
+          "resolved": 10751560
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10751560,
+          "addend": 4,
+          "resolved": 10751564
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10751560,
+          "addend": 8,
+          "resolved": 10751568
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10751560,
+          "addend": 12,
+          "resolved": 10751572
+        }
+      ],
+      "source_sha256": "6613cb0023297ae3132f6ca94d151f7d0cd8d6f77ba3aa2b3bf8a0d8790cabeb",
+      "source": "src/grphmimg.cpp",
+      "population": "rebuild-grphmimg",
+      "source_order": 5109744,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5109776,
+      "method": "004df810",
+      "body_bytes": 798,
+      "body_sha256": "ca2c0df9be7cbf43ac2429f3d1eac9bbc35e89321395c0c8b020a7deae05cafc",
+      "padding_bytes": 2,
+      "full_extent_bytes": 800,
+      "full_extent_sha256": "c15c65936495d8c114990e848d11d73fe545391b37c24f3cee7db5bcd74b33c0",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GM_Read_Image_Item@@YIPAVGraphicMenuItem@@ABVWstring@@ABVINIClass@@AAVMSEngine@@AAVPoint2D@@@Z",
+      "symbol_prefix": "?GM_Read_Image_Item@@YIPAVGraphicMenuItem@@ABVWstring@@ABVINIClass@@AAVMSEngine@@AAVPoint2D@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "??_C@_02GMH@ID?$AA@",
+          "target": 8213160,
+          "addend": 0,
+          "resolved": 8213160
+        },
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 2679032
+        },
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "?Get_Int@INIClass@@QBEHABVWstring@@0H@Z",
+          "target": 5298640,
+          "addend": 0,
+          "resolved": 188825
+        },
+        {
+          "offset": 50,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2679194
+        },
+        {
+          "offset": 74,
+          "kind": 6,
+          "symbol": "??_C@_06GKHB@Origin?$AA@",
+          "target": 8232484,
+          "addend": 0,
+          "resolved": 8232484
+        },
+        {
+          "offset": 91,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 2678961
+        },
+        {
+          "offset": 114,
+          "kind": 20,
+          "symbol": "?Get_Point@INIClass@@QBE?BV?$TPoint2D@H@@ABVWstring@@0ABV2@@Z",
+          "target": 5306368,
+          "addend": 0,
+          "resolved": 196474
+        },
+        {
+          "offset": 136,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2679108
+        },
+        {
+          "offset": 153,
+          "kind": 6,
+          "symbol": "??_C@_0L@JDPA@ActiveRect?$AA@",
+          "target": 8232472,
+          "addend": 0,
+          "resolved": 8232472
+        },
+        {
+          "offset": 195,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 2678857
+        },
+        {
+          "offset": 218,
+          "kind": 20,
+          "symbol": "?Get_Rect@INIClass@@QBE?BV?$TRect@H@@ABVWstring@@0ABV2@@Z",
+          "target": 5300080,
+          "addend": 0,
+          "resolved": 190082
+        },
+        {
+          "offset": 254,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2678990
+        },
+        {
+          "offset": 288,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 2678748
+        },
+        {
+          "offset": 297,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 2678739
+        },
+        {
+          "offset": 306,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 2678730
+        },
+        {
+          "offset": 315,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 320,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 2678732
+        },
+        {
+          "offset": 329,
+          "kind": 6,
+          "symbol": "??_C@_05LADG@Image?$AA@",
+          "target": 8191452,
+          "addend": 0,
+          "resolved": 8191452
+        },
+        {
+          "offset": 334,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 2678718
+        },
+        {
+          "offset": 357,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 192967
+        },
+        {
+          "offset": 366,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2678878
+        },
+        {
+          "offset": 375,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2678869
+        },
+        {
+          "offset": 384,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 389,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 2678663
+        },
+        {
+          "offset": 398,
+          "kind": 6,
+          "symbol": "??_C@_0M@PBGM@Highlighted?$AA@",
+          "target": 8232612,
+          "addend": 0,
+          "resolved": 8232612
+        },
+        {
+          "offset": 403,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 2678649
+        },
+        {
+          "offset": 426,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 192898
+        },
+        {
+          "offset": 435,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2678809
+        },
+        {
+          "offset": 444,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2678800
+        },
+        {
+          "offset": 453,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 458,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 2678594
+        },
+        {
+          "offset": 467,
+          "kind": 6,
+          "symbol": "??_C@_08FGLH@Disabled?$AA@",
+          "target": 8232600,
+          "addend": 0,
+          "resolved": 8232600
+        },
+        {
+          "offset": 472,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 2678580
+        },
+        {
+          "offset": 495,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 192829
+        },
+        {
+          "offset": 504,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2678740
+        },
+        {
+          "offset": 513,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2678731
+        },
+        {
+          "offset": 522,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 2678514
+        },
+        {
+          "offset": 531,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 536,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 2678516
+        },
+        {
+          "offset": 545,
+          "kind": 6,
+          "symbol": "??_C@_0P@GEHN@HighlightSound?$AA@",
+          "target": 8232584,
+          "addend": 0,
+          "resolved": 8232584
+        },
+        {
+          "offset": 550,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 2678502
+        },
+        {
+          "offset": 573,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 192751
+        },
+        {
+          "offset": 582,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2678662
+        },
+        {
+          "offset": 591,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2678653
+        },
+        {
+          "offset": 600,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 2678436
+        },
+        {
+          "offset": 609,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 614,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 2678438
+        },
+        {
+          "offset": 623,
+          "kind": 6,
+          "symbol": "??_C@_08JGEI@SelectVQ?$AA@",
+          "target": 8232572,
+          "addend": 0,
+          "resolved": 8232572
+        },
+        {
+          "offset": 628,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 2678424
+        },
+        {
+          "offset": 651,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 192673
+        },
+        {
+          "offset": 660,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2678584
+        },
+        {
+          "offset": 669,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2678575
+        },
+        {
+          "offset": 676,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2762079
+        },
+        {
+          "offset": 735,
+          "kind": 20,
+          "symbol": "??0GraphicMenuImageItem@@QAE@HAAVMSEngine@@ABVPoint2D@@ABV?$TRect@H@@ABVWstring@@3333@Z",
+          "target": 5110576,
+          "addend": 0,
+          "resolved": 61
+        },
+        {
+          "offset": 746,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2678498
+        },
+        {
+          "offset": 755,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2678489
+        },
+        {
+          "offset": 764,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2678480
+        },
+        {
+          "offset": 773,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2678471
+        },
+        {
+          "offset": 782,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2678462
+        }
+      ],
+      "source_sha256": "6613cb0023297ae3132f6ca94d151f7d0cd8d6f77ba3aa2b3bf8a0d8790cabeb",
+      "source": "src/grphmimg.cpp",
+      "population": "rebuild-grphmimg",
+      "source_order": 5109776,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5110576,
+      "method": "004dfb30",
+      "body_bytes": 413,
+      "body_sha256": "82886543cb2fabc23802e570e3354a9620e8152f6e3e2f59581db2df03279086",
+      "padding_bytes": 3,
+      "full_extent_bytes": 416,
+      "full_extent_sha256": "414b03eb2803871b23768198467fa5520739bf2656658bdbe0c010dd491feff9",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0GraphicMenuImageItem@@QAE@HAAVMSEngine@@ABVPoint2D@@ABV?$TRect@H@@ABVWstring@@3333@Z",
+      "symbol_prefix": "??0GraphicMenuImageItem@@QAE@HAAVMSEngine@@ABVPoint2D@@ABV?$TRect@H@@ABVWstring@@3333@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "??0GraphicMenuItem@@QAE@H@Z",
+          "target": 5112096,
+          "addend": 0,
+          "resolved": 1497
+        },
+        {
+          "offset": 75,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 2678161
+        },
+        {
+          "offset": 85,
+          "kind": 6,
+          "symbol": "??_7GraphicMenuImageItem@@6B@",
+          "target": 8006580,
+          "addend": 0,
+          "resolved": 8006580
+        },
+        {
+          "offset": 92,
+          "kind": 20,
+          "symbol": "?length@Wstring@@QBEIXZ",
+          "target": 7792544,
+          "addend": 0,
+          "resolved": 2681872
+        },
+        {
+          "offset": 103,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2761852
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "??_C@_0P@GEHN@HighlightSound?$AA@",
+          "target": 8232584,
+          "addend": 0,
+          "resolved": 8232584
+        },
+        {
+          "offset": 128,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 2678124
+        },
+        {
+          "offset": 148,
+          "kind": 20,
+          "symbol": "??0MSSfxEntry@@QAE@ABVWstring@@0@Z",
+          "target": 5969328,
+          "addend": 0,
+          "resolved": 858600
+        },
+        {
+          "offset": 169,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2678275
+        },
+        {
+          "offset": 182,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 2678854
+        },
+        {
+          "offset": 193,
+          "kind": 20,
+          "symbol": "?length@Wstring@@QBEIXZ",
+          "target": 7792544,
+          "addend": 0,
+          "resolved": 2681771
+        },
+        {
+          "offset": 208,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2761747
+        },
+        {
+          "offset": 230,
+          "kind": 20,
+          "symbol": "??0MSPCXAnim@@QAE@ABVWstring@@PAV?$DynamicVectorClass@PAVMSAnim@@@@ABVPoint2D@@_N@Z",
+          "target": 5961616,
+          "addend": 0,
+          "resolved": 850806
+        },
+        {
+          "offset": 261,
+          "kind": 20,
+          "symbol": "?Add_Animation@MSEngine@@QAEHPAVMSAnim@@@Z",
+          "target": 5975392,
+          "addend": 0,
+          "resolved": 864551
+        },
+        {
+          "offset": 272,
+          "kind": 20,
+          "symbol": "?length@Wstring@@QBEIXZ",
+          "target": 7792544,
+          "addend": 0,
+          "resolved": 2681692
+        },
+        {
+          "offset": 283,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2761672
+        },
+        {
+          "offset": 305,
+          "kind": 20,
+          "symbol": "??0MSPCXAnim@@QAE@ABVWstring@@PAV?$DynamicVectorClass@PAVMSAnim@@@@ABVPoint2D@@_N@Z",
+          "target": 5961616,
+          "addend": 0,
+          "resolved": 850731
+        },
+        {
+          "offset": 324,
+          "kind": 20,
+          "symbol": "?Add_Animation@MSEngine@@QAEHPAVMSAnim@@@Z",
+          "target": 5975392,
+          "addend": 0,
+          "resolved": 864488
+        },
+        {
+          "offset": 335,
+          "kind": 20,
+          "symbol": "?length@Wstring@@QBEIXZ",
+          "target": 7792544,
+          "addend": 0,
+          "resolved": 2681629
+        },
+        {
+          "offset": 346,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2761609
+        },
+        {
+          "offset": 368,
+          "kind": 20,
+          "symbol": "??0MSPCXAnim@@QAE@ABVWstring@@PAV?$DynamicVectorClass@PAVMSAnim@@@@ABVPoint2D@@_N@Z",
+          "target": 5961616,
+          "addend": 0,
+          "resolved": 850668
+        },
+        {
+          "offset": 399,
+          "kind": 20,
+          "symbol": "?Add_Animation@MSEngine@@QAEHPAVMSAnim@@@Z",
+          "target": 5975392,
+          "addend": 0,
+          "resolved": 864413
+        }
+      ],
+      "source_sha256": "6613cb0023297ae3132f6ca94d151f7d0cd8d6f77ba3aa2b3bf8a0d8790cabeb",
+      "source": "src/grphmimg.cpp",
+      "population": "rebuild-grphmimg",
+      "source_order": 5110576,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5110992,
+      "method": "004dfcd0",
+      "body_bytes": 51,
+      "body_sha256": "304f52e2844f1e46a6bd17d13a4014ba4e24f28c7078fa6bf0b6c071e3885857",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "d983cc0789dcca2a6c98e2ad31079f137828104d3095465ddab4b73f73f522d5",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1GraphicMenuImageItem@@UAE@XZ",
+      "symbol_prefix": "??1GraphicMenuImageItem@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "??_7GraphicMenuImageItem@@6B@",
+          "target": 8006580,
+          "addend": 0,
+          "resolved": 8006580
+        },
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??1MSSfxEntry@@QAE@XZ",
+          "target": 5969600,
+          "addend": 0,
+          "resolved": 858584
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2760781
+        },
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2677991
+        },
+        {
+          "offset": 44,
+          "kind": 20,
+          "symbol": "??1GraphicMenuItem@@UAE@XZ",
+          "target": 5112128,
+          "addend": 0,
+          "resolved": 1088
+        }
+      ],
+      "source_sha256": "6613cb0023297ae3132f6ca94d151f7d0cd8d6f77ba3aa2b3bf8a0d8790cabeb",
+      "source": "src/grphmimg.cpp",
+      "population": "rebuild-grphmimg",
+      "source_order": 5110992,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5111056,
+      "method": "004dfd10",
+      "body_bytes": 66,
+      "body_sha256": "18f826d2f6bb200e62d5461d650db46e61c3f59a9635a368855e0750f50d3000",
+      "padding_bytes": 14,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "a9f426a467f1921e500e62e0b70e143a0d71ee015e87ed7642133b60a2fad2e3",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Mouse_Over@GraphicMenuImageItem@@UAE_NABVPoint2D@@@Z",
+      "symbol_prefix": "?Is_Mouse_Over@GraphicMenuImageItem@@UAE_NABVPoint2D@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6613cb0023297ae3132f6ca94d151f7d0cd8d6f77ba3aa2b3bf8a0d8790cabeb",
+      "source": "src/grphmimg.cpp",
+      "population": "rebuild-grphmimg",
+      "source_order": 5111056,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-123"
+    },
+    {
+      "entry": 5111136,
+      "method": "004dfd60",
+      "body_bytes": 136,
+      "body_sha256": "a7bd5acab58cb17282c2a3bfeef9464b316123f53f8c534790c9e6b2ca33f848",
+      "padding_bytes": 8,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "cbc0fa0a03828941fe243d40e7aa695b49baaaf57e22541eb0519c7ee53dc1c2",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?On_Selected_Change@GraphicMenuImageItem@@UAEX_N@Z",
+      "symbol_prefix": "?On_Selected_Change@GraphicMenuImageItem@@UAEX_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 103,
+          "kind": 20,
+          "symbol": "?Restore_Anims@MSEngine@@QAEXABV?$TRect@H@@@Z",
+          "target": 5978112,
+          "addend": 0,
+          "resolved": 866869
+        },
+        {
+          "offset": 111,
+          "kind": 20,
+          "symbol": "?Restore_And_Advance@MSEngine@@QAEXXZ",
+          "target": 5975952,
+          "addend": 0,
+          "resolved": 864701
+        },
+        {
+          "offset": 127,
+          "kind": 20,
+          "symbol": "?Play@MSSfxEntry@@QAEXXZ",
+          "target": 5969616,
+          "addend": 0,
+          "resolved": 858349
+        }
+      ],
+      "source_sha256": "6613cb0023297ae3132f6ca94d151f7d0cd8d6f77ba3aa2b3bf8a0d8790cabeb",
+      "source": "src/grphmimg.cpp",
+      "population": "rebuild-grphmimg",
+      "source_order": 5111136,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5111280,
+      "method": "004dfdf0",
+      "body_bytes": 117,
+      "body_sha256": "5b330d3be9bd344099a830591838443c2d3f9e687497d2cb80994bc6a173fa53",
+      "padding_bytes": 11,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "7b6bd1b00039148b26ef6a8c0f0baf55d788c2c6faf8e703d8078d23f7a5e39f",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?On_Enabled_Change@GraphicMenuImageItem@@UAEX_N@Z",
+      "symbol_prefix": "?On_Enabled_Change@GraphicMenuImageItem@@UAEX_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 100,
+          "kind": 20,
+          "symbol": "?Restore_Anims@MSEngine@@QAEXABV?$TRect@H@@@Z",
+          "target": 5978112,
+          "addend": 0,
+          "resolved": 866728
+        },
+        {
+          "offset": 108,
+          "kind": 20,
+          "symbol": "?Restore_And_Advance@MSEngine@@QAEXXZ",
+          "target": 5975952,
+          "addend": 0,
+          "resolved": 864560
+        }
+      ],
+      "source_sha256": "6613cb0023297ae3132f6ca94d151f7d0cd8d6f77ba3aa2b3bf8a0d8790cabeb",
+      "source": "src/grphmimg.cpp",
+      "population": "rebuild-grphmimg",
+      "source_order": 5111280,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5111408,
+      "method": "004dfe70",
+      "body_bytes": 149,
+      "body_sha256": "bfccefa79262ad5e2ad9ece887899f92b3571265847ea2e0503508baeaf6f020",
+      "padding_bytes": 11,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "6f3a2edd27e9c801a4727ab31c88cbc10176b9ffaf4f936a08b80e2c20cc9de6",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Action@GraphicMenuImageItem@@UAEXPAVMSEngine@@@Z",
+      "symbol_prefix": "?Action@GraphicMenuImageItem@@UAEXPAVMSEngine@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "?Action@GraphicMenuItem@@UAEXPAVMSEngine@@@Z",
+          "target": 5112288,
+          "addend": 0,
+          "resolved": 862
+        },
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "??0CCFileClass@@QAE@ABVWstring@@@Z",
+          "target": 4624272,
+          "addend": 0,
+          "resolved": 4294480129
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "??_7CCFileClass@@6B@",
+          "target": 7972512,
+          "addend": 0,
+          "resolved": 7972512
+        },
+        {
+          "offset": 63,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 4294280541
+        },
+        {
+          "offset": 75,
+          "kind": 6,
+          "symbol": "??_7CDFileClass@@6B@",
+          "target": 7972440,
+          "addend": 0,
+          "resolved": 7972440
+        },
+        {
+          "offset": 80,
+          "kind": 20,
+          "symbol": "??1BufferIOFileClass@@UAE@XZ",
+          "target": 4387664,
+          "addend": 0,
+          "resolved": 4294243468
+        },
+        {
+          "offset": 91,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2761032
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "?AlternateSurface@@3PAVSurface@@A",
+          "target": 8624472,
+          "addend": 0,
+          "resolved": 8624472
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??0MSVQAnim@@QAE@ABVWstring@@PAVSurface@@PAV?$DynamicVectorClass@PAVMSAnim@@@@_N@Z",
+          "target": 5954960,
+          "addend": 0,
+          "resolved": 843429
+        },
+        {
+          "offset": 136,
+          "kind": 20,
+          "symbol": "?Wait_For_Anim@MSEngine@@QAEXPAVMSAnim@@I@Z",
+          "target": 5975856,
+          "addend": 0,
+          "resolved": 864308
+        }
+      ],
+      "source_sha256": "6613cb0023297ae3132f6ca94d151f7d0cd8d6f77ba3aa2b3bf8a0d8790cabeb",
+      "source": "src/grphmimg.cpp",
+      "population": "rebuild-grphmimg",
+      "source_order": 5111408,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5111568,
+      "method": "004dff10",
+      "body_bytes": 71,
+      "body_sha256": "0af3bb1f0c37c4129c602ade944e887d855b588eb47a8d939d3a836414a364b1",
+      "padding_bytes": 9,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "f7c245e26a62dabf33ea64cd3eaf3c8f458634cde7c3e6a5dbe42db362a96716",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GGraphicMenuImageItem@@UAEPAXI@Z",
+      "symbol_prefix": "??_GGraphicMenuImageItem@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "??_7GraphicMenuImageItem@@6B@",
+          "target": 8006580,
+          "addend": 0,
+          "resolved": 8006580
+        },
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??1MSSfxEntry@@QAE@XZ",
+          "target": 5969600,
+          "addend": 0,
+          "resolved": 858008
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2760205
+        },
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2677415
+        },
+        {
+          "offset": 44,
+          "kind": 20,
+          "symbol": "??1GraphicMenuItem@@UAE@XZ",
+          "target": 5112128,
+          "addend": 0,
+          "resolved": 512
+        },
+        {
+          "offset": 57,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2760174
+        }
+      ],
+      "source_sha256": "6613cb0023297ae3132f6ca94d151f7d0cd8d6f77ba3aa2b3bf8a0d8790cabeb",
+      "source": "src/grphmimg.cpp",
+      "population": "rebuild-grphmimg",
+      "source_order": 5111568,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

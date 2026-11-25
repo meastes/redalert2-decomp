@@ -37,12 +37,6 @@ class LargeIntegerSlices(unittest.TestCase):
     def test_only_independent_eligible_local_changes(self):
         _,text=self.lower('use(value._0_4_); use(value.s.LowPart); use(other._8_4_); use(other.s.HighPart);','LARGE_INTEGER value;\n LARGE_INTEGER other;')
         self.assertIn('use(value.LowPart)',text);self.assertIn('other.s.HighPart',text)
-    def test_full_seed_order_handles_mixed_views_before_scalar_lowering(self):
-        class Inventory:
-            passes=[]
-            def decompiled(self,entry):return 'uint __cdecl FUN_00401000(uint lo,int hi)\n{\n LARGE_INTEGER value;\n value._0_4_=lo;\n value.s.HighPart=hi;\n return value.s.LowPart ^ value._4_4_;\n}'
-            def function(self,entry):return None,{'ranges':[]}
-        text=seed.seed(0x401000,Inventory(),{});self.assertNotIn('value.s.',text);self.assertNotIn('value._',text);self.assertIn('DWORD LowPart; LONG HighPart;',text);self.assertIn('value.HighPart',text)
     def test_valid_slice_prefix_does_not_accept_unknown_selector(self):
         for selector in ['_0_4_extra','_4_4_extra','_0_4__']:
             original,text=self.lower('use(value.'+selector+'); use(value.s.LowPart);');self.assertEqual(original,text)

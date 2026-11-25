@@ -1,0 +1,1123 @@
+{
+  "id": "rebuild-multiplayerteam",
+  "population": {
+    "id": "rebuild-multiplayerteam",
+    "inventory_sha256": "447c9259c6070bb87aa86ab7b2d3230b5812a3127e2acb09db2ac728d9d33d63",
+    "gaps_sha256": "f0ec9a5cc0a6dc4ee037a643db5b3c86894fa65e5e902507bab8a87b8e253acd",
+    "historical_population_sha256": "e414904b37456d44b6a1e2161f29feeffc082c9bc4eac594d522e18871b2e894",
+    "historical_acceptance_sha256": "68fe71b9fa13702d606a5130cdb283be30f3d009a2c6a5d86613f7e387101a02"
+  },
+  "references": {
+    "_RECT_NONE": 10951240,
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 10951264,
+    "_ISO_TILE_SIZE": 8024832,
+    "_LEPTONS_PER_PIXEL": 10951336,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 10951320,
+    "_ONE_RAD": 8024840,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 10951312,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 10951272,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 10951232,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 10951344,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 10951280,
+    "_CELL_DIAG_SLOPE_ANGLE": 10951304,
+    "_BRIDGE_LEPTON_HEIGHT": 10951328,
+    "_CELL_NONE": 10951256,
+    "_COORD_NONE": 10951288,
+    "??0WideWstring@@QAE@ABV0@@Z": 7797264,
+    "??_7MultiplayerTeam@@6B@": 8024852,
+    "??1WideWstring@@QAE@XZ": 7797328,
+    "?Session@@3VSessionClass@@A": 10736280,
+    "?text@WideWstring@@QBEPAGXZ": 7799856,
+    "__imp__SendMessageA@16": 7972000,
+    "??3@YAXPAX@Z": 7871803,
+    "_$E2": 6002992,
+    "_$E5": 6003024,
+    "_$E8": 6003072,
+    "_$E11": 6003104,
+    "_$E14": 6003136,
+    "_$E17": 6003168,
+    "_$E20": 6003200,
+    "_$E23": 6003232,
+    "_$E26": 6003296,
+    "_$E29": 6003344,
+    "_$E32": 6003392,
+    "_$E35": 6003440,
+    "_$E38": 6003456,
+    "??0MultiplayerTeam@@QAE@ABVWideWstring@@H@Z": 6003488,
+    "??_GMultiplayerTeam@@UAEPAXI@Z": 6003744,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVMultiplayerTeam@@@8": 8270744,
+    "??1MultiplayerTeam@@UAE@XZ": 6003536,
+    "?IsTeamIncluded@MultiplayerTeam@@UAE_NH@Z": 6003552,
+    "?SetPlayerTeam@MultiplayerTeam@@UAE_NH@Z": 6003584,
+    "?CountMembers@MultiplayerTeam@@QAEHXZ": 6003632,
+    "?AddToList@MultiplayerTeam@@QAEHPAUHWND__@@@Z": 6003680,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_EWstring@@QAEPAXI@Z": 4239168,
+    "??1Wstring@@QAE@XZ": 7789024,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104
+  },
+  "regions": [
+    {
+      "entry": 6002992,
+      "method": "005b9930",
+      "body_bytes": 23,
+      "body_sha256": "6962e45d33a4760fb575931bcd6ce938eee10db0e5865b41818e05bf832d6431",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "6c7f319c4f6493f4917c108d6e67c495e759844738a573512fb3a755c53fd1b0",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10951240,
+          "addend": 0,
+          "resolved": 10951240
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10951240,
+          "addend": 4,
+          "resolved": 10951244
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10951240,
+          "addend": 8,
+          "resolved": 10951248
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10951240,
+          "addend": 12,
+          "resolved": 10951252
+        }
+      ],
+      "source_sha256": "ff736c16d77aa211b0a074bd736d97aefea9b811c934646af3978af5d96a6749",
+      "source": "src/multiplayerteam.cpp",
+      "population": "rebuild-multiplayerteam",
+      "source_order": 6002992,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6003024,
+      "method": "005b9950",
+      "body_bytes": 40,
+      "body_sha256": "cbcf7e8be448024209c4c0dc66b041c16cddbe070b3929d7241d1ab2b9b9ceac",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "ddfcdab499d22c3abb22777219e0e484fe6cda38a99e04be70d749917da94048",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 1869903
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4293921442
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10951264,
+          "addend": 0,
+          "resolved": 10951264
+        }
+      ],
+      "source_sha256": "ff736c16d77aa211b0a074bd736d97aefea9b811c934646af3978af5d96a6749",
+      "source": "src/multiplayerteam.cpp",
+      "population": "rebuild-multiplayerteam",
+      "source_order": 6003024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6003072,
+      "method": "005b9980",
+      "body_bytes": 19,
+      "body_sha256": "9653199a18586e4d0b19bb8bd999daa7526037ebead98c3c9dedd350ba6936d5",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "cd7d08bdf618d5d4595be5a5ec8dfb37afd451c0b010522afea52de6aefebdb1",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10951264,
+          "addend": 0,
+          "resolved": 10951264
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8024832,
+          "addend": 0,
+          "resolved": 8024832
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10951336,
+          "addend": 0,
+          "resolved": 10951336
+        }
+      ],
+      "source_sha256": "ff736c16d77aa211b0a074bd736d97aefea9b811c934646af3978af5d96a6749",
+      "source": "src/multiplayerteam.cpp",
+      "population": "rebuild-multiplayerteam",
+      "source_order": 6003072,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6003104,
+      "method": "005b99a0",
+      "body_bytes": 19,
+      "body_sha256": "09e7470dbca63bc8278c441cf63bfa00ecbe23e5fb22dd7445d71f8e8b3c2732",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "0f4e5ae76f530f9a755cd8897f82713d53682f6fa53a96b05345d71f9b715cdb",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10951336,
+          "addend": 0,
+          "resolved": 10951336
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 10951320,
+          "addend": 0,
+          "resolved": 10951320
+        }
+      ],
+      "source_sha256": "ff736c16d77aa211b0a074bd736d97aefea9b811c934646af3978af5d96a6749",
+      "source": "src/multiplayerteam.cpp",
+      "population": "rebuild-multiplayerteam",
+      "source_order": 6003104,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6003136,
+      "method": "005b99c0",
+      "body_bytes": 19,
+      "body_sha256": "1968ee790b7c07bdb5d97d52295ad824b531bd88c937cdc46dd726203cb92cfd",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "e27119b4e347c2e779f8fc75b31d7f1513bce8337ab3b7b79451ea8dfe2464dd",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8024840,
+          "addend": 0,
+          "resolved": 8024840
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 10951312,
+          "addend": 0,
+          "resolved": 10951312
+        }
+      ],
+      "source_sha256": "ff736c16d77aa211b0a074bd736d97aefea9b811c934646af3978af5d96a6749",
+      "source": "src/multiplayerteam.cpp",
+      "population": "rebuild-multiplayerteam",
+      "source_order": 6003136,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6003168,
+      "method": "005b99e0",
+      "body_bytes": 19,
+      "body_sha256": "70c5ff7770693d9b1ed5a0d4c67ec48bf7678479ac7d6bd456e6fefc2194220c",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "9bc3308dfc10c386b2b9e47db99724ebdd6065f07055644b87047a7438277db1",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8024840,
+          "addend": 0,
+          "resolved": 8024840
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10951272,
+          "addend": 0,
+          "resolved": 10951272
+        }
+      ],
+      "source_sha256": "ff736c16d77aa211b0a074bd736d97aefea9b811c934646af3978af5d96a6749",
+      "source": "src/multiplayerteam.cpp",
+      "population": "rebuild-multiplayerteam",
+      "source_order": 6003168,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6003200,
+      "method": "005b9a00",
+      "body_bytes": 19,
+      "body_sha256": "b57dc40cb48c3f8eb32f91fabb806d8e7bfb2d98bfb0a397eb9d8782219dc841",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "01f179f421ae741dc01fa8138a58565a0a5f09dfe16a6b5c1538c12cba2054a1",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8024840,
+          "addend": 0,
+          "resolved": 8024840
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10951232,
+          "addend": 0,
+          "resolved": 10951232
+        }
+      ],
+      "source_sha256": "ff736c16d77aa211b0a074bd736d97aefea9b811c934646af3978af5d96a6749",
+      "source": "src/multiplayerteam.cpp",
+      "population": "rebuild-multiplayerteam",
+      "source_order": 6003200,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6003232,
+      "method": "005b9a20",
+      "body_bytes": 49,
+      "body_sha256": "90d0e8e2293cf6413310cf579e16d0011af4b975a1fe8fc05e717a5de4ee847f",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "225837a7039e4580b5a39715b414c7b8e052a569a9007229a05a58632f25e53d",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10951232,
+          "addend": 0,
+          "resolved": 10951232
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10951272,
+          "addend": 0,
+          "resolved": 10951272
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4293921513
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10951264,
+          "addend": 0,
+          "resolved": 10951264
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1857221
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10951344,
+          "addend": 0,
+          "resolved": 10951344
+        }
+      ],
+      "source_sha256": "ff736c16d77aa211b0a074bd736d97aefea9b811c934646af3978af5d96a6749",
+      "source": "src/multiplayerteam.cpp",
+      "population": "rebuild-multiplayerteam",
+      "source_order": 6003232,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6003296,
+      "method": "005b9a60",
+      "body_bytes": 33,
+      "body_sha256": "4e3343eebee9ed36e47f55aef4611767b8ebe4d98b07b5211573fcd810a3b696",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "5a21abb03daac3628e4d627052b8d49956fd20a58f39fb121b5fd29b4ec9e396",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10951344,
+          "addend": 0,
+          "resolved": 10951344
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4293921593
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 10951280,
+          "addend": 0,
+          "resolved": 10951280
+        }
+      ],
+      "source_sha256": "ff736c16d77aa211b0a074bd736d97aefea9b811c934646af3978af5d96a6749",
+      "source": "src/multiplayerteam.cpp",
+      "population": "rebuild-multiplayerteam",
+      "source_order": 6003296,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6003344,
+      "method": "005b9a90",
+      "body_bytes": 44,
+      "body_sha256": "7bfe4698747ae3251b85db21f70adba7c0763959ca49353c3306ef5dc5e62003",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "6efb5a6e232c0c22cc3f6ff30a2423347d27be952b1bca8300f11e30bd290b5e",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10951344,
+          "addend": 0,
+          "resolved": 10951344
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10951264,
+          "addend": 0,
+          "resolved": 10951264
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4293921534
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 10951304,
+          "addend": 0,
+          "resolved": 10951304
+        }
+      ],
+      "source_sha256": "ff736c16d77aa211b0a074bd736d97aefea9b811c934646af3978af5d96a6749",
+      "source": "src/multiplayerteam.cpp",
+      "population": "rebuild-multiplayerteam",
+      "source_order": 6003344,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6003392,
+      "method": "005b9ac0",
+      "body_bytes": 39,
+      "body_sha256": "5a443af0cbf0e96f10e3356f89dc064db940b38c205347294183cc32f69e86e1",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "baf29e66ce5216e7aa3a77a7544b9623b8c213adfa93b68f22810e78eaf6cbcd",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10951344,
+          "addend": 0,
+          "resolved": 10951344
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1857072
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 10951328,
+          "addend": 0,
+          "resolved": 10951328
+        }
+      ],
+      "source_sha256": "ff736c16d77aa211b0a074bd736d97aefea9b811c934646af3978af5d96a6749",
+      "source": "src/multiplayerteam.cpp",
+      "population": "rebuild-multiplayerteam",
+      "source_order": 6003392,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6003440,
+      "method": "005b9af0",
+      "body_bytes": 15,
+      "body_sha256": "e1368dc5bed9a4d0d2006cff9b64387530b45e785105b1d423406f6cf9bbfe58",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "7782a4679d5badc79e044cad4a70f7be976e4723217d1c929caced33656f31a3",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10951256,
+          "addend": 0,
+          "resolved": 10951256
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10951256,
+          "addend": 2,
+          "resolved": 10951258
+        }
+      ],
+      "source_sha256": "ff736c16d77aa211b0a074bd736d97aefea9b811c934646af3978af5d96a6749",
+      "source": "src/multiplayerteam.cpp",
+      "population": "rebuild-multiplayerteam",
+      "source_order": 6003440,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6003456,
+      "method": "005b9b00",
+      "body_bytes": 18,
+      "body_sha256": "9a15ebccd2dc7dc918f64d76912accf3280c81ce226ee3ee36576bc8c6a9bb37",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "726038ee5f98e0d9f44c493e1b6fa4b388fb12e6c69a99f5d5984395d2e5f1a5",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10951288,
+          "addend": 0,
+          "resolved": 10951288
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10951288,
+          "addend": 4,
+          "resolved": 10951292
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10951288,
+          "addend": 8,
+          "resolved": 10951296
+        }
+      ],
+      "source_sha256": "ff736c16d77aa211b0a074bd736d97aefea9b811c934646af3978af5d96a6749",
+      "source": "src/multiplayerteam.cpp",
+      "population": "rebuild-multiplayerteam",
+      "source_order": 6003456,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6003488,
+      "method": "005b9b20",
+      "body_bytes": 35,
+      "body_sha256": "c361687685fe565f19dedd0e504fb311b1ba75b6f5586be9ea6b42a5cdf23f61",
+      "padding_bytes": 13,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8027d3398c313718a8c187db7f17b908b9d2d68536ad879c96f1649c64c50715",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0MultiplayerTeam@@QAE@ABVWideWstring@@H@Z",
+      "symbol_prefix": "??0MultiplayerTeam@@QAE@ABVWideWstring@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 20,
+          "symbol": "??0WideWstring@@QAE@ABV0@@Z",
+          "target": 7797264,
+          "addend": 0,
+          "resolved": 1793760
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "??_7MultiplayerTeam@@6B@",
+          "target": 8024852,
+          "addend": 0,
+          "resolved": 8024852
+        }
+      ],
+      "source_sha256": "ff736c16d77aa211b0a074bd736d97aefea9b811c934646af3978af5d96a6749",
+      "source": "src/multiplayerteam.cpp",
+      "population": "rebuild-multiplayerteam",
+      "source_order": 6003488,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6003536,
+      "method": "005b9b50",
+      "body_bytes": 14,
+      "body_sha256": "a8c6c7d2a458b9a0e401933cc6bab27b212b07537e62f132764cba2ac0c074ff",
+      "padding_bytes": 2,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "636af3163b93e8013b6eb566d5789efbdc37d91dcb8808405ae9e5516723c1d0",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1MultiplayerTeam@@UAE@XZ",
+      "symbol_prefix": "??1MultiplayerTeam@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "??_7MultiplayerTeam@@6B@",
+          "target": 8024852,
+          "addend": 0,
+          "resolved": 8024852
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??1WideWstring@@QAE@XZ",
+          "target": 7797328,
+          "addend": 0,
+          "resolved": 1793778
+        }
+      ],
+      "source_sha256": "ff736c16d77aa211b0a074bd736d97aefea9b811c934646af3978af5d96a6749",
+      "source": "src/multiplayerteam.cpp",
+      "population": "rebuild-multiplayerteam",
+      "source_order": 6003536,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6003552,
+      "method": "005b9b60",
+      "body_bytes": 26,
+      "body_sha256": "a1f1d6195fdec80b1621a080c5b1c84ed8f17ab6560cee00e186415204040555",
+      "padding_bytes": 6,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "bb63203f09fb1f4490a9d54e9002bf33ad510c4c6ec4bafd5e026748f1978599",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?IsTeamIncluded@MultiplayerTeam@@UAE_NH@Z",
+      "symbol_prefix": "?IsTeamIncluded@MultiplayerTeam@@UAE_NH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        }
+      ],
+      "source_sha256": "ff736c16d77aa211b0a074bd736d97aefea9b811c934646af3978af5d96a6749",
+      "source": "src/multiplayerteam.cpp",
+      "population": "rebuild-multiplayerteam",
+      "source_order": 6003552,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6003584,
+      "method": "005b9b80",
+      "body_bytes": 45,
+      "body_sha256": "245b33a7f6fc716c2b2593101b0cc67556ef205e6f021a99524ade63e11280e8",
+      "padding_bytes": 3,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "d34f1a02afdbd5ceaebb36420de7de691f06db2e95453687d7ba4f6baa09b8ef",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?SetPlayerTeam@MultiplayerTeam@@UAE_NH@Z",
+      "symbol_prefix": "?SetPlayerTeam@MultiplayerTeam@@UAE_NH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        }
+      ],
+      "source_sha256": "ff736c16d77aa211b0a074bd736d97aefea9b811c934646af3978af5d96a6749",
+      "source": "src/multiplayerteam.cpp",
+      "population": "rebuild-multiplayerteam",
+      "source_order": 6003584,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6003632,
+      "method": "005b9bb0",
+      "body_bytes": 40,
+      "body_sha256": "d8458c927c4c3609da74320be19560296b3cd144b4d8485d6b582ff32f6670b1",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "f65bad16ca6173d5080507333894175486aa100f8fe1a952a068c370279c2890",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?CountMembers@MultiplayerTeam@@QAEHXZ",
+      "symbol_prefix": "?CountMembers@MultiplayerTeam@@QAEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        }
+      ],
+      "source_sha256": "ff736c16d77aa211b0a074bd736d97aefea9b811c934646af3978af5d96a6749",
+      "source": "src/multiplayerteam.cpp",
+      "population": "rebuild-multiplayerteam",
+      "source_order": 6003632,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6003680,
+      "method": "005b9be0",
+      "body_bytes": 59,
+      "body_sha256": "0895912d2cc6fc078688ecad5ab2c415bd5d1cde235fc79d0eed867867838151",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "b41f26e73f32e3d97a5a39d4a744ff256cadfd12aadfc01303ab1596888b0429",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AddToList@MultiplayerTeam@@QAEHPAUHWND__@@@Z",
+      "symbol_prefix": "?AddToList@MultiplayerTeam@@QAEHPAUHWND__@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "?text@WideWstring@@QBEPAGXZ",
+          "target": 7799856,
+          "addend": 0,
+          "resolved": 1796162
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        }
+      ],
+      "source_sha256": "ff736c16d77aa211b0a074bd736d97aefea9b811c934646af3978af5d96a6749",
+      "source": "src/multiplayerteam.cpp",
+      "population": "rebuild-multiplayerteam",
+      "source_order": 6003680,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6003744,
+      "method": "005b9c20",
+      "body_bytes": 39,
+      "body_sha256": "b953d862e74ee15bef7d1f36db952d6fffbd9270db5b2139ba69824c95edc220",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "cc82a3f49407afcdd7c59af48f3e2861f5901496be9e236c9629fed3cd506b48",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GMultiplayerTeam@@UAEPAXI@Z",
+      "symbol_prefix": "??_GMultiplayerTeam@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7MultiplayerTeam@@6B@",
+          "target": 8024852,
+          "addend": 0,
+          "resolved": 8024852
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "??1WideWstring@@QAE@XZ",
+          "target": 7797328,
+          "addend": 0,
+          "resolved": 1793567
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1868029
+        }
+      ],
+      "source_sha256": "ff736c16d77aa211b0a074bd736d97aefea9b811c934646af3978af5d96a6749",
+      "source": "src/multiplayerteam.cpp",
+      "population": "rebuild-multiplayerteam",
+      "source_order": 6003744,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

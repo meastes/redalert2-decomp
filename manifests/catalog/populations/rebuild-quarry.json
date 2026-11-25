@@ -1,0 +1,246 @@
+{
+  "id": "rebuild-quarry",
+  "population": {
+    "id": "rebuild-quarry",
+    "inventory_sha256": "3b7dd2d31781d23ab277fd2c28022bc2dc864e40292ab4b2836719aa70ff7897",
+    "gaps_sha256": "84f64155c70a5347973b7abb36ce7ce8894ad95da6fa1409e4eb3e438b3b977a",
+    "historical_population_sha256": "adb1052af6a56ba615d1b2de50504dd73bc9e6caaa40d9b75dfeca984e793e2f",
+    "historical_acceptance_sha256": "3f7714a940c7b2bcf1fbb7f08f801246c1c32eddb36dcac100aaf3c111654d5a"
+  },
+  "references": {
+    "_QuarryName": 8029728,
+    "_stricmp": 7872288,
+    "??_C@_0BE@DIAL@Tech?5Buildings?5Only?$AA@": 8307524,
+    "??_C@_0BK@KNIK@Occupiable?5Buildings?5Only?$AA@": 8307544,
+    "??_C@_0BB@FDOL@Power?5Facilities?$AA@": 8307572,
+    "??_C@_0N@DFNM@Base?5Threats?$AA@": 8307592,
+    "??_C@_0O@KMA@Base?5Defenses?$AA@": 8307608,
+    "??_C@_09JHKB@Factories?$AA@": 8307624,
+    "??_C@_0P@DGPN@Vehicles?5?9?5any?$AA@": 8307636,
+    "??_C@_08NHGF@Infantry?$AA@": 8183336,
+    "??_C@_0L@HIGI@Harvesters?$AA@": 8307652,
+    "??_C@_0BA@OJJA@Buildings?5?9?5any?$AA@": 8307664,
+    "??_C@_08FIAF@Anything?$AA@": 8307680,
+    "??_C@_03PHGM@N?1A?$AA@": 8307692,
+    "?Quarry_From_Name@@YI?AW4QuarryType@@PBD@Z": 6430864,
+    "?Name_From_Quarry@@YIPBDW4QuarryType@@@Z": 6430928,
+    "?Quarry_To_Threat@@YI?AW4ThreatType@@H@Z": 6430944
+  },
+  "regions": [
+    {
+      "entry": 6430864,
+      "method": "00622090",
+      "body_bytes": 52,
+      "body_sha256": "17e24c9a59c030a81f26f6c478aabba1d52d70225ec2d37b9546973e825451ee",
+      "padding_bytes": 12,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "dda99c9892ef69e3047a9479aef125ed73b7a05b129838376a4a9dc17c023bcf",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Quarry_From_Name@@YI?AW4QuarryType@@PBD@Z",
+      "symbol_prefix": "?Quarry_From_Name@@YI?AW4QuarryType@@PBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_QuarryName",
+          "target": 8029728,
+          "addend": 0,
+          "resolved": 8029728
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 1441403
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "_QuarryName",
+          "target": 8029728,
+          "addend": 48,
+          "resolved": 8029776
+        }
+      ],
+      "source_sha256": "180582f4d7caa7962f872c71fdfc9acb2fd5e10bf17c81da961c6d20b4796a11",
+      "source": "src/quarry.cpp",
+      "population": "rebuild-quarry",
+      "source_order": 6430864,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4391"
+    },
+    {
+      "entry": 6430928,
+      "method": "006220d0",
+      "body_bytes": 8,
+      "body_sha256": "8f86b80782b0a46ddc17250774302af8192232a00d45105fbb48e5da81ed67e9",
+      "padding_bytes": 8,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "6f377f7ba261230de175c52968b127aa96ead8ffc49d3732f8729a071f79f877",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Name_From_Quarry@@YIPBDW4QuarryType@@@Z",
+      "symbol_prefix": "?Name_From_Quarry@@YIPBDW4QuarryType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_QuarryName",
+          "target": 8029728,
+          "addend": 0,
+          "resolved": 8029728
+        }
+      ],
+      "source_sha256": "180582f4d7caa7962f872c71fdfc9acb2fd5e10bf17c81da961c6d20b4796a11",
+      "source": "src/quarry.cpp",
+      "population": "rebuild-quarry",
+      "source_order": 6430928,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2913"
+    },
+    {
+      "entry": 6430944,
+      "method": "006220e0",
+      "body_bytes": 116,
+      "body_sha256": "81f52847af50698c900e500012be2ca466a6f62946838fe43b882e5994e73a71",
+      "padding_bytes": 12,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "16620de00e185c43bdc0d15efb1c4f1d145a0381a873bce9d80f8e59dd72cd53",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 44,
+      "symbol": "?Quarry_To_Threat@@YI?AW4ThreatType@@H@Z",
+      "symbol_prefix": "?Quarry_To_Threat@@YI?AW4ThreatType@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6431016,
+          "addend": 0,
+          "resolved": 6431016
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6431013,
+          "addend": 0,
+          "resolved": 6431013
+        },
+        {
+          "offset": 76,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6430959,
+          "addend": 0,
+          "resolved": 6430959
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6430965,
+          "addend": 0,
+          "resolved": 6430965
+        },
+        {
+          "offset": 84,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6430971,
+          "addend": 0,
+          "resolved": 6430971
+        },
+        {
+          "offset": 88,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6430977,
+          "addend": 0,
+          "resolved": 6430977
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6430983,
+          "addend": 0,
+          "resolved": 6430983
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6430989,
+          "addend": 0,
+          "resolved": 6430989
+        },
+        {
+          "offset": 100,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6431013,
+          "addend": 0,
+          "resolved": 6431013
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6430995,
+          "addend": 0,
+          "resolved": 6430995
+        },
+        {
+          "offset": 108,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6431001,
+          "addend": 0,
+          "resolved": 6431001
+        },
+        {
+          "offset": 112,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6431007,
+          "addend": 0,
+          "resolved": 6431007
+        }
+      ],
+      "source_sha256": "180582f4d7caa7962f872c71fdfc9acb2fd5e10bf17c81da961c6d20b4796a11",
+      "source": "src/quarry.cpp",
+      "population": "rebuild-quarry",
+      "source_order": 6430944,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

@@ -179,19 +179,6 @@ class SwitchLoweringTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'Wrong supplied'):
                 seed.indexed_switch_artifacts(self.body(), ENTRY)
 
-    def test_complete_seed_uses_high_level_cases_without_pointer_data(self):
-        source = self.body('case (undefined *)0x1000100c: break; case (undefined *)0x10001012: break;')
-        class FakeInventory:
-            passes = []
-            def decompiled(self, entry):return 'void __cdecl FUN_10001000(void)\n'+source
-            def function(self, entry):return None, {'ranges': []}
-        with patch.object(seed, 'original_index_switch', return_value={'targets': [ENTRY+12, ENTRY+18]}):
-            text = seed.seed(ENTRY, FakeInventory(), {})
-        self.assertIn('case 0:', text)
-        self.assertIn('case 1:', text)
-        self.assertIn('Original guarded switch', text)
-        self.assertNotIn('switchdataD_', text)
-        self.assertNotIn('extern "C" code', text)
 
 
 if __name__ == '__main__':

@@ -1,0 +1,1213 @@
+{
+  "id": "rebuild-dialog",
+  "population": {
+    "id": "rebuild-dialog",
+    "inventory_sha256": "c64f4607a587156d31a252fe56ce9b6a37b362b7ae58b29bf2cc761aa62b2fc7",
+    "gaps_sha256": "64bed4af9dbb66019f28c2795c2fc8c87026bd4758faeb7503cf4fce83a7b60f",
+    "historical_population_sha256": "c98ddef455738a0e89a7b3905aba3c169e2db93de664186c6998775c766d4d20",
+    "historical_acceptance_sha256": "c6cbf963a2252d840528f3fa8cb7ee7bd8e4cc73c2fe3b8e92d634c226cfdb24"
+  },
+  "references": {
+    "_RECT_NONE": 8725648,
+    "?Instance@BitFont@@2PAV1@A": 8710632,
+    "?String_Pixel_Width@BitFont@@QAEHPBGH@Z": 4396688,
+    "?Get_Color_Scheme@GadgetClass@@SIHXZ": 5042112,
+    "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A": 11235064,
+    "?LogicalSurface@@3PAVSurface@@A": 8624476,
+    "?Char_Width@BitFont@@QAEHG@Z": 4399472,
+    "?Text_Dimensions@BitFont@@QAE_NPBGPAH1H@Z": 4396208,
+    "?Set_Clip@BitFont@@QAE_N_N@Z": 4396112,
+    "?Set_Bounds@BitFont@@QAEXPAULTRBStruct@@@Z": 4396128,
+    "?Set_Color@BitFont@@QAEGG@Z": 4396080,
+    "?Instance@BitText@@2PAV1@A": 8710608,
+    "?Print@BitText@@QAEHPAVBitFont@@PAVSurface@@PBGHHHH@Z": 4399952,
+    "??BHSVClass@@QBE?AVRGBClass@@XZ": 5238864,
+    "?BlueLeft@DSurface@@2HA": 8728516,
+    "?BlueRight@DSurface@@2HA": 8728512,
+    "?GreenLeft@DSurface@@2HA": 8728524,
+    "?GreenRight@DSurface@@2HA": 8728520,
+    "?RedLeft@DSurface@@2HA": 8728508,
+    "?RedRight@DSurface@@2HA": 8728504,
+    "?Simple_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@IIW4TextPrintType@@H@Z": 4814896,
+    "_vswprintf": 7879256,
+    "_wcscpy": 7878281,
+    "_wcschr": 7879366,
+    "?Conquer_Clip_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@IIW4TextPrintType@@HPBH@Z": 4816096,
+    "_?_fpalette@?1??Font_Palette@@YIPAEH@Z@4PAEA": 8725632,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "_$E2": 4813632,
+    "?Drawing_GetTextDimensions@@YIPAV?$TRect@H@@PAV1@PBGVPoint2D@@GHH@Z": 4813664,
+    "?Draw_Box@@YIXABV?$TRect@H@@W4BoxStyleEnum@@_N@Z": 4813776,
+    "?Format_Window_String@@YIHPBGHHAAH1@Z": 4814800,
+    "?Simple_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@H@Z": 4815248,
+    "?Font_From_TPF@@YIPAVBitFont@@W4TextPrintType@@@Z": 4815440,
+    "?Fancy_Text_Print@@YA?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@IIW4TextPrintType@@ZZ": 4815456,
+    "?Fancy_Text_Print@@YA?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@ZZ": 4815680,
+    "?Conquer_Clip_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@HPBH@Z": 4816512,
+    "?Plain_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@IIW4TextPrintType@@HH@Z": 4816704,
+    "?Plain_Text_Print@@YI?AVPoint2D@@PBGPAVSurface@@PBV?$TRect@H@@PBV1@IIW4TextPrintType@@HH@Z": 4816976,
+    "?Font_Palette@@YIPAEH@Z": 4817248
+  },
+  "regions": [
+    {
+      "entry": 4813632,
+      "method": "00497340",
+      "body_bytes": 23,
+      "body_sha256": "09401307bb4a9a9486d5ca3060d9b20f3e624a9999135a8828771d92cc5609b8",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "53e3d0ca0fe4e670bc0667732b0fbf87d7893166d2bcd70f1808cbb771d15bb7",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8725648,
+          "addend": 0,
+          "resolved": 8725648
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8725648,
+          "addend": 4,
+          "resolved": 8725652
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8725648,
+          "addend": 8,
+          "resolved": 8725656
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8725648,
+          "addend": 12,
+          "resolved": 8725660
+        }
+      ],
+      "source_sha256": "5745e8c7594062bf3cdc6ae62546d4eb742c9514e02ca3849c895b5453f2d117",
+      "source": "src/dialog.cpp",
+      "population": "rebuild-dialog",
+      "source_order": 4813632,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4813664,
+      "method": "00497360",
+      "body_bytes": 106,
+      "body_sha256": "79f5d22028fe61118ee35bda3ad8e13e7ea6259d9d543744e7c19966a0e273fa",
+      "padding_bytes": 6,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "b746a9e781254729e81e4943506fef4b0cba2ab835573e01a1fb878a0bf92193",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Drawing_GetTextDimensions@@YIPAV?$TRect@H@@PAV1@PBGVPoint2D@@GHH@Z",
+      "symbol_prefix": "?Drawing_GetTextDimensions@@YIPAV?$TRect@H@@PAV1@PBGVPoint2D@@GHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "?Instance@BitFont@@2PAV1@A",
+          "target": 8710632,
+          "addend": 0,
+          "resolved": 8710632
+        },
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "?String_Pixel_Width@BitFont@@QAEHPBGH@Z",
+          "target": 4396688,
+          "addend": 0,
+          "resolved": 4294550298
+        }
+      ],
+      "source_sha256": "5745e8c7594062bf3cdc6ae62546d4eb742c9514e02ca3849c895b5453f2d117",
+      "source": "src/dialog.cpp",
+      "population": "rebuild-dialog",
+      "source_order": 4813664,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4813776,
+      "method": "004973d0",
+      "body_bytes": 1011,
+      "body_sha256": "a4a59383c090cc76a82787a0daad9d9ab7547f6efea72099c43edd4b6663dc7d",
+      "padding_bytes": 13,
+      "full_extent_bytes": 1024,
+      "full_extent_sha256": "f67dc67920c3c98ad0a6d571b1fac064c33e965f873b9a33b334acdcfe682c14",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Box@@YIXABV?$TRect@H@@W4BoxStyleEnum@@_N@Z",
+      "symbol_prefix": "?Draw_Box@@YIXABV?$TRect@H@@W4BoxStyleEnum@@_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 15,
+          "kind": 20,
+          "symbol": "?Get_Color_Scheme@GadgetClass@@SIHXZ",
+          "target": 5042112,
+          "addend": 0,
+          "resolved": 228317
+        },
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 298,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 397,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 474,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 583,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 645,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 738,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 812,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 913,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 987,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        }
+      ],
+      "source_sha256": "5745e8c7594062bf3cdc6ae62546d4eb742c9514e02ca3849c895b5453f2d117",
+      "source": "src/dialog.cpp",
+      "population": "rebuild-dialog",
+      "source_order": 4813776,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4814800,
+      "method": "004977d0",
+      "body_bytes": 88,
+      "body_sha256": "62f052ec62580958875ce770ec74957ec1b759bf41d181df036e48bf9ccffcc9",
+      "padding_bytes": 8,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "65fe9050d6baee280871ac2385b78744d30b9ef16adee437031af43dbc3196ed",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Format_Window_String@@YIHPBGHHAAH1@Z",
+      "symbol_prefix": "?Format_Window_String@@YIHPBGHHAAH1@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "?Instance@BitFont@@2PAV1@A",
+          "target": 8710632,
+          "addend": 0,
+          "resolved": 8710632
+        },
+        {
+          "offset": 46,
+          "kind": 20,
+          "symbol": "?Char_Width@BitFont@@QAEHG@Z",
+          "target": 4399472,
+          "addend": 0,
+          "resolved": 4294551918
+        },
+        {
+          "offset": 62,
+          "kind": 20,
+          "symbol": "?Text_Dimensions@BitFont@@QAE_NPBGPAH1H@Z",
+          "target": 4396208,
+          "addend": 0,
+          "resolved": 4294548638
+        }
+      ],
+      "source_sha256": "5745e8c7594062bf3cdc6ae62546d4eb742c9514e02ca3849c895b5453f2d117",
+      "source": "src/dialog.cpp",
+      "population": "rebuild-dialog",
+      "source_order": 4814800,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4814896,
+      "method": "00497830",
+      "body_bytes": 341,
+      "body_sha256": "74819cbfe87b7d2cf9c4b9cf6e49f55b6e57b1c57e3e310dafeef5115ecda158",
+      "padding_bytes": 11,
+      "full_extent_bytes": 352,
+      "full_extent_sha256": "d6580cfa9af2a48ca0a92b62a6bbed34dcd2f5c2e7b4cd18145b741015cbb7c4",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Simple_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@IIW4TextPrintType@@H@Z",
+      "symbol_prefix": "?Simple_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@IIW4TextPrintType@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "?Instance@BitFont@@2PAV1@A",
+          "target": 8710632,
+          "addend": 0,
+          "resolved": 8710632
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "?Text_Dimensions@BitFont@@QAE_NPBGPAH1H@Z",
+          "target": 4396208,
+          "addend": 0,
+          "resolved": 4294548543
+        },
+        {
+          "offset": 266,
+          "kind": 20,
+          "symbol": "?Set_Clip@BitFont@@QAE_N_N@Z",
+          "target": 4396112,
+          "addend": 0,
+          "resolved": 4294548242
+        },
+        {
+          "offset": 278,
+          "kind": 20,
+          "symbol": "?Set_Bounds@BitFont@@QAEXPAULTRBStruct@@@Z",
+          "target": 4396128,
+          "addend": 0,
+          "resolved": 4294548246
+        },
+        {
+          "offset": 290,
+          "kind": 20,
+          "symbol": "?Set_Color@BitFont@@QAEGG@Z",
+          "target": 4396080,
+          "addend": 0,
+          "resolved": 4294548186
+        },
+        {
+          "offset": 296,
+          "kind": 6,
+          "symbol": "?Instance@BitText@@2PAV1@A",
+          "target": 8710608,
+          "addend": 0,
+          "resolved": 8710608
+        },
+        {
+          "offset": 318,
+          "kind": 20,
+          "symbol": "?Print@BitText@@QAEHPAVBitFont@@PAVSurface@@PBGHHHH@Z",
+          "target": 4399952,
+          "addend": 0,
+          "resolved": 4294552030
+        }
+      ],
+      "source_sha256": "5745e8c7594062bf3cdc6ae62546d4eb742c9514e02ca3849c895b5453f2d117",
+      "source": "src/dialog.cpp",
+      "population": "rebuild-dialog",
+      "source_order": 4814896,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4815248,
+      "method": "00497990",
+      "body_bytes": 187,
+      "body_sha256": "557957982f0441bc3d294b97e50467dc4d6744d246791d7614c84b5b4e1299b8",
+      "padding_bytes": 5,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "33bd79debaaece2c1451afd5216cfff5ef3d0e149c789540626497f4a1b9a253",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Simple_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@H@Z",
+      "symbol_prefix": "?Simple_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??BHSVClass@@QBE?AVRGBClass@@XZ",
+          "target": 5238864,
+          "addend": 0,
+          "resolved": 423587
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "?BlueLeft@DSurface@@2HA",
+          "target": 8728516,
+          "addend": 0,
+          "resolved": 8728516
+        },
+        {
+          "offset": 67,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 97,
+          "kind": 6,
+          "symbol": "?RedLeft@DSurface@@2HA",
+          "target": 8728508,
+          "addend": 0,
+          "resolved": 8728508
+        },
+        {
+          "offset": 117,
+          "kind": 6,
+          "symbol": "?RedRight@DSurface@@2HA",
+          "target": 8728504,
+          "addend": 0,
+          "resolved": 8728504
+        },
+        {
+          "offset": 163,
+          "kind": 20,
+          "symbol": "?Simple_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@IIW4TextPrintType@@H@Z",
+          "target": 4814896,
+          "addend": 0,
+          "resolved": 4294966777
+        }
+      ],
+      "source_sha256": "5745e8c7594062bf3cdc6ae62546d4eb742c9514e02ca3849c895b5453f2d117",
+      "source": "src/dialog.cpp",
+      "population": "rebuild-dialog",
+      "source_order": 4815248,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4815440,
+      "method": "00497a50",
+      "body_bytes": 6,
+      "body_sha256": "43b3087212fb7420264228bc5219e7f442368ed3f3c4a63d77ed82cf8f2ffa87",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "471d61ce92a2d1a2b7baa10892cfcfa4246aafbda5878c6c31bbaff9a4fe4b54",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Font_From_TPF@@YIPAVBitFont@@W4TextPrintType@@@Z",
+      "symbol_prefix": "?Font_From_TPF@@YIPAVBitFont@@W4TextPrintType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Instance@BitFont@@2PAV1@A",
+          "target": 8710632,
+          "addend": 0,
+          "resolved": 8710632
+        }
+      ],
+      "source_sha256": "5745e8c7594062bf3cdc6ae62546d4eb742c9514e02ca3849c895b5453f2d117",
+      "source": "src/dialog.cpp",
+      "population": "rebuild-dialog",
+      "source_order": 4815440,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4815456,
+      "method": "00497a60",
+      "body_bytes": 212,
+      "body_sha256": "1d4360b92dad6cf21849ab1ed1b967600fb6666131bfc217fcb323daac44697e",
+      "padding_bytes": 12,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "79aeffc24603cb4e88cfef3602583a2770d034fc104a0aac9fbeebd28307a99c",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fancy_Text_Print@@YA?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@IIW4TextPrintType@@ZZ",
+      "symbol_prefix": "?Fancy_Text_Print@@YA?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@IIW4TextPrintType@@ZZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 29,
+          "kind": 20,
+          "symbol": "_vswprintf",
+          "target": 7879256,
+          "addend": 0,
+          "resolved": 3063767
+        },
+        {
+          "offset": 95,
+          "kind": 20,
+          "symbol": "?Simple_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@IIW4TextPrintType@@H@Z",
+          "target": 4814896,
+          "addend": 0,
+          "resolved": 4294966637
+        },
+        {
+          "offset": 182,
+          "kind": 20,
+          "symbol": "?Simple_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@IIW4TextPrintType@@H@Z",
+          "target": 4814896,
+          "addend": 0,
+          "resolved": 4294966550
+        }
+      ],
+      "source_sha256": "5745e8c7594062bf3cdc6ae62546d4eb742c9514e02ca3849c895b5453f2d117",
+      "source": "src/dialog.cpp",
+      "population": "rebuild-dialog",
+      "source_order": 4815456,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4815680,
+      "method": "00497b40",
+      "body_bytes": 416,
+      "body_sha256": "cc069915eb16ed1ac365a1e1a242d2a3822490a9a33731f2f71223112f5f27d9",
+      "padding_bytes": 0,
+      "full_extent_bytes": 416,
+      "full_extent_sha256": "cc069915eb16ed1ac365a1e1a242d2a3822490a9a33731f2f71223112f5f27d9",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fancy_Text_Print@@YA?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@ZZ",
+      "symbol_prefix": "?Fancy_Text_Print@@YA?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@ZZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "_vswprintf",
+          "target": 7879256,
+          "addend": 0,
+          "resolved": 3063538
+        },
+        {
+          "offset": 67,
+          "kind": 20,
+          "symbol": "??BHSVClass@@QBE?AVRGBClass@@XZ",
+          "target": 5238864,
+          "addend": 0,
+          "resolved": 423113
+        },
+        {
+          "offset": 76,
+          "kind": 6,
+          "symbol": "?RedLeft@DSurface@@2HA",
+          "target": 8728508,
+          "addend": 0,
+          "resolved": 8728508
+        },
+        {
+          "offset": 112,
+          "kind": 6,
+          "symbol": "?RedRight@DSurface@@2HA",
+          "target": 8728504,
+          "addend": 0,
+          "resolved": 8728504
+        },
+        {
+          "offset": 126,
+          "kind": 6,
+          "symbol": "?BlueLeft@DSurface@@2HA",
+          "target": 8728516,
+          "addend": 0,
+          "resolved": 8728516
+        },
+        {
+          "offset": 134,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 142,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 162,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 242,
+          "kind": 20,
+          "symbol": "??BHSVClass@@QBE?AVRGBClass@@XZ",
+          "target": 5238864,
+          "addend": 0,
+          "resolved": 422938
+        },
+        {
+          "offset": 251,
+          "kind": 6,
+          "symbol": "?RedLeft@DSurface@@2HA",
+          "target": 8728508,
+          "addend": 0,
+          "resolved": 8728508
+        },
+        {
+          "offset": 287,
+          "kind": 6,
+          "symbol": "?RedRight@DSurface@@2HA",
+          "target": 8728504,
+          "addend": 0,
+          "resolved": 8728504
+        },
+        {
+          "offset": 301,
+          "kind": 6,
+          "symbol": "?BlueLeft@DSurface@@2HA",
+          "target": 8728516,
+          "addend": 0,
+          "resolved": 8728516
+        },
+        {
+          "offset": 309,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 317,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 337,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 385,
+          "kind": 20,
+          "symbol": "?Simple_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@IIW4TextPrintType@@H@Z",
+          "target": 4814896,
+          "addend": 0,
+          "resolved": 4294966123
+        }
+      ],
+      "source_sha256": "5745e8c7594062bf3cdc6ae62546d4eb742c9514e02ca3849c895b5453f2d117",
+      "source": "src/dialog.cpp",
+      "population": "rebuild-dialog",
+      "source_order": 4815680,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4816096,
+      "method": "00497ce0",
+      "body_bytes": 404,
+      "body_sha256": "35de75cca8409039298aa3dad786c00744062fc5447773ba6590139cfb8d56f2",
+      "padding_bytes": 12,
+      "full_extent_bytes": 416,
+      "full_extent_sha256": "f337dc0150e2c543ec51ed060054a99e44e09232e7bedca15bca6a4ada14b994",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Conquer_Clip_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@IIW4TextPrintType@@HPBH@Z",
+      "symbol_prefix": "?Conquer_Clip_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@IIW4TextPrintType@@HPBH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 47,
+          "kind": 20,
+          "symbol": "_wcscpy",
+          "target": 7878281,
+          "addend": 0,
+          "resolved": 3062134
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?Instance@BitFont@@2PAV1@A",
+          "target": 8710632,
+          "addend": 0,
+          "resolved": 8710632
+        },
+        {
+          "offset": 95,
+          "kind": 20,
+          "symbol": "_wcschr",
+          "target": 7879366,
+          "addend": 0,
+          "resolved": 3063171
+        },
+        {
+          "offset": 143,
+          "kind": 20,
+          "symbol": "?Char_Width@BitFont@@QAEHG@Z",
+          "target": 4399472,
+          "addend": 0,
+          "resolved": 4294550525
+        },
+        {
+          "offset": 198,
+          "kind": 20,
+          "symbol": "?Char_Width@BitFont@@QAEHG@Z",
+          "target": 4399472,
+          "addend": 0,
+          "resolved": 4294550470
+        },
+        {
+          "offset": 293,
+          "kind": 20,
+          "symbol": "?Simple_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@IIW4TextPrintType@@H@Z",
+          "target": 4814896,
+          "addend": 0,
+          "resolved": 4294965799
+        }
+      ],
+      "source_sha256": "5745e8c7594062bf3cdc6ae62546d4eb742c9514e02ca3849c895b5453f2d117",
+      "source": "src/dialog.cpp",
+      "population": "rebuild-dialog",
+      "source_order": 4816096,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4816512,
+      "method": "00497e80",
+      "body_bytes": 192,
+      "body_sha256": "4aeac0204ce47f5eee9f9cac02c6d798bcfd8fe08cbc2fb11061a6329f3ef61d",
+      "padding_bytes": 0,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "4aeac0204ce47f5eee9f9cac02c6d798bcfd8fe08cbc2fb11061a6329f3ef61d",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Conquer_Clip_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@HPBH@Z",
+      "symbol_prefix": "?Conquer_Clip_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@HPBH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??BHSVClass@@QBE?AVRGBClass@@XZ",
+          "target": 5238864,
+          "addend": 0,
+          "resolved": 422323
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "?BlueLeft@DSurface@@2HA",
+          "target": 8728516,
+          "addend": 0,
+          "resolved": 8728516
+        },
+        {
+          "offset": 67,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 97,
+          "kind": 6,
+          "symbol": "?RedLeft@DSurface@@2HA",
+          "target": 8728508,
+          "addend": 0,
+          "resolved": 8728508
+        },
+        {
+          "offset": 117,
+          "kind": 6,
+          "symbol": "?RedRight@DSurface@@2HA",
+          "target": 8728504,
+          "addend": 0,
+          "resolved": 8728504
+        },
+        {
+          "offset": 168,
+          "kind": 20,
+          "symbol": "?Conquer_Clip_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@IIW4TextPrintType@@HPBH@Z",
+          "target": 4816096,
+          "addend": 0,
+          "resolved": 4294966708
+        }
+      ],
+      "source_sha256": "5745e8c7594062bf3cdc6ae62546d4eb742c9514e02ca3849c895b5453f2d117",
+      "source": "src/dialog.cpp",
+      "population": "rebuild-dialog",
+      "source_order": 4816512,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4816704,
+      "method": "00497f40",
+      "body_bytes": 267,
+      "body_sha256": "9b449ee4ea302d2400e75642dc9f44e16b368c4910e9b8ce5709588d3d131cd9",
+      "padding_bytes": 5,
+      "full_extent_bytes": 272,
+      "full_extent_sha256": "399039be2d8b583de662d409caa5787e1163a4778b9964b45cb4b22126893fc6",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Plain_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@IIW4TextPrintType@@HH@Z",
+      "symbol_prefix": "?Plain_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@IIW4TextPrintType@@HH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "?Simple_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@IIW4TextPrintType@@H@Z",
+          "target": 4814896,
+          "addend": 0,
+          "resolved": 4294965424
+        },
+        {
+          "offset": 86,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 105,
+          "kind": 20,
+          "symbol": "??BHSVClass@@QBE?AVRGBClass@@XZ",
+          "target": 5238864,
+          "addend": 0,
+          "resolved": 422051
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "?RedLeft@DSurface@@2HA",
+          "target": 8728508,
+          "addend": 0,
+          "resolved": 8728508
+        },
+        {
+          "offset": 147,
+          "kind": 6,
+          "symbol": "?RedRight@DSurface@@2HA",
+          "target": 8728504,
+          "addend": 0,
+          "resolved": 8728504
+        },
+        {
+          "offset": 161,
+          "kind": 6,
+          "symbol": "?BlueLeft@DSurface@@2HA",
+          "target": 8728516,
+          "addend": 0,
+          "resolved": 8728516
+        },
+        {
+          "offset": 169,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 177,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 197,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 243,
+          "kind": 20,
+          "symbol": "?Simple_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@IIW4TextPrintType@@H@Z",
+          "target": 4814896,
+          "addend": 0,
+          "resolved": 4294965241
+        }
+      ],
+      "source_sha256": "5745e8c7594062bf3cdc6ae62546d4eb742c9514e02ca3849c895b5453f2d117",
+      "source": "src/dialog.cpp",
+      "population": "rebuild-dialog",
+      "source_order": 4816704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4816976,
+      "method": "00498050",
+      "body_bytes": 267,
+      "body_sha256": "50eae0d9ad1e2a2b86ba7befcd5187a3ebb8090b670addfb6631daee2694b3fd",
+      "padding_bytes": 5,
+      "full_extent_bytes": 272,
+      "full_extent_sha256": "1e28ab63c9063528fd07fb13e2b0c0293a52c52ae39b42dae6a92a34859b31ff",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Plain_Text_Print@@YI?AVPoint2D@@PBGPAVSurface@@PBV?$TRect@H@@PBV1@IIW4TextPrintType@@HH@Z",
+      "symbol_prefix": "?Plain_Text_Print@@YI?AVPoint2D@@PBGPAVSurface@@PBV?$TRect@H@@PBV1@IIW4TextPrintType@@HH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "?Simple_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@IIW4TextPrintType@@H@Z",
+          "target": 4814896,
+          "addend": 0,
+          "resolved": 4294965152
+        },
+        {
+          "offset": 86,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 105,
+          "kind": 20,
+          "symbol": "??BHSVClass@@QBE?AVRGBClass@@XZ",
+          "target": 5238864,
+          "addend": 0,
+          "resolved": 421779
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "?RedLeft@DSurface@@2HA",
+          "target": 8728508,
+          "addend": 0,
+          "resolved": 8728508
+        },
+        {
+          "offset": 147,
+          "kind": 6,
+          "symbol": "?RedRight@DSurface@@2HA",
+          "target": 8728504,
+          "addend": 0,
+          "resolved": 8728504
+        },
+        {
+          "offset": 161,
+          "kind": 6,
+          "symbol": "?BlueLeft@DSurface@@2HA",
+          "target": 8728516,
+          "addend": 0,
+          "resolved": 8728516
+        },
+        {
+          "offset": 169,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 177,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 197,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 243,
+          "kind": 20,
+          "symbol": "?Simple_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@IIW4TextPrintType@@H@Z",
+          "target": 4814896,
+          "addend": 0,
+          "resolved": 4294964969
+        }
+      ],
+      "source_sha256": "5745e8c7594062bf3cdc6ae62546d4eb742c9514e02ca3849c895b5453f2d117",
+      "source": "src/dialog.cpp",
+      "population": "rebuild-dialog",
+      "source_order": 4816976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4817248,
+      "method": "00498160",
+      "body_bytes": 52,
+      "body_sha256": "72fdb3a70f89005375b7886ab28544cd03f17d3220f0f569a76cfaa4793ca6e0",
+      "padding_bytes": 12,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "1c63afc1913263e20e7ea8a88379e9b70f4587efa132c5eaf93391ae8c692fe0",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Font_Palette@@YIPAEH@Z",
+      "symbol_prefix": "?Font_Palette@@YIPAEH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "_?_fpalette@?1??Font_Palette@@YIPAEH@Z@4PAEA",
+          "target": 8725632,
+          "addend": 0,
+          "resolved": 8725632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_?_fpalette@?1??Font_Palette@@YIPAEH@Z@4PAEA",
+          "target": 8725632,
+          "addend": 4,
+          "resolved": 8725636
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_?_fpalette@?1??Font_Palette@@YIPAEH@Z@4PAEA",
+          "target": 8725632,
+          "addend": 8,
+          "resolved": 8725640
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "_?_fpalette@?1??Font_Palette@@YIPAEH@Z@4PAEA",
+          "target": 8725632,
+          "addend": 12,
+          "resolved": 8725644
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_?_fpalette@?1??Font_Palette@@YIPAEH@Z@4PAEA",
+          "target": 8725632,
+          "addend": 11,
+          "resolved": 8725643
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "_?_fpalette@?1??Font_Palette@@YIPAEH@Z@4PAEA",
+          "target": 8725632,
+          "addend": 15,
+          "resolved": 8725647
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "_?_fpalette@?1??Font_Palette@@YIPAEH@Z@4PAEA",
+          "target": 8725632,
+          "addend": 0,
+          "resolved": 8725632
+        }
+      ],
+      "source_sha256": "5745e8c7594062bf3cdc6ae62546d4eb742c9514e02ca3849c895b5453f2d117",
+      "source": "src/dialog.cpp",
+      "population": "rebuild-dialog",
+      "source_order": 4817248,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

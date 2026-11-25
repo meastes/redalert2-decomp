@@ -55,7 +55,7 @@ def validate_headers(repository, catalog, read=None):
         path = Path(value)
         require(not path.is_absolute() and path.as_posix() == value and '..' not in path.parts,
                 'Noncanonical header path')
-        require(path.parts[:2] == tuple(tree.HEADERS.split('/')) and path.suffix in tree.HEADER_SUFFIXES,
+        require(path.parts[:tree.HEADER_PARTS] == tuple(tree.HEADERS.split('/')) and path.suffix in tree.HEADER_SUFFIXES,
                 'Header outside canonical shared tree')
         resolved = (repository / path).resolve()
         require(resolved.is_relative_to((repository / tree.HEADERS).resolve()), 'Header escapes tree')
@@ -1206,7 +1206,7 @@ def validate_catalog(repository, catalog, modules=True):
     # RA2_NON_MATCHING) are the only uncatalogued sources; the exact build never compiles them.
     if tree.REBUILD:
         # Rebuild tree: every unit file is catalogued once it holds an exact row; a unit file
-        # still being matched is listed in rebuild/manifest/units.json as pending.
+        # still being matched is listed in manifests/units.json as pending.
         pending = rebuild_pending_sources(repository)
         actual = {p.relative_to(repository).as_posix() for p in (repository/tree.SOURCES).rglob('*')
                   if p.suffix in tree.SOURCE_SUFFIXES}
@@ -1224,8 +1224,8 @@ def validate_catalog(repository, catalog, modules=True):
 
 
 def rebuild_pending_sources(repository):
-    """Rebuild unit files with no catalogued row yet (rebuild/manifest/units.json "pending")."""
-    path = Path(repository) / 'rebuild/manifest/units.json'
+    """Rebuild unit files with no catalogued row yet (manifests/units.json "pending")."""
+    path = Path(repository) / 'manifests/units.json'
     if not path.exists():
         return set()
     units = json.loads(path.read_text())

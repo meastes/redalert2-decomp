@@ -1,0 +1,3833 @@
+{
+  "id": "rebuild-tevent",
+  "population": {
+    "id": "rebuild-tevent",
+    "inventory_sha256": "5ad7d358c38729b1f9e9a9bf83c8120504d47ead7dde1ea7122f660a9a13c91f",
+    "gaps_sha256": "3001a7b5c18ccacdde65f131681663bb3fe09361299accb1a7605ea8124e0124",
+    "historical_population_sha256": "9d03939b5fcbd6a714a2731285eb7f2767d3c1940b1bce2ab9ac5e06e26fbfa4",
+    "historical_acceptance_sha256": "2c7fcc3512ab9edca9c8e8559f74e183627ebf20fdf249f253a63b89b6b644f9"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 11274200,
+    "_ISO_TILE_SIZE": 8050304,
+    "_LEPTONS_PER_PIXEL": 11274296,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 11274280,
+    "_ONE_RAD": 8050312,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 11274272,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 11274208,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 11274168,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 11274304,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 11274216,
+    "_CELL_DIAG_SLOPE_ANGLE": 11274240,
+    "_BRIDGE_LEPTON_HEIGHT": 11274288,
+    "_CELL_NONE": 11274192,
+    "_COORD_NONE": 11274224,
+    "_RECT_NONE": 11274176,
+    "_$E75": 7232928,
+    "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A": 11274248,
+    "??_7?$DynamicVectorClass@PAVTEventClass@@@@6B@": 8050324,
+    "_atexit": 7874954,
+    "??_7?$VectorClass@PAVTEventClass@@@@6B@": 8050356,
+    "??3@YAXPAX@Z": 7871803,
+    "??0AbstractClass@@QAE@XZ": 4259600,
+    "??_7TEventClass@@6BIPersistStream@@@": 8050432,
+    "??_7TEventClass@@6BIRTTITypeInfo@@@": 8050404,
+    "??_7TEventClass@@6BINoticeSink@@@": 8050396,
+    "??_7TEventClass@@6BINoticeSource@@@": 8050388,
+    "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275416,
+    "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275440,
+    "?Detach_This_From_All@@YIXPBVAbstractClass@@_N@Z": 7261072,
+    "??1AbstractClass@@UAE@XZ": 4259728,
+    "?Scen@@3PAVScenarioClass@@A": 10736272,
+    "?Frame@@3HA": 10751276,
+    "?Fetch_Global_Value@ScenarioClass@@QAE_NHAA_N@Z": 6689712,
+    "?Fetch_Local_Value@ScenarioClass@@QAE_NHAA_N@Z": 6690384,
+    "?Debug_Map@@3_NA": 10751251,
+    "?House_From_HousesType@@YIPAVHouseClass@@W4HousesType@@@Z": 5166944,
+    "?Get_Waypoint_Coord@ScenarioClass@@QBE?AVCoord@@H@Z": 6697408,
+    "?Teams@@3V?$DynamicVectorClass@PAVTeamClass@@@@A": 8806776,
+    "?Value@CounterClass@@QBEHH@Z": 4791568,
+    "?Power_Fraction@HouseClass@@QBENXZ": 5145392,
+    "??_C@_08CFN@?$CFd?0?$CFd?0?$CFs?$AA@": 8356580,
+    "??_C@_08POMI@?$CFd?0?$CFd?0?$CFd?$AA@": 8188768,
+    "__imp__wsprintfA": 7972004,
+    "??_C@_01KMAE@?0?$AA@": 8186304,
+    "_strtok": 7876290,
+    "_atoi": 7876093,
+    "?From_Name@TeamTypeClass@@SIPAV1@PBD@Z": 7074400,
+    "?Compute_CRC@AbstractClass@@UBEXAAVCRCEngine@@@Z": 4260272,
+    "??RCRCEngine@@QAEXH@Z": 4800304,
+    "_CLSID_EventClass": 8002944,
+    "?Load@AbstractClass@@UAGJPAUIStream@@@Z": 4260128,
+    "??0AbstractClass@@QAE@ABVNoInitClass@@@Z": 4259680,
+    "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
+    "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
+    "?Save@AbstractClass@@UAGJPAUIStream@@H@Z": 4260032,
+    "??2@YAPAXI@Z": 7872535,
+    "_$E2": 7232368,
+    "_$E5": 7232416,
+    "_$E8": 7232448,
+    "_$E11": 7232480,
+    "_$E14": 7232512,
+    "_$E17": 7232544,
+    "_$E20": 7232576,
+    "_$E23": 7232640,
+    "_$E26": 7232688,
+    "_$E29": 7232736,
+    "_$E32": 7232784,
+    "_$E35": 7232800,
+    "_$E38": 7232832,
+    "_$E77": 7232864,
+    "??_G?$DynamicVectorClass@PAVTEventClass@@@@UAEPAXI@Z": 7238096,
+    "??_7type_info@@6B@": 8066532,
+    "??_G?$VectorClass@PAVTEventClass@@@@UAEPAXI@Z": 7238016,
+    "??0TEventClass@@QAE@XZ": 7232992,
+    "?Unknown_Virtual_0@AbstractClass@@UAEXH@Z": 4260656,
+    "?Unknown_Virtual_0@AbstractClass@@UAE_NHH@Z": 4260640,
+    "?Create_ID@AbstractClass@@UAGXXZ": 4259792,
+    "?Fetch_ID@AbstractClass@@UBGHXZ": 4259776,
+    "?What_Am_I@AbstractClass@@UBGHXZ": 4259760,
+    "?AI@AbstractClass@@UAEXXZ": 4260624,
+    "?As_Coord@AbstractClass@@UBE?AVCoord@@XZ": 4260576,
+    "?In_Air@AbstractClass@@UBE_NXZ": 4260560,
+    "?On_Ground@AbstractClass@@UBE_NXZ": 4260544,
+    "?Destination_Coord@AbstractClass@@UBE?AVCoord@@PAVTechnoClass@@@Z": 4260496,
+    "?Center_Coord@AbstractClass@@UBE?AVCoord@@XZ": 4260448,
+    "?Is_Inactive@AbstractClass@@UBE_NXZ": 4260320,
+    "?Owner_HouseClass@AbstractClass@@UBEPAVHouseClass@@XZ": 4260416,
+    "?Owner@AbstractClass@@UBE?AW4HousesType@@XZ": 4260400,
+    "?Init@AbstractClass@@UAEXXZ": 4260368,
+    "??_GTEventClass@@UAEPAXI@Z": 7237024,
+    "?GetSizeMax@AbstractClass@@UAGJPAT_ULARGE_INTEGER@@@Z": 4260224,
+    "?IsDirty@AbstractClass@@UAGJXZ": 4260336,
+    "?Release@AbstractClass@@UAGKXZ": 4260016,
+    "?AddRef@AbstractClass@@UAGKXZ": 4260000,
+    "?QueryInterface@AbstractClass@@UAGJABU_GUID@@PAPAX@Z": 4259840,
+    "??_R0?AVINoticeSource@@@8": 8184264,
+    "??_R0?AVINoticeSink@@@8": 8181272,
+    "??_R0?AUIRTTITypeInfo@@@8": 8184296,
+    "??_R0?AUIUnknown@@@8": 8181304,
+    "??_R0?AUIPersist@@@8": 8184328,
+    "??_R0?AUIPersistStream@@@8": 8184352,
+    "??_R0?AVAbstractClass@@@8": 8184384,
+    "??_R0?AVTEventClass@@@8": 8356552,
+    "?Fetch_Object_Size@TEventClass@@UBEHXZ": 7236976,
+    "?Fetch_RTTI@TEventClass@@UBE?AW4RTTIType@@XZ": 7236992,
+    "?Fetch_Heap_ID@TEventClass@@UBEHXZ": 7237008,
+    "??1TEventClass@@UAE@XZ": 7233344,
+    "??RTEventClass@@QAE_NW4TEventType@@PBVHouseClass@@PBVObjectClass@@AAV?$CDTimerClass@VFrameTimerClass@@@@AA_NPAVTechnoClass@@@Z": 7233616,
+    "?Build_INI_Entry@TEventClass@@QBEXPAD@Z": 7235760,
+    "?Read_INI@TEventClass@@QAEXXZ": 7235840,
+    "?Event_Needs@@YI?AW4NeedType@@W4TEventType@@@Z": 7235952,
+    "?Attaches_To@@YI?AW4AttachType@@W4TEventType@@@Z": 7236144,
+    "?Detach@TEventClass@@UAEXPBVAbstractClass@@_N@Z": 7236512,
+    "?Compute_CRC@TEventClass@@UBEXAAVCRCEngine@@@Z": 7236544,
+    "?GetClassID@TEventClass@@UAGJPAU_GUID@@@Z": 7236640,
+    "?Load@TEventClass@@UAGJPAUIStream@@@Z": 7236704,
+    "?Save@TEventClass@@UAGJPAUIStream@@H@Z": 7236816,
+    "?Is_Time_Based@TEventClass@@QBE_NXZ": 7236848,
+    "?Is_To_Flag_As_Tripped@TEventClass@@QBE_NXZ": 7236944,
+    "?Clear@?$DynamicVectorClass@PAVTEventClass@@@@UAEXXZ": 7237312,
+    "?ID@?$DynamicVectorClass@PAVTEventClass@@@@UAEHPBQAVTEventClass@@@Z": 7237360,
+    "?GetItem@?$VectorClass@PAVTEventClass@@@@UBEPAVTEventClass@@H@Z": 7237392,
+    "??8?$VectorClass@PAVTEventClass@@@@UBE_NABV0@@Z": 7237408,
+    "?Resize@?$VectorClass@PAVTEventClass@@@@UAE_NHPBQAVTEventClass@@@Z": 7237472,
+    "?Clear@?$VectorClass@PAVTEventClass@@@@UAEXXZ": 7237648,
+    "?ID@?$VectorClass@PAVTEventClass@@@@UAEHABQAVTEventClass@@@Z": 7237696,
+    "?ID@?$VectorClass@PAVTEventClass@@@@UAEHPBQAVTEventClass@@@Z": 7237760,
+    "?Resize@?$DynamicVectorClass@PAVTEventClass@@@@UAE_NHPBQAVTEventClass@@@Z": 7237792,
+    "?ID@?$DynamicVectorClass@PAVTEventClass@@@@UAEHABQAVTEventClass@@@Z": 7237968,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "?QueryInterface@AbstractClass@@W3AGJABU_GUID@@PAPAX@Z": 4260736,
+    "?AddRef@AbstractClass@@W3AGKXZ": 4260752,
+    "?Release@AbstractClass@@W3AGKXZ": 4260768
+  },
+  "regions": [
+    {
+      "entry": 7232368,
+      "method": "006e5b70",
+      "body_bytes": 40,
+      "body_sha256": "6e07f894f5ff74ba6599856e7a0dc257d0e9ec581294d645f5b538201edba7a8",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "b50e893934e3b1ea6542118b63426feff9e12af74ee7f6d8f39a15a63b14ed65",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 640559
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292692098
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11274200,
+          "addend": 0,
+          "resolved": 11274200
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7232368,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7232416,
+      "method": "006e5ba0",
+      "body_bytes": 19,
+      "body_sha256": "d3401fc510fd0469bf172a10a509fbedaf56b8711b33ffa64adc16bb89f9cb1f",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "96b479b5db3c96a58e8065c1c800422d151f930b9e652fa9574b7036d2300479",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11274200,
+          "addend": 0,
+          "resolved": 11274200
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8050304,
+          "addend": 0,
+          "resolved": 8050304
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11274296,
+          "addend": 0,
+          "resolved": 11274296
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7232416,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7232448,
+      "method": "006e5bc0",
+      "body_bytes": 19,
+      "body_sha256": "e9867256d6a25e2f29b8c49d006fb44d85fa45ecf35f38ccb44bb56f7bba2c38",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "920b6360d30ce7a3c3c709a224b180d03afee28a106e1b020bce0f0a1ed63cf4",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11274296,
+          "addend": 0,
+          "resolved": 11274296
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 11274280,
+          "addend": 0,
+          "resolved": 11274280
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7232448,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7232480,
+      "method": "006e5be0",
+      "body_bytes": 19,
+      "body_sha256": "c404ce8569dcca938dcf139b0f6e1c1e996f6a69c6e4e79bfc087a37b4454fb4",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "5efdadbe6c1d893931607d9ffa61d4aafbcf5cf446681ba4ae28c9a698ddcc30",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8050312,
+          "addend": 0,
+          "resolved": 8050312
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 11274272,
+          "addend": 0,
+          "resolved": 11274272
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7232480,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7232512,
+      "method": "006e5c00",
+      "body_bytes": 19,
+      "body_sha256": "965bd815f288262ae699ca05b7790c2e0a2f4400a0581c096dda4bfa97f16641",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "c33d987506f4c5067b2b3bfe6ca2f2485c1a1592ebd232a33ff32972f3b5471b",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8050312,
+          "addend": 0,
+          "resolved": 8050312
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11274208,
+          "addend": 0,
+          "resolved": 11274208
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7232512,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7232544,
+      "method": "006e5c20",
+      "body_bytes": 19,
+      "body_sha256": "91be360e0a0d7a95ece3ecb0af62d53ed416703706d767cabeb829a258278e55",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "8d606676ddd62a50bb84c9e0da4d98bfd58e38150f58f64792a622826f36f27c",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8050312,
+          "addend": 0,
+          "resolved": 8050312
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11274168,
+          "addend": 0,
+          "resolved": 11274168
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7232544,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7232576,
+      "method": "006e5c40",
+      "body_bytes": 49,
+      "body_sha256": "04a8133c2a198eae59b075e4fdf1524f061f2d538523335678032de7fe467ebc",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0fd887889d1a90a7190e62387d17c37571373b69f5ee66acebfe1e568d9f74f7",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11274168,
+          "addend": 0,
+          "resolved": 11274168
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11274208,
+          "addend": 0,
+          "resolved": 11274208
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4292692169
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11274200,
+          "addend": 0,
+          "resolved": 11274200
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 627877
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11274304,
+          "addend": 0,
+          "resolved": 11274304
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7232576,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7232640,
+      "method": "006e5c80",
+      "body_bytes": 33,
+      "body_sha256": "79e7b039293b24629486ea7c87d8db728432a61a25079bd4de53e9f3e397f699",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "587b83177ceef2a6ffeaa3507818ee5bc9dbaa14c2196e04e4d36ef64644acbb",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11274304,
+          "addend": 0,
+          "resolved": 11274304
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292692249
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 11274216,
+          "addend": 0,
+          "resolved": 11274216
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7232640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7232688,
+      "method": "006e5cb0",
+      "body_bytes": 44,
+      "body_sha256": "02903abfd9a0c804f950c638a093822f8ffa445089dae5e5296b460a1a55742a",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "78611b22c2e98e66010ab2c9e885a33d70ab8963af6674def349b2abfe87a86a",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11274304,
+          "addend": 0,
+          "resolved": 11274304
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11274200,
+          "addend": 0,
+          "resolved": 11274200
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292692190
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 11274240,
+          "addend": 0,
+          "resolved": 11274240
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7232688,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7232736,
+      "method": "006e5ce0",
+      "body_bytes": 39,
+      "body_sha256": "bacad9ea7e974636988d725d8c1249e28e3b854f214783f1d754c1adba71162e",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8086d4e1d9e47ddd73e1d0ec253caa96f8dfe0956a552d13cfe24f07133cf1a1",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11274304,
+          "addend": 0,
+          "resolved": 11274304
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 627728
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11274288,
+          "addend": 0,
+          "resolved": 11274288
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7232736,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7232784,
+      "method": "006e5d10",
+      "body_bytes": 15,
+      "body_sha256": "55fda40ff1d80c088c246338867db5af3942e81723abd4e9ad098fede625b6d9",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "549c2d6c479f2f4230411fbe4fa68e2fc150e4cf0576d2559178ed2aebaf4523",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11274192,
+          "addend": 0,
+          "resolved": 11274192
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11274192,
+          "addend": 2,
+          "resolved": 11274194
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7232784,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7232800,
+      "method": "006e5d20",
+      "body_bytes": 18,
+      "body_sha256": "fad59a6d774b2c5957b1b0f27d4a16e6367a9ca5bdaae20da4dcd840684b1156",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "9cc8f43ea7a92f8e0b69bd5fef63eebe622a991436b94f9352eb676ff54c2fae",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11274224,
+          "addend": 0,
+          "resolved": 11274224
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11274224,
+          "addend": 4,
+          "resolved": 11274228
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11274224,
+          "addend": 8,
+          "resolved": 11274232
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7232800,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7232832,
+      "method": "006e5d40",
+      "body_bytes": 23,
+      "body_sha256": "5954b5c645b783e5b9e2da4a90bc3d4ecf508c21499041d5c9926da0ef8d8513",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "3edaeab89365322560443e813cdf32a55a65820c0abf1601536e2c7fbf36cc9b",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11274176,
+          "addend": 0,
+          "resolved": 11274176
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11274176,
+          "addend": 4,
+          "resolved": 11274180
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11274176,
+          "addend": 8,
+          "resolved": 11274184
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11274176,
+          "addend": 12,
+          "resolved": 11274188
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7232832,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7232864,
+      "method": "006e5d60",
+      "body_bytes": 61,
+      "body_sha256": "6f793027155e2060aa4db28c08053c70a0ca6565dfa2e1d4a941d1e88bd988a0",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "911403f7d1fc1848b740e0a61400064d85b8e1c675863a7a3993358ef07254aa",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E77",
+      "symbol_prefix": "_$E77",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E75",
+          "target": 7232928,
+          "addend": 0,
+          "resolved": 7232928
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 4,
+          "resolved": 11274252
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 8,
+          "resolved": 11274256
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 12,
+          "resolved": 11274260
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 13,
+          "resolved": 11274261
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 0,
+          "resolved": 11274248
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVTEventClass@@@@6B@",
+          "target": 8050324,
+          "addend": 0,
+          "resolved": 8050324
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 20,
+          "resolved": 11274268
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 16,
+          "resolved": 11274264
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 642031
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7232864,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7232928,
+      "method": "006e5da0",
+      "body_bytes": 59,
+      "body_sha256": "b977160b68be6748859ee4843af330b61a3f01e152c5d1cd945cd61ed217bec6",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "050c580e3f969a4dc598a3ff5534751834d3107bbd24f0be72cadb413b25e81d",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E75",
+      "symbol_prefix": "_$E75",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 4,
+          "resolved": 11274252
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 0,
+          "resolved": 11274248
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVTEventClass@@@@6B@",
+          "target": 8050356,
+          "addend": 0,
+          "resolved": 8050356
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 13,
+          "resolved": 11274261
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 638839
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 4,
+          "resolved": 11274252
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 13,
+          "resolved": 11274261
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 8,
+          "resolved": 11274256
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7232928,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7232992,
+      "method": "006e5de0",
+      "body_bytes": 346,
+      "body_sha256": "db9fba895b68320b942709c0123c026ebee0b019c4ec6cbb5074bc1b3c9b7bdd",
+      "padding_bytes": 6,
+      "full_extent_bytes": 352,
+      "full_extent_sha256": "038888f56a63fe64b0f9e37745773116b2ae1281a00384cb64bd87d182c08e87",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0TEventClass@@QAE@XZ",
+      "symbol_prefix": "??0TEventClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 20,
+          "symbol": "??0AbstractClass@@QAE@XZ",
+          "target": 4259600,
+          "addend": 0,
+          "resolved": 4291993895
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "??_7TEventClass@@6BIPersistStream@@@",
+          "target": 8050432,
+          "addend": 0,
+          "resolved": 8050432
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "??_7TEventClass@@6BIRTTITypeInfo@@@",
+          "target": 8050404,
+          "addend": 0,
+          "resolved": 8050404
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "??_7TEventClass@@6BINoticeSink@@@",
+          "target": 8050396,
+          "addend": 0,
+          "resolved": 8050396
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "??_7TEventClass@@6BINoticeSource@@@",
+          "target": 8050388,
+          "addend": 0,
+          "resolved": 8050388
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 16,
+          "resolved": 11274264
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 8,
+          "resolved": 11274256
+        },
+        {
+          "offset": 71,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 13,
+          "resolved": 11274261
+        },
+        {
+          "offset": 83,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 20,
+          "resolved": 11274268
+        },
+        {
+          "offset": 94,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 0,
+          "resolved": 11274248
+        },
+        {
+          "offset": 101,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 0,
+          "resolved": 11274248
+        },
+        {
+          "offset": 110,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 16,
+          "resolved": 11274264
+        },
+        {
+          "offset": 123,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 16,
+          "resolved": 11274264
+        },
+        {
+          "offset": 129,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 4,
+          "resolved": 11274252
+        },
+        {
+          "offset": 138,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 16,
+          "resolved": 11274264
+        },
+        {
+          "offset": 150,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 4,
+          "resolved": 11274252
+        },
+        {
+          "offset": 173,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 8,
+          "resolved": 11275424
+        },
+        {
+          "offset": 179,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 16,
+          "resolved": 11275432
+        },
+        {
+          "offset": 189,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 13,
+          "resolved": 11275429
+        },
+        {
+          "offset": 201,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 20,
+          "resolved": 11275436
+        },
+        {
+          "offset": 211,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 0,
+          "resolved": 11275416
+        },
+        {
+          "offset": 220,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 0,
+          "resolved": 11275416
+        },
+        {
+          "offset": 233,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 16,
+          "resolved": 11275432
+        },
+        {
+          "offset": 242,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 16,
+          "resolved": 11275432
+        },
+        {
+          "offset": 248,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 4,
+          "resolved": 11275420
+        },
+        {
+          "offset": 256,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 8,
+          "resolved": 11275448
+        },
+        {
+          "offset": 262,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 16,
+          "resolved": 11275456
+        },
+        {
+          "offset": 272,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 13,
+          "resolved": 11275453
+        },
+        {
+          "offset": 284,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 20,
+          "resolved": 11275460
+        },
+        {
+          "offset": 294,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 0,
+          "resolved": 11275440
+        },
+        {
+          "offset": 303,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 0,
+          "resolved": 11275440
+        },
+        {
+          "offset": 316,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 16,
+          "resolved": 11275456
+        },
+        {
+          "offset": 325,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 16,
+          "resolved": 11275456
+        },
+        {
+          "offset": 331,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 4,
+          "resolved": 11275444
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7232992,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7233344,
+      "method": "006e5f40",
+      "body_bytes": 267,
+      "body_sha256": "0cc7e84cf36b430afbe268089328ec393ffc3c21263262ce307403ca8c9097d2",
+      "padding_bytes": 5,
+      "full_extent_bytes": 272,
+      "full_extent_sha256": "d6834f2ec85e9f9a731430e67ef6a72b0281de29294b5c1ed274c806ce84c9c6",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1TEventClass@@UAE@XZ",
+      "symbol_prefix": "??1TEventClass@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7TEventClass@@6BIPersistStream@@@",
+          "target": 8050432,
+          "addend": 0,
+          "resolved": 8050432
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "??_7TEventClass@@6BIRTTITypeInfo@@@",
+          "target": 8050404,
+          "addend": 0,
+          "resolved": 8050404
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "??_7TEventClass@@6BINoticeSink@@@",
+          "target": 8050396,
+          "addend": 0,
+          "resolved": 8050396
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "??_7TEventClass@@6BINoticeSource@@@",
+          "target": 8050388,
+          "addend": 0,
+          "resolved": 8050388
+        },
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "?Detach_This_From_All@@YIXPBVAbstractClass@@_N@Z",
+          "target": 7261072,
+          "addend": 0,
+          "resolved": 27690
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 0,
+          "resolved": 11275416
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 0,
+          "resolved": 11275416
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 16,
+          "resolved": 11275432
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 16,
+          "resolved": 11275432
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 4,
+          "resolved": 11275420
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 16,
+          "resolved": 11275432
+        },
+        {
+          "offset": 113,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 0,
+          "resolved": 11275440
+        },
+        {
+          "offset": 123,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 0,
+          "resolved": 11275440
+        },
+        {
+          "offset": 141,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 16,
+          "resolved": 11275456
+        },
+        {
+          "offset": 154,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 16,
+          "resolved": 11275456
+        },
+        {
+          "offset": 162,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 4,
+          "resolved": 11275444
+        },
+        {
+          "offset": 176,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 16,
+          "resolved": 11275456
+        },
+        {
+          "offset": 186,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 0,
+          "resolved": 11274248
+        },
+        {
+          "offset": 196,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 0,
+          "resolved": 11274248
+        },
+        {
+          "offset": 214,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 16,
+          "resolved": 11274264
+        },
+        {
+          "offset": 227,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 16,
+          "resolved": 11274264
+        },
+        {
+          "offset": 235,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 4,
+          "resolved": 11274252
+        },
+        {
+          "offset": 249,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 16,
+          "resolved": 11274264
+        },
+        {
+          "offset": 260,
+          "kind": 20,
+          "symbol": "??1AbstractClass@@UAE@XZ",
+          "target": 4259728,
+          "addend": 0,
+          "resolved": 4291993416
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7233344,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7233616,
+      "method": "006e6050",
+      "body_bytes": 2144,
+      "body_sha256": "3c6ff0a849f5bd4df3954bdddc66563d506f85e59c6d5dd1f9b8630a55cee4cf",
+      "padding_bytes": 0,
+      "full_extent_bytes": 2144,
+      "full_extent_sha256": "3c6ff0a849f5bd4df3954bdddc66563d506f85e59c6d5dd1f9b8630a55cee4cf",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 348,
+      "symbol": "??RTEventClass@@QAE_NW4TEventType@@PBVHouseClass@@PBVObjectClass@@AAV?$CDTimerClass@VFrameTimerClass@@@@AA_NPAVTechnoClass@@@Z",
+      "symbol_prefix": "??RTEventClass@@QAE_NW4TEventType@@PBVHouseClass@@PBVObjectClass@@AAV?$CDTimerClass@VFrameTimerClass@@@@AA_NPAVTechnoClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7235452,
+          "addend": 0,
+          "resolved": 7235452
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7235412,
+          "addend": 0,
+          "resolved": 7235412
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 106,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 157,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 163,
+          "kind": 20,
+          "symbol": "?Fetch_Global_Value@ScenarioClass@@QAE_NHAA_N@Z",
+          "target": 6689712,
+          "addend": 0,
+          "resolved": 4294423225
+        },
+        {
+          "offset": 192,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 197,
+          "kind": 20,
+          "symbol": "?Fetch_Global_Value@ScenarioClass@@QAE_NHAA_N@Z",
+          "target": 6689712,
+          "addend": 0,
+          "resolved": 4294423191
+        },
+        {
+          "offset": 227,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 238,
+          "kind": 20,
+          "symbol": "?Fetch_Local_Value@ScenarioClass@@QAE_NHAA_N@Z",
+          "target": 6690384,
+          "addend": 0,
+          "resolved": 4294423822
+        },
+        {
+          "offset": 266,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 272,
+          "kind": 20,
+          "symbol": "?Fetch_Local_Value@ScenarioClass@@QAE_NHAA_N@Z",
+          "target": 6690384,
+          "addend": 0,
+          "resolved": 4294423788
+        },
+        {
+          "offset": 299,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 335,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 387,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 507,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7235500,
+          "addend": 0,
+          "resolved": 7235500
+        },
+        {
+          "offset": 514,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7235492,
+          "addend": 0,
+          "resolved": 7235492
+        },
+        {
+          "offset": 528,
+          "kind": 6,
+          "symbol": "?Debug_Map@@3_NA",
+          "target": 10751251,
+          "addend": 0,
+          "resolved": 10751251
+        },
+        {
+          "offset": 614,
+          "kind": 20,
+          "symbol": "?House_From_HousesType@@YIPAVHouseClass@@W4HousesType@@@Z",
+          "target": 5166944,
+          "addend": 0,
+          "resolved": 4292900006
+        },
+        {
+          "offset": 664,
+          "kind": 20,
+          "symbol": "?House_From_HousesType@@YIPAVHouseClass@@W4HousesType@@@Z",
+          "target": 5166944,
+          "addend": 0,
+          "resolved": 4292899956
+        },
+        {
+          "offset": 821,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 832,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Coord@ScenarioClass@@QBE?AVCoord@@H@Z",
+          "target": 6697408,
+          "addend": 0,
+          "resolved": 4294430252
+        },
+        {
+          "offset": 925,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292689951
+        },
+        {
+          "offset": 933,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 625943
+        },
+        {
+          "offset": 1026,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7235612,
+          "addend": 0,
+          "resolved": 7235612
+        },
+        {
+          "offset": 1033,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7235556,
+          "addend": 0,
+          "resolved": 7235556
+        },
+        {
+          "offset": 1039,
+          "kind": 6,
+          "symbol": "?Teams@@3V?$DynamicVectorClass@PAVTeamClass@@@@A",
+          "target": 8806776,
+          "addend": 16,
+          "resolved": 8806792
+        },
+        {
+          "offset": 1054,
+          "kind": 6,
+          "symbol": "?Teams@@3V?$DynamicVectorClass@PAVTeamClass@@@@A",
+          "target": 8806776,
+          "addend": 4,
+          "resolved": 8806780
+        },
+        {
+          "offset": 1101,
+          "kind": 6,
+          "symbol": "?Teams@@3V?$DynamicVectorClass@PAVTeamClass@@@@A",
+          "target": 8806776,
+          "addend": 16,
+          "resolved": 8806792
+        },
+        {
+          "offset": 1299,
+          "kind": 20,
+          "symbol": "?Value@CounterClass@@QBEHH@Z",
+          "target": 4791568,
+          "addend": 0,
+          "resolved": 4292523945
+        },
+        {
+          "offset": 1334,
+          "kind": 20,
+          "symbol": "?Value@CounterClass@@QBEHH@Z",
+          "target": 4791568,
+          "addend": 0,
+          "resolved": 4292523910
+        },
+        {
+          "offset": 1485,
+          "kind": 20,
+          "symbol": "?House_From_HousesType@@YIPAVHouseClass@@W4HousesType@@@Z",
+          "target": 5166944,
+          "addend": 0,
+          "resolved": 4292899135
+        },
+        {
+          "offset": 1516,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7235696,
+          "addend": 0,
+          "resolved": 7235696
+        },
+        {
+          "offset": 1523,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7235660,
+          "addend": 0,
+          "resolved": 7235660
+        },
+        {
+          "offset": 1530,
+          "kind": 20,
+          "symbol": "?Power_Fraction@HouseClass@@QBENXZ",
+          "target": 5145392,
+          "addend": 0,
+          "resolved": 4292877538
+        },
+        {
+          "offset": 1536,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 1730,
+          "kind": 20,
+          "symbol": "?House_From_HousesType@@YIPAVHouseClass@@W4HousesType@@@Z",
+          "target": 5166944,
+          "addend": 0,
+          "resolved": 4292898890
+        },
+        {
+          "offset": 1764,
+          "kind": 20,
+          "symbol": "?House_From_HousesType@@YIPAVHouseClass@@W4HousesType@@@Z",
+          "target": 5166944,
+          "addend": 0,
+          "resolved": 4292898856
+        },
+        {
+          "offset": 1796,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7233987,
+          "addend": 0,
+          "resolved": 7233987
+        },
+        {
+          "offset": 1800,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7233913,
+          "addend": 0,
+          "resolved": 7233913
+        },
+        {
+          "offset": 1804,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7233763,
+          "addend": 0,
+          "resolved": 7233763
+        },
+        {
+          "offset": 1808,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7233797,
+          "addend": 0,
+          "resolved": 7233797
+        },
+        {
+          "offset": 1812,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7233838,
+          "addend": 0,
+          "resolved": 7233838
+        },
+        {
+          "offset": 1816,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7233872,
+          "addend": 0,
+          "resolved": 7233872
+        },
+        {
+          "offset": 1820,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7233655,
+          "addend": 0,
+          "resolved": 7233655
+        },
+        {
+          "offset": 1824,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7233686,
+          "addend": 0,
+          "resolved": 7233686
+        },
+        {
+          "offset": 1828,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7233720,
+          "addend": 0,
+          "resolved": 7233720
+        },
+        {
+          "offset": 1832,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7234035,
+          "addend": 0,
+          "resolved": 7234035
+        },
+        {
+          "offset": 1876,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7234134,
+          "addend": 0,
+          "resolved": 7234134
+        },
+        {
+          "offset": 1880,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7234156,
+          "addend": 0,
+          "resolved": 7234156
+        },
+        {
+          "offset": 1940,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7234741,
+          "addend": 0,
+          "resolved": 7234741
+        },
+        {
+          "offset": 1944,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7235055,
+          "addend": 0,
+          "resolved": 7235055
+        },
+        {
+          "offset": 1948,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7235080,
+          "addend": 0,
+          "resolved": 7235080
+        },
+        {
+          "offset": 1952,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7234802,
+          "addend": 0,
+          "resolved": 7234802
+        },
+        {
+          "offset": 1956,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7234878,
+          "addend": 0,
+          "resolved": 7234878
+        },
+        {
+          "offset": 1960,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7234971,
+          "addend": 0,
+          "resolved": 7234971
+        },
+        {
+          "offset": 1964,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7234995,
+          "addend": 0,
+          "resolved": 7234995
+        },
+        {
+          "offset": 1968,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7235021,
+          "addend": 0,
+          "resolved": 7235021
+        },
+        {
+          "offset": 1972,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7235047,
+          "addend": 0,
+          "resolved": 7235047
+        },
+        {
+          "offset": 1976,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7234653,
+          "addend": 0,
+          "resolved": 7234653
+        },
+        {
+          "offset": 1980,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7234904,
+          "addend": 0,
+          "resolved": 7234904
+        },
+        {
+          "offset": 1984,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7234771,
+          "addend": 0,
+          "resolved": 7234771
+        },
+        {
+          "offset": 1988,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7234939,
+          "addend": 0,
+          "resolved": 7234939
+        },
+        {
+          "offset": 1992,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7235097,
+          "addend": 0,
+          "resolved": 7235097
+        },
+        {
+          "offset": 2044,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7235179,
+          "addend": 0,
+          "resolved": 7235179
+        },
+        {
+          "offset": 2048,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7235205,
+          "addend": 0,
+          "resolved": 7235205
+        },
+        {
+          "offset": 2052,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7235249,
+          "addend": 0,
+          "resolved": 7235249
+        },
+        {
+          "offset": 2056,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7235227,
+          "addend": 0,
+          "resolved": 7235227
+        },
+        {
+          "offset": 2060,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7235291,
+          "addend": 0,
+          "resolved": 7235291
+        },
+        {
+          "offset": 2064,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7235143,
+          "addend": 0,
+          "resolved": 7235143
+        },
+        {
+          "offset": 2068,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7235257,
+          "addend": 0,
+          "resolved": 7235257
+        },
+        {
+          "offset": 2072,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7235265,
+          "addend": 0,
+          "resolved": 7235265
+        },
+        {
+          "offset": 2076,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7235321,
+          "addend": 0,
+          "resolved": 7235321
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7233616,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7235760,
+      "method": "006e68b0",
+      "body_bytes": 72,
+      "body_sha256": "7668157328b7e75d15d4b09bc5dc276997be9950b4727542e2a194b353f8f9cc",
+      "padding_bytes": 8,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "9c69b21b965f7cceb703209d5acb172adb873bbb40281d173ec43ee9a6ea7984",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Build_INI_Entry@TEventClass@@QBEXPAD@Z",
+      "symbol_prefix": "?Build_INI_Entry@TEventClass@@QBEXPAD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "??_C@_08CFN@?$CFd?0?$CFd?0?$CFs?$AA@",
+          "target": 8356580,
+          "addend": 0,
+          "resolved": 8356580
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "??_C@_08POMI@?$CFd?0?$CFd?0?$CFd?$AA@",
+          "target": 8188768,
+          "addend": 0,
+          "resolved": 8188768
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "__imp__wsprintfA",
+          "target": 7972004,
+          "addend": 0,
+          "resolved": 7972004
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7235760,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7235840,
+      "method": "006e6900",
+      "body_bytes": 107,
+      "body_sha256": "b0e8628221d20b20866c0205cb27b80f2b2ecb9f9d646284455542695ddedf25",
+      "padding_bytes": 5,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "d2482955de6156042d0e74bc9950b63e1e8c58a5058338085c0824c0e2b1b526",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Read_INI@TEventClass@@QAEXXZ",
+      "symbol_prefix": "?Read_INI@TEventClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "??_C@_01KMAE@?0?$AA@",
+          "target": 8186304,
+          "addend": 0,
+          "resolved": 8186304
+        },
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "_strtok",
+          "target": 7876290,
+          "addend": 0,
+          "resolved": 640426
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "_atoi",
+          "target": 7876093,
+          "addend": 0,
+          "resolved": 640223
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "??_C@_01KMAE@?0?$AA@",
+          "target": 8186304,
+          "addend": 0,
+          "resolved": 8186304
+        },
+        {
+          "offset": 41,
+          "kind": 20,
+          "symbol": "_strtok",
+          "target": 7876290,
+          "addend": 0,
+          "resolved": 640405
+        },
+        {
+          "offset": 47,
+          "kind": 20,
+          "symbol": "_atoi",
+          "target": 7876093,
+          "addend": 0,
+          "resolved": 640202
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "??_C@_01KMAE@?0?$AA@",
+          "target": 8186304,
+          "addend": 0,
+          "resolved": 8186304
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "_strtok",
+          "target": 7876290,
+          "addend": 0,
+          "resolved": 640385
+        },
+        {
+          "offset": 69,
+          "kind": 20,
+          "symbol": "_atoi",
+          "target": 7876093,
+          "addend": 0,
+          "resolved": 640180
+        },
+        {
+          "offset": 89,
+          "kind": 20,
+          "symbol": "?From_Name@TeamTypeClass@@SIPAV1@PBD@Z",
+          "target": 7074400,
+          "addend": 0,
+          "resolved": 4294805763
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7235840,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7235952,
+      "method": "006e6970",
+      "body_bytes": 189,
+      "body_sha256": "a45f01447c766f98c6148c1b28b1a5af484604ac24d62028e5382505a21ba1ef",
+      "padding_bytes": 3,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "3793ddf018e3568a422474a430f68c045f455283cf23bed6fa89b0e0092a4ed4",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 101,
+      "symbol": "?Event_Needs@@YI?AW4NeedType@@W4TEventType@@@Z",
+      "symbol_prefix": "?Event_Needs@@YI?AW4NeedType@@W4TEventType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236084,
+          "addend": 0,
+          "resolved": 7236084
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236040,
+          "addend": 0,
+          "resolved": 7236040
+        },
+        {
+          "offset": 88,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7235975,
+          "addend": 0,
+          "resolved": 7235975
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7235981,
+          "addend": 0,
+          "resolved": 7235981
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7235999,
+          "addend": 0,
+          "resolved": 7235999
+        },
+        {
+          "offset": 100,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236005,
+          "addend": 0,
+          "resolved": 7236005
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236011,
+          "addend": 0,
+          "resolved": 7236011
+        },
+        {
+          "offset": 108,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236017,
+          "addend": 0,
+          "resolved": 7236017
+        },
+        {
+          "offset": 112,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236023,
+          "addend": 0,
+          "resolved": 7236023
+        },
+        {
+          "offset": 116,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7235987,
+          "addend": 0,
+          "resolved": 7235987
+        },
+        {
+          "offset": 120,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236029,
+          "addend": 0,
+          "resolved": 7236029
+        },
+        {
+          "offset": 124,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7235993,
+          "addend": 0,
+          "resolved": 7235993
+        },
+        {
+          "offset": 128,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236035,
+          "addend": 0,
+          "resolved": 7236035
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7235952,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7236144,
+      "method": "006e6a30",
+      "body_bytes": 360,
+      "body_sha256": "2ce0616802268ec3483c4ba68c840b9207a931143a15123da24f30a3c81dee08",
+      "padding_bytes": 8,
+      "full_extent_bytes": 368,
+      "full_extent_sha256": "ad4248478eedb91253d029fd3ce688c19297ba1f5cc6f4fb4e42920c74565cfe",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 240,
+      "symbol": "?Attaches_To@@YI?AW4AttachType@@W4TEventType@@@Z",
+      "symbol_prefix": "?Attaches_To@@YI?AW4AttachType@@W4TEventType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236272,
+          "addend": 0,
+          "resolved": 7236272
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236264,
+          "addend": 0,
+          "resolved": 7236264
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236336,
+          "addend": 0,
+          "resolved": 7236336
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236328,
+          "addend": 0,
+          "resolved": 7236328
+        },
+        {
+          "offset": 76,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236396,
+          "addend": 0,
+          "resolved": 7236396
+        },
+        {
+          "offset": 83,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236388,
+          "addend": 0,
+          "resolved": 7236388
+        },
+        {
+          "offset": 102,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236460,
+          "addend": 0,
+          "resolved": 7236460
+        },
+        {
+          "offset": 109,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236452,
+          "addend": 0,
+          "resolved": 7236452
+        },
+        {
+          "offset": 120,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236167,
+          "addend": 0,
+          "resolved": 7236167
+        },
+        {
+          "offset": 124,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236172,
+          "addend": 0,
+          "resolved": 7236172
+        },
+        {
+          "offset": 184,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236192,
+          "addend": 0,
+          "resolved": 7236192
+        },
+        {
+          "offset": 188,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236195,
+          "addend": 0,
+          "resolved": 7236195
+        },
+        {
+          "offset": 244,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236231,
+          "addend": 0,
+          "resolved": 7236231
+        },
+        {
+          "offset": 248,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236234,
+          "addend": 0,
+          "resolved": 7236234
+        },
+        {
+          "offset": 308,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236257,
+          "addend": 0,
+          "resolved": 7236257
+        },
+        {
+          "offset": 312,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236260,
+          "addend": 0,
+          "resolved": 7236260
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7236144,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7236512,
+      "method": "006e6ba0",
+      "body_bytes": 32,
+      "body_sha256": "b369d26695a332b687064639b1288df6069605a1a3d685875adfc51a66333f8b",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b369d26695a332b687064639b1288df6069605a1a3d685875adfc51a66333f8b",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Detach@TEventClass@@UAEXPBVAbstractClass@@_N@Z",
+      "symbol_prefix": "?Detach@TEventClass@@UAEXPBVAbstractClass@@_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7236512,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7236544,
+      "method": "006e6bc0",
+      "body_bytes": 91,
+      "body_sha256": "3705142e9a574794d8f9a779cb8f0b9731b67b80283749325db71e84e52ec239",
+      "padding_bytes": 5,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "457b31f45c5c76d83297617561b6ff8164f2a3fd4775d19db05d10a8bb8f240c",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Compute_CRC@TEventClass@@UBEXAAVCRCEngine@@@Z",
+      "symbol_prefix": "?Compute_CRC@TEventClass@@UBEXAAVCRCEngine@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "?Compute_CRC@AbstractClass@@UBEXAAVCRCEngine@@@Z",
+          "target": 4260272,
+          "addend": 0,
+          "resolved": 4291991010
+        },
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4292531017
+        },
+        {
+          "offset": 46,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4292531006
+        },
+        {
+          "offset": 71,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4292530981
+        },
+        {
+          "offset": 82,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4292530970
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7236544,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7236640,
+      "method": "006e6c20",
+      "body_bytes": 56,
+      "body_sha256": "11d2680b8f869d43b74d136d809805595f4a8830776a54c5ada5cc86c48ceb5f",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "ae97f10465f8bb5063d1fc5c6683b9c83cecf114c47bb3184add18c46e23ae93",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetClassID@TEventClass@@UAGJPAU_GUID@@@Z",
+      "symbol_prefix": "?GetClassID@TEventClass@@UAGJPAU_GUID@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_CLSID_EventClass",
+          "target": 8002944,
+          "addend": 0,
+          "resolved": 8002944
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_CLSID_EventClass",
+          "target": 8002944,
+          "addend": 4,
+          "resolved": 8002948
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_CLSID_EventClass",
+          "target": 8002944,
+          "addend": 8,
+          "resolved": 8002952
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_CLSID_EventClass",
+          "target": 8002944,
+          "addend": 12,
+          "resolved": 8002956
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7236640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7236704,
+      "method": "006e6c60",
+      "body_bytes": 97,
+      "body_sha256": "ccd0c62bb95eea4abd19d955c908cfca8325a447c7ff018f567fcc16f2bfc8bd",
+      "padding_bytes": 15,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "326a39423898695d31467b2ba9ca5e00398bab4ea8c69a9ca533b2cffdee6ee9",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load@TEventClass@@UAGJPAUIStream@@@Z",
+      "symbol_prefix": "?Load@TEventClass@@UAGJPAUIStream@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 20,
+          "symbol": "?Load@AbstractClass@@UAGJPAUIStream@@@Z",
+          "target": 4260128,
+          "addend": 0,
+          "resolved": 4291990704
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??0AbstractClass@@QAE@ABVNoInitClass@@@Z",
+          "target": 4259680,
+          "addend": 0,
+          "resolved": 4291990236
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "??_7TEventClass@@6BIPersistStream@@@",
+          "target": 8050432,
+          "addend": 0,
+          "resolved": 8050432
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "??_7TEventClass@@6BIRTTITypeInfo@@@",
+          "target": 8050404,
+          "addend": 0,
+          "resolved": 8050404
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "??_7TEventClass@@6BINoticeSink@@@",
+          "target": 8050396,
+          "addend": 0,
+          "resolved": 8050396
+        },
+        {
+          "offset": 59,
+          "kind": 6,
+          "symbol": "??_7TEventClass@@6BINoticeSource@@@",
+          "target": 8050388,
+          "addend": 0,
+          "resolved": 8050388
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 73,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 4294676083
+        },
+        {
+          "offset": 82,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 87,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 4294676069
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7236704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7236816,
+      "method": "006e6cd0",
+      "body_bytes": 29,
+      "body_sha256": "7f130eb65a142a5ada6dfa4a2fa3c9ecbc108b291f8f172d08470c00d1b96a11",
+      "padding_bytes": 3,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2b82a1a462f7194a1d34a0e7443e0a3e0b8e848bb39a42f9dbab2259152d2fc4",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Save@TEventClass@@UAGJPAUIStream@@H@Z",
+      "symbol_prefix": "?Save@TEventClass@@UAGJPAUIStream@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "?Save@AbstractClass@@UAGJPAUIStream@@H@Z",
+          "target": 4260032,
+          "addend": 0,
+          "resolved": 4291990492
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7236816,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7236848,
+      "method": "006e6cf0",
+      "body_bytes": 96,
+      "body_sha256": "255bed291639f17b91ec9423fc089460583eddb2fcf149a40e1ff322f1c46106",
+      "padding_bytes": 0,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "255bed291639f17b91ec9423fc089460583eddb2fcf149a40e1ff322f1c46106",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 64,
+      "symbol": "?Is_Time_Based@TEventClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Time_Based@TEventClass@@QBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236888,
+          "addend": 0,
+          "resolved": 7236888
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236880,
+          "addend": 0,
+          "resolved": 7236880
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236874,
+          "addend": 0,
+          "resolved": 7236874
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7236877,
+          "addend": 0,
+          "resolved": 7236877
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7236848,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7236944,
+      "method": "006e6d50",
+      "body_bytes": 22,
+      "body_sha256": "220b11a322b277ab30ab1d2a8dd3df2aff54c9bfd7f184bec88876320f50f7b6",
+      "padding_bytes": 10,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "cdaa4548e3dc64b5f1febe0f3f9063650ac86e9d6e8a7e971fd14768e1141893",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_To_Flag_As_Tripped@TEventClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_To_Flag_As_Tripped@TEventClass@@QBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7236944,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7236976,
+      "method": "006e6d70",
+      "body_bytes": 6,
+      "body_sha256": "ec98abb27e45150addcd26549b7971b312b0098e9d9fc3131750bf704f4ab071",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "0781ef9da7876896a61cc4f7db55ee00b6d2a460bcd4c78bf90fa81981f371ab",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Object_Size@TEventClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Object_Size@TEventClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7236976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7236992,
+      "method": "006e6d80",
+      "body_bytes": 6,
+      "body_sha256": "4dfa65851b94f5b9cbe06a21f716647003f4eb072bbae0a8d0309576e6b94f32",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "784bc091343ba2f5ede2d6d7a0e9693f91af6e02cf88ad76e9e0a9cfe4ca6519",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_RTTI@TEventClass@@UBE?AW4RTTIType@@XZ",
+      "symbol_prefix": "?Fetch_RTTI@TEventClass@@UBE?AW4RTTIType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7236992,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7237008,
+      "method": "006e6d90",
+      "body_bytes": 4,
+      "body_sha256": "e27121b8816e0aef2ed29676899d26e79f66af7e5ee5aed902be7208122bb635",
+      "padding_bytes": 12,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "31fa0b8d3632bf95ba787af99d5d58ec945f39283ee2dfa83cd82c8464046067",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Heap_ID@TEventClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Heap_ID@TEventClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7237008,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7237024,
+      "method": "006e6da0",
+      "body_bytes": 287,
+      "body_sha256": "5ad821ace6e82745f38c6ba0d8506f9cf078da25f3b26298df6eec0ba3000784",
+      "padding_bytes": 1,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "6d5cecba84dec7c1d10c33c1a68f9f958eb3f962bd6a8ad93f21e9b64d5a6ef8",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GTEventClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GTEventClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7TEventClass@@6BIPersistStream@@@",
+          "target": 8050432,
+          "addend": 0,
+          "resolved": 8050432
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "??_7TEventClass@@6BIRTTITypeInfo@@@",
+          "target": 8050404,
+          "addend": 0,
+          "resolved": 8050404
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "??_7TEventClass@@6BINoticeSink@@@",
+          "target": 8050396,
+          "addend": 0,
+          "resolved": 8050396
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "??_7TEventClass@@6BINoticeSource@@@",
+          "target": 8050388,
+          "addend": 0,
+          "resolved": 8050388
+        },
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "?Detach_This_From_All@@YIXPBVAbstractClass@@_N@Z",
+          "target": 7261072,
+          "addend": 0,
+          "resolved": 24010
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 0,
+          "resolved": 11275416
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 0,
+          "resolved": 11275416
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 16,
+          "resolved": 11275432
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 16,
+          "resolved": 11275432
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 4,
+          "resolved": 11275420
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 16,
+          "resolved": 11275432
+        },
+        {
+          "offset": 113,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 0,
+          "resolved": 11275440
+        },
+        {
+          "offset": 123,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 0,
+          "resolved": 11275440
+        },
+        {
+          "offset": 141,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 16,
+          "resolved": 11275456
+        },
+        {
+          "offset": 154,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 16,
+          "resolved": 11275456
+        },
+        {
+          "offset": 162,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 4,
+          "resolved": 11275444
+        },
+        {
+          "offset": 176,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 16,
+          "resolved": 11275456
+        },
+        {
+          "offset": 186,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 0,
+          "resolved": 11274248
+        },
+        {
+          "offset": 196,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 0,
+          "resolved": 11274248
+        },
+        {
+          "offset": 214,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 16,
+          "resolved": 11274264
+        },
+        {
+          "offset": 227,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 16,
+          "resolved": 11274264
+        },
+        {
+          "offset": 235,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 4,
+          "resolved": 11274252
+        },
+        {
+          "offset": 249,
+          "kind": 6,
+          "symbol": "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A",
+          "target": 11274248,
+          "addend": 16,
+          "resolved": 11274264
+        },
+        {
+          "offset": 260,
+          "kind": 20,
+          "symbol": "??1AbstractClass@@UAE@XZ",
+          "target": 4259728,
+          "addend": 0,
+          "resolved": 4291989736
+        },
+        {
+          "offset": 273,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 634502
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7237024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7237312,
+      "method": "006e6ec0",
+      "body_bytes": 42,
+      "body_sha256": "9f94f87c33221b7f5e068bb6eeb97e64cd1998d01985a6c6e1b796172bb40e28",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "22509cf8ecd9824172fc278da3d9c228ded94624491cd231d1b4d7ff460da7b7",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@PAVTEventClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAVTEventClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 634464
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7237312,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7237360,
+      "method": "006e6ef0",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVTEventClass@@@@UAEHPBQAVTEventClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVTEventClass@@@@UAEHPBQAVTEventClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7237360,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7237392,
+      "method": "006e6f10",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PAVTEventClass@@@@UBEPAVTEventClass@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAVTEventClass@@@@UBEPAVTEventClass@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7237392,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7237408,
+      "method": "006e6f20",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PAVTEventClass@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAVTEventClass@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7237408,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 7237472,
+      "method": "006e6f60",
+      "body_bytes": 174,
+      "body_sha256": "fbbe5cae34b8e8101d2229c694980ad81144954f7c6c5a0e29cd2ab14245fe37",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "2a7ae75240d8b53e5bf88a8a771c6a8d8ac67a6bbec9856d7ca2fbb30d8bf677",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PAVTEventClass@@@@UAE_NHPBQAVTEventClass@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAVTEventClass@@@@UAE_NHPBQAVTEventClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 635020
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 634208
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7237472,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 7237648,
+      "method": "006e7010",
+      "body_bytes": 39,
+      "body_sha256": "a6aab15a587c61203d57a0c2c0157523c5d196390c5ac65cabcbad002de2b4f3",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "a5cde4f6ba8ae0c6b45e561fbc5760f1d728ffefdb207c487eb28ba70b4e66a4",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PAVTEventClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAVTEventClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 634131
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7237648,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7237696,
+      "method": "006e7040",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVTEventClass@@@@UAEHABQAVTEventClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVTEventClass@@@@UAEHABQAVTEventClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7237696,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7237760,
+      "method": "006e7080",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVTEventClass@@@@UAEHPBQAVTEventClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVTEventClass@@@@UAEHPBQAVTEventClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7237760,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7237792,
+      "method": "006e70a0",
+      "body_bytes": 176,
+      "body_sha256": "4efcb6213d35162a059be0031f74623344cb7ab11e0a3f330c2b65505b5f938a",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "4efcb6213d35162a059be0031f74623344cb7ab11e0a3f330c2b65505b5f938a",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PAVTEventClass@@@@UAE_NHPBQAVTEventClass@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAVTEventClass@@@@UAE_NHPBQAVTEventClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 634704
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 633901
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7237792,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7237968,
+      "method": "006e7150",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVTEventClass@@@@UAEHABQAVTEventClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVTEventClass@@@@UAEHABQAVTEventClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7237968,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7238016,
+      "method": "6e7180",
+      "body_bytes": 73,
+      "body_sha256": "607409897b764c79a5a389b1f444c6bea6194a1190db6c4dd60db432f5e32810",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "68a289aba6ef1d70b3fd58c5700be1b047db92998f3e8060458fefc4dd3e8df6",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAVTEventClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAVTEventClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVTEventClass@@@@6B@",
+          "target": 8050356,
+          "addend": 0,
+          "resolved": 8050356
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 633758
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 633723
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7238016,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 7238096,
+      "method": "6e71d0",
+      "body_bytes": 73,
+      "body_sha256": "7ce84d5fa54d29ec4c068c42e67ad6e3dacab2184c60707766f60148ec0d3fa8",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "699d53eca155001c190b9bb008c70d2c4ec1ffb6bd83b326a28b0356c37e482c",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAVTEventClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAVTEventClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVTEventClass@@@@6B@",
+          "target": 8050356,
+          "addend": 0,
+          "resolved": 8050356
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 633678
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 633643
+        }
+      ],
+      "source_sha256": "d2e9b8b554641c3a289f5d92cd6262bf5763b9c3500c53510557ac47f68d37f0",
+      "source": "src/tevent.cpp",
+      "population": "rebuild-tevent",
+      "source_order": 7238096,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-12"
+    }
+  ]
+}

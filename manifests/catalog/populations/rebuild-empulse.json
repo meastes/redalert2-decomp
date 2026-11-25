@@ -1,0 +1,2839 @@
+{
+  "id": "rebuild-empulse",
+  "population": {
+    "id": "rebuild-empulse",
+    "inventory_sha256": "71d13e2a075dd225ad11262153dab008260799596e7a9bd5f220ffece13a5ed6",
+    "gaps_sha256": "4fb94dca7d9b1ad1308b3804779160d585de0847c7b06f58458c143797360083",
+    "historical_population_sha256": "747db874ba1740038782f126543d50ddebe8f90bc1407620908ee1bdfe4df7c9",
+    "historical_acceptance_sha256": "d6dfaad9a873f9900fcfb3317cf1d9461fec3e71ad603ccb94ae15b03d69b87a"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 8739320,
+    "_ISO_TILE_SIZE": 7998776,
+    "_LEPTONS_PER_PIXEL": 8739416,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 8739400,
+    "_ONE_RAD": 7998784,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 8739392,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 8739328,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 8739288,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 8739424,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 8739336,
+    "_CELL_DIAG_SLOPE_ANGLE": 8739360,
+    "_BRIDGE_LEPTON_HEIGHT": 8739408,
+    "_CELL_NONE": 8739312,
+    "_COORD_NONE": 8739344,
+    "_RECT_NONE": 8739296,
+    "_$E164": 4934560,
+    "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A": 8739368,
+    "??_7?$DynamicVectorClass@PAVEMPulseClass@@@@6B@": 7998796,
+    "_atexit": 7874954,
+    "_$S165": 8739280,
+    "??_7?$VectorClass@PAVEMPulseClass@@@@6B@": 7998828,
+    "??3@YAXPAX@Z": 7871803,
+    "??0AbstractClass@@QAE@XZ": 4259600,
+    "?Frame@@3HA": 10751276,
+    "??_7EMPulseClass@@6BIPersistStream@@@": 7998904,
+    "??_7EMPulseClass@@6BIRTTITypeInfo@@@": 7998876,
+    "??_7EMPulseClass@@6BINoticeSink@@@": 7998868,
+    "??_7EMPulseClass@@6BINoticeSource@@@": 7998860,
+    "?Create_ID@AbstractClass@@UAGXXZ": 4259792,
+    "?Create@EMPulseClass@@AAEXPAVTechnoClass@@@Z": 4935216,
+    "??0AbstractClass@@QAE@ABVNoInitClass@@@Z": 4259680,
+    "?GameActive@@3_NA": 10750296,
+    "?Destroy@EMPulseClass@@AAEXXZ": 4936208,
+    "?Detach_This_From_All@@YIXPBVAbstractClass@@_N@Z": 7261072,
+    "??1AbstractClass@@UAE@XZ": 4259728,
+    "?Aircraft@@3V?$DynamicVectorClass@PAVAircraftClass@@@@A": 10748824,
+    "??0?$TPoint3D@H@@QAE@HHH@Z": 4306480,
+    "?Length@?$TPoint3D@H@@QBEHXZ": 4306816,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "?Is_Valid@MapClass@@QAE_NABVCell@@@Z": 5537968,
+    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
+    "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ": 4659120,
+    "?Power_Off@BuildingClass@@QAEXXZ": 4511424,
+    "?Cell_Techno@CellClass@@QBEPAVTechnoClass@@ABVPoint2D@@_NPBV2@@Z": 4658784,
+    "?_com_issue_error@@YGXJ@Z": 7952704,
+    "??2@YAPAXI@Z": 7872535,
+    "?Scen@@3PAVScenarioClass@@A": 10736272,
+    "??RRandom2Class@@QAEHHH@Z": 6523040,
+    "?Rule@@3PAVRulesClass@@A": 8624200,
+    "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z": 4325648,
+    "?Attach_To@AnimClass@@QAEXPAVObjectClass@@@Z": 4334912,
+    "?Compute_CRC@AbstractClass@@UBEXAAVCRCEngine@@@Z": 4260272,
+    "??RCRCEngine@@QAEXF@Z": 4800272,
+    "??RCRCEngine@@QAEXH@Z": 4800304,
+    "_CLSID_EMPulseClass": 8003200,
+    "?Load@AbstractClass@@UAGJPAUIStream@@@Z": 4260128,
+    "?Save@AbstractClass@@UAGJPAUIStream@@H@Z": 4260032,
+    "_$E2": 4934000,
+    "_$E5": 4934048,
+    "_$E8": 4934080,
+    "_$E11": 4934112,
+    "_$E14": 4934144,
+    "_$E17": 4934176,
+    "_$E20": 4934208,
+    "_$E23": 4934272,
+    "_$E26": 4934320,
+    "_$E29": 4934368,
+    "_$E32": 4934416,
+    "_$E35": 4934432,
+    "_$E38": 4934464,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "_$E167": 4934496,
+    "??_G?$DynamicVectorClass@PAVEMPulseClass@@@@UAEPAXI@Z": 4937664,
+    "??_7type_info@@6B@": 8066532,
+    "??_G?$VectorClass@PAVEMPulseClass@@@@UAEPAXI@Z": 4937584,
+    "??0EMPulseClass@@QAE@VCell@@HHPAVTechnoClass@@@Z": 4934656,
+    "?Unknown_Virtual_0@AbstractClass@@UAEXH@Z": 4260656,
+    "?Unknown_Virtual_0@AbstractClass@@UAE_NHH@Z": 4260640,
+    "?Fetch_ID@AbstractClass@@UBGHXZ": 4259776,
+    "?What_Am_I@AbstractClass@@UBGHXZ": 4259760,
+    "?AI@AbstractClass@@UAEXXZ": 4260624,
+    "?As_Coord@AbstractClass@@UBE?AVCoord@@XZ": 4260576,
+    "?In_Air@AbstractClass@@UBE_NXZ": 4260560,
+    "?On_Ground@AbstractClass@@UBE_NXZ": 4260544,
+    "?Destination_Coord@AbstractClass@@UBE?AVCoord@@PAVTechnoClass@@@Z": 4260496,
+    "?Center_Coord@AbstractClass@@UBE?AVCoord@@XZ": 4260448,
+    "?Is_Inactive@AbstractClass@@UBE_NXZ": 4260320,
+    "?Fetch_Heap_ID@AbstractClass@@UBEHXZ": 4260432,
+    "?Owner_HouseClass@AbstractClass@@UBEPAVHouseClass@@XZ": 4260416,
+    "?Owner@AbstractClass@@UBE?AW4HousesType@@XZ": 4260400,
+    "?Detach@AbstractClass@@UAEXPBV1@_N@Z": 4260384,
+    "?Init@AbstractClass@@UAEXXZ": 4260368,
+    "??_GEMPulseClass@@UAEPAXI@Z": 4936720,
+    "?GetSizeMax@AbstractClass@@UAGJPAT_ULARGE_INTEGER@@@Z": 4260224,
+    "?IsDirty@AbstractClass@@UAGJXZ": 4260336,
+    "?Release@AbstractClass@@UAGKXZ": 4260016,
+    "?AddRef@AbstractClass@@UAGKXZ": 4260000,
+    "?QueryInterface@AbstractClass@@UAGJABU_GUID@@PAPAX@Z": 4259840,
+    "??_R0?AVINoticeSource@@@8": 8184264,
+    "??_R0?AVINoticeSink@@@8": 8181272,
+    "??_R0?AUIRTTITypeInfo@@@8": 8184296,
+    "??_R0?AUIUnknown@@@8": 8181304,
+    "??_R0?AUIPersist@@@8": 8184328,
+    "??_R0?AUIPersistStream@@@8": 8184352,
+    "??_R0?AVAbstractClass@@@8": 8184384,
+    "??_R0?AVEMPulseClass@@@8": 8217984,
+    "??0EMPulseClass@@QAE@XZ": 4934848,
+    "??0EMPulseClass@@QAE@ABVNoInitClass@@@Z": 4934912,
+    "??1EMPulseClass@@UAE@XZ": 4934960,
+    "?Reset@EMPulseClass@@SIXXZ": 4935104,
+    "?Update_All@EMPulseClass@@SIXXZ": 4935152,
+    "?Compute_CRC@EMPulseClass@@UBEXAAVCRCEngine@@@Z": 4936432,
+    "?GetClassID@EMPulseClass@@UAGJPAU_GUID@@@Z": 4936512,
+    "?Load@EMPulseClass@@UAGJPAUIStream@@@Z": 4936576,
+    "?Save@EMPulseClass@@UAGJPAUIStream@@H@Z": 4936656,
+    "?Fetch_Object_Size@EMPulseClass@@UBEHXZ": 4936688,
+    "?Fetch_RTTI@EMPulseClass@@UBE?AW4RTTIType@@XZ": 4936704,
+    "?Clear@?$DynamicVectorClass@PAVEMPulseClass@@@@UAEXXZ": 4936880,
+    "?ID@?$DynamicVectorClass@PAVEMPulseClass@@@@UAEHPBQAVEMPulseClass@@@Z": 4936928,
+    "?GetItem@?$VectorClass@PAVEMPulseClass@@@@UBEPAVEMPulseClass@@H@Z": 4936960,
+    "??8?$VectorClass@PAVEMPulseClass@@@@UBE_NABV0@@Z": 4936976,
+    "?Resize@?$VectorClass@PAVEMPulseClass@@@@UAE_NHPBQAVEMPulseClass@@@Z": 4937040,
+    "?Clear@?$VectorClass@PAVEMPulseClass@@@@UAEXXZ": 4937216,
+    "?ID@?$VectorClass@PAVEMPulseClass@@@@UAEHABQAVEMPulseClass@@@Z": 4937264,
+    "?ID@?$VectorClass@PAVEMPulseClass@@@@UAEHPBQAVEMPulseClass@@@Z": 4937328,
+    "?Resize@?$DynamicVectorClass@PAVEMPulseClass@@@@UAE_NHPBQAVEMPulseClass@@@Z": 4937360,
+    "?ID@?$DynamicVectorClass@PAVEMPulseClass@@@@UAEHABQAVEMPulseClass@@@Z": 4937536,
+    "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
+    "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
+    "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
+    "?QueryInterface@AbstractClass@@W3AGJABU_GUID@@PAPAX@Z": 4260736,
+    "?AddRef@AbstractClass@@W3AGKXZ": 4260752,
+    "?Release@AbstractClass@@W3AGKXZ": 4260768
+  },
+  "regions": [
+    {
+      "entry": 4934000,
+      "method": "004b4970",
+      "body_bytes": 40,
+      "body_sha256": "21655a242186254e6796c73f5227f7a41af72d376b51913acca1049f500a6be8",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "1365d1851efb02cf6cb45c7f541dc47fa49d0ea5e933288c47ad1a9777c0384e",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 2938927
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 23170
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8739320,
+          "addend": 0,
+          "resolved": 8739320
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4934000,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4934048,
+      "method": "004b49a0",
+      "body_bytes": 19,
+      "body_sha256": "33bf5616254f0b0a3f5e23be88cd97d29c113e9111b8e454a44bf139dce5c239",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "12604adb13107fae476affb5b8d6adc8a29679159216f1c02f1e8db0b1e1090d",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8739320,
+          "addend": 0,
+          "resolved": 8739320
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 7998776,
+          "addend": 0,
+          "resolved": 7998776
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 8739416,
+          "addend": 0,
+          "resolved": 8739416
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4934048,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4934080,
+      "method": "004b49c0",
+      "body_bytes": 19,
+      "body_sha256": "5fe7e7445310026237cdd6dea7e085c8e4543baa250eb2e987ee453cdffb280b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4eab31b6e9587cbf3099fd15c6e3cb2f389bdde61ea8b5e719ba4aa8007872a1",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 8739416,
+          "addend": 0,
+          "resolved": 8739416
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 8739400,
+          "addend": 0,
+          "resolved": 8739400
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4934080,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4934112,
+      "method": "004b49e0",
+      "body_bytes": 19,
+      "body_sha256": "e4540026d7e2c1a5d55b7cc89d61dc0c54d2a0b73ef02c5a55fae132d301dd9e",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "26a50518658fd958cd61a23543331691bf6e78320b52408290a537c3b39911f8",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7998784,
+          "addend": 0,
+          "resolved": 7998784
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 8739392,
+          "addend": 0,
+          "resolved": 8739392
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4934112,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4934144,
+      "method": "004b4a00",
+      "body_bytes": 19,
+      "body_sha256": "0bfd9fecef0da27c38a16260fa21d63246b5d40b59767b019b29f5c0f4d1936a",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "05ed5a03237b7de708d46af7a75375b26811c2c6300edc1a933256245097d24f",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7998784,
+          "addend": 0,
+          "resolved": 7998784
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 8739328,
+          "addend": 0,
+          "resolved": 8739328
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4934144,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4934176,
+      "method": "004b4a20",
+      "body_bytes": 19,
+      "body_sha256": "cc0e95ff6164e49038f6463237e9fe335ba7f258ff126bc4c46bd43535eb77a0",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f409d05df09f761ee67d30fa0698f8bd35cf835db3d8e593d39965592ff1c415",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7998784,
+          "addend": 0,
+          "resolved": 7998784
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 8739288,
+          "addend": 0,
+          "resolved": 8739288
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4934176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4934208,
+      "method": "004b4a40",
+      "body_bytes": 49,
+      "body_sha256": "1394b98d29504c6b39a57008214535d991a1292aaa6569c38e78b7711ea642f9",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "83b73006f06ca8385bab2480ac8aa0d9200b103633e64cea9ee755c136215e98",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 8739288,
+          "addend": 0,
+          "resolved": 8739288
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 8739328,
+          "addend": 0,
+          "resolved": 8739328
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 23241
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8739320,
+          "addend": 0,
+          "resolved": 8739320
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2926245
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8739424,
+          "addend": 0,
+          "resolved": 8739424
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4934208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4934272,
+      "method": "004b4a80",
+      "body_bytes": 33,
+      "body_sha256": "991f22f565577cc4ecc0c49df1269f1434fd9b628e2f2c8a14f6ef48d3bde95f",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "058ec00bdfdebdc7f30eea268ee32fad9217662af481bd0a29daf6c2a85839ea",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8739424,
+          "addend": 0,
+          "resolved": 8739424
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 23321
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 8739336,
+          "addend": 0,
+          "resolved": 8739336
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4934272,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4934320,
+      "method": "004b4ab0",
+      "body_bytes": 44,
+      "body_sha256": "5d9f0f59a072cc7e633ad76ead110714e88670a9541148454dbb940cda30a464",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "635fbdf2dfd3fc1042a4d85781a3c0f4954a78c47a9ef5fe5f1ecfb14e3ef604",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8739424,
+          "addend": 0,
+          "resolved": 8739424
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8739320,
+          "addend": 0,
+          "resolved": 8739320
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 23262
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 8739360,
+          "addend": 0,
+          "resolved": 8739360
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4934320,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4934368,
+      "method": "004b4ae0",
+      "body_bytes": 39,
+      "body_sha256": "9a808ce0c589bbb7b7c7e878c656f3916f3ad58e2f3551dd94de6d28d2d55996",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "dfc3723e25e4890326e168fa93908c27269c4a2342f915a1dd77e1c5fd6c891a",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8739424,
+          "addend": 0,
+          "resolved": 8739424
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2926096
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 8739408,
+          "addend": 0,
+          "resolved": 8739408
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4934368,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4934416,
+      "method": "004b4b10",
+      "body_bytes": 15,
+      "body_sha256": "7ee01e9c01d0fe24f14366d764ac3b8b07372551acbefa302188bec26be161cf",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "115dcb01cab7a1ba4b498d83dae166ec49a157abe592deaf078024aaafcebd32",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8739312,
+          "addend": 0,
+          "resolved": 8739312
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8739312,
+          "addend": 2,
+          "resolved": 8739314
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4934416,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4934432,
+      "method": "004b4b20",
+      "body_bytes": 18,
+      "body_sha256": "39b81f6aa3ad93166842541b8318062bd893101f2dbd1e1ee68cd3a9fcaaee68",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "86788681c46122b69714a185d278833e3cc924e9d7e706f5e344eea2bedacc0d",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8739344,
+          "addend": 0,
+          "resolved": 8739344
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8739344,
+          "addend": 4,
+          "resolved": 8739348
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8739344,
+          "addend": 8,
+          "resolved": 8739352
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4934432,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4934464,
+      "method": "004b4b40",
+      "body_bytes": 23,
+      "body_sha256": "5d23fc99ee2cd2ac82ed46a24a3a779b5c1b83c729d0067defc77fe513011897",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "837ec6cbd3bd43bfeaa783db3b5f07768cbe4e1783f09bd3c79fbcb19ef9516c",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8739296,
+          "addend": 0,
+          "resolved": 8739296
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8739296,
+          "addend": 4,
+          "resolved": 8739300
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8739296,
+          "addend": 8,
+          "resolved": 8739304
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8739296,
+          "addend": 12,
+          "resolved": 8739308
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4934464,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4934496,
+      "method": "004b4b60",
+      "body_bytes": 61,
+      "body_sha256": "e6d6581d061ba06d2c0411335c8acd36bb329b7abf5bb411a5ae094af8806783",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "43d1ff66fd5b770356fe716768ea097e5a3695ebc492eb5863c046e2f4473f16",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E167",
+      "symbol_prefix": "_$E167",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E164",
+          "target": 4934560,
+          "addend": 0,
+          "resolved": 4934560
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 4,
+          "resolved": 8739372
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 8,
+          "resolved": 8739376
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 12,
+          "resolved": 8739380
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 13,
+          "resolved": 8739381
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 0,
+          "resolved": 8739368
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVEMPulseClass@@@@6B@",
+          "target": 7998796,
+          "addend": 0,
+          "resolved": 7998796
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 20,
+          "resolved": 8739388
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 16,
+          "resolved": 8739384
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 2940399
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4934496,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4934560,
+      "method": "004b4ba0",
+      "body_bytes": 88,
+      "body_sha256": "dc34f3a683ad199140bdd26ffa9648a260555f0063d06ae461fe7f840989117b",
+      "padding_bytes": 8,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "1b0c1bedb5d32ace2d7423830a03f65944e569c36171893a1b1282223822318f",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E164",
+      "symbol_prefix": "_$E164",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_$S165",
+          "target": 8739280,
+          "addend": 0,
+          "resolved": 8739280
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 0,
+          "resolved": 8739368
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVEMPulseClass@@@@6B@",
+          "target": 7998828,
+          "addend": 0,
+          "resolved": 7998828
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 4,
+          "resolved": 8739372
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_$S165",
+          "target": 8739280,
+          "addend": 0,
+          "resolved": 8739280
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 13,
+          "resolved": 8739381
+        },
+        {
+          "offset": 53,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2937186
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 4,
+          "resolved": 8739372
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 13,
+          "resolved": 8739381
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 8,
+          "resolved": 8739376
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4934560,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4934656,
+      "method": "004b4c00",
+      "body_bytes": 177,
+      "body_sha256": "0c609ec27c162ef97dcf3f3f153f9b2c7b9d1cdb09f354c042cf1608f3228c35",
+      "padding_bytes": 15,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "33aff36fc935b85e971033a785d528b738f82f2ca55cf91c3af64758b3305302",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0EMPulseClass@@QAE@VCell@@HHPAVTechnoClass@@@Z",
+      "symbol_prefix": "??0EMPulseClass@@QAE@VCell@@HHPAVTechnoClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??0AbstractClass@@QAE@XZ",
+          "target": 4259600,
+          "addend": 0,
+          "resolved": 4294292232
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "??_7EMPulseClass@@6BIPersistStream@@@",
+          "target": 7998904,
+          "addend": 0,
+          "resolved": 7998904
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "??_7EMPulseClass@@6BIRTTITypeInfo@@@",
+          "target": 7998876,
+          "addend": 0,
+          "resolved": 7998876
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "??_7EMPulseClass@@6BINoticeSink@@@",
+          "target": 7998868,
+          "addend": 0,
+          "resolved": 7998868
+        },
+        {
+          "offset": 64,
+          "kind": 6,
+          "symbol": "??_7EMPulseClass@@6BINoticeSource@@@",
+          "target": 7998860,
+          "addend": 0,
+          "resolved": 7998860
+        },
+        {
+          "offset": 69,
+          "kind": 20,
+          "symbol": "?Create_ID@AbstractClass@@UAGXXZ",
+          "target": 4259792,
+          "addend": 0,
+          "resolved": 4294292359
+        },
+        {
+          "offset": 74,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 8,
+          "resolved": 8739376
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 16,
+          "resolved": 8739384
+        },
+        {
+          "offset": 90,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 13,
+          "resolved": 8739381
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 20,
+          "resolved": 8739388
+        },
+        {
+          "offset": 114,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 0,
+          "resolved": 8739368
+        },
+        {
+          "offset": 124,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 0,
+          "resolved": 8739368
+        },
+        {
+          "offset": 137,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 16,
+          "resolved": 8739384
+        },
+        {
+          "offset": 146,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 16,
+          "resolved": 8739384
+        },
+        {
+          "offset": 152,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 4,
+          "resolved": 8739372
+        },
+        {
+          "offset": 167,
+          "kind": 20,
+          "symbol": "?Create@EMPulseClass@@AAEXPAVTechnoClass@@@Z",
+          "target": 4935216,
+          "addend": 0,
+          "resolved": 389
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4934656,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4934848,
+      "method": "004b4cc0",
+      "body_bytes": 58,
+      "body_sha256": "4c5319f7d90da5c14e79f7d4650b3ce459bf5228901169c0a364cfa49728f4bd",
+      "padding_bytes": 6,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "6016648e47ded152f5ed4497c9df179954c218d3f9929067b816562d5d1e60c2",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0EMPulseClass@@QAE@XZ",
+      "symbol_prefix": "??0EMPulseClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??0AbstractClass@@QAE@XZ",
+          "target": 4259600,
+          "addend": 0,
+          "resolved": 4294292040
+        },
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8739312,
+          "addend": 0,
+          "resolved": 8739312
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "??_7EMPulseClass@@6BIPersistStream@@@",
+          "target": 7998904,
+          "addend": 0,
+          "resolved": 7998904
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "??_7EMPulseClass@@6BIRTTITypeInfo@@@",
+          "target": 7998876,
+          "addend": 0,
+          "resolved": 7998876
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "??_7EMPulseClass@@6BINoticeSink@@@",
+          "target": 7998868,
+          "addend": 0,
+          "resolved": 7998868
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "??_7EMPulseClass@@6BINoticeSource@@@",
+          "target": 7998860,
+          "addend": 0,
+          "resolved": 7998860
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4934848,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2913"
+    },
+    {
+      "entry": 4934912,
+      "method": "004b4d00",
+      "body_bytes": 46,
+      "body_sha256": "eba1d3f046f3ea66e9af613b2b83be94e8233fd06a24c04b839231152f4a77ca",
+      "padding_bytes": 2,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c001a3649f91e7aa38b96a7aae5d4955c03bdbea21843667bb64971d2fa5cbfa",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0EMPulseClass@@QAE@ABVNoInitClass@@@Z",
+      "symbol_prefix": "??0EMPulseClass@@QAE@ABVNoInitClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "??0AbstractClass@@QAE@ABVNoInitClass@@@Z",
+          "target": 4259680,
+          "addend": 0,
+          "resolved": 4294292051
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "??_7EMPulseClass@@6BIPersistStream@@@",
+          "target": 7998904,
+          "addend": 0,
+          "resolved": 7998904
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "??_7EMPulseClass@@6BIRTTITypeInfo@@@",
+          "target": 7998876,
+          "addend": 0,
+          "resolved": 7998876
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "??_7EMPulseClass@@6BINoticeSink@@@",
+          "target": 7998868,
+          "addend": 0,
+          "resolved": 7998868
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "??_7EMPulseClass@@6BINoticeSource@@@",
+          "target": 7998860,
+          "addend": 0,
+          "resolved": 7998860
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4934912,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4934960,
+      "method": "004b4d30",
+      "body_bytes": 137,
+      "body_sha256": "ff7dba00fd818b091a4c322ea621aa3e01ca9172b6b3be0fd20cf0e4a3bb714b",
+      "padding_bytes": 7,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "d55073ef5d228a8321a663bcb5cc69c47328fd2eeb05b71d22c7e03422a581de",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1EMPulseClass@@UAE@XZ",
+      "symbol_prefix": "??1EMPulseClass@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "??_7EMPulseClass@@6BIPersistStream@@@",
+          "target": 7998904,
+          "addend": 0,
+          "resolved": 7998904
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "??_7EMPulseClass@@6BIRTTITypeInfo@@@",
+          "target": 7998876,
+          "addend": 0,
+          "resolved": 7998876
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "??_7EMPulseClass@@6BINoticeSink@@@",
+          "target": 7998868,
+          "addend": 0,
+          "resolved": 7998868
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "??_7EMPulseClass@@6BINoticeSource@@@",
+          "target": 7998860,
+          "addend": 0,
+          "resolved": 7998860
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "?GameActive@@3_NA",
+          "target": 10750296,
+          "addend": 0,
+          "resolved": 10750296
+        },
+        {
+          "offset": 41,
+          "kind": 20,
+          "symbol": "?Destroy@EMPulseClass@@AAEXXZ",
+          "target": 4936208,
+          "addend": 0,
+          "resolved": 1203
+        },
+        {
+          "offset": 50,
+          "kind": 20,
+          "symbol": "?Detach_This_From_All@@YIXPBVAbstractClass@@_N@Z",
+          "target": 7261072,
+          "addend": 0,
+          "resolved": 2326058
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 0,
+          "resolved": 8739368
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 0,
+          "resolved": 8739368
+        },
+        {
+          "offset": 84,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 16,
+          "resolved": 8739384
+        },
+        {
+          "offset": 97,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 16,
+          "resolved": 8739384
+        },
+        {
+          "offset": 105,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 4,
+          "resolved": 8739372
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 16,
+          "resolved": 8739384
+        },
+        {
+          "offset": 130,
+          "kind": 20,
+          "symbol": "??1AbstractClass@@UAE@XZ",
+          "target": 4259728,
+          "addend": 0,
+          "resolved": 4294291930
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4934960,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4935104,
+      "method": "004b4dc0",
+      "body_bytes": 37,
+      "body_sha256": "ab900623fe915da55eb494b9326cbfd1cdbd5e343aba5bde493f420257695bf9",
+      "padding_bytes": 11,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "ed66bb6de9475b90b4baf488942f2fa5b9957fb5fac4e6211573720795ba0f2e",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Reset@EMPulseClass@@SIXXZ",
+      "symbol_prefix": "?Reset@EMPulseClass@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 16,
+          "resolved": 8739384
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 4,
+          "resolved": 8739372
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 16,
+          "resolved": 8739384
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4935104,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4935152,
+      "method": "004b4df0",
+      "body_bytes": 55,
+      "body_sha256": "c533ebc662f947647500ef33dfee542f9d65293dfb903496f8ae33f86713c740",
+      "padding_bytes": 9,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c519fd96378e82159736e806e85441c84e7694b063380b7b66f454a2ae978a37",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Update_All@EMPulseClass@@SIXXZ",
+      "symbol_prefix": "?Update_All@EMPulseClass@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 16,
+          "resolved": 8739384
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 4,
+          "resolved": 8739372
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4935152,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4935216,
+      "method": "004b4e30",
+      "body_bytes": 981,
+      "body_sha256": "1fad8665b5db0d277c23486caf00428aed91be6b008bbafdd8fdf79fe045a8f5",
+      "padding_bytes": 11,
+      "full_extent_bytes": 992,
+      "full_extent_sha256": "05a2bad05eff361dd3961908a691f2bf2eef23e92660a5635ea3b0da16d429ad",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Create@EMPulseClass@@AAEXPAVTechnoClass@@@Z",
+      "symbol_prefix": "?Create@EMPulseClass@@AAEXPAVTechnoClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?Aircraft@@3V?$DynamicVectorClass@PAVAircraftClass@@@@A",
+          "target": 10748824,
+          "addend": 16,
+          "resolved": 10748840
+        },
+        {
+          "offset": 67,
+          "kind": 6,
+          "symbol": "?Aircraft@@3V?$DynamicVectorClass@PAVAircraftClass@@@@A",
+          "target": 10748824,
+          "addend": 4,
+          "resolved": 10748828
+        },
+        {
+          "offset": 170,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4294338386
+        },
+        {
+          "offset": 199,
+          "kind": 20,
+          "symbol": "?Length@?$TPoint3D@H@@QBEHXZ",
+          "target": 4306816,
+          "addend": 0,
+          "resolved": 4294338693
+        },
+        {
+          "offset": 236,
+          "kind": 6,
+          "symbol": "?Aircraft@@3V?$DynamicVectorClass@PAVAircraftClass@@@@A",
+          "target": 10748824,
+          "addend": 16,
+          "resolved": 10748840
+        },
+        {
+          "offset": 364,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 370,
+          "kind": 20,
+          "symbol": "?Is_Valid@MapClass@@QAE_NABVCell@@@Z",
+          "target": 5537968,
+          "addend": 0,
+          "resolved": 602378
+        },
+        {
+          "offset": 433,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 439,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 602245
+        },
+        {
+          "offset": 448,
+          "kind": 20,
+          "symbol": "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ",
+          "target": 4659120,
+          "addend": 0,
+          "resolved": 4294690748
+        },
+        {
+          "offset": 552,
+          "kind": 20,
+          "symbol": "?Power_Off@BuildingClass@@QAEXXZ",
+          "target": 4511424,
+          "addend": 0,
+          "resolved": 4294542948
+        },
+        {
+          "offset": 621,
+          "kind": 20,
+          "symbol": "?Cell_Techno@CellClass@@QBEPAVTechnoClass@@ABVPoint2D@@_NPBV2@@Z",
+          "target": 4658784,
+          "addend": 0,
+          "resolved": 4294690239
+        },
+        {
+          "offset": 750,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 3016734
+        },
+        {
+          "offset": 780,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 3016704
+        },
+        {
+          "offset": 814,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 3016670
+        },
+        {
+          "offset": 845,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2936470
+        },
+        {
+          "offset": 859,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 873,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 1586947
+        },
+        {
+          "offset": 900,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 915,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4294356809
+        },
+        {
+          "offset": 927,
+          "kind": 20,
+          "symbol": "?Attach_To@AnimClass@@QAEXPAVObjectClass@@@Z",
+          "target": 4334912,
+          "addend": 0,
+          "resolved": 4294366061
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4935216,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4936208,
+      "method": "004b5210",
+      "body_bytes": 210,
+      "body_sha256": "a679e91c218112698cbd3516259dbd97d9233c801d91cd6e65ea91361bd383d9",
+      "padding_bytes": 14,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "7af58f16be6a03a1e8b6ebef1433773cef79d2d5a52254a4fd865999ecced676",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Destroy@EMPulseClass@@AAEXXZ",
+      "symbol_prefix": "?Destroy@EMPulseClass@@AAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 101,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 107,
+          "kind": 20,
+          "symbol": "?Is_Valid@MapClass@@QAE_NABVCell@@@Z",
+          "target": 5537968,
+          "addend": 0,
+          "resolved": 601649
+        },
+        {
+          "offset": 158,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 164,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 601528
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4936208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4936432,
+      "method": "004b52f0",
+      "body_bytes": 76,
+      "body_sha256": "54f6aa7cc23ddeee29f32d8cc2512f1766ec22be8d5bb81cbc4180650719be9c",
+      "padding_bytes": 4,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "cf42b6dc21d681378ee2199d9d1dcb4d8049b7a644c7232c1e7b396a2e31a1ab",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Compute_CRC@EMPulseClass@@UBEXAAVCRCEngine@@@Z",
+      "symbol_prefix": "?Compute_CRC@EMPulseClass@@UBEXAAVCRCEngine@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "?Compute_CRC@AbstractClass@@UBEXAAVCRCEngine@@@Z",
+          "target": 4260272,
+          "addend": 0,
+          "resolved": 4294291122
+        },
+        {
+          "offset": 22,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXF@Z",
+          "target": 4800272,
+          "addend": 0,
+          "resolved": 4294831110
+        },
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXF@Z",
+          "target": 4800272,
+          "addend": 0,
+          "resolved": 4294831098
+        },
+        {
+          "offset": 45,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4294831119
+        },
+        {
+          "offset": 56,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4294831108
+        },
+        {
+          "offset": 67,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4294831097
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4936432,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4936512,
+      "method": "004b5340",
+      "body_bytes": 56,
+      "body_sha256": "57c12f6fe0dbfe322f54e0efcf8ab680d244166711fabe3a168da2f38438b0c3",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "f7703278bce6cc081a85ea2b4b05e2b99bd085ccf7a5e500962d8e3aa255795f",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetClassID@EMPulseClass@@UAGJPAU_GUID@@@Z",
+      "symbol_prefix": "?GetClassID@EMPulseClass@@UAGJPAU_GUID@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_CLSID_EMPulseClass",
+          "target": 8003200,
+          "addend": 0,
+          "resolved": 8003200
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_CLSID_EMPulseClass",
+          "target": 8003200,
+          "addend": 4,
+          "resolved": 8003204
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_CLSID_EMPulseClass",
+          "target": 8003200,
+          "addend": 8,
+          "resolved": 8003208
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_CLSID_EMPulseClass",
+          "target": 8003200,
+          "addend": 12,
+          "resolved": 8003212
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4936512,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4936576,
+      "method": "004b5380",
+      "body_bytes": 69,
+      "body_sha256": "5823aee582bff03130ead7fc82c6927b6d08ee3d019816af2eca478a7064245a",
+      "padding_bytes": 11,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "7e7866adb629006f2e2b4b4a32595b281e5337dbce6c15df6430b3b003e84c7c",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load@EMPulseClass@@UAGJPAUIStream@@@Z",
+      "symbol_prefix": "?Load@EMPulseClass@@UAGJPAUIStream@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 20,
+          "symbol": "?Load@AbstractClass@@UAGJPAUIStream@@@Z",
+          "target": 4260128,
+          "addend": 0,
+          "resolved": 4294290832
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??0AbstractClass@@QAE@ABVNoInitClass@@@Z",
+          "target": 4259680,
+          "addend": 0,
+          "resolved": 4294290364
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "??_7EMPulseClass@@6BIPersistStream@@@",
+          "target": 7998904,
+          "addend": 0,
+          "resolved": 7998904
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "??_7EMPulseClass@@6BIRTTITypeInfo@@@",
+          "target": 7998876,
+          "addend": 0,
+          "resolved": 7998876
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "??_7EMPulseClass@@6BINoticeSink@@@",
+          "target": 7998868,
+          "addend": 0,
+          "resolved": 7998868
+        },
+        {
+          "offset": 59,
+          "kind": 6,
+          "symbol": "??_7EMPulseClass@@6BINoticeSource@@@",
+          "target": 7998860,
+          "addend": 0,
+          "resolved": 7998860
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4936576,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4936656,
+      "method": "004b53d0",
+      "body_bytes": 29,
+      "body_sha256": "89394eae1148aceb9fd1ca4fb1aa6dac80bbeb6393a63d0ac5553649d33d5726",
+      "padding_bytes": 3,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "7108223f4cab245807b2ee4d129d01efdc8c91cd883dd8d19119542fec96f6c4",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Save@EMPulseClass@@UAGJPAUIStream@@H@Z",
+      "symbol_prefix": "?Save@EMPulseClass@@UAGJPAUIStream@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "?Save@AbstractClass@@UAGJPAUIStream@@H@Z",
+          "target": 4260032,
+          "addend": 0,
+          "resolved": 4294290652
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4936656,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-67"
+    },
+    {
+      "entry": 4936688,
+      "method": "4b53f0",
+      "body_bytes": 6,
+      "body_sha256": "bcf1f08b44afac5552d9f3f862c56ffaa519d689f14906117513fee6f0a077ea",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "8358889164954be2abc24694261e6d741aec86999adbbc7d9f9df1df2215c7f7",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Object_Size@EMPulseClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Object_Size@EMPulseClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4936688,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-09"
+    },
+    {
+      "entry": 4936704,
+      "method": "4b5400",
+      "body_bytes": 6,
+      "body_sha256": "b3ac6b87d0937b2ff3f0e694bc209b16db33d7c7b15931592b8418210d8fc516",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "0fb35783c1bd8c1e92144b35836617c897c9222b4657f1ec5ad02d7831ee82f9",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_RTTI@EMPulseClass@@UBE?AW4RTTIType@@XZ",
+      "symbol_prefix": "?Fetch_RTTI@EMPulseClass@@UBE?AW4RTTIType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4936704,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-09"
+    },
+    {
+      "entry": 4936720,
+      "method": "004b5410",
+      "body_bytes": 157,
+      "body_sha256": "09159bcf8300129baeeb4b52539fdc6e302e036da508cffba47894754dedff6e",
+      "padding_bytes": 3,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "eb1733d6a60bf1ec253cc99b45e0dbae99a78839487ae7694335239e468686eb",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GEMPulseClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GEMPulseClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "??_7EMPulseClass@@6BIPersistStream@@@",
+          "target": 7998904,
+          "addend": 0,
+          "resolved": 7998904
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "??_7EMPulseClass@@6BIRTTITypeInfo@@@",
+          "target": 7998876,
+          "addend": 0,
+          "resolved": 7998876
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "??_7EMPulseClass@@6BINoticeSink@@@",
+          "target": 7998868,
+          "addend": 0,
+          "resolved": 7998868
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "??_7EMPulseClass@@6BINoticeSource@@@",
+          "target": 7998860,
+          "addend": 0,
+          "resolved": 7998860
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "?GameActive@@3_NA",
+          "target": 10750296,
+          "addend": 0,
+          "resolved": 10750296
+        },
+        {
+          "offset": 41,
+          "kind": 20,
+          "symbol": "?Destroy@EMPulseClass@@AAEXXZ",
+          "target": 4936208,
+          "addend": 0,
+          "resolved": 4294966739
+        },
+        {
+          "offset": 50,
+          "kind": 20,
+          "symbol": "?Detach_This_From_All@@YIXPBVAbstractClass@@_N@Z",
+          "target": 7261072,
+          "addend": 0,
+          "resolved": 2324298
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 0,
+          "resolved": 8739368
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 0,
+          "resolved": 8739368
+        },
+        {
+          "offset": 84,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 16,
+          "resolved": 8739384
+        },
+        {
+          "offset": 97,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 16,
+          "resolved": 8739384
+        },
+        {
+          "offset": 105,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 4,
+          "resolved": 8739372
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "?EMPulses@EMPulseClass@@2V?$DynamicVectorClass@PAVEMPulseClass@@@@A",
+          "target": 8739368,
+          "addend": 16,
+          "resolved": 8739384
+        },
+        {
+          "offset": 130,
+          "kind": 20,
+          "symbol": "??1AbstractClass@@UAE@XZ",
+          "target": 4259728,
+          "addend": 0,
+          "resolved": 4294290170
+        },
+        {
+          "offset": 143,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2934936
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4936720,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4936880,
+      "method": "4b54b0",
+      "body_bytes": 42,
+      "body_sha256": "c2345853acadbfbe23cb5598fd47454288c02e6c84d591bcb21e62407e23898c",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "320ab860db0ef83e4079fb8a8dc7c8b5bf79df72e95cb6e608579aef006c25cd",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@PAVEMPulseClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAVEMPulseClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2934896
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4936880,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-10"
+    },
+    {
+      "entry": 4936928,
+      "method": "004b54e0",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVEMPulseClass@@@@UAEHPBQAVEMPulseClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVEMPulseClass@@@@UAEHPBQAVEMPulseClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4936928,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4489"
+    },
+    {
+      "entry": 4936960,
+      "method": "004b5500",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PAVEMPulseClass@@@@UBEPAVEMPulseClass@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAVEMPulseClass@@@@UBEPAVEMPulseClass@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4936960,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4491"
+    },
+    {
+      "entry": 4936976,
+      "method": "004b5510",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PAVEMPulseClass@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAVEMPulseClass@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4936976,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1919"
+    },
+    {
+      "entry": 4937040,
+      "method": "004b5550",
+      "body_bytes": 174,
+      "body_sha256": "f129367d4e7da6bac7b6b27c62c3a17b6a082f4879d0aa629f35940c75290623",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "14feca5dc8dbd00d81eed82ce529651bb1a4b07e8b74c4988768c68e9e735d99",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PAVEMPulseClass@@@@UAE_NHPBQAVEMPulseClass@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAVEMPulseClass@@@@UAE_NHPBQAVEMPulseClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2935452
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2934640
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4937040,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1706"
+    },
+    {
+      "entry": 4937216,
+      "method": "4b5600",
+      "body_bytes": 39,
+      "body_sha256": "b115f557f6738caee6fd740ca148fc5993777baaf6f2bfc6ce128ca5dec64af6",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "ef655b944b787d9e761a70e95a9443e4b9cab20c62133dc9ba352110d163ba59",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PAVEMPulseClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAVEMPulseClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2934563
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4937216,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-10"
+    },
+    {
+      "entry": 4937264,
+      "method": "004b5630",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVEMPulseClass@@@@UAEHABQAVEMPulseClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVEMPulseClass@@@@UAEHABQAVEMPulseClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4937264,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4492"
+    },
+    {
+      "entry": 4937328,
+      "method": "004b5670",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVEMPulseClass@@@@UAEHPBQAVEMPulseClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVEMPulseClass@@@@UAEHPBQAVEMPulseClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4937328,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4493"
+    },
+    {
+      "entry": 4937360,
+      "method": "004b5690",
+      "body_bytes": 176,
+      "body_sha256": "a94231d97b10042391871904fe6e2b1c752257d40b742cd784d8225ee22b51bb",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "a94231d97b10042391871904fe6e2b1c752257d40b742cd784d8225ee22b51bb",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PAVEMPulseClass@@@@UAE_NHPBQAVEMPulseClass@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAVEMPulseClass@@@@UAE_NHPBQAVEMPulseClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2935136
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2934333
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4937360,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1706"
+    },
+    {
+      "entry": 4937536,
+      "method": "004b5740",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVEMPulseClass@@@@UAEHABQAVEMPulseClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVEMPulseClass@@@@UAEHABQAVEMPulseClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4937536,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4490"
+    },
+    {
+      "entry": 4937584,
+      "method": "4b5770",
+      "body_bytes": 73,
+      "body_sha256": "759def920c89633ee8db1efed6faa0adad3d48a04edbe2a9b990c0a715fefde9",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "27cec0af728b78e3c6aa5be788352b812403747fce34d5c615f24537ce1afa51",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAVEMPulseClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAVEMPulseClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVEMPulseClass@@@@6B@",
+          "target": 7998828,
+          "addend": 0,
+          "resolved": 7998828
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2934190
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2934155
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4937584,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 4937664,
+      "method": "004b57c0",
+      "body_bytes": 73,
+      "body_sha256": "fa672bd0eadd81892762f4aeb62d89981b24f507eb23edb270668e7f35e6db95",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "60998cb177048c912cb87b27e0a60d0c380359d05107680e604020bec58fd715",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAVEMPulseClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAVEMPulseClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVEMPulseClass@@@@6B@",
+          "target": 7998828,
+          "addend": 0,
+          "resolved": 7998828
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2934110
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2934075
+        }
+      ],
+      "source_sha256": "b49ba4427f7eb5db09b864793abce9706e19272d01b7f77394e66f9292b56b18",
+      "source": "src/empulse.cpp",
+      "population": "rebuild-empulse",
+      "source_order": 4937664,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-61"
+    }
+  ]
+}

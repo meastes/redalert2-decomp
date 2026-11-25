@@ -198,10 +198,6 @@ class StatusTests(unittest.TestCase):
         funcs = status.functions(treemap, set(), {}, {0x401100})
         self.assertEqual((funcs['done'], funcs['with_source'], funcs['total']), (1, 2, 3))
 
-    def test_line(self):
-        line = status.non_exact_line((2, 300, 55.5))
-        self.assertIn('2 functions, 300 bytes, mean score 55.50', line)
-        self.assertIn('no .text credit', line)
 
 
 if __name__ == '__main__':

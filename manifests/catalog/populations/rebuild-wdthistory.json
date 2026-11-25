@@ -1,0 +1,1251 @@
+{
+  "id": "rebuild-wdthistory",
+  "population": {
+    "id": "rebuild-wdthistory",
+    "inventory_sha256": "23629ff48dc4c87a379a364138c8cde16c0e89a4fc5ab770dd2407cde76e62ad",
+    "gaps_sha256": "960eb9dc80b288880abe71bb02d6ae2671026e7f3d4f254df3c5cfb77948d07e",
+    "historical_population_sha256": "8aecc603acdf4c68f4a99dda69e5e6a29338084602f9923f0288f0fcaa630055",
+    "historical_acceptance_sha256": "92d13805a4839ea87c1662af50c11bab4a83af2569a6b4208fa432f7e2aaa1c9"
+  },
+  "references": {
+    "_RECT_NONE": 11687792,
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 11687816,
+    "_ISO_TILE_SIZE": 8057216,
+    "_LEPTONS_PER_PIXEL": 11687888,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 11687872,
+    "_ONE_RAD": 8057224,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 11687864,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 11687824,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 11687784,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 11687896,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "?CELL_SLOPE_ANGLE@@3NB": 11687832,
+    "?CELL_DIAG_SLOPE_ANGLE@@3NB": 11687856,
+    "?BRIDGE_LEPTON_HEIGHT@@3HB": 11687880,
+    "?CELL_NONE@@3VCell@@B": 11687808,
+    "?COORD_NONE@@3VCoord@@B": 11687840,
+    "??2@YAPAXI@Z": 7872535,
+    "??_7ReferenceCounted@@6B@": 8031508,
+    "??0rc_ptr_base@@QAE@XZ": 6526176,
+    "??_7?$rc_ptr@VWDTState@@@@6B@": 8057252,
+    "?Assign@rc_ptr_base@@QAEXPAX@Z": 6526256,
+    "??_7History@WorldDominationTour@@6B@": 8057236,
+    "??_7?$rc_ptr@VHistory@WorldDominationTour@@@@6B@": 8056876,
+    "?Create@State@WorldDominationTour@@SI?AV?$rc_ptr@VState@WorldDominationTour@@@@ABV?$rc_ptr@VWDTState@@@@H@Z": 7538432,
+    "??1rc_ptr_base@@UAE@XZ": 6526224,
+    "??1ReferenceCounted@@UAE@XZ": 6526736,
+    "??3@YAXPAX@Z": 7871803,
+    "_$E2": 7507040,
+    "_$E5": 7507072,
+    "_$E8": 7507120,
+    "_$E11": 7507152,
+    "_$E14": 7507184,
+    "_$E17": 7507216,
+    "_$E20": 7507248,
+    "_$E23": 7507280,
+    "_$E26": 7507344,
+    "_$E29": 7507392,
+    "_$E32": 7507440,
+    "_$E35": 7507488,
+    "_$E38": 7507504,
+    "?Create@History@WorldDominationTour@@SI?AV?$rc_ptr@VHistory@WorldDominationTour@@@@ABV?$rc_ptr@VWDTState@@@@@Z": 7507536,
+    "??_G?$rc_ptr@VWDTState@@@@UAEPAXI@Z": 7507872,
+    "??_G?$rc_ptr@VHistory@WorldDominationTour@@@@UAEPAXI@Z": 7498480,
+    "??_R0?AVrc_ptr_base@@@8": 8248008,
+    "??_GReferenceCounted@@UAEPAXI@Z": 6526800,
+    "?Release@ReferenceCounted@@UAEXXZ": 6526752,
+    "?Unknown_Virtual_4@ReferenceCounted@@UAE_NH@Z": 6526784,
+    "??_GHistory@WorldDominationTour@@UAEPAXI@Z": 7507808,
+    "??_R0?AVReferenceCounted@@@8": 8316240,
+    "??_7type_info@@6B@": 8066532,
+    "??0History@WorldDominationTour@@QAE@ABV?$rc_ptr@VWDTState@@@@@Z": 7507648,
+    "?Get_State@History@WorldDominationTour@@QBE?AV?$rc_ptr@VState@WorldDominationTour@@@@H@Z": 7507712,
+    "?Is_Tick_Valid@History@WorldDominationTour@@QBEHI@Z": 7507744,
+    "??1History@WorldDominationTour@@UAE@XZ": 7507776,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_E?$rc_ptr@VWDTTerritory@@@@UAEPAXI@Z": 5367296,
+    "??_7?$rc_ptr@VWDTTerritory@@@@6B@": 8013100,
+    "??_E?$rc_ptr@VConflict@WorldDominationTour@@@@UAEPAXI@Z": 7499616,
+    "??_7?$rc_ptr@VConflict@WorldDominationTour@@@@6B@": 8056812,
+    "??_E?$rc_ptr@VTerritory@WorldDominationTour@@@@UAEPAXI@Z": 7518528,
+    "??_7?$rc_ptr@VTerritory@WorldDominationTour@@@@6B@": 8057468,
+    "??_E?$rc_ptr@VGameOption@WorldDominationTour@@@@UAEPAXI@Z": 7504800,
+    "??_7?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@": 8057052,
+    "??_EWstring@@QAEPAXI@Z": 4239168,
+    "??1Wstring@@QAE@XZ": 7789024,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104
+  },
+  "regions": [
+    {
+      "entry": 7507040,
+      "method": "00728c60",
+      "body_bytes": 23,
+      "body_sha256": "6fe05ab76e86ce70e8831b168b02c7dba2b551428375711a372c21ad81832219",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "563d475cf53de27e0c2e0f12b69e08199d82fbef879125e4323541b26a0f30c3",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11687792,
+          "addend": 0,
+          "resolved": 11687792
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11687792,
+          "addend": 4,
+          "resolved": 11687796
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11687792,
+          "addend": 8,
+          "resolved": 11687800
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11687792,
+          "addend": 12,
+          "resolved": 11687804
+        }
+      ],
+      "source_sha256": "750391727d67cc182f5ae0685b5866e23cf9215308fe644281b283642eeb2b7f",
+      "source": "src/wdthistory.cpp",
+      "population": "rebuild-wdthistory",
+      "source_order": 7507040,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7507072,
+      "method": "00728c80",
+      "body_bytes": 40,
+      "body_sha256": "d7cf146074be111ff2cdd2655a71f7cd7eb7a946103034586dc7ef5a883e3de1",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "f25404c98f354d54fb160757c3f4c931749c6c62fa5e0abff577f9ea8c24fea0",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 365855
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292417394
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11687816,
+          "addend": 0,
+          "resolved": 11687816
+        }
+      ],
+      "source_sha256": "750391727d67cc182f5ae0685b5866e23cf9215308fe644281b283642eeb2b7f",
+      "source": "src/wdthistory.cpp",
+      "population": "rebuild-wdthistory",
+      "source_order": 7507072,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7507120,
+      "method": "00728cb0",
+      "body_bytes": 19,
+      "body_sha256": "845176da54bef4b74c28a2b52edafe83c0ced5146858af22afca056545d0ab82",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "bba325958ff9bc36e7b9e2c0462509bf81c98e1ef81c488f5ce56706d7e6d280",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11687816,
+          "addend": 0,
+          "resolved": 11687816
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8057216,
+          "addend": 0,
+          "resolved": 8057216
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11687888,
+          "addend": 0,
+          "resolved": 11687888
+        }
+      ],
+      "source_sha256": "750391727d67cc182f5ae0685b5866e23cf9215308fe644281b283642eeb2b7f",
+      "source": "src/wdthistory.cpp",
+      "population": "rebuild-wdthistory",
+      "source_order": 7507120,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7507152,
+      "method": "00728cd0",
+      "body_bytes": 19,
+      "body_sha256": "fb8626fe997117cb3d5a748ad2e138bc42ea4de0dce28783c4293782f24c9264",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4b38479bb425ba09958d7fbcf25ffa97fbf59760f54c6b6b30442978ae82ac07",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11687888,
+          "addend": 0,
+          "resolved": 11687888
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 11687872,
+          "addend": 0,
+          "resolved": 11687872
+        }
+      ],
+      "source_sha256": "750391727d67cc182f5ae0685b5866e23cf9215308fe644281b283642eeb2b7f",
+      "source": "src/wdthistory.cpp",
+      "population": "rebuild-wdthistory",
+      "source_order": 7507152,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7507184,
+      "method": "00728cf0",
+      "body_bytes": 19,
+      "body_sha256": "fc0a394e67e505f70b23e98d18420c490624049503c1d84d3999563e08f14f84",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "42146abf15910e0b22ddecd73cbc242f5c411a13b0c1e2a60d916cc2dd2a6d6b",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8057224,
+          "addend": 0,
+          "resolved": 8057224
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 11687864,
+          "addend": 0,
+          "resolved": 11687864
+        }
+      ],
+      "source_sha256": "750391727d67cc182f5ae0685b5866e23cf9215308fe644281b283642eeb2b7f",
+      "source": "src/wdthistory.cpp",
+      "population": "rebuild-wdthistory",
+      "source_order": 7507184,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7507216,
+      "method": "00728d10",
+      "body_bytes": 19,
+      "body_sha256": "4de3f329d2d0d9b5f5a5daecc14c841750ebdc6332dfe45a4d8bb2c51ee12784",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "bbc7d8c7e0d48b31f5ee131f1214fe22b63a59f247a4d2f88ff1909a976321a5",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8057224,
+          "addend": 0,
+          "resolved": 8057224
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11687824,
+          "addend": 0,
+          "resolved": 11687824
+        }
+      ],
+      "source_sha256": "750391727d67cc182f5ae0685b5866e23cf9215308fe644281b283642eeb2b7f",
+      "source": "src/wdthistory.cpp",
+      "population": "rebuild-wdthistory",
+      "source_order": 7507216,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7507248,
+      "method": "00728d30",
+      "body_bytes": 19,
+      "body_sha256": "66e3b4630f2b416193291ee25b6ed066ac2f4fe555316b0818f629d0a05e1c82",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "0d91285a76a398c4609398e5919b334cca4cc64a779c9b13b2646e5761de5349",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8057224,
+          "addend": 0,
+          "resolved": 8057224
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11687784,
+          "addend": 0,
+          "resolved": 11687784
+        }
+      ],
+      "source_sha256": "750391727d67cc182f5ae0685b5866e23cf9215308fe644281b283642eeb2b7f",
+      "source": "src/wdthistory.cpp",
+      "population": "rebuild-wdthistory",
+      "source_order": 7507248,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7507280,
+      "method": "00728d50",
+      "body_bytes": 49,
+      "body_sha256": "b9edcb5cfa1259a074a7f041704001b221c78179ffb20c1661329e56c8bdb3f8",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "de3866ea637faf2e0b0ccfd581377587bf4407ea7f3e850a0954e9d6cdb5fa9c",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11687784,
+          "addend": 0,
+          "resolved": 11687784
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11687824,
+          "addend": 0,
+          "resolved": 11687824
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4292417465
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11687816,
+          "addend": 0,
+          "resolved": 11687816
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 353173
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11687896,
+          "addend": 0,
+          "resolved": 11687896
+        }
+      ],
+      "source_sha256": "750391727d67cc182f5ae0685b5866e23cf9215308fe644281b283642eeb2b7f",
+      "source": "src/wdthistory.cpp",
+      "population": "rebuild-wdthistory",
+      "source_order": 7507280,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7507344,
+      "method": "00728d90",
+      "body_bytes": 33,
+      "body_sha256": "2ad60b93f2ce692c750938be1f2e1dbe495275fb884830625ead390e1d32430f",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "db3d31e99e68e991c070bc7435a1d279aa42de913d82d06a20b3f8534645f324",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11687896,
+          "addend": 0,
+          "resolved": 11687896
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292417545
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?CELL_SLOPE_ANGLE@@3NB",
+          "target": 11687832,
+          "addend": 0,
+          "resolved": 11687832
+        }
+      ],
+      "source_sha256": "750391727d67cc182f5ae0685b5866e23cf9215308fe644281b283642eeb2b7f",
+      "source": "src/wdthistory.cpp",
+      "population": "rebuild-wdthistory",
+      "source_order": 7507344,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7507392,
+      "method": "00728dc0",
+      "body_bytes": 44,
+      "body_sha256": "86a36c15823c178407837f182b5e89f2861e8c67dedeae05c13eed8c086ee299",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "880c307066c376d3c20b56236b2a1ecb7b98ee9ba6df7528a6c5d8d4b0a00d1b",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11687896,
+          "addend": 0,
+          "resolved": 11687896
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11687816,
+          "addend": 0,
+          "resolved": 11687816
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292417486
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "?CELL_DIAG_SLOPE_ANGLE@@3NB",
+          "target": 11687856,
+          "addend": 0,
+          "resolved": 11687856
+        }
+      ],
+      "source_sha256": "750391727d67cc182f5ae0685b5866e23cf9215308fe644281b283642eeb2b7f",
+      "source": "src/wdthistory.cpp",
+      "population": "rebuild-wdthistory",
+      "source_order": 7507392,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7507440,
+      "method": "00728df0",
+      "body_bytes": 39,
+      "body_sha256": "07a4fe186e9a40fe637884f7ec801f923d7caf87d6275ed1a9e20fad942aa697",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "70dffc7a908c380adda388cbaa51a19b7237928c6bccd4e1816ffd2b3f88a4c9",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11687896,
+          "addend": 0,
+          "resolved": 11687896
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 353024
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "?BRIDGE_LEPTON_HEIGHT@@3HB",
+          "target": 11687880,
+          "addend": 0,
+          "resolved": 11687880
+        }
+      ],
+      "source_sha256": "750391727d67cc182f5ae0685b5866e23cf9215308fe644281b283642eeb2b7f",
+      "source": "src/wdthistory.cpp",
+      "population": "rebuild-wdthistory",
+      "source_order": 7507440,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7507488,
+      "method": "00728e20",
+      "body_bytes": 15,
+      "body_sha256": "76a491203b93d0c6ff87aa512819ae332c65aa2b26d787c6fc4abd5463ba1fb0",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "408e3f5c8b2e5bd71ff4c752d02b21a77353b44815828e051f8ffd637b1caf4a",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?CELL_NONE@@3VCell@@B",
+          "target": 11687808,
+          "addend": 0,
+          "resolved": 11687808
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?CELL_NONE@@3VCell@@B",
+          "target": 11687808,
+          "addend": 2,
+          "resolved": 11687810
+        }
+      ],
+      "source_sha256": "750391727d67cc182f5ae0685b5866e23cf9215308fe644281b283642eeb2b7f",
+      "source": "src/wdthistory.cpp",
+      "population": "rebuild-wdthistory",
+      "source_order": 7507488,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7507504,
+      "method": "00728e30",
+      "body_bytes": 18,
+      "body_sha256": "63346aca7ca3e5129726df1d7d96adb09e7958b09acf989ad258fb18c3afd2d6",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "e6a3478420e944ba1487697c5463d26059b89a78c1283d24e1b9d10359edf865",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "?COORD_NONE@@3VCoord@@B",
+          "target": 11687840,
+          "addend": 0,
+          "resolved": 11687840
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?COORD_NONE@@3VCoord@@B",
+          "target": 11687840,
+          "addend": 4,
+          "resolved": 11687844
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?COORD_NONE@@3VCoord@@B",
+          "target": 11687840,
+          "addend": 8,
+          "resolved": 11687848
+        }
+      ],
+      "source_sha256": "750391727d67cc182f5ae0685b5866e23cf9215308fe644281b283642eeb2b7f",
+      "source": "src/wdthistory.cpp",
+      "population": "rebuild-wdthistory",
+      "source_order": 7507504,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7507536,
+      "method": "00728e50",
+      "body_bytes": 103,
+      "body_sha256": "d75e9a7a2f1673c2a53b5bfa36294e22bfeea35bda60a8cb2cc5e8b56aa4d4d5",
+      "padding_bytes": 9,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "4c499db4455e8a332d54efed2ea24cd96093100a231eaca796705a7eaa29c4a4",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Create@History@WorldDominationTour@@SI?AV?$rc_ptr@VHistory@WorldDominationTour@@@@ABV?$rc_ptr@VWDTState@@@@@Z",
+      "symbol_prefix": "?Create@History@WorldDominationTour@@SI?AV?$rc_ptr@VHistory@WorldDominationTour@@@@ABV?$rc_ptr@VWDTState@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 364985
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "??_7ReferenceCounted@@6B@",
+          "target": 8031508,
+          "addend": 0,
+          "resolved": 8031508
+        },
+        {
+          "offset": 43,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293985889
+        },
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VWDTState@@@@6B@",
+          "target": 8057252,
+          "addend": 0,
+          "resolved": 8057252
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293985952
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "??_7History@WorldDominationTour@@6B@",
+          "target": 8057236,
+          "addend": 0,
+          "resolved": 8057236
+        },
+        {
+          "offset": 78,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293985854
+        },
+        {
+          "offset": 87,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VHistory@WorldDominationTour@@@@6B@",
+          "target": 8056876,
+          "addend": 0,
+          "resolved": 8056876
+        },
+        {
+          "offset": 93,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293985919
+        }
+      ],
+      "source_sha256": "750391727d67cc182f5ae0685b5866e23cf9215308fe644281b283642eeb2b7f",
+      "source": "src/wdthistory.cpp",
+      "population": "rebuild-wdthistory",
+      "source_order": 7507536,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7507648,
+      "method": "00728ec0",
+      "body_bytes": 61,
+      "body_sha256": "aad33deb76ab4a14709e573b84bc0cfce070866bbc5c3b6e5bf28741426976b5",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "4739b9c76b5c5d739ae0bc0333f55d8adec75e5a8260bc43a651f28a376c1e74",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0History@WorldDominationTour@@QAE@ABV?$rc_ptr@VWDTState@@@@@Z",
+      "symbol_prefix": "??0History@WorldDominationTour@@QAE@ABV?$rc_ptr@VWDTState@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "??_7ReferenceCounted@@6B@",
+          "target": 8031508,
+          "addend": 0,
+          "resolved": 8031508
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293985797
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VWDTState@@@@6B@",
+          "target": 8057252,
+          "addend": 0,
+          "resolved": 8057252
+        },
+        {
+          "offset": 44,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293985856
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "??_7History@WorldDominationTour@@6B@",
+          "target": 8057236,
+          "addend": 0,
+          "resolved": 8057236
+        }
+      ],
+      "source_sha256": "750391727d67cc182f5ae0685b5866e23cf9215308fe644281b283642eeb2b7f",
+      "source": "src/wdthistory.cpp",
+      "population": "rebuild-wdthistory",
+      "source_order": 7507648,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7507712,
+      "method": "00728f00",
+      "body_bytes": 26,
+      "body_sha256": "237029ed8610a7378a6db7f98b7af25a15e23de199427c8cfa25cc429aef5856",
+      "padding_bytes": 6,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "97b75b1902c7ebbb9ebbe9dcc510d2c9b496283a1e6b9218fbe396846d760ec7",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_State@History@WorldDominationTour@@QBE?AV?$rc_ptr@VState@WorldDominationTour@@@@H@Z",
+      "symbol_prefix": "?Get_State@History@WorldDominationTour@@QBE?AV?$rc_ptr@VState@WorldDominationTour@@@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "?Create@State@WorldDominationTour@@SI?AV?$rc_ptr@VState@WorldDominationTour@@@@ABV?$rc_ptr@VWDTState@@@@H@Z",
+          "target": 7538432,
+          "addend": 0,
+          "resolved": 30700
+        }
+      ],
+      "source_sha256": "750391727d67cc182f5ae0685b5866e23cf9215308fe644281b283642eeb2b7f",
+      "source": "src/wdthistory.cpp",
+      "population": "rebuild-wdthistory",
+      "source_order": 7507712,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7507744,
+      "method": "00728f20",
+      "body_bytes": 31,
+      "body_sha256": "11766c3795a7b64b148fc13a15f251a61c8848efc19eba00f5f3e149e7d84a24",
+      "padding_bytes": 1,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "db05d2cbce878712e265211a19f3641b8afe50f9e0435320717a2fcf86972f93",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Tick_Valid@History@WorldDominationTour@@QBEHI@Z",
+      "symbol_prefix": "?Is_Tick_Valid@History@WorldDominationTour@@QBEHI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "750391727d67cc182f5ae0685b5866e23cf9215308fe644281b283642eeb2b7f",
+      "source": "src/wdthistory.cpp",
+      "population": "rebuild-wdthistory",
+      "source_order": 7507744,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7507776,
+      "method": "00728f40",
+      "body_bytes": 32,
+      "body_sha256": "1f6d904d06d0853b3ce4db9ab0ca33b5eea396f591531197175b4f5772d30301",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "1f6d904d06d0853b3ce4db9ab0ca33b5eea396f591531197175b4f5772d30301",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1History@WorldDominationTour@@UAE@XZ",
+      "symbol_prefix": "??1History@WorldDominationTour@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7History@WorldDominationTour@@6B@",
+          "target": 8057236,
+          "addend": 0,
+          "resolved": 8057236
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VWDTState@@@@6B@",
+          "target": 8057252,
+          "addend": 0,
+          "resolved": 8057252
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293985721
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "??1ReferenceCounted@@UAE@XZ",
+          "target": 6526736,
+          "addend": 0,
+          "resolved": 4293986226
+        }
+      ],
+      "source_sha256": "750391727d67cc182f5ae0685b5866e23cf9215308fe644281b283642eeb2b7f",
+      "source": "src/wdthistory.cpp",
+      "population": "rebuild-wdthistory",
+      "source_order": 7507776,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7507808,
+      "method": "00728f60",
+      "body_bytes": 52,
+      "body_sha256": "c4077a6567154fc55d8b02f40850eed9bebba5b9dab0e385de777ea3d09380d1",
+      "padding_bytes": 12,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "e2d354ba7cf26160d649024d7777ccf7471009c19b1f487f74c54ee5270361eb",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GHistory@WorldDominationTour@@UAEPAXI@Z",
+      "symbol_prefix": "??_GHistory@WorldDominationTour@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7History@WorldDominationTour@@6B@",
+          "target": 8057236,
+          "addend": 0,
+          "resolved": 8057236
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VWDTState@@@@6B@",
+          "target": 8057252,
+          "addend": 0,
+          "resolved": 8057252
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293985689
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "??1ReferenceCounted@@UAE@XZ",
+          "target": 6526736,
+          "addend": 0,
+          "resolved": 4293986194
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 363952
+        }
+      ],
+      "source_sha256": "750391727d67cc182f5ae0685b5866e23cf9215308fe644281b283642eeb2b7f",
+      "source": "src/wdthistory.cpp",
+      "population": "rebuild-wdthistory",
+      "source_order": 7507808,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7507872,
+      "method": "00728fa0",
+      "body_bytes": 36,
+      "body_sha256": "c7133f63b02e9f278226461a3c5a6e8fd245b3da1850205aa21df263f2c9ac80",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "e16914aca38558df42d975bd0c305e60d3090ea8845cd848810db67418e0eb40",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$rc_ptr@VWDTState@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$rc_ptr@VWDTState@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VWDTState@@@@6B@",
+          "target": 8057252,
+          "addend": 0,
+          "resolved": 8057252
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293985634
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 363904
+        }
+      ],
+      "source_sha256": "750391727d67cc182f5ae0685b5866e23cf9215308fe644281b283642eeb2b7f",
+      "source": "src/wdthistory.cpp",
+      "population": "rebuild-wdthistory",
+      "source_order": 7507872,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

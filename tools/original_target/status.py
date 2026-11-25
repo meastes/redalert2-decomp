@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
-"""Generate the numeric part of docs/STATUS.md from the canonical manifest.
+"""Generate the numeric part of docs/STATUS.md (one tree since the layout move, lane O88, 2026-11-25).
 
-Coverage comes from the catalog (manifests/original_target/); the .text size from the
-supplied executable's section header. Throughput history comes from every
-commit that changed the catalog (or the former monolithic
-manifests/original_target.json), so the matched-bytes-per-hour trend is
-measured, not narrated. The block between the generated markers in
-docs/STATUS.md is replaced; everything else in that file is hand-written. With --write the
-flat function map manifests/function_map.csv (export_function_map.py) is rewritten too.
+The tree's figures come from its catalog (manifests/catalog) and the gated-landing rows of
+manifests/progress.csv; the .text size from the supplied executable's section header. The reference
+column is src-final: the earlier tree's catalog (manifests/original_target/, kept as read-only evidence;
+the source itself is the tag src-final), whose figures cannot change. Its full frozen table and commit
+history are in docs/history/SRC_FINAL_STATUS.md. The block between the generated markers in
+docs/STATUS.md is replaced; everything else in that file is hand-written.
 """
 import argparse
 from collections import Counter
@@ -23,8 +22,8 @@ from build import FIXED_LAYOUT
 
 REPOSITORY = Path(__file__).resolve().parents[2]
 BEGIN, END = '<!-- generated:status -->', '<!-- /generated:status -->'
-# rebuild/ is the exact-match tree of record from this day (user, 2026-11-24, in the owner session); src/ and
-# manifests/original_target/ are frozen at the tag src-final and shown as the reference column.
+# The rebuild became the exact-match tree of record on this day (user, 2026-11-24, in the owner session) and moved
+# to the repository root on 2026-11-25 (lane O88); the earlier tree is the tag src-final, shown as the reference column.
 FROZEN_ON = '2026-11-24'
 
 
@@ -52,166 +51,6 @@ JUDGMENT_FLAGS = ('count_calibrated', 'split_declaration', 'declarations_only')
 def judgment_coverage(catalog):
     """(regions, body bytes) of accepted rows carrying any JUDGMENT_FLAGS flag."""
     rows = [r for r in catalog['regions'] if any(r.get(flag) is True for flag in JUDGMENT_FLAGS)]
-    return len(rows), sum(r['body_bytes'] for r in rows)
-
-
-def own_bound_coverage(catalog):
-    """(rows, body bytes, donor populations) of rows that compile in a unit's population and
-    take their bound, gap padding and provenance from the frozen pass of `bound_population`
-    (container member joins, docs/DECISIONS.md)."""
-    rows = [r for r in catalog['regions'] if 'bound_population' in r]
-    return len(rows), sum(r['body_bytes'] for r in rows), len({r['bound_population'] for r in rows})
-
-
-def own_bound_line(catalog):
-    rows, body, donors = own_bound_coverage(catalog)
-    return ('| Rows bound by their own frozen population (joined into a unit\'s translation unit; bound, gap '
-            'padding and provenance from `bound_population`\'s pass) | {:,} rows, {:,} bytes, {:,} donor populations |'
-            .format(rows, body, donors))
-
-
-JOINED_UNDER_GR = "joined under the unit's /GR"
-JOINED_UNDER_OPTIONS = "joined under the unit's options"
-
-
-def joined_under(prefix, repository=None):
-    """(rows, bytes, units) of joined rows whose manifest note starts with `prefix`."""
-    path = (repository or Path(__file__).resolve().parents[2]) / 'manifests/original_target/modules.json'
-    modules = json.loads(path.read_text()) if path.exists() else {}
-    rows = [(u, j) for u, item in modules.items() for j in item.get('joined', [])
-            if str(j.get('options', '')).startswith(prefix)]
-    return len(rows), sum(j.get('bytes', 0) for _, j in rows), len({u for u, _ in rows})
-
-
-def joined_under_gr(repository=None):
-    """(rows, bytes, units) of rows that joined their unit only by taking the unit's /GR
-    (docs/DECISIONS.md "Own-bound joins widened"; the manifest note on each joined entry)."""
-    return joined_under(JOINED_UNDER_GR, repository)
-
-
-def joined_under_options(repository=None):
-    """(rows, bytes, units) of rows frozen under another option set than their unit's (more than
-    /GR) that joined under the unit's (docs/DECISIONS.md "Stand-ins frozen under another
-    optimisation option than their unit"; note "joined under the unit's options (frozen under X)")."""
-    return joined_under(JOINED_UNDER_OPTIONS, repository)
-
-
-def joined_under_gr_line():
-    rows, body, units = joined_under_gr()
-    other = joined_under_options()
-    return ('| Rows joined under the unit\'s /GR (frozen without /GR; every RTTI structure the unit emits still '
-            'proven at its original address; manifest note "joined under the unit\'s /GR") / under the unit\'s '
-            'options (frozen under another option set; the unit\'s set evidenced by its own rows; manifest note '
-            '"joined under the unit\'s options (frozen under X)") | /GR: {:,} rows, {:,} bytes, {:,} units; '
-            'options: {:,} rows, {:,} bytes, {:,} units |'.format(rows, body, units, *other))
-
-
-def unit_evidence_lines(catalog):
-    """`$E` rows whose unit rests on the original .CRT$XCU table (docs/DECISIONS.md "$E initialiser/atexit
-    rows placed by the original .CRT$XCU table"): one line per flagged tier (row field unit_evidence,
-    canonical.validate_unit_evidence), plus the rows the table places in one evidenced unit (no flag)."""
-    from canonical import UNIT_EVIDENCE, unit_evidence_counts
-    counts = unit_evidence_counts(catalog)
-    about = {'xcu-exclusion': 'the previous unit already owns that header static',
-             'xcu-prefix+map': 'prefix rule and unit map agree',
-             'xcu-prefix': 'prefix rule alone'}
-    single = joined_unit_evidence('xcu single')
-    lines = ['| `$E` rows joined to the one unit the .CRT$XCU table evidences (no flag; manifest note "xcu single") '
-             '| {:,} rows, {:,} bytes, {:,} units |'.format(*single)]
-    for tier in UNIT_EVIDENCE:
-        lines.append('| `$E` rows joined to a .CRT$XCU boundary pick, flag `unit_evidence: {}` ({}; bytes cannot tell '
-                     'the two candidates apart) | {:,} rows, {:,} bytes |'.format(tier, about[tier], *counts[tier]))
-    return lines
-
-
-def joined_unit_evidence(note, repository=None):
-    """(rows, bytes, units) of joined rows whose module-item record carries `unit_evidence` == note."""
-    path = (repository or Path(__file__).resolve().parents[2]) / 'manifests/original_target/modules.json'
-    modules = json.loads(path.read_text()) if path.exists() else {}
-    rows = [(u, j) for u, item in modules.items() for j in item.get('joined', []) if j.get('unit_evidence') == note]
-    return len(rows), sum(j.get('bytes', 0) for _, j in rows), len({u for u, _ in rows})
-
-
-def address_named_line(catalog):
-    """Address-free source file names (rename_files.py): the per-function files that still
-    carry an address, by why they keep it."""
-    import rename_files
-    counts = rename_files.remaining_counts(catalog)
-    total = sum(n for k, n in counts.items())
-    other = total - counts['collision'] - counts['seed name'] - counts['renameable']
-    return ('| Address-named source files remaining (collision / seed name; rename_files.py) | {:,} files: '
-            'collision {:,}, seed name {:,}, not yet renamed {:,}, other {:,} (no unit or folder spelling, not one '
-            'accepted row) |'.format(total, counts['collision'], counts['seed name'], counts['renameable'], other))
-
-
-def generated_data_line():
-    """Generated data modules (docs/DECISIONS.md "fastmath tables as a generated data module"):
-    tracked generators whose assembled output build.py proves as one whole block."""
-    import json
-    path = REPOSITORY / 'manifests/original_target/generated_data.json'
-    modules = json.loads(path.read_text())['modules'] if path.exists() else []
-    size = sum(int(m['range'][1], 16) - int(m['range'][0], 16) for m in modules)
-    flagged = sum(len(m.get('flagged_constants', [])) for m in modules)
-    return ('| Generated data modules (tracked generator, no original bytes in the repository; each proven at '
-            'build time as one whole block at its original addresses; not C/C++ credit) | {:,} module(s), {:,} '
-            'bytes; {:,} flagged constant(s) ({}) |'.format(len(modules), size, flagged,
-                                                          ', '.join(m['name'] for m in modules) or 'none'))
-
-
-def data_bound_by_lines(catalog):
-    """Data-only bindings (docs/DECISIONS.md "Data-only symbols bound by section layout / bss by
-    elimination"): symbols each source declares (row field data_bound_by), and the bytes of the
-    proven module-map sections that hold a layout-bound symbol. Elimination earns nothing."""
-    import json
-    kinds = {'layout': set(), 'elimination': set(), 'unplaced-unreferenced': set(), 'content': set()}
-    sources = set()
-    for row in catalog['regions']:
-        for name, kind in (row.get('data_bound_by') or {}).items():
-            kinds[kind].add((row['source'], name)); sources.add(row['source'])
-    layout_bytes = content_bytes = 0
-    for path in sorted((REPOSITORY / 'manifests/original_target/modules').glob('*.json')):
-        entry = json.loads(path.read_text())
-        layout_bytes += sum(c['bytes'] for c in entry.get('data', []) if 'layout' in (c.get('bound_by') or ()))
-        content_bytes += sum(c['bytes'] for c in entry.get('data', []) if 'content' in (c.get('bound_by') or ()))
-    return ['| Data bound by enclosed section layout (flag data_bound_by: layout; the split into declarations '
-            'is a hypothesis) | {:,} symbols in {:,} source(s); {:,} bytes in the proven sections that hold them |'
-            .format(len(kinds['layout']), len({s for s, _ in kinds['layout']}), layout_bytes),
-            '| Data bound by bss elimination (flag data_bound_by: elimination; earns nothing by itself) '
-            '| {:,} symbols in {:,} source(s) |'.format(len(kinds['elimination']), len({s for s, _ in kinds['elimination']}))] + (
-        ['| Unplaced unreferenced zero-initialised objects (flag data_bound_by: unplaced-unreferenced; no address, '
-         'earns nothing) | {:,} symbols in {:,} source(s) |'.format(len(kinds['unplaced-unreferenced']),
-                                                                    len({s for s, _ in kinds['unplaced-unreferenced']}))]
-        if kinds['unplaced-unreferenced'] else []) + (
-        ['| Data bound by content (flag data_bound_by: content, rebuild tree only; pointer tables, every byte compared; '
-         'the declaration is a hypothesis; zero .text credit by themselves) | {:,} symbols in {:,} source(s); {:,} bytes '
-         'in the proven sections that hold them |'.format(len(kinds['content']), len({s for s, _ in kinds['content']}),
-                                                          content_bytes)]
-        if kinds['content'] else [])
-
-
-DECLARATIONS_ONLY_DEFINE = re.compile(rb'^[ \t]*#[ \t]*define[ \t]+VECTOR_DECLARATIONS_ONLY\b', re.M)
-
-
-def declarations_only_files(catalog, read=None):
-    """Accepted sources that define VECTOR_DECLARATIONS_ONLY (they depend on the switch whether or
-    not a row of theirs carries the declarations_only flag; owner ruling 2026-11-12)."""
-    def disk(source):
-        path = REPOSITORY / source
-        return path.read_bytes() if path.is_file() else b''
-    read = read or disk
-    return sorted(s for s in {r['source'] for r in catalog['regions'] if r.get('source')}
-                  if DECLARATIONS_ONLY_DEFINE.search(read(s)))
-
-
-def declarations_only_line(catalog, read=None):
-    files = declarations_only_files(catalog, read)
-    return ('| Files depending on VECTOR_DECLARATIONS_ONLY (container members left undefined; per file, no bytes '
-            'counted) | {:,} ({}) |'.format(len(files), ', '.join(Path(f).name for f in files) or 'none'))
-
-
-def calibrated_coverage(catalog):
-    """(regions, body bytes) of count-calibrated rows; a subset of the matched C/C++ body bytes."""
-    rows = [r for r in catalog['regions'] if count_calibrated(r)]
     return len(rows), sum(r['body_bytes'] for r in rows)
 
 
@@ -323,31 +162,6 @@ def ledger(catalog, text, text_start=TEXT_START):
                 in_scope_matched=matched, in_scope_total=text - crt_bytes - asm_bytes - padding)
 
 
-def best_scores(index_path, sweep_path):
-    """Best recorded score per unaccepted entry: the per-row miss index (docs/MISSES_INDEX.md) first,
-    then the seed sweep's results.jsonl (private build output, optional)."""
-    best = {}
-    if sweep_path and sweep_path.exists():
-        for line in sweep_path.read_text().splitlines():
-            try:
-                row = json.loads(line)
-            except ValueError:
-                continue
-            if row.get('score') is None or row.get('entry') is None:
-                continue
-            entry = int(row['entry'], 16)
-            best[entry] = max(best.get(entry, 0.0), float(row['score']))
-    if index_path and index_path.exists():
-        for line in index_path.read_text().splitlines():
-            cells = [c.strip() for c in line.strip().strip('|').split('|')]
-            if len(cells) > 2 and cells[0].startswith('0x'):
-                try:
-                    best[int(cells[0], 16)] = float(cells[2])
-                except ValueError:
-                    pass
-    return best
-
-
 def functions(treemap, false_rows, best, drafts=()):
     """In-scope function counts and the partial-match average. In scope: entry below CRT_START, outside
     the HANDWRITTEN ranges, not a known false row. Each unaccepted function counts at its best recorded
@@ -372,7 +186,7 @@ def functions(treemap, false_rows, best, drafts=()):
 def load_assembly(repository=REPOSITORY):
     """Handwritten assembly reproduced from source (assembly_link.py --write): procedures assembled from the
     adopted TibSun .asm files and proved against .text. None when the manifest is absent."""
-    path = repository / 'manifests/original_target/assembly.json'
+    path = repository / 'manifests/assembly.json'          # the tree's ledger (tree.ASSEMBLY)
     if not path.exists():
         return None
     regions = json.loads(path.read_text())['regions']
@@ -390,20 +204,6 @@ def load_library(repository=REPOSITORY):
         return None
     regions = json.loads(path.read_text())['regions']
     return dict(bytes=sum(r['bytes'] for r in regions), sections=len(regions))
-
-
-def load_functions(repository=REPOSITORY):
-    """Function stats from build/treemap.json (treemap.py --json, regenerated at each landing). None when
-    the treemap is absent, so STATUS still renders."""
-    path = repository / 'build/treemap.json'
-    if not path.exists():
-        return None
-    false_path = repository / 'manifests/original_target/false_rows.json'
-    false_rows = {int(r['entry'], 16) for r in json.loads(false_path.read_text())['rows']} if false_path.exists() else set()
-    best = best_scores(repository / 'docs/MISSES_INDEX.md', repository / 'build/sweep-6b/results.jsonl')
-    import non_exact
-    drafts = {int(r['entry'], 16) for r in non_exact.load_manifest(repository).get('rows', [])}
-    return functions(json.loads(path.read_text()), false_rows, best, drafts)
 
 
 def coverage(catalog):
@@ -446,57 +246,7 @@ def text_bytes(executable):
     return next(s.Misc_VirtualSize for s in pe.sections if s.Characteristics & 0x20)
 
 
-FILE_BACKED_NON_CODE = 711662   # headers + .rdata + raw .data + .rsrc of the target (docs/DATA_AS_SOURCE.md)
-
-
-def proven_data(entries):
-    """Bytes the module maps prove at their original addresses, deduplicated by address
-    (several units prove one COMDAT copy), by kind. A class hierarchy descriptor that differs
-    only in the ambiguous bit (DECISIONS, user-confirmed exception) counts without its
-    attributes word: no credit for the bit."""
-    copies, known = {}, set()
-    for e in entries:
-        for c in e['data'] + e['kept_elsewhere']:
-            a = int(c['address'], 16)
-            if c.get('known_difference'):
-                known.add(a)
-                if c['bytes'] > 8:
-                    copies.setdefault(a + 8, (c['bytes'] - 8, c['kind']))
-                copies.setdefault(a, (4, c['kind']))
-                continue
-            if copies.get(a, (0, ''))[0] < c['bytes']:
-                copies[a] = (c['bytes'], c['kind'])
-    covered, by_kind, end = 0, Counter(), 0
-    for a in sorted(copies):
-        n, kind = copies[a]
-        start = max(a, end)
-        if a + n > start:
-            covered += a + n - start
-            by_kind[kind] += a + n - start
-            end = a + n
-    return covered, by_kind, len(known)
-
-
-def module_form(repository=REPOSITORY, catalog=None):
-    """Modules in original-translation-unit form (manifests/original_target/modules/*.json, written by
-    module_ledger.py from a kept-intermediates build): functions, code bytes and compiler-emitted data
-    bytes proven at their original addresses. The data line is its own ledger, not .text credit."""
-    maps = sorted((repository / 'manifests/original_target/modules').glob('*.json'))
-    entries = [json.loads(m.read_text()) for m in maps]
-    # Withheld template details (docs/DECISIONS.md header_gaps): recorded per module, no bytes.
-    declared = repository / 'manifests/original_target/modules.json'
-    declared = json.loads(declared.read_text()) if declared.exists() else {}
-    gaps = {name: len(item.get('header_gaps', [])) for name, item in declared.items()}
-    return dict(modules=len(entries), header_gaps=sum(gaps.values()),
-                header_gap_modules=sum(1 for n in gaps.values() if n), functions=sum(len(e['code']) for e in entries),
-                code_bytes=sum(e['code_bytes'] for e in entries),
-                data_bytes=sum(e['data_bytes_proven'] for e in entries),
-                data_sections=sum(len(e['data']) - len(e['kept_elsewhere']) for e in entries),
-                kept_elsewhere_bytes=sum(c['bytes'] for e in entries for c in e['kept_elsewhere']),
-                names=[e['module'] for e in entries], proven=proven_data(entries),
-                **route_a_form(entries, source_reader(repository), catalog))
-
-
+# Tracked manifests carry no absolute local path (tests/test_original_target_refile_unit.py checks the tree).
 LOCAL_PATH_MARK = re.compile(r'(?<![\w.\-])(?:[A-Za-z]:)?[\\/]{1,2}(?:Users|home|private|var|tmp|Volumes)[\\/]'
                              r'|\.claude[\\/]+worktrees')
 
@@ -513,129 +263,6 @@ def manifest_local_paths(repository=REPOSITORY, folder='manifests'):
     return found
 
 
-def local_path_lines(repository=REPOSITORY):
-    """A status row only when a tracked manifest carries an absolute local path (there must be none)."""
-    found = manifest_local_paths(repository)
-    if not found:
-        return []
-    return ['| **Tracked manifests with an absolute local path (must be 0)** | **{:,}**: {} |'.format(
-        len(found), ', '.join(name for name, _ in found[:8]))]
-
-
-def source_reader(repository):
-    def read(path):
-        try:
-            return (repository / path).read_text(errors='replace')
-        except OSError:
-            return None
-    return read
-
-
-def route_a_form(entries, read=None, catalog=None):
-    """Route A units among the module maps (refile_unit.py): rows of those units that stay in
-    their own files, by kind. 'split' rows are held by another frozen population (their bytes
-    are the known ceiling of what joining can still move into unit files); 'flipped' rows were
-    moved and were not exact; 'kept' rows stay by rule. Stand-in references are other units'
-    spellings of a unit's functions (the declaration-cleanup work list). With `read`
-    (path -> text or None) the split rows are also broken down by cause, read statically
-    from each row's file against its unit's header state (refile_unit.split_class); with `catalog`
-    too, the rows the text does not decide are classed by their holding population."""
-    units = [e for e in entries if e.get('route') == 'A']
-    out = dict(route_a_units=len(units), route_a_functions=sum(len(e['code']) for e in units),
-               route_a_code_bytes=sum(e['code_bytes'] for e in units),
-               route_a_switches=sum(len(e.get('switches', [])) for e in units),
-               route_a_stand_in_references=sum(len(e.get('stand_in_references', [])) for e in units))
-    for kind in ('split', 'flipped', 'kept'):
-        rows = [r for e in units for r in e.get('residuals', []) if r.get('kind') == kind]
-        out['route_a_%s_rows' % kind] = len(rows)
-        out['route_a_%s_bytes' % kind] = sum(r['bytes'] for r in rows)
-    if read is not None:
-        import refile_unit
-        classes = refile_unit.split_classes(units, read, catalog)
-        for key, _ in refile_unit.SPLIT_CLASSES:
-            out['route_a_split_%s_rows' % key], out['route_a_split_%s_bytes' % key] = classes[key]
-    return out
-
-
-def route_a_split_causes(modules):
-    """' Split rows by cause: ...' for the Route A line, or '' when the breakdown was not read."""
-    import refile_unit
-    if any('route_a_split_%s_rows' % key not in modules for key, _ in refile_unit.SPLIT_CLASSES):
-        return ''
-    notes = dict(template='the file sets a container implementation switch such as VECTOR_IMPLEMENT_* or '
-                          'instantiates a template',
-                 header_state='another switch, another include or ghidra_types.hpp',
-                 stand_in='placeholder-form rows',
-                 emitted='comment-only files: an inline constructor, dynamic initialiser or compiler-generated '
-                         'destructor another source emits; moves only with its emitter',
-                 separate_units='the holding population compiles each source alone',
-                 option_set='compiled under another option set than the unit\'s group',
-                 own_population='every row of the holding population is this unit\'s: a second compile group a '
-                                'join would empty',
-                 frozen_bound='a mixed population; the unit\'s frozen inventory pass gives no equal bound',
-                 unclassified='nothing in the text or the holding population decides')
-    return ' Split rows by cause (read from each row\'s file and its holding population, no compile): ' + '; '.join(
-        '{} {:,} rows, {:,} bytes ({})'.format(label, modules['route_a_split_%s_rows' % key],
-                                               modules['route_a_split_%s_bytes' % key], notes[key])
-        for key, label in refile_unit.SPLIT_CLASSES) + '.'
-
-
-def route_a_line(modules):
-    return ('| Route A units (one source per original translation unit under its own header state, refile_unit.py; '
-            'part of the Module form line) | {:,} unit(s): {:,} functions, {:,} code bytes; residual rows in their own '
-            'files: **split {:,} rows, {:,} bytes** (held by another frozen population; the known ceiling of what '
-            'joining can still move), **flipped {:,} rows, {:,} bytes** (not exact when moved), kept by rule {:,} rows, '
-            '{:,} bytes; {:,} per-unit switches kept; {:,} stand-in references from other units.{} |'.format(
-                modules['route_a_units'], modules['route_a_functions'], modules['route_a_code_bytes'],
-                modules['route_a_split_rows'], modules['route_a_split_bytes'],
-                modules['route_a_flipped_rows'], modules['route_a_flipped_bytes'],
-                modules['route_a_kept_rows'], modules['route_a_kept_bytes'],
-                modules['route_a_switches'], modules['route_a_stand_in_references'], route_a_split_causes(modules)))
-
-
-def non_exact_line(drafts):
-    """STATUS line for non-exact drafts in source: (functions, bytes, mean score); no .text credit."""
-    count, size, mean = drafts
-    return ('| Non-exact drafts in source (#ifdef RA2_NON_MATCHING, manifests/original_target/non_exact.json; '
-            'never compiled by the exact build; no .text credit) | {:,} functions, {:,} bytes, mean score {:.2f} |'
-            .format(count, size, mean))
-
-
-def structure_lines(result):
-    """Table rows from the structure census (cleanup_census.py --structure, lane S1; added lane A1 2026-11-17):
-    how the tree is organised, not how much matches. RESULT is cleanup_census.structure()."""
-    c, s, f, m = result['classes'], result['switches'], result['files_outside'], result['member_counterparts']
-    a, r, e = result['address_suffixed'], result['ref_lines'], result['externs']
-    absent = [k for k, v in m['references'].items() if not v]
-    return [
-        '| Structure: class/struct names defined more than once under src/ (cleanup_census.py --structure (a)) '
-        '| {:,} of {:,} names ({:,} extra definitions) |'.format(c['multiply_defined'], c['defined'],
-                                                                 c['extra_definitions']),
-        '| Structure: files under src/recovered/ outside their unit\'s file ((c); a one-function file holds one '
-        'catalog row) | {:,} ({:,} one-function) beside {:,} unit files |'.format(
-            f['outside'], f['one_function'], f['unit_files']),
-        '| Structure: functions free or on a stand-in class where a reference has a class member ((d); mischa85 '
-        'by address, ra2-decomp/TibSun by unit-scoped name) | {:,} rows, {:,} bytes (free {:,}, stand-in {:,}){} |'.format(
-            m['rows'], m['bytes'], m['free'], m['stand_in'],
-            '; references absent: ' + ', '.join(absent) if absent else ''),
-        '| Structure: address-suffixed identifiers ((e)) | {:,} distinct, {:,} occurrences in {:,} files |'.format(
-            a['identifiers'], a['occurrences'], a['files']),
-        '| Structure: RA2_ preprocessor switches ((b); include guards excluded) | {:,} distinct in {:,} files |'.format(
-            s['count'], s['files']),
-        '| Structure: "// @ref" comment lines ((f)) | {:,} in {:,} files |'.format(r['lines'], r['files']),
-        '| Structure: extern declarations in .cpp files ((g)) | {:,} lines, {:,} names, {:,} files |'.format(
-            e['lines'], e['names'], e['files']),
-    ]
-
-
-def rebuild_pair(r, function_key, unit_key, suffix=''):
-    """'F function-level (U whole-unit)' of .text for a progress.csv row; the whole-unit figure alone for rows
-    written before the function-level columns."""
-    if r.get(function_key):
-        return '**{} function-level** ({} whole-unit){}'.format(r[function_key], r[unit_key], suffix)
-    return '{}{}'.format(r[unit_key], suffix)
-
-
 def main_only(main_catalog, rebuild_catalog):
     """(functions, body bytes) of main's accepted rows whose entry has no row in the rebuild catalog: matched in
     src-final (main), not yet in the rebuild (lane O50, 2026-11-22; the line stays until it reaches zero)."""
@@ -645,10 +272,10 @@ def main_only(main_catalog, rebuild_catalog):
 
 
 def rebuild_categories(repository=REPOSITORY, main_catalog=None):
-    """Whole-unit category bytes of the rebuild catalog (rebuild/manifest/catalog: the rows the whole-file build
+    """Whole-unit category bytes of the rebuild catalog (manifests/catalog: the rows the whole-file build
     accepts), counted as main's coverage() counts main's: C/C++ body (no padding, no evidenced inline asm),
     evidenced inline asm body, frozen padding. None when the rebuild has no catalog."""
-    path = Path(repository) / 'rebuild/manifest/catalog'
+    path = Path(repository) / 'manifests/catalog'
     if not path.exists():
         return None
     catalog = catalog_io.load(path, references=False)
@@ -671,7 +298,7 @@ def rebuild_flagged_judgment(catalog, repository=REPOSITORY):
     judgment note names a flag lists among its dependents (an address there that is a catalog entry). Counted over
     the catalog (whole-unit accepted rows), as main counts its accepted regions."""
     import csv
-    manifest = Path(repository) / 'rebuild/manifest'
+    manifest = Path(repository) / 'manifests'
     body = {'%08x' % r['entry']: r['body_bytes'] for r in catalog['regions']}
     flagged = set()
     path = manifest / 'provenance.csv'
@@ -695,13 +322,13 @@ def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, reposi
     category lines (lane O41, 2026-11-22; AGENTS.md status measures): Reproduced .text is the sum of C/C++ body,
     evidenced inline asm, frozen padding, linked library members and assembled handwritten asm in both trees. The
     rebuild's whole-unit categories come from its catalog; its function-level figures (each function checked on its
-    own, as ra2-decomp reports) and structure from the last gated-landing row of rebuild/manifest/progress.csv. Both
+    own, as ra2-decomp reports) and structure from the last gated-landing row of manifests/progress.csv. Both
     builds link the same library members and assemble the same procedures (manifests/original_target/library.json,
     assembly.json). MAIN is coverage() of main's catalog; JUDGMENT main's (regions, body bytes); MAIN_CLEAN main's
     C/C++ body bytes outside its judgment-flagged rows. ASM_BYTES is all assembled bytes; REVISED_BYTES the part of
     it in the revised, binary-derived category (user decision 2026-11-24), shown on its own line."""
     import csv
-    path = Path(repository) / 'rebuild/manifest/progress.csv'
+    path = Path(repository) / 'manifests/progress.csv'
     if not path.exists():
         return []
     rows = [r for r in csv.DictReader(path.open()) if r.get('tree') in ('rebuild-trial', 'main')]
@@ -755,8 +382,8 @@ def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, reposi
         kind_cell = r.get('judgment_by_kind') or 'none'
     else:
         soft_cell = kind_cell = 'from the next gated landing'
-    lines = ['| Tree (built separately; numbers side by side, never added) | `src/` at src-final (frozen {}) '
-             '| `rebuild/` (tree of record; last gated landing {}) |'.format(FROZEN_ON, r['time_utc']),
+    lines = ['| Tree (numbers side by side, never added) | src-final (the earlier tree, frozen {}; tag src-final) '
+             '| this tree (`src/`, `include/`; last gated landing {}) |'.format(FROZEN_ON, r['time_utc']),
              '| --- | ---: | ---: |',
              '| Reproduced .text (both trees: C/C++ body + evidenced inline asm + frozen padding + linked library '
              'members + assembled handwritten asm, the six lines below) | {} ({:,} B) | {} |'.format(
@@ -802,7 +429,7 @@ def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, reposi
              '| Accepted | {:,} regions | {:,} functions in {:,} units{} |'.format(main['regions'],
                  int(r['functions_exact']), int(r['units']), '; function-level {:,} functions'.format(
                      int(r['function_level_functions'])) if r.get('function_level_functions') else ''),
-             '| Rebuild provenance (rebuild/README.md; body plus padding) | | adopted {:,} fn / {:,} B; reshaped from '
+             '| Provenance (docs/REBUILD.md; body plus padding) | | adopted {:,} fn / {:,} B; reshaped from '
              'src/ {:,} / {:,} B; fresh {:,} / {:,} B; Windows workers {:,} / {:,} B |'.format(
                  int(r['a_functions']), int(r['a_bytes']), int(r['b_functions']), int(r['b_bytes']),
                  int(r['c_functions']), int(r['c_bytes']), int(r['workers_functions']), int(r['workers_bytes'])),
@@ -831,11 +458,11 @@ def rebuild_first(line):
 
 
 def rebuild_history_lines(repository=REPOSITORY, limit=12):
-    """Matched C/C++ body bytes per gated landing of the tree of record (rebuild/manifest/progress.csv, whole-unit),
+    """Matched C/C++ body bytes per gated landing of the tree of record (manifests/progress.csv, whole-unit),
     with bytes per hour since the previous row that changed them; the last LIMIT such rows."""
     import csv
     from datetime import datetime
-    path = Path(repository) / 'rebuild/manifest/progress.csv'
+    path = Path(repository) / 'manifests/progress.csv'
     if not path.exists():
         return []
     rows = [r for r in csv.DictReader(path.open()) if r.get('tree') in ('rebuild-trial', 'main') and r.get('c_body_bytes')]
@@ -846,7 +473,7 @@ def rebuild_history_lines(repository=REPOSITORY, limit=12):
     if len(kept) < 2:
         return []
     when = lambda r: datetime.strptime(r['time_utc'], '%Y-%m-%dT%H:%MZ')
-    lines = ['Rebuild history (rebuild/manifest/progress.csv; C/C++ body bytes whole-unit per gated landing that changed '
+    lines = ['Rebuild history (manifests/progress.csv; C/C++ body bytes whole-unit per gated landing that changed '
              'them, and per hour since the previous one):', '',
              '| Landing (UTC) | Functions | C/C++ body bytes | +Body | +Body/hour |', '| --- | ---: | ---: | ---: | ---: |']
     window = kept[-(limit + 1):]
@@ -858,111 +485,59 @@ def rebuild_history_lines(repository=REPOSITORY, limit=12):
     return lines + ['']
 
 
-def render(catalog, text, rows, funcs=None, lib=None, asm=None, drafts=(0, 0, 0.0), structure=None):
+def source_split(repository=REPOSITORY):
+    """provenance_rollup.rollup over the tree's catalog (None without one)."""
+    import provenance_rollup
+    path = Path(repository) / 'manifests/catalog'
+    if not path.exists():
+        return None
+    return provenance_rollup.rollup(catalog_io.load(path, references=False)['regions'], Path(repository) / 'manifests')
+
+
+def source_lines(split=None):
+    """The by-source split of the accepted text (provenance_rollup.py), for STATUS."""
+    import provenance_rollup
+    split = split if split is not None else source_split()
+    if split is None:
+        return []
+    return ['Where the accepted text came from (tools/original_target/provenance_rollup.py over manifests/catalog; '
+            'body bytes include evidenced inline asm):', ''] + provenance_rollup.table_lines(split) + ['', provenance_rollup.CAVEAT, '']
+
+
+README_BEGIN, README_END = '<!-- generated:sources -->', '<!-- /generated:sources -->'
+
+
+def readme_sentence(split):
+    """The README's provenance sentence, from the roll-up."""
+    n = lambda s: '{:,}'.format(split[s][0])
+    kb = lambda s: '{:,.0f} KB'.format(split[s][1] / 1000.0)
+    import provenance_rollup
+    return ('Most of the code is adopted from other projects, with credit; the largest source is mischa85\'s RedAlert2 '
+            'decompilation ({} functions, {} of function bodies). {} functions come from ra2-decomp ({}), {} from the '
+            'Tiberian Sun reconstruction ({}), {} from other references (RobinDigitalPro, Renegade, Generals); {} were '
+            'reshaped from this project\'s earlier tree ({}), {} written fresh here ({}), {} are this project\'s own '
+            'matching, done on its Windows machines ({}), and {} are template copies and header scans in files not '
+            'adopted from one source ({}). {} (Generated by `tools/original_target/provenance_rollup.py`.)').format(
+        n('mischa85'), kb('mischa85'), n('ra2-decomp'), kb('ra2-decomp'), n('tibsun'), kb('tibsun'),
+        '{:,}'.format(sum(split[s][0] for s in ('robin', 'renegade', 'generals'))), n('reshaped-from-main'),
+        kb('reshaped-from-main'), n('fresh'), kb('fresh'), n('windows-workers'), kb('windows-workers'), n('mixed'),
+        kb('mixed'), provenance_rollup.CAVEAT)
+
+
+def render(catalog, text, lib=None, asm=None):
+    """The generated block: the tree's figures beside src-final's (CATALOG: src-final's frozen catalog)."""
     now = coverage(catalog)
-    modules = module_form(catalog=catalog)
-    calibrated = calibrated_coverage(catalog)
     judgment = judgment_coverage(catalog)
-    scaffold = text - now['body'] - now['padding'] - now['evidenced_inline_asm'] - (lib['bytes'] if lib else 0) - (asm['bytes'] if asm else 0)
-    populations = Counter(r['population'] for r in catalog['regions'])
-    split = ledger(catalog, text)
     lib_bytes = lib['bytes'] if lib else 0
     asm_bytes = asm['bytes'] if asm else 0
-    reproduced = now['body'] + now['evidenced_inline_asm'] + now['padding'] + lib_bytes + asm_bytes
     main_clean = sum(r['body_bytes'] for r in catalog['regions']
                      if not evidenced_inline_asm(r) and not any(r.get(flag) is True for flag in JUDGMENT_FLAGS))
     revised_bytes = asm.get('revised_bytes', 0) if asm else 0
     lines = [BEGIN, ''] + rebuild_lines(text, now, lib_bytes, asm_bytes, judgment, main_clean, main_catalog=catalog,
                                         revised_bytes=revised_bytes) + rebuild_history_lines() + [
-             'src-final: `src/` and main\'s catalog (manifests/original_target/), frozen at the tag src-final on {} '
-             '(read-only reference; `./build.command --tree src` still reproduces the original from them):'.format(FROZEN_ON),
-             '', '| src-final measure | Value |', '| --- | ---: |',
-             '| **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + '
-             'evidenced inline asm + frozen padding + linked library members + assembled handwritten asm; 100% when done) '
-             '| **{:,} of {:,} ({:.2f}%)** |'.format(reproduced, text, 100.0 * reproduced / text),
-             '| Judgment-call bytes (accepted rows resting on a flagged, unprovable choice: {}; read from the manifest) '
-             '| {:,} in {:,} regions ({:.2f}% of .text) |'.format(', '.join(JUDGMENT_FLAGS), judgment[1], judgment[0],
-                                                                 100.0 * judgment[1] / text),
-             '| Accepted regions | {:,} |'.format(now['regions']),
-             '| Matched C/C++ body bytes | {:,} ({:.2f}% of .text) |'.format(now['body'], 100.0 * now['body'] / text),
-             '| Count-calibrated C/C++ bytes (rows whose named locals were chosen by count calibration under the user\'s '
-             'three conditions, 2026-11-09; own category, included in the matched C/C++ bytes above) '
-             '| {:,} in {:,} regions ({:.2f}% of .text) |'.format(calibrated[1], calibrated[0], 100.0 * calibrated[1] / text),
-             '| Evidenced inline assembly body bytes (cited TibSun `__asm`; own category beside library code, '
-             'not C/C++ credit) | {:,} ({:.2f}% of .text) |'.format(now['evidenced_inline_asm'],
-                                                            100.0 * now['evidenced_inline_asm'] / text),
-             '| Frozen padding bytes | {:,} |'.format(now['padding']),
-             '| Module form (sources in original translation-unit form, no addresses; manifests/original_target/modules/) '
-             '| {:,} module(s): {:,} functions, {:,} code bytes; **{:,} data bytes compiler-emitted and proven at their '
-             'original addresses** in {:,} sections, {:,} bytes of vtable/RTTI copies kept elsewhere; {:,} header gaps '
-             '(withheld template details, modules.json header_gaps; no bytes) in {:,} module(s); own ledger, no .text '
-             'credit ({}) |'.format(modules['modules'], modules['functions'], modules['code_bytes'], modules['data_bytes'],
-                                     modules['data_sections'], modules['kept_elsewhere_bytes'], modules['header_gaps'],
-                                     modules['header_gap_modules'], ', '.join(modules['names']) or 'none'),
-             ] + ([route_a_line(modules)] if modules['route_a_units'] else []) + [own_bound_line(catalog), joined_under_gr_line()] + unit_evidence_lines(catalog) + [address_named_line(catalog), declarations_only_line(catalog)] + data_bound_by_lines(catalog) + [generated_data_line()] + local_path_lines() + [
-             '| C runtime / library bytes (.text >= 0x{:X}; library ledger, not source credit) '
-             '| {:,} ({:.2f}% of .text; {:,} matched) |'.format(CRT_START, split['crt'], 100.0 * split['crt'] / text,
-                                                              split['crt_matched']),
-             ] + ([
-             '| Linked library bytes (identified archive members built from the pinned SP3 LIBCMT/COMSUPP and VC98 import libraries; '
-             'manifests/original_target/library.json; not source credit) | {:,} in {:,} sections ({:.2f}% of .text) |'
-             .format(lib['bytes'], lib['sections'], 100.0 * lib['bytes'] / text),
-             ] if lib else []) + [
-             ] + ([
-             '| Handwritten assembly reproduced from adopted TibSun .asm sources (manifests/original_target/assembly.json; '
-             'own ledger) | {:,} in {:,} procedures |'.format(asm['bytes'] - revised_bytes,
-                                                             asm['regions'] - asm.get('revised_regions', 0)),
-             '| Handwritten assembly reproduced from revised, binary-derived lines (ra2-decomp src/ra2asm text revising a '
-             'cited TibSun archive procedure; per-source allowlist, rows flagged revised: binary-derived; Reproduced '
-             '.text only, never C/C++; user decision 2026-11-24) | {:,} in {:,} procedures |'.format(
-                 revised_bytes, asm.get('revised_regions', 0)),
-             ] if asm else []) + [
-             '| Handwritten blitter/codec assembly bytes ({} owner-ruled ranges plus evidenced inline asm; '
-             'own ledger) | {:,} ({:.2f}% of .text) |'.format(len(HANDWRITTEN), split['asm'], 100.0 * split['asm'] / text),
-             '| In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) '
-             '| {:,} of {:,} ({:.2f}%) |'.format(split['in_scope_matched'], split['in_scope_total'],
-                                               100.0 * split['in_scope_matched'] / split['in_scope_total']
-                                               if split['in_scope_total'] else 0.0),
-             ] + ([
-             '| In-scope functions matched (game code below 0x{:X}, handwritten ranges and known false rows '
-             'excluded) | {:,} of {:,} ({:.2f}%) |'.format(CRT_START, funcs['done'], funcs['total'],
-                                                       100.0 * funcs['done'] / funcs['total']),
-             '| Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; {:,} of {:,} '
-             'scored) | {:.2f}% by bytes, {:.2f}% per function |'.format(funcs['scored'], funcs['open'],
-                                                                       funcs['fuzzy_bytes'], funcs['fuzzy_functions']),
-             '| In-scope functions with source (exact or draft: accepted rows plus non-exact drafts in source) '
-             '| {:,} of {:,} ({:.2f}%) |'.format(funcs.get('with_source', funcs['done']), funcs['total'],
-                                               100.0 * funcs.get('with_source', funcs['done']) / funcs['total']),
-             ] if funcs else []) + [non_exact_line(drafts)] + (structure_lines(structure) if structure else []) + [
-             '| Original .text scaffold bytes | {:,} |'.format(scaffold),
-             '| Logical .text bytes | {:,} |'.format(text),
-             '| Compiler populations | {} |'.format(len(populations)),
-             '| Compile path (build environment, with the pinned VC6 SP3 8447 compiler; docs/ORIGINAL_TARGET_BUILD.md '
-             '"Fixed compile folder") | `{}` |'.format(FIXED_LAYOUT),
-             '| Populations under /GR (docs/DECISIONS.md "/GR per population") | {} of {} |'.format(
-                 len({r['population'] for r in catalog['regions'] if '/GR' in r.get('options', ())}), len(populations)),
-             '| Non-code bytes proven at their original addresses (module maps, deduplicated by address; not .text '
-             'credit) | {:,} of {:,} file-backed ({:.1f}%); RTTI {:,}, vtables {:,}, strings {:,}; {} class hierarchy '
-             'descriptor(s) differ from the original only in the ambiguous bit (known difference; '
-             'the attributes word is not counted) |'.format(
-                 modules['proven'][0], FILE_BACKED_NON_CODE, 100.0 * modules['proven'][0] / FILE_BACKED_NON_CODE,
-                 modules['proven'][1]['rtti'], modules['proven'][1]['vtable'], modules['proven'][1]['string'],
-                 modules['proven'][2]), '']
-    if rows:
-        lines += ['src/ manifest history, frozen at src-final (body bytes added per commit, and per hour since the '
-                  'previous commit):', '',
-                  '| Commit | Time | Regions | Body bytes | +Body | +Body/hour |',
-                  '| --- | --- | ---: | ---: | ---: | ---: |']
-        previous = None
-        for row in rows:
-            added = row['body'] - previous['body'] if previous else 0
-            hours = (row['time'] - previous['time']).total_seconds() / 3600 if previous else 0
-            rate = '{:,.0f}'.format(added / hours) if hours > 0 else ''
-            lines.append('| `{}` | {} | {:,} | {:,} | {:+,} | {} |'.format(
-                row['commit'], row['time'].strftime('%Y-%m-%d %H:%M %z'), row['regions'], row['body'],
-                added, rate))
-            previous = row
-        lines.append('')
+             'src-final (the earlier tree: `src/recovered`, `src/shared` and the catalog manifests/original_target/, '
+             'frozen on {}): its full table and commit history, which cannot change, are in '
+             '[history/SRC_FINAL_STATUS.md](history/SRC_FINAL_STATUS.md).'.format(FROZEN_ON), ''] + source_lines()
     lines.append(END)
     return '\n'.join(lines)
 
@@ -973,12 +548,10 @@ def main():
     parser.add_argument('--text-bytes', type=int, help='override instead of reading the executable')
     parser.add_argument('--write', action='store_true', help='replace the generated block in docs/STATUS.md')
     args = parser.parse_args()
+    # src-final's catalog (frozen evidence): the reference column, and the library and assembly ledgers both trees share.
     catalog = catalog_io.load(catalog_io.locate(REPOSITORY), references=False)
     text = args.text_bytes or text_bytes(json.loads(args.config.read_bytes())['executable'])
-    import non_exact
-    import cleanup_census
-    block = render(catalog, text, history(), load_functions(), load_library(), load_assembly(),
-                   non_exact.summary(REPOSITORY), cleanup_census.structure(REPOSITORY))
+    block = render(catalog, text, lib=load_library(), asm=load_assembly())
     if not args.write:
         print(block); return
     path = REPOSITORY / 'docs/STATUS.md'
@@ -988,11 +561,13 @@ def main():
     head, rest = current.split(BEGIN, 1)
     path.write_text(head + block + rest.split(END, 1)[1])
     print('updated', path)
-    # The flat function map (export_function_map.py; byte-free, ~2.4 MB) follows the catalog.
-    import export_function_map
-    table = REPOSITORY / 'manifests/function_map.csv'
-    table.write_text(export_function_map.render(export_function_map.rows(*export_function_map.load(REPOSITORY))))
-    print('updated', table)
+    readme = REPOSITORY / 'README.md'
+    current = readme.read_text()
+    split = source_split()
+    if split is not None and README_BEGIN in current and README_END in current:
+        head, rest = current.split(README_BEGIN, 1)
+        readme.write_text(head + README_BEGIN + '\n' + readme_sentence(split) + '\n' + README_END + rest.split(README_END, 1)[1])
+        print('updated', readme)
 
 
 if __name__ == '__main__':

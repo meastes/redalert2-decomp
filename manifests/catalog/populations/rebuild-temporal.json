@@ -1,0 +1,3051 @@
+{
+  "id": "rebuild-temporal",
+  "population": {
+    "id": "rebuild-temporal",
+    "inventory_sha256": "95d7c9e5d6feaf9a325660e9853d1c49a47c455ed737f8ba4457dcaf1c52a9e0",
+    "gaps_sha256": "efa2ccc6a15fb75e408875cb5c0feb1a1209cf6a17dc080067614cf25f805723",
+    "historical_population_sha256": "89c5627bb6f736b5afb723afff25637fe7e36fb33421ebfef225ef3e620c3989",
+    "historical_acceptance_sha256": "63dbfe283f17a8d6fbe6699e8c5a70b5ac2129bb12136cd155c293b200f50810"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 11272952,
+    "_ISO_TILE_SIZE": 8049312,
+    "_LEPTONS_PER_PIXEL": 11273024,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 11273008,
+    "_ONE_RAD": 8049320,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 11273000,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 11272960,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 11272896,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 11273032,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 11272968,
+    "_CELL_DIAG_SLOPE_ANGLE": 11272992,
+    "_BRIDGE_LEPTON_HEIGHT": 11273016,
+    "_CELL_NONE": 11272920,
+    "_COORD_NONE": 11272976,
+    "_RECT_NONE": 11272904,
+    "_$E81": 7216816,
+    "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A": 11272928,
+    "??_7?$DynamicVectorClass@PAVTemporalClass@@@@6B@": 8049332,
+    "_atexit": 7874954,
+    "??_7?$VectorClass@PAVTemporalClass@@@@6B@": 8049364,
+    "??3@YAXPAX@Z": 7871803,
+    "??0AbstractClass@@QAE@XZ": 4259600,
+    "?Frame@@3HA": 10751276,
+    "??_7TemporalClass@@6BIPersistStream@@@": 8049440,
+    "??_7TemporalClass@@6BIRTTITypeInfo@@@": 8049412,
+    "??_7TemporalClass@@6BINoticeSink@@@": 8049404,
+    "??_7TemporalClass@@6BINoticeSource@@@": 8049396,
+    "??0AbstractClass@@QAE@ABVNoInitClass@@@Z": 4259680,
+    "??1AbstractClass@@UAE@XZ": 4259728,
+    "?Compute_CRC@AbstractClass@@UBEXAAVCRCEngine@@@Z": 4260272,
+    "?Load@AbstractClass@@UAGJPAUIStream@@@Z": 4260128,
+    "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
+    "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
+    "?Save@AbstractClass@@UAGJPAUIStream@@H@Z": 4260032,
+    "_CLSID_TemporalClass": 8003104,
+    "?Detach@TemporalClass@@QAEXXZ": 7218960,
+    "?GetWarpPerStep@TemporalClass@@QAEHH@Z": 7218288,
+    "??2@YAPAXI@Z": 7872535,
+    "?Rule@@3PAVRulesClass@@A": 8624200,
+    "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z": 4325648,
+    "?Made_A_Kill@VeterancyClass@@QAEXHH@Z": 7418720,
+    "?GetOccupantCount@BuildingClass@@QBEHXZ": 4535024,
+    "?KillOccupants@BuildingClass@@QAEXPAVTechnoClass@@@Z": 4536016,
+    "?ScenarioInit@@3HA": 10749812,
+    "?Detach_Object@CargoClass@@QAEPAVFootClass@@XZ": 4622832,
+    "?Suspend@SuperClass@@QAE_N_N@Z": 6933600,
+    "?LetGo@TemporalClass@@QAEXXZ": 7218432,
+    "?EnableTemporal@BuildingClass@@QAEXXZ": 4510592,
+    "?KillNodes@SpawnManagerClass@@QAEXXZ": 6855536,
+    "?FreeAll@CaptureManagerClass@@QAEXXZ": 4620768,
+    "?PlayerPtr@@3PAVHouseClass@@A": 10706356,
+    "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z": 6534576,
+    "??_C@_0BI@GJGA@EVA_OreMinerUnderAttack?$AA@": 8356252,
+    "?Queue_Speech@@YIXPBDHH@Z": 7428928,
+    "?Attacked@HouseClass@@QAEXPAVBuildingClass@@@Z": 5132128,
+    "?DisableTemporal@BuildingClass@@QAEXXZ": 4510496,
+    "_$E2": 7216256,
+    "_$E5": 7216304,
+    "_$E8": 7216336,
+    "_$E11": 7216368,
+    "_$E14": 7216400,
+    "_$E17": 7216432,
+    "_$E20": 7216464,
+    "_$E23": 7216528,
+    "_$E26": 7216576,
+    "_$E29": 7216624,
+    "_$E32": 7216672,
+    "_$E35": 7216688,
+    "_$E38": 7216720,
+    "_$E83": 7216752,
+    "??_G?$DynamicVectorClass@PAVTemporalClass@@@@UAEPAXI@Z": 7220672,
+    "??_G?$VectorClass@PAVTemporalClass@@@@UAEPAXI@Z": 7220592,
+    "??0TemporalClass@@QAE@XZ": 7216880,
+    "?Unknown_Virtual_0@AbstractClass@@UAEXH@Z": 4260656,
+    "?Unknown_Virtual_0@AbstractClass@@UAE_NHH@Z": 4260640,
+    "?Create_ID@AbstractClass@@UAGXXZ": 4259792,
+    "?Fetch_ID@AbstractClass@@UBGHXZ": 4259776,
+    "?What_Am_I@AbstractClass@@UBGHXZ": 4259760,
+    "?As_Coord@AbstractClass@@UBE?AVCoord@@XZ": 4260576,
+    "?In_Air@AbstractClass@@UBE_NXZ": 4260560,
+    "?On_Ground@AbstractClass@@UBE_NXZ": 4260544,
+    "?Destination_Coord@AbstractClass@@UBE?AVCoord@@PAVTechnoClass@@@Z": 4260496,
+    "?Center_Coord@AbstractClass@@UBE?AVCoord@@XZ": 4260448,
+    "?Is_Inactive@AbstractClass@@UBE_NXZ": 4260320,
+    "?Fetch_Heap_ID@AbstractClass@@UBEHXZ": 4260432,
+    "?Owner_HouseClass@AbstractClass@@UBEPAVHouseClass@@XZ": 4260416,
+    "?Owner@AbstractClass@@UBE?AW4HousesType@@XZ": 4260400,
+    "?Detach@AbstractClass@@UAEXPBV1@_N@Z": 4260384,
+    "?Init@AbstractClass@@UAEXXZ": 4260368,
+    "??_GTemporalClass@@UAEPAXI@Z": 7219744,
+    "?GetSizeMax@AbstractClass@@UAGJPAT_ULARGE_INTEGER@@@Z": 4260224,
+    "?IsDirty@AbstractClass@@UAGJXZ": 4260336,
+    "?Release@AbstractClass@@UAGKXZ": 4260016,
+    "?AddRef@AbstractClass@@UAGKXZ": 4260000,
+    "?QueryInterface@AbstractClass@@UAGJABU_GUID@@PAPAX@Z": 4259840,
+    "??0TemporalClass@@QAE@PAVTechnoClass@@@Z": 7217024,
+    "??0TemporalClass@@QAE@ABVNoInitClass@@@Z": 7217216,
+    "??1TemporalClass@@UAE@XZ": 7217280,
+    "?Compute_CRC@TemporalClass@@UBEXAAVCRCEngine@@@Z": 7217408,
+    "?Load@TemporalClass@@UAGJPAUIStream@@@Z": 7217424,
+    "?Save@TemporalClass@@UAGJPAUIStream@@H@Z": 7217616,
+    "?GetClassID@TemporalClass@@UAGJPAU_GUID@@@Z": 7217648,
+    "?AI@TemporalClass@@UAEXXZ": 7217712,
+    "?Detach_Techno@TemporalClass@@QAEXPBVAbstractClass@@@Z": 7218368,
+    "?Release_Target@TemporalClass@@QAEXXZ": 7218672,
+    "?Restore_Target@TemporalClass@@QAEXXZ": 7218704,
+    "?Empty@TemporalClass@@QAEXXZ": 7218800,
+    "?JustLetGo@TemporalClass@@QAEXXZ": 7218816,
+    "?Clear_Links@TemporalClass@@QAEXXZ": 7218928,
+    "?CanWarpTarget@TemporalClass@@QAE_NPAVTechnoClass@@@Z": 7219056,
+    "?Fire@TemporalClass@@QAEXPAVTechnoClass@@@Z": 7219120,
+    "?Fetch_Object_Size@TemporalClass@@UBEHXZ": 7219712,
+    "?Fetch_RTTI@TemporalClass@@UBE?AW4RTTIType@@XZ": 7219728,
+    "?Clear@?$DynamicVectorClass@PAVTemporalClass@@@@UAEXXZ": 7219888,
+    "?ID@?$DynamicVectorClass@PAVTemporalClass@@@@UAEHPBQAVTemporalClass@@@Z": 7219936,
+    "?GetItem@?$VectorClass@PAVTemporalClass@@@@UBEPAVTemporalClass@@H@Z": 7219968,
+    "??8?$VectorClass@PAVTemporalClass@@@@UBE_NABV0@@Z": 7219984,
+    "?Resize@?$VectorClass@PAVTemporalClass@@@@UAE_NHPBQAVTemporalClass@@@Z": 7220048,
+    "?Clear@?$VectorClass@PAVTemporalClass@@@@UAEXXZ": 7220224,
+    "?ID@?$VectorClass@PAVTemporalClass@@@@UAEHABQAVTemporalClass@@@Z": 7220272,
+    "?ID@?$VectorClass@PAVTemporalClass@@@@UAEHPBQAVTemporalClass@@@Z": 7220336,
+    "?Resize@?$DynamicVectorClass@PAVTemporalClass@@@@UAE_NHPBQAVTemporalClass@@@Z": 7220368,
+    "?ID@?$DynamicVectorClass@PAVTemporalClass@@@@UAEHABQAVTemporalClass@@@Z": 7220544,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "?QueryInterface@AbstractClass@@W3AGJABU_GUID@@PAPAX@Z": 4260736,
+    "?AddRef@AbstractClass@@W3AGKXZ": 4260752,
+    "?Release@AbstractClass@@W3AGKXZ": 4260768
+  },
+  "regions": [
+    {
+      "entry": 7216256,
+      "method": "006e1c80",
+      "body_bytes": 40,
+      "body_sha256": "9b339c04346f19792b8c47c5f5202258c7aed69992b77ab1437b95df21bb7a5d",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "391b468659624f353bd76b8b67fb0ba01991dbd91e15dc855cb479c584794412",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 656671
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292708210
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11272952,
+          "addend": 0,
+          "resolved": 11272952
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7216256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216304,
+      "method": "006e1cb0",
+      "body_bytes": 19,
+      "body_sha256": "e5926f773c0d63b1d2d15d7351397d4062536b65ea79769dde80f3d27c5a45e9",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "d8a422f683a610da8f4e820fb92ca404bf7108b0fc808b17013370cd4ce90aa1",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11272952,
+          "addend": 0,
+          "resolved": 11272952
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8049312,
+          "addend": 0,
+          "resolved": 8049312
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11273024,
+          "addend": 0,
+          "resolved": 11273024
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7216304,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216336,
+      "method": "006e1cd0",
+      "body_bytes": 19,
+      "body_sha256": "47208f62f9cd1e3ee3855c66c295c1f64a7544c40640b154f1c2f0226b368a38",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2fe41adb4913af362a97c7b0a7af8e794fa0d713975bffb0c4fd6cfcc8594d53",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11273024,
+          "addend": 0,
+          "resolved": 11273024
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 11273008,
+          "addend": 0,
+          "resolved": 11273008
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7216336,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216368,
+      "method": "006e1cf0",
+      "body_bytes": 19,
+      "body_sha256": "427784d284f35539944419707b87174b2106266532a4efc78f096cebc56a19d2",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "c7982408dd72075fbb3df06c4e7c64ffafe34a0095661ca7df17d0bfb6d10b24",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8049320,
+          "addend": 0,
+          "resolved": 8049320
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 11273000,
+          "addend": 0,
+          "resolved": 11273000
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7216368,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216400,
+      "method": "006e1d10",
+      "body_bytes": 19,
+      "body_sha256": "ac94efe822fd32648d165c2ebd38c42df0aba848e9711ffd295597ab26e1c5ee",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "cfc3b97c89f1c7c19a5219c2744728b889d12b1c5ad7e68eac8a44198c9c3a7e",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8049320,
+          "addend": 0,
+          "resolved": 8049320
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11272960,
+          "addend": 0,
+          "resolved": 11272960
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7216400,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216432,
+      "method": "006e1d30",
+      "body_bytes": 19,
+      "body_sha256": "08d656954b80eaad972a227c94afa2b618740b7a3bcd0d1515b105fec0ef834e",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "7b02de255286838f8cbcdbba296303547db7770a0c653a183d00620dea2daf28",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8049320,
+          "addend": 0,
+          "resolved": 8049320
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11272896,
+          "addend": 0,
+          "resolved": 11272896
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7216432,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216464,
+      "method": "006e1d50",
+      "body_bytes": 49,
+      "body_sha256": "18206d4bee9b06e2f15105cb6a63b30195865b358154521b0be83c30cb8e1ffc",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "ec6392cfa73653aecc9de7a602693653bdc7a16152398bcfaf93c047a084177c",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11272896,
+          "addend": 0,
+          "resolved": 11272896
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11272960,
+          "addend": 0,
+          "resolved": 11272960
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4292708281
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11272952,
+          "addend": 0,
+          "resolved": 11272952
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 643989
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11273032,
+          "addend": 0,
+          "resolved": 11273032
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7216464,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216528,
+      "method": "006e1d90",
+      "body_bytes": 33,
+      "body_sha256": "516f25754947c47a037ae306f1eac1bd2bf52b99cf3a01620011faa598b536f5",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "f315b048943e8df683a80223287c241335ca21bd8035a534dddc4e271457a4ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11273032,
+          "addend": 0,
+          "resolved": 11273032
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292708361
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 11272968,
+          "addend": 0,
+          "resolved": 11272968
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7216528,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216576,
+      "method": "006e1dc0",
+      "body_bytes": 44,
+      "body_sha256": "b77f826f226d6c1ee3a93613fa1a00e621d81ce32cd346484de0b08f81691753",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "26f9d366e7ea946204c8b7af1b0d74a884e4c8a5e7d338807f2e816710f45c72",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11273032,
+          "addend": 0,
+          "resolved": 11273032
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11272952,
+          "addend": 0,
+          "resolved": 11272952
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292708302
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 11272992,
+          "addend": 0,
+          "resolved": 11272992
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7216576,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216624,
+      "method": "006e1df0",
+      "body_bytes": 39,
+      "body_sha256": "a067c9250c96c76fcf710a6631a5f13e629c2a837ed8fdbd7ef7e0a426e71e7f",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8eb7da32b0b43a897dd282d38bbe30a301295d854a61705924e2a5ccb6486b0f",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11273032,
+          "addend": 0,
+          "resolved": 11273032
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 643840
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11273016,
+          "addend": 0,
+          "resolved": 11273016
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7216624,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216672,
+      "method": "006e1e20",
+      "body_bytes": 15,
+      "body_sha256": "0928cee56994b711bbbfc9ba8ab36538994feacca5e4736e8077ddf946673266",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "90ccff81de0f6da5b5ca845ea8f7a19a674ec963d773eaa93fc836cd8e09375a",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11272920,
+          "addend": 0,
+          "resolved": 11272920
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11272920,
+          "addend": 2,
+          "resolved": 11272922
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7216672,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216688,
+      "method": "006e1e30",
+      "body_bytes": 18,
+      "body_sha256": "a3953c6cfbc2123850544fb4af87ca5be432f205fcc29715ce8e4387c86a3d51",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4731f0144bed7fb2a30774c1c9b85242fe4f3ff00f65a7095822d8c3711ce41a",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272976,
+          "addend": 0,
+          "resolved": 11272976
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272976,
+          "addend": 4,
+          "resolved": 11272980
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272976,
+          "addend": 8,
+          "resolved": 11272984
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7216688,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216720,
+      "method": "006e1e50",
+      "body_bytes": 23,
+      "body_sha256": "381b8a18744ecfad5da569b341014db29781f333d77c9fb1e45e6b5bfbb61a93",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b6c1a78dec121ef744c28d44409a80712f085aff340e51b943f2636f8ae48bf9",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11272904,
+          "addend": 0,
+          "resolved": 11272904
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11272904,
+          "addend": 4,
+          "resolved": 11272908
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11272904,
+          "addend": 8,
+          "resolved": 11272912
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11272904,
+          "addend": 12,
+          "resolved": 11272916
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7216720,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216752,
+      "method": "006e1e70",
+      "body_bytes": 61,
+      "body_sha256": "8567ec36218eb71993c3d3712d9a79685cdaf14b3a555253d98b2ebe91ef08d9",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "126523253ac1514b2f9a26066363285c257ce04a33d5308753ac3d70c948b8c1",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E83",
+      "symbol_prefix": "_$E83",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E81",
+          "target": 7216816,
+          "addend": 0,
+          "resolved": 7216816
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 4,
+          "resolved": 11272932
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 8,
+          "resolved": 11272936
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 12,
+          "resolved": 11272940
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 13,
+          "resolved": 11272941
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 0,
+          "resolved": 11272928
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVTemporalClass@@@@6B@",
+          "target": 8049332,
+          "addend": 0,
+          "resolved": 8049332
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 20,
+          "resolved": 11272948
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 16,
+          "resolved": 11272944
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 658143
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7216752,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216816,
+      "method": "006e1eb0",
+      "body_bytes": 59,
+      "body_sha256": "2f1f956c844a0b8f68d6e4cc9f332a0a02227600515e1a3327512b318d55337f",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "6b5924acea531ea53bc146781a83f8291c3613efad3712b7923d2644e3fd9cd1",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E81",
+      "symbol_prefix": "_$E81",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 4,
+          "resolved": 11272932
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 0,
+          "resolved": 11272928
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVTemporalClass@@@@6B@",
+          "target": 8049364,
+          "addend": 0,
+          "resolved": 8049364
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 13,
+          "resolved": 11272941
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 654951
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 4,
+          "resolved": 11272932
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 13,
+          "resolved": 11272941
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 8,
+          "resolved": 11272936
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7216816,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216880,
+      "method": "006e1ef0",
+      "body_bytes": 138,
+      "body_sha256": "0fd3f384872a66602679e8e3fe8cf322f1d958d4e460cf51335ddeee2a645862",
+      "padding_bytes": 6,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "97c775eb475d791ab9363068ba97165102928fb35ef169011731ac37a598cada",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0TemporalClass@@QAE@XZ",
+      "symbol_prefix": "??0TemporalClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??0AbstractClass@@QAE@XZ",
+          "target": 4259600,
+          "addend": 0,
+          "resolved": 4292010008
+        },
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "??_7TemporalClass@@6BIPersistStream@@@",
+          "target": 8049440,
+          "addend": 0,
+          "resolved": 8049440
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "??_7TemporalClass@@6BIRTTITypeInfo@@@",
+          "target": 8049412,
+          "addend": 0,
+          "resolved": 8049412
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "??_7TemporalClass@@6BINoticeSink@@@",
+          "target": 8049404,
+          "addend": 0,
+          "resolved": 8049404
+        },
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "??_7TemporalClass@@6BINoticeSource@@@",
+          "target": 8049396,
+          "addend": 0,
+          "resolved": 8049396
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 8,
+          "resolved": 11272936
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 16,
+          "resolved": 11272944
+        },
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 13,
+          "resolved": 11272941
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 20,
+          "resolved": 11272948
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 0,
+          "resolved": 11272928
+        },
+        {
+          "offset": 99,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 0,
+          "resolved": 11272928
+        },
+        {
+          "offset": 112,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 16,
+          "resolved": 11272944
+        },
+        {
+          "offset": 121,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 16,
+          "resolved": 11272944
+        },
+        {
+          "offset": 127,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 4,
+          "resolved": 11272932
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7216880,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7217024,
+      "method": "006e1f80",
+      "body_bytes": 190,
+      "body_sha256": "143913b6db14743e0872e82c635622dfc537a5d2c27a73cdd928ff7fae48d22b",
+      "padding_bytes": 2,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "c87b0c23864ce8c156b5f02577f89920b94bb53d8c4b90a4906c8ca5bfe5b744",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0TemporalClass@@QAE@PAVTechnoClass@@@Z",
+      "symbol_prefix": "??0TemporalClass@@QAE@PAVTechnoClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 20,
+          "symbol": "??0AbstractClass@@QAE@XZ",
+          "target": 4259600,
+          "addend": 0,
+          "resolved": 4292009860
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7TemporalClass@@6BIPersistStream@@@",
+          "target": 8049440,
+          "addend": 0,
+          "resolved": 8049440
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "??_7TemporalClass@@6BIRTTITypeInfo@@@",
+          "target": 8049412,
+          "addend": 0,
+          "resolved": 8049412
+        },
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "??_7TemporalClass@@6BINoticeSink@@@",
+          "target": 8049404,
+          "addend": 0,
+          "resolved": 8049404
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "??_7TemporalClass@@6BINoticeSource@@@",
+          "target": 8049396,
+          "addend": 0,
+          "resolved": 8049396
+        },
+        {
+          "offset": 67,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 8,
+          "resolved": 11272936
+        },
+        {
+          "offset": 95,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 16,
+          "resolved": 11272944
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 13,
+          "resolved": 11272941
+        },
+        {
+          "offset": 115,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 20,
+          "resolved": 11272948
+        },
+        {
+          "offset": 126,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 0,
+          "resolved": 11272928
+        },
+        {
+          "offset": 133,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 0,
+          "resolved": 11272928
+        },
+        {
+          "offset": 146,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 16,
+          "resolved": 11272944
+        },
+        {
+          "offset": 155,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 16,
+          "resolved": 11272944
+        },
+        {
+          "offset": 161,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 4,
+          "resolved": 11272932
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7217024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7217216,
+      "method": "006e2040",
+      "body_bytes": 62,
+      "body_sha256": "a13dcc8b8ac0367ff1bda42080381a65ea2f8df115e0d75f3a7fab3a5d019383",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "45a398ed95cd5c58731d0f8e3ccd1b958dbeefa0dcd028dce70b47900b59c520",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0TemporalClass@@QAE@ABVNoInitClass@@@Z",
+      "symbol_prefix": "??0TemporalClass@@QAE@ABVNoInitClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "??0AbstractClass@@QAE@ABVNoInitClass@@@Z",
+          "target": 4259680,
+          "addend": 0,
+          "resolved": 4292009747
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "??_7TemporalClass@@6BIPersistStream@@@",
+          "target": 8049440,
+          "addend": 0,
+          "resolved": 8049440
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "??_7TemporalClass@@6BIRTTITypeInfo@@@",
+          "target": 8049412,
+          "addend": 0,
+          "resolved": 8049412
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "??_7TemporalClass@@6BINoticeSink@@@",
+          "target": 8049404,
+          "addend": 0,
+          "resolved": 8049404
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "??_7TemporalClass@@6BINoticeSource@@@",
+          "target": 8049396,
+          "addend": 0,
+          "resolved": 8049396
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7217216,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7217280,
+      "method": "006e2080",
+      "body_bytes": 114,
+      "body_sha256": "75a1404b4b4e1b69cad4b997c3c3a46f1924af785f4bcb9a54ec2c756ccc5286",
+      "padding_bytes": 14,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "db37b6ae1b95f9df7bac42263fe6004e4edecb84ca3d32d9d4a771d4e1277bbe",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1TemporalClass@@UAE@XZ",
+      "symbol_prefix": "??1TemporalClass@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 0,
+          "resolved": 11272928
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "??_7TemporalClass@@6BIPersistStream@@@",
+          "target": 8049440,
+          "addend": 0,
+          "resolved": 8049440
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "??_7TemporalClass@@6BIRTTITypeInfo@@@",
+          "target": 8049412,
+          "addend": 0,
+          "resolved": 8049412
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "??_7TemporalClass@@6BINoticeSink@@@",
+          "target": 8049404,
+          "addend": 0,
+          "resolved": 8049404
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "??_7TemporalClass@@6BINoticeSource@@@",
+          "target": 8049396,
+          "addend": 0,
+          "resolved": 8049396
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 0,
+          "resolved": 11272928
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 16,
+          "resolved": 11272944
+        },
+        {
+          "offset": 74,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 16,
+          "resolved": 11272944
+        },
+        {
+          "offset": 82,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 4,
+          "resolved": 11272932
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 16,
+          "resolved": 11272944
+        },
+        {
+          "offset": 107,
+          "kind": 20,
+          "symbol": "??1AbstractClass@@UAE@XZ",
+          "target": 4259728,
+          "addend": 0,
+          "resolved": 4292009633
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7217280,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7217408,
+      "method": "006e2100",
+      "body_bytes": 13,
+      "body_sha256": "e63659502e86e4f66915297434136cefd2debcc864bebe917ed7791df489d83c",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "962367a5625a9d101f71fa0c51f143c35a8081bee9166f32d08d3bd1dc45121d",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Compute_CRC@TemporalClass@@UBEXAAVCRCEngine@@@Z",
+      "symbol_prefix": "?Compute_CRC@TemporalClass@@UBEXAAVCRCEngine@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?Compute_CRC@AbstractClass@@UBEXAAVCRCEngine@@@Z",
+          "target": 4260272,
+          "addend": 0,
+          "resolved": 4292010150
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7217408,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7217424,
+      "method": "006e2110",
+      "body_bytes": 177,
+      "body_sha256": "1f59e4552c20c9d90e40d61fc229ccf99153095b3a6277ae970f59e48594d7f4",
+      "padding_bytes": 15,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "26d7fdd878f465d2c40f6723c080f2b800bf223857c8892679c77266675efee9",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load@TemporalClass@@UAGJPAUIStream@@@Z",
+      "symbol_prefix": "?Load@TemporalClass@@UAGJPAUIStream@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "?Load@AbstractClass@@UAGJPAUIStream@@@Z",
+          "target": 4260128,
+          "addend": 0,
+          "resolved": 4292009983
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??0AbstractClass@@QAE@ABVNoInitClass@@@Z",
+          "target": 4259680,
+          "addend": 0,
+          "resolved": 4292009509
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "??_7TemporalClass@@6BIPersistStream@@@",
+          "target": 8049440,
+          "addend": 0,
+          "resolved": 8049440
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "??_7TemporalClass@@6BIRTTITypeInfo@@@",
+          "target": 8049412,
+          "addend": 0,
+          "resolved": 8049412
+        },
+        {
+          "offset": 75,
+          "kind": 6,
+          "symbol": "??_7TemporalClass@@6BINoticeSink@@@",
+          "target": 8049404,
+          "addend": 0,
+          "resolved": 8049404
+        },
+        {
+          "offset": 82,
+          "kind": 6,
+          "symbol": "??_7TemporalClass@@6BINoticeSource@@@",
+          "target": 8049396,
+          "addend": 0,
+          "resolved": 8049396
+        },
+        {
+          "offset": 91,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 96,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 4294695340
+        },
+        {
+          "offset": 105,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 110,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 4294695326
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 124,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 4294695312
+        },
+        {
+          "offset": 133,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 138,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 4294695298
+        },
+        {
+          "offset": 147,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 152,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 4294695284
+        },
+        {
+          "offset": 161,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 166,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 4294695270
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7217424,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7217616,
+      "method": "006e21d0",
+      "body_bytes": 23,
+      "body_sha256": "189b015610211d5cc1dc1fbe36ec50d6ea22c9c858fe87ae7747116c12d3278b",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "57c3181a3a724d3fffc7baf720549e57952a849bf92ad223d9b45d3bfad75ff3",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Save@TemporalClass@@UAGJPAUIStream@@H@Z",
+      "symbol_prefix": "?Save@TemporalClass@@UAGJPAUIStream@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "?Save@AbstractClass@@UAGJPAUIStream@@H@Z",
+          "target": 4260032,
+          "addend": 0,
+          "resolved": 4292009692
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7217616,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7217648,
+      "method": "006e21f0",
+      "body_bytes": 56,
+      "body_sha256": "974b7651f33af69d620adc8d340d87641304265416f7d0d72981e25a8286aee3",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "5511591c7ad080cb3a9829faa17036b7fc114d8607c4ebed745c1bf8fe1bd591",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetClassID@TemporalClass@@UAGJPAU_GUID@@@Z",
+      "symbol_prefix": "?GetClassID@TemporalClass@@UAGJPAU_GUID@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_CLSID_TemporalClass",
+          "target": 8003104,
+          "addend": 0,
+          "resolved": 8003104
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_CLSID_TemporalClass",
+          "target": 8003104,
+          "addend": 4,
+          "resolved": 8003108
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_CLSID_TemporalClass",
+          "target": 8003104,
+          "addend": 8,
+          "resolved": 8003112
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_CLSID_TemporalClass",
+          "target": 8003104,
+          "addend": 12,
+          "resolved": 8003116
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7217648,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7217712,
+      "method": "006e2230",
+      "body_bytes": 573,
+      "body_sha256": "33c0015bd113dc284d00ef8a8c69d5a7babd3b8a4d4e1fc47c45ac317a0bd6fa",
+      "padding_bytes": 3,
+      "full_extent_bytes": 576,
+      "full_extent_sha256": "02456de1169020c63ed049a6b493763a22468d38b09f3ec46d41fe70a4b5bc43",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AI@TemporalClass@@UAEXXZ",
+      "symbol_prefix": "?AI@TemporalClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 49,
+          "kind": 20,
+          "symbol": "?Detach@TemporalClass@@QAEXXZ",
+          "target": 7218960,
+          "addend": 0,
+          "resolved": 1195
+        },
+        {
+          "offset": 73,
+          "kind": 20,
+          "symbol": "?GetWarpPerStep@TemporalClass@@QAEHH@Z",
+          "target": 7218288,
+          "addend": 0,
+          "resolved": 499
+        },
+        {
+          "offset": 160,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 654659
+        },
+        {
+          "offset": 216,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 230,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4292074998
+        },
+        {
+          "offset": 332,
+          "kind": 20,
+          "symbol": "?Made_A_Kill@VeterancyClass@@QAEXHH@Z",
+          "target": 7418720,
+          "addend": 0,
+          "resolved": 200672
+        },
+        {
+          "offset": 371,
+          "kind": 20,
+          "symbol": "?GetOccupantCount@BuildingClass@@QBEHXZ",
+          "target": 4535024,
+          "addend": 0,
+          "resolved": 4292284233
+        },
+        {
+          "offset": 383,
+          "kind": 20,
+          "symbol": "?KillOccupants@BuildingClass@@QAEXPAVTechnoClass@@@Z",
+          "target": 4536016,
+          "addend": 0,
+          "resolved": 4292285213
+        },
+        {
+          "offset": 389,
+          "kind": 6,
+          "symbol": "?ScenarioInit@@3HA",
+          "target": 10749812,
+          "addend": 0,
+          "resolved": 10749812
+        },
+        {
+          "offset": 412,
+          "kind": 20,
+          "symbol": "?Detach_Object@CargoClass@@QAEPAVFootClass@@XZ",
+          "target": 4622832,
+          "addend": 0,
+          "resolved": 4292372000
+        },
+        {
+          "offset": 446,
+          "kind": 20,
+          "symbol": "?Suspend@SuperClass@@QAE_N_N@Z",
+          "target": 6933600,
+          "addend": 0,
+          "resolved": 4294682734
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7217712,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7218288,
+      "method": "006e2470",
+      "body_bytes": 74,
+      "body_sha256": "af445dcf7bafb38446a29b03864b8d24eb3e037b4d96993c0bf18e4de6931ce8",
+      "padding_bytes": 6,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "4b5f03f91a9ac05457856a534186c6548c2cabe33ecd1cd41c2e4912ef3621ed",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetWarpPerStep@TemporalClass@@QAEHH@Z",
+      "symbol_prefix": "?GetWarpPerStep@TemporalClass@@QAEHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?GetWarpPerStep@TemporalClass@@QAEHH@Z",
+          "target": 7218288,
+          "addend": 0,
+          "resolved": 4294967266
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7218288,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7218368,
+      "method": "006e24c0",
+      "body_bytes": 64,
+      "body_sha256": "bf475d97f99e8d29167298c8ad0a6cb81d5b4c6c9c5940c222dbd9c3b51901b3",
+      "padding_bytes": 0,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "bf475d97f99e8d29167298c8ad0a6cb81d5b4c6c9c5940c222dbd9c3b51901b3",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Detach_Techno@TemporalClass@@QAEXPBVAbstractClass@@@Z",
+      "symbol_prefix": "?Detach_Techno@TemporalClass@@QAEXPBVAbstractClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "?LetGo@TemporalClass@@QAEXXZ",
+          "target": 7218432,
+          "addend": 0,
+          "resolved": 35
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7218368,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7218432,
+      "method": "006e2500",
+      "body_bytes": 234,
+      "body_sha256": "c914575c40d2b7b1e9286dcf35aebd4b017b95abcb033520515f6c7a41b76a75",
+      "padding_bytes": 6,
+      "full_extent_bytes": 240,
+      "full_extent_sha256": "6379de839e0e9b44fd59235cf2e3d76ed8029961b8fa87f7508d1adbaa4fbb24",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?LetGo@TemporalClass@@QAEXXZ",
+      "symbol_prefix": "?LetGo@TemporalClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 126,
+          "kind": 20,
+          "symbol": "?EnableTemporal@BuildingClass@@QAEXXZ",
+          "target": 4510592,
+          "addend": 0,
+          "resolved": 4292259326
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7218432,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7218672,
+      "method": "006e25f0",
+      "body_bytes": 28,
+      "body_sha256": "9ae490e499cb7890eac6cce8e9ad98aba27e8e755587d2400d4eaafee395f4c5",
+      "padding_bytes": 4,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "043926798eb9ef4ce0c64a88d78e556fdf7a778c37ecd253229cdcaad40ea6fa",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Release_Target@TemporalClass@@QAEXXZ",
+      "symbol_prefix": "?Release_Target@TemporalClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7218672,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 7218704,
+      "method": "006e2610",
+      "body_bytes": 93,
+      "body_sha256": "eb7a998e69adf80b5149575000fe850ca082344a8a5bf5903cb12dce3bd04064",
+      "padding_bytes": 3,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "93ba159ed114716945671fe4b50d036de53f2323cecd25662650bad65247e999",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Restore_Target@TemporalClass@@QAEXXZ",
+      "symbol_prefix": "?Restore_Target@TemporalClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "?EnableTemporal@BuildingClass@@QAEXXZ",
+          "target": 4510592,
+          "addend": 0,
+          "resolved": 4292259120
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7218704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7218800,
+      "method": "006e2670",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Empty@TemporalClass@@QAEXXZ",
+      "symbol_prefix": "?Empty@TemporalClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7218800,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 7218816,
+      "method": "006e2680",
+      "body_bytes": 98,
+      "body_sha256": "38c425f45277870c7fbb68ee8b5c6e9e833bb91bb600f30c19cb415f9cb6f200",
+      "padding_bytes": 14,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "6c6c9c63afa493c6a653f6091873126919e523df9fbcb690eaa20433abf6b4cb",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?JustLetGo@TemporalClass@@QAEXXZ",
+      "symbol_prefix": "?JustLetGo@TemporalClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 50,
+          "kind": 20,
+          "symbol": "?Detach@TemporalClass@@QAEXXZ",
+          "target": 7218960,
+          "addend": 0,
+          "resolved": 90
+        },
+        {
+          "offset": 76,
+          "kind": 20,
+          "symbol": "?Detach@TemporalClass@@QAEXXZ",
+          "target": 7218960,
+          "addend": 0,
+          "resolved": 64
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7218816,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7218928,
+      "method": "006e26f0",
+      "body_bytes": 18,
+      "body_sha256": "a97c6d0f1ca4971fe7eedcef671ba3855af6f822182c055c1a89ff9d27fc931b",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "605d4c77a428b6ff04e2aa8483616922d2c72158e6b13d3a5a6e4a452bef8a33",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear_Links@TemporalClass@@QAEXXZ",
+      "symbol_prefix": "?Clear_Links@TemporalClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7218928,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 7218960,
+      "method": "006e2710",
+      "body_bytes": 88,
+      "body_sha256": "834ad8465bd170d3da2d3da5681924b4cdd80d71b5cc58d4a11646c8b93e344f",
+      "padding_bytes": 8,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "34a9ca48ba683c31538ef3707d5205e2353ceb9b027b5dce8ab30120e587ff06",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Detach@TemporalClass@@QAEXXZ",
+      "symbol_prefix": "?Detach@TemporalClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 46,
+          "kind": 20,
+          "symbol": "?Detach@TemporalClass@@QAEXXZ",
+          "target": 7218960,
+          "addend": 0,
+          "resolved": 4294967246
+        },
+        {
+          "offset": 69,
+          "kind": 20,
+          "symbol": "?Detach@TemporalClass@@QAEXXZ",
+          "target": 7218960,
+          "addend": 0,
+          "resolved": 4294967223
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7218960,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7219056,
+      "method": "006e2770",
+      "body_bytes": 60,
+      "body_sha256": "6fed69ce0b955eb858aafe85f404c8464643693caa41a3e4c02fc5bec8a49c3f",
+      "padding_bytes": 4,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "e3759e8dacb766fa43ec5aef0c3ba3bb8395f67127351051e7c1bd964d03a808",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?CanWarpTarget@TemporalClass@@QAE_NPAVTechnoClass@@@Z",
+      "symbol_prefix": "?CanWarpTarget@TemporalClass@@QAE_NPAVTechnoClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7219056,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7219120,
+      "method": "006e27b0",
+      "body_bytes": 591,
+      "body_sha256": "aa265a6f4856bfd74ccd1375a2718073aac0715c1e533a88a1042e55f60c87dc",
+      "padding_bytes": 1,
+      "full_extent_bytes": 592,
+      "full_extent_sha256": "cf037b9e5b1a262dee255f170e408c5a54040dc69db5e65c919253fcbb846a2a",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fire@TemporalClass@@QAEXPAVTechnoClass@@@Z",
+      "symbol_prefix": "?Fire@TemporalClass@@QAEXPAVTechnoClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?KillNodes@SpawnManagerClass@@QAEXXZ",
+          "target": 6855536,
+          "addend": 0,
+          "resolved": 4294603682
+        },
+        {
+          "offset": 41,
+          "kind": 20,
+          "symbol": "?FreeAll@CaptureManagerClass@@QAEXXZ",
+          "target": 4620768,
+          "addend": 0,
+          "resolved": 4292368899
+        },
+        {
+          "offset": 66,
+          "kind": 20,
+          "symbol": "?LetGo@TemporalClass@@QAEXXZ",
+          "target": 7218432,
+          "addend": 0,
+          "resolved": 4294966538
+        },
+        {
+          "offset": 257,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 335,
+          "kind": 20,
+          "symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z",
+          "target": 6534576,
+          "addend": 0,
+          "resolved": 4294282413
+        },
+        {
+          "offset": 349,
+          "kind": 6,
+          "symbol": "??_C@_0BI@GJGA@EVA_OreMinerUnderAttack?$AA@",
+          "target": 8356252,
+          "addend": 0,
+          "resolved": 8356252
+        },
+        {
+          "offset": 354,
+          "kind": 20,
+          "symbol": "?Queue_Speech@@YIXPBDHH@Z",
+          "target": 7428928,
+          "addend": 0,
+          "resolved": 209450
+        },
+        {
+          "offset": 423,
+          "kind": 20,
+          "symbol": "?Attacked@HouseClass@@QAEXPAVBuildingClass@@@Z",
+          "target": 5132128,
+          "addend": 0,
+          "resolved": 4292879877
+        },
+        {
+          "offset": 458,
+          "kind": 20,
+          "symbol": "?Attacked@HouseClass@@QAEXPAVBuildingClass@@@Z",
+          "target": 5132128,
+          "addend": 0,
+          "resolved": 4292879842
+        },
+        {
+          "offset": 528,
+          "kind": 20,
+          "symbol": "?DisableTemporal@BuildingClass@@QAEXXZ",
+          "target": 4510496,
+          "addend": 0,
+          "resolved": 4292258140
+        },
+        {
+          "offset": 579,
+          "kind": 20,
+          "symbol": "?LetGo@TemporalClass@@QAEXXZ",
+          "target": 7218432,
+          "addend": 0,
+          "resolved": 4294966025
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7219120,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7219712,
+      "method": "006e2a00",
+      "body_bytes": 6,
+      "body_sha256": "6786c0e7be3bc2cc01074e814543729b15cd696fdace27b19cf9c499e8df556c",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "a40b56f7199c07225699539ebf62bbc6255b9b3eea0f1d0b42257acc366ca995",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Object_Size@TemporalClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Object_Size@TemporalClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7219712,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7219728,
+      "method": "006e2a10",
+      "body_bytes": 6,
+      "body_sha256": "d5e862db03db586015ddbdc56a392c7a359a0e23f10a6eb388cdbd1b168f4a01",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "c5ad2a270052b0374989bdc67bacd0958b0ef32b5a6e63b0cdb95fe415d4735b",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_RTTI@TemporalClass@@UBE?AW4RTTIType@@XZ",
+      "symbol_prefix": "?Fetch_RTTI@TemporalClass@@UBE?AW4RTTIType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7219728,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7219744,
+      "method": "006e2a20",
+      "body_bytes": 134,
+      "body_sha256": "6e14367ae0a78cf355763269c0ee401e6266b606ea81ae01d03a2c3421ebee30",
+      "padding_bytes": 10,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "6b32369239e8311ed6cbc6adf2260ee536c3583e003a39b5ba9eddfef4de1230",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GTemporalClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GTemporalClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 0,
+          "resolved": 11272928
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "??_7TemporalClass@@6BIPersistStream@@@",
+          "target": 8049440,
+          "addend": 0,
+          "resolved": 8049440
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "??_7TemporalClass@@6BIRTTITypeInfo@@@",
+          "target": 8049412,
+          "addend": 0,
+          "resolved": 8049412
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "??_7TemporalClass@@6BINoticeSink@@@",
+          "target": 8049404,
+          "addend": 0,
+          "resolved": 8049404
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "??_7TemporalClass@@6BINoticeSource@@@",
+          "target": 8049396,
+          "addend": 0,
+          "resolved": 8049396
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 0,
+          "resolved": 11272928
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 16,
+          "resolved": 11272944
+        },
+        {
+          "offset": 74,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 16,
+          "resolved": 11272944
+        },
+        {
+          "offset": 82,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 4,
+          "resolved": 11272932
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "?Temporals@@3V?$DynamicVectorClass@PAVTemporalClass@@@@A",
+          "target": 11272928,
+          "addend": 16,
+          "resolved": 11272944
+        },
+        {
+          "offset": 107,
+          "kind": 20,
+          "symbol": "??1AbstractClass@@UAE@XZ",
+          "target": 4259728,
+          "addend": 0,
+          "resolved": 4292007169
+        },
+        {
+          "offset": 120,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 651935
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7219744,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7219888,
+      "method": "006e2ab0",
+      "body_bytes": 42,
+      "body_sha256": "e8075d82c88e0108ba1f13ea79ebf1b94aa4efeeb931bf94e92dc5042725df81",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "d71c500031b1c10bdc0907f52b9ba7d2ece4aeccc60ca01ae96064710ec065c2",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@PAVTemporalClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAVTemporalClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 651888
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7219888,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7219936,
+      "method": "006e2ae0",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVTemporalClass@@@@UAEHPBQAVTemporalClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVTemporalClass@@@@UAEHPBQAVTemporalClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7219936,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7219968,
+      "method": "006e2b00",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PAVTemporalClass@@@@UBEPAVTemporalClass@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAVTemporalClass@@@@UBEPAVTemporalClass@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7219968,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7219984,
+      "method": "006e2b10",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PAVTemporalClass@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAVTemporalClass@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7219984,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7220048,
+      "method": "006e2b50",
+      "body_bytes": 174,
+      "body_sha256": "d4874b63329eb0be7e83c766db1f4883050e7dd10139b1d3d637d71c53fdcf55",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "cab539d0a3b63b019436d507f01d1c0862b58889adbdb030621f3068974c7009",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PAVTemporalClass@@@@UAE_NHPBQAVTemporalClass@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAVTemporalClass@@@@UAE_NHPBQAVTemporalClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 652444
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 651632
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7220048,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7220224,
+      "method": "006e2c00",
+      "body_bytes": 39,
+      "body_sha256": "9cca21d6e618c3666f3c25c597b48898094ae9a1bc53a01000f790b7e0de6edc",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "361c3d0685a44f5450bc038228c0ec2079eba5339bdc81c5bbb720c7364c0bda",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PAVTemporalClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAVTemporalClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 651555
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7220224,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7220272,
+      "method": "006e2c30",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVTemporalClass@@@@UAEHABQAVTemporalClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVTemporalClass@@@@UAEHABQAVTemporalClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7220272,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7220336,
+      "method": "006e2c70",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVTemporalClass@@@@UAEHPBQAVTemporalClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVTemporalClass@@@@UAEHPBQAVTemporalClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7220336,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7220368,
+      "method": "006e2c90",
+      "body_bytes": 176,
+      "body_sha256": "7e7f971b79fd85e02a27cac2bda6d1ef49fc5e30e64372d79834673fa4c1e007",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "7e7f971b79fd85e02a27cac2bda6d1ef49fc5e30e64372d79834673fa4c1e007",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PAVTemporalClass@@@@UAE_NHPBQAVTemporalClass@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAVTemporalClass@@@@UAE_NHPBQAVTemporalClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 652128
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 651325
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7220368,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7220544,
+      "method": "006e2d40",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVTemporalClass@@@@UAEHABQAVTemporalClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVTemporalClass@@@@UAEHABQAVTemporalClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7220544,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7220592,
+      "method": "6e2d70",
+      "body_bytes": 73,
+      "body_sha256": "fe3d70708dbddaf2c04b963cd33caebff1253562ed5bff453a54b838e9f70e7c",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "5c2a6cf361f81676e3328d94b0550a233a0eb1a126ddf934171b2ce786fc2241",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAVTemporalClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAVTemporalClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVTemporalClass@@@@6B@",
+          "target": 8049364,
+          "addend": 0,
+          "resolved": 8049364
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 651182
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 651147
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7220592,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 7220672,
+      "method": "6e2dc0",
+      "body_bytes": 73,
+      "body_sha256": "35ca728288ae1444af8f44ec8533f0461b0eec67203623940ced59fe48beac06",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "1cbdda6eb0406c0f014fbd07701428d96abe0532b1b71b517a4e35ab3f8f5218",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAVTemporalClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAVTemporalClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVTemporalClass@@@@6B@",
+          "target": 8049364,
+          "addend": 0,
+          "resolved": 8049364
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 651102
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 651067
+        }
+      ],
+      "source_sha256": "4137b9411089d3f0bb544203d43262fc6526a6871e69dad7cf1b9b91dcca6b6f",
+      "source": "src/temporal.cpp",
+      "population": "rebuild-temporal",
+      "source_order": 7220672,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-12"
+    }
+  ]
+}

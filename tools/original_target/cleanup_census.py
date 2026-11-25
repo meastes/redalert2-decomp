@@ -263,6 +263,38 @@ def leftover_class(row, residual):
     return None
 
 
+# Moved from status.py with the layout move (lane O88, 2026-11-25): only the census uses them now.
+FILE_BACKED_NON_CODE = 711662   # headers + .rdata + raw .data + .rsrc of the target (docs/DATA_AS_SOURCE.md)
+
+
+def proven_data(entries):
+    """Bytes the module maps prove at their original addresses, deduplicated by address
+    (several units prove one COMDAT copy), by kind. A class hierarchy descriptor that differs
+    only in the ambiguous bit (DECISIONS, user-confirmed exception) counts without its
+    attributes word: no credit for the bit."""
+    copies, known = {}, set()
+    for e in entries:
+        for c in e['data'] + e['kept_elsewhere']:
+            a = int(c['address'], 16)
+            if c.get('known_difference'):
+                known.add(a)
+                if c['bytes'] > 8:
+                    copies.setdefault(a + 8, (c['bytes'] - 8, c['kind']))
+                copies.setdefault(a, (4, c['kind']))
+                continue
+            if copies.get(a, (0, ''))[0] < c['bytes']:
+                copies[a] = (c['bytes'], c['kind'])
+    covered, by_kind, end = 0, Counter(), 0
+    for a in sorted(copies):
+        n, kind = copies[a]
+        start = max(a, end)
+        if a + n > start:
+            covered += a + n - start
+            by_kind[kind] += a + n - start
+            end = a + n
+    return covered, by_kind, len(known)
+
+
 def function_name(symbol):
     """'_$E12' -> '_$E12'; '?Foo@Bar@@...' -> 'Foo'."""
     if symbol.startswith('?'):
@@ -273,7 +305,7 @@ def function_name(symbol):
 def census(inputs, read, stems, file_backed_non_code=None, ra2decomp=None):
     """The whole census as a dict: units (per-unit rows), the five measures and their parts."""
     if file_backed_non_code is None:
-        from status import FILE_BACKED_NON_CODE as file_backed_non_code
+        file_backed_non_code = FILE_BACKED_NON_CODE
     unit_map, modules, declared = inputs['unit_map'], inputs['modules'], inputs['declared']
     owner, library = {}, set()
     for unit, entries in unit_map.items():
@@ -358,8 +390,7 @@ def census(inputs, read, stems, file_backed_non_code=None, ra2decomp=None):
                 leftover_bytes[kind] += row['body_bytes']
 
     # 4. data
-    import status
-    proven, by_kind, _ = status.proven_data(list(modules.values()))
+    proven, by_kind, _ = proven_data(list(modules.values()))
     unproven_range_bytes = sum(max(0, r['bytes'] - r['proven_bytes']) for m in modules.values()
                                for r in m.get('data_ranges', []))
     unproven_items = sum(len(m.get('data_unproven', [])) for m in modules.values())

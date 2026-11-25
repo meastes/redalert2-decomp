@@ -1,0 +1,5287 @@
+{
+  "id": "rebuild-fog",
+  "population": {
+    "id": "rebuild-fog",
+    "inventory_sha256": "df720f28a7de1a571f354a33666385c3c756529cc27bee67377a87b3b6473710",
+    "gaps_sha256": "9763b50ba88a135513a7768b645a4f8d0c63e100ab554a446624001a8b6c1bf6",
+    "historical_population_sha256": "482163cbbbd5f940395708cafd06df4cbf017e4183f79487339358f9e31a0ce4",
+    "historical_acceptance_sha256": "7a3ccd22bd04897f2f2a2405cfda65e3bfad8cf62d288ae79dca6c49582bc882"
+  },
+  "references": {
+    "_RECT_NONE": 8805984,
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 8806008,
+    "_ISO_TILE_SIZE": 7999752,
+    "_LEPTONS_PER_PIXEL": 8806104,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 8806088,
+    "_ONE_RAD": 7999760,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 8806080,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 8806016,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 8805976,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 8806112,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 8806024,
+    "_CELL_DIAG_SLOPE_ANGLE": 8806072,
+    "_BRIDGE_LEPTON_HEIGHT": 8806096,
+    "_CELL_NONE": 8806000,
+    "_COORD_NONE": 8806056,
+    "_$E162": 4980480,
+    "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A": 8806032,
+    "??_7?$DynamicVectorClass@PAVFoggedObjectClass@@@@6B@": 7983484,
+    "_atexit": 7874954,
+    "_$S163": 8805972,
+    "??_7?$VectorClass@PAVFoggedObjectClass@@@@6B@": 7983516,
+    "??3@YAXPAX@Z": 7871803,
+    "_$E168": 4980624,
+    "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A": 8805952,
+    "_$S169": 8805944,
+    "??0AbstractClass@@QAE@ABVNoInitClass@@@Z": 4259680,
+    "??_7?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@6B@": 7999920,
+    "??_7FoggedObjectClass@@6BIPersistStream@@@": 7999816,
+    "??_7FoggedObjectClass@@6BIRTTITypeInfo@@@": 7999788,
+    "??_7FoggedObjectClass@@6BINoticeSink@@@": 7999780,
+    "??_7FoggedObjectClass@@6BINoticeSource@@@": 7999772,
+    "??0AbstractClass@@QAE@XZ": 4259600,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z": 5537792,
+    "??0?$VectorClass@UDrawRecord@FoggedObjectClass@@@@QAE@HPBUDrawRecord@FoggedObjectClass@@@Z": 4990240,
+    "?Overlay_Shadow_Render_Rect@CellClass@@QBE?AV?$TRect@H@@XZ": 4673792,
+    "?Overlay_Render_Rect@CellClass@@QBE?AV?$TRect@H@@XZ": 4673200,
+    "?TacticalMap@@3PAVTactical@@A": 8624492,
+    "?TacticalRect@@3V?$TRect@H@@A": 8623664,
+    "?Increase_Table_Size@?$IndexClass@HPAVFoggedObjectClass@@@@AAE_NH@Z": 4990384,
+    "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z": 6957520,
+    "??2@YAPAXI@Z": 7872535,
+    "?Shape_Number@BuildingClass@@QBEHXZ": 4439584,
+    "?Register_Dirty_Area@Tactical@@QAEXV?$TRect@H@@_N@Z": 6959136,
+    "?search_compfunc@?$IndexClass@HPAVFoggedObjectClass@@@@CAHPBX0@Z": 4990528,
+    "_qsort": 7871814,
+    "?Binary_Search@@YIPAUNodeElement@?$IndexClass@HPAVFoggedObjectClass@@@@PAU12@HABU12@@Z": 4990576,
+    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
+    "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ": 4659120,
+    "??_7?$VectorClass@UDrawRecord@FoggedObjectClass@@@@6B@": 7999952,
+    "??1AbstractClass@@UAE@XZ": 4259728,
+    "?MainWindow@@3PAUHWND__@@A": 11690968,
+    "?Intersect@@YI?BV?$TRect@H@@ABV1@0PAH1@Z": 4324848,
+    "??0?$TPoint3D@H@@QAE@HHH@Z": 4306480,
+    "?Draw_Overlay@CellClass@@QAEXABVPoint2D@@ABV?$TRect@H@@@Z": 4671936,
+    "?Draw_Overlay_Shadow@CellClass@@QAEXABVPoint2D@@ABV?$TRect@H@@@Z": 4671536,
+    "?Z_Lepton_To_Pixel@Tactical@@SIHH@Z": 6957424,
+    "?Init_Drawer@CellClass@@QAEXPAVLightConvertClass@@HHHHH@Z": 4690160,
+    "?LogicalSurface@@3PAVSurface@@A": 8624476,
+    "?Draw_Shape@@YIXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z": 4845216,
+    "?DrawShapeShadows@@3_NA": 8227029,
+    "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A": 11235064,
+    "?Height@BuildingTypeClass@@QBEH_N@Z": 4557120,
+    "?Width@BuildingTypeClass@@QBEHXZ": 4557104,
+    "?Coord_To_Pixel_Absolute@Tactical@@QAE?AVPoint2D@@ABV2@@Z": 6957168,
+    "?BuildingZShape@BuildingTypeClass@@2PBXB": 8716956,
+    "?Options@@3VGameOptionsClass@@A": 10750744,
+    "?AnimDrawer@@3PAVConvertClass@@A": 8594368,
+    "?SmudgeTypes@@3V?$DynamicVectorClass@PAVSmudgeTypeClass@@@@A": 10750920,
+    "?Save@AbstractClass@@UAGJPAUIStream@@H@Z": 4260032,
+    "?Load@AbstractClass@@UAGJPAUIStream@@@Z": 4260128,
+    "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
+    "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
+    "_CLSID_FoggedObjectClass": 8003280,
+    "?Compute_CRC@AbstractClass@@UBEXAAVCRCEngine@@@Z": 4260272,
+    "??RCRCEngine@@QAEXH@Z": 4800304,
+    "??1FoggedObjectClass@@UAE@XZ": 4984272,
+    "_$E2": 4979920,
+    "_$E5": 4979952,
+    "_$E8": 4980000,
+    "_$E11": 4980032,
+    "_$E14": 4980064,
+    "_$E17": 4980096,
+    "_$E20": 4980128,
+    "_$E23": 4980160,
+    "_$E26": 4980224,
+    "_$E29": 4980272,
+    "_$E32": 4980320,
+    "_$E35": 4980368,
+    "_$E38": 4980384,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "_$E165": 4980416,
+    "??_G?$DynamicVectorClass@PAVFoggedObjectClass@@@@UAEPAXI@Z": 4540496,
+    "??_7type_info@@6B@": 8066532,
+    "??_G?$VectorClass@PAVFoggedObjectClass@@@@UAEPAXI@Z": 4540896,
+    "_$E171": 4980576,
+    "??0FoggedObjectClass@@QAE@ABVNoInitClass@@@Z": 4980688,
+    "?Unknown_Virtual_0@AbstractClass@@UAEXH@Z": 4260656,
+    "?Unknown_Virtual_0@AbstractClass@@UAE_NHH@Z": 4260640,
+    "?Create_ID@AbstractClass@@UAGXXZ": 4259792,
+    "?Fetch_ID@AbstractClass@@UBGHXZ": 4259776,
+    "?What_Am_I@AbstractClass@@UBGHXZ": 4259760,
+    "?AI@AbstractClass@@UAEXXZ": 4260624,
+    "?As_Coord@AbstractClass@@UBE?AVCoord@@XZ": 4260576,
+    "?In_Air@AbstractClass@@UBE_NXZ": 4260560,
+    "?On_Ground@AbstractClass@@UBE_NXZ": 4260544,
+    "?Destination_Coord@AbstractClass@@UBE?AVCoord@@PAVTechnoClass@@@Z": 4260496,
+    "?Center_Coord@AbstractClass@@UBE?AVCoord@@XZ": 4260448,
+    "?Is_Inactive@AbstractClass@@UBE_NXZ": 4260320,
+    "?Fetch_Heap_ID@AbstractClass@@UBEHXZ": 4260432,
+    "?Owner_HouseClass@AbstractClass@@UBEPAVHouseClass@@XZ": 4260416,
+    "?Owner@AbstractClass@@UBE?AW4HousesType@@XZ": 4260400,
+    "?Detach@AbstractClass@@UAEXPBV1@_N@Z": 4260384,
+    "?Init@AbstractClass@@UAEXXZ": 4260368,
+    "??_GFoggedObjectClass@@UAEPAXI@Z": 4989056,
+    "?GetSizeMax@AbstractClass@@UAGJPAT_ULARGE_INTEGER@@@Z": 4260224,
+    "?IsDirty@AbstractClass@@UAGJXZ": 4260336,
+    "?Release@AbstractClass@@UAGKXZ": 4260016,
+    "?AddRef@AbstractClass@@UAGKXZ": 4260000,
+    "?QueryInterface@AbstractClass@@UAGJABU_GUID@@PAPAX@Z": 4259840,
+    "??_R0?AVINoticeSource@@@8": 8184264,
+    "??_R0?AVINoticeSink@@@8": 8181272,
+    "??_R0?AUIRTTITypeInfo@@@8": 8184296,
+    "??_R0?AUIUnknown@@@8": 8181304,
+    "??_R0?AUIPersist@@@8": 8184328,
+    "??_R0?AUIPersistStream@@@8": 8184352,
+    "??_R0?AVAbstractClass@@@8": 8184384,
+    "??_R0?AVFoggedObjectClass@@@8": 8225112,
+    "??_G?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@UAEPAXI@Z": 4990160,
+    "??0FoggedObjectClass@@QAE@XZ": 4980768,
+    "??0FoggedObjectClass@@QAE@ABVCoord@@W4OverlayType@@H@Z": 4980976,
+    "??0FoggedObjectClass@@QAE@ABVCoord@@W4SmudgeType@@H@Z": 4981680,
+    "??0FoggedObjectClass@@QAE@PAVBuildingClass@@_N@Z": 4982384,
+    "??0FoggedObjectClass@@QAE@PAVTerrainClass@@@Z": 4983536,
+    "??_G?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UAEPAXI@Z": 4990080,
+    "?Draw_Fogged_Objects@@YIXABV?$TRect@H@@@Z": 4984848,
+    "?Update_Fogged_Objects@@YIXXZ": 4987616,
+    "?Save@FoggedObjectClass@@UAGJPAUIStream@@H@Z": 4987920,
+    "?Load@FoggedObjectClass@@UAGJPAUIStream@@@Z": 4988032,
+    "?Get_Head_Record_Occupy_List@FoggedObjectClass@@QAEPBVCell@@XZ": 4988672,
+    "?Fetch_RTTI@FoggedObjectClass@@UBE?AW4RTTIType@@XZ": 4988704,
+    "?Fetch_Object_Size@FoggedObjectClass@@UBEHXZ": 4988720,
+    "?GetClassID@FoggedObjectClass@@UAGJPAU_GUID@@@Z": 4988736,
+    "?Compute_CRC@FoggedObjectClass@@UBEXAAVCRCEngine@@@Z": 4988800,
+    "?Get_Head_Record_Object_Type@FoggedObjectClass@@QAEPAVObjectTypeClass@@XZ": 4988976,
+    "?Get_Cell@FoggedObjectClass@@UAE?AVCell@@XZ": 4988992,
+    "?Clear@?$DynamicVectorClass@PAVFoggedObjectClass@@@@UAEXXZ": 4537728,
+    "?ID@?$DynamicVectorClass@PAVFoggedObjectClass@@@@UAEHPBQAVFoggedObjectClass@@@Z": 4537776,
+    "?GetItem@?$VectorClass@PAVFoggedObjectClass@@@@UBEPAVFoggedObjectClass@@H@Z": 4537808,
+    "?Clear@?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@UAEXXZ": 4989088,
+    "?ID@?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@UAEHPBUDrawRecord@FoggedObjectClass@@@Z": 4989136,
+    "?GetItem@?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UBE?AUDrawRecord@FoggedObjectClass@@H@Z": 4989168,
+    "??8?$VectorClass@PAVFoggedObjectClass@@@@UBE_NABV0@@Z": 4539280,
+    "?Resize@?$VectorClass@PAVFoggedObjectClass@@@@UAE_NHPBQAVFoggedObjectClass@@@Z": 4540576,
+    "?Clear@?$VectorClass@PAVFoggedObjectClass@@@@UAEXXZ": 4540752,
+    "?ID@?$VectorClass@PAVFoggedObjectClass@@@@UAEHABQAVFoggedObjectClass@@@Z": 4540800,
+    "?ID@?$VectorClass@PAVFoggedObjectClass@@@@UAEHPBQAVFoggedObjectClass@@@Z": 4540864,
+    "?Resize@?$DynamicVectorClass@PAVFoggedObjectClass@@@@UAE_NHPBQAVFoggedObjectClass@@@Z": 4539344,
+    "?ID@?$DynamicVectorClass@PAVFoggedObjectClass@@@@UAEHABQAVFoggedObjectClass@@@Z": 4539520,
+    "??8?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UBE_NABV0@@Z": 4989216,
+    "?Resize@?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UAE_NHPBUDrawRecord@FoggedObjectClass@@@Z": 4989312,
+    "?Clear@?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UAEXXZ": 4989584,
+    "?ID@?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UAEHABUDrawRecord@FoggedObjectClass@@@Z": 4989632,
+    "?ID@?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UAEHPBUDrawRecord@FoggedObjectClass@@@Z": 4989712,
+    "?Resize@?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@UAE_NHPBUDrawRecord@FoggedObjectClass@@@Z": 4989744,
+    "?ID@?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@UAEHABUDrawRecord@FoggedObjectClass@@@Z": 4990016,
+    "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
+    "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
+    "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
+    "?QueryInterface@AbstractClass@@W3AGJABU_GUID@@PAPAX@Z": 4260736,
+    "?AddRef@AbstractClass@@W3AGKXZ": 4260752,
+    "?Release@AbstractClass@@W3AGKXZ": 4260768
+  },
+  "regions": [
+    {
+      "entry": 4979920,
+      "method": "004bfcd0",
+      "body_bytes": 23,
+      "body_sha256": "b02bb9a0fb694ab9cf1bb534559025d8d7844e28da730806b5cbefc3e04aac50",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "6080caae8cafcca4e8f749e32acc67f987f96bb63d4a7be2ebf806c5e83b48e8",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8805984,
+          "addend": 0,
+          "resolved": 8805984
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8805984,
+          "addend": 4,
+          "resolved": 8805988
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8805984,
+          "addend": 8,
+          "resolved": 8805992
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8805984,
+          "addend": 12,
+          "resolved": 8805996
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4979920,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4979952,
+      "method": "004bfcf0",
+      "body_bytes": 40,
+      "body_sha256": "f066c8554c821d7adacbedc9877a599a2d496a30eaa97b8c2bc0c681ac6268fe",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "88af7389297034c03758f1a817e03ede0bc526b33f58938858b2ea369c9bcf56",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 2892975
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4294944514
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8806008,
+          "addend": 0,
+          "resolved": 8806008
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4979952,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4980000,
+      "method": "004bfd20",
+      "body_bytes": 19,
+      "body_sha256": "a1a218640ad23013ae092cbfff9f4fc42c96bb334c18f938721063c122c3c07e",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "a69958e12fdd4258dfccc5faf828ed90996c9ea3faef9a8f5e5de0598207f185",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8806008,
+          "addend": 0,
+          "resolved": 8806008
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 7999752,
+          "addend": 0,
+          "resolved": 7999752
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 8806104,
+          "addend": 0,
+          "resolved": 8806104
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4980000,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4980032,
+      "method": "004bfd40",
+      "body_bytes": 19,
+      "body_sha256": "6c03f8becd9991638ffe52707d144bf83b1b156c1a0ad5e6a1e9dd6cb53f1152",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "10c3233861cf1cf5979daa7955c0caa555e20d42fa162a0dfc3de4a089c435cd",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 8806104,
+          "addend": 0,
+          "resolved": 8806104
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 8806088,
+          "addend": 0,
+          "resolved": 8806088
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4980032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4980064,
+      "method": "004bfd60",
+      "body_bytes": 19,
+      "body_sha256": "7986f32109ccd8fd4bf90a29a7eb5b3b2db9bbc26dd634446cdf3baa115669b2",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "69c6b07c06ffec160c09bfa94fc61c04aba70ab599c18f888383f77e078baadd",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7999760,
+          "addend": 0,
+          "resolved": 7999760
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 8806080,
+          "addend": 0,
+          "resolved": 8806080
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4980064,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4980096,
+      "method": "004bfd80",
+      "body_bytes": 19,
+      "body_sha256": "509b49543bfe50dd20295a62199999d2a2f331615f7d71ef711ea8f18beea7f9",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "7753223f5b99907918e6efe50e1ddda736ccab2cd9790972cc70af16ab133b8e",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7999760,
+          "addend": 0,
+          "resolved": 7999760
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 8806016,
+          "addend": 0,
+          "resolved": 8806016
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4980096,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4980128,
+      "method": "004bfda0",
+      "body_bytes": 19,
+      "body_sha256": "38387f93df75d48cc5d8b2a666e63717788190ac059dbefa1cf2db2d84694817",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "e279fc8350f1406bca088bc4d82be7268be66b6b93ecda0276b9fee60d4f9279",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7999760,
+          "addend": 0,
+          "resolved": 7999760
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 8805976,
+          "addend": 0,
+          "resolved": 8805976
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4980128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4980160,
+      "method": "004bfdc0",
+      "body_bytes": 49,
+      "body_sha256": "5c16e96c9213b1155152cd02f5d81a46824e9b1a32749e306d448aa2fab5e979",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "9c047ac202bcb8d67631fbfbdb1ca3098c426b6cd2c7466256088524f59753f5",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 8805976,
+          "addend": 0,
+          "resolved": 8805976
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 8806016,
+          "addend": 0,
+          "resolved": 8806016
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4294944585
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8806008,
+          "addend": 0,
+          "resolved": 8806008
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2880293
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8806112,
+          "addend": 0,
+          "resolved": 8806112
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4980160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4980224,
+      "method": "004bfe00",
+      "body_bytes": 33,
+      "body_sha256": "58ffcf31bf24645cbb63f08519f7fe036084cc3c40e791b8a38848d6aeed452d",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "af7d385220e2af6eed83800facb33f06a1d88a8a0d0c741bbc98a9d130cb2d9f",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8806112,
+          "addend": 0,
+          "resolved": 8806112
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294944665
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 8806024,
+          "addend": 0,
+          "resolved": 8806024
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4980224,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4980272,
+      "method": "004bfe30",
+      "body_bytes": 44,
+      "body_sha256": "4b305da37704740ba9d58d53dc8a457e86184d5a5a798ed8655d875e165e05c2",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "df5337d04fa40e2b4743e8cf15dc62c6dabb2a46dccba08f7008536cb41f38bf",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8806112,
+          "addend": 0,
+          "resolved": 8806112
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8806008,
+          "addend": 0,
+          "resolved": 8806008
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294944606
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 8806072,
+          "addend": 0,
+          "resolved": 8806072
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4980272,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4980320,
+      "method": "004bfe60",
+      "body_bytes": 39,
+      "body_sha256": "dc49b473ad6eebe994b289e811d84463ae154f174379bc4574c052dedbdcc036",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "a8574d8bcb87305d105e8274f902620a1b195b96a558d27f8a7b22dd9bb2d958",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8806112,
+          "addend": 0,
+          "resolved": 8806112
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2880144
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 8806096,
+          "addend": 0,
+          "resolved": 8806096
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4980320,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4980368,
+      "method": "004bfe90",
+      "body_bytes": 15,
+      "body_sha256": "155432d7998cb2888164680bec1ecb29797746e8a874664f266f63cbc4e26022",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "5ceb0244460883644909a26e6f964b89b64fc488584c290c6a11d5d107b0ac18",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8806000,
+          "addend": 0,
+          "resolved": 8806000
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8806000,
+          "addend": 2,
+          "resolved": 8806002
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4980368,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4980384,
+      "method": "004bfea0",
+      "body_bytes": 18,
+      "body_sha256": "fe21013616b05358df80ecc46f85a9499143824d27b929e7718d9a99f5b16d6f",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "7c1b005e7859d4cd49db9f1de3018f418c338e36550e21caab808c394a8c72c7",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8806056,
+          "addend": 0,
+          "resolved": 8806056
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8806056,
+          "addend": 4,
+          "resolved": 8806060
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8806056,
+          "addend": 8,
+          "resolved": 8806064
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4980384,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4980416,
+      "method": "004bfec0",
+      "body_bytes": 61,
+      "body_sha256": "a8a86ac6c99dd7a66981cb3cdb0e61094fd9254b4f54e8477efd9ace79a08b24",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c9c454167bd124abbe1d35abff368211e5205fe966c171b951e7af1a09c1b81e",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E165",
+      "symbol_prefix": "_$E165",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E162",
+          "target": 4980480,
+          "addend": 0,
+          "resolved": 4980480
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 4,
+          "resolved": 8806036
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 8,
+          "resolved": 8806040
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 12,
+          "resolved": 8806044
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 13,
+          "resolved": 8806045
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 0,
+          "resolved": 8806032
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVFoggedObjectClass@@@@6B@",
+          "target": 7983484,
+          "addend": 0,
+          "resolved": 7983484
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 20,
+          "resolved": 8806052
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 16,
+          "resolved": 8806048
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 2894479
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4980416,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4980480,
+      "method": "004bff00",
+      "body_bytes": 88,
+      "body_sha256": "0022089c3a05aae220f57645863b0b35efe44a60c1406f5ba537445425f47e30",
+      "padding_bytes": 8,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "02dd44c5f957e5428b2447164d3ec314b7866d184f01f486fd09e7e9fff8910e",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E162",
+      "symbol_prefix": "_$E162",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_$S163",
+          "target": 8805972,
+          "addend": 0,
+          "resolved": 8805972
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 0,
+          "resolved": 8806032
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVFoggedObjectClass@@@@6B@",
+          "target": 7983516,
+          "addend": 0,
+          "resolved": 7983516
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 4,
+          "resolved": 8806036
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_$S163",
+          "target": 8805972,
+          "addend": 0,
+          "resolved": 8805972
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 13,
+          "resolved": 8806045
+        },
+        {
+          "offset": 53,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2891266
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 4,
+          "resolved": 8806036
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 13,
+          "resolved": 8806045
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 8,
+          "resolved": 8806040
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4980480,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4980576,
+      "method": "004bff60",
+      "body_bytes": 39,
+      "body_sha256": "194c45e9d7048cede1d64cd2e734c49e7ebde3fd84b18172289e028f33be2860",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "3aeaad0157749b1d5ab61abdb2d5c6bd1e4bf48cccde3070fa83e47c0ef61446",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E171",
+      "symbol_prefix": "_$E171",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E168",
+          "target": 4980624,
+          "addend": 0,
+          "resolved": 4980624
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 8,
+          "resolved": 8805960
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 12,
+          "resolved": 8805964
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 16,
+          "resolved": 8805968
+        },
+        {
+          "offset": 33,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 2894341
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4980576,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4980624,
+      "method": "004bff90",
+      "body_bytes": 64,
+      "body_sha256": "51674b1266376de064d47349ddd837be1037c441cb26f50c1cd0e23779e0707e",
+      "padding_bytes": 0,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "51674b1266376de064d47349ddd837be1037c441cb26f50c1cd0e23779e0707e",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E168",
+      "symbol_prefix": "_$E168",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_$S169",
+          "target": 8805944,
+          "addend": 0,
+          "resolved": 8805944
+        },
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "_$S169",
+          "target": 8805944,
+          "addend": 0,
+          "resolved": 8805944
+        },
+        {
+          "offset": 29,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2891146
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 8,
+          "resolved": 8805960
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 12,
+          "resolved": 8805964
+        },
+        {
+          "offset": 59,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 16,
+          "resolved": 8805968
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4980624,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4980688,
+      "method": "004bffd0",
+      "body_bytes": 78,
+      "body_sha256": "2d0030ade3f74b2b24598eaf156caff7f053045b92c17b36eb018109d3f6230a",
+      "padding_bytes": 2,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "a5b454dbd3a823b1b02e84abb65bc934cc6d4839933baa2578b021f5b4b913e9",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0FoggedObjectClass@@QAE@ABVNoInitClass@@@Z",
+      "symbol_prefix": "??0FoggedObjectClass@@QAE@ABVNoInitClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "??0AbstractClass@@QAE@ABVNoInitClass@@@Z",
+          "target": 4259680,
+          "addend": 0,
+          "resolved": 4294246275
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@6B@",
+          "target": 7999920,
+          "addend": 0,
+          "resolved": 7999920
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BIPersistStream@@@",
+          "target": 7999816,
+          "addend": 0,
+          "resolved": 7999816
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BIRTTITypeInfo@@@",
+          "target": 7999788,
+          "addend": 0,
+          "resolved": 7999788
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BINoticeSink@@@",
+          "target": 7999780,
+          "addend": 0,
+          "resolved": 7999780
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BINoticeSource@@@",
+          "target": 7999772,
+          "addend": 0,
+          "resolved": 7999772
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4980688,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4980768,
+      "method": "004c0020",
+      "body_bytes": 201,
+      "body_sha256": "08d0b01b76ecad04b536b8cc15ece9dc6905e1ac99186909d0136181bba34e5f",
+      "padding_bytes": 7,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "0c63f2587c091e1db4ecf007e2e9b1a78dcb372c9c2981aa159545693772f67a",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0FoggedObjectClass@@QAE@XZ",
+      "symbol_prefix": "??0FoggedObjectClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??0AbstractClass@@QAE@XZ",
+          "target": 4259600,
+          "addend": 0,
+          "resolved": 4294246120
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@6B@",
+          "target": 7999920,
+          "addend": 0,
+          "resolved": 7999920
+        },
+        {
+          "offset": 91,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BIPersistStream@@@",
+          "target": 7999816,
+          "addend": 0,
+          "resolved": 7999816
+        },
+        {
+          "offset": 98,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BIRTTITypeInfo@@@",
+          "target": 7999788,
+          "addend": 0,
+          "resolved": 7999788
+        },
+        {
+          "offset": 105,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BINoticeSink@@@",
+          "target": 7999780,
+          "addend": 0,
+          "resolved": 7999780
+        },
+        {
+          "offset": 112,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BINoticeSource@@@",
+          "target": 7999772,
+          "addend": 0,
+          "resolved": 7999772
+        },
+        {
+          "offset": 118,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 8,
+          "resolved": 8806040
+        },
+        {
+          "offset": 124,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 16,
+          "resolved": 8806048
+        },
+        {
+          "offset": 132,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 13,
+          "resolved": 8806045
+        },
+        {
+          "offset": 144,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 20,
+          "resolved": 8806052
+        },
+        {
+          "offset": 154,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 0,
+          "resolved": 8806032
+        },
+        {
+          "offset": 161,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 0,
+          "resolved": 8806032
+        },
+        {
+          "offset": 175,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 16,
+          "resolved": 8806048
+        },
+        {
+          "offset": 184,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 16,
+          "resolved": 8806048
+        },
+        {
+          "offset": 190,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 4,
+          "resolved": 8806036
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4980768,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4980976,
+      "method": "004c00f0",
+      "body_bytes": 694,
+      "body_sha256": "6b3099674c4a591c3b7ea656aea705cbc775cbaf7466373a04a94866bea2a873",
+      "padding_bytes": 10,
+      "full_extent_bytes": 704,
+      "full_extent_sha256": "ed72af1c2406fb9454093e5c7fc2454625ea09c475595bdb9c30255ada8349a0",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0FoggedObjectClass@@QAE@ABVCoord@@W4OverlayType@@H@Z",
+      "symbol_prefix": "??0FoggedObjectClass@@QAE@ABVCoord@@W4OverlayType@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??0AbstractClass@@QAE@XZ",
+          "target": 4259600,
+          "addend": 0,
+          "resolved": 4294245906
+        },
+        {
+          "offset": 64,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 72,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 556740
+        },
+        {
+          "offset": 104,
+          "kind": 20,
+          "symbol": "??0?$VectorClass@UDrawRecord@FoggedObjectClass@@@@QAE@HPBUDrawRecord@FoggedObjectClass@@@Z",
+          "target": 4990240,
+          "addend": 0,
+          "resolved": 9156
+        },
+        {
+          "offset": 110,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@6B@",
+          "target": 7999920,
+          "addend": 0,
+          "resolved": 7999920
+        },
+        {
+          "offset": 126,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 136,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BIPersistStream@@@",
+          "target": 7999816,
+          "addend": 0,
+          "resolved": 7999816
+        },
+        {
+          "offset": 143,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BIRTTITypeInfo@@@",
+          "target": 7999788,
+          "addend": 0,
+          "resolved": 7999788
+        },
+        {
+          "offset": 150,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BINoticeSink@@@",
+          "target": 7999780,
+          "addend": 0,
+          "resolved": 7999780
+        },
+        {
+          "offset": 157,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BINoticeSource@@@",
+          "target": 7999772,
+          "addend": 0,
+          "resolved": 7999772
+        },
+        {
+          "offset": 162,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 556650
+        },
+        {
+          "offset": 176,
+          "kind": 20,
+          "symbol": "?Overlay_Shadow_Render_Rect@CellClass@@QBE?AV?$TRect@H@@XZ",
+          "target": 4673792,
+          "addend": 0,
+          "resolved": 4294659932
+        },
+        {
+          "offset": 190,
+          "kind": 20,
+          "symbol": "?Overlay_Render_Rect@CellClass@@QBE?AV?$TRect@H@@XZ",
+          "target": 4673200,
+          "addend": 0,
+          "resolved": 4294659326
+        },
+        {
+          "offset": 380,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 401,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 418,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        },
+        {
+          "offset": 424,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 4,
+          "resolved": 8623668
+        },
+        {
+          "offset": 443,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 8,
+          "resolved": 8806040
+        },
+        {
+          "offset": 449,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 16,
+          "resolved": 8806048
+        },
+        {
+          "offset": 457,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 13,
+          "resolved": 8806045
+        },
+        {
+          "offset": 471,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 20,
+          "resolved": 8806052
+        },
+        {
+          "offset": 481,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 0,
+          "resolved": 8806032
+        },
+        {
+          "offset": 491,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 0,
+          "resolved": 8806032
+        },
+        {
+          "offset": 504,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 16,
+          "resolved": 8806048
+        },
+        {
+          "offset": 513,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 16,
+          "resolved": 8806048
+        },
+        {
+          "offset": 519,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 4,
+          "resolved": 8806036
+        },
+        {
+          "offset": 586,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 596,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 8,
+          "resolved": 8805960
+        },
+        {
+          "offset": 621,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 626,
+          "kind": 20,
+          "symbol": "?Increase_Table_Size@?$IndexClass@HPAVFoggedObjectClass@@@@AAE_NH@Z",
+          "target": 4990384,
+          "addend": 0,
+          "resolved": 8778
+        },
+        {
+          "offset": 636,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 641,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 650,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 656,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 665,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 672,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 12,
+          "resolved": 8805964
+        },
+        {
+          "offset": 678,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4980976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4981680,
+      "method": "004c03b0",
+      "body_bytes": 690,
+      "body_sha256": "1d5c6d6fb2e652525df316c28560b4f8b9abc2a489a6e4c69919e7d4e1eaebb7",
+      "padding_bytes": 14,
+      "full_extent_bytes": 704,
+      "full_extent_sha256": "5bda4557fc79faf9bc1dacf5fe01f83be18169e434025a375cc27a167e03c09b",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0FoggedObjectClass@@QAE@ABVCoord@@W4SmudgeType@@H@Z",
+      "symbol_prefix": "??0FoggedObjectClass@@QAE@ABVCoord@@W4SmudgeType@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??0AbstractClass@@QAE@XZ",
+          "target": 4259600,
+          "addend": 0,
+          "resolved": 4294245202
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 47,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 556061
+        },
+        {
+          "offset": 83,
+          "kind": 20,
+          "symbol": "??0?$VectorClass@UDrawRecord@FoggedObjectClass@@@@QAE@HPBUDrawRecord@FoggedObjectClass@@@Z",
+          "target": 4990240,
+          "addend": 0,
+          "resolved": 8473
+        },
+        {
+          "offset": 90,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@6B@",
+          "target": 7999920,
+          "addend": 0,
+          "resolved": 7999920
+        },
+        {
+          "offset": 106,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 116,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BIPersistStream@@@",
+          "target": 7999816,
+          "addend": 0,
+          "resolved": 7999816
+        },
+        {
+          "offset": 123,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BIRTTITypeInfo@@@",
+          "target": 7999788,
+          "addend": 0,
+          "resolved": 7999788
+        },
+        {
+          "offset": 130,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BINoticeSink@@@",
+          "target": 7999780,
+          "addend": 0,
+          "resolved": 7999780
+        },
+        {
+          "offset": 137,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BINoticeSource@@@",
+          "target": 7999772,
+          "addend": 0,
+          "resolved": 7999772
+        },
+        {
+          "offset": 142,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 555966
+        },
+        {
+          "offset": 176,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8806112,
+          "addend": 0,
+          "resolved": 8806112
+        },
+        {
+          "offset": 209,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 214,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 1975622
+        },
+        {
+          "offset": 275,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 295,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 311,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 8,
+          "resolved": 8806040
+        },
+        {
+          "offset": 317,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 16,
+          "resolved": 8806048
+        },
+        {
+          "offset": 325,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 13,
+          "resolved": 8806045
+        },
+        {
+          "offset": 339,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 20,
+          "resolved": 8806052
+        },
+        {
+          "offset": 349,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 0,
+          "resolved": 8806032
+        },
+        {
+          "offset": 359,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 0,
+          "resolved": 8806032
+        },
+        {
+          "offset": 372,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 16,
+          "resolved": 8806048
+        },
+        {
+          "offset": 381,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 16,
+          "resolved": 8806048
+        },
+        {
+          "offset": 387,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 4,
+          "resolved": 8806036
+        },
+        {
+          "offset": 453,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 463,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 8,
+          "resolved": 8805960
+        },
+        {
+          "offset": 517,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2890334
+        },
+        {
+          "offset": 540,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 557,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 580,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 589,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 595,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2889524
+        },
+        {
+          "offset": 600,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 8,
+          "resolved": 8805960
+        },
+        {
+          "offset": 611,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 616,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 8,
+          "resolved": 8805960
+        },
+        {
+          "offset": 622,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 16,
+          "resolved": 8805968
+        },
+        {
+          "offset": 632,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 638,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 646,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 652,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 661,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 668,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 12,
+          "resolved": 8805964
+        },
+        {
+          "offset": 674,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4981680,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4982384,
+      "method": "004c0670",
+      "body_bytes": 1152,
+      "body_sha256": "37bb66caaf924ff1cde34363334f1213e457186cf0ea6fe7552d88f1d3b45603",
+      "padding_bytes": 0,
+      "full_extent_bytes": 1152,
+      "full_extent_sha256": "37bb66caaf924ff1cde34363334f1213e457186cf0ea6fe7552d88f1d3b45603",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0FoggedObjectClass@@QAE@PAVBuildingClass@@_N@Z",
+      "symbol_prefix": "??0FoggedObjectClass@@QAE@PAVBuildingClass@@_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??0AbstractClass@@QAE@XZ",
+          "target": 4259600,
+          "addend": 0,
+          "resolved": 4294244498
+        },
+        {
+          "offset": 99,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 108,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 555296
+        },
+        {
+          "offset": 146,
+          "kind": 20,
+          "symbol": "??0?$VectorClass@UDrawRecord@FoggedObjectClass@@@@QAE@HPBUDrawRecord@FoggedObjectClass@@@Z",
+          "target": 4990240,
+          "addend": 0,
+          "resolved": 7706
+        },
+        {
+          "offset": 156,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@6B@",
+          "target": 7999920,
+          "addend": 0,
+          "resolved": 7999920
+        },
+        {
+          "offset": 183,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BIPersistStream@@@",
+          "target": 7999816,
+          "addend": 0,
+          "resolved": 7999816
+        },
+        {
+          "offset": 190,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BIRTTITypeInfo@@@",
+          "target": 7999788,
+          "addend": 0,
+          "resolved": 7999788
+        },
+        {
+          "offset": 197,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BINoticeSink@@@",
+          "target": 7999780,
+          "addend": 0,
+          "resolved": 7999780
+        },
+        {
+          "offset": 204,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BINoticeSource@@@",
+          "target": 7999772,
+          "addend": 0,
+          "resolved": 7999772
+        },
+        {
+          "offset": 247,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 8,
+          "resolved": 8806040
+        },
+        {
+          "offset": 253,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 16,
+          "resolved": 8806048
+        },
+        {
+          "offset": 261,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 13,
+          "resolved": 8806045
+        },
+        {
+          "offset": 275,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 20,
+          "resolved": 8806052
+        },
+        {
+          "offset": 286,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 0,
+          "resolved": 8806032
+        },
+        {
+          "offset": 294,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 0,
+          "resolved": 8806032
+        },
+        {
+          "offset": 307,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 16,
+          "resolved": 8806048
+        },
+        {
+          "offset": 316,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 16,
+          "resolved": 8806048
+        },
+        {
+          "offset": 322,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 4,
+          "resolved": 8806036
+        },
+        {
+          "offset": 389,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 399,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 8,
+          "resolved": 8805960
+        },
+        {
+          "offset": 424,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 429,
+          "kind": 20,
+          "symbol": "?Increase_Table_Size@?$IndexClass@HPAVFoggedObjectClass@@@@AAE_NH@Z",
+          "target": 4990384,
+          "addend": 0,
+          "resolved": 7567
+        },
+        {
+          "offset": 439,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 444,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 453,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 459,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 468,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 475,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 12,
+          "resolved": 8805964
+        },
+        {
+          "offset": 481,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 495,
+          "kind": 20,
+          "symbol": "?Shape_Number@BuildingClass@@QBEHXZ",
+          "target": 4439584,
+          "addend": 0,
+          "resolved": 4294423997
+        },
+        {
+          "offset": 1094,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 1099,
+          "kind": 20,
+          "symbol": "?Register_Dirty_Area@Tactical@@QAEXV?$TRect@H@@_N@Z",
+          "target": 6959136,
+          "addend": 0,
+          "resolved": 1975649
+        },
+        {
+          "offset": 1105,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 1122,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4982384,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4983536,
+      "method": "004c0af0",
+      "body_bytes": 736,
+      "body_sha256": "aa649a2ee5010a5eb268376aa2c7acee7768115a215d8c547f346983d9f062b6",
+      "padding_bytes": 0,
+      "full_extent_bytes": 736,
+      "full_extent_sha256": "aa649a2ee5010a5eb268376aa2c7acee7768115a215d8c547f346983d9f062b6",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0FoggedObjectClass@@QAE@PAVTerrainClass@@@Z",
+      "symbol_prefix": "??0FoggedObjectClass@@QAE@PAVTerrainClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??0AbstractClass@@QAE@XZ",
+          "target": 4259600,
+          "addend": 0,
+          "resolved": 4294243346
+        },
+        {
+          "offset": 85,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 98,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 554154
+        },
+        {
+          "offset": 130,
+          "kind": 20,
+          "symbol": "??0?$VectorClass@UDrawRecord@FoggedObjectClass@@@@QAE@HPBUDrawRecord@FoggedObjectClass@@@Z",
+          "target": 4990240,
+          "addend": 0,
+          "resolved": 6570
+        },
+        {
+          "offset": 136,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@6B@",
+          "target": 7999920,
+          "addend": 0,
+          "resolved": 7999920
+        },
+        {
+          "offset": 160,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BIPersistStream@@@",
+          "target": 7999816,
+          "addend": 0,
+          "resolved": 7999816
+        },
+        {
+          "offset": 167,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BIRTTITypeInfo@@@",
+          "target": 7999788,
+          "addend": 0,
+          "resolved": 7999788
+        },
+        {
+          "offset": 174,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BINoticeSink@@@",
+          "target": 7999780,
+          "addend": 0,
+          "resolved": 7999780
+        },
+        {
+          "offset": 181,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BINoticeSource@@@",
+          "target": 7999772,
+          "addend": 0,
+          "resolved": 7999772
+        },
+        {
+          "offset": 225,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 247,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 263,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 8,
+          "resolved": 8806040
+        },
+        {
+          "offset": 269,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 16,
+          "resolved": 8806048
+        },
+        {
+          "offset": 277,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 13,
+          "resolved": 8806045
+        },
+        {
+          "offset": 291,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 20,
+          "resolved": 8806052
+        },
+        {
+          "offset": 301,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 0,
+          "resolved": 8806032
+        },
+        {
+          "offset": 311,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 0,
+          "resolved": 8806032
+        },
+        {
+          "offset": 324,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 16,
+          "resolved": 8806048
+        },
+        {
+          "offset": 333,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 16,
+          "resolved": 8806048
+        },
+        {
+          "offset": 339,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 4,
+          "resolved": 8806036
+        },
+        {
+          "offset": 499,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 509,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 8,
+          "resolved": 8805960
+        },
+        {
+          "offset": 563,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2888432
+        },
+        {
+          "offset": 586,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 603,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 626,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 635,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 641,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2887622
+        },
+        {
+          "offset": 646,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 8,
+          "resolved": 8805960
+        },
+        {
+          "offset": 657,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 662,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 8,
+          "resolved": 8805960
+        },
+        {
+          "offset": 668,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 16,
+          "resolved": 8805968
+        },
+        {
+          "offset": 678,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 684,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 692,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 698,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 707,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 714,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 12,
+          "resolved": 8805964
+        },
+        {
+          "offset": 720,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4983536,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4984272,
+      "method": "004c0dd0",
+      "body_bytes": 565,
+      "body_sha256": "e5319dde31047572eb1692b36c4f838117bdc157037ce37ceb1b7abf72385891",
+      "padding_bytes": 11,
+      "full_extent_bytes": 576,
+      "full_extent_sha256": "f63c2b4c12a58d12f5e8c4250e5e0309b99373beca0410e3f4e3101ee8620316",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1FoggedObjectClass@@UAE@XZ",
+      "symbol_prefix": "??1FoggedObjectClass@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 0,
+          "resolved": 8806032
+        },
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BIPersistStream@@@",
+          "target": 7999816,
+          "addend": 0,
+          "resolved": 7999816
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BIRTTITypeInfo@@@",
+          "target": 7999788,
+          "addend": 0,
+          "resolved": 7999788
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BINoticeSink@@@",
+          "target": 7999780,
+          "addend": 0,
+          "resolved": 7999780
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BINoticeSource@@@",
+          "target": 7999772,
+          "addend": 0,
+          "resolved": 7999772
+        },
+        {
+          "offset": 48,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 0,
+          "resolved": 8806032
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 16,
+          "resolved": 8806048
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 16,
+          "resolved": 8806048
+        },
+        {
+          "offset": 87,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 4,
+          "resolved": 8806036
+        },
+        {
+          "offset": 101,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 16,
+          "resolved": 8806048
+        },
+        {
+          "offset": 192,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 212,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 12,
+          "resolved": 8805964
+        },
+        {
+          "offset": 219,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 224,
+          "kind": 6,
+          "symbol": "?search_compfunc@?$IndexClass@HPAVFoggedObjectClass@@@@CAHPBX0@Z",
+          "target": 4990528,
+          "addend": 0,
+          "resolved": 4990528
+        },
+        {
+          "offset": 233,
+          "kind": 20,
+          "symbol": "_qsort",
+          "target": 7871814,
+          "addend": 0,
+          "resolved": 2887305
+        },
+        {
+          "offset": 239,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 248,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 16,
+          "resolved": 8805968
+        },
+        {
+          "offset": 254,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 12,
+          "resolved": 8805964
+        },
+        {
+          "offset": 270,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 275,
+          "kind": 20,
+          "symbol": "?Binary_Search@@YIPAUNodeElement@?$IndexClass@HPAVFoggedObjectClass@@@@PAU12@HABU12@@Z",
+          "target": 4990576,
+          "addend": 0,
+          "resolved": 6025
+        },
+        {
+          "offset": 285,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 301,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 311,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 331,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 341,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 349,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 357,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 363,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 375,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 16,
+          "resolved": 8805968
+        },
+        {
+          "offset": 390,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 396,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 553232
+        },
+        {
+          "offset": 403,
+          "kind": 20,
+          "symbol": "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ",
+          "target": 4659120,
+          "addend": 0,
+          "resolved": 4294641737
+        },
+        {
+          "offset": 448,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 507,
+          "kind": 20,
+          "symbol": "?Register_Dirty_Area@Tactical@@QAEXV?$TRect@H@@_N@Z",
+          "target": 6959136,
+          "addend": 0,
+          "resolved": 1974353
+        },
+        {
+          "offset": 519,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@UDrawRecord@FoggedObjectClass@@@@6B@",
+          "target": 7999952,
+          "addend": 0,
+          "resolved": 7999952
+        },
+        {
+          "offset": 534,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2886993
+        },
+        {
+          "offset": 553,
+          "kind": 20,
+          "symbol": "??1AbstractClass@@UAE@XZ",
+          "target": 4259728,
+          "addend": 0,
+          "resolved": 4294242195
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4984272,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4984848,
+      "method": "004c1010",
+      "body_bytes": 2768,
+      "body_sha256": "71e0a3941e482e1190c858813cfd752749202bff4f94dce9614e4ce380e6b67b",
+      "padding_bytes": 0,
+      "full_extent_bytes": 2768,
+      "full_extent_sha256": "71e0a3941e482e1190c858813cfd752749202bff4f94dce9614e4ce380e6b67b",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 56,
+      "symbol": "?Draw_Fogged_Objects@@YIXABV?$TRect@H@@@Z",
+      "symbol_prefix": "?Draw_Fogged_Objects@@YIXABV?$TRect@H@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 12,
+          "resolved": 8805964
+        },
+        {
+          "offset": 55,
+          "kind": 6,
+          "symbol": "?search_compfunc@?$IndexClass@HPAVFoggedObjectClass@@@@CAHPBX0@Z",
+          "target": 4990528,
+          "addend": 0,
+          "resolved": 4990528
+        },
+        {
+          "offset": 63,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 69,
+          "kind": 20,
+          "symbol": "_qsort",
+          "target": 7871814,
+          "addend": 0,
+          "resolved": 2886893
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 16,
+          "resolved": 8805968
+        },
+        {
+          "offset": 88,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 12,
+          "resolved": 8805964
+        },
+        {
+          "offset": 95,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 164,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 189,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 4,
+          "resolved": 8623668
+        },
+        {
+          "offset": 197,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        },
+        {
+          "offset": 237,
+          "kind": 20,
+          "symbol": "?Intersect@@YI?BV?$TRect@H@@ABV1@0PAH1@Z",
+          "target": 4324848,
+          "addend": 0,
+          "resolved": 4294307055
+        },
+        {
+          "offset": 297,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4987580,
+          "addend": 0,
+          "resolved": 4987580
+        },
+        {
+          "offset": 304,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4987560,
+          "addend": 0,
+          "resolved": 4987560
+        },
+        {
+          "offset": 340,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 355,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 552585
+        },
+        {
+          "offset": 460,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4294288464
+        },
+        {
+          "offset": 514,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 526,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 1972142
+        },
+        {
+          "offset": 550,
+          "kind": 20,
+          "symbol": "?Draw_Overlay@CellClass@@QAEXABVPoint2D@@ABV?$TRect@H@@@Z",
+          "target": 4671936,
+          "addend": 0,
+          "resolved": 4294653830
+        },
+        {
+          "offset": 563,
+          "kind": 20,
+          "symbol": "?Draw_Overlay_Shadow@CellClass@@QAEXABVPoint2D@@ABV?$TRect@H@@@Z",
+          "target": 4671536,
+          "addend": 0,
+          "resolved": 4294653417
+        },
+        {
+          "offset": 637,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 642,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 552298
+        },
+        {
+          "offset": 693,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 723,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 1971945
+        },
+        {
+          "offset": 730,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        },
+        {
+          "offset": 736,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 4,
+          "resolved": 8623668
+        },
+        {
+          "offset": 784,
+          "kind": 20,
+          "symbol": "?Z_Lepton_To_Pixel@Tactical@@SIHH@Z",
+          "target": 6957424,
+          "addend": 0,
+          "resolved": 1971788
+        },
+        {
+          "offset": 826,
+          "kind": 20,
+          "symbol": "?Init_Drawer@CellClass@@QAEXPAVLightConvertClass@@HHHHH@Z",
+          "target": 4690160,
+          "addend": 0,
+          "resolved": 4294671778
+        },
+        {
+          "offset": 870,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 880,
+          "kind": 20,
+          "symbol": "?Draw_Shape@@YIXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z",
+          "target": 4845216,
+          "addend": 0,
+          "resolved": 4294826780
+        },
+        {
+          "offset": 885,
+          "kind": 6,
+          "symbol": "?DrawShapeShadows@@3_NA",
+          "target": 8227029,
+          "addend": 0,
+          "resolved": 8227029
+        },
+        {
+          "offset": 1035,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 1112,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 1124,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 1971544
+        },
+        {
+          "offset": 1158,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1173,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 551767
+        },
+        {
+          "offset": 1187,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        },
+        {
+          "offset": 1195,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 4,
+          "resolved": 8623668
+        },
+        {
+          "offset": 1350,
+          "kind": 20,
+          "symbol": "?Height@BuildingTypeClass@@QBEH_N@Z",
+          "target": 4557120,
+          "addend": 0,
+          "resolved": 4294538214
+        },
+        {
+          "offset": 1369,
+          "kind": 20,
+          "symbol": "?Width@BuildingTypeClass@@QBEHXZ",
+          "target": 4557104,
+          "addend": 0,
+          "resolved": 4294538179
+        },
+        {
+          "offset": 1409,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 1422,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel_Absolute@Tactical@@QAE?AVPoint2D@@ABV2@@Z",
+          "target": 6957168,
+          "addend": 0,
+          "resolved": 1970894
+        },
+        {
+          "offset": 1456,
+          "kind": 6,
+          "symbol": "?BuildingZShape@BuildingTypeClass@@2PBXB",
+          "target": 8716956,
+          "addend": 0,
+          "resolved": 8716956
+        },
+        {
+          "offset": 1482,
+          "kind": 20,
+          "symbol": "?Z_Lepton_To_Pixel@Tactical@@SIHH@Z",
+          "target": 6957424,
+          "addend": 0,
+          "resolved": 1971090
+        },
+        {
+          "offset": 1517,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1536,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 551404
+        },
+        {
+          "offset": 1592,
+          "kind": 20,
+          "symbol": "?Init_Drawer@CellClass@@QAEXPAVLightConvertClass@@HHHHH@Z",
+          "target": 4690160,
+          "addend": 0,
+          "resolved": 4294671012
+        },
+        {
+          "offset": 1697,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 1708,
+          "kind": 20,
+          "symbol": "?Draw_Shape@@YIXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z",
+          "target": 4845216,
+          "addend": 0,
+          "resolved": 4294825952
+        },
+        {
+          "offset": 1828,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 1833,
+          "kind": 20,
+          "symbol": "?Draw_Shape@@YIXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z",
+          "target": 4845216,
+          "addend": 0,
+          "resolved": 4294825827
+        },
+        {
+          "offset": 1905,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 1910,
+          "kind": 20,
+          "symbol": "?Draw_Shape@@YIXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z",
+          "target": 4845216,
+          "addend": 0,
+          "resolved": 4294825750
+        },
+        {
+          "offset": 2005,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 20,
+          "resolved": 10750764
+        },
+        {
+          "offset": 2077,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 2089,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 1970579
+        },
+        {
+          "offset": 2096,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        },
+        {
+          "offset": 2102,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 4,
+          "resolved": 8623668
+        },
+        {
+          "offset": 2183,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2205,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 550735
+        },
+        {
+          "offset": 2242,
+          "kind": 6,
+          "symbol": "?AnimDrawer@@3PAVConvertClass@@A",
+          "target": 8594368,
+          "addend": 0,
+          "resolved": 8594368
+        },
+        {
+          "offset": 2335,
+          "kind": 20,
+          "symbol": "?Z_Lepton_To_Pixel@Tactical@@SIHH@Z",
+          "target": 6957424,
+          "addend": 0,
+          "resolved": 1970237
+        },
+        {
+          "offset": 2380,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 2385,
+          "kind": 20,
+          "symbol": "?Draw_Shape@@YIXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z",
+          "target": 4845216,
+          "addend": 0,
+          "resolved": 4294825275
+        },
+        {
+          "offset": 2415,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 2475,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        },
+        {
+          "offset": 2485,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 4,
+          "resolved": 8623668
+        },
+        {
+          "offset": 2495,
+          "kind": 6,
+          "symbol": "?SmudgeTypes@@3V?$DynamicVectorClass@PAVSmudgeTypeClass@@@@A",
+          "target": 10750920,
+          "addend": 4,
+          "resolved": 10750924
+        },
+        {
+          "offset": 2582,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2587,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 550353
+        },
+        {
+          "offset": 2632,
+          "kind": 20,
+          "symbol": "?Z_Lepton_To_Pixel@Tactical@@SIHH@Z",
+          "target": 6957424,
+          "addend": 0,
+          "resolved": 1969940
+        },
+        {
+          "offset": 2669,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 2674,
+          "kind": 20,
+          "symbol": "?Draw_Shape@@YIXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z",
+          "target": 4845216,
+          "addend": 0,
+          "resolved": 4294824986
+        },
+        {
+          "offset": 2683,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 2712,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4985800,
+          "addend": 0,
+          "resolved": 4985800
+        },
+        {
+          "offset": 2716,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4985156,
+          "addend": 0,
+          "resolved": 4985156
+        },
+        {
+          "offset": 2720,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4987262,
+          "addend": 0,
+          "resolved": 4987262
+        },
+        {
+          "offset": 2724,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4985433,
+          "addend": 0,
+          "resolved": 4985433
+        },
+        {
+          "offset": 2728,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4987526,
+          "addend": 0,
+          "resolved": 4987526
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4984848,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4987616,
+      "method": "004c1ae0",
+      "body_bytes": 294,
+      "body_sha256": "6feca195f245f95946d3530650889f8fea0b44a96807e7dbe56f9854696ebdac",
+      "padding_bytes": 10,
+      "full_extent_bytes": 304,
+      "full_extent_sha256": "a6d00ececa77316cd6fb66d52fb9f2c4997d7d8fadf666fe272a0989af3ef138",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Update_Fogged_Objects@@YIXXZ",
+      "symbol_prefix": "?Update_Fogged_Objects@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 16,
+          "resolved": 8806048
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 4,
+          "resolved": 8806036
+        },
+        {
+          "offset": 168,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 177,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 550107
+        },
+        {
+          "offset": 234,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 239,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 549933
+        },
+        {
+          "offset": 269,
+          "kind": 6,
+          "symbol": "?FoggyObjects@FoggedObjectClass@@2V?$DynamicVectorClass@PAVFoggedObjectClass@@@@A",
+          "target": 8806032,
+          "addend": 16,
+          "resolved": 8806048
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4987616,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4987920,
+      "method": "004c1c10",
+      "body_bytes": 107,
+      "body_sha256": "91a6e7c396f7d9dfe2c909ee08f6f13e52e77a1d4db9cbb450efa055bf74b6a4",
+      "padding_bytes": 5,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "6a813abd1bdaf89249c251c5ae38239a6f91f4e2df8ddee9bbbe86ef7324302b",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Save@FoggedObjectClass@@UAGJPAUIStream@@H@Z",
+      "symbol_prefix": "?Save@FoggedObjectClass@@UAGJPAUIStream@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "?Save@AbstractClass@@UAGJPAUIStream@@H@Z",
+          "target": 4260032,
+          "addend": 0,
+          "resolved": 4294239384
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4987920,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4988032,
+      "method": "004c1c80",
+      "body_bytes": 628,
+      "body_sha256": "6fb854ace89a49905fe05d14ff833275b18fc53a608876fd9d60ce1ea610ac25",
+      "padding_bytes": 12,
+      "full_extent_bytes": 640,
+      "full_extent_sha256": "1f4cae66742142cfeaf749514f0d8820bd9b45780537918cabd8dfcd5143c9b6",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load@FoggedObjectClass@@UAGJPAUIStream@@@Z",
+      "symbol_prefix": "?Load@FoggedObjectClass@@UAGJPAUIStream@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "?Load@AbstractClass@@UAGJPAUIStream@@@Z",
+          "target": 4260128,
+          "addend": 0,
+          "resolved": 4294239370
+        },
+        {
+          "offset": 44,
+          "kind": 20,
+          "symbol": "??0AbstractClass@@QAE@ABVNoInitClass@@@Z",
+          "target": 4259680,
+          "addend": 0,
+          "resolved": 4294238896
+        },
+        {
+          "offset": 56,
+          "kind": 20,
+          "symbol": "??0?$VectorClass@UDrawRecord@FoggedObjectClass@@@@QAE@HPBUDrawRecord@FoggedObjectClass@@@Z",
+          "target": 4990240,
+          "addend": 0,
+          "resolved": 2148
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@6B@",
+          "target": 7999920,
+          "addend": 0,
+          "resolved": 7999920
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BIPersistStream@@@",
+          "target": 7999816,
+          "addend": 0,
+          "resolved": 7999816
+        },
+        {
+          "offset": 85,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BIRTTITypeInfo@@@",
+          "target": 7999788,
+          "addend": 0,
+          "resolved": 7999788
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BINoticeSink@@@",
+          "target": 7999780,
+          "addend": 0,
+          "resolved": 7999780
+        },
+        {
+          "offset": 99,
+          "kind": 6,
+          "symbol": "??_7FoggedObjectClass@@6BINoticeSource@@@",
+          "target": 7999772,
+          "addend": 0,
+          "resolved": 7999772
+        },
+        {
+          "offset": 108,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 113,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 1957419
+        },
+        {
+          "offset": 311,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 316,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 1957216
+        },
+        {
+          "offset": 391,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 405,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 8,
+          "resolved": 8805960
+        },
+        {
+          "offset": 453,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2884046
+        },
+        {
+          "offset": 476,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 493,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 516,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 525,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 531,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2883236
+        },
+        {
+          "offset": 536,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 8,
+          "resolved": 8805960
+        },
+        {
+          "offset": 547,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 552,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 8,
+          "resolved": 8805960
+        },
+        {
+          "offset": 558,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 16,
+          "resolved": 8805968
+        },
+        {
+          "offset": 568,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 574,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 582,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 588,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 0,
+          "resolved": 8805952
+        },
+        {
+          "offset": 597,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        },
+        {
+          "offset": 604,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 12,
+          "resolved": 8805964
+        },
+        {
+          "offset": 610,
+          "kind": 6,
+          "symbol": "?FoggedObjectIndex@FoggedObjectClass@@2V?$IndexClass@HPAVFoggedObjectClass@@@@A",
+          "target": 8805952,
+          "addend": 4,
+          "resolved": 8805956
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4988032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4988672,
+      "method": "004c1f00",
+      "body_bytes": 25,
+      "body_sha256": "2b3440eaf74afb20e704fc1afd177db367fc248db575ca093e5736099fc7d1f2",
+      "padding_bytes": 7,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "caceda73fec911b93f1dc5128900a4fb59f98c97e7756ecfb52c9f04b3289bcf",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Head_Record_Occupy_List@FoggedObjectClass@@QAEPBVCell@@XZ",
+      "symbol_prefix": "?Get_Head_Record_Occupy_List@FoggedObjectClass@@QAEPBVCell@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4988672,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4988704,
+      "method": "004c1f20",
+      "body_bytes": 6,
+      "body_sha256": "bbbf292abb75f0c82f7e4dc9ed7e572ff4e94167e1041194cd3068169ee2d0fc",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "41b8a8ac1f8ab1bf6eeaa57e867d362bfea22217b94ac67ec1829396165b9797",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_RTTI@FoggedObjectClass@@UBE?AW4RTTIType@@XZ",
+      "symbol_prefix": "?Fetch_RTTI@FoggedObjectClass@@UBE?AW4RTTIType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4988704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4988720,
+      "method": "004c1f30",
+      "body_bytes": 6,
+      "body_sha256": "bd65397dd8a034381cd098249dde8ecf40b5c84954318b0e59e6828af94420d0",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "ef8f1dd3c412fa60f1f7531ef50cbc236c20b30f64b7f82c6b87112e09c9e359",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Object_Size@FoggedObjectClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Object_Size@FoggedObjectClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4988720,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4988736,
+      "method": "004c1f40",
+      "body_bytes": 56,
+      "body_sha256": "bcbc51c2fc9111470fe9340ea1f46d3e5c8ff3946966a7853477283b756bee3d",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "2bc642b49388b5dd614c11caf608d595e5659b2f88849ceb39c8395142fff2dd",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetClassID@FoggedObjectClass@@UAGJPAU_GUID@@@Z",
+      "symbol_prefix": "?GetClassID@FoggedObjectClass@@UAGJPAU_GUID@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_CLSID_FoggedObjectClass",
+          "target": 8003280,
+          "addend": 0,
+          "resolved": 8003280
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_CLSID_FoggedObjectClass",
+          "target": 8003280,
+          "addend": 4,
+          "resolved": 8003284
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_CLSID_FoggedObjectClass",
+          "target": 8003280,
+          "addend": 8,
+          "resolved": 8003288
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_CLSID_FoggedObjectClass",
+          "target": 8003280,
+          "addend": 12,
+          "resolved": 8003292
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4988736,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4988800,
+      "method": "4c1f80",
+      "body_bytes": 173,
+      "body_sha256": "fc2b815f95ee47464d6e2ea2ef1f64a04839db203ba6328d2ed775e20a4fbb4a",
+      "padding_bytes": 3,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "0f649b36e37de4051ca9671ed000002e6b88ddb933ecd41d0a37c26c96d50ba9",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Compute_CRC@FoggedObjectClass@@UBEXAAVCRCEngine@@@Z",
+      "symbol_prefix": "?Compute_CRC@FoggedObjectClass@@UBEXAAVCRCEngine@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "?Compute_CRC@AbstractClass@@UBEXAAVCRCEngine@@@Z",
+          "target": 4260272,
+          "addend": 0,
+          "resolved": 4294238754
+        },
+        {
+          "offset": 21,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4294778775
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4294778764
+        },
+        {
+          "offset": 43,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4294778753
+        },
+        {
+          "offset": 54,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4294778742
+        },
+        {
+          "offset": 65,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4294778731
+        },
+        {
+          "offset": 76,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4294778720
+        },
+        {
+          "offset": 87,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4294778709
+        },
+        {
+          "offset": 98,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4294778698
+        },
+        {
+          "offset": 109,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4294778687
+        },
+        {
+          "offset": 120,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4294778676
+        },
+        {
+          "offset": 131,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4294778665
+        },
+        {
+          "offset": 142,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4294778654
+        },
+        {
+          "offset": 153,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4294778643
+        },
+        {
+          "offset": 164,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4294778632
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4988800,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-02"
+    },
+    {
+      "entry": 4988976,
+      "method": "004c2030",
+      "body_bytes": 16,
+      "body_sha256": "9529b216d756247dd7a02165c1be5f872e271ebfb66cd6ce735086d787337b18",
+      "padding_bytes": 0,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "9529b216d756247dd7a02165c1be5f872e271ebfb66cd6ce735086d787337b18",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Head_Record_Object_Type@FoggedObjectClass@@QAEPAVObjectTypeClass@@XZ",
+      "symbol_prefix": "?Get_Head_Record_Object_Type@FoggedObjectClass@@QAEPAVObjectTypeClass@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4988976,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-42"
+    },
+    {
+      "entry": 4988992,
+      "method": "004c2040",
+      "body_bytes": 55,
+      "body_sha256": "a9f915581df4bdd2b128e7b33161d09a90fee5d1197942a865b2b6821e4fe9f7",
+      "padding_bytes": 9,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "a0f11447d4bee047b989fc7bdfd0d493847c0094978509a0b8fef585bbe7e024",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Cell@FoggedObjectClass@@UAE?AVCell@@XZ",
+      "symbol_prefix": "?Get_Cell@FoggedObjectClass@@UAE?AVCell@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4988992,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-37"
+    },
+    {
+      "entry": 4989056,
+      "method": "004c2080",
+      "body_bytes": 30,
+      "body_sha256": "dfa23b3424b6f6f842fc860d5df776b59d0970e1cbfac1a795f93bc9d41fcf79",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "ca81c6b69f2052c697d865e11649852de3a71eeb34414d8a48a6dbae01684333",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GFoggedObjectClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GFoggedObjectClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??1FoggedObjectClass@@UAE@XZ",
+          "target": 4984272,
+          "addend": 0,
+          "resolved": 4294962504
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2882726
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4989056,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4352"
+    },
+    {
+      "entry": 4989088,
+      "method": "004c20a0",
+      "body_bytes": 42,
+      "body_sha256": "8e7701ef3f11bb30d174f02bc1cddea629bbd5700d81d7a31ca3fe226431eca6",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8cf54449687f3d6e8eb8b851ddf879417d80108e7abcd3033a4bd658a3a9ef2f",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2882688
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4989088,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 4989136,
+      "method": "004c20d0",
+      "body_bytes": 27,
+      "body_sha256": "320ea631c04d8de3fef05d89079e3488386113c09786f628dcc31318772c91f9",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "1f5221b6c0a79a542cf65acde3c0aaa961404c61db4cb68f67c1396ad2cb0029",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@UAEHPBUDrawRecord@FoggedObjectClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@UAEHPBUDrawRecord@FoggedObjectClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4989136,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 4989168,
+      "method": "004c20f0",
+      "body_bytes": 41,
+      "body_sha256": "b8a69ef54d21b53e0d438d62f272fc818f6fc76b1be5f5268e09075247ddcede",
+      "padding_bytes": 7,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "4005ba100760a86cdde621a75e1e9f820b61cdf4a97cbfb41e763629a61fa1e9",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UBE?AUDrawRecord@FoggedObjectClass@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UBE?AUDrawRecord@FoggedObjectClass@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4989168,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4989216,
+      "method": "004c2120",
+      "body_bytes": 82,
+      "body_sha256": "1786ffeda0685dd4ce004a42aec1b19766d2440218caeedd8dd03ebf5f50eb99",
+      "padding_bytes": 14,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "489457b1d164a503c47b4952c25563316d2055b523199c92db5116e83fde0556",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4989216,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4989312,
+      "method": "004c2180",
+      "body_bytes": 259,
+      "body_sha256": "96d168aec928291d9cf91c71c8578819f247db1eaa8034d2faf15cf7d50e5bb0",
+      "padding_bytes": 13,
+      "full_extent_bytes": 272,
+      "full_extent_sha256": "8836a0d126a895225dba9b29d63c8fb66046b0a645bf542f694d10f25fc2af92",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UAE_NHPBUDrawRecord@FoggedObjectClass@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UAE_NHPBUDrawRecord@FoggedObjectClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 38,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2883181
+        },
+        {
+          "offset": 204,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2882283
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4989312,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4989584,
+      "method": "004c2290",
+      "body_bytes": 39,
+      "body_sha256": "9b147d525115b947f1b3c26aa553a13ecc858e62e87fdf96465ebe12247727a4",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "77df63df0cc4516014841381a7b4d344461a63c3976d670e3bb7c9ff6a07f06c",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2882195
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4989584,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 4989632,
+      "method": "004c22c0",
+      "body_bytes": 70,
+      "body_sha256": "c9a8ce5b9e3e75b7a8231151e9c48074318c207fe0e9ace90476b52d240f7035",
+      "padding_bytes": 10,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "ce2b1caecd3a61df457ec34d6187aa1011ffcd3bb085d2ec9c21f978ac3d60be",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UAEHABUDrawRecord@FoggedObjectClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UAEHABUDrawRecord@FoggedObjectClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4989632,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 4989712,
+      "method": "004c2310",
+      "body_bytes": 27,
+      "body_sha256": "320ea631c04d8de3fef05d89079e3488386113c09786f628dcc31318772c91f9",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "1f5221b6c0a79a542cf65acde3c0aaa961404c61db4cb68f67c1396ad2cb0029",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UAEHPBUDrawRecord@FoggedObjectClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UAEHPBUDrawRecord@FoggedObjectClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4989712,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 4989744,
+      "method": "004c2330",
+      "body_bytes": 269,
+      "body_sha256": "2a5aa746ae38d9ba44b9a54f4433742be2ed16ed7e651586902aeb0e43ae6039",
+      "padding_bytes": 3,
+      "full_extent_bytes": 272,
+      "full_extent_sha256": "84d40af9b24260a3893cf0c7810d30ae4c3911898932f6b64c34089aaebfbfe4",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@UAE_NHPBUDrawRecord@FoggedObjectClass@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@UAE_NHPBUDrawRecord@FoggedObjectClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 38,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2882749
+        },
+        {
+          "offset": 199,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2881856
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4989744,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4990016,
+      "method": "004c2440",
+      "body_bytes": 54,
+      "body_sha256": "ec7149edbb941fc3d3a529b2e5d3b6eb00acbd3f451cf53dce1883babc0a9e74",
+      "padding_bytes": 10,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "65530d836cca9f19937b4c7848f7067a32a4ad2b010d12c09fa9f478bd17d7ac",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@UAEHABUDrawRecord@FoggedObjectClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@UAEHABUDrawRecord@FoggedObjectClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4990016,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 4990080,
+      "method": "4c2480",
+      "body_bytes": 73,
+      "body_sha256": "5e6579d409f75490e5f572c7521e76ebcaabdb0b06936467d7519aa89731b8be",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "89259e7f2c2bd454381998df26ff7bb9491770e9d1c9ad8f86853d731ba14652",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@UDrawRecord@FoggedObjectClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@UDrawRecord@FoggedObjectClass@@@@6B@",
+          "target": 7999952,
+          "addend": 0,
+          "resolved": 7999952
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2881694
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2881659
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4990080,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 4990160,
+      "method": "4c24d0",
+      "body_bytes": 73,
+      "body_sha256": "8d9295015410ff91647ab7f398d0c906ad387b43420675c96ce0c033ecf15702",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "426347f7db1ff4071129624ddc216299cc542cda7d97d41f84df156ec1189497",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@UDrawRecord@FoggedObjectClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@UDrawRecord@FoggedObjectClass@@@@6B@",
+          "target": 7999952,
+          "addend": 0,
+          "resolved": 7999952
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2881614
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2881579
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4990160,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 4990240,
+      "method": "004c2520",
+      "body_bytes": 144,
+      "body_sha256": "32f15f53f600d0526a7f75d5759c9420cb65fa2bbdd242b4a11da3de1cf81890",
+      "padding_bytes": 0,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "32f15f53f600d0526a7f75d5759c9420cb65fa2bbdd242b4a11da3de1cf81890",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$VectorClass@UDrawRecord@FoggedObjectClass@@@@QAE@HPBUDrawRecord@FoggedObjectClass@@@Z",
+      "symbol_prefix": "??0?$VectorClass@UDrawRecord@FoggedObjectClass@@@@QAE@HPBUDrawRecord@FoggedObjectClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@UDrawRecord@FoggedObjectClass@@@@6B@",
+          "target": 7999952,
+          "addend": 0,
+          "resolved": 7999952
+        },
+        {
+          "offset": 88,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2882203
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4990240,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-36"
+    },
+    {
+      "entry": 4990384,
+      "method": "004c25b0",
+      "body_bytes": 134,
+      "body_sha256": "f92c1f84ea3e151e5655bbdfe8aa89bc09f3efdd5f8cad3b8796de5df28400fd",
+      "padding_bytes": 10,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "c5d0522c0b03f281c5b9c0faa550583381989b6488b9bec4d9963d377de0ad94",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Increase_Table_Size@?$IndexClass@HPAVFoggedObjectClass@@@@AAE_NH@Z",
+      "symbol_prefix": "?Increase_Table_Size@?$IndexClass@HPAVFoggedObjectClass@@@@AAE_NH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2882119
+        },
+        {
+          "offset": 92,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2881323
+        }
+      ],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4990384,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4990528,
+      "method": "004c2640",
+      "body_bytes": 34,
+      "body_sha256": "2120aa9971aa1c646b5dc0d2b456a6b53069e85b83636d7e0d7a71bdf3866b7f",
+      "padding_bytes": 14,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8c8bbd8fad1ba5d328de100ba0ca8e91049c5c2407d20aeadadc6e640c2400ad",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?search_compfunc@?$IndexClass@HPAVFoggedObjectClass@@@@CAHPBX0@Z",
+      "symbol_prefix": "?search_compfunc@?$IndexClass@HPAVFoggedObjectClass@@@@CAHPBX0@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4990528,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4990576,
+      "method": "004c2670",
+      "body_bytes": 68,
+      "body_sha256": "901d8f320c14de85179ce2ea42ac9688979465c83af0f7d32ee4368b7b2404bc",
+      "padding_bytes": 12,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "c5d34184ac2440d309df21fa2d16dcf7c6a38cd73adf1ad06205173bca7cc650",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Binary_Search@@YIPAUNodeElement@?$IndexClass@HPAVFoggedObjectClass@@@@PAU12@HABU12@@Z",
+      "symbol_prefix": "?Binary_Search@@YIPAUNodeElement@?$IndexClass@HPAVFoggedObjectClass@@@@PAU12@HABU12@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b13196c4651dca75b37d22940affa3d928a824e870dbadc0e48778f938f2fce0",
+      "source": "src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4990576,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

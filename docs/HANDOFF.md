@@ -5,6 +5,25 @@ Current state only (2026-11-19 ~08:20Z; account 1 parked, 91% at 04:30Z). Number
 [VC6 notes](VC6_MATCHING_NOTES.md). Open misses and debt: [OPEN_MISSES.md](OPEN_MISSES.md).
 Earlier owner periods are in [history/](history/).
 
+## Layout move at port parity (lane O88, 2026-11-25; user decision 2026-11-24/25)
+
+- **One tree at the root.** `rebuild/src` -> `src/`, `rebuild/include` -> `include/`, `rebuild/asm` -> `asm/`,
+  `rebuild/manifest/*` -> `manifests/` (catalog `manifests/catalog/`), `rebuild/tools/*` -> `tools/original_target/`,
+  `rebuild/tests/*` -> `tests/`, `rebuild/LICENSE.md` -> `LICENSE.md`, `rebuild/README.md` -> `docs/REBUILD.md`.
+  The earlier `src/` (tag `src-final`) and `native/` (now github.com/meastes/redalert2-modern) are deleted;
+  `manifests/original_target/` stays read-only as evidence (gate scope `frozen`). `RA2_TREE` and `--tree src` are
+  gone (`tree.py` names the one layout); `./build.command` and `./test.command` take no tree argument.
+  `yr/` stays (redalert2-modern's `tools/update_yr_vendor.sh` vendors it).
+- **Commands now:** `tools/original_target/rebuild.py check|catalog UNIT`, `tools/original_target/fmtnew.py`,
+  `tools/original_target/rebuild_census.py`, `tools/original_target/twinmap.py`, `tools/original_target/tail.py`;
+  STATUS's src-final table moved to `docs/history/SRC_FINAL_STATUS.md` (frozen); ByteMatch has one series
+  (`ra2-rebuild`, default worktree: the checkout itself). The landing scripts in `private/tools/` have `*.o88`
+  versions for the new paths (owner swaps them in at landing).
+- **Removed tools (main-tree only):** treemap.py (build/treemap.json stays as src-final's frozen input to ByteMatch),
+  native_gate.py, native_identity.py, and 33 main matching tools (generators, seed repair/permute, lane_tools, misses
+  index, source ledger, ...). The seed and rename tools that canonical/status once imported stay as text; they need
+  the earlier tree from `src-final` to run.
+
 ## Tree-of-record switch (lane O83, 2026-11-24; user in the owner session ~17:30Z: "Switch today once all the criteria are met")
 
 - **rebuild/ is the exact-match tree of record from 2026-11-24.** `src/` and `manifests/original_target/` are frozen at

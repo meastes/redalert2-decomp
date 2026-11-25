@@ -1,0 +1,311 @@
+{
+  "id": "rebuild-vqalib-dstream",
+  "population": {
+    "id": "rebuild-vqalib-dstream",
+    "inventory_sha256": "f721b71d211d26c571ef0a3522897986da926e51d9ce7ab4a065975794472d98",
+    "gaps_sha256": "0d1dc68414ac7a78bb3cdf8ecb82aa369cf7519362bade7930f64921598480e1",
+    "historical_population_sha256": "e74f423a9a7b4fb249fefa6f249e78aa9d612699a27378c5413501b817ed9052",
+    "historical_acceptance_sha256": "90f761444e20986250a959a94c82b9dca5e594ce5047ed4b7654e994475945fb"
+  },
+  "references": {
+    "_open": 7919681,
+    "_read": 7899759,
+    "_lseek": 7929160,
+    "_filelength": 7958936,
+    "_close": 7908612,
+    "?Disk_VQA_Stream_Handler@@YAJPAU_VQAHandle@@JPAXJ@Z": 7832656,
+    "?Memory_VQA_Stream_Handler@@YAJPAU_VQAHandle@@JPAXJ@Z": 7833008
+  },
+  "regions": [
+    {
+      "entry": 7832656,
+      "method": "00778450",
+      "body_bytes": 344,
+      "body_sha256": "c2697f73847bdeba66fe905b0359287edbb1d7f3fc927ed269ae385f77c8569d",
+      "padding_bytes": 8,
+      "full_extent_bytes": 352,
+      "full_extent_sha256": "f1be1e7221fa234bb5f10589c37e702c520957bbddd40f384b4ee8e6e805e0be",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 36,
+      "symbol": "?Disk_VQA_Stream_Handler@@YAJPAU_VQAHandle@@JPAXJ@Z",
+      "symbol_prefix": "?Disk_VQA_Stream_Handler@@YAJPAU_VQAHandle@@JPAXJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7832964,
+          "addend": 0,
+          "resolved": 7832964
+        },
+        {
+          "offset": 46,
+          "kind": 20,
+          "symbol": "_open",
+          "target": 7919681,
+          "addend": 0,
+          "resolved": 86975
+        },
+        {
+          "offset": 85,
+          "kind": 20,
+          "symbol": "_read",
+          "target": 7899759,
+          "addend": 0,
+          "resolved": 67014
+        },
+        {
+          "offset": 141,
+          "kind": 20,
+          "symbol": "_lseek",
+          "target": 7929160,
+          "addend": 0,
+          "resolved": 96359
+        },
+        {
+          "offset": 175,
+          "kind": 20,
+          "symbol": "_read",
+          "target": 7899759,
+          "addend": 0,
+          "resolved": 66924
+        },
+        {
+          "offset": 200,
+          "kind": 20,
+          "symbol": "_lseek",
+          "target": 7929160,
+          "addend": 0,
+          "resolved": 96300
+        },
+        {
+          "offset": 230,
+          "kind": 20,
+          "symbol": "_read",
+          "target": 7899759,
+          "addend": 0,
+          "resolved": 66869
+        },
+        {
+          "offset": 252,
+          "kind": 20,
+          "symbol": "_lseek",
+          "target": 7929160,
+          "addend": 0,
+          "resolved": 96248
+        },
+        {
+          "offset": 274,
+          "kind": 20,
+          "symbol": "_filelength",
+          "target": 7958936,
+          "addend": 0,
+          "resolved": 126002
+        },
+        {
+          "offset": 294,
+          "kind": 20,
+          "symbol": "_close",
+          "target": 7908612,
+          "addend": 0,
+          "resolved": 75658
+        },
+        {
+          "offset": 308,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7832957,
+          "addend": 0,
+          "resolved": 7832957
+        },
+        {
+          "offset": 312,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7832957,
+          "addend": 0,
+          "resolved": 7832957
+        },
+        {
+          "offset": 316,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7832691,
+          "addend": 0,
+          "resolved": 7832691
+        },
+        {
+          "offset": 320,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7832948,
+          "addend": 0,
+          "resolved": 7832948
+        },
+        {
+          "offset": 324,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7832729,
+          "addend": 0,
+          "resolved": 7832729
+        },
+        {
+          "offset": 328,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7832760,
+          "addend": 0,
+          "resolved": 7832760
+        },
+        {
+          "offset": 332,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7832768,
+          "addend": 0,
+          "resolved": 7832768
+        },
+        {
+          "offset": 336,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7832780,
+          "addend": 0,
+          "resolved": 7832780
+        },
+        {
+          "offset": 340,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7832928,
+          "addend": 0,
+          "resolved": 7832928
+        }
+      ],
+      "source_sha256": "c46324d142d9988af31012b0f4d822483e1bbd6d2e835082ae852e15dea56789",
+      "source": "src/vqalib_dstream.cpp",
+      "population": "rebuild-vqalib-dstream",
+      "source_order": 7832656,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7833008,
+      "method": "007785b0",
+      "body_bytes": 208,
+      "body_sha256": "17d944f5e9a4e25c72cf97318dea75e9c9714ce28c3ac5c009c59d72e3a98972",
+      "padding_bytes": 0,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "17d944f5e9a4e25c72cf97318dea75e9c9714ce28c3ac5c009c59d72e3a98972",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 36,
+      "symbol": "?Memory_VQA_Stream_Handler@@YAJPAU_VQAHandle@@JPAXJ@Z",
+      "symbol_prefix": "?Memory_VQA_Stream_Handler@@YAJPAU_VQAHandle@@JPAXJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7833180,
+          "addend": 0,
+          "resolved": 7833180
+        },
+        {
+          "offset": 172,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7833139,
+          "addend": 0,
+          "resolved": 7833139
+        },
+        {
+          "offset": 176,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7833139,
+          "addend": 0,
+          "resolved": 7833139
+        },
+        {
+          "offset": 180,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7833139,
+          "addend": 0,
+          "resolved": 7833139
+        },
+        {
+          "offset": 184,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7833139,
+          "addend": 0,
+          "resolved": 7833139
+        },
+        {
+          "offset": 188,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7833037,
+          "addend": 0,
+          "resolved": 7833037
+        },
+        {
+          "offset": 192,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7833169,
+          "addend": 0,
+          "resolved": 7833169
+        },
+        {
+          "offset": 196,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7833109,
+          "addend": 0,
+          "resolved": 7833109
+        },
+        {
+          "offset": 200,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7833109,
+          "addend": 0,
+          "resolved": 7833109
+        },
+        {
+          "offset": 204,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7833139,
+          "addend": 0,
+          "resolved": 7833139
+        }
+      ],
+      "source_sha256": "c46324d142d9988af31012b0f4d822483e1bbd6d2e835082ae852e15dea56789",
+      "source": "src/vqalib_dstream.cpp",
+      "population": "rebuild-vqalib-dstream",
+      "source_order": 7833008,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

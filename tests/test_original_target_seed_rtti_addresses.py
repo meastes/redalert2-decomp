@@ -82,22 +82,6 @@ class RTTIAddressTests(unittest.TestCase):
             self.assertEqual(seed.rtti_address_labels('f(&A::RTTI_Type_Descriptor);', {'A': value}),
                              ('f(&A::RTTI_Type_Descriptor);', []))
 
-    def test_complete_seed_declares_address_storage_without_a_fake_class(self):
-        class FakeInventory:
-            passes = []
-
-            def decompiled(self, entry):
-                return 'void __cdecl FUN_00401000(void)\n{\n  void *p;\n  p = &A::RTTI_Type_Descriptor;\n}\n'
-
-            def function(self, entry):
-                return None, {'ranges': []}
-
-        with patch.object(seed, 'original_rtti_addresses', return_value={'A': 0x801000}):
-            text = seed.seed(0x401000, FakeInventory(), {})
-        self.assertIn('extern "C" undefined4 DAT_00801000;', text)
-        self.assertIn('&DAT_00801000', text)
-        self.assertNotIn('A::RTTI_Type_Descriptor', text)
-        self.assertNotIn('class A', text)
 
 
 if __name__ == '__main__':

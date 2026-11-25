@@ -146,14 +146,6 @@ class XcuJoinTest(unittest.TestCase):
         self.assertEqual(counts['xcu-prefix'], (1, 10))
         self.assertEqual(counts['xcu-exclusion'], (0, 0))
 
-    def test_status_lines(self):
-        import status
-        lines = status.unit_evidence_lines(dict(regions=[dict(entry=1, body_bytes=7, unit_evidence='xcu-exclusion')]))
-        self.assertEqual(len(lines), 4)
-        self.assertIn('xcu single', lines[0])
-        self.assertIn('unit_evidence: xcu-exclusion', lines[1])
-        self.assertIn('| 1 rows, 7 bytes |', lines[1])
-        self.assertIn('| 0 rows, 0 bytes |', lines[3])
 
 
 if __name__ == '__main__':

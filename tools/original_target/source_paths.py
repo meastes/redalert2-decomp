@@ -7,7 +7,7 @@ import tree
 def source_path(repository, value):
     path = Path(value)
     if (path.is_absolute() or path.as_posix() != value or '..' in path.parts or
-            len(path.parts) < tree.MIN_SOURCE_PARTS or path.parts[:2] != tuple(tree.SOURCES.split('/')) or
+            len(path.parts) < tree.MIN_SOURCE_PARTS or path.parts[:tree.SOURCE_PARTS] != tuple(tree.SOURCES.split('/')) or
             path.suffix not in tree.SOURCE_SUFFIXES or
             any(not all(c.isascii() and (c.isalnum() or c in '_.-') for c in part)
                 for part in path.parts)):

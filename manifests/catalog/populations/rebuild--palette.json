@@ -1,0 +1,374 @@
+{
+  "id": "rebuild--palette",
+  "population": {
+    "id": "rebuild--palette",
+    "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
+    "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
+    "historical_population_sha256": "3b680cac7052bd14c77c12858876064082169bdae2ffb2242f72b049bdbc5a53",
+    "historical_acceptance_sha256": "00c1c9c25f1d21f3da18e210e6b8cc4e224264c63f7dc3d2bf3de0b9a24d487e"
+  },
+  "references": {
+    "?CCPalette@@3VPaletteClass@@A": 8619792,
+    "?GamePalette@@3VPaletteClass@@A": 8617488,
+    "?SchemePalette@@3VPaletteClass@@A": 8620560,
+    "?BlackPalette@@3VPaletteClass@@A": 8615184,
+    "??0PaletteClass@@QAE@ABVRGBClass@@@Z": 6303696,
+    "?WhitePalette@@3VPaletteClass@@A": 8619024,
+    "?OriginalPalette@@3VPaletteClass@@A": 8618256,
+    "?ScorePalette@@3VPaletteClass@@A": 8616720,
+    "?VoxelPalette@@3VPaletteClass@@A": 8621328,
+    "?WaypointPalette@@3VPaletteClass@@A": 8615952,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "_$E2": 4249456,
+    "_$E5": 4249488,
+    "_$E8": 4249520,
+    "_$E11": 4249552,
+    "_$E14": 4249584,
+    "_$E17": 4249616,
+    "_$E20": 4249648,
+    "_$E23": 4249680,
+    "_$E26": 4249712
+  },
+  "regions": [
+    {
+      "entry": 4249456,
+      "method": "0040d770",
+      "body_bytes": 27,
+      "body_sha256": "6726f05b8a35ebd5d76dd4f035bfa142407e9a88e01944c07ddd676ba825125e",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "d3c206cb8bcca574485269df6012898591d1d733cc36a19361ca3b00f98c2e40",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?CCPalette@@3VPaletteClass@@A",
+          "target": 8619792,
+          "addend": 2,
+          "resolved": 8619794
+        }
+      ],
+      "source_sha256": "877e5023a8a7d1e66d64ffea49d89226b47879fa113807eda8637067c40a2bbe",
+      "source": "src/_palette.cpp",
+      "population": "rebuild--palette",
+      "source_order": 4249456,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4249488,
+      "method": "0040d790",
+      "body_bytes": 27,
+      "body_sha256": "4137f92d1760cd6b32ba6326556f6483f93f6839866d982d366a01293f05e0a0",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2b5b62f324f6e8fcc1f822bf72b36413efd92eba24e935094321723cf91fd77a",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?GamePalette@@3VPaletteClass@@A",
+          "target": 8617488,
+          "addend": 2,
+          "resolved": 8617490
+        }
+      ],
+      "source_sha256": "877e5023a8a7d1e66d64ffea49d89226b47879fa113807eda8637067c40a2bbe",
+      "source": "src/_palette.cpp",
+      "population": "rebuild--palette",
+      "source_order": 4249488,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4249520,
+      "method": "0040d7b0",
+      "body_bytes": 27,
+      "body_sha256": "20f109afc7eae57c5164d993e523a3d92bb3f44732ba610693adca41e2bb73d3",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "a9d139bcfe78751dc68ae7af47ffd92aff4d3d51ab27f37e151ffe891cd4fa5d",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?SchemePalette@@3VPaletteClass@@A",
+          "target": 8620560,
+          "addend": 2,
+          "resolved": 8620562
+        }
+      ],
+      "source_sha256": "877e5023a8a7d1e66d64ffea49d89226b47879fa113807eda8637067c40a2bbe",
+      "source": "src/_palette.cpp",
+      "population": "rebuild--palette",
+      "source_order": 4249520,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4249552,
+      "method": "0040d7d0",
+      "body_bytes": 32,
+      "body_sha256": "50f2f141b444e3b1e0deeb6e77a5b818bdd1a00c94b5e3de3ce225a5190163f2",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50f2f141b444e3b1e0deeb6e77a5b818bdd1a00c94b5e3de3ce225a5190163f2",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?BlackPalette@@3VPaletteClass@@A",
+          "target": 8615184,
+          "addend": 0,
+          "resolved": 8615184
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "??0PaletteClass@@QAE@ABVRGBClass@@@Z",
+          "target": 6303696,
+          "addend": 0,
+          "resolved": 2054114
+        }
+      ],
+      "source_sha256": "877e5023a8a7d1e66d64ffea49d89226b47879fa113807eda8637067c40a2bbe",
+      "source": "src/_palette.cpp",
+      "population": "rebuild--palette",
+      "source_order": 4249552,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4249584,
+      "method": "0040d7f0",
+      "body_bytes": 32,
+      "body_sha256": "a5e98ceb0df5bdbbf231c24929589ba6bfb70e6126e3bf458774e7ef3a4c56d8",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "a5e98ceb0df5bdbbf231c24929589ba6bfb70e6126e3bf458774e7ef3a4c56d8",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?WhitePalette@@3VPaletteClass@@A",
+          "target": 8619024,
+          "addend": 0,
+          "resolved": 8619024
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "??0PaletteClass@@QAE@ABVRGBClass@@@Z",
+          "target": 6303696,
+          "addend": 0,
+          "resolved": 2054082
+        }
+      ],
+      "source_sha256": "877e5023a8a7d1e66d64ffea49d89226b47879fa113807eda8637067c40a2bbe",
+      "source": "src/_palette.cpp",
+      "population": "rebuild--palette",
+      "source_order": 4249584,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4249616,
+      "method": "0040d810",
+      "body_bytes": 27,
+      "body_sha256": "e85e0ecb3e6e05ce83dfc84d95985cc8050f7d515903bb4683a5636645519557",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4fb56f0a1f8f137adc4613765d8ceac270a7ef6e95697aa8a445ead57f36d63a",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?OriginalPalette@@3VPaletteClass@@A",
+          "target": 8618256,
+          "addend": 2,
+          "resolved": 8618258
+        }
+      ],
+      "source_sha256": "877e5023a8a7d1e66d64ffea49d89226b47879fa113807eda8637067c40a2bbe",
+      "source": "src/_palette.cpp",
+      "population": "rebuild--palette",
+      "source_order": 4249616,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4249648,
+      "method": "0040d830",
+      "body_bytes": 27,
+      "body_sha256": "6f5ac9d72d0844b445d8e3e1e72b06e95f97675b8cb1c323de5764bdfe5fdc5b",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "ed742164c81a6a236a66c90d798a5eb493eecafea7a197e9251d123f21290604",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?ScorePalette@@3VPaletteClass@@A",
+          "target": 8616720,
+          "addend": 2,
+          "resolved": 8616722
+        }
+      ],
+      "source_sha256": "877e5023a8a7d1e66d64ffea49d89226b47879fa113807eda8637067c40a2bbe",
+      "source": "src/_palette.cpp",
+      "population": "rebuild--palette",
+      "source_order": 4249648,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4249680,
+      "method": "0040d850",
+      "body_bytes": 27,
+      "body_sha256": "ab0170e7edcce7bddffc1a9bc1485a16fae585f6e9c3cca089d646799eb58ed7",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "d20a2779d12b28404a4c8455607f48a264844b5ed493c1cd80513e04ac08a32d",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?VoxelPalette@@3VPaletteClass@@A",
+          "target": 8621328,
+          "addend": 2,
+          "resolved": 8621330
+        }
+      ],
+      "source_sha256": "877e5023a8a7d1e66d64ffea49d89226b47879fa113807eda8637067c40a2bbe",
+      "source": "src/_palette.cpp",
+      "population": "rebuild--palette",
+      "source_order": 4249680,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4249712,
+      "method": "0040d870",
+      "body_bytes": 27,
+      "body_sha256": "95e19563ba68339b06512ffa7d7a280d0e99d579039a046988496f65db131bb3",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "81cfc5c24e2c8525606a8524f5facfd6d10f7d0740fd957976b5a14babd3d2ee",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?WaypointPalette@@3VPaletteClass@@A",
+          "target": 8615952,
+          "addend": 2,
+          "resolved": 8615954
+        }
+      ],
+      "source_sha256": "877e5023a8a7d1e66d64ffea49d89226b47879fa113807eda8637067c40a2bbe",
+      "source": "src/_palette.cpp",
+      "population": "rebuild--palette",
+      "source_order": 4249712,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

@@ -1,27 +1,23 @@
-"""Which source tree the canonical tools read (lane R, rebuild trial, 2026-11-17).
+"""The repository's one source tree (layout move at port parity, user decision 2026-11-24/25, lane O88).
 
-The default is main's tree: sources under src/recovered, shared headers under src/shared,
-quoted includes spelled relative to src/ ("shared/x.hpp").
+Sources are one file per original translation unit under src/, one header per class under include/,
+quoted includes spelled relative to include/ ("facing.h"), and every unit is compiled with the pinned
+VC6 system headers searched after include/ (the original units included <windows.h> and the C runtime
+headers directly). Handwritten assembly lives under asm/ with its ledger manifests/assembly.json.
 
-RA2_TREE=rebuild selects the rebuild trial's unit-file tree: one source per original
-translation unit under rebuild/src, one header per class under rebuild/include, quoted
-includes spelled relative to rebuild/include ("facing.h"), and every unit compiled with the
-pinned VC6 system headers searched after rebuild/include (no RA2_SDK_HEADERS switch: the
-original units included <windows.h> and the C runtime headers directly).
+The former two-tree switch (RA2_TREE=main|rebuild, 2026-11-17 to 2026-11-25) is gone: the earlier tree
+(src/recovered + src/shared, catalog manifests/original_target/) survives only at the tag src-final, and
+its catalog stays under manifests/original_target/ as read-only evidence the catalog rows cite.
+REBUILD stays True for the code paths that once branched on the tree.
 """
-import os
-
-NAME = os.environ.get('RA2_TREE', 'main')
-if NAME not in ('main', 'rebuild'):
-    raise ValueError('RA2_TREE must be main or rebuild')
-REBUILD = NAME == 'rebuild'
-SOURCES = 'rebuild/src' if REBUILD else 'src/recovered'        # catalogued sources
-HEADERS = 'rebuild/include' if REBUILD else 'src/shared'       # catalogued headers
-INCLUDE_ROOT = 'rebuild/include' if REBUILD else 'src'         # the compile's /I directory
-HEADER_SUFFIXES = ('.h', '.hpp', '.hh', '.c') if REBUILD else ('.h', '.hpp')     # .c: MIDL interface-id files a unit includes
-SOURCE_SUFFIXES = ('.cpp', '.c') if REBUILD else ('.cpp',)
-MIN_SOURCE_PARTS = 3                                            # rebuild/src/x.cpp, src/recovered/x.cpp
-# Handwritten assembly sources and their ledger (tree-of-record switch, 2026-11-24): the rebuild assembles its own
-# copy; src/recovered/asm stays as it was (frozen at src-final; native/CMakeLists.txt's asm check reads it).
-ASM = 'rebuild/asm' if REBUILD else 'src/recovered/asm'
-ASSEMBLY = 'rebuild/manifest/assembly.json' if REBUILD else 'manifests/original_target/assembly.json'
+REBUILD = True
+SOURCES = 'src'                                     # catalogued sources
+HEADERS = 'include'                                 # catalogued headers
+INCLUDE_ROOT = 'include'                            # the compile's /I directory
+HEADER_SUFFIXES = ('.h', '.hpp', '.hh', '.c')       # .c: MIDL interface-id files a unit includes
+SOURCE_SUFFIXES = ('.cpp', '.c')
+SOURCE_PARTS = len(SOURCES.split('/'))              # leading path parts naming the source tree
+HEADER_PARTS = len(HEADERS.split('/'))
+MIN_SOURCE_PARTS = SOURCE_PARTS + 1                 # src/x.cpp
+ASM = 'asm'
+ASSEMBLY = 'manifests/assembly.json'

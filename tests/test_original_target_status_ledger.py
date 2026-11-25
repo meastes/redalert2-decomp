@@ -48,20 +48,6 @@ class LedgerSplitTests(unittest.TestCase):
         self.assertEqual(split, dict(crt=0, crt_matched=0, asm=0, asm_matched=0, in_scope_matched=100,
                                      in_scope_total=996))
 
-    def test_render_keeps_existing_rows_and_adds_the_split(self):
-        catalog = dict(regions=[region(0x401000, 100, 4), region(status.CRT_START + 0x20, 16, 0)])
-        text = status.render(catalog, TEXT, [])
-        lines = text.splitlines()
-        self.assertIn('| Matched C/C++ body bytes | 116 ({:.2f}% of .text) |'.format(11600.0 / TEXT), lines)
-        self.assertIn('| Frozen padding bytes | 4 |', lines)
-        self.assertIn('| Original .text scaffold bytes | {:,} |'.format(TEXT - 120), lines)
-        self.assertIn('| C runtime / library bytes (.text >= 0x781000; library ledger, not source credit) '
-                      '| 240 ({:.2f}% of .text; 16 matched) |'.format(24000.0 / TEXT), lines)
-        total = TEXT - 240 - 0x60 - 4
-        self.assertIn('| In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope '
-                      'padding) | 100 of {:,} ({:.2f}%) |'.format(total, 10000.0 / total), lines)
-        self.assertLess(lines.index('| Frozen padding bytes | 4 |'),
-                        [i for i, l in enumerate(lines) if l.startswith('| C runtime')][0])
 
 
 class HandwrittenListTests(unittest.TestCase):
@@ -74,19 +60,7 @@ class HandwrittenListTests(unittest.TestCase):
 
 
 class OwnBoundTests(unittest.TestCase):
-    def test_rows_bound_by_their_own_population_are_counted_with_their_donors(self):
-        catalog = dict(regions=[region(0x401000, 16), region(0x401010, 8, bound_population='p2'),
-                                region(0x401020, 4, bound_population='p2'), region(0x401030, 2, bound_population='p3')])
-        self.assertEqual(status.own_bound_coverage(catalog), (3, 14, 2))
-        self.assertIn('| 3 rows, 14 bytes, 2 donor populations |', status.own_bound_line(catalog))
 
-    def test_files_defining_declarations_only_are_listed_per_file(self):
-        texts = {'src/recovered/a.cpp': b'#define VECTOR_DECLARATIONS_ONLY\nint F();\n', 'src/recovered/b.cpp': b'int G();\n'}
-        catalog = dict(regions=[dict(region(0x401000, 16), source='src/recovered/a.cpp'),
-                                dict(region(0x401010, 8), source='src/recovered/a.cpp'),
-                                dict(region(0x401020, 8), source='src/recovered/b.cpp')])
-        self.assertEqual(status.declarations_only_files(catalog, texts.__getitem__), ['src/recovered/a.cpp'])
-        self.assertIn('| 1 (a.cpp) |', status.declarations_only_line(catalog, texts.__getitem__))
 
     def test_declarations_only_rows_are_judgment_calls(self):
         catalog = dict(regions=[region(0x401000, 16, declarations_only=True), region(0x401010, 8)])
@@ -124,18 +98,6 @@ class StructureLinesTests(unittest.TestCase):
         ref_lines=dict(lines=0, files=0),
         externs=dict(lines=14, names=15, files=16, declared_in_a_header=1, in_several_cpp=2))
 
-    def test_structure_rows_follow_the_drafts_row(self):
-        catalog = dict(regions=[region(0x401000, 100, 4)])
-        lines = status.render(catalog, TEXT, [], structure=self.RESULT).splitlines()
-        rows = [l for l in lines if l.startswith('| Structure:')]
-        self.assertEqual(len(rows), 7)
-        self.assertIn('| 2 of 10 names (3 extra definitions) |', rows[0])
-        self.assertIn('| 7 (5 one-function) beside 6 unit files |', rows[1])
-        self.assertIn('8 rows, 900 bytes (free 5, stand-in 3); references absent: tibsun |', rows[2])
-        self.assertIn('| 11 distinct, 1,200 occurrences in 13 files |', rows[3])
-        self.assertIn('| 0 in 0 files |', rows[5])
-        drafts = [i for i, l in enumerate(lines) if l.startswith('| Non-exact drafts')][0]
-        self.assertEqual(lines.index(rows[0]), drafts + 1)
 
     def test_no_structure_rows_without_a_census(self):
         catalog = dict(regions=[region(0x401000, 100, 4)])
@@ -146,7 +108,7 @@ class RebuildCategoryLineTests(unittest.TestCase):
     """Both trees on the same category lines (lane O41, 2026-11-22): Reproduced .text is the sum of C/C++ body,
     evidenced inline asm, frozen padding, linked library and assembled asm in both; C/C++ is body bytes only; the
     rebuild's whole-unit categories come from its catalog, its function-level ones and the 'exact with no
-    judgment call' row (lane O37) from the last row of rebuild/manifest/progress.csv. Since 2026-11-24 the rebuild
+    judgment call' row (lane O37) from the last row of manifests/progress.csv. Since 2026-11-24 the rebuild
     (tree of record) is the first column, whole-unit as the headline, and src-final the frozen reference."""
     BASE = dict(time_utc='2026-11-22T20:00Z', units='2', functions_exact='10', bytes_exact='1000', a_functions='8',
                 a_bytes='800', b_functions='1', b_bytes='100', c_functions='1', c_bytes='100', workers_functions='0',
@@ -167,7 +129,7 @@ class RebuildCategoryLineTests(unittest.TestCase):
     def lines(self, row):
         import csv, tempfile
         with tempfile.TemporaryDirectory() as d:
-            path = Path(d) / 'rebuild/manifest/progress.csv'
+            path = Path(d) / 'manifests/progress.csv'
             path.parent.mkdir(parents=True)
             with path.open('w', newline='') as f:
                 w = csv.DictWriter(f, fieldnames=list(row)); w.writeheader(); w.writerow(row)
@@ -189,7 +151,7 @@ class RebuildCategoryLineTests(unittest.TestCase):
         import csv, tempfile
         row = dict(self.BASE, **self.BODY)
         with tempfile.TemporaryDirectory() as d:
-            path = Path(d) / 'rebuild/manifest/progress.csv'
+            path = Path(d) / 'manifests/progress.csv'
             path.parent.mkdir(parents=True)
             with path.open('w', newline='') as f:
                 w = csv.DictWriter(f, fieldnames=list(row)); w.writeheader(); w.writerow(row)
@@ -284,7 +246,7 @@ class RebuildCategoryLineTests(unittest.TestCase):
         catalog = dict(regions=[dict(entry=0x401000, body_bytes=100), dict(entry=0x402000, body_bytes=40),
                                 dict(entry=0x403000, body_bytes=7), dict(entry=0x404000, body_bytes=9)])
         with tempfile.TemporaryDirectory() as d:
-            manifest = Path(d) / 'rebuild/manifest'
+            manifest = Path(d) / 'manifests'
             manifest.mkdir(parents=True)
             with (manifest / 'provenance.csv').open('w', newline='') as f:
                 w = csv.DictWriter(f, fieldnames=['unit', 'entry', 'judgment']); w.writeheader()

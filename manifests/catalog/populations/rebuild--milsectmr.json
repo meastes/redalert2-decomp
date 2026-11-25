@@ -1,0 +1,124 @@
+{
+  "id": "rebuild--milsectmr",
+  "population": {
+    "id": "rebuild--milsectmr",
+    "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
+    "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
+    "historical_population_sha256": "0aa5aac4a355a951362a1fadd32949afcdd0609460b3cca13e5508f8f2ab8320",
+    "historical_acceptance_sha256": "6aae419035b0e60139c94f5478599fab8f46f6bd71a69de730032941a111f811"
+  },
+  "references": {
+    "?MillisecondTimer@@3VMillisecondTimerClass@@A": 8614984,
+    "??0MillisecondTimerClass@@QAE@XZ": 5846320,
+    "_$E2": 4248064,
+    "_atexit": 7874954,
+    "??1MillisecondTimerClass@@QAE@XZ": 5846464,
+    "_$E4": 4248032
+  },
+  "regions": [
+    {
+      "entry": 4248032,
+      "method": "0040d1e0",
+      "body_bytes": 22,
+      "body_sha256": "6edf1fb2a2fff0b6fb0307ee797f52d20bdd5e61c58118bb734fa44d690323e9",
+      "padding_bytes": 10,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "7c38808433752161bbbf4c9c9f92aedf0f5f4b6a3e782b7c7576bf9d6817f05c",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E4",
+      "symbol_prefix": "_$E4",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?MillisecondTimer@@3VMillisecondTimerClass@@A",
+          "target": 8614984,
+          "addend": 0,
+          "resolved": 8614984
+        },
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "??0MillisecondTimerClass@@QAE@XZ",
+          "target": 5846320,
+          "addend": 0,
+          "resolved": 1598278
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "_$E2",
+          "target": 4248064,
+          "addend": 0,
+          "resolved": 4248064
+        },
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 3626902
+        }
+      ],
+      "source_sha256": "95f3645f55da3e39e6f260974c943eeb056ed50c554347192e80a9eb978346ac",
+      "source": "src/_milsectmr.cpp",
+      "population": "rebuild--milsectmr",
+      "source_order": 4248032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4248064,
+      "method": "0040d200",
+      "body_bytes": 10,
+      "body_sha256": "be487e019240cfe72418a69f3819f98a7595f583c15ae621d6477a9df3927002",
+      "padding_bytes": 6,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "943afaa9f1584c6d655e17f8325df7c6146ab479aa4d65b7845202a85cd94706",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?MillisecondTimer@@3VMillisecondTimerClass@@A",
+          "target": 8614984,
+          "addend": 0,
+          "resolved": 8614984
+        },
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "??1MillisecondTimerClass@@QAE@XZ",
+          "target": 5846464,
+          "addend": 0,
+          "resolved": 1598390
+        }
+      ],
+      "source_sha256": "95f3645f55da3e39e6f260974c943eeb056ed50c554347192e80a9eb978346ac",
+      "source": "src/_milsectmr.cpp",
+      "population": "rebuild--milsectmr",
+      "source_order": 4248064,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

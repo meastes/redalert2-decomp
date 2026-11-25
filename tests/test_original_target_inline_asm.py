@@ -104,19 +104,6 @@ class InlineAsmAuditTests(unittest.TestCase):
             self.check('int f() { return 0; }\n', EVIDENCED)
 
 
-class InlineAsmStatusTests(unittest.TestCase):
-    def test_evidenced_bytes_are_reported_apart_from_source_credit(self):
-        catalog = dict(regions=[dict(body_bytes=100, padding_bytes=4, population='p1'),
-                                dict(body_bytes=40, padding_bytes=0, population='p1', inline_asm='evidenced',
-                                     inline_asm_citation='TibSun conquer.cpp:346')])
-        start = datetime(2026, 11, 7, 12, tzinfo=timezone.utc)
-        text = status.render(catalog, 1000, [dict(commit='a', time=start, subject='', regions=2, body=100, padding=4)])
-        self.assertIn('| Matched C/C++ body bytes | 100 (10.00% of .text) |', text)
-        self.assertIn('not C/C++ credit) | 40 (4.00% of .text) |', text)
-        self.assertIn('| Original .text scaffold bytes | 856 |', text)
-        self.assertEqual(status.coverage(catalog)['body'], 100)
-
-
 ARCHIVE_MPU = """unsigned int Get_CPU_Rate(unsigned int & high)
 {
 \treturn 0;

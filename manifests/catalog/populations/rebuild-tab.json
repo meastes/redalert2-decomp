@@ -1,0 +1,6321 @@
+{
+  "id": "rebuild-tab",
+  "population": {
+    "id": "rebuild-tab",
+    "inventory_sha256": "7ec2f8e7b61abf3556c06898b3a92104771d4901adea1ecf7da6521afb869984",
+    "gaps_sha256": "1cf5876247802d8507cbc7d988aa8f81fafb59e5f1811622f5e605e3eaa4559f",
+    "historical_population_sha256": "d9ea857134d074176187b2074826918a423de4e428bb76f958afe1ae6b4a2b3e",
+    "historical_acceptance_sha256": "e4e53c7f16a9658b67339a2d72c8238d72bd4fc4c66d6c6d1c0f8fa77f149ac7"
+  },
+  "references": {
+    "_RECT_NONE": 11264640,
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 11264672,
+    "_ISO_TILE_SIZE": 8045464,
+    "_LEPTONS_PER_PIXEL": 11265136,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 11265016,
+    "_ONE_RAD": 8045472,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 11265008,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 11264688,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 11262216,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 11265148,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 11264704,
+    "_CELL_DIAG_SLOPE_ANGLE": 11264896,
+    "_BRIDGE_LEPTON_HEIGHT": 11265132,
+    "_CELL_NONE": 11264668,
+    "_COORD_NONE": 11264864,
+    "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A": 11262232,
+    "??0ShapeButtonClass@@QAE@XZ": 6770720,
+    "_$E130": 6947984,
+    "_atexit": 7874954,
+    "_$S131": 11262212,
+    "??1ShapeButtonClass@@UAE@XZ": 6770928,
+    "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A": 11265024,
+    "_$E136": 6948064,
+    "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A": 11264912,
+    "_$E141": 6948128,
+    "?ButtonShapeAllocated@TabClass@@2PA_NA": 11264812,
+    "?ButtonShapes@TabClass@@2PAPBVShapeSet@@A": 11262112,
+    "??3@YAXPAX@Z": 7871803,
+    "?CommandNames@@3QBQBDB": 8349688,
+    "?NoAdvancedCommand@@3HB": 8349684,
+    "?SlotButton@TabClass@@2PAHA": 11264712,
+    "?SlotPitch@TabClass@@2HA": 11264904,
+    "?ButtonSlotRect@@3PAV?$TRect@H@@A": 11276812,
+    "?SlotTop@TabClass@@2HA": 11264884,
+    "?ButtonRows@TabClass@@2HA": 11264684,
+    "?TabEndRect@@3PAV?$TRect@H@@A": 11276816,
+    "?ThumbOpenRect@@3PAV?$TRect@H@@A": 11276804,
+    "?ButtonsLeft@TabClass@@2HA": 11264892,
+    "?Team01Command@TabClass@@2HA": 11264880,
+    "?Team03Command@TabClass@@2HA": 11265128,
+    "??0SidebarClass@@QAE@XZ": 6797056,
+    "??_7INoticeSink@@6B@": 7974468,
+    "??0CreditClass@@QAE@XZ": 4801808,
+    "?Frame@@3HA": 10751276,
+    "??_7TabClass@@6BINoticeSink@@@": 8021212,
+    "??_7TabClass@@6BSidebarClass@@@": 8021220,
+    "??_C@_0L@EACJ@AttackMove?$AA@": 8349740,
+    "?AttackMoveCommand@TabClass@@2HA": 11265124,
+    "??_C@_06HDMK@Beacon?$AA@": 8349732,
+    "?BeaconCommand@TabClass@@2HA": 11264660,
+    "??_C@_05NING@Cheer?$AA@": 8237116,
+    "?CheerCommand@TabClass@@2HA": 11262224,
+    "??_C@_06KMDI@Deploy?$AA@": 8237180,
+    "?DeployCommand@TabClass@@2HA": 11264632,
+    "??_C@_05ICEM@Guard?$AA@": 8181980,
+    "?GuardCommand@TabClass@@2HA": 11264696,
+    "??_C@_0N@CNHO@PlanningMode?$AA@": 8244168,
+    "?PlanningModeCommand@TabClass@@2HA": 11264876,
+    "??_C@_04DFLL@Stop?$AA@": 8181912,
+    "?StopCommand@TabClass@@2HA": 11264700,
+    "??_C@_06DBCK@Team01?$AA@": 8349768,
+    "??_C@_06MOJD@Team02?$AA@": 8349760,
+    "?Team02Command@TabClass@@2HA": 11264888,
+    "??_C@_06GEAE@Team03?$AA@": 8349752,
+    "??_C@_0L@PODG@TypeSelect?$AA@": 8244308,
+    "?TypeSelectCommand@TabClass@@2HA": 11264656,
+    "?Planning_Set_Sink@@YIXPAVINoticeSink@@@Z": 6372864,
+    "?One_Time@SidebarClass@@UAEXXZ": 6797456,
+    "?DisposeOfArt@SidebarClass@@UAEXXZ": 6799296,
+    "?Init_For_House@SidebarClass@@UAEXXZ": 6798736,
+    "??_C@_0P@ODHJ@Button?$CF02d?4SHP?$AA@": 8349776,
+    "_sprintf": 7872756,
+    "?Load_Alloc_Data@@YIPAXPBDAA_N@Z": 4805232,
+    "?ButtonWidth@TabClass@@2HA": 11265144,
+    "?ButtonHeight@TabClass@@2HA": 11264680,
+    "?TabBarRect@@3PAV?$TRect@H@@A": 11276796,
+    "?SlotGap@TabClass@@2HA": 11265120,
+    "?Init_IO@SidebarClass@@UAEXXZ": 6798032,
+    "?Debug_Map@@3_NA": 10751251,
+    "?Is_Sidebar_Art_Loaded@@YI_NXZ": 7292304,
+    "?Setup_Command_Buttons@TabClass@@QAEXXZ": 6953088,
+    "?SidebarDrawer@@3PAVConvertClass@@A": 8594380,
+    "?TabThumbShape@@3PBVShapeSet@@B": 11276440,
+    "?Set_Position@GadgetClass@@UAEXHH@Z": 5043808,
+    "?Set_Shape@ShapeButtonClass@@UAEXPBVShapeSet@@HH@Z": 6770992,
+    "?ThumbClosedRect@@3PAV?$TRect@H@@A": 11276808,
+    "?Activate@SidebarClass@@UAE_NH@Z": 6808080,
+    "?Show_Buttons@TabClass@@QAEXXZ": 6953648,
+    "?ToolTips@@3PAVCCToolTip@@A": 8624560,
+    "??_C@_0BA@GHMH@Tip?3ThumbClosed?$AA@": 8349792,
+    "?Remove@ToolTipManager@@QAEXI@Z": 7256592,
+    "?Add@ToolTipManager@@QAE_NPBVToolTip@@@Z": 7256160,
+    "?TacticalRect@@3V?$TRect@H@@A": 8623664,
+    "?TabBarHeight@@3HA": 8052100,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "?Override_Mouse_Shape@MouseClass@@UAE_NW4MouseType@@_N@Z": 5894736,
+    "?Command_Attack_Move@@YAXXZ": 7300464,
+    "?Command_Beacon@@YAXXZ": 7300272,
+    "?Command_Cheer@@YAXXZ": 7298128,
+    "?Command_Deploy@@YAXXZ": 7297344,
+    "?Command_Guard@@YIXXZ": 7297808,
+    "?Command_Planning_Mode_On@@YIX_N@Z": 7300304,
+    "?Command_Planning_Mode_Off@@YIX_N@Z": 7300336,
+    "?Command_Stop@@YAXXZ": 7297984,
+    "?Group_Count@@YIHH@Z": 7297136,
+    "?Group_Assign@@YIXH@Z": 7298448,
+    "?Group_Is_All_Selected@@YI_NH@Z": 7297024,
+    "?Group_Reselect@@YIXH@Z": 7299280,
+    "?Group_Select@@YIXH@Z": 7298816,
+    "?Command_Type_Select@@YIXXZ": 7304032,
+    "?Rule@@3PAVRulesClass@@A": 8624200,
+    "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z": 7421360,
+    "?Remove_Command_Buttons@TabClass@@QAEXXZ": 6950272,
+    "?Get_Button@TabClass@@SIPAVShapeButtonClass@@H@Z": 6948352,
+    "?Add_Button_ToolTip@TabClass@@SIXPAVControlClass@@PBD@Z": 6951536,
+    "?MuteSWLaunches@@3HA": 10736968,
+    "?Group_Clear@@YIXH@Z": 7298576,
+    "?AI@CreditClass@@QAEX_N@Z": 4802128,
+    "?AI@SidebarClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z": 6806672,
+    "_?$S145@?1??Draw_It@TabClass@@UAEX_N@Z@4EA": 11264664,
+    "_$E146": 6952704,
+    "_?LastMouseSpot@?1??Draw_It@TabClass@@UAEX_N@Z@4UTabMouseSpot@@A": 11264840,
+    "?MouseCursor@@3PAVMouse@@A": 8625256,
+    "_?MouseInside@?1??Draw_It@TabClass@@UAEX_N@Z@4_NA": 11265152,
+    "_?DrawnCount@?1??Draw_It@TabClass@@UAEX_N@Z@4HA": 11265156,
+    "?LogicalSurface@@3PAVSurface@@A": 8624476,
+    "_?DrawnOn@?1??Draw_It@TabClass@@UAEX_N@Z@4PAPAVSurface@@A": 11264848,
+    "?SidebarSurface@@3PAVSurface@@A": 8624456,
+    "?TabBackShape@@3PBVShapeSet@@B": 11276536,
+    "?Draw_Shape@@YIXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z": 4845216,
+    "?IsToBlitSidebar@SidebarClass@@2_NA": 11259268,
+    "?Graphic_Logic@CreditClass@@QAEX_N@Z": 4801840,
+    "?TabLeftShape@@3PBVShapeSet@@B": 11276360,
+    "?TabTileCount@@3HA": 11276276,
+    "?TabTileShape@@3PBVShapeSet@@B": 11276452,
+    "?TabRightShape@@3PBVShapeSet@@B": 11276464,
+    "?Draw_Me@ShapeButtonClass@@UAEHH@Z": 6771168,
+    "?Draw_It@SidebarClass@@UAEX_N@Z": 6803328,
+    "??0ToolTip@@QAE@XZ": 6955200,
+    "??_C@_0P@BNNL@Tip?3AttackMove?$AA@": 8349956,
+    "??_C@_0L@NFIE@Tip?3Beacon?$AA@": 8349944,
+    "??_C@_09JGJD@Tip?3Cheer?$AA@": 8349932,
+    "??_C@_0L@KHG@Tip?3Deploy?$AA@": 8349920,
+    "??_C@_09MMAJ@Tip?3Guard?$AA@": 8349908,
+    "??_C@_0BB@OEPN@Tip?3PlanningMode?$AA@": 8349888,
+    "??_C@_08HADJ@Tip?3Stop?$AA@": 8349876,
+    "??_C@_0L@JHGE@Tip?3Team01?$AA@": 8349864,
+    "??_C@_0L@GINN@Tip?3Team02?$AA@": 8349852,
+    "??_C@_0L@MCEK@Tip?3Team03?$AA@": 8349840,
+    "??_C@_0P@KDME@Tip?3TypeSelect?$AA@": 8349824,
+    "??_C@_0O@PKIE@Tip?3ThumbOpen?$AA@": 8349808,
+    "?Turn_On@ToggleClass@@QAEXXZ": 7254368,
+    "?Turn_Off@ToggleClass@@QAEXXZ": 7254384,
+    "?Help_Text@SidebarClass@@UAEPBDH@Z": 6823632,
+    "_$E2": 6947440,
+    "_$E5": 6947472,
+    "_$E8": 6947520,
+    "_$E11": 6947552,
+    "_$E14": 6947584,
+    "_$E17": 6947616,
+    "_$E20": 6947648,
+    "_$E23": 6947680,
+    "_$E26": 6947744,
+    "_$E29": 6947792,
+    "_$E32": 6947840,
+    "_$E35": 6947888,
+    "_$E38": 6947904,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "_$E133": 6947936,
+    "_$E138": 6948032,
+    "_$E143": 6948096,
+    "?Free_Button_Shape@TabClass@@SIXH@Z": 6948160,
+    "?Command_From_Name@TabClass@@SIHPBD@Z": 6948224,
+    "?Set_Command_Position@TabClass@@SIXHH@Z": 6948320,
+    "?Get_Command_Position@TabClass@@SIHH@Z": 6948336,
+    "?Get_Button_Rect@TabClass@@SI?AV?$TRect@H@@H@Z": 6948384,
+    "?Set_Button_Count@TabClass@@SIXH@Z": 6948464,
+    "?Is_Team_Command@TabClass@@SIHH@Z": 6948528,
+    "?Team_Number@TabClass@@SIHH@Z": 6948560,
+    "??0TabClass@@QAE@XZ": 6948576,
+    "?Set_Tactical_Position@RadarClass@@UAEXABVCoord@@@Z": 6488864,
+    "?Click_Cell_Calc@RadarClass@@UBE?AVCell@@ABVPoint2D@@@Z": 6486992,
+    "?Mouse_Right_Release@DisplayClass@@MAEXABVPoint2D@@@Z": 4829072,
+    "?Mouse_Left_Release@DisplayClass@@MAEXABVCoord@@ABVCell@@PAVObjectClass@@W4ActionType@@_N@Z": 4832032,
+    "?Mouse_Left_Held@DisplayClass@@MAEXABVPoint2D@@@Z": 4834560,
+    "?Mouse_Left_Up@DisplayClass@@MAEXABVCell@@_NPAVObjectClass@@W4ActionType@@1@Z": 4829424,
+    "?Mouse_Left_Press@DisplayClass@@MAEXABVPoint2D@@@Z": 4834448,
+    "?Mouse_Right_Press@DisplayClass@@MAEXABVPoint2D@@@Z": 4829056,
+    "?Set_View_Dimensions@DisplayClass@@UAEXABV?$TRect@H@@@Z": 4820096,
+    "?Scroll_Map@DisplayClass@@UAE_NW4FacingType@@AAH_N@Z": 4823904,
+    "?Shadow_Map_Cell@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z": 4825968,
+    "?Fog_Map_Cell@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z": 4825328,
+    "?RevealFogShroud@RadarClass@@UAE_NABVCell@@PAVHouseClass@@_N@Z": 6487200,
+    "?Map_Cell@RadarClass@@UAE_NABVCell@@PAVHouseClass@@@Z": 6487168,
+    "?Abort_Drag_Select@DisplayClass@@UAEXXZ": 4844528,
+    "?Reposition_Sidebar@SidebarClass@@UAEXXZ": 6822304,
+    "?Read_INI@DisplayClass@@UAEXABVCCINIClass@@@Z": 4837328,
+    "?Save@SidebarClass@@UAEJPAUIStream@@@Z": 6824608,
+    "?Load@SidebarClass@@UAEJPAUIStream@@@Z": 6824592,
+    "?Set_Local_Dimensions@RadarClass@@UAEXABV?$TRect@H@@@Z": 6490176,
+    "?Set_Map_Dimensions@RadarClass@@UAEXABV?$TRect@H@@_NH1@Z": 6488832,
+    "?Logic@MapClass@@UAEXXZ": 5563136,
+    "?Detach@MapClass@@UAEXPBVAbstractClass@@_N@Z": 5610880,
+    "?Init_Cells@MapClass@@UAEXXZ": 5538960,
+    "?Free_Cells@MapClass@@UAEXXZ": 5538768,
+    "?Alloc_Cells@MapClass@@UAEXXZ": 5538672,
+    "__purecall": 4950368,
+    "?Blit_Display@GScreenClass@@UAEXXZ": 5114960,
+    "?Render@GScreenClass@@UAEXXZ": 5114672,
+    "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z": 5114272,
+    "?Remove_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z": 5114624,
+    "?Add_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z": 5114560,
+    "?SetButtons@GScreenClass@@UAE_NAAVGadgetClass@@@Z": 5114528,
+    "?Input@GScreenClass@@UAEXAAW4KeyNumType@@AAH1@Z": 5114320,
+    "?Init_Clear@SidebarClass@@UAEXXZ": 6797488,
+    "?Init@GScreenClass@@UAEXW4TheaterType@@@Z": 5114208,
+    "??_GTabClass@@UAEPAXI@Z": 5898128,
+    "?Is_Visible@MapClass@@UAGJUCellStruct@@@Z": 5537696,
+    "?QueryInterface@GScreenClass@@UAGJABU_GUID@@PAPAX@Z": 5114096,
+    "?AddRef@GScreenClass@@UAGKXZ": 4247808,
+    "?Release@GScreenClass@@UAGKXZ": 4247824,
+    "?Is_Scrolling@MapClass@@UBE_NXZ": 4844816,
+    "?Put_Place_Back@DisplayClass@@UAEXPAVTechnoClass@@@Z": 4247840,
+    "??1RadarClass@@UAE@XZ": 6484096,
+    "??1BuildType@StripClass@SidebarClass@@QAE@XZ": 4247856,
+    "?One_Time@TabClass@@UAEXXZ": 6949664,
+    "?DisposeOfArt@TabClass@@UAEXXZ": 6949680,
+    "?Init_For_House@TabClass@@UAEXXZ": 6949744,
+    "?Init_IO@TabClass@@UAEXXZ": 6949968,
+    "?Add_Command_Buttons@TabClass@@QAEXXZ": 6950224,
+    "?Activate@TabClass@@UAE_NH@Z": 6950304,
+    "?AI@TabClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z": 6950704,
+    "?Draw_It@TabClass@@UAEX_N@Z": 6951632,
+    "?Draw_Credits_Tab@TabClass@@QAEXXZ": 6952720,
+    "?Flash_Money@TabClass@@QAEXXZ": 6952816,
+    "?Redraw_Tab@TabClass@@QAEXXZ": 6952880,
+    "?Load_Button_Shapes@@YAXXZ": 6952896,
+    "?Free_Button_Shapes@@YAXXZ": 6952992,
+    "?Init_Shape_Button@@YIXPAVShapeButtonClass@@HI@Z": 6953056,
+    "?Setup_Thumb_Buttons@TabClass@@SAXXZ": 6953440,
+    "?Hide_Buttons@TabClass@@QAEXXZ": 6954400,
+    "?Show_Thumb_Button@TabClass@@QAEXXZ": 6954528,
+    "?Hide_Thumb_Button@TabClass@@QAEXXZ": 6954656,
+    "?Open_Thumb@TabClass@@QAEXXZ": 6954688,
+    "?Close_Thumb@TabClass@@QAEXXZ": 6954768,
+    "?Unknown_Virtual_0@TabClass@@UAE_NHH@Z": 6955040,
+    "?Help_Text@TabClass@@UAEPBDH@Z": 6955184,
+    "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
+    "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
+    "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "??2@YAPAXI@Z": 7872535,
+    "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888
+  },
+  "regions": [
+    {
+      "entry": 6947440,
+      "method": "006a0270",
+      "body_bytes": 23,
+      "body_sha256": "d08e264976619b1da01d7337264ac479995bdb2ab62a31f8377fe2215402c65a",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "94488eaecebcaab3e19f337870bb00413874d50d3056c518775ec9bb28d5b8f4",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11264640,
+          "addend": 0,
+          "resolved": 11264640
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11264640,
+          "addend": 4,
+          "resolved": 11264644
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11264640,
+          "addend": 8,
+          "resolved": 11264648
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11264640,
+          "addend": 12,
+          "resolved": 11264652
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6947440,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6947472,
+      "method": "006a0290",
+      "body_bytes": 40,
+      "body_sha256": "2ea7352050cca99b18ba4ac8cf496ec7264c48a68fa96de7fc1c8447a23789e8",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8cb6cdaaf26739c1de76c29d5737397ab5202a42bbf8bc0d9e075b20495617a6",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 925455
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292976994
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11264672,
+          "addend": 0,
+          "resolved": 11264672
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6947472,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6947520,
+      "method": "006a02c0",
+      "body_bytes": 19,
+      "body_sha256": "1eb17d76b7300e403f50739fba575213f82f46746fa248ffdf86e8f037abe650",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "ce2ded8ed534640a3d7ff15db09b22aab1715a10777d4482d691459372b9c4e5",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11264672,
+          "addend": 0,
+          "resolved": 11264672
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8045464,
+          "addend": 0,
+          "resolved": 8045464
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11265136,
+          "addend": 0,
+          "resolved": 11265136
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6947520,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6947552,
+      "method": "006a02e0",
+      "body_bytes": 19,
+      "body_sha256": "7e9e30d65c669d7226b820b3aa16f1280cba9a4d790b29127d39042429947631",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "5dbadadb02916b4e43da37662cd40af890f4d808a43244744cd1866aab1bb096",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11265136,
+          "addend": 0,
+          "resolved": 11265136
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 11265016,
+          "addend": 0,
+          "resolved": 11265016
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6947552,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6947584,
+      "method": "006a0300",
+      "body_bytes": 19,
+      "body_sha256": "37ad65cd96cf9878de8c5cbbdcc018135ab3aead41c0abdcdf5bfe63d3c5005b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "eb16e48ccc88f3b14c7f3f38ecab27150adb153bb19ac668f1dbd4f15d65afa8",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8045472,
+          "addend": 0,
+          "resolved": 8045472
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 11265008,
+          "addend": 0,
+          "resolved": 11265008
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6947584,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6947616,
+      "method": "006a0320",
+      "body_bytes": 19,
+      "body_sha256": "d006dc2755507e95fe1cfd0851e8a82e4c208dea8f112cccda05d8d2c203fcf4",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "1dbfb053b0d4a191c143f1e4ed195f25d74a765ab748735b0eacd42ab00eabd4",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8045472,
+          "addend": 0,
+          "resolved": 8045472
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11264688,
+          "addend": 0,
+          "resolved": 11264688
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6947616,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6947648,
+      "method": "006a0340",
+      "body_bytes": 19,
+      "body_sha256": "2c8c95720b936cea54f665309d9f1eb4aa620c67d68b1046e5321aa2c9e47923",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "21fa8069825cfa735a4ab79fef9c1cd4b47af071bfda4c2298d4bfcdfd99c811",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8045472,
+          "addend": 0,
+          "resolved": 8045472
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11262216,
+          "addend": 0,
+          "resolved": 11262216
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6947648,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6947680,
+      "method": "006a0360",
+      "body_bytes": 49,
+      "body_sha256": "f6296f9b65afbfc6b951772a850a036c8a9cb45c6891d0f1f055506c1324fb5c",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "94b26b444dbcbeeceb26eae28cee2214f0c7cefa55daf66883be337d8b0c7882",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11262216,
+          "addend": 0,
+          "resolved": 11262216
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11264688,
+          "addend": 0,
+          "resolved": 11264688
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4292977065
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11264672,
+          "addend": 0,
+          "resolved": 11264672
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 912773
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11265148,
+          "addend": 0,
+          "resolved": 11265148
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6947680,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6947744,
+      "method": "006a03a0",
+      "body_bytes": 33,
+      "body_sha256": "e4f8b90765d44f89852604436447b2d07a1c6931816d3ebe8bea557a07f1c2fd",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "d475eb7cdd9aa8550e2342f3c12ce255a1286f809a5a2ebb1cf1949b3cfa71ae",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11265148,
+          "addend": 0,
+          "resolved": 11265148
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292977145
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 11264704,
+          "addend": 0,
+          "resolved": 11264704
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6947744,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6947792,
+      "method": "006a03d0",
+      "body_bytes": 44,
+      "body_sha256": "2031b7f35cf07d18ad94b957016b226c5fd4ef5079b6effd4471041e413ba11a",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "30a71349a60319334e3548ffd4d00dda7a218e6a0f06a76c9295f43300a76118",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11265148,
+          "addend": 0,
+          "resolved": 11265148
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11264672,
+          "addend": 0,
+          "resolved": 11264672
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292977086
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 11264896,
+          "addend": 0,
+          "resolved": 11264896
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6947792,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6947840,
+      "method": "006a0400",
+      "body_bytes": 39,
+      "body_sha256": "845246619bc97dcee58912bf72f400e864153b8e6784ce2acfeb1f79c06c8b1a",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "91a53c6386e742088c88d3707e23bfa6d6760f04f6fc918717b6fd43943edd48",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11265148,
+          "addend": 0,
+          "resolved": 11265148
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 912624
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11265132,
+          "addend": 0,
+          "resolved": 11265132
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6947840,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6947888,
+      "method": "006a0430",
+      "body_bytes": 15,
+      "body_sha256": "32fbc4f382bbe5eb83ea55c7690d583bf488347bec5f299f2b1764534d0f430d",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "2f791252bda058200022b6f8802009227e0969a5086ed5be0cce18d4109f00b2",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11264668,
+          "addend": 0,
+          "resolved": 11264668
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11264668,
+          "addend": 2,
+          "resolved": 11264670
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6947888,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6947904,
+      "method": "006a0440",
+      "body_bytes": 18,
+      "body_sha256": "e51aa10fa0a3e11c4284d06a88123029a8a6cf0fc57ff5e29f7d6101d84869e7",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "96c676e51947e553fdfddfe37487c0e49d21015fb34eb776a8f46fdca7d1cf51",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11264864,
+          "addend": 0,
+          "resolved": 11264864
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11264864,
+          "addend": 4,
+          "resolved": 11264868
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11264864,
+          "addend": 8,
+          "resolved": 11264872
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6947904,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6947936,
+      "method": "006a0460",
+      "body_bytes": 41,
+      "body_sha256": "0147fd3e4cb7b73402ad225ad0b490afd57378ec494eba1541ca495e9de920ea",
+      "padding_bytes": 7,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "dac96be6725bd7a63a307b656aa6211704bf3d80f2660bfba2068245c06d1d2a",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E133",
+      "symbol_prefix": "_$E133",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 0,
+          "resolved": 11262232
+        },
+        {
+          "offset": 15,
+          "kind": 20,
+          "symbol": "??0ShapeButtonClass@@QAE@XZ",
+          "target": 6770720,
+          "addend": 0,
+          "resolved": 4294790061
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_$E130",
+          "target": 6947984,
+          "addend": 0,
+          "resolved": 6947984
+        },
+        {
+          "offset": 31,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 926983
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6947936,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6947984,
+      "method": "006a0490",
+      "body_bytes": 48,
+      "body_sha256": "336086792aa2f46f93f0431012d45ff60fb7e3780baa3b68ce49720a3142e7ae",
+      "padding_bytes": 0,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "336086792aa2f46f93f0431012d45ff60fb7e3780baa3b68ce49720a3142e7ae",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E130",
+      "symbol_prefix": "_$E130",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_$S131",
+          "target": 11262212,
+          "addend": 0,
+          "resolved": 11262212
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_$S131",
+          "target": 11262212,
+          "addend": 0,
+          "resolved": 11262212
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 2400,
+          "resolved": 11264632
+        },
+        {
+          "offset": 38,
+          "kind": 20,
+          "symbol": "??1ShapeButtonClass@@UAE@XZ",
+          "target": 6770928,
+          "addend": 0,
+          "resolved": 4294790198
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6947984,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6948032,
+      "method": "006a04c0",
+      "body_bytes": 22,
+      "body_sha256": "ccbcb6b31e412aeff9dfdc1b0260cd41a3eade4f67120a98110d3491649dc7fc",
+      "padding_bytes": 10,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "75606c6e33b2ea8363a37043a7d1f936af59e185c88156a4b48ff9a61ca6338c",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E138",
+      "symbol_prefix": "_$E138",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11265024,
+          "addend": 0,
+          "resolved": 11265024
+        },
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "??0ShapeButtonClass@@QAE@XZ",
+          "target": 6770720,
+          "addend": 0,
+          "resolved": 4294789974
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "_$E136",
+          "target": 6948064,
+          "addend": 0,
+          "resolved": 6948064
+        },
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 926902
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6948032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6948064,
+      "method": "006a04e0",
+      "body_bytes": 31,
+      "body_sha256": "c3375b1b982a519bf1a526873d06c5b4924a3197cc38a5dbad2be88f21b2a7bc",
+      "padding_bytes": 1,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "668f959798ff1fa7c9ae03d20d98638051f17ee11f907fdead88587aa815e10a",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E136",
+      "symbol_prefix": "_$E136",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_$S131",
+          "target": 11262212,
+          "addend": 0,
+          "resolved": 11262212
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "_$S131",
+          "target": 11262212,
+          "addend": 0,
+          "resolved": 11262212
+        },
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11265024,
+          "addend": 0,
+          "resolved": 11265024
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "??1ShapeButtonClass@@UAE@XZ",
+          "target": 6770928,
+          "addend": 0,
+          "resolved": 4294790130
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6948064,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6948096,
+      "method": "006a0500",
+      "body_bytes": 22,
+      "body_sha256": "39c1b417e3e7e24cfc725becd4ff5a87df17c4847fa601dda0bc6447cc8cb6f6",
+      "padding_bytes": 10,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "d365cb357a9aeef4a27dbea4255b3e500a8e208e705ef6bc09a21e8c5b97f214",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E143",
+      "symbol_prefix": "_$E143",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 0,
+          "resolved": 11264912
+        },
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "??0ShapeButtonClass@@QAE@XZ",
+          "target": 6770720,
+          "addend": 0,
+          "resolved": 4294789910
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "_$E141",
+          "target": 6948128,
+          "addend": 0,
+          "resolved": 6948128
+        },
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 926838
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6948096,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6948128,
+      "method": "006a0520",
+      "body_bytes": 31,
+      "body_sha256": "1e09188799ef80b576bd7bfd97260b69ead81fa4a103100d6f879e10af0771c4",
+      "padding_bytes": 1,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f93ecc5be1bf910eb42c718bed5208081743a90a54e47a7891b1f1375024bc2e",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E141",
+      "symbol_prefix": "_$E141",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_$S131",
+          "target": 11262212,
+          "addend": 0,
+          "resolved": 11262212
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "_$S131",
+          "target": 11262212,
+          "addend": 0,
+          "resolved": 11262212
+        },
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 0,
+          "resolved": 11264912
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "??1ShapeButtonClass@@UAE@XZ",
+          "target": 6770928,
+          "addend": 0,
+          "resolved": 4294790066
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6948128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6948160,
+      "method": "006a0540",
+      "body_bytes": 49,
+      "body_sha256": "767f53393c7d142f03c70792a15ce4f35aa62324c589ee1d8123f31acddeef38",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "5db8d5173b818f81b458f2a97d1e40a6612a41477e08d5529459bc4ccdec6b17",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Free_Button_Shape@TabClass@@SIXH@Z",
+      "symbol_prefix": "?Free_Button_Shape@TabClass@@SIXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "?ButtonShapeAllocated@TabClass@@2PA_NA",
+          "target": 11264812,
+          "addend": 0,
+          "resolved": 11264812
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "?ButtonShapes@TabClass@@2PAPBVShapeSet@@A",
+          "target": 11262112,
+          "addend": 0,
+          "resolved": 11262112
+        },
+        {
+          "offset": 22,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 923617
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?ButtonShapeAllocated@TabClass@@2PA_NA",
+          "target": 11264812,
+          "addend": 0,
+          "resolved": 11264812
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "?ButtonShapes@TabClass@@2PAPBVShapeSet@@A",
+          "target": 11262112,
+          "addend": 0,
+          "resolved": 11262112
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6948160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6948224,
+      "method": "006a0580",
+      "body_bytes": 89,
+      "body_sha256": "fd51d91ca19cd781d1eea5fff631f872ffa672b6aace4aeae47f75587bcf69b9",
+      "padding_bytes": 7,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "30e47dd6dc547e34fcfe76bb039fde78eff0194efc8761ac222daa01bfd702ff",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Command_From_Name@TabClass@@SIHPBD@Z",
+      "symbol_prefix": "?Command_From_Name@TabClass@@SIHPBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "?CommandNames@@3QBQBDB",
+          "target": 8349688,
+          "addend": 0,
+          "resolved": 8349688
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "?CommandNames@@3QBQBDB",
+          "target": 8349688,
+          "addend": 44,
+          "resolved": 8349732
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "?NoAdvancedCommand@@3HB",
+          "target": 8349684,
+          "addend": 0,
+          "resolved": 8349684
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6948224,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6948320,
+      "method": "006a05e0",
+      "body_bytes": 8,
+      "body_sha256": "8d5f60c16d48672f4b4366156d3849f02ba8452d87465c53370affe843f24792",
+      "padding_bytes": 8,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "b10ffb29bdd903c4203f1bad3aa5728264866bc065de7729a73c5063a3287275",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Command_Position@TabClass@@SIXHH@Z",
+      "symbol_prefix": "?Set_Command_Position@TabClass@@SIXHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "?SlotButton@TabClass@@2PAHA",
+          "target": 11264712,
+          "addend": 0,
+          "resolved": 11264712
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6948320,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6948336,
+      "method": "006a05f0",
+      "body_bytes": 8,
+      "body_sha256": "f4b9daa814ddaa4f42c06d0b286f929769f1efa01006739959812778dca09ab9",
+      "padding_bytes": 8,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "32caa90ee77dfcd7cb7a733a5e46567adae3ab7da90d66a2225990612a4322cb",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Command_Position@TabClass@@SIHH@Z",
+      "symbol_prefix": "?Get_Command_Position@TabClass@@SIHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "?SlotButton@TabClass@@2PAHA",
+          "target": 11264712,
+          "addend": 0,
+          "resolved": 11264712
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6948336,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6948352,
+      "method": "006a0600",
+      "body_bytes": 31,
+      "body_sha256": "e1f447235afe3f439ac0545640bf6338c0abdfd6b8774fd679922896bf1599cf",
+      "padding_bytes": 1,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "1b8f0c1b19f5a767577520d89add6499616211f91d5e8cb2ed497949d55405ad",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Button@TabClass@@SIPAVShapeButtonClass@@H@Z",
+      "symbol_prefix": "?Get_Button@TabClass@@SIPAVShapeButtonClass@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "?SlotButton@TabClass@@2PAHA",
+          "target": 11264712,
+          "addend": 0,
+          "resolved": 11264712
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 0,
+          "resolved": 11262232
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6948352,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6948384,
+      "method": "006a0620",
+      "body_bytes": 71,
+      "body_sha256": "e358bd9b0182471dd6768869ed61632120123fdd2ee1390d86e0e70fbec469c3",
+      "padding_bytes": 9,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "d97e0c3b635f20ff801612cf97182b6269ad21c7f3609c4a209b5760c890e6cf",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Button_Rect@TabClass@@SI?AV?$TRect@H@@H@Z",
+      "symbol_prefix": "?Get_Button_Rect@TabClass@@SI?AV?$TRect@H@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "?SlotButton@TabClass@@2PAHA",
+          "target": 11264712,
+          "addend": 0,
+          "resolved": 11264712
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "?SlotPitch@TabClass@@2HA",
+          "target": 11264904,
+          "addend": 0,
+          "resolved": 11264904
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "?ButtonSlotRect@@3PAV?$TRect@H@@A",
+          "target": 11276812,
+          "addend": 0,
+          "resolved": 11276812
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "?SlotTop@TabClass@@2HA",
+          "target": 11264884,
+          "addend": 0,
+          "resolved": 11264884
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6948384,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6948464,
+      "method": "006a0670",
+      "body_bytes": 57,
+      "body_sha256": "36bc8478a3c39b60df7c721d67b8ba96645fe06d1579ffe48aa46824ad151c0e",
+      "padding_bytes": 7,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "6d67b65baab6f4db6eedd5bbee245c8cce2982641534d4d39c551224c3142a1e",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Button_Count@TabClass@@SIXH@Z",
+      "symbol_prefix": "?Set_Button_Count@TabClass@@SIXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?ButtonSlotRect@@3PAV?$TRect@H@@A",
+          "target": 11276812,
+          "addend": 0,
+          "resolved": 11276812
+        },
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "?ButtonRows@TabClass@@2HA",
+          "target": 11264684,
+          "addend": 0,
+          "resolved": 11264684
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "?TabEndRect@@3PAV?$TRect@H@@A",
+          "target": 11276816,
+          "addend": 0,
+          "resolved": 11276816
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "?ThumbOpenRect@@3PAV?$TRect@H@@A",
+          "target": 11276804,
+          "addend": 0,
+          "resolved": 11276804
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "?ButtonsLeft@TabClass@@2HA",
+          "target": 11264892,
+          "addend": 0,
+          "resolved": 11264892
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "?ButtonsLeft@TabClass@@2HA",
+          "target": 11264892,
+          "addend": 0,
+          "resolved": 11264892
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6948464,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6948528,
+      "method": "006a06b0",
+      "body_bytes": 25,
+      "body_sha256": "a83701eabdc8dc95ba79ff8bdca3635968822bc5a8719d209c23f08d6305d8e3",
+      "padding_bytes": 7,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "77a564d910648533c8e8e26d3920a048b4f4568bfdd9b0f287c83cbaed8d323f",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Team_Command@TabClass@@SIHH@Z",
+      "symbol_prefix": "?Is_Team_Command@TabClass@@SIHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?Team01Command@TabClass@@2HA",
+          "target": 11264880,
+          "addend": 0,
+          "resolved": 11264880
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?Team03Command@TabClass@@2HA",
+          "target": 11265128,
+          "addend": 0,
+          "resolved": 11265128
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6948528,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6948560,
+      "method": "006a06d0",
+      "body_bytes": 10,
+      "body_sha256": "a1954583ba84c4e1d2a3d6b3baca748498be60fca40ba525488c010823afe4f7",
+      "padding_bytes": 6,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "29c890b33db35cb0128f8c545861012944ad28d59724089f7dda4d9aa66fd0a7",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Team_Number@TabClass@@SIHH@Z",
+      "symbol_prefix": "?Team_Number@TabClass@@SIHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?Team01Command@TabClass@@2HA",
+          "target": 11264880,
+          "addend": 0,
+          "resolved": 11264880
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6948560,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6948576,
+      "method": "006a06e0",
+      "body_bytes": 1074,
+      "body_sha256": "df436c10db4bbeea7c38cc533ad022a09dbc0f19a15c3552a4810219c3245f3b",
+      "padding_bytes": 14,
+      "full_extent_bytes": 1088,
+      "full_extent_sha256": "a0ba397d96531227abba5a98754bb42f76bc0c8c4bf320c5226dde2b4ca83d84",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0TabClass@@QAE@XZ",
+      "symbol_prefix": "??0TabClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 20,
+          "symbol": "??0SidebarClass@@QAE@XZ",
+          "target": 6797056,
+          "addend": 0,
+          "resolved": 4294815760
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "??_7INoticeSink@@6B@",
+          "target": 7974468,
+          "addend": 0,
+          "resolved": 7974468
+        },
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??0CreditClass@@QAE@XZ",
+          "target": 4801808,
+          "addend": 0,
+          "resolved": 4292820489
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 60,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "??_7TabClass@@6BINoticeSink@@@",
+          "target": 8021212,
+          "addend": 0,
+          "resolved": 8021212
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "??_7TabClass@@6BSidebarClass@@@",
+          "target": 8021220,
+          "addend": 0,
+          "resolved": 8021220
+        },
+        {
+          "offset": 111,
+          "kind": 6,
+          "symbol": "?CommandNames@@3QBQBDB",
+          "target": 8349688,
+          "addend": 0,
+          "resolved": 8349688
+        },
+        {
+          "offset": 118,
+          "kind": 6,
+          "symbol": "??_C@_0L@EACJ@AttackMove?$AA@",
+          "target": 8349740,
+          "addend": 0,
+          "resolved": 8349740
+        },
+        {
+          "offset": 173,
+          "kind": 6,
+          "symbol": "?CommandNames@@3QBQBDB",
+          "target": 8349688,
+          "addend": 44,
+          "resolved": 8349732
+        },
+        {
+          "offset": 180,
+          "kind": 6,
+          "symbol": "?NoAdvancedCommand@@3HB",
+          "target": 8349684,
+          "addend": 0,
+          "resolved": 8349684
+        },
+        {
+          "offset": 185,
+          "kind": 6,
+          "symbol": "?AttackMoveCommand@TabClass@@2HA",
+          "target": 11265124,
+          "addend": 0,
+          "resolved": 11265124
+        },
+        {
+          "offset": 192,
+          "kind": 6,
+          "symbol": "?CommandNames@@3QBQBDB",
+          "target": 8349688,
+          "addend": 0,
+          "resolved": 8349688
+        },
+        {
+          "offset": 199,
+          "kind": 6,
+          "symbol": "??_C@_06HDMK@Beacon?$AA@",
+          "target": 8349732,
+          "addend": 0,
+          "resolved": 8349732
+        },
+        {
+          "offset": 258,
+          "kind": 6,
+          "symbol": "?CommandNames@@3QBQBDB",
+          "target": 8349688,
+          "addend": 44,
+          "resolved": 8349732
+        },
+        {
+          "offset": 265,
+          "kind": 6,
+          "symbol": "?NoAdvancedCommand@@3HB",
+          "target": 8349684,
+          "addend": 0,
+          "resolved": 8349684
+        },
+        {
+          "offset": 270,
+          "kind": 6,
+          "symbol": "?BeaconCommand@TabClass@@2HA",
+          "target": 11264660,
+          "addend": 0,
+          "resolved": 11264660
+        },
+        {
+          "offset": 277,
+          "kind": 6,
+          "symbol": "?CommandNames@@3QBQBDB",
+          "target": 8349688,
+          "addend": 0,
+          "resolved": 8349688
+        },
+        {
+          "offset": 284,
+          "kind": 6,
+          "symbol": "??_C@_05NING@Cheer?$AA@",
+          "target": 8237116,
+          "addend": 0,
+          "resolved": 8237116
+        },
+        {
+          "offset": 343,
+          "kind": 6,
+          "symbol": "?CommandNames@@3QBQBDB",
+          "target": 8349688,
+          "addend": 44,
+          "resolved": 8349732
+        },
+        {
+          "offset": 350,
+          "kind": 6,
+          "symbol": "?NoAdvancedCommand@@3HB",
+          "target": 8349684,
+          "addend": 0,
+          "resolved": 8349684
+        },
+        {
+          "offset": 355,
+          "kind": 6,
+          "symbol": "?CheerCommand@TabClass@@2HA",
+          "target": 11262224,
+          "addend": 0,
+          "resolved": 11262224
+        },
+        {
+          "offset": 362,
+          "kind": 6,
+          "symbol": "?CommandNames@@3QBQBDB",
+          "target": 8349688,
+          "addend": 0,
+          "resolved": 8349688
+        },
+        {
+          "offset": 369,
+          "kind": 6,
+          "symbol": "??_C@_06KMDI@Deploy?$AA@",
+          "target": 8237180,
+          "addend": 0,
+          "resolved": 8237180
+        },
+        {
+          "offset": 428,
+          "kind": 6,
+          "symbol": "?CommandNames@@3QBQBDB",
+          "target": 8349688,
+          "addend": 44,
+          "resolved": 8349732
+        },
+        {
+          "offset": 435,
+          "kind": 6,
+          "symbol": "?NoAdvancedCommand@@3HB",
+          "target": 8349684,
+          "addend": 0,
+          "resolved": 8349684
+        },
+        {
+          "offset": 440,
+          "kind": 6,
+          "symbol": "?DeployCommand@TabClass@@2HA",
+          "target": 11264632,
+          "addend": 0,
+          "resolved": 11264632
+        },
+        {
+          "offset": 447,
+          "kind": 6,
+          "symbol": "?CommandNames@@3QBQBDB",
+          "target": 8349688,
+          "addend": 0,
+          "resolved": 8349688
+        },
+        {
+          "offset": 454,
+          "kind": 6,
+          "symbol": "??_C@_05ICEM@Guard?$AA@",
+          "target": 8181980,
+          "addend": 0,
+          "resolved": 8181980
+        },
+        {
+          "offset": 513,
+          "kind": 6,
+          "symbol": "?CommandNames@@3QBQBDB",
+          "target": 8349688,
+          "addend": 44,
+          "resolved": 8349732
+        },
+        {
+          "offset": 520,
+          "kind": 6,
+          "symbol": "?NoAdvancedCommand@@3HB",
+          "target": 8349684,
+          "addend": 0,
+          "resolved": 8349684
+        },
+        {
+          "offset": 525,
+          "kind": 6,
+          "symbol": "?GuardCommand@TabClass@@2HA",
+          "target": 11264696,
+          "addend": 0,
+          "resolved": 11264696
+        },
+        {
+          "offset": 532,
+          "kind": 6,
+          "symbol": "?CommandNames@@3QBQBDB",
+          "target": 8349688,
+          "addend": 0,
+          "resolved": 8349688
+        },
+        {
+          "offset": 539,
+          "kind": 6,
+          "symbol": "??_C@_0N@CNHO@PlanningMode?$AA@",
+          "target": 8244168,
+          "addend": 0,
+          "resolved": 8244168
+        },
+        {
+          "offset": 598,
+          "kind": 6,
+          "symbol": "?CommandNames@@3QBQBDB",
+          "target": 8349688,
+          "addend": 44,
+          "resolved": 8349732
+        },
+        {
+          "offset": 605,
+          "kind": 6,
+          "symbol": "?NoAdvancedCommand@@3HB",
+          "target": 8349684,
+          "addend": 0,
+          "resolved": 8349684
+        },
+        {
+          "offset": 610,
+          "kind": 6,
+          "symbol": "?PlanningModeCommand@TabClass@@2HA",
+          "target": 11264876,
+          "addend": 0,
+          "resolved": 11264876
+        },
+        {
+          "offset": 617,
+          "kind": 6,
+          "symbol": "?CommandNames@@3QBQBDB",
+          "target": 8349688,
+          "addend": 0,
+          "resolved": 8349688
+        },
+        {
+          "offset": 624,
+          "kind": 6,
+          "symbol": "??_C@_04DFLL@Stop?$AA@",
+          "target": 8181912,
+          "addend": 0,
+          "resolved": 8181912
+        },
+        {
+          "offset": 683,
+          "kind": 6,
+          "symbol": "?CommandNames@@3QBQBDB",
+          "target": 8349688,
+          "addend": 44,
+          "resolved": 8349732
+        },
+        {
+          "offset": 690,
+          "kind": 6,
+          "symbol": "?NoAdvancedCommand@@3HB",
+          "target": 8349684,
+          "addend": 0,
+          "resolved": 8349684
+        },
+        {
+          "offset": 695,
+          "kind": 6,
+          "symbol": "?StopCommand@TabClass@@2HA",
+          "target": 11264700,
+          "addend": 0,
+          "resolved": 11264700
+        },
+        {
+          "offset": 702,
+          "kind": 6,
+          "symbol": "?CommandNames@@3QBQBDB",
+          "target": 8349688,
+          "addend": 0,
+          "resolved": 8349688
+        },
+        {
+          "offset": 709,
+          "kind": 6,
+          "symbol": "??_C@_06DBCK@Team01?$AA@",
+          "target": 8349768,
+          "addend": 0,
+          "resolved": 8349768
+        },
+        {
+          "offset": 768,
+          "kind": 6,
+          "symbol": "?CommandNames@@3QBQBDB",
+          "target": 8349688,
+          "addend": 44,
+          "resolved": 8349732
+        },
+        {
+          "offset": 775,
+          "kind": 6,
+          "symbol": "?NoAdvancedCommand@@3HB",
+          "target": 8349684,
+          "addend": 0,
+          "resolved": 8349684
+        },
+        {
+          "offset": 780,
+          "kind": 6,
+          "symbol": "?Team01Command@TabClass@@2HA",
+          "target": 11264880,
+          "addend": 0,
+          "resolved": 11264880
+        },
+        {
+          "offset": 787,
+          "kind": 6,
+          "symbol": "?CommandNames@@3QBQBDB",
+          "target": 8349688,
+          "addend": 0,
+          "resolved": 8349688
+        },
+        {
+          "offset": 794,
+          "kind": 6,
+          "symbol": "??_C@_06MOJD@Team02?$AA@",
+          "target": 8349760,
+          "addend": 0,
+          "resolved": 8349760
+        },
+        {
+          "offset": 853,
+          "kind": 6,
+          "symbol": "?CommandNames@@3QBQBDB",
+          "target": 8349688,
+          "addend": 44,
+          "resolved": 8349732
+        },
+        {
+          "offset": 860,
+          "kind": 6,
+          "symbol": "?NoAdvancedCommand@@3HB",
+          "target": 8349684,
+          "addend": 0,
+          "resolved": 8349684
+        },
+        {
+          "offset": 865,
+          "kind": 6,
+          "symbol": "?Team02Command@TabClass@@2HA",
+          "target": 11264888,
+          "addend": 0,
+          "resolved": 11264888
+        },
+        {
+          "offset": 872,
+          "kind": 6,
+          "symbol": "?CommandNames@@3QBQBDB",
+          "target": 8349688,
+          "addend": 0,
+          "resolved": 8349688
+        },
+        {
+          "offset": 879,
+          "kind": 6,
+          "symbol": "??_C@_06GEAE@Team03?$AA@",
+          "target": 8349752,
+          "addend": 0,
+          "resolved": 8349752
+        },
+        {
+          "offset": 938,
+          "kind": 6,
+          "symbol": "?CommandNames@@3QBQBDB",
+          "target": 8349688,
+          "addend": 44,
+          "resolved": 8349732
+        },
+        {
+          "offset": 945,
+          "kind": 6,
+          "symbol": "?NoAdvancedCommand@@3HB",
+          "target": 8349684,
+          "addend": 0,
+          "resolved": 8349684
+        },
+        {
+          "offset": 950,
+          "kind": 6,
+          "symbol": "?Team03Command@TabClass@@2HA",
+          "target": 11265128,
+          "addend": 0,
+          "resolved": 11265128
+        },
+        {
+          "offset": 957,
+          "kind": 6,
+          "symbol": "?CommandNames@@3QBQBDB",
+          "target": 8349688,
+          "addend": 0,
+          "resolved": 8349688
+        },
+        {
+          "offset": 964,
+          "kind": 6,
+          "symbol": "??_C@_0L@PODG@TypeSelect?$AA@",
+          "target": 8244308,
+          "addend": 0,
+          "resolved": 8244308
+        },
+        {
+          "offset": 1023,
+          "kind": 6,
+          "symbol": "?CommandNames@@3QBQBDB",
+          "target": 8349688,
+          "addend": 44,
+          "resolved": 8349732
+        },
+        {
+          "offset": 1030,
+          "kind": 6,
+          "symbol": "?NoAdvancedCommand@@3HB",
+          "target": 8349684,
+          "addend": 0,
+          "resolved": 8349684
+        },
+        {
+          "offset": 1039,
+          "kind": 6,
+          "symbol": "?TypeSelectCommand@TabClass@@2HA",
+          "target": 11264656,
+          "addend": 0,
+          "resolved": 11264656
+        },
+        {
+          "offset": 1058,
+          "kind": 20,
+          "symbol": "?Planning_Set_Sink@@YIXPAVINoticeSink@@@Z",
+          "target": 6372864,
+          "addend": 0,
+          "resolved": 4294390522
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6948576,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6949664,
+      "method": "006a0b20",
+      "body_bytes": 5,
+      "body_sha256": "5ec355d0b2320f153530750aba78675c39f6409f74a7e8c65fec1ed2635f1c80",
+      "padding_bytes": 11,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "c72e357f27530c216cc1d934af56ac2a77938fd3f3724d788949ee563d5bf332",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?One_Time@TabClass@@UAEXXZ",
+      "symbol_prefix": "?One_Time@TabClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 20,
+          "symbol": "?One_Time@SidebarClass@@UAEXXZ",
+          "target": 6797456,
+          "addend": 0,
+          "resolved": 4294815083
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6949664,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6949680,
+      "method": "006a0b30",
+      "body_bytes": 63,
+      "body_sha256": "970d7dd7483bd042699c697888b566e7e7eddddb75878c57334292834114a0f8",
+      "padding_bytes": 1,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "199daed24a0076f04d9563bf742a44baac20e368dc88aa3ae791efd913c4034c",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?DisposeOfArt@TabClass@@UAEXXZ",
+      "symbol_prefix": "?DisposeOfArt@TabClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 20,
+          "symbol": "?DisposeOfArt@SidebarClass@@UAEXXZ",
+          "target": 6799296,
+          "addend": 0,
+          "resolved": 4294816905
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?ButtonShapes@TabClass@@2PAPBVShapeSet@@A",
+          "target": 11262112,
+          "addend": 0,
+          "resolved": 11262112
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "?ButtonShapeAllocated@TabClass@@2PA_NA",
+          "target": 11264812,
+          "addend": 0,
+          "resolved": 11264812
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 922091
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "?ButtonShapeAllocated@TabClass@@2PA_NA",
+          "target": 11264812,
+          "addend": 0,
+          "resolved": 11264812
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "?ButtonShapes@TabClass@@2PAPBVShapeSet@@A",
+          "target": 11262112,
+          "addend": 100,
+          "resolved": 11262212
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6949680,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6949744,
+      "method": "006a0b70",
+      "body_bytes": 212,
+      "body_sha256": "677389b7cf06f7a5ec01eebb03b1d788bdd5395733e7b9f73cb5cdf2412df553",
+      "padding_bytes": 12,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "3e8e0ddb5c6fdf7ab040de528c3a17420d9862ee3ecf37f8f80a3dc3f3fdae34",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init_For_House@TabClass@@UAEXXZ",
+      "symbol_prefix": "?Init_For_House@TabClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 20,
+          "symbol": "?Init_For_House@SidebarClass@@UAEXXZ",
+          "target": 6798736,
+          "addend": 0,
+          "resolved": 4294816272
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?ButtonShapes@TabClass@@2PAPBVShapeSet@@A",
+          "target": 11262112,
+          "addend": 0,
+          "resolved": 11262112
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "??_C@_0P@ODHJ@Button?$CF02d?4SHP?$AA@",
+          "target": 8349776,
+          "addend": 0,
+          "resolved": 8349776
+        },
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 922968
+        },
+        {
+          "offset": 56,
+          "kind": 20,
+          "symbol": "?Load_Alloc_Data@@YIPAXPBDAA_N@Z",
+          "target": 4805232,
+          "addend": 0,
+          "resolved": 4292822724
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "?ButtonShapeAllocated@TabClass@@2PA_NA",
+          "target": 11264812,
+          "addend": 0,
+          "resolved": 11264812
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "?ButtonShapes@TabClass@@2PAPBVShapeSet@@A",
+          "target": 11262112,
+          "addend": 100,
+          "resolved": 11262212
+        },
+        {
+          "offset": 85,
+          "kind": 6,
+          "symbol": "?ButtonShapes@TabClass@@2PAPBVShapeSet@@A",
+          "target": 11262112,
+          "addend": 0,
+          "resolved": 11262112
+        },
+        {
+          "offset": 91,
+          "kind": 6,
+          "symbol": "?TabEndRect@@3PAV?$TRect@H@@A",
+          "target": 11276816,
+          "addend": 0,
+          "resolved": 11276816
+        },
+        {
+          "offset": 102,
+          "kind": 6,
+          "symbol": "?ButtonWidth@TabClass@@2HA",
+          "target": 11265144,
+          "addend": 0,
+          "resolved": 11265144
+        },
+        {
+          "offset": 112,
+          "kind": 6,
+          "symbol": "?ButtonHeight@TabClass@@2HA",
+          "target": 11264680,
+          "addend": 0,
+          "resolved": 11264680
+        },
+        {
+          "offset": 118,
+          "kind": 6,
+          "symbol": "?ButtonSlotRect@@3PAV?$TRect@H@@A",
+          "target": 11276812,
+          "addend": 0,
+          "resolved": 11276812
+        },
+        {
+          "offset": 149,
+          "kind": 6,
+          "symbol": "?ButtonRows@TabClass@@2HA",
+          "target": 11264684,
+          "addend": 0,
+          "resolved": 11264684
+        },
+        {
+          "offset": 160,
+          "kind": 6,
+          "symbol": "?TabBarRect@@3PAV?$TRect@H@@A",
+          "target": 11276796,
+          "addend": 0,
+          "resolved": 11276796
+        },
+        {
+          "offset": 166,
+          "kind": 6,
+          "symbol": "?ButtonsLeft@TabClass@@2HA",
+          "target": 11264892,
+          "addend": 0,
+          "resolved": 11264892
+        },
+        {
+          "offset": 176,
+          "kind": 6,
+          "symbol": "?SlotGap@TabClass@@2HA",
+          "target": 11265120,
+          "addend": 0,
+          "resolved": 11265120
+        },
+        {
+          "offset": 184,
+          "kind": 6,
+          "symbol": "?SlotTop@TabClass@@2HA",
+          "target": 11264884,
+          "addend": 0,
+          "resolved": 11264884
+        },
+        {
+          "offset": 189,
+          "kind": 6,
+          "symbol": "?SlotPitch@TabClass@@2HA",
+          "target": 11264904,
+          "addend": 0,
+          "resolved": 11264904
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6949744,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6949968,
+      "method": "006a0c50",
+      "body_bytes": 244,
+      "body_sha256": "0f308a9591abf53015bc92d0dd5b5bf434d02581093e3c8483f51c62a5a9c026",
+      "padding_bytes": 12,
+      "full_extent_bytes": 256,
+      "full_extent_sha256": "f50dbe9f3d50d94a7a63036c30bfc6f805008a2b5cfb87d541fa40689605fe7a",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init_IO@TabClass@@UAEXXZ",
+      "symbol_prefix": "?Init_IO@TabClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 20,
+          "symbol": "?Init_IO@SidebarClass@@UAEXXZ",
+          "target": 6798032,
+          "addend": 0,
+          "resolved": 4294815348
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?Debug_Map@@3_NA",
+          "target": 10751251,
+          "addend": 0,
+          "resolved": 10751251
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "?Is_Sidebar_Art_Loaded@@YI_NXZ",
+          "target": 7292304,
+          "addend": 0,
+          "resolved": 342304
+        },
+        {
+          "offset": 45,
+          "kind": 20,
+          "symbol": "?Setup_Command_Buttons@TabClass@@QAEXXZ",
+          "target": 6953088,
+          "addend": 0,
+          "resolved": 3071
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?SidebarDrawer@@3PAVConvertClass@@A",
+          "target": 8594380,
+          "addend": 0,
+          "resolved": 8594380
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "?ThumbOpenRect@@3PAV?$TRect@H@@A",
+          "target": 11276804,
+          "addend": 0,
+          "resolved": 11276804
+        },
+        {
+          "offset": 67,
+          "kind": 6,
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11265024,
+          "addend": 36,
+          "resolved": 11265060
+        },
+        {
+          "offset": 76,
+          "kind": 6,
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11265024,
+          "addend": 80,
+          "resolved": 11265104
+        },
+        {
+          "offset": 82,
+          "kind": 6,
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11265024,
+          "addend": 45,
+          "resolved": 11265069
+        },
+        {
+          "offset": 88,
+          "kind": 6,
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11265024,
+          "addend": 48,
+          "resolved": 11265072
+        },
+        {
+          "offset": 94,
+          "kind": 6,
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11265024,
+          "addend": 32,
+          "resolved": 11265056
+        },
+        {
+          "offset": 102,
+          "kind": 6,
+          "symbol": "?TabThumbShape@@3PBVShapeSet@@B",
+          "target": 11276440,
+          "addend": 0,
+          "resolved": 11276440
+        },
+        {
+          "offset": 115,
+          "kind": 6,
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11265024,
+          "addend": 0,
+          "resolved": 11265024
+        },
+        {
+          "offset": 131,
+          "kind": 20,
+          "symbol": "?Set_Position@GadgetClass@@UAEXHH@Z",
+          "target": 5043808,
+          "addend": 0,
+          "resolved": 4293061001
+        },
+        {
+          "offset": 139,
+          "kind": 6,
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11265024,
+          "addend": 0,
+          "resolved": 11265024
+        },
+        {
+          "offset": 144,
+          "kind": 20,
+          "symbol": "?Set_Shape@ShapeButtonClass@@UAEXPBVShapeSet@@HH@Z",
+          "target": 6770992,
+          "addend": 0,
+          "resolved": 4294788172
+        },
+        {
+          "offset": 149,
+          "kind": 6,
+          "symbol": "?SidebarDrawer@@3PAVConvertClass@@A",
+          "target": 8594380,
+          "addend": 0,
+          "resolved": 8594380
+        },
+        {
+          "offset": 155,
+          "kind": 6,
+          "symbol": "?ThumbClosedRect@@3PAV?$TRect@H@@A",
+          "target": 11276808,
+          "addend": 0,
+          "resolved": 11276808
+        },
+        {
+          "offset": 161,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 36,
+          "resolved": 11264948
+        },
+        {
+          "offset": 170,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 80,
+          "resolved": 11264992
+        },
+        {
+          "offset": 176,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 45,
+          "resolved": 11264957
+        },
+        {
+          "offset": 182,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 48,
+          "resolved": 11264960
+        },
+        {
+          "offset": 188,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 32,
+          "resolved": 11264944
+        },
+        {
+          "offset": 203,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 0,
+          "resolved": 11264912
+        },
+        {
+          "offset": 219,
+          "kind": 20,
+          "symbol": "?Set_Position@GadgetClass@@UAEXHH@Z",
+          "target": 5043808,
+          "addend": 0,
+          "resolved": 4293060913
+        },
+        {
+          "offset": 227,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 0,
+          "resolved": 11264912
+        },
+        {
+          "offset": 232,
+          "kind": 20,
+          "symbol": "?Set_Shape@ShapeButtonClass@@UAEXPBVShapeSet@@HH@Z",
+          "target": 6770992,
+          "addend": 0,
+          "resolved": 4294788084
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6949968,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6950224,
+      "method": "006a0d50",
+      "body_bytes": 38,
+      "body_sha256": "8d4ad761d0d2867d4076f51403f4540c64425a907c285c07d1f0966a9ad7023f",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "76e59de7a61ec942d9aefe8cf2d7d414d55dccaedb790d2842f21c9a9d8ff777",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Add_Command_Buttons@TabClass@@QAEXXZ",
+      "symbol_prefix": "?Add_Command_Buttons@TabClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 0,
+          "resolved": 11262232
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 2400,
+          "resolved": 11264632
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6950224,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6950272,
+      "method": "006a0d80",
+      "body_bytes": 31,
+      "body_sha256": "cc7f2668cfdaa89a744afdec511fef5d1639bb60ffa7d86d3233cc9263751cd9",
+      "padding_bytes": 1,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "548e77cc0956c1b03cec68896f918e28ed5c195a798dca2c884717a74bdda9a0",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Remove_Command_Buttons@TabClass@@QAEXXZ",
+      "symbol_prefix": "?Remove_Command_Buttons@TabClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 0,
+          "resolved": 11262232
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 2400,
+          "resolved": 11264632
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6950272,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6950304,
+      "method": "006a0da0",
+      "body_bytes": 396,
+      "body_sha256": "c27c3f8de6519422c0b5a6d170e022f883ae3bd29a2545b3678e82713b8e23f5",
+      "padding_bytes": 4,
+      "full_extent_bytes": 400,
+      "full_extent_sha256": "57e6436440256aa80aee4ec145a39c632a191ad4f37a9308b706b7f95d6f7d1b",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Activate@TabClass@@UAE_NH@Z",
+      "symbol_prefix": "?Activate@TabClass@@UAE_NH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "?Activate@SidebarClass@@UAE_NH@Z",
+          "target": 6808080,
+          "addend": 0,
+          "resolved": 4294825055
+        },
+        {
+          "offset": 54,
+          "kind": 20,
+          "symbol": "?Show_Buttons@TabClass@@QAEXXZ",
+          "target": 6953648,
+          "addend": 0,
+          "resolved": 3286
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 0,
+          "resolved": 11264912
+        },
+        {
+          "offset": 90,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 0,
+          "resolved": 11264912
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 12,
+          "resolved": 11264924
+        },
+        {
+          "offset": 110,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 16,
+          "resolved": 11264928
+        },
+        {
+          "offset": 115,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 36,
+          "resolved": 11264948
+        },
+        {
+          "offset": 125,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 20,
+          "resolved": 11264932
+        },
+        {
+          "offset": 135,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 24,
+          "resolved": 11264936
+        },
+        {
+          "offset": 145,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 163,
+          "kind": 6,
+          "symbol": "??_C@_0BA@GHMH@Tip?3ThumbClosed?$AA@",
+          "target": 8349792,
+          "addend": 0,
+          "resolved": 8349792
+        },
+        {
+          "offset": 172,
+          "kind": 20,
+          "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+          "target": 7256592,
+          "addend": 0,
+          "resolved": 306112
+        },
+        {
+          "offset": 178,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 188,
+          "kind": 20,
+          "symbol": "?Add@ToolTipManager@@QAE_NPBVToolTip@@@Z",
+          "target": 7256160,
+          "addend": 0,
+          "resolved": 305664
+        },
+        {
+          "offset": 221,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 0,
+          "resolved": 11262232
+        },
+        {
+          "offset": 238,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 2400,
+          "resolved": 11264632
+        },
+        {
+          "offset": 247,
+          "kind": 6,
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11265024,
+          "addend": 0,
+          "resolved": 11265024
+        },
+        {
+          "offset": 257,
+          "kind": 6,
+          "symbol": "?SlotButton@TabClass@@2PAHA",
+          "target": 11264712,
+          "addend": 0,
+          "resolved": 11264712
+        },
+        {
+          "offset": 279,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 0,
+          "resolved": 11262232
+        },
+        {
+          "offset": 293,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 298,
+          "kind": 20,
+          "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+          "target": 7256592,
+          "addend": 0,
+          "resolved": 305986
+        },
+        {
+          "offset": 307,
+          "kind": 6,
+          "symbol": "?SlotButton@TabClass@@2PAHA",
+          "target": 11264712,
+          "addend": 100,
+          "resolved": 11264812
+        },
+        {
+          "offset": 315,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 325,
+          "kind": 20,
+          "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+          "target": 7256592,
+          "addend": 0,
+          "resolved": 305959
+        },
+        {
+          "offset": 352,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 0,
+          "resolved": 11264912
+        },
+        {
+          "offset": 363,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 373,
+          "kind": 20,
+          "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+          "target": 7256592,
+          "addend": 0,
+          "resolved": 305911
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6950304,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6950704,
+      "method": "006a0f30",
+      "body_bytes": 822,
+      "body_sha256": "500718aa23327bde7756f6517d85733a74f86bcf86fd678e26fe4d8ffe08e8dd",
+      "padding_bytes": 10,
+      "full_extent_bytes": 832,
+      "full_extent_sha256": "53a8ea2c3566b9c2e124fa0f0edc5c6db159912293b53cd0bab9005a51c63e0b",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AI@TabClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z",
+      "symbol_prefix": "?AI@TabClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 63,
+          "kind": 6,
+          "symbol": "?TabBarRect@@3PAV?$TRect@H@@A",
+          "target": 11276796,
+          "addend": 0,
+          "resolved": 11276796
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 8,
+          "resolved": 8623672
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "?TabBarHeight@@3HA",
+          "target": 8052100,
+          "addend": 0,
+          "resolved": 8052100
+        },
+        {
+          "offset": 121,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 126,
+          "kind": 20,
+          "symbol": "?Override_Mouse_Shape@MouseClass@@UAE_NW4MouseType@@_N@Z",
+          "target": 5894736,
+          "addend": 0,
+          "resolved": 4293911198
+        },
+        {
+          "offset": 160,
+          "kind": 6,
+          "symbol": "?AttackMoveCommand@TabClass@@2HA",
+          "target": 11265124,
+          "addend": 0,
+          "resolved": 11265124
+        },
+        {
+          "offset": 177,
+          "kind": 20,
+          "symbol": "?Command_Attack_Move@@YAXXZ",
+          "target": 7300464,
+          "addend": 0,
+          "resolved": 349579
+        },
+        {
+          "offset": 188,
+          "kind": 6,
+          "symbol": "?BeaconCommand@TabClass@@2HA",
+          "target": 11264660,
+          "addend": 0,
+          "resolved": 11264660
+        },
+        {
+          "offset": 195,
+          "kind": 20,
+          "symbol": "?Command_Beacon@@YAXXZ",
+          "target": 7300272,
+          "addend": 0,
+          "resolved": 349369
+        },
+        {
+          "offset": 206,
+          "kind": 6,
+          "symbol": "?CheerCommand@TabClass@@2HA",
+          "target": 11262224,
+          "addend": 0,
+          "resolved": 11262224
+        },
+        {
+          "offset": 213,
+          "kind": 20,
+          "symbol": "?Command_Cheer@@YAXXZ",
+          "target": 7298128,
+          "addend": 0,
+          "resolved": 347207
+        },
+        {
+          "offset": 224,
+          "kind": 6,
+          "symbol": "?DeployCommand@TabClass@@2HA",
+          "target": 11264632,
+          "addend": 0,
+          "resolved": 11264632
+        },
+        {
+          "offset": 231,
+          "kind": 20,
+          "symbol": "?Command_Deploy@@YAXXZ",
+          "target": 7297344,
+          "addend": 0,
+          "resolved": 346405
+        },
+        {
+          "offset": 242,
+          "kind": 6,
+          "symbol": "?GuardCommand@TabClass@@2HA",
+          "target": 11264696,
+          "addend": 0,
+          "resolved": 11264696
+        },
+        {
+          "offset": 249,
+          "kind": 20,
+          "symbol": "?Command_Guard@@YIXXZ",
+          "target": 7297808,
+          "addend": 0,
+          "resolved": 346851
+        },
+        {
+          "offset": 260,
+          "kind": 6,
+          "symbol": "?PlanningModeCommand@TabClass@@2HA",
+          "target": 11264876,
+          "addend": 0,
+          "resolved": 11264876
+        },
+        {
+          "offset": 271,
+          "kind": 6,
+          "symbol": "?SlotButton@TabClass@@2PAHA",
+          "target": 11264712,
+          "addend": 0,
+          "resolved": 11264712
+        },
+        {
+          "offset": 291,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 0,
+          "resolved": 11262232
+        },
+        {
+          "offset": 309,
+          "kind": 20,
+          "symbol": "?Command_Planning_Mode_On@@YIX_N@Z",
+          "target": 7300304,
+          "addend": 0,
+          "resolved": 349287
+        },
+        {
+          "offset": 319,
+          "kind": 20,
+          "symbol": "?Command_Planning_Mode_Off@@YIX_N@Z",
+          "target": 7300336,
+          "addend": 0,
+          "resolved": 349309
+        },
+        {
+          "offset": 330,
+          "kind": 6,
+          "symbol": "?StopCommand@TabClass@@2HA",
+          "target": 11264700,
+          "addend": 0,
+          "resolved": 11264700
+        },
+        {
+          "offset": 337,
+          "kind": 20,
+          "symbol": "?Command_Stop@@YAXXZ",
+          "target": 7297984,
+          "addend": 0,
+          "resolved": 346939
+        },
+        {
+          "offset": 348,
+          "kind": 6,
+          "symbol": "?Team01Command@TabClass@@2HA",
+          "target": 11264880,
+          "addend": 0,
+          "resolved": 11264880
+        },
+        {
+          "offset": 358,
+          "kind": 6,
+          "symbol": "?Team03Command@TabClass@@2HA",
+          "target": 11265128,
+          "addend": 0,
+          "resolved": 11265128
+        },
+        {
+          "offset": 372,
+          "kind": 20,
+          "symbol": "?Group_Count@@YIHH@Z",
+          "target": 7297136,
+          "addend": 0,
+          "resolved": 346056
+        },
+        {
+          "offset": 383,
+          "kind": 20,
+          "symbol": "?Group_Assign@@YIXH@Z",
+          "target": 7298448,
+          "addend": 0,
+          "resolved": 347357
+        },
+        {
+          "offset": 393,
+          "kind": 20,
+          "symbol": "?Group_Is_All_Selected@@YI_NH@Z",
+          "target": 7297024,
+          "addend": 0,
+          "resolved": 345923
+        },
+        {
+          "offset": 404,
+          "kind": 20,
+          "symbol": "?Group_Reselect@@YIXH@Z",
+          "target": 7299280,
+          "addend": 0,
+          "resolved": 348168
+        },
+        {
+          "offset": 414,
+          "kind": 20,
+          "symbol": "?Group_Select@@YIXH@Z",
+          "target": 7298816,
+          "addend": 0,
+          "resolved": 347694
+        },
+        {
+          "offset": 425,
+          "kind": 6,
+          "symbol": "?TypeSelectCommand@TabClass@@2HA",
+          "target": 11264656,
+          "addend": 0,
+          "resolved": 11264656
+        },
+        {
+          "offset": 436,
+          "kind": 20,
+          "symbol": "?Command_Type_Select@@YIXXZ",
+          "target": 7304032,
+          "addend": 0,
+          "resolved": 352888
+        },
+        {
+          "offset": 458,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 481,
+          "kind": 20,
+          "symbol": "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z",
+          "target": 7421360,
+          "addend": 0,
+          "resolved": 470171
+        },
+        {
+          "offset": 502,
+          "kind": 20,
+          "symbol": "?Remove_Command_Buttons@TabClass@@QAEXXZ",
+          "target": 6950272,
+          "addend": 0,
+          "resolved": 4294966358
+        },
+        {
+          "offset": 509,
+          "kind": 6,
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11265024,
+          "addend": 0,
+          "resolved": 11265024
+        },
+        {
+          "offset": 523,
+          "kind": 20,
+          "symbol": "?Get_Button@TabClass@@SIPAVShapeButtonClass@@H@Z",
+          "target": 6948352,
+          "addend": 0,
+          "resolved": 4294964417
+        },
+        {
+          "offset": 536,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 542,
+          "kind": 20,
+          "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+          "target": 7256592,
+          "addend": 0,
+          "resolved": 305342
+        },
+        {
+          "offset": 554,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 564,
+          "kind": 20,
+          "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+          "target": 7256592,
+          "addend": 0,
+          "resolved": 305320
+        },
+        {
+          "offset": 571,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 0,
+          "resolved": 11264912
+        },
+        {
+          "offset": 588,
+          "kind": 6,
+          "symbol": "??_C@_0BA@GHMH@Tip?3ThumbClosed?$AA@",
+          "target": 8349792,
+          "addend": 0,
+          "resolved": 8349792
+        },
+        {
+          "offset": 593,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 0,
+          "resolved": 11264912
+        },
+        {
+          "offset": 598,
+          "kind": 20,
+          "symbol": "?Add_Button_ToolTip@TabClass@@SIXPAVControlClass@@PBD@Z",
+          "target": 6951536,
+          "addend": 0,
+          "resolved": 230
+        },
+        {
+          "offset": 630,
+          "kind": 6,
+          "symbol": "?MuteSWLaunches@@3HA",
+          "target": 10736968,
+          "addend": 0,
+          "resolved": 10736968
+        },
+        {
+          "offset": 644,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 667,
+          "kind": 20,
+          "symbol": "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z",
+          "target": 7421360,
+          "addend": 0,
+          "resolved": 469985
+        },
+        {
+          "offset": 684,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 0,
+          "resolved": 11264912
+        },
+        {
+          "offset": 695,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 705,
+          "kind": 20,
+          "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+          "target": 7256592,
+          "addend": 0,
+          "resolved": 305179
+        },
+        {
+          "offset": 718,
+          "kind": 20,
+          "symbol": "?Show_Buttons@TabClass@@QAEXXZ",
+          "target": 6953648,
+          "addend": 0,
+          "resolved": 2222
+        },
+        {
+          "offset": 755,
+          "kind": 6,
+          "symbol": "?Team01Command@TabClass@@2HA",
+          "target": 11264880,
+          "addend": 0,
+          "resolved": 11264880
+        },
+        {
+          "offset": 773,
+          "kind": 6,
+          "symbol": "?Team03Command@TabClass@@2HA",
+          "target": 11265128,
+          "addend": 0,
+          "resolved": 11265128
+        },
+        {
+          "offset": 785,
+          "kind": 20,
+          "symbol": "?Group_Clear@@YIXH@Z",
+          "target": 7298576,
+          "addend": 0,
+          "resolved": 347083
+        },
+        {
+          "offset": 798,
+          "kind": 20,
+          "symbol": "?AI@CreditClass@@QAEX_N@Z",
+          "target": 4802128,
+          "addend": 0,
+          "resolved": 4292817918
+        },
+        {
+          "offset": 811,
+          "kind": 20,
+          "symbol": "?AI@SidebarClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z",
+          "target": 6806672,
+          "addend": 0,
+          "resolved": 4294822449
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6950704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6951536,
+      "method": "006a1270",
+      "body_bytes": 83,
+      "body_sha256": "bda442e64afd7bb03f384c74083e12bd0a39c897839c2aa3eac56806601fb835",
+      "padding_bytes": 13,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "af1a1e65794608af199fb5dc97b802ec16f00a889ad0d400e115dea87dec42fb",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Add_Button_ToolTip@TabClass@@SIXPAVControlClass@@PBD@Z",
+      "symbol_prefix": "?Add_Button_ToolTip@TabClass@@SIXPAVControlClass@@PBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 59,
+          "kind": 20,
+          "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+          "target": 7256592,
+          "addend": 0,
+          "resolved": 304993
+        },
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 75,
+          "kind": 20,
+          "symbol": "?Add@ToolTipManager@@QAE_NPBVToolTip@@@Z",
+          "target": 7256160,
+          "addend": 0,
+          "resolved": 304545
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6951536,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6951632,
+      "method": "006a12d0",
+      "body_bytes": 1057,
+      "body_sha256": "f1ecbbc63adc860d2c5be1d920be0776cb452cdf746799b25252203eff78e481",
+      "padding_bytes": 15,
+      "full_extent_bytes": 1072,
+      "full_extent_sha256": "96bc6deedf3145ca46730fc3698d50c0b20ec9b7324ac59485d5cd195b160ab5",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_It@TabClass@@UAEX_N@Z",
+      "symbol_prefix": "?Draw_It@TabClass@@UAEX_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_?$S145@?1??Draw_It@TabClass@@UAEX_N@Z@4EA",
+          "target": 11264664,
+          "addend": 0,
+          "resolved": 11264664
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "_$E146",
+          "target": 6952704,
+          "addend": 0,
+          "resolved": 6952704
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_?$S145@?1??Draw_It@TabClass@@UAEX_N@Z@4EA",
+          "target": 11264664,
+          "addend": 0,
+          "resolved": 11264664
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "_?LastMouseSpot@?1??Draw_It@TabClass@@UAEX_N@Z@4UTabMouseSpot@@A",
+          "target": 11264840,
+          "addend": 0,
+          "resolved": 11264840
+        },
+        {
+          "offset": 48,
+          "kind": 6,
+          "symbol": "_?LastMouseSpot@?1??Draw_It@TabClass@@UAEX_N@Z@4UTabMouseSpot@@A",
+          "target": 11264840,
+          "addend": 4,
+          "resolved": 11264844
+        },
+        {
+          "offset": 53,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 923265
+        },
+        {
+          "offset": 93,
+          "kind": 6,
+          "symbol": "?SlotButton@TabClass@@2PAHA",
+          "target": 11264712,
+          "addend": 0,
+          "resolved": 11264712
+        },
+        {
+          "offset": 115,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 0,
+          "resolved": 11262232
+        },
+        {
+          "offset": 135,
+          "kind": 6,
+          "symbol": "?SlotButton@TabClass@@2PAHA",
+          "target": 11264712,
+          "addend": 100,
+          "resolved": 11264812
+        },
+        {
+          "offset": 143,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 163,
+          "kind": 6,
+          "symbol": "?TabBarRect@@3PAV?$TRect@H@@A",
+          "target": 11276796,
+          "addend": 0,
+          "resolved": 11276796
+        },
+        {
+          "offset": 199,
+          "kind": 6,
+          "symbol": "_?LastMouseSpot@?1??Draw_It@TabClass@@UAEX_N@Z@4UTabMouseSpot@@A",
+          "target": 11264840,
+          "addend": 0,
+          "resolved": 11264840
+        },
+        {
+          "offset": 205,
+          "kind": 6,
+          "symbol": "_?MouseInside@?1??Draw_It@TabClass@@UAEX_N@Z@4_NA",
+          "target": 11265152,
+          "addend": 0,
+          "resolved": 11265152
+        },
+        {
+          "offset": 216,
+          "kind": 6,
+          "symbol": "_?LastMouseSpot@?1??Draw_It@TabClass@@UAEX_N@Z@4UTabMouseSpot@@A",
+          "target": 11264840,
+          "addend": 4,
+          "resolved": 11264844
+        },
+        {
+          "offset": 230,
+          "kind": 6,
+          "symbol": "_?DrawnCount@?1??Draw_It@TabClass@@UAEX_N@Z@4HA",
+          "target": 11265156,
+          "addend": 0,
+          "resolved": 11265156
+        },
+        {
+          "offset": 237,
+          "kind": 6,
+          "symbol": "_?MouseInside@?1??Draw_It@TabClass@@UAEX_N@Z@4_NA",
+          "target": 11265152,
+          "addend": 0,
+          "resolved": 11265152
+        },
+        {
+          "offset": 249,
+          "kind": 6,
+          "symbol": "_?MouseInside@?1??Draw_It@TabClass@@UAEX_N@Z@4_NA",
+          "target": 11265152,
+          "addend": 0,
+          "resolved": 11265152
+        },
+        {
+          "offset": 258,
+          "kind": 6,
+          "symbol": "_?LastMouseSpot@?1??Draw_It@TabClass@@UAEX_N@Z@4UTabMouseSpot@@A",
+          "target": 11264840,
+          "addend": 0,
+          "resolved": 11264840
+        },
+        {
+          "offset": 264,
+          "kind": 6,
+          "symbol": "_?LastMouseSpot@?1??Draw_It@TabClass@@UAEX_N@Z@4UTabMouseSpot@@A",
+          "target": 11264840,
+          "addend": 4,
+          "resolved": 11264844
+        },
+        {
+          "offset": 272,
+          "kind": 6,
+          "symbol": "_?DrawnCount@?1??Draw_It@TabClass@@UAEX_N@Z@4HA",
+          "target": 11265156,
+          "addend": 0,
+          "resolved": 11265156
+        },
+        {
+          "offset": 280,
+          "kind": 6,
+          "symbol": "_?DrawnCount@?1??Draw_It@TabClass@@UAEX_N@Z@4HA",
+          "target": 11265156,
+          "addend": 0,
+          "resolved": 11265156
+        },
+        {
+          "offset": 292,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 297,
+          "kind": 6,
+          "symbol": "_?DrawnOn@?1??Draw_It@TabClass@@UAEX_N@Z@4PAPAVSurface@@A",
+          "target": 11264848,
+          "addend": 0,
+          "resolved": 11264848
+        },
+        {
+          "offset": 316,
+          "kind": 6,
+          "symbol": "?Debug_Map@@3_NA",
+          "target": 10751251,
+          "addend": 0,
+          "resolved": 10751251
+        },
+        {
+          "offset": 335,
+          "kind": 6,
+          "symbol": "?SidebarSurface@@3PAVSurface@@A",
+          "target": 8624456,
+          "addend": 0,
+          "resolved": 8624456
+        },
+        {
+          "offset": 342,
+          "kind": 6,
+          "symbol": "?TabBackShape@@3PBVShapeSet@@B",
+          "target": 11276536,
+          "addend": 0,
+          "resolved": 11276536
+        },
+        {
+          "offset": 377,
+          "kind": 6,
+          "symbol": "?SidebarDrawer@@3PAVConvertClass@@A",
+          "target": 8594380,
+          "addend": 0,
+          "resolved": 8594380
+        },
+        {
+          "offset": 389,
+          "kind": 6,
+          "symbol": "?SidebarSurface@@3PAVSurface@@A",
+          "target": 8624456,
+          "addend": 0,
+          "resolved": 8624456
+        },
+        {
+          "offset": 396,
+          "kind": 20,
+          "symbol": "?Draw_Shape@@YIXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z",
+          "target": 4845216,
+          "addend": 0,
+          "resolved": 4292860480
+        },
+        {
+          "offset": 408,
+          "kind": 6,
+          "symbol": "?IsToBlitSidebar@SidebarClass@@2_NA",
+          "target": 11259268,
+          "addend": 0,
+          "resolved": 11259268
+        },
+        {
+          "offset": 420,
+          "kind": 20,
+          "symbol": "?Graphic_Logic@CreditClass@@QAEX_N@Z",
+          "target": 4801840,
+          "addend": 0,
+          "resolved": 4292817080
+        },
+        {
+          "offset": 434,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 472,
+          "kind": 6,
+          "symbol": "?TabBarRect@@3PAV?$TRect@H@@A",
+          "target": 11276796,
+          "addend": 0,
+          "resolved": 11276796
+        },
+        {
+          "offset": 533,
+          "kind": 6,
+          "symbol": "?TabLeftShape@@3PBVShapeSet@@B",
+          "target": 11276360,
+          "addend": 0,
+          "resolved": 11276360
+        },
+        {
+          "offset": 539,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 564,
+          "kind": 6,
+          "symbol": "?SidebarDrawer@@3PAVConvertClass@@A",
+          "target": 8594380,
+          "addend": 0,
+          "resolved": 8594380
+        },
+        {
+          "offset": 574,
+          "kind": 20,
+          "symbol": "?Draw_Shape@@YIXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z",
+          "target": 4845216,
+          "addend": 0,
+          "resolved": 4292860302
+        },
+        {
+          "offset": 593,
+          "kind": 6,
+          "symbol": "?ThumbOpenRect@@3PAV?$TRect@H@@A",
+          "target": 11276804,
+          "addend": 0,
+          "resolved": 11276804
+        },
+        {
+          "offset": 613,
+          "kind": 6,
+          "symbol": "?ThumbClosedRect@@3PAV?$TRect@H@@A",
+          "target": 11276808,
+          "addend": 0,
+          "resolved": 11276808
+        },
+        {
+          "offset": 639,
+          "kind": 6,
+          "symbol": "?TabThumbShape@@3PBVShapeSet@@B",
+          "target": 11276440,
+          "addend": 0,
+          "resolved": 11276440
+        },
+        {
+          "offset": 667,
+          "kind": 6,
+          "symbol": "?SidebarDrawer@@3PAVConvertClass@@A",
+          "target": 8594380,
+          "addend": 0,
+          "resolved": 8594380
+        },
+        {
+          "offset": 674,
+          "kind": 20,
+          "symbol": "?Draw_Shape@@YIXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z",
+          "target": 4845216,
+          "addend": 0,
+          "resolved": 4292860202
+        },
+        {
+          "offset": 693,
+          "kind": 6,
+          "symbol": "?ButtonSlotRect@@3PAV?$TRect@H@@A",
+          "target": 11276812,
+          "addend": 0,
+          "resolved": 11276812
+        },
+        {
+          "offset": 699,
+          "kind": 6,
+          "symbol": "?TabBarRect@@3PAV?$TRect@H@@A",
+          "target": 11276796,
+          "addend": 0,
+          "resolved": 11276796
+        },
+        {
+          "offset": 719,
+          "kind": 6,
+          "symbol": "?TabTileCount@@3HA",
+          "target": 11276276,
+          "addend": 0,
+          "resolved": 11276276
+        },
+        {
+          "offset": 734,
+          "kind": 6,
+          "symbol": "?TabTileShape@@3PBVShapeSet@@B",
+          "target": 11276452,
+          "addend": 0,
+          "resolved": 11276452
+        },
+        {
+          "offset": 765,
+          "kind": 6,
+          "symbol": "?SidebarDrawer@@3PAVConvertClass@@A",
+          "target": 8594380,
+          "addend": 0,
+          "resolved": 8594380
+        },
+        {
+          "offset": 775,
+          "kind": 20,
+          "symbol": "?Draw_Shape@@YIXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z",
+          "target": 4845216,
+          "addend": 0,
+          "resolved": 4292860101
+        },
+        {
+          "offset": 781,
+          "kind": 6,
+          "symbol": "?ButtonSlotRect@@3PAV?$TRect@H@@A",
+          "target": 11276812,
+          "addend": 0,
+          "resolved": 11276812
+        },
+        {
+          "offset": 800,
+          "kind": 6,
+          "symbol": "?TabTileCount@@3HA",
+          "target": 11276276,
+          "addend": 0,
+          "resolved": 11276276
+        },
+        {
+          "offset": 811,
+          "kind": 6,
+          "symbol": "?SlotButton@TabClass@@2PAHA",
+          "target": 11264712,
+          "addend": 0,
+          "resolved": 11264712
+        },
+        {
+          "offset": 834,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 0,
+          "resolved": 11262232
+        },
+        {
+          "offset": 865,
+          "kind": 6,
+          "symbol": "?SlotButton@TabClass@@2PAHA",
+          "target": 11264712,
+          "addend": 100,
+          "resolved": 11264812
+        },
+        {
+          "offset": 877,
+          "kind": 6,
+          "symbol": "?TabEndRect@@3PAV?$TRect@H@@A",
+          "target": 11276816,
+          "addend": 0,
+          "resolved": 11276816
+        },
+        {
+          "offset": 914,
+          "kind": 6,
+          "symbol": "?TabRightShape@@3PBVShapeSet@@B",
+          "target": 11276464,
+          "addend": 0,
+          "resolved": 11276464
+        },
+        {
+          "offset": 924,
+          "kind": 6,
+          "symbol": "?SidebarDrawer@@3PAVConvertClass@@A",
+          "target": 8594380,
+          "addend": 0,
+          "resolved": 8594380
+        },
+        {
+          "offset": 931,
+          "kind": 20,
+          "symbol": "?Draw_Shape@@YIXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z",
+          "target": 4845216,
+          "addend": 0,
+          "resolved": 4292859945
+        },
+        {
+          "offset": 946,
+          "kind": 6,
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11265024,
+          "addend": 0,
+          "resolved": 11265024
+        },
+        {
+          "offset": 953,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 0,
+          "resolved": 11264912
+        },
+        {
+          "offset": 958,
+          "kind": 20,
+          "symbol": "?Draw_Me@ShapeButtonClass@@UAEHH@Z",
+          "target": 6771168,
+          "addend": 0,
+          "resolved": 4294785870
+        },
+        {
+          "offset": 977,
+          "kind": 6,
+          "symbol": "_?DrawnCount@?1??Draw_It@TabClass@@UAEX_N@Z@4HA",
+          "target": 11265156,
+          "addend": 0,
+          "resolved": 11265156
+        },
+        {
+          "offset": 988,
+          "kind": 6,
+          "symbol": "_?DrawnCount@?1??Draw_It@TabClass@@UAEX_N@Z@4HA",
+          "target": 11265156,
+          "addend": 0,
+          "resolved": 11265156
+        },
+        {
+          "offset": 1002,
+          "kind": 6,
+          "symbol": "_?DrawnOn@?1??Draw_It@TabClass@@UAEX_N@Z@4PAPAVSurface@@A",
+          "target": 11264848,
+          "addend": 4,
+          "resolved": 11264852
+        },
+        {
+          "offset": 1020,
+          "kind": 6,
+          "symbol": "_?DrawnOn@?1??Draw_It@TabClass@@UAEX_N@Z@4PAPAVSurface@@A",
+          "target": 11264848,
+          "addend": 0,
+          "resolved": 11264848
+        },
+        {
+          "offset": 1043,
+          "kind": 20,
+          "symbol": "?Draw_It@SidebarClass@@UAEX_N@Z",
+          "target": 6803328,
+          "addend": 0,
+          "resolved": 4294817945
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6951632,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6952704,
+      "method": "006a1700",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E146",
+      "symbol_prefix": "_$E146",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6952704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6952720,
+      "method": "006a1710",
+      "body_bytes": 89,
+      "body_sha256": "d4f4d21db02d9dd0000979205e103025e9b06a42a0f1315a08e025f99bc35dbe",
+      "padding_bytes": 7,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "7a57812c9b98427195e0676e7ed3cf7dcf9c929dc1a9c7e837977d8a0fd7880b",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Credits_Tab@TabClass@@QAEXXZ",
+      "symbol_prefix": "?Draw_Credits_Tab@TabClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "?TabBackShape@@3PBVShapeSet@@B",
+          "target": 11276536,
+          "addend": 0,
+          "resolved": 11276536
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "?SidebarSurface@@3PAVSurface@@A",
+          "target": 8624456,
+          "addend": 0,
+          "resolved": 8624456
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?SidebarDrawer@@3PAVConvertClass@@A",
+          "target": 8594380,
+          "addend": 0,
+          "resolved": 8594380
+        },
+        {
+          "offset": 59,
+          "kind": 6,
+          "symbol": "?SidebarSurface@@3PAVSurface@@A",
+          "target": 8624456,
+          "addend": 0,
+          "resolved": 8624456
+        },
+        {
+          "offset": 73,
+          "kind": 20,
+          "symbol": "?Draw_Shape@@YIXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z",
+          "target": 4845216,
+          "addend": 0,
+          "resolved": 4292859715
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "?IsToBlitSidebar@SidebarClass@@2_NA",
+          "target": 11259268,
+          "addend": 0,
+          "resolved": 11259268
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6952720,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6952816,
+      "method": "006a1770",
+      "body_bytes": 53,
+      "body_sha256": "e5a4da0ddc6a7b1fd717e54c0994e6cb8957ae1a3c3720bc98a83b672368b774",
+      "padding_bytes": 11,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "278781e824c44efb9c59f064a000382a4bc1c83fbe0324e55b37fa468c7f7192",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Flash_Money@TabClass@@QAEXXZ",
+      "symbol_prefix": "?Flash_Money@TabClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6952816,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6952880,
+      "method": "6a17b0",
+      "body_bytes": 15,
+      "body_sha256": "8a89e40f5750d6c1866e439c64d149cf08fa3923e4b81507216f239b441d34be",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "ffc05e676c4795db1455ec6bd273f1247c25e67fdb242f5edc113d1c4a4f4e98",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Redraw_Tab@TabClass@@QAEXXZ",
+      "symbol_prefix": "?Redraw_Tab@TabClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6952880,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-106"
+    },
+    {
+      "entry": 6952896,
+      "method": "006a17c0",
+      "body_bytes": 85,
+      "body_sha256": "b6fd8a4bbbe98050f35d3f39cb700b463bf25c4cb9c11d6bad99e76da7ee26e8",
+      "padding_bytes": 11,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "f85eee2d694b686f4aee516efd5a83859303da6352f0b0b61252632ed20adb7b",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load_Button_Shapes@@YAXXZ",
+      "symbol_prefix": "?Load_Button_Shapes@@YAXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "?ButtonShapes@TabClass@@2PAPBVShapeSet@@A",
+          "target": 11262112,
+          "addend": 0,
+          "resolved": 11262112
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "??_C@_0P@ODHJ@Button?$CF02d?4SHP?$AA@",
+          "target": 8349776,
+          "addend": 0,
+          "resolved": 8349776
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 919824
+        },
+        {
+          "offset": 48,
+          "kind": 20,
+          "symbol": "?Load_Alloc_Data@@YIPAXPBDAA_N@Z",
+          "target": 4805232,
+          "addend": 0,
+          "resolved": 4292819580
+        },
+        {
+          "offset": 60,
+          "kind": 6,
+          "symbol": "?ButtonShapeAllocated@TabClass@@2PA_NA",
+          "target": 11264812,
+          "addend": 0,
+          "resolved": 11264812
+        },
+        {
+          "offset": 70,
+          "kind": 6,
+          "symbol": "?ButtonShapes@TabClass@@2PAPBVShapeSet@@A",
+          "target": 11262112,
+          "addend": 100,
+          "resolved": 11262212
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6952896,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1642"
+    },
+    {
+      "entry": 6952992,
+      "method": "006a1820",
+      "body_bytes": 58,
+      "body_sha256": "dbccce08bfe57464ba0491d591d5c0dac32a05bbae15618d48ea2c1a9290db9a",
+      "padding_bytes": 6,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "4135d6a3e8a3c976d899e0f56a459b9f2d3e7b6142c53e46a2020ecec3ef9aa6",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Free_Button_Shapes@@YAXXZ",
+      "symbol_prefix": "?Free_Button_Shapes@@YAXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "?ButtonShapes@TabClass@@2PAPBVShapeSet@@A",
+          "target": 11262112,
+          "addend": 0,
+          "resolved": 11262112
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "?ButtonShapeAllocated@TabClass@@2PA_NA",
+          "target": 11264812,
+          "addend": 0,
+          "resolved": 11264812
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 918784
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "?ButtonShapeAllocated@TabClass@@2PA_NA",
+          "target": 11264812,
+          "addend": 0,
+          "resolved": 11264812
+        },
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "?ButtonShapes@TabClass@@2PAPBVShapeSet@@A",
+          "target": 11262112,
+          "addend": 100,
+          "resolved": 11262212
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6952992,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3046"
+    },
+    {
+      "entry": 6953056,
+      "method": "006a1860",
+      "body_bytes": 29,
+      "body_sha256": "4b7296d175793643cbf65c1dda10875b85f9ff912a57835ee4b1f2973cb3b462",
+      "padding_bytes": 3,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "e3462e89344f161b5a64a95b2fc11bfce6b47556d5388c103097cab3f20721f9",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init_Shape_Button@@YIXPAVShapeButtonClass@@HI@Z",
+      "symbol_prefix": "?Init_Shape_Button@@YIXPAVShapeButtonClass@@HI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?SidebarDrawer@@3PAVConvertClass@@A",
+          "target": 8594380,
+          "addend": 0,
+          "resolved": 8594380
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6953056,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 6953088,
+      "method": "006a1880",
+      "body_bytes": 345,
+      "body_sha256": "c60bc46e5024e5a499cc8ee1d4267671699c69bcde9839cef110c872a8c91518",
+      "padding_bytes": 7,
+      "full_extent_bytes": 352,
+      "full_extent_sha256": "fc128598cf94be1438b9216b6913bdfa5d15bce73204fc3c546d7151ca21bcb4",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Setup_Command_Buttons@TabClass@@QAEXXZ",
+      "symbol_prefix": "?Setup_Command_Buttons@TabClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 0,
+          "resolved": 11262232
+        },
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "?Set_Shape@ShapeButtonClass@@UAEXPBVShapeSet@@HH@Z",
+          "target": 6770992,
+          "addend": 0,
+          "resolved": 4294785178
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 2400,
+          "resolved": 11264632
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "?ThumbClosedRect@@3PAV?$TRect@H@@A",
+          "target": 11276808,
+          "addend": 0,
+          "resolved": 11276808
+        },
+        {
+          "offset": 69,
+          "kind": 6,
+          "symbol": "?SlotButton@TabClass@@2PAHA",
+          "target": 11264712,
+          "addend": 0,
+          "resolved": 11264712
+        },
+        {
+          "offset": 94,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 0,
+          "resolved": 11262232
+        },
+        {
+          "offset": 105,
+          "kind": 6,
+          "symbol": "?SlotPitch@TabClass@@2HA",
+          "target": 11264904,
+          "addend": 0,
+          "resolved": 11264904
+        },
+        {
+          "offset": 111,
+          "kind": 6,
+          "symbol": "?ButtonSlotRect@@3PAV?$TRect@H@@A",
+          "target": 11276812,
+          "addend": 0,
+          "resolved": 11276812
+        },
+        {
+          "offset": 121,
+          "kind": 6,
+          "symbol": "?SlotTop@TabClass@@2HA",
+          "target": 11264884,
+          "addend": 0,
+          "resolved": 11264884
+        },
+        {
+          "offset": 161,
+          "kind": 6,
+          "symbol": "?SidebarDrawer@@3PAVConvertClass@@A",
+          "target": 8594380,
+          "addend": 0,
+          "resolved": 8594380
+        },
+        {
+          "offset": 193,
+          "kind": 6,
+          "symbol": "?ButtonShapes@TabClass@@2PAPBVShapeSet@@A",
+          "target": 11262112,
+          "addend": 0,
+          "resolved": 11262112
+        },
+        {
+          "offset": 222,
+          "kind": 6,
+          "symbol": "?PlanningModeCommand@TabClass@@2HA",
+          "target": 11264876,
+          "addend": 0,
+          "resolved": 11264876
+        },
+        {
+          "offset": 232,
+          "kind": 6,
+          "symbol": "?SlotButton@TabClass@@2PAHA",
+          "target": 11264712,
+          "addend": 0,
+          "resolved": 11264712
+        },
+        {
+          "offset": 252,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 0,
+          "resolved": 11262232
+        },
+        {
+          "offset": 273,
+          "kind": 6,
+          "symbol": "?Team01Command@TabClass@@2HA",
+          "target": 11264880,
+          "addend": 0,
+          "resolved": 11264880
+        },
+        {
+          "offset": 278,
+          "kind": 6,
+          "symbol": "?Team03Command@TabClass@@2HA",
+          "target": 11265128,
+          "addend": 0,
+          "resolved": 11265128
+        },
+        {
+          "offset": 289,
+          "kind": 6,
+          "symbol": "?SlotButton@TabClass@@2PAHA",
+          "target": 11264712,
+          "addend": 0,
+          "resolved": 11264712
+        },
+        {
+          "offset": 316,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 0,
+          "resolved": 11262232
+        },
+        {
+          "offset": 328,
+          "kind": 6,
+          "symbol": "?Team03Command@TabClass@@2HA",
+          "target": 11265128,
+          "addend": 0,
+          "resolved": 11265128
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6953088,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6953440,
+      "method": "006a19e0",
+      "body_bytes": 204,
+      "body_sha256": "96a5102424fbe0fc2ca7cc5d55404b2d374a51fc3085754111cc9e5a8db801ed",
+      "padding_bytes": 4,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "dd672aa4fc49f9693b779df4a80bc8f2364070df2f2374a429faf48958167d7c",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Setup_Thumb_Buttons@TabClass@@SAXXZ",
+      "symbol_prefix": "?Setup_Thumb_Buttons@TabClass@@SAXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?SidebarDrawer@@3PAVConvertClass@@A",
+          "target": 8594380,
+          "addend": 0,
+          "resolved": 8594380
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?ThumbOpenRect@@3PAV?$TRect@H@@A",
+          "target": 11276804,
+          "addend": 0,
+          "resolved": 11276804
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11265024,
+          "addend": 36,
+          "resolved": 11265060
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11265024,
+          "addend": 80,
+          "resolved": 11265104
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11265024,
+          "addend": 45,
+          "resolved": 11265069
+        },
+        {
+          "offset": 48,
+          "kind": 6,
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11265024,
+          "addend": 48,
+          "resolved": 11265072
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11265024,
+          "addend": 32,
+          "resolved": 11265056
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "?TabThumbShape@@3PBVShapeSet@@B",
+          "target": 11276440,
+          "addend": 0,
+          "resolved": 11276440
+        },
+        {
+          "offset": 75,
+          "kind": 6,
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11265024,
+          "addend": 0,
+          "resolved": 11265024
+        },
+        {
+          "offset": 91,
+          "kind": 20,
+          "symbol": "?Set_Position@GadgetClass@@UAEXHH@Z",
+          "target": 5043808,
+          "addend": 0,
+          "resolved": 4293057569
+        },
+        {
+          "offset": 99,
+          "kind": 6,
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11265024,
+          "addend": 0,
+          "resolved": 11265024
+        },
+        {
+          "offset": 104,
+          "kind": 20,
+          "symbol": "?Set_Shape@ShapeButtonClass@@UAEXPBVShapeSet@@HH@Z",
+          "target": 6770992,
+          "addend": 0,
+          "resolved": 4294784740
+        },
+        {
+          "offset": 109,
+          "kind": 6,
+          "symbol": "?SidebarDrawer@@3PAVConvertClass@@A",
+          "target": 8594380,
+          "addend": 0,
+          "resolved": 8594380
+        },
+        {
+          "offset": 115,
+          "kind": 6,
+          "symbol": "?ThumbClosedRect@@3PAV?$TRect@H@@A",
+          "target": 11276808,
+          "addend": 0,
+          "resolved": 11276808
+        },
+        {
+          "offset": 121,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 36,
+          "resolved": 11264948
+        },
+        {
+          "offset": 130,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 80,
+          "resolved": 11264992
+        },
+        {
+          "offset": 136,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 45,
+          "resolved": 11264957
+        },
+        {
+          "offset": 142,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 48,
+          "resolved": 11264960
+        },
+        {
+          "offset": 148,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 32,
+          "resolved": 11264944
+        },
+        {
+          "offset": 163,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 0,
+          "resolved": 11264912
+        },
+        {
+          "offset": 179,
+          "kind": 20,
+          "symbol": "?Set_Position@GadgetClass@@UAEXHH@Z",
+          "target": 5043808,
+          "addend": 0,
+          "resolved": 4293057481
+        },
+        {
+          "offset": 187,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 0,
+          "resolved": 11264912
+        },
+        {
+          "offset": 192,
+          "kind": 20,
+          "symbol": "?Set_Shape@ShapeButtonClass@@UAEXPBVShapeSet@@HH@Z",
+          "target": 6770992,
+          "addend": 0,
+          "resolved": 4294784652
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6953440,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6953648,
+      "method": "006a1ab0",
+      "body_bytes": 752,
+      "body_sha256": "cf36eaef64eeba2ac26d1eb0ba6fe6dd175d122b514df849561895135c32171e",
+      "padding_bytes": 0,
+      "full_extent_bytes": 752,
+      "full_extent_sha256": "cf36eaef64eeba2ac26d1eb0ba6fe6dd175d122b514df849561895135c32171e",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Show_Buttons@TabClass@@QAEXXZ",
+      "symbol_prefix": "?Show_Buttons@TabClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 0,
+          "resolved": 11262232
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 2400,
+          "resolved": 11264632
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11265024,
+          "addend": 0,
+          "resolved": 11265024
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "?AttackMoveCommand@TabClass@@2HA",
+          "target": 11265124,
+          "addend": 0,
+          "resolved": 11265124
+        },
+        {
+          "offset": 59,
+          "kind": 6,
+          "symbol": "?SlotButton@TabClass@@2PAHA",
+          "target": 11264712,
+          "addend": 0,
+          "resolved": 11264712
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 0,
+          "resolved": 11262232
+        },
+        {
+          "offset": 93,
+          "kind": 20,
+          "symbol": "??0ToolTip@@QAE@XZ",
+          "target": 6955200,
+          "addend": 0,
+          "resolved": 1455
+        },
+        {
+          "offset": 126,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 139,
+          "kind": 6,
+          "symbol": "??_C@_0P@BNNL@Tip?3AttackMove?$AA@",
+          "target": 8349956,
+          "addend": 0,
+          "resolved": 8349956
+        },
+        {
+          "offset": 148,
+          "kind": 20,
+          "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+          "target": 7256592,
+          "addend": 0,
+          "resolved": 302792
+        },
+        {
+          "offset": 154,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 164,
+          "kind": 20,
+          "symbol": "?Add@ToolTipManager@@QAE_NPBVToolTip@@@Z",
+          "target": 7256160,
+          "addend": 0,
+          "resolved": 302344
+        },
+        {
+          "offset": 169,
+          "kind": 6,
+          "symbol": "?BeaconCommand@TabClass@@2HA",
+          "target": 11264660,
+          "addend": 0,
+          "resolved": 11264660
+        },
+        {
+          "offset": 176,
+          "kind": 6,
+          "symbol": "?SlotButton@TabClass@@2PAHA",
+          "target": 11264712,
+          "addend": 0,
+          "resolved": 11264712
+        },
+        {
+          "offset": 197,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 0,
+          "resolved": 11262232
+        },
+        {
+          "offset": 210,
+          "kind": 20,
+          "symbol": "??0ToolTip@@QAE@XZ",
+          "target": 6955200,
+          "addend": 0,
+          "resolved": 1338
+        },
+        {
+          "offset": 243,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 256,
+          "kind": 6,
+          "symbol": "??_C@_0L@NFIE@Tip?3Beacon?$AA@",
+          "target": 8349944,
+          "addend": 0,
+          "resolved": 8349944
+        },
+        {
+          "offset": 265,
+          "kind": 20,
+          "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+          "target": 7256592,
+          "addend": 0,
+          "resolved": 302675
+        },
+        {
+          "offset": 271,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 281,
+          "kind": 20,
+          "symbol": "?Add@ToolTipManager@@QAE_NPBVToolTip@@@Z",
+          "target": 7256160,
+          "addend": 0,
+          "resolved": 302227
+        },
+        {
+          "offset": 287,
+          "kind": 6,
+          "symbol": "?CheerCommand@TabClass@@2HA",
+          "target": 11262224,
+          "addend": 0,
+          "resolved": 11262224
+        },
+        {
+          "offset": 294,
+          "kind": 6,
+          "symbol": "?SlotButton@TabClass@@2PAHA",
+          "target": 11264712,
+          "addend": 0,
+          "resolved": 11264712
+        },
+        {
+          "offset": 315,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 0,
+          "resolved": 11262232
+        },
+        {
+          "offset": 328,
+          "kind": 20,
+          "symbol": "??0ToolTip@@QAE@XZ",
+          "target": 6955200,
+          "addend": 0,
+          "resolved": 1220
+        },
+        {
+          "offset": 361,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 374,
+          "kind": 6,
+          "symbol": "??_C@_09JGJD@Tip?3Cheer?$AA@",
+          "target": 8349932,
+          "addend": 0,
+          "resolved": 8349932
+        },
+        {
+          "offset": 383,
+          "kind": 20,
+          "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+          "target": 7256592,
+          "addend": 0,
+          "resolved": 302557
+        },
+        {
+          "offset": 389,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 399,
+          "kind": 20,
+          "symbol": "?Add@ToolTipManager@@QAE_NPBVToolTip@@@Z",
+          "target": 7256160,
+          "addend": 0,
+          "resolved": 302109
+        },
+        {
+          "offset": 404,
+          "kind": 6,
+          "symbol": "?DeployCommand@TabClass@@2HA",
+          "target": 11264632,
+          "addend": 0,
+          "resolved": 11264632
+        },
+        {
+          "offset": 411,
+          "kind": 6,
+          "symbol": "?SlotButton@TabClass@@2PAHA",
+          "target": 11264712,
+          "addend": 0,
+          "resolved": 11264712
+        },
+        {
+          "offset": 432,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 0,
+          "resolved": 11262232
+        },
+        {
+          "offset": 445,
+          "kind": 20,
+          "symbol": "??0ToolTip@@QAE@XZ",
+          "target": 6955200,
+          "addend": 0,
+          "resolved": 1103
+        },
+        {
+          "offset": 478,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 491,
+          "kind": 6,
+          "symbol": "??_C@_0L@KHG@Tip?3Deploy?$AA@",
+          "target": 8349920,
+          "addend": 0,
+          "resolved": 8349920
+        },
+        {
+          "offset": 500,
+          "kind": 20,
+          "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+          "target": 7256592,
+          "addend": 0,
+          "resolved": 302440
+        },
+        {
+          "offset": 506,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 516,
+          "kind": 20,
+          "symbol": "?Add@ToolTipManager@@QAE_NPBVToolTip@@@Z",
+          "target": 7256160,
+          "addend": 0,
+          "resolved": 301992
+        },
+        {
+          "offset": 522,
+          "kind": 6,
+          "symbol": "?GuardCommand@TabClass@@2HA",
+          "target": 11264696,
+          "addend": 0,
+          "resolved": 11264696
+        },
+        {
+          "offset": 531,
+          "kind": 6,
+          "symbol": "?SlotButton@TabClass@@2PAHA",
+          "target": 11264712,
+          "addend": 0,
+          "resolved": 11264712
+        },
+        {
+          "offset": 552,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 0,
+          "resolved": 11262232
+        },
+        {
+          "offset": 561,
+          "kind": 6,
+          "symbol": "??_C@_09MMAJ@Tip?3Guard?$AA@",
+          "target": 8349908,
+          "addend": 0,
+          "resolved": 8349908
+        },
+        {
+          "offset": 566,
+          "kind": 20,
+          "symbol": "?Add_Button_ToolTip@TabClass@@SIXPAVControlClass@@PBD@Z",
+          "target": 6951536,
+          "addend": 0,
+          "resolved": 4294964614
+        },
+        {
+          "offset": 572,
+          "kind": 6,
+          "symbol": "?PlanningModeCommand@TabClass@@2HA",
+          "target": 11264876,
+          "addend": 0,
+          "resolved": 11264876
+        },
+        {
+          "offset": 579,
+          "kind": 6,
+          "symbol": "?SlotButton@TabClass@@2PAHA",
+          "target": 11264712,
+          "addend": 0,
+          "resolved": 11264712
+        },
+        {
+          "offset": 600,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 0,
+          "resolved": 11262232
+        },
+        {
+          "offset": 609,
+          "kind": 6,
+          "symbol": "??_C@_0BB@OEPN@Tip?3PlanningMode?$AA@",
+          "target": 8349888,
+          "addend": 0,
+          "resolved": 8349888
+        },
+        {
+          "offset": 614,
+          "kind": 20,
+          "symbol": "?Add_Button_ToolTip@TabClass@@SIXPAVControlClass@@PBD@Z",
+          "target": 6951536,
+          "addend": 0,
+          "resolved": 4294964566
+        },
+        {
+          "offset": 620,
+          "kind": 6,
+          "symbol": "?StopCommand@TabClass@@2HA",
+          "target": 11264700,
+          "addend": 0,
+          "resolved": 11264700
+        },
+        {
+          "offset": 625,
+          "kind": 20,
+          "symbol": "?Get_Button@TabClass@@SIPAVShapeButtonClass@@H@Z",
+          "target": 6948352,
+          "addend": 0,
+          "resolved": 4294961371
+        },
+        {
+          "offset": 630,
+          "kind": 6,
+          "symbol": "??_C@_08HADJ@Tip?3Stop?$AA@",
+          "target": 8349876,
+          "addend": 0,
+          "resolved": 8349876
+        },
+        {
+          "offset": 637,
+          "kind": 20,
+          "symbol": "?Add_Button_ToolTip@TabClass@@SIXPAVControlClass@@PBD@Z",
+          "target": 6951536,
+          "addend": 0,
+          "resolved": 4294964543
+        },
+        {
+          "offset": 643,
+          "kind": 6,
+          "symbol": "?Team01Command@TabClass@@2HA",
+          "target": 11264880,
+          "addend": 0,
+          "resolved": 11264880
+        },
+        {
+          "offset": 648,
+          "kind": 20,
+          "symbol": "?Get_Button@TabClass@@SIPAVShapeButtonClass@@H@Z",
+          "target": 6948352,
+          "addend": 0,
+          "resolved": 4294961348
+        },
+        {
+          "offset": 653,
+          "kind": 6,
+          "symbol": "??_C@_0L@JHGE@Tip?3Team01?$AA@",
+          "target": 8349864,
+          "addend": 0,
+          "resolved": 8349864
+        },
+        {
+          "offset": 660,
+          "kind": 20,
+          "symbol": "?Add_Button_ToolTip@TabClass@@SIXPAVControlClass@@PBD@Z",
+          "target": 6951536,
+          "addend": 0,
+          "resolved": 4294964520
+        },
+        {
+          "offset": 666,
+          "kind": 6,
+          "symbol": "?Team02Command@TabClass@@2HA",
+          "target": 11264888,
+          "addend": 0,
+          "resolved": 11264888
+        },
+        {
+          "offset": 671,
+          "kind": 20,
+          "symbol": "?Get_Button@TabClass@@SIPAVShapeButtonClass@@H@Z",
+          "target": 6948352,
+          "addend": 0,
+          "resolved": 4294961325
+        },
+        {
+          "offset": 676,
+          "kind": 6,
+          "symbol": "??_C@_0L@GINN@Tip?3Team02?$AA@",
+          "target": 8349852,
+          "addend": 0,
+          "resolved": 8349852
+        },
+        {
+          "offset": 683,
+          "kind": 20,
+          "symbol": "?Add_Button_ToolTip@TabClass@@SIXPAVControlClass@@PBD@Z",
+          "target": 6951536,
+          "addend": 0,
+          "resolved": 4294964497
+        },
+        {
+          "offset": 689,
+          "kind": 6,
+          "symbol": "?Team03Command@TabClass@@2HA",
+          "target": 11265128,
+          "addend": 0,
+          "resolved": 11265128
+        },
+        {
+          "offset": 694,
+          "kind": 20,
+          "symbol": "?Get_Button@TabClass@@SIPAVShapeButtonClass@@H@Z",
+          "target": 6948352,
+          "addend": 0,
+          "resolved": 4294961302
+        },
+        {
+          "offset": 699,
+          "kind": 6,
+          "symbol": "??_C@_0L@MCEK@Tip?3Team03?$AA@",
+          "target": 8349840,
+          "addend": 0,
+          "resolved": 8349840
+        },
+        {
+          "offset": 706,
+          "kind": 20,
+          "symbol": "?Add_Button_ToolTip@TabClass@@SIXPAVControlClass@@PBD@Z",
+          "target": 6951536,
+          "addend": 0,
+          "resolved": 4294964474
+        },
+        {
+          "offset": 712,
+          "kind": 6,
+          "symbol": "?TypeSelectCommand@TabClass@@2HA",
+          "target": 11264656,
+          "addend": 0,
+          "resolved": 11264656
+        },
+        {
+          "offset": 717,
+          "kind": 20,
+          "symbol": "?Get_Button@TabClass@@SIPAVShapeButtonClass@@H@Z",
+          "target": 6948352,
+          "addend": 0,
+          "resolved": 4294961279
+        },
+        {
+          "offset": 722,
+          "kind": 6,
+          "symbol": "??_C@_0P@KDME@Tip?3TypeSelect?$AA@",
+          "target": 8349824,
+          "addend": 0,
+          "resolved": 8349824
+        },
+        {
+          "offset": 729,
+          "kind": 20,
+          "symbol": "?Add_Button_ToolTip@TabClass@@SIXPAVControlClass@@PBD@Z",
+          "target": 6951536,
+          "addend": 0,
+          "resolved": 4294964451
+        },
+        {
+          "offset": 734,
+          "kind": 6,
+          "symbol": "??_C@_0O@PKIE@Tip?3ThumbOpen?$AA@",
+          "target": 8349808,
+          "addend": 0,
+          "resolved": 8349808
+        },
+        {
+          "offset": 739,
+          "kind": 6,
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11265024,
+          "addend": 0,
+          "resolved": 11265024
+        },
+        {
+          "offset": 744,
+          "kind": 20,
+          "symbol": "?Add_Button_ToolTip@TabClass@@SIXPAVControlClass@@PBD@Z",
+          "target": 6951536,
+          "addend": 0,
+          "resolved": 4294964436
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6953648,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6954400,
+      "method": "006a1da0",
+      "body_bytes": 116,
+      "body_sha256": "dc7e22e8a073ca33cbc8a67b31b1ee040f36f704455b8581c6334da71c4d44f8",
+      "padding_bytes": 12,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "771a31ac02dff9d169a5619ed3e5c4abd7c5dfc2a19b48b61b8438cbc33c9123",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Hide_Buttons@TabClass@@QAEXXZ",
+      "symbol_prefix": "?Hide_Buttons@TabClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 0,
+          "resolved": 11262232
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 2400,
+          "resolved": 11264632
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11265024,
+          "addend": 0,
+          "resolved": 11265024
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?SlotButton@TabClass@@2PAHA",
+          "target": 11264712,
+          "addend": 0,
+          "resolved": 11264712
+        },
+        {
+          "offset": 63,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 0,
+          "resolved": 11262232
+        },
+        {
+          "offset": 76,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 82,
+          "kind": 20,
+          "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+          "target": 7256592,
+          "addend": 0,
+          "resolved": 302106
+        },
+        {
+          "offset": 91,
+          "kind": 6,
+          "symbol": "?SlotButton@TabClass@@2PAHA",
+          "target": 11264712,
+          "addend": 100,
+          "resolved": 11264812
+        },
+        {
+          "offset": 99,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 109,
+          "kind": 20,
+          "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+          "target": 7256592,
+          "addend": 0,
+          "resolved": 302079
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6954400,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6954528,
+      "method": "006a1e20",
+      "body_bytes": 116,
+      "body_sha256": "d27353a600360e48a4cdab133f96e79ec0854d2caecfed93733fd6de95f469be",
+      "padding_bytes": 12,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "ae7ab88287e62082e29e8e1d196b36cd6f06679d56fcae470b2960fa06d6bec5",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Show_Thumb_Button@TabClass@@QAEXXZ",
+      "symbol_prefix": "?Show_Thumb_Button@TabClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 0,
+          "resolved": 11264912
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 0,
+          "resolved": 11264912
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 16,
+          "resolved": 11264928
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 12,
+          "resolved": 11264924
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 36,
+          "resolved": 11264948
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 24,
+          "resolved": 11264936
+        },
+        {
+          "offset": 55,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 20,
+          "resolved": 11264932
+        },
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 83,
+          "kind": 6,
+          "symbol": "??_C@_0BA@GHMH@Tip?3ThumbClosed?$AA@",
+          "target": 8349792,
+          "addend": 0,
+          "resolved": 8349792
+        },
+        {
+          "offset": 92,
+          "kind": 20,
+          "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+          "target": 7256592,
+          "addend": 0,
+          "resolved": 301968
+        },
+        {
+          "offset": 98,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 108,
+          "kind": 20,
+          "symbol": "?Add@ToolTipManager@@QAE_NPBVToolTip@@@Z",
+          "target": 7256160,
+          "addend": 0,
+          "resolved": 301520
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6954528,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6954656,
+      "method": "006a1ea0",
+      "body_bytes": 27,
+      "body_sha256": "f6830a04b89f04336aef31ef5dab0599dab2179d4822a53fbed8078340f5fe66",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "a1da57fcb3a25b634f097723b09e16541c352161a6a10c6002cdf31959a05e3a",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Hide_Thumb_Button@TabClass@@QAEXXZ",
+      "symbol_prefix": "?Hide_Thumb_Button@TabClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 0,
+          "resolved": 11264912
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 22,
+          "kind": 20,
+          "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+          "target": 7256592,
+          "addend": 0,
+          "resolved": 301910
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6954656,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6954688,
+      "method": "006a1ec0",
+      "body_bytes": 71,
+      "body_sha256": "0612781465d5ed86a5ee70d17fb11f6e15a5d8db3f409d8b92ad17f4dcfafe49",
+      "padding_bytes": 9,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "d15a6920350ceda783e13657973545cd2dfc8368e733627cfbfcb546e14541e1",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Open_Thumb@TabClass@@QAEXXZ",
+      "symbol_prefix": "?Open_Thumb@TabClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 0,
+          "resolved": 11264912
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+          "target": 7256592,
+          "addend": 0,
+          "resolved": 301865
+        },
+        {
+          "offset": 49,
+          "kind": 20,
+          "symbol": "?Show_Buttons@TabClass@@QAEXXZ",
+          "target": 6953648,
+          "addend": 0,
+          "resolved": 4294966203
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6954688,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6954768,
+      "method": "006a1f10",
+      "body_bytes": 270,
+      "body_sha256": "f1880b7dab3f0ac1bdeb34d4959189d02e3378d4b3022b674e023d0d28685493",
+      "padding_bytes": 2,
+      "full_extent_bytes": 272,
+      "full_extent_sha256": "e7841e29c5f7da988c2f0230de328519ed0e8b62ded88bad9a9458d6b2893a4b",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Close_Thumb@TabClass@@QAEXXZ",
+      "symbol_prefix": "?Close_Thumb@TabClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 0,
+          "resolved": 11262232
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 2400,
+          "resolved": 11264632
+        },
+        {
+          "offset": 48,
+          "kind": 6,
+          "symbol": "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11265024,
+          "addend": 0,
+          "resolved": 11265024
+        },
+        {
+          "offset": 58,
+          "kind": 6,
+          "symbol": "?SlotButton@TabClass@@2PAHA",
+          "target": 11264712,
+          "addend": 0,
+          "resolved": 11264712
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 0,
+          "resolved": 11262232
+        },
+        {
+          "offset": 93,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 99,
+          "kind": 20,
+          "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+          "target": 7256592,
+          "addend": 0,
+          "resolved": 301721
+        },
+        {
+          "offset": 108,
+          "kind": 6,
+          "symbol": "?SlotButton@TabClass@@2PAHA",
+          "target": 11264712,
+          "addend": 100,
+          "resolved": 11264812
+        },
+        {
+          "offset": 116,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 126,
+          "kind": 20,
+          "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+          "target": 7256592,
+          "addend": 0,
+          "resolved": 301694
+        },
+        {
+          "offset": 133,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 0,
+          "resolved": 11264912
+        },
+        {
+          "offset": 150,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 0,
+          "resolved": 11264912
+        },
+        {
+          "offset": 161,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 12,
+          "resolved": 11264924
+        },
+        {
+          "offset": 167,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 16,
+          "resolved": 11264928
+        },
+        {
+          "offset": 172,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 36,
+          "resolved": 11264948
+        },
+        {
+          "offset": 182,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 20,
+          "resolved": 11264932
+        },
+        {
+          "offset": 192,
+          "kind": 6,
+          "symbol": "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A",
+          "target": 11264912,
+          "addend": 24,
+          "resolved": 11264936
+        },
+        {
+          "offset": 202,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 220,
+          "kind": 6,
+          "symbol": "??_C@_0BA@GHMH@Tip?3ThumbClosed?$AA@",
+          "target": 8349792,
+          "addend": 0,
+          "resolved": 8349792
+        },
+        {
+          "offset": 229,
+          "kind": 20,
+          "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+          "target": 7256592,
+          "addend": 0,
+          "resolved": 301591
+        },
+        {
+          "offset": 235,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 245,
+          "kind": 20,
+          "symbol": "?Add@ToolTipManager@@QAE_NPBVToolTip@@@Z",
+          "target": 7256160,
+          "addend": 0,
+          "resolved": 301143
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6954768,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6955040,
+      "method": "006a2020",
+      "body_bytes": 132,
+      "body_sha256": "11035f4f3443b7086bb507e40ce87dce4e7731b96715e863726628dc790e9f95",
+      "padding_bytes": 12,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "b919569f5406d65b55751dc2fcc962840a54eed7032babbd9cc3a80d11498493",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Unknown_Virtual_0@TabClass@@UAE_NHH@Z",
+      "symbol_prefix": "?Unknown_Virtual_0@TabClass@@UAE_NHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "?PlanningModeCommand@TabClass@@2HA",
+          "target": 11264876,
+          "addend": 0,
+          "resolved": 11264876
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?SlotButton@TabClass@@2PAHA",
+          "target": 11264712,
+          "addend": 0,
+          "resolved": 11264712
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 0,
+          "resolved": 11262232
+        },
+        {
+          "offset": 56,
+          "kind": 20,
+          "symbol": "?Turn_On@ToggleClass@@QAEXXZ",
+          "target": 7254368,
+          "addend": 0,
+          "resolved": 299268
+        },
+        {
+          "offset": 74,
+          "kind": 6,
+          "symbol": "?PlanningModeCommand@TabClass@@2HA",
+          "target": 11264876,
+          "addend": 0,
+          "resolved": 11264876
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?SlotButton@TabClass@@2PAHA",
+          "target": 11264712,
+          "addend": 0,
+          "resolved": 11264712
+        },
+        {
+          "offset": 102,
+          "kind": 6,
+          "symbol": "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A",
+          "target": 11262232,
+          "addend": 0,
+          "resolved": 11262232
+        },
+        {
+          "offset": 118,
+          "kind": 20,
+          "symbol": "?Turn_Off@ToggleClass@@QAEXXZ",
+          "target": 7254384,
+          "addend": 0,
+          "resolved": 299222
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6955040,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6955184,
+      "method": "006a20b0",
+      "body_bytes": 13,
+      "body_sha256": "97abbb1741e770e6eb690bb8367a3772f72bcd236d586eec243d6e0ce9e427c2",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "eafdad80feeacfde83b5b226dc8d49edbb9a31df32c653cc32ccfa7a73888ce7",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Help_Text@TabClass@@UAEPBDH@Z",
+      "symbol_prefix": "?Help_Text@TabClass@@UAEPBDH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?Help_Text@SidebarClass@@UAEPBDH@Z",
+          "target": 6823632,
+          "addend": 0,
+          "resolved": 4294835734
+        }
+      ],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6955184,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6955200,
+      "method": "006a20c0",
+      "body_bytes": 25,
+      "body_sha256": "302ca7d53a4fd028fbf213d79cb532b7f7c4802d797e80af55a21a1199c6d8b7",
+      "padding_bytes": 7,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "fca80e4418f514d205bd34598f9b16eb6161a3b0e693c814bc8614707bc4460b",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0ToolTip@@QAE@XZ",
+      "symbol_prefix": "??0ToolTip@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "c418318b3719cea2e9595373ecaf3803147b2625dd47b7fc8456bf2b33fd1a69",
+      "source": "src/tab.cpp",
+      "population": "rebuild-tab",
+      "source_order": 6955200,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

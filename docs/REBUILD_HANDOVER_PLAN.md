@@ -1,5 +1,7 @@
 # Rebuild handover plan
 
+> **Superseded in part (2026-11-25, lane O88):** the layout move at port parity (user decision 2026-11-24/25) deleted `src/` and `native/` and promoted `rebuild/` to the root, so steps 11 (tool default) and 13 (native pin) no longer apply: `RA2_TREE` is gone, the native ports live in redalert2-modern, and `rebuild/...` paths below are now `src/`, `include/`, `asm/`, `manifests/`, `tools/original_target/`. Step 14 (the tree owns its evidence) stays open: the catalog still cites `manifests/original_target/`.
+
 **Done on 2026-11-24 (lane O83; the user brought the date forward in the owner session: "Switch today once all the
 criteria are met").** Rows 0 (dry run), 2-6, 8 and 12 are committed on the switch branch; row 1 (tag `src-final`),
 7 (private landing scripts, `private/tools/retire_src_scripts.sh`), 9 (Windows workers) and 10 (public snapshot) are

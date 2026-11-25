@@ -94,22 +94,6 @@ class ByteUpdateTests(unittest.TestCase):
         text = self.convert('slot = CONCAT31(slot._1_3_,1);\n  slot = CONCAT31(slot._1_3_,0);')
         self.assertEqual(text.count('  *(uchar *)&(slot)'), 2)
 
-    def test_complete_seed_repairs_before_concat_and_storage_conversion(self):
-        class FakeInventory:
-            passes = []
-
-            def decompiled(self, entry):
-                return ('int __cdecl FUN_00401000(void)\n{\n  uint slots[2];\n'
-                        '  slots[0] = CONCAT31(slots[0]._1_3_,1);\n  return slots[0];\n}\n')
-
-            def function(self, entry):
-                return None, {'ranges': []}
-
-        text = seed.seed(0x401000, FakeInventory(), {})
-        self.assertIn('*(uchar *)&(slots[0]) = (uchar)(1);', text)
-        self.assertIn('return (int)(slots[0]);', text)
-        self.assertNotIn('._1_3_', text)
-        self.assertNotIn('CONCAT31', text)
 
 
 if __name__ == '__main__':

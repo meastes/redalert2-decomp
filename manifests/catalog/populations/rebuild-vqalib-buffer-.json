@@ -1,0 +1,277 @@
+{
+  "id": "rebuild-vqalib-buffer-",
+  "population": {
+    "id": "rebuild-vqalib-buffer-",
+    "inventory_sha256": "8ab4b46ec03484c60cd1669bc487915b57f113a511a0274f8ce1df7fca5456ca",
+    "gaps_sha256": "2bc4049379b2d6b8977cadb7baca0e4fac87c85873a8ad1eb21f86985edbb677",
+    "historical_population_sha256": "5603db149a0bb69c350075ba7b39940da150cf526d4216b97b1be813836114f7",
+    "historical_acceptance_sha256": "5f3e7a274e1a364dd25ed2a8cb1889bfd34864d33a47634f37a0e2a15aaf2e8a"
+  },
+  "references": {
+    "?FreeBuffers@@YIXPAU_VQAHandleP@@@Z": 7827856,
+    "?VQA_Set_DrawBuffer@@YIJPAU_VQAHandle@@PAEKKJJ@Z": 7849088,
+    "_malloc": 7874096,
+    "_free": 7874024,
+    "?AllocBuffers@@YIJPAU_VQAHandleP@@@Z": 7825568,
+    "?VQA_Configure_Buffer@@YIJPAU_VQAHandleP@@@Z": 7829168,
+    "?VQA_Memory_Handler@@YAJPAU_VQAHandle@@JPAXJ@Z": 7829472
+  },
+  "regions": [
+    {
+      "entry": 7825568,
+      "method": "007768a0",
+      "body_bytes": 2274,
+      "body_sha256": "ed9ed71cff1ff5a0296e67492fbf68ab74266980a19d38484a6c27ab3bed7c45",
+      "padding_bytes": 14,
+      "full_extent_bytes": 2288,
+      "full_extent_sha256": "7d81ee2c130e69387494a7490918063f70792cd8af940d197ac4d3842ebeedad",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AllocBuffers@@YIJPAU_VQAHandleP@@@Z",
+      "symbol_prefix": "?AllocBuffers@@YIJPAU_VQAHandleP@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 688,
+          "kind": 20,
+          "symbol": "?FreeBuffers@@YIXPAU_VQAHandleP@@@Z",
+          "target": 7827856,
+          "addend": 0,
+          "resolved": 1596
+        },
+        {
+          "offset": 1093,
+          "kind": 20,
+          "symbol": "?FreeBuffers@@YIXPAU_VQAHandleP@@@Z",
+          "target": 7827856,
+          "addend": 0,
+          "resolved": 1191
+        },
+        {
+          "offset": 1656,
+          "kind": 20,
+          "symbol": "?FreeBuffers@@YIXPAU_VQAHandleP@@@Z",
+          "target": 7827856,
+          "addend": 0,
+          "resolved": 628
+        },
+        {
+          "offset": 1756,
+          "kind": 20,
+          "symbol": "?FreeBuffers@@YIXPAU_VQAHandleP@@@Z",
+          "target": 7827856,
+          "addend": 0,
+          "resolved": 528
+        },
+        {
+          "offset": 1862,
+          "kind": 20,
+          "symbol": "?FreeBuffers@@YIXPAU_VQAHandleP@@@Z",
+          "target": 7827856,
+          "addend": 0,
+          "resolved": 422
+        },
+        {
+          "offset": 1994,
+          "kind": 20,
+          "symbol": "?FreeBuffers@@YIXPAU_VQAHandleP@@@Z",
+          "target": 7827856,
+          "addend": 0,
+          "resolved": 290
+        },
+        {
+          "offset": 2070,
+          "kind": 20,
+          "symbol": "?FreeBuffers@@YIXPAU_VQAHandleP@@@Z",
+          "target": 7827856,
+          "addend": 0,
+          "resolved": 214
+        },
+        {
+          "offset": 2183,
+          "kind": 20,
+          "symbol": "?FreeBuffers@@YIXPAU_VQAHandleP@@@Z",
+          "target": 7827856,
+          "addend": 0,
+          "resolved": 101
+        },
+        {
+          "offset": 2203,
+          "kind": 20,
+          "symbol": "?FreeBuffers@@YIXPAU_VQAHandleP@@@Z",
+          "target": 7827856,
+          "addend": 0,
+          "resolved": 81
+        }
+      ],
+      "source_sha256": "099c6149a2302621a55c72b40480b89d5b289be6ae06c8f6aa9db0a182cb55e0",
+      "source": "src/vqalib_buffer_.cpp",
+      "population": "rebuild-vqalib-buffer-",
+      "source_order": 7825568,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7827856,
+      "method": "00777190",
+      "body_bytes": 1309,
+      "body_sha256": "58a384d55458cef2c3987d70b401e9f41a04719ed076f8099cb300bbf0370df7",
+      "padding_bytes": 3,
+      "full_extent_bytes": 1312,
+      "full_extent_sha256": "6d4d2b940469fc3f777c8c395505eb04a82c48ad20de38fd4e602e09dda937ad",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?FreeBuffers@@YIXPAU_VQAHandleP@@@Z",
+      "symbol_prefix": "?FreeBuffers@@YIXPAU_VQAHandleP@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "099c6149a2302621a55c72b40480b89d5b289be6ae06c8f6aa9db0a182cb55e0",
+      "source": "src/vqalib_buffer_.cpp",
+      "population": "rebuild-vqalib-buffer-",
+      "source_order": 7827856,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7829168,
+      "method": "007776b0",
+      "body_bytes": 300,
+      "body_sha256": "de050398836a6cce1a7f90f7e0c994459a439a0187c27c3d99d289e51aacb616",
+      "padding_bytes": 4,
+      "full_extent_bytes": 304,
+      "full_extent_sha256": "f9eac130f87dd74cb08c9aae7691b13f43f20278ff6df3e5f0885c0fe6eb1ad7",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?VQA_Configure_Buffer@@YIJPAU_VQAHandleP@@@Z",
+      "symbol_prefix": "?VQA_Configure_Buffer@@YIJPAU_VQAHandleP@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 262,
+          "kind": 20,
+          "symbol": "?VQA_Set_DrawBuffer@@YIJPAU_VQAHandle@@PAEKKJJ@Z",
+          "target": 7849088,
+          "addend": 0,
+          "resolved": 19654
+        }
+      ],
+      "source_sha256": "099c6149a2302621a55c72b40480b89d5b289be6ae06c8f6aa9db0a182cb55e0",
+      "source": "src/vqalib_buffer_.cpp",
+      "population": "rebuild-vqalib-buffer-",
+      "source_order": 7829168,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7829472,
+      "method": "007777e0",
+      "body_bytes": 100,
+      "body_sha256": "3f4ad5a867ce845ec9bc93db129cbf15a42f70debdfce0583e85f48175629c93",
+      "padding_bytes": 12,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "30efe5a753be93b2642f08c2f71e75f29407674ec53302beedd4268f6d0bd4e9",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 20,
+      "symbol": "?VQA_Memory_Handler@@YAJPAU_VQAHandle@@JPAXJ@Z",
+      "symbol_prefix": "?VQA_Memory_Handler@@YAJPAU_VQAHandle@@JPAXJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7829552,
+          "addend": 0,
+          "resolved": 7829552
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "_malloc",
+          "target": 7874096,
+          "addend": 0,
+          "resolved": 44592
+        },
+        {
+          "offset": 45,
+          "kind": 20,
+          "symbol": "_free",
+          "target": 7874024,
+          "addend": 0,
+          "resolved": 44503
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7829494,
+          "addend": 0,
+          "resolved": 7829494
+        },
+        {
+          "offset": 84,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7829511,
+          "addend": 0,
+          "resolved": 7829511
+        },
+        {
+          "offset": 88,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7829528,
+          "addend": 0,
+          "resolved": 7829528
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7829528,
+          "addend": 0,
+          "resolved": 7829528
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7829536,
+          "addend": 0,
+          "resolved": 7829536
+        }
+      ],
+      "source_sha256": "099c6149a2302621a55c72b40480b89d5b289be6ae06c8f6aa9db0a182cb55e0",
+      "source": "src/vqalib_buffer_.cpp",
+      "population": "rebuild-vqalib-buffer-",
+      "source_order": 7829472,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

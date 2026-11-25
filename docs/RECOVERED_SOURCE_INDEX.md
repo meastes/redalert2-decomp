@@ -1,5 +1,7 @@
 # Recovered source by supported purpose
 
+> **The earlier tree (2026-11-25):** this index describes `src/recovered` and `src/shared`, deleted by the layout move (lane O88) and kept at the tag `src-final`. The current tree is `src/` (one file per original unit) and `include/`.
+
 This index covers `src/recovered/`, frozen at the tag `src-final` on 2026-11-24 (read-only reference; the native ports
 build from it). The tree of record is `rebuild/` ([rebuild/README.md](../rebuild/README.md)).
 

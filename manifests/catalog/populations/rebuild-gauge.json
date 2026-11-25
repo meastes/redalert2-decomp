@@ -1,0 +1,1096 @@
+{
+  "id": "rebuild-gauge",
+  "population": {
+    "id": "rebuild-gauge",
+    "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
+    "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
+    "historical_population_sha256": "95f9bf03d8d35fa1abff9237f70c5955107ce90543f6909b9cbe50ac66d21879",
+    "historical_acceptance_sha256": "fe9a426b0bee11ef97da5a7539bac100f5b4b2d448b21ece7932938f6dec99b8"
+  },
+  "references": {
+    "_RECT_NONE": 8806520,
+    "??0ControlClass@@QAE@IHHHHI_N@Z": 4731952,
+    "??_7GaugeClass@@6B@": 8001780,
+    "__ftol": 7860496,
+    "?Draw_Me@ControlClass@@UAEHH@Z": 4732208,
+    "?MouseCursor@@3PAVMouse@@A": 8625256,
+    "?Draw_Box@@YIXABV?$TRect@H@@W4BoxStyleEnum@@_N@Z": 4813776,
+    "?Get_Color_Scheme@GadgetClass@@SIHXZ": 5042112,
+    "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A": 11235064,
+    "?NormalDrawer@@3PAVConvertClass@@A": 8594372,
+    "?LogicalSurface@@3PAVSurface@@A": 8624476,
+    "?StuckOn@GadgetClass@@1PAV1@A": 8806384,
+    "?Action@ControlClass@@MAEHIAAW4KeyNumType@@@Z": 4732080,
+    "??_7TriColorGaugeClass@@6B@": 8001952,
+    "?Draw_Me@GaugeClass@@UAEHH@Z": 5046912,
+    "??1GadgetClass@@UAE@XZ": 5042304,
+    "??3@YAXPAX@Z": 7871803,
+    "_$E2": 5046480,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??0GaugeClass@@QAE@IHHHH@Z": 5046512,
+    "?Make_Peer@ControlClass@@UAEXAAVGadgetClass@@@Z": 4732176,
+    "?Clicked_On@GadgetClass@@EAEHAAW4KeyNumType@@IHH@Z": 5042400,
+    "?Sticky_Process@GadgetClass@@MAEXI@Z": 5043632,
+    "?Mouse_Leave@GadgetClass@@UAEXXZ": 5042704,
+    "?Mouse_Enter@GadgetClass@@UAEXXZ": 5042688,
+    "?Set_Size@GadgetClass@@UAEXHH@Z": 5043840,
+    "?Set_Position@GadgetClass@@UAEXHH@Z": 5043808,
+    "?Is_List_To_Redraw@GadgetClass@@UAEHXZ": 5043776,
+    "?Has_Focus@GadgetClass@@UAE_NXZ": 5043760,
+    "?Clear_Focus@GadgetClass@@UAEXXZ": 5043728,
+    "?Set_Focus@GadgetClass@@UAEXXZ": 5043680,
+    "?Flag_To_Redraw@GadgetClass@@UAEXXZ": 5043616,
+    "?Get_ID@ControlClass@@MBEIXZ": 4732192,
+    "?Enable@GadgetClass@@UAEXXZ": 5042496,
+    "?Disable@GadgetClass@@UAEXXZ": 5042512,
+    "?Extract_Gadget@GadgetClass@@UAEPAVControlClass@@I@Z": 5043552,
+    "?Delete_List@GadgetClass@@UAEXXZ": 5042608,
+    "?Draw_All@GadgetClass@@UAEX_N@Z": 5042784,
+    "?Input@GadgetClass@@UAE?AW4KeyNumType@@XZ": 5042992,
+    "?Remove@GadgetClass@@UAEPAVLinkClass@@XZ": 5042544,
+    "?Zap@LinkClass@@UAEXXZ": 5476336,
+    "?Tail_Of_List@LinkClass@@UAEAAV1@XZ": 5476464,
+    "?Head_Of_List@LinkClass@@UAEAAV1@XZ": 5476416,
+    "?Add_Head@LinkClass@@UAEAAV1@AAV1@@Z": 5476544,
+    "?Add_Tail@LinkClass@@UAEAAV1@AAV1@@Z": 5476576,
+    "?Add@LinkClass@@UAEAAV1@AAV1@@Z": 5476512,
+    "?Get_Prev@GadgetClass@@UBEPAVLinkClass@@XZ": 5042592,
+    "?Get_Next@GadgetClass@@UBEPAVLinkClass@@XZ": 5042576,
+    "??_GGaugeClass@@UAEPAXI@Z": 5049520,
+    "??_R0?AVLinkClass@@@8": 8198056,
+    "??_R0?AVGadgetClass@@@8": 8204080,
+    "??_R0?AVControlClass@@@8": 8204112,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVGaugeClass@@@8": 8226032,
+    "?Flag_List_To_Redraw@GadgetClass@@UAEXXZ": 4708080,
+    "?LastList@GadgetClass@@1PAV1@A": 8806388,
+    "?Peer_To_Peer@GadgetClass@@UAEXIAAW4KeyNumType@@AAVControlClass@@@Z": 4732256,
+    "?Is_To_Redraw@GadgetClass@@UAE_NXZ": 4708096,
+    "?Get_Value@GaugeClass@@UBEHXZ": 5049472,
+    "?Use_Thumb@GaugeClass@@UAEXH@Z": 5049488,
+    "?Thumb_Pixels@GaugeClass@@UAEHXZ": 5049504,
+    "?Set_Maximum@GaugeClass@@UAEHH@Z": 5046640,
+    "?Set_Value@GaugeClass@@UAEHH@Z": 5046672,
+    "?Pixel_To_Value@GaugeClass@@MAEHH@Z": 5046720,
+    "?Value_To_Pixel@GaugeClass@@MAEHH@Z": 5046848,
+    "?Action@GaugeClass@@MAEHIAAW4KeyNumType@@@Z": 5047328,
+    "?Draw_Thumb@GaugeClass@@MAEXXZ": 5047680,
+    "??0TriColorGaugeClass@@QAE@IHHHH@Z": 5047856,
+    "??_GTriColorGaugeClass@@UAEPAXI@Z": 5049552,
+    "??_R0?AVTriColorGaugeClass@@@8": 8226064,
+    "?Set_Red_Limit@TriColorGaugeClass@@UAEHH@Z": 5048016,
+    "?Set_Yellow_Limit@TriColorGaugeClass@@UAEHH@Z": 5048064,
+    "?Draw_Me@TriColorGaugeClass@@UAEHH@Z": 5048112
+  },
+  "regions": [
+    {
+      "entry": 5046480,
+      "method": "004d00d0",
+      "body_bytes": 23,
+      "body_sha256": "df8459b8db5a8d4ed3794a86ec3e3714650142cb194d4e11ac69fbfdcec4d0a3",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "22004f20992ccf38b30c9ee4df98ed0868a269ddea4012ea73900fdd97ffaa16",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8806520,
+          "addend": 0,
+          "resolved": 8806520
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8806520,
+          "addend": 4,
+          "resolved": 8806524
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8806520,
+          "addend": 8,
+          "resolved": 8806528
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8806520,
+          "addend": 12,
+          "resolved": 8806532
+        }
+      ],
+      "source_sha256": "0c878abf4c6cda6066865a97e73e990d95611e8cf59ed11db794d6a9a10ccf3e",
+      "source": "src/gauge.cpp",
+      "population": "rebuild-gauge",
+      "source_order": 5046480,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5046512,
+      "method": "004d00f0",
+      "body_bytes": 127,
+      "body_sha256": "7d97b422326753fd6ded4b94aa589f60d882738d4fde9ff5973774cb87f3c66f",
+      "padding_bytes": 1,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "280093c591086d97a65a4fedc52da44bad2da95c9027c138098a4507ac9b61d6",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0GaugeClass@@QAE@IHHHH@Z",
+      "symbol_prefix": "??0GaugeClass@@QAE@IHHHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "??0ControlClass@@QAE@IHHHHI_N@Z",
+          "target": 4731952,
+          "addend": 0,
+          "resolved": 4294652695
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "??_7GaugeClass@@6B@",
+          "target": 8001780,
+          "addend": 0,
+          "resolved": 8001780
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "??_7GaugeClass@@6B@",
+          "target": 8001780,
+          "addend": 72,
+          "resolved": 8001852
+        }
+      ],
+      "source_sha256": "0c878abf4c6cda6066865a97e73e990d95611e8cf59ed11db794d6a9a10ccf3e",
+      "source": "src/gauge.cpp",
+      "population": "rebuild-gauge",
+      "source_order": 5046512,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5046640,
+      "method": "004d0170",
+      "body_bytes": 32,
+      "body_sha256": "815bf2c5496b4386aff38161c15e4704c5a1586c9f7a6bbcd91a60dd0e9f5e7e",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "815bf2c5496b4386aff38161c15e4704c5a1586c9f7a6bbcd91a60dd0e9f5e7e",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Maximum@GaugeClass@@UAEHH@Z",
+      "symbol_prefix": "?Set_Maximum@GaugeClass@@UAEHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "0c878abf4c6cda6066865a97e73e990d95611e8cf59ed11db794d6a9a10ccf3e",
+      "source": "src/gauge.cpp",
+      "population": "rebuild-gauge",
+      "source_order": 5046640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5046672,
+      "method": "004d0190",
+      "body_bytes": 47,
+      "body_sha256": "22f30fc9581a51f9a888f13097972be9711f24f81c613d22ea027e7d29c934bd",
+      "padding_bytes": 1,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "bf6ddf17becb6f199d4f92abed7bdee1b080f859efac9a153956b185102d4361",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Value@GaugeClass@@UAEHH@Z",
+      "symbol_prefix": "?Set_Value@GaugeClass@@UAEHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "0c878abf4c6cda6066865a97e73e990d95611e8cf59ed11db794d6a9a10ccf3e",
+      "source": "src/gauge.cpp",
+      "population": "rebuild-gauge",
+      "source_order": 5046672,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5046720,
+      "method": "004d01c0",
+      "body_bytes": 125,
+      "body_sha256": "01e68664f2eb1e29d9fdb5a8d5f7f7a0aae1a349a4e57fc7068756cfc8c4069c",
+      "padding_bytes": 3,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "b97f350ac4ba0f1f1dea76040460065c504de67d75d273b3799a5d0a23fcdd97",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Pixel_To_Value@GaugeClass@@MAEHH@Z",
+      "symbol_prefix": "?Pixel_To_Value@GaugeClass@@MAEHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 87,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2813685
+        },
+        {
+          "offset": 117,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2813655
+        }
+      ],
+      "source_sha256": "0c878abf4c6cda6066865a97e73e990d95611e8cf59ed11db794d6a9a10ccf3e",
+      "source": "src/gauge.cpp",
+      "population": "rebuild-gauge",
+      "source_order": 5046720,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5046848,
+      "method": "004d0240",
+      "body_bytes": 59,
+      "body_sha256": "1a90e3691cb6dc45a38c6c1863659a53aeb95f2a32877e10a8e6857370df3357",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "54c26b5545d0792dcf09420709e0c69f5317a6797a1f635fd78bf0b0af50cbe5",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Value_To_Pixel@GaugeClass@@MAEHH@Z",
+      "symbol_prefix": "?Value_To_Pixel@GaugeClass@@MAEHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 51,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2813593
+        }
+      ],
+      "source_sha256": "0c878abf4c6cda6066865a97e73e990d95611e8cf59ed11db794d6a9a10ccf3e",
+      "source": "src/gauge.cpp",
+      "population": "rebuild-gauge",
+      "source_order": 5046848,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5046912,
+      "method": "004d0280",
+      "body_bytes": 416,
+      "body_sha256": "64d134b0f3fffb82450616fccf1b3604cf42d7ff9056d3eda4ea63dad9c901da",
+      "padding_bytes": 0,
+      "full_extent_bytes": 416,
+      "full_extent_sha256": "64d134b0f3fffb82450616fccf1b3604cf42d7ff9056d3eda4ea63dad9c901da",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Me@GaugeClass@@UAEHH@Z",
+      "symbol_prefix": "?Draw_Me@GaugeClass@@UAEHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 15,
+          "kind": 20,
+          "symbol": "?Draw_Me@ControlClass@@UAEHH@Z",
+          "target": 4732208,
+          "addend": 0,
+          "resolved": 4294652573
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 113,
+          "kind": 20,
+          "symbol": "?Draw_Box@@YIXABV?$TRect@H@@W4BoxStyleEnum@@_N@Z",
+          "target": 4813776,
+          "addend": 0,
+          "resolved": 4294734043
+        },
+        {
+          "offset": 145,
+          "kind": 20,
+          "symbol": "?Get_Color_Scheme@GadgetClass@@SIHXZ",
+          "target": 5042112,
+          "addend": 0,
+          "resolved": 4294962347
+        },
+        {
+          "offset": 151,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 188,
+          "kind": 6,
+          "symbol": "?NormalDrawer@@3PAVConvertClass@@A",
+          "target": 8594372,
+          "addend": 0,
+          "resolved": 8594372
+        },
+        {
+          "offset": 239,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 279,
+          "kind": 6,
+          "symbol": "?NormalDrawer@@3PAVConvertClass@@A",
+          "target": 8594372,
+          "addend": 0,
+          "resolved": 8594372
+        },
+        {
+          "offset": 342,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 380,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        }
+      ],
+      "source_sha256": "0c878abf4c6cda6066865a97e73e990d95611e8cf59ed11db794d6a9a10ccf3e",
+      "source": "src/gauge.cpp",
+      "population": "rebuild-gauge",
+      "source_order": 5046912,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5047328,
+      "method": "004d0420",
+      "body_bytes": 350,
+      "body_sha256": "990c88fbc1dbfaded0d6f862bcef92442b09051fc8d7e5d38058b82e7181bb87",
+      "padding_bytes": 2,
+      "full_extent_bytes": 352,
+      "full_extent_sha256": "be69f4ab3ccbb331c422b17bcadf4fe988eebfe9694fc9b4f7b58f60ce2057cb",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Action@GaugeClass@@MAEHIAAW4KeyNumType@@@Z",
+      "symbol_prefix": "?Action@GaugeClass@@MAEHIAAW4KeyNumType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "?StuckOn@GadgetClass@@1PAV1@A",
+          "target": 8806384,
+          "addend": 0,
+          "resolved": 8806384
+        },
+        {
+          "offset": 64,
+          "kind": 20,
+          "symbol": "?Action@ControlClass@@MAEHIAAW4KeyNumType@@@Z",
+          "target": 4732080,
+          "addend": 0,
+          "resolved": 4294651980
+        },
+        {
+          "offset": 99,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 163,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 221,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 267,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 329,
+          "kind": 20,
+          "symbol": "?Action@ControlClass@@MAEHIAAW4KeyNumType@@@Z",
+          "target": 4732080,
+          "addend": 0,
+          "resolved": 4294651715
+        }
+      ],
+      "source_sha256": "0c878abf4c6cda6066865a97e73e990d95611e8cf59ed11db794d6a9a10ccf3e",
+      "source": "src/gauge.cpp",
+      "population": "rebuild-gauge",
+      "source_order": 5047328,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5047680,
+      "method": "004d0580",
+      "body_bytes": 172,
+      "body_sha256": "02487a73e8b541931bab85941ae7ed83c9f3406b4c3becb70e21adaa1a2a0d81",
+      "padding_bytes": 4,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "1d42593456d6ff1b7a75c335b210e71aa2bc0945d89c1580db61f0063054d41d",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Thumb@GaugeClass@@MAEXXZ",
+      "symbol_prefix": "?Draw_Thumb@GaugeClass@@MAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 117,
+          "kind": 20,
+          "symbol": "?Draw_Box@@YIXABV?$TRect@H@@W4BoxStyleEnum@@_N@Z",
+          "target": 4813776,
+          "addend": 0,
+          "resolved": 4294733271
+        },
+        {
+          "offset": 162,
+          "kind": 20,
+          "symbol": "?Draw_Box@@YIXABV?$TRect@H@@W4BoxStyleEnum@@_N@Z",
+          "target": 4813776,
+          "addend": 0,
+          "resolved": 4294733226
+        }
+      ],
+      "source_sha256": "0c878abf4c6cda6066865a97e73e990d95611e8cf59ed11db794d6a9a10ccf3e",
+      "source": "src/gauge.cpp",
+      "population": "rebuild-gauge",
+      "source_order": 5047680,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5047856,
+      "method": "004d0630",
+      "body_bytes": 147,
+      "body_sha256": "db57f686673b0d6d77b6d8abfa3d24833383b8694f867782b0c2aff1eea091d8",
+      "padding_bytes": 13,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "09c375a8b22846fb9acd9671ae67ccd3e6b1650a3b5c2171ca2cfbbc157ebda1",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0TriColorGaugeClass@@QAE@IHHHH@Z",
+      "symbol_prefix": "??0TriColorGaugeClass@@QAE@IHHHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "??0ControlClass@@QAE@IHHHHI_N@Z",
+          "target": 4731952,
+          "addend": 0,
+          "resolved": 4294651351
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "??_7GaugeClass@@6B@",
+          "target": 8001780,
+          "addend": 0,
+          "resolved": 8001780
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "??_7GaugeClass@@6B@",
+          "target": 8001780,
+          "addend": 72,
+          "resolved": 8001852
+        },
+        {
+          "offset": 135,
+          "kind": 6,
+          "symbol": "??_7TriColorGaugeClass@@6B@",
+          "target": 8001952,
+          "addend": 0,
+          "resolved": 8001952
+        }
+      ],
+      "source_sha256": "0c878abf4c6cda6066865a97e73e990d95611e8cf59ed11db794d6a9a10ccf3e",
+      "source": "src/gauge.cpp",
+      "population": "rebuild-gauge",
+      "source_order": 5047856,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5048016,
+      "method": "004d06d0",
+      "body_bytes": 34,
+      "body_sha256": "2123a4f72ab3f939e11613c00167ce57cf18740049866a03cf65c89b426fb39e",
+      "padding_bytes": 14,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c33db389727d83ef5e76ffed65c611b76a2648e50a832da3629694d919b310a0",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Red_Limit@TriColorGaugeClass@@UAEHH@Z",
+      "symbol_prefix": "?Set_Red_Limit@TriColorGaugeClass@@UAEHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "0c878abf4c6cda6066865a97e73e990d95611e8cf59ed11db794d6a9a10ccf3e",
+      "source": "src/gauge.cpp",
+      "population": "rebuild-gauge",
+      "source_order": 5048016,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5048064,
+      "method": "004d0700",
+      "body_bytes": 34,
+      "body_sha256": "0f21c3ab18b10c5c2e3b64536ad033e6343e6abdebaf76f6bc868234d2b968c1",
+      "padding_bytes": 14,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "d71f6b38d6bc3b460b5e8b61b3ce5a4dfa61fad842db3372dcf1e6f4c775d03c",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Yellow_Limit@TriColorGaugeClass@@UAEHH@Z",
+      "symbol_prefix": "?Set_Yellow_Limit@TriColorGaugeClass@@UAEHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "0c878abf4c6cda6066865a97e73e990d95611e8cf59ed11db794d6a9a10ccf3e",
+      "source": "src/gauge.cpp",
+      "population": "rebuild-gauge",
+      "source_order": 5048064,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5048112,
+      "method": "004d0730",
+      "body_bytes": 1360,
+      "body_sha256": "6d10a17887b1511fd4397be37409b0ae0972dcabd12a7233d97261a7b7596e56",
+      "padding_bytes": 0,
+      "full_extent_bytes": 1360,
+      "full_extent_sha256": "6d10a17887b1511fd4397be37409b0ae0972dcabd12a7233d97261a7b7596e56",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Me@TriColorGaugeClass@@UAEHH@Z",
+      "symbol_prefix": "?Draw_Me@TriColorGaugeClass@@UAEHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 15,
+          "kind": 20,
+          "symbol": "?Draw_Me@GaugeClass@@UAEHH@Z",
+          "target": 5046912,
+          "addend": 0,
+          "resolved": 4294966077
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 117,
+          "kind": 20,
+          "symbol": "?Draw_Box@@YIXABV?$TRect@H@@W4BoxStyleEnum@@_N@Z",
+          "target": 4813776,
+          "addend": 0,
+          "resolved": 4294732839
+        },
+        {
+          "offset": 189,
+          "kind": 6,
+          "symbol": "?NormalDrawer@@3PAVConvertClass@@A",
+          "target": 8594372,
+          "addend": 0,
+          "resolved": 8594372
+        },
+        {
+          "offset": 259,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 354,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 394,
+          "kind": 6,
+          "symbol": "?NormalDrawer@@3PAVConvertClass@@A",
+          "target": 8594372,
+          "addend": 0,
+          "resolved": 8594372
+        },
+        {
+          "offset": 477,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 491,
+          "kind": 6,
+          "symbol": "?NormalDrawer@@3PAVConvertClass@@A",
+          "target": 8594372,
+          "addend": 0,
+          "resolved": 8594372
+        },
+        {
+          "offset": 547,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 656,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 666,
+          "kind": 6,
+          "symbol": "?NormalDrawer@@3PAVConvertClass@@A",
+          "target": 8594372,
+          "addend": 0,
+          "resolved": 8594372
+        },
+        {
+          "offset": 725,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 775,
+          "kind": 6,
+          "symbol": "?NormalDrawer@@3PAVConvertClass@@A",
+          "target": 8594372,
+          "addend": 0,
+          "resolved": 8594372
+        },
+        {
+          "offset": 859,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 873,
+          "kind": 6,
+          "symbol": "?NormalDrawer@@3PAVConvertClass@@A",
+          "target": 8594372,
+          "addend": 0,
+          "resolved": 8594372
+        },
+        {
+          "offset": 939,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 962,
+          "kind": 6,
+          "symbol": "?NormalDrawer@@3PAVConvertClass@@A",
+          "target": 8594372,
+          "addend": 0,
+          "resolved": 8594372
+        },
+        {
+          "offset": 1015,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 1122,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 1132,
+          "kind": 6,
+          "symbol": "?NormalDrawer@@3PAVConvertClass@@A",
+          "target": 8594372,
+          "addend": 0,
+          "resolved": 8594372
+        },
+        {
+          "offset": 1206,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 1221,
+          "kind": 6,
+          "symbol": "?NormalDrawer@@3PAVConvertClass@@A",
+          "target": 8594372,
+          "addend": 0,
+          "resolved": 8594372
+        },
+        {
+          "offset": 1277,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 1324,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        }
+      ],
+      "source_sha256": "0c878abf4c6cda6066865a97e73e990d95611e8cf59ed11db794d6a9a10ccf3e",
+      "source": "src/gauge.cpp",
+      "population": "rebuild-gauge",
+      "source_order": 5048112,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5049472,
+      "method": "004d0c80",
+      "body_bytes": 4,
+      "body_sha256": "3b2eded1bf6b0f7390191ad1371a956a736f9d18c2a7de0db7e90886555b69e1",
+      "padding_bytes": 12,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "3500270645271a553625b69eaea7002580a82d5d7dd2eb604d73fd1537a3ca09",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Value@GaugeClass@@UBEHXZ",
+      "symbol_prefix": "?Get_Value@GaugeClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "0c878abf4c6cda6066865a97e73e990d95611e8cf59ed11db794d6a9a10ccf3e",
+      "source": "src/gauge.cpp",
+      "population": "rebuild-gauge",
+      "source_order": 5049472,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5049488,
+      "method": "004d0c90",
+      "body_bytes": 15,
+      "body_sha256": "0384d4db57aad75329ff3434638ce6041180ccdb226df61fc7ce8ad90baad9ef",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "dcf1aab1842466cdd03e3af43730214b4e631dcecfa19e9e768d94a818020998",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Use_Thumb@GaugeClass@@UAEXH@Z",
+      "symbol_prefix": "?Use_Thumb@GaugeClass@@UAEXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "0c878abf4c6cda6066865a97e73e990d95611e8cf59ed11db794d6a9a10ccf3e",
+      "source": "src/gauge.cpp",
+      "population": "rebuild-gauge",
+      "source_order": 5049488,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5049504,
+      "method": "004d0ca0",
+      "body_bytes": 6,
+      "body_sha256": "e36623525b7c35b277173e56616b2d865cf6515aa2be1d12d6814ef725cecffb",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "5905aca689084d39b183f9d8fd13ce15ed9cb7d75af8d0f7f1ec5e3225f8e88e",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Thumb_Pixels@GaugeClass@@UAEHXZ",
+      "symbol_prefix": "?Thumb_Pixels@GaugeClass@@UAEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "0c878abf4c6cda6066865a97e73e990d95611e8cf59ed11db794d6a9a10ccf3e",
+      "source": "src/gauge.cpp",
+      "population": "rebuild-gauge",
+      "source_order": 5049504,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5049520,
+      "method": "004d0cb0",
+      "body_bytes": 30,
+      "body_sha256": "ab5b5ccc9e8998dc80abd5c3b7651050486d2bc694a70e68052adc2893af899f",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "766cc95c9ae62fb26dfd356e2b8c5621bf3858e6b4511d422b34cb1e9eb5e521",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GGaugeClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GGaugeClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??1GadgetClass@@UAE@XZ",
+          "target": 5042304,
+          "addend": 0,
+          "resolved": 4294960072
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2822262
+        }
+      ],
+      "source_sha256": "0c878abf4c6cda6066865a97e73e990d95611e8cf59ed11db794d6a9a10ccf3e",
+      "source": "src/gauge.cpp",
+      "population": "rebuild-gauge",
+      "source_order": 5049520,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5049552,
+      "method": "004d0cd0",
+      "body_bytes": 30,
+      "body_sha256": "41761e9b0f0be8a7683960d2d5e5197d9807fa2957128893df129752d55dbd2d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "fe91ee6013e8e67690f4ec94ed8834375dee15e43797a2e2a42a82792bcb1e41",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GTriColorGaugeClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GTriColorGaugeClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??1GadgetClass@@UAE@XZ",
+          "target": 5042304,
+          "addend": 0,
+          "resolved": 4294960040
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2822230
+        }
+      ],
+      "source_sha256": "0c878abf4c6cda6066865a97e73e990d95611e8cf59ed11db794d6a9a10ccf3e",
+      "source": "src/gauge.cpp",
+      "population": "rebuild-gauge",
+      "source_order": 5049552,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

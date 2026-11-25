@@ -1,0 +1,3557 @@
+{
+  "id": "rebuild-beacon",
+  "population": {
+    "id": "rebuild-beacon",
+    "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
+    "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
+    "historical_population_sha256": "6f2301fb6de57097369d9ac7d5b0e4cfd174b9523c57634a02ede0837ea5033e",
+    "historical_acceptance_sha256": "aa3757c2420be58419c90db34676dac50bdffd3e63c81452b8d10dc0dc9d87cb"
+  },
+  "references": {
+    "_RECT_NONE": 8710304,
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 8710328,
+    "_ISO_TILE_SIZE": 7980840,
+    "_LEPTONS_PER_PIXEL": 8710528,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 8710512,
+    "_ONE_RAD": 7980848,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 8710504,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 8710336,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 8710296,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 8710536,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 8710344,
+    "_CELL_DIAG_SLOPE_ANGLE": 8710496,
+    "_BRIDGE_LEPTON_HEIGHT": 8710520,
+    "_CELL_NONE": 8710320,
+    "_COORD_NONE": 8710480,
+    "?BeaconManager@@3VBeaconManagerClass@@A": 8710352,
+    "_$E178": 4381072,
+    "_atexit": 7874954,
+    "??3@YAXPAX@Z": 7871803,
+    "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A": 10691224,
+    "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A": 11235064,
+    "?TacticalMap@@3PAVTactical@@A": 8624492,
+    "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z": 6957520,
+    "?Frame@@3HA": 10751276,
+    "?BeaconArt@@3PBVShapeSet@@B": 8710540,
+    "?Draw_Shape@@YIXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z": 4845216,
+    "_wcslen": 7878149,
+    "?Session@@3VSessionClass@@A": 10736280,
+    "__imp__timeGetTime@0": 7972132,
+    "_wcsrchr": 7878085,
+    "?Instance@BitFont@@2PAV1@A": 8710632,
+    "?Text_Dimensions@BitFont@@QAE_NPBGPAH1H@Z": 4396208,
+    "??BHSVClass@@QBE?AVRGBClass@@XZ": 5238864,
+    "?Intersect@@YI?BV?$TRect@H@@ABV1@0PAH1@Z": 4324848,
+    "?BlueLeft@DSurface@@2HA": 8728516,
+    "?BlueRight@DSurface@@2HA": 8728512,
+    "?GreenLeft@DSurface@@2HA": 8728524,
+    "?GreenRight@DSurface@@2HA": 8728520,
+    "?RedLeft@DSurface@@2HA": 8728508,
+    "?RedRight@DSurface@@2HA": 8728504,
+    "?Set_Clip@BitFont@@QAE_N_N@Z": 4396112,
+    "?Set_Bounds@BitFont@@QAEXPAULTRBStruct@@@Z": 4396128,
+    "?Set_Color@BitFont@@QAEGG@Z": 4396080,
+    "?Instance@BitText@@2PAV1@A": 8710608,
+    "?Draw_Text@BitText@@QAE_NPAVBitFont@@PAVSurface@@PBGHHHHHHH@Z": 4400272,
+    "_wcsncpy": 7878178,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "?Coord_To_Radar_Pixel@RadarClass@@QAE?AVPoint2D@@ABVCoord@@_N@Z": 6495136,
+    "?RadarBeaconArt@@3PBVShapeSet@@B": 8710544,
+    "?Radar_Pixel@RadarClass@@QAEXABVPoint2D@@@Z": 6497824,
+    "?PlayerPtr@@3PAVHouseClass@@A": 10706356,
+    "?Is_Ally@HouseClass@@QBE_NW4HousesType@@@Z": 5133568,
+    "?Is_Ally@HouseClass@@QBE_NPBV1@@Z": 5133632,
+    "??_C@_0M@NDGJ@PBEACON?4SHP?$AA@": 8188940,
+    "??0RawFileClass@@QAE@PBD@Z": 6523712,
+    "?Load_Alloc_Data@@YIPAXAAVFileClass@@@Z": 4805168,
+    "?Retrieve@MixFileClass@@SIPBXPBD@Z": 5854912,
+    "??_C@_0BJ@FEKB@Failed?5to?5load?5BeaconArt?$AA@": 8188912,
+    "?DebugString@@YAXPBDZZ": 4221168,
+    "??_C@_0N@JLLI@RDRBEACN?4SHP?$AA@": 8188896,
+    "??_C@_0BO@HJGL@Failed?5to?5load?5RadarBeaconArt?$AA@": 8188864,
+    "??1RawFileClass@@UAE@XZ": 6523584,
+    "?Draw@BeaconClass@@QAEXPAVSurface@@V?$TRect@H@@@Z": 4381216,
+    "??2@YAPAXI@Z": 7872535,
+    "??_C@_0BC@BPJA@D?3?2Ra2?2Beacon?4CPP?$AA@": 8189064,
+    "??_C@_0BB@KGIJ@TXT_BEACON_HELP1?$AA@": 8189044,
+    "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z": 7315136,
+    "?Add_Message@MessageListClass@@QAEPAVTextLabelClass@@PBGH0HW4TextPrintType@@H_N@Z": 5983648,
+    "??_C@_0BB@FJDA@TXT_BEACON_HELP2?$AA@": 8189024,
+    "??_C@_0BB@HPKH@EVA_BeaconPlaced?$AA@": 8189004,
+    "?Queue_Speech@@YIXPBDHH@Z": 7428928,
+    "?Rule@@3PAVRulesClass@@A": 8624200,
+    "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z": 7421360,
+    "?Wide_To_Narrow@@YIPADPBG@Z": 7315744,
+    "??_C@_0CA@LLCO@Sending?5beacon?5placement?5to?5?$CFs?6?$AA@": 8188972,
+    "?Ipx@@3VIPXManagerClass@@A": 10750328,
+    "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z": 5396528,
+    "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z": 6534576,
+    "??_C@_0BD@GOLF@EVA_BeaconDetected?$AA@": 8188952,
+    "?Unselect_All@@YIXXZ": 4729792,
+    "?Draw_On_Radar@BeaconClass@@QAEXPAVSurface@@V?$TRect@H@@_N@Z": 4382240,
+    "??_C@_0BN@IONH@Sending?5beacon?5delete?5to?5?$CFs?6?$AA@": 8189084,
+    "?Remove_Beacon@BeaconManagerClass@@QAEXHH@Z": 4385168,
+    "??_C@_00A@?$AA@": 8635740,
+    "?Narrow_To_Wide@@YIPAGPBD@Z": 7315840,
+    "_wcscpy": 7878281,
+    "??_C@_0BL@HAJF@Sending?5beacon?5text?5to?5?$CFs?6?$AA@": 8189116,
+    "_$E2": 4380528,
+    "_$E5": 4380560,
+    "_$E8": 4380608,
+    "_$E11": 4380640,
+    "_$E14": 4380672,
+    "_$E17": 4380704,
+    "_$E20": 4380736,
+    "_$E23": 4380768,
+    "_$E26": 4380832,
+    "_$E29": 4380880,
+    "_$E32": 4380928,
+    "_$E35": 4380976,
+    "_$E38": 4380992,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "_$E180": 4381024,
+    "??0BeaconClass@@QAE@XZ": 4381152,
+    "?Beacon_Stub_Seven@@YGXHHHHHHH@Z": 4382032,
+    "?Set_Coord_And_House@BeaconClass@@QAEXVCoord@@H@Z": 4382048,
+    "?Set_Flashing@BeaconClass@@QAEX_N@Z": 4382128,
+    "?Beacon_Stub@@YIXXZ": 4382160,
+    "?Clear_Active@BeaconClass@@QAEXXZ": 4382176,
+    "?Set_Text@BeaconClass@@QAEXPBG@Z": 4382192,
+    "?Is_Visible_To_Player@BeaconClass@@QBE_NXZ": 4382848,
+    "??0BeaconManagerClass@@QAE@XZ": 4382944,
+    "??1BeaconManagerClass@@QAE@XZ": 4382976,
+    "?Clear_Slots@BeaconManagerClass@@QAEXXZ": 4383056,
+    "?Load_Art@BeaconManagerClass@@QAEXXZ": 4383136,
+    "?Draw@BeaconManagerClass@@QAEXPAVSurface@@V?$TRect@H@@@Z": 4383376,
+    "?Place_Beacon@BeaconManagerClass@@QAEXHVCoord@@H@Z": 4383600,
+    "?CanPlaceBeacon@BeaconManagerClass@@QAE_NH@Z": 4384512,
+    "?Beacon_Zero_Point@@YG?AVPoint2D@@XZ": 4384560,
+    "?Select_Beacon@BeaconManagerClass@@QAE_NVCoord@@@Z": 4384576,
+    "?Clear_Selection@BeaconManagerClass@@QAEXXZ": 4384816,
+    "?FindBeaconAt@BeaconManagerClass@@QAEPAVBeaconClass@@VCoord@@@Z": 4384864,
+    "?FindSelected@BeaconManagerClass@@QAEPAVBeaconClass@@H@Z": 4385088,
+    "?Remove_All_Beacons@BeaconManagerClass@@QAEXH@Z": 4385760,
+    "?EditBeaconMessage@BeaconManagerClass@@QAEXPBGHH_N@Z": 4385824,
+    "?Draw_On_Radar@BeaconManagerClass@@QAEXPAVSurface@@V?$TRect@H@@@Z": 4386512,
+    "?Is_Flashing@BeaconManagerClass@@QAE_NXZ": 4386768,
+    "??_EWstring@@QAEPAXI@Z": 4239168,
+    "??1Wstring@@QAE@XZ": 7789024,
+    "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
+    "??_7type_info@@6B@": 8066532,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
+    "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
+    "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888
+  },
+  "regions": [
+    {
+      "entry": 4380528,
+      "method": "0042d770",
+      "body_bytes": 23,
+      "body_sha256": "792a1d769e31e6a54fdf95353e943f4466ba4957ba273734b862212b0d8485bd",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b1834ecf312f9f38780152f1a90b71bed2719497e05bfdd570a0d24181a297f0",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8710304,
+          "addend": 0,
+          "resolved": 8710304
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8710304,
+          "addend": 4,
+          "resolved": 8710308
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8710304,
+          "addend": 8,
+          "resolved": 8710312
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8710304,
+          "addend": 12,
+          "resolved": 8710316
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4380528,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4380560,
+      "method": "0042d790",
+      "body_bytes": 40,
+      "body_sha256": "2bfb58bb7e8182f3a61b548b92c774ea50aca82b59c4283eb8b23cbc721921eb",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "640a0fcb9045d0f10bde5c6150a7cd84141e4eb1e710507b0bae524c379253f9",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 3492367
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 576610
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8710328,
+          "addend": 0,
+          "resolved": 8710328
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4380560,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4380608,
+      "method": "0042d7c0",
+      "body_bytes": 19,
+      "body_sha256": "40cdc275cfbd5c6124f2c3a16f4babd9b78313e4eeb2493b7c0e7a26562fe11e",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "ede49d826be47ba4cf335411857ca3b05bc30c3272c375665af369d8584a92c7",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8710328,
+          "addend": 0,
+          "resolved": 8710328
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 7980840,
+          "addend": 0,
+          "resolved": 7980840
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 8710528,
+          "addend": 0,
+          "resolved": 8710528
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4380608,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4380640,
+      "method": "0042d7e0",
+      "body_bytes": 19,
+      "body_sha256": "3c7d42c09a6ba8f8931ceba2fc639bc5c198c965bbaf83b56f78627c8cc9d545",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "aafca9b31eaea9eaf7d13840ec728f9d19b258639a0cc20b70a4e90ca79cfd97",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 8710528,
+          "addend": 0,
+          "resolved": 8710528
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 8710512,
+          "addend": 0,
+          "resolved": 8710512
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4380640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4380672,
+      "method": "0042d800",
+      "body_bytes": 19,
+      "body_sha256": "a6846158ea63db032b0a4ac1d9d0e3f520c639a0ef7f63bd37a0fc5b4af2a5c8",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "1d5f4e9361bbb3564d543a3a0d77ef14725fbc6e6e9083cb8b7b0a7209cbd757",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7980848,
+          "addend": 0,
+          "resolved": 7980848
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 8710504,
+          "addend": 0,
+          "resolved": 8710504
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4380672,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4380704,
+      "method": "0042d820",
+      "body_bytes": 19,
+      "body_sha256": "2b7a017ef6b7b7abec096061c442addc0c5110e34a7355ea1f304275c7aeca8c",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2e639ed5c2a05290f999f62f0c05c063ece4d99d52ec9eb8331c0159eed52dba",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7980848,
+          "addend": 0,
+          "resolved": 7980848
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 8710336,
+          "addend": 0,
+          "resolved": 8710336
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4380704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4380736,
+      "method": "0042d840",
+      "body_bytes": 19,
+      "body_sha256": "79a3d8aec24d1a2fa777f3b94ec120fce34590d47b8d6a909107235484c47d5e",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "764550f6cae1092ec7732fd43edb17f9b4b60f998c09eaa89eb34a9518467ca0",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7980848,
+          "addend": 0,
+          "resolved": 7980848
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 8710296,
+          "addend": 0,
+          "resolved": 8710296
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4380736,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4380768,
+      "method": "0042d860",
+      "body_bytes": 49,
+      "body_sha256": "9ed86d61cb40cb1b4ccaa66ce8d9bcc5a62bc156fab324bc395aa3dbfdd91d70",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0e397d34c33a6df192fde44c3dfac3340143a95135bb1b3c1ecda1bbfb45a1e4",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 8710296,
+          "addend": 0,
+          "resolved": 8710296
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 8710336,
+          "addend": 0,
+          "resolved": 8710336
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 576681
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8710328,
+          "addend": 0,
+          "resolved": 8710328
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3479685
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8710536,
+          "addend": 0,
+          "resolved": 8710536
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4380768,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4380832,
+      "method": "0042d8a0",
+      "body_bytes": 33,
+      "body_sha256": "2f159f1c1c387534526dd178754cb05cf7160a8db4a2e54a5c2e2af99092dbce",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "804768b37032b2b61bce13058644f931a705e956c704e891490f837fd705d54c",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8710536,
+          "addend": 0,
+          "resolved": 8710536
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 576761
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 8710344,
+          "addend": 0,
+          "resolved": 8710344
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4380832,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4380880,
+      "method": "0042d8d0",
+      "body_bytes": 44,
+      "body_sha256": "2e93c7508841b0a2a5e45c787a2ab3bdcb0224b20e9209a7e4e84eff7cca7642",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "96f1718eb7b97227d5a1d8b0a475720d355adccfef38f0c0d827cea719086577",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8710536,
+          "addend": 0,
+          "resolved": 8710536
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8710328,
+          "addend": 0,
+          "resolved": 8710328
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 576702
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 8710496,
+          "addend": 0,
+          "resolved": 8710496
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4380880,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4380928,
+      "method": "0042d900",
+      "body_bytes": 39,
+      "body_sha256": "45d7c3bb060fe1192b8bef6d3b30339e7dc569ed9cc2beae9a31a30d7e48f052",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c088d95dd65e3158d8d1f77916dc800d70102314b91d4ecf419ae8a85581fe77",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8710536,
+          "addend": 0,
+          "resolved": 8710536
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3479536
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 8710520,
+          "addend": 0,
+          "resolved": 8710520
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4380928,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4380976,
+      "method": "0042d930",
+      "body_bytes": 15,
+      "body_sha256": "f1dd5b557907b6eb038663c06422949dbf77b5de5765492caaa224390948228d",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "ed5af401719d9853a3ae7d85a4da552e63ec2131b24fb9d0d9f3a860b9b7d0fc",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8710320,
+          "addend": 0,
+          "resolved": 8710320
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8710320,
+          "addend": 2,
+          "resolved": 8710322
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4380976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4380992,
+      "method": "0042d940",
+      "body_bytes": 18,
+      "body_sha256": "8ecde82f12ff183cc89a592005b078d9c367b7a25cd650bda97b8e581aba45e9",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "759de398ddbb25b0b358cc2af20310937063d19ebe0f05d7016e948b56a8ba0d",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8710480,
+          "addend": 0,
+          "resolved": 8710480
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8710480,
+          "addend": 4,
+          "resolved": 8710484
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8710480,
+          "addend": 8,
+          "resolved": 8710488
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4380992,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4381024,
+      "method": "0042d960",
+      "body_bytes": 40,
+      "body_sha256": "7e07f9f66ffc8513b972747e6a3ec4b6b1d9a30bfbc774aec8361f26bab08bd7",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "1139d06325cfaef1d4839b42159bf92009c8bace06ba03fcf9047d5b55d07cc7",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E180",
+      "symbol_prefix": "_$E180",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "?BeaconManager@@3VBeaconManagerClass@@A",
+          "target": 8710352,
+          "addend": 0,
+          "resolved": 8710352
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "_$E178",
+          "target": 4381072,
+          "addend": 0,
+          "resolved": 4381072
+        },
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "?BeaconManager@@3VBeaconManagerClass@@A",
+          "target": 8710352,
+          "addend": 96,
+          "resolved": 8710448
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "?BeaconManager@@3VBeaconManagerClass@@A",
+          "target": 8710352,
+          "addend": 124,
+          "resolved": 8710476
+        },
+        {
+          "offset": 31,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 3493895
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4381024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4381072,
+      "method": "0042d990",
+      "body_bytes": 71,
+      "body_sha256": "83130030ddd618a6ca7919d4fc432d1984bcded0c1a37464bdb3a6ba9e52d1e1",
+      "padding_bytes": 9,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "03c9e911a8fd3216b2fc93a211992713588e115acd53ae9bc83027f6cb984c8a",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E178",
+      "symbol_prefix": "_$E178",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?BeaconManager@@3VBeaconManagerClass@@A",
+          "target": 8710352,
+          "addend": 96,
+          "resolved": 8710448
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?BeaconManager@@3VBeaconManagerClass@@A",
+          "target": 8710352,
+          "addend": 0,
+          "resolved": 8710352
+        },
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3490692
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "?BeaconManager@@3VBeaconManagerClass@@A",
+          "target": 8710352,
+          "addend": 96,
+          "resolved": 8710448
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4381072,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4381152,
+      "method": "0042d9e0",
+      "body_bytes": 55,
+      "body_sha256": "8ba37e42e45e889b10877c65c8b1c6b153f37a811ea4d356f7b75ae9ddb40566",
+      "padding_bytes": 9,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "f0483f7db792e20518c25c9d5867add4cba349cd259ae8243b71799e64f7e2b3",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0BeaconClass@@QAE@XZ",
+      "symbol_prefix": "??0BeaconClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8710480,
+          "addend": 0,
+          "resolved": 8710480
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8710480,
+          "addend": 4,
+          "resolved": 8710484
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8710480,
+          "addend": 8,
+          "resolved": 8710488
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4381152,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4381216,
+      "method": "0042da20",
+      "body_bytes": 809,
+      "body_sha256": "287f739251dac7c3f8e6667051106c862061230f32855ed2d4bdb78a6a06e9ed",
+      "padding_bytes": 7,
+      "full_extent_bytes": 816,
+      "full_extent_sha256": "7c33abcfba9f169f0e354d7b70462c91789afdbecb855cdb68e3895913a76fbf",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw@BeaconClass@@QAEXPAVSurface@@V?$TRect@H@@@Z",
+      "symbol_prefix": "?Draw@BeaconClass@@QAEXPAVSurface@@V?$TRect@H@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 58,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 2576242
+        },
+        {
+          "offset": 71,
+          "kind": 6,
+          "symbol": "?BeaconManager@@3VBeaconManagerClass@@A",
+          "target": 8710352,
+          "addend": 108,
+          "resolved": 8710460
+        },
+        {
+          "offset": 95,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 151,
+          "kind": 6,
+          "symbol": "?BeaconArt@@3PBVShapeSet@@B",
+          "target": 8710540,
+          "addend": 0,
+          "resolved": 8710540
+        },
+        {
+          "offset": 166,
+          "kind": 20,
+          "symbol": "?Draw_Shape@@YIXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z",
+          "target": 4845216,
+          "addend": 0,
+          "resolved": 463830
+        },
+        {
+          "offset": 175,
+          "kind": 20,
+          "symbol": "_wcslen",
+          "target": 7878149,
+          "addend": 0,
+          "resolved": 3496754
+        },
+        {
+          "offset": 210,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 2545,
+          "resolved": 10738825
+        },
+        {
+          "offset": 220,
+          "kind": 6,
+          "symbol": "__imp__timeGetTime@0",
+          "target": 7972132,
+          "addend": 0,
+          "resolved": 7972132
+        },
+        {
+          "offset": 249,
+          "kind": 20,
+          "symbol": "_wcsrchr",
+          "target": 7878085,
+          "addend": 0,
+          "resolved": 3496616
+        },
+        {
+          "offset": 264,
+          "kind": 20,
+          "symbol": "_wcslen",
+          "target": 7878149,
+          "addend": 0,
+          "resolved": 3496665
+        },
+        {
+          "offset": 288,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 2545,
+          "resolved": 10738825
+        },
+        {
+          "offset": 304,
+          "kind": 20,
+          "symbol": "_wcsrchr",
+          "target": 7878085,
+          "addend": 0,
+          "resolved": 3496561
+        },
+        {
+          "offset": 319,
+          "kind": 20,
+          "symbol": "_wcslen",
+          "target": 7878149,
+          "addend": 0,
+          "resolved": 3496610
+        },
+        {
+          "offset": 339,
+          "kind": 20,
+          "symbol": "_wcsrchr",
+          "target": 7878085,
+          "addend": 0,
+          "resolved": 3496526
+        },
+        {
+          "offset": 354,
+          "kind": 20,
+          "symbol": "_wcslen",
+          "target": 7878149,
+          "addend": 0,
+          "resolved": 3496575
+        },
+        {
+          "offset": 373,
+          "kind": 6,
+          "symbol": "?Instance@BitFont@@2PAV1@A",
+          "target": 8710632,
+          "addend": 0,
+          "resolved": 8710632
+        },
+        {
+          "offset": 410,
+          "kind": 20,
+          "symbol": "?Text_Dimensions@BitFont@@QAE_NPBGPAH1H@Z",
+          "target": 4396208,
+          "addend": 0,
+          "resolved": 14578
+        },
+        {
+          "offset": 483,
+          "kind": 20,
+          "symbol": "??BHSVClass@@QBE?AVRGBClass@@XZ",
+          "target": 5238864,
+          "addend": 0,
+          "resolved": 857161
+        },
+        {
+          "offset": 521,
+          "kind": 20,
+          "symbol": "?Intersect@@YI?BV?$TRect@H@@ABV1@0PAH1@Z",
+          "target": 4324848,
+          "addend": 0,
+          "resolved": 4294910403
+        },
+        {
+          "offset": 559,
+          "kind": 6,
+          "symbol": "?BlueLeft@DSurface@@2HA",
+          "target": 8728516,
+          "addend": 0,
+          "resolved": 8728516
+        },
+        {
+          "offset": 574,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 601,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 609,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 617,
+          "kind": 6,
+          "symbol": "?RedLeft@DSurface@@2HA",
+          "target": 8728508,
+          "addend": 0,
+          "resolved": 8728508
+        },
+        {
+          "offset": 625,
+          "kind": 6,
+          "symbol": "?RedRight@DSurface@@2HA",
+          "target": 8728504,
+          "addend": 0,
+          "resolved": 8728504
+        },
+        {
+          "offset": 667,
+          "kind": 20,
+          "symbol": "?Set_Clip@BitFont@@QAE_N_N@Z",
+          "target": 4396112,
+          "addend": 0,
+          "resolved": 14225
+        },
+        {
+          "offset": 731,
+          "kind": 20,
+          "symbol": "?Set_Bounds@BitFont@@QAEXPAULTRBStruct@@@Z",
+          "target": 4396128,
+          "addend": 0,
+          "resolved": 14177
+        },
+        {
+          "offset": 739,
+          "kind": 20,
+          "symbol": "?Set_Color@BitFont@@QAEGG@Z",
+          "target": 4396080,
+          "addend": 0,
+          "resolved": 14121
+        },
+        {
+          "offset": 784,
+          "kind": 6,
+          "symbol": "?Instance@BitText@@2PAV1@A",
+          "target": 8710608,
+          "addend": 0,
+          "resolved": 8710608
+        },
+        {
+          "offset": 792,
+          "kind": 20,
+          "symbol": "?Draw_Text@BitText@@QAE_NPAVBitFont@@PAVSurface@@PBGHHHHHHH@Z",
+          "target": 4400272,
+          "addend": 0,
+          "resolved": 18260
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4381216,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4382032,
+      "method": "0042dd50",
+      "body_bytes": 3,
+      "body_sha256": "b6fc3a9ea0896e5943662c03c0846f778e629404ddd60b3a1fd544e439b4c626",
+      "padding_bytes": 13,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "ca3608a79d9d474556968a4ff0c839f0a4ab73c22c433f258437ac6a0652ca6f",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Beacon_Stub_Seven@@YGXHHHHHHH@Z",
+      "symbol_prefix": "?Beacon_Stub_Seven@@YGXHHHHHHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4382032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4382048,
+      "method": "0042dd60",
+      "body_bytes": 78,
+      "body_sha256": "f516b74812341ea394d33c5e268f668ee41f4abac49dc50f821a47564bfe8593",
+      "padding_bytes": 2,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "3af154c935848e0646e982ed683605170e4e96e42112a7ec84d0c5224eec4d7a",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Coord_And_House@BeaconClass@@QAEXVCoord@@H@Z",
+      "symbol_prefix": "?Set_Coord_And_House@BeaconClass@@QAEXVCoord@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8710480,
+          "addend": 0,
+          "resolved": 8710480
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8710480,
+          "addend": 4,
+          "resolved": 8710484
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8710480,
+          "addend": 8,
+          "resolved": 8710488
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4382048,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4382128,
+      "method": "0042ddb0",
+      "body_bytes": 22,
+      "body_sha256": "158c6865307c49e2b07a57216da3379e3dbde86004187ef3626b2662fc0e803b",
+      "padding_bytes": 10,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "3c20e46fd14cdd499d3cc6a187aa0f964887a826ff170c9e71fdf23a8ecc23d5",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Flashing@BeaconClass@@QAEX_N@Z",
+      "symbol_prefix": "?Set_Flashing@BeaconClass@@QAEX_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4382128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4382160,
+      "method": "0042ddd0",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Beacon_Stub@@YIXXZ",
+      "symbol_prefix": "?Beacon_Stub@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4382160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4382176,
+      "method": "0042dde0",
+      "body_bytes": 5,
+      "body_sha256": "0c07633196380d5441746b3fc284684aafcc9490e27ba455b7de70f77e2baa73",
+      "padding_bytes": 11,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "3183758e70940e28a41cc2a0009d23082ca7e4e93cbfd66c65891dcff36574e3",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear_Active@BeaconClass@@QAEXXZ",
+      "symbol_prefix": "?Clear_Active@BeaconClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4382176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4382192,
+      "method": "0042ddf0",
+      "body_bytes": 39,
+      "body_sha256": "877ebd8d2f31752c768640f1d2d5f74483e459b2abe0e7cdf090cc55d2aa4897",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "3f1bb027c294ef0acf478433ba7198e368dd09fce2b7e83f47470ece55fd1541",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Text@BeaconClass@@QAEXPBG@Z",
+      "symbol_prefix": "?Set_Text@BeaconClass@@QAEXPBG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 29,
+          "kind": 20,
+          "symbol": "_wcsncpy",
+          "target": 7878178,
+          "addend": 0,
+          "resolved": 3495953
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4382192,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4382240,
+      "method": "0042de20",
+      "body_bytes": 607,
+      "body_sha256": "4958e57b969adc7d816acfb0d190af73db16d753031b5029d64d2f0d97e6ed31",
+      "padding_bytes": 1,
+      "full_extent_bytes": 608,
+      "full_extent_sha256": "fc1103edf8e866bb361b368fae90a7d954f13a0cc082f544f55f264b00493462",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_On_Radar@BeaconClass@@QAEXPAVSurface@@V?$TRect@H@@_N@Z",
+      "symbol_prefix": "?Draw_On_Radar@BeaconClass@@QAEXPAVSurface@@V?$TRect@H@@_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "?BeaconManager@@3VBeaconManagerClass@@A",
+          "target": 8710352,
+          "addend": 124,
+          "resolved": 8710476
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "?BeaconManager@@3VBeaconManagerClass@@A",
+          "target": 8710352,
+          "addend": 120,
+          "resolved": 8710472
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 59,
+          "kind": 20,
+          "symbol": "?Coord_To_Radar_Pixel@RadarClass@@QAE?AVPoint2D@@ABVCoord@@_N@Z",
+          "target": 6495136,
+          "addend": 0,
+          "resolved": 2112833
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "?BeaconManager@@3VBeaconManagerClass@@A",
+          "target": 8710352,
+          "addend": 120,
+          "resolved": 8710472
+        },
+        {
+          "offset": 107,
+          "kind": 6,
+          "symbol": "?RadarBeaconArt@@3PBVShapeSet@@B",
+          "target": 8710544,
+          "addend": 0,
+          "resolved": 8710544
+        },
+        {
+          "offset": 133,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 143,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 170,
+          "kind": 20,
+          "symbol": "?Draw_Shape@@YIXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z",
+          "target": 4845216,
+          "addend": 0,
+          "resolved": 462802
+        },
+        {
+          "offset": 184,
+          "kind": 6,
+          "symbol": "?BeaconManager@@3VBeaconManagerClass@@A",
+          "target": 8710352,
+          "addend": 112,
+          "resolved": 8710464
+        },
+        {
+          "offset": 190,
+          "kind": 6,
+          "symbol": "?BeaconManager@@3VBeaconManagerClass@@A",
+          "target": 8710352,
+          "addend": 116,
+          "resolved": 8710468
+        },
+        {
+          "offset": 212,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 5276,
+          "resolved": 8599932
+        },
+        {
+          "offset": 225,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 5272,
+          "resolved": 8599928
+        },
+        {
+          "offset": 233,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4624,
+          "resolved": 8599280
+        },
+        {
+          "offset": 253,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4628,
+          "resolved": 8599284
+        },
+        {
+          "offset": 283,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4616,
+          "resolved": 8599272
+        },
+        {
+          "offset": 289,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4620,
+          "resolved": 8599276
+        },
+        {
+          "offset": 299,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4628,
+          "resolved": 8599284
+        },
+        {
+          "offset": 428,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4616,
+          "resolved": 8599272
+        },
+        {
+          "offset": 434,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4620,
+          "resolved": 8599276
+        },
+        {
+          "offset": 477,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 5272,
+          "resolved": 8599928
+        },
+        {
+          "offset": 490,
+          "kind": 20,
+          "symbol": "?Intersect@@YI?BV?$TRect@H@@ABV1@0PAH1@Z",
+          "target": 4324848,
+          "addend": 0,
+          "resolved": 4294909410
+        },
+        {
+          "offset": 500,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4616,
+          "resolved": 8599272
+        },
+        {
+          "offset": 509,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4620,
+          "resolved": 8599276
+        },
+        {
+          "offset": 518,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4624,
+          "resolved": 8599280
+        },
+        {
+          "offset": 526,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4628,
+          "resolved": 8599284
+        },
+        {
+          "offset": 566,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 575,
+          "kind": 20,
+          "symbol": "?Radar_Pixel@RadarClass@@QAEXABVPoint2D@@@Z",
+          "target": 6497824,
+          "addend": 0,
+          "resolved": 2115005
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4382240,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4382848,
+      "method": "0042e080",
+      "body_bytes": 94,
+      "body_sha256": "3d8e667e6665808d2468716e7b34de562687d699f8adc950db299bbfbd53eab5",
+      "padding_bytes": 2,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "ad11376d4d20949e315d636d48f3e0510e9c94bfd66e72ecb9cce6aee23248dd",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Visible_To_Player@BeaconClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Visible_To_Player@BeaconClass@@QBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NW4HousesType@@@Z",
+          "target": 5133568,
+          "addend": 0,
+          "resolved": 750693
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 53,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NPBV1@@Z",
+          "target": 5133632,
+          "addend": 0,
+          "resolved": 750727
+        },
+        {
+          "offset": 69,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4382848,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4382944,
+      "method": "0042e0e0",
+      "body_bytes": 24,
+      "body_sha256": "5b471e98f4f7d2b063b3b1243efdddae558c5c5cfb5c3b2a334d59a0bba78386",
+      "padding_bytes": 8,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "18175f453af57380ee308ae9777e624c35ade208e1a4edc1e4538826c17dab39",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0BeaconManagerClass@@QAE@XZ",
+      "symbol_prefix": "??0BeaconManagerClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4382944,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4382976,
+      "method": "0042e100",
+      "body_bytes": 67,
+      "body_sha256": "4785331e17c58ca9bc0c1b3343eebed524d78b50d7e7d3bb25893a4d7b354c3c",
+      "padding_bytes": 13,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "84dd10ba59206809326ab178f8964975211a5d84ce3191b232d4ac1849e91b8c",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1BeaconManagerClass@@QAE@XZ",
+      "symbol_prefix": "??1BeaconManagerClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 33,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3488790
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4382976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4383056,
+      "method": "0042e150",
+      "body_bytes": 67,
+      "body_sha256": "a5853550f6863f23c6c768495be38483b298da2e28cbf4da3786df16b5080284",
+      "padding_bytes": 13,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "f33844b10e43ff81a52fe810f802bfe1b39fc8a53cd291baa0ff7e3d720d1128",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear_Slots@BeaconManagerClass@@QAEXXZ",
+      "symbol_prefix": "?Clear_Slots@BeaconManagerClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 33,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3488710
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4383056,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4383136,
+      "method": "0042e1a0",
+      "body_bytes": 231,
+      "body_sha256": "daa1b71de6f7adf2f4930bb41f057cb9c03e8986ab4cd21de0d3d6c9c2abcdd8",
+      "padding_bytes": 9,
+      "full_extent_bytes": 240,
+      "full_extent_sha256": "cf5564744d9619b58040d4d055a42b6a9a51188bcaaccb54b296d6143f8fb434",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load_Art@BeaconManagerClass@@QAEXXZ",
+      "symbol_prefix": "?Load_Art@BeaconManagerClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "??_C@_0M@NDGJ@PBEACON?4SHP?$AA@",
+          "target": 8188940,
+          "addend": 0,
+          "resolved": 8188940
+        },
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "??0RawFileClass@@QAE@PBD@Z",
+          "target": 6523712,
+          "addend": 0,
+          "resolved": 2140556
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "?Load_Alloc_Data@@YIPAXAAVFileClass@@@Z",
+          "target": 4805168,
+          "addend": 0,
+          "resolved": 422003
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "?BeaconArt@@3PBVShapeSet@@B",
+          "target": 8710540,
+          "addend": 0,
+          "resolved": 8710540
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "??_C@_0M@NDGJ@PBEACON?4SHP?$AA@",
+          "target": 8188940,
+          "addend": 0,
+          "resolved": 8188940
+        },
+        {
+          "offset": 44,
+          "kind": 20,
+          "symbol": "?Retrieve@MixFileClass@@SIPBXPBD@Z",
+          "target": 5854912,
+          "addend": 0,
+          "resolved": 1471728
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "?BeaconArt@@3PBVShapeSet@@B",
+          "target": 8710540,
+          "addend": 0,
+          "resolved": 8710540
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "?BeaconArt@@3PBVShapeSet@@B",
+          "target": 8710540,
+          "addend": 0,
+          "resolved": 8710540
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "?BeaconArt@@3PBVShapeSet@@B",
+          "target": 8710540,
+          "addend": 0,
+          "resolved": 8710540
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "??_C@_0BJ@FEKB@Failed?5to?5load?5BeaconArt?$AA@",
+          "target": 8188912,
+          "addend": 0,
+          "resolved": 8188912
+        },
+        {
+          "offset": 97,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294805227
+        },
+        {
+          "offset": 105,
+          "kind": 6,
+          "symbol": "??_C@_0N@JLLI@RDRBEACN?4SHP?$AA@",
+          "target": 8188896,
+          "addend": 0,
+          "resolved": 8188896
+        },
+        {
+          "offset": 114,
+          "kind": 20,
+          "symbol": "??0RawFileClass@@QAE@PBD@Z",
+          "target": 6523712,
+          "addend": 0,
+          "resolved": 2140458
+        },
+        {
+          "offset": 123,
+          "kind": 20,
+          "symbol": "?Load_Alloc_Data@@YIPAXAAVFileClass@@@Z",
+          "target": 4805168,
+          "addend": 0,
+          "resolved": 421905
+        },
+        {
+          "offset": 130,
+          "kind": 6,
+          "symbol": "?RadarBeaconArt@@3PBVShapeSet@@B",
+          "target": 8710544,
+          "addend": 0,
+          "resolved": 8710544
+        },
+        {
+          "offset": 137,
+          "kind": 6,
+          "symbol": "??_C@_0N@JLLI@RDRBEACN?4SHP?$AA@",
+          "target": 8188896,
+          "addend": 0,
+          "resolved": 8188896
+        },
+        {
+          "offset": 142,
+          "kind": 20,
+          "symbol": "?Retrieve@MixFileClass@@SIPBXPBD@Z",
+          "target": 5854912,
+          "addend": 0,
+          "resolved": 1471630
+        },
+        {
+          "offset": 149,
+          "kind": 6,
+          "symbol": "?RadarBeaconArt@@3PBVShapeSet@@B",
+          "target": 8710544,
+          "addend": 0,
+          "resolved": 8710544
+        },
+        {
+          "offset": 163,
+          "kind": 6,
+          "symbol": "?RadarBeaconArt@@3PBVShapeSet@@B",
+          "target": 8710544,
+          "addend": 0,
+          "resolved": 8710544
+        },
+        {
+          "offset": 176,
+          "kind": 6,
+          "symbol": "?RadarBeaconArt@@3PBVShapeSet@@B",
+          "target": 8710544,
+          "addend": 0,
+          "resolved": 8710544
+        },
+        {
+          "offset": 196,
+          "kind": 6,
+          "symbol": "??_C@_0BO@HJGL@Failed?5to?5load?5RadarBeaconArt?$AA@",
+          "target": 8188864,
+          "addend": 0,
+          "resolved": 8188864
+        },
+        {
+          "offset": 201,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294805123
+        },
+        {
+          "offset": 213,
+          "kind": 20,
+          "symbol": "??1RawFileClass@@UAE@XZ",
+          "target": 6523584,
+          "addend": 0,
+          "resolved": 2140231
+        },
+        {
+          "offset": 222,
+          "kind": 20,
+          "symbol": "??1RawFileClass@@UAE@XZ",
+          "target": 6523584,
+          "addend": 0,
+          "resolved": 2140222
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4383136,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4383376,
+      "method": "0042e290",
+      "body_bytes": 212,
+      "body_sha256": "4149c56d228f0674c1ee1321ebbb9adbe1bd9ddd553ffa853c05e79e23030686",
+      "padding_bytes": 12,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "60d4dd2e04f08376b7e428f633b22a1dcafbbb9db3fc5b034142dd3f60b21730",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw@BeaconManagerClass@@QAEXPAVSurface@@V?$TRect@H@@@Z",
+      "symbol_prefix": "?Draw@BeaconManagerClass@@QAEXPAVSurface@@V?$TRect@H@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 64,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 70,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NW4HousesType@@@Z",
+          "target": 5133568,
+          "addend": 0,
+          "resolved": 750118
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 91,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 100,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NPBV1@@Z",
+          "target": 5133632,
+          "addend": 0,
+          "resolved": 750152
+        },
+        {
+          "offset": 116,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 165,
+          "kind": 20,
+          "symbol": "?Draw@BeaconClass@@QAEXPAVSurface@@V?$TRect@H@@@Z",
+          "target": 4381216,
+          "addend": 0,
+          "resolved": 4294964967
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4383376,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4383600,
+      "method": "0042e370",
+      "body_bytes": 909,
+      "body_sha256": "5c3a0f229661d637c63911f2ad7d629ff9ceba507869e018bec82843b3c75675",
+      "padding_bytes": 3,
+      "full_extent_bytes": 912,
+      "full_extent_sha256": "bcd93f897fca63cc9fe794d4410adffeda74cf4132bef47b88f62491b79e0ecf",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Place_Beacon@BeaconManagerClass@@QAEXHVCoord@@H@Z",
+      "symbol_prefix": "?Place_Beacon@BeaconManagerClass@@QAEXHVCoord@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 72,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3488859
+        },
+        {
+          "offset": 86,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8710480,
+          "addend": 0,
+          "resolved": 8710480
+        },
+        {
+          "offset": 100,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8710480,
+          "addend": 4,
+          "resolved": 8710484
+        },
+        {
+          "offset": 108,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8710480,
+          "addend": 8,
+          "resolved": 8710488
+        },
+        {
+          "offset": 176,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3488023
+        },
+        {
+          "offset": 222,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8710480,
+          "addend": 0,
+          "resolved": 8710480
+        },
+        {
+          "offset": 239,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8710480,
+          "addend": 4,
+          "resolved": 8710484
+        },
+        {
+          "offset": 253,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8710480,
+          "addend": 8,
+          "resolved": 8710488
+        },
+        {
+          "offset": 309,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 332,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 370,
+          "kind": 6,
+          "symbol": "??_C@_0BC@BPJA@D?3?2Ra2?2Beacon?4CPP?$AA@",
+          "target": 8189064,
+          "addend": 0,
+          "resolved": 8189064
+        },
+        {
+          "offset": 377,
+          "kind": 6,
+          "symbol": "??_C@_0BB@KGIJ@TXT_BEACON_HELP1?$AA@",
+          "target": 8189044,
+          "addend": 0,
+          "resolved": 8189044
+        },
+        {
+          "offset": 382,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2931150
+        },
+        {
+          "offset": 392,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 2520,
+          "resolved": 10738800
+        },
+        {
+          "offset": 397,
+          "kind": 20,
+          "symbol": "?Add_Message@MessageListClass@@QAEPAVTextLabelClass@@PBGH0HW4TextPrintType@@H_N@Z",
+          "target": 5983648,
+          "addend": 0,
+          "resolved": 1599647
+        },
+        {
+          "offset": 402,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 433,
+          "kind": 6,
+          "symbol": "??_C@_0BC@BPJA@D?3?2Ra2?2Beacon?4CPP?$AA@",
+          "target": 8189064,
+          "addend": 0,
+          "resolved": 8189064
+        },
+        {
+          "offset": 438,
+          "kind": 6,
+          "symbol": "??_C@_0BB@FJDA@TXT_BEACON_HELP2?$AA@",
+          "target": 8189024,
+          "addend": 0,
+          "resolved": 8189024
+        },
+        {
+          "offset": 443,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2931089
+        },
+        {
+          "offset": 453,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 2520,
+          "resolved": 10738800
+        },
+        {
+          "offset": 458,
+          "kind": 20,
+          "symbol": "?Add_Message@MessageListClass@@QAEPAVTextLabelClass@@PBGH0HW4TextPrintType@@H_N@Z",
+          "target": 5983648,
+          "addend": 0,
+          "resolved": 1599586
+        },
+        {
+          "offset": 468,
+          "kind": 6,
+          "symbol": "??_C@_0BB@HPKH@EVA_BeaconPlaced?$AA@",
+          "target": 8189004,
+          "addend": 0,
+          "resolved": 8189004
+        },
+        {
+          "offset": 473,
+          "kind": 20,
+          "symbol": "?Queue_Speech@@YIXPBDHH@Z",
+          "target": 7428928,
+          "addend": 0,
+          "resolved": 3044851
+        },
+        {
+          "offset": 478,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 501,
+          "kind": 20,
+          "symbol": "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z",
+          "target": 7421360,
+          "addend": 0,
+          "resolved": 3037255
+        },
+        {
+          "offset": 507,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 522,
+          "kind": 20,
+          "symbol": "?Wide_To_Narrow@@YIPADPBG@Z",
+          "target": 7315744,
+          "addend": 0,
+          "resolved": 2931618
+        },
+        {
+          "offset": 587,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 622,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 631,
+          "kind": 6,
+          "symbol": "??_C@_0CA@LLCO@Sending?5beacon?5placement?5to?5?$CFs?6?$AA@",
+          "target": 8188972,
+          "addend": 0,
+          "resolved": 8188972
+        },
+        {
+          "offset": 636,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294804224
+        },
+        {
+          "offset": 641,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 669,
+          "kind": 6,
+          "symbol": "?Ipx@@3VIPXManagerClass@@A",
+          "target": 10750328,
+          "addend": 0,
+          "resolved": 10750328
+        },
+        {
+          "offset": 674,
+          "kind": 20,
+          "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+          "target": 5396528,
+          "addend": 0,
+          "resolved": 1012250
+        },
+        {
+          "offset": 679,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 722,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3487477
+        },
+        {
+          "offset": 761,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NW4HousesType@@@Z",
+          "target": 5133568,
+          "addend": 0,
+          "resolved": 749203
+        },
+        {
+          "offset": 771,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 782,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 791,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NPBV1@@Z",
+          "target": 5133632,
+          "addend": 0,
+          "resolved": 749237
+        },
+        {
+          "offset": 807,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 873,
+          "kind": 20,
+          "symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z",
+          "target": 6534576,
+          "addend": 0,
+          "resolved": 2150099
+        },
+        {
+          "offset": 887,
+          "kind": 6,
+          "symbol": "??_C@_0BD@GOLF@EVA_BeaconDetected?$AA@",
+          "target": 8188952,
+          "addend": 0,
+          "resolved": 8188952
+        },
+        {
+          "offset": 892,
+          "kind": 20,
+          "symbol": "?Queue_Speech@@YIXPBDHH@Z",
+          "target": 7428928,
+          "addend": 0,
+          "resolved": 3044432
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4383600,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4384512,
+      "method": "0042e700",
+      "body_bytes": 36,
+      "body_sha256": "ecafe24509421b0bd6eb38049004b5986e36db710032ce78e335c34d17837fdd",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "09cae0bcccb0a37594adc4b4a42f86b69177f38bc6c9279fa1a108c95594fe21",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?CanPlaceBeacon@BeaconManagerClass@@QAE_NH@Z",
+      "symbol_prefix": "?CanPlaceBeacon@BeaconManagerClass@@QAE_NH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4384512,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4384560,
+      "method": "0042e730",
+      "body_bytes": 16,
+      "body_sha256": "2fcff88854b5e465e3a75987703c240e256ad79b2ef7835ac39a1008a09644a5",
+      "padding_bytes": 0,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "2fcff88854b5e465e3a75987703c240e256ad79b2ef7835ac39a1008a09644a5",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Beacon_Zero_Point@@YG?AVPoint2D@@XZ",
+      "symbol_prefix": "?Beacon_Zero_Point@@YG?AVPoint2D@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4384560,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4384576,
+      "method": "0042e740",
+      "body_bytes": 237,
+      "body_sha256": "b3124ecb4d6f67cb4ee6c9aa469de51c448b2016371c35f0f691a29f0fd403ad",
+      "padding_bytes": 3,
+      "full_extent_bytes": 240,
+      "full_extent_sha256": "8f16b3ec00cf58ba9e5a6425b28be7e1c9e291abc5b3d7b8b49b8057473e4d67",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Select_Beacon@BeaconManagerClass@@QAE_NVCoord@@@Z",
+      "symbol_prefix": "?Select_Beacon@BeaconManagerClass@@QAE_NVCoord@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 125,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 572495
+        },
+        {
+          "offset": 133,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3475783
+        },
+        {
+          "offset": 214,
+          "kind": 20,
+          "symbol": "?Unselect_All@@YIXXZ",
+          "target": 4729792,
+          "addend": 0,
+          "resolved": 344998
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4384576,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4384816,
+      "method": "0042e830",
+      "body_bytes": 42,
+      "body_sha256": "d4a6de57bf8a108e1bfc69e9004f5252aaa5ab90444dca1bfa56829e865b98e2",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "f07f9b60ae9544fc93b3fb2c9e569964dab79523b19ce85c2a6851278d2033c8",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear_Selection@BeaconManagerClass@@QAEXXZ",
+      "symbol_prefix": "?Clear_Selection@BeaconManagerClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4384816,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4384864,
+      "method": "0042e860",
+      "body_bytes": 218,
+      "body_sha256": "67ef2ad05b0c41d6b166811909a31f7509ab32ad20ec34eaf870f7d3cac13f89",
+      "padding_bytes": 6,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "6cbd5116d517a415abc65ee9744932aaa2164f4b29d989942a6b9d5428522f16",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?FindBeaconAt@BeaconManagerClass@@QAEPAVBeaconClass@@VCoord@@@Z",
+      "symbol_prefix": "?FindBeaconAt@BeaconManagerClass@@QAEPAVBeaconClass@@VCoord@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 125,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 572207
+        },
+        {
+          "offset": 133,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3475495
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4384864,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4385088,
+      "method": "0042e940",
+      "body_bytes": 76,
+      "body_sha256": "59ac07dbd33f20c40bac90e236959bd2c27e1f0d5f85febdf38497509053c4d9",
+      "padding_bytes": 4,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "11b609ed0d9973564a2bc815168fe785ac374733007e7f0618800ac418898c54",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?FindSelected@BeaconManagerClass@@QAEPAVBeaconClass@@H@Z",
+      "symbol_prefix": "?FindSelected@BeaconManagerClass@@QAEPAVBeaconClass@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4385088,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4385168,
+      "method": "0042e990",
+      "body_bytes": 581,
+      "body_sha256": "1fd5b51adcebfb70db71271d75c77f527478bcc464f611fa558c5a99817616f9",
+      "padding_bytes": 11,
+      "full_extent_bytes": 592,
+      "full_extent_sha256": "97952a80840dbe0286ccadb49fbdcb89bcabcdaae3823bea939e6c729b7fdc8a",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Remove_Beacon@BeaconManagerClass@@QAEXHH@Z",
+      "symbol_prefix": "?Remove_Beacon@BeaconManagerClass@@QAEXHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 121,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 177,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NW4HousesType@@@Z",
+          "target": 5133568,
+          "addend": 0,
+          "resolved": 748219
+        },
+        {
+          "offset": 193,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 199,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 208,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NPBV1@@Z",
+          "target": 5133632,
+          "addend": 0,
+          "resolved": 748252
+        },
+        {
+          "offset": 223,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 242,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4632,
+          "resolved": 8599288
+        },
+        {
+          "offset": 287,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4632,
+          "resolved": 8599288
+        },
+        {
+          "offset": 295,
+          "kind": 20,
+          "symbol": "?Draw_On_Radar@BeaconClass@@QAEXPAVSurface@@V?$TRect@H@@_N@Z",
+          "target": 4382240,
+          "addend": 0,
+          "resolved": 4294964069
+        },
+        {
+          "offset": 301,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3486330
+        },
+        {
+          "offset": 370,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 392,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 419,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 434,
+          "kind": 20,
+          "symbol": "?Wide_To_Narrow@@YIPADPBG@Z",
+          "target": 7315744,
+          "addend": 0,
+          "resolved": 2930138
+        },
+        {
+          "offset": 469,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 501,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 510,
+          "kind": 6,
+          "symbol": "??_C@_0BN@IONH@Sending?5beacon?5delete?5to?5?$CFs?6?$AA@",
+          "target": 8189084,
+          "addend": 0,
+          "resolved": 8189084
+        },
+        {
+          "offset": 515,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294802777
+        },
+        {
+          "offset": 521,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 549,
+          "kind": 6,
+          "symbol": "?Ipx@@3VIPXManagerClass@@A",
+          "target": 10750328,
+          "addend": 0,
+          "resolved": 10750328
+        },
+        {
+          "offset": 554,
+          "kind": 20,
+          "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+          "target": 5396528,
+          "addend": 0,
+          "resolved": 1010802
+        },
+        {
+          "offset": 559,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4385168,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4385760,
+      "method": "0042ebe0",
+      "body_bytes": 56,
+      "body_sha256": "774b9ee4c674019a6422ffe68500207d332ce79fdf0642959336dd2f58e42ce3",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "9fb9ee0952df1167784f679842c497abf76fcf121af975c99ee6c5214f717d87",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Remove_All_Beacons@BeaconManagerClass@@QAEXH@Z",
+      "symbol_prefix": "?Remove_All_Beacons@BeaconManagerClass@@QAEXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 36,
+          "kind": 20,
+          "symbol": "?Remove_Beacon@BeaconManagerClass@@QAEXHH@Z",
+          "target": 4385168,
+          "addend": 0,
+          "resolved": 4294966664
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4385760,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4385824,
+      "method": "0042ec20",
+      "body_bytes": 679,
+      "body_sha256": "4470130dffbfd6807324cadaf7bad2aabb7d79e51d68034d1f73cdffa60d661e",
+      "padding_bytes": 9,
+      "full_extent_bytes": 688,
+      "full_extent_sha256": "961ace1aa47d9b3c11451c89a148af739124f0f00069581b2a8b7d40490fc98d",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?EditBeaconMessage@BeaconManagerClass@@QAEXPBGHH_N@Z",
+      "symbol_prefix": "?EditBeaconMessage@BeaconManagerClass@@QAEXPBGHH_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 154,
+          "kind": 20,
+          "symbol": "_wcsncpy",
+          "target": 7878178,
+          "addend": 0,
+          "resolved": 3492196
+        },
+        {
+          "offset": 162,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 189,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 235,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 250,
+          "kind": 20,
+          "symbol": "?Wide_To_Narrow@@YIPADPBG@Z",
+          "target": 7315744,
+          "addend": 0,
+          "resolved": 2929666
+        },
+        {
+          "offset": 305,
+          "kind": 20,
+          "symbol": "_wcsncpy",
+          "target": 7878178,
+          "addend": 0,
+          "resolved": 3492045
+        },
+        {
+          "offset": 322,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 327,
+          "kind": 20,
+          "symbol": "?Narrow_To_Wide@@YIPAGPBD@Z",
+          "target": 7315840,
+          "addend": 0,
+          "resolved": 2929685
+        },
+        {
+          "offset": 338,
+          "kind": 20,
+          "symbol": "_wcscpy",
+          "target": 7878281,
+          "addend": 0,
+          "resolved": 3492115
+        },
+        {
+          "offset": 346,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 408,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 427,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 436,
+          "kind": 6,
+          "symbol": "??_C@_0BL@HAJF@Sending?5beacon?5text?5to?5?$CFs?6?$AA@",
+          "target": 8189116,
+          "addend": 0,
+          "resolved": 8189116
+        },
+        {
+          "offset": 441,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294802195
+        },
+        {
+          "offset": 447,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 478,
+          "kind": 6,
+          "symbol": "?Ipx@@3VIPXManagerClass@@A",
+          "target": 10750328,
+          "addend": 0,
+          "resolved": 10750328
+        },
+        {
+          "offset": 483,
+          "kind": 20,
+          "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+          "target": 5396528,
+          "addend": 0,
+          "resolved": 1010217
+        },
+        {
+          "offset": 488,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 539,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NW4HousesType@@@Z",
+          "target": 5133568,
+          "addend": 0,
+          "resolved": 747201
+        },
+        {
+          "offset": 549,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 560,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 569,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NPBV1@@Z",
+          "target": 5133632,
+          "addend": 0,
+          "resolved": 747235
+        },
+        {
+          "offset": 585,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 662,
+          "kind": 20,
+          "symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z",
+          "target": 6534576,
+          "addend": 0,
+          "resolved": 2148086
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4385824,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4386512,
+      "method": "0042eed0",
+      "body_bytes": 241,
+      "body_sha256": "699b8c32d32658f090a5aad033e3e924bfa9655e8cf997fd31b21238f9f8f723",
+      "padding_bytes": 15,
+      "full_extent_bytes": 256,
+      "full_extent_sha256": "dec09a564fa75f29f6bf6bd0910a160bbe8a5a19d6aba428f5a3bcfd4134bae3",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_On_Radar@BeaconManagerClass@@QAEXPAVSurface@@V?$TRect@H@@@Z",
+      "symbol_prefix": "?Draw_On_Radar@BeaconManagerClass@@QAEXPAVSurface@@V?$TRect@H@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "?BeaconManager@@3VBeaconManagerClass@@A",
+          "target": 8710352,
+          "addend": 120,
+          "resolved": 8710472
+        },
+        {
+          "offset": 90,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 95,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NW4HousesType@@@Z",
+          "target": 5133568,
+          "addend": 0,
+          "resolved": 746957
+        },
+        {
+          "offset": 111,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 117,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 126,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NPBV1@@Z",
+          "target": 5133632,
+          "addend": 0,
+          "resolved": 746990
+        },
+        {
+          "offset": 141,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 192,
+          "kind": 20,
+          "symbol": "?Draw_On_Radar@BeaconClass@@QAEXPAVSurface@@V?$TRect@H@@_N@Z",
+          "target": 4382240,
+          "addend": 0,
+          "resolved": 4294962828
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4386512,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4386768,
+      "method": "0042efd0",
+      "body_bytes": 207,
+      "body_sha256": "6734d143b09c99220a8fda0e850910f3ea707d70325603a0116d136a9a64ac5c",
+      "padding_bytes": 1,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "b88ee47625ff56a40de628a2c051af76f64fdd7736e6035f263c4ba1f62db49c",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Flashing@BeaconManagerClass@@QAE_NXZ",
+      "symbol_prefix": "?Is_Flashing@BeaconManagerClass@@QAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 67,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NW4HousesType@@@Z",
+          "target": 5133568,
+          "addend": 0,
+          "resolved": 746729
+        },
+        {
+          "offset": 77,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 88,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 97,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NPBV1@@Z",
+          "target": 5133632,
+          "addend": 0,
+          "resolved": 746763
+        },
+        {
+          "offset": 113,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 173,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 186,
+          "kind": 6,
+          "symbol": "?BeaconManager@@3VBeaconManagerClass@@A",
+          "target": 8710352,
+          "addend": 120,
+          "resolved": 8710472
+        }
+      ],
+      "source_sha256": "dff6f470d15aa889463b96a89d10cfdccc2452893c1e9ff0e1b4dcdbe0a974fb",
+      "source": "src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4386768,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

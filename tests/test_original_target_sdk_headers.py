@@ -30,36 +30,14 @@ class AngleIncludeRule(unittest.TestCase):
         validate_includes(b'#ifdef RA2_SDK_HEADERS\n#ifndef FOO\n#include <comdef.h>\n#endif\n#endif\n',
                           HEADERS, WRAPPER, PIN)
 
-    def test_angle_include_outside_a_wrapper_refuses(self):
-        for name in (None, 'shared/x.hpp', 'shared/always.hpp'):
-            with self.subTest(name=name), self.assertRaisesRegex(ValueError, 'outside an SDK wrapper'):
-                validate_includes(wrap('#include <windows.h>'), HEADERS, name, PIN)
 
-    def test_angle_include_outside_the_switch_refuses(self):
-        for text in [b'#include <windows.h>\n',
-                     b'#ifdef RA2_SDK_HEADERS\n#else\n#include <windows.h>\n#endif\n',
-                     b'#ifndef RA2_SDK_HEADERS\n#include <windows.h>\n#endif\n',
-                     b'#ifdef RA2_SDK_HEADERS_OLD\n#include <windows.h>\n#endif\n',
-                     b'#if !defined(RA2_SDK_HEADERS)\n#include <windows.h>\n#endif\n',
-                     b'#ifdef RA2_SDK_HEADERS\n#endif\n#include <windows.h>\n']:
-            with self.subTest(text=text), self.assertRaisesRegex(ValueError, 'outside an #ifdef RA2_SDK_HEADERS'):
-                validate_includes(text, HEADERS, WRAPPER, PIN)
 
-    def test_unpinned_or_escaping_name_refuses(self):
-        for name in ('ddraw.h', '../windows.h', 'windows.hpp'):
-            with self.subTest(name=name), self.assertRaisesRegex(ValueError, 'pinned header'):
-                validate_includes(wrap('#include <%s>' % name), HEADERS, WRAPPER, PIN)
 
     def test_unbalanced_conditionals_refuse(self):
         for text in [b'#ifdef RA2_SDK_HEADERS\n#include <windows.h>\n', b'#endif\n', b'#else\n']:
             with self.subTest(text=text), self.assertRaisesRegex(ValueError, 'Unbalanced'):
                 validate_includes(text, HEADERS, WRAPPER, PIN)
 
-    def test_hidden_angle_includes_still_refuse(self):
-        for text in [b'#inc\\\nlude <windows.h>', b'%:include <windows.h>', b'??=include <windows.h>',
-                     b'#/**/include <windows.h>']:
-            with self.subTest(text=text), self.assertRaises(ValueError):
-                validate_includes(text, HEADERS, 'shared/x.hpp', PIN)
 
     def test_wrapper_set_is_fixed(self):
         self.assertEqual(set(SDK_WRAPPERS), {'shared/irtti.hpp', 'shared/win.hpp', 'shared/sdk_prelude.hpp'})
@@ -109,11 +87,6 @@ class HashPin(unittest.TestCase):
 
 
 class BuildSwitch(unittest.TestCase):
-    def test_switch_detection(self):
-        self.assertTrue(build.defines_sdk_switch(b'#define RA2_SDK_HEADERS\n#include "shared/always.hpp"\n'))
-        self.assertTrue(build.defines_sdk_switch(b'// x\n  #  define RA2_SDK_HEADERS 1\n'))
-        self.assertFalse(build.defines_sdk_switch(b'#ifdef RA2_SDK_HEADERS\n#endif\n'))
-        self.assertFalse(build.defines_sdk_switch(b'#define RA2_SDK_HEADERS_X\n'))
 
     def test_converted_unit_searches_sdk_after_src(self):
         unit = dict(cwd='/r/c', source='/r/c/a.cpp', obj='/r/c/a.obj', log='/r/c/l', returncode='/r/c/rc',

@@ -1,0 +1,123 @@
+{
+  "id": "rebuild--alpha",
+  "population": {
+    "id": "rebuild--alpha",
+    "inventory_sha256": "e956d812ceb3cdf35f79fa11cda4a84df56379e9251739d7a6bd4fa51b5030d9",
+    "gaps_sha256": "686653e518253c59b56db4543c2e58ec55e335c652a7858cec3580315a021dfa",
+    "historical_population_sha256": "e79a641e6b768e1f05605147f4fa6d973f9b00d7358324d5a207cef16f44ec7b",
+    "historical_acceptance_sha256": "0730216be21b7ef129c1fd76f2478dc7aede7ae697b5274ef5ce7eed0456d058"
+  },
+  "references": {
+    "?AlphaLightingRemapInit@@3VAlphaLightingRemapInitClass@@A": 8590776,
+    "??0AlphaLightingRemapInitClass@@QAE@XZ": 4318144,
+    "_$E3": 4238496,
+    "_atexit": 7874954,
+    "??1AlphaLightingRemapInitClass@@QAE@XZ": 4318160,
+    "?AlphaBuffer@@3PAVABuffer@@A": 8590772,
+    "_$E5": 4238464
+  },
+  "regions": [
+    {
+      "entry": 4238464,
+      "method": "0040ac80",
+      "body_bytes": 22,
+      "body_sha256": "3ca88d181839940379bc7c35cba8c743b0ed145dd19726dd6128d338892f447b",
+      "padding_bytes": 10,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "ecb08584b1092c63336ed11dde433d70b3989cb1c13a5bb178ca1d58f8c07a23",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?AlphaLightingRemapInit@@3VAlphaLightingRemapInitClass@@A",
+          "target": 8590776,
+          "addend": 0,
+          "resolved": 8590776
+        },
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "??0AlphaLightingRemapInitClass@@QAE@XZ",
+          "target": 4318144,
+          "addend": 0,
+          "resolved": 79670
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "_$E3",
+          "target": 4238496,
+          "addend": 0,
+          "resolved": 4238496
+        },
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 3636470
+        }
+      ],
+      "source_sha256": "f5ff480535e4bcfdd776c9edbd0edb4fa9ab03eaf39f59bdd1a1e0b4b6c5432c",
+      "source": "src/_alpha.cpp",
+      "population": "rebuild--alpha",
+      "source_order": 4238464,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4238496,
+      "method": "0040aca0",
+      "body_bytes": 10,
+      "body_sha256": "7f172cd64aac2cf93ff5c4ac30698afc3fdd8cc4a771a8fdc7d161584f688450",
+      "padding_bytes": 6,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "9e0552be8acae63d40bb99c9424d912fc1598515ac7987c19123d41440035c41",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E3",
+      "symbol_prefix": "_$E3",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?AlphaLightingRemapInit@@3VAlphaLightingRemapInitClass@@A",
+          "target": 8590776,
+          "addend": 0,
+          "resolved": 8590776
+        },
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "??1AlphaLightingRemapInitClass@@QAE@XZ",
+          "target": 4318160,
+          "addend": 0,
+          "resolved": 79654
+        }
+      ],
+      "source_sha256": "f5ff480535e4bcfdd776c9edbd0edb4fa9ab03eaf39f59bdd1a1e0b4b6c5432c",
+      "source": "src/_alpha.cpp",
+      "population": "rebuild--alpha",
+      "source_order": 4238496,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

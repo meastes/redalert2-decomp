@@ -1,0 +1,273 @@
+{
+  "id": "rebuild-straw",
+  "population": {
+    "id": "rebuild-straw",
+    "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
+    "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
+    "historical_population_sha256": "76350a8bba5f6507c54af62f82db91b0c746164c19b3e2d914a296670a6d2e81",
+    "historical_acceptance_sha256": "b833fb463ea9cd16627fdad82f44868ce6da4fc3f375b39df7e96cb8758f301f"
+  },
+  "references": {
+    "??_7Straw@@6B@": 7989752,
+    "??3@YAXPAX@Z": 7871803,
+    "_wcslen": 7878149,
+    "??2@YAPAXI@Z": 7872535,
+    "_wcscpy": 7878281,
+    "??1Straw@@UAE@XZ": 6926352,
+    "??_GStraw@@UAEPAXI@Z": 4844864,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVStraw@@@8": 8199872,
+    "?Get_From@Straw@@UAEXPAV1@@Z": 6926416,
+    "?Get@Straw@@UAEHPAXH@Z": 6926496,
+    "??0SubTitle@@QAE@XZ": 6926528,
+    "??1SubTitle@@QAE@XZ": 6926576,
+    "?Set_RGB_Color@SubTitle@@QAEXEEE@Z": 6926592,
+    "?Set_Caption@SubTitle@@QAEXPAG@Z": 6926624
+  },
+  "regions": [
+    {
+      "entry": 6926352,
+      "method": "0069b010",
+      "body_bytes": 50,
+      "body_sha256": "62e2afcfd2a2a4235d93a959cdb3757007566a269356e2e4d2118db2229395de",
+      "padding_bytes": 14,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "795c139e885928fa2018b6548ab5608f22b38c0fcfb7643d6e7306e515b9ff9c",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1Straw@@UAE@XZ",
+      "symbol_prefix": "??1Straw@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "??_7Straw@@6B@",
+          "target": 7989752,
+          "addend": 0,
+          "resolved": 7989752
+        }
+      ],
+      "source_sha256": "aa965f3799062c1faae0acc85c44b62963b2a5ede780c8eda0ffc23dcbb4e986",
+      "source": "src/straw.cpp",
+      "population": "rebuild-straw",
+      "source_order": 6926352,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6926416,
+      "method": "0069b050",
+      "body_bytes": 67,
+      "body_sha256": "20f9ca753ece2a2e94d4931d65f5b1aa6d4ca704a3866532b5abe737ac18c2a4",
+      "padding_bytes": 13,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "f95b5b1309a98e2a439e07109acf8ac0e9befeadbd09e26f1c6d2f9f0f5279a4",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_From@Straw@@UAEXPAV1@@Z",
+      "symbol_prefix": "?Get_From@Straw@@UAEXPAV1@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "aa965f3799062c1faae0acc85c44b62963b2a5ede780c8eda0ffc23dcbb4e986",
+      "source": "src/straw.cpp",
+      "population": "rebuild-straw",
+      "source_order": 6926416,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6926496,
+      "method": "0069b0a0",
+      "body_bytes": 30,
+      "body_sha256": "5bf143545676ce6bf0d3b4b77efbd2fc07b3f2e1d9ae045d47d8b53202b63b4e",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "d9cf972f99a4168cb47ffd80ae3a76e458e4781dc431402272d7e9ac8140db91",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get@Straw@@UAEHPAXH@Z",
+      "symbol_prefix": "?Get@Straw@@UAEHPAXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "aa965f3799062c1faae0acc85c44b62963b2a5ede780c8eda0ffc23dcbb4e986",
+      "source": "src/straw.cpp",
+      "population": "rebuild-straw",
+      "source_order": 6926496,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6926528,
+      "method": "0069b0c0",
+      "body_bytes": 44,
+      "body_sha256": "a4b936184df652f3d21dc6fd10ce252fb113d6c9675ebb2851542881be498353",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "23b3671ab415987e59a67f95d5974446e610c15c80bc8f55d58478b5556c71b6",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0SubTitle@@QAE@XZ",
+      "symbol_prefix": "??0SubTitle@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "aa965f3799062c1faae0acc85c44b62963b2a5ede780c8eda0ffc23dcbb4e986",
+      "source": "src/straw.cpp",
+      "population": "rebuild-straw",
+      "source_order": 6926528,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4352"
+    },
+    {
+      "entry": 6926576,
+      "method": "0069b0f0",
+      "body_bytes": 15,
+      "body_sha256": "72cec12d83e9a9cef884037fa885a71ef479c571373babe4fce27055ebe923ce",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "eb4555c0b124b5530ac23c02d5c97cd77b23af3f5b9646010c026e8f1989891a",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1SubTitle@@QAE@XZ",
+      "symbol_prefix": "??1SubTitle@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 945214
+        }
+      ],
+      "source_sha256": "aa965f3799062c1faae0acc85c44b62963b2a5ede780c8eda0ffc23dcbb4e986",
+      "source": "src/straw.cpp",
+      "population": "rebuild-straw",
+      "source_order": 6926576,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-66"
+    },
+    {
+      "entry": 6926592,
+      "method": "0069b100",
+      "body_bytes": 31,
+      "body_sha256": "02a6421effaa7223472c8de8c627aea9fcfd36a580ede8fc031bfc6c13dbf785",
+      "padding_bytes": 1,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2351387f2832536bbcb16bc8cec9ee7bbfd590c0e097abc70e17255ab93ce5cf",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_RGB_Color@SubTitle@@QAEXEEE@Z",
+      "symbol_prefix": "?Set_RGB_Color@SubTitle@@QAEXEEE@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "aa965f3799062c1faae0acc85c44b62963b2a5ede780c8eda0ffc23dcbb4e986",
+      "source": "src/straw.cpp",
+      "population": "rebuild-straw",
+      "source_order": 6926592,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-42"
+    },
+    {
+      "entry": 6926624,
+      "method": "0069b120",
+      "body_bytes": 76,
+      "body_sha256": "b172aedc861721411065a59dc07f9403e292b0f25de2dd750532b634e70b575e",
+      "padding_bytes": 4,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "3b91cc59f49e0670b4f9fd0a23beab8dee36e77a840fe740be6a9e07317da43a",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Caption@SubTitle@@QAEXPAG@Z",
+      "symbol_prefix": "?Set_Caption@SubTitle@@QAEXPAG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 945162
+        },
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "_wcslen",
+          "target": 7878149,
+          "addend": 0,
+          "resolved": 951484
+        },
+        {
+          "offset": 47,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 945860
+        },
+        {
+          "offset": 64,
+          "kind": 20,
+          "symbol": "_wcscpy",
+          "target": 7878281,
+          "addend": 0,
+          "resolved": 951589
+        }
+      ],
+      "source_sha256": "aa965f3799062c1faae0acc85c44b62963b2a5ede780c8eda0ffc23dcbb4e986",
+      "source": "src/straw.cpp",
+      "population": "rebuild-straw",
+      "source_order": 6926624,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-66"
+    }
+  ]
+}

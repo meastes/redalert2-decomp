@@ -1,0 +1,294 @@
+{
+  "id": "rebuild-lcwstraw",
+  "population": {
+    "id": "rebuild-lcwstraw",
+    "inventory_sha256": "b1242a1c86e14d02a746d47db0dce68000d4e6a2fd83d5a701dfefd38d5b56e8",
+    "gaps_sha256": "77405ac63716da17f854111cee2c8f54f0efcac38f29544c1582e8d38d90f926",
+    "historical_population_sha256": "dacaff3d649b64278c795ea2aaa76d94fe89529391a86e1c9e47d97ad34cddbb",
+    "historical_acceptance_sha256": "5db548c0825ad77a031f846565a3acf69db168444f7e5f91b6fc6d5c9aacb3c9"
+  },
+  "references": {
+    "??_7LCWStraw@@6B@": 8017020,
+    "??2@YAPAXI@Z": 7872535,
+    "??3@YAXPAX@Z": 7871803,
+    "??1Straw@@UAE@XZ": 6926352,
+    "_memmove": 7877264,
+    "?Get@Straw@@UAEHPAXH@Z": 6926496,
+    "?LCW_Uncomp@@YIHPBXPAXK@Z": 5458768,
+    "?LCW_Comp@@YIHPBXPAXH@Z": 5459264,
+    "??0LCWStraw@@QAE@W4CompControl@0@H@Z": 5460688,
+    "?Get_From@Straw@@UAEXPAV1@@Z": 6926416,
+    "??_GLCWStraw@@UAEPAXI@Z": 5461216,
+    "??_R0?AVStraw@@@8": 8199872,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVLCWStraw@@@8": 8254296,
+    "??1LCWStraw@@UAE@XZ": 5460800,
+    "?Get@LCWStraw@@UAEHPAXH@Z": 5460864
+  },
+  "regions": [
+    {
+      "entry": 5460688,
+      "method": "005352d0",
+      "body_bytes": 103,
+      "body_sha256": "deeec5c723fbed850e553ef1a8345d247d58280c73010047ba3a0d30591d476c",
+      "padding_bytes": 9,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "7913340c1c64239f6c8c767f210be2cac123c6fd83bcc2391dc5ee3f68ee22ce",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0LCWStraw@@QAE@W4CompControl@0@H@Z",
+      "symbol_prefix": "??0LCWStraw@@QAE@W4CompControl@0@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "??_7LCWStraw@@6B@",
+          "target": 8017020,
+          "addend": 0,
+          "resolved": 8017020
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2411782
+        },
+        {
+          "offset": 85,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2411758
+        }
+      ],
+      "source_sha256": "363fe61c358c8ee89b0459aab5ec1aa2c09010d9c861b2e523c22eba4ae280c0",
+      "source": "src/lcwstraw.cpp",
+      "population": "rebuild-lcwstraw",
+      "source_order": 5460688,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5460800,
+      "method": "00535340",
+      "body_bytes": 53,
+      "body_sha256": "1d64488c77c33088b18f6da21760959e4128e69110748f16c3dbb37caa34adaf",
+      "padding_bytes": 11,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "f46a2cdd0f11105ce9249d9330115c1ffd463edfd37b274145be04d20312a4cd",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1LCWStraw@@UAE@XZ",
+      "symbol_prefix": "??1LCWStraw@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7LCWStraw@@6B@",
+          "target": 8017020,
+          "addend": 0,
+          "resolved": 8017020
+        },
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2410985
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2410969
+        },
+        {
+          "offset": 47,
+          "kind": 20,
+          "symbol": "??1Straw@@UAE@XZ",
+          "target": 6926352,
+          "addend": 0,
+          "resolved": 1465501
+        }
+      ],
+      "source_sha256": "363fe61c358c8ee89b0459aab5ec1aa2c09010d9c861b2e523c22eba4ae280c0",
+      "source": "src/lcwstraw.cpp",
+      "population": "rebuild-lcwstraw",
+      "source_order": 5460800,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5460864,
+      "method": "00535380",
+      "body_bytes": 346,
+      "body_sha256": "64c2df0dbfb7b3d07ffed8525f90564a3b6b0d4aafaf225882ee1b584905269f",
+      "padding_bytes": 6,
+      "full_extent_bytes": 352,
+      "full_extent_sha256": "91638944ac3f9dc2ba443c2736f455cd2d226d05b3f57a0015e65f615224d98c",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get@LCWStraw@@UAEHPAXH@Z",
+      "symbol_prefix": "?Get@LCWStraw@@UAEHPAXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 107,
+          "kind": 20,
+          "symbol": "_memmove",
+          "target": 7877264,
+          "addend": 0,
+          "resolved": 2416289
+        },
+        {
+          "offset": 163,
+          "kind": 20,
+          "symbol": "?Get@Straw@@UAEHPAXH@Z",
+          "target": 6926496,
+          "addend": 0,
+          "resolved": 1465465
+        },
+        {
+          "offset": 201,
+          "kind": 20,
+          "symbol": "?Get@Straw@@UAEHPAXH@Z",
+          "target": 6926496,
+          "addend": 0,
+          "resolved": 1465427
+        },
+        {
+          "offset": 222,
+          "kind": 20,
+          "symbol": "?LCW_Uncomp@@YIHPBXPAXK@Z",
+          "target": 5458768,
+          "addend": 0,
+          "resolved": 4294964974
+        },
+        {
+          "offset": 252,
+          "kind": 20,
+          "symbol": "?Get@Straw@@UAEHPAXH@Z",
+          "target": 6926496,
+          "addend": 0,
+          "resolved": 1465376
+        },
+        {
+          "offset": 284,
+          "kind": 20,
+          "symbol": "?LCW_Comp@@YIHPBXPAXH@Z",
+          "target": 5459264,
+          "addend": 0,
+          "resolved": 4294965408
+        },
+        {
+          "offset": 299,
+          "kind": 20,
+          "symbol": "_memmove",
+          "target": 7877264,
+          "addend": 0,
+          "resolved": 2416097
+        }
+      ],
+      "source_sha256": "363fe61c358c8ee89b0459aab5ec1aa2c09010d9c861b2e523c22eba4ae280c0",
+      "source": "src/lcwstraw.cpp",
+      "population": "rebuild-lcwstraw",
+      "source_order": 5460864,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5461216,
+      "method": "005354e0",
+      "body_bytes": 73,
+      "body_sha256": "12bc6bb2e6bc2058119c9a7488155c50e399ecd37e9d49d50b0cd94dc4b231a3",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "243585cf2291ea7f19e4f95fe095692335eea459b74bee8257d977c887af684a",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GLCWStraw@@UAEPAXI@Z",
+      "symbol_prefix": "??_GLCWStraw@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7LCWStraw@@6B@",
+          "target": 8017020,
+          "addend": 0,
+          "resolved": 8017020
+        },
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2410569
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2410553
+        },
+        {
+          "offset": 47,
+          "kind": 20,
+          "symbol": "??1Straw@@UAE@XZ",
+          "target": 6926352,
+          "addend": 0,
+          "resolved": 1465085
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2410523
+        }
+      ],
+      "source_sha256": "363fe61c358c8ee89b0459aab5ec1aa2c09010d9c861b2e523c22eba4ae280c0",
+      "source": "src/lcwstraw.cpp",
+      "population": "rebuild-lcwstraw",
+      "source_order": 5461216,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

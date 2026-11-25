@@ -1,5 +1,0 @@
-// Dynamic initializer of the global IPX connection manager (0x004D48D0;
-// registers the destructor thunk 0x004D4910 with atexit).
-#include "shared/ipx_manager.hpp"
-
-IPXManagerClass Ipx(0x1c7, 0x22e, 0xa0, 0x20, 0x8813, 0xaa03);

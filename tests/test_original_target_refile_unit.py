@@ -280,8 +280,6 @@ class ConfigAndNewlineTests(unittest.TestCase):
         tools = pathlib.Path(__file__).resolve().parents[1] / 'tools' / 'original_target'
         for name in ('refile_unit.py', 'module_ledger.py'):
             self.assertNotIn('.write_text(', (tools / name).read_text(), name)
-        native = pathlib.Path(__file__).resolve().parents[1] / 'native' / 'tools' / 'initterm_manifest.py'
-        self.assertNotIn('.write_text(', native.read_text())
 
 
 class PlanTests(unittest.TestCase):
@@ -691,43 +689,6 @@ class SplitClassTests(unittest.TestCase):
                          dict(template=[2, 15], header_state=[1, 40], stand_in=[1, 3], emitted=[0, 0], separate_units=[0, 0],
                               option_set=[0, 0], own_population=[0, 0], frozen_bound=[0, 0], unclassified=[2, 12]))
 
-    def test_status_line_carries_the_breakdown(self):
-        import status
-        entry = dict(module='u', route='A', code=[1], code_bytes=10, source='src/recovered/u.cpp', residuals=[
-            dict(kind='split', source='a.cpp', bytes=13), dict(kind='split', source='e.cpp', bytes=1),
-            dict(kind='split', source='f.cpp', bytes=3), dict(kind='flipped', source='a.cpp', bytes=9)])
-        form = status.route_a_form([entry], self.read)
-        self.assertEqual((form['route_a_split_rows'], form['route_a_split_bytes']), (3, 17))
-        self.assertEqual(sum(form['route_a_split_%s_rows' % key] for key, _ in refile_unit.SPLIT_CLASSES), 3)
-        self.assertEqual(sum(form['route_a_split_%s_bytes' % key] for key, _ in refile_unit.SPLIT_CLASSES), 17)
-        line = status.route_a_line(form)
-        self.assertIn('template members 1 rows, 13 bytes', line)
-        self.assertIn('needs another unit\'s header state 1 rows, 1 bytes', line)
-        self.assertIn('stand-ins 1 rows, 3 bytes', line)
-        self.assertIn('not yet classified 0 rows, 0 bytes', line)
-        # without a reader the line is as before
-        self.assertNotIn('by cause', status.route_a_line(status.route_a_form([entry])))
-
-
-class StatusLineTests(unittest.TestCase):
-    def test_split_and_flipped_residuals_are_reported_separately(self):
-        import status
-        entries = [
-            dict(module='plain', code=[1], code_bytes=10),
-            dict(module='u', route='A', code=[1, 2], code_bytes=300, switches=['A', 'B'],
-                 stand_in_references=[dict(site='1')],
-                 residuals=[dict(kind='split', bytes=40), dict(kind='split', bytes=2), dict(kind='flipped', bytes=7),
-                            dict(kind='kept', bytes=5)])]
-        form = status.route_a_form(entries)
-        self.assertEqual((form['route_a_units'], form['route_a_functions'], form['route_a_code_bytes']), (1, 2, 300))
-        self.assertEqual((form['route_a_split_rows'], form['route_a_split_bytes']), (2, 42))
-        self.assertEqual((form['route_a_flipped_rows'], form['route_a_flipped_bytes']), (1, 7))
-        self.assertEqual((form['route_a_kept_rows'], form['route_a_kept_bytes']), (1, 5))
-        line = status.route_a_line(form)
-        self.assertIn('split 2 rows, 42 bytes', line)
-        self.assertIn('flipped 1 rows, 7 bytes', line)
-        self.assertIn('known ceiling', line)
-        self.assertIn('1 stand-in references', line)
 
 
 class PlaceJoinedTests(unittest.TestCase):

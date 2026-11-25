@@ -1,0 +1,1132 @@
+{
+  "id": "rebuild-vqalib-task",
+  "population": {
+    "id": "rebuild-vqalib-task",
+    "inventory_sha256": "dcae65f86b47705e93450509c6060d40166c364b27329fd4f6ec0df665c34497",
+    "gaps_sha256": "64f2d20582546adfc37681f307ee35a3bce5aa477fa903a8a96615eb195543a1",
+    "historical_population_sha256": "1317551071c377d61cef52666ba4b19120dac5f5ce63b77920d70876a638207b",
+    "historical_acceptance_sha256": "4c68f6fdfd9f85896dea90e14e6c3c472187bb9ce0ffbac42220fe821511836d"
+  },
+  "references": {
+    "?VQA_Memory_Handler@@YAJPAU_VQAHandle@@JPAXJ@Z": 7829472,
+    "?Disk_VQA_Stream_Handler@@YAJPAU_VQAHandle@@JPAXJ@Z": 7832656,
+    "?VQA_Close@@YIXPAU_VQAHandle@@@Z": 7847536,
+    "?Load_CINF@@YIJPAU_VQAHandleP@@@Z": 7842944,
+    "?Load_LINF@@YIJPAU_VQAHandleP@@@Z": 7840608,
+    "?Load_PINF@@YIJPAU_VQAHandleP@@@Z": 7843312,
+    "?Load_CLIP@@YIJPAU_VQAHandleP@@K@Z": 7840576,
+    "?Load_MSCI@@YIJPAU_VQAHandleP@@@Z": 7842112,
+    "?Load_MFCI@@YIJPAU_VQAHandleP@@@Z": 7840960,
+    "?AllocBuffers@@YIJPAU_VQAHandleP@@@Z": 7825568,
+    "?Load_FINF@@YIJPAU_VQAHandleP@@K@Z": 7843664,
+    "?VQA_Reset@@YIXPAU_VQAHandle@@@Z": 7849936,
+    "?VQA_OpenAudio@@YIJPAU_VQAHandleP@@@Z": 7824256,
+    "?Lock_Audio_Handler@@YAJXZ": 4268912,
+    "_VQA_sosCODECInitStream": 7865696,
+    "?VQA_LargestLoop@@YIJPAU_VQAHandleP@@J@Z": 7850608,
+    "?VQA_SetLoop@@YIJPAU_VQAHandle@@HHH@Z": 7849536,
+    "?VQA_SetLoop_Internal@@YIJPAU_VQAHandle@@HHHH@Z": 7849664,
+    "?VQA_Configure_Drawer@@YIJPAU_VQAHandleP@@@Z": 7829632,
+    "?PrimeBuffers@@YIJPAU_VQAHandle@@@Z": 7837344,
+    "?VQA_CloseAudio@@YIXPAU_VQAHandleP@@@Z": 7824416,
+    "?Unlock_Audio_Handler@@YAJXZ": 4268928,
+    "?FreeBuffers@@YIXPAU_VQAHandleP@@@Z": 7827856,
+    "?VQA_ResetLastFrameNum@@YIJPAU_VQAHandle@@@Z": 7829616,
+    "?VQA_Configure_Buffer@@YIJPAU_VQAHandleP@@@Z": 7829168,
+    "?VQA_StartAudio@@YIXPAU_VQAHandleP@@@Z": 7824512,
+    "?VQA_SetTimer@@YIXPAU_VQAHandleP@@J@Z": 7850784,
+    "?VQA_GetTime@@YIKPAU_VQAHandleP@@@Z": 7850864,
+    "?VQA_LoadFrame@@YIJPAU_VQAHandleP@@J@Z": 7833216,
+    "?VQA_PauseAudio@@YIXPAU_VQAHandleP@@@Z": 7824544,
+    "?User_Update@@YIJPAU_VQAHandle@@@Z": 7850336,
+    "?VQA_StopAudio@@YIXPAU_VQAHandleP@@@Z": 7824576,
+    "?VQA_IsFrameStartOfLoop@@YI_NPAU_VQAHandleP@@J@Z": 7837424,
+    "?VQA_ReloadPalette@@YIJPAU_VQAHandleP@@JH@Z": 7837504,
+    "?VQA_SeekGroup@@YIJPAU_VQAHandleP@@JJ_N1AA_N@Z": 7838032,
+    "?UnVQ_Nop@@YAXPAE00KKK@Z": 7832624,
+    "?VQA_SeekFrame@@YIJPAU_VQAHandle@@JJ@Z": 7848672,
+    "??_C@_03JFJK@5?40?$AA@": 8393976,
+    "??_C@_0CI@FGHI@VQA?5playback?55?40?5?$CIJun?5?56?52001?516@": 8393980,
+    "?VQA_DispatchFrameChunks@@YIXPAU_VQAHandleP@@J@Z": 7830080,
+    "?VQA_Open@@YIJPBDPAU_VQAConfig@@PAPAU_VQAHandle@@@Z": 7845792,
+    "?VQA_Play@@YIJPAU_VQAHandle@@JH@Z": 7847696,
+    "?VQA_SetUnVQ@@YIJPAU_VQAHandle@@P6AXPAE11KKK@Z2@Z": 7849024,
+    "?VQA_Set_DrawBuffer@@YIJPAU_VQAHandle@@PAEKKJJ@Z": 7849088,
+    "?VQA_GetLoopCount@@YIHPAU_VQAHandleP@@@Z": 7849920,
+    "?VQA_ResetCache@@YIXPAU_VQAHandleP@@@Z": 7850112,
+    "?VQA_SetStop@@YIJPAU_VQAHandle@@J@Z": 7850144,
+    "?VQA_Version@@YIPADXZ": 7850192,
+    "?VQA_GetClipping@@YIJPAU_VQAHandleP@@AAHAAJ@Z": 7850208,
+    "?VQA_GetBlockInfo@@YIJPAU_VQAHandle@@AAJ11@Z": 7850272,
+    "?VQA_IDString@@YIPADXZ": 7850320,
+    "?VQA_NumFramesWithPalettes@@YIJPAU_VQAHandleP@@@Z": 7850544,
+    "?VQA_GetXYPos@@YIJPAU_VQAHandleP@@AAHAAJ@Z": 7850576
+  },
+  "regions": [
+    {
+      "entry": 7845792,
+      "method": "0077b7a0",
+      "body_bytes": 1735,
+      "body_sha256": "85d7a63d66d7dbac1757e12886080cc53d863b34e5e8c6f6f52381fa7381990d",
+      "padding_bytes": 9,
+      "full_extent_bytes": 1744,
+      "full_extent_sha256": "196e0723e53c500c72ffd9b8564f3b165bcdfb27e65c60b085116d2dd1ad3258",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?VQA_Open@@YIJPBDPAU_VQAConfig@@PAPAU_VQAHandle@@@Z",
+      "symbol_prefix": "?VQA_Open@@YIJPBDPAU_VQAConfig@@PAPAU_VQAHandle@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 105,
+          "kind": 20,
+          "symbol": "?VQA_Memory_Handler@@YAJPAU_VQAHandle@@JPAXJ@Z",
+          "target": 7829472,
+          "addend": 0,
+          "resolved": 4294950867
+        },
+        {
+          "offset": 132,
+          "kind": 20,
+          "symbol": "?VQA_Memory_Handler@@YAJPAU_VQAHandle@@JPAXJ@Z",
+          "target": 7829472,
+          "addend": 0,
+          "resolved": 4294950840
+        },
+        {
+          "offset": 208,
+          "kind": 6,
+          "symbol": "?VQA_Memory_Handler@@YAJPAU_VQAHandle@@JPAXJ@Z",
+          "target": 7829472,
+          "addend": 0,
+          "resolved": 7829472
+        },
+        {
+          "offset": 221,
+          "kind": 6,
+          "symbol": "?Disk_VQA_Stream_Handler@@YAJPAU_VQAHandle@@JPAXJ@Z",
+          "target": 7832656,
+          "addend": 0,
+          "resolved": 7832656
+        },
+        {
+          "offset": 366,
+          "kind": 20,
+          "symbol": "?VQA_Close@@YIXPAU_VQAHandle@@@Z",
+          "target": 7847536,
+          "addend": 0,
+          "resolved": 1374
+        },
+        {
+          "offset": 426,
+          "kind": 20,
+          "symbol": "?VQA_Close@@YIXPAU_VQAHandle@@@Z",
+          "target": 7847536,
+          "addend": 0,
+          "resolved": 1314
+        },
+        {
+          "offset": 458,
+          "kind": 20,
+          "symbol": "?VQA_Close@@YIXPAU_VQAHandle@@@Z",
+          "target": 7847536,
+          "addend": 0,
+          "resolved": 1282
+        },
+        {
+          "offset": 609,
+          "kind": 20,
+          "symbol": "?Load_CINF@@YIJPAU_VQAHandleP@@@Z",
+          "target": 7842944,
+          "addend": 0,
+          "resolved": 4294963835
+        },
+        {
+          "offset": 796,
+          "kind": 20,
+          "symbol": "?Load_LINF@@YIJPAU_VQAHandleP@@@Z",
+          "target": 7840608,
+          "addend": 0,
+          "resolved": 4294961312
+        },
+        {
+          "offset": 817,
+          "kind": 20,
+          "symbol": "?Load_PINF@@YIJPAU_VQAHandleP@@@Z",
+          "target": 7843312,
+          "addend": 0,
+          "resolved": 4294963995
+        },
+        {
+          "offset": 888,
+          "kind": 20,
+          "symbol": "?Load_CLIP@@YIJPAU_VQAHandleP@@K@Z",
+          "target": 7840576,
+          "addend": 0,
+          "resolved": 4294961188
+        },
+        {
+          "offset": 909,
+          "kind": 20,
+          "symbol": "?Load_MSCI@@YIJPAU_VQAHandleP@@@Z",
+          "target": 7842112,
+          "addend": 0,
+          "resolved": 4294962703
+        },
+        {
+          "offset": 930,
+          "kind": 20,
+          "symbol": "?Load_MFCI@@YIJPAU_VQAHandleP@@@Z",
+          "target": 7840960,
+          "addend": 0,
+          "resolved": 4294961530
+        },
+        {
+          "offset": 951,
+          "kind": 20,
+          "symbol": "?AllocBuffers@@YIJPAU_VQAHandleP@@@Z",
+          "target": 7825568,
+          "addend": 0,
+          "resolved": 4294946117
+        },
+        {
+          "offset": 973,
+          "kind": 20,
+          "symbol": "?Load_FINF@@YIJPAU_VQAHandleP@@K@Z",
+          "target": 7843664,
+          "addend": 0,
+          "resolved": 4294964191
+        },
+        {
+          "offset": 1045,
+          "kind": 20,
+          "symbol": "?VQA_Reset@@YIXPAU_VQAHandle@@@Z",
+          "target": 7849936,
+          "addend": 0,
+          "resolved": 3095
+        },
+        {
+          "offset": 1087,
+          "kind": 20,
+          "symbol": "?VQA_Close@@YIXPAU_VQAHandle@@@Z",
+          "target": 7847536,
+          "addend": 0,
+          "resolved": 653
+        },
+        {
+          "offset": 1109,
+          "kind": 20,
+          "symbol": "?VQA_Close@@YIXPAU_VQAHandle@@@Z",
+          "target": 7847536,
+          "addend": 0,
+          "resolved": 631
+        },
+        {
+          "offset": 1192,
+          "kind": 20,
+          "symbol": "?VQA_OpenAudio@@YIJPAU_VQAHandleP@@@Z",
+          "target": 7824256,
+          "addend": 0,
+          "resolved": 4294944564
+        },
+        {
+          "offset": 1203,
+          "kind": 20,
+          "symbol": "?VQA_Close@@YIXPAU_VQAHandle@@@Z",
+          "target": 7847536,
+          "addend": 0,
+          "resolved": 537
+        },
+        {
+          "offset": 1223,
+          "kind": 20,
+          "symbol": "?Lock_Audio_Handler@@YAJXZ",
+          "target": 4268912,
+          "addend": 0,
+          "resolved": 4291389189
+        },
+        {
+          "offset": 1253,
+          "kind": 20,
+          "symbol": "_VQA_sosCODECInitStream",
+          "target": 7865696,
+          "addend": 0,
+          "resolved": 18647
+        },
+        {
+          "offset": 1351,
+          "kind": 20,
+          "symbol": "?VQA_LargestLoop@@YIJPAU_VQAHandleP@@J@Z",
+          "target": 7850608,
+          "addend": 0,
+          "resolved": 3461
+        },
+        {
+          "offset": 1452,
+          "kind": 20,
+          "symbol": "?VQA_Close@@YIXPAU_VQAHandle@@@Z",
+          "target": 7847536,
+          "addend": 0,
+          "resolved": 288
+        },
+        {
+          "offset": 1557,
+          "kind": 20,
+          "symbol": "?VQA_SetLoop@@YIJPAU_VQAHandle@@HHH@Z",
+          "target": 7849536,
+          "addend": 0,
+          "resolved": 2183
+        },
+        {
+          "offset": 1568,
+          "kind": 20,
+          "symbol": "?VQA_Close@@YIXPAU_VQAHandle@@@Z",
+          "target": 7847536,
+          "addend": 0,
+          "resolved": 172
+        },
+        {
+          "offset": 1603,
+          "kind": 20,
+          "symbol": "?VQA_SetLoop_Internal@@YIJPAU_VQAHandle@@HHHH@Z",
+          "target": 7849664,
+          "addend": 0,
+          "resolved": 2265
+        },
+        {
+          "offset": 1614,
+          "kind": 20,
+          "symbol": "?VQA_Close@@YIXPAU_VQAHandle@@@Z",
+          "target": 7847536,
+          "addend": 0,
+          "resolved": 126
+        },
+        {
+          "offset": 1648,
+          "kind": 20,
+          "symbol": "?VQA_Configure_Drawer@@YIJPAU_VQAHandleP@@@Z",
+          "target": 7829632,
+          "addend": 0,
+          "resolved": 4294949484
+        },
+        {
+          "offset": 1687,
+          "kind": 20,
+          "symbol": "?PrimeBuffers@@YIJPAU_VQAHandle@@@Z",
+          "target": 7837344,
+          "addend": 0,
+          "resolved": 4294957157
+        },
+        {
+          "offset": 1698,
+          "kind": 20,
+          "symbol": "?VQA_Close@@YIXPAU_VQAHandle@@@Z",
+          "target": 7847536,
+          "addend": 0,
+          "resolved": 42
+        }
+      ],
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
+      "source": "src/vqalib_task.cpp",
+      "population": "rebuild-vqalib-task",
+      "source_order": 7845792,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7847536,
+      "method": "0077be70",
+      "body_bytes": 154,
+      "body_sha256": "72b7423ecbe9ada5895fa5129449ee83d49faa58d132b6165f7ba57fc880619c",
+      "padding_bytes": 6,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "4ba506e3d7bd5d109c9eeb8438e9e32f8351dced19c0b502506235bb7213a974",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?VQA_Close@@YIXPAU_VQAHandle@@@Z",
+      "symbol_prefix": "?VQA_Close@@YIXPAU_VQAHandle@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 22,
+          "kind": 20,
+          "symbol": "?VQA_CloseAudio@@YIXPAU_VQAHandleP@@@Z",
+          "target": 7824416,
+          "addend": 0,
+          "resolved": 4294944150
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "?Unlock_Audio_Handler@@YAJXZ",
+          "target": 4268928,
+          "addend": 0,
+          "resolved": 4291388645
+        },
+        {
+          "offset": 114,
+          "kind": 20,
+          "symbol": "?FreeBuffers@@YIXPAU_VQAHandleP@@@Z",
+          "target": 7827856,
+          "addend": 0,
+          "resolved": 4294947498
+        }
+      ],
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
+      "source": "src/vqalib_task.cpp",
+      "population": "rebuild-vqalib-task",
+      "source_order": 7847536,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7847696,
+      "method": "0077bf10",
+      "body_bytes": 962,
+      "body_sha256": "3a69164a09ca6f6c22b3309752af2d85bd912df02e3f8b3443501ccc88bfaad6",
+      "padding_bytes": 14,
+      "full_extent_bytes": 976,
+      "full_extent_sha256": "f0e437f2eb4bc49d51437c2530f77ea6d11246b370ed7d33c6cb44b48a0a9bc9",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?VQA_Play@@YIJPAU_VQAHandle@@JH@Z",
+      "symbol_prefix": "?VQA_Play@@YIJPAU_VQAHandle@@JH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?VQA_ResetLastFrameNum@@YIJPAU_VQAHandle@@@Z",
+          "target": 7829616,
+          "addend": 0,
+          "resolved": 4294949186
+        },
+        {
+          "offset": 53,
+          "kind": 20,
+          "symbol": "?VQA_Configure_Buffer@@YIJPAU_VQAHandleP@@@Z",
+          "target": 7829168,
+          "addend": 0,
+          "resolved": 4294948711
+        },
+        {
+          "offset": 80,
+          "kind": 20,
+          "symbol": "?VQA_StartAudio@@YIXPAU_VQAHandleP@@@Z",
+          "target": 7824512,
+          "addend": 0,
+          "resolved": 4294944028
+        },
+        {
+          "offset": 111,
+          "kind": 20,
+          "symbol": "?VQA_SetTimer@@YIXPAU_VQAHandleP@@J@Z",
+          "target": 7850784,
+          "addend": 0,
+          "resolved": 2973
+        },
+        {
+          "offset": 118,
+          "kind": 20,
+          "symbol": "?VQA_GetTime@@YIKPAU_VQAHandleP@@@Z",
+          "target": 7850864,
+          "addend": 0,
+          "resolved": 3046
+        },
+        {
+          "offset": 237,
+          "kind": 20,
+          "symbol": "?VQA_StartAudio@@YIXPAU_VQAHandleP@@@Z",
+          "target": 7824512,
+          "addend": 0,
+          "resolved": 4294943871
+        },
+        {
+          "offset": 247,
+          "kind": 20,
+          "symbol": "?VQA_SetTimer@@YIXPAU_VQAHandleP@@J@Z",
+          "target": 7850784,
+          "addend": 0,
+          "resolved": 2837
+        },
+        {
+          "offset": 294,
+          "kind": 20,
+          "symbol": "?VQA_LoadFrame@@YIJPAU_VQAHandleP@@J@Z",
+          "target": 7833216,
+          "addend": 0,
+          "resolved": 4294952518
+        },
+        {
+          "offset": 365,
+          "kind": 20,
+          "symbol": "?VQA_PauseAudio@@YIXPAU_VQAHandleP@@@Z",
+          "target": 7824544,
+          "addend": 0,
+          "resolved": 4294943775
+        },
+        {
+          "offset": 437,
+          "kind": 20,
+          "symbol": "?VQA_StartAudio@@YIXPAU_VQAHandleP@@@Z",
+          "target": 7824512,
+          "addend": 0,
+          "resolved": 4294943671
+        },
+        {
+          "offset": 563,
+          "kind": 20,
+          "symbol": "?User_Update@@YIJPAU_VQAHandle@@@Z",
+          "target": 7850336,
+          "addend": 0,
+          "resolved": 2073
+        },
+        {
+          "offset": 748,
+          "kind": 20,
+          "symbol": "?VQA_GetTime@@YIKPAU_VQAHandleP@@@Z",
+          "target": 7850864,
+          "addend": 0,
+          "resolved": 2416
+        },
+        {
+          "offset": 768,
+          "kind": 20,
+          "symbol": "?VQA_PauseAudio@@YIXPAU_VQAHandleP@@@Z",
+          "target": 7824544,
+          "addend": 0,
+          "resolved": 4294943372
+        },
+        {
+          "offset": 812,
+          "kind": 20,
+          "symbol": "?User_Update@@YIJPAU_VQAHandle@@@Z",
+          "target": 7850336,
+          "addend": 0,
+          "resolved": 1824
+        },
+        {
+          "offset": 924,
+          "kind": 20,
+          "symbol": "?VQA_GetTime@@YIKPAU_VQAHandleP@@@Z",
+          "target": 7850864,
+          "addend": 0,
+          "resolved": 2240
+        },
+        {
+          "offset": 944,
+          "kind": 20,
+          "symbol": "?VQA_StopAudio@@YIXPAU_VQAHandleP@@@Z",
+          "target": 7824576,
+          "addend": 0,
+          "resolved": 4294943228
+        }
+      ],
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
+      "source": "src/vqalib_task.cpp",
+      "population": "rebuild-vqalib-task",
+      "source_order": 7847696,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7848672,
+      "method": "0077c2e0",
+      "body_bytes": 349,
+      "body_sha256": "e8b2c9f3b16efc46845b5c0859eb126df30bcb79bf9d14cd84f422fa5fab5689",
+      "padding_bytes": 3,
+      "full_extent_bytes": 352,
+      "full_extent_sha256": "95d5eb1251d66f2fc0f3d874d2c42ca487b887ae5be39aa9a6f2dd8e8dfd2bd2",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?VQA_SeekFrame@@YIJPAU_VQAHandle@@JJ@Z",
+      "symbol_prefix": "?VQA_SeekFrame@@YIJPAU_VQAHandle@@JJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?VQA_StopAudio@@YIXPAU_VQAHandleP@@@Z",
+          "target": 7824576,
+          "addend": 0,
+          "resolved": 4294943166
+        },
+        {
+          "offset": 86,
+          "kind": 20,
+          "symbol": "?VQA_ResetLastFrameNum@@YIJPAU_VQAHandle@@@Z",
+          "target": 7829616,
+          "addend": 0,
+          "resolved": 4294948150
+        },
+        {
+          "offset": 107,
+          "kind": 20,
+          "symbol": "?VQA_IsFrameStartOfLoop@@YI_NPAU_VQAHandleP@@J@Z",
+          "target": 7837424,
+          "addend": 0,
+          "resolved": 4294955937
+        },
+        {
+          "offset": 122,
+          "kind": 20,
+          "symbol": "?VQA_ReloadPalette@@YIJPAU_VQAHandleP@@JH@Z",
+          "target": 7837504,
+          "addend": 0,
+          "resolved": 4294956002
+        },
+        {
+          "offset": 199,
+          "kind": 20,
+          "symbol": "?VQA_SeekGroup@@YIJPAU_VQAHandleP@@JJ_N1AA_N@Z",
+          "target": 7838032,
+          "addend": 0,
+          "resolved": 4294956453
+        },
+        {
+          "offset": 283,
+          "kind": 20,
+          "symbol": "?PrimeBuffers@@YIJPAU_VQAHandle@@@Z",
+          "target": 7837344,
+          "addend": 0,
+          "resolved": 4294955681
+        },
+        {
+          "offset": 320,
+          "kind": 20,
+          "symbol": "?VQA_SetTimer@@YIXPAU_VQAHandleP@@J@Z",
+          "target": 7850784,
+          "addend": 0,
+          "resolved": 1788
+        }
+      ],
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
+      "source": "src/vqalib_task.cpp",
+      "population": "rebuild-vqalib-task",
+      "source_order": 7848672,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7849024,
+      "method": "0077c440",
+      "body_bytes": 58,
+      "body_sha256": "ec3d5ed695343d16d87d7ca22d42c2f87c7ec332459d20f7857799629cc10e5d",
+      "padding_bytes": 6,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "12abf50affa184acbd9dbe55d2de399a21e53d79bc2c40c24b854d6771e52960",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?VQA_SetUnVQ@@YIJPAU_VQAHandle@@P6AXPAE11KKK@Z2@Z",
+      "symbol_prefix": "?VQA_SetUnVQ@@YIJPAU_VQAHandle@@P6AXPAE11KKK@Z2@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "?UnVQ_Nop@@YAXPAE00KKK@Z",
+          "target": 7832624,
+          "addend": 0,
+          "resolved": 7832624
+        },
+        {
+          "offset": 48,
+          "kind": 6,
+          "symbol": "?UnVQ_Nop@@YAXPAE00KKK@Z",
+          "target": 7832624,
+          "addend": 0,
+          "resolved": 7832624
+        }
+      ],
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
+      "source": "src/vqalib_task.cpp",
+      "population": "rebuild-vqalib-task",
+      "source_order": 7849024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7849088,
+      "method": "0077c480",
+      "body_bytes": 440,
+      "body_sha256": "fd4cdb1739820cfe148288a10dc0ddf1b49754aae68ef13896005922e890a81c",
+      "padding_bytes": 8,
+      "full_extent_bytes": 448,
+      "full_extent_sha256": "1a0ad9326028547435fd7ceccd50dc4aad96e59becef504b59e6fd49a3e11089",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?VQA_Set_DrawBuffer@@YIJPAU_VQAHandle@@PAEKKJJ@Z",
+      "symbol_prefix": "?VQA_Set_DrawBuffer@@YIJPAU_VQAHandle@@PAEKKJJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
+      "source": "src/vqalib_task.cpp",
+      "population": "rebuild-vqalib-task",
+      "source_order": 7849088,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7849536,
+      "method": "0077c640",
+      "body_bytes": 114,
+      "body_sha256": "3fea0843d60da31fa0cc78b32db2ba60a08a7e1ca38cdf50b14b7494ac60e3c8",
+      "padding_bytes": 14,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "226698ef1a76b687d8da5fdef636daf970598b72bdb0d9ea3ad69de729f1d39e",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?VQA_SetLoop@@YIJPAU_VQAHandle@@HHH@Z",
+      "symbol_prefix": "?VQA_SetLoop@@YIJPAU_VQAHandle@@HHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 84,
+          "kind": 20,
+          "symbol": "?VQA_SetLoop_Internal@@YIJPAU_VQAHandle@@HHHH@Z",
+          "target": 7849664,
+          "addend": 0,
+          "resolved": 40
+        }
+      ],
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
+      "source": "src/vqalib_task.cpp",
+      "population": "rebuild-vqalib-task",
+      "source_order": 7849536,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7849664,
+      "method": "0077c6c0",
+      "body_bytes": 255,
+      "body_sha256": "e8c3e6559cdf636781abfbe6c8efffa38a1b98c01afdf12ca76824c171f09148",
+      "padding_bytes": 1,
+      "full_extent_bytes": 256,
+      "full_extent_sha256": "6ccb2e45b4a764b9ee9b6d431fa3ce285b093a558d4703d479d337143948f3c0",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?VQA_SetLoop_Internal@@YIJPAU_VQAHandle@@HHHH@Z",
+      "symbol_prefix": "?VQA_SetLoop_Internal@@YIJPAU_VQAHandle@@HHHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 218,
+          "kind": 20,
+          "symbol": "?VQA_SeekFrame@@YIJPAU_VQAHandle@@JJ@Z",
+          "target": 7848672,
+          "addend": 0,
+          "resolved": 4294966082
+        }
+      ],
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
+      "source": "src/vqalib_task.cpp",
+      "population": "rebuild-vqalib-task",
+      "source_order": 7849664,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7849920,
+      "method": "0077c7c0",
+      "body_bytes": 10,
+      "body_sha256": "19e51bc97038863419ce89e3a990e12cf4319bb9e218f7bbaa3aeb90de0d5e0d",
+      "padding_bytes": 6,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "5efad9fd937403c94b7ea66bad13bd4643b4233c9a23acc5a91a44743c4bf3cc",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?VQA_GetLoopCount@@YIHPAU_VQAHandleP@@@Z",
+      "symbol_prefix": "?VQA_GetLoopCount@@YIHPAU_VQAHandleP@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
+      "source": "src/vqalib_task.cpp",
+      "population": "rebuild-vqalib-task",
+      "source_order": 7849920,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7849936,
+      "method": "0077c7d0",
+      "body_bytes": 167,
+      "body_sha256": "472e048f4595f76ec72003aa5ddef8638c944f638e2dbfefcdb067e4ee68a3c7",
+      "padding_bytes": 9,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "b3bfcc6bfc9adbff23e5e5ca84514b2f690a5ddc581f50e7ebcd8ddd2dc6fd55",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Image-derived bound (manifests/image_bounds.csv, image_bounds.py; start call@0071d219 +1, end bound row)",
+      "padding_provenance": null,
+      "bound": "image-derived",
+      "symbol": "?VQA_Reset@@YIXPAU_VQAHandle@@@Z",
+      "symbol_prefix": "?VQA_Reset@@YIXPAU_VQAHandle@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
+      "source": "src/vqalib_task.cpp",
+      "population": "rebuild-vqalib-task",
+      "source_order": 7849936,
+      "source_quality_family": "rebuild",
+      "bound_population": "image-bounds"
+    },
+    {
+      "entry": 7850112,
+      "method": "0077c880",
+      "body_bytes": 22,
+      "body_sha256": "b7548c0f5672c8d20aafb5b002df6b8eff0dc3a77b89d0660d441d6fd02c2ce9",
+      "padding_bytes": 10,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "942de787f19012ddcb8d352f7bf57b70140c52f9faaa731d4bc056b4c7fbf958",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?VQA_ResetCache@@YIXPAU_VQAHandleP@@@Z",
+      "symbol_prefix": "?VQA_ResetCache@@YIXPAU_VQAHandleP@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
+      "source": "src/vqalib_task.cpp",
+      "population": "rebuild-vqalib-task",
+      "source_order": 7850112,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7850144,
+      "method": "0077c8a0",
+      "body_bytes": 41,
+      "body_sha256": "3c852a2f38b0e84bde69423f7b4088650aaed9ab3af24ff0ded29b3fb0ec501c",
+      "padding_bytes": 7,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "1a23ec891236ca3c39db543533ae4a52ed8d242b2f9a7855228514ed27f7f937",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?VQA_SetStop@@YIJPAU_VQAHandle@@J@Z",
+      "symbol_prefix": "?VQA_SetStop@@YIJPAU_VQAHandle@@J@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
+      "source": "src/vqalib_task.cpp",
+      "population": "rebuild-vqalib-task",
+      "source_order": 7850144,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7850192,
+      "method": "0077c8d0",
+      "body_bytes": 6,
+      "body_sha256": "cf9852cdd64eb7bb0b00ce67b07acffa1116b374c9454b1d743e092c5f6e9236",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "f61fd76f7de59747dbed90b57e06e55d7cd3e72586547eeb96fe82ce63204ec3",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?VQA_Version@@YIPADXZ",
+      "symbol_prefix": "?VQA_Version@@YIPADXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "??_C@_03JFJK@5?40?$AA@",
+          "target": 8393976,
+          "addend": 0,
+          "resolved": 8393976
+        }
+      ],
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
+      "source": "src/vqalib_task.cpp",
+      "population": "rebuild-vqalib-task",
+      "source_order": 7850192,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7850208,
+      "method": "0077c8e0",
+      "body_bytes": 56,
+      "body_sha256": "d115ea3a56a99332a03aa137cd11ba3ccb2f97fd6598d8f8291fef3c12fa9025",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "3ed066c7dd467047a65c7b9859978664594d4cc384b90055a14b6ec2fa711675",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?VQA_GetClipping@@YIJPAU_VQAHandleP@@AAHAAJ@Z",
+      "symbol_prefix": "?VQA_GetClipping@@YIJPAU_VQAHandleP@@AAHAAJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
+      "source": "src/vqalib_task.cpp",
+      "population": "rebuild-vqalib-task",
+      "source_order": 7850208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7850272,
+      "method": "0077c920",
+      "body_bytes": 44,
+      "body_sha256": "94aad1744ffa059a086e048b2dc9394d6b6e37fb389f5aef37780c297c31ebbe",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "079a3371f6b49fa15c3e85928ea3ba54df0434ae7050301772ed89a324001ada",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?VQA_GetBlockInfo@@YIJPAU_VQAHandle@@AAJ11@Z",
+      "symbol_prefix": "?VQA_GetBlockInfo@@YIJPAU_VQAHandle@@AAJ11@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
+      "source": "src/vqalib_task.cpp",
+      "population": "rebuild-vqalib-task",
+      "source_order": 7850272,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7850320,
+      "method": "0077c950",
+      "body_bytes": 6,
+      "body_sha256": "09323000989a2b09041f068b5ced62543a76760f5e27a6f7c741677215657bbc",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "60ca16267f8efd0dfa4867f3a9fb1b8a234f78647fa59149e851c462ca7a9de2",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?VQA_IDString@@YIPADXZ",
+      "symbol_prefix": "?VQA_IDString@@YIPADXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "??_C@_0CI@FGHI@VQA?5playback?55?40?5?$CIJun?5?56?52001?516@",
+          "target": 8393980,
+          "addend": 0,
+          "resolved": 8393980
+        }
+      ],
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
+      "source": "src/vqalib_task.cpp",
+      "population": "rebuild-vqalib-task",
+      "source_order": 7850320,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7850336,
+      "method": "0077c960",
+      "body_bytes": 208,
+      "body_sha256": "93653acccd7eedbd21c9abe97fb0609b7cd5430d71cc2bffd14fd8a5194d2c6c",
+      "padding_bytes": 0,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "93653acccd7eedbd21c9abe97fb0609b7cd5430d71cc2bffd14fd8a5194d2c6c",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?User_Update@@YIJPAU_VQAHandle@@@Z",
+      "symbol_prefix": "?User_Update@@YIJPAU_VQAHandle@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 104,
+          "kind": 20,
+          "symbol": "?VQA_DispatchFrameChunks@@YIXPAU_VQAHandleP@@J@Z",
+          "target": 7830080,
+          "addend": 0,
+          "resolved": 4294946932
+        }
+      ],
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
+      "source": "src/vqalib_task.cpp",
+      "population": "rebuild-vqalib-task",
+      "source_order": 7850336,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7850544,
+      "method": "0077ca30",
+      "body_bytes": 31,
+      "body_sha256": "4c17e683ce6913de4759cf3d1c499c292c70a5ece3741963b014f5399c28d2b5",
+      "padding_bytes": 1,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "68199155e5db0a79e7ba9330d55b1f97ad9d2b5e9e12fd6812e550912c9d478a",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?VQA_NumFramesWithPalettes@@YIJPAU_VQAHandleP@@@Z",
+      "symbol_prefix": "?VQA_NumFramesWithPalettes@@YIJPAU_VQAHandleP@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
+      "source": "src/vqalib_task.cpp",
+      "population": "rebuild-vqalib-task",
+      "source_order": 7850544,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7850576,
+      "method": "0077ca50",
+      "body_bytes": 32,
+      "body_sha256": "4ddd5cd3fb1bc1ec27fc708835a14a6e580853a33f19aba7bf1fecdf5f4e2225",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4ddd5cd3fb1bc1ec27fc708835a14a6e580853a33f19aba7bf1fecdf5f4e2225",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?VQA_GetXYPos@@YIJPAU_VQAHandleP@@AAHAAJ@Z",
+      "symbol_prefix": "?VQA_GetXYPos@@YIJPAU_VQAHandleP@@AAHAAJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
+      "source": "src/vqalib_task.cpp",
+      "population": "rebuild-vqalib-task",
+      "source_order": 7850576,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7850608,
+      "method": "0077ca70",
+      "body_bytes": 169,
+      "body_sha256": "b14ca46a875f8fe022b23683380360cafb4c4893bfcbc8d846976229b7ad09b7",
+      "padding_bytes": 7,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "9634489b43220e45cf334ef8ac95e6c2eaa651e0434698e7d0745e2fec97f01a",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?VQA_LargestLoop@@YIJPAU_VQAHandleP@@J@Z",
+      "symbol_prefix": "?VQA_LargestLoop@@YIJPAU_VQAHandleP@@J@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
+      "source": "src/vqalib_task.cpp",
+      "population": "rebuild-vqalib-task",
+      "source_order": 7850608,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

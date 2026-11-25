@@ -1,4 +1,0 @@
-// Layout dumps only (native/tools/original_layouts.py --game yr, lane Y10): the i686-msvc dump has
-// no C++ library; this stands in for <typeinfo> as far as the YR tree uses it.
-#pragma once
-namespace std { class type_info { public: virtual ~type_info(); bool operator==(const type_info &) const; bool operator!=(const type_info &) const; const char *name() const; private: void *data_; char name_[1]; }; }

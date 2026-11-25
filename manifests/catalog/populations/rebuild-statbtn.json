@@ -1,0 +1,678 @@
+{
+  "id": "rebuild-statbtn",
+  "population": {
+    "id": "rebuild-statbtn",
+    "inventory_sha256": "93be6a9f5ac38e23964d229d34bd8e8129e4cbc154b182e30bcaa2e6f40bcaf6",
+    "gaps_sha256": "cdb4aec4eca7ab07897d44e4f6f65bb9588296b94c1d964cf853226781fb6d54",
+    "historical_population_sha256": "257bb39e035eba9c5d0a768e25ffe129f5d304ecbe6c334db39b9703334e618f",
+    "historical_acceptance_sha256": "7e7e870e3b703aa19c8da06bd12d9c6c2ab9abef4ae3e6e1bf2e6329e309b651"
+  },
+  "references": {
+    "_RECT_NONE": 11261072,
+    "??0GadgetClass@@QAE@HHHHI_N@Z": 5042144,
+    "??0Buffer@@QAE@PAXH@Z": 4424384,
+    "??_7StaticButtonClass@@6B@": 8044752,
+    "?Set_Text@StaticButtonClass@@UAEXPBG_N@Z": 6916256,
+    "?Font_From_TPF@@YIPAVBitFont@@W4TextPrintType@@@Z": 4815440,
+    "?String_Pixel_Width@BitFont@@QAEHPBGH@Z": 4396688,
+    "??3@YAXPAX@Z": 7871803,
+    "??1Buffer@@QAE@XZ": 4424720,
+    "??1GadgetClass@@UAE@XZ": 5042304,
+    "?Draw_Me@GadgetClass@@UAEHH@Z": 5042752,
+    "_wcslen": 7878149,
+    "??2@YAPAXI@Z": 7872535,
+    "_wcscpy": 7878281,
+    "??4Buffer@@QAEAAV0@ABV0@@Z": 4424656,
+    "?LogicalSurface@@3PAVSurface@@A": 8624476,
+    "??0Buffer@@QAE@H@Z": 4424576,
+    "?To_Buffer@@YI_NABVSurface@@ABV?$TRect@H@@AAVBuffer@@@Z": 4409696,
+    "?From_Buffer@@YI_NAAVSurface@@ABV?$TRect@H@@ABVBuffer@@@Z": 4409888,
+    "?Get_Color_Scheme@GadgetClass@@SIHXZ": 5042112,
+    "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A": 11235064,
+    "?Fancy_Text_Print@@YA?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@ZZ": 4815680,
+    "_$E2": 6915904,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??0StaticButtonClass@@QAE@IPBGW4TextPrintType@@HHHH@Z": 6915936,
+    "?Clicked_On@GadgetClass@@EAEHAAW4KeyNumType@@IHH@Z": 5042400,
+    "?Action@GadgetClass@@MAEHIAAW4KeyNumType@@@Z": 5042720,
+    "?Sticky_Process@GadgetClass@@MAEXI@Z": 5043632,
+    "?Mouse_Leave@GadgetClass@@UAEXXZ": 5042704,
+    "?Mouse_Enter@GadgetClass@@UAEXXZ": 5042688,
+    "?Set_Size@GadgetClass@@UAEXHH@Z": 5043840,
+    "?Set_Position@GadgetClass@@UAEXHH@Z": 5043808,
+    "?Is_List_To_Redraw@GadgetClass@@UAEHXZ": 5043776,
+    "?Has_Focus@GadgetClass@@UAE_NXZ": 5043760,
+    "?Clear_Focus@GadgetClass@@UAEXXZ": 5043728,
+    "?Set_Focus@GadgetClass@@UAEXXZ": 5043680,
+    "?Flag_To_Redraw@GadgetClass@@UAEXXZ": 5043616,
+    "?Enable@GadgetClass@@UAEXXZ": 5042496,
+    "?Disable@GadgetClass@@UAEXXZ": 5042512,
+    "?Extract_Gadget@GadgetClass@@UAEPAVControlClass@@I@Z": 5043552,
+    "?Delete_List@GadgetClass@@UAEXXZ": 5042608,
+    "?Draw_All@GadgetClass@@UAEX_N@Z": 5042784,
+    "?Input@GadgetClass@@UAE?AW4KeyNumType@@XZ": 5042992,
+    "?Remove@GadgetClass@@UAEPAVLinkClass@@XZ": 5042544,
+    "?Zap@LinkClass@@UAEXXZ": 5476336,
+    "?Tail_Of_List@LinkClass@@UAEAAV1@XZ": 5476464,
+    "?Head_Of_List@LinkClass@@UAEAAV1@XZ": 5476416,
+    "?Add_Head@LinkClass@@UAEAAV1@AAV1@@Z": 5476544,
+    "?Add_Tail@LinkClass@@UAEAAV1@AAV1@@Z": 5476576,
+    "?Add@LinkClass@@UAEAAV1@AAV1@@Z": 5476512,
+    "?Get_Prev@GadgetClass@@UBEPAVLinkClass@@XZ": 5042592,
+    "?Get_Next@GadgetClass@@UBEPAVLinkClass@@XZ": 5042576,
+    "??_GStaticButtonClass@@UAEPAXI@Z": 6916768,
+    "??_R0?AVLinkClass@@@8": 8198056,
+    "??_R0?AVGadgetClass@@@8": 8204080,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVStaticButtonClass@@@8": 8347824,
+    "?Flag_List_To_Redraw@GadgetClass@@UAEXXZ": 4708080,
+    "?LastList@GadgetClass@@1PAV1@A": 8806388,
+    "?Get_ID@GadgetClass@@UBEIXZ": 4844752,
+    "?Peer_To_Peer@GadgetClass@@UAEXIAAW4KeyNumType@@AAVControlClass@@@Z": 4732256,
+    "?Is_To_Redraw@GadgetClass@@UAE_NXZ": 4708096,
+    "??0StaticButtonClass@@QAE@XZ": 6916080,
+    "??1StaticButtonClass@@UAE@XZ": 6916144,
+    "?Draw_Me@StaticButtonClass@@UAEHH@Z": 6916192,
+    "?Draw_Background@StaticButtonClass@@MAEXXZ": 6916448,
+    "?Draw_Text@StaticButtonClass@@MAEXPBG@Z": 6916624
+  },
+  "regions": [
+    {
+      "entry": 6915904,
+      "method": "698740",
+      "body_bytes": 23,
+      "body_sha256": "8527ddb2d24300ba82ad425580268fc9ad7f802a523923675f44180cdcbc3a50",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "9ee72234013ff5f1d1eb78c8ad445d5f4aa31287a8d8ff97f7ad774ea9a14e17",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11261072,
+          "addend": 0,
+          "resolved": 11261072
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11261072,
+          "addend": 4,
+          "resolved": 11261076
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11261072,
+          "addend": 8,
+          "resolved": 11261080
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11261072,
+          "addend": 12,
+          "resolved": 11261084
+        }
+      ],
+      "source_sha256": "3231cbea08aee13fdefe66948f2049d4e6ed6883cdb24d812fd440a260575b8e",
+      "source": "src/statbtn.cpp",
+      "population": "rebuild-statbtn",
+      "source_order": 6915904,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-106"
+    },
+    {
+      "entry": 6915936,
+      "method": "00698760",
+      "body_bytes": 144,
+      "body_sha256": "4bda6c918db50b98caaa038805111e1b418a8c808df5a49eeebe3754f70c7c7c",
+      "padding_bytes": 0,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "4bda6c918db50b98caaa038805111e1b418a8c808df5a49eeebe3754f70c7c7c",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0StaticButtonClass@@QAE@IPBGW4TextPrintType@@HHHH@Z",
+      "symbol_prefix": "??0StaticButtonClass@@QAE@IPBGW4TextPrintType@@HHHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 33,
+          "kind": 20,
+          "symbol": "??0GadgetClass@@QAE@HHHHI_N@Z",
+          "target": 5042144,
+          "addend": 0,
+          "resolved": 4293093467
+        },
+        {
+          "offset": 45,
+          "kind": 20,
+          "symbol": "??0Buffer@@QAE@PAXH@Z",
+          "target": 4424384,
+          "addend": 0,
+          "resolved": 4292475695
+        },
+        {
+          "offset": 74,
+          "kind": 6,
+          "symbol": "??_7StaticButtonClass@@6B@",
+          "target": 8044752,
+          "addend": 0,
+          "resolved": 8044752
+        },
+        {
+          "offset": 79,
+          "kind": 20,
+          "symbol": "?Set_Text@StaticButtonClass@@UAEXPBG_N@Z",
+          "target": 6916256,
+          "addend": 0,
+          "resolved": 237
+        },
+        {
+          "offset": 97,
+          "kind": 20,
+          "symbol": "?Font_From_TPF@@YIPAVBitFont@@W4TextPrintType@@@Z",
+          "target": 4815440,
+          "addend": 0,
+          "resolved": 4292866699
+        },
+        {
+          "offset": 117,
+          "kind": 20,
+          "symbol": "?String_Pixel_Width@BitFont@@QAEHPBGH@Z",
+          "target": 4396688,
+          "addend": 0,
+          "resolved": 4292447927
+        }
+      ],
+      "source_sha256": "3231cbea08aee13fdefe66948f2049d4e6ed6883cdb24d812fd440a260575b8e",
+      "source": "src/statbtn.cpp",
+      "population": "rebuild-statbtn",
+      "source_order": 6915936,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6916080,
+      "method": "006987f0",
+      "body_bytes": 56,
+      "body_sha256": "468817b22a760f59d339715459c60a21cb60a0d925e20ac40145dee0175b281e",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "144255581008c98bee40ab4232da8cdba2de4644c8ab7bbb299c095fa8aa9785",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0StaticButtonClass@@QAE@XZ",
+      "symbol_prefix": "??0StaticButtonClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "??0GadgetClass@@QAE@HHHHI_N@Z",
+          "target": 5042144,
+          "addend": 0,
+          "resolved": 4293093340
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "??0Buffer@@QAE@PAXH@Z",
+          "target": 4424384,
+          "addend": 0,
+          "resolved": 4292475568
+        },
+        {
+          "offset": 48,
+          "kind": 6,
+          "symbol": "??_7StaticButtonClass@@6B@",
+          "target": 8044752,
+          "addend": 0,
+          "resolved": 8044752
+        }
+      ],
+      "source_sha256": "3231cbea08aee13fdefe66948f2049d4e6ed6883cdb24d812fd440a260575b8e",
+      "source": "src/statbtn.cpp",
+      "population": "rebuild-statbtn",
+      "source_order": 6916080,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6916144,
+      "method": "00698830",
+      "body_bytes": 42,
+      "body_sha256": "422d9f754e580595f8f19febc0aaf01796e139886abce073dfe5864ba90abc21",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "dff90acdd1d3624e7fd0fc04cc5cfcc90cff43b76b8add11258818168cf789f6",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1StaticButtonClass@@UAE@XZ",
+      "symbol_prefix": "??1StaticButtonClass@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7StaticButtonClass@@6B@",
+          "target": 8044752,
+          "addend": 0,
+          "resolved": 8044752
+        },
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 955637
+        },
+        {
+          "offset": 29,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 4292475839
+        },
+        {
+          "offset": 36,
+          "kind": 20,
+          "symbol": "??1GadgetClass@@UAE@XZ",
+          "target": 5042304,
+          "addend": 0,
+          "resolved": 4293093416
+        }
+      ],
+      "source_sha256": "3231cbea08aee13fdefe66948f2049d4e6ed6883cdb24d812fd440a260575b8e",
+      "source": "src/statbtn.cpp",
+      "population": "rebuild-statbtn",
+      "source_order": 6916144,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6916192,
+      "method": "00698860",
+      "body_bytes": 56,
+      "body_sha256": "5bcb0cbccb54fe537c8535a2089dd619b579ca92c1da1a7a4c252c98acfb52b8",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "06d026a4c07b6bedea7b855a3044b85933c86d790ea7ddb3e1cd118a1dea3f44",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Me@StaticButtonClass@@UAEHH@Z",
+      "symbol_prefix": "?Draw_Me@StaticButtonClass@@UAEHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "?Draw_Me@GadgetClass@@UAEHH@Z",
+          "target": 5042752,
+          "addend": 0,
+          "resolved": 4293093843
+        }
+      ],
+      "source_sha256": "3231cbea08aee13fdefe66948f2049d4e6ed6883cdb24d812fd440a260575b8e",
+      "source": "src/statbtn.cpp",
+      "population": "rebuild-statbtn",
+      "source_order": 6916192,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6916256,
+      "method": "006988a0",
+      "body_bytes": 177,
+      "body_sha256": "09f88281a7965f2563337de5bbd55beffc1642b1a0b8f97573941f5974bcaac9",
+      "padding_bytes": 15,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "09ba454ab3577e15eed647211074cff19c4a7ee971de387dc36e887a1f54b82f",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Text@StaticButtonClass@@UAEXPBG_N@Z",
+      "symbol_prefix": "?Set_Text@StaticButtonClass@@UAEXPBG_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 955527
+        },
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "_wcslen",
+          "target": 7878149,
+          "addend": 0,
+          "resolved": 961849
+        },
+        {
+          "offset": 50,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 956225
+        },
+        {
+          "offset": 67,
+          "kind": 20,
+          "symbol": "_wcscpy",
+          "target": 7878281,
+          "addend": 0,
+          "resolved": 961954
+        },
+        {
+          "offset": 110,
+          "kind": 20,
+          "symbol": "?Font_From_TPF@@YIPAVBitFont@@W4TextPrintType@@@Z",
+          "target": 4815440,
+          "addend": 0,
+          "resolved": 4292866366
+        },
+        {
+          "offset": 125,
+          "kind": 20,
+          "symbol": "?String_Pixel_Width@BitFont@@QAEHPBGH@Z",
+          "target": 4396688,
+          "addend": 0,
+          "resolved": 4292447599
+        },
+        {
+          "offset": 147,
+          "kind": 20,
+          "symbol": "??0Buffer@@QAE@PAXH@Z",
+          "target": 4424384,
+          "addend": 0,
+          "resolved": 4292475273
+        },
+        {
+          "offset": 156,
+          "kind": 20,
+          "symbol": "??4Buffer@@QAEAAV0@ABV0@@Z",
+          "target": 4424656,
+          "addend": 0,
+          "resolved": 4292475536
+        },
+        {
+          "offset": 165,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 4292475591
+        }
+      ],
+      "source_sha256": "3231cbea08aee13fdefe66948f2049d4e6ed6883cdb24d812fd440a260575b8e",
+      "source": "src/statbtn.cpp",
+      "population": "rebuild-statbtn",
+      "source_order": 6916256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6916448,
+      "method": "00698960",
+      "body_bytes": 166,
+      "body_sha256": "85dd761019b5e97acec2253127ca96745b2eb5b4c4eba33e779f23c3f9de8911",
+      "padding_bytes": 10,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "146b0eadaef71a5ef7c60c90af692df07bf336e376311c97268cb78d63057fd8",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Background@StaticButtonClass@@MAEXXZ",
+      "symbol_prefix": "?Draw_Background@StaticButtonClass@@MAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 58,
+          "kind": 20,
+          "symbol": "??0Buffer@@QAE@H@Z",
+          "target": 4424576,
+          "addend": 0,
+          "resolved": 4292475362
+        },
+        {
+          "offset": 93,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 107,
+          "kind": 20,
+          "symbol": "?To_Buffer@@YI_NABVSurface@@ABV?$TRect@H@@AAVBuffer@@@Z",
+          "target": 4409696,
+          "addend": 0,
+          "resolved": 4292460433
+        },
+        {
+          "offset": 138,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 156,
+          "kind": 20,
+          "symbol": "?From_Buffer@@YI_NAAVSurface@@ABV?$TRect@H@@ABVBuffer@@@Z",
+          "target": 4409888,
+          "addend": 0,
+          "resolved": 4292460576
+        }
+      ],
+      "source_sha256": "3231cbea08aee13fdefe66948f2049d4e6ed6883cdb24d812fd440a260575b8e",
+      "source": "src/statbtn.cpp",
+      "population": "rebuild-statbtn",
+      "source_order": 6916448,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6916624,
+      "method": "00698a10",
+      "body_bytes": 137,
+      "body_sha256": "d3365769058b92277c375a02c529a08a14f933d24b075c6f1d66dde85156922d",
+      "padding_bytes": 7,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "427c53e8e1232eed13f0eb39df1ca5ccf85157fc4cba8fff70a874f40bce0fd0",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Text@StaticButtonClass@@MAEXPBG@Z",
+      "symbol_prefix": "?Draw_Text@StaticButtonClass@@MAEXPBG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 48,
+          "kind": 20,
+          "symbol": "?Get_Color_Scheme@GadgetClass@@SIHXZ",
+          "target": 5042112,
+          "addend": 0,
+          "resolved": 4293092732
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 85,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 105,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 122,
+          "kind": 20,
+          "symbol": "?Fancy_Text_Print@@YA?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@ZZ",
+          "target": 4815680,
+          "addend": 0,
+          "resolved": 4292866226
+        }
+      ],
+      "source_sha256": "3231cbea08aee13fdefe66948f2049d4e6ed6883cdb24d812fd440a260575b8e",
+      "source": "src/statbtn.cpp",
+      "population": "rebuild-statbtn",
+      "source_order": 6916624,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6916768,
+      "method": "00698aa0",
+      "body_bytes": 62,
+      "body_sha256": "14d76ac09a0e805dff9f1c8c35a4ba1d1ef1d5224f25be6f553ba5990aad0399",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "b8dab5b29dffcd177677f1564aa9ad5584d25ed2dade61f15e667f79f20e62ec",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GStaticButtonClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GStaticButtonClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7StaticButtonClass@@6B@",
+          "target": 8044752,
+          "addend": 0,
+          "resolved": 8044752
+        },
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 955013
+        },
+        {
+          "offset": 29,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 4292475215
+        },
+        {
+          "offset": 36,
+          "kind": 20,
+          "symbol": "??1GadgetClass@@UAE@XZ",
+          "target": 5042304,
+          "addend": 0,
+          "resolved": 4293092792
+        },
+        {
+          "offset": 49,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 954982
+        }
+      ],
+      "source_sha256": "3231cbea08aee13fdefe66948f2049d4e6ed6883cdb24d812fd440a260575b8e",
+      "source": "src/statbtn.cpp",
+      "population": "rebuild-statbtn",
+      "source_order": 6916768,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

@@ -1,0 +1,740 @@
+{
+  "id": "rebuild-grphmitm",
+  "population": {
+    "id": "rebuild-grphmitm",
+    "inventory_sha256": "cfd3108458bd6cb80aa5537e1d10209e8eb1ba9a032a8f2641462d41fba6c655",
+    "gaps_sha256": "5bbcfb84229b5ea898dec3b3fab89c812ed9b2502b602303506d8b2cdded6e46",
+    "historical_population_sha256": "c97a56dd5a2393caa5d9a2ad6c4758a358fa3064c15aa5df8df624422a9959a0",
+    "historical_acceptance_sha256": "69c4acf73832dbdbd81a6faff177df944e9351779d6295ddb7db24a53ea05076"
+  },
+  "references": {
+    "_RECT_NONE": 10751576,
+    "??0Wstring@@QAE@XZ": 7788816,
+    "??_C@_00A@?$AA@": 8635740,
+    "??0Wstring@@QAE@PBD@Z": 7788832,
+    "??_C@_04FCOP@Type?$AA@": 8232684,
+    "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z": 5303104,
+    "??1Wstring@@QAE@XZ": 7789024,
+    "??_C@_05LADG@Image?$AA@": 8191452,
+    "??8Wstring@@QBE_NPBD@Z": 7789056,
+    "?GM_Read_Image_Item@@YIPAVGraphicMenuItem@@ABVWstring@@ABVINIClass@@AAVMSEngine@@AAVPoint2D@@@Z": 5109776,
+    "??_C@_08CGHL@Shortcut?$AA@": 8232672,
+    "?GM_Read_Shortcut_Item@@YIPAVGraphicMenuItem@@ABVWstring@@ABVINIClass@@@Z": 5112400,
+    "??_C@_04LFDA@Anim?$AA@": 8183456,
+    "?GM_Read_Anim_Item@@YIPAVGraphicMenuItem@@ABVWstring@@ABVINIClass@@AAVMSEngine@@AAVPoint2D@@@Z": 5108560,
+    "??_C@_0M@CHBD@SelectSound?$AA@": 8232660,
+    "??2@YAPAXI@Z": 7872535,
+    "??0MSSfxEntry@@QAE@ABVWstring@@0@Z": 5969328,
+    "??_7GraphicMenuItem@@6B@": 8006608,
+    "??1MSSfxEntry@@QAE@XZ": 5969600,
+    "??3@YAXPAX@Z": 7871803,
+    "?Play@MSSfxEntry@@QAEXXZ": 5969616,
+    "_$E2": 5111648,
+    "?GM_Create_Item_From_INI@@YIPAVGraphicMenuItem@@ABVWstring@@ABVINIClass@@AAVMSEngine@@AAVPoint2D@@@Z": 5111680,
+    "??0GraphicMenuItem@@QAE@H@Z": 5112096,
+    "??_GGraphicMenuItem@@UAEPAXI@Z": 5112304,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVGraphicMenuItem@@@8": 8232504,
+    "??1GraphicMenuItem@@UAE@XZ": 5112128,
+    "?Set_Selected@GraphicMenuItem@@QAEX_N@Z": 5112160,
+    "?Set_Enabled@GraphicMenuItem@@QAEX_N@Z": 5112192,
+    "?On_Selected_Change@GraphicMenuItem@@UAEX_N@Z": 5112224,
+    "?On_Enabled_Change@GraphicMenuItem@@UAEX_N@Z": 5112240,
+    "?Is_Mouse_Over@GraphicMenuItem@@UAE_NABVPoint2D@@@Z": 5112256,
+    "?Is_Input_Key@GraphicMenuItem@@UAE_NW4KeyNumType@@@Z": 5112272,
+    "?Action@GraphicMenuItem@@UAEXPAVMSEngine@@@Z": 5112288,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056
+  },
+  "regions": [
+    {
+      "entry": 5111648,
+      "method": "004dff60",
+      "body_bytes": 23,
+      "body_sha256": "2c1c566501bd872f3ef9c91b924ecf2b329aef0a51c8510585e13928ef51b333",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "edba930c01145e96cf87b5a43fd2d027d9deeed3df319caaeac1cd7e9edf0331",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10751576,
+          "addend": 0,
+          "resolved": 10751576
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10751576,
+          "addend": 4,
+          "resolved": 10751580
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10751576,
+          "addend": 8,
+          "resolved": 10751584
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10751576,
+          "addend": 12,
+          "resolved": 10751588
+        }
+      ],
+      "source_sha256": "6dbd12b3fce81964d0765cb4843ca0406c3962f11acb4ac242ab8db1dc90276d",
+      "source": "src/grphmitm.cpp",
+      "population": "rebuild-grphmitm",
+      "source_order": 5111648,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5111680,
+      "method": "004dff80",
+      "body_bytes": 412,
+      "body_sha256": "0ec93e8f77ea2e57379cb0a9b7010c229a393b0a9af61890e597b16e9b482247",
+      "padding_bytes": 4,
+      "full_extent_bytes": 416,
+      "full_extent_sha256": "bbf37a01c0c64986bcb71e6d213910f67deae294fa060ea0eaab477d2c0daa47",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GM_Create_Item_From_INI@@YIPAVGraphicMenuItem@@ABVWstring@@ABVINIClass@@AAVMSEngine@@AAVPoint2D@@@Z",
+      "symbol_prefix": "?GM_Create_Item_From_INI@@YIPAVGraphicMenuItem@@ABVWstring@@ABVINIClass@@AAVMSEngine@@AAVPoint2D@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 2677109
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 2677111
+        },
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "??_C@_04FCOP@Type?$AA@",
+          "target": 8232684,
+          "addend": 0,
+          "resolved": 8232684
+        },
+        {
+          "offset": 51,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 2677097
+        },
+        {
+          "offset": 74,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 191346
+        },
+        {
+          "offset": 83,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2677257
+        },
+        {
+          "offset": 92,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2677248
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "??_C@_05LADG@Image?$AA@",
+          "target": 8191452,
+          "addend": 0,
+          "resolved": 8191452
+        },
+        {
+          "offset": 108,
+          "kind": 20,
+          "symbol": "??8Wstring@@QBE_NPBD@Z",
+          "target": 7789056,
+          "addend": 0,
+          "resolved": 2677264
+        },
+        {
+          "offset": 131,
+          "kind": 20,
+          "symbol": "?GM_Read_Image_Item@@YIPAVGraphicMenuItem@@ABVWstring@@ABVINIClass@@AAVMSEngine@@AAVPoint2D@@@Z",
+          "target": 5109776,
+          "addend": 0,
+          "resolved": 4294965257
+        },
+        {
+          "offset": 138,
+          "kind": 6,
+          "symbol": "??_C@_08CGHL@Shortcut?$AA@",
+          "target": 8232672,
+          "addend": 0,
+          "resolved": 8232672
+        },
+        {
+          "offset": 147,
+          "kind": 20,
+          "symbol": "??8Wstring@@QBE_NPBD@Z",
+          "target": 7789056,
+          "addend": 0,
+          "resolved": 2677225
+        },
+        {
+          "offset": 160,
+          "kind": 20,
+          "symbol": "?GM_Read_Shortcut_Item@@YIPAVGraphicMenuItem@@ABVWstring@@ABVINIClass@@@Z",
+          "target": 5112400,
+          "addend": 0,
+          "resolved": 556
+        },
+        {
+          "offset": 167,
+          "kind": 6,
+          "symbol": "??_C@_04LFDA@Anim?$AA@",
+          "target": 8183456,
+          "addend": 0,
+          "resolved": 8183456
+        },
+        {
+          "offset": 176,
+          "kind": 20,
+          "symbol": "??8Wstring@@QBE_NPBD@Z",
+          "target": 7789056,
+          "addend": 0,
+          "resolved": 2677196
+        },
+        {
+          "offset": 203,
+          "kind": 20,
+          "symbol": "?GM_Read_Anim_Item@@YIPAVGraphicMenuItem@@ABVWstring@@ABVINIClass@@AAVMSEngine@@AAVPoint2D@@@Z",
+          "target": 5108560,
+          "addend": 0,
+          "resolved": 4294963969
+        },
+        {
+          "offset": 223,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 2676909
+        },
+        {
+          "offset": 232,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 237,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 2676911
+        },
+        {
+          "offset": 246,
+          "kind": 6,
+          "symbol": "??_C@_0M@CHBD@SelectSound?$AA@",
+          "target": 8232660,
+          "addend": 0,
+          "resolved": 8232660
+        },
+        {
+          "offset": 251,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 2676897
+        },
+        {
+          "offset": 274,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 191146
+        },
+        {
+          "offset": 288,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2677052
+        },
+        {
+          "offset": 297,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2677043
+        },
+        {
+          "offset": 308,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2760543
+        },
+        {
+          "offset": 322,
+          "kind": 6,
+          "symbol": "??_C@_0M@CHBD@SelectSound?$AA@",
+          "target": 8232660,
+          "addend": 0,
+          "resolved": 8232660
+        },
+        {
+          "offset": 331,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 2676817
+        },
+        {
+          "offset": 353,
+          "kind": 20,
+          "symbol": "??0MSSfxEntry@@QAE@ABVWstring@@0@Z",
+          "target": 5969328,
+          "addend": 0,
+          "resolved": 857291
+        },
+        {
+          "offset": 378,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2676962
+        },
+        {
+          "offset": 387,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2676953
+        },
+        {
+          "offset": 397,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2676943
+        }
+      ],
+      "source_sha256": "6dbd12b3fce81964d0765cb4843ca0406c3962f11acb4ac242ab8db1dc90276d",
+      "source": "src/grphmitm.cpp",
+      "population": "rebuild-grphmitm",
+      "source_order": 5111680,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5112096,
+      "method": "004e0120",
+      "body_bytes": 30,
+      "body_sha256": "a21cc35caeeceea7c76d3850e2739889dc6b6f0f78b1ac959f48959fbca08785",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "73e95d6f65fca4067a8125b092175787be646217862749ef864576819731c530",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0GraphicMenuItem@@QAE@H@Z",
+      "symbol_prefix": "??0GraphicMenuItem@@QAE@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "??_7GraphicMenuItem@@6B@",
+          "target": 8006608,
+          "addend": 0,
+          "resolved": 8006608
+        }
+      ],
+      "source_sha256": "6dbd12b3fce81964d0765cb4843ca0406c3962f11acb4ac242ab8db1dc90276d",
+      "source": "src/grphmitm.cpp",
+      "population": "rebuild-grphmitm",
+      "source_order": 5112096,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5112128,
+      "method": "004e0140",
+      "body_bytes": 32,
+      "body_sha256": "5391c45853e338b3518ed3b7bb0991a384999afa3755e10fb9e3d862a988a349",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "5391c45853e338b3518ed3b7bb0991a384999afa3755e10fb9e3d862a988a349",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1GraphicMenuItem@@UAE@XZ",
+      "symbol_prefix": "??1GraphicMenuItem@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7GraphicMenuItem@@6B@",
+          "target": 8006608,
+          "addend": 0,
+          "resolved": 8006608
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??1MSSfxEntry@@QAE@XZ",
+          "target": 5969600,
+          "addend": 0,
+          "resolved": 857451
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2759648
+        }
+      ],
+      "source_sha256": "6dbd12b3fce81964d0765cb4843ca0406c3962f11acb4ac242ab8db1dc90276d",
+      "source": "src/grphmitm.cpp",
+      "population": "rebuild-grphmitm",
+      "source_order": 5112128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5112160,
+      "method": "004e0160",
+      "body_bytes": 23,
+      "body_sha256": "4ecdabd28653e1ec47ed24ef1ccf26fb5445777b0a2051e3e2330b452808dec4",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "081e3431247f85812202573c3f55ee52ac1179fbf0bf83ef4cc547b1055fad1f",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Selected@GraphicMenuItem@@QAEX_N@Z",
+      "symbol_prefix": "?Set_Selected@GraphicMenuItem@@QAEX_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6dbd12b3fce81964d0765cb4843ca0406c3962f11acb4ac242ab8db1dc90276d",
+      "source": "src/grphmitm.cpp",
+      "population": "rebuild-grphmitm",
+      "source_order": 5112160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5112192,
+      "method": "004e0180",
+      "body_bytes": 23,
+      "body_sha256": "3bbe7dc6b52194435411a77f2c11adb95235a764186bea93d96769a72edc3b1e",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "c14e37e6241de2065000a096aa42c3851e0d4cd43c09b3f0af22140e887962d9",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Enabled@GraphicMenuItem@@QAEX_N@Z",
+      "symbol_prefix": "?Set_Enabled@GraphicMenuItem@@QAEX_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6dbd12b3fce81964d0765cb4843ca0406c3962f11acb4ac242ab8db1dc90276d",
+      "source": "src/grphmitm.cpp",
+      "population": "rebuild-grphmitm",
+      "source_order": 5112192,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5112224,
+      "method": "004e01a0",
+      "body_bytes": 3,
+      "body_sha256": "e598d0c3ba86d917b177d7adde0556aa99bc355543c57aee0a3e50b684dd7e99",
+      "padding_bytes": 13,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "c4e48398aa494fd8abf1c3e8e6cc058bcdca3836fdfe6744b7d353c518e1c019",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?On_Selected_Change@GraphicMenuItem@@UAEX_N@Z",
+      "symbol_prefix": "?On_Selected_Change@GraphicMenuItem@@UAEX_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6dbd12b3fce81964d0765cb4843ca0406c3962f11acb4ac242ab8db1dc90276d",
+      "source": "src/grphmitm.cpp",
+      "population": "rebuild-grphmitm",
+      "source_order": 5112224,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5112240,
+      "method": "004e01b0",
+      "body_bytes": 3,
+      "body_sha256": "e598d0c3ba86d917b177d7adde0556aa99bc355543c57aee0a3e50b684dd7e99",
+      "padding_bytes": 13,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "c4e48398aa494fd8abf1c3e8e6cc058bcdca3836fdfe6744b7d353c518e1c019",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?On_Enabled_Change@GraphicMenuItem@@UAEX_N@Z",
+      "symbol_prefix": "?On_Enabled_Change@GraphicMenuItem@@UAEX_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6dbd12b3fce81964d0765cb4843ca0406c3962f11acb4ac242ab8db1dc90276d",
+      "source": "src/grphmitm.cpp",
+      "population": "rebuild-grphmitm",
+      "source_order": 5112240,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5112256,
+      "method": "004e01c0",
+      "body_bytes": 5,
+      "body_sha256": "cc0e3cb106eb0fdec984d44a563d98c3da80700bbb8d2be4e66ebd54a9919626",
+      "padding_bytes": 11,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "9fa697955e6e50ca514c5e17cfc025b33f6dcb749299caabf3bb95c6a10fda65",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Mouse_Over@GraphicMenuItem@@UAE_NABVPoint2D@@@Z",
+      "symbol_prefix": "?Is_Mouse_Over@GraphicMenuItem@@UAE_NABVPoint2D@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6dbd12b3fce81964d0765cb4843ca0406c3962f11acb4ac242ab8db1dc90276d",
+      "source": "src/grphmitm.cpp",
+      "population": "rebuild-grphmitm",
+      "source_order": 5112256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5112272,
+      "method": "004e01d0",
+      "body_bytes": 5,
+      "body_sha256": "cc0e3cb106eb0fdec984d44a563d98c3da80700bbb8d2be4e66ebd54a9919626",
+      "padding_bytes": 11,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "9fa697955e6e50ca514c5e17cfc025b33f6dcb749299caabf3bb95c6a10fda65",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Input_Key@GraphicMenuItem@@UAE_NW4KeyNumType@@@Z",
+      "symbol_prefix": "?Is_Input_Key@GraphicMenuItem@@UAE_NW4KeyNumType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6dbd12b3fce81964d0765cb4843ca0406c3962f11acb4ac242ab8db1dc90276d",
+      "source": "src/grphmitm.cpp",
+      "population": "rebuild-grphmitm",
+      "source_order": 5112272,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5112288,
+      "method": "004e01e0",
+      "body_bytes": 15,
+      "body_sha256": "45b5d9f5dcb9338da6d2442c6e363a98cdb954be7f5b4a2621f005710e952674",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "e4e4311bacd1635d0bce2c4199970b0a5c60cd46cc4f138ea5559e3b0b5f9beb",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Action@GraphicMenuItem@@UAEXPAVMSEngine@@@Z",
+      "symbol_prefix": "?Action@GraphicMenuItem@@UAEXPAVMSEngine@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 20,
+          "symbol": "?Play@MSSfxEntry@@QAEXXZ",
+          "target": 5969616,
+          "addend": 0,
+          "resolved": 857316
+        }
+      ],
+      "source_sha256": "6dbd12b3fce81964d0765cb4843ca0406c3962f11acb4ac242ab8db1dc90276d",
+      "source": "src/grphmitm.cpp",
+      "population": "rebuild-grphmitm",
+      "source_order": 5112288,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5112304,
+      "method": "004e01f0",
+      "body_bytes": 56,
+      "body_sha256": "acac2dffdd52c336b4bca9a0b068d029c0e40865a931a4a454064b53fda4e59c",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "f61d44a387515df953e6d496aa167a3ffcb7b2f3cede86aa5850730cf9967a2f",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GGraphicMenuItem@@UAEPAXI@Z",
+      "symbol_prefix": "??_GGraphicMenuItem@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "??_7GraphicMenuItem@@6B@",
+          "target": 8006608,
+          "addend": 0,
+          "resolved": 8006608
+        },
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??1MSSfxEntry@@QAE@XZ",
+          "target": 5969600,
+          "addend": 0,
+          "resolved": 857272
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2759469
+        },
+        {
+          "offset": 42,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2759453
+        }
+      ],
+      "source_sha256": "6dbd12b3fce81964d0765cb4843ca0406c3962f11acb4ac242ab8db1dc90276d",
+      "source": "src/grphmitm.cpp",
+      "population": "rebuild-grphmitm",
+      "source_order": 5112304,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

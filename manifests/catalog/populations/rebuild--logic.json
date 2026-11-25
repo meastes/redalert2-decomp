@@ -1,0 +1,727 @@
+{
+  "id": "rebuild--logic",
+  "population": {
+    "id": "rebuild--logic",
+    "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
+    "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
+    "historical_population_sha256": "2e722b9ced37a07bdd00d28fc40f832c8066b9d93b78397ac0e216c7b195fc0c",
+    "historical_acceptance_sha256": "b165caf65ac1f33564173bd757e9ed358d1a70ee1a40b3e576c873a7e75dacf8"
+  },
+  "references": {
+    "_$E2": 4246192,
+    "?Logic@@3VLogicClass@@A": 8594544,
+    "??_7LogicClass@@6B@": 7973100,
+    "_atexit": 7874954,
+    "??_7?$VectorClass@PAVObjectClass@@@@6B@": 7973148,
+    "??3@YAXPAX@Z": 7871803,
+    "??2@YAPAXI@Z": 7872535,
+    "_$E4": 4246128,
+    "?Detach@LogicClass@@UAEXPBVAbstractClass@@_N@Z": 5497104,
+    "?Submit@LogicClass@@UAE_NPBVObjectClass@@_N@Z": 5497648,
+    "??_GLogicClass@@UAEPAXI@Z": 4246288,
+    "??_R0?AVLayerClass@@@8": 8181208,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVLogicClass@@@8": 8181240,
+    "?Init@LayerClass@@UAEXXZ": 4246256,
+    "?One_Time@LayerClass@@UAEXXZ": 4246272,
+    "??_G?$VectorClass@PAVObjectClass@@@@UAEPAXI@Z": 4247072,
+    "?Clear@?$DynamicVectorClass@PAVObjectClass@@@@UAEXXZ": 4246368,
+    "?ID@?$DynamicVectorClass@PAVObjectClass@@@@UAEHPBQAVObjectClass@@@Z": 4246416,
+    "?GetItem@?$VectorClass@PAVObjectClass@@@@UBEPAVObjectClass@@H@Z": 4246448,
+    "??8?$VectorClass@PAVObjectClass@@@@UBE_NABV0@@Z": 4246464,
+    "?Resize@?$VectorClass@PAVObjectClass@@@@UAE_NHPBQAVObjectClass@@@Z": 4246528,
+    "?Clear@?$VectorClass@PAVObjectClass@@@@UAEXXZ": 4246704,
+    "?ID@?$VectorClass@PAVObjectClass@@@@UAEHABQAVObjectClass@@@Z": 4246752,
+    "?ID@?$VectorClass@PAVObjectClass@@@@UAEHPBQAVObjectClass@@@Z": 4246816,
+    "?Resize@?$DynamicVectorClass@PAVObjectClass@@@@UAE_NHPBQAVObjectClass@@@Z": 4246848,
+    "?ID@?$DynamicVectorClass@PAVObjectClass@@@@UAEHABQAVObjectClass@@@Z": 4247024
+  },
+  "regions": [
+    {
+      "entry": 4246128,
+      "method": "0040ca70",
+      "body_bytes": 61,
+      "body_sha256": "748d5d2133693e65a5d747a2d60a685f1587890edc893cd1900d44dbc3017ed0",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "487de90e698d002fe90c51eb50f6a1aef114c78f38831f3dbfb33fa57edbcb06",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E4",
+      "symbol_prefix": "_$E4",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E2",
+          "target": 4246192,
+          "addend": 0,
+          "resolved": 4246192
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?Logic@@3VLogicClass@@A",
+          "target": 8594544,
+          "addend": 4,
+          "resolved": 8594548
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?Logic@@3VLogicClass@@A",
+          "target": 8594544,
+          "addend": 8,
+          "resolved": 8594552
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?Logic@@3VLogicClass@@A",
+          "target": 8594544,
+          "addend": 12,
+          "resolved": 8594556
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?Logic@@3VLogicClass@@A",
+          "target": 8594544,
+          "addend": 13,
+          "resolved": 8594557
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?Logic@@3VLogicClass@@A",
+          "target": 8594544,
+          "addend": 20,
+          "resolved": 8594564
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?Logic@@3VLogicClass@@A",
+          "target": 8594544,
+          "addend": 16,
+          "resolved": 8594560
+        },
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "?Logic@@3VLogicClass@@A",
+          "target": 8594544,
+          "addend": 0,
+          "resolved": 8594544
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "??_7LogicClass@@6B@",
+          "target": 7973100,
+          "addend": 0,
+          "resolved": 7973100
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 3628767
+        }
+      ],
+      "source_sha256": "5c0bee4e9b44e573850cfa46fb2018cd159cd1e8c16fe8afe5e6a79e0f3da12b",
+      "source": "src/_logic.cpp",
+      "population": "rebuild--logic",
+      "source_order": 4246128,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3779"
+    },
+    {
+      "entry": 4246192,
+      "method": "0040cab0",
+      "body_bytes": 59,
+      "body_sha256": "2779bab0171445adb3f58d3fa303b38cc857da885aa9effc4846821347604838",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0cfe0d924303f9f7304003d656a12aaf6bda543a988f355299e38d1b925d9a89",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Logic@@3VLogicClass@@A",
+          "target": 8594544,
+          "addend": 4,
+          "resolved": 8594548
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?Logic@@3VLogicClass@@A",
+          "target": 8594544,
+          "addend": 0,
+          "resolved": 8594544
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVObjectClass@@@@6B@",
+          "target": 7973148,
+          "addend": 0,
+          "resolved": 7973148
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?Logic@@3VLogicClass@@A",
+          "target": 8594544,
+          "addend": 13,
+          "resolved": 8594557
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3625575
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?Logic@@3VLogicClass@@A",
+          "target": 8594544,
+          "addend": 4,
+          "resolved": 8594548
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?Logic@@3VLogicClass@@A",
+          "target": 8594544,
+          "addend": 13,
+          "resolved": 8594557
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?Logic@@3VLogicClass@@A",
+          "target": 8594544,
+          "addend": 8,
+          "resolved": 8594552
+        }
+      ],
+      "source_sha256": "5c0bee4e9b44e573850cfa46fb2018cd159cd1e8c16fe8afe5e6a79e0f3da12b",
+      "source": "src/_logic.cpp",
+      "population": "rebuild--logic",
+      "source_order": 4246192,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3779"
+    },
+    {
+      "entry": 4246256,
+      "method": "0040caf0",
+      "body_bytes": 5,
+      "body_sha256": "36dd204b8c08514e55c5a4541c381d9c6c48ecda338001b0ac93e247ec819e94",
+      "padding_bytes": 11,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "cf95f14663a9abe381f1c796cc609b128ad8335a5705ca791ee0f517c218d274",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init@LayerClass@@UAEXXZ",
+      "symbol_prefix": "?Init@LayerClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "5c0bee4e9b44e573850cfa46fb2018cd159cd1e8c16fe8afe5e6a79e0f3da12b",
+      "source": "src/_logic.cpp",
+      "population": "rebuild--logic",
+      "source_order": 4246256,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-40"
+    },
+    {
+      "entry": 4246272,
+      "method": "40cb00",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?One_Time@LayerClass@@UAEXXZ",
+      "symbol_prefix": "?One_Time@LayerClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "5c0bee4e9b44e573850cfa46fb2018cd159cd1e8c16fe8afe5e6a79e0f3da12b",
+      "source": "src/_logic.cpp",
+      "population": "rebuild--logic",
+      "source_order": 4246272,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-09"
+    },
+    {
+      "entry": 4246288,
+      "method": "0040cb10",
+      "body_bytes": 73,
+      "body_sha256": "e66d845b1e869614c4e4cc7d44ba0b74ef9c10d0dc50ca52ba116c8ad861ac3c",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "e88d707f14af8e0f089a3d2032f684e748c3797518975f5dbb99baaad3db2056",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GLogicClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GLogicClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVObjectClass@@@@6B@",
+          "target": 7973148,
+          "addend": 0,
+          "resolved": 7973148
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3625486
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3625451
+        }
+      ],
+      "source_sha256": "5c0bee4e9b44e573850cfa46fb2018cd159cd1e8c16fe8afe5e6a79e0f3da12b",
+      "source": "src/_logic.cpp",
+      "population": "rebuild--logic",
+      "source_order": 4246288,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3779"
+    },
+    {
+      "entry": 4246368,
+      "method": "0040cb60",
+      "body_bytes": 42,
+      "body_sha256": "58fe796ee7ba25d6c7fe82ceff95f435faf34f79ff042616e9d25982cf80770d",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c1cec0677753c219c47a28990ef0478cb0ee8505d0053ad13b14ff9cd8437d31",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@PAVObjectClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAVObjectClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3625408
+        }
+      ],
+      "source_sha256": "5c0bee4e9b44e573850cfa46fb2018cd159cd1e8c16fe8afe5e6a79e0f3da12b",
+      "source": "src/_logic.cpp",
+      "population": "rebuild--logic",
+      "source_order": 4246368,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4246416,
+      "method": "0040cb90",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVObjectClass@@@@UAEHPBQAVObjectClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVObjectClass@@@@UAEHPBQAVObjectClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "5c0bee4e9b44e573850cfa46fb2018cd159cd1e8c16fe8afe5e6a79e0f3da12b",
+      "source": "src/_logic.cpp",
+      "population": "rebuild--logic",
+      "source_order": 4246416,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4246448,
+      "method": "0040cbb0",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PAVObjectClass@@@@UBEPAVObjectClass@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAVObjectClass@@@@UBEPAVObjectClass@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "5c0bee4e9b44e573850cfa46fb2018cd159cd1e8c16fe8afe5e6a79e0f3da12b",
+      "source": "src/_logic.cpp",
+      "population": "rebuild--logic",
+      "source_order": 4246448,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4246464,
+      "method": "0040cbc0",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PAVObjectClass@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAVObjectClass@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "5c0bee4e9b44e573850cfa46fb2018cd159cd1e8c16fe8afe5e6a79e0f3da12b",
+      "source": "src/_logic.cpp",
+      "population": "rebuild--logic",
+      "source_order": 4246464,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4246528,
+      "method": "0040cc00",
+      "body_bytes": 174,
+      "body_sha256": "6711164b14b6792ad40b18c3671d24349aa9e4cd981d832b4798e8c18286a0c7",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "bf86f83acbc846684e89a8b21c491fe06876e472ee514aceaf197330078782a1",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PAVObjectClass@@@@UAE_NHPBQAVObjectClass@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAVObjectClass@@@@UAE_NHPBQAVObjectClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3625964
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3625152
+        }
+      ],
+      "source_sha256": "5c0bee4e9b44e573850cfa46fb2018cd159cd1e8c16fe8afe5e6a79e0f3da12b",
+      "source": "src/_logic.cpp",
+      "population": "rebuild--logic",
+      "source_order": 4246528,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4246704,
+      "method": "0040ccb0",
+      "body_bytes": 39,
+      "body_sha256": "16cbc1f65d0aa91165911e91fbbee6ef9ceb7fb682d8ca81ee783f0908260903",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "cbec1a7d7c7342b49385e76b31aa2e0d3e6e68d416d90c1c368668739d87ea76",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PAVObjectClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAVObjectClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3625075
+        }
+      ],
+      "source_sha256": "5c0bee4e9b44e573850cfa46fb2018cd159cd1e8c16fe8afe5e6a79e0f3da12b",
+      "source": "src/_logic.cpp",
+      "population": "rebuild--logic",
+      "source_order": 4246704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4246752,
+      "method": "0040cce0",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVObjectClass@@@@UAEHABQAVObjectClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVObjectClass@@@@UAEHABQAVObjectClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "5c0bee4e9b44e573850cfa46fb2018cd159cd1e8c16fe8afe5e6a79e0f3da12b",
+      "source": "src/_logic.cpp",
+      "population": "rebuild--logic",
+      "source_order": 4246752,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4246816,
+      "method": "0040cd20",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVObjectClass@@@@UAEHPBQAVObjectClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVObjectClass@@@@UAEHPBQAVObjectClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "5c0bee4e9b44e573850cfa46fb2018cd159cd1e8c16fe8afe5e6a79e0f3da12b",
+      "source": "src/_logic.cpp",
+      "population": "rebuild--logic",
+      "source_order": 4246816,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4246848,
+      "method": "0040cd40",
+      "body_bytes": 176,
+      "body_sha256": "4bce8652a7d067931f7afa6163a1a1012089b7da1cc2c02ef056558e367a94f4",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "4bce8652a7d067931f7afa6163a1a1012089b7da1cc2c02ef056558e367a94f4",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PAVObjectClass@@@@UAE_NHPBQAVObjectClass@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAVObjectClass@@@@UAE_NHPBQAVObjectClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3625648
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3624845
+        }
+      ],
+      "source_sha256": "5c0bee4e9b44e573850cfa46fb2018cd159cd1e8c16fe8afe5e6a79e0f3da12b",
+      "source": "src/_logic.cpp",
+      "population": "rebuild--logic",
+      "source_order": 4246848,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4247024,
+      "method": "0040cdf0",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVObjectClass@@@@UAEHABQAVObjectClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVObjectClass@@@@UAEHABQAVObjectClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "5c0bee4e9b44e573850cfa46fb2018cd159cd1e8c16fe8afe5e6a79e0f3da12b",
+      "source": "src/_logic.cpp",
+      "population": "rebuild--logic",
+      "source_order": 4247024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4247072,
+      "method": "40ce20",
+      "body_bytes": 73,
+      "body_sha256": "74f42083087fd718400087e136f28d360bf7fd7d1945c3982dbfe7ee234ce5c2",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "0bcc08544a471a09ab11f2930e3d2473746bbb70f5d277e903f17a9c62b15571",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAVObjectClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAVObjectClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVObjectClass@@@@6B@",
+          "target": 7973148,
+          "addend": 0,
+          "resolved": 7973148
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3624702
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3624667
+        }
+      ],
+      "source_sha256": "5c0bee4e9b44e573850cfa46fb2018cd159cd1e8c16fe8afe5e6a79e0f3da12b",
+      "source": "src/_logic.cpp",
+      "population": "rebuild--logic",
+      "source_order": 4247072,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-12"
+    }
+  ]
+}

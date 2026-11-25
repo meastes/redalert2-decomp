@@ -1,0 +1,5675 @@
+{
+  "id": "rebuild-ion",
+  "population": {
+    "id": "rebuild-ion",
+    "inventory_sha256": "a96a1a866de921d3d225ec2caae21d92b7b94ffaed11313dd61df4d2071f89d4",
+    "gaps_sha256": "c956b364fc0b3ce7579b249e1c59c5bcdf351b9ac016b0592f489df5f3dcc7e5",
+    "historical_population_sha256": "c2dc9d58b69aa435be125af918856fbaa85dc0b59f75fdb670a7aa1cd6f0d161",
+    "historical_acceptance_sha256": "15618c9512eef0d60267d0cff519aa06e6a66622b13c2636efeb745201e57efc"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 10819760,
+    "_ISO_TILE_SIZE": 8013120,
+    "_LEPTONS_PER_PIXEL": 10819880,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 10819840,
+    "_ONE_RAD": 8013128,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 10819832,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 10819768,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 10819696,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 10819888,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 10819776,
+    "_CELL_DIAG_SLOPE_ANGLE": 10819824,
+    "_BRIDGE_LEPTON_HEIGHT": 10819872,
+    "_CELL_NONE": 10819752,
+    "_COORD_NONE": 10819808,
+    "_RECT_NONE": 10819736,
+    "?Coords@IonStormClass@@0VCell@@A": 10819704,
+    "_$E192": 5370192,
+    "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A": 10819848,
+    "??_7?$DynamicVectorClass@PBVAnimClass@@@@6B@": 8013140,
+    "_atexit": 7874954,
+    "_$S193": 10819689,
+    "??_7?$VectorClass@PBVAnimClass@@@@6B@": 8013172,
+    "??3@YAXPAX@Z": 7871803,
+    "_$E198": 5370352,
+    "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A": 10819712,
+    "_$S199": 10819688,
+    "_$E204": 5370512,
+    "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A": 10819784,
+    "?IsActive@IonStormClass@@0_NA": 10819892,
+    "?NukeFlashState@IonStormClass@@0HA": 10819900,
+    "?StartFrame@IonStormClass@@0HA": 8248080,
+    "?Duration@IonStormClass@@0HA": 8248084,
+    "?NukeFlashStart@IonStormClass@@0HA": 8248088,
+    "?NukeFlashDelay@IonStormClass@@0HA": 8248092,
+    "?Deferment@IonStormClass@@0HA": 10819896,
+    "?Owner@IonStormClass@@0PAVHouseClass@@A": 10819904,
+    "?Scen@@3PAVScenarioClass@@A": 10736272,
+    "?Set_Lighting@IonStormClass@@SIXHHH_N@Z": 5376768,
+    "?IsEnding@IonStormClass@@0_NA": 10819908,
+    "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
+    "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "?In_Radar@MapClass@@QBE_NABVCell@@@Z": 5548720,
+    "??RRandom2Class@@QAEHHH@Z": 6523040,
+    "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z": 6534576,
+    "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A": 10691224,
+    "?Frame@@3HA": 10751276,
+    "?Is_Ally@HouseClass@@QBE_NPBV1@@Z": 5133632,
+    "?MuteSWLaunches@@3HA": 10736968,
+    "?Begin_Radar_Blackout@HouseClass@@QAEXH@Z": 5199936,
+    "?PlayerPtr@@3PAVHouseClass@@A": 10706356,
+    "?Rule@@3PAVRulesClass@@A": 8624200,
+    "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z": 7421360,
+    "??_C@_0BE@JBMD@TXT_LIGHTNING_STORM?$AA@": 8248212,
+    "??_C@_0P@CMOA@D?3?2Ra2?2Ion?4cpp?$AA@": 8248196,
+    "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z": 7315136,
+    "?Session@@3VSessionClass@@A": 10736280,
+    "?Add_Message@MessageListClass@@QAEPAVTextLabelClass@@PBGH0HW4TextPrintType@@H_N@Z": 5983648,
+    "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z": 5114272,
+    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
+    "?Pixel_To_Z_Lepton@Tactical@@SIHH@Z": 6957488,
+    "??RRandom2Class@@QAEHXZ": 6522944,
+    "??2@YAPAXI@Z": 7872535,
+    "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z": 4325648,
+    "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z": 5537792,
+    "?Cell_Coord@CellClass@@QBE?AVCoord@@XZ": 4676960,
+    "?PlayAt@VocClass@@SIPAXHABVCoord@@PAUAudioController@@@Z": 7421536,
+    "?Combat_Anim@@YIPBVAnimTypeClass@@HPBVWarheadTypeClass@@W4LandType@@ABVCoord@@@Z": 4715728,
+    "?Get_Explosion_Z@@YIHVCoord@@@Z": 4717760,
+    "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ": 4659120,
+    "?Cell_Techno@CellClass@@QBEPAVTechnoClass@@ABVPoint2D@@_NPBV2@@Z": 4658784,
+    "?Combat_Lighting@@YIXVCoord@@HPBVWarheadTypeClass@@HH@Z": 4716032,
+    "?Explosion_Damage@@YIHABVCoord@@HPAVTechnoClass@@PBVWarheadTypeClass@@_N@Z": 4711104,
+    "?Lightning_Strike@IonStormClass@@SIXVCoord@@@Z": 5373520,
+    "?Lightning_Bolt@IonStormClass@@SIXVCell@@@Z": 5373072,
+    "?Ion_Storm_Begin@IonStormClass@@SIXHHVCell@@PAVHouseClass@@@Z": 5372208,
+    "??_C@_0BK@OPHL@EVA_LightningStormCreated?$AA@": 8248264,
+    "?Queue_Speech@@YIXPBDHH@Z": 7428928,
+    "??_C@_0CA@DHJF@TXT_LIGHTNING_STORM_APPROACHING?$AA@": 8248232,
+    "?Next@SchemeListIterator@@QAEPAV?$DynamicVectorClass@PAVColorScheme@@@@XZ": 6305344,
+    "?Scheme_List_Count@@YIHXZ": 6306832,
+    "?TileDrawers@@3V?$DynamicVectorClass@PAVLightConvertClass@@@@A": 8594328,
+    "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A": 11235064,
+    "?Update_Cell_Colors@DisplayClass@@QAEXXZ": 4842976,
+    "??_C@_0BJ@IHNF@Msg?3LightningStormActive?$AA@": 8248292,
+    "_$E2": 5369616,
+    "_$E5": 5369664,
+    "_$E8": 5369696,
+    "_$E11": 5369728,
+    "_$E14": 5369760,
+    "_$E17": 5369792,
+    "_$E20": 5369824,
+    "_$E23": 5369888,
+    "_$E26": 5369936,
+    "_$E29": 5369984,
+    "_$E32": 5370032,
+    "_$E35": 5370048,
+    "_$E51": 5370080,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "_$E189": 5370112,
+    "_$E195": 5370128,
+    "??_G?$DynamicVectorClass@PBVAnimClass@@@@UAEPAXI@Z": 5377872,
+    "??_G?$VectorClass@PBVAnimClass@@@@UAEPAXI@Z": 5377792,
+    "_$E201": 5370288,
+    "_$E206": 5370448,
+    "?Init@IonStormClass@@SIXXZ": 5370608,
+    "?Save@IonStormClass@@SIJPAUIStream@@@Z": 5370864,
+    "?Load@IonStormClass@@SIJPAUIStream@@@Z": 5371360,
+    "?Set_Ion_Storm_Active@IonStormClass@@SIX_N@Z": 5372192,
+    "?Ion_Storm_End@IonStormClass@@SIXXZ": 5372848,
+    "?Ion_Storm_Stop@IonStormClass@@SIXXZ": 5372880,
+    "?Is_Ion_Storm_Pending@IonStormClass@@SI_NXZ": 5372976,
+    "?Is_Ion_Storm_Active@IonStormClass@@SI_NXZ": 5373008,
+    "?IsFadingIn@NukeFlash@@SI_NXZ": 5373024,
+    "?IsFadingOut@NukeFlash@@SI_NXZ": 5373040,
+    "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ": 5373056,
+    "?AI@IonStormClass@@SIXXZ": 5374464,
+    "?Apply_Secondary_Effect@IonStormClass@@SIXXZ": 5375856,
+    "?Start_Nuke_Flash@IonStormClass@@SIXXZ": 5376160,
+    "?End_Nuke_Flash@IonStormClass@@SIXXZ": 5376384,
+    "?Set_Scheme_Lighting@IonStormClass@@SIXHHH_N@Z": 5376640,
+    "?Ion_Storm_Active_Message@IonStormClass@@SIXXZ": 5377008,
+    "?Clear@?$DynamicVectorClass@PBVAnimClass@@@@UAEXXZ": 5377088,
+    "?ID@?$DynamicVectorClass@PBVAnimClass@@@@UAEHPBQBVAnimClass@@@Z": 5377136,
+    "?GetItem@?$VectorClass@PBVAnimClass@@@@UBEPBVAnimClass@@H@Z": 5377168,
+    "??8?$VectorClass@PBVAnimClass@@@@UBE_NABV0@@Z": 5377184,
+    "?Resize@?$VectorClass@PBVAnimClass@@@@UAE_NHPBQBVAnimClass@@@Z": 5377248,
+    "?Clear@?$VectorClass@PBVAnimClass@@@@UAEXXZ": 5377424,
+    "?ID@?$VectorClass@PBVAnimClass@@@@UAEHABQBVAnimClass@@@Z": 5377472,
+    "?ID@?$VectorClass@PBVAnimClass@@@@UAEHPBQBVAnimClass@@@Z": 5377536,
+    "?Resize@?$DynamicVectorClass@PBVAnimClass@@@@UAE_NHPBQBVAnimClass@@@Z": 5377568,
+    "?ID@?$DynamicVectorClass@PBVAnimClass@@@@UAEHABQBVAnimClass@@@Z": 5377744,
+    "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
+    "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
+    "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
+    "??_EWstring@@QAEPAXI@Z": 4239168,
+    "??1Wstring@@QAE@XZ": 7789024
+  },
+  "regions": [
+    {
+      "entry": 5369616,
+      "method": "0051ef10",
+      "body_bytes": 40,
+      "body_sha256": "fa6af0520d96d6619832a4bce094d67ddd06b43262760906c09fca5e9a0ce393",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "dd5f3c5e0ba2cffd21510422059e592820e00f4fba09e9790acb1a612d47a349",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 2503311
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4294554850
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10819760,
+          "addend": 0,
+          "resolved": 10819760
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5369616,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5369664,
+      "method": "0051ef40",
+      "body_bytes": 19,
+      "body_sha256": "a01282bbce7f8ac971ee5f39d592bc6276ad5cbb32789801fad8b0753f6558c2",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "abfad6af8124951cadf62896dc6bfb6186c5e4811c7b94212c3a92a6a8416212",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10819760,
+          "addend": 0,
+          "resolved": 10819760
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8013120,
+          "addend": 0,
+          "resolved": 8013120
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10819880,
+          "addend": 0,
+          "resolved": 10819880
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5369664,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5369696,
+      "method": "0051ef60",
+      "body_bytes": 19,
+      "body_sha256": "037daebcb0ccae9a324affe4a933fe6cfec3bb18f98a72a35033f8715269829b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "a2fa724a81b4160c27bce4e91dfefbcf4bd73479629fa23314e891a52221914d",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10819880,
+          "addend": 0,
+          "resolved": 10819880
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 10819840,
+          "addend": 0,
+          "resolved": 10819840
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5369696,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5369728,
+      "method": "0051ef80",
+      "body_bytes": 19,
+      "body_sha256": "f140b00faf0944b6d2f7607d463c517cce31a5988cc14a2c48138f86835d47cd",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "3de9044cfa8a24366b970a578acce7071fa609e2107e7e73e5f7fba0dec6b0b2",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8013128,
+          "addend": 0,
+          "resolved": 8013128
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 10819832,
+          "addend": 0,
+          "resolved": 10819832
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5369728,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5369760,
+      "method": "0051efa0",
+      "body_bytes": 19,
+      "body_sha256": "914f50252fc95d55cb39a8fb68bd06bac117bca70e9a96178eaf04f1c9ad7238",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "1a72872b97ac92c8b17e6eff787a979a08e42bdb43ca5ab2f5cf55212014ad63",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8013128,
+          "addend": 0,
+          "resolved": 8013128
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10819768,
+          "addend": 0,
+          "resolved": 10819768
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5369760,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5369792,
+      "method": "0051efc0",
+      "body_bytes": 19,
+      "body_sha256": "9c908cd5f4e15ed50b03526a7343f9198514c138355c4ae634d2fc55fe2d77f4",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "13db371c303a1679739bf2d14e0db3c17b41761c4a1e1174aa31bd0a8ace06c5",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8013128,
+          "addend": 0,
+          "resolved": 8013128
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10819696,
+          "addend": 0,
+          "resolved": 10819696
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5369792,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5369824,
+      "method": "0051efe0",
+      "body_bytes": 49,
+      "body_sha256": "122a0deef61276006c8c9bdb38f2ff924058a16bf4599bd210b35f2a9ccb8120",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "48bfbc31d7617c51aa44b8a961ebe1d2aee82a716f92d8a72938624c53dad49e",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10819696,
+          "addend": 0,
+          "resolved": 10819696
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10819768,
+          "addend": 0,
+          "resolved": 10819768
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4294554921
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10819760,
+          "addend": 0,
+          "resolved": 10819760
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2490629
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10819888,
+          "addend": 0,
+          "resolved": 10819888
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5369824,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5369888,
+      "method": "0051f020",
+      "body_bytes": 33,
+      "body_sha256": "7a135c618091914c0bcdea8b7de63bd1465605d684d03e4d88af11b3d6f9fd48",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "ad64af0b54ae87d1d45515d615ae995bddfac3c55e356530875e46f66387d3eb",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10819888,
+          "addend": 0,
+          "resolved": 10819888
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294555001
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 10819776,
+          "addend": 0,
+          "resolved": 10819776
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5369888,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5369936,
+      "method": "0051f050",
+      "body_bytes": 44,
+      "body_sha256": "1c9696fdcfe4b0ed56603c5e675abf76246ae123d281b6781122521eeabeb40b",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "3293c4c036af01b7eee461c94bea669b2bd3bb0a78de9c970de8378189918217",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10819888,
+          "addend": 0,
+          "resolved": 10819888
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10819760,
+          "addend": 0,
+          "resolved": 10819760
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294554942
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 10819824,
+          "addend": 0,
+          "resolved": 10819824
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5369936,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5369984,
+      "method": "0051f080",
+      "body_bytes": 39,
+      "body_sha256": "171e1efc970c3d885c3cf90006cf1d5ed09f4d64d3e70992207acabef8c7c7ed",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "b958f008a97ce876de76d46f119a2fc69a7fe01b5b8a082893f15bbc221ab133",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10819888,
+          "addend": 0,
+          "resolved": 10819888
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2490480
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 10819872,
+          "addend": 0,
+          "resolved": 10819872
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5369984,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5370032,
+      "method": "0051f0b0",
+      "body_bytes": 15,
+      "body_sha256": "310484ddb090c3ddd35ca4e196ca39749074d69eb2bbf6327fb8f36c971fa9e9",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "6efb44a0fb63ac222a01697da18a2c7b0d467e64568c903ae25dc75e9e2b1d14",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10819752,
+          "addend": 0,
+          "resolved": 10819752
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10819752,
+          "addend": 2,
+          "resolved": 10819754
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5370032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5370048,
+      "method": "0051f0c0",
+      "body_bytes": 18,
+      "body_sha256": "f4f2c2322f898e603281797526ce944a468623d74ce5323e0891cacac3bcc4f6",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "77d5f5af70e3022d7e11f2f747a9d4e9ec56e5e3319737eaaf1f5b5917fb34bc",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10819808,
+          "addend": 0,
+          "resolved": 10819808
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10819808,
+          "addend": 4,
+          "resolved": 10819812
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10819808,
+          "addend": 8,
+          "resolved": 10819816
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5370048,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5370080,
+      "method": "0051f0e0",
+      "body_bytes": 23,
+      "body_sha256": "e6af7554789af247aec47639a50048b38abd9a31b7a4b34d57372e08339df343",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "6cdead4797f31a19ece0519febb9fabcd799ff9bcc22a6e01f71b6f79146c8a9",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E51",
+      "symbol_prefix": "_$E51",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10819736,
+          "addend": 0,
+          "resolved": 10819736
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10819736,
+          "addend": 4,
+          "resolved": 10819740
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10819736,
+          "addend": 8,
+          "resolved": 10819744
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10819736,
+          "addend": 12,
+          "resolved": 10819748
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5370080,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5370112,
+      "method": "0051f100",
+      "body_bytes": 11,
+      "body_sha256": "71cdc07917768f4927496ae0adcc44aefeee13f70ec4cc6fe668fe504302c828",
+      "padding_bytes": 5,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "8cc91a65e5f0fbe5b2e9897c77e03b19f13f4ea4f593ecb075485660a5db79e5",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E189",
+      "symbol_prefix": "_$E189",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10819752,
+          "addend": 0,
+          "resolved": 10819752
+        },
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "?Coords@IonStormClass@@0VCell@@A",
+          "target": 10819704,
+          "addend": 0,
+          "resolved": 10819704
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5370112,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5370128,
+      "method": "0051f110",
+      "body_bytes": 61,
+      "body_sha256": "c2da53a94af7f77ee460c221e86a13386e5a4a8388d7e4c3baadb16b769f6790",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "b21b6712954a7b953e54be7e2ef59670278006adcbaf5e7d6467cbfa8794bad9",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E195",
+      "symbol_prefix": "_$E195",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E192",
+          "target": 5370192,
+          "addend": 0,
+          "resolved": 5370192
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 4,
+          "resolved": 10819852
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 8,
+          "resolved": 10819856
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 12,
+          "resolved": 10819860
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 13,
+          "resolved": 10819861
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 0,
+          "resolved": 10819848
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PBVAnimClass@@@@6B@",
+          "target": 8013140,
+          "addend": 0,
+          "resolved": 8013140
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 20,
+          "resolved": 10819868
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 16,
+          "resolved": 10819864
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 2504767
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5370128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5370192,
+      "method": "0051f150",
+      "body_bytes": 88,
+      "body_sha256": "8855544d31aa2fb61f88a4ef57c07eaa3a4ab1733e30671b032d89504f7db4ed",
+      "padding_bytes": 8,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "040f04921cfc9ee8d860ded399ca67e48400d946a34f43521970cf368b7dae8a",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E192",
+      "symbol_prefix": "_$E192",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_$S193",
+          "target": 10819689,
+          "addend": 0,
+          "resolved": 10819689
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 0,
+          "resolved": 10819848
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PBVAnimClass@@@@6B@",
+          "target": 8013172,
+          "addend": 0,
+          "resolved": 8013172
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 4,
+          "resolved": 10819852
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_$S193",
+          "target": 10819689,
+          "addend": 0,
+          "resolved": 10819689
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 13,
+          "resolved": 10819861
+        },
+        {
+          "offset": 53,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2501554
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 4,
+          "resolved": 10819852
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 13,
+          "resolved": 10819861
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 8,
+          "resolved": 10819856
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5370192,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5370288,
+      "method": "0051f1b0",
+      "body_bytes": 61,
+      "body_sha256": "63ed9af6d6dab462b5ee32fd321ff84d219b3da79d7fec19e7b1315582b81a20",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "d668f5f33adca6ae6bc0e0e67c608afbc9a31394a184a66a2608223e37ee55ac",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E201",
+      "symbol_prefix": "_$E201",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E198",
+          "target": 5370352,
+          "addend": 0,
+          "resolved": 5370352
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 4,
+          "resolved": 10819716
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 8,
+          "resolved": 10819720
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 12,
+          "resolved": 10819724
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 13,
+          "resolved": 10819725
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 0,
+          "resolved": 10819712
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PBVAnimClass@@@@6B@",
+          "target": 8013140,
+          "addend": 0,
+          "resolved": 8013140
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 20,
+          "resolved": 10819732
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 16,
+          "resolved": 10819728
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 2504607
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5370288,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5370352,
+      "method": "0051f1f0",
+      "body_bytes": 88,
+      "body_sha256": "a1fdac6551ec8f9c88310c84309b0a196119218fbb2d01dabd09ed791c504510",
+      "padding_bytes": 8,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "838109fd584a3fcc6cf64b3be1ed9a707fcfeeaa777614f8c33db02fc8f1381d",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E198",
+      "symbol_prefix": "_$E198",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_$S199",
+          "target": 10819688,
+          "addend": 0,
+          "resolved": 10819688
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 0,
+          "resolved": 10819712
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PBVAnimClass@@@@6B@",
+          "target": 8013172,
+          "addend": 0,
+          "resolved": 8013172
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 4,
+          "resolved": 10819716
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_$S199",
+          "target": 10819688,
+          "addend": 0,
+          "resolved": 10819688
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 13,
+          "resolved": 10819725
+        },
+        {
+          "offset": 53,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2501394
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 4,
+          "resolved": 10819716
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 13,
+          "resolved": 10819725
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 8,
+          "resolved": 10819720
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5370352,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5370448,
+      "method": "0051f250",
+      "body_bytes": 61,
+      "body_sha256": "70d8a6d5a8f2f3597c1bfcebd6eb716ff310f699d9f479614085812609b80595",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "634f0438c1323d573924b77bf8df6255e7572e903447fe3dacd284729e796e7f",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E206",
+      "symbol_prefix": "_$E206",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E204",
+          "target": 5370512,
+          "addend": 0,
+          "resolved": 5370512
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 4,
+          "resolved": 10819788
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 8,
+          "resolved": 10819792
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 12,
+          "resolved": 10819796
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 13,
+          "resolved": 10819797
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 0,
+          "resolved": 10819784
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PBVAnimClass@@@@6B@",
+          "target": 8013140,
+          "addend": 0,
+          "resolved": 8013140
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 20,
+          "resolved": 10819804
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 16,
+          "resolved": 10819800
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 2504447
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5370448,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5370512,
+      "method": "0051f290",
+      "body_bytes": 88,
+      "body_sha256": "d2174b58d7900166418a0b679c26455cd25b1941accdd458d9bbae50f192463e",
+      "padding_bytes": 8,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "5397fbe6e8e78de3221d85e2564a573395f6ac5c0a7336f321ddc0ba21076737",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E204",
+      "symbol_prefix": "_$E204",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_$S199",
+          "target": 10819688,
+          "addend": 0,
+          "resolved": 10819688
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 0,
+          "resolved": 10819784
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PBVAnimClass@@@@6B@",
+          "target": 8013172,
+          "addend": 0,
+          "resolved": 8013172
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 4,
+          "resolved": 10819788
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_$S199",
+          "target": 10819688,
+          "addend": 0,
+          "resolved": 10819688
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 13,
+          "resolved": 10819797
+        },
+        {
+          "offset": 53,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2501234
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 4,
+          "resolved": 10819788
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 13,
+          "resolved": 10819797
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 8,
+          "resolved": 10819792
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5370512,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5370608,
+      "method": "0051f2f0",
+      "body_bytes": 246,
+      "body_sha256": "25d4145ffc1431afeaec0a192d6ee6e33f3f373c04872ee6ecacac564fb8c506",
+      "padding_bytes": 10,
+      "full_extent_bytes": 256,
+      "full_extent_sha256": "6e17f9bd75709b1780e9db613f8f15d62a0aa61bbde187b874cafc25a24dee12",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init@IonStormClass@@SIXXZ",
+      "symbol_prefix": "?Init@IonStormClass@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10819752,
+          "addend": 0,
+          "resolved": 10819752
+        },
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "?Coords@IonStormClass@@0VCell@@A",
+          "target": 10819704,
+          "addend": 0,
+          "resolved": 10819704
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 4,
+          "resolved": 10819852
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "?IsActive@IonStormClass@@0_NA",
+          "target": 10819892,
+          "addend": 0,
+          "resolved": 10819892
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "?NukeFlashState@IonStormClass@@0HA",
+          "target": 10819900,
+          "addend": 0,
+          "resolved": 10819900
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "?StartFrame@IonStormClass@@0HA",
+          "target": 8248080,
+          "addend": 0,
+          "resolved": 8248080
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "?Duration@IonStormClass@@0HA",
+          "target": 8248084,
+          "addend": 0,
+          "resolved": 8248084
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?NukeFlashStart@IonStormClass@@0HA",
+          "target": 8248088,
+          "addend": 0,
+          "resolved": 8248088
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "?NukeFlashDelay@IonStormClass@@0HA",
+          "target": 8248092,
+          "addend": 0,
+          "resolved": 8248092
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "?Deferment@IonStormClass@@0HA",
+          "target": 10819896,
+          "addend": 0,
+          "resolved": 10819896
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "?Owner@IonStormClass@@0PAVHouseClass@@A",
+          "target": 10819904,
+          "addend": 0,
+          "resolved": 10819904
+        },
+        {
+          "offset": 74,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 16,
+          "resolved": 10819864
+        },
+        {
+          "offset": 82,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 13,
+          "resolved": 10819861
+        },
+        {
+          "offset": 90,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2501101
+        },
+        {
+          "offset": 99,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 4,
+          "resolved": 10819852
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 4,
+          "resolved": 10819716
+        },
+        {
+          "offset": 110,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 13,
+          "resolved": 10819861
+        },
+        {
+          "offset": 118,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 8,
+          "resolved": 10819856
+        },
+        {
+          "offset": 124,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 16,
+          "resolved": 10819728
+        },
+        {
+          "offset": 132,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 13,
+          "resolved": 10819725
+        },
+        {
+          "offset": 140,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2501051
+        },
+        {
+          "offset": 149,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 4,
+          "resolved": 10819716
+        },
+        {
+          "offset": 154,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 4,
+          "resolved": 10819788
+        },
+        {
+          "offset": 160,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 13,
+          "resolved": 10819725
+        },
+        {
+          "offset": 168,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 8,
+          "resolved": 10819720
+        },
+        {
+          "offset": 174,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 16,
+          "resolved": 10819800
+        },
+        {
+          "offset": 182,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 13,
+          "resolved": 10819797
+        },
+        {
+          "offset": 190,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2501001
+        },
+        {
+          "offset": 199,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 4,
+          "resolved": 10819788
+        },
+        {
+          "offset": 204,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 210,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 13,
+          "resolved": 10819797
+        },
+        {
+          "offset": 216,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 8,
+          "resolved": 10819792
+        },
+        {
+          "offset": 239,
+          "kind": 20,
+          "symbol": "?Set_Lighting@IonStormClass@@SIXHHH_N@Z",
+          "target": 5376768,
+          "addend": 0,
+          "resolved": 5917
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5370608,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5370864,
+      "method": "0051f3f0",
+      "body_bytes": 493,
+      "body_sha256": "07bd9ccbd40bbbe54f0a3fc9b05cd329523a51dfd92281f096b056a59634872c",
+      "padding_bytes": 3,
+      "full_extent_bytes": 496,
+      "full_extent_sha256": "fb3990f6b3bc371ce96463620b7d81684b50a3aa08257b05d79d47e0b4dadbea",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Save@IonStormClass@@SIJPAUIStream@@@Z",
+      "symbol_prefix": "?Save@IonStormClass@@SIJPAUIStream@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "?IsActive@IonStormClass@@0_NA",
+          "target": 10819892,
+          "addend": 0,
+          "resolved": 10819892
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "?StartFrame@IonStormClass@@0HA",
+          "target": 8248080,
+          "addend": 0,
+          "resolved": 8248080
+        },
+        {
+          "offset": 60,
+          "kind": 6,
+          "symbol": "?Duration@IonStormClass@@0HA",
+          "target": 8248084,
+          "addend": 0,
+          "resolved": 8248084
+        },
+        {
+          "offset": 83,
+          "kind": 6,
+          "symbol": "?Deferment@IonStormClass@@0HA",
+          "target": 10819896,
+          "addend": 0,
+          "resolved": 10819896
+        },
+        {
+          "offset": 106,
+          "kind": 6,
+          "symbol": "?IsEnding@IonStormClass@@0_NA",
+          "target": 10819908,
+          "addend": 0,
+          "resolved": 10819908
+        },
+        {
+          "offset": 129,
+          "kind": 6,
+          "symbol": "?NukeFlashStart@IonStormClass@@0HA",
+          "target": 8248088,
+          "addend": 0,
+          "resolved": 8248088
+        },
+        {
+          "offset": 152,
+          "kind": 6,
+          "symbol": "?NukeFlashDelay@IonStormClass@@0HA",
+          "target": 8248092,
+          "addend": 0,
+          "resolved": 8248092
+        },
+        {
+          "offset": 175,
+          "kind": 6,
+          "symbol": "?NukeFlashState@IonStormClass@@0HA",
+          "target": 10819900,
+          "addend": 0,
+          "resolved": 10819900
+        },
+        {
+          "offset": 198,
+          "kind": 6,
+          "symbol": "?Coords@IonStormClass@@0VCell@@A",
+          "target": 10819704,
+          "addend": 0,
+          "resolved": 10819704
+        },
+        {
+          "offset": 221,
+          "kind": 6,
+          "symbol": "?Owner@IonStormClass@@0PAVHouseClass@@A",
+          "target": 10819904,
+          "addend": 0,
+          "resolved": 10819904
+        },
+        {
+          "offset": 239,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 16,
+          "resolved": 10819864
+        },
+        {
+          "offset": 282,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 4,
+          "resolved": 10819852
+        },
+        {
+          "offset": 327,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 16,
+          "resolved": 10819728
+        },
+        {
+          "offset": 370,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 4,
+          "resolved": 10819716
+        },
+        {
+          "offset": 410,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 16,
+          "resolved": 10819800
+        },
+        {
+          "offset": 448,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 4,
+          "resolved": 10819788
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5370864,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5371360,
+      "method": "0051f5e0",
+      "body_bytes": 825,
+      "body_sha256": "7035c19784e54cc3ac57846839be394d5ae8fba0d3b18defb9fd995c027a82e9",
+      "padding_bytes": 7,
+      "full_extent_bytes": 832,
+      "full_extent_sha256": "3b923ac9b31ff42d3217e792936503c263d0d79875142aab4c7a10c77756646b",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load@IonStormClass@@SIJPAUIStream@@@Z",
+      "symbol_prefix": "?Load@IonStormClass@@SIJPAUIStream@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "?IsActive@IonStormClass@@0_NA",
+          "target": 10819892,
+          "addend": 0,
+          "resolved": 10819892
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "?StartFrame@IonStormClass@@0HA",
+          "target": 8248080,
+          "addend": 0,
+          "resolved": 8248080
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "?Duration@IonStormClass@@0HA",
+          "target": 8248084,
+          "addend": 0,
+          "resolved": 8248084
+        },
+        {
+          "offset": 84,
+          "kind": 6,
+          "symbol": "?Deferment@IonStormClass@@0HA",
+          "target": 10819896,
+          "addend": 0,
+          "resolved": 10819896
+        },
+        {
+          "offset": 107,
+          "kind": 6,
+          "symbol": "?IsEnding@IonStormClass@@0_NA",
+          "target": 10819908,
+          "addend": 0,
+          "resolved": 10819908
+        },
+        {
+          "offset": 130,
+          "kind": 6,
+          "symbol": "?NukeFlashStart@IonStormClass@@0HA",
+          "target": 8248088,
+          "addend": 0,
+          "resolved": 8248088
+        },
+        {
+          "offset": 153,
+          "kind": 6,
+          "symbol": "?NukeFlashDelay@IonStormClass@@0HA",
+          "target": 8248092,
+          "addend": 0,
+          "resolved": 8248092
+        },
+        {
+          "offset": 176,
+          "kind": 6,
+          "symbol": "?NukeFlashState@IonStormClass@@0HA",
+          "target": 10819900,
+          "addend": 0,
+          "resolved": 10819900
+        },
+        {
+          "offset": 199,
+          "kind": 6,
+          "symbol": "?Coords@IonStormClass@@0VCell@@A",
+          "target": 10819704,
+          "addend": 0,
+          "resolved": 10819704
+        },
+        {
+          "offset": 222,
+          "kind": 6,
+          "symbol": "?Owner@IonStormClass@@0PAVHouseClass@@A",
+          "target": 10819904,
+          "addend": 0,
+          "resolved": 10819904
+        },
+        {
+          "offset": 239,
+          "kind": 6,
+          "symbol": "?Owner@IonStormClass@@0PAVHouseClass@@A",
+          "target": 10819904,
+          "addend": 0,
+          "resolved": 10819904
+        },
+        {
+          "offset": 244,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 249,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 1573955
+        },
+        {
+          "offset": 310,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 8,
+          "resolved": 10819856
+        },
+        {
+          "offset": 316,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 16,
+          "resolved": 10819864
+        },
+        {
+          "offset": 326,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 13,
+          "resolved": 10819861
+        },
+        {
+          "offset": 340,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 20,
+          "resolved": 10819868
+        },
+        {
+          "offset": 350,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 0,
+          "resolved": 10819848
+        },
+        {
+          "offset": 360,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 0,
+          "resolved": 10819848
+        },
+        {
+          "offset": 373,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 16,
+          "resolved": 10819864
+        },
+        {
+          "offset": 379,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 4,
+          "resolved": 10819852
+        },
+        {
+          "offset": 388,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 16,
+          "resolved": 10819864
+        },
+        {
+          "offset": 415,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 4,
+          "resolved": 10819852
+        },
+        {
+          "offset": 424,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 429,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 1573775
+        },
+        {
+          "offset": 497,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 8,
+          "resolved": 10819720
+        },
+        {
+          "offset": 503,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 16,
+          "resolved": 10819728
+        },
+        {
+          "offset": 513,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 13,
+          "resolved": 10819725
+        },
+        {
+          "offset": 527,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 20,
+          "resolved": 10819732
+        },
+        {
+          "offset": 538,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 0,
+          "resolved": 10819712
+        },
+        {
+          "offset": 546,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 0,
+          "resolved": 10819712
+        },
+        {
+          "offset": 559,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 16,
+          "resolved": 10819728
+        },
+        {
+          "offset": 565,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 4,
+          "resolved": 10819716
+        },
+        {
+          "offset": 574,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 16,
+          "resolved": 10819728
+        },
+        {
+          "offset": 601,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 4,
+          "resolved": 10819716
+        },
+        {
+          "offset": 610,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 615,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 1573589
+        },
+        {
+          "offset": 687,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 8,
+          "resolved": 10819792
+        },
+        {
+          "offset": 693,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 16,
+          "resolved": 10819800
+        },
+        {
+          "offset": 703,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 13,
+          "resolved": 10819797
+        },
+        {
+          "offset": 717,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 20,
+          "resolved": 10819804
+        },
+        {
+          "offset": 728,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 0,
+          "resolved": 10819784
+        },
+        {
+          "offset": 736,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 0,
+          "resolved": 10819784
+        },
+        {
+          "offset": 749,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 16,
+          "resolved": 10819800
+        },
+        {
+          "offset": 755,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 4,
+          "resolved": 10819788
+        },
+        {
+          "offset": 764,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 16,
+          "resolved": 10819800
+        },
+        {
+          "offset": 791,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 4,
+          "resolved": 10819788
+        },
+        {
+          "offset": 800,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 805,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 1573399
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5371360,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5372192,
+      "method": "0051f920",
+      "body_bytes": 7,
+      "body_sha256": "f84345c392801bc65a023059901301639b82090c444a41c43d3df0852474d000",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "f854e3e6a1c9586d54fbe2d02cfef427b0836d4b1021093762b0637fd4a3ccf9",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Ion_Storm_Active@IonStormClass@@SIX_N@Z",
+      "symbol_prefix": "?Set_Ion_Storm_Active@IonStormClass@@SIX_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?IsActive@IonStormClass@@0_NA",
+          "target": 10819892,
+          "addend": 0,
+          "resolved": 10819892
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5372192,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5372208,
+      "method": "0051f930",
+      "body_bytes": 633,
+      "body_sha256": "a47099b0ab9415645023e93eeffe4fccdb25c384736815c4dcab9b47cac0bc0e",
+      "padding_bytes": 7,
+      "full_extent_bytes": 640,
+      "full_extent_sha256": "b8fcf8c5af99132dbe6a36144f85a689da9cc24b9742aea0de4fe1719734367a",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Ion_Storm_Begin@IonStormClass@@SIXHHVCell@@PAVHouseClass@@@Z",
+      "symbol_prefix": "?Ion_Storm_Begin@IonStormClass@@SIXHHVCell@@PAVHouseClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10819752,
+          "addend": 0,
+          "resolved": 10819752
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10819752,
+          "addend": 2,
+          "resolved": 10819754
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 46,
+          "kind": 20,
+          "symbol": "?In_Radar@MapClass@@QBE_NABVCell@@@Z",
+          "target": 5548720,
+          "addend": 0,
+          "resolved": 176462
+        },
+        {
+          "offset": 55,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 300,
+          "resolved": 8594956
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 74,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 1150754
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 87,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 296,
+          "resolved": 8594952
+        },
+        {
+          "offset": 101,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 1150727
+        },
+        {
+          "offset": 106,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 134,
+          "kind": 20,
+          "symbol": "?In_Radar@MapClass@@QBE_NABVCell@@@Z",
+          "target": 5548720,
+          "addend": 0,
+          "resolved": 176374
+        },
+        {
+          "offset": 151,
+          "kind": 6,
+          "symbol": "?Coords@IonStormClass@@0VCell@@A",
+          "target": 10819704,
+          "addend": 0,
+          "resolved": 10819704
+        },
+        {
+          "offset": 157,
+          "kind": 6,
+          "symbol": "?Owner@IonStormClass@@0PAVHouseClass@@A",
+          "target": 10819904,
+          "addend": 0,
+          "resolved": 10819904
+        },
+        {
+          "offset": 163,
+          "kind": 6,
+          "symbol": "?IsActive@IonStormClass@@0_NA",
+          "target": 10819892,
+          "addend": 0,
+          "resolved": 10819892
+        },
+        {
+          "offset": 180,
+          "kind": 6,
+          "symbol": "?Deferment@IonStormClass@@0HA",
+          "target": 10819896,
+          "addend": 0,
+          "resolved": 10819896
+        },
+        {
+          "offset": 194,
+          "kind": 6,
+          "symbol": "?Deferment@IonStormClass@@0HA",
+          "target": 10819896,
+          "addend": 0,
+          "resolved": 10819896
+        },
+        {
+          "offset": 201,
+          "kind": 6,
+          "symbol": "?Duration@IonStormClass@@0HA",
+          "target": 8248084,
+          "addend": 0,
+          "resolved": 8248084
+        },
+        {
+          "offset": 218,
+          "kind": 20,
+          "symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z",
+          "target": 6534576,
+          "addend": 0,
+          "resolved": 1162146
+        },
+        {
+          "offset": 223,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 16,
+          "resolved": 10691240
+        },
+        {
+          "offset": 229,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 237,
+          "kind": 6,
+          "symbol": "?Duration@IonStormClass@@0HA",
+          "target": 8248084,
+          "addend": 0,
+          "resolved": 8248084
+        },
+        {
+          "offset": 245,
+          "kind": 6,
+          "symbol": "?StartFrame@IonStormClass@@0HA",
+          "target": 8248080,
+          "addend": 0,
+          "resolved": 8248080
+        },
+        {
+          "offset": 251,
+          "kind": 6,
+          "symbol": "?IsActive@IonStormClass@@0_NA",
+          "target": 10819892,
+          "addend": 0,
+          "resolved": 10819892
+        },
+        {
+          "offset": 260,
+          "kind": 6,
+          "symbol": "?Owner@IonStormClass@@0PAVHouseClass@@A",
+          "target": 10819904,
+          "addend": 0,
+          "resolved": 10819904
+        },
+        {
+          "offset": 269,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 278,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NPBV1@@Z",
+          "target": 5133632,
+          "addend": 0,
+          "resolved": 4294728438
+        },
+        {
+          "offset": 287,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 305,
+          "kind": 6,
+          "symbol": "?MuteSWLaunches@@3HA",
+          "target": 10736968,
+          "addend": 0,
+          "resolved": 10736968
+        },
+        {
+          "offset": 315,
+          "kind": 20,
+          "symbol": "?Begin_Radar_Blackout@HouseClass@@QAEXH@Z",
+          "target": 5199936,
+          "addend": 0,
+          "resolved": 4294794705
+        },
+        {
+          "offset": 320,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 16,
+          "resolved": 10691240
+        },
+        {
+          "offset": 330,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 346,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 352,
+          "kind": 6,
+          "symbol": "?NukeFlashState@IonStormClass@@0HA",
+          "target": 10819900,
+          "addend": 0,
+          "resolved": 10819900
+        },
+        {
+          "offset": 364,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 384,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 501,
+          "kind": 20,
+          "symbol": "?Set_Lighting@IonStormClass@@SIXHHH_N@Z",
+          "target": 5376768,
+          "addend": 0,
+          "resolved": 4055
+        },
+        {
+          "offset": 506,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 512,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 560,
+          "kind": 20,
+          "symbol": "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z",
+          "target": 7421360,
+          "addend": 0,
+          "resolved": 2048588
+        },
+        {
+          "offset": 567,
+          "kind": 6,
+          "symbol": "??_C@_0BE@JBMD@TXT_LIGHTNING_STORM?$AA@",
+          "target": 8248212,
+          "addend": 0,
+          "resolved": 8248212
+        },
+        {
+          "offset": 590,
+          "kind": 6,
+          "symbol": "??_C@_0P@CMOA@D?3?2Ra2?2Ion?4cpp?$AA@",
+          "target": 8248196,
+          "addend": 0,
+          "resolved": 8248196
+        },
+        {
+          "offset": 595,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1942329
+        },
+        {
+          "offset": 600,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 2520,
+          "resolved": 10738800
+        },
+        {
+          "offset": 610,
+          "kind": 20,
+          "symbol": "?Add_Message@MessageListClass@@QAEPAVTextLabelClass@@PBGH0HW4TextPrintType@@H_N@Z",
+          "target": 5983648,
+          "addend": 0,
+          "resolved": 610826
+        },
+        {
+          "offset": 617,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 622,
+          "kind": 20,
+          "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z",
+          "target": 5114272,
+          "addend": 0,
+          "resolved": 4294708734
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5372208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5372848,
+      "method": "0051fbb0",
+      "body_bytes": 17,
+      "body_sha256": "ad986a447262f86ce648e2708bac699a1298a4f296e81272bb3c63a4f65bd2ae",
+      "padding_bytes": 15,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f3c357f6ebbf8171e1fb052dde3d07998e7680a764a40b6ca648b6c832b4c80c",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Ion_Storm_End@IonStormClass@@SIXXZ",
+      "symbol_prefix": "?Ion_Storm_End@IonStormClass@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?IsActive@IonStormClass@@0_NA",
+          "target": 10819892,
+          "addend": 0,
+          "resolved": 10819892
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "?IsEnding@IonStormClass@@0_NA",
+          "target": 10819908,
+          "addend": 0,
+          "resolved": 10819908
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5372848,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5372880,
+      "method": "0051fbd0",
+      "body_bytes": 87,
+      "body_sha256": "272512ffb3d59278fb8cf2cbc3b14e7689a693a74b67dcd5fc26f61a8b742f1d",
+      "padding_bytes": 9,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "93cc401d39393678319c2ab7c87feb1acbf3dfbe5474cdecc91dad4a60aa3767",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Ion_Storm_Stop@IonStormClass@@SIXXZ",
+      "symbol_prefix": "?Ion_Storm_Stop@IonStormClass@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?IsActive@IonStormClass@@0_NA",
+          "target": 10819892,
+          "addend": 0,
+          "resolved": 10819892
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10819752,
+          "addend": 0,
+          "resolved": 10819752
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "?IsActive@IonStormClass@@0_NA",
+          "target": 10819892,
+          "addend": 0,
+          "resolved": 10819892
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "?Coords@IonStormClass@@0VCell@@A",
+          "target": 10819704,
+          "addend": 0,
+          "resolved": 10819704
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "?NukeFlashState@IonStormClass@@0HA",
+          "target": 10819900,
+          "addend": 0,
+          "resolved": 10819900
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "?Owner@IonStormClass@@0PAVHouseClass@@A",
+          "target": 10819904,
+          "addend": 0,
+          "resolved": 10819904
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 70,
+          "kind": 20,
+          "symbol": "?Set_Lighting@IonStormClass@@SIXHHH_N@Z",
+          "target": 5376768,
+          "addend": 0,
+          "resolved": 3814
+        },
+        {
+          "offset": 75,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 82,
+          "kind": 20,
+          "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z",
+          "target": 5114272,
+          "addend": 0,
+          "resolved": 4294708602
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5372880,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5372976,
+      "method": "0051fc30",
+      "body_bytes": 27,
+      "body_sha256": "7a294cddd358fd4bbe1160dd1e146e86f1824e0f94d4b28058aa3833b32cb33f",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4f80d6cca0e4d69bba588ad70e99eafe16154f75a43738d00eb6c9024c575a55",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Ion_Storm_Pending@IonStormClass@@SI_NXZ",
+      "symbol_prefix": "?Is_Ion_Storm_Pending@IonStormClass@@SI_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?IsActive@IonStormClass@@0_NA",
+          "target": 10819892,
+          "addend": 0,
+          "resolved": 10819892
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?Deferment@IonStormClass@@0HA",
+          "target": 10819896,
+          "addend": 0,
+          "resolved": 10819896
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5372976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5373008,
+      "method": "0051fc50",
+      "body_bytes": 6,
+      "body_sha256": "eda757b37878a670c52c42602a7577ead7e249ba45be925b84143343aa54bc38",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "7f4aa832f81cd3e48cb3086ff2fcd2aef55c51b13ac4d68432b164da618075c9",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Ion_Storm_Active@IonStormClass@@SI_NXZ",
+      "symbol_prefix": "?Is_Ion_Storm_Active@IonStormClass@@SI_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?IsActive@IonStormClass@@0_NA",
+          "target": 10819892,
+          "addend": 0,
+          "resolved": 10819892
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5373008,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5373024,
+      "method": "0051fc60",
+      "body_bytes": 15,
+      "body_sha256": "b15edab783e286d2f1cb3b39fa549b3d58b31bdbff8cdcc7b9b15745fd3f7483",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "31846febfa9cb0278e3917b323db186db3ef08b3db00c80b8b3cc8b73a355e97",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?IsFadingIn@NukeFlash@@SI_NXZ",
+      "symbol_prefix": "?IsFadingIn@NukeFlash@@SI_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?NukeFlashState@IonStormClass@@0HA",
+          "target": 10819900,
+          "addend": 0,
+          "resolved": 10819900
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5373024,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1987"
+    },
+    {
+      "entry": 5373040,
+      "method": "0051fc70",
+      "body_bytes": 15,
+      "body_sha256": "4ab025436f28bdc9cd6f965d802bf355a2b6f0c5969b23478f7075a2658fb942",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "6534139246e811b7f72b92036abc85e6fcea4d54abbd4435e587bc5e7cadb36b",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?IsFadingOut@NukeFlash@@SI_NXZ",
+      "symbol_prefix": "?IsFadingOut@NukeFlash@@SI_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?NukeFlashState@IonStormClass@@0HA",
+          "target": 10819900,
+          "addend": 0,
+          "resolved": 10819900
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5373040,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-42"
+    },
+    {
+      "entry": 5373056,
+      "method": "0051fc80",
+      "body_bytes": 3,
+      "body_sha256": "01cb47d078b4841b8408ec4fe278efa83115c6f6e101972987507d2b2b57dcf0",
+      "padding_bytes": 13,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "1c93847ee0f29c8102c08f41566abe2ae27a71ab314eec709e90e3a28353e543",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
+      "symbol_prefix": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5373056,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4352"
+    },
+    {
+      "entry": 5373072,
+      "method": "0051fc90",
+      "body_bytes": 434,
+      "body_sha256": "14ad410706efbd948682186d3a298323fb4a9429be49e7a31c25535f83564244",
+      "padding_bytes": 14,
+      "full_extent_bytes": 448,
+      "full_extent_sha256": "41a1e3ff0067984940a49b1ad5397439b8d3b07ceaceb55e5358d58fddfcbb3b",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Lightning_Bolt@IonStormClass@@SIXVCell@@@Z",
+      "symbol_prefix": "?Lightning_Bolt@IonStormClass@@SIXVCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 15,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 164813
+        },
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "?Pixel_To_Z_Lepton@Tactical@@SIHH@Z",
+          "target": 6957488,
+          "addend": 0,
+          "resolved": 1584357
+        },
+        {
+          "offset": 67,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 10819872,
+          "addend": 0,
+          "resolved": 10819872
+        },
+        {
+          "offset": 93,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10819888,
+          "addend": 0,
+          "resolved": 10819888
+        },
+        {
+          "offset": 101,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10819808,
+          "addend": 0,
+          "resolved": 10819808
+        },
+        {
+          "offset": 152,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10819808,
+          "addend": 4,
+          "resolved": 10819812
+        },
+        {
+          "offset": 160,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10819808,
+          "addend": 8,
+          "resolved": 10819816
+        },
+        {
+          "offset": 171,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 182,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHXZ",
+          "target": 6522944,
+          "addend": 0,
+          "resolved": 1149686
+        },
+        {
+          "offset": 188,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 215,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2499244
+        },
+        {
+          "offset": 246,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4293919622
+        },
+        {
+          "offset": 257,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 8,
+          "resolved": 10819856
+        },
+        {
+          "offset": 263,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 16,
+          "resolved": 10819864
+        },
+        {
+          "offset": 273,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 13,
+          "resolved": 10819861
+        },
+        {
+          "offset": 287,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 20,
+          "resolved": 10819868
+        },
+        {
+          "offset": 298,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 0,
+          "resolved": 10819848
+        },
+        {
+          "offset": 306,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 0,
+          "resolved": 10819848
+        },
+        {
+          "offset": 319,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 16,
+          "resolved": 10819864
+        },
+        {
+          "offset": 328,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 16,
+          "resolved": 10819864
+        },
+        {
+          "offset": 334,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 4,
+          "resolved": 10819852
+        },
+        {
+          "offset": 342,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 8,
+          "resolved": 10819720
+        },
+        {
+          "offset": 348,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 16,
+          "resolved": 10819728
+        },
+        {
+          "offset": 358,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 13,
+          "resolved": 10819725
+        },
+        {
+          "offset": 372,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 20,
+          "resolved": 10819732
+        },
+        {
+          "offset": 382,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 0,
+          "resolved": 10819712
+        },
+        {
+          "offset": 392,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 0,
+          "resolved": 10819712
+        },
+        {
+          "offset": 405,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 16,
+          "resolved": 10819728
+        },
+        {
+          "offset": 414,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 16,
+          "resolved": 10819728
+        },
+        {
+          "offset": 420,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 4,
+          "resolved": 10819716
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5373072,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5373520,
+      "method": "0051fe50",
+      "body_bytes": 935,
+      "body_sha256": "34bea653053c9557b7b5e258d56a3662155a1c4b8a1ae2909647dc5672efaf03",
+      "padding_bytes": 9,
+      "full_extent_bytes": 944,
+      "full_extent_sha256": "4cb0d731cda90a1c6aec50a641a78f83ada4128d95ad13205b1f991cf7bb2bbe",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 19,
+      "symbol": "?Lightning_Strike@IonStormClass@@SIXVCoord@@@Z",
+      "symbol_prefix": "?Lightning_Strike@IonStormClass@@SIXVCoord@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 164250
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "?Cell_Coord@CellClass@@QBE?AVCoord@@XZ",
+          "target": 4676960,
+          "addend": 0,
+          "resolved": 4294270700
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 70,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHXZ",
+          "target": 6522944,
+          "addend": 0,
+          "resolved": 1149350
+        },
+        {
+          "offset": 76,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 103,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2498908
+        },
+        {
+          "offset": 134,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4293919286
+        },
+        {
+          "offset": 145,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 8,
+          "resolved": 10819792
+        },
+        {
+          "offset": 151,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 16,
+          "resolved": 10819800
+        },
+        {
+          "offset": 161,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 13,
+          "resolved": 10819797
+        },
+        {
+          "offset": 175,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 20,
+          "resolved": 10819804
+        },
+        {
+          "offset": 189,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 0,
+          "resolved": 10819784
+        },
+        {
+          "offset": 194,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 0,
+          "resolved": 10819784
+        },
+        {
+          "offset": 207,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 16,
+          "resolved": 10819800
+        },
+        {
+          "offset": 216,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 16,
+          "resolved": 10819800
+        },
+        {
+          "offset": 222,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 4,
+          "resolved": 10819788
+        },
+        {
+          "offset": 237,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10819888,
+          "addend": 0,
+          "resolved": 10819888
+        },
+        {
+          "offset": 262,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 10819872,
+          "addend": 0,
+          "resolved": 10819872
+        },
+        {
+          "offset": 294,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10819808,
+          "addend": 0,
+          "resolved": 10819808
+        },
+        {
+          "offset": 331,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10819808,
+          "addend": 4,
+          "resolved": 10819812
+        },
+        {
+          "offset": 339,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10819808,
+          "addend": 8,
+          "resolved": 10819816
+        },
+        {
+          "offset": 350,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 366,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 377,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHXZ",
+          "target": 6522944,
+          "addend": 0,
+          "resolved": 1149043
+        },
+        {
+          "offset": 383,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 413,
+          "kind": 20,
+          "symbol": "?PlayAt@VocClass@@SIPAXHABVCoord@@PAUAudioController@@@Z",
+          "target": 7421536,
+          "addend": 0,
+          "resolved": 2047599
+        },
+        {
+          "offset": 418,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 449,
+          "kind": 20,
+          "symbol": "?Combat_Anim@@YIPBVAnimTypeClass@@HPBVWarheadTypeClass@@W4LandType@@ABVCoord@@@Z",
+          "target": 4715728,
+          "addend": 0,
+          "resolved": 4294309051
+        },
+        {
+          "offset": 461,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2498550
+        },
+        {
+          "offset": 500,
+          "kind": 20,
+          "symbol": "?Get_Explosion_Z@@YIHVCoord@@@Z",
+          "target": 4717760,
+          "addend": 0,
+          "resolved": 4294311032
+        },
+        {
+          "offset": 523,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4293918897
+        },
+        {
+          "offset": 535,
+          "kind": 20,
+          "symbol": "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ",
+          "target": 4659120,
+          "addend": 0,
+          "resolved": 4294252357
+        },
+        {
+          "offset": 565,
+          "kind": 20,
+          "symbol": "?Cell_Techno@CellClass@@QBEPAVTechnoClass@@ABVPoint2D@@_NPBV2@@Z",
+          "target": 4658784,
+          "addend": 0,
+          "resolved": 4294251991
+        },
+        {
+          "offset": 621,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5374444,
+          "addend": 0,
+          "resolved": 5374444
+        },
+        {
+          "offset": 628,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5374436,
+          "addend": 0,
+          "resolved": 5374436
+        },
+        {
+          "offset": 647,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 681,
+          "kind": 20,
+          "symbol": "?Combat_Lighting@@YIXVCoord@@HPBVWarheadTypeClass@@HH@Z",
+          "target": 4716032,
+          "addend": 0,
+          "resolved": 4294309123
+        },
+        {
+          "offset": 687,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 710,
+          "kind": 20,
+          "symbol": "?Explosion_Damage@@YIHABVCoord@@HPAVTechnoClass@@PBVWarheadTypeClass@@_N@Z",
+          "target": 4711104,
+          "addend": 0,
+          "resolved": 4294304166
+        },
+        {
+          "offset": 717,
+          "kind": 20,
+          "symbol": "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ",
+          "target": 4659120,
+          "addend": 0,
+          "resolved": 4294252175
+        },
+        {
+          "offset": 745,
+          "kind": 20,
+          "symbol": "?Cell_Techno@CellClass@@QBEPAVTechnoClass@@ABVPoint2D@@_NPBV2@@Z",
+          "target": 4658784,
+          "addend": 0,
+          "resolved": 4294251811
+        },
+        {
+          "offset": 788,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 803,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 1148713
+        },
+        {
+          "offset": 819,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2498192
+        },
+        {
+          "offset": 833,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 839,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 859,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 1148657
+        },
+        {
+          "offset": 865,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 896,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4293918524
+        },
+        {
+          "offset": 916,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5374152,
+          "addend": 0,
+          "resolved": 5374152
+        },
+        {
+          "offset": 920,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5374157,
+          "addend": 0,
+          "resolved": 5374157
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5373520,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5374464,
+      "method": "00520200",
+      "body_bytes": 1389,
+      "body_sha256": "d8f5d2c70c74b5600e5fd4d468230fc6e6535c44d6fa8ec9738a0523a10f30a3",
+      "padding_bytes": 3,
+      "full_extent_bytes": 1392,
+      "full_extent_sha256": "a4cf318f18eb368bc2e42246ecdd335124e22ebb323038f6630ae673619033cf",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AI@IonStormClass@@SIXXZ",
+      "symbol_prefix": "?AI@IonStormClass@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?NukeFlashState@IonStormClass@@0HA",
+          "target": 10819900,
+          "addend": 0,
+          "resolved": 10819900
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "?NukeFlashDelay@IonStormClass@@0HA",
+          "target": 8248092,
+          "addend": 0,
+          "resolved": 8248092
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "?NukeFlashStart@IonStormClass@@0HA",
+          "target": 8248088,
+          "addend": 0,
+          "resolved": 8248088
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "?NukeFlashStart@IonStormClass@@0HA",
+          "target": 8248088,
+          "addend": 0,
+          "resolved": 8248088
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "?IsActive@IonStormClass@@0_NA",
+          "target": 10819892,
+          "addend": 0,
+          "resolved": 10819892
+        },
+        {
+          "offset": 69,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 75,
+          "kind": 6,
+          "symbol": "?NukeFlashState@IonStormClass@@0HA",
+          "target": 10819900,
+          "addend": 0,
+          "resolved": 10819900
+        },
+        {
+          "offset": 85,
+          "kind": 6,
+          "symbol": "?NukeFlashDelay@IonStormClass@@0HA",
+          "target": 8248092,
+          "addend": 0,
+          "resolved": 8248092
+        },
+        {
+          "offset": 115,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 256,
+          "kind": 20,
+          "symbol": "?Set_Lighting@IonStormClass@@SIXHHH_N@Z",
+          "target": 5376768,
+          "addend": 0,
+          "resolved": 2044
+        },
+        {
+          "offset": 261,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 268,
+          "kind": 20,
+          "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z",
+          "target": 5114272,
+          "addend": 0,
+          "resolved": 4294706832
+        },
+        {
+          "offset": 280,
+          "kind": 6,
+          "symbol": "?NukeFlashDelay@IonStormClass@@0HA",
+          "target": 8248092,
+          "addend": 0,
+          "resolved": 8248092
+        },
+        {
+          "offset": 291,
+          "kind": 6,
+          "symbol": "?NukeFlashStart@IonStormClass@@0HA",
+          "target": 8248088,
+          "addend": 0,
+          "resolved": 8248088
+        },
+        {
+          "offset": 298,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 308,
+          "kind": 6,
+          "symbol": "?NukeFlashState@IonStormClass@@0HA",
+          "target": 10819900,
+          "addend": 0,
+          "resolved": 10819900
+        },
+        {
+          "offset": 318,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 16,
+          "resolved": 10819800
+        },
+        {
+          "offset": 332,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 4,
+          "resolved": 10819788
+        },
+        {
+          "offset": 378,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 16,
+          "resolved": 10819800
+        },
+        {
+          "offset": 393,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 16,
+          "resolved": 10819800
+        },
+        {
+          "offset": 401,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 4,
+          "resolved": 10819788
+        },
+        {
+          "offset": 415,
+          "kind": 6,
+          "symbol": "?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819784,
+          "addend": 16,
+          "resolved": 10819800
+        },
+        {
+          "offset": 427,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 16,
+          "resolved": 10819864
+        },
+        {
+          "offset": 444,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 4,
+          "resolved": 10819852
+        },
+        {
+          "offset": 524,
+          "kind": 20,
+          "symbol": "?Lightning_Strike@IonStormClass@@SIXVCoord@@@Z",
+          "target": 5373520,
+          "addend": 0,
+          "resolved": 4294965824
+        },
+        {
+          "offset": 530,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 16,
+          "resolved": 10819864
+        },
+        {
+          "offset": 545,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 16,
+          "resolved": 10819864
+        },
+        {
+          "offset": 553,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 4,
+          "resolved": 10819852
+        },
+        {
+          "offset": 567,
+          "kind": 6,
+          "symbol": "?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819848,
+          "addend": 16,
+          "resolved": 10819864
+        },
+        {
+          "offset": 584,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 16,
+          "resolved": 10819728
+        },
+        {
+          "offset": 602,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 4,
+          "resolved": 10819716
+        },
+        {
+          "offset": 644,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 16,
+          "resolved": 10819728
+        },
+        {
+          "offset": 659,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 16,
+          "resolved": 10819728
+        },
+        {
+          "offset": 667,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 4,
+          "resolved": 10819716
+        },
+        {
+          "offset": 681,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 16,
+          "resolved": 10819728
+        },
+        {
+          "offset": 695,
+          "kind": 6,
+          "symbol": "?IsEnding@IonStormClass@@0_NA",
+          "target": 10819908,
+          "addend": 0,
+          "resolved": 10819908
+        },
+        {
+          "offset": 704,
+          "kind": 6,
+          "symbol": "?IsActive@IonStormClass@@0_NA",
+          "target": 10819892,
+          "addend": 0,
+          "resolved": 10819892
+        },
+        {
+          "offset": 713,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10819752,
+          "addend": 0,
+          "resolved": 10819752
+        },
+        {
+          "offset": 719,
+          "kind": 6,
+          "symbol": "?IsActive@IonStormClass@@0_NA",
+          "target": 10819892,
+          "addend": 0,
+          "resolved": 10819892
+        },
+        {
+          "offset": 725,
+          "kind": 6,
+          "symbol": "?Coords@IonStormClass@@0VCell@@A",
+          "target": 10819704,
+          "addend": 0,
+          "resolved": 10819704
+        },
+        {
+          "offset": 730,
+          "kind": 6,
+          "symbol": "?NukeFlashState@IonStormClass@@0HA",
+          "target": 10819900,
+          "addend": 0,
+          "resolved": 10819900
+        },
+        {
+          "offset": 739,
+          "kind": 6,
+          "symbol": "?Owner@IonStormClass@@0PAVHouseClass@@A",
+          "target": 10819904,
+          "addend": 0,
+          "resolved": 10819904
+        },
+        {
+          "offset": 750,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 777,
+          "kind": 20,
+          "symbol": "?Set_Lighting@IonStormClass@@SIXHHH_N@Z",
+          "target": 5376768,
+          "addend": 0,
+          "resolved": 1523
+        },
+        {
+          "offset": 782,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 789,
+          "kind": 20,
+          "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z",
+          "target": 5114272,
+          "addend": 0,
+          "resolved": 4294706311
+        },
+        {
+          "offset": 795,
+          "kind": 6,
+          "symbol": "?IsEnding@IonStormClass@@0_NA",
+          "target": 10819908,
+          "addend": 0,
+          "resolved": 10819908
+        },
+        {
+          "offset": 801,
+          "kind": 6,
+          "symbol": "?IsActive@IonStormClass@@0_NA",
+          "target": 10819892,
+          "addend": 0,
+          "resolved": 10819892
+        },
+        {
+          "offset": 814,
+          "kind": 6,
+          "symbol": "?IsEnding@IonStormClass@@0_NA",
+          "target": 10819908,
+          "addend": 0,
+          "resolved": 10819908
+        },
+        {
+          "offset": 827,
+          "kind": 6,
+          "symbol": "?Duration@IonStormClass@@0HA",
+          "target": 8248084,
+          "addend": 0,
+          "resolved": 8248084
+        },
+        {
+          "offset": 838,
+          "kind": 6,
+          "symbol": "?StartFrame@IonStormClass@@0HA",
+          "target": 8248080,
+          "addend": 0,
+          "resolved": 8248080
+        },
+        {
+          "offset": 845,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 855,
+          "kind": 6,
+          "symbol": "?IsEnding@IonStormClass@@0_NA",
+          "target": 10819908,
+          "addend": 0,
+          "resolved": 10819908
+        },
+        {
+          "offset": 869,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 875,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 891,
+          "kind": 6,
+          "symbol": "?Coords@IonStormClass@@0VCell@@A",
+          "target": 10819704,
+          "addend": 0,
+          "resolved": 10819704
+        },
+        {
+          "offset": 897,
+          "kind": 20,
+          "symbol": "?Lightning_Bolt@IonStormClass@@SIXVCell@@@Z",
+          "target": 5373072,
+          "addend": 0,
+          "resolved": 4294965003
+        },
+        {
+          "offset": 903,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 908,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 949,
+          "kind": 6,
+          "symbol": "?Coords@IonStormClass@@0VCell@@A",
+          "target": 10819704,
+          "addend": 0,
+          "resolved": 10819704
+        },
+        {
+          "offset": 955,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 972,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 1147600
+        },
+        {
+          "offset": 982,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 995,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 1147577
+        },
+        {
+          "offset": 1007,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 16,
+          "resolved": 10819728
+        },
+        {
+          "offset": 1022,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 4,
+          "resolved": 10819716
+        },
+        {
+          "offset": 1104,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 1117,
+          "kind": 6,
+          "symbol": "?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A",
+          "target": 10819712,
+          "addend": 16,
+          "resolved": 10819728
+        },
+        {
+          "offset": 1138,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1144,
+          "kind": 20,
+          "symbol": "?In_Radar@MapClass@@QBE_NABVCell@@@Z",
+          "target": 5548720,
+          "addend": 0,
+          "resolved": 173108
+        },
+        {
+          "offset": 1203,
+          "kind": 20,
+          "symbol": "?Lightning_Bolt@IonStormClass@@SIXVCell@@@Z",
+          "target": 5373072,
+          "addend": 0,
+          "resolved": 4294964697
+        },
+        {
+          "offset": 1216,
+          "kind": 6,
+          "symbol": "?Deferment@IonStormClass@@0HA",
+          "target": 10819896,
+          "addend": 0,
+          "resolved": 10819896
+        },
+        {
+          "offset": 1230,
+          "kind": 6,
+          "symbol": "?Deferment@IonStormClass@@0HA",
+          "target": 10819896,
+          "addend": 0,
+          "resolved": 10819896
+        },
+        {
+          "offset": 1238,
+          "kind": 6,
+          "symbol": "?Owner@IonStormClass@@0PAVHouseClass@@A",
+          "target": 10819904,
+          "addend": 0,
+          "resolved": 10819904
+        },
+        {
+          "offset": 1244,
+          "kind": 6,
+          "symbol": "?Coords@IonStormClass@@0VCell@@A",
+          "target": 10819704,
+          "addend": 0,
+          "resolved": 10819704
+        },
+        {
+          "offset": 1251,
+          "kind": 6,
+          "symbol": "?Duration@IonStormClass@@0HA",
+          "target": 8248084,
+          "addend": 0,
+          "resolved": 8248084
+        },
+        {
+          "offset": 1259,
+          "kind": 20,
+          "symbol": "?Ion_Storm_Begin@IonStormClass@@SIXHHVCell@@PAVHouseClass@@@Z",
+          "target": 5372208,
+          "addend": 0,
+          "resolved": 4294963777
+        },
+        {
+          "offset": 1285,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 1300,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 1325,
+          "kind": 6,
+          "symbol": "??_C@_0BK@OPHL@EVA_LightningStormCreated?$AA@",
+          "target": 8248264,
+          "addend": 0,
+          "resolved": 8248264
+        },
+        {
+          "offset": 1330,
+          "kind": 20,
+          "symbol": "?Queue_Speech@@YIXPBDHH@Z",
+          "target": 7428928,
+          "addend": 0,
+          "resolved": 2053130
+        },
+        {
+          "offset": 1337,
+          "kind": 6,
+          "symbol": "??_C@_0CA@DHJF@TXT_LIGHTNING_STORM_APPROACHING?$AA@",
+          "target": 8248232,
+          "addend": 0,
+          "resolved": 8248232
+        },
+        {
+          "offset": 1357,
+          "kind": 6,
+          "symbol": "??_C@_0P@CMOA@D?3?2Ra2?2Ion?4cpp?$AA@",
+          "target": 8248196,
+          "addend": 0,
+          "resolved": 8248196
+        },
+        {
+          "offset": 1362,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1939306
+        },
+        {
+          "offset": 1367,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 2520,
+          "resolved": 10738800
+        },
+        {
+          "offset": 1377,
+          "kind": 20,
+          "symbol": "?Add_Message@MessageListClass@@QAEPAVTextLabelClass@@PBGH0HW4TextPrintType@@H_N@Z",
+          "target": 5983648,
+          "addend": 0,
+          "resolved": 607803
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5374464,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5375856,
+      "method": "00520770",
+      "body_bytes": 289,
+      "body_sha256": "7b403b72a1b635a290f228666cbd94a27ea30b4d44ee9986574719acea782f22",
+      "padding_bytes": 15,
+      "full_extent_bytes": 304,
+      "full_extent_sha256": "2567571c783895a176e4603e634495a5e0d8a15713d0bab419dc2d39520762ec",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Apply_Secondary_Effect@IonStormClass@@SIXXZ",
+      "symbol_prefix": "?Apply_Secondary_Effect@IonStormClass@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?NukeFlashState@IonStormClass@@0HA",
+          "target": 10819900,
+          "addend": 0,
+          "resolved": 10819900
+        },
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 122,
+          "kind": 6,
+          "symbol": "?IsActive@IonStormClass@@0_NA",
+          "target": 10819892,
+          "addend": 0,
+          "resolved": 10819892
+        },
+        {
+          "offset": 135,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 147,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 165,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 282,
+          "kind": 20,
+          "symbol": "?Set_Lighting@IonStormClass@@SIXHHH_N@Z",
+          "target": 5376768,
+          "addend": 0,
+          "resolved": 626
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5375856,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5376160,
+      "method": "005208a0",
+      "body_bytes": 224,
+      "body_sha256": "8e46d7989f5f9adf5c185c190d1723a1902c2a81810d832568aaffb006986b96",
+      "padding_bytes": 0,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "8e46d7989f5f9adf5c185c190d1723a1902c2a81810d832568aaffb006986b96",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Start_Nuke_Flash@IonStormClass@@SIXXZ",
+      "symbol_prefix": "?Start_Nuke_Flash@IonStormClass@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?NukeFlashState@IonStormClass@@0HA",
+          "target": 10819900,
+          "addend": 0,
+          "resolved": 10819900
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "?NukeFlashDelay@IonStormClass@@0HA",
+          "target": 8248092,
+          "addend": 0,
+          "resolved": 8248092
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "?NukeFlashStart@IonStormClass@@0HA",
+          "target": 8248088,
+          "addend": 0,
+          "resolved": 8248088
+        },
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 85,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 202,
+          "kind": 20,
+          "symbol": "?Set_Lighting@IonStormClass@@SIXHHH_N@Z",
+          "target": 5376768,
+          "addend": 0,
+          "resolved": 402
+        },
+        {
+          "offset": 207,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 214,
+          "kind": 20,
+          "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z",
+          "target": 5114272,
+          "addend": 0,
+          "resolved": 4294705190
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5376160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5376384,
+      "method": "00520980",
+      "body_bytes": 247,
+      "body_sha256": "ef8988a3655442782b650c1c9c37034e2516d3c99ef6a699e80f618559f9c456",
+      "padding_bytes": 9,
+      "full_extent_bytes": 256,
+      "full_extent_sha256": "3010c733de58d444b7481fe5cfb368c9429bc75e034dc99e7629c2ffca2fd706",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?End_Nuke_Flash@IonStormClass@@SIXXZ",
+      "symbol_prefix": "?End_Nuke_Flash@IonStormClass@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "?NukeFlashState@IonStormClass@@0HA",
+          "target": 10819900,
+          "addend": 0,
+          "resolved": 10819900
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "?NukeFlashStart@IonStormClass@@0HA",
+          "target": 8248088,
+          "addend": 0,
+          "resolved": 8248088
+        },
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "?IsActive@IonStormClass@@0_NA",
+          "target": 10819892,
+          "addend": 0,
+          "resolved": 10819892
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "?NukeFlashDelay@IonStormClass@@0HA",
+          "target": 8248092,
+          "addend": 0,
+          "resolved": 8248092
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 183,
+          "kind": 20,
+          "symbol": "?Set_Lighting@IonStormClass@@SIXHHH_N@Z",
+          "target": 5376768,
+          "addend": 0,
+          "resolved": 197
+        },
+        {
+          "offset": 188,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 197,
+          "kind": 20,
+          "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z",
+          "target": 5114272,
+          "addend": 0,
+          "resolved": 4294704983
+        },
+        {
+          "offset": 203,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 230,
+          "kind": 20,
+          "symbol": "?Set_Lighting@IonStormClass@@SIXHHH_N@Z",
+          "target": 5376768,
+          "addend": 0,
+          "resolved": 150
+        },
+        {
+          "offset": 235,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 242,
+          "kind": 20,
+          "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z",
+          "target": 5114272,
+          "addend": 0,
+          "resolved": 4294704938
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5376384,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5376640,
+      "method": "00520a80",
+      "body_bytes": 119,
+      "body_sha256": "7f4a1991657cfbb12ae0f6d7efadb011fbdcc9fc7babfc639367f5274f5c5c9d",
+      "padding_bytes": 9,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "5e7203203dad1348ace2d0bab152970d2cc6fec41b308801ac08c0be706e171f",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Scheme_Lighting@IonStormClass@@SIXHHH_N@Z",
+      "symbol_prefix": "?Set_Scheme_Lighting@IonStormClass@@SIXHHH_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "?Next@SchemeListIterator@@QAEPAV?$DynamicVectorClass@PAVColorScheme@@@@XZ",
+          "target": 6305344,
+          "addend": 0,
+          "resolved": 928668
+        },
+        {
+          "offset": 44,
+          "kind": 20,
+          "symbol": "?Scheme_List_Count@@YIHXZ",
+          "target": 6306832,
+          "addend": 0,
+          "resolved": 930144
+        },
+        {
+          "offset": 99,
+          "kind": 20,
+          "symbol": "?Next@SchemeListIterator@@QAEPAV?$DynamicVectorClass@PAVColorScheme@@@@XZ",
+          "target": 6305344,
+          "addend": 0,
+          "resolved": 928601
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5376640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5376768,
+      "method": "00520b00",
+      "body_bytes": 234,
+      "body_sha256": "c72cbc4605ec79c8d7a935e9b60d0bfd54cc73911f03228d3d4d29c21741f3e3",
+      "padding_bytes": 6,
+      "full_extent_bytes": 240,
+      "full_extent_sha256": "3deb5757da3685e41cc3345ccdcec39cf1a14f84acac7d0527c144492255dd8b",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Lighting@IonStormClass@@SIXHHH_N@Z",
+      "symbol_prefix": "?Set_Lighting@IonStormClass@@SIXHHH_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?TileDrawers@@3V?$DynamicVectorClass@PAVLightConvertClass@@@@A",
+          "target": 8594328,
+          "addend": 16,
+          "resolved": 8594344
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "?TileDrawers@@3V?$DynamicVectorClass@PAVLightConvertClass@@@@A",
+          "target": 8594328,
+          "addend": 4,
+          "resolved": 8594332
+        },
+        {
+          "offset": 48,
+          "kind": 6,
+          "symbol": "?TileDrawers@@3V?$DynamicVectorClass@PAVLightConvertClass@@@@A",
+          "target": 8594328,
+          "addend": 16,
+          "resolved": 8594344
+        },
+        {
+          "offset": 58,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 16,
+          "resolved": 11235080
+        },
+        {
+          "offset": 70,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 106,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 16,
+          "resolved": 11235080
+        },
+        {
+          "offset": 134,
+          "kind": 20,
+          "symbol": "?Next@SchemeListIterator@@QAEPAV?$DynamicVectorClass@PAVColorScheme@@@@XZ",
+          "target": 6305344,
+          "addend": 0,
+          "resolved": 928438
+        },
+        {
+          "offset": 147,
+          "kind": 20,
+          "symbol": "?Scheme_List_Count@@YIHXZ",
+          "target": 6306832,
+          "addend": 0,
+          "resolved": 929913
+        },
+        {
+          "offset": 202,
+          "kind": 20,
+          "symbol": "?Next@SchemeListIterator@@QAEPAV?$DynamicVectorClass@PAVColorScheme@@@@XZ",
+          "target": 6305344,
+          "addend": 0,
+          "resolved": 928370
+        },
+        {
+          "offset": 215,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 220,
+          "kind": 20,
+          "symbol": "?Update_Cell_Colors@DisplayClass@@QAEXXZ",
+          "target": 4842976,
+          "addend": 0,
+          "resolved": 4294433280
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5376768,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5377008,
+      "method": "00520bf0",
+      "body_bytes": 72,
+      "body_sha256": "e4a51688e0810e9a971e957e0b7fac051b660157b8daa973580cba8d77bf5e25",
+      "padding_bytes": 8,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "fbd562086dd339be1ee9997deb0c4319e3abbc507d24bfe846df3198697a073c",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Ion_Storm_Active_Message@IonStormClass@@SIXXZ",
+      "symbol_prefix": "?Ion_Storm_Active_Message@IonStormClass@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "??_C@_0P@CMOA@D?3?2Ra2?2Ion?4cpp?$AA@",
+          "target": 8248196,
+          "addend": 0,
+          "resolved": 8248196
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "??_C@_0BJ@IHNF@Msg?3LightningStormActive?$AA@",
+          "target": 8248292,
+          "addend": 0,
+          "resolved": 8248292
+        },
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1938106
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 2520,
+          "resolved": 10738800
+        },
+        {
+          "offset": 67,
+          "kind": 20,
+          "symbol": "?Add_Message@MessageListClass@@QAEPAVTextLabelClass@@PBGH0HW4TextPrintType@@H_N@Z",
+          "target": 5983648,
+          "addend": 0,
+          "resolved": 606569
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5377008,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5377088,
+      "method": "00520c40",
+      "body_bytes": 42,
+      "body_sha256": "c698d541bca75f69f8fad5bade4e746264497cc3bada5712339594e6231a1ed5",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "646dae92fb754b3da68011ee881541679533dd7f800915e6a7b443f740ed367a",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@PBVAnimClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PBVAnimClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2494688
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5377088,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1597"
+    },
+    {
+      "entry": 5377136,
+      "method": "00520c70",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PBVAnimClass@@@@UAEHPBQBVAnimClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PBVAnimClass@@@@UAEHPBQBVAnimClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5377136,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1597"
+    },
+    {
+      "entry": 5377168,
+      "method": "00520c90",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PBVAnimClass@@@@UBEPBVAnimClass@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PBVAnimClass@@@@UBEPBVAnimClass@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5377168,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1597"
+    },
+    {
+      "entry": 5377184,
+      "method": "00520ca0",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PBVAnimClass@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PBVAnimClass@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5377184,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1597"
+    },
+    {
+      "entry": 5377248,
+      "method": "00520ce0",
+      "body_bytes": 174,
+      "body_sha256": "9aa5a2882631df5af5b06b0f730f9bbb5a2530fa8d049ea9b3195cd04b89b61f",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "1fcb6b6013e3a6eff2f8ca1a0aefd2f1b5b184ead32ae278c143e9afad9bd6fe",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PBVAnimClass@@@@UAE_NHPBQBVAnimClass@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PBVAnimClass@@@@UAE_NHPBQBVAnimClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2495244
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2494432
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5377248,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1597"
+    },
+    {
+      "entry": 5377424,
+      "method": "00520d90",
+      "body_bytes": 39,
+      "body_sha256": "e25a46ae3154ce18dc38696868220192812e38d8cb2faef7be3ac744940cd994",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "a47417e88f84a9b36d7cd04b06ea0b1b95217ac8cf6998fd6faa3b12b70dbaa9",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PBVAnimClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PBVAnimClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2494355
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5377424,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1597"
+    },
+    {
+      "entry": 5377472,
+      "method": "00520dc0",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PBVAnimClass@@@@UAEHABQBVAnimClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PBVAnimClass@@@@UAEHABQBVAnimClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5377472,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1597"
+    },
+    {
+      "entry": 5377536,
+      "method": "00520e00",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PBVAnimClass@@@@UAEHPBQBVAnimClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PBVAnimClass@@@@UAEHPBQBVAnimClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5377536,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1597"
+    },
+    {
+      "entry": 5377568,
+      "method": "00520e20",
+      "body_bytes": 176,
+      "body_sha256": "a2b350267e5049491de9fa23f667f2a5bfcdfc6800d28c1fab8c32d56ea2580a",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "a2b350267e5049491de9fa23f667f2a5bfcdfc6800d28c1fab8c32d56ea2580a",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PBVAnimClass@@@@UAE_NHPBQBVAnimClass@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PBVAnimClass@@@@UAE_NHPBQBVAnimClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2494928
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2494125
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5377568,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1597"
+    },
+    {
+      "entry": 5377744,
+      "method": "00520ed0",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PBVAnimClass@@@@UAEHABQBVAnimClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PBVAnimClass@@@@UAEHABQBVAnimClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5377744,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1597"
+    },
+    {
+      "entry": 5377792,
+      "method": "520f00",
+      "body_bytes": 73,
+      "body_sha256": "dc04a6c6c73f5cc9bafb295b22f7e24abc915ab070f94c8fe83107ef6198b910",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "f56e597c961e789bd4b87c40a0ccc23de09dd04bc59eb1abf95845c09255c3d8",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PBVAnimClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PBVAnimClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PBVAnimClass@@@@6B@",
+          "target": 8013172,
+          "addend": 0,
+          "resolved": 8013172
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2493982
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2493947
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5377792,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 5377872,
+      "method": "520f50",
+      "body_bytes": 73,
+      "body_sha256": "9fa4da9d771393a4d92a8a630727867c6c0127040a7f957429dbbb68b470361a",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "00919984e0285e5f719bbda93b439f01c192cd21d652ad5e555ba0febc5e05c8",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PBVAnimClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PBVAnimClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PBVAnimClass@@@@6B@",
+          "target": 8013172,
+          "addend": 0,
+          "resolved": 8013172
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2493902
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2493867
+        }
+      ],
+      "source_sha256": "defeb89e4d6d7d7f8a45033a96322d22106e63083639544a20e5d99614afcd6f",
+      "source": "src/ion.cpp",
+      "population": "rebuild-ion",
+      "source_order": 5377872,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-12"
+    }
+  ]
+}

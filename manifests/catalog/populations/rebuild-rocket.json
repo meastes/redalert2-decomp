@@ -1,0 +1,2779 @@
+{
+  "id": "rebuild-rocket",
+  "population": {
+    "id": "rebuild-rocket",
+    "inventory_sha256": "493a3c6d1be959969cb2614ec24ed1e25e3d11ce516960b45a4601b92183dadb",
+    "gaps_sha256": "02d842d9a55c356e73e9850300c171e95e0464bea138645aa1239aab6da17094",
+    "historical_population_sha256": "693f81ed85560b3a9c74e09fab59add2045f9a9a5e1a90b5338c7dc3963158ce",
+    "historical_acceptance_sha256": "2875907dc0fed8b23b884a565000a08f63e557c69357294ab020487fd892f3d8"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 11233392,
+    "_ISO_TILE_SIZE": 8031944,
+    "_LEPTONS_PER_PIXEL": 11233464,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 11233448,
+    "_ONE_RAD": 8031952,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 11233440,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 11233400,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 11233360,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 11233472,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 11233408,
+    "_CELL_DIAG_SLOPE_ANGLE": 11233432,
+    "_BRIDGE_LEPTON_HEIGHT": 11233456,
+    "_CELL_NONE": 11233384,
+    "_COORD_NONE": 11233416,
+    "_RECT_NONE": 11233368,
+    "??0LocomotionClass@@QAE@XZ": 5492672,
+    "?Frame@@3HA": 10751276,
+    "??_7RocketLocomotionClass@@6BIPersistStream@@@": 8032164,
+    "??_7RocketLocomotionClass@@6BILocomotion@@@": 8031964,
+    "??1LocomotionClass@@UAE@XZ": 5492720,
+    "?cos@fastmath@@YANN@Z": 4957392,
+    "?Current@FacingClass@@QBE?AVDirType@@XZ": 4951008,
+    "__real@8@bff1c9116cc4faf2b800": 7976480,
+    "?sin@fastmath@@YANN@Z": 4957312,
+    "?Detonate@RocketLocomotionClass@@AAEXXZ": 6547408,
+    "__real@8@00000000000000000000": 7976464,
+    "__real@8@bfffc90fdaa22168c000": 8032208,
+    "?Rule@@3PAVRulesClass@@A": 8624200,
+    "__real@8@3fffc90fdaa22168c000": 7976496,
+    "?AircraftTracker@@3VAircraftTrackerClass@@A": 8625824,
+    "?Add@AircraftTrackerClass@@QAEXPAVTechnoClass@@@Z": 4272608,
+    "??2@YAPAXI@Z": 7872535,
+    "?RocketTakeoffAnimName@@3PBDB": 8316932,
+    "?From_Name@AnimTypeClass@@SI?AW4AnimType@@PBD@Z": 4347456,
+    "?AnimTypes@@3V?$DynamicVectorClass@PAVAnimTypeClass@@@@A": 8806880,
+    "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z": 4325648,
+    "?PlayAt@VocClass@@SIPAXHABVCoord@@PAUAudioController@@@Z": 7421536,
+    "?Reached_Target@RocketLocomotionClass@@AAE_NPBURocketStruct@@@Z": 6544624,
+    "??0?$TPoint3D@H@@QAE@HHH@Z": 4306480,
+    "__real@4@00000000000000000000": 7972664,
+    "?Length@?$TPoint3D@H@@QBEHXZ": 4306816,
+    "?atan2@fastmath@@YANNN@Z": 4957696,
+    "__real@8@c00ca2f83d7b47677800": 7976488,
+    "?Set_Desired@FacingClass@@QAE_NABVDirType@@@Z": 4950576,
+    "?RocketTrailAnimName@@3PBDB": 8316936,
+    "?Update@AircraftTrackerClass@@QAEXPAVTechnoClass@@VCell@@1@Z": 4273664,
+    "?Remove@AircraftTrackerClass@@QAEXPAVTechnoClass@@@Z": 4272912,
+    "?Is_Elite@VeterancyClass@@QBE_NXZ": 7418912,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
+    "?Get_Explosion_Z@@YIHVCoord@@@Z": 4717760,
+    "?Combat_Anim@@YIPBVAnimTypeClass@@HPBVWarheadTypeClass@@W4LandType@@ABVCoord@@@Z": 4715728,
+    "?Combat_Lighting@@YIXVCoord@@HPBVWarheadTypeClass@@HH@Z": 4716032,
+    "?Explosion_Damage@@YIHABVCoord@@HPAVTechnoClass@@PBVWarheadTypeClass@@_N@Z": 4711104,
+    "_CLSID_RocketLocomotion": 8003600,
+    "?Load@LocomotionClass@@UAGJPAUIStream@@@Z": 5493696,
+    "??_7LocomotionClass@@6BIPersistStream@@@": 8008628,
+    "??_7LocomotionClass@@6BILocomotion@@@": 8008428,
+    "?Make_Identity@Matrix3D@@QAEXXZ": 5832800,
+    "__real@8@bffcc90fdaa22168c000": 7983248,
+    "?Rotate_Z@Matrix3D@@QAEXM@Z": 5835168,
+    "?Rotate_Y@Matrix3D@@QAEXM@Z": 5834880,
+    "??3@YAXPAX@Z": 7871803,
+    "??_C@_07LOPO@V3TRAIL?$AA@": 8316940,
+    "??_C@_08IBHE@V3TAKOFF?$AA@": 8316948,
+    "_$E2": 6543568,
+    "_$E5": 6543616,
+    "_$E8": 6543648,
+    "_$E11": 6543680,
+    "_$E14": 6543712,
+    "_$E17": 6543744,
+    "_$E20": 6543776,
+    "_$E23": 6543840,
+    "_$E26": 6543888,
+    "_$E29": 6543936,
+    "_$E32": 6543984,
+    "_$E35": 6544000,
+    "_$E38": 6544032,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "??0RocketLocomotionClass@@QAE@XZ": 6544064,
+    "?Can_Fire@LocomotionClass@@UAG?AW4FireErrorType@@XZ": 5494272,
+    "?Drawing_Code@LocomotionClass@@UAGHXZ": 5494256,
+    "?Apparent_Speed@LocomotionClass@@UAGHXZ": 5494288,
+    "?Force_New_Slope@LocomotionClass@@UAGXH@Z": 5494240,
+    "?Force_Immediate_Destination@LocomotionClass@@UAGXUCoordStruct@@@Z": 5494016,
+    "?Force_Track@LocomotionClass@@UAGXHUCoordStruct@@@Z": 5494032,
+    "?Shove@LocomotionClass@@UAGEUDirStruct@@@Z": 5493888,
+    "?Push@LocomotionClass@@UAGEUDirStruct@@@Z": 5493872,
+    "?Is_Ion_Sensitive@LocomotionClass@@UAGEXZ": 5493312,
+    "?Is_Powered@LocomotionClass@@UAGEXZ": 5493296,
+    "?Power_Off@LocomotionClass@@UAGEXZ": 5493264,
+    "?Power_On@LocomotionClass@@UAGEXZ": 5493232,
+    "?Tilt_Pitch_AI@LocomotionClass@@UAGXXZ": 5493904,
+    "?Unlimbo@LocomotionClass@@UAGXXZ": 5494048,
+    "?Do_Turn@LocomotionClass@@UAGXUDirStruct@@@Z": 5494064,
+    "?Z_Gradient@LocomotionClass@@UAG?AW4ZGradientType@@XZ": 5493936,
+    "?Z_Adjust@LocomotionClass@@UAGHXZ": 5493920,
+    "?Visual_Character@LocomotionClass@@UAG?AW4VisualType@@E@Z": 5493952,
+    "?Shadow_Point@LocomotionClass@@UAG?AUPoint2DStruct@@XZ": 5493184,
+    "?Draw_Point@LocomotionClass@@UAG?AUPoint2DStruct@@XZ": 5493968,
+    "?Shadow_Matrix@LocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z": 5492944,
+    "?Is_To_Have_Shadow@LocomotionClass@@UAGEXZ": 5493984,
+    "?Can_Enter_Cell@LocomotionClass@@UAG?AW4MoveType@@UCellStruct@@@Z": 5494000,
+    "?Head_To_Coord@LocomotionClass@@UAG?AUCoordStruct@@XZ": 5494176,
+    "?Link_To_Object@LocomotionClass@@UAGJPAX@Z": 5492752,
+    "??_GRocketLocomotionClass@@UAEPAXI@Z": 6548800,
+    "?GetSizeMax@LocomotionClass@@UAGJPAT_ULARGE_INTEGER@@@Z": 5493824,
+    "?Save@LocomotionClass@@UAGJPAUIStream@@H@Z": 5493600,
+    "?Release@LocomotionClass@@UAGKXZ": 5493360,
+    "?AddRef@LocomotionClass@@UAGKXZ": 5493328,
+    "?QueryInterface@LocomotionClass@@UAGJABU_GUID@@PAPAX@Z": 5493424,
+    "??_R0?AUILocomotion@@@8": 8216272,
+    "??_R0?AUIUnknown@@@8": 8181304,
+    "??_R0?AUIPersist@@@8": 8184328,
+    "??_R0?AUIPersistStream@@@8": 8184352,
+    "??_R0?AVLocomotionClass@@@8": 8216304,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVRocketLocomotionClass@@@8": 8316960,
+    "?IsDirty@LocomotionClass@@UAGJXZ": 4869104,
+    "?Get_Status@LocomotionClass@@UAGHXZ": 4869152,
+    "?Acquire_Hunter_Seeker_Target@LocomotionClass@@UAGXXZ": 4869168,
+    "?Is_Surfacing@LocomotionClass@@UAGEXZ": 4869184,
+    "?Mark_All_Occupation_Bits@LocomotionClass@@UAGXH@Z": 4875680,
+    "?Is_Moving_Here@LocomotionClass@@UAGEUCoordStruct@@@Z": 4875696,
+    "?Will_Jump_Tracks@LocomotionClass@@UAGEXZ": 4875712,
+    "?Is_Really_Moving_Now@LocomotionClass@@UAGEXZ": 4869136,
+    "?Stop_Movement_Animation@LocomotionClass@@UAGXXZ": 4869200,
+    "?Lock@LocomotionClass@@UAGXXZ": 4875728,
+    "?Unlock@LocomotionClass@@UAGXXZ": 4875744,
+    "?Get_Track_Number@LocomotionClass@@UAGHXZ": 4875760,
+    "?Get_Track_Index@LocomotionClass@@UAGHXZ": 4875776,
+    "?Get_Speed_Accum@LocomotionClass@@UAGHXZ": 4875792,
+    "?Fetch_Object_Size@RocketLocomotionClass@@UBEHXZ": 6548784,
+    "??1RocketLocomotionClass@@UAE@XZ": 6544176,
+    "?Is_Moving@RocketLocomotionClass@@UAGEXZ": 6544208,
+    "?Is_Moving_Now@RocketLocomotionClass@@UAGEXZ": 6544272,
+    "?Destination@RocketLocomotionClass@@UAG?AUCoordStruct@@XZ": 6544304,
+    "?Position_At@RocketLocomotionClass@@AAE?AVCoord@@H@Z": 6544352,
+    "?Pitch_To_Target@RocketLocomotionClass@@AAENXZ": 6544912,
+    "?Process@RocketLocomotionClass@@UAGEXZ": 6545040,
+    "?Move_To@RocketLocomotionClass@@UAGXUCoordStruct@@@Z": 6548096,
+    "?Stop_Moving@RocketLocomotionClass@@UAGXXZ": 6548304,
+    "?GetClassID@RocketLocomotionClass@@UAGJPAU_GUID@@@Z": 6548320,
+    "?Load@RocketLocomotionClass@@UAGJPAUIStream@@@Z": 6548384,
+    "?Stop_Moving@LocomotionClass@@UAGXXZ": 5494080,
+    "?Move_To@LocomotionClass@@UAGXUCoordStruct@@@Z": 5494096,
+    "?Process@LocomotionClass@@UAGEXZ": 5494112,
+    "?Draw_Matrix@LocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z": 5492784,
+    "?Destination@LocomotionClass@@UAG?AUCoordStruct@@XZ": 5494128,
+    "?Is_Moving@LocomotionClass@@UAGEXZ": 5494224,
+    "??_GLocomotionClass@@UAEPAXI@Z": 5238528,
+    "__purecall": 4950368,
+    "?Is_Moving_Now@LocomotionClass@@UAGEXZ": 4875664,
+    "?In_Which_Layer@RocketLocomotionClass@@UAG?AW4LayerType@@XZ": 6548464,
+    "?Draw_Matrix@RocketLocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z": 6548480,
+    "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
+    "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
+    "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
+    "?QueryInterface@LocomotionClass@@W3AGJABU_GUID@@PAPAX@Z": 4979872,
+    "?AddRef@LocomotionClass@@W3AGKXZ": 4979888,
+    "?Release@LocomotionClass@@W3AGKXZ": 4979904
+  },
+  "regions": [
+    {
+      "entry": 6543568,
+      "method": "0063d8d0",
+      "body_bytes": 40,
+      "body_sha256": "aee6bb3e5c39200ab2c490bd513765580e9c1bd3ab12b181054ea865a0b0c4ec",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "b15d910aef64bad0c4a16e6eb099e02255c9b3af5db8794caa65a15dc8732f91",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 1329359
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4293380898
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11233392,
+          "addend": 0,
+          "resolved": 11233392
+        }
+      ],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6543568,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6543616,
+      "method": "0063d900",
+      "body_bytes": 19,
+      "body_sha256": "f6805ccd43f7c4847d390002c393dbbe498b47cfa296bb27ba39ce25e95d8d2c",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "04759d25521f914e8ea774fa5ca20d979d528dcf2cdd0607e0be7a4aa72896fd",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11233392,
+          "addend": 0,
+          "resolved": 11233392
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8031944,
+          "addend": 0,
+          "resolved": 8031944
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11233464,
+          "addend": 0,
+          "resolved": 11233464
+        }
+      ],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6543616,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6543648,
+      "method": "0063d920",
+      "body_bytes": 19,
+      "body_sha256": "e3c6543107f5662bcbb80ad0ff8329b47326fe10546eb877c92f79ad12822782",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "d7d4570796ea9459868d6b5f385c1df28059c1edd0e8a5872f1698f65f37bc1c",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11233464,
+          "addend": 0,
+          "resolved": 11233464
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 11233448,
+          "addend": 0,
+          "resolved": 11233448
+        }
+      ],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6543648,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6543680,
+      "method": "0063d940",
+      "body_bytes": 19,
+      "body_sha256": "704e395028b3a18b511f6e712d243297dca576e97002cd919a4d8a4380b1cb16",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b91b00d1a20f41419d8e71ee9d8226b0362fd001cac7af47923b0de7685e1495",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8031952,
+          "addend": 0,
+          "resolved": 8031952
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 11233440,
+          "addend": 0,
+          "resolved": 11233440
+        }
+      ],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6543680,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6543712,
+      "method": "0063d960",
+      "body_bytes": 19,
+      "body_sha256": "697a6d43305429de5436ccfbaf7fe86da72ef0b7f0ebcd73db71974e538e1968",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "57571f49821b1d75ac4683b5ca6862c184dbfa731b7a7ad2602f7b90d8ef8e38",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8031952,
+          "addend": 0,
+          "resolved": 8031952
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11233400,
+          "addend": 0,
+          "resolved": 11233400
+        }
+      ],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6543712,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6543744,
+      "method": "0063d980",
+      "body_bytes": 19,
+      "body_sha256": "781b086dd99603ea54abd87f926ac88d1d590c99177258b66226bcd9da0dba3a",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "a42cfc5d803a7556a12ad7571a8a471194b5f16e6503cba65a23aa1b780450c1",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8031952,
+          "addend": 0,
+          "resolved": 8031952
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11233360,
+          "addend": 0,
+          "resolved": 11233360
+        }
+      ],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6543744,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6543776,
+      "method": "0063d9a0",
+      "body_bytes": 49,
+      "body_sha256": "28ac6fb7a80daa2d3109bbb6a63467f0e02d1d608b7fb17e4a49b6fd6012efd2",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "e7879f3ef4a1c34505001439a901f8dfdd2bf61e4ef7884d4b24205ef278ade9",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11233360,
+          "addend": 0,
+          "resolved": 11233360
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11233400,
+          "addend": 0,
+          "resolved": 11233400
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4293380969
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11233392,
+          "addend": 0,
+          "resolved": 11233392
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1316677
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11233472,
+          "addend": 0,
+          "resolved": 11233472
+        }
+      ],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6543776,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6543840,
+      "method": "0063d9e0",
+      "body_bytes": 33,
+      "body_sha256": "bdfb49ef530e310bc07f9b60b2f21fcda8291883fd6f02ec21db1b42b459047e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "9d9c43876d7fd6bbf5ae711c31d21a0e383549b764c480b0f0fcea98572ec1f4",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11233472,
+          "addend": 0,
+          "resolved": 11233472
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4293381049
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 11233408,
+          "addend": 0,
+          "resolved": 11233408
+        }
+      ],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6543840,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6543888,
+      "method": "0063da10",
+      "body_bytes": 44,
+      "body_sha256": "140990aa516ddc335143be4a564c7039dc56a75e9fe9ca403a93b5427dd1655b",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "5426080eef74c914092cd6efd5ad86a7fd284fc68e6ee39e2830867687283f34",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11233472,
+          "addend": 0,
+          "resolved": 11233472
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11233392,
+          "addend": 0,
+          "resolved": 11233392
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4293380990
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 11233432,
+          "addend": 0,
+          "resolved": 11233432
+        }
+      ],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6543888,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6543936,
+      "method": "0063da40",
+      "body_bytes": 39,
+      "body_sha256": "6d5eee4fbce5b82d2036cee6354932b3c3b739b3cba1393cec55905aa013eef8",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f91ec3da78dbe0932ff81c6e035b00acbad8274a3769471031bdcb074c0be38",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11233472,
+          "addend": 0,
+          "resolved": 11233472
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1316528
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11233456,
+          "addend": 0,
+          "resolved": 11233456
+        }
+      ],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6543936,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6543984,
+      "method": "0063da70",
+      "body_bytes": 15,
+      "body_sha256": "5dac74dc0041930a268af9d7af111859f4240fed8ea521880372d681853cf118",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "5e1b232e43620371b09c96d7b2d9f7981271a914ac221f59767e1085685daa05",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11233384,
+          "addend": 0,
+          "resolved": 11233384
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11233384,
+          "addend": 2,
+          "resolved": 11233386
+        }
+      ],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6543984,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6544000,
+      "method": "0063da80",
+      "body_bytes": 18,
+      "body_sha256": "9ecea9dcc824d16c5533e1dfc411637a01458caecf4c8120ac2e1454f94eec88",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "8c1203b952449a916c3fb2c8281f70fc5ef37eca69d530e2e920bd5ecfb93131",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11233416,
+          "addend": 0,
+          "resolved": 11233416
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11233416,
+          "addend": 4,
+          "resolved": 11233420
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11233416,
+          "addend": 8,
+          "resolved": 11233424
+        }
+      ],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6544000,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6544032,
+      "method": "0063daa0",
+      "body_bytes": 23,
+      "body_sha256": "d941d5bde87bd7c01070f96eaca34c7073b94359894f225c75009e1ca81e7b63",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "31ef248f5d9a32084ad7b23a4fdf308fedc85c2690e38aae447b29da5e665ee3",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11233368,
+          "addend": 0,
+          "resolved": 11233368
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11233368,
+          "addend": 4,
+          "resolved": 11233372
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11233368,
+          "addend": 8,
+          "resolved": 11233376
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11233368,
+          "addend": 12,
+          "resolved": 11233380
+        }
+      ],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6544032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6544064,
+      "method": "0063dac0",
+      "body_bytes": 99,
+      "body_sha256": "dd76a3a0a88aceb928ec849423a924f5b2aa860af4caabe60f521f0c86570b7a",
+      "padding_bytes": 13,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "0713629a437146f7c8eec2e7305c0a7276fcca4a0d71c0c8c8aa7aaac0f32dbf",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0RocketLocomotionClass@@QAE@XZ",
+      "symbol_prefix": "??0RocketLocomotionClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??0LocomotionClass@@QAE@XZ",
+          "target": 5492672,
+          "addend": 0,
+          "resolved": 4293915896
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11233416,
+          "addend": 0,
+          "resolved": 11233416
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11233416,
+          "addend": 4,
+          "resolved": 11233420
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11233416,
+          "addend": 8,
+          "resolved": 11233424
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 84,
+          "kind": 6,
+          "symbol": "??_7RocketLocomotionClass@@6BIPersistStream@@@",
+          "target": 8032164,
+          "addend": 0,
+          "resolved": 8032164
+        },
+        {
+          "offset": 91,
+          "kind": 6,
+          "symbol": "??_7RocketLocomotionClass@@6BILocomotion@@@",
+          "target": 8031964,
+          "addend": 0,
+          "resolved": 8031964
+        }
+      ],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6544064,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6544176,
+      "method": "0063db30",
+      "body_bytes": 18,
+      "body_sha256": "229ddc1579870829bf4ad86fb0a63b92e3ae553ad307f94c6def301d498e3414",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "05bfd0c75eae3323042a163fbaf60212ba1493976ae802ed3532056d5c646c16",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1RocketLocomotionClass@@UAE@XZ",
+      "symbol_prefix": "??1RocketLocomotionClass@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "??_7RocketLocomotionClass@@6BIPersistStream@@@",
+          "target": 8032164,
+          "addend": 0,
+          "resolved": 8032164
+        },
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "??_7RocketLocomotionClass@@6BILocomotion@@@",
+          "target": 8031964,
+          "addend": 0,
+          "resolved": 8031964
+        },
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "??1LocomotionClass@@UAE@XZ",
+          "target": 5492720,
+          "addend": 0,
+          "resolved": 4293915822
+        }
+      ],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6544176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6544208,
+      "method": "0063db50",
+      "body_bytes": 56,
+      "body_sha256": "132553804d9db02a9b24e50a5c118abd42a87a144091e8ea177349a1dc0f3107",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "9321079229eadba0d092633641e0bfe7681fed2566e462ac3df99cccc99166cf",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Moving@RocketLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Is_Moving@RocketLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11233416,
+          "addend": 0,
+          "resolved": 11233416
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11233416,
+          "addend": 4,
+          "resolved": 11233420
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11233416,
+          "addend": 8,
+          "resolved": 11233424
+        }
+      ],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6544208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6544272,
+      "method": "0063db90",
+      "body_bytes": 27,
+      "body_sha256": "0fb9edf3226328fbc7ac897a1c609d1743af40a3964759455c1def55ce63ead4",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b95ee409e7d57862eaf0674889f9bb0bb7e5f1e5bfaab7a25cb287c7f312b6eb",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Moving_Now@RocketLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Is_Moving_Now@RocketLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6544272,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6544304,
+      "method": "0063dbb0",
+      "body_bytes": 36,
+      "body_sha256": "d962ccd435ac22b02b13ec88e8b56b4decc52417c4b6a836c32a9fde27ec20b5",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "a728bf436ee58fb148a7ac7e24cc9a1b05319284c693c9179fccd03177095b21",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Destination@RocketLocomotionClass@@UAG?AUCoordStruct@@XZ",
+      "symbol_prefix": "?Destination@RocketLocomotionClass@@UAG?AUCoordStruct@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6544304,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6544352,
+      "method": "0063dbe0",
+      "body_bytes": 261,
+      "body_sha256": "e32d8dcadc0f8bd8e7d48da9f4e6011cf94cafd73a5b122e513b1ba3ec41f123",
+      "padding_bytes": 11,
+      "full_extent_bytes": 272,
+      "full_extent_sha256": "12ccf8bcc52ef9d4cf41710dee7bbdf33b7d8131c356342ca3bed5ffa7d50c4c",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Position_At@RocketLocomotionClass@@AAE?AVCoord@@H@Z",
+      "symbol_prefix": "?Position_At@RocketLocomotionClass@@AAE?AVCoord@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 59,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4293380273
+        },
+        {
+          "offset": 71,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1316069
+        },
+        {
+          "offset": 94,
+          "kind": 20,
+          "symbol": "?Current@FacingClass@@QBE?AVDirType@@XZ",
+          "target": 4951008,
+          "addend": 0,
+          "resolved": 4293373854
+        },
+        {
+          "offset": 117,
+          "kind": 6,
+          "symbol": "__real@8@bff1c9116cc4faf2b800",
+          "target": 7976480,
+          "addend": 0,
+          "resolved": 7976480
+        },
+        {
+          "offset": 152,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 4293380100
+        },
+        {
+          "offset": 165,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1315975
+        },
+        {
+          "offset": 180,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4293380152
+        },
+        {
+          "offset": 193,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1315947
+        },
+        {
+          "offset": 213,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 4293380039
+        },
+        {
+          "offset": 229,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1315911
+        }
+      ],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6544352,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6544624,
+      "method": "0063dcf0",
+      "body_bytes": 288,
+      "body_sha256": "690254a0b404899a63dd4324534bed969f722cfc679fdee386187bd9747b29b4",
+      "padding_bytes": 0,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "690254a0b404899a63dd4324534bed969f722cfc679fdee386187bd9747b29b4",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Reached_Target@RocketLocomotionClass@@AAE_NPBURocketStruct@@@Z",
+      "symbol_prefix": "?Reached_Target@RocketLocomotionClass@@AAE_NPBURocketStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 63,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4293379997
+        },
+        {
+          "offset": 87,
+          "kind": 20,
+          "symbol": "?Current@FacingClass@@QBE?AVDirType@@XZ",
+          "target": 4951008,
+          "addend": 0,
+          "resolved": 4293373589
+        },
+        {
+          "offset": 110,
+          "kind": 6,
+          "symbol": "__real@8@bff1c9116cc4faf2b800",
+          "target": 7976480,
+          "addend": 0,
+          "resolved": 7976480
+        },
+        {
+          "offset": 129,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 4293379851
+        },
+        {
+          "offset": 138,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4293379922
+        },
+        {
+          "offset": 154,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 4293379826
+        },
+        {
+          "offset": 170,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1315698
+        },
+        {
+          "offset": 186,
+          "kind": 20,
+          "symbol": "?Detonate@RocketLocomotionClass@@AAEXXZ",
+          "target": 6547408,
+          "addend": 0,
+          "resolved": 2594
+        },
+        {
+          "offset": 249,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11233456,
+          "addend": 0,
+          "resolved": 11233456
+        },
+        {
+          "offset": 262,
+          "kind": 20,
+          "symbol": "?Detonate@RocketLocomotionClass@@AAEXXZ",
+          "target": 6547408,
+          "addend": 0,
+          "resolved": 2518
+        }
+      ],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6544624,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6544912,
+      "method": "0063de10",
+      "body_bytes": 127,
+      "body_sha256": "7438ec956d1df11091cfe32b107b210f609f21b9482a266c2fa371fef4679db2",
+      "padding_bytes": 1,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "49bab0149240d49bb279ff36a59e2408c90ce830c6742873054116924d3cb8b7",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Pitch_To_Target@RocketLocomotionClass@@AAENXZ",
+      "symbol_prefix": "?Pitch_To_Target@RocketLocomotionClass@@AAENXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 67,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4293379513
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 104,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4293379892
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "__real@8@bfffc90fdaa22168c000",
+          "target": 8032208,
+          "addend": 0,
+          "resolved": 8032208
+        }
+      ],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6544912,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6545040,
+      "method": "0063de90",
+      "body_bytes": 2368,
+      "body_sha256": "67eba5d4bedf9d7b8a99196fe5eba03a42cfd6a233e5edf3db9590127cc93eac",
+      "padding_bytes": 0,
+      "full_extent_bytes": 2368,
+      "full_extent_sha256": "67eba5d4bedf9d7b8a99196fe5eba03a42cfd6a233e5edf3db9590127cc93eac",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 28,
+      "symbol": "?Process@RocketLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Process@RocketLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6547380,
+          "addend": 0,
+          "resolved": 6547380
+        },
+        {
+          "offset": 115,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 147,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 177,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 228,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 271,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 291,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 327,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11233384,
+          "addend": 0,
+          "resolved": 11233384
+        },
+        {
+          "offset": 340,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11233384,
+          "addend": 2,
+          "resolved": 11233386
+        },
+        {
+          "offset": 350,
+          "kind": 6,
+          "symbol": "?AircraftTracker@@3VAircraftTrackerClass@@A",
+          "target": 8625824,
+          "addend": 0,
+          "resolved": 8625824
+        },
+        {
+          "offset": 356,
+          "kind": 20,
+          "symbol": "?Add@AircraftTrackerClass@@QAEXPAVTechnoClass@@@Z",
+          "target": 4272608,
+          "addend": 0,
+          "resolved": 4292694504
+        },
+        {
+          "offset": 366,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1327125
+        },
+        {
+          "offset": 410,
+          "kind": 6,
+          "symbol": "?RocketTakeoffAnimName@@3PBDB",
+          "target": 8316932,
+          "addend": 0,
+          "resolved": 8316932
+        },
+        {
+          "offset": 415,
+          "kind": 20,
+          "symbol": "?From_Name@AnimTypeClass@@SI?AW4AnimType@@PBD@Z",
+          "target": 4347456,
+          "addend": 0,
+          "resolved": 4292769293
+        },
+        {
+          "offset": 421,
+          "kind": 6,
+          "symbol": "?AnimTypes@@3V?$DynamicVectorClass@PAVAnimTypeClass@@@@A",
+          "target": 8806880,
+          "addend": 4,
+          "resolved": 8806884
+        },
+        {
+          "offset": 448,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4292747452
+        },
+        {
+          "offset": 508,
+          "kind": 20,
+          "symbol": "?PlayAt@VocClass@@SIPAXHABVCoord@@PAUAudioController@@@Z",
+          "target": 7421536,
+          "addend": 0,
+          "resolved": 875984
+        },
+        {
+          "offset": 522,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 534,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 548,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 763,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4293378689
+        },
+        {
+          "offset": 771,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1314681
+        },
+        {
+          "offset": 868,
+          "kind": 20,
+          "symbol": "?Reached_Target@RocketLocomotionClass@@AAE_NPBURocketStruct@@@Z",
+          "target": 6544624,
+          "addend": 0,
+          "resolved": 4294966008
+        },
+        {
+          "offset": 964,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4293378488
+        },
+        {
+          "offset": 972,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1314480
+        },
+        {
+          "offset": 1043,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 1056,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4292727676
+        },
+        {
+          "offset": 1104,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4293378348
+        },
+        {
+          "offset": 1110,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 1139,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4293378729
+        },
+        {
+          "offset": 1152,
+          "kind": 6,
+          "symbol": "__real@8@bfffc90fdaa22168c000",
+          "target": 8032208,
+          "addend": 0,
+          "resolved": 8032208
+        },
+        {
+          "offset": 1169,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 1194,
+          "kind": 6,
+          "symbol": "__real@4@00000000000000000000",
+          "target": 7972664,
+          "addend": 0,
+          "resolved": 7972664
+        },
+        {
+          "offset": 1216,
+          "kind": 6,
+          "symbol": "__real@4@00000000000000000000",
+          "target": 7972664,
+          "addend": 0,
+          "resolved": 7972664
+        },
+        {
+          "offset": 1366,
+          "kind": 20,
+          "symbol": "?Length@?$TPoint3D@H@@QBEHXZ",
+          "target": 4306816,
+          "addend": 0,
+          "resolved": 4292727702
+        },
+        {
+          "offset": 1437,
+          "kind": 20,
+          "symbol": "?atan2@fastmath@@YANNN@Z",
+          "target": 4957696,
+          "addend": 0,
+          "resolved": 4293378511
+        },
+        {
+          "offset": 1443,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 1452,
+          "kind": 6,
+          "symbol": "__real@8@c00ca2f83d7b47677800",
+          "target": 7976488,
+          "addend": 0,
+          "resolved": 7976488
+        },
+        {
+          "offset": 1457,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1313995
+        },
+        {
+          "offset": 1489,
+          "kind": 20,
+          "symbol": "?Set_Desired@FacingClass@@QAE_NABVDirType@@@Z",
+          "target": 4950576,
+          "addend": 0,
+          "resolved": 4293371339
+        },
+        {
+          "offset": 1505,
+          "kind": 20,
+          "symbol": "?Reached_Target@RocketLocomotionClass@@AAE_NPBURocketStruct@@@Z",
+          "target": 6544624,
+          "addend": 0,
+          "resolved": 4294965371
+        },
+        {
+          "offset": 1566,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4292727166
+        },
+        {
+          "offset": 1614,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4293377838
+        },
+        {
+          "offset": 1620,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 1649,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4293378219
+        },
+        {
+          "offset": 1662,
+          "kind": 6,
+          "symbol": "__real@8@bfffc90fdaa22168c000",
+          "target": 8032208,
+          "addend": 0,
+          "resolved": 8032208
+        },
+        {
+          "offset": 1673,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 1702,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 1756,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 1778,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1325713
+        },
+        {
+          "offset": 1807,
+          "kind": 6,
+          "symbol": "?RocketTrailAnimName@@3PBDB",
+          "target": 8316936,
+          "addend": 0,
+          "resolved": 8316936
+        },
+        {
+          "offset": 1826,
+          "kind": 20,
+          "symbol": "?From_Name@AnimTypeClass@@SI?AW4AnimType@@PBD@Z",
+          "target": 4347456,
+          "addend": 0,
+          "resolved": 4292767882
+        },
+        {
+          "offset": 1832,
+          "kind": 6,
+          "symbol": "?AnimTypes@@3V?$DynamicVectorClass@PAVAnimTypeClass@@@@A",
+          "target": 8806880,
+          "addend": 4,
+          "resolved": 8806884
+        },
+        {
+          "offset": 1859,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4292746041
+        },
+        {
+          "offset": 1864,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 1894,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 1913,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1313539
+        },
+        {
+          "offset": 1970,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4293377674
+        },
+        {
+          "offset": 1982,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1313470
+        },
+        {
+          "offset": 2005,
+          "kind": 20,
+          "symbol": "?Current@FacingClass@@QBE?AVDirType@@XZ",
+          "target": 4951008,
+          "addend": 0,
+          "resolved": 4293371255
+        },
+        {
+          "offset": 2028,
+          "kind": 6,
+          "symbol": "__real@8@bff1c9116cc4faf2b800",
+          "target": 7976480,
+          "addend": 0,
+          "resolved": 7976480
+        },
+        {
+          "offset": 2063,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 4293377501
+        },
+        {
+          "offset": 2076,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1313376
+        },
+        {
+          "offset": 2095,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4293377549
+        },
+        {
+          "offset": 2108,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1313344
+        },
+        {
+          "offset": 2138,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 4293377426
+        },
+        {
+          "offset": 2154,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1313298
+        },
+        {
+          "offset": 2259,
+          "kind": 6,
+          "symbol": "?AircraftTracker@@3VAircraftTrackerClass@@A",
+          "target": 8625824,
+          "addend": 0,
+          "resolved": 8625824
+        },
+        {
+          "offset": 2264,
+          "kind": 20,
+          "symbol": "?Update@AircraftTrackerClass@@QAEXPAVTechnoClass@@VCell@@1@Z",
+          "target": 4273664,
+          "addend": 0,
+          "resolved": 4292693652
+        },
+        {
+          "offset": 2281,
+          "kind": 20,
+          "symbol": "?Detonate@RocketLocomotionClass@@AAEXXZ",
+          "target": 6547408,
+          "addend": 0,
+          "resolved": 83
+        },
+        {
+          "offset": 2340,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6545123,
+          "addend": 0,
+          "resolved": 6545123
+        },
+        {
+          "offset": 2344,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6545241,
+          "addend": 0,
+          "resolved": 6545241
+        },
+        {
+          "offset": 2348,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6545655,
+          "addend": 0,
+          "resolved": 6545655
+        },
+        {
+          "offset": 2352,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6545823,
+          "addend": 0,
+          "resolved": 6545823
+        },
+        {
+          "offset": 2356,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6546538,
+          "addend": 0,
+          "resolved": 6546538
+        }
+      ],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6545040,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6547408,
+      "method": "0063e7d0",
+      "body_bytes": 678,
+      "body_sha256": "5da04d75c466c6c268f55805aa54ced22df3c81bc194bd429bd33c0c816ba7f0",
+      "padding_bytes": 10,
+      "full_extent_bytes": 688,
+      "full_extent_sha256": "2ff4402d8b7197cc7396bc1f689ca5fb3095798e97a73d5cc668e7df89ac2a21",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Detonate@RocketLocomotionClass@@AAEXXZ",
+      "symbol_prefix": "?Detonate@RocketLocomotionClass@@AAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "?AircraftTracker@@3VAircraftTrackerClass@@A",
+          "target": 8625824,
+          "addend": 0,
+          "resolved": 8625824
+        },
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "?Remove@AircraftTrackerClass@@QAEXPAVTechnoClass@@@Z",
+          "target": 4272912,
+          "addend": 0,
+          "resolved": 4292692772
+        },
+        {
+          "offset": 48,
+          "kind": 20,
+          "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
+          "target": 7418912,
+          "addend": 0,
+          "resolved": 871452
+        },
+        {
+          "offset": 77,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 222,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4293377054
+        },
+        {
+          "offset": 234,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1312850
+        },
+        {
+          "offset": 257,
+          "kind": 20,
+          "symbol": "?Current@FacingClass@@QBE?AVDirType@@XZ",
+          "target": 4951008,
+          "addend": 0,
+          "resolved": 4293370635
+        },
+        {
+          "offset": 279,
+          "kind": 6,
+          "symbol": "__real@8@bff1c9116cc4faf2b800",
+          "target": 7976480,
+          "addend": 0,
+          "resolved": 7976480
+        },
+        {
+          "offset": 314,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 4293376882
+        },
+        {
+          "offset": 327,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1312757
+        },
+        {
+          "offset": 338,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4293376938
+        },
+        {
+          "offset": 351,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1312733
+        },
+        {
+          "offset": 380,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 4293376816
+        },
+        {
+          "offset": 396,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1312688
+        },
+        {
+          "offset": 488,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1324635
+        },
+        {
+          "offset": 508,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 514,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293957274
+        },
+        {
+          "offset": 550,
+          "kind": 20,
+          "symbol": "?Get_Explosion_Z@@YIHVCoord@@@Z",
+          "target": 4717760,
+          "addend": 0,
+          "resolved": 4293137094
+        },
+        {
+          "offset": 582,
+          "kind": 20,
+          "symbol": "?Combat_Anim@@YIPBVAnimTypeClass@@HPBVWarheadTypeClass@@W4LandType@@ABVCoord@@@Z",
+          "target": 4715728,
+          "addend": 0,
+          "resolved": 4293135030
+        },
+        {
+          "offset": 592,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4292744940
+        },
+        {
+          "offset": 632,
+          "kind": 20,
+          "symbol": "?Combat_Lighting@@YIXVCoord@@HPBVWarheadTypeClass@@HH@Z",
+          "target": 4716032,
+          "addend": 0,
+          "resolved": 4293135284
+        },
+        {
+          "offset": 654,
+          "kind": 20,
+          "symbol": "?Explosion_Damage@@YIHABVCoord@@HPAVTechnoClass@@PBVWarheadTypeClass@@_N@Z",
+          "target": 4711104,
+          "addend": 0,
+          "resolved": 4293130334
+        }
+      ],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6547408,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6548096,
+      "method": "0063ea80",
+      "body_bytes": 202,
+      "body_sha256": "dd3839412ad2c5cfb6aae9dbe44ee24a320a794bedb7c7d9f44c676a50c36ff8",
+      "padding_bytes": 6,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "09507dfc19e409f6d34afb112f4cdf2870ce2260e50d3c052c2e9ad8e0da46cf",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Move_To@RocketLocomotionClass@@UAGXUCoordStruct@@@Z",
+      "symbol_prefix": "?Move_To@RocketLocomotionClass@@UAGXUCoordStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11233416,
+          "addend": 0,
+          "resolved": 11233416
+        },
+        {
+          "offset": 71,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11233416,
+          "addend": 4,
+          "resolved": 11233420
+        },
+        {
+          "offset": 84,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11233416,
+          "addend": 8,
+          "resolved": 11233424
+        },
+        {
+          "offset": 108,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 135,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 170,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        }
+      ],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6548096,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6548304,
+      "method": "0063eb50",
+      "body_bytes": 3,
+      "body_sha256": "e598d0c3ba86d917b177d7adde0556aa99bc355543c57aee0a3e50b684dd7e99",
+      "padding_bytes": 13,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "c4e48398aa494fd8abf1c3e8e6cc058bcdca3836fdfe6744b7d353c518e1c019",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Stop_Moving@RocketLocomotionClass@@UAGXXZ",
+      "symbol_prefix": "?Stop_Moving@RocketLocomotionClass@@UAGXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6548304,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6548320,
+      "method": "0063eb60",
+      "body_bytes": 56,
+      "body_sha256": "d483b77dfc44a1765cd931d174b7d5ab255778e91bbbc4222af1a17197ba60cb",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "5d16ebb9313b7fd39b252ee9768eec38095d6006d2dd027929f9095e5afe66c6",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetClassID@RocketLocomotionClass@@UAGJPAU_GUID@@@Z",
+      "symbol_prefix": "?GetClassID@RocketLocomotionClass@@UAGJPAU_GUID@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_CLSID_RocketLocomotion",
+          "target": 8003600,
+          "addend": 0,
+          "resolved": 8003600
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_CLSID_RocketLocomotion",
+          "target": 8003600,
+          "addend": 4,
+          "resolved": 8003604
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_CLSID_RocketLocomotion",
+          "target": 8003600,
+          "addend": 8,
+          "resolved": 8003608
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_CLSID_RocketLocomotion",
+          "target": 8003600,
+          "addend": 12,
+          "resolved": 8003612
+        }
+      ],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6548320,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6548384,
+      "method": "0063eba0",
+      "body_bytes": 70,
+      "body_sha256": "ed01da703c089bc1a8326ef196cdfef7099f0d4f8d46138a7b34d47f6409a227",
+      "padding_bytes": 10,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "79725eb641c8595aa59f5d56c05b0d19a4465069fbc04c1fe2ca022f19e21477",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load@RocketLocomotionClass@@UAGJPAUIStream@@@Z",
+      "symbol_prefix": "?Load@RocketLocomotionClass@@UAGJPAUIStream@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 20,
+          "symbol": "?Load@LocomotionClass@@UAGJPAUIStream@@@Z",
+          "target": 5493696,
+          "addend": 0,
+          "resolved": 4293912592
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "??_7LocomotionClass@@6BIPersistStream@@@",
+          "target": 8008628,
+          "addend": 0,
+          "resolved": 8008628
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "??_7LocomotionClass@@6BILocomotion@@@",
+          "target": 8008428,
+          "addend": 0,
+          "resolved": 8008428
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 55,
+          "kind": 6,
+          "symbol": "??_7RocketLocomotionClass@@6BIPersistStream@@@",
+          "target": 8032164,
+          "addend": 0,
+          "resolved": 8032164
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "??_7RocketLocomotionClass@@6BILocomotion@@@",
+          "target": 8031964,
+          "addend": 0,
+          "resolved": 8031964
+        }
+      ],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6548384,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6548464,
+      "method": "0063ebf0",
+      "body_bytes": 8,
+      "body_sha256": "0f5243661af1b0b839695f2fc8019cd99bccfe87c8acca0b69f36da79c4135ed",
+      "padding_bytes": 8,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "1196f951dcb0ef60a4f91e00994476904ef604fe5092fc921e031889d30516cb",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?In_Which_Layer@RocketLocomotionClass@@UAG?AW4LayerType@@XZ",
+      "symbol_prefix": "?In_Which_Layer@RocketLocomotionClass@@UAG?AW4LayerType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6548464,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6548480,
+      "method": "0063ec00",
+      "body_bytes": 289,
+      "body_sha256": "51a097d13354e8a6385054c6547aa4b6301a9db64f98ce392b3e72fbeb2d6a47",
+      "padding_bytes": 15,
+      "full_extent_bytes": 304,
+      "full_extent_sha256": "1a77f004376cba3803eb7b97ae48bdb2475934f3ac248a64458a899f2f825639",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Matrix@RocketLocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z",
+      "symbol_prefix": "?Draw_Matrix@RocketLocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+          "target": 5832800,
+          "addend": 0,
+          "resolved": 4294251602
+        },
+        {
+          "offset": 33,
+          "kind": 20,
+          "symbol": "?Current@FacingClass@@QBE?AVDirType@@XZ",
+          "target": 4951008,
+          "addend": 0,
+          "resolved": 4293369787
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "__real@8@bffcc90fdaa22168c000",
+          "target": 7983248,
+          "addend": 0,
+          "resolved": 7983248
+        },
+        {
+          "offset": 74,
+          "kind": 20,
+          "symbol": "?Rotate_Z@Matrix3D@@QAEXM@Z",
+          "target": 5835168,
+          "addend": 0,
+          "resolved": 4294253906
+        },
+        {
+          "offset": 83,
+          "kind": 6,
+          "symbol": "__real@4@00000000000000000000",
+          "target": 7972664,
+          "addend": 0,
+          "resolved": 7972664
+        },
+        {
+          "offset": 112,
+          "kind": 20,
+          "symbol": "?Rotate_Y@Matrix3D@@QAEXM@Z",
+          "target": 5834880,
+          "addend": 0,
+          "resolved": 4294253580
+        },
+        {
+          "offset": 120,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 157,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 174,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 243,
+          "kind": 20,
+          "symbol": "?Current@FacingClass@@QBE?AVDirType@@XZ",
+          "target": 4951008,
+          "addend": 0,
+          "resolved": 4293369577
+        }
+      ],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6548480,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6548784,
+      "method": "0063ed30",
+      "body_bytes": 6,
+      "body_sha256": "013f5d9b265629682a064e93f18bf734bd26d2b06fd753d96966e92cb2f315b4",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "9faf4054c02a018cfae5deb480e3f1b353f30412c765f3e26cb57161c6aeb285",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Object_Size@RocketLocomotionClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Object_Size@RocketLocomotionClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6548784,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6548800,
+      "method": "0063ed40",
+      "body_bytes": 43,
+      "body_sha256": "bc681c16461dec16a1b222ddc243d6999f98c74a48abe8a3d0d2ce8ecdb8fec8",
+      "padding_bytes": 5,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "6e6f65a9533736d10e111e4725d2ec4fccd37208bbd9907f42786d4c10c79739",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GRocketLocomotionClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GRocketLocomotionClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7RocketLocomotionClass@@6BIPersistStream@@@",
+          "target": 8032164,
+          "addend": 0,
+          "resolved": 8032164
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "??_7RocketLocomotionClass@@6BILocomotion@@@",
+          "target": 8031964,
+          "addend": 0,
+          "resolved": 8031964
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??1LocomotionClass@@UAE@XZ",
+          "target": 5492720,
+          "addend": 0,
+          "resolved": 4293911195
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1322969
+        }
+      ],
+      "source_sha256": "038ffa8b0555914ac1decfd9acdd8377bcf52f2a2b63fd26af939412058cc082",
+      "source": "src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6548800,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

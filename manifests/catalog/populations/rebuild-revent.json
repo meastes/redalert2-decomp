@@ -1,0 +1,4481 @@
+{
+  "id": "rebuild-revent",
+  "population": {
+    "id": "rebuild-revent",
+    "inventory_sha256": "9c2cc29d53bf5e0a74879e29a1570d5e22fd5b0dcdb6d3a5a78d79a133f9e22e",
+    "gaps_sha256": "c4ac89e142618510b04ff241bf6036e58580c8675ece1fc8b1f8cf8a67f24196",
+    "historical_population_sha256": "ab211a4a8bcf69d08dd64b2cd6616fbb74e19a8f305edc8ee9b3acbf292eb616",
+    "historical_acceptance_sha256": "bde41565d6899bd95644b198cea3e667fe3715e4268b3fc5436a856cb74b870d"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 11233200,
+    "_ISO_TILE_SIZE": 8031552,
+    "_LEPTONS_PER_PIXEL": 11233312,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 11233296,
+    "_ONE_RAD": 8031560,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 11233288,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 11233216,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 11233136,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 11233320,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 11233232,
+    "_CELL_DIAG_SLOPE_ANGLE": 11233280,
+    "_BRIDGE_LEPTON_HEIGHT": 11233308,
+    "_CELL_NONE": 11233192,
+    "_COORD_NONE": 11233240,
+    "_RECT_NONE": 11233144,
+    "_$E144": 6534448,
+    "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A": 11233256,
+    "??_7?$DynamicVectorClass@PAVRadarEventClass@@@@6B@": 8031852,
+    "_atexit": 7874954,
+    "_$S145": 11233128,
+    "??_7?$VectorClass@PAVRadarEventClass@@@@6B@": 8031884,
+    "??3@YAXPAX@Z": 7871803,
+    "?LastRadarEventCell@@3VCell@@A": 11233208,
+    "_RadarEventTypes": 8031576,
+    "??2@YAPAXI@Z": 7872535,
+    "??0RadarEventClass@@QAE@W4RadarEventType@@VCell@@@Z": 6534848,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "?Radar_Pixel@RadarClass@@QAEXABVPoint2D@@@Z": 6497824,
+    "?Rule@@3PAVRulesClass@@A": 8624200,
+    "?Frame@@3HA": 10751276,
+    "?Cell_To_Radar_Pixel@RadarClass@@QAE?AV?$TRect@H@@ABVCell@@@Z": 6493296,
+    "?RecentRadarEventNewest@@3HA": 11233224,
+    "?RecentRadarEventCells@@3PAVCell@@A": 11233160,
+    "?RecentRadarEventCurrent@@3HA": 11233304,
+    "?Process@RadarEventClass@@QAEXXZ": 6535488,
+    "?Plot@RadarEventClass@@QAEXXZ": 6537344,
+    "__real@8@3ffec90fdaa22168c000": 7981696,
+    "__real@8@3ffea2f9836e4e441800": 7983256,
+    "__real@8@3fffc90fdaa22168c000": 7976496,
+    "__real@8@3ff8a3d70a3d70a3d800": 7980312,
+    "__real@4@3ffdaaaaab0000000000": 8019624,
+    "__real@4@3ff9a3d70a0000000000": 8031912,
+    "__real@8@4001c90fdaa22168c000": 7981496,
+    "__real@4@00000000000000000000": 7972664,
+    "__real@4@3fff8000000000000000": 7976952,
+    "?Draw@RadarEventClass@@QAEXXZ": 6536080,
+    "??0RGBClass@@QAE@EEE@Z": 4402544,
+    "?Get_Event_Rect@RadarEventClass@@QBEXAAY03VPoint2D@@@Z": 6537840,
+    "__real@8@3ffeb504f333f9de6000": 8031920,
+    "?Clip_Line_To_Rect@@YI_NAAVPoint2D@@0ABV?$TRect@H@@@Z": 7820832,
+    "??H?$TPoint2D@H@@QBE?BV0@ABV0@@Z": 4412736,
+    "??0?$TRect@H@@QAE@ABV?$TPoint2D@H@@HH@Z": 4537920,
+    "?Union@@YI?BV?$TRect@H@@ABV1@0@Z": 4583392,
+    "?Intersect@@YI?BV?$TRect@H@@ABV1@0PAH1@Z": 4324848,
+    "?Plot_Radar_Event_Point@@YIXABVPoint2D@@@Z": 6534816,
+    "?Make_Identity@Matrix3D@@QAEXXZ": 5832800,
+    "?Rotate_Z@Matrix3D@@QAEXM@Z": 5835168,
+    "??D@YI?AVVector3@@ABVMatrix3D@@ABV0@@Z": 5837696,
+    "?Delete_Index@?$DynamicVectorClass@PAVRadarEventClass@@@@QAE_NH@Z": 6539856,
+    "_$E2": 6533888,
+    "_$E5": 6533936,
+    "_$E8": 6533968,
+    "_$E11": 6534000,
+    "_$E14": 6534032,
+    "_$E17": 6534064,
+    "_$E20": 6534096,
+    "_$E23": 6534160,
+    "_$E26": 6534208,
+    "_$E29": 6534256,
+    "_$E32": 6534304,
+    "_$E35": 6534320,
+    "_$E38": 6534352,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "_$E147": 6534384,
+    "??_G?$DynamicVectorClass@PAVRadarEventClass@@@@UAEPAXI@Z": 6540048,
+    "??_7type_info@@6B@": 8066532,
+    "??_G?$VectorClass@PAVRadarEventClass@@@@UAEPAXI@Z": 6539968,
+    "_$E150": 6534544,
+    "_$E153": 6534560,
+    "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z": 6534576,
+    "?Can_Suppress_Radar_Event@@YI_NW4RadarEventType@@@Z": 6534832,
+    "??1RadarEventClass@@QAE@XZ": 6535232,
+    "?Clear@RadarEventClass@@SIXXZ": 6535312,
+    "?Process_Radar_Events@@YIXXZ": 6535440,
+    "?Draw_Events@RadarEventClass@@SIXXZ": 6536000,
+    "?Remove_Finished@RadarEventClass@@SIXXZ": 6536944,
+    "?Try_Suppress_Radar_Event@@YI_NW4RadarEventType@@HVCell@@@Z": 6537120,
+    "?No_Radar_Events_Submitted@@YI_NXZ": 6537328,
+    "?Save@RadarEventClass@@SI_NPAUIStream@@@Z": 6538000,
+    "?Load@RadarEventClass@@SI_NPAUIStream@@@Z": 6538112,
+    "?Get_Max_Color@RadarEventClass@@QBE?AVRGBClass@@XZ": 6538384,
+    "?Get_Min_Color@RadarEventClass@@QBE?AVRGBClass@@XZ": 6538576,
+    "?Get_Visibility_Duration@RadarEventClass@@QAEHXZ": 6538768,
+    "?Get_Duration@RadarEventClass@@QAEHXZ": 6538784,
+    "?Get_Suppression_Distance@RadarEventClass@@QAEHXZ": 6538800,
+    "?Clear_Radar_Events@@YIXXZ": 6538816,
+    "?Record_Event_Cell@@YIXABVCell@@@Z": 6538944,
+    "?Recall_Radar_Event_Cell@@YI?AVCell@@XZ": 6538992,
+    "?Recall_Previous_Radar_Event_Cell@@YI?AVCell@@XZ": 6539040,
+    "?Reset_Radar_Event_Cells@@YIXXZ": 6539152,
+    "?Clear@?$DynamicVectorClass@PAVRadarEventClass@@@@UAEXXZ": 6539200,
+    "?ID@?$DynamicVectorClass@PAVRadarEventClass@@@@UAEHPBQAVRadarEventClass@@@Z": 6539248,
+    "?GetItem@?$VectorClass@PAVRadarEventClass@@@@UBEPAVRadarEventClass@@H@Z": 6539280,
+    "??8?$VectorClass@PAVRadarEventClass@@@@UBE_NABV0@@Z": 6539296,
+    "?Resize@?$VectorClass@PAVRadarEventClass@@@@UAE_NHPBQAVRadarEventClass@@@Z": 6539360,
+    "?Clear@?$VectorClass@PAVRadarEventClass@@@@UAEXXZ": 6539536,
+    "?ID@?$VectorClass@PAVRadarEventClass@@@@UAEHABQAVRadarEventClass@@@Z": 6539584,
+    "?ID@?$VectorClass@PAVRadarEventClass@@@@UAEHPBQAVRadarEventClass@@@Z": 6539648,
+    "?Resize@?$DynamicVectorClass@PAVRadarEventClass@@@@UAE_NHPBQAVRadarEventClass@@@Z": 6539680,
+    "?ID@?$DynamicVectorClass@PAVRadarEventClass@@@@UAEHABQAVRadarEventClass@@@Z": 6539920,
+    "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
+    "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
+    "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888
+  },
+  "regions": [
+    {
+      "entry": 6533888,
+      "method": "0063b300",
+      "body_bytes": 40,
+      "body_sha256": "808856159c19a913391fea0a12d270d285b747c1da5de3868ce025ca3588e97f",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "e5a65ba53f75b7dc034d2d404e44e22ed1afda9a19784ed14e664341d1a955ca",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 1339039
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4293390578
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11233200,
+          "addend": 0,
+          "resolved": 11233200
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6533888,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1617"
+    },
+    {
+      "entry": 6533936,
+      "method": "0063b330",
+      "body_bytes": 19,
+      "body_sha256": "54ffc60894ebacda5b6037af650b422e77bf779864e2f70ca2c18c29c11b5615",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f4aa6c3c930f145e1d04366f3686d835c6287a6d401b5b4f96c09e26bd067bd3",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11233200,
+          "addend": 0,
+          "resolved": 11233200
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8031552,
+          "addend": 0,
+          "resolved": 8031552
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11233312,
+          "addend": 0,
+          "resolved": 11233312
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6533936,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1617"
+    },
+    {
+      "entry": 6533968,
+      "method": "0063b350",
+      "body_bytes": 19,
+      "body_sha256": "09b8f227d69d33f2bf7f4ee1d978c6ae50182b38c4ed9fb41c2b9b6435ecaacf",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "6e2870140c9bd41e7a0c42e962dd2d2b761ca1f19a800678dbe008ac699d97b5",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11233312,
+          "addend": 0,
+          "resolved": 11233312
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 11233296,
+          "addend": 0,
+          "resolved": 11233296
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6533968,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1617"
+    },
+    {
+      "entry": 6534000,
+      "method": "0063b370",
+      "body_bytes": 19,
+      "body_sha256": "36a8264c55570aa2c3588b3a38ea4a83d1452470797537f6e8101b62b392d5ed",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "7c1c62148b277b89840f9cfd4a1454323c577e17c0182a9f106c142d8250fe81",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8031560,
+          "addend": 0,
+          "resolved": 8031560
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 11233288,
+          "addend": 0,
+          "resolved": 11233288
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6534000,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1617"
+    },
+    {
+      "entry": 6534032,
+      "method": "0063b390",
+      "body_bytes": 19,
+      "body_sha256": "8f78046f299d39b3f213a6d46a98c3f96b037cf21111593632044c3b72ead445",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "e7de2c0b5c9313f70ded130364c14183e4c55cb23e8a9245d36bebc9356d8761",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8031560,
+          "addend": 0,
+          "resolved": 8031560
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11233216,
+          "addend": 0,
+          "resolved": 11233216
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6534032,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1617"
+    },
+    {
+      "entry": 6534064,
+      "method": "0063b3b0",
+      "body_bytes": 19,
+      "body_sha256": "626b49893073dd3a0fca8a51ae29e74d238581118b4a56ca4124203fa13fd4a6",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "a899c39d90ac0523da6650ac447aa9c18ee7833406cba1726d06bfc499b3ac6a",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8031560,
+          "addend": 0,
+          "resolved": 8031560
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11233136,
+          "addend": 0,
+          "resolved": 11233136
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6534064,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1617"
+    },
+    {
+      "entry": 6534096,
+      "method": "0063b3d0",
+      "body_bytes": 49,
+      "body_sha256": "e2bb0b9e6c3fcf978acf291c063f7601896d5f7785547526647b7d2f77e6a7e2",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "2ca8457320d5f3d973f3e369ca4ec471ce113f673c66ee08c8d2e96a0e5fc7a7",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11233136,
+          "addend": 0,
+          "resolved": 11233136
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11233216,
+          "addend": 0,
+          "resolved": 11233216
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4293390649
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11233200,
+          "addend": 0,
+          "resolved": 11233200
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1326357
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11233320,
+          "addend": 0,
+          "resolved": 11233320
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6534096,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1617"
+    },
+    {
+      "entry": 6534160,
+      "method": "0063b410",
+      "body_bytes": 33,
+      "body_sha256": "be9460964c508eb91dbb1d31c2e2817be752305d107db5a6a5a2c5481197b635",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7ff6d77069ed1a5478666948af69dd8bda4b8a804df275d4fc38b086c10c1e2c",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11233320,
+          "addend": 0,
+          "resolved": 11233320
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4293390729
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 11233232,
+          "addend": 0,
+          "resolved": 11233232
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6534160,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1617"
+    },
+    {
+      "entry": 6534208,
+      "method": "0063b440",
+      "body_bytes": 44,
+      "body_sha256": "7e4925266e207a7b28b64a872f92cfb9e8e9be192f319ddeb38f8301f8007c29",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "236049e202ef010997b5b6e5199b0a56dcbb5e1cab50aceda0989c2646dbcd21",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11233320,
+          "addend": 0,
+          "resolved": 11233320
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11233200,
+          "addend": 0,
+          "resolved": 11233200
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4293390670
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 11233280,
+          "addend": 0,
+          "resolved": 11233280
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6534208,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1617"
+    },
+    {
+      "entry": 6534256,
+      "method": "0063b470",
+      "body_bytes": 39,
+      "body_sha256": "74576cf65c3a2b0b361abd979a27cb0f6e429b5f558dd2cf74ee2654e1e8f7c8",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "60aa3525bdc6facbc87b25358d9d5c61b23f8da8c0df5e4bab0a1893e230914c",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11233320,
+          "addend": 0,
+          "resolved": 11233320
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1326208
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11233308,
+          "addend": 0,
+          "resolved": 11233308
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6534256,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1617"
+    },
+    {
+      "entry": 6534304,
+      "method": "0063b4a0",
+      "body_bytes": 15,
+      "body_sha256": "2d13b01ba57769ab5ddb91f5b451ca7e7b3327f845bca0c233304cbf8e9aa304",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "db92836d7534897a76ff3109d124d9befe8781f0afcc9c2eb4c26286fe3d5f9c",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11233192,
+          "addend": 0,
+          "resolved": 11233192
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11233192,
+          "addend": 2,
+          "resolved": 11233194
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6534304,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1617"
+    },
+    {
+      "entry": 6534320,
+      "method": "0063b4b0",
+      "body_bytes": 18,
+      "body_sha256": "ce7e760625f81e93f4553167426659f176febf8b0369e07d53ec227c0d644e7c",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "9f3839b0c30c504ec21e1b9faf541580a8675b1fb6aeb62e419db6fa3f9fadfc",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11233240,
+          "addend": 0,
+          "resolved": 11233240
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11233240,
+          "addend": 4,
+          "resolved": 11233244
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11233240,
+          "addend": 8,
+          "resolved": 11233248
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6534320,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1617"
+    },
+    {
+      "entry": 6534352,
+      "method": "0063b4d0",
+      "body_bytes": 23,
+      "body_sha256": "43cb5605f4a2f9725f2983fee02b74368f24125d10efee5bb5fcd249ce8bda18",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "9c610eb1cc98a9dca671db064e1eb57f1829c16b27c166563fc9d32f7112fda7",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11233144,
+          "addend": 0,
+          "resolved": 11233144
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11233144,
+          "addend": 4,
+          "resolved": 11233148
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11233144,
+          "addend": 8,
+          "resolved": 11233152
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11233144,
+          "addend": 12,
+          "resolved": 11233156
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6534352,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1617"
+    },
+    {
+      "entry": 6534384,
+      "method": "0063b4f0",
+      "body_bytes": 61,
+      "body_sha256": "52b9547097a063b75bf48f6b0037bf1b67a0525df72cff1d95224b1eea8416fc",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "7b33eab13d7759d946400a615e1c81d880485935d839ffbffde7051cd4d262d6",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "_$E147",
+      "symbol_prefix": "_$E147",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E144",
+          "target": 6534448,
+          "addend": 0,
+          "resolved": 6534448
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 4,
+          "resolved": 11233260
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 8,
+          "resolved": 11233264
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 12,
+          "resolved": 11233268
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 13,
+          "resolved": 11233269
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 0,
+          "resolved": 11233256
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVRadarEventClass@@@@6B@",
+          "target": 8031852,
+          "addend": 0,
+          "resolved": 8031852
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 20,
+          "resolved": 11233276
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 1340511
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6534384,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1617"
+    },
+    {
+      "entry": 6534448,
+      "method": "0063b530",
+      "body_bytes": 88,
+      "body_sha256": "e3c50da49e6e2f6dff62ca6a0dc8898ec784b56dc917111ad0d6d53469013b47",
+      "padding_bytes": 8,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "c8ea5073d4c3fc75b2ca0b053e23d4cc3911b58033b63f4c42d7f164e2227470",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "_$E144",
+      "symbol_prefix": "_$E144",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_$S145",
+          "target": 11233128,
+          "addend": 0,
+          "resolved": 11233128
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 0,
+          "resolved": 11233256
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVRadarEventClass@@@@6B@",
+          "target": 8031884,
+          "addend": 0,
+          "resolved": 8031884
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 4,
+          "resolved": 11233260
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_$S145",
+          "target": 11233128,
+          "addend": 0,
+          "resolved": 11233128
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 13,
+          "resolved": 11233269
+        },
+        {
+          "offset": 53,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1337298
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 4,
+          "resolved": 11233260
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 13,
+          "resolved": 11233269
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 8,
+          "resolved": 11233264
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6534448,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1617"
+    },
+    {
+      "entry": 6534544,
+      "method": "63b590",
+      "body_bytes": 15,
+      "body_sha256": "8eddd89fa05d4148ffa9ee1b684b6f0f052e25497a1beef6d7a97e87a4428d04",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "1b5258eff26f5957abf12083a18d1b0bfdfe9055edb394025fc19628c69507f4",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "_$E150",
+      "symbol_prefix": "_$E150",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?LastRadarEventCell@@3VCell@@A",
+          "target": 11233208,
+          "addend": 0,
+          "resolved": 11233208
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?LastRadarEventCell@@3VCell@@A",
+          "target": 11233208,
+          "addend": 2,
+          "resolved": 11233210
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6534544,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-08"
+    },
+    {
+      "entry": 6534560,
+      "method": "63b5a0",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "_$E153",
+      "symbol_prefix": "_$E153",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6534560,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-09"
+    },
+    {
+      "entry": 6534576,
+      "method": "0063b5b0",
+      "body_bytes": 229,
+      "body_sha256": "8a46a7df8a5207de78544bbdaa14449479aafe7fe8a1ed4fc4edfe9b9735f9d7",
+      "padding_bytes": 11,
+      "full_extent_bytes": 240,
+      "full_extent_sha256": "555c6b1820a05ff29a6a10cf101c70d6f702e64b67f7333aea059105d4728c58",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z",
+      "symbol_prefix": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "_RadarEventTypes",
+          "target": 8031576,
+          "addend": 12,
+          "resolved": 8031588
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 4,
+          "resolved": 11233260
+        },
+        {
+          "offset": 133,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4293389783
+        },
+        {
+          "offset": 141,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1325775
+        },
+        {
+          "offset": 147,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 4,
+          "resolved": 11233260
+        },
+        {
+          "offset": 164,
+          "kind": 6,
+          "symbol": "_RadarEventTypes",
+          "target": 8031576,
+          "addend": 0,
+          "resolved": 8031576
+        },
+        {
+          "offset": 171,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 187,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1337768
+        },
+        {
+          "offset": 203,
+          "kind": 20,
+          "symbol": "??0RadarEventClass@@QAE@W4RadarEventType@@VCell@@@Z",
+          "target": 6534848,
+          "addend": 0,
+          "resolved": 65
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6534576,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6534816,
+      "method": "0063b6a0",
+      "body_bytes": 12,
+      "body_sha256": "adbc0ac5cff1b8bf9ab302d44741d8e0a465c6cec32eb6ba86ad02a4974a4468",
+      "padding_bytes": 4,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "c49b931151b3fe0ac6c100bd32b7bc0c7541b9089b98131a5ea0689447a3d623",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Plot_Radar_Event_Point@@YIXABVPoint2D@@@Z",
+      "symbol_prefix": "?Plot_Radar_Event_Point@@YIXABVPoint2D@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 7,
+          "kind": 20,
+          "symbol": "?Radar_Pixel@RadarClass@@QAEXABVPoint2D@@@Z",
+          "target": 6497824,
+          "addend": 0,
+          "resolved": 4294930293
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6534816,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6534832,
+      "method": "0063b6b0",
+      "body_bytes": 10,
+      "body_sha256": "fd1de8519a276bbbcb12e7be5213842435b3bbb192a62a2012c7e3f0890627aa",
+      "padding_bytes": 6,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "7087ea8b94bf5d4e54df532e30ad1eb6be9871f9aac0b61d2f04423c6331b404",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Can_Suppress_Radar_Event@@YI_NW4RadarEventType@@@Z",
+      "symbol_prefix": "?Can_Suppress_Radar_Event@@YI_NW4RadarEventType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "_RadarEventTypes",
+          "target": 8031576,
+          "addend": 12,
+          "resolved": 8031588
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6534832,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6534848,
+      "method": "0063b6c0",
+      "body_bytes": 379,
+      "body_sha256": "855061bc9cdb960d0fe62a749171eacf8de6d8bdad6f1d9aa745d414b3994565",
+      "padding_bytes": 5,
+      "full_extent_bytes": 384,
+      "full_extent_sha256": "b7bfedea5fdf1d7704a13b7cdbfb59a8b930c2e3cffe51e431bb62d3e126bc0f",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "??0RadarEventClass@@QAE@W4RadarEventType@@VCell@@@Z",
+      "symbol_prefix": "??0RadarEventClass@@QAE@W4RadarEventType@@VCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 105,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 5272,
+          "resolved": 8599928
+        },
+        {
+          "offset": 111,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 5276,
+          "resolved": 8599932
+        },
+        {
+          "offset": 126,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 131,
+          "kind": 20,
+          "symbol": "?Cell_To_Radar_Pixel@RadarClass@@QAE?AV?$TRect@H@@ABVCell@@@Z",
+          "target": 6493296,
+          "addend": 0,
+          "resolved": 4294925609
+        },
+        {
+          "offset": 155,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 5280,
+          "resolved": 8599936
+        },
+        {
+          "offset": 162,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 5284,
+          "resolved": 8599940
+        },
+        {
+          "offset": 243,
+          "kind": 6,
+          "symbol": "?RecentRadarEventNewest@@3HA",
+          "target": 11233224,
+          "addend": 0,
+          "resolved": 11233224
+        },
+        {
+          "offset": 268,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 273,
+          "kind": 6,
+          "symbol": "?RecentRadarEventNewest@@3HA",
+          "target": 11233224,
+          "addend": 0,
+          "resolved": 11233224
+        },
+        {
+          "offset": 280,
+          "kind": 6,
+          "symbol": "?RecentRadarEventCells@@3PAVCell@@A",
+          "target": 11233160,
+          "addend": 0,
+          "resolved": 11233160
+        },
+        {
+          "offset": 285,
+          "kind": 6,
+          "symbol": "?RecentRadarEventCurrent@@3HA",
+          "target": 11233304,
+          "addend": 0,
+          "resolved": 11233304
+        },
+        {
+          "offset": 290,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 8,
+          "resolved": 11233264
+        },
+        {
+          "offset": 300,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 13,
+          "resolved": 11233269
+        },
+        {
+          "offset": 314,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 20,
+          "resolved": 11233276
+        },
+        {
+          "offset": 325,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 0,
+          "resolved": 11233256
+        },
+        {
+          "offset": 333,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 0,
+          "resolved": 11233256
+        },
+        {
+          "offset": 346,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 355,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 361,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 4,
+          "resolved": 11233260
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6534848,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6535232,
+      "method": "0063b840",
+      "body_bytes": 76,
+      "body_sha256": "83aa84712d10c042a837199562aef428d8073cf0ec2b62f9f1e23a74b52175a1",
+      "padding_bytes": 4,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "39db9e10d878f6c0fffaec6ab6b1df785c9b7b2a7f3ca90071d0183336f0633a",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "??1RadarEventClass@@QAE@XZ",
+      "symbol_prefix": "??1RadarEventClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 0,
+          "resolved": 11233256
+        },
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 0,
+          "resolved": 11233256
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 4,
+          "resolved": 11233260
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6535232,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6535312,
+      "method": "0063b890",
+      "body_bytes": 116,
+      "body_sha256": "19becf3f76099bb4ebb81a09aa71cd157f02c1715698fb685bab44fc9333545a",
+      "padding_bytes": 12,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "906fe2ba30226218296da6be3dec6de501338408f8f6b2971319805e3280cc9e",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Clear@RadarEventClass@@SIXXZ",
+      "symbol_prefix": "?Clear@RadarEventClass@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 4,
+          "resolved": 11233260
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 0,
+          "resolved": 11233256
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 0,
+          "resolved": 11233256
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 70,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 4,
+          "resolved": 11233260
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 102,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1336385
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6535312,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3353"
+    },
+    {
+      "entry": 6535440,
+      "method": "0063b910",
+      "body_bytes": 37,
+      "body_sha256": "981f0b95876ca0141481b4e2d243929d8c080fe957b5063655762cb7cefa5e47",
+      "padding_bytes": 11,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "3ae0f6978468e691b35a91f0a19e49179ce1775f5ef62e1ba6fc378923085654",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Process_Radar_Events@@YIXXZ",
+      "symbol_prefix": "?Process_Radar_Events@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 4,
+          "resolved": 11233260
+        },
+        {
+          "offset": 21,
+          "kind": 20,
+          "symbol": "?Process@RadarEventClass@@QAEXXZ",
+          "target": 6535488,
+          "addend": 0,
+          "resolved": 23
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6535440,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6535488,
+      "method": "0063b940",
+      "body_bytes": 505,
+      "body_sha256": "3f6331c368af120d3972cd814df330ddc040818e95bad57f55d6f69855de6fb3",
+      "padding_bytes": 7,
+      "full_extent_bytes": 512,
+      "full_extent_sha256": "072f2ad99326db7c0aa01e0385f36ad8e053d5fba88cf774f7159d5cc624a2bc",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Process@RadarEventClass@@QAEXXZ",
+      "symbol_prefix": "?Process@RadarEventClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "?Plot@RadarEventClass@@QAEXXZ",
+          "target": 6537344,
+          "addend": 0,
+          "resolved": 1792
+        },
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 113,
+          "kind": 6,
+          "symbol": "__real@8@3ffec90fdaa22168c000",
+          "target": 7981696,
+          "addend": 0,
+          "resolved": 7981696
+        },
+        {
+          "offset": 121,
+          "kind": 6,
+          "symbol": "__real@8@3ffea2f9836e4e441800",
+          "target": 7983256,
+          "addend": 0,
+          "resolved": 7983256
+        },
+        {
+          "offset": 126,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1324878
+        },
+        {
+          "offset": 145,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 164,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 180,
+          "kind": 6,
+          "symbol": "__real@8@3ff8a3d70a3d70a3d800",
+          "target": 7980312,
+          "addend": 0,
+          "resolved": 7980312
+        },
+        {
+          "offset": 236,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 242,
+          "kind": 6,
+          "symbol": "_RadarEventTypes",
+          "target": 8031576,
+          "addend": 4,
+          "resolved": 8031580
+        },
+        {
+          "offset": 260,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 266,
+          "kind": 6,
+          "symbol": "_RadarEventTypes",
+          "target": 8031576,
+          "addend": 8,
+          "resolved": 8031584
+        },
+        {
+          "offset": 298,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 310,
+          "kind": 6,
+          "symbol": "__real@4@3ffdaaaaab0000000000",
+          "target": 8019624,
+          "addend": 0,
+          "resolved": 8019624
+        },
+        {
+          "offset": 322,
+          "kind": 6,
+          "symbol": "__real@4@3ff9a3d70a0000000000",
+          "target": 8031912,
+          "addend": 0,
+          "resolved": 8031912
+        },
+        {
+          "offset": 373,
+          "kind": 6,
+          "symbol": "__real@8@4001c90fdaa22168c000",
+          "target": 7981496,
+          "addend": 0,
+          "resolved": 7981496
+        },
+        {
+          "offset": 389,
+          "kind": 6,
+          "symbol": "__real@8@4001c90fdaa22168c000",
+          "target": 7981496,
+          "addend": 0,
+          "resolved": 7981496
+        },
+        {
+          "offset": 404,
+          "kind": 6,
+          "symbol": "__real@4@00000000000000000000",
+          "target": 7972664,
+          "addend": 0,
+          "resolved": 7972664
+        },
+        {
+          "offset": 423,
+          "kind": 6,
+          "symbol": "__real@4@00000000000000000000",
+          "target": 7972664,
+          "addend": 0,
+          "resolved": 7972664
+        },
+        {
+          "offset": 458,
+          "kind": 6,
+          "symbol": "__real@4@3fff8000000000000000",
+          "target": 7976952,
+          "addend": 0,
+          "resolved": 7976952
+        },
+        {
+          "offset": 474,
+          "kind": 6,
+          "symbol": "__real@4@00000000000000000000",
+          "target": 7972664,
+          "addend": 0,
+          "resolved": 7972664
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6535488,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6536000,
+      "method": "0063bb40",
+      "body_bytes": 75,
+      "body_sha256": "ce32924a87814cd36cbe0f908a58f9218cd53043f757b07b4b8489ad02e80281",
+      "padding_bytes": 5,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "50fd75106d5d4a686b1b7ad5e8cbd845cdbb8fb1470dd0b51b3131873c000aa9",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Draw_Events@RadarEventClass@@SIXXZ",
+      "symbol_prefix": "?Draw_Events@RadarEventClass@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 4,
+          "resolved": 11233260
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 58,
+          "kind": 20,
+          "symbol": "?Draw@RadarEventClass@@QAEXXZ",
+          "target": 6536080,
+          "addend": 0,
+          "resolved": 18
+        },
+        {
+          "offset": 63,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6536000,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6536080,
+      "method": "0063bb90",
+      "body_bytes": 849,
+      "body_sha256": "782f081b9faaf59969ab71e133a7e468537332946091793d59b61cc442452802",
+      "padding_bytes": 15,
+      "full_extent_bytes": 864,
+      "full_extent_sha256": "667d9b629d7de1a1fbabe484e2921eaefa5e50e873c5cc69f6b0c21f1e109087",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 61,
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Draw@RadarEventClass@@QAEXXZ",
+      "symbol_prefix": "?Draw@RadarEventClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6536884,
+          "addend": 0,
+          "resolved": 6536884
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6536868,
+          "addend": 0,
+          "resolved": 6536868
+        },
+        {
+          "offset": 94,
+          "kind": 20,
+          "symbol": "??0RGBClass@@QAE@EEE@Z",
+          "target": 4402544,
+          "addend": 0,
+          "resolved": 4292833662
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??0RGBClass@@QAE@EEE@Z",
+          "target": 4402544,
+          "addend": 0,
+          "resolved": 4292833637
+        },
+        {
+          "offset": 151,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6536916,
+          "addend": 0,
+          "resolved": 6536916
+        },
+        {
+          "offset": 158,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6536900,
+          "addend": 0,
+          "resolved": 6536900
+        },
+        {
+          "offset": 216,
+          "kind": 20,
+          "symbol": "??0RGBClass@@QAE@EEE@Z",
+          "target": 4402544,
+          "addend": 0,
+          "resolved": 4292833540
+        },
+        {
+          "offset": 241,
+          "kind": 20,
+          "symbol": "??0RGBClass@@QAE@EEE@Z",
+          "target": 4402544,
+          "addend": 0,
+          "resolved": 4292833515
+        },
+        {
+          "offset": 298,
+          "kind": 20,
+          "symbol": "?Get_Event_Rect@RadarEventClass@@QBEXAAY03VPoint2D@@@Z",
+          "target": 6537840,
+          "addend": 0,
+          "resolved": 1458
+        },
+        {
+          "offset": 402,
+          "kind": 6,
+          "symbol": "__real@8@3ffeb504f333f9de6000",
+          "target": 8031920,
+          "addend": 0,
+          "resolved": 8031920
+        },
+        {
+          "offset": 419,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4632,
+          "resolved": 8599288
+        },
+        {
+          "offset": 479,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4632,
+          "resolved": 8599288
+        },
+        {
+          "offset": 508,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4632,
+          "resolved": 8599288
+        },
+        {
+          "offset": 547,
+          "kind": 20,
+          "symbol": "?Clip_Line_To_Rect@@YI_NAAVPoint2D@@0ABV?$TRect@H@@@Z",
+          "target": 7820832,
+          "addend": 0,
+          "resolved": 1284201
+        },
+        {
+          "offset": 562,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 5292,
+          "resolved": 8599948
+        },
+        {
+          "offset": 581,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 5288,
+          "resolved": 8599944
+        },
+        {
+          "offset": 602,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 5276,
+          "resolved": 8599932
+        },
+        {
+          "offset": 607,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 5272,
+          "resolved": 8599928
+        },
+        {
+          "offset": 649,
+          "kind": 20,
+          "symbol": "??H?$TPoint2D@H@@QBE?BV0@ABV0@@Z",
+          "target": 4412736,
+          "addend": 0,
+          "resolved": 4292843299
+        },
+        {
+          "offset": 659,
+          "kind": 20,
+          "symbol": "??0?$TRect@H@@QAE@ABV?$TPoint2D@H@@HH@Z",
+          "target": 4537920,
+          "addend": 0,
+          "resolved": 4292968473
+        },
+        {
+          "offset": 703,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4616,
+          "resolved": 8599272
+        },
+        {
+          "offset": 708,
+          "kind": 20,
+          "symbol": "?Union@@YI?BV?$TRect@H@@ABV1@0@Z",
+          "target": 4583392,
+          "addend": 0,
+          "resolved": 4293013896
+        },
+        {
+          "offset": 717,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 5272,
+          "resolved": 8599928
+        },
+        {
+          "offset": 731,
+          "kind": 20,
+          "symbol": "?Intersect@@YI?BV?$TRect@H@@ABV1@0PAH1@Z",
+          "target": 4324848,
+          "addend": 0,
+          "resolved": 4292755329
+        },
+        {
+          "offset": 742,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4616,
+          "resolved": 8599272
+        },
+        {
+          "offset": 752,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4620,
+          "resolved": 8599276
+        },
+        {
+          "offset": 761,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4624,
+          "resolved": 8599280
+        },
+        {
+          "offset": 770,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4628,
+          "resolved": 8599284
+        },
+        {
+          "offset": 788,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6536119,
+          "addend": 0,
+          "resolved": 6536119
+        },
+        {
+          "offset": 792,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6536139,
+          "addend": 0,
+          "resolved": 6536139
+        },
+        {
+          "offset": 796,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6536157,
+          "addend": 0,
+          "resolved": 6536157
+        },
+        {
+          "offset": 800,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6536188,
+          "addend": 0,
+          "resolved": 6536188
+        },
+        {
+          "offset": 820,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6536242,
+          "addend": 0,
+          "resolved": 6536242
+        },
+        {
+          "offset": 824,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6536261,
+          "addend": 0,
+          "resolved": 6536261
+        },
+        {
+          "offset": 828,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6536279,
+          "addend": 0,
+          "resolved": 6536279
+        },
+        {
+          "offset": 832,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6536310,
+          "addend": 0,
+          "resolved": 6536310
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6536080,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6536944,
+      "method": "0063bef0",
+      "body_bytes": 172,
+      "body_sha256": "4cb5a64138f4414a1795d71dc32db5cb23c282f1e34dcae2a818aadc4be100b1",
+      "padding_bytes": 4,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "efe3876cf8d831f6631e2c28228671db97ea1031bc8050dbba100fe48ce0cc87",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Remove_Finished@RadarEventClass@@SIXXZ",
+      "symbol_prefix": "?Remove_Finished@RadarEventClass@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 4,
+          "resolved": 11233260
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 74,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 0,
+          "resolved": 11233256
+        },
+        {
+          "offset": 84,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 0,
+          "resolved": 11233256
+        },
+        {
+          "offset": 102,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 115,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 123,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 4,
+          "resolved": 11233260
+        },
+        {
+          "offset": 137,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 147,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1334708
+        },
+        {
+          "offset": 153,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 4,
+          "resolved": 11233260
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6536944,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6537120,
+      "method": "0063bfa0",
+      "body_bytes": 202,
+      "body_sha256": "2a58599cb462962a0458376c25eda02e69e74c2cb7a13d6ada7b925f97bf4456",
+      "padding_bytes": 6,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "ecd862feca1cba59787459e3ee192e0f3d9592c33c73a8b921ca28d954e9757b",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Try_Suppress_Radar_Event@@YI_NW4RadarEventType@@HVCell@@@Z",
+      "symbol_prefix": "?Try_Suppress_Radar_Event@@YI_NW4RadarEventType@@HVCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "_RadarEventTypes",
+          "target": 8031576,
+          "addend": 12,
+          "resolved": 8031588
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 60,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 4,
+          "resolved": 11233260
+        },
+        {
+          "offset": 128,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4293387244
+        },
+        {
+          "offset": 136,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1323236
+        },
+        {
+          "offset": 142,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 4,
+          "resolved": 11233260
+        },
+        {
+          "offset": 159,
+          "kind": 6,
+          "symbol": "_RadarEventTypes",
+          "target": 8031576,
+          "addend": 0,
+          "resolved": 8031576
+        },
+        {
+          "offset": 171,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6537120,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6537328,
+      "method": "0063c070",
+      "body_bytes": 11,
+      "body_sha256": "c2894ceb1ded7c1e3b1752cc3094ad628c852ea5d307c035f792a5d36f80910d",
+      "padding_bytes": 5,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "9a70be5b5e4408323ae6dc67e903599bc9012d2dbb44f6dbc5d27e2ce16e2792",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?No_Radar_Events_Submitted@@YI_NXZ",
+      "symbol_prefix": "?No_Radar_Events_Submitted@@YI_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6537328,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4391"
+    },
+    {
+      "entry": 6537344,
+      "method": "0063c080",
+      "body_bytes": 490,
+      "body_sha256": "db0c7db214086c5461ecd84c43abd74709ea8c3066e5128c2cc9ae222d7bd25a",
+      "padding_bytes": 6,
+      "full_extent_bytes": 496,
+      "full_extent_sha256": "470ff970364d963e5541d86a96da18b578f055ac3cd80dfe708d2bc0a82746d1",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Plot@RadarEventClass@@QAEXXZ",
+      "symbol_prefix": "?Plot@RadarEventClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 15,
+          "kind": 20,
+          "symbol": "?Get_Event_Rect@RadarEventClass@@QBEXAAY03VPoint2D@@@Z",
+          "target": 6537840,
+          "addend": 0,
+          "resolved": 477
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4632,
+          "resolved": 8599288
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "?Plot_Radar_Event_Point@@YIXABVPoint2D@@@Z",
+          "target": 6534816,
+          "addend": 0,
+          "resolved": 6534816
+        },
+        {
+          "offset": 107,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4632,
+          "resolved": 8599288
+        },
+        {
+          "offset": 133,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4632,
+          "resolved": 8599288
+        },
+        {
+          "offset": 172,
+          "kind": 20,
+          "symbol": "?Clip_Line_To_Rect@@YI_NAAVPoint2D@@0ABV?$TRect@H@@@Z",
+          "target": 7820832,
+          "addend": 0,
+          "resolved": 1283312
+        },
+        {
+          "offset": 188,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 5292,
+          "resolved": 8599948
+        },
+        {
+          "offset": 207,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 5288,
+          "resolved": 8599944
+        },
+        {
+          "offset": 219,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4628,
+          "resolved": 8599284
+        },
+        {
+          "offset": 225,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4624,
+          "resolved": 8599280
+        },
+        {
+          "offset": 250,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 5272,
+          "resolved": 8599928
+        },
+        {
+          "offset": 256,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 5276,
+          "resolved": 8599932
+        },
+        {
+          "offset": 279,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4616,
+          "resolved": 8599272
+        },
+        {
+          "offset": 285,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4620,
+          "resolved": 8599276
+        },
+        {
+          "offset": 408,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 5272,
+          "resolved": 8599928
+        },
+        {
+          "offset": 421,
+          "kind": 20,
+          "symbol": "?Intersect@@YI?BV?$TRect@H@@ABV1@0PAH1@Z",
+          "target": 4324848,
+          "addend": 0,
+          "resolved": 4292754375
+        },
+        {
+          "offset": 432,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4616,
+          "resolved": 8599272
+        },
+        {
+          "offset": 445,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4620,
+          "resolved": 8599276
+        },
+        {
+          "offset": 454,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4624,
+          "resolved": 8599280
+        },
+        {
+          "offset": 468,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4628,
+          "resolved": 8599284
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6537344,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6537840,
+      "method": "0063c270",
+      "body_bytes": 149,
+      "body_sha256": "d06644a3dee765c250a6edcc90f1e55b010cae21fb0c1fefb385ab90c778f6e6",
+      "padding_bytes": 11,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "7b0b19efaf1c7903c8d2894c8c77ebd197d17770182fd155d7d259d624c62083",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Get_Event_Rect@RadarEventClass@@QBEXAAY03VPoint2D@@@Z",
+      "symbol_prefix": "?Get_Event_Rect@RadarEventClass@@QBEXAAY03VPoint2D@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 20,
+          "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+          "target": 5832800,
+          "addend": 0,
+          "resolved": 4294262241
+        },
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "?Rotate_Z@Matrix3D@@QAEXM@Z",
+          "target": 5835168,
+          "addend": 0,
+          "resolved": 4294264596
+        },
+        {
+          "offset": 65,
+          "kind": 20,
+          "symbol": "??D@YI?AVVector3@@ABVMatrix3D@@ABV0@@Z",
+          "target": 5837696,
+          "addend": 0,
+          "resolved": 4294267083
+        },
+        {
+          "offset": 94,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1322558
+        },
+        {
+          "offset": 105,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1322547
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6537840,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6538000,
+      "method": "0063c310",
+      "body_bytes": 106,
+      "body_sha256": "0c0349a8622d46cff04f968bad1fea71bdfc0129991422267158e09a38e4f50a",
+      "padding_bytes": 6,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "badd8a579701f7c913fdddf7027a9fc1a035c2dc80f971721107a80fc6b52c71",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Save@RadarEventClass@@SI_NPAUIStream@@@Z",
+      "symbol_prefix": "?Save@RadarEventClass@@SI_NPAUIStream@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 4,
+          "resolved": 11233260
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "?LastRadarEventCell@@3VCell@@A",
+          "target": 11233208,
+          "addend": 0,
+          "resolved": 11233208
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6538000,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1648"
+    },
+    {
+      "entry": 6538112,
+      "method": "0063c380",
+      "body_bytes": 271,
+      "body_sha256": "74c3c3e159ba4658c4aa9a2803294241d2295dd77cb662e3f462bb0df69ad888",
+      "padding_bytes": 1,
+      "full_extent_bytes": 272,
+      "full_extent_sha256": "cf0e10fd8b3e1b3050be3aa4532bf824b3ebc7a164a3f3b7ddc395c199cf79bd",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Load@RadarEventClass@@SI_NPAUIStream@@@Z",
+      "symbol_prefix": "?Load@RadarEventClass@@SI_NPAUIStream@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 4,
+          "resolved": 11233260
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 0,
+          "resolved": 11233256
+        },
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 0,
+          "resolved": 11233256
+        },
+        {
+          "offset": 67,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 0,
+          "resolved": 11233256
+        },
+        {
+          "offset": 72,
+          "kind": 20,
+          "symbol": "?Delete_Index@?$DynamicVectorClass@PAVRadarEventClass@@@@QAE_NH@Z",
+          "target": 6539856,
+          "addend": 0,
+          "resolved": 1668
+        },
+        {
+          "offset": 78,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1333609
+        },
+        {
+          "offset": 84,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 4,
+          "resolved": 11233260
+        },
+        {
+          "offset": 90,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 108,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 123,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 129,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 4,
+          "resolved": 11233260
+        },
+        {
+          "offset": 182,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1334237
+        },
+        {
+          "offset": 213,
+          "kind": 20,
+          "symbol": "??0RadarEventClass@@QAE@W4RadarEventType@@VCell@@@Z",
+          "target": 6534848,
+          "addend": 0,
+          "resolved": 4294963815
+        },
+        {
+          "offset": 250,
+          "kind": 6,
+          "symbol": "?LastRadarEventCell@@3VCell@@A",
+          "target": 11233208,
+          "addend": 0,
+          "resolved": 11233208
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6538112,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6538384,
+      "method": "0063c490",
+      "body_bytes": 185,
+      "body_sha256": "0f03df2664280c897ca0e3a1890ceebc0d3509a538ef59a179ebf9c77e521902",
+      "padding_bytes": 7,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "805d088a36c31c29b1888471a72d3f1af2729c0d3900443760f8d7e33a97b740",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 29,
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Get_Max_Color@RadarEventClass@@QBE?AVRGBClass@@XZ",
+      "symbol_prefix": "?Get_Max_Color@RadarEventClass@@QBE?AVRGBClass@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6538556,
+          "addend": 0,
+          "resolved": 6538556
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6538540,
+          "addend": 0,
+          "resolved": 6538540
+        },
+        {
+          "offset": 156,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6538408,
+          "addend": 0,
+          "resolved": 6538408
+        },
+        {
+          "offset": 160,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6538441,
+          "addend": 0,
+          "resolved": 6538441
+        },
+        {
+          "offset": 164,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6538475,
+          "addend": 0,
+          "resolved": 6538475
+        },
+        {
+          "offset": 168,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6538508,
+          "addend": 0,
+          "resolved": 6538508
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6538384,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6538576,
+      "method": "0063c550",
+      "body_bytes": 185,
+      "body_sha256": "238408010e660711adb884a949f814776141a83895e6e7b73f1588c6c56c673c",
+      "padding_bytes": 7,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "291be91d20fe287aba42399dc902f1f6de801fb5638945cb075a77860e4bf3e5",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 29,
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Get_Min_Color@RadarEventClass@@QBE?AVRGBClass@@XZ",
+      "symbol_prefix": "?Get_Min_Color@RadarEventClass@@QBE?AVRGBClass@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6538748,
+          "addend": 0,
+          "resolved": 6538748
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6538732,
+          "addend": 0,
+          "resolved": 6538732
+        },
+        {
+          "offset": 156,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6538600,
+          "addend": 0,
+          "resolved": 6538600
+        },
+        {
+          "offset": 160,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6538633,
+          "addend": 0,
+          "resolved": 6538633
+        },
+        {
+          "offset": 164,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6538667,
+          "addend": 0,
+          "resolved": 6538667
+        },
+        {
+          "offset": 168,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6538700,
+          "addend": 0,
+          "resolved": 6538700
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6538576,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6538768,
+      "method": "0063c610",
+      "body_bytes": 12,
+      "body_sha256": "deeb8be66ba9e1af44658080008e90f73edf099f6e8045cf87630a92f06d4484",
+      "padding_bytes": 4,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "94e5e60dab648902d0fe2be683487165496bb2b5d098db9d6472ca72b5308367",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Get_Visibility_Duration@RadarEventClass@@QAEHXZ",
+      "symbol_prefix": "?Get_Visibility_Duration@RadarEventClass@@QAEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "_RadarEventTypes",
+          "target": 8031576,
+          "addend": 4,
+          "resolved": 8031580
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6538768,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6538784,
+      "method": "0063c620",
+      "body_bytes": 12,
+      "body_sha256": "9c2ca98503ebb0f91c3084967792af3034811aca6685d56485b13316d29fe2ca",
+      "padding_bytes": 4,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "50f7e98d155f562d0e836e8f54c66be96943f8260616d2cca56afab669af57db",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Get_Duration@RadarEventClass@@QAEHXZ",
+      "symbol_prefix": "?Get_Duration@RadarEventClass@@QAEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "_RadarEventTypes",
+          "target": 8031576,
+          "addend": 8,
+          "resolved": 8031584
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6538784,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6538800,
+      "method": "0063c630",
+      "body_bytes": 12,
+      "body_sha256": "e49dda6d564d8a573785e9e90b1ebd37a21ab5b07c9d8eae1455c74d237a07b8",
+      "padding_bytes": 4,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "d3886b2537cbddbd0d9fac9d8741464cafdf3c4c9f0bd58a06a923b53b3a1c9e",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Get_Suppression_Distance@RadarEventClass@@QAEHXZ",
+      "symbol_prefix": "?Get_Suppression_Distance@RadarEventClass@@QAEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "_RadarEventTypes",
+          "target": 8031576,
+          "addend": 0,
+          "resolved": 8031576
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6538800,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6538816,
+      "method": "0063c640",
+      "body_bytes": 116,
+      "body_sha256": "8b9cce28a0ffe92321cd94d54f4c8a785216a67a8bb8c84bbd820593da57e9ee",
+      "padding_bytes": 12,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "a338c55586bde3a3773fc93731b23e7af4b59243aaf0692fa58d7fbe3f043b93",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Clear_Radar_Events@@YIXXZ",
+      "symbol_prefix": "?Clear_Radar_Events@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 4,
+          "resolved": 11233260
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 0,
+          "resolved": 11233256
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 0,
+          "resolved": 11233256
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 70,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 4,
+          "resolved": 11233260
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A",
+          "target": 11233256,
+          "addend": 16,
+          "resolved": 11233272
+        },
+        {
+          "offset": 102,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1332881
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6538816,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3353"
+    },
+    {
+      "entry": 6538944,
+      "method": "0063c6c0",
+      "body_bytes": 38,
+      "body_sha256": "e313af88a549ffb8c1dfa98a4e4f28fc87f349503aab2221bb1e0369141bd849",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "324cdf064d836859577398e9c844469874207de7534f9daffd2646513b281e62",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Record_Event_Cell@@YIXABVCell@@@Z",
+      "symbol_prefix": "?Record_Event_Cell@@YIXABVCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?RecentRadarEventNewest@@3HA",
+          "target": 11233224,
+          "addend": 0,
+          "resolved": 11233224
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?RecentRadarEventNewest@@3HA",
+          "target": 11233224,
+          "addend": 0,
+          "resolved": 11233224
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "?RecentRadarEventCells@@3PAVCell@@A",
+          "target": 11233160,
+          "addend": 0,
+          "resolved": 11233160
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "?RecentRadarEventCurrent@@3HA",
+          "target": 11233304,
+          "addend": 0,
+          "resolved": 11233304
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6538944,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6538992,
+      "method": "0063c6f0",
+      "body_bytes": 38,
+      "body_sha256": "18a17415876e44481575b350640a89e0778c3cb7533ca4a8527bec0aa210d980",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "adcc63989a15b36a05eda2392c4456ac3f58ebed3a5d8d730e9eaf959a917a6f",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Recall_Radar_Event_Cell@@YI?AVCell@@XZ",
+      "symbol_prefix": "?Recall_Radar_Event_Cell@@YI?AVCell@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?RecentRadarEventNewest@@3HA",
+          "target": 11233224,
+          "addend": 0,
+          "resolved": 11233224
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11233192,
+          "addend": 0,
+          "resolved": 11233192
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?RecentRadarEventCells@@3PAVCell@@A",
+          "target": 11233160,
+          "addend": 0,
+          "resolved": 11233160
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?RecentRadarEventCurrent@@3HA",
+          "target": 11233304,
+          "addend": 0,
+          "resolved": 11233304
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6538992,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6539040,
+      "method": "0063c720",
+      "body_bytes": 106,
+      "body_sha256": "09ebec057de68938e70a1bc3ab28f9bbf419b38c2fa42337047e5ea2c9446b34",
+      "padding_bytes": 6,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "ba6e9d6f8679f8f42a2789f16e6af92d09f32cf4870c5cd9ef5ce17682d9cd46",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Recall_Previous_Radar_Event_Cell@@YI?AVCell@@XZ",
+      "symbol_prefix": "?Recall_Previous_Radar_Event_Cell@@YI?AVCell@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?RecentRadarEventNewest@@3HA",
+          "target": 11233224,
+          "addend": 0,
+          "resolved": 11233224
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11233192,
+          "addend": 0,
+          "resolved": 11233192
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "?RecentRadarEventCurrent@@3HA",
+          "target": 11233304,
+          "addend": 0,
+          "resolved": 11233304
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "?RecentRadarEventCells@@3PAVCell@@A",
+          "target": 11233160,
+          "addend": 0,
+          "resolved": 11233160
+        },
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11233192,
+          "addend": 0,
+          "resolved": 11233192
+        },
+        {
+          "offset": 59,
+          "kind": 6,
+          "symbol": "?RecentRadarEventCells@@3PAVCell@@A",
+          "target": 11233160,
+          "addend": 2,
+          "resolved": 11233162
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11233192,
+          "addend": 2,
+          "resolved": 11233194
+        },
+        {
+          "offset": 75,
+          "kind": 6,
+          "symbol": "?RecentRadarEventCells@@3PAVCell@@A",
+          "target": 11233160,
+          "addend": 0,
+          "resolved": 11233160
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?RecentRadarEventCurrent@@3HA",
+          "target": 11233304,
+          "addend": 0,
+          "resolved": 11233304
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "?RecentRadarEventCells@@3PAVCell@@A",
+          "target": 11233160,
+          "addend": 0,
+          "resolved": 11233160
+        },
+        {
+          "offset": 98,
+          "kind": 6,
+          "symbol": "?RecentRadarEventCurrent@@3HA",
+          "target": 11233304,
+          "addend": 0,
+          "resolved": 11233304
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6539040,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6539152,
+      "method": "0063c790",
+      "body_bytes": 33,
+      "body_sha256": "69b79f1ae3209595bef9d96c77392468b7ea07378f3b49d287a5d21d62219737",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "b506a9fde4f494a77e370d5bd471766d77f3e0fe4f9f5ae3587ff730cea5e401",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Reset_Radar_Event_Cells@@YIXXZ",
+      "symbol_prefix": "?Reset_Radar_Event_Cells@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "?RecentRadarEventNewest@@3HA",
+          "target": 11233224,
+          "addend": 0,
+          "resolved": 11233224
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?RecentRadarEventCurrent@@3HA",
+          "target": 11233304,
+          "addend": 0,
+          "resolved": 11233304
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11233192,
+          "addend": 0,
+          "resolved": 11233192
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?RecentRadarEventCells@@3PAVCell@@A",
+          "target": 11233160,
+          "addend": 0,
+          "resolved": 11233160
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6539152,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3357"
+    },
+    {
+      "entry": 6539200,
+      "method": "0063c7c0",
+      "body_bytes": 42,
+      "body_sha256": "47e20f6df5e66e5edf54df33f8fe8cc006bd2dda32caa2f3758664a10996c8ef",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "4db494567d48b96167063315ba2856a83b8891b246466f96b596495569f507f4",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Clear@?$DynamicVectorClass@PAVRadarEventClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAVRadarEventClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1332576
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6539200,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6539248,
+      "method": "0063c7f0",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?ID@?$DynamicVectorClass@PAVRadarEventClass@@@@UAEHPBQAVRadarEventClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVRadarEventClass@@@@UAEHPBQAVRadarEventClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6539248,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6539280,
+      "method": "0063c810",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?GetItem@?$VectorClass@PAVRadarEventClass@@@@UBEPAVRadarEventClass@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAVRadarEventClass@@@@UBEPAVRadarEventClass@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6539280,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6539296,
+      "method": "0063c820",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "??8?$VectorClass@PAVRadarEventClass@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAVRadarEventClass@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6539296,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6539360,
+      "method": "0063c860",
+      "body_bytes": 174,
+      "body_sha256": "3239bbd973b76de25402d5ed7d1a3c30ae913f7322a22bfab6a0723e87f8cbf1",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "9496efd28a91a9af9605b87c9e0b7d0a3efbc224b847be197ee88223fde2cf0d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Resize@?$VectorClass@PAVRadarEventClass@@@@UAE_NHPBQAVRadarEventClass@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAVRadarEventClass@@@@UAE_NHPBQAVRadarEventClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1333132
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1332320
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6539360,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6539536,
+      "method": "0063c910",
+      "body_bytes": 39,
+      "body_sha256": "7c30762f8f76a87b5fb10d66b0a054af88356b103f5a4e0d9d7602fb2041bd43",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "04a14c73ff5398b9b83124ae37e6ae29208a4132f1f45f6024fa0386e2d8e81c",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Clear@?$VectorClass@PAVRadarEventClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAVRadarEventClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1332243
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6539536,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6539584,
+      "method": "0063c940",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?ID@?$VectorClass@PAVRadarEventClass@@@@UAEHABQAVRadarEventClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVRadarEventClass@@@@UAEHABQAVRadarEventClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6539584,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6539648,
+      "method": "0063c980",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?ID@?$VectorClass@PAVRadarEventClass@@@@UAEHPBQAVRadarEventClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVRadarEventClass@@@@UAEHPBQAVRadarEventClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6539648,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6539680,
+      "method": "0063c9a0",
+      "body_bytes": 176,
+      "body_sha256": "97d540f35420dd1df49611c946f479504e205bf524226bb32cd23e2b28070082",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "97d540f35420dd1df49611c946f479504e205bf524226bb32cd23e2b28070082",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Resize@?$DynamicVectorClass@PAVRadarEventClass@@@@UAE_NHPBQAVRadarEventClass@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAVRadarEventClass@@@@UAE_NHPBQAVRadarEventClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1332816
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1332013
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6539680,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6539856,
+      "method": "0063ca50",
+      "body_bytes": 49,
+      "body_sha256": "e5dcf659a32b8282fe49c79a5bb461bedcd94ef7e4528d5ebcb9ba3d225d3005",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "f22477776f7356c2bfdd03ed5a5aebc8dc8d6e74d002e296ff415d39fcc13d2f",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?Delete_Index@?$DynamicVectorClass@PAVRadarEventClass@@@@QAE_NH@Z",
+      "symbol_prefix": "?Delete_Index@?$DynamicVectorClass@PAVRadarEventClass@@@@QAE_NH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6539856,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2685"
+    },
+    {
+      "entry": 6539920,
+      "method": "0063ca90",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "?ID@?$DynamicVectorClass@PAVRadarEventClass@@@@UAEHABQAVRadarEventClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVRadarEventClass@@@@UAEHABQAVRadarEventClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6539920,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6539968,
+      "method": "63cac0",
+      "body_bytes": 73,
+      "body_sha256": "3d997caa8a1d0c0c9f97e6ecd48a59614595324a2d57a35b1c7ab76dc4a13802",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "85ebb2adda39c4149727e15321f471b430921a04a3b1599e562afdc15e7183a5",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "??_G?$VectorClass@PAVRadarEventClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAVRadarEventClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVRadarEventClass@@@@6B@",
+          "target": 8031884,
+          "addend": 0,
+          "resolved": 8031884
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1331806
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1331771
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6539968,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 6540048,
+      "method": "63cb10",
+      "body_bytes": 73,
+      "body_sha256": "4315e31dc4784779909e13dc8e4c8daeff71fb6223f601b0e0056faec899d44e",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "4f54f1a449dfd3ee2b361f23aff4d529f1271eca188fb05544628c53a22515de",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "?RadarEventNames@@3PAPBDA": "content"
+      },
+      "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
+      "symbol": "??_G?$DynamicVectorClass@PAVRadarEventClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAVRadarEventClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVRadarEventClass@@@@6B@",
+          "target": 8031884,
+          "addend": 0,
+          "resolved": 8031884
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1331726
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1331691
+        }
+      ],
+      "source_sha256": "24aeb5167832fc749d148a44e18a2b5eef35e354b29f54d63e25010db95b5b5a",
+      "source": "src/revent.cpp",
+      "population": "rebuild-revent",
+      "source_order": 6540048,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-12"
+    }
+  ]
+}

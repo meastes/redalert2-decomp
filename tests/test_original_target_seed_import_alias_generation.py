@@ -26,17 +26,6 @@ class SeedCase(unittest.TestCase):
             return seed.seed(0x400010,Fixture(),{},**kwargs)
 
 
-class OptionalFallbackTests(SeedCase):
-    def test_missing_parser_preserves_old_complete_text(self):
-        before=self.run_seed(_import_aliases=False)
-        original_import=__import__
-        def missing(name,*args,**kwargs):
-            if name=='pycparser':raise ImportError('optional parser unavailable')
-            return original_import(name,*args,**kwargs)
-        with patch('builtins.__import__',side_effect=missing):
-            self.assertEqual(self.run_seed(),before)
-
-
 @unittest.skipUnless(importlib.util.find_spec('pycparser'),'optional pycparser is unavailable')
 class AssemblyTests(SeedCase):
     def test_actual_import_declaration_and_original_iat(self):

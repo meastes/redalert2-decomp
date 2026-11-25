@@ -1,0 +1,177 @@
+{
+  "id": "rebuild-sha",
+  "population": {
+    "id": "rebuild-sha",
+    "inventory_sha256": "7421f2a3f2aa4a66ff9f0015bf009ec97b70038aae54a50d4f59fd257fa66a24",
+    "gaps_sha256": "67d9d4406718bf3c533d557cceade2353d0123126ac228aa4f142bc869e6a8e1",
+    "historical_population_sha256": "f69108dcdae082fcaa34152e878ff006410f14a48930ec00a362890cccffb750",
+    "historical_acceptance_sha256": "36dff917b685f1843576093e6e4486cb1f9b53ed1bc52ee0c44a1e271670e438"
+  },
+  "references": {
+    "?Process_Block@SHAEngine@@ABEXPBXAATSHADigest@1@@Z": 6770272,
+    "?Process_Partial@SHAEngine@@AAEXAAPBXAAH@Z": 6769648,
+    "?Hash@SHAEngine@@QAEXPBXH@Z": 6769808,
+    "?Result@SHAEngine@@QBEHPAX@Z": 6769936
+  },
+  "regions": [
+    {
+      "entry": 6769648,
+      "method": "00674bf0",
+      "body_bytes": 147,
+      "body_sha256": "2e665fe2694b67b12a3ad5b537b2b2b3da870cefe2f39730823d1f2233e89b2b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "aaa63508010e0c135ab84a87fd5819d2a63b93e46fc7e96c94562a41ee0f3480",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Process_Partial@SHAEngine@@AAEXAAPBXAAH@Z",
+      "symbol_prefix": "?Process_Partial@SHAEngine@@AAEXAAPBXAAH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 122,
+          "kind": 20,
+          "symbol": "?Process_Block@SHAEngine@@ABEXPBXAATSHADigest@1@@Z",
+          "target": 6770272,
+          "addend": 0,
+          "resolved": 498
+        }
+      ],
+      "source_sha256": "74db4b54be846955138f7bae0e61705198cc177342e4363461cf272a2d965bdf",
+      "source": "src/sha.cpp",
+      "population": "rebuild-sha",
+      "source_order": 6769648,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6769808,
+      "method": "00674c90",
+      "body_bytes": 121,
+      "body_sha256": "be2c2f214077fbaed3be1e87acd26be7163d3da985deae33927035da2227feec",
+      "padding_bytes": 7,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "75e53e5668bed4f3363df071b0b2624ec88fbc60c240b6ab0845878f3adb8f77",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Hash@SHAEngine@@QAEXPBXH@Z",
+      "symbol_prefix": "?Hash@SHAEngine@@QAEXPBXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?Process_Partial@SHAEngine@@AAEXAAPBXAAH@Z",
+          "target": 6769648,
+          "addend": 0,
+          "resolved": 4294967113
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "?Process_Block@SHAEngine@@ABEXPBXAATSHADigest@1@@Z",
+          "target": 6770272,
+          "addend": 0,
+          "resolved": 399
+        },
+        {
+          "offset": 112,
+          "kind": 20,
+          "symbol": "?Process_Partial@SHAEngine@@AAEXAAPBXAAH@Z",
+          "target": 6769648,
+          "addend": 0,
+          "resolved": 4294967020
+        }
+      ],
+      "source_sha256": "74db4b54be846955138f7bae0e61705198cc177342e4363461cf272a2d965bdf",
+      "source": "src/sha.cpp",
+      "population": "rebuild-sha",
+      "source_order": 6769808,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6769936,
+      "method": "00674d10",
+      "body_bytes": 333,
+      "body_sha256": "8f3db68c59d3136c4db4625fd1813a2ec86a59dac857f6b2aeec72d17bdfb251",
+      "padding_bytes": 3,
+      "full_extent_bytes": 336,
+      "full_extent_sha256": "ac3d56f23635a8c5f0d3c4064f283460ef166b562157794d7107adfb5c3f1c9b",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Result@SHAEngine@@QBEHPAX@Z",
+      "symbol_prefix": "?Result@SHAEngine@@QBEHPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 130,
+          "kind": 20,
+          "symbol": "?Process_Block@SHAEngine@@ABEXPBXAATSHADigest@1@@Z",
+          "target": 6770272,
+          "addend": 0,
+          "resolved": 202
+        },
+        {
+          "offset": 228,
+          "kind": 20,
+          "symbol": "?Process_Block@SHAEngine@@ABEXPBXAATSHADigest@1@@Z",
+          "target": 6770272,
+          "addend": 0,
+          "resolved": 104
+        }
+      ],
+      "source_sha256": "74db4b54be846955138f7bae0e61705198cc177342e4363461cf272a2d965bdf",
+      "source": "src/sha.cpp",
+      "population": "rebuild-sha",
+      "source_order": 6769936,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6770272,
+      "method": "00674e60",
+      "body_bytes": 405,
+      "body_sha256": "360e6efb6953b68b3fb1235db1b5ba1a349c4648e446378890701283b3a7b733",
+      "padding_bytes": 11,
+      "full_extent_bytes": 416,
+      "full_extent_sha256": "d78beaab498262ccec53281ede255d643160da9cdb330ed44c383d88f5e95bf6",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Process_Block@SHAEngine@@ABEXPBXAATSHADigest@1@@Z",
+      "symbol_prefix": "?Process_Block@SHAEngine@@ABEXPBXAATSHADigest@1@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "74db4b54be846955138f7bae0e61705198cc177342e4363461cf272a2d965bdf",
+      "source": "src/sha.cpp",
+      "population": "rebuild-sha",
+      "source_order": 6770272,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

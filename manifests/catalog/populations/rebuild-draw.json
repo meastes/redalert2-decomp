@@ -1,0 +1,461 @@
+{
+  "id": "rebuild-draw",
+  "population": {
+    "id": "rebuild-draw",
+    "inventory_sha256": "f6976c5881677e7258bc3c6e6cf256e51f3332f4903b5dad29743539179f249f",
+    "gaps_sha256": "a6d9a6a9cd6b5cd4e8b90ea57f95f9ad280561b9545fb3bd15c706c0d3b8ed04",
+    "historical_population_sha256": "2e3347aa310e53b295944cf18b8243822f4051307f2f917d72fe1f7cc068b051",
+    "historical_acceptance_sha256": "46a013e09703f85c39274d32db0dae89e957a02018c6465f8d8758bca197d126"
+  },
+  "references": {
+    "_RECT_NONE": 8726864,
+    "??0?$TRect@H@@QAE@HHHH@Z": 4373712,
+    "??0XSurface@@QAE@HH@Z": 4846640,
+    "??0Buffer@@QAE@PAXH@Z": 4424384,
+    "??_7BSurface@@6B@": 7974648,
+    "??2@YAPAXI@Z": 7872535,
+    "?Intersect@@YI?BV?$TRect@H@@ABV1@0PAH1@Z": 4324848,
+    "?RLEBlitter_From_Flags@ConvertClass@@QBEPBVRLEBlitter@@W4ShapeFlags_Type@@@Z": 4742496,
+    "?RLE_Blit@@YI_NAAVSurface@@ABV?$TRect@H@@1ABV1@11ABVRLEBlitter@@HW4ZGradientType@@HHPAV1@VPoint2D@@@Z": 4411584,
+    "?Blitter_From_Flags@ConvertClass@@QBEPBVBlitter@@W4ShapeFlags_Type@@@Z": 4741792,
+    "?Bit_Blit@@YI_NAAVSurface@@ABV?$TRect@H@@1ABV1@11ABVBlitter@@HW4ZGradientType@@HH@Z": 4410176,
+    "??1Buffer@@QAE@XZ": 4424720,
+    "??_7XSurface@@6B@": 7974796,
+    "_$E2": 4845184,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "?Draw_Shape@@YIXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z": 4845216,
+    "?Get_Pixel_Clip@XSurface@@UBEHABVPoint2D@@ABV?$TRect@H@@@Z": 7815808,
+    "?Put_Pixel_Clip@XSurface@@UAE_NABVPoint2D@@HABV?$TRect@H@@@Z": 7815936,
+    "?Draw_Rect@XSurface@@UAE_NABV?$TRect@H@@H@Z": 7815424,
+    "?Draw_Rect@XSurface@@UAE_NABV?$TRect@H@@0H@Z": 7815472,
+    "?Draw_Masked_Line@XSurface@@UAE_NABVPoint2D@@0I_N@Z": 7814832,
+    "?Draw_Masked_Dashed_Line@XSurface@@UAEHABVPoint2D@@0IQA_NH_N@Z": 7814816,
+    "?Draw_Dashed_Line@XSurface@@UAEHABVPoint2D@@0IQA_NH@Z": 7814192,
+    "?Draw_RGB_Multiplying_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1ABVRGBClass@@MHH@Z": 7814896,
+    "?Draw_Depth_Antialiased_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1AAVRGBClass@@HH_N333M@Z": 7814880,
+    "?Draw_Depth_Glow_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1HHH_N@Z": 7814864,
+    "?Draw_Depth_Shaded_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1IHH_N@Z": 7814848,
+    "?Draw_Line@XSurface@@UAE_NABVPoint2D@@0H@Z": 7813456,
+    "?Draw_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1H@Z": 7813504,
+    "?Get_Pixel@XSurface@@UBEHABVPoint2D@@@Z": 7815632,
+    "?Put_Pixel@XSurface@@UAE_NABVPoint2D@@H@Z": 7815712,
+    "?Fill_Rect_Trans@XSurface@@UAE_NABV?$TRect@H@@ABVRGBClass@@I@Z": 7816880,
+    "?Fill@XSurface@@UAE_NH@Z": 7818784,
+    "?Fill_Rect@XSurface@@UAE_NABV?$TRect@H@@H@Z": 7816080,
+    "?Fill_Rect@XSurface@@UAE_NABV?$TRect@H@@0H@Z": 7816128,
+    "?Blit_From@XSurface@@UAE_NABV?$TRect@H@@0ABVSurface@@00_N2@Z": 7819360,
+    "?Blit_From@XSurface@@UAE_NABV?$TRect@H@@ABVSurface@@0_N2@Z": 7819008,
+    "?Blit_From@XSurface@@UAE_NABVSurface@@_N1@Z": 7818848,
+    "??_GBSurface@@UAEPAXI@Z": 4264912,
+    "??_R0?AVSurface@@@8": 8184496,
+    "??_R0?AVXSurface@@@8": 8184520,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVBSurface@@@8": 8184544,
+    "?Can_Lock@Surface@@UBE_NHH@Z": 4264560,
+    "?entry_64@Surface@@UBE_NVPoint2D@@@Z": 4264576,
+    "?Get_Rect@Surface@@UBE?AV?$TRect@H@@XZ": 4264592,
+    "?Get_Width@Surface@@UBEHXZ": 4264640,
+    "?Get_Height@Surface@@UBEHXZ": 4264656,
+    "__purecall": 4950368,
+    "??_GXSurface@@UAEPAXI@Z": 4264736,
+    "?Lock@XSurface@@UBEPAXVPoint2D@@@Z": 4264672,
+    "?Unlock@XSurface@@UBE_NXZ": 4264688,
+    "?Is_Locked@XSurface@@UBE_NXZ": 4264704,
+    "?Is_Direct_Draw@XSurface@@UBE_NXZ": 4264720,
+    "??_GSurface@@UAEPAXI@Z": 4264784,
+    "??3@YAXPAX@Z": 7871803,
+    "??_7Surface@@6B@": 7974944,
+    "?Is_Direct_Draw@Surface@@UBE_NXZ": 4264768,
+    "?Lock@BSurface@@UBEPAXVPoint2D@@@Z": 4264816,
+    "?Bytes_Per_Pixel@BSurface@@UBEHXZ": 4264880,
+    "?Stride@BSurface@@UBEHXZ": 4264896,
+    "?Blit_Block@@YIXAAVSurface@@AAVConvertClass@@ABV1@ABV?$TRect@H@@ABVPoint2D@@3PBEPBVBlitter@@HW4ZGradientType@@HH@Z": 4846496
+  },
+  "regions": [
+    {
+      "entry": 4845184,
+      "method": "0049ee80",
+      "body_bytes": 23,
+      "body_sha256": "26c7ac117dd056e9fefb48b17137dbc7a0461380771e10353de9de9de1f004b9",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "68f47b0dfc2ec09775d593c3686944db5d6006a195cf12751e233f7ba7aadf1f",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8726864,
+          "addend": 0,
+          "resolved": 8726864
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8726864,
+          "addend": 4,
+          "resolved": 8726868
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8726864,
+          "addend": 8,
+          "resolved": 8726872
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8726864,
+          "addend": 12,
+          "resolved": 8726876
+        }
+      ],
+      "source_sha256": "ae0403f7cf8f1c0d755f1a3cdbe4d9c15cc7fe3bd9cc0e0067766a13524625f8",
+      "source": "src/draw.cpp",
+      "population": "rebuild-draw",
+      "source_order": 4845184,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4845216,
+      "method": "0049eea0",
+      "body_bytes": 1275,
+      "body_sha256": "3568551fb9a645531c710caaaa6fe2c486ae298918465032197f169c5e2972e9",
+      "padding_bytes": 5,
+      "full_extent_bytes": 1280,
+      "full_extent_sha256": "dbf5d551ec2029664d5c022c6266e0f24beca59d11378c35225f745656c1fe5b",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Shape@@YIXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z",
+      "symbol_prefix": "?Draw_Shape@@YIXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 111,
+          "kind": 20,
+          "symbol": "??0?$TRect@H@@QAE@HHHH@Z",
+          "target": 4373712,
+          "addend": 0,
+          "resolved": 4294495677
+        },
+        {
+          "offset": 131,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8726864,
+          "addend": 0,
+          "resolved": 8726864
+        },
+        {
+          "offset": 137,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8726864,
+          "addend": 4,
+          "resolved": 8726868
+        },
+        {
+          "offset": 143,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8726864,
+          "addend": 8,
+          "resolved": 8726872
+        },
+        {
+          "offset": 149,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8726864,
+          "addend": 12,
+          "resolved": 8726876
+        },
+        {
+          "offset": 226,
+          "kind": 20,
+          "symbol": "??0XSurface@@QAE@HH@Z",
+          "target": 4846640,
+          "addend": 0,
+          "resolved": 1194
+        },
+        {
+          "offset": 248,
+          "kind": 20,
+          "symbol": "??0Buffer@@QAE@PAXH@Z",
+          "target": 4424384,
+          "addend": 0,
+          "resolved": 4294546212
+        },
+        {
+          "offset": 256,
+          "kind": 6,
+          "symbol": "??_7BSurface@@6B@",
+          "target": 7974648,
+          "addend": 0,
+          "resolved": 7974648
+        },
+        {
+          "offset": 347,
+          "kind": 20,
+          "symbol": "??0?$TRect@H@@QAE@HHHH@Z",
+          "target": 4373712,
+          "addend": 0,
+          "resolved": 4294495441
+        },
+        {
+          "offset": 367,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8726864,
+          "addend": 0,
+          "resolved": 8726864
+        },
+        {
+          "offset": 373,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8726864,
+          "addend": 4,
+          "resolved": 8726868
+        },
+        {
+          "offset": 379,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8726864,
+          "addend": 8,
+          "resolved": 8726872
+        },
+        {
+          "offset": 385,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8726864,
+          "addend": 12,
+          "resolved": 8726876
+        },
+        {
+          "offset": 408,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3026907
+        },
+        {
+          "offset": 488,
+          "kind": 20,
+          "symbol": "??0XSurface@@QAE@HH@Z",
+          "target": 4846640,
+          "addend": 0,
+          "resolved": 932
+        },
+        {
+          "offset": 515,
+          "kind": 20,
+          "symbol": "??0Buffer@@QAE@PAXH@Z",
+          "target": 4424384,
+          "addend": 0,
+          "resolved": 4294545945
+        },
+        {
+          "offset": 521,
+          "kind": 6,
+          "symbol": "??_7BSurface@@6B@",
+          "target": 7974648,
+          "addend": 0,
+          "resolved": 7974648
+        },
+        {
+          "offset": 571,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8726864,
+          "addend": 0,
+          "resolved": 8726864
+        },
+        {
+          "offset": 576,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8726864,
+          "addend": 4,
+          "resolved": 8726868
+        },
+        {
+          "offset": 586,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8726864,
+          "addend": 8,
+          "resolved": 8726872
+        },
+        {
+          "offset": 595,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8726864,
+          "addend": 12,
+          "resolved": 8726876
+        },
+        {
+          "offset": 835,
+          "kind": 20,
+          "symbol": "?Intersect@@YI?BV?$TRect@H@@ABV1@0PAH1@Z",
+          "target": 4324848,
+          "addend": 0,
+          "resolved": 4294446089
+        },
+        {
+          "offset": 967,
+          "kind": 20,
+          "symbol": "?RLEBlitter_From_Flags@ConvertClass@@QBEPBVRLEBlitter@@W4ShapeFlags_Type@@@Z",
+          "target": 4742496,
+          "addend": 0,
+          "resolved": 4294863605
+        },
+        {
+          "offset": 1090,
+          "kind": 20,
+          "symbol": "?RLE_Blit@@YI_NAAVSurface@@ABV?$TRect@H@@1ABV1@11ABVRLEBlitter@@HW4ZGradientType@@HHPAV1@VPoint2D@@@Z",
+          "target": 4411584,
+          "addend": 0,
+          "resolved": 4294532570
+        },
+        {
+          "offset": 1105,
+          "kind": 20,
+          "symbol": "?Blitter_From_Flags@ConvertClass@@QBEPBVBlitter@@W4ShapeFlags_Type@@@Z",
+          "target": 4741792,
+          "addend": 0,
+          "resolved": 4294862763
+        },
+        {
+          "offset": 1235,
+          "kind": 20,
+          "symbol": "?Bit_Blit@@YI_NAAVSurface@@ABV?$TRect@H@@1ABV1@11ABVBlitter@@HW4ZGradientType@@HH@Z",
+          "target": 4410176,
+          "addend": 0,
+          "resolved": 4294531017
+        },
+        {
+          "offset": 1264,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 4294545532
+        }
+      ],
+      "source_sha256": "ae0403f7cf8f1c0d755f1a3cdbe4d9c15cc7fe3bd9cc0e0067766a13524625f8",
+      "source": "src/draw.cpp",
+      "population": "rebuild-draw",
+      "source_order": 4845216,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4846496,
+      "method": "0049f3a0",
+      "body_bytes": 139,
+      "body_sha256": "116f03c5293d2c10a4ff422299207f4c70d1b7b5eae847453891bc5aa9cf24f6",
+      "padding_bytes": 5,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "fe2c0d4079f8440f01e2539a34d286a3d0ae769013db4bfaf998593dc6cc28f1",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Blit_Block@@YIXAAVSurface@@AAVConvertClass@@ABV1@ABV?$TRect@H@@ABVPoint2D@@3PBEPBVBlitter@@HW4ZGradientType@@HH@Z",
+      "symbol_prefix": "?Blit_Block@@YIXAAVSurface@@AAVConvertClass@@ABV1@ABV?$TRect@H@@ABVPoint2D@@3PBEPBVBlitter@@HW4ZGradientType@@HH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 36,
+          "kind": 20,
+          "symbol": "?Blitter_From_Flags@ConvertClass@@QBEPBVBlitter@@W4ShapeFlags_Type@@@Z",
+          "target": 4741792,
+          "addend": 0,
+          "resolved": 4294862552
+        },
+        {
+          "offset": 127,
+          "kind": 20,
+          "symbol": "?Bit_Blit@@YI_NAAVSurface@@ABV?$TRect@H@@1ABV1@11ABVBlitter@@HW4ZGradientType@@HH@Z",
+          "target": 4410176,
+          "addend": 0,
+          "resolved": 4294530845
+        }
+      ],
+      "source_sha256": "ae0403f7cf8f1c0d755f1a3cdbe4d9c15cc7fe3bd9cc0e0067766a13524625f8",
+      "source": "src/draw.cpp",
+      "population": "rebuild-draw",
+      "source_order": 4846496,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4846640,
+      "method": "0049f430",
+      "body_bytes": 32,
+      "body_sha256": "f144de9c3161cf9d4e0216fddacd720ee0797df2a8b0d170b67fdc1960dad644",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f144de9c3161cf9d4e0216fddacd720ee0797df2a8b0d170b67fdc1960dad644",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0XSurface@@QAE@HH@Z",
+      "symbol_prefix": "??0XSurface@@QAE@HH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "??_7XSurface@@6B@",
+          "target": 7974796,
+          "addend": 0,
+          "resolved": 7974796
+        }
+      ],
+      "source_sha256": "ae0403f7cf8f1c0d755f1a3cdbe4d9c15cc7fe3bd9cc0e0067766a13524625f8",
+      "source": "src/draw.cpp",
+      "population": "rebuild-draw",
+      "source_order": 4846640,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3950"
+    }
+  ]
+}

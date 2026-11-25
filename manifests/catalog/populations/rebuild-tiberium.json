@@ -1,0 +1,5037 @@
+{
+  "id": "rebuild-tiberium",
+  "population": {
+    "id": "rebuild-tiberium",
+    "inventory_sha256": "668d0281f25c77b2bc84a7888c1ffa1d42aca2c6f7e9820a81416f050308e0ec",
+    "gaps_sha256": "b26fe7c06c18cb37c9bb853be7b35ae63b7a4f29c313fe5fab00dbb8a62094f7",
+    "historical_population_sha256": "2cdda6af3233469d3cb21d6906539e5ae21ceb9e095d4b0d16eb0c43d939dcde",
+    "historical_acceptance_sha256": "ea757c3ee28ae101947cabe300f82532b6b604f94b4533e209b3686c27722862"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 11274992,
+    "_ISO_TILE_SIZE": 8050736,
+    "_LEPTONS_PER_PIXEL": 11275088,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 11275048,
+    "_ONE_RAD": 8050744,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 11275040,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 11275000,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 11274960,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 11275096,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 11275008,
+    "_CELL_DIAG_SLOPE_ANGLE": 11275032,
+    "_BRIDGE_LEPTON_HEIGHT": 11275080,
+    "_CELL_NONE": 11274984,
+    "_COORD_NONE": 11275016,
+    "_RECT_NONE": 11274968,
+    "_$E137": 7244128,
+    "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A": 11275056,
+    "??_7?$DynamicVectorClass@PAVTiberiumClass@@@@6B@": 8050756,
+    "_atexit": 7874954,
+    "??_7?$VectorClass@PAVTiberiumClass@@@@6B@": 8050788,
+    "??3@YAXPAX@Z": 7871803,
+    "??0AbstractTypeClass@@QAE@PBD@Z": 4261248,
+    "??0?$VectorClass@PBVAnimTypeClass@@@@QAE@HPBQBVAnimTypeClass@@@Z": 5290080,
+    "??_7?$TypeList@PBVAnimTypeClass@@@@6B@": 8010556,
+    "?Frame@@3HA": 10751276,
+    "??_7TiberiumClass@@6BIPersistStream@@@": 8050864,
+    "??_7TiberiumClass@@6BIRTTITypeInfo@@@": 8050836,
+    "??_7TiberiumClass@@6BINoticeSink@@@": 8050828,
+    "??_7TiberiumClass@@6BINoticeSource@@@": 8050820,
+    "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275440,
+    "?Detach_This_From_All@@YIXPBVAbstractClass@@_N@Z": 7261072,
+    "??_7?$VectorClass@PBVAnimTypeClass@@@@6B@": 8010588,
+    "??1AbstractTypeClass@@UAE@XZ": 4261696,
+    "?Read_INI@AbstractTypeClass@@UAE_NABVCCINIClass@@@Z": 4261856,
+    "??_C@_06ILBA@Spread?$AA@": 8357108,
+    "?Get_Int@INIClass@@QBEHPBD0H@Z": 5298160,
+    "??_C@_0BB@IGPH@SpreadPercentage?$AA@": 8357088,
+    "?Get_Float@INIClass@@QBENPBD0N@Z": 5301152,
+    "??_C@_06FFHJ@Growth?$AA@": 8357080,
+    "??_C@_0BB@PALC@GrowthPercentage?$AA@": 8357060,
+    "??_C@_05KBGO@Value?$AA@": 8357052,
+    "??_C@_05EFBF@Power?$AA@": 8191300,
+    "??_C@_05HIMK@Color?$AA@": 8197080,
+    "?Get_Scheme_Index@CCINIClass@@QBEHPBD0H@Z": 4628304,
+    "??_C@_00A@?$AA@": 8635740,
+    "??_C@_06JIHM@Debris?$AA@": 8357044,
+    "?Get_String@INIClass@@QBEHPBD00PADH@Z": 5302688,
+    "??0?$DynamicVectorClass@PBVAnimTypeClass@@@@QAE@IPBQBVAnimTypeClass@@@Z": 5289088,
+    "??_C@_01KMAE@?0?$AA@": 8186304,
+    "_strtok": 7876290,
+    "?Find_Or_Make@AnimTypeClass@@SIPAV1@PBD@Z": 4351136,
+    "?Add@?$DynamicVectorClass@PBVAnimTypeClass@@@@QAE_NABQBVAnimTypeClass@@@Z": 5289360,
+    "??0?$TypeList@PBVAnimTypeClass@@@@QAE@ABV0@@Z": 5289936,
+    "?Clear@?$VectorClass@PBVAnimTypeClass@@@@UAEXXZ": 5288944,
+    "??4?$VectorClass@PBVAnimTypeClass@@@@QAEAAV0@ABV0@@Z": 6632656,
+    "??_C@_05LADG@Image?$AA@": 8191452,
+    "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A": 10706408,
+    "??_C@_09OIKJ@Tiberiums?$AA@": 8357116,
+    "?Entry_Count@INIClass@@QBEHPBD@Z": 5294848,
+    "?Get_Entry@INIClass@@QBEPBDPBDH@Z": 5295616,
+    "_atoi": 7876093,
+    "??2@YAPAXI@Z": 7872535,
+    "??0TiberiumClass@@QAE@PBD@Z": 7244192,
+    "?Compute_CRC@AbstractTypeClass@@UBEXAAVCRCEngine@@@Z": 4262240,
+    "??RCRCEngine@@QAEXH@Z": 4800304,
+    "_CLSID_TiberiumClass": 8003168,
+    "??_G?$PriorityQueueClass@UCellNode@@@@QAEPAXI@Z": 5823264,
+    "?Load@AbstractClass@@UAGJPAUIStream@@@Z": 4260128,
+    "??0AbstractTypeClass@@QAE@ABVNoInitClass@@@Z": 4261600,
+    "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@H@Z": 4603776,
+    "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
+    "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
+    "??0?$TypeList@PBVAnimTypeClass@@@@QAE@XZ": 6630224,
+    "?GetSizeMax@AbstractClass@@UAGJPAT_ULARGE_INTEGER@@@Z": 4260224,
+    "?Save@AbstractClass@@UAGJPAUIStream@@H@Z": 4260032,
+    "?Scen@@3PAVScenarioClass@@A": 10736272,
+    "?Spread_AI@TiberiumClass@@QAEXXZ": 7247648,
+    "?Map_Cell_Count@@YIHXZ": 4360896,
+    "?Recalc_Spread@TiberiumClass@@QAEXXZ": 7248784,
+    "__real@8@3feea7c5ac471b478800": 7980320,
+    "??RRandom2Class@@QAEHXZ": 6522944,
+    "?Heapify@?$PriorityQueueClass@UCellNode@@@@QAEXH@Z": 5828752,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
+    "?Adjacent_Cell@CellClass@@QBEABV1@W4FacingType@@@Z": 4680384,
+    "?Can_Tiberium_Germinate@CellClass@@QBE_NPBVTiberiumClass@@@Z": 4688800,
+    "?Spread_Tiberium@CellClass@@QAE_N_N@Z": 4688448,
+    "?Map_Cell_Index@@YIHABVCell@@@Z": 4360848,
+    "?Reset_Iterator@MapClass@@QAEXXZ": 5612880,
+    "?Iterate@MapClass@@QAEPAVCellClass@@XZ": 5612688,
+    "?Tiberium_Type_Here@CellClass@@QBE?AW4TiberiumType@@XZ": 4694560,
+    "?Can_Tiberium_Spread@CellClass@@QBE_NXZ": 4688208,
+    "?Growth_AI@TiberiumClass@@QAEXXZ": 7250400,
+    "__real@8@3ffd9999999999999800": 7986512,
+    "?Recalc_Growth@TiberiumClass@@QAEXXZ": 7251584,
+    "?Grow_Tiberium@CellClass@@QAE_NXZ": 4688336,
+    "?Queue_Spread@TiberiumClass@@QAEXABVCell@@@Z": 7249360,
+    "?Can_Tiberium_Grow@CellClass@@QBE_NXZ": 4688096,
+    "??1TiberiumClass@@UAE@XZ": 7244640,
+    "_$E2": 7243568,
+    "_$E5": 7243616,
+    "_$E8": 7243648,
+    "_$E11": 7243680,
+    "_$E14": 7243712,
+    "_$E17": 7243744,
+    "_$E20": 7243776,
+    "_$E23": 7243840,
+    "_$E26": 7243888,
+    "_$E29": 7243936,
+    "_$E32": 7243984,
+    "_$E35": 7244000,
+    "_$E40": 7244032,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "_$E139": 7244064,
+    "??_G?$DynamicVectorClass@PAVTiberiumClass@@@@UAEPAXI@Z": 7253280,
+    "??_G?$VectorClass@PAVTiberiumClass@@@@UAEPAXI@Z": 7253200,
+    "??_G?$TypeList@PBVAnimTypeClass@@@@UAEPAXI@Z": 5288448,
+    "?Unknown_Virtual_0@AbstractClass@@UAEXH@Z": 4260656,
+    "?Unknown_Virtual_0@AbstractClass@@UAE_NHH@Z": 4260640,
+    "?Create_ID@AbstractClass@@UAGXXZ": 4259792,
+    "?Fetch_ID@AbstractClass@@UBGHXZ": 4259776,
+    "?What_Am_I@AbstractClass@@UBGHXZ": 4259760,
+    "?Write_INI@AbstractTypeClass@@UBE_NAAVCCINIClass@@@Z": 4262160,
+    "?AI@AbstractClass@@UAEXXZ": 4260624,
+    "?As_Coord@AbstractClass@@UBE?AVCoord@@XZ": 4260576,
+    "?In_Air@AbstractClass@@UBE_NXZ": 4260560,
+    "?On_Ground@AbstractClass@@UBE_NXZ": 4260544,
+    "?Destination_Coord@AbstractClass@@UBE?AVCoord@@PAVTechnoClass@@@Z": 4260496,
+    "?Center_Coord@AbstractClass@@UBE?AVCoord@@XZ": 4260448,
+    "?Is_Inactive@AbstractClass@@UBE_NXZ": 4260320,
+    "?Owner_HouseClass@AbstractClass@@UBEPAVHouseClass@@XZ": 4260416,
+    "?Owner@AbstractClass@@UBE?AW4HousesType@@XZ": 4260400,
+    "?Init@AbstractClass@@UAEXXZ": 4260368,
+    "??_GTiberiumClass@@UAEPAXI@Z": 7252464,
+    "?IsDirty@AbstractClass@@UAGJXZ": 4260336,
+    "?Release@AbstractClass@@UAGKXZ": 4260016,
+    "?AddRef@AbstractClass@@UAGKXZ": 4260000,
+    "?QueryInterface@AbstractClass@@UAGJABU_GUID@@PAPAX@Z": 4259840,
+    "?Init_Theater@AbstractTypeClass@@UAEXW4TheaterType@@@Z": 4262304,
+    "?Fetch_Object_Size@TiberiumClass@@UBEHXZ": 7252416,
+    "?Fetch_RTTI@TiberiumClass@@UBE?AW4RTTIType@@XZ": 7252432,
+    "?Fetch_Heap_ID@TiberiumClass@@UBEHXZ": 7252448,
+    "??_G?$VectorClass@PBVAnimTypeClass@@@@UAEPAXI@Z": 5288624,
+    "?Read_INI@TiberiumClass@@UAE_NABVCCINIClass@@@Z": 7245104,
+    "?Process@TiberiumClass@@SI_NABVCCINIClass@@@Z": 7245808,
+    "?Compute_CRC@TiberiumClass@@UBEXAAVCRCEngine@@@Z": 7245984,
+    "?GetClassID@TiberiumClass@@UAGJPAU_GUID@@@Z": 7246112,
+    "?Load@TiberiumClass@@UAGJPAUIStream@@@Z": 7246176,
+    "?GetSizeMax@TiberiumClass@@UAGJPAT_ULARGE_INTEGER@@@Z": 7246720,
+    "?Save@TiberiumClass@@UAGJPAUIStream@@H@Z": 7246768,
+    "?Detach@TiberiumClass@@UAEXPBVAbstractClass@@_N@Z": 7246880,
+    "?Tiberium_Spread@TiberiumClass@@SIXXZ": 7246992,
+    "?Init_Tiberium_Spread_System@TiberiumClass@@SIXXZ": 7247136,
+    "?Deinit_Tiberium_Spread_System@TiberiumClass@@SIXXZ": 7247472,
+    "?Init_Spread@TiberiumClass@@QAEXXZ": 7248464,
+    "?Clear_Spread@TiberiumClass@@QAEXXZ": 7249152,
+    "?Clear_Spread_State@TiberiumClass@@SIXABVCell@@@Z": 7249296,
+    "?Tiberium_Growth@TiberiumClass@@SIXXZ": 7249696,
+    "?Init_Tiberium_Growth_System@TiberiumClass@@SIXXZ": 7249888,
+    "?Deinit_Tiberium_Growth_System@TiberiumClass@@SIXXZ": 7250224,
+    "?Init_Growth@TiberiumClass@@QAEXXZ": 7251264,
+    "?Clear_Growth@TiberiumClass@@QAEXXZ": 7251952,
+    "?Queue_Growth@TiberiumClass@@QAEXABVCell@@@Z": 7252096,
+    "?Post_Load_Game@TiberiumClass@@SIXXZ": 7252400,
+    "?Clear@?$DynamicVectorClass@PBVAnimTypeClass@@@@UAEXXZ": 5288208,
+    "?ID@?$DynamicVectorClass@PBVAnimTypeClass@@@@UAEHPBQBVAnimTypeClass@@@Z": 5288256,
+    "?GetItem@?$VectorClass@PBVAnimTypeClass@@@@UBEPBVAnimTypeClass@@H@Z": 5288432,
+    "?Clear@?$DynamicVectorClass@PAVTiberiumClass@@@@UAEXXZ": 7252496,
+    "?ID@?$DynamicVectorClass@PAVTiberiumClass@@@@UAEHPBQAVTiberiumClass@@@Z": 7252544,
+    "?GetItem@?$VectorClass@PAVTiberiumClass@@@@UBEPAVTiberiumClass@@H@Z": 7252576,
+    "??8?$VectorClass@PBVAnimTypeClass@@@@UBE_NABV0@@Z": 5288704,
+    "?Resize@?$VectorClass@PBVAnimTypeClass@@@@UAE_NHPBQBVAnimTypeClass@@@Z": 5288768,
+    "?ID@?$VectorClass@PBVAnimTypeClass@@@@UAEHABQBVAnimTypeClass@@@Z": 5288992,
+    "?ID@?$VectorClass@PBVAnimTypeClass@@@@UAEHPBQBVAnimTypeClass@@@Z": 5289056,
+    "??_G?$DynamicVectorClass@PBVAnimTypeClass@@@@UAEPAXI@Z": 5288544,
+    "?Resize@?$DynamicVectorClass@PBVAnimTypeClass@@@@UAE_NHPBQBVAnimTypeClass@@@Z": 5289184,
+    "?ID@?$DynamicVectorClass@PBVAnimTypeClass@@@@UAEHABQBVAnimTypeClass@@@Z": 5289440,
+    "??8?$VectorClass@PAVTiberiumClass@@@@UBE_NABV0@@Z": 7252592,
+    "?Resize@?$VectorClass@PAVTiberiumClass@@@@UAE_NHPBQAVTiberiumClass@@@Z": 7252656,
+    "?Clear@?$VectorClass@PAVTiberiumClass@@@@UAEXXZ": 7252832,
+    "?ID@?$VectorClass@PAVTiberiumClass@@@@UAEHABQAVTiberiumClass@@@Z": 7252880,
+    "?ID@?$VectorClass@PAVTiberiumClass@@@@UAEHPBQAVTiberiumClass@@@Z": 7252944,
+    "?Resize@?$DynamicVectorClass@PAVTiberiumClass@@@@UAE_NHPBQAVTiberiumClass@@@Z": 7252976,
+    "?ID@?$DynamicVectorClass@PAVTiberiumClass@@@@UAEHABQAVTiberiumClass@@@Z": 7253152,
+    "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
+    "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
+    "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
+    "?QueryInterface@AbstractClass@@W3AGJABU_GUID@@PAPAX@Z": 4260736,
+    "?AddRef@AbstractClass@@W3AGKXZ": 4260752,
+    "?Release@AbstractClass@@W3AGKXZ": 4260768
+  },
+  "regions": [
+    {
+      "entry": 7243568,
+      "method": "006e8730",
+      "body_bytes": 40,
+      "body_sha256": "04afb134a065253feff90d9b8e8981a23447db86e5eaa3f79bffbea95d05ef11",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c06f1f31c2adaeef4584ec9f9253bafc46cc49ec0f4c0cb14efc7ee1d45471c7",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 629359
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292680898
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11274992,
+          "addend": 0,
+          "resolved": 11274992
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7243568,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7243616,
+      "method": "006e8760",
+      "body_bytes": 19,
+      "body_sha256": "e4f725420df8d1562ced606a64dc4c2fbc33e08ac84f128d525aad68208bcee4",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "ef4d51380985bd95e5b63f98fa4c0b525f2b8df7d25785b0b2467de205b2f674",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11274992,
+          "addend": 0,
+          "resolved": 11274992
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8050736,
+          "addend": 0,
+          "resolved": 8050736
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11275088,
+          "addend": 0,
+          "resolved": 11275088
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7243616,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7243648,
+      "method": "006e8780",
+      "body_bytes": 19,
+      "body_sha256": "f19faacf366ce79cd2be3185a3e9d918483893bbcf10873e916cc90ba70d0add",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "ff98a9f3020763fa44087a3c592718bbf08f25f8f2278c7bf1e7bafd5c587fa4",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11275088,
+          "addend": 0,
+          "resolved": 11275088
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 11275048,
+          "addend": 0,
+          "resolved": 11275048
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7243648,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7243680,
+      "method": "006e87a0",
+      "body_bytes": 19,
+      "body_sha256": "a2bbac330b7c6c424c717c1c695ca97404833fb1d8783e4b81c38b5cb971b195",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "ac69e7239151d2ea992e7a1a68eede87d6427f5754275ec54f4db593e4ab7987",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8050744,
+          "addend": 0,
+          "resolved": 8050744
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 11275040,
+          "addend": 0,
+          "resolved": 11275040
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7243680,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7243712,
+      "method": "006e87c0",
+      "body_bytes": 19,
+      "body_sha256": "672e07d8533d7aaa07f39c3ea7f7c81fc198a38a82cdc51f9cd6516a5a4ffd1f",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b62c7cc4b20da771458e526622ea11911732151a42445467fc07623879ada47f",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8050744,
+          "addend": 0,
+          "resolved": 8050744
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11275000,
+          "addend": 0,
+          "resolved": 11275000
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7243712,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7243744,
+      "method": "006e87e0",
+      "body_bytes": 19,
+      "body_sha256": "088c9145da40f7562c309b8a670da063e1b61b0552060bab80c7059c4c2cc337",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "87109f2a676b9ac822c9e00b41694304043082b9c508fdb105de3f08caeb7cdb",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8050744,
+          "addend": 0,
+          "resolved": 8050744
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11274960,
+          "addend": 0,
+          "resolved": 11274960
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7243744,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7243776,
+      "method": "006e8800",
+      "body_bytes": 49,
+      "body_sha256": "57ec9b633319dd8fcc2efcf4b36749d7a0ba71edc3d3490e3bfd3d948c64289f",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "1f0a7fb98cda7f1433510a752db1aacc7dd6feb6c846797a1b35dd8acb319a4c",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11274960,
+          "addend": 0,
+          "resolved": 11274960
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11275000,
+          "addend": 0,
+          "resolved": 11275000
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4292680969
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11274992,
+          "addend": 0,
+          "resolved": 11274992
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 616677
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11275096,
+          "addend": 0,
+          "resolved": 11275096
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7243776,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7243840,
+      "method": "006e8840",
+      "body_bytes": 33,
+      "body_sha256": "1e93cc79b1e555c4a6f44d1319fc9e16b555c11a988a137e0f36b73df077d83e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "197bb04b080b66b4e5e967c5fcfad7551a3ff0750917e18841951377051da632",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11275096,
+          "addend": 0,
+          "resolved": 11275096
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292681049
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 11275008,
+          "addend": 0,
+          "resolved": 11275008
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7243840,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7243888,
+      "method": "006e8870",
+      "body_bytes": 44,
+      "body_sha256": "9a191954b87bcce4dcd7f5a0e885c365723ea25aae1130062b558769917f5cc5",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "64e34b2c01aa676b88748638080808b65b36545c06a8b7caf8879b021257aca0",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11275096,
+          "addend": 0,
+          "resolved": 11275096
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11274992,
+          "addend": 0,
+          "resolved": 11274992
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292680990
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 11275032,
+          "addend": 0,
+          "resolved": 11275032
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7243888,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7243936,
+      "method": "006e88a0",
+      "body_bytes": 39,
+      "body_sha256": "3c8053a1f47ccbe73128740960fea6681355a8cb13eb7347233b161a784ac56c",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "658cd8fb5e0e179514bd77cb66373824928e952f334ef0c72f4a0146e690cd71",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11275096,
+          "addend": 0,
+          "resolved": 11275096
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 616528
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11275080,
+          "addend": 0,
+          "resolved": 11275080
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7243936,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7243984,
+      "method": "006e88d0",
+      "body_bytes": 15,
+      "body_sha256": "5da5cf2c9ee129e3d9a1f778586c58c5a370277d4cdc38d014c3b995b2b0afc5",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "6c649731323661aad5e78ea3f0e45077c4e5bc8c54634acb6171704b62ad6a5a",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11274984,
+          "addend": 0,
+          "resolved": 11274984
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11274984,
+          "addend": 2,
+          "resolved": 11274986
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7243984,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7244000,
+      "method": "006e88e0",
+      "body_bytes": 18,
+      "body_sha256": "edeebf11df4fe1ebedae1d2f6ac185e165f8499fb4102bc1c8bf0bce11d37ee3",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "d818eca8d1278b6eabeb369414f52b4ff5fb9afc9239b58ecd5cb7aadd961bde",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11275016,
+          "addend": 0,
+          "resolved": 11275016
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11275016,
+          "addend": 4,
+          "resolved": 11275020
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11275016,
+          "addend": 8,
+          "resolved": 11275024
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7244000,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7244032,
+      "method": "006e8900",
+      "body_bytes": 23,
+      "body_sha256": "f15a6f6e797d391dfd55d4f0cca3a54c8bab76cf9dc5ebdff9a8ec68b9454371",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "97141357151c50609ee4444485861de4a679ec8df710a6c4130f46062a9be3d4",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E40",
+      "symbol_prefix": "_$E40",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11274968,
+          "addend": 0,
+          "resolved": 11274968
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11274968,
+          "addend": 4,
+          "resolved": 11274972
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11274968,
+          "addend": 8,
+          "resolved": 11274976
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11274968,
+          "addend": 12,
+          "resolved": 11274980
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7244032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7244064,
+      "method": "006e8920",
+      "body_bytes": 61,
+      "body_sha256": "1968aa7452770849d551a9ff1d100e1ce188f3dc2643ceb540e2e5f3bba162fe",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "e89ac3dc025b310b9e868179b96e9903704f8e947419c527987deace7f169a5b",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E139",
+      "symbol_prefix": "_$E139",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E137",
+          "target": 7244128,
+          "addend": 0,
+          "resolved": 7244128
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 4,
+          "resolved": 11275060
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 8,
+          "resolved": 11275064
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 12,
+          "resolved": 11275068
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 13,
+          "resolved": 11275069
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 0,
+          "resolved": 11275056
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVTiberiumClass@@@@6B@",
+          "target": 8050756,
+          "addend": 0,
+          "resolved": 8050756
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 20,
+          "resolved": 11275076
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 16,
+          "resolved": 11275072
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 630831
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7244064,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7244128,
+      "method": "006e8960",
+      "body_bytes": 59,
+      "body_sha256": "af67d479a7a4bf4b5b98c71154ce2bd42d8e3f389b0025da323b93f397323707",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "a3dfb732c6ed551757fc755742918603f8cabc980a7b6668a6a3a125b6f98f03",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E137",
+      "symbol_prefix": "_$E137",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 4,
+          "resolved": 11275060
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 0,
+          "resolved": 11275056
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVTiberiumClass@@@@6B@",
+          "target": 8050788,
+          "addend": 0,
+          "resolved": 8050788
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 13,
+          "resolved": 11275069
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 627639
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 4,
+          "resolved": 11275060
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 13,
+          "resolved": 11275069
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 8,
+          "resolved": 11275064
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7244128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7244192,
+      "method": "006e89a0",
+      "body_bytes": 446,
+      "body_sha256": "d25433ad770409d199088c6317276e1467dff8bd167324f5b76ac37ce1b5db90",
+      "padding_bytes": 2,
+      "full_extent_bytes": 448,
+      "full_extent_sha256": "d028a02cf18514edc110e39b3ab32c9a316ce8c9142fbbdd6695a3a22aff6d6d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0TiberiumClass@@QAE@PBD@Z",
+      "symbol_prefix": "??0TiberiumClass@@QAE@PBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 20,
+          "symbol": "??0AbstractTypeClass@@QAE@PBD@Z",
+          "target": 4261248,
+          "addend": 0,
+          "resolved": 4291984337
+        },
+        {
+          "offset": 102,
+          "kind": 20,
+          "symbol": "??0?$VectorClass@PBVAnimTypeClass@@@@QAE@HPBQBVAnimTypeClass@@@Z",
+          "target": 5290080,
+          "addend": 0,
+          "resolved": 4293013078
+        },
+        {
+          "offset": 118,
+          "kind": 6,
+          "symbol": "??_7?$TypeList@PBVAnimTypeClass@@@@6B@",
+          "target": 8010556,
+          "addend": 0,
+          "resolved": 8010556
+        },
+        {
+          "offset": 172,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 214,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 232,
+          "kind": 6,
+          "symbol": "??_7TiberiumClass@@6BIPersistStream@@@",
+          "target": 8050864,
+          "addend": 0,
+          "resolved": 8050864
+        },
+        {
+          "offset": 239,
+          "kind": 6,
+          "symbol": "??_7TiberiumClass@@6BIRTTITypeInfo@@@",
+          "target": 8050836,
+          "addend": 0,
+          "resolved": 8050836
+        },
+        {
+          "offset": 246,
+          "kind": 6,
+          "symbol": "??_7TiberiumClass@@6BINoticeSink@@@",
+          "target": 8050828,
+          "addend": 0,
+          "resolved": 8050828
+        },
+        {
+          "offset": 253,
+          "kind": 6,
+          "symbol": "??_7TiberiumClass@@6BINoticeSource@@@",
+          "target": 8050820,
+          "addend": 0,
+          "resolved": 8050820
+        },
+        {
+          "offset": 258,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 16,
+          "resolved": 11275072
+        },
+        {
+          "offset": 269,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 8,
+          "resolved": 11275064
+        },
+        {
+          "offset": 275,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 16,
+          "resolved": 11275072
+        },
+        {
+          "offset": 283,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 13,
+          "resolved": 11275069
+        },
+        {
+          "offset": 295,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 20,
+          "resolved": 11275076
+        },
+        {
+          "offset": 305,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 0,
+          "resolved": 11275056
+        },
+        {
+          "offset": 314,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 0,
+          "resolved": 11275056
+        },
+        {
+          "offset": 327,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 16,
+          "resolved": 11275072
+        },
+        {
+          "offset": 336,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 16,
+          "resolved": 11275072
+        },
+        {
+          "offset": 342,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 4,
+          "resolved": 11275060
+        },
+        {
+          "offset": 357,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 8,
+          "resolved": 11275448
+        },
+        {
+          "offset": 363,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 16,
+          "resolved": 11275456
+        },
+        {
+          "offset": 373,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 13,
+          "resolved": 11275453
+        },
+        {
+          "offset": 385,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 20,
+          "resolved": 11275460
+        },
+        {
+          "offset": 396,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 0,
+          "resolved": 11275440
+        },
+        {
+          "offset": 403,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 0,
+          "resolved": 11275440
+        },
+        {
+          "offset": 416,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 16,
+          "resolved": 11275456
+        },
+        {
+          "offset": 425,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 16,
+          "resolved": 11275456
+        },
+        {
+          "offset": 431,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 4,
+          "resolved": 11275444
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7244192,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7244640,
+      "method": "006e8b60",
+      "body_bytes": 452,
+      "body_sha256": "b5f234b65bfa6207cd6dfd08919e022cabb0b12886646d1e6b17857893ee128a",
+      "padding_bytes": 12,
+      "full_extent_bytes": 464,
+      "full_extent_sha256": "7797d198843cc8dd4e81412865bbf3579d432609e1d68969dcce1c66d0942152",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1TiberiumClass@@UAE@XZ",
+      "symbol_prefix": "??1TiberiumClass@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "??_7TiberiumClass@@6BIPersistStream@@@",
+          "target": 8050864,
+          "addend": 0,
+          "resolved": 8050864
+        },
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "??_7TiberiumClass@@6BIRTTITypeInfo@@@",
+          "target": 8050836,
+          "addend": 0,
+          "resolved": 8050836
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "??_7TiberiumClass@@6BINoticeSink@@@",
+          "target": 8050828,
+          "addend": 0,
+          "resolved": 8050828
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "??_7TiberiumClass@@6BINoticeSource@@@",
+          "target": 8050820,
+          "addend": 0,
+          "resolved": 8050820
+        },
+        {
+          "offset": 36,
+          "kind": 20,
+          "symbol": "?Detach_This_From_All@@YIXPBVAbstractClass@@_N@Z",
+          "target": 7261072,
+          "addend": 0,
+          "resolved": 16392
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 0,
+          "resolved": 11275440
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 0,
+          "resolved": 11275440
+        },
+        {
+          "offset": 70,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 16,
+          "resolved": 11275456
+        },
+        {
+          "offset": 83,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 16,
+          "resolved": 11275456
+        },
+        {
+          "offset": 91,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 4,
+          "resolved": 11275444
+        },
+        {
+          "offset": 105,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 16,
+          "resolved": 11275456
+        },
+        {
+          "offset": 115,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 0,
+          "resolved": 11275056
+        },
+        {
+          "offset": 125,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 0,
+          "resolved": 11275056
+        },
+        {
+          "offset": 143,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 16,
+          "resolved": 11275072
+        },
+        {
+          "offset": 156,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 16,
+          "resolved": 11275072
+        },
+        {
+          "offset": 164,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 4,
+          "resolved": 11275060
+        },
+        {
+          "offset": 178,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 16,
+          "resolved": 11275072
+        },
+        {
+          "offset": 194,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 626965
+        },
+        {
+          "offset": 214,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 626945
+        },
+        {
+          "offset": 242,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 626917
+        },
+        {
+          "offset": 248,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 626911
+        },
+        {
+          "offset": 310,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 626849
+        },
+        {
+          "offset": 316,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 626843
+        },
+        {
+          "offset": 341,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 626818
+        },
+        {
+          "offset": 366,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 626793
+        },
+        {
+          "offset": 399,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PBVAnimTypeClass@@@@6B@",
+          "target": 8010588,
+          "addend": 0,
+          "resolved": 8010588
+        },
+        {
+          "offset": 415,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 626744
+        },
+        {
+          "offset": 443,
+          "kind": 20,
+          "symbol": "??1AbstractTypeClass@@UAE@XZ",
+          "target": 4261696,
+          "addend": 0,
+          "resolved": 4291983905
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7244640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7245104,
+      "method": "006e8d30",
+      "body_bytes": 696,
+      "body_sha256": "225fda9d4dd434227314dd3cc5864f08cb5ddda996737cb4e4263f89f618e3e1",
+      "padding_bytes": 8,
+      "full_extent_bytes": 704,
+      "full_extent_sha256": "c27c1dea40345422abe29d4f6ab7804ee49b33b40c6a7682cd7e1658798fc83b",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 24,
+      "symbol": "?Read_INI@TiberiumClass@@UAE_NABVCCINIClass@@@Z",
+      "symbol_prefix": "?Read_INI@TiberiumClass@@UAE_NABVCCINIClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?Read_INI@AbstractTypeClass@@UAE_NABVCCINIClass@@@Z",
+          "target": 4261856,
+          "addend": 0,
+          "resolved": 4291984025
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "??_C@_06ILBA@Spread?$AA@",
+          "target": 8357108,
+          "addend": 0,
+          "resolved": 8357108
+        },
+        {
+          "offset": 51,
+          "kind": 20,
+          "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+          "target": 5298160,
+          "addend": 0,
+          "resolved": 4293020297
+        },
+        {
+          "offset": 70,
+          "kind": 6,
+          "symbol": "??_C@_0BB@IGPH@SpreadPercentage?$AA@",
+          "target": 8357088,
+          "addend": 0,
+          "resolved": 8357088
+        },
+        {
+          "offset": 84,
+          "kind": 20,
+          "symbol": "?Get_Float@INIClass@@QBENPBD0N@Z",
+          "target": 5301152,
+          "addend": 0,
+          "resolved": 4293023256
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "??_C@_06FFHJ@Growth?$AA@",
+          "target": 8357080,
+          "addend": 0,
+          "resolved": 8357080
+        },
+        {
+          "offset": 110,
+          "kind": 20,
+          "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+          "target": 5298160,
+          "addend": 0,
+          "resolved": 4293020238
+        },
+        {
+          "offset": 129,
+          "kind": 6,
+          "symbol": "??_C@_0BB@PALC@GrowthPercentage?$AA@",
+          "target": 8357060,
+          "addend": 0,
+          "resolved": 8357060
+        },
+        {
+          "offset": 143,
+          "kind": 20,
+          "symbol": "?Get_Float@INIClass@@QBENPBD0N@Z",
+          "target": 5301152,
+          "addend": 0,
+          "resolved": 4293023197
+        },
+        {
+          "offset": 163,
+          "kind": 6,
+          "symbol": "??_C@_05KBGO@Value?$AA@",
+          "target": 8357052,
+          "addend": 0,
+          "resolved": 8357052
+        },
+        {
+          "offset": 169,
+          "kind": 20,
+          "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+          "target": 5298160,
+          "addend": 0,
+          "resolved": 4293020179
+        },
+        {
+          "offset": 187,
+          "kind": 6,
+          "symbol": "??_C@_05EFBF@Power?$AA@",
+          "target": 8191300,
+          "addend": 0,
+          "resolved": 8191300
+        },
+        {
+          "offset": 195,
+          "kind": 20,
+          "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+          "target": 5298160,
+          "addend": 0,
+          "resolved": 4293020153
+        },
+        {
+          "offset": 209,
+          "kind": 6,
+          "symbol": "??_C@_05HIMK@Color?$AA@",
+          "target": 8197080,
+          "addend": 0,
+          "resolved": 8197080
+        },
+        {
+          "offset": 221,
+          "kind": 20,
+          "symbol": "?Get_Scheme_Index@CCINIClass@@QBEHPBD0H@Z",
+          "target": 4628304,
+          "addend": 0,
+          "resolved": 4292350271
+        },
+        {
+          "offset": 242,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 247,
+          "kind": 6,
+          "symbol": "??_C@_06JIHM@Debris?$AA@",
+          "target": 8357044,
+          "addend": 0,
+          "resolved": 8357044
+        },
+        {
+          "offset": 255,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHPBD00PADH@Z",
+          "target": 5302688,
+          "addend": 0,
+          "resolved": 4293024621
+        },
+        {
+          "offset": 276,
+          "kind": 20,
+          "symbol": "??0?$DynamicVectorClass@PBVAnimTypeClass@@@@QAE@IPBQBVAnimTypeClass@@@Z",
+          "target": 5289088,
+          "addend": 0,
+          "resolved": 4293011000
+        },
+        {
+          "offset": 285,
+          "kind": 6,
+          "symbol": "??_C@_01KMAE@?0?$AA@",
+          "target": 8186304,
+          "addend": 0,
+          "resolved": 8186304
+        },
+        {
+          "offset": 294,
+          "kind": 6,
+          "symbol": "??_7?$TypeList@PBVAnimTypeClass@@@@6B@",
+          "target": 8010556,
+          "addend": 0,
+          "resolved": 8010556
+        },
+        {
+          "offset": 299,
+          "kind": 20,
+          "symbol": "_strtok",
+          "target": 7876290,
+          "addend": 0,
+          "resolved": 630883
+        },
+        {
+          "offset": 318,
+          "kind": 20,
+          "symbol": "?Find_Or_Make@AnimTypeClass@@SIPAV1@PBD@Z",
+          "target": 4351136,
+          "addend": 0,
+          "resolved": 4292073006
+        },
+        {
+          "offset": 340,
+          "kind": 20,
+          "symbol": "?Add@?$DynamicVectorClass@PBVAnimTypeClass@@@@QAE_NABQBVAnimTypeClass@@@Z",
+          "target": 5289360,
+          "addend": 0,
+          "resolved": 4293011208
+        },
+        {
+          "offset": 345,
+          "kind": 6,
+          "symbol": "??_C@_01KMAE@?0?$AA@",
+          "target": 8186304,
+          "addend": 0,
+          "resolved": 8186304
+        },
+        {
+          "offset": 352,
+          "kind": 20,
+          "symbol": "_strtok",
+          "target": 7876290,
+          "addend": 0,
+          "resolved": 630830
+        },
+        {
+          "offset": 373,
+          "kind": 20,
+          "symbol": "??0?$TypeList@PBVAnimTypeClass@@@@QAE@ABV0@@Z",
+          "target": 5289936,
+          "addend": 0,
+          "resolved": 4293011751
+        },
+        {
+          "offset": 385,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PBVAnimTypeClass@@@@6B@",
+          "target": 8010588,
+          "addend": 0,
+          "resolved": 8010588
+        },
+        {
+          "offset": 390,
+          "kind": 20,
+          "symbol": "?Clear@?$VectorClass@PBVAnimTypeClass@@@@UAEXXZ",
+          "target": 5288944,
+          "addend": 0,
+          "resolved": 4293010742
+        },
+        {
+          "offset": 408,
+          "kind": 20,
+          "symbol": "??0?$TypeList@PBVAnimTypeClass@@@@QAE@ABV0@@Z",
+          "target": 5289936,
+          "addend": 0,
+          "resolved": 4293011716
+        },
+        {
+          "offset": 427,
+          "kind": 20,
+          "symbol": "??4?$VectorClass@PBVAnimTypeClass@@@@QAEAAV0@ABV0@@Z",
+          "target": 6632656,
+          "addend": 0,
+          "resolved": 4294354417
+        },
+        {
+          "offset": 460,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PBVAnimTypeClass@@@@6B@",
+          "target": 8010588,
+          "addend": 0,
+          "resolved": 8010588
+        },
+        {
+          "offset": 479,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 626216
+        },
+        {
+          "offset": 489,
+          "kind": 6,
+          "symbol": "??_C@_05LADG@Image?$AA@",
+          "target": 8191452,
+          "addend": 0,
+          "resolved": 8191452
+        },
+        {
+          "offset": 497,
+          "kind": 20,
+          "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+          "target": 5298160,
+          "addend": 0,
+          "resolved": 4293019851
+        },
+        {
+          "offset": 511,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7245776,
+          "addend": 0,
+          "resolved": 7245776
+        },
+        {
+          "offset": 516,
+          "kind": 6,
+          "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
+          "target": 10706408,
+          "addend": 4,
+          "resolved": 10706412
+        },
+        {
+          "offset": 561,
+          "kind": 6,
+          "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
+          "target": 10706408,
+          "addend": 4,
+          "resolved": 10706412
+        },
+        {
+          "offset": 581,
+          "kind": 6,
+          "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
+          "target": 10706408,
+          "addend": 4,
+          "resolved": 10706412
+        },
+        {
+          "offset": 600,
+          "kind": 6,
+          "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
+          "target": 10706408,
+          "addend": 4,
+          "resolved": 10706412
+        },
+        {
+          "offset": 672,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7245747,
+          "addend": 0,
+          "resolved": 7245747
+        },
+        {
+          "offset": 676,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7245703,
+          "addend": 0,
+          "resolved": 7245703
+        },
+        {
+          "offset": 680,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7245703,
+          "addend": 0,
+          "resolved": 7245703
+        },
+        {
+          "offset": 684,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7245619,
+          "addend": 0,
+          "resolved": 7245619
+        },
+        {
+          "offset": 688,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7245663,
+          "addend": 0,
+          "resolved": 7245663
+        },
+        {
+          "offset": 692,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7245683,
+          "addend": 0,
+          "resolved": 7245683
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7245104,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7245808,
+      "method": "006e8ff0",
+      "body_bytes": 170,
+      "body_sha256": "48a75a04633de991702745d1c47b58a4047c77dccb4b3cafc2b1eece1a399c5b",
+      "padding_bytes": 6,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "51b66077cc4ede2b6591a18d831e77b55990c772a1a77b8b22094a9d961db3ba",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Process@TiberiumClass@@SI_NABVCCINIClass@@@Z",
+      "symbol_prefix": "?Process@TiberiumClass@@SI_NABVCCINIClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "??_C@_09OIKJ@Tiberiums?$AA@",
+          "target": 8357116,
+          "addend": 0,
+          "resolved": 8357116
+        },
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "?Entry_Count@INIClass@@QBEHPBD@Z",
+          "target": 5294848,
+          "addend": 0,
+          "resolved": 4293016318
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "??_C@_09OIKJ@Tiberiums?$AA@",
+          "target": 8357116,
+          "addend": 0,
+          "resolved": 8357116
+        },
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "?Get_Entry@INIClass@@QBEPBDPBDH@Z",
+          "target": 5295616,
+          "addend": 0,
+          "resolved": 4293017060
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 60,
+          "kind": 6,
+          "symbol": "??_C@_09OIKJ@Tiberiums?$AA@",
+          "target": 8357116,
+          "addend": 0,
+          "resolved": 8357116
+        },
+        {
+          "offset": 67,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHPBD00PADH@Z",
+          "target": 5302688,
+          "addend": 0,
+          "resolved": 4293024105
+        },
+        {
+          "offset": 77,
+          "kind": 20,
+          "symbol": "_atoi",
+          "target": 7876093,
+          "addend": 0,
+          "resolved": 630204
+        },
+        {
+          "offset": 83,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 16,
+          "resolved": 11275072
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 4,
+          "resolved": 11275060
+        },
+        {
+          "offset": 111,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 626612
+        },
+        {
+          "offset": 130,
+          "kind": 20,
+          "symbol": "??0TiberiumClass@@QAE@PBD@Z",
+          "target": 7244192,
+          "addend": 0,
+          "resolved": 4294965546
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7245808,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7245984,
+      "method": "006e90a0",
+      "body_bytes": 117,
+      "body_sha256": "01a433926f2db32ebc1b67625b0c5a82a10cdc04867f6a7acd41b9bfb78f3a82",
+      "padding_bytes": 11,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "aca5b6fc08f0409fc6e61ea3a16b1dcde59d91d1c07573bae344d84d83787f96",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Compute_CRC@TiberiumClass@@UBEXAAVCRCEngine@@@Z",
+      "symbol_prefix": "?Compute_CRC@TiberiumClass@@UBEXAAVCRCEngine@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "?Compute_CRC@AbstractTypeClass@@UBEXAAVCRCEngine@@@Z",
+          "target": 4262240,
+          "addend": 0,
+          "resolved": 4291983538
+        },
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4292521588
+        },
+        {
+          "offset": 38,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4292521574
+        },
+        {
+          "offset": 52,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4292521560
+        },
+        {
+          "offset": 66,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4292521546
+        },
+        {
+          "offset": 80,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4292521532
+        },
+        {
+          "offset": 94,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4292521518
+        },
+        {
+          "offset": 108,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4292521504
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7245984,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7246112,
+      "method": "006e9120",
+      "body_bytes": 56,
+      "body_sha256": "e82811ca556b45cb0fafc0e510b56b1dd4158d4fc5db86f651f7272200adc4f6",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "83861c9188697afa096adae21ea8c80b61fff655ba877e8a7e2e175dc1b96bd1",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetClassID@TiberiumClass@@UAGJPAU_GUID@@@Z",
+      "symbol_prefix": "?GetClassID@TiberiumClass@@UAGJPAU_GUID@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_CLSID_TiberiumClass",
+          "target": 8003168,
+          "addend": 0,
+          "resolved": 8003168
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_CLSID_TiberiumClass",
+          "target": 8003168,
+          "addend": 4,
+          "resolved": 8003172
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_CLSID_TiberiumClass",
+          "target": 8003168,
+          "addend": 8,
+          "resolved": 8003176
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_CLSID_TiberiumClass",
+          "target": 8003168,
+          "addend": 12,
+          "resolved": 8003180
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7246112,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4429"
+    },
+    {
+      "entry": 7246176,
+      "method": "006e9160",
+      "body_bytes": 531,
+      "body_sha256": "5c738ef8caf8eaec86a42f78eda53ba1c05e731f7651cf8bfed30ee51012b1bf",
+      "padding_bytes": 13,
+      "full_extent_bytes": 544,
+      "full_extent_sha256": "c7ef736c7d0f129398faf463ea0b599f85bb7f252c94fee3c77f594028e438fa",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load@TiberiumClass@@UAGJPAUIStream@@@Z",
+      "symbol_prefix": "?Load@TiberiumClass@@UAGJPAUIStream@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 57,
+          "kind": 20,
+          "symbol": "??_G?$PriorityQueueClass@UCellNode@@@@QAEPAXI@Z",
+          "target": 5823264,
+          "addend": 0,
+          "resolved": 4293544323
+        },
+        {
+          "offset": 79,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 625544
+        },
+        {
+          "offset": 104,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 625519
+        },
+        {
+          "offset": 170,
+          "kind": 20,
+          "symbol": "??_G?$PriorityQueueClass@UCellNode@@@@QAEPAXI@Z",
+          "target": 5823264,
+          "addend": 0,
+          "resolved": 4293544210
+        },
+        {
+          "offset": 192,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 625431
+        },
+        {
+          "offset": 217,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 625406
+        },
+        {
+          "offset": 260,
+          "kind": 20,
+          "symbol": "?Load@AbstractClass@@UAGJPAUIStream@@@Z",
+          "target": 4260128,
+          "addend": 0,
+          "resolved": 4291980984
+        },
+        {
+          "offset": 284,
+          "kind": 20,
+          "symbol": "??0AbstractTypeClass@@QAE@ABVNoInitClass@@@Z",
+          "target": 4261600,
+          "addend": 0,
+          "resolved": 4291982432
+        },
+        {
+          "offset": 293,
+          "kind": 20,
+          "symbol": "??0?$DynamicVectorClass@PBVAnimTypeClass@@@@QAE@IPBQBVAnimTypeClass@@@Z",
+          "target": 5289088,
+          "addend": 0,
+          "resolved": 4293009911
+        },
+        {
+          "offset": 306,
+          "kind": 6,
+          "symbol": "??_7?$TypeList@PBVAnimTypeClass@@@@6B@",
+          "target": 8010556,
+          "addend": 0,
+          "resolved": 8010556
+        },
+        {
+          "offset": 311,
+          "kind": 20,
+          "symbol": "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@H@Z",
+          "target": 4603776,
+          "addend": 0,
+          "resolved": 4292324581
+        },
+        {
+          "offset": 323,
+          "kind": 20,
+          "symbol": "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@H@Z",
+          "target": 4603776,
+          "addend": 0,
+          "resolved": 4292324569
+        },
+        {
+          "offset": 329,
+          "kind": 6,
+          "symbol": "??_7TiberiumClass@@6BIPersistStream@@@",
+          "target": 8050864,
+          "addend": 0,
+          "resolved": 8050864
+        },
+        {
+          "offset": 336,
+          "kind": 6,
+          "symbol": "??_7TiberiumClass@@6BIRTTITypeInfo@@@",
+          "target": 8050836,
+          "addend": 0,
+          "resolved": 8050836
+        },
+        {
+          "offset": 343,
+          "kind": 6,
+          "symbol": "??_7TiberiumClass@@6BINoticeSink@@@",
+          "target": 8050828,
+          "addend": 0,
+          "resolved": 8050828
+        },
+        {
+          "offset": 350,
+          "kind": 6,
+          "symbol": "??_7TiberiumClass@@6BINoticeSource@@@",
+          "target": 8050820,
+          "addend": 0,
+          "resolved": 8050820
+        },
+        {
+          "offset": 362,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 367,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 4294666317
+        },
+        {
+          "offset": 378,
+          "kind": 20,
+          "symbol": "??0?$TypeList@PBVAnimTypeClass@@@@QAE@XZ",
+          "target": 6630224,
+          "addend": 0,
+          "resolved": 4294350962
+        },
+        {
+          "offset": 430,
+          "kind": 20,
+          "symbol": "?Add@?$DynamicVectorClass@PBVAnimTypeClass@@@@QAE_NABQBVAnimTypeClass@@@Z",
+          "target": 5289360,
+          "addend": 0,
+          "resolved": 4293010046
+        },
+        {
+          "offset": 466,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 471,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 4294666213
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7246176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7246720,
+      "method": "006e9380",
+      "body_bytes": 47,
+      "body_sha256": "590cf7facae9098edfa7605d0961975de10a12275686c75e5fd89b8874d94530",
+      "padding_bytes": 1,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "f8b513aad22b3b077fe468bdbde09b0367262d0e3c025130c28d7dcb76f91335",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetSizeMax@TiberiumClass@@UAGJPAT_ULARGE_INTEGER@@@Z",
+      "symbol_prefix": "?GetSizeMax@TiberiumClass@@UAGJPAT_ULARGE_INTEGER@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "?GetSizeMax@AbstractClass@@UAGJPAT_ULARGE_INTEGER@@@Z",
+          "target": 4260224,
+          "addend": 0,
+          "resolved": 4291980783
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7246720,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 7246768,
+      "method": "006e93b0",
+      "body_bytes": 97,
+      "body_sha256": "d8b0183abcb476ee20831025e349fedc1a6e10204a221f375b82823e3978e3e7",
+      "padding_bytes": 15,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "cd2921bf89230c9fca1d1b4aab928bdb66fc881991f792b46ee543b56590900c",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Save@TiberiumClass@@UAGJPAUIStream@@H@Z",
+      "symbol_prefix": "?Save@TiberiumClass@@UAGJPAUIStream@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "?Save@AbstractClass@@UAGJPAUIStream@@H@Z",
+          "target": 4260032,
+          "addend": 0,
+          "resolved": 4291980538
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7246768,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7246880,
+      "method": "006e9420",
+      "body_bytes": 105,
+      "body_sha256": "ab849ce8b7e0676c51757014e1a92b10f779454268c52bb45b8fc2ffe5141d7b",
+      "padding_bytes": 7,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "7c55b5383393b96054621f3ad3da144adb4ee64e8f6945494b19b6660ffec70a",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Detach@TiberiumClass@@UAEXPBVAbstractClass@@_N@Z",
+      "symbol_prefix": "?Detach@TiberiumClass@@UAEXPBVAbstractClass@@_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7246880,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7246992,
+      "method": "006e9490",
+      "body_bytes": 139,
+      "body_sha256": "e95928de2942ac4249b8d34551ceab59d628afa922a78487aaa8c4a5b7e5bd92",
+      "padding_bytes": 5,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "326a09916ba388d62ca98e0817b9a34f7588fd68a301c64f0c1beaeae4ce7e53",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Tiberium_Spread@TiberiumClass@@SIXXZ",
+      "symbol_prefix": "?Tiberium_Spread@TiberiumClass@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 16,
+          "resolved": 11275072
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 4,
+          "resolved": 11275060
+        },
+        {
+          "offset": 64,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 81,
+          "kind": 20,
+          "symbol": "?Spread_AI@TiberiumClass@@QAEXXZ",
+          "target": 7247648,
+          "addend": 0,
+          "resolved": 571
+        },
+        {
+          "offset": 87,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 4,
+          "resolved": 11275060
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 123,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 16,
+          "resolved": 11275072
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7246992,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7247136,
+      "method": "006e9520",
+      "body_bytes": 329,
+      "body_sha256": "8d6f420e8eebf0706ad04ad2b88b4328ca971d54ce95f7eaa449ab5bd4d89eb7",
+      "padding_bytes": 7,
+      "full_extent_bytes": 336,
+      "full_extent_sha256": "b7621f837de8d7464f51b26a119b65c19bd556ec5fba5c368a6b03690bbeab23",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init_Tiberium_Spread_System@TiberiumClass@@SIXXZ",
+      "symbol_prefix": "?Init_Tiberium_Spread_System@TiberiumClass@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 16,
+          "resolved": 11275072
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 4,
+          "resolved": 11275060
+        },
+        {
+          "offset": 79,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 624584
+        },
+        {
+          "offset": 85,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 624578
+        },
+        {
+          "offset": 110,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 624553
+        },
+        {
+          "offset": 135,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 624528
+        },
+        {
+          "offset": 155,
+          "kind": 20,
+          "symbol": "?Map_Cell_Count@@YIHXZ",
+          "target": 4360896,
+          "addend": 0,
+          "resolved": 4292080897
+        },
+        {
+          "offset": 170,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 625225
+        },
+        {
+          "offset": 197,
+          "kind": 20,
+          "symbol": "?Map_Cell_Count@@YIHXZ",
+          "target": 4360896,
+          "addend": 0,
+          "resolved": 4292080855
+        },
+        {
+          "offset": 203,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 625192
+        },
+        {
+          "offset": 216,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 625179
+        },
+        {
+          "offset": 230,
+          "kind": 20,
+          "symbol": "?Map_Cell_Count@@YIHXZ",
+          "target": 4360896,
+          "addend": 0,
+          "resolved": 4292080822
+        },
+        {
+          "offset": 258,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 625137
+        },
+        {
+          "offset": 305,
+          "kind": 20,
+          "symbol": "?Recalc_Spread@TiberiumClass@@QAEXXZ",
+          "target": 7248784,
+          "addend": 0,
+          "resolved": 1339
+        },
+        {
+          "offset": 310,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 16,
+          "resolved": 11275072
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7247136,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7247472,
+      "method": "006e9670",
+      "body_bytes": 172,
+      "body_sha256": "4cfed55e7020abc0f908f9f7b0e6433c25f98cd083147a25d6c7b873995705c6",
+      "padding_bytes": 4,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "ed8b06d76e5e421b4c0d083c0c477bf3ec045ac8ea9d448d146b62395db92df0",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Deinit_Tiberium_Spread_System@TiberiumClass@@SIXXZ",
+      "symbol_prefix": "?Deinit_Tiberium_Spread_System@TiberiumClass@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 16,
+          "resolved": 11275072
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 4,
+          "resolved": 11275060
+        },
+        {
+          "offset": 78,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 624249
+        },
+        {
+          "offset": 84,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 624243
+        },
+        {
+          "offset": 109,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 624218
+        },
+        {
+          "offset": 134,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 624193
+        },
+        {
+          "offset": 154,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 16,
+          "resolved": 11275072
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7247472,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-123"
+    },
+    {
+      "entry": 7247648,
+      "method": "006e9720",
+      "body_bytes": 807,
+      "body_sha256": "052b3abff6753bf42fb6385400cef124acfa29cdea8d38b9903848b1d854efcb",
+      "padding_bytes": 9,
+      "full_extent_bytes": 816,
+      "full_extent_sha256": "bb88bbac06b74ed0ac8b09d0f2d842e0d5e044d50d9080258c4b971c0aab6c9c",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Spread_AI@TiberiumClass@@QAEXXZ",
+      "symbol_prefix": "?Spread_AI@TiberiumClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "__real@8@3feea7c5ac471b478800",
+          "target": 7980320,
+          "addend": 0,
+          "resolved": 7980320
+        },
+        {
+          "offset": 75,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 612769
+        },
+        {
+          "offset": 111,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 122,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHXZ",
+          "target": 6522944,
+          "addend": 0,
+          "resolved": 4294242466
+        },
+        {
+          "offset": 150,
+          "kind": 20,
+          "symbol": "?Map_Cell_Count@@YIHXZ",
+          "target": 4360896,
+          "addend": 0,
+          "resolved": 4292080390
+        },
+        {
+          "offset": 164,
+          "kind": 20,
+          "symbol": "?Recalc_Spread@TiberiumClass@@QAEXXZ",
+          "target": 7248784,
+          "addend": 0,
+          "resolved": 968
+        },
+        {
+          "offset": 224,
+          "kind": 20,
+          "symbol": "?Heapify@?$PriorityQueueClass@UCellNode@@@@QAEXH@Z",
+          "target": 5828752,
+          "addend": 0,
+          "resolved": 4293548172
+        },
+        {
+          "offset": 248,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 253,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293257295
+        },
+        {
+          "offset": 267,
+          "kind": 20,
+          "symbol": "?Adjacent_Cell@CellClass@@QBEABV1@W4FacingType@@@Z",
+          "target": 4680384,
+          "addend": 0,
+          "resolved": 4292399761
+        },
+        {
+          "offset": 276,
+          "kind": 20,
+          "symbol": "?Can_Tiberium_Germinate@CellClass@@QBE_NPBVTiberiumClass@@@Z",
+          "target": 4688800,
+          "addend": 0,
+          "resolved": 4292408168
+        },
+        {
+          "offset": 304,
+          "kind": 20,
+          "symbol": "?Spread_Tiberium@CellClass@@QAE_N_N@Z",
+          "target": 4688448,
+          "addend": 0,
+          "resolved": 4292407788
+        },
+        {
+          "offset": 501,
+          "kind": 20,
+          "symbol": "?Map_Cell_Index@@YIHABVCell@@@Z",
+          "target": 4360848,
+          "addend": 0,
+          "resolved": 4292079991
+        },
+        {
+          "offset": 521,
+          "kind": 20,
+          "symbol": "?Map_Cell_Index@@YIHABVCell@@@Z",
+          "target": 4360848,
+          "addend": 0,
+          "resolved": 4292079971
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7247648,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7248464,
+      "method": "006e9a50",
+      "body_bytes": 308,
+      "body_sha256": "253b705bb96392b1d28b87cfac7e3bb8c3bbac70752d9f492b1324ffe497219b",
+      "padding_bytes": 12,
+      "full_extent_bytes": 320,
+      "full_extent_sha256": "7c0a4144efc2878fecc66aef3443ba4a08edbbd831c57edf7a47754e735f5501",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init_Spread@TiberiumClass@@QAEXXZ",
+      "symbol_prefix": "?Init_Spread@TiberiumClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 57,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 623278
+        },
+        {
+          "offset": 63,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 623272
+        },
+        {
+          "offset": 88,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 623247
+        },
+        {
+          "offset": 113,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 623222
+        },
+        {
+          "offset": 133,
+          "kind": 20,
+          "symbol": "?Map_Cell_Count@@YIHXZ",
+          "target": 4360896,
+          "addend": 0,
+          "resolved": 4292079591
+        },
+        {
+          "offset": 148,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 623919
+        },
+        {
+          "offset": 175,
+          "kind": 20,
+          "symbol": "?Map_Cell_Count@@YIHXZ",
+          "target": 4360896,
+          "addend": 0,
+          "resolved": 4292079549
+        },
+        {
+          "offset": 181,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 623886
+        },
+        {
+          "offset": 194,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 623873
+        },
+        {
+          "offset": 208,
+          "kind": 20,
+          "symbol": "?Map_Cell_Count@@YIHXZ",
+          "target": 4360896,
+          "addend": 0,
+          "resolved": 4292079516
+        },
+        {
+          "offset": 236,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 623831
+        },
+        {
+          "offset": 279,
+          "kind": 20,
+          "symbol": "?Recalc_Spread@TiberiumClass@@QAEXXZ",
+          "target": 7248784,
+          "addend": 0,
+          "resolved": 37
+        },
+        {
+          "offset": 299,
+          "kind": 20,
+          "symbol": "?Recalc_Spread@TiberiumClass@@QAEXXZ",
+          "target": 7248784,
+          "addend": 0,
+          "resolved": 17
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7248464,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7248784,
+      "method": "006e9b90",
+      "body_bytes": 359,
+      "body_sha256": "4a88b80ac37870036d0886aea921e91c8b6d37bfa9325a02ed0eec0e3c989e1a",
+      "padding_bytes": 9,
+      "full_extent_bytes": 368,
+      "full_extent_sha256": "32b96d4401e4c8e5412ebfbbb83f98ca5be7c0475b36d8655c05018a6a004220",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Recalc_Spread@TiberiumClass@@QAEXXZ",
+      "symbol_prefix": "?Recalc_Spread@TiberiumClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "?Map_Cell_Count@@YIHXZ",
+          "target": 4360896,
+          "addend": 0,
+          "resolved": 4292079349
+        },
+        {
+          "offset": 77,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 82,
+          "kind": 20,
+          "symbol": "?Reset_Iterator@MapClass@@QAEXXZ",
+          "target": 5612880,
+          "addend": 0,
+          "resolved": 4293331306
+        },
+        {
+          "offset": 87,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 92,
+          "kind": 20,
+          "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
+          "target": 5612688,
+          "addend": 0,
+          "resolved": 4293331104
+        },
+        {
+          "offset": 111,
+          "kind": 20,
+          "symbol": "?Tiberium_Type_Here@CellClass@@QBE?AW4TiberiumType@@XZ",
+          "target": 4694560,
+          "addend": 0,
+          "resolved": 4292412957
+        },
+        {
+          "offset": 130,
+          "kind": 20,
+          "symbol": "?Can_Tiberium_Spread@CellClass@@QBE_NXZ",
+          "target": 4688208,
+          "addend": 0,
+          "resolved": 4292406586
+        },
+        {
+          "offset": 317,
+          "kind": 20,
+          "symbol": "?Map_Cell_Index@@YIHABVCell@@@Z",
+          "target": 4360848,
+          "addend": 0,
+          "resolved": 4292079039
+        },
+        {
+          "offset": 332,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 337,
+          "kind": 20,
+          "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
+          "target": 5612688,
+          "addend": 0,
+          "resolved": 4293330859
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7248784,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7249152,
+      "method": "006e9d00",
+      "body_bytes": 135,
+      "body_sha256": "6120638934011cb6bc1c61f7e1bfb498d0403b9c871821ce05f8785300de4b5d",
+      "padding_bytes": 9,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "4bf61533cbca83fd26c4e628f7b3eaa2383591c8af4518946749df465b169a9a",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear_Spread@TiberiumClass@@QAEXXZ",
+      "symbol_prefix": "?Clear_Spread@TiberiumClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 56,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 622591
+        },
+        {
+          "offset": 62,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 622585
+        },
+        {
+          "offset": 88,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 622559
+        },
+        {
+          "offset": 113,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 622534
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7249152,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-89"
+    },
+    {
+      "entry": 7249296,
+      "method": "006e9d90",
+      "body_bytes": 49,
+      "body_sha256": "95e44332a3023949265a398471b77673dadded0615a9c45077f9eaf2d261ed5f",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "6c70b52930f2be8f96d1d7866ddd25e6c61caf743b79d0fd07e1f449caba09c8",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear_Spread_State@TiberiumClass@@SIXABVCell@@@Z",
+      "symbol_prefix": "?Clear_Spread_State@TiberiumClass@@SIXABVCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 20,
+          "symbol": "?Map_Cell_Index@@YIHABVCell@@@Z",
+          "target": 4360848,
+          "addend": 0,
+          "resolved": 4292078843
+        },
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 16,
+          "resolved": 11275072
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 4,
+          "resolved": 11275060
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 16,
+          "resolved": 11275072
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7249296,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7249360,
+      "method": "006e9dd0",
+      "body_bytes": 323,
+      "body_sha256": "a85e2f08e98f4b7f5da99cafbe62649d526f3959c54b04b3eccf16ef8c6b7a13",
+      "padding_bytes": 13,
+      "full_extent_bytes": 336,
+      "full_extent_sha256": "af0d227ef56ba53781eb8bdcdcecfc081152e82b2df673b2a6309460473e1b1d",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Queue_Spread@TiberiumClass@@QAEXABVCell@@@Z",
+      "symbol_prefix": "?Queue_Spread@TiberiumClass@@QAEXABVCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 15,
+          "kind": 20,
+          "symbol": "?Map_Cell_Index@@YIHABVCell@@@Z",
+          "target": 4360848,
+          "addend": 0,
+          "resolved": 4292078765
+        },
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293255808
+        },
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "?Can_Tiberium_Spread@CellClass@@QBE_NXZ",
+          "target": 4688208,
+          "addend": 0,
+          "resolved": 4292406105
+        },
+        {
+          "offset": 64,
+          "kind": 20,
+          "symbol": "?Map_Cell_Count@@YIHXZ",
+          "target": 4360896,
+          "addend": 0,
+          "resolved": 4292078764
+        },
+        {
+          "offset": 84,
+          "kind": 20,
+          "symbol": "?Recalc_Spread@TiberiumClass@@QAEXXZ",
+          "target": 7248784,
+          "addend": 0,
+          "resolved": 4294966632
+        },
+        {
+          "offset": 109,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 120,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHXZ",
+          "target": 6522944,
+          "addend": 0,
+          "resolved": 4294240756
+        },
+        {
+          "offset": 136,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 299,
+          "kind": 20,
+          "symbol": "?Map_Cell_Index@@YIHABVCell@@@Z",
+          "target": 4360848,
+          "addend": 0,
+          "resolved": 4292078481
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7249360,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7249696,
+      "method": "006e9f20",
+      "body_bytes": 188,
+      "body_sha256": "49e288697bba4affa05e55fb331e9a7cff2e8da35b056f9366797371c1a1177e",
+      "padding_bytes": 4,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "e5dcec39e3798f758d07f434d8fc054ae86716c635c716fa5d3657b79928a351",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Tiberium_Growth@TiberiumClass@@SIXXZ",
+      "symbol_prefix": "?Tiberium_Growth@TiberiumClass@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 16,
+          "resolved": 11275072
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 4,
+          "resolved": 11275060
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 90,
+          "kind": 20,
+          "symbol": "?Growth_AI@TiberiumClass@@QAEXXZ",
+          "target": 7250400,
+          "addend": 0,
+          "resolved": 610
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 107,
+          "kind": 6,
+          "symbol": "__real@8@3ffd9999999999999800",
+          "target": 7986512,
+          "addend": 0,
+          "resolved": 7986512
+        },
+        {
+          "offset": 115,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 121,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 4,
+          "resolved": 11275060
+        },
+        {
+          "offset": 127,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 143,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 610653
+        },
+        {
+          "offset": 167,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 16,
+          "resolved": 11275072
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7249696,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7249888,
+      "method": "006e9fe0",
+      "body_bytes": 329,
+      "body_sha256": "25e3a8e4deb982268b0ae6767f289b009cafd5f94ab03956def2f221044d605e",
+      "padding_bytes": 7,
+      "full_extent_bytes": 336,
+      "full_extent_sha256": "97b421760aeafad49b970dfa2bf1fe2a45c26882ede6f195347d7e8d845f7caf",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init_Tiberium_Growth_System@TiberiumClass@@SIXXZ",
+      "symbol_prefix": "?Init_Tiberium_Growth_System@TiberiumClass@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 16,
+          "resolved": 11275072
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 4,
+          "resolved": 11275060
+        },
+        {
+          "offset": 79,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 621832
+        },
+        {
+          "offset": 85,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 621826
+        },
+        {
+          "offset": 110,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 621801
+        },
+        {
+          "offset": 135,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 621776
+        },
+        {
+          "offset": 155,
+          "kind": 20,
+          "symbol": "?Map_Cell_Count@@YIHXZ",
+          "target": 4360896,
+          "addend": 0,
+          "resolved": 4292078145
+        },
+        {
+          "offset": 170,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 622473
+        },
+        {
+          "offset": 197,
+          "kind": 20,
+          "symbol": "?Map_Cell_Count@@YIHXZ",
+          "target": 4360896,
+          "addend": 0,
+          "resolved": 4292078103
+        },
+        {
+          "offset": 203,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 622440
+        },
+        {
+          "offset": 216,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 622427
+        },
+        {
+          "offset": 230,
+          "kind": 20,
+          "symbol": "?Map_Cell_Count@@YIHXZ",
+          "target": 4360896,
+          "addend": 0,
+          "resolved": 4292078070
+        },
+        {
+          "offset": 258,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 622385
+        },
+        {
+          "offset": 305,
+          "kind": 20,
+          "symbol": "?Recalc_Growth@TiberiumClass@@QAEXXZ",
+          "target": 7251584,
+          "addend": 0,
+          "resolved": 1387
+        },
+        {
+          "offset": 310,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 16,
+          "resolved": 11275072
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7249888,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7250224,
+      "method": "006ea130",
+      "body_bytes": 172,
+      "body_sha256": "b282030eaa4b9fc7e8fa7cde76c066a5bb04714dbe79664545645c79dbc4082b",
+      "padding_bytes": 4,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "88ad31fb90d206dffa4443cd32b6eb91f87601ccc5cd24bc6ac4e2ce2aea5edc",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Deinit_Tiberium_Growth_System@TiberiumClass@@SIXXZ",
+      "symbol_prefix": "?Deinit_Tiberium_Growth_System@TiberiumClass@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 16,
+          "resolved": 11275072
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 4,
+          "resolved": 11275060
+        },
+        {
+          "offset": 78,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 621497
+        },
+        {
+          "offset": 84,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 621491
+        },
+        {
+          "offset": 109,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 621466
+        },
+        {
+          "offset": 134,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 621441
+        },
+        {
+          "offset": 154,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 16,
+          "resolved": 11275072
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7250224,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-123"
+    },
+    {
+      "entry": 7250400,
+      "method": "006ea1e0",
+      "body_bytes": 854,
+      "body_sha256": "301cfd5acec587f49decaffb8f0dacf25d55f9903e9814028725f98e3a10e835",
+      "padding_bytes": 10,
+      "full_extent_bytes": 864,
+      "full_extent_sha256": "6c2ae081a1074985ce9de649f8bfee79c0d4a77b8da7de13455158af57f9fad3",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Growth_AI@TiberiumClass@@QAEXXZ",
+      "symbol_prefix": "?Growth_AI@TiberiumClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "__real@8@3feea7c5ac471b478800",
+          "target": 7980320,
+          "addend": 0,
+          "resolved": 7980320
+        },
+        {
+          "offset": 71,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 610021
+        },
+        {
+          "offset": 107,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 118,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHXZ",
+          "target": 6522944,
+          "addend": 0,
+          "resolved": 4294239718
+        },
+        {
+          "offset": 146,
+          "kind": 20,
+          "symbol": "?Map_Cell_Count@@YIHXZ",
+          "target": 4360896,
+          "addend": 0,
+          "resolved": 4292077642
+        },
+        {
+          "offset": 162,
+          "kind": 20,
+          "symbol": "?Recalc_Growth@TiberiumClass@@QAEXXZ",
+          "target": 7251584,
+          "addend": 0,
+          "resolved": 1018
+        },
+        {
+          "offset": 226,
+          "kind": 20,
+          "symbol": "?Heapify@?$PriorityQueueClass@UCellNode@@@@QAEXH@Z",
+          "target": 5828752,
+          "addend": 0,
+          "resolved": 4293545418
+        },
+        {
+          "offset": 252,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 257,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293254539
+        },
+        {
+          "offset": 266,
+          "kind": 20,
+          "symbol": "?Tiberium_Type_Here@CellClass@@QBE?AW4TiberiumType@@XZ",
+          "target": 4694560,
+          "addend": 0,
+          "resolved": 4292411186
+        },
+        {
+          "offset": 285,
+          "kind": 20,
+          "symbol": "?Grow_Tiberium@CellClass@@QAE_NXZ",
+          "target": 4688336,
+          "addend": 0,
+          "resolved": 4292404943
+        },
+        {
+          "offset": 320,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 331,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHXZ",
+          "target": 6522944,
+          "addend": 0,
+          "resolved": 4294239505
+        },
+        {
+          "offset": 343,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 385,
+          "kind": 20,
+          "symbol": "?Map_Cell_Index@@YIHABVCell@@@Z",
+          "target": 4360848,
+          "addend": 0,
+          "resolved": 4292077355
+        },
+        {
+          "offset": 532,
+          "kind": 20,
+          "symbol": "?Queue_Spread@TiberiumClass@@QAEXABVCell@@@Z",
+          "target": 7249360,
+          "addend": 0,
+          "resolved": 4294965720
+        },
+        {
+          "offset": 545,
+          "kind": 20,
+          "symbol": "?Map_Cell_Index@@YIHABVCell@@@Z",
+          "target": 4360848,
+          "addend": 0,
+          "resolved": 4292077195
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7250400,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7251264,
+      "method": "006ea540",
+      "body_bytes": 308,
+      "body_sha256": "4625ad198f255cf35d422b92f5e1970fdcf96e10125ee1f8ca1569114a79411c",
+      "padding_bytes": 12,
+      "full_extent_bytes": 320,
+      "full_extent_sha256": "4002b5b13c35530f95938d812e9512327c2f7a24af2217ae2824676afe4750f8",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init_Growth@TiberiumClass@@QAEXXZ",
+      "symbol_prefix": "?Init_Growth@TiberiumClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 57,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 620478
+        },
+        {
+          "offset": 63,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 620472
+        },
+        {
+          "offset": 88,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 620447
+        },
+        {
+          "offset": 113,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 620422
+        },
+        {
+          "offset": 133,
+          "kind": 20,
+          "symbol": "?Map_Cell_Count@@YIHXZ",
+          "target": 4360896,
+          "addend": 0,
+          "resolved": 4292076791
+        },
+        {
+          "offset": 148,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 621119
+        },
+        {
+          "offset": 175,
+          "kind": 20,
+          "symbol": "?Map_Cell_Count@@YIHXZ",
+          "target": 4360896,
+          "addend": 0,
+          "resolved": 4292076749
+        },
+        {
+          "offset": 181,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 621086
+        },
+        {
+          "offset": 194,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 621073
+        },
+        {
+          "offset": 208,
+          "kind": 20,
+          "symbol": "?Map_Cell_Count@@YIHXZ",
+          "target": 4360896,
+          "addend": 0,
+          "resolved": 4292076716
+        },
+        {
+          "offset": 236,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 621031
+        },
+        {
+          "offset": 279,
+          "kind": 20,
+          "symbol": "?Recalc_Growth@TiberiumClass@@QAEXXZ",
+          "target": 7251584,
+          "addend": 0,
+          "resolved": 37
+        },
+        {
+          "offset": 299,
+          "kind": 20,
+          "symbol": "?Recalc_Growth@TiberiumClass@@QAEXXZ",
+          "target": 7251584,
+          "addend": 0,
+          "resolved": 17
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7251264,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7251584,
+      "method": "006ea680",
+      "body_bytes": 359,
+      "body_sha256": "104f3eebe9b5086c31289d29893e1c0afacd9eb1e95f8915c99341c69296f45d",
+      "padding_bytes": 9,
+      "full_extent_bytes": 368,
+      "full_extent_sha256": "3e09fb1a886468109d57600283cd1f64e704510118269f3380e35295fd0b2634",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Recalc_Growth@TiberiumClass@@QAEXXZ",
+      "symbol_prefix": "?Recalc_Growth@TiberiumClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "?Map_Cell_Count@@YIHXZ",
+          "target": 4360896,
+          "addend": 0,
+          "resolved": 4292076549
+        },
+        {
+          "offset": 77,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 82,
+          "kind": 20,
+          "symbol": "?Reset_Iterator@MapClass@@QAEXXZ",
+          "target": 5612880,
+          "addend": 0,
+          "resolved": 4293328506
+        },
+        {
+          "offset": 87,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 92,
+          "kind": 20,
+          "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
+          "target": 5612688,
+          "addend": 0,
+          "resolved": 4293328304
+        },
+        {
+          "offset": 111,
+          "kind": 20,
+          "symbol": "?Tiberium_Type_Here@CellClass@@QBE?AW4TiberiumType@@XZ",
+          "target": 4694560,
+          "addend": 0,
+          "resolved": 4292410157
+        },
+        {
+          "offset": 130,
+          "kind": 20,
+          "symbol": "?Can_Tiberium_Grow@CellClass@@QBE_NXZ",
+          "target": 4688096,
+          "addend": 0,
+          "resolved": 4292403674
+        },
+        {
+          "offset": 317,
+          "kind": 20,
+          "symbol": "?Map_Cell_Index@@YIHABVCell@@@Z",
+          "target": 4360848,
+          "addend": 0,
+          "resolved": 4292076239
+        },
+        {
+          "offset": 332,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 337,
+          "kind": 20,
+          "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
+          "target": 5612688,
+          "addend": 0,
+          "resolved": 4293328059
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7251584,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7251952,
+      "method": "006ea7f0",
+      "body_bytes": 135,
+      "body_sha256": "770feae6859e5e084713ee1e3d2c56a9baf332e13cdf81be955644cab0b5005a",
+      "padding_bytes": 9,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "05bb84e7336f3acc74386ecb43bd8abe540d6ffdd4d4c0ed3eb43542062816df",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear_Growth@TiberiumClass@@QAEXXZ",
+      "symbol_prefix": "?Clear_Growth@TiberiumClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 56,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 619791
+        },
+        {
+          "offset": 62,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 619785
+        },
+        {
+          "offset": 88,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 619759
+        },
+        {
+          "offset": 113,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 619734
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7251952,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-89"
+    },
+    {
+      "entry": 7252096,
+      "method": "006ea880",
+      "body_bytes": 298,
+      "body_sha256": "38d4c64a43eec01cbc3286c92e200657b6a56fb1d5c61f3a8d5a77069ba1e459",
+      "padding_bytes": 6,
+      "full_extent_bytes": 304,
+      "full_extent_sha256": "36248d131f73f15945d894f64a373592d4a91d4624326a0e02c5599a6a7a1893",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Queue_Growth@TiberiumClass@@QAEXABVCell@@@Z",
+      "symbol_prefix": "?Queue_Growth@TiberiumClass@@QAEXABVCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "?Map_Cell_Index@@YIHABVCell@@@Z",
+          "target": 4360848,
+          "addend": 0,
+          "resolved": 4292076030
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 29,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293253071
+        },
+        {
+          "offset": 47,
+          "kind": 20,
+          "symbol": "?Map_Cell_Count@@YIHXZ",
+          "target": 4360896,
+          "addend": 0,
+          "resolved": 4292076045
+        },
+        {
+          "offset": 67,
+          "kind": 20,
+          "symbol": "?Recalc_Growth@TiberiumClass@@QAEXXZ",
+          "target": 7251584,
+          "addend": 0,
+          "resolved": 4294966713
+        },
+        {
+          "offset": 90,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 101,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHXZ",
+          "target": 6522944,
+          "addend": 0,
+          "resolved": 4294238039
+        },
+        {
+          "offset": 120,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7252096,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7252400,
+      "method": "006ea9b0",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Post_Load_Game@TiberiumClass@@SIXXZ",
+      "symbol_prefix": "?Post_Load_Game@TiberiumClass@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7252400,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4352"
+    },
+    {
+      "entry": 7252416,
+      "method": "006ea9c0",
+      "body_bytes": 6,
+      "body_sha256": "821b2c41c78b19d8260ee12f636b17ea6e0d376be6b7b9457943e73c10e4abfb",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "f4066326a01a1c85f639a4110cedf35951e68fd4a9fa0c7e44db7e84abb83ff6",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Object_Size@TiberiumClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Object_Size@TiberiumClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7252416,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7252432,
+      "method": "6ea9d0",
+      "body_bytes": 6,
+      "body_sha256": "1ab638dbc365f2fa3e79b7310dd11c642f4e0be3836b350c352dec1a267e4e41",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "b976b2af1bca9cc3ed98490bd7d01b7de7bcd0508c61486930be3a7d17acea8d",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_RTTI@TiberiumClass@@UBE?AW4RTTIType@@XZ",
+      "symbol_prefix": "?Fetch_RTTI@TiberiumClass@@UBE?AW4RTTIType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7252432,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-09"
+    },
+    {
+      "entry": 7252448,
+      "method": "6ea9e0",
+      "body_bytes": 7,
+      "body_sha256": "84358b64bfaccfd336ed4b2ce706f45729f875f610a80f96346cc982b5cad304",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "481c6a7bee7c3498d5d33c7caebaa012418257550fa590bd50f9a042c44a2d33",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Heap_ID@TiberiumClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Heap_ID@TiberiumClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7252448,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-09"
+    },
+    {
+      "entry": 7252464,
+      "method": "006ea9f0",
+      "body_bytes": 30,
+      "body_sha256": "a56df6e3671d4636a2ef2c402f3d5504fc34b3ba92597af3ed1778c6493de81a",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "758ed30cc4cfb1ae61317c5b8427b27dbdea17d5a6a9c11530d9d03c2655c3b9",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GTiberiumClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GTiberiumClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??1TiberiumClass@@UAE@XZ",
+          "target": 7244640,
+          "addend": 0,
+          "resolved": 4294959464
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 619318
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7252464,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4352"
+    },
+    {
+      "entry": 7252496,
+      "method": "006eaa10",
+      "body_bytes": 42,
+      "body_sha256": "fc143aaa9a029b5f639542d392bfd54c734fc7c45028ea0c43006496e12c6acd",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "eca192250035361a29dcdd698ed5bb6ce53e219a206154bd751469e8c284e0a6",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@PAVTiberiumClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAVTiberiumClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 619280
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7252496,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7252544,
+      "method": "006eaa40",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVTiberiumClass@@@@UAEHPBQAVTiberiumClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVTiberiumClass@@@@UAEHPBQAVTiberiumClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7252544,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7252576,
+      "method": "006eaa60",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PAVTiberiumClass@@@@UBEPAVTiberiumClass@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAVTiberiumClass@@@@UBEPAVTiberiumClass@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7252576,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7252592,
+      "method": "006eaa70",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PAVTiberiumClass@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAVTiberiumClass@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7252592,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7252656,
+      "method": "006eaab0",
+      "body_bytes": 174,
+      "body_sha256": "0882f0ffdce28ff9031a67c4d827b44fd7fba26ca74a883887a4ca13e6650b7f",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "36901e12bb8d1a63886b0233cafc9e6f20974012cf6fee650825da15473bcba3",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PAVTiberiumClass@@@@UAE_NHPBQAVTiberiumClass@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAVTiberiumClass@@@@UAE_NHPBQAVTiberiumClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 619836
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 619024
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7252656,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7252832,
+      "method": "006eab60",
+      "body_bytes": 39,
+      "body_sha256": "e3bf62a7d6932813020a77cbb203f4219755bb9814a9b6e09c529e3335abfca3",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "b2c3ad37bf6c237365fd497403c42e2782fd818e2b107d1fe80be66dac462942",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PAVTiberiumClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAVTiberiumClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 618947
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7252832,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7252880,
+      "method": "006eab90",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVTiberiumClass@@@@UAEHABQAVTiberiumClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVTiberiumClass@@@@UAEHABQAVTiberiumClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7252880,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7252944,
+      "method": "006eabd0",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVTiberiumClass@@@@UAEHPBQAVTiberiumClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVTiberiumClass@@@@UAEHPBQAVTiberiumClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7252944,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7252976,
+      "method": "006eabf0",
+      "body_bytes": 176,
+      "body_sha256": "7abf8baa51ce7e9833fdacffb42ba11c224aa2977ac5a662eae419117360f3b7",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "7abf8baa51ce7e9833fdacffb42ba11c224aa2977ac5a662eae419117360f3b7",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PAVTiberiumClass@@@@UAE_NHPBQAVTiberiumClass@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAVTiberiumClass@@@@UAE_NHPBQAVTiberiumClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 619520
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 618717
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7252976,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7253152,
+      "method": "006eaca0",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVTiberiumClass@@@@UAEHABQAVTiberiumClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVTiberiumClass@@@@UAEHABQAVTiberiumClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7253152,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7253200,
+      "method": "6eacd0",
+      "body_bytes": 73,
+      "body_sha256": "159336fd7e4430aaed55ff4f3eb1b874112c78ac6651759bb478da5a4a3ff905",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "ad7446558425eecf5d1e5545a6288813e41caaa01db6dca447c833102de6b3f8",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAVTiberiumClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAVTiberiumClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVTiberiumClass@@@@6B@",
+          "target": 8050788,
+          "addend": 0,
+          "resolved": 8050788
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 618574
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 618539
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7253200,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 7253280,
+      "method": "6ead20",
+      "body_bytes": 73,
+      "body_sha256": "7b80ed94f7baf0cb617de3007b946f1eeff67e9295b3e76277e1fed1d46ded34",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "c0212e70e31cd4998481bf590dbba372e99c999e431f01895bac997419f39fbb",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAVTiberiumClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAVTiberiumClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVTiberiumClass@@@@6B@",
+          "target": 8050788,
+          "addend": 0,
+          "resolved": 8050788
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 618494
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 618459
+        }
+      ],
+      "source_sha256": "5b57f417366c63a9f222f0783befdff9da891b188c2e8963fbcf68298e83135c",
+      "source": "src/tiberium.cpp",
+      "population": "rebuild-tiberium",
+      "source_order": 7253280,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-12"
+    }
+  ]
+}

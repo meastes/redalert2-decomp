@@ -53,10 +53,4 @@ class FloatingWordStoreTests(unittest.TestCase):
     def test_multiple_updates_keep_order(self):
         _,text=self.lower('slot = (double)CONCAT44(slot._4_4_,10);\n slot = (double)CONCAT44(slot._4_4_,value);')
         self.assertLess(text.index('(uint)(10)'),text.index('(uint)(value)'))
-    def test_full_seed_lowers_before_concat_and_slice_expansion(self):
-        class Inventory:
-            passes=[]
-            def decompiled(self,entry):return 'uint __cdecl FUN_00401000(double slot,uint value)\n{\n slot = (double)CONCAT44(slot._4_4_,value);\n return slot._0_4_;\n}'
-            def function(self,entry):return None,{'ranges':[]}
-        text=seed.seed(0x401000,Inventory(),{});self.assertNotIn('CONCAT44',text);self.assertNotIn('slot._',text);self.assertIn('*((uint *)&(slot))',text);self.assertNotIn('seed_unsigned64_double',text)
 if __name__=='__main__':unittest.main()

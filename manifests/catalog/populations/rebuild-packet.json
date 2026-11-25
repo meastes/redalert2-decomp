@@ -1,0 +1,606 @@
+{
+  "id": "rebuild-packet",
+  "population": {
+    "id": "rebuild-packet",
+    "inventory_sha256": "dc62176afe5c7e1fca8ff2a394bdf0f73d8c3fd19a4465012ed6d6b75b11e3cb",
+    "gaps_sha256": "6bbbb1f5ff45e5beb274c1d562b6634b986cc91a326aaccd6995c6a6af088f7f",
+    "historical_population_sha256": "c39895c63b19f2c14891dc9b04bd34351ecfd393525154705c13c663ac1f9994",
+    "historical_acceptance_sha256": "b4def3f3e1e6aed4fbcb30b99e92e8350671ea6ea2af7ad20302dee4018b6cee"
+  },
+  "references": {
+    "??1FieldClass@@QAE@XZ": 4960352,
+    "??3@YAXPAX@Z": 7871803,
+    "_ntohs@4": 7871352,
+    "??2@YAPAXI@Z": 7872535,
+    "?Net_To_Host@FieldClass@@QAEXXZ": 4960496,
+    "_htons@4": 7871340,
+    "?Host_To_Net@FieldClass@@QAEXXZ": 4960384,
+    "_strncmp": 7878672,
+    "??1PacketClass@@QAE@XZ": 6302304,
+    "?Add_Field@PacketClass@@QAEXPAVFieldClass@@@Z": 6302352,
+    "??0PacketClass@@QAE@PAD@Z": 6302368,
+    "?Create_Comms_Packet@PacketClass@@QAEPADAAH@Z": 6302640,
+    "?Find_Field@PacketClass@@QAEPAVFieldClass@@PBD@Z": 6302928,
+    "?Get_Field@PacketClass@@QAE_NPBDAAD@Z": 6302992,
+    "?Get_Field@PacketClass@@QAE_NPBDAAE@Z": 6303072,
+    "?Get_Field@PacketClass@@QAE_NPBDAAF@Z": 6303152,
+    "?Get_Field@PacketClass@@QAE_NPBDAAG@Z": 6303232,
+    "?Get_Field@PacketClass@@QAE_NPBDAAH@Z": 6303312,
+    "?Get_Field@PacketClass@@QAE_NPBDPAD@Z": 6303392,
+    "?Get_Field@PacketClass@@QAE_NPBDAAI@Z": 6303504,
+    "?Get_Field@PacketClass@@QAE_NPBDPAXAAH@Z": 6303584
+  },
+  "regions": [
+    {
+      "entry": 6302304,
+      "method": "00602a60",
+      "body_bytes": 41,
+      "body_sha256": "1e9b89b5c6b9da1b660ae3f18e207d49829c4bf0c86ca14e81f42c0cb7daf682",
+      "padding_bytes": 7,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c01f77cab7f960d9fd3c12c2d1d2d824688860c9a4df9459ddda1cea0fafdc54",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1PacketClass@@QAE@XZ",
+      "symbol_prefix": "??1PacketClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "??1FieldClass@@QAE@XZ",
+          "target": 4960352,
+          "addend": 0,
+          "resolved": 4293625321
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1569470
+        }
+      ],
+      "source_sha256": "606359f0249c042f10d9f33d2f260280a0c3f2d04702ee776ae66a616066111a",
+      "source": "src/packet.cpp",
+      "population": "rebuild-packet",
+      "source_order": 6302304,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6302352,
+      "method": "00602a90",
+      "body_bytes": 16,
+      "body_sha256": "20625a1ceec25a001919476c56d766f4c75957d9467fac3f5dbe950a0acb0aad",
+      "padding_bytes": 0,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "20625a1ceec25a001919476c56d766f4c75957d9467fac3f5dbe950a0acb0aad",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Add_Field@PacketClass@@QAEXPAVFieldClass@@@Z",
+      "symbol_prefix": "?Add_Field@PacketClass@@QAEXPAVFieldClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "606359f0249c042f10d9f33d2f260280a0c3f2d04702ee776ae66a616066111a",
+      "source": "src/packet.cpp",
+      "population": "rebuild-packet",
+      "source_order": 6302352,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6302368,
+      "method": "00602aa0",
+      "body_bytes": 270,
+      "body_sha256": "3acdd5a6afe66e737be01a592c90ef59923ea9475fa6a6016b0009e74ffa846b",
+      "padding_bytes": 2,
+      "full_extent_bytes": 272,
+      "full_extent_sha256": "47b30da38facd900759dd3506bbb5c8b81fe3a014ca56d05c96bf9888e5c2ed5",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0PacketClass@@QAE@PAD@Z",
+      "symbol_prefix": "??0PacketClass@@QAE@PAD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 29,
+          "kind": 20,
+          "symbol": "_ntohs@4",
+          "target": 7871352,
+          "addend": 0,
+          "resolved": 1568951
+        },
+        {
+          "offset": 51,
+          "kind": 20,
+          "symbol": "_ntohs@4",
+          "target": 7871352,
+          "addend": 0,
+          "resolved": 1568929
+        },
+        {
+          "offset": 97,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1570066
+        },
+        {
+          "offset": 129,
+          "kind": 20,
+          "symbol": "_ntohs@4",
+          "target": 7871352,
+          "addend": 0,
+          "resolved": 1568851
+        },
+        {
+          "offset": 144,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1570019
+        },
+        {
+          "offset": 178,
+          "kind": 20,
+          "symbol": "_ntohs@4",
+          "target": 7871352,
+          "addend": 0,
+          "resolved": 1568802
+        },
+        {
+          "offset": 225,
+          "kind": 20,
+          "symbol": "?Net_To_Host@FieldClass@@QAEXXZ",
+          "target": 4960496,
+          "addend": 0,
+          "resolved": 4293625195
+        }
+      ],
+      "source_sha256": "606359f0249c042f10d9f33d2f260280a0c3f2d04702ee776ae66a616066111a",
+      "source": "src/packet.cpp",
+      "population": "rebuild-packet",
+      "source_order": 6302368,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6302640,
+      "method": "00602bb0",
+      "body_bytes": 278,
+      "body_sha256": "0e0479b605d1a322e333f64a369392e75c355d146373d126b21240cdf56e989b",
+      "padding_bytes": 10,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "db134317e7b6e62baf3a6aabdeba64eb1339a15b7cb11652b48e49c74831e0c0",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Create_Comms_Packet@PacketClass@@QAEPADAAH@Z",
+      "symbol_prefix": "?Create_Comms_Packet@PacketClass@@QAEPADAAH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 63,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1569828
+        },
+        {
+          "offset": 81,
+          "kind": 20,
+          "symbol": "_htons@4",
+          "target": 7871340,
+          "addend": 0,
+          "resolved": 1568615
+        },
+        {
+          "offset": 97,
+          "kind": 20,
+          "symbol": "_htons@4",
+          "target": 7871340,
+          "addend": 0,
+          "resolved": 1568599
+        },
+        {
+          "offset": 122,
+          "kind": 20,
+          "symbol": "?Host_To_Net@FieldClass@@QAEXXZ",
+          "target": 4960384,
+          "addend": 0,
+          "resolved": 4293624914
+        },
+        {
+          "offset": 146,
+          "kind": 20,
+          "symbol": "_ntohs@4",
+          "target": 7871352,
+          "addend": 0,
+          "resolved": 1568562
+        },
+        {
+          "offset": 184,
+          "kind": 20,
+          "symbol": "_ntohs@4",
+          "target": 7871352,
+          "addend": 0,
+          "resolved": 1568524
+        },
+        {
+          "offset": 201,
+          "kind": 20,
+          "symbol": "_ntohs@4",
+          "target": 7871352,
+          "addend": 0,
+          "resolved": 1568507
+        },
+        {
+          "offset": 243,
+          "kind": 20,
+          "symbol": "?Net_To_Host@FieldClass@@QAEXXZ",
+          "target": 4960496,
+          "addend": 0,
+          "resolved": 4293624905
+        }
+      ],
+      "source_sha256": "606359f0249c042f10d9f33d2f260280a0c3f2d04702ee776ae66a616066111a",
+      "source": "src/packet.cpp",
+      "population": "rebuild-packet",
+      "source_order": 6302640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6302928,
+      "method": "00602cd0",
+      "body_bytes": 50,
+      "body_sha256": "8086acf752e6f98c5920ffa972756168a437f137d46e1087ce02295f32e55cf6",
+      "padding_bytes": 14,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c75c2f4c17fe796139bc490bec08f38843f50dbb0bffe8d7a3c3c597d9fb6e06",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Find_Field@PacketClass@@QAEPAVFieldClass@@PBD@Z",
+      "symbol_prefix": "?Find_Field@PacketClass@@QAEPAVFieldClass@@PBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "_strncmp",
+          "target": 7878672,
+          "addend": 0,
+          "resolved": 1575722
+        }
+      ],
+      "source_sha256": "606359f0249c042f10d9f33d2f260280a0c3f2d04702ee776ae66a616066111a",
+      "source": "src/packet.cpp",
+      "population": "rebuild-packet",
+      "source_order": 6302928,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6302992,
+      "method": "00602d10",
+      "body_bytes": 75,
+      "body_sha256": "2f51611617cb45cab2d65407c189f8a77bbdb5f3b8574b129a25cc83a182b4f3",
+      "padding_bytes": 5,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "acfe456ed4448fcead7c56968c9890d44b84d13115d93f168d4011eef86c04db",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Field@PacketClass@@QAE_NPBDAAD@Z",
+      "symbol_prefix": "?Get_Field@PacketClass@@QAE_NPBDAAD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "_strncmp",
+          "target": 7878672,
+          "addend": 0,
+          "resolved": 1575658
+        }
+      ],
+      "source_sha256": "606359f0249c042f10d9f33d2f260280a0c3f2d04702ee776ae66a616066111a",
+      "source": "src/packet.cpp",
+      "population": "rebuild-packet",
+      "source_order": 6302992,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6303072,
+      "method": "00602d60",
+      "body_bytes": 75,
+      "body_sha256": "c1ec96ec775479ff3b0a5b6dcf2624145eab670773552c53a5f6fe7ccb9dbb3e",
+      "padding_bytes": 5,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "504ef5db048f98c13569d970cc0135c925dfc8a40450cc88045496084f5579a2",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Field@PacketClass@@QAE_NPBDAAE@Z",
+      "symbol_prefix": "?Get_Field@PacketClass@@QAE_NPBDAAE@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "_strncmp",
+          "target": 7878672,
+          "addend": 0,
+          "resolved": 1575578
+        }
+      ],
+      "source_sha256": "606359f0249c042f10d9f33d2f260280a0c3f2d04702ee776ae66a616066111a",
+      "source": "src/packet.cpp",
+      "population": "rebuild-packet",
+      "source_order": 6303072,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6303152,
+      "method": "00602db0",
+      "body_bytes": 77,
+      "body_sha256": "10852c23101679e0ea025b02b60847032db293bebad5bc26f7b64a950c933b59",
+      "padding_bytes": 3,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "f5ebcb488566c2989ef9eb9e39b3ad615dd9375bca6f9dc1c1a405e821cf0e79",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Field@PacketClass@@QAE_NPBDAAF@Z",
+      "symbol_prefix": "?Get_Field@PacketClass@@QAE_NPBDAAF@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "_strncmp",
+          "target": 7878672,
+          "addend": 0,
+          "resolved": 1575498
+        }
+      ],
+      "source_sha256": "606359f0249c042f10d9f33d2f260280a0c3f2d04702ee776ae66a616066111a",
+      "source": "src/packet.cpp",
+      "population": "rebuild-packet",
+      "source_order": 6303152,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6303232,
+      "method": "00602e00",
+      "body_bytes": 77,
+      "body_sha256": "1b638b904da7a0a8d37f1e6ce98439558eac610b43b534abd6c4a14f549e3180",
+      "padding_bytes": 3,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "8a3567061ec5b2d0c58ae2beb3466251f28b092c04a1b3060690a216903f0243",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Field@PacketClass@@QAE_NPBDAAG@Z",
+      "symbol_prefix": "?Get_Field@PacketClass@@QAE_NPBDAAG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "_strncmp",
+          "target": 7878672,
+          "addend": 0,
+          "resolved": 1575418
+        }
+      ],
+      "source_sha256": "606359f0249c042f10d9f33d2f260280a0c3f2d04702ee776ae66a616066111a",
+      "source": "src/packet.cpp",
+      "population": "rebuild-packet",
+      "source_order": 6303232,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6303312,
+      "method": "00602e50",
+      "body_bytes": 75,
+      "body_sha256": "722c27f4e58a81bea7b58219f963d143f78b9b7df01f02a3b306a98a60f26509",
+      "padding_bytes": 5,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "dbc98bf6d6e4a052589bb2a0429ed2391edc7526c1e35afc48324568ec2764e1",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Field@PacketClass@@QAE_NPBDAAH@Z",
+      "symbol_prefix": "?Get_Field@PacketClass@@QAE_NPBDAAH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "_strncmp",
+          "target": 7878672,
+          "addend": 0,
+          "resolved": 1575338
+        }
+      ],
+      "source_sha256": "606359f0249c042f10d9f33d2f260280a0c3f2d04702ee776ae66a616066111a",
+      "source": "src/packet.cpp",
+      "population": "rebuild-packet",
+      "source_order": 6303312,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6303392,
+      "method": "00602ea0",
+      "body_bytes": 98,
+      "body_sha256": "7d91b8d124c505525e194aa7c2944c680aafa606e357a14af20f87e776556cca",
+      "padding_bytes": 14,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "c7a279c0545cf715e2a40088f6011bcb65901646ffbf1b79107644ba9424fdd0",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Field@PacketClass@@QAE_NPBDPAD@Z",
+      "symbol_prefix": "?Get_Field@PacketClass@@QAE_NPBDPAD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "_strncmp",
+          "target": 7878672,
+          "addend": 0,
+          "resolved": 1575258
+        }
+      ],
+      "source_sha256": "606359f0249c042f10d9f33d2f260280a0c3f2d04702ee776ae66a616066111a",
+      "source": "src/packet.cpp",
+      "population": "rebuild-packet",
+      "source_order": 6303392,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6303504,
+      "method": "00602f10",
+      "body_bytes": 75,
+      "body_sha256": "c9b00aa4aef3017c3fdfae0293ecf0242b63864bf41f4c232f875f911f7e4e84",
+      "padding_bytes": 5,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "1e7a00555b7d9a656bd6b86dcf6b780f71d48da950f7930dfbcd2e3c3f68297c",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Field@PacketClass@@QAE_NPBDAAI@Z",
+      "symbol_prefix": "?Get_Field@PacketClass@@QAE_NPBDAAI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "_strncmp",
+          "target": 7878672,
+          "addend": 0,
+          "resolved": 1575146
+        }
+      ],
+      "source_sha256": "606359f0249c042f10d9f33d2f260280a0c3f2d04702ee776ae66a616066111a",
+      "source": "src/packet.cpp",
+      "population": "rebuild-packet",
+      "source_order": 6303504,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6303584,
+      "method": "00602f60",
+      "body_bytes": 111,
+      "body_sha256": "66684f40d1d7ea6f08124b48f1ecbf5dd0ef58cade14d63952974b1f08ba61cc",
+      "padding_bytes": 1,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "43e2024d5e2834e90341a3294b5c039ea2488ae9716af3c0c44128cfb9f3342b",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Field@PacketClass@@QAE_NPBDPAXAAH@Z",
+      "symbol_prefix": "?Get_Field@PacketClass@@QAE_NPBDPAXAAH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "_strncmp",
+          "target": 7878672,
+          "addend": 0,
+          "resolved": 1575066
+        }
+      ],
+      "source_sha256": "606359f0249c042f10d9f33d2f260280a0c3f2d04702ee776ae66a616066111a",
+      "source": "src/packet.cpp",
+      "population": "rebuild-packet",
+      "source_order": 6303584,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

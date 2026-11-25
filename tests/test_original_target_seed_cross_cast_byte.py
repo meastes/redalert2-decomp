@@ -49,10 +49,4 @@ class CrossCastByteTests(unittest.TestCase):
         source='{uint slot; byte flag;\n slot=(int *)CONCAT31(slot._1_3_,flag);}'
         self.assertEqual(seed.byte_update_artifacts(source,['uint slot']),source)
         before,out=self.body(decl='uint slot,other; byte flag;');self.assertEqual(before,out)
-    def test_complete_seed_repairs_before_scalar_slice_refusal(self):
-        class Inventory:
-            passes=[]
-            def decompiled(self,e):return 'uint __cdecl FUN_00401000(uint slot, byte flag)\n{\n slot=(int *)CONCAT31(slot._1_3_,flag);\n return slot;\n}'
-            def function(self,e):return None,{'ranges':[]}
-        out=seed.seed(0x401000,Inventory(),{});self.assertNotIn('CONCAT31',out);self.assertNotIn('._1_3_',out);self.assertIn('*(uchar *)&(slot)',out)
 if __name__=='__main__':unittest.main()

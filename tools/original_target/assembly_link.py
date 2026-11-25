@@ -19,7 +19,7 @@ and an archive miss of the same procedure leaves the miss list. Their own catego
 Reproduced .text only, never C/C++.
 
     python3 tools/original_target/assembly_link.py --write     # manifests/original_target/assembly.json
-    RA2_TREE=rebuild python3 tools/original_target/assembly_link.py --write   # rebuild/manifest/assembly.json
+    python3 tools/original_target/assembly_link.py --write   # manifests/assembly.json
 """
 import argparse
 import json

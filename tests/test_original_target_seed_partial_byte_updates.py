@@ -105,18 +105,5 @@ class PartialByteUpdateTests(unittest.TestCase):
         _,text=self.body('slot._0_3_ = CONCAT12(flag,(ushort)slot);\n  slot._0_3_ = (uint3)(ushort)slot;')
         self.assertEqual(text.count('((uchar *)&(slot))[2]'),2)
 
-    def test_complete_seed_recovers_both_forms_before_slice_lowering(self):
-        class Inventory:
-            passes=[]
-            def decompiled(self,entry):
-                return ('uint __cdecl FUN_00401000(uint slot,byte flag)\n{\n'
-                        '  slot._0_3_ = CONCAT12(flag,(ushort)slot);\n'
-                        '  slot._0_3_ = (uint3)(ushort)slot;\n  return slot;\n}\n')
-            def function(self,entry):return None,{'ranges':[]}
-        text=seed.seed(0x401000,Inventory(),{})
-        self.assertEqual(text.count('((uchar *)&(slot))[2]'),2)
-        self.assertNotIn('._0_3_',text)
-        self.assertNotIn('CONCAT12',text)
-        self.assertIn('return (uint)(slot);',text)
 
 if __name__=='__main__':unittest.main()

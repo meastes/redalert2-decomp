@@ -1,0 +1,1050 @@
+{
+  "id": "rebuild-version",
+  "population": {
+    "id": "rebuild-version",
+    "inventory_sha256": "2c4f678c172584a8f5e14031ac2ff95ac55d37f2f79253d1d5acb1e4f227428a",
+    "gaps_sha256": "989c432a32114f4054f31fbf0eeaac09781ad0cf2f5d242c002140d2715fd0b2",
+    "historical_population_sha256": "024dd2bf9f62f26994e6aa223ad47bcd8a8ee7046ce1a9a5e6fbcaab8c7b4262",
+    "historical_acceptance_sha256": "277e755d30af941c0d2d6879dded63f8439f44406421efcc9d6b1fa3fdc1f39f"
+  },
+  "references": {
+    "??_7VersionClass@@6B@": 8006332,
+    "??_C@_0M@CNNK@VERSION?4TXT?$AA@": 8362268,
+    "??0RawFileClass@@QAE@PBD@Z": 6523712,
+    "?Is_Available@RawFileClass@@UAE_NH@Z": 6524064,
+    "?Read@RawFileClass@@UAEHPAXH@Z": 6524304,
+    "??1RawFileClass@@UAE@XZ": 6523584,
+    "?VerNum@@3VVersionClass@@A": 10751112,
+    "??_C@_08JHOJ@?$CFd?4?$CF3?43d?$AA@": 8362280,
+    "_sprintf": 7872756,
+    "_VersionProtocol": 8361728,
+    "_?empty@?1??Version_Name@@YIPBDXZ@4_NA": 8362264,
+    "?ProgramInstance@@3PAUHINSTANCE__@@A": 11690368,
+    "__imp__GetModuleFileNameA@12": 7971224,
+    "_GetFileVersionInfoSizeA@8": 7871472,
+    "??2@YAPAXI@Z": 7872535,
+    "_GetFileVersionInfoA@16": 7871466,
+    "??_C@_0BJ@KCFH@?2VarFileInfo?2Translation?$AA@": 8362332,
+    "_VerQueryValueA@16": 7871460,
+    "??_C@_0CI@PPOP@?2StringFileInfo?2?$CF04d?$CF04d?2Product@": 8362292,
+    "_?buffer@?1??Version_Name@@YIPBDXZ@4PADA": 8361752,
+    "??3@YAXPAX@Z": 7871803,
+    "_AbilityName": 8362360,
+    "??_C@_07CAFK@CRUSHER?$AA@": 8362432,
+    "??_C@_0L@LMDO@GUARD_AREA?$AA@": 8362440,
+    "??_C@_0O@MEIO@TIBERIUM_HEAL?$AA@": 8362452,
+    "??_C@_02MAJG@C4?$AA@": 8237716,
+    "??_C@_08EAEK@FEARLESS?$AA@": 8362468,
+    "??_C@_07IHHI@SENSORS?$AA@": 8362480,
+    "??_C@_0BA@ILAK@RADAR_INVISIBLE?$AA@": 8362488,
+    "??_C@_08LNLJ@EXPLODES?$AA@": 8362504,
+    "??_C@_09IBDD@SELF_HEAL?$AA@": 8362516,
+    "??_C@_0L@PJBM@VEIN_PROOF?$AA@": 8362528,
+    "??_C@_0P@BOKL@TIBERIUM_PROOF?$AA@": 8362540,
+    "??_C@_05BLNG@CLOAK?$AA@": 8362556,
+    "??_C@_05DCPP@SIGHT?$AA@": 8362564,
+    "??_C@_03CEPL@ROF?$AA@": 8236592,
+    "??_C@_07IHFJ@SCATTER?$AA@": 8218688,
+    "??_C@_09INEE@FIREPOWER?$AA@": 8362572,
+    "??_C@_08PDJN@STRONGER?$AA@": 8362584,
+    "??_C@_06IBEL@FASTER?$AA@": 8362596,
+    "??0VersionClass@@QAE@XZ": 7416608,
+    "??_GVersionClass@@UAEPAXI@Z": 5065088,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVVersionClass@@@8": 8231680,
+    "?Version_Number@VersionClass@@QAEIXZ": 7416656,
+    "?Major_Version@VersionClass@@QAEGXZ": 7417168,
+    "?Minor_Version@VersionClass@@QAEGXZ": 7417360,
+    "?Version_Name@VersionClass@@QAEPADXZ": 7417552,
+    "?Read_Text_String@VersionClass@@AAEXXZ": 7418000,
+    "?Version_Protocol@VersionClass@@QAE?AW4CommProtocolType@@I@Z": 7418160,
+    "?Init_Clipping@VersionClass@@QAEXXZ": 7418208,
+    "?Clip_Version@VersionClass@@QAEIII@Z": 7418224,
+    "?Min_Version@VersionClass@@QAEIXZ": 7418288,
+    "?Max_Version@VersionClass@@QAEIXZ": 7418304,
+    "?Version_Name@@YIPBDXZ": 7418320,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056
+  },
+  "regions": [
+    {
+      "entry": 7416608,
+      "method": "00712b20",
+      "body_bytes": 43,
+      "body_sha256": "e05f1b7cf7732598ab112779b3973f62e5e5ede500475c4e006a1e1c205e26bc",
+      "padding_bytes": 5,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7cddbf50af2ba35a1e3240d78e4e39242f673ca974845938ab819c30ec9e7158",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0VersionClass@@QAE@XZ",
+      "symbol_prefix": "??0VersionClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "??_7VersionClass@@6B@",
+          "target": 8006332,
+          "addend": 0,
+          "resolved": 8006332
+        }
+      ],
+      "source_sha256": "813f6634dbdd62fa48b365bc7c29c395aba6184eee6b83216c5571277322db94",
+      "source": "src/version.cpp",
+      "population": "rebuild-version",
+      "source_order": 7416608,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7416656,
+      "method": "00712b50",
+      "body_bytes": 512,
+      "body_sha256": "ccfb72e582c52317d4b9a19d0fc8c5160fb7466bed1076ad68ac416fec75315d",
+      "padding_bytes": 0,
+      "full_extent_bytes": 512,
+      "full_extent_sha256": "ccfb72e582c52317d4b9a19d0fc8c5160fb7466bed1076ad68ac416fec75315d",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Version_Number@VersionClass@@QAEIXZ",
+      "symbol_prefix": "?Version_Number@VersionClass@@QAEIXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "??_C@_0M@CNNK@VERSION?4TXT?$AA@",
+          "target": 8362268,
+          "addend": 0,
+          "resolved": 8362268
+        },
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "??0RawFileClass@@QAE@PBD@Z",
+          "target": 6523712,
+          "addend": 0,
+          "resolved": 4294074321
+        },
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "?Is_Available@RawFileClass@@UAE_NH@Z",
+          "target": 6524064,
+          "addend": 0,
+          "resolved": 4294074663
+        },
+        {
+          "offset": 56,
+          "kind": 20,
+          "symbol": "?Read@RawFileClass@@UAEHPAXH@Z",
+          "target": 6524304,
+          "addend": 0,
+          "resolved": 4294074884
+        },
+        {
+          "offset": 125,
+          "kind": 20,
+          "symbol": "??1RawFileClass@@UAE@XZ",
+          "target": 6523584,
+          "addend": 0,
+          "resolved": 4294074095
+        },
+        {
+          "offset": 160,
+          "kind": 6,
+          "symbol": "??_C@_0M@CNNK@VERSION?4TXT?$AA@",
+          "target": 8362268,
+          "addend": 0,
+          "resolved": 8362268
+        },
+        {
+          "offset": 169,
+          "kind": 20,
+          "symbol": "??0RawFileClass@@QAE@PBD@Z",
+          "target": 6523712,
+          "addend": 0,
+          "resolved": 4294074179
+        },
+        {
+          "offset": 179,
+          "kind": 20,
+          "symbol": "?Is_Available@RawFileClass@@UAE_NH@Z",
+          "target": 6524064,
+          "addend": 0,
+          "resolved": 4294074521
+        },
+        {
+          "offset": 198,
+          "kind": 20,
+          "symbol": "?Read@RawFileClass@@UAEHPAXH@Z",
+          "target": 6524304,
+          "addend": 0,
+          "resolved": 4294074742
+        },
+        {
+          "offset": 267,
+          "kind": 20,
+          "symbol": "??1RawFileClass@@UAE@XZ",
+          "target": 6523584,
+          "addend": 0,
+          "resolved": 4294073953
+        },
+        {
+          "offset": 323,
+          "kind": 6,
+          "symbol": "??_C@_0M@CNNK@VERSION?4TXT?$AA@",
+          "target": 8362268,
+          "addend": 0,
+          "resolved": 8362268
+        },
+        {
+          "offset": 332,
+          "kind": 20,
+          "symbol": "??0RawFileClass@@QAE@PBD@Z",
+          "target": 6523712,
+          "addend": 0,
+          "resolved": 4294074016
+        },
+        {
+          "offset": 342,
+          "kind": 20,
+          "symbol": "?Is_Available@RawFileClass@@UAE_NH@Z",
+          "target": 6524064,
+          "addend": 0,
+          "resolved": 4294074358
+        },
+        {
+          "offset": 361,
+          "kind": 20,
+          "symbol": "?Read@RawFileClass@@UAEHPAXH@Z",
+          "target": 6524304,
+          "addend": 0,
+          "resolved": 4294074579
+        },
+        {
+          "offset": 429,
+          "kind": 20,
+          "symbol": "??1RawFileClass@@UAE@XZ",
+          "target": 6523584,
+          "addend": 0,
+          "resolved": 4294073791
+        }
+      ],
+      "source_sha256": "813f6634dbdd62fa48b365bc7c29c395aba6184eee6b83216c5571277322db94",
+      "source": "src/version.cpp",
+      "population": "rebuild-version",
+      "source_order": 7416656,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7417168,
+      "method": "00712d50",
+      "body_bytes": 180,
+      "body_sha256": "1edfcfa0268fa697cbd2e3105c6ea063e9b36f20721322491f36ed323bdf0aa1",
+      "padding_bytes": 12,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "d123109c4857b1704ff33ff9eb21d8edf6261fbcbeb6dbe204816e684041b912",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Major_Version@VersionClass@@QAEGXZ",
+      "symbol_prefix": "?Major_Version@VersionClass@@QAEGXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "??_C@_0M@CNNK@VERSION?4TXT?$AA@",
+          "target": 8362268,
+          "addend": 0,
+          "resolved": 8362268
+        },
+        {
+          "offset": 29,
+          "kind": 20,
+          "symbol": "??0RawFileClass@@QAE@PBD@Z",
+          "target": 6523712,
+          "addend": 0,
+          "resolved": 4294073807
+        },
+        {
+          "offset": 41,
+          "kind": 20,
+          "symbol": "?Is_Available@RawFileClass@@UAE_NH@Z",
+          "target": 6524064,
+          "addend": 0,
+          "resolved": 4294074147
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "?Read@RawFileClass@@UAEHPAXH@Z",
+          "target": 6524304,
+          "addend": 0,
+          "resolved": 4294074368
+        },
+        {
+          "offset": 129,
+          "kind": 20,
+          "symbol": "??1RawFileClass@@UAE@XZ",
+          "target": 6523584,
+          "addend": 0,
+          "resolved": 4294073579
+        }
+      ],
+      "source_sha256": "813f6634dbdd62fa48b365bc7c29c395aba6184eee6b83216c5571277322db94",
+      "source": "src/version.cpp",
+      "population": "rebuild-version",
+      "source_order": 7417168,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7417360,
+      "method": "00712e10",
+      "body_bytes": 180,
+      "body_sha256": "fc2bda761aa7ef1c65c7aec7cea8f7dab0ea28d6a75475b4b5b55cd04afc6069",
+      "padding_bytes": 12,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "47e6e6bd4aa5a47714a79f6e5f398664a69efb4367358780decbcc3ad5a173d1",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Minor_Version@VersionClass@@QAEGXZ",
+      "symbol_prefix": "?Minor_Version@VersionClass@@QAEGXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "??_C@_0M@CNNK@VERSION?4TXT?$AA@",
+          "target": 8362268,
+          "addend": 0,
+          "resolved": 8362268
+        },
+        {
+          "offset": 29,
+          "kind": 20,
+          "symbol": "??0RawFileClass@@QAE@PBD@Z",
+          "target": 6523712,
+          "addend": 0,
+          "resolved": 4294073615
+        },
+        {
+          "offset": 41,
+          "kind": 20,
+          "symbol": "?Is_Available@RawFileClass@@UAE_NH@Z",
+          "target": 6524064,
+          "addend": 0,
+          "resolved": 4294073955
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "?Read@RawFileClass@@UAEHPAXH@Z",
+          "target": 6524304,
+          "addend": 0,
+          "resolved": 4294074176
+        },
+        {
+          "offset": 129,
+          "kind": 20,
+          "symbol": "??1RawFileClass@@UAE@XZ",
+          "target": 6523584,
+          "addend": 0,
+          "resolved": 4294073387
+        }
+      ],
+      "source_sha256": "813f6634dbdd62fa48b365bc7c29c395aba6184eee6b83216c5571277322db94",
+      "source": "src/version.cpp",
+      "population": "rebuild-version",
+      "source_order": 7417360,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7417552,
+      "method": "00712ed0",
+      "body_bytes": 443,
+      "body_sha256": "e6bcb98a18e4909e3e92dd8428de56795eb91f0f8d3c450263cdcbd278625a65",
+      "padding_bytes": 5,
+      "full_extent_bytes": 448,
+      "full_extent_sha256": "40240f1329f06cee4500e99c5ddee1ad3ff8be9305ed4644ecffcef4fc137791",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Version_Name@VersionClass@@QAEPADXZ",
+      "symbol_prefix": "?Version_Name@VersionClass@@QAEPADXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "??_C@_0M@CNNK@VERSION?4TXT?$AA@",
+          "target": 8362268,
+          "addend": 0,
+          "resolved": 8362268
+        },
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "??0RawFileClass@@QAE@PBD@Z",
+          "target": 6523712,
+          "addend": 0,
+          "resolved": 4294073425
+        },
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "?Is_Available@RawFileClass@@UAE_NH@Z",
+          "target": 6524064,
+          "addend": 0,
+          "resolved": 4294073767
+        },
+        {
+          "offset": 56,
+          "kind": 20,
+          "symbol": "?Read@RawFileClass@@UAEHPAXH@Z",
+          "target": 6524304,
+          "addend": 0,
+          "resolved": 4294073988
+        },
+        {
+          "offset": 125,
+          "kind": 20,
+          "symbol": "??1RawFileClass@@UAE@XZ",
+          "target": 6523584,
+          "addend": 0,
+          "resolved": 4294073199
+        },
+        {
+          "offset": 198,
+          "kind": 6,
+          "symbol": "?VerNum@@3VVersionClass@@A",
+          "target": 10751112,
+          "addend": 68,
+          "resolved": 10751180
+        },
+        {
+          "offset": 210,
+          "kind": 6,
+          "symbol": "??_C@_0M@CNNK@VERSION?4TXT?$AA@",
+          "target": 8362268,
+          "addend": 0,
+          "resolved": 8362268
+        },
+        {
+          "offset": 219,
+          "kind": 20,
+          "symbol": "??0RawFileClass@@QAE@PBD@Z",
+          "target": 6523712,
+          "addend": 0,
+          "resolved": 4294073233
+        },
+        {
+          "offset": 229,
+          "kind": 20,
+          "symbol": "?Is_Available@RawFileClass@@UAE_NH@Z",
+          "target": 6524064,
+          "addend": 0,
+          "resolved": 4294073575
+        },
+        {
+          "offset": 240,
+          "kind": 6,
+          "symbol": "?VerNum@@3VVersionClass@@A",
+          "target": 10751112,
+          "addend": 42,
+          "resolved": 10751154
+        },
+        {
+          "offset": 249,
+          "kind": 20,
+          "symbol": "?Read@RawFileClass@@UAEHPAXH@Z",
+          "target": 6524304,
+          "addend": 0,
+          "resolved": 4294073795
+        },
+        {
+          "offset": 254,
+          "kind": 6,
+          "symbol": "?VerNum@@3VVersionClass@@A",
+          "target": 10751112,
+          "addend": 42,
+          "resolved": 10751154
+        },
+        {
+          "offset": 265,
+          "kind": 6,
+          "symbol": "?VerNum@@3VVersionClass@@A",
+          "target": 10751112,
+          "addend": 57,
+          "resolved": 10751169
+        },
+        {
+          "offset": 276,
+          "kind": 6,
+          "symbol": "?VerNum@@3VVersionClass@@A",
+          "target": 10751112,
+          "addend": 41,
+          "resolved": 10751153
+        },
+        {
+          "offset": 284,
+          "kind": 6,
+          "symbol": "?VerNum@@3VVersionClass@@A",
+          "target": 10751112,
+          "addend": 42,
+          "resolved": 10751154
+        },
+        {
+          "offset": 298,
+          "kind": 6,
+          "symbol": "?VerNum@@3VVersionClass@@A",
+          "target": 10751112,
+          "addend": 42,
+          "resolved": 10751154
+        },
+        {
+          "offset": 304,
+          "kind": 6,
+          "symbol": "?VerNum@@3VVersionClass@@A",
+          "target": 10751112,
+          "addend": 40,
+          "resolved": 10751152
+        },
+        {
+          "offset": 318,
+          "kind": 6,
+          "symbol": "?VerNum@@3VVersionClass@@A",
+          "target": 10751112,
+          "addend": 41,
+          "resolved": 10751153
+        },
+        {
+          "offset": 329,
+          "kind": 6,
+          "symbol": "?VerNum@@3VVersionClass@@A",
+          "target": 10751112,
+          "addend": 42,
+          "resolved": 10751154
+        },
+        {
+          "offset": 338,
+          "kind": 20,
+          "symbol": "??1RawFileClass@@UAE@XZ",
+          "target": 6523584,
+          "addend": 0,
+          "resolved": 4294072986
+        },
+        {
+          "offset": 343,
+          "kind": 6,
+          "symbol": "?VerNum@@3VVersionClass@@A",
+          "target": 10751112,
+          "addend": 68,
+          "resolved": 10751180
+        },
+        {
+          "offset": 350,
+          "kind": 6,
+          "symbol": "?VerNum@@3VVersionClass@@A",
+          "target": 10751112,
+          "addend": 68,
+          "resolved": 10751180
+        },
+        {
+          "offset": 355,
+          "kind": 6,
+          "symbol": "?VerNum@@3VVersionClass@@A",
+          "target": 10751112,
+          "addend": 68,
+          "resolved": 10751180
+        },
+        {
+          "offset": 369,
+          "kind": 6,
+          "symbol": "?VerNum@@3VVersionClass@@A",
+          "target": 10751112,
+          "addend": 8,
+          "resolved": 10751120
+        },
+        {
+          "offset": 377,
+          "kind": 6,
+          "symbol": "?VerNum@@3VVersionClass@@A",
+          "target": 10751112,
+          "addend": 68,
+          "resolved": 10751180
+        },
+        {
+          "offset": 390,
+          "kind": 6,
+          "symbol": "?VerNum@@3VVersionClass@@A",
+          "target": 10751112,
+          "addend": 8,
+          "resolved": 10751120
+        },
+        {
+          "offset": 396,
+          "kind": 6,
+          "symbol": "?VerNum@@3VVersionClass@@A",
+          "target": 10751112,
+          "addend": 68,
+          "resolved": 10751180
+        },
+        {
+          "offset": 421,
+          "kind": 6,
+          "symbol": "??_C@_08JHOJ@?$CFd?4?$CF3?43d?$AA@",
+          "target": 8362280,
+          "addend": 0,
+          "resolved": 8362280
+        },
+        {
+          "offset": 427,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 454773
+        }
+      ],
+      "source_sha256": "813f6634dbdd62fa48b365bc7c29c395aba6184eee6b83216c5571277322db94",
+      "source": "src/version.cpp",
+      "population": "rebuild-version",
+      "source_order": 7417552,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7418000,
+      "method": "00713090",
+      "body_bytes": 146,
+      "body_sha256": "22fe639b196ad6ed5161f10ddc1e453bdf5490c7bdcf00740bd2ea878431d8ea",
+      "padding_bytes": 14,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "4ce76d1a7e14be97590da26570a6cfc74d3eb2ea4f64c676fac1cf4dc3eccc40",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Read_Text_String@VersionClass@@AAEXXZ",
+      "symbol_prefix": "?Read_Text_String@VersionClass@@AAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "??_C@_0M@CNNK@VERSION?4TXT?$AA@",
+          "target": 8362268,
+          "addend": 0,
+          "resolved": 8362268
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "??0RawFileClass@@QAE@PBD@Z",
+          "target": 6523712,
+          "addend": 0,
+          "resolved": 4294072985
+        },
+        {
+          "offset": 31,
+          "kind": 20,
+          "symbol": "?Is_Available@RawFileClass@@UAE_NH@Z",
+          "target": 6524064,
+          "addend": 0,
+          "resolved": 4294073325
+        },
+        {
+          "offset": 50,
+          "kind": 20,
+          "symbol": "?Read@RawFileClass@@UAEHPAXH@Z",
+          "target": 6524304,
+          "addend": 0,
+          "resolved": 4294073546
+        },
+        {
+          "offset": 114,
+          "kind": 20,
+          "symbol": "??1RawFileClass@@UAE@XZ",
+          "target": 6523584,
+          "addend": 0,
+          "resolved": 4294072762
+        },
+        {
+          "offset": 134,
+          "kind": 20,
+          "symbol": "??1RawFileClass@@UAE@XZ",
+          "target": 6523584,
+          "addend": 0,
+          "resolved": 4294072742
+        }
+      ],
+      "source_sha256": "813f6634dbdd62fa48b365bc7c29c395aba6184eee6b83216c5571277322db94",
+      "source": "src/version.cpp",
+      "population": "rebuild-version",
+      "source_order": 7418000,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7418160,
+      "method": "00713130",
+      "body_bytes": 47,
+      "body_sha256": "1d88e84a1f332780d8b676f894189bedd73c5aa11c1a4960b6271be997d0445b",
+      "padding_bytes": 1,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "1f78b65fff93c6ad42da0cb944c4f275e0739ecc42e83f3388f7c37299a162c7",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Version_Protocol@VersionClass@@QAE?AW4CommProtocolType@@I@Z",
+      "symbol_prefix": "?Version_Protocol@VersionClass@@QAE?AW4CommProtocolType@@I@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_VersionProtocol",
+          "target": 8361728,
+          "addend": 16,
+          "resolved": 8361744
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "_VersionProtocol",
+          "target": 8361728,
+          "addend": 0,
+          "resolved": 8361728
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "_VersionProtocol",
+          "target": 8361728,
+          "addend": 20,
+          "resolved": 8361748
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "_VersionProtocol",
+          "target": 8361728,
+          "addend": 4,
+          "resolved": 8361732
+        }
+      ],
+      "source_sha256": "813f6634dbdd62fa48b365bc7c29c395aba6184eee6b83216c5571277322db94",
+      "source": "src/version.cpp",
+      "population": "rebuild-version",
+      "source_order": 7418160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7418208,
+      "method": "00713160",
+      "body_bytes": 12,
+      "body_sha256": "82772c4bf34cb289cc2b9f1d1b21e7e2fe266c7d63de4f4204e73d779287d518",
+      "padding_bytes": 4,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "44494958a0da33ebbf594fe60a79cfcd95b7410924b40cdf716eaf761d594f51",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init_Clipping@VersionClass@@QAEXXZ",
+      "symbol_prefix": "?Init_Clipping@VersionClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "813f6634dbdd62fa48b365bc7c29c395aba6184eee6b83216c5571277322db94",
+      "source": "src/version.cpp",
+      "population": "rebuild-version",
+      "source_order": 7418208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7418224,
+      "method": "00713170",
+      "body_bytes": 61,
+      "body_sha256": "efcfed9d7b5251a370004d6052ee423b50b74f1d146ea1d52b16841af10be674",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "8cfcc25a005943d5e1f960bcb212c1c3dfcacbf6eec8030cdd6d9906900dd8e6",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clip_Version@VersionClass@@QAEIII@Z",
+      "symbol_prefix": "?Clip_Version@VersionClass@@QAEIII@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "813f6634dbdd62fa48b365bc7c29c395aba6184eee6b83216c5571277322db94",
+      "source": "src/version.cpp",
+      "population": "rebuild-version",
+      "source_order": 7418224,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7418288,
+      "method": "007131b0",
+      "body_bytes": 6,
+      "body_sha256": "b262f5e01308f835d3757273cce6a09eaebbb1b8fb79610cc3d9e86bb0f16a93",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "0fb12494d8caa7daac788fb6fcff897e615b575a3e94a83c3b3a22181feee03a",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Min_Version@VersionClass@@QAEIXZ",
+      "symbol_prefix": "?Min_Version@VersionClass@@QAEIXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "813f6634dbdd62fa48b365bc7c29c395aba6184eee6b83216c5571277322db94",
+      "source": "src/version.cpp",
+      "population": "rebuild-version",
+      "source_order": 7418288,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7418304,
+      "method": "007131c0",
+      "body_bytes": 6,
+      "body_sha256": "b262f5e01308f835d3757273cce6a09eaebbb1b8fb79610cc3d9e86bb0f16a93",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "0fb12494d8caa7daac788fb6fcff897e615b575a3e94a83c3b3a22181feee03a",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Max_Version@VersionClass@@QAEIXZ",
+      "symbol_prefix": "?Max_Version@VersionClass@@QAEIXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "813f6634dbdd62fa48b365bc7c29c395aba6184eee6b83216c5571277322db94",
+      "source": "src/version.cpp",
+      "population": "rebuild-version",
+      "source_order": 7418304,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7418320,
+      "method": "007131d0",
+      "body_bytes": 304,
+      "body_sha256": "3b099b687c2f4bc7292d9c0ca4dbfdcc1d8d50d04aec006f98c788e11c9fda6d",
+      "padding_bytes": 0,
+      "full_extent_bytes": 304,
+      "full_extent_sha256": "3b099b687c2f4bc7292d9c0ca4dbfdcc1d8d50d04aec006f98c788e11c9fda6d",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Version_Name@@YIPBDXZ",
+      "symbol_prefix": "?Version_Name@@YIPBDXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_?empty@?1??Version_Name@@YIPBDXZ@4_NA",
+          "target": 8362264,
+          "addend": 0,
+          "resolved": 8362264
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "?ProgramInstance@@3PAUHINSTANCE__@@A",
+          "target": 11690368,
+          "addend": 0,
+          "resolved": 11690368
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "_?empty@?1??Version_Name@@YIPBDXZ@4_NA",
+          "target": 8362264,
+          "addend": 0,
+          "resolved": 8362264
+        },
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "__imp__GetModuleFileNameA@12",
+          "target": 7971224,
+          "addend": 0,
+          "resolved": 7971224
+        },
+        {
+          "offset": 83,
+          "kind": 20,
+          "symbol": "_GetFileVersionInfoSizeA@8",
+          "target": 7871472,
+          "addend": 0,
+          "resolved": 453065
+        },
+        {
+          "offset": 100,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 454111
+        },
+        {
+          "offset": 125,
+          "kind": 20,
+          "symbol": "_GetFileVersionInfoA@16",
+          "target": 7871466,
+          "addend": 0,
+          "resolved": 453017
+        },
+        {
+          "offset": 148,
+          "kind": 6,
+          "symbol": "??_C@_0BJ@KCFH@?2VarFileInfo?2Translation?$AA@",
+          "target": 8362332,
+          "addend": 0,
+          "resolved": 8362332
+        },
+        {
+          "offset": 154,
+          "kind": 20,
+          "symbol": "_VerQueryValueA@16",
+          "target": 7871460,
+          "addend": 0,
+          "resolved": 452982
+        },
+        {
+          "offset": 188,
+          "kind": 6,
+          "symbol": "??_C@_0CI@PPOP@?2StringFileInfo?2?$CF04d?$CF04d?2Product@",
+          "target": 8362292,
+          "addend": 0,
+          "resolved": 8362292
+        },
+        {
+          "offset": 194,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 454238
+        },
+        {
+          "offset": 218,
+          "kind": 20,
+          "symbol": "_VerQueryValueA@16",
+          "target": 7871460,
+          "addend": 0,
+          "resolved": 452918
+        },
+        {
+          "offset": 251,
+          "kind": 6,
+          "symbol": "_?buffer@?1??Version_Name@@YIPBDXZ@4PADA",
+          "target": 8361752,
+          "addend": 0,
+          "resolved": 8361752
+        },
+        {
+          "offset": 270,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 453209
+        },
+        {
+          "offset": 278,
+          "kind": 6,
+          "symbol": "_?buffer@?1??Version_Name@@YIPBDXZ@4PADA",
+          "target": 8361752,
+          "addend": 0,
+          "resolved": 8361752
+        },
+        {
+          "offset": 292,
+          "kind": 6,
+          "symbol": "_?buffer@?1??Version_Name@@YIPBDXZ@4PADA",
+          "target": 8361752,
+          "addend": 0,
+          "resolved": 8361752
+        }
+      ],
+      "source_sha256": "813f6634dbdd62fa48b365bc7c29c395aba6184eee6b83216c5571277322db94",
+      "source": "src/version.cpp",
+      "population": "rebuild-version",
+      "source_order": 7418320,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

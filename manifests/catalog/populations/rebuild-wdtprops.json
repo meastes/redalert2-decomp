@@ -1,0 +1,1370 @@
+{
+  "id": "rebuild-wdtprops",
+  "population": {
+    "id": "rebuild-wdtprops",
+    "inventory_sha256": "bcb38c0064a285616e42e5af642289f346c7e2c8db3f4565394b06fb0c6434f7",
+    "gaps_sha256": "f067919dfa47d3ce5a8cea49aa16e4e0caa0c0fb6c79e7456b2905d3b9685145",
+    "historical_population_sha256": "7506677f9760d4725a1a378d809085159faaf35bfa3c0d132901f36deb07c746",
+    "historical_acceptance_sha256": "4b96b8efa369e35959282ed7053fe746b7f20558283644a782a3231a7a53788d"
+  },
+  "references": {
+    "_RECT_NONE": 11688152,
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 11688176,
+    "_ISO_TILE_SIZE": 8057656,
+    "_LEPTONS_PER_PIXEL": 11688248,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 11688232,
+    "_ONE_RAD": 8057664,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 11688224,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 11688184,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 11688144,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 11688256,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "?CELL_SLOPE_ANGLE@@3NB": 11688192,
+    "?CELL_DIAG_SLOPE_ANGLE@@3NB": 11688216,
+    "?BRIDGE_LEPTON_HEIGHT@@3HB": 11688240,
+    "?CELL_NONE@@3VCell@@B": 11688168,
+    "?COORD_NONE@@3VCoord@@B": 11688200,
+    "??2@YAPAXI@Z": 7872535,
+    "??0CampaignProperties@WorldDominationTour@@QAE@ABV?$rc_ptr@VWDTState@@@@@Z": 7524848,
+    "??0rc_ptr_base@@QAE@XZ": 6526176,
+    "??_7?$rc_ptr@VCampaignProperties@WorldDominationTour@@@@6B@": 8056868,
+    "?Assign@rc_ptr_base@@QAEXPAX@Z": 6526256,
+    "??_7CampaignProperties@WorldDominationTour@@6B@": 8057676,
+    "??1WideWstring@@QAE@XZ": 7797328,
+    "??_7?$rc_ptr@VWDTState@@@@6B@": 8057252,
+    "??1rc_ptr_base@@UAE@XZ": 6526224,
+    "??1ReferenceCounted@@UAE@XZ": 6526736,
+    "??_7ReferenceCounted@@6B@": 8031508,
+    "??_C@_0BE@ENJO@D?3?2Ra2?2WDTProps?4cpp?$AA@": 8372928,
+    "??_C@_0BO@CPLG@?$CCWDT?3DefaultShortDescription?$CC?$AA@": 8372896,
+    "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z": 7315136,
+    "??0WideWstring@@QAE@PBG@Z": 7797184,
+    "??_C@_0BN@OINK@?$CCWDT?3DefaultLongDescription?$CC?$AA@": 8372864,
+    "??0Wstring@@QAE@PBD@Z": 7788832,
+    "??_C@_00A@?$AA@": 8635740,
+    "??3@YAXPAX@Z": 7871803,
+    "_$E2": 7524240,
+    "_$E5": 7524272,
+    "_$E8": 7524320,
+    "_$E11": 7524352,
+    "_$E14": 7524384,
+    "_$E17": 7524416,
+    "_$E20": 7524448,
+    "_$E23": 7524480,
+    "_$E26": 7524544,
+    "_$E29": 7524592,
+    "_$E32": 7524640,
+    "_$E35": 7524688,
+    "_$E38": 7524704,
+    "?Create@CampaignProperties@WorldDominationTour@@SI?AV?$rc_ptr@VCampaignProperties@WorldDominationTour@@@@ABV?$rc_ptr@VWDTState@@@@@Z": 7524736,
+    "??_G?$rc_ptr@VCampaignProperties@WorldDominationTour@@@@UAEPAXI@Z": 7498432,
+    "??_R0?AVrc_ptr_base@@@8": 8248008,
+    "??_7type_info@@6B@": 8066532,
+    "??1CampaignProperties@WorldDominationTour@@UAE@XZ": 7524800,
+    "??_G?$rc_ptr@VWDTState@@@@UAEPAXI@Z": 7507872,
+    "?Release@ReferenceCounted@@UAEXXZ": 6526752,
+    "?Unknown_Virtual_4@ReferenceCounted@@UAE_NH@Z": 6526784,
+    "??_GCampaignProperties@WorldDominationTour@@UAEPAXI@Z": 7525152,
+    "??_R0?AVReferenceCounted@@@8": 8316240,
+    "??_GReferenceCounted@@UAEPAXI@Z": 6526800,
+    "?Get_Cycle_ID@CampaignProperties@WorldDominationTour@@QBEHXZ": 7525008,
+    "?Get_Layout@CampaignProperties@WorldDominationTour@@QBEHXZ": 7525024,
+    "?Get_Map_ID@CampaignProperties@WorldDominationTour@@QBEHXZ": 7525040,
+    "?Get_Current_Tick@CampaignProperties@WorldDominationTour@@QBEHXZ": 7525072,
+    "?Get_Web_URL@CampaignProperties@WorldDominationTour@@QBE?AVWstring@@XZ": 7525088,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_E?$rc_ptr@VWDTTerritory@@@@UAEPAXI@Z": 5367296,
+    "??_7?$rc_ptr@VWDTTerritory@@@@6B@": 8013100,
+    "??_E?$rc_ptr@VConflict@WorldDominationTour@@@@UAEPAXI@Z": 7499616,
+    "??_7?$rc_ptr@VConflict@WorldDominationTour@@@@6B@": 8056812,
+    "??_E?$rc_ptr@VTerritory@WorldDominationTour@@@@UAEPAXI@Z": 7518528,
+    "??_7?$rc_ptr@VTerritory@WorldDominationTour@@@@6B@": 8057468,
+    "??_E?$rc_ptr@VGameOption@WorldDominationTour@@@@UAEPAXI@Z": 7504800,
+    "??_7?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@": 8057052,
+    "??_EWstring@@QAEPAXI@Z": 4239168,
+    "??1Wstring@@QAE@XZ": 7789024,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104
+  },
+  "regions": [
+    {
+      "entry": 7524240,
+      "method": "0072cf90",
+      "body_bytes": 23,
+      "body_sha256": "dd2c6831a3ca3cefbe173da644173b1f9c283b9b12f82b9fca4132205c0a39e4",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "7f4801741b21a7a1dcdf4e91a27cfaae597eac07ded22230da7cd554cfed2920",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11688152,
+          "addend": 0,
+          "resolved": 11688152
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11688152,
+          "addend": 4,
+          "resolved": 11688156
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11688152,
+          "addend": 8,
+          "resolved": 11688160
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11688152,
+          "addend": 12,
+          "resolved": 11688164
+        }
+      ],
+      "source_sha256": "005154df9f75379ba9258cb53b9417efa92560ece4f5f0b0ad0f2f25e5a71605",
+      "source": "src/wdtprops.cpp",
+      "population": "rebuild-wdtprops",
+      "source_order": 7524240,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7524272,
+      "method": "0072cfb0",
+      "body_bytes": 40,
+      "body_sha256": "d5cda411b45aa75877298007a03c56493f1de7ad2b7c5e66d67a8cf73738268d",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "87fcdcf0acb3736c3168ff8dedba142689190abceeec740191df76354e2bb844",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 348655
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292400194
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11688176,
+          "addend": 0,
+          "resolved": 11688176
+        }
+      ],
+      "source_sha256": "005154df9f75379ba9258cb53b9417efa92560ece4f5f0b0ad0f2f25e5a71605",
+      "source": "src/wdtprops.cpp",
+      "population": "rebuild-wdtprops",
+      "source_order": 7524272,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7524320,
+      "method": "0072cfe0",
+      "body_bytes": 19,
+      "body_sha256": "8322252719613bc642acc8d9860d754b8c37421d19391d8b7ea295c71b301c7e",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "d1e72cf90d7d15af6710c85b709fb0b15d9c8ec31aeb77a0c1ef44a3125d2517",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11688176,
+          "addend": 0,
+          "resolved": 11688176
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8057656,
+          "addend": 0,
+          "resolved": 8057656
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11688248,
+          "addend": 0,
+          "resolved": 11688248
+        }
+      ],
+      "source_sha256": "005154df9f75379ba9258cb53b9417efa92560ece4f5f0b0ad0f2f25e5a71605",
+      "source": "src/wdtprops.cpp",
+      "population": "rebuild-wdtprops",
+      "source_order": 7524320,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7524352,
+      "method": "0072d000",
+      "body_bytes": 19,
+      "body_sha256": "69ebbde8d7039853ee33c6528395a88da465209c1d6fb1e8c768a48c89fb48ea",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4d713a21a46494ac4d450b299862d370065dff77ad6b9106664b45c72a959dbb",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11688248,
+          "addend": 0,
+          "resolved": 11688248
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 11688232,
+          "addend": 0,
+          "resolved": 11688232
+        }
+      ],
+      "source_sha256": "005154df9f75379ba9258cb53b9417efa92560ece4f5f0b0ad0f2f25e5a71605",
+      "source": "src/wdtprops.cpp",
+      "population": "rebuild-wdtprops",
+      "source_order": 7524352,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7524384,
+      "method": "0072d020",
+      "body_bytes": 19,
+      "body_sha256": "502e6d6f3892cc78ae96226cefe83df5a94fae0e42a4f8adac5f8efe70a0803c",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "cedafe022ff210d138cac197b1ab0860fdca38223d4aea50f8ed24ffc55934bc",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8057664,
+          "addend": 0,
+          "resolved": 8057664
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 11688224,
+          "addend": 0,
+          "resolved": 11688224
+        }
+      ],
+      "source_sha256": "005154df9f75379ba9258cb53b9417efa92560ece4f5f0b0ad0f2f25e5a71605",
+      "source": "src/wdtprops.cpp",
+      "population": "rebuild-wdtprops",
+      "source_order": 7524384,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7524416,
+      "method": "0072d040",
+      "body_bytes": 19,
+      "body_sha256": "da39c1564d81527d78c11b766e472b8de41f900d988bacaf983d292694f007e1",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "8b2f96b3cd70201d9b09099c21c9f71693f9a461b34eab5c4625af65e75bd8fa",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8057664,
+          "addend": 0,
+          "resolved": 8057664
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11688184,
+          "addend": 0,
+          "resolved": 11688184
+        }
+      ],
+      "source_sha256": "005154df9f75379ba9258cb53b9417efa92560ece4f5f0b0ad0f2f25e5a71605",
+      "source": "src/wdtprops.cpp",
+      "population": "rebuild-wdtprops",
+      "source_order": 7524416,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7524448,
+      "method": "0072d060",
+      "body_bytes": 19,
+      "body_sha256": "e74ecb1d7973b9771d4afff876e08edc8e403fa70f17462d66ad48fdc9f32daa",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b283afc93e6cea29a0e7907d055ee6497eae11696dce52ab5d372d34daca0075",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8057664,
+          "addend": 0,
+          "resolved": 8057664
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11688144,
+          "addend": 0,
+          "resolved": 11688144
+        }
+      ],
+      "source_sha256": "005154df9f75379ba9258cb53b9417efa92560ece4f5f0b0ad0f2f25e5a71605",
+      "source": "src/wdtprops.cpp",
+      "population": "rebuild-wdtprops",
+      "source_order": 7524448,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7524480,
+      "method": "0072d080",
+      "body_bytes": 49,
+      "body_sha256": "5dd76ad34cb1883c911ba13bce61c73451587db4b4f54e7614ed2e4c1968bc5e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "d44b42c9ce5cc1b972343a088481efcc4d92d524a8619c9af2bced044953d4c2",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11688144,
+          "addend": 0,
+          "resolved": 11688144
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11688184,
+          "addend": 0,
+          "resolved": 11688184
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4292400265
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11688176,
+          "addend": 0,
+          "resolved": 11688176
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 335973
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11688256,
+          "addend": 0,
+          "resolved": 11688256
+        }
+      ],
+      "source_sha256": "005154df9f75379ba9258cb53b9417efa92560ece4f5f0b0ad0f2f25e5a71605",
+      "source": "src/wdtprops.cpp",
+      "population": "rebuild-wdtprops",
+      "source_order": 7524480,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7524544,
+      "method": "0072d0c0",
+      "body_bytes": 33,
+      "body_sha256": "26532629be4dcdb2605ba11f3c2d3571edea4f70593a75328cb97cff65da50c9",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "6ab995df11774ec2509b0d44ab895b15a4e5607eee070f1f5672097b79431e63",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11688256,
+          "addend": 0,
+          "resolved": 11688256
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292400345
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?CELL_SLOPE_ANGLE@@3NB",
+          "target": 11688192,
+          "addend": 0,
+          "resolved": 11688192
+        }
+      ],
+      "source_sha256": "005154df9f75379ba9258cb53b9417efa92560ece4f5f0b0ad0f2f25e5a71605",
+      "source": "src/wdtprops.cpp",
+      "population": "rebuild-wdtprops",
+      "source_order": 7524544,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7524592,
+      "method": "0072d0f0",
+      "body_bytes": 44,
+      "body_sha256": "4927dfb8a78569a83c391e47525b05ec7ee9a7e34f0e176598ab3d6e61e7b34c",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "90fd27a2fb573d7db23dd4234214f60e49b6427b684fea4555ef32aa17e5ace5",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11688256,
+          "addend": 0,
+          "resolved": 11688256
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11688176,
+          "addend": 0,
+          "resolved": 11688176
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292400286
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "?CELL_DIAG_SLOPE_ANGLE@@3NB",
+          "target": 11688216,
+          "addend": 0,
+          "resolved": 11688216
+        }
+      ],
+      "source_sha256": "005154df9f75379ba9258cb53b9417efa92560ece4f5f0b0ad0f2f25e5a71605",
+      "source": "src/wdtprops.cpp",
+      "population": "rebuild-wdtprops",
+      "source_order": 7524592,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7524640,
+      "method": "0072d120",
+      "body_bytes": 39,
+      "body_sha256": "359b9ed2d456b858e7b430d60f7dab10451bd2680beb5e9fe3de21c36e7e3a5c",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "961ccfe3ad4b50e77b9d015339e9075414f96166d891f9777e741e997685f889",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11688256,
+          "addend": 0,
+          "resolved": 11688256
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 335824
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "?BRIDGE_LEPTON_HEIGHT@@3HB",
+          "target": 11688240,
+          "addend": 0,
+          "resolved": 11688240
+        }
+      ],
+      "source_sha256": "005154df9f75379ba9258cb53b9417efa92560ece4f5f0b0ad0f2f25e5a71605",
+      "source": "src/wdtprops.cpp",
+      "population": "rebuild-wdtprops",
+      "source_order": 7524640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7524688,
+      "method": "0072d150",
+      "body_bytes": 15,
+      "body_sha256": "200bd0d62aaf8320c75d824239ffe859d82635f857436ad689afad3a6b992622",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "e755ffb7849efa627017cc3f2f1b810a2654c0e128496e51c78b8e4a9db69191",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?CELL_NONE@@3VCell@@B",
+          "target": 11688168,
+          "addend": 0,
+          "resolved": 11688168
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?CELL_NONE@@3VCell@@B",
+          "target": 11688168,
+          "addend": 2,
+          "resolved": 11688170
+        }
+      ],
+      "source_sha256": "005154df9f75379ba9258cb53b9417efa92560ece4f5f0b0ad0f2f25e5a71605",
+      "source": "src/wdtprops.cpp",
+      "population": "rebuild-wdtprops",
+      "source_order": 7524688,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7524704,
+      "method": "0072d160",
+      "body_bytes": 18,
+      "body_sha256": "37a658c33daa5b097dc7471ceaec2193165f0a1b8b45c33b55daf186399b9da8",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "6ae6cd4a162730546e81bee1fcd600dd16ed354645d026a8b4b558b478c470ec",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "?COORD_NONE@@3VCoord@@B",
+          "target": 11688200,
+          "addend": 0,
+          "resolved": 11688200
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?COORD_NONE@@3VCoord@@B",
+          "target": 11688200,
+          "addend": 4,
+          "resolved": 11688204
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?COORD_NONE@@3VCoord@@B",
+          "target": 11688200,
+          "addend": 8,
+          "resolved": 11688208
+        }
+      ],
+      "source_sha256": "005154df9f75379ba9258cb53b9417efa92560ece4f5f0b0ad0f2f25e5a71605",
+      "source": "src/wdtprops.cpp",
+      "population": "rebuild-wdtprops",
+      "source_order": 7524704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7524736,
+      "method": "0072d180",
+      "body_bytes": 60,
+      "body_sha256": "17e60267ba31a019be57a810e70e07ac9bee7f959bd14b87b4463a702af213aa",
+      "padding_bytes": 4,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "f238d8b5bd5abb4340e16b72e012bdb5062b50cd2bfe1201ee083572c0ab1591",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Create@CampaignProperties@WorldDominationTour@@SI?AV?$rc_ptr@VCampaignProperties@WorldDominationTour@@@@ABV?$rc_ptr@VWDTState@@@@@Z",
+      "symbol_prefix": "?Create@CampaignProperties@WorldDominationTour@@SI?AV?$rc_ptr@VCampaignProperties@WorldDominationTour@@@@ABV?$rc_ptr@VWDTState@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 347786
+        },
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "??0CampaignProperties@WorldDominationTour@@QAE@ABV?$rc_ptr@VWDTState@@@@@Z",
+          "target": 7524848,
+          "addend": 0,
+          "resolved": 84
+        },
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293968695
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VCampaignProperties@WorldDominationTour@@@@6B@",
+          "target": 8056868,
+          "addend": 0,
+          "resolved": 8056868
+        },
+        {
+          "offset": 51,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293968761
+        }
+      ],
+      "source_sha256": "005154df9f75379ba9258cb53b9417efa92560ece4f5f0b0ad0f2f25e5a71605",
+      "source": "src/wdtprops.cpp",
+      "population": "rebuild-wdtprops",
+      "source_order": 7524736,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7524800,
+      "method": "0072d1c0",
+      "body_bytes": 48,
+      "body_sha256": "26d5844fce24b2b2424580769528f7ff3a0fe9501a4b7563c98c2a9503ff1f17",
+      "padding_bytes": 0,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "26d5844fce24b2b2424580769528f7ff3a0fe9501a4b7563c98c2a9503ff1f17",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1CampaignProperties@WorldDominationTour@@UAE@XZ",
+      "symbol_prefix": "??1CampaignProperties@WorldDominationTour@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7CampaignProperties@WorldDominationTour@@6B@",
+          "target": 8057676,
+          "addend": 0,
+          "resolved": 8057676
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "??1WideWstring@@QAE@XZ",
+          "target": 7797328,
+          "addend": 0,
+          "resolved": 272511
+        },
+        {
+          "offset": 21,
+          "kind": 20,
+          "symbol": "??1WideWstring@@QAE@XZ",
+          "target": 7797328,
+          "addend": 0,
+          "resolved": 272503
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VWDTState@@@@6B@",
+          "target": 8057252,
+          "addend": 0,
+          "resolved": 8057252
+        },
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293968681
+        },
+        {
+          "offset": 42,
+          "kind": 20,
+          "symbol": "??1ReferenceCounted@@UAE@XZ",
+          "target": 6526736,
+          "addend": 0,
+          "resolved": 4293969186
+        }
+      ],
+      "source_sha256": "005154df9f75379ba9258cb53b9417efa92560ece4f5f0b0ad0f2f25e5a71605",
+      "source": "src/wdtprops.cpp",
+      "population": "rebuild-wdtprops",
+      "source_order": 7524800,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7524848,
+      "method": "0072d1f0",
+      "body_bytes": 147,
+      "body_sha256": "6b442d7a6fad01c442a13d8153d0fd072a0fce293e0c5c7d3ecaa0c1b5ad3862",
+      "padding_bytes": 13,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "7cbb5cd2f2e09b7a331df34bef9c760ff8f1b581020cd7ccb4d61ccf7ad7f141",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0CampaignProperties@WorldDominationTour@@QAE@ABV?$rc_ptr@VWDTState@@@@@Z",
+      "symbol_prefix": "??0CampaignProperties@WorldDominationTour@@QAE@ABV?$rc_ptr@VWDTState@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "??_7ReferenceCounted@@6B@",
+          "target": 8031508,
+          "addend": 0,
+          "resolved": 8031508
+        },
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293968596
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VWDTState@@@@6B@",
+          "target": 8057252,
+          "addend": 0,
+          "resolved": 8057252
+        },
+        {
+          "offset": 45,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293968655
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "??_C@_0BE@ENJO@D?3?2Ra2?2WDTProps?4cpp?$AA@",
+          "target": 8372928,
+          "addend": 0,
+          "resolved": 8372928
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "??_C@_0BO@CPLG@?$CCWDT?3DefaultShortDescription?$CC?$AA@",
+          "target": 8372896,
+          "addend": 0,
+          "resolved": 8372896
+        },
+        {
+          "offset": 78,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 4294757502
+        },
+        {
+          "offset": 87,
+          "kind": 20,
+          "symbol": "??0WideWstring@@QAE@PBG@Z",
+          "target": 7797184,
+          "addend": 0,
+          "resolved": 272245
+        },
+        {
+          "offset": 99,
+          "kind": 6,
+          "symbol": "??_C@_0BE@ENJO@D?3?2Ra2?2WDTProps?4cpp?$AA@",
+          "target": 8372928,
+          "addend": 0,
+          "resolved": 8372928
+        },
+        {
+          "offset": 115,
+          "kind": 6,
+          "symbol": "??_C@_0BN@OINK@?$CCWDT?3DefaultLongDescription?$CC?$AA@",
+          "target": 8372864,
+          "addend": 0,
+          "resolved": 8372864
+        },
+        {
+          "offset": 120,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 4294757460
+        },
+        {
+          "offset": 129,
+          "kind": 20,
+          "symbol": "??0WideWstring@@QAE@PBG@Z",
+          "target": 7797184,
+          "addend": 0,
+          "resolved": 272203
+        },
+        {
+          "offset": 135,
+          "kind": 6,
+          "symbol": "??_7CampaignProperties@WorldDominationTour@@6B@",
+          "target": 8057676,
+          "addend": 0,
+          "resolved": 8057676
+        }
+      ],
+      "source_sha256": "005154df9f75379ba9258cb53b9417efa92560ece4f5f0b0ad0f2f25e5a71605",
+      "source": "src/wdtprops.cpp",
+      "population": "rebuild-wdtprops",
+      "source_order": 7524848,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7525008,
+      "method": "0072d290",
+      "body_bytes": 14,
+      "body_sha256": "621df6e257b9523e973e9480cf23e5830d06994c15787196ad55ab42b9323a40",
+      "padding_bytes": 2,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "1943df037ca961689771cf1af0a2807e769499fea58ffb61312601feec1b6ada",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Cycle_ID@CampaignProperties@WorldDominationTour@@QBEHXZ",
+      "symbol_prefix": "?Get_Cycle_ID@CampaignProperties@WorldDominationTour@@QBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "005154df9f75379ba9258cb53b9417efa92560ece4f5f0b0ad0f2f25e5a71605",
+      "source": "src/wdtprops.cpp",
+      "population": "rebuild-wdtprops",
+      "source_order": 7525008,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7525024,
+      "method": "0072d2a0",
+      "body_bytes": 6,
+      "body_sha256": "2db31f4e09597946e56e859813bfdad7046d457c32332c3a882654d1e3ffdf67",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "5a9bd1333a736806794087fa4c01765e17a6ad5adb9bf4b29fe6565e591b0e6f",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Layout@CampaignProperties@WorldDominationTour@@QBEHXZ",
+      "symbol_prefix": "?Get_Layout@CampaignProperties@WorldDominationTour@@QBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "005154df9f75379ba9258cb53b9417efa92560ece4f5f0b0ad0f2f25e5a71605",
+      "source": "src/wdtprops.cpp",
+      "population": "rebuild-wdtprops",
+      "source_order": 7525024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7525040,
+      "method": "0072d2b0",
+      "body_bytes": 21,
+      "body_sha256": "6520d22a5f38535740e84ab4b630f07fcbe6e17ab5cc1e39797f873efd00bfbd",
+      "padding_bytes": 11,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "fcee81fb759f2722d1b29987c9f61d248b575700ba7ef6161a006e3ff25c8fbe",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Map_ID@CampaignProperties@WorldDominationTour@@QBEHXZ",
+      "symbol_prefix": "?Get_Map_ID@CampaignProperties@WorldDominationTour@@QBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "005154df9f75379ba9258cb53b9417efa92560ece4f5f0b0ad0f2f25e5a71605",
+      "source": "src/wdtprops.cpp",
+      "population": "rebuild-wdtprops",
+      "source_order": 7525040,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7525072,
+      "method": "0072d2d0",
+      "body_bytes": 15,
+      "body_sha256": "8c66057eb4f60c91732a96ca7be1047f4741a0de80d496737712021db5c2311a",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "d00f07738f38cc7ff95a77206f0a50383aacf5c690d70c3ac8829ce4d5a28795",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Current_Tick@CampaignProperties@WorldDominationTour@@QBEHXZ",
+      "symbol_prefix": "?Get_Current_Tick@CampaignProperties@WorldDominationTour@@QBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "005154df9f75379ba9258cb53b9417efa92560ece4f5f0b0ad0f2f25e5a71605",
+      "source": "src/wdtprops.cpp",
+      "population": "rebuild-wdtprops",
+      "source_order": 7525072,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7525088,
+      "method": "0072d2e0",
+      "body_bytes": 53,
+      "body_sha256": "74cb96c8ab0808e75df1a7bf046da0973efd53737b53a41061168fcb2f0b27f7",
+      "padding_bytes": 11,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "415f83885de6c21501f029d705b4551aa375a2408befee41b804fbaaff216744",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Web_URL@CampaignProperties@WorldDominationTour@@QBE?AVWstring@@XZ",
+      "symbol_prefix": "?Get_Web_URL@CampaignProperties@WorldDominationTour@@QBE?AVWstring@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 263721
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 43,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 263697
+        }
+      ],
+      "source_sha256": "005154df9f75379ba9258cb53b9417efa92560ece4f5f0b0ad0f2f25e5a71605",
+      "source": "src/wdtprops.cpp",
+      "population": "rebuild-wdtprops",
+      "source_order": 7525088,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7525152,
+      "method": "0072d320",
+      "body_bytes": 68,
+      "body_sha256": "7e39fa54b8130e5100f9092d473a8672c046749b08c3936188fbbbc2d585efe9",
+      "padding_bytes": 12,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "8ca635d76c33597fd110a045b77f53fd5653524fd7ec2b6d84a63cb56817ef9e",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GCampaignProperties@WorldDominationTour@@UAEPAXI@Z",
+      "symbol_prefix": "??_GCampaignProperties@WorldDominationTour@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7CampaignProperties@WorldDominationTour@@6B@",
+          "target": 8057676,
+          "addend": 0,
+          "resolved": 8057676
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "??1WideWstring@@QAE@XZ",
+          "target": 7797328,
+          "addend": 0,
+          "resolved": 272159
+        },
+        {
+          "offset": 21,
+          "kind": 20,
+          "symbol": "??1WideWstring@@QAE@XZ",
+          "target": 7797328,
+          "addend": 0,
+          "resolved": 272151
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VWDTState@@@@6B@",
+          "target": 8057252,
+          "addend": 0,
+          "resolved": 8057252
+        },
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293968329
+        },
+        {
+          "offset": 42,
+          "kind": 20,
+          "symbol": "??1ReferenceCounted@@UAE@XZ",
+          "target": 6526736,
+          "addend": 0,
+          "resolved": 4293968834
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 346592
+        }
+      ],
+      "source_sha256": "005154df9f75379ba9258cb53b9417efa92560ece4f5f0b0ad0f2f25e5a71605",
+      "source": "src/wdtprops.cpp",
+      "population": "rebuild-wdtprops",
+      "source_order": 7525152,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

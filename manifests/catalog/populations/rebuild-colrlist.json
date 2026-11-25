@@ -1,0 +1,888 @@
+{
+  "id": "rebuild-colrlist",
+  "population": {
+    "id": "rebuild-colrlist",
+    "inventory_sha256": "db69761cbc5e3942e1a20d6c601046c3833b9260f7b66f73e94c975ff508e775",
+    "gaps_sha256": "5d1314467c1038e62015c115744e4b608d922bd75b15928b6cf7a653ee5dabc7",
+    "historical_population_sha256": "d4d27cb0b54807814a16d4cdbfd2bf1477ad25cc545909cc1b08fcf5479b1567",
+    "historical_acceptance_sha256": "a43528834077ff55340fb2da3d05da3b1a5bcd58599b1b3acc29f485e25d9e5e"
+  },
+  "references": {
+    "_RECT_NONE": 8719464,
+    "??0ListClass@@QAE@HHHHHW4TextPrintType@@PBVShapeSet@@1@Z": 5479408,
+    "??_7?$DynamicVectorClass@H@@6B@": 7985812,
+    "??_7ColorListClass@@6B@": 7986284,
+    "??_7?$VectorClass@H@@6B@": 7985620,
+    "??3@YAXPAX@Z": 7871803,
+    "??1ListClass@@UAE@XZ": 5480384,
+    "?Add_Item@ListClass@@UAEHPBG@Z": 5480544,
+    "?Remove_Item@ListClass@@UAEXPBG@Z": 5480896,
+    "?Remove_Item@ListClass@@UAEXH@Z": 5480688,
+    "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A": 11235064,
+    "?LogicalSurface@@3PAVSurface@@A": 8624476,
+    "?Conquer_Clip_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@HPBH@Z": 4816512,
+    "?NormalDrawer@@3PAVConvertClass@@A": 8594372,
+    "_$E2": 4708256,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??0ColorListClass@@QAE@HHHHHW4TextPrintType@@PBVShapeSet@@1@Z": 4708288,
+    "??_G?$DynamicVectorClass@H@@UAEPAXI@Z": 4640592,
+    "?Step@ListClass@@UAEXH@Z": 5481520,
+    "?Set_View_Index@ListClass@@UAEHH@Z": 5481776,
+    "?Set_Tabs@ListClass@@UAEXPBH@Z": 5482192,
+    "?Set_Selected_Index@ListClass@@UAEXH@Z": 5482752,
+    "?Set_Selected_Index@ListClass@@UAEXPBG@Z": 5482960,
+    "?Remove_Scroll_Bar@ListClass@@UAEHXZ": 5482096,
+    "?Step_Selected_Index@ListClass@@UAEHH@Z": 5482864,
+    "?Get_Item@ListClass@@UBEPBGH@Z": 5481600,
+    "?Current_Item@ListClass@@UBEPBGXZ": 5481632,
+    "?Current_Index@ListClass@@UBEHXZ": 5481664,
+    "?Bump@ListClass@@UAEXH@Z": 5481440,
+    "?Add_Scroll_Bar@ListClass@@UAEHXZ": 5481888,
+    "?Make_Peer@ControlClass@@UAEXAAVGadgetClass@@@Z": 4732176,
+    "?Clicked_On@GadgetClass@@EAEHAAW4KeyNumType@@IHH@Z": 5042400,
+    "?Action@ListClass@@MAEHIAAW4KeyNumType@@@Z": 5480944,
+    "?Sticky_Process@GadgetClass@@MAEXI@Z": 5043632,
+    "?Mouse_Leave@GadgetClass@@UAEXXZ": 5042704,
+    "?Mouse_Enter@GadgetClass@@UAEXXZ": 5042688,
+    "?Draw_Me@ListClass@@UAEHH@Z": 5481184,
+    "?Set_Size@GadgetClass@@UAEXHH@Z": 5043840,
+    "?Set_Position@ListClass@@UAEXHH@Z": 5480240,
+    "?Is_List_To_Redraw@GadgetClass@@UAEHXZ": 5043776,
+    "?Has_Focus@GadgetClass@@UAE_NXZ": 5043760,
+    "?Clear_Focus@GadgetClass@@UAEXXZ": 5043728,
+    "?Set_Focus@GadgetClass@@UAEXXZ": 5043680,
+    "?Peer_To_Peer@ListClass@@UAEXIAAW4KeyNumType@@AAVControlClass@@@Z": 5481680,
+    "?Flag_To_Redraw@ListClass@@UAEXXZ": 5482896,
+    "?Get_ID@ControlClass@@MBEIXZ": 4732192,
+    "?Enable@GadgetClass@@UAEXXZ": 5042496,
+    "?Disable@GadgetClass@@UAEXXZ": 5042512,
+    "?Extract_Gadget@GadgetClass@@UAEPAVControlClass@@I@Z": 5043552,
+    "?Delete_List@GadgetClass@@UAEXXZ": 5042608,
+    "?Draw_All@GadgetClass@@UAEX_N@Z": 5042784,
+    "?Input@GadgetClass@@UAE?AW4KeyNumType@@XZ": 5042992,
+    "?Remove@ListClass@@UAEPAVLinkClass@@XZ": 5482688,
+    "?Zap@LinkClass@@UAEXXZ": 5476336,
+    "?Tail_Of_List@LinkClass@@UAEAAV1@XZ": 5476464,
+    "?Head_Of_List@LinkClass@@UAEAAV1@XZ": 5476416,
+    "?Add_Head@ListClass@@UAEAAVLinkClass@@AAV2@@Z": 5482528,
+    "?Add_Tail@ListClass@@UAEAAVLinkClass@@AAV2@@Z": 5482608,
+    "?Add@ListClass@@UAEAAVLinkClass@@AAV2@@Z": 5482448,
+    "?Get_Prev@GadgetClass@@UBEPAVLinkClass@@XZ": 5042592,
+    "?Get_Next@GadgetClass@@UBEPAVLinkClass@@XZ": 5042576,
+    "??_GColorListClass@@UAEPAXI@Z": 4710240,
+    "??_R0?AVLinkClass@@@8": 8198056,
+    "??_R0?AVGadgetClass@@@8": 8204080,
+    "??_R0?AVControlClass@@@8": 8204112,
+    "??_R0?AVListClass@@@8": 8204144,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVColorListClass@@@8": 8204200,
+    "?Flag_List_To_Redraw@GadgetClass@@UAEXXZ": 4708080,
+    "?LastList@GadgetClass@@1PAV1@A": 8806388,
+    "?Is_To_Redraw@GadgetClass@@UAE_NXZ": 4708096,
+    "?Count@ListClass@@UBEHXZ": 4708112,
+    "?Add_Item@ColorListClass@@UAEHPBG@Z": 4710208,
+    "??_G?$VectorClass@H@@UAEPAXI@Z": 4643440,
+    "??1ColorListClass@@UAE@XZ": 4708432,
+    "?Add_Item@ColorListClass@@UAEHPBGH@Z": 4708528,
+    "?Remove_Item@ColorListClass@@UAEXPBG@Z": 4708624,
+    "?Remove_Item@ColorListClass@@UAEXH@Z": 4708720,
+    "?Set_Selected_Style@ColorListClass@@UAEXW4SelectStyleType@1@H@Z": 4708800,
+    "?Draw_Entry@ColorListClass@@MAEXHHHHH@Z": 4708832,
+    "?Clear@?$DynamicVectorClass@H@@UAEXXZ": 4639872,
+    "?ID@?$DynamicVectorClass@H@@UAEHPBH@Z": 4639920,
+    "?GetItem@?$VectorClass@H@@UBEHH@Z": 4639952,
+    "??8?$VectorClass@H@@UBE_NABV0@@Z": 4640880,
+    "?Resize@?$VectorClass@H@@UAE_NHPBH@Z": 4640944,
+    "??2@YAPAXI@Z": 7872535,
+    "?Clear@?$VectorClass@H@@UAEXXZ": 4641120,
+    "?ID@?$VectorClass@H@@UAEHABH@Z": 4641168,
+    "?ID@?$VectorClass@H@@UAEHPBH@Z": 4641232,
+    "?Resize@?$DynamicVectorClass@H@@UAE_NHPBH@Z": 4641360,
+    "?ID@?$DynamicVectorClass@H@@UAEHABH@Z": 4641616
+  },
+  "regions": [
+    {
+      "entry": 4708256,
+      "method": "0047d7a0",
+      "body_bytes": 23,
+      "body_sha256": "9e02061c9805512b345aa3f9e3a62555db89256fafc9bcaaf1d695fa164de4e0",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "aa3f1ed1efdd1d9c3208a2fa8154851b21c4332fa0ff27afc7004a3bd40aa692",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8719464,
+          "addend": 0,
+          "resolved": 8719464
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8719464,
+          "addend": 4,
+          "resolved": 8719468
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8719464,
+          "addend": 8,
+          "resolved": 8719472
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8719464,
+          "addend": 12,
+          "resolved": 8719476
+        }
+      ],
+      "source_sha256": "4c7aef1dbada4a428ccedff47b2b8630f59da5e48d3a28ed45f50b60e1116dc0",
+      "source": "src/colrlist.cpp",
+      "population": "rebuild-colrlist",
+      "source_order": 4708256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4708288,
+      "method": "0047d7c0",
+      "body_bytes": 131,
+      "body_sha256": "5c3f0fc8c8f43a05386fea5d4b5763868fe0ecd9a30919df27468c0e1ec79327",
+      "padding_bytes": 13,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "1b7d0c31745a27fa2c16a1aa414a6b9f814e1701e82b8fa7532a9d184fac0e23",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0ColorListClass@@QAE@HHHHHW4TextPrintType@@PBVShapeSet@@1@Z",
+      "symbol_prefix": "??0ColorListClass@@QAE@HHHHHW4TextPrintType@@PBVShapeSet@@1@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 46,
+          "kind": 20,
+          "symbol": "??0ListClass@@QAE@HHHHHW4TextPrintType@@PBVShapeSet@@1@Z",
+          "target": 5479408,
+          "addend": 0,
+          "resolved": 771070
+        },
+        {
+          "offset": 87,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@H@@6B@",
+          "target": 7985812,
+          "addend": 0,
+          "resolved": 7985812
+        },
+        {
+          "offset": 121,
+          "kind": 6,
+          "symbol": "??_7ColorListClass@@6B@",
+          "target": 7986284,
+          "addend": 0,
+          "resolved": 7986284
+        }
+      ],
+      "source_sha256": "4c7aef1dbada4a428ccedff47b2b8630f59da5e48d3a28ed45f50b60e1116dc0",
+      "source": "src/colrlist.cpp",
+      "population": "rebuild-colrlist",
+      "source_order": 4708288,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4708432,
+      "method": "0047d850",
+      "body_bytes": 83,
+      "body_sha256": "17a1deea1369c0456bde4dda0ad1f7016ccd54766a9fa6bae248c6137c24b0ca",
+      "padding_bytes": 13,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "1007f6f9dcf35fb686b913f95a156d5ffa23b30a358d108290fe5b91866ba5cc",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1ColorListClass@@UAE@XZ",
+      "symbol_prefix": "??1ColorListClass@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "??_7ColorListClass@@6B@",
+          "target": 7986284,
+          "addend": 0,
+          "resolved": 7986284
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@H@@6B@",
+          "target": 7985620,
+          "addend": 0,
+          "resolved": 7985620
+        },
+        {
+          "offset": 56,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3163311
+        },
+        {
+          "offset": 75,
+          "kind": 20,
+          "symbol": "??1ListClass@@UAE@XZ",
+          "target": 5480384,
+          "addend": 0,
+          "resolved": 771873
+        }
+      ],
+      "source_sha256": "4c7aef1dbada4a428ccedff47b2b8630f59da5e48d3a28ed45f50b60e1116dc0",
+      "source": "src/colrlist.cpp",
+      "population": "rebuild-colrlist",
+      "source_order": 4708432,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4708528,
+      "method": "0047d8b0",
+      "body_bytes": 96,
+      "body_sha256": "4d05b7ca95d590e1d0fb5f2cb34f04156c59cd00529e4a958cceae22968c04c7",
+      "padding_bytes": 0,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "4d05b7ca95d590e1d0fb5f2cb34f04156c59cd00529e4a958cceae22968c04c7",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Add_Item@ColorListClass@@UAEHPBGH@Z",
+      "symbol_prefix": "?Add_Item@ColorListClass@@UAEHPBGH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 87,
+          "kind": 20,
+          "symbol": "?Add_Item@ListClass@@UAEHPBG@Z",
+          "target": 5480544,
+          "addend": 0,
+          "resolved": 771925
+        }
+      ],
+      "source_sha256": "4c7aef1dbada4a428ccedff47b2b8630f59da5e48d3a28ed45f50b60e1116dc0",
+      "source": "src/colrlist.cpp",
+      "population": "rebuild-colrlist",
+      "source_order": 4708528,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4708624,
+      "method": "0047d910",
+      "body_bytes": 83,
+      "body_sha256": "2ae9e63e9d94fe5a1fabef80a24bb008697c5800385a3f4833c1bd7f2db0a280",
+      "padding_bytes": 13,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "371eb03264d0ae2d2065c5d03e6bb841278d2d9fccaa6bd237868a315b24a857",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Remove_Item@ColorListClass@@UAEXPBG@Z",
+      "symbol_prefix": "?Remove_Item@ColorListClass@@UAEXPBG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 75,
+          "kind": 20,
+          "symbol": "?Remove_Item@ListClass@@UAEXPBG@Z",
+          "target": 5480896,
+          "addend": 0,
+          "resolved": 772193
+        }
+      ],
+      "source_sha256": "4c7aef1dbada4a428ccedff47b2b8630f59da5e48d3a28ed45f50b60e1116dc0",
+      "source": "src/colrlist.cpp",
+      "population": "rebuild-colrlist",
+      "source_order": 4708624,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4708720,
+      "method": "0047d970",
+      "body_bytes": 71,
+      "body_sha256": "b8ef48c7a94a3e392c21fe5fc572299d3a463c28913b491ad532e0096c36e1d1",
+      "padding_bytes": 9,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "5de2f8217577068972ef0aee036e6d3cc1b78bdf19d27144b5863034e83f809e",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Remove_Item@ColorListClass@@UAEXH@Z",
+      "symbol_prefix": "?Remove_Item@ColorListClass@@UAEXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 63,
+          "kind": 20,
+          "symbol": "?Remove_Item@ListClass@@UAEXH@Z",
+          "target": 5480688,
+          "addend": 0,
+          "resolved": 771901
+        }
+      ],
+      "source_sha256": "4c7aef1dbada4a428ccedff47b2b8630f59da5e48d3a28ed45f50b60e1116dc0",
+      "source": "src/colrlist.cpp",
+      "population": "rebuild-colrlist",
+      "source_order": 4708720,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4708800,
+      "method": "0047d9c0",
+      "body_bytes": 23,
+      "body_sha256": "59a188a08497fe80ae520d66ffd36a7e540cf1476848931a10216167a74c8304",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "3d30f77df68a7182b662d1c6f8a9e62a690925bfb0a2fc1b7a6d42d76cd7fb05",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Selected_Style@ColorListClass@@UAEXW4SelectStyleType@1@H@Z",
+      "symbol_prefix": "?Set_Selected_Style@ColorListClass@@UAEXW4SelectStyleType@1@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "4c7aef1dbada4a428ccedff47b2b8630f59da5e48d3a28ed45f50b60e1116dc0",
+      "source": "src/colrlist.cpp",
+      "population": "rebuild-colrlist",
+      "source_order": 4708800,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4708832,
+      "method": "0047d9e0",
+      "body_bytes": 1364,
+      "body_sha256": "2957dea6bf6063499bd1c60a7c4296fa2b2953a96759769122d0759cf8bfe088",
+      "padding_bytes": 12,
+      "full_extent_bytes": 1376,
+      "full_extent_sha256": "659425910b2a83ae8e40bd8cae5b8c00b9a92bccb0dafae1e5c9f6ee2668c98b",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 20,
+      "symbol": "?Draw_Entry@ColorListClass@@MAEXHHHHH@Z",
+      "symbol_prefix": "?Draw_Entry@ColorListClass@@MAEXHHHHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 125,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 138,
+          "kind": 20,
+          "symbol": "?Conquer_Clip_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@HPBH@Z",
+          "target": 4816512,
+          "addend": 0,
+          "resolved": 107538
+        },
+        {
+          "offset": 192,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4710176,
+          "addend": 0,
+          "resolved": 4710176
+        },
+        {
+          "offset": 244,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 268,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 290,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 303,
+          "kind": 20,
+          "symbol": "?Conquer_Clip_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@HPBH@Z",
+          "target": 4816512,
+          "addend": 0,
+          "resolved": 107373
+        },
+        {
+          "offset": 372,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 388,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 410,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 423,
+          "kind": 20,
+          "symbol": "?Conquer_Clip_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@HPBH@Z",
+          "target": 4816512,
+          "addend": 0,
+          "resolved": 107253
+        },
+        {
+          "offset": 475,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 491,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 513,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 526,
+          "kind": 20,
+          "symbol": "?Conquer_Clip_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@HPBH@Z",
+          "target": 4816512,
+          "addend": 0,
+          "resolved": 107150
+        },
+        {
+          "offset": 545,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 559,
+          "kind": 6,
+          "symbol": "?NormalDrawer@@3PAVConvertClass@@A",
+          "target": 8594372,
+          "addend": 0,
+          "resolved": 8594372
+        },
+        {
+          "offset": 633,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 702,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 713,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 738,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 754,
+          "kind": 20,
+          "symbol": "?Conquer_Clip_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@HPBH@Z",
+          "target": 4816512,
+          "addend": 0,
+          "resolved": 106922
+        },
+        {
+          "offset": 776,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 792,
+          "kind": 6,
+          "symbol": "?NormalDrawer@@3PAVConvertClass@@A",
+          "target": 8594372,
+          "addend": 0,
+          "resolved": 8594372
+        },
+        {
+          "offset": 859,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 936,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 947,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 972,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 988,
+          "kind": 20,
+          "symbol": "?Conquer_Clip_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@HPBH@Z",
+          "target": 4816512,
+          "addend": 0,
+          "resolved": 106688
+        },
+        {
+          "offset": 1061,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 1138,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 1149,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 1174,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 1190,
+          "kind": 20,
+          "symbol": "?Conquer_Clip_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@HPBH@Z",
+          "target": 4816512,
+          "addend": 0,
+          "resolved": 106486
+        },
+        {
+          "offset": 1215,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 1226,
+          "kind": 6,
+          "symbol": "?NormalDrawer@@3PAVConvertClass@@A",
+          "target": 8594372,
+          "addend": 0,
+          "resolved": 8594372
+        },
+        {
+          "offset": 1309,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 1344,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4709028,
+          "addend": 0,
+          "resolved": 4709028
+        },
+        {
+          "offset": 1348,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4709152,
+          "addend": 0,
+          "resolved": 4709152
+        },
+        {
+          "offset": 1352,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4709375,
+          "addend": 0,
+          "resolved": 4709375
+        },
+        {
+          "offset": 1356,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4709603,
+          "addend": 0,
+          "resolved": 4709603
+        },
+        {
+          "offset": 1360,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4710039,
+          "addend": 0,
+          "resolved": 4710039
+        }
+      ],
+      "source_sha256": "4c7aef1dbada4a428ccedff47b2b8630f59da5e48d3a28ed45f50b60e1116dc0",
+      "source": "src/colrlist.cpp",
+      "population": "rebuild-colrlist",
+      "source_order": 4708832,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4710208,
+      "method": "0047df40",
+      "body_bytes": 18,
+      "body_sha256": "554e4e88bde6f0639ca8d3fe1e90bca0cce2f87e42b376994f6ad3a0fb286996",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "5cb77f7cc516e7ba71f3f26d9ad0305acda0aaec3eac16613c40b667f62c299e",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Add_Item@ColorListClass@@UAEHPBG@Z",
+      "symbol_prefix": "?Add_Item@ColorListClass@@UAEHPBG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "4c7aef1dbada4a428ccedff47b2b8630f59da5e48d3a28ed45f50b60e1116dc0",
+      "source": "src/colrlist.cpp",
+      "population": "rebuild-colrlist",
+      "source_order": 4710208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4710240,
+      "method": "0047df60",
+      "body_bytes": 103,
+      "body_sha256": "799478a6c537ab8cac65471cac1c74ff164863437a5e73f4f2ee0df33d974bce",
+      "padding_bytes": 9,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "6ee585712e62c8f1ce39b44d325c46f2b4dd758e74655eca51c1d4debdb3953e",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GColorListClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GColorListClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "??_7ColorListClass@@6B@",
+          "target": 7986284,
+          "addend": 0,
+          "resolved": 7986284
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@H@@6B@",
+          "target": 7985620,
+          "addend": 0,
+          "resolved": 7985620
+        },
+        {
+          "offset": 56,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3161503
+        },
+        {
+          "offset": 75,
+          "kind": 20,
+          "symbol": "??1ListClass@@UAE@XZ",
+          "target": 5480384,
+          "addend": 0,
+          "resolved": 770065
+        },
+        {
+          "offset": 88,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3161471
+        }
+      ],
+      "source_sha256": "4c7aef1dbada4a428ccedff47b2b8630f59da5e48d3a28ed45f50b60e1116dc0",
+      "source": "src/colrlist.cpp",
+      "population": "rebuild-colrlist",
+      "source_order": 4710240,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

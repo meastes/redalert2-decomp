@@ -1,0 +1,2619 @@
+{
+  "id": "rebuild-wincomm",
+  "population": {
+    "id": "rebuild-wincomm",
+    "inventory_sha256": "6e282b34c20fdfdd1f6d2edb893de883a69b2614551d491b899f2631b2061448",
+    "gaps_sha256": "c1f802f628d275816187701b22db4420ee0ed0b092b2bb65bc3ab1ac20c4b3aa",
+    "historical_population_sha256": "9c4cd751d8ba15195967c9e0250006971da3cbf59c5a83914909188f4059fa29",
+    "historical_acceptance_sha256": "bcff12700e81630fdfeec3d749cbf8d02f2027ed0e9e1ef0a5c05c9a3bb539fc"
+  },
+  "references": {
+    "_RECT_NONE": 11688864,
+    "??_7WinModemClass@@6B@": 8058080,
+    "??2@YAPAXI@Z": 7872535,
+    "??_C@_0BF@GLCD@Closing?5serial?5port?6?$AA@": 8374796,
+    "?DebugString@@YAXPBDZZ": 4221168,
+    "__imp__CloseHandle@4": 7971284,
+    "??3@YAXPAX@Z": 7871803,
+    "__imp__RegQueryInfoKeyA@48": 7970816,
+    "__imp__RegEnumKeyExA@32": 7970844,
+    "_stricmp": 7872288,
+    "__imp__RegOpenKeyExA@20": 7970828,
+    "__imp__RegCloseKey@4": 7970820,
+    "??_C@_04KFCP@Enum?$AA@": 8267784,
+    "?Get_Registry_Sub_Key@@YIPAUHKEY__@@PAU1@PBD_N@Z": 7553472,
+    "??_C@_04PNFB@Root?$AA@": 8374844,
+    "??_C@_05BJKG@Modem?$AA@": 8268188,
+    "??_C@_04NILH@0000?$AA@": 8374836,
+    "??_C@_0N@IOME@FriendlyName?$AA@": 8374820,
+    "__imp__RegQueryValueExA@24": 7970824,
+    "??_C@_04CHPO@?2?2?4?2?$AA@": 8375056,
+    "??_C@_0BI@OLEM@Opening?5serial?5port?5?$CFs?6?$AA@": 8375032,
+    "__imp__CreateFileA@28": 7971248,
+    "??_C@_0CM@KPPI@Failed?5to?5get?5valid?5port?5handle?4@": 8374988,
+    "??_C@_0BA@NAJH@Port?5opened?5OK?6?$AA@": 8374972,
+    "__imp__SetupComm@12": 7971176,
+    "__imp__PurgeComm@8": 7971172,
+    "__imp__CreateEventA@16": 7971168,
+    "__imp__GetCommState@8": 7971164,
+    "__imp__SetCommState@8": 7971408,
+    "??_C@_0CB@JCGN@SetCommState?5returned?5error?5?$CFs?4?6@": 8374936,
+    "??_C@_0CG@EMOK@GetCommState?5returned?5error?5code@": 8374896,
+    "__imp__SetCommTimeouts@8": 7971400,
+    "??_C@_0CJ@IGCF@SetCommTimeouts?5returned?5error?5c@": 8374852,
+    "__imp__ClearCommError@12": 7971152,
+    "?Debug_Status@WinModemClass@@QAEXKU_COMSTAT@@@Z": 7558352,
+    "??_C@_0CI@HKEN@WinModemClass?5?9?5Entering?5failsaf@": 8375196,
+    "__imp__ResetEvent@4": 7971184,
+    "??_C@_0CB@BEPN@GetCommState?5returned?5error?5?$CFs?4?6@": 8375160,
+    "__imp__GetCommMask@8": 7971180,
+    "__imp__EscapeCommFunction@8": 7971076,
+    "__imp__GetLastError@0": 7971316,
+    "??_C@_0FN@CMFD@Enter_Failsafe_Mode?5?9?5EscapeComm@": 8375064,
+    "??_C@_0CH@LKKO@WinModemClass?5?9?5Leaving?5failsafe@": 8375332,
+    "??_C@_0FN@EINH@Leave_Failsafe_Mode?5?9?5EscapeComm@": 8375236,
+    "__imp__GetCommModemStatus@8": 7971188,
+    "??_C@_0ED@NLL@Set_Serial_DTR?5?9?5EscapeCommFunct@": 8375372,
+    "__imp__GetOverlappedResult@16": 7971192,
+    "??_C@_0EL@LGAL@GetOverlappedResult?5in?5WinModemC@": 8375488,
+    "__imp__ReadFile@20": 7971088,
+    "??_C@_0CP@PNAC@Reading?5from?5port?5handle?5failed?5@": 8375440,
+    "?Read_Serial_Chars@WinModemClass@@IAE_NXZ": 7555456,
+    "??RSystemTimerClass@@QBEHXZ": 6923312,
+    "?Wait_For_Serial_Write@WinModemClass@@QAEXXZ": 7556032,
+    "__imp__WriteFile@20": 7971116,
+    "??_C@_0CN@JKPG@Writing?5to?5port?5handle?5failed?5wi@": 8375564,
+    "?GameInFocus@@3_NA": 10751272,
+    "?Read_From_Serial_Port@WinModemClass@@QAEHPAEH@Z": 7555888,
+    "_strchr": 7881008,
+    "??_C@_02BKOD@AT?$AA@": 8289448,
+    "_strstr": 7878320,
+    "_memmove": 7877264,
+    "_strrchr": 7872496,
+    "??_C@_0BG@BLBP@Creating?5dial?5string?6?$AA@": 8375728,
+    "??_C@_03ECIG@ATD?$AA@": 8375724,
+    "??_C@_01KGOM@T?$AA@": 8335980,
+    "??_C@_0BD@JAIA@Dial?5type?5is?5tone?6?$AA@": 8375704,
+    "??_C@_0BE@NNPM@Dial?5type?5is?5pulse?6?$AA@": 8375684,
+    "??_C@_01MLA@P?$AA@": 8335976,
+    "??_C@_0BH@NKJG@Appending?5dial?5string?6?$AA@": 8375660,
+    "??_C@_0BL@OPMN@Appending?5carriage?5return?6?$AA@": 8375632,
+    "??_C@_01FEHD@?$AN?$AA@": 8289736,
+    "??_C@_0BD@LCDB@Send?5to?5modem?3?5?$CFs?6?$AA@": 8375612,
+    "__imp__Sleep@4": 7971300,
+    "??_C@_01PLJA@0?$AA@": 8264288,
+    "??_C@_02HAGF@OK?$AA@": 8215104,
+    "??_C@_05EFDD@ERROR?$AA@": 8375752,
+    "_strncpy": 7873488,
+    "??_C@_0CK@NILK@Communications?5?8Framing?8?5error?5d@": 8376348,
+    "??_C@_0CC@FICI@Communications?5?8Break?8?5detected?4@": 8376312,
+    "??_C@_0CF@KKGI@Communications?5?8IO?8?5error?5detect@": 8376272,
+    "??_C@_0DC@JBLO@Communications?5?8Receive?5Overrun?8@": 8376220,
+    "??_C@_0DJ@ILPP@Communications?5?8Receive?5Queue?5Ov@": 8376160,
+    "??_C@_0CJ@EOAL@Communications?5?8Parity?8?5error?5de@": 8376116,
+    "??_C@_0DG@ICMB@Communications?5?8Transmit?5Queue?5F@": 8376060,
+    "??_C@_0CJ@LKBD@Comm?5status?5?9?5Tx?5waiting?5for?5CTS@": 8376016,
+    "??_C@_0CJ@ECLL@Comm?5status?5?9?5Tx?5waiting?5for?5DSR@": 8375972,
+    "??_C@_0CK@OEDA@Comm?5status?5?9?5Tx?5waiting?5for?5RLS@": 8375928,
+    "??_C@_0CO@EPHK@Comm?5status?5?9?5Tx?5waiting?0?5XOFF?5c@": 8375880,
+    "??_C@_0CK@JHIE@Comm?5status?5?9?5Tx?5waiting?0?5XOFF?5c@": 8375836,
+    "??_C@_0CC@IIJD@Comm?5status?5?9?5EOF?5character?5sent@": 8375800,
+    "??_C@_0CI@PBPE@Comm?5status?5?9?5Character?5waiting?5@": 8375760,
+    "?SerialPort@@3PAVWinModemClass@@A": 11688880,
+    "_$E2": 7553280,
+    "??0WinModemClass@@QAE@XZ": 7553312,
+    "??_GWinModemClass@@UAEPAXI@Z": 7558672,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVWinModemClass@@@8": 8374768,
+    "??1WinModemClass@@UAE@XZ": 7553392,
+    "?Get_Modem_Name_From_Registry@@YI_NPADH@Z": 7553808,
+    "?Serial_Port_Open@WinModemClass@@UAEPAXPADHHHH@Z": 7554064,
+    "?Enter_Failsafe_Mode@WinModemClass@@QAE_NXZ": 7554672,
+    "?Leave_Failsafe_Mode@WinModemClass@@QAEXXZ": 7555008,
+    "?Set_Modem_Dial_Type@WinModemClass@@UAEXW4WinCommDialMethodType@@@Z": 7555232,
+    "?Get_Modem_Status@WinModemClass@@UAEIXZ": 7555248,
+    "?Set_Serial_DTR@WinModemClass@@UAEX_N@Z": 7555328,
+    "?Serial_Port_Close@WinModemClass@@QAEXXZ": 7555408,
+    "?Write_To_Serial_Port@WinModemClass@@QAEXPAEH@Z": 7556208,
+    "?Get_Modem_Result@WinModemClass@@UAEHHPADHH@Z": 7556304,
+    "?Dial_Modem@WinModemClass@@UAEXPAD@Z": 7556944,
+    "?Send_Command_To_Modem@WinModemClass@@UAEHPBDDPADHHHH@Z": 7557392,
+    "?Set_Echo_Function@WinModemClass@@UAEXP6IXD@Z@Z": 7558304,
+    "?Set_Abort_Function@WinModemClass@@UAEXP6IHXZ@Z": 7558320,
+    "?Get_Port_Handle@WinModemClass@@QAEPAXXZ": 7558336
+  },
+  "regions": [
+    {
+      "entry": 7553280,
+      "method": "734100",
+      "body_bytes": 23,
+      "body_sha256": "40a71b5f4bb8b2a26439b865c71e49219b96bc39b23ea60d1eb6d9fadb6912de",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "915808129fac106fef66f60a75e408e0a66f27a44542f9a7cb19935d6e81b299",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11688864,
+          "addend": 0,
+          "resolved": 11688864
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11688864,
+          "addend": 4,
+          "resolved": 11688868
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11688864,
+          "addend": 8,
+          "resolved": 11688872
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11688864,
+          "addend": 12,
+          "resolved": 11688876
+        }
+      ],
+      "source_sha256": "6fce5f94cbdcad59175e47df9dd1f10e2ebb983640a4ef50d9b1f7395ad49cc5",
+      "source": "src/wincomm.cpp",
+      "population": "rebuild-wincomm",
+      "source_order": 7553280,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-09"
+    },
+    {
+      "entry": 7553312,
+      "method": "00734120",
+      "body_bytes": 74,
+      "body_sha256": "5cc915118e859eefeff999cfe0542ba8d014cfb12701fc68b8fd824aa0bd233e",
+      "padding_bytes": 6,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "22ee886ed6b229f4663151c160e058ae079b6120d084743b5539a49b5bc22bf1",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0WinModemClass@@QAE@XZ",
+      "symbol_prefix": "??0WinModemClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "??_7WinModemClass@@6B@",
+          "target": 8058080,
+          "addend": 0,
+          "resolved": 8058080
+        },
+        {
+          "offset": 15,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 319204
+        }
+      ],
+      "source_sha256": "6fce5f94cbdcad59175e47df9dd1f10e2ebb983640a4ef50d9b1f7395ad49cc5",
+      "source": "src/wincomm.cpp",
+      "population": "rebuild-wincomm",
+      "source_order": 7553312,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7553392,
+      "method": "00734170",
+      "body_bytes": 65,
+      "body_sha256": "3ae17ea3a566ddaf3f06caebdfeb0bd9f6fe9ccf88df7d26d06f3bc3279aa001",
+      "padding_bytes": 15,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "f8abb1aa4926d3a296a7c7cc2edad44c3127d48c57444feb60ec9d26b41f534b",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1WinModemClass@@UAE@XZ",
+      "symbol_prefix": "??1WinModemClass@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7WinModemClass@@6B@",
+          "target": 8058080,
+          "addend": 0,
+          "resolved": 8058080
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "??_C@_0BF@GLCD@Closing?5serial?5port?6?$AA@",
+          "target": 8374796,
+          "addend": 0,
+          "resolved": 8374796
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291635045
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "__imp__CloseHandle@4",
+          "target": 7971284,
+          "addend": 0,
+          "resolved": 7971284
+        },
+        {
+          "offset": 56,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 318351
+        }
+      ],
+      "source_sha256": "6fce5f94cbdcad59175e47df9dd1f10e2ebb983640a4ef50d9b1f7395ad49cc5",
+      "source": "src/wincomm.cpp",
+      "population": "rebuild-wincomm",
+      "source_order": 7553392,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7553472,
+      "method": "007341c0",
+      "body_bytes": 328,
+      "body_sha256": "8a076e80bc57f224f2128f7ff9451b6f956194823a81f92a58a92dd6aa9da2e2",
+      "padding_bytes": 8,
+      "full_extent_bytes": 336,
+      "full_extent_sha256": "a1a7263fa03a36af0fd90c61d9a80348ee1cabe198746c01f106380090f62d2d",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Registry_Sub_Key@@YIPAUHKEY__@@PAU1@PBD_N@Z",
+      "symbol_prefix": "?Get_Registry_Sub_Key@@YIPAUHKEY__@@PAU1@PBD_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "__imp__RegQueryInfoKeyA@48",
+          "target": 7970816,
+          "addend": 0,
+          "resolved": 7970816
+        },
+        {
+          "offset": 100,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 318959
+        },
+        {
+          "offset": 113,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 318946
+        },
+        {
+          "offset": 168,
+          "kind": 6,
+          "symbol": "__imp__RegEnumKeyExA@32",
+          "target": 7970844,
+          "addend": 0,
+          "resolved": 7970844
+        },
+        {
+          "offset": 179,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 318633
+        },
+        {
+          "offset": 205,
+          "kind": 6,
+          "symbol": "__imp__RegOpenKeyExA@20",
+          "target": 7970828,
+          "addend": 0,
+          "resolved": 7970828
+        },
+        {
+          "offset": 236,
+          "kind": 6,
+          "symbol": "__imp__RegCloseKey@4",
+          "target": 7970820,
+          "addend": 0,
+          "resolved": 7970820
+        },
+        {
+          "offset": 242,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 318085
+        },
+        {
+          "offset": 252,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 318075
+        },
+        {
+          "offset": 288,
+          "kind": 6,
+          "symbol": "__imp__RegCloseKey@4",
+          "target": 7970820,
+          "addend": 0,
+          "resolved": 7970820
+        },
+        {
+          "offset": 294,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 318033
+        },
+        {
+          "offset": 304,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 318023
+        }
+      ],
+      "source_sha256": "6fce5f94cbdcad59175e47df9dd1f10e2ebb983640a4ef50d9b1f7395ad49cc5",
+      "source": "src/wincomm.cpp",
+      "population": "rebuild-wincomm",
+      "source_order": 7553472,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7553808,
+      "method": "00734310",
+      "body_bytes": 241,
+      "body_sha256": "5ea6dbdb1ddc60ae22d256a6e6632deea97ffca30b46aa3deffe870d102bd92a",
+      "padding_bytes": 15,
+      "full_extent_bytes": 256,
+      "full_extent_sha256": "3df26266d0f20f16217e20531dc4b670455c4f8696a48f77b5b76079b45d0618",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Modem_Name_From_Registry@@YI_NPADH@Z",
+      "symbol_prefix": "?Get_Modem_Name_From_Registry@@YI_NPADH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "??_C@_04KFCP@Enum?$AA@",
+          "target": 8267784,
+          "addend": 0,
+          "resolved": 8267784
+        },
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "?Get_Registry_Sub_Key@@YIPAUHKEY__@@PAU1@PBD_N@Z",
+          "target": 7553472,
+          "addend": 0,
+          "resolved": 4294966922
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "??_C@_04PNFB@Root?$AA@",
+          "target": 8374844,
+          "addend": 0,
+          "resolved": 8374844
+        },
+        {
+          "offset": 64,
+          "kind": 20,
+          "symbol": "?Get_Registry_Sub_Key@@YIPAUHKEY__@@PAU1@PBD_N@Z",
+          "target": 7553472,
+          "addend": 0,
+          "resolved": 4294966892
+        },
+        {
+          "offset": 87,
+          "kind": 6,
+          "symbol": "??_C@_05BJKG@Modem?$AA@",
+          "target": 8268188,
+          "addend": 0,
+          "resolved": 8268188
+        },
+        {
+          "offset": 94,
+          "kind": 20,
+          "symbol": "?Get_Registry_Sub_Key@@YIPAUHKEY__@@PAU1@PBD_N@Z",
+          "target": 7553472,
+          "addend": 0,
+          "resolved": 4294966862
+        },
+        {
+          "offset": 117,
+          "kind": 6,
+          "symbol": "??_C@_04NILH@0000?$AA@",
+          "target": 8374836,
+          "addend": 0,
+          "resolved": 8374836
+        },
+        {
+          "offset": 124,
+          "kind": 20,
+          "symbol": "?Get_Registry_Sub_Key@@YIPAUHKEY__@@PAU1@PBD_N@Z",
+          "target": 7553472,
+          "addend": 0,
+          "resolved": 4294966832
+        },
+        {
+          "offset": 161,
+          "kind": 6,
+          "symbol": "??_C@_0N@IOME@FriendlyName?$AA@",
+          "target": 8374820,
+          "addend": 0,
+          "resolved": 8374820
+        },
+        {
+          "offset": 168,
+          "kind": 6,
+          "symbol": "__imp__RegQueryValueExA@24",
+          "target": 7970824,
+          "addend": 0,
+          "resolved": 7970824
+        },
+        {
+          "offset": 179,
+          "kind": 6,
+          "symbol": "__imp__RegCloseKey@4",
+          "target": 7970820,
+          "addend": 0,
+          "resolved": 7970820
+        },
+        {
+          "offset": 197,
+          "kind": 6,
+          "symbol": "__imp__RegCloseKey@4",
+          "target": 7970820,
+          "addend": 0,
+          "resolved": 7970820
+        }
+      ],
+      "source_sha256": "6fce5f94cbdcad59175e47df9dd1f10e2ebb983640a4ef50d9b1f7395ad49cc5",
+      "source": "src/wincomm.cpp",
+      "population": "rebuild-wincomm",
+      "source_order": 7553808,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7554064,
+      "method": "00734410",
+      "body_bytes": 603,
+      "body_sha256": "be206e7efdf9fb923b2a3ddd737ba75a90f577cee7d942ef8856cb5350d48798",
+      "padding_bytes": 5,
+      "full_extent_bytes": 608,
+      "full_extent_sha256": "a792306501dce4da4e4a832aceccd5d3e97309631de49ba1e54253796dfc7db1",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Serial_Port_Open@WinModemClass@@UAEPAXPADHHHH@Z",
+      "symbol_prefix": "?Serial_Port_Open@WinModemClass@@UAEPAXPADHHHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "??_C@_04CHPO@?2?2?4?2?$AA@",
+          "target": 8375056,
+          "addend": 0,
+          "resolved": 8375056
+        },
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "??_C@_04CHPO@?2?2?4?2?$AA@",
+          "target": 8375056,
+          "addend": 4,
+          "resolved": 8375060
+        },
+        {
+          "offset": 102,
+          "kind": 6,
+          "symbol": "??_C@_0BF@GLCD@Closing?5serial?5port?6?$AA@",
+          "target": 8374796,
+          "addend": 0,
+          "resolved": 8374796
+        },
+        {
+          "offset": 107,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291634289
+        },
+        {
+          "offset": 120,
+          "kind": 6,
+          "symbol": "__imp__CloseHandle@4",
+          "target": 7971284,
+          "addend": 0,
+          "resolved": 7971284
+        },
+        {
+          "offset": 133,
+          "kind": 6,
+          "symbol": "??_C@_0BI@OLEM@Opening?5serial?5port?5?$CFs?6?$AA@",
+          "target": 8375032,
+          "addend": 0,
+          "resolved": 8375032
+        },
+        {
+          "offset": 138,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291634258
+        },
+        {
+          "offset": 169,
+          "kind": 6,
+          "symbol": "__imp__CreateFileA@28",
+          "target": 7971248,
+          "addend": 0,
+          "resolved": 7971248
+        },
+        {
+          "offset": 182,
+          "kind": 6,
+          "symbol": "??_C@_0CM@KPPI@Failed?5to?5get?5valid?5port?5handle?4@",
+          "target": 8374988,
+          "addend": 0,
+          "resolved": 8374988
+        },
+        {
+          "offset": 187,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291634209
+        },
+        {
+          "offset": 210,
+          "kind": 6,
+          "symbol": "??_C@_0BA@NAJH@Port?5opened?5OK?6?$AA@",
+          "target": 8374972,
+          "addend": 0,
+          "resolved": 8374972
+        },
+        {
+          "offset": 215,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291634181
+        },
+        {
+          "offset": 238,
+          "kind": 6,
+          "symbol": "__imp__SetupComm@12",
+          "target": 7971176,
+          "addend": 0,
+          "resolved": 7971176
+        },
+        {
+          "offset": 250,
+          "kind": 6,
+          "symbol": "__imp__PurgeComm@8",
+          "target": 7971172,
+          "addend": 0,
+          "resolved": 7971172
+        },
+        {
+          "offset": 256,
+          "kind": 6,
+          "symbol": "__imp__CreateEventA@16",
+          "target": 7971168,
+          "addend": 0,
+          "resolved": 7971168
+        },
+        {
+          "offset": 314,
+          "kind": 6,
+          "symbol": "__imp__GetCommState@8",
+          "target": 7971164,
+          "addend": 0,
+          "resolved": 7971164
+        },
+        {
+          "offset": 394,
+          "kind": 6,
+          "symbol": "__imp__SetCommState@8",
+          "target": 7971408,
+          "addend": 0,
+          "resolved": 7971408
+        },
+        {
+          "offset": 404,
+          "kind": 6,
+          "symbol": "??_C@_0CB@JCGN@SetCommState?5returned?5error?5?$CFs?4?6@",
+          "target": 8374936,
+          "addend": 0,
+          "resolved": 8374936
+        },
+        {
+          "offset": 433,
+          "kind": 6,
+          "symbol": "??_C@_0CG@EMOK@GetCommState?5returned?5error?5code@",
+          "target": 8374896,
+          "addend": 0,
+          "resolved": 8374896
+        },
+        {
+          "offset": 438,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291633958
+        },
+        {
+          "offset": 486,
+          "kind": 6,
+          "symbol": "__imp__SetCommTimeouts@8",
+          "target": 7971400,
+          "addend": 0,
+          "resolved": 7971400
+        },
+        {
+          "offset": 496,
+          "kind": 6,
+          "symbol": "??_C@_0CJ@IGCF@SetCommTimeouts?5returned?5error?5c@",
+          "target": 8374852,
+          "addend": 0,
+          "resolved": 8374852
+        },
+        {
+          "offset": 501,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291633895
+        },
+        {
+          "offset": 533,
+          "kind": 6,
+          "symbol": "__imp__ClearCommError@12",
+          "target": 7971152,
+          "addend": 0,
+          "resolved": 7971152
+        },
+        {
+          "offset": 584,
+          "kind": 20,
+          "symbol": "?Debug_Status@WinModemClass@@QAEXKU_COMSTAT@@@Z",
+          "target": 7558352,
+          "addend": 0,
+          "resolved": 3700
+        }
+      ],
+      "source_sha256": "6fce5f94cbdcad59175e47df9dd1f10e2ebb983640a4ef50d9b1f7395ad49cc5",
+      "source": "src/wincomm.cpp",
+      "population": "rebuild-wincomm",
+      "source_order": 7554064,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7554672,
+      "method": "00734670",
+      "body_bytes": 323,
+      "body_sha256": "4dab5ded0e3c8a523f38c697de587a6f3838500c4b850d82ee0a39375e0a664c",
+      "padding_bytes": 13,
+      "full_extent_bytes": 336,
+      "full_extent_sha256": "b8fb886cefb442a0a82e5b0fa2f80964a0509c5f095c67eda96b20163536a566",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Enter_Failsafe_Mode@WinModemClass@@QAE_NXZ",
+      "symbol_prefix": "?Enter_Failsafe_Mode@WinModemClass@@QAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "??_C@_0CI@HKEN@WinModemClass?5?9?5Entering?5failsaf@",
+          "target": 8375196,
+          "addend": 0,
+          "resolved": 8375196
+        },
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291633774
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "__imp__PurgeComm@8",
+          "target": 7971172,
+          "addend": 0,
+          "resolved": 7971172
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "__imp__ResetEvent@4",
+          "target": 7971184,
+          "addend": 0,
+          "resolved": 7971184
+        },
+        {
+          "offset": 70,
+          "kind": 6,
+          "symbol": "__imp__GetCommState@8",
+          "target": 7971164,
+          "addend": 0,
+          "resolved": 7971164
+        },
+        {
+          "offset": 130,
+          "kind": 6,
+          "symbol": "__imp__SetCommState@8",
+          "target": 7971408,
+          "addend": 0,
+          "resolved": 7971408
+        },
+        {
+          "offset": 140,
+          "kind": 6,
+          "symbol": "??_C@_0CB@JCGN@SetCommState?5returned?5error?5?$CFs?4?6@",
+          "target": 8374936,
+          "addend": 0,
+          "resolved": 8374936
+        },
+        {
+          "offset": 145,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291633643
+        },
+        {
+          "offset": 163,
+          "kind": 6,
+          "symbol": "??_C@_0CB@BEPN@GetCommState?5returned?5error?5?$CFs?4?6@",
+          "target": 8375160,
+          "addend": 0,
+          "resolved": 8375160
+        },
+        {
+          "offset": 168,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291633620
+        },
+        {
+          "offset": 186,
+          "kind": 6,
+          "symbol": "__imp__GetCommMask@8",
+          "target": 7971180,
+          "addend": 0,
+          "resolved": 7971180
+        },
+        {
+          "offset": 214,
+          "kind": 6,
+          "symbol": "__imp__EscapeCommFunction@8",
+          "target": 7971076,
+          "addend": 0,
+          "resolved": 7971076
+        },
+        {
+          "offset": 225,
+          "kind": 6,
+          "symbol": "__imp__GetLastError@0",
+          "target": 7971316,
+          "addend": 0,
+          "resolved": 7971316
+        },
+        {
+          "offset": 231,
+          "kind": 6,
+          "symbol": "??_C@_0FN@CMFD@Enter_Failsafe_Mode?5?9?5EscapeComm@",
+          "target": 8375064,
+          "addend": 0,
+          "resolved": 8375064
+        },
+        {
+          "offset": 236,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291633552
+        },
+        {
+          "offset": 259,
+          "kind": 6,
+          "symbol": "__imp__ClearCommError@12",
+          "target": 7971152,
+          "addend": 0,
+          "resolved": 7971152
+        },
+        {
+          "offset": 310,
+          "kind": 20,
+          "symbol": "?Debug_Status@WinModemClass@@QAEXKU_COMSTAT@@@Z",
+          "target": 7558352,
+          "addend": 0,
+          "resolved": 3366
+        }
+      ],
+      "source_sha256": "6fce5f94cbdcad59175e47df9dd1f10e2ebb983640a4ef50d9b1f7395ad49cc5",
+      "source": "src/wincomm.cpp",
+      "population": "rebuild-wincomm",
+      "source_order": 7554672,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7555008,
+      "method": "007347c0",
+      "body_bytes": 218,
+      "body_sha256": "257f6441b489371482577e60054503c12cd368bdfe73d77776012aa66cf300b6",
+      "padding_bytes": 6,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "57eb075130932148c2f897ad9baebdf7b45f05d6ce48dea8e9adf5704a1e9195",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Leave_Failsafe_Mode@WinModemClass@@QAEXXZ",
+      "symbol_prefix": "?Leave_Failsafe_Mode@WinModemClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "??_C@_0CH@LKKO@WinModemClass?5?9?5Leaving?5failsafe@",
+          "target": 8375332,
+          "addend": 0,
+          "resolved": 8375332
+        },
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291633438
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "__imp__PurgeComm@8",
+          "target": 7971172,
+          "addend": 0,
+          "resolved": 7971172
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "__imp__ResetEvent@4",
+          "target": 7971184,
+          "addend": 0,
+          "resolved": 7971184
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "__imp__SetCommState@8",
+          "target": 7971408,
+          "addend": 0,
+          "resolved": 7971408
+        },
+        {
+          "offset": 82,
+          "kind": 6,
+          "symbol": "??_C@_0CB@JCGN@SetCommState?5returned?5error?5?$CFs?4?6@",
+          "target": 8374936,
+          "addend": 0,
+          "resolved": 8374936
+        },
+        {
+          "offset": 87,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291633365
+        },
+        {
+          "offset": 102,
+          "kind": 6,
+          "symbol": "__imp__EscapeCommFunction@8",
+          "target": 7971076,
+          "addend": 0,
+          "resolved": 7971076
+        },
+        {
+          "offset": 113,
+          "kind": 6,
+          "symbol": "__imp__GetLastError@0",
+          "target": 7971316,
+          "addend": 0,
+          "resolved": 7971316
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "??_C@_0FN@EINH@Leave_Failsafe_Mode?5?9?5EscapeComm@",
+          "target": 8375236,
+          "addend": 0,
+          "resolved": 8375236
+        },
+        {
+          "offset": 124,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291633328
+        },
+        {
+          "offset": 147,
+          "kind": 6,
+          "symbol": "__imp__ClearCommError@12",
+          "target": 7971152,
+          "addend": 0,
+          "resolved": 7971152
+        },
+        {
+          "offset": 198,
+          "kind": 20,
+          "symbol": "?Debug_Status@WinModemClass@@QAEXKU_COMSTAT@@@Z",
+          "target": 7558352,
+          "addend": 0,
+          "resolved": 3142
+        }
+      ],
+      "source_sha256": "6fce5f94cbdcad59175e47df9dd1f10e2ebb983640a4ef50d9b1f7395ad49cc5",
+      "source": "src/wincomm.cpp",
+      "population": "rebuild-wincomm",
+      "source_order": 7555008,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7555232,
+      "method": "7348a0",
+      "body_bytes": 10,
+      "body_sha256": "239aee498d131235761445e028c29f4c1d2c2d427ca8761527ffc5888f71abe3",
+      "padding_bytes": 6,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "c53f5b0601d68c6f48839854ee490c9dc6d3876e2ee050a5199caaea45eb481b",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Modem_Dial_Type@WinModemClass@@UAEXW4WinCommDialMethodType@@@Z",
+      "symbol_prefix": "?Set_Modem_Dial_Type@WinModemClass@@UAEXW4WinCommDialMethodType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6fce5f94cbdcad59175e47df9dd1f10e2ebb983640a4ef50d9b1f7395ad49cc5",
+      "source": "src/wincomm.cpp",
+      "population": "rebuild-wincomm",
+      "source_order": 7555232,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-09"
+    },
+    {
+      "entry": 7555248,
+      "method": "007348b0",
+      "body_bytes": 65,
+      "body_sha256": "2f56cb8053ad56b518710dc8c62b0aaf35e16cb9a84f0219a96bcc16007682be",
+      "padding_bytes": 15,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "b1518084ad8f16fa6812a4aa626b52abe5c57cc829ad5279d4215a7a553a7da7",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Modem_Status@WinModemClass@@UAEIXZ",
+      "symbol_prefix": "?Get_Modem_Status@WinModemClass@@UAEIXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "__imp__GetCommModemStatus@8",
+          "target": 7971188,
+          "addend": 0,
+          "resolved": 7971188
+        }
+      ],
+      "source_sha256": "6fce5f94cbdcad59175e47df9dd1f10e2ebb983640a4ef50d9b1f7395ad49cc5",
+      "source": "src/wincomm.cpp",
+      "population": "rebuild-wincomm",
+      "source_order": 7555248,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 7555328,
+      "method": "00734900",
+      "body_bytes": 67,
+      "body_sha256": "5b2d07a600a1d945a7c548742b20ecb0d1c82dbd40f5d2da4687993c6688a901",
+      "padding_bytes": 13,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "7805c7e8e9cb4848caf00465ef72051d9fea16866ca43f2671eae7d7fa8b1be5",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Serial_DTR@WinModemClass@@UAEX_N@Z",
+      "symbol_prefix": "?Set_Serial_DTR@WinModemClass@@UAEX_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "__imp__EscapeCommFunction@8",
+          "target": 7971076,
+          "addend": 0,
+          "resolved": 7971076
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__imp__EscapeCommFunction@8",
+          "target": 7971076,
+          "addend": 0,
+          "resolved": 7971076
+        },
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "__imp__GetLastError@0",
+          "target": 7971316,
+          "addend": 0,
+          "resolved": 7971316
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "??_C@_0ED@NLL@Set_Serial_DTR?5?9?5EscapeCommFunct@",
+          "target": 8375372,
+          "addend": 0,
+          "resolved": 8375372
+        },
+        {
+          "offset": 57,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291633075
+        }
+      ],
+      "source_sha256": "6fce5f94cbdcad59175e47df9dd1f10e2ebb983640a4ef50d9b1f7395ad49cc5",
+      "source": "src/wincomm.cpp",
+      "population": "rebuild-wincomm",
+      "source_order": 7555328,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7555408,
+      "method": "00734950",
+      "body_bytes": 41,
+      "body_sha256": "b027ce91eeca647f339782aae4506d8d34f46d7be0bd7f94ebeaff3f00b34161",
+      "padding_bytes": 7,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "b1f3c448d02fa536174ccae2b91932aed138f075d6e3a262ca81e037fdb94a09",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Serial_Port_Close@WinModemClass@@QAEXXZ",
+      "symbol_prefix": "?Serial_Port_Close@WinModemClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "??_C@_0BF@GLCD@Closing?5serial?5port?6?$AA@",
+          "target": 8374796,
+          "addend": 0,
+          "resolved": 8374796
+        },
+        {
+          "offset": 15,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291633037
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "__imp__CloseHandle@4",
+          "target": 7971284,
+          "addend": 0,
+          "resolved": 7971284
+        }
+      ],
+      "source_sha256": "6fce5f94cbdcad59175e47df9dd1f10e2ebb983640a4ef50d9b1f7395ad49cc5",
+      "source": "src/wincomm.cpp",
+      "population": "rebuild-wincomm",
+      "source_order": 7555408,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 7555456,
+      "method": "00734980",
+      "body_bytes": 431,
+      "body_sha256": "9708bea2ae920c93bb107569695a476155b902734369f124d1d58e72192e6a66",
+      "padding_bytes": 1,
+      "full_extent_bytes": 432,
+      "full_extent_sha256": "8022f4b21a87473a5177466e0a62aae127ccbcf4bfe293b35709f2a859833055",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Read_Serial_Chars@WinModemClass@@IAE_NXZ",
+      "symbol_prefix": "?Read_Serial_Chars@WinModemClass@@IAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "__imp__GetOverlappedResult@16",
+          "target": 7971192,
+          "addend": 0,
+          "resolved": 7971192
+        },
+        {
+          "offset": 110,
+          "kind": 6,
+          "symbol": "__imp__GetLastError@0",
+          "target": 7971316,
+          "addend": 0,
+          "resolved": 7971316
+        },
+        {
+          "offset": 133,
+          "kind": 6,
+          "symbol": "??_C@_0EL@LGAL@GetOverlappedResult?5in?5WinModemC@",
+          "target": 8375488,
+          "addend": 0,
+          "resolved": 8375488
+        },
+        {
+          "offset": 138,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291632866
+        },
+        {
+          "offset": 151,
+          "kind": 6,
+          "symbol": "__imp__ResetEvent@4",
+          "target": 7971184,
+          "addend": 0,
+          "resolved": 7971184
+        },
+        {
+          "offset": 176,
+          "kind": 6,
+          "symbol": "__imp__ClearCommError@12",
+          "target": 7971152,
+          "addend": 0,
+          "resolved": 7971152
+        },
+        {
+          "offset": 227,
+          "kind": 20,
+          "symbol": "?Debug_Status@WinModemClass@@QAEXKU_COMSTAT@@@Z",
+          "target": 7558352,
+          "addend": 0,
+          "resolved": 2665
+        },
+        {
+          "offset": 283,
+          "kind": 6,
+          "symbol": "__imp__ReadFile@20",
+          "target": 7971088,
+          "addend": 0,
+          "resolved": 7971088
+        },
+        {
+          "offset": 364,
+          "kind": 6,
+          "symbol": "__imp__GetLastError@0",
+          "target": 7971316,
+          "addend": 0,
+          "resolved": 7971316
+        },
+        {
+          "offset": 400,
+          "kind": 6,
+          "symbol": "??_C@_0CP@PNAC@Reading?5from?5port?5handle?5failed?5@",
+          "target": 8375440,
+          "addend": 0,
+          "resolved": 8375440
+        },
+        {
+          "offset": 405,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291632599
+        }
+      ],
+      "source_sha256": "6fce5f94cbdcad59175e47df9dd1f10e2ebb983640a4ef50d9b1f7395ad49cc5",
+      "source": "src/wincomm.cpp",
+      "population": "rebuild-wincomm",
+      "source_order": 7555456,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7555888,
+      "method": "00734b30",
+      "body_bytes": 129,
+      "body_sha256": "a5a4febc4f3662eb1490d8e2da22dcfc12966bf6448da390f5216a864cd5ad07",
+      "padding_bytes": 15,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "53be3b0bd4b5e4bdcb6176c234ac1769514d89bbad59f63b0a6feae691def95d",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Read_From_Serial_Port@WinModemClass@@QAEHPAEH@Z",
+      "symbol_prefix": "?Read_From_Serial_Port@WinModemClass@@QAEHPAEH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 20,
+          "symbol": "?Read_Serial_Chars@WinModemClass@@IAE_NXZ",
+          "target": 7555456,
+          "addend": 0,
+          "resolved": 4294966852
+        }
+      ],
+      "source_sha256": "6fce5f94cbdcad59175e47df9dd1f10e2ebb983640a4ef50d9b1f7395ad49cc5",
+      "source": "src/wincomm.cpp",
+      "population": "rebuild-wincomm",
+      "source_order": 7555888,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7556032,
+      "method": "00734bc0",
+      "body_bytes": 165,
+      "body_sha256": "f3bcbcc85b70f9b8d1712e0b662c7bb8bb398f36f81c1871dac4be2f2a5c6f8e",
+      "padding_bytes": 11,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "502249347b9ed5d0c18600abbf8ff58c4dd9eb4b17c7e0c14ae43b5592d1e03e",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Wait_For_Serial_Write@WinModemClass@@QAEXXZ",
+      "symbol_prefix": "?Wait_For_Serial_Write@WinModemClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 4294334561
+        },
+        {
+          "offset": 42,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 4294334530
+        },
+        {
+          "offset": 48,
+          "kind": 6,
+          "symbol": "__imp__GetOverlappedResult@16",
+          "target": 7971192,
+          "addend": 0,
+          "resolved": 7971192
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "__imp__GetLastError@0",
+          "target": 7971316,
+          "addend": 0,
+          "resolved": 7971316
+        },
+        {
+          "offset": 125,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 4294334447
+        },
+        {
+          "offset": 156,
+          "kind": 6,
+          "symbol": "__imp__ResetEvent@4",
+          "target": 7971184,
+          "addend": 0,
+          "resolved": 7971184
+        }
+      ],
+      "source_sha256": "6fce5f94cbdcad59175e47df9dd1f10e2ebb983640a4ef50d9b1f7395ad49cc5",
+      "source": "src/wincomm.cpp",
+      "population": "rebuild-wincomm",
+      "source_order": 7556032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7556208,
+      "method": "00734c70",
+      "body_bytes": 84,
+      "body_sha256": "92d128b36acc6ccd0af251c07317597c3fac32580350f1874f2fa9bcaf91c031",
+      "padding_bytes": 12,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "9e428f6775c19f3796da524ed24483f91ecb3084486524e3d77a0f7826e60e9d",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Write_To_Serial_Port@WinModemClass@@QAEXPAEH@Z",
+      "symbol_prefix": "?Write_To_Serial_Port@WinModemClass@@QAEXPAEH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 20,
+          "symbol": "?Wait_For_Serial_Write@WinModemClass@@QAEXXZ",
+          "target": 7556032,
+          "addend": 0,
+          "resolved": 4294967111
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__imp__WriteFile@20",
+          "target": 7971116,
+          "addend": 0,
+          "resolved": 7971116
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "__imp__GetLastError@0",
+          "target": 7971316,
+          "addend": 0,
+          "resolved": 7971316
+        },
+        {
+          "offset": 67,
+          "kind": 6,
+          "symbol": "??_C@_0CN@JKPG@Writing?5to?5port?5handle?5failed?5wi@",
+          "target": 8375564,
+          "addend": 0,
+          "resolved": 8375564
+        },
+        {
+          "offset": 72,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291632180
+        }
+      ],
+      "source_sha256": "6fce5f94cbdcad59175e47df9dd1f10e2ebb983640a4ef50d9b1f7395ad49cc5",
+      "source": "src/wincomm.cpp",
+      "population": "rebuild-wincomm",
+      "source_order": 7556208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7556304,
+      "method": "00734cd0",
+      "body_bytes": 631,
+      "body_sha256": "6cc6700d7d8abcbb3dbf97a80ddd8a137e74dd281d6ab208691617705b8b88fc",
+      "padding_bytes": 9,
+      "full_extent_bytes": 640,
+      "full_extent_sha256": "dd5b2a3b06e900cbed105454f6f972c4272b453d579d5779b83eeb2f3b132466",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Modem_Result@WinModemClass@@UAEHHPADHH@Z",
+      "symbol_prefix": "?Get_Modem_Result@WinModemClass@@UAEHHPADHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 4294334282
+        },
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 4294334263
+        },
+        {
+          "offset": 80,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 4294334220
+        },
+        {
+          "offset": 109,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 4294334191
+        },
+        {
+          "offset": 165,
+          "kind": 6,
+          "symbol": "?GameInFocus@@3_NA",
+          "target": 10751272,
+          "addend": 0,
+          "resolved": 10751272
+        },
+        {
+          "offset": 202,
+          "kind": 20,
+          "symbol": "?Read_From_Serial_Port@WinModemClass@@QAEHPAEH@Z",
+          "target": 7555888,
+          "addend": 0,
+          "resolved": 4294966674
+        },
+        {
+          "offset": 217,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 4294334083
+        },
+        {
+          "offset": 265,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 4294334035
+        },
+        {
+          "offset": 293,
+          "kind": 20,
+          "symbol": "_strchr",
+          "target": 7881008,
+          "addend": 0,
+          "resolved": 324407
+        },
+        {
+          "offset": 331,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 4294333969
+        },
+        {
+          "offset": 358,
+          "kind": 6,
+          "symbol": "??_C@_02BKOD@AT?$AA@",
+          "target": 8289448,
+          "addend": 0,
+          "resolved": 8289448
+        },
+        {
+          "offset": 369,
+          "kind": 20,
+          "symbol": "_strstr",
+          "target": 7878320,
+          "addend": 0,
+          "resolved": 321643
+        },
+        {
+          "offset": 398,
+          "kind": 20,
+          "symbol": "_strchr",
+          "target": 7881008,
+          "addend": 0,
+          "resolved": 324302
+        },
+        {
+          "offset": 413,
+          "kind": 20,
+          "symbol": "_strchr",
+          "target": 7881008,
+          "addend": 0,
+          "resolved": 324287
+        },
+        {
+          "offset": 441,
+          "kind": 20,
+          "symbol": "_strchr",
+          "target": 7881008,
+          "addend": 0,
+          "resolved": 324259
+        },
+        {
+          "offset": 451,
+          "kind": 20,
+          "symbol": "_strchr",
+          "target": 7881008,
+          "addend": 0,
+          "resolved": 324249
+        },
+        {
+          "offset": 474,
+          "kind": 20,
+          "symbol": "_strchr",
+          "target": 7881008,
+          "addend": 0,
+          "resolved": 324226
+        },
+        {
+          "offset": 518,
+          "kind": 20,
+          "symbol": "_memmove",
+          "target": 7877264,
+          "addend": 0,
+          "resolved": 320438
+        },
+        {
+          "offset": 548,
+          "kind": 20,
+          "symbol": "_strrchr",
+          "target": 7872496,
+          "addend": 0,
+          "resolved": 315640
+        },
+        {
+          "offset": 563,
+          "kind": 20,
+          "symbol": "_strrchr",
+          "target": 7872496,
+          "addend": 0,
+          "resolved": 315625
+        },
+        {
+          "offset": 593,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 4294333707
+        }
+      ],
+      "source_sha256": "6fce5f94cbdcad59175e47df9dd1f10e2ebb983640a4ef50d9b1f7395ad49cc5",
+      "source": "src/wincomm.cpp",
+      "population": "rebuild-wincomm",
+      "source_order": 7556304,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7556944,
+      "method": "00734f50",
+      "body_bytes": 434,
+      "body_sha256": "90f150791f5965b05cbf251c5d38c490fd19f858a8feaf1534a5526a3085e9df",
+      "padding_bytes": 14,
+      "full_extent_bytes": 448,
+      "full_extent_sha256": "4629c3595bb60ab750d242e7e669a6b89efb415200208f8dd103af1696155fa5",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Dial_Modem@WinModemClass@@UAEXPAD@Z",
+      "symbol_prefix": "?Dial_Modem@WinModemClass@@UAEXPAD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "??_C@_0BG@BLBP@Creating?5dial?5string?6?$AA@",
+          "target": 8375728,
+          "addend": 0,
+          "resolved": 8375728
+        },
+        {
+          "offset": 15,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291631501
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "??_C@_03ECIG@ATD?$AA@",
+          "target": 8375724,
+          "addend": 0,
+          "resolved": 8375724
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "??_C@_01KGOM@T?$AA@",
+          "target": 8335980,
+          "addend": 0,
+          "resolved": 8335980
+        },
+        {
+          "offset": 88,
+          "kind": 6,
+          "symbol": "??_C@_0BD@JAIA@Dial?5type?5is?5tone?6?$AA@",
+          "target": 8375704,
+          "addend": 0,
+          "resolved": 8375704
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291631397
+        },
+        {
+          "offset": 129,
+          "kind": 6,
+          "symbol": "??_C@_0BE@NNPM@Dial?5type?5is?5pulse?6?$AA@",
+          "target": 8375684,
+          "addend": 0,
+          "resolved": 8375684
+        },
+        {
+          "offset": 134,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291631382
+        },
+        {
+          "offset": 139,
+          "kind": 6,
+          "symbol": "??_C@_01MLA@P?$AA@",
+          "target": 8335976,
+          "addend": 0,
+          "resolved": 8335976
+        },
+        {
+          "offset": 188,
+          "kind": 6,
+          "symbol": "??_C@_0BH@NKJG@Appending?5dial?5string?6?$AA@",
+          "target": 8375660,
+          "addend": 0,
+          "resolved": 8375660
+        },
+        {
+          "offset": 193,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291631323
+        },
+        {
+          "offset": 217,
+          "kind": 6,
+          "symbol": "??_C@_0BL@OPMN@Appending?5carriage?5return?6?$AA@",
+          "target": 8375632,
+          "addend": 0,
+          "resolved": 8375632
+        },
+        {
+          "offset": 248,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291631268
+        },
+        {
+          "offset": 253,
+          "kind": 6,
+          "symbol": "??_C@_01FEHD@?$AN?$AA@",
+          "target": 8289736,
+          "addend": 0,
+          "resolved": 8289736
+        },
+        {
+          "offset": 304,
+          "kind": 6,
+          "symbol": "??_C@_0BD@LCDB@Send?5to?5modem?3?5?$CFs?6?$AA@",
+          "target": 8375612,
+          "addend": 0,
+          "resolved": 8375612
+        },
+        {
+          "offset": 309,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291631207
+        },
+        {
+          "offset": 335,
+          "kind": 20,
+          "symbol": "?Wait_For_Serial_Write@WinModemClass@@QAEXXZ",
+          "target": 7556032,
+          "addend": 0,
+          "resolved": 4294966045
+        },
+        {
+          "offset": 360,
+          "kind": 6,
+          "symbol": "__imp__WriteFile@20",
+          "target": 7971116,
+          "addend": 0,
+          "resolved": 7971116
+        },
+        {
+          "offset": 370,
+          "kind": 6,
+          "symbol": "__imp__GetLastError@0",
+          "target": 7971316,
+          "addend": 0,
+          "resolved": 7971316
+        },
+        {
+          "offset": 388,
+          "kind": 20,
+          "symbol": "?Wait_For_Serial_Write@WinModemClass@@QAEXXZ",
+          "target": 7556032,
+          "addend": 0,
+          "resolved": 4294965992
+        },
+        {
+          "offset": 405,
+          "kind": 6,
+          "symbol": "??_C@_0CN@JKPG@Writing?5to?5port?5handle?5failed?5wi@",
+          "target": 8375564,
+          "addend": 0,
+          "resolved": 8375564
+        },
+        {
+          "offset": 410,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291631106
+        },
+        {
+          "offset": 420,
+          "kind": 20,
+          "symbol": "?Wait_For_Serial_Write@WinModemClass@@QAEXXZ",
+          "target": 7556032,
+          "addend": 0,
+          "resolved": 4294965960
+        }
+      ],
+      "source_sha256": "6fce5f94cbdcad59175e47df9dd1f10e2ebb983640a4ef50d9b1f7395ad49cc5",
+      "source": "src/wincomm.cpp",
+      "population": "rebuild-wincomm",
+      "source_order": 7556944,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7557392,
+      "method": "00735110",
+      "body_bytes": 900,
+      "body_sha256": "43ed9d4f3e99ef71d8b8752ede1edf06b446bd9ff9b4c76a452e30f890f43c47",
+      "padding_bytes": 12,
+      "full_extent_bytes": 912,
+      "full_extent_sha256": "06cb2f992cf119dd6acc11b8f13b396b8614f206bcfb64366b67888efbeeeddf",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Send_Command_To_Modem@WinModemClass@@UAEHPBDDPADHHHH@Z",
+      "symbol_prefix": "?Send_Command_To_Modem@WinModemClass@@UAEHPBDDPADHHHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 126,
+          "kind": 20,
+          "symbol": "?Read_From_Serial_Port@WinModemClass@@QAEHPAEH@Z",
+          "target": 7555888,
+          "addend": 0,
+          "resolved": 4294965662
+        },
+        {
+          "offset": 134,
+          "kind": 6,
+          "symbol": "__imp__Sleep@4",
+          "target": 7971300,
+          "addend": 0,
+          "resolved": 7971300
+        },
+        {
+          "offset": 151,
+          "kind": 20,
+          "symbol": "?Read_From_Serial_Port@WinModemClass@@QAEHPAEH@Z",
+          "target": 7555888,
+          "addend": 0,
+          "resolved": 4294965637
+        },
+        {
+          "offset": 180,
+          "kind": 6,
+          "symbol": "__imp__WriteFile@20",
+          "target": 7971116,
+          "addend": 0,
+          "resolved": 7971116
+        },
+        {
+          "offset": 189,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 4294333023
+        },
+        {
+          "offset": 227,
+          "kind": 20,
+          "symbol": "?Wait_For_Serial_Write@WinModemClass@@QAEXXZ",
+          "target": 7556032,
+          "addend": 0,
+          "resolved": 4294965705
+        },
+        {
+          "offset": 261,
+          "kind": 6,
+          "symbol": "__imp__GetLastError@0",
+          "target": 7971316,
+          "addend": 0,
+          "resolved": 7971316
+        },
+        {
+          "offset": 281,
+          "kind": 6,
+          "symbol": "??_C@_0CN@JKPG@Writing?5to?5port?5handle?5failed?5wi@",
+          "target": 8375564,
+          "addend": 0,
+          "resolved": 8375564
+        },
+        {
+          "offset": 286,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291630782
+        },
+        {
+          "offset": 296,
+          "kind": 20,
+          "symbol": "?Wait_For_Serial_Write@WinModemClass@@QAEXXZ",
+          "target": 7556032,
+          "addend": 0,
+          "resolved": 4294965636
+        },
+        {
+          "offset": 320,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 4294332892
+        },
+        {
+          "offset": 368,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 4294332844
+        },
+        {
+          "offset": 416,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 4294332796
+        },
+        {
+          "offset": 474,
+          "kind": 6,
+          "symbol": "??_C@_01PLJA@0?$AA@",
+          "target": 8264288,
+          "addend": 0,
+          "resolved": 8264288
+        },
+        {
+          "offset": 536,
+          "kind": 6,
+          "symbol": "??_C@_02HAGF@OK?$AA@",
+          "target": 8215104,
+          "addend": 0,
+          "resolved": 8215104
+        },
+        {
+          "offset": 542,
+          "kind": 20,
+          "symbol": "_strstr",
+          "target": 7878320,
+          "addend": 0,
+          "resolved": 320382
+        },
+        {
+          "offset": 562,
+          "kind": 6,
+          "symbol": "??_C@_05EFDD@ERROR?$AA@",
+          "target": 8375752,
+          "addend": 0,
+          "resolved": 8375752
+        },
+        {
+          "offset": 568,
+          "kind": 20,
+          "symbol": "_strstr",
+          "target": 7878320,
+          "addend": 0,
+          "resolved": 320356
+        },
+        {
+          "offset": 672,
+          "kind": 20,
+          "symbol": "_strncpy",
+          "target": 7873488,
+          "addend": 0,
+          "resolved": 315420
+        },
+        {
+          "offset": 678,
+          "kind": 6,
+          "symbol": "__imp__Sleep@4",
+          "target": 7971300,
+          "addend": 0,
+          "resolved": 7971300
+        },
+        {
+          "offset": 692,
+          "kind": 20,
+          "symbol": "?Wait_For_Serial_Write@WinModemClass@@QAEXXZ",
+          "target": 7556032,
+          "addend": 0,
+          "resolved": 4294965240
+        },
+        {
+          "offset": 711,
+          "kind": 6,
+          "symbol": "??_C@_01FEHD@?$AN?$AA@",
+          "target": 8289736,
+          "addend": 0,
+          "resolved": 8289736
+        },
+        {
+          "offset": 724,
+          "kind": 6,
+          "symbol": "__imp__GetLastError@0",
+          "target": 7971316,
+          "addend": 0,
+          "resolved": 7971316
+        },
+        {
+          "offset": 744,
+          "kind": 6,
+          "symbol": "??_C@_0CN@JKPG@Writing?5to?5port?5handle?5failed?5wi@",
+          "target": 8375564,
+          "addend": 0,
+          "resolved": 8375564
+        },
+        {
+          "offset": 749,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291630319
+        },
+        {
+          "offset": 759,
+          "kind": 20,
+          "symbol": "?Wait_For_Serial_Write@WinModemClass@@QAEXXZ",
+          "target": 7556032,
+          "addend": 0,
+          "resolved": 4294965173
+        },
+        {
+          "offset": 860,
+          "kind": 20,
+          "symbol": "_strncpy",
+          "target": 7873488,
+          "addend": 0,
+          "resolved": 315232
+        }
+      ],
+      "source_sha256": "6fce5f94cbdcad59175e47df9dd1f10e2ebb983640a4ef50d9b1f7395ad49cc5",
+      "source": "src/wincomm.cpp",
+      "population": "rebuild-wincomm",
+      "source_order": 7557392,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7558304,
+      "method": "7354a0",
+      "body_bytes": 10,
+      "body_sha256": "91664da878e060a95b809aae824cb658a0e4ed73c1e520a7afce1ba579ba3ba9",
+      "padding_bytes": 6,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "aedc84fd648e3b57e50617f452415032ef6f9a2baf22517944b5ddfa76316fd1",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Echo_Function@WinModemClass@@UAEXP6IXD@Z@Z",
+      "symbol_prefix": "?Set_Echo_Function@WinModemClass@@UAEXP6IXD@Z@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6fce5f94cbdcad59175e47df9dd1f10e2ebb983640a4ef50d9b1f7395ad49cc5",
+      "source": "src/wincomm.cpp",
+      "population": "rebuild-wincomm",
+      "source_order": 7558304,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-09"
+    },
+    {
+      "entry": 7558320,
+      "method": "7354b0",
+      "body_bytes": 10,
+      "body_sha256": "6769e8b07d25e7d291f9a7aec4d5e2f295c47c37bccf9b1c12117f55976fdbff",
+      "padding_bytes": 6,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "17ca7ad7f86cb671e074bb77c1fff020efcd74c5c81f36d0cb855493bec81693",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Abort_Function@WinModemClass@@UAEXP6IHXZ@Z",
+      "symbol_prefix": "?Set_Abort_Function@WinModemClass@@UAEXP6IHXZ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6fce5f94cbdcad59175e47df9dd1f10e2ebb983640a4ef50d9b1f7395ad49cc5",
+      "source": "src/wincomm.cpp",
+      "population": "rebuild-wincomm",
+      "source_order": 7558320,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-09"
+    },
+    {
+      "entry": 7558336,
+      "method": "007354c0",
+      "body_bytes": 4,
+      "body_sha256": "e8a390f77a2c35edee25e41f4902293a876d5b3af20791cc05da79c2f55d4983",
+      "padding_bytes": 12,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "77d815f9f391778bf63bdd44bbd71f07919b2e6ace7cb1b934839963722b6627",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Port_Handle@WinModemClass@@QAEPAXXZ",
+      "symbol_prefix": "?Get_Port_Handle@WinModemClass@@QAEPAXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6fce5f94cbdcad59175e47df9dd1f10e2ebb983640a4ef50d9b1f7395ad49cc5",
+      "source": "src/wincomm.cpp",
+      "population": "rebuild-wincomm",
+      "source_order": 7558336,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4352"
+    },
+    {
+      "entry": 7558352,
+      "method": "007354d0",
+      "body_bytes": 317,
+      "body_sha256": "bb0b7ebe828e890fad9218cf5643dad7193f894cad01cfae723f7bac0ef2e7f6",
+      "padding_bytes": 3,
+      "full_extent_bytes": 320,
+      "full_extent_sha256": "a0a77c71e47e3ddff1e152a50bf87469ea5acebab85e9caa22dac0117f735bff",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Debug_Status@WinModemClass@@QAEXKU_COMSTAT@@@Z",
+      "symbol_prefix": "?Debug_Status@WinModemClass@@QAEXKU_COMSTAT@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "??_C@_0CK@NILK@Communications?5?8Framing?8?5error?5d@",
+          "target": 8376348,
+          "addend": 0,
+          "resolved": 8376348
+        },
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291630081
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "??_C@_0CC@FICI@Communications?5?8Break?8?5detected?4@",
+          "target": 8376312,
+          "addend": 0,
+          "resolved": 8376312
+        },
+        {
+          "offset": 52,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291630056
+        },
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "??_C@_0CF@KKGI@Communications?5?8IO?8?5error?5detect@",
+          "target": 8376272,
+          "addend": 0,
+          "resolved": 8376272
+        },
+        {
+          "offset": 70,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291630038
+        },
+        {
+          "offset": 90,
+          "kind": 6,
+          "symbol": "??_C@_0DC@JBLO@Communications?5?8Receive?5Overrun?8@",
+          "target": 8376220,
+          "addend": 0,
+          "resolved": 8376220
+        },
+        {
+          "offset": 95,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291630013
+        },
+        {
+          "offset": 115,
+          "kind": 6,
+          "symbol": "??_C@_0DJ@ILPP@Communications?5?8Receive?5Queue?5Ov@",
+          "target": 8376160,
+          "addend": 0,
+          "resolved": 8376160
+        },
+        {
+          "offset": 120,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291629988
+        },
+        {
+          "offset": 140,
+          "kind": 6,
+          "symbol": "??_C@_0CJ@EOAL@Communications?5?8Parity?8?5error?5de@",
+          "target": 8376116,
+          "addend": 0,
+          "resolved": 8376116
+        },
+        {
+          "offset": 145,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291629963
+        },
+        {
+          "offset": 165,
+          "kind": 6,
+          "symbol": "??_C@_0DG@ICMB@Communications?5?8Transmit?5Queue?5F@",
+          "target": 8376060,
+          "addend": 0,
+          "resolved": 8376060
+        },
+        {
+          "offset": 170,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291629938
+        },
+        {
+          "offset": 194,
+          "kind": 6,
+          "symbol": "??_C@_0CJ@LKBD@Comm?5status?5?9?5Tx?5waiting?5for?5CTS@",
+          "target": 8376016,
+          "addend": 0,
+          "resolved": 8376016
+        },
+        {
+          "offset": 199,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291629909
+        },
+        {
+          "offset": 212,
+          "kind": 6,
+          "symbol": "??_C@_0CJ@ECLL@Comm?5status?5?9?5Tx?5waiting?5for?5DSR@",
+          "target": 8375972,
+          "addend": 0,
+          "resolved": 8375972
+        },
+        {
+          "offset": 217,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291629891
+        },
+        {
+          "offset": 230,
+          "kind": 6,
+          "symbol": "??_C@_0CK@OEDA@Comm?5status?5?9?5Tx?5waiting?5for?5RLS@",
+          "target": 8375928,
+          "addend": 0,
+          "resolved": 8375928
+        },
+        {
+          "offset": 235,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291629873
+        },
+        {
+          "offset": 248,
+          "kind": 6,
+          "symbol": "??_C@_0CO@EPHK@Comm?5status?5?9?5Tx?5waiting?0?5XOFF?5c@",
+          "target": 8375880,
+          "addend": 0,
+          "resolved": 8375880
+        },
+        {
+          "offset": 253,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291629855
+        },
+        {
+          "offset": 266,
+          "kind": 6,
+          "symbol": "??_C@_0CK@JHIE@Comm?5status?5?9?5Tx?5waiting?0?5XOFF?5c@",
+          "target": 8375836,
+          "addend": 0,
+          "resolved": 8375836
+        },
+        {
+          "offset": 271,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291629837
+        },
+        {
+          "offset": 284,
+          "kind": 6,
+          "symbol": "??_C@_0CC@IIJD@Comm?5status?5?9?5EOF?5character?5sent@",
+          "target": 8375800,
+          "addend": 0,
+          "resolved": 8375800
+        },
+        {
+          "offset": 289,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291629819
+        },
+        {
+          "offset": 304,
+          "kind": 6,
+          "symbol": "??_C@_0CI@PBPE@Comm?5status?5?9?5Character?5waiting?5@",
+          "target": 8375760,
+          "addend": 0,
+          "resolved": 8375760
+        },
+        {
+          "offset": 309,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291629799
+        }
+      ],
+      "source_sha256": "6fce5f94cbdcad59175e47df9dd1f10e2ebb983640a4ef50d9b1f7395ad49cc5",
+      "source": "src/wincomm.cpp",
+      "population": "rebuild-wincomm",
+      "source_order": 7558352,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-45"
+    },
+    {
+      "entry": 7558672,
+      "method": "00735610",
+      "body_bytes": 85,
+      "body_sha256": "ccf7d06e5d03ada8920db80196433665933efacd7aeae8161e050dfc952e8064",
+      "padding_bytes": 11,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "2d13cd72dcc0282118012b998e51bc21f135759a62970b948b0c7ee2e99e8d64",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GWinModemClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GWinModemClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7WinModemClass@@6B@",
+          "target": 8058080,
+          "addend": 0,
+          "resolved": 8058080
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "??_C@_0BF@GLCD@Closing?5serial?5port?6?$AA@",
+          "target": 8374796,
+          "addend": 0,
+          "resolved": 8374796
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291629765
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "__imp__CloseHandle@4",
+          "target": 7971284,
+          "addend": 0,
+          "resolved": 7971284
+        },
+        {
+          "offset": 56,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 313071
+        },
+        {
+          "offset": 72,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 313055
+        }
+      ],
+      "source_sha256": "6fce5f94cbdcad59175e47df9dd1f10e2ebb983640a4ef50d9b1f7395ad49cc5",
+      "source": "src/wincomm.cpp",
+      "population": "rebuild-wincomm",
+      "source_order": 7558672,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

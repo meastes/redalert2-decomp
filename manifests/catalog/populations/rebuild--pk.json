@@ -1,0 +1,86 @@
+{
+  "id": "rebuild--pk",
+  "population": {
+    "id": "rebuild--pk",
+    "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
+    "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
+    "historical_population_sha256": "3b680cac7052bd14c77c12858876064082169bdae2ffb2242f72b049bdbc5a53",
+    "historical_acceptance_sha256": "00c1c9c25f1d21f3da18e210e6b8cc4e224264c63f7dc3d2bf3de0b9a24d487e"
+  },
+  "references": {
+    "?FastKey@@3VPKey@@A": 8622096,
+    "?XMP_Init@@YIXPAIIH@Z": 5930144,
+    "?Keys@@3QBDB": 7973488,
+    "_$E6": 4249744
+  },
+  "regions": [
+    {
+      "entry": 4249744,
+      "method": "0040d890",
+      "body_bytes": 39,
+      "body_sha256": "791f4baebee66178249301b8cfba1512d1d3a8a5f2b9e7e3c179a98c8c3c27c8",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "05f553c17274fe3fb227124d724bd7067ae5b3a7f2d94b95cad79714c77ad412",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E6",
+      "symbol_prefix": "_$E6",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "?FastKey@@3VPKey@@A",
+          "target": 8622096,
+          "addend": 0,
+          "resolved": 8622096
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "?XMP_Init@@YIXPAIIH@Z",
+          "target": 5930144,
+          "addend": 0,
+          "resolved": 1680386
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?FastKey@@3VPKey@@A",
+          "target": 8622096,
+          "addend": 256,
+          "resolved": 8622352
+        },
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "?XMP_Init@@YIXPAIIH@Z",
+          "target": 5930144,
+          "addend": 0,
+          "resolved": 1680372
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "?FastKey@@3VPKey@@A",
+          "target": 8622096,
+          "addend": 512,
+          "resolved": 8622608
+        }
+      ],
+      "source_sha256": "0be2f54c09986f5bf031cc33aec6bf87aa22ad881831bb1b33240576e0c30411",
+      "source": "src/_pk.cpp",
+      "population": "rebuild--pk",
+      "source_order": 4249744,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

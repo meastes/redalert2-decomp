@@ -1,0 +1,393 @@
+{
+  "id": "rebuild-voxpal",
+  "population": {
+    "id": "rebuild-voxpal",
+    "inventory_sha256": "609eefbc72cedcf8216e2e96de705f972e69a1b22ec4d3fe4826dbdf784c6592",
+    "gaps_sha256": "21065825b61fc51d4f655181781b6b5c6978c6d523359e7cc982058d092003ba",
+    "historical_population_sha256": "dfc97cb5ae2cf3d4a972a4a661ace91130258c87cb28be351db9f501e6576d41",
+    "historical_acceptance_sha256": "56caa98e0c528bbfbeadf916b618a81e2396ff4f8f5806423dd19b3fc2bb030b"
+  },
+  "references": {
+    "??2@YAPAXI@Z": 7872535,
+    "??3@YAXPAX@Z": 7871803,
+    "_?_f@?1??Calculate_Lookup_Table@VoxelPaletteLibrary@@AAEXPAMH@Z@4PAMA": 11505424,
+    "__real@4@3ffb8000000000000000": 8026912,
+    "__real@4@3ffecccccd0000000000": 8055372,
+    "_?_addend@?1??Calculate_Lookup_Table@VoxelPaletteLibrary@@AAEXPAMH@Z@4MB": 8055368,
+    "__real@4@3ffdcccccd0000000000": 8026904,
+    "?Closest_Color@VoxelPaletteLibrary@@ABEEMMM_N@Z": 7455312,
+    "__real@4@4006ff00000000000000": 7975080,
+    "??0VoxelPaletteLibrary@@QAE@PAURGBStruct@@PAX@Z": 7453952,
+    "??1VoxelPaletteLibrary@@QAE@XZ": 7454064,
+    "?Read_Colors@VoxelPaletteLibrary@@QAEHAAVFileClass@@@Z": 7454112,
+    "?Read_File@VoxelPaletteLibrary@@QAEHAAVFileClass@@@Z": 7454176,
+    "?Write_File@VoxelPaletteLibrary@@QAEHAAVFileClass@@@Z": 7454336,
+    "?Calculate_Lookup_Table@VoxelPaletteLibrary@@AAEXPAMH@Z": 7454496,
+    "?Closest_Color@VoxelPaletteLibrary@@ABEEMMM@Z": 7455168
+  },
+  "regions": [
+    {
+      "entry": 7453952,
+      "method": "0071bd00",
+      "body_bytes": 99,
+      "body_sha256": "943f6932369b18a3d3e6914ac7202ba383c8796738c807939d5faaae10518492",
+      "padding_bytes": 13,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "506cb6e3c4811a702f4589f8eff4e4d23bcbd25fc6017c231d50e82f66456c76",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0VoxelPaletteLibrary@@QAE@PAURGBStruct@@PAX@Z",
+      "symbol_prefix": "??0VoxelPaletteLibrary@@QAE@PAURGBStruct@@PAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 418562
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 418519
+        }
+      ],
+      "source_sha256": "4644ed4eed06f8af6952bc05e2ce3a0e9195e0b5e8d2a0246cf2d2b908115322",
+      "source": "src/voxpal.cpp",
+      "population": "rebuild-voxpal",
+      "source_order": 7453952,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7454064,
+      "method": "0071bd70",
+      "body_bytes": 43,
+      "body_sha256": "913acd1c57e2907ddd8618b6e487a5580adc4c19143e50bb840b1956c5b14b27",
+      "padding_bytes": 5,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "b8753ebd5d16dcfd8f8f114e5d6e586487522dc5340aa1b35593c0b54d531753",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1VoxelPaletteLibrary@@QAE@XZ",
+      "symbol_prefix": "??1VoxelPaletteLibrary@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 15,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 417720
+        },
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 417701
+        }
+      ],
+      "source_sha256": "4644ed4eed06f8af6952bc05e2ce3a0e9195e0b5e8d2a0246cf2d2b908115322",
+      "source": "src/voxpal.cpp",
+      "population": "rebuild-voxpal",
+      "source_order": 7454064,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7454112,
+      "method": "0071bda0",
+      "body_bytes": 63,
+      "body_sha256": "366e1fe0f7b3652e0f1c63977084508b2259b4737be760df3916a8909c2c882a",
+      "padding_bytes": 1,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0636978a8c6728cb3ebf9cdeb7c8c98a368d0c4dc1c9b5350ccee0bb0b9c8561",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Read_Colors@VoxelPaletteLibrary@@QAEHAAVFileClass@@@Z",
+      "symbol_prefix": "?Read_Colors@VoxelPaletteLibrary@@QAEHAAVFileClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "4644ed4eed06f8af6952bc05e2ce3a0e9195e0b5e8d2a0246cf2d2b908115322",
+      "source": "src/voxpal.cpp",
+      "population": "rebuild-voxpal",
+      "source_order": 7454112,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7454176,
+      "method": "0071bde0",
+      "body_bytes": 147,
+      "body_sha256": "0ada789286c20643521fd28b79bdc0a4695f5fa1b7a9c2321d6aff5d7e2c8dbf",
+      "padding_bytes": 13,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "828a4627d0c2933dfe9fda3810aa868903b5892ccb12e1b6a145bf1a62518ca0",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Read_File@VoxelPaletteLibrary@@QAEHAAVFileClass@@@Z",
+      "symbol_prefix": "?Read_File@VoxelPaletteLibrary@@QAEHAAVFileClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "4644ed4eed06f8af6952bc05e2ce3a0e9195e0b5e8d2a0246cf2d2b908115322",
+      "source": "src/voxpal.cpp",
+      "population": "rebuild-voxpal",
+      "source_order": 7454176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7454336,
+      "method": "0071be80",
+      "body_bytes": 147,
+      "body_sha256": "3acc2e1db59ffb36f3718fce86fb80c6d29694cb3c2b2161e66254d17952c28f",
+      "padding_bytes": 13,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "32ab9292a3f863a8e3576c3edf503a84ab1aabab2faa79688d5a09b93304d1ba",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Write_File@VoxelPaletteLibrary@@QAEHAAVFileClass@@@Z",
+      "symbol_prefix": "?Write_File@VoxelPaletteLibrary@@QAEHAAVFileClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "4644ed4eed06f8af6952bc05e2ce3a0e9195e0b5e8d2a0246cf2d2b908115322",
+      "source": "src/voxpal.cpp",
+      "population": "rebuild-voxpal",
+      "source_order": 7454336,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7454496,
+      "method": "0071bf20",
+      "body_bytes": 665,
+      "body_sha256": "504bd6264c39c1c668e87c0ac2ffb114432f55e8fc96dda84d927d14dbc47cee",
+      "padding_bytes": 7,
+      "full_extent_bytes": 672,
+      "full_extent_sha256": "33ff837aab07bbeaef2cad63947ef13c6126fbc91bd97df36912d84d71492f7f",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Calculate_Lookup_Table@VoxelPaletteLibrary@@AAEXPAMH@Z",
+      "symbol_prefix": "?Calculate_Lookup_Table@VoxelPaletteLibrary@@AAEXPAMH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "_?_f@?1??Calculate_Lookup_Table@VoxelPaletteLibrary@@AAEXPAMH@Z@4PAMA",
+          "target": 11505424,
+          "addend": 0,
+          "resolved": 11505424
+        },
+        {
+          "offset": 69,
+          "kind": 6,
+          "symbol": "_?_f@?1??Calculate_Lookup_Table@VoxelPaletteLibrary@@AAEXPAMH@Z@4PAMA",
+          "target": 11505424,
+          "addend": 64,
+          "resolved": 11505488
+        },
+        {
+          "offset": 75,
+          "kind": 6,
+          "symbol": "__real@4@3ffb8000000000000000",
+          "target": 8026912,
+          "addend": 0,
+          "resolved": 8026912
+        },
+        {
+          "offset": 85,
+          "kind": 6,
+          "symbol": "__real@4@3ffecccccd0000000000",
+          "target": 8055372,
+          "addend": 0,
+          "resolved": 8055372
+        },
+        {
+          "offset": 91,
+          "kind": 6,
+          "symbol": "_?_addend@?1??Calculate_Lookup_Table@VoxelPaletteLibrary@@AAEXPAMH@Z@4MB",
+          "target": 8055368,
+          "addend": 0,
+          "resolved": 8055368
+        },
+        {
+          "offset": 106,
+          "kind": 6,
+          "symbol": "_?_f@?1??Calculate_Lookup_Table@VoxelPaletteLibrary@@AAEXPAMH@Z@4PAMA",
+          "target": 11505424,
+          "addend": 64,
+          "resolved": 11505488
+        },
+        {
+          "offset": 130,
+          "kind": 6,
+          "symbol": "_?_f@?1??Calculate_Lookup_Table@VoxelPaletteLibrary@@AAEXPAMH@Z@4PAMA",
+          "target": 11505424,
+          "addend": 128,
+          "resolved": 11505552
+        },
+        {
+          "offset": 144,
+          "kind": 6,
+          "symbol": "__real@4@3ffb8000000000000000",
+          "target": 8026912,
+          "addend": 0,
+          "resolved": 8026912
+        },
+        {
+          "offset": 150,
+          "kind": 6,
+          "symbol": "__real@4@3ffdcccccd0000000000",
+          "target": 8026904,
+          "addend": 0,
+          "resolved": 8026904
+        },
+        {
+          "offset": 310,
+          "kind": 20,
+          "symbol": "?Closest_Color@VoxelPaletteLibrary@@ABEEMMM_N@Z",
+          "target": 7455312,
+          "addend": 0,
+          "resolved": 502
+        },
+        {
+          "offset": 508,
+          "kind": 6,
+          "symbol": "__real@4@4006ff00000000000000",
+          "target": 7975080,
+          "addend": 0,
+          "resolved": 7975080
+        },
+        {
+          "offset": 533,
+          "kind": 6,
+          "symbol": "__real@4@4006ff00000000000000",
+          "target": 7975080,
+          "addend": 0,
+          "resolved": 7975080
+        },
+        {
+          "offset": 554,
+          "kind": 6,
+          "symbol": "__real@4@4006ff00000000000000",
+          "target": 7975080,
+          "addend": 0,
+          "resolved": 7975080
+        },
+        {
+          "offset": 596,
+          "kind": 20,
+          "symbol": "?Closest_Color@VoxelPaletteLibrary@@ABEEMMM_N@Z",
+          "target": 7455312,
+          "addend": 0,
+          "resolved": 216
+        }
+      ],
+      "source_sha256": "4644ed4eed06f8af6952bc05e2ce3a0e9195e0b5e8d2a0246cf2d2b908115322",
+      "source": "src/voxpal.cpp",
+      "population": "rebuild-voxpal",
+      "source_order": 7454496,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7455168,
+      "method": "0071c1c0",
+      "body_bytes": 133,
+      "body_sha256": "90f9fe81fd0ad041b22cf67628fc04d514e5b776072926eb93b87b520296b1c0",
+      "padding_bytes": 11,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "ecbf0ae1f6ab5a8ef908f2bdd304bdd6d93e8709581b5199cda3c568af8befc7",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Closest_Color@VoxelPaletteLibrary@@ABEEMMM@Z",
+      "symbol_prefix": "?Closest_Color@VoxelPaletteLibrary@@ABEEMMM@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "4644ed4eed06f8af6952bc05e2ce3a0e9195e0b5e8d2a0246cf2d2b908115322",
+      "source": "src/voxpal.cpp",
+      "population": "rebuild-voxpal",
+      "source_order": 7455168,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7455312,
+      "method": "0071c250",
+      "body_bytes": 198,
+      "body_sha256": "a10b90281247e50906ca30c7d42e3768e083b1d16f7f916178cf3876876b16b3",
+      "padding_bytes": 10,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "4321605b415b3314fea38ec8f7ba2c9137ca047e75f36cae9dc7ab5bc66ca827",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Closest_Color@VoxelPaletteLibrary@@ABEEMMM_N@Z",
+      "symbol_prefix": "?Closest_Color@VoxelPaletteLibrary@@ABEEMMM_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "4644ed4eed06f8af6952bc05e2ce3a0e9195e0b5e8d2a0246cf2d2b908115322",
+      "source": "src/voxpal.cpp",
+      "population": "rebuild-voxpal",
+      "source_order": 7455312,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

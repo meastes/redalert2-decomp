@@ -1,0 +1,1353 @@
+{
+  "id": "rebuild-cd",
+  "population": {
+    "id": "rebuild-cd",
+    "inventory_sha256": "cebf21b427b8f76a600d4bab2daa39a11e06135d23d60417216b7f7498e162fd",
+    "gaps_sha256": "a48afb4215602a23eea50bfb5c4b7d282f012aaf458c0125d3964305e07ad614",
+    "historical_population_sha256": "ff08c0460791c85a690fddcd971eace6d66cd4dc2f6e1b0b40a64d8a63bb9475",
+    "historical_acceptance_sha256": "aa7a8fbb3ad06b97873c48882048123b01db26194f18936582105b924004566b"
+  },
+  "references": {
+    "_RECT_NONE": 8718360,
+    "?CurrentCDDrive@CDFileClass@@0HA": 8718492,
+    "?Get_Disk_ID@DiskSwap@@SI?AW4DiskID@@HH@Z": 4817888,
+    "?_OverrideSwap@CD@@0_NA": 8718376,
+    "?RequiredCD@CD@@0W4DiskID@@A": 8200416,
+    "?Force_Available@DiskSwap@@UAE_NW4DiskID@@@Z": 4818368,
+    "??_C@_0O@BMBI@D?3?2Ra2?2CD?4CPP?$AA@": 8200500,
+    "??_C@_0BA@LKCD@TXT_CD_DIALOG_1?$AA@": 8200484,
+    "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z": 7315136,
+    "_swprintf": 7878500,
+    "??_C@_0BA@OEHD@TXT_CD_DIALOG_A?$AA@": 8200468,
+    "??_C@_0BA@BICN@TXT_CD_DIALOG_S?$AA@": 8200452,
+    "??_C@_0O@IIEK@TXT_DISK_NAME?$AA@": 8200436,
+    "??_C@_0BA@EFJK@TXT_CD_DIALOG_2?$AA@": 8200420,
+    "?Theme@@3VThemeClass@@A": 10706296,
+    "?Stop@ThemeClass@@QAEX_N@Z": 7242144,
+    "?MouseCursor@@3PAVMouse@@A": 8625256,
+    "?Keyboard@@3PAUKeyboardClass@@A": 8594536,
+    "?Clear@WWKeyboardClass@@QAEXXZ": 5450224,
+    "?Prompt_Dialog@@YI_NPBG@Z": 6294656,
+    "?Queue_Song@ThemeClass@@QAEXW4ThemeType@@@Z": 7241248,
+    "??_C@_0CB@GBBB@?$CK?$CK?$CK?$CK?$CK?5Swapping?5to?5disk?5?$CFd?5?$CK?$CK?$CK?$CK?$CK?6@": 8200732,
+    "?DebugString@@YAXPBDZZ": 4221168,
+    "?MoviesMix@@3PAVMixFileClass@@A": 8615124,
+    "??_C@_0BD@MGDA@?5?5?5?5?5Releasing?5?$CFs?6?$AA@": 8200712,
+    "?ScoresMix@@3PAVMixFileClass@@A": 8590408,
+    "?MultiMix@@3PAVMixFileClass@@A": 8615064,
+    "?MapsMix@@3PAVMixFileClass@@A": 8615156,
+    "?MainMix@@3PAVMixFileClass@@A": 8615132,
+    "?VolumeCheck@@YI_NXZ": 7426192,
+    "??2@YAPAXI@Z": 7872535,
+    "?FastKey@@3VPKey@@A": 8622096,
+    "??_C@_08DAIP@MAIN?4MIX?$AA@": 8200700,
+    "??0MixFileClass@@QAE@PBDPBVPKey@@@Z": 5853936,
+    "??_C@_0BF@OLAF@?5?5?5?5?5Initialized?5?$CFs?6?$AA@": 8200676,
+    "??_C@_0N@GFJE@MAPS?$CF02d?4MIX?$AA@": 8200660,
+    "_sprintf": 7872756,
+    "??_C@_0BG@HMGE@?5?5?5?5?5Initializing?5?$CFs?6?$AA@": 8200636,
+    "??_C@_0O@HDKF@?5?5?5?5?5FAILED?$CB?6?$AA@": 8200620,
+    "??_C@_0BN@MGOF@?5?5?5?5?5Initializing?5Multi?4Mix?6?$AA@": 8200588,
+    "??_C@_09MIH@MULTI?4MIX?$AA@": 8200576,
+    "??_C@_0BO@IFKA@?5?5?5?5?5Initializing?5Themes?4MIX?6?$AA@": 8200544,
+    "??_C@_09OKCB@THEME?4MIX?$AA@": 8200532,
+    "?Scan@ThemeClass@@QAEXXZ": 7240432,
+    "??_C@_0P@CLBG@MOVIES?$CF02d?4MIX?$AA@": 8200516,
+    "_$E4": 4646048,
+    "?Get_Current_Disk@CD@@SI?AW4DiskID@@H@Z": 4646080,
+    "?Set_Required_Disk@CD@@SI_NW4DiskID@@@Z": 4646096,
+    "?Force_Available@CD@@UAE_NW4DiskID@@@Z": 4646128,
+    "?Request_Disk@CD@@UAE_NW4DiskID@@@Z": 4646176,
+    "?Swap@CD@@UAE_NW4DiskID@@@Z": 4646736
+  },
+  "regions": [
+    {
+      "entry": 4646048,
+      "method": "0046e4a0",
+      "body_bytes": 23,
+      "body_sha256": "62231b825106bfa53e4d46791e50d2d4ecbfbea16c3393dc62e234f92b539a0c",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "c4b1e2eb09e0e163a0bbf78d66d22c1f97086e107275274e4c8dfcd341a09851",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E4",
+      "symbol_prefix": "_$E4",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8718360,
+          "addend": 0,
+          "resolved": 8718360
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8718360,
+          "addend": 4,
+          "resolved": 8718364
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8718360,
+          "addend": 8,
+          "resolved": 8718368
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8718360,
+          "addend": 12,
+          "resolved": 8718372
+        }
+      ],
+      "source_sha256": "74499a624848406e18279aa77fe598257a6e8e1cca7cec1d74fcb6ac7361a3b3",
+      "source": "src/cd.cpp",
+      "population": "rebuild-cd",
+      "source_order": 4646048,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4646080,
+      "method": "0046e4c0",
+      "body_bytes": 13,
+      "body_sha256": "a430c05877b17f205ce56de6eacccd87dbf61ca787bca51d86759073b41f8ca6",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "453d000afa7c9dc59bf6fea7286cc7f6317c26134726eccc211ac42717ade343",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Current_Disk@CD@@SI?AW4DiskID@@H@Z",
+      "symbol_prefix": "?Get_Current_Disk@CD@@SI?AW4DiskID@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?CurrentCDDrive@CDFileClass@@0HA",
+          "target": 8718492,
+          "addend": 0,
+          "resolved": 8718492
+        },
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "?Get_Disk_ID@DiskSwap@@SI?AW4DiskID@@HH@Z",
+          "target": 4817888,
+          "addend": 0,
+          "resolved": 171795
+        }
+      ],
+      "source_sha256": "74499a624848406e18279aa77fe598257a6e8e1cca7cec1d74fcb6ac7361a3b3",
+      "source": "src/cd.cpp",
+      "population": "rebuild-cd",
+      "source_order": 4646080,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4646096,
+      "method": "0046e4d0",
+      "body_bytes": 26,
+      "body_sha256": "d5042618a8cbfc0002e681495b76f8274186b8b6a3df9f78cf23fc3010a4eeff",
+      "padding_bytes": 6,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "c5b676ba29df4035f45c8cd50aea6745cf076944fee650822fa933574119f672",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Required_Disk@CD@@SI_NW4DiskID@@@Z",
+      "symbol_prefix": "?Set_Required_Disk@CD@@SI_NW4DiskID@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?_OverrideSwap@CD@@0_NA",
+          "target": 8718376,
+          "addend": 0,
+          "resolved": 8718376
+        },
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "?RequiredCD@CD@@0W4DiskID@@A",
+          "target": 8200416,
+          "addend": 0,
+          "resolved": 8200416
+        },
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "?RequiredCD@CD@@0W4DiskID@@A",
+          "target": 8200416,
+          "addend": 0,
+          "resolved": 8200416
+        }
+      ],
+      "source_sha256": "74499a624848406e18279aa77fe598257a6e8e1cca7cec1d74fcb6ac7361a3b3",
+      "source": "src/cd.cpp",
+      "population": "rebuild-cd",
+      "source_order": 4646096,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4646128,
+      "method": "0046e4f0",
+      "body_bytes": 44,
+      "body_sha256": "df9c62573d63234431fc6bf3ff35fc0aca93cd6b6d425dd72073ba48a9958596",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "4a816dfabe58c275297e748d173cd6ce05c77f0a826153718cfb16e2161a4692",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Force_Available@CD@@UAE_NW4DiskID@@@Z",
+      "symbol_prefix": "?Force_Available@CD@@UAE_NW4DiskID@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "?_OverrideSwap@CD@@0_NA",
+          "target": 8718376,
+          "addend": 0,
+          "resolved": 8718376
+        },
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "?Force_Available@DiskSwap@@UAE_NW4DiskID@@@Z",
+          "target": 4818368,
+          "addend": 0,
+          "resolved": 172199
+        }
+      ],
+      "source_sha256": "74499a624848406e18279aa77fe598257a6e8e1cca7cec1d74fcb6ac7361a3b3",
+      "source": "src/cd.cpp",
+      "population": "rebuild-cd",
+      "source_order": 4646128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4646176,
+      "method": "0046e520",
+      "body_bytes": 549,
+      "body_sha256": "660394fb5651b6d5df9195b488dec7576f4005fd5a47efdb352fd3a0f7417180",
+      "padding_bytes": 11,
+      "full_extent_bytes": 560,
+      "full_extent_sha256": "0e7bba4065f045a66331db819b52802389433449bbb548954798de71f4c79e84",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Request_Disk@CD@@UAE_NW4DiskID@@@Z",
+      "symbol_prefix": "?Request_Disk@CD@@UAE_NW4DiskID@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "??_C@_0O@BMBI@D?3?2Ra2?2CD?4CPP?$AA@",
+          "target": 8200500,
+          "addend": 0,
+          "resolved": 8200500
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "??_C@_0BA@LKCD@TXT_CD_DIALOG_1?$AA@",
+          "target": 8200484,
+          "addend": 0,
+          "resolved": 8200484
+        },
+        {
+          "offset": 42,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2668914
+        },
+        {
+          "offset": 56,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3232264
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "??_C@_0O@BMBI@D?3?2Ra2?2CD?4CPP?$AA@",
+          "target": 8200500,
+          "addend": 0,
+          "resolved": 8200500
+        },
+        {
+          "offset": 85,
+          "kind": 6,
+          "symbol": "??_C@_0BA@OEHD@TXT_CD_DIALOG_A?$AA@",
+          "target": 8200468,
+          "addend": 0,
+          "resolved": 8200468
+        },
+        {
+          "offset": 90,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2668866
+        },
+        {
+          "offset": 104,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3232216
+        },
+        {
+          "offset": 127,
+          "kind": 6,
+          "symbol": "??_C@_0O@BMBI@D?3?2Ra2?2CD?4CPP?$AA@",
+          "target": 8200500,
+          "addend": 0,
+          "resolved": 8200500
+        },
+        {
+          "offset": 134,
+          "kind": 6,
+          "symbol": "??_C@_0BA@BICN@TXT_CD_DIALOG_S?$AA@",
+          "target": 8200452,
+          "addend": 0,
+          "resolved": 8200452
+        },
+        {
+          "offset": 139,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2668817
+        },
+        {
+          "offset": 153,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3232167
+        },
+        {
+          "offset": 174,
+          "kind": 6,
+          "symbol": "??_C@_0O@BMBI@D?3?2Ra2?2CD?4CPP?$AA@",
+          "target": 8200500,
+          "addend": 0,
+          "resolved": 8200500
+        },
+        {
+          "offset": 179,
+          "kind": 6,
+          "symbol": "??_C@_0O@IIEK@TXT_DISK_NAME?$AA@",
+          "target": 8200436,
+          "addend": 0,
+          "resolved": 8200436
+        },
+        {
+          "offset": 184,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2668772
+        },
+        {
+          "offset": 195,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3232125
+        },
+        {
+          "offset": 216,
+          "kind": 6,
+          "symbol": "??_C@_0O@BMBI@D?3?2Ra2?2CD?4CPP?$AA@",
+          "target": 8200500,
+          "addend": 0,
+          "resolved": 8200500
+        },
+        {
+          "offset": 221,
+          "kind": 6,
+          "symbol": "??_C@_0BA@EFJK@TXT_CD_DIALOG_2?$AA@",
+          "target": 8200420,
+          "addend": 0,
+          "resolved": 8200420
+        },
+        {
+          "offset": 226,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2668730
+        },
+        {
+          "offset": 240,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3232080
+        },
+        {
+          "offset": 254,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 4,
+          "resolved": 10706300
+        },
+        {
+          "offset": 264,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 8,
+          "resolved": 10706304
+        },
+        {
+          "offset": 274,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 0,
+          "resolved": 10706296
+        },
+        {
+          "offset": 279,
+          "kind": 20,
+          "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+          "target": 7242144,
+          "addend": 0,
+          "resolved": 2595685
+        },
+        {
+          "offset": 285,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 305,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 320,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 331,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 346,
+          "kind": 6,
+          "symbol": "?Keyboard@@3PAUKeyboardClass@@A",
+          "target": 8594536,
+          "addend": 0,
+          "resolved": 8594536
+        },
+        {
+          "offset": 351,
+          "kind": 20,
+          "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+          "target": 5450224,
+          "addend": 0,
+          "resolved": 803693
+        },
+        {
+          "offset": 367,
+          "kind": 6,
+          "symbol": "??_C@_0O@BMBI@D?3?2Ra2?2CD?4CPP?$AA@",
+          "target": 8200500,
+          "addend": 0,
+          "resolved": 8200500
+        },
+        {
+          "offset": 374,
+          "kind": 6,
+          "symbol": "??_C@_0BA@OEHD@TXT_CD_DIALOG_A?$AA@",
+          "target": 8200468,
+          "addend": 0,
+          "resolved": 8200468
+        },
+        {
+          "offset": 379,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2668577
+        },
+        {
+          "offset": 386,
+          "kind": 20,
+          "symbol": "?Prompt_Dialog@@YI_NPBG@Z",
+          "target": 6294656,
+          "addend": 0,
+          "resolved": 1648090
+        },
+        {
+          "offset": 407,
+          "kind": 6,
+          "symbol": "??_C@_0O@BMBI@D?3?2Ra2?2CD?4CPP?$AA@",
+          "target": 8200500,
+          "addend": 0,
+          "resolved": 8200500
+        },
+        {
+          "offset": 414,
+          "kind": 6,
+          "symbol": "??_C@_0BA@BICN@TXT_CD_DIALOG_S?$AA@",
+          "target": 8200452,
+          "addend": 0,
+          "resolved": 8200452
+        },
+        {
+          "offset": 419,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2668537
+        },
+        {
+          "offset": 426,
+          "kind": 20,
+          "symbol": "?Prompt_Dialog@@YI_NPBG@Z",
+          "target": 6294656,
+          "addend": 0,
+          "resolved": 1648050
+        },
+        {
+          "offset": 442,
+          "kind": 6,
+          "symbol": "??_C@_0O@BMBI@D?3?2Ra2?2CD?4CPP?$AA@",
+          "target": 8200500,
+          "addend": 0,
+          "resolved": 8200500
+        },
+        {
+          "offset": 449,
+          "kind": 6,
+          "symbol": "??_C@_0BA@LKCD@TXT_CD_DIALOG_1?$AA@",
+          "target": 8200484,
+          "addend": 0,
+          "resolved": 8200484
+        },
+        {
+          "offset": 454,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2668502
+        },
+        {
+          "offset": 461,
+          "kind": 20,
+          "symbol": "?Prompt_Dialog@@YI_NPBG@Z",
+          "target": 6294656,
+          "addend": 0,
+          "resolved": 1648015
+        },
+        {
+          "offset": 473,
+          "kind": 6,
+          "symbol": "?Keyboard@@3PAUKeyboardClass@@A",
+          "target": 8594536,
+          "addend": 0,
+          "resolved": 8594536
+        },
+        {
+          "offset": 478,
+          "kind": 20,
+          "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+          "target": 5450224,
+          "addend": 0,
+          "resolved": 803566
+        },
+        {
+          "offset": 492,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 518,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 0,
+          "resolved": 10706296
+        },
+        {
+          "offset": 523,
+          "kind": 20,
+          "symbol": "?Queue_Song@ThemeClass@@QAEXW4ThemeType@@@Z",
+          "target": 7241248,
+          "addend": 0,
+          "resolved": 2594545
+        }
+      ],
+      "source_sha256": "74499a624848406e18279aa77fe598257a6e8e1cca7cec1d74fcb6ac7361a3b3",
+      "source": "src/cd.cpp",
+      "population": "rebuild-cd",
+      "source_order": 4646176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4646736,
+      "method": "0046e750",
+      "body_bytes": 740,
+      "body_sha256": "4659c0a77c3486032bcabe13575fe494c70afcfafc724373cbf11dcd3107c221",
+      "padding_bytes": 12,
+      "full_extent_bytes": 752,
+      "full_extent_sha256": "672c53cda19eb2aeddbc956d76cda329f7cd4ab577716f94ce688774506a3e24",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Swap@CD@@UAE_NW4DiskID@@@Z",
+      "symbol_prefix": "?Swap@CD@@UAE_NW4DiskID@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "??_C@_0CB@GBBB@?$CK?$CK?$CK?$CK?$CK?5Swapping?5to?5disk?5?$CFd?5?$CK?$CK?$CK?$CK?$CK?6@",
+          "target": 8200732,
+          "addend": 0,
+          "resolved": 8200732
+        },
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294541706
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 4,
+          "resolved": 10706300
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 8,
+          "resolved": 10706304
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 0,
+          "resolved": 10706296
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "?Stop@ThemeClass@@QAEX_N@Z",
+          "target": 7242144,
+          "addend": 0,
+          "resolved": 2595344
+        },
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "?MoviesMix@@3PAVMixFileClass@@A",
+          "target": 8615124,
+          "addend": 0,
+          "resolved": 8615124
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MGDA@?5?5?5?5?5Releasing?5?$CFs?6?$AA@",
+          "target": 8200712,
+          "addend": 0,
+          "resolved": 8200712
+        },
+        {
+          "offset": 83,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294541641
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "?MoviesMix@@3PAVMixFileClass@@A",
+          "target": 8615124,
+          "addend": 0,
+          "resolved": 8615124
+        },
+        {
+          "offset": 108,
+          "kind": 6,
+          "symbol": "?MoviesMix@@3PAVMixFileClass@@A",
+          "target": 8615124,
+          "addend": 0,
+          "resolved": 8615124
+        },
+        {
+          "offset": 113,
+          "kind": 6,
+          "symbol": "?ScoresMix@@3PAVMixFileClass@@A",
+          "target": 8590408,
+          "addend": 0,
+          "resolved": 8590408
+        },
+        {
+          "offset": 126,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MGDA@?5?5?5?5?5Releasing?5?$CFs?6?$AA@",
+          "target": 8200712,
+          "addend": 0,
+          "resolved": 8200712
+        },
+        {
+          "offset": 131,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294541593
+        },
+        {
+          "offset": 137,
+          "kind": 6,
+          "symbol": "?ScoresMix@@3PAVMixFileClass@@A",
+          "target": 8590408,
+          "addend": 0,
+          "resolved": 8590408
+        },
+        {
+          "offset": 156,
+          "kind": 6,
+          "symbol": "?ScoresMix@@3PAVMixFileClass@@A",
+          "target": 8590408,
+          "addend": 0,
+          "resolved": 8590408
+        },
+        {
+          "offset": 161,
+          "kind": 6,
+          "symbol": "?MultiMix@@3PAVMixFileClass@@A",
+          "target": 8615064,
+          "addend": 0,
+          "resolved": 8615064
+        },
+        {
+          "offset": 174,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MGDA@?5?5?5?5?5Releasing?5?$CFs?6?$AA@",
+          "target": 8200712,
+          "addend": 0,
+          "resolved": 8200712
+        },
+        {
+          "offset": 179,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294541545
+        },
+        {
+          "offset": 185,
+          "kind": 6,
+          "symbol": "?MultiMix@@3PAVMixFileClass@@A",
+          "target": 8615064,
+          "addend": 0,
+          "resolved": 8615064
+        },
+        {
+          "offset": 204,
+          "kind": 6,
+          "symbol": "?MultiMix@@3PAVMixFileClass@@A",
+          "target": 8615064,
+          "addend": 0,
+          "resolved": 8615064
+        },
+        {
+          "offset": 209,
+          "kind": 6,
+          "symbol": "?MapsMix@@3PAVMixFileClass@@A",
+          "target": 8615156,
+          "addend": 0,
+          "resolved": 8615156
+        },
+        {
+          "offset": 222,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MGDA@?5?5?5?5?5Releasing?5?$CFs?6?$AA@",
+          "target": 8200712,
+          "addend": 0,
+          "resolved": 8200712
+        },
+        {
+          "offset": 227,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294541497
+        },
+        {
+          "offset": 233,
+          "kind": 6,
+          "symbol": "?MapsMix@@3PAVMixFileClass@@A",
+          "target": 8615156,
+          "addend": 0,
+          "resolved": 8615156
+        },
+        {
+          "offset": 252,
+          "kind": 6,
+          "symbol": "?MapsMix@@3PAVMixFileClass@@A",
+          "target": 8615156,
+          "addend": 0,
+          "resolved": 8615156
+        },
+        {
+          "offset": 257,
+          "kind": 6,
+          "symbol": "?MainMix@@3PAVMixFileClass@@A",
+          "target": 8615132,
+          "addend": 0,
+          "resolved": 8615132
+        },
+        {
+          "offset": 270,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MGDA@?5?5?5?5?5Releasing?5?$CFs?6?$AA@",
+          "target": 8200712,
+          "addend": 0,
+          "resolved": 8200712
+        },
+        {
+          "offset": 275,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294541449
+        },
+        {
+          "offset": 281,
+          "kind": 6,
+          "symbol": "?MainMix@@3PAVMixFileClass@@A",
+          "target": 8615132,
+          "addend": 0,
+          "resolved": 8615132
+        },
+        {
+          "offset": 300,
+          "kind": 6,
+          "symbol": "?MainMix@@3PAVMixFileClass@@A",
+          "target": 8615132,
+          "addend": 0,
+          "resolved": 8615132
+        },
+        {
+          "offset": 305,
+          "kind": 20,
+          "symbol": "?VolumeCheck@@YI_NXZ",
+          "target": 7426192,
+          "addend": 0,
+          "resolved": 2779147
+        },
+        {
+          "offset": 326,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3225469
+        },
+        {
+          "offset": 338,
+          "kind": 6,
+          "symbol": "?FastKey@@3VPKey@@A",
+          "target": 8622096,
+          "addend": 0,
+          "resolved": 8622096
+        },
+        {
+          "offset": 343,
+          "kind": 6,
+          "symbol": "??_C@_08DAIP@MAIN?4MIX?$AA@",
+          "target": 8200700,
+          "addend": 0,
+          "resolved": 8200700
+        },
+        {
+          "offset": 350,
+          "kind": 20,
+          "symbol": "??0MixFileClass@@QAE@PBDPBVPKey@@@Z",
+          "target": 5853936,
+          "addend": 0,
+          "resolved": 1206846
+        },
+        {
+          "offset": 359,
+          "kind": 6,
+          "symbol": "?MainMix@@3PAVMixFileClass@@A",
+          "target": 8615132,
+          "addend": 0,
+          "resolved": 8615132
+        },
+        {
+          "offset": 368,
+          "kind": 6,
+          "symbol": "??_C@_0BF@OLAF@?5?5?5?5?5Initialized?5?$CFs?6?$AA@",
+          "target": 8200676,
+          "addend": 0,
+          "resolved": 8200676
+        },
+        {
+          "offset": 373,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294541351
+        },
+        {
+          "offset": 384,
+          "kind": 6,
+          "symbol": "??_C@_0N@GFJE@MAPS?$CF02d?4MIX?$AA@",
+          "target": 8200660,
+          "addend": 0,
+          "resolved": 8200660
+        },
+        {
+          "offset": 390,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 3225626
+        },
+        {
+          "offset": 400,
+          "kind": 6,
+          "symbol": "??_C@_0BG@HMGE@?5?5?5?5?5Initializing?5?$CFs?6?$AA@",
+          "target": 8200636,
+          "addend": 0,
+          "resolved": 8200636
+        },
+        {
+          "offset": 405,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294541319
+        },
+        {
+          "offset": 412,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3225383
+        },
+        {
+          "offset": 428,
+          "kind": 6,
+          "symbol": "?FastKey@@3VPKey@@A",
+          "target": 8622096,
+          "addend": 0,
+          "resolved": 8622096
+        },
+        {
+          "offset": 436,
+          "kind": 20,
+          "symbol": "??0MixFileClass@@QAE@PBDPBVPKey@@@Z",
+          "target": 5853936,
+          "addend": 0,
+          "resolved": 1206760
+        },
+        {
+          "offset": 443,
+          "kind": 6,
+          "symbol": "?MapsMix@@3PAVMixFileClass@@A",
+          "target": 8615156,
+          "addend": 0,
+          "resolved": 8615156
+        },
+        {
+          "offset": 450,
+          "kind": 6,
+          "symbol": "??_C@_0O@HDKF@?5?5?5?5?5FAILED?$CB?6?$AA@",
+          "target": 8200620,
+          "addend": 0,
+          "resolved": 8200620
+        },
+        {
+          "offset": 455,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294541269
+        },
+        {
+          "offset": 474,
+          "kind": 6,
+          "symbol": "?MapsMix@@3PAVMixFileClass@@A",
+          "target": 8615156,
+          "addend": 0,
+          "resolved": 8615156
+        },
+        {
+          "offset": 481,
+          "kind": 6,
+          "symbol": "??_C@_0BN@MGOF@?5?5?5?5?5Initializing?5Multi?4Mix?6?$AA@",
+          "target": 8200588,
+          "addend": 0,
+          "resolved": 8200588
+        },
+        {
+          "offset": 486,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294541238
+        },
+        {
+          "offset": 493,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3225302
+        },
+        {
+          "offset": 505,
+          "kind": 6,
+          "symbol": "?FastKey@@3VPKey@@A",
+          "target": 8622096,
+          "addend": 0,
+          "resolved": 8622096
+        },
+        {
+          "offset": 510,
+          "kind": 6,
+          "symbol": "??_C@_09MIH@MULTI?4MIX?$AA@",
+          "target": 8200576,
+          "addend": 0,
+          "resolved": 8200576
+        },
+        {
+          "offset": 517,
+          "kind": 20,
+          "symbol": "??0MixFileClass@@QAE@PBDPBVPKey@@@Z",
+          "target": 5853936,
+          "addend": 0,
+          "resolved": 1206679
+        },
+        {
+          "offset": 524,
+          "kind": 6,
+          "symbol": "?MultiMix@@3PAVMixFileClass@@A",
+          "target": 8615064,
+          "addend": 0,
+          "resolved": 8615064
+        },
+        {
+          "offset": 531,
+          "kind": 6,
+          "symbol": "??_C@_0O@HDKF@?5?5?5?5?5FAILED?$CB?6?$AA@",
+          "target": 8200620,
+          "addend": 0,
+          "resolved": 8200620
+        },
+        {
+          "offset": 536,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294541188
+        },
+        {
+          "offset": 555,
+          "kind": 6,
+          "symbol": "?MultiMix@@3PAVMixFileClass@@A",
+          "target": 8615064,
+          "addend": 0,
+          "resolved": 8615064
+        },
+        {
+          "offset": 562,
+          "kind": 6,
+          "symbol": "??_C@_0BO@IFKA@?5?5?5?5?5Initializing?5Themes?4MIX?6?$AA@",
+          "target": 8200544,
+          "addend": 0,
+          "resolved": 8200544
+        },
+        {
+          "offset": 567,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294541157
+        },
+        {
+          "offset": 574,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3225221
+        },
+        {
+          "offset": 586,
+          "kind": 6,
+          "symbol": "?FastKey@@3VPKey@@A",
+          "target": 8622096,
+          "addend": 0,
+          "resolved": 8622096
+        },
+        {
+          "offset": 591,
+          "kind": 6,
+          "symbol": "??_C@_09OKCB@THEME?4MIX?$AA@",
+          "target": 8200532,
+          "addend": 0,
+          "resolved": 8200532
+        },
+        {
+          "offset": 598,
+          "kind": 20,
+          "symbol": "??0MixFileClass@@QAE@PBDPBVPKey@@@Z",
+          "target": 5853936,
+          "addend": 0,
+          "resolved": 1206598
+        },
+        {
+          "offset": 603,
+          "kind": 6,
+          "symbol": "?ScoresMix@@3PAVMixFileClass@@A",
+          "target": 8590408,
+          "addend": 0,
+          "resolved": 8590408
+        },
+        {
+          "offset": 611,
+          "kind": 6,
+          "symbol": "?ScoresMix@@3PAVMixFileClass@@A",
+          "target": 8590408,
+          "addend": 0,
+          "resolved": 8590408
+        },
+        {
+          "offset": 616,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 0,
+          "resolved": 10706296
+        },
+        {
+          "offset": 621,
+          "kind": 20,
+          "symbol": "?Scan@ThemeClass@@QAEXXZ",
+          "target": 7240432,
+          "addend": 0,
+          "resolved": 2593071
+        },
+        {
+          "offset": 631,
+          "kind": 6,
+          "symbol": "??_C@_0P@CLBG@MOVIES?$CF02d?4MIX?$AA@",
+          "target": 8200516,
+          "addend": 0,
+          "resolved": 8200516
+        },
+        {
+          "offset": 637,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 3225379
+        },
+        {
+          "offset": 647,
+          "kind": 6,
+          "symbol": "??_C@_0BG@HMGE@?5?5?5?5?5Initializing?5?$CFs?6?$AA@",
+          "target": 8200636,
+          "addend": 0,
+          "resolved": 8200636
+        },
+        {
+          "offset": 652,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294541072
+        },
+        {
+          "offset": 659,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3225136
+        },
+        {
+          "offset": 675,
+          "kind": 6,
+          "symbol": "?FastKey@@3VPKey@@A",
+          "target": 8622096,
+          "addend": 0,
+          "resolved": 8622096
+        },
+        {
+          "offset": 683,
+          "kind": 20,
+          "symbol": "??0MixFileClass@@QAE@PBDPBVPKey@@@Z",
+          "target": 5853936,
+          "addend": 0,
+          "resolved": 1206513
+        },
+        {
+          "offset": 690,
+          "kind": 6,
+          "symbol": "?MoviesMix@@3PAVMixFileClass@@A",
+          "target": 8615124,
+          "addend": 0,
+          "resolved": 8615124
+        },
+        {
+          "offset": 697,
+          "kind": 6,
+          "symbol": "??_C@_0O@HDKF@?5?5?5?5?5FAILED?$CB?6?$AA@",
+          "target": 8200620,
+          "addend": 0,
+          "resolved": 8200620
+        },
+        {
+          "offset": 702,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294541022
+        },
+        {
+          "offset": 721,
+          "kind": 6,
+          "symbol": "?MoviesMix@@3PAVMixFileClass@@A",
+          "target": 8615124,
+          "addend": 0,
+          "resolved": 8615124
+        },
+        {
+          "offset": 728,
+          "kind": 20,
+          "symbol": "?VolumeCheck@@YI_NXZ",
+          "target": 7426192,
+          "addend": 0,
+          "resolved": 2778724
+        }
+      ],
+      "source_sha256": "74499a624848406e18279aa77fe598257a6e8e1cca7cec1d74fcb6ac7361a3b3",
+      "source": "src/cd.cpp",
+      "population": "rebuild-cd",
+      "source_order": 4646736,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

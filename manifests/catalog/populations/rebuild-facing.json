@@ -1,0 +1,462 @@
+{
+  "id": "rebuild-facing",
+  "population": {
+    "id": "rebuild-facing",
+    "inventory_sha256": "803af7b1ad242a5e8bd66e500133a6570833ba02be94899c4adccaf0504beb8c",
+    "gaps_sha256": "e69fd68ed99d5e110ce61b3ef8f30017a920c23695ac4d97c020987a4e7c4d05",
+    "historical_population_sha256": "1b9f05835af0088336285da396fc4344368de4fcbdf0abea520d7d20bc214b49",
+    "historical_acceptance_sha256": "235eff49001ed2b1de07c48d6f2c7e9d5de75c598c8a966ffeb4166cbf41425b"
+  },
+  "references": {
+    "?Frame@@3HA": 10751276,
+    "??B?$CDTimerClass@VFrameTimerClass@@@@QBEHXZ": 4538032,
+    "??0FacingClass@@QAE@XZ": 4950480,
+    "??0FacingClass@@QAE@H@Z": 4950512,
+    "?Set_Desired@FacingClass@@QAE_NABVDirType@@@Z": 4950576,
+    "?Set@FacingClass@@QAE_NABVDirType@@@Z": 4950800,
+    "?Current@FacingClass@@QBE?AVDirType@@XZ": 4951008,
+    "?Desired@FacingClass@@QBE?AVDirType@@XZ": 4951168,
+    "?Is_Rotating@FacingClass@@QBE_NXZ": 4951184,
+    "?Is_Rotating_CW@FacingClass@@QBE_NXZ": 4951232,
+    "?Is_Rotating_CCW@FacingClass@@QBE_NXZ": 4951296,
+    "?Difference@FacingClass@@QAE?AVDirType@@XZ": 4951360,
+    "?Difference@FacingClass@@QAE?AVDirType@@ABV2@@Z": 4951520,
+    "?Set_ROT@FacingClass@@QAEXH@Z": 4951696
+  },
+  "regions": [
+    {
+      "entry": 4950480,
+      "method": "004b89d0",
+      "body_bytes": 28,
+      "body_sha256": "368aad8de5df6e656a17a56a58de59e76c9b87436437179337455c89811a90c0",
+      "padding_bytes": 4,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "c0e4908238f90cfa212e75bc48e70cbd5693ebf57d7a5cb6ec40e64826d9f00d",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0FacingClass@@QAE@XZ",
+      "symbol_prefix": "??0FacingClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        }
+      ],
+      "source_sha256": "5671e0416cc521154827194bf0ddb75d0283d60cd9ef90b33d183c7dde9307e6",
+      "source": "src/facing.cpp",
+      "population": "rebuild-facing",
+      "source_order": 4950480,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4950512,
+      "method": "004b89f0",
+      "body_bytes": 52,
+      "body_sha256": "ba51aac68af64c3e4149dd1cbe105ef677b5d177804161cf6526eca9a8ed0747",
+      "padding_bytes": 12,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "f332ce4694a472e5110f437cb3cbdee3d2717eab165bc613435f2d7765620d60",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0FacingClass@@QAE@H@Z",
+      "symbol_prefix": "??0FacingClass@@QAE@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        }
+      ],
+      "source_sha256": "5671e0416cc521154827194bf0ddb75d0283d60cd9ef90b33d183c7dde9307e6",
+      "source": "src/facing.cpp",
+      "population": "rebuild-facing",
+      "source_order": 4950512,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4950576,
+      "method": "004b8a30",
+      "body_bytes": 223,
+      "body_sha256": "d0cb41709cb8f0f60aa2ccf93b955f442412287ed42f89fc1765553c885ef8b7",
+      "padding_bytes": 1,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "c5943d8b58ffbd7962125d5f268c5bb5b0a4ed9dc006407e74177495e5b030b1",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Desired@FacingClass@@QAE_NABVDirType@@@Z",
+      "symbol_prefix": "?Set_Desired@FacingClass@@QAE_NABVDirType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 166,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        }
+      ],
+      "source_sha256": "5671e0416cc521154827194bf0ddb75d0283d60cd9ef90b33d183c7dde9307e6",
+      "source": "src/facing.cpp",
+      "population": "rebuild-facing",
+      "source_order": 4950576,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4950800,
+      "method": "004b8b10",
+      "body_bytes": 202,
+      "body_sha256": "5e8de0c5bdc02528b7f237b8e5de48ba88ba3f8d6d134b5fba0793ae38735c3f",
+      "padding_bytes": 6,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "00f7374851ba99c72886dec75c7408e70c2b60dd05c1b92bfb35e490b25478d3",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set@FacingClass@@QAE_NABVDirType@@@Z",
+      "symbol_prefix": "?Set@FacingClass@@QAE_NABVDirType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??B?$CDTimerClass@VFrameTimerClass@@@@QBEHXZ",
+          "target": 4538032,
+          "addend": 0,
+          "resolved": 4294554504
+        },
+        {
+          "offset": 76,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 138,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 171,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        }
+      ],
+      "source_sha256": "5671e0416cc521154827194bf0ddb75d0283d60cd9ef90b33d183c7dde9307e6",
+      "source": "src/facing.cpp",
+      "population": "rebuild-facing",
+      "source_order": 4950800,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4951008,
+      "method": "004b8be0",
+      "body_bytes": 153,
+      "body_sha256": "4a6021fee872adba23788016a8d08c0aa88eff7e8dea8c8a20602e06ff91aa74",
+      "padding_bytes": 7,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "623bbac13465c69a2026d50e6fe2e9af1fb91b8cb652da5666d67e06dad8c421",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Current@FacingClass@@QBE?AVDirType@@XZ",
+      "symbol_prefix": "?Current@FacingClass@@QBE?AVDirType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        }
+      ],
+      "source_sha256": "5671e0416cc521154827194bf0ddb75d0283d60cd9ef90b33d183c7dde9307e6",
+      "source": "src/facing.cpp",
+      "population": "rebuild-facing",
+      "source_order": 4951008,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4951168,
+      "method": "004b8c80",
+      "body_bytes": 11,
+      "body_sha256": "696c7d1fbeff775ca43902f84223dc52054eca0e99697a88e8af33624a95dafa",
+      "padding_bytes": 5,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "55f265b44b97b9482a885f1e4d68f114e661aa8850474558d1db7dc6056c926a",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Desired@FacingClass@@QBE?AVDirType@@XZ",
+      "symbol_prefix": "?Desired@FacingClass@@QBE?AVDirType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "5671e0416cc521154827194bf0ddb75d0283d60cd9ef90b33d183c7dde9307e6",
+      "source": "src/facing.cpp",
+      "population": "rebuild-facing",
+      "source_order": 4951168,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4951184,
+      "method": "004b8c90",
+      "body_bytes": 45,
+      "body_sha256": "433dc28f0c766378a45ce04301094135397763f6aa044621beb2f9e626d960b4",
+      "padding_bytes": 3,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "fd6d013796acc36da0b8dcd1221ca04472b16c1ecf893553d4a48461267201fe",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Rotating@FacingClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Rotating@FacingClass@@QBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        }
+      ],
+      "source_sha256": "5671e0416cc521154827194bf0ddb75d0283d60cd9ef90b33d183c7dde9307e6",
+      "source": "src/facing.cpp",
+      "population": "rebuild-facing",
+      "source_order": 4951184,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4951232,
+      "method": "004b8cc0",
+      "body_bytes": 60,
+      "body_sha256": "ea7bb0ccd755f56979789e9f88135520b4fe4af3908880f506d42d0ecd85ee19",
+      "padding_bytes": 4,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c7379d0288f6880d8825631829a13915def65c30832b1527688fc476639e33f8",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Rotating_CW@FacingClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Rotating_CW@FacingClass@@QBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        }
+      ],
+      "source_sha256": "5671e0416cc521154827194bf0ddb75d0283d60cd9ef90b33d183c7dde9307e6",
+      "source": "src/facing.cpp",
+      "population": "rebuild-facing",
+      "source_order": 4951232,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4951296,
+      "method": "004b8d00",
+      "body_bytes": 58,
+      "body_sha256": "13f40c0cbd1eaa284a5ab7e995dd46c2ff434008d3db9f533532b3cd9ebfbe75",
+      "padding_bytes": 6,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "d2cd98e7cd1fe73b118318d2de74b0ff0939624c6b923f5818b764a44e4e0ad9",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Rotating_CCW@FacingClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Rotating_CCW@FacingClass@@QBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        }
+      ],
+      "source_sha256": "5671e0416cc521154827194bf0ddb75d0283d60cd9ef90b33d183c7dde9307e6",
+      "source": "src/facing.cpp",
+      "population": "rebuild-facing",
+      "source_order": 4951296,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4951360,
+      "method": "004b8d40",
+      "body_bytes": 157,
+      "body_sha256": "3ffdf285536066546877d90753f0c6cbc5d2414052482a4d1463e50d75e3d38d",
+      "padding_bytes": 3,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "3039ea72ceb88dee4672dd8bf3c522d338f060eea4c494315f2c1d6bf5e22578",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Difference@FacingClass@@QAE?AVDirType@@XZ",
+      "symbol_prefix": "?Difference@FacingClass@@QAE?AVDirType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        }
+      ],
+      "source_sha256": "5671e0416cc521154827194bf0ddb75d0283d60cd9ef90b33d183c7dde9307e6",
+      "source": "src/facing.cpp",
+      "population": "rebuild-facing",
+      "source_order": 4951360,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4951520,
+      "method": "004b8de0",
+      "body_bytes": 161,
+      "body_sha256": "601e1176b1a7fa13a74e6c27981c6bea2f86839fc1903c2517b657920f722cb7",
+      "padding_bytes": 15,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "02eb846ef5534c0c0993296df28b9cce3fe98a010685058a92b5ead2e49b1bf7",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Difference@FacingClass@@QAE?AVDirType@@ABV2@@Z",
+      "symbol_prefix": "?Difference@FacingClass@@QAE?AVDirType@@ABV2@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        }
+      ],
+      "source_sha256": "5671e0416cc521154827194bf0ddb75d0283d60cd9ef90b33d183c7dde9307e6",
+      "source": "src/facing.cpp",
+      "population": "rebuild-facing",
+      "source_order": 4951520,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4951696,
+      "method": "004b8e90",
+      "body_bytes": 25,
+      "body_sha256": "76ff766c8d2d78a066e317238d867d9d036f0350f9441968d2b56ccc0ec78228",
+      "padding_bytes": 7,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b4a307b0d243f50e6cdfc878ffa405a48c5c78620c7610d1e841af23dc331c81",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_ROT@FacingClass@@QAEXH@Z",
+      "symbol_prefix": "?Set_ROT@FacingClass@@QAEXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "5671e0416cc521154827194bf0ddb75d0283d60cd9ef90b33d183c7dde9307e6",
+      "source": "src/facing.cpp",
+      "population": "rebuild-facing",
+      "source_order": 4951696,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

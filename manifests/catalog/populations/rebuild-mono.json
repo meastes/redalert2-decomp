@@ -1,0 +1,3917 @@
+{
+  "id": "rebuild-mono",
+  "population": {
+    "id": "rebuild-mono",
+    "inventory_sha256": "3f54c0e551b036669c18b4d4a5d9e97c28493eca113b04be1d91fece82ac5cbd",
+    "gaps_sha256": "9ef6f5269597739e9db790831568d18a6c710427f5d7be98f87bb75e668ae6b1",
+    "historical_population_sha256": "105defe37e27be2b8883c72df102ce1344071ef865f7d0ca049d64055765fc4a",
+    "historical_acceptance_sha256": "ce142ba05db6b74fc7dd8724e87c2d6822e6d901e47cbb465217e02b07913eec"
+  },
+  "references": {
+    "_RECT_NONE": 10948112,
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 10948136,
+    "_ISO_TILE_SIZE": 8021160,
+    "_LEPTONS_PER_PIXEL": 10948320,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 10948248,
+    "_ONE_RAD": 8021168,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 10948240,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 10948144,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 10948104,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 10948328,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 10948152,
+    "_CELL_DIAG_SLOPE_ANGLE": 10948232,
+    "_BRIDGE_LEPTON_HEIGHT": 10948312,
+    "_CELL_NONE": 10948128,
+    "_COORD_NONE": 10948192,
+    "_MonoPages": 10948160,
+    "_MonoInstance": 10948352,
+    "_MonoParent": 10948356,
+    "_MonoWindowAllowed": 10948360,
+    "??2@YAPAXI@Z": 7872535,
+    "?Refresh@MonoClass@@QAEXHHHH@Z": 5892752,
+    "?Current@MonoClass@@2PAV1@A": 10948364,
+    "_MonoWindowRequested": 10948361,
+    "_MonoWindow": 10948368,
+    "?Mono_Window_Create@@YIXXZ": 5888816,
+    "?Enabled@MonoClass@@0_NA": 10948362,
+    "__imp__ShowWindow@8": 7971992,
+    "__imp__SetFocus@4": 7971724,
+    "??3@YAXPAX@Z": 7871803,
+    "_MonoFont": 10948372,
+    "__imp__DeleteObject@4": 7970904,
+    "?Remove_Audio_File_Window@@YIXPAUHWND__@@@Z": 5385088,
+    "__imp__DestroyWindow@4": 7971796,
+    "?Mono_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z": 5889248,
+    "__imp__CreateDialogParamA@20": 7971844,
+    "?Add_Audio_File_Window@@YIXPAUHWND__@@@Z": 5384992,
+    "__imp__GetDC@4": 7971928,
+    "__imp__GetDeviceCaps@8": 7970912,
+    "__imp__MulDiv@12": 7971072,
+    "??_C@_07LMLG@Courier?$AA@": 8021180,
+    "__imp__CreateFontIndirectA@4": 7970908,
+    "__imp__SelectObject@8": 7970916,
+    "_MonoMetrics": 10948256,
+    "__imp__GetTextMetricsA@8": 7970988,
+    "__imp__GetSysColor@4": 7971840,
+    "_MonoBackColor": 10948096,
+    "_MonoTextColor": 10948072,
+    "__imp__AdjustWindowRect@12": 7971836,
+    "__imp__GetWindowRect@8": 7971736,
+    "__imp__MoveWindow@24": 7971808,
+    "__imp__ReleaseDC@8": 7971960,
+    "__imp__InvalidateRect@12": 7971988,
+    "__imp__BeginPaint@8": 7972088,
+    "?Clear@MonoClass@@QAEXXZ": 5890704,
+    "__imp__EndPaint@8": 7972080,
+    "_MonoTestHandle": 10948340,
+    "_MonoTestController": 10948208,
+    "?Init@AudioController@@QAEXXZ": 4217840,
+    "_MonoVoicePriority": 10948348,
+    "_MonoVoiceIndex": 10948336,
+    "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A": 11340080,
+    "?Queue_Speech@@YIXHHH@Z": 7428288,
+    "?AudioControllerGetEvent@@YIPAVAudioEvent@@PAUAudioController@@@Z": 4219200,
+    "?End@AudioController@@QAEXXZ": 4218848,
+    "??_C@_0BD@KMLH@TestEnvelopeFShift?$AA@": 8268508,
+    "?From_Name@VocClass@@SI?AW4VocType@@PBD@Z": 7424320,
+    "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z": 7421360,
+    "??_C@_0L@HJPA@TestEffect?$AA@": 8268496,
+    "_MonoStreamCount": 10948344,
+    "?AudioGetDevice@@YIPAUAudioDevice@@XZ": 4222784,
+    "?AudioStreamerCreate@@YIPAUAudioStreamer@@PAUAudioDevice@@_K@Z": 4224912,
+    "_MonoStreams": 10948076,
+    "??_C@_09NOGH@intro?4wav?$AA@": 8268484,
+    "?AudioStreamerPlayWAV@@YIHPAUAudioStreamer@@PBDH@Z": 4225680,
+    "?AudioStreamerDestroy@@YIXPAUAudioStreamer@@@Z": 4225472,
+    "?AudioStreamerStop@@YIXPAUAudioStreamer@@@Z": 4226656,
+    "_MonoAudioToggle": 10948332,
+    "?Audio_Stop_All@@YIXXZ": 4222496,
+    "?Map_Character@MonoClass@@QAEDD@Z": 5892448,
+    "_vsprintf": 7883194,
+    "?Print@MonoClass@@QAEXPBD@Z": 5891792,
+    "_vswprintf": 7879256,
+    "??_C@_02GKFL@?$CFS?$AA@": 8268528,
+    "_sprintf": 7872756,
+    "__imp__SetBkColor@8": 7970924,
+    "__imp__SetTextColor@8": 7970920,
+    "__imp__TextOutA@20": 7970928,
+    "__imp__SetBkMode@8": 7970940,
+    "?Draw_Character@MonoClass@@QAEXPAUHDC__@@HH@Z": 5892560,
+    "_$E2": 5887376,
+    "_$E5": 5887408,
+    "_$E8": 5887456,
+    "_$E11": 5887488,
+    "_$E14": 5887520,
+    "_$E17": 5887552,
+    "_$E20": 5887584,
+    "_$E23": 5887616,
+    "_$E26": 5887680,
+    "_$E29": 5887728,
+    "_$E32": 5887776,
+    "_$E35": 5887824,
+    "_$E38": 5887840,
+    "?Mono_Window_Init@@YIXPAUHINSTANCE__@@PAUHWND__@@_N@Z": 5887872,
+    "?Mono_Window_Shutdown@@YIXXZ": 5888256,
+    "?Mono_Window_Show_Requested@@YIXXZ": 5888368,
+    "?Enable@MonoClass@@SIXXZ": 5888448,
+    "?Disable@MonoClass@@SIXXZ": 5888512,
+    "?Mono_Window_Is_Active@@YIHXZ": 5888544,
+    "?Mono_Viewed_Page@@YIPAVMonoClass@@XZ": 5888576,
+    "?Get_Page@MonoClass@@SIPAV1@H@Z": 5888592,
+    "?Mono_View_Page@@YIXH@Z": 5888608,
+    "?Mono_Clear_All_Pages@@YIXXZ": 5888720,
+    "??0MonoPoint@@QAE@HH@Z": 5890400,
+    "??0MonoClass@@QAE@H@Z": 5890448,
+    "??1MonoClass@@QAE@XZ": 5890592,
+    "?Get_Handle@MonoClass@@QBEHXZ": 5890608,
+    "?Set_Cursor@MonoClass@@QAEXHH@Z": 5890624,
+    "?Sub_Window@MonoClass@@QAEXHHHH@Z": 5890656,
+    "?Is_Changed@MonoClass@@QBE_NXZ": 5890784,
+    "?View@MonoClass@@QAEXXZ": 5890800,
+    "?Set_Default_Attribute@MonoClass@@QAEXW4MonoAttribute@1@@Z": 5890928,
+    "?Fill_Attrib@MonoClass@@QAEXHHHHW4MonoAttribute@1@@Z": 5890960,
+    "?Scroll@MonoClass@@QAEXH@Z": 5891088,
+    "?Pan@MonoClass@@QAEXH@Z": 5891472,
+    "?Printf@MonoClass@@QAAXPBDZZ": 5892080,
+    "?Printf@MonoClass@@QAAXPBGZZ": 5892160,
+    "?Text_Print@MonoClass@@QAEXPBDHHW4MonoAttribute@1@@Z": 5892256,
+    "?Text_Print@MonoClass@@QAEXPBGHHW4MonoAttribute@1@@Z": 5892320
+  },
+  "regions": [
+    {
+      "entry": 5887376,
+      "method": "0059d590",
+      "body_bytes": 23,
+      "body_sha256": "df683448ef5cc956c647226b4721e49a0cebe3e990d28750acecc33d2725e87e",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "c25c97628b190440c2b568bf1fba293b6a95adcf2721e284455f090a403e7961",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10948112,
+          "addend": 0,
+          "resolved": 10948112
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10948112,
+          "addend": 4,
+          "resolved": 10948116
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10948112,
+          "addend": 8,
+          "resolved": 10948120
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10948112,
+          "addend": 12,
+          "resolved": 10948124
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5887376,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-274"
+    },
+    {
+      "entry": 5887408,
+      "method": "0059d5b0",
+      "body_bytes": 40,
+      "body_sha256": "563fe86729cbd9e87a41488d0f1ee609deb6bbdc344b18802350625b4ee76c1a",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "493c1a0a920342d80ee2188d72876c4185a5545df9cf9f3481988ca350b157dd",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 1985519
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4294037058
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10948136,
+          "addend": 0,
+          "resolved": 10948136
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5887408,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-274"
+    },
+    {
+      "entry": 5887456,
+      "method": "0059d5e0",
+      "body_bytes": 19,
+      "body_sha256": "698178bae2e7f9515bc770b3485ad02cc4d0c089b9f5c5c01fe2cc320ad5f284",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4f28364c7914dacbc0a7b17b0d55a1295301538a7dbde2b637edab7f2bbe99c1",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10948136,
+          "addend": 0,
+          "resolved": 10948136
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8021160,
+          "addend": 0,
+          "resolved": 8021160
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10948320,
+          "addend": 0,
+          "resolved": 10948320
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5887456,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-274"
+    },
+    {
+      "entry": 5887488,
+      "method": "0059d600",
+      "body_bytes": 19,
+      "body_sha256": "188d21d230dd283c0633e90defb2fab65614aede2abcef58969784e3ad8320e5",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "6ca81b79166c38b880e01ae7880625d4c6cb371bc5f73005b31c0a3ca67fe386",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10948320,
+          "addend": 0,
+          "resolved": 10948320
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 10948248,
+          "addend": 0,
+          "resolved": 10948248
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5887488,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-274"
+    },
+    {
+      "entry": 5887520,
+      "method": "0059d620",
+      "body_bytes": 19,
+      "body_sha256": "e45cb9a87617256f945ec08ba596144d5456bb70332dda23512afac7a65cd62c",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f6a184e31eef3547da2eb1e94a609a4882dd4c4371a2ea0f574c14f4348d83bc",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8021168,
+          "addend": 0,
+          "resolved": 8021168
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 10948240,
+          "addend": 0,
+          "resolved": 10948240
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5887520,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-274"
+    },
+    {
+      "entry": 5887552,
+      "method": "0059d640",
+      "body_bytes": 19,
+      "body_sha256": "7dfd1dfa03b7d5590cf64d9dee7d14da47c2c791b40ada8bbd0f23f9ff240857",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "7aa51bf1a659447f3f4b33e4a40c39b2663c73dc77b6591d49ed332425fb667c",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8021168,
+          "addend": 0,
+          "resolved": 8021168
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10948144,
+          "addend": 0,
+          "resolved": 10948144
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5887552,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-274"
+    },
+    {
+      "entry": 5887584,
+      "method": "0059d660",
+      "body_bytes": 19,
+      "body_sha256": "ca5bff7b9822c1f29152ad6e91cefb8ca4a4d92156f29ce3b28a5370ee9cee22",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "832634814267d3d5cb2a735fa7168392c673a5a499b261debf50349468023ca9",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8021168,
+          "addend": 0,
+          "resolved": 8021168
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10948104,
+          "addend": 0,
+          "resolved": 10948104
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5887584,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-274"
+    },
+    {
+      "entry": 5887616,
+      "method": "0059d680",
+      "body_bytes": 49,
+      "body_sha256": "c0330348c238be6923aab480c614d85f01b2197a65990efbfec4425f6ecc638a",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "8cb6405feef015b96ea801f3ceb7fc58528b1947e77fd486a37225c78d783aff",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10948104,
+          "addend": 0,
+          "resolved": 10948104
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10948144,
+          "addend": 0,
+          "resolved": 10948144
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4294037129
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10948136,
+          "addend": 0,
+          "resolved": 10948136
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1972837
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10948328,
+          "addend": 0,
+          "resolved": 10948328
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5887616,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-274"
+    },
+    {
+      "entry": 5887680,
+      "method": "0059d6c0",
+      "body_bytes": 33,
+      "body_sha256": "b258ee4a51536f0e839e6e666b0dabf16a0aa7d3160ea2ed9dc8f2633dd0d9ba",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "02cdbf329532e75279ebbd7a329d7397e9706653f17636fc54fe8b71beeaafbe",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10948328,
+          "addend": 0,
+          "resolved": 10948328
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294037209
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 10948152,
+          "addend": 0,
+          "resolved": 10948152
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5887680,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-274"
+    },
+    {
+      "entry": 5887728,
+      "method": "0059d6f0",
+      "body_bytes": 44,
+      "body_sha256": "92b46f16f2488460edfc6bc04bca608d0d090c91469fba0b75652b670d0b6998",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "ec53dd8d5964c80fb8c0ccdadd7209be7b6591706104c40b70683063b4f212d3",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10948328,
+          "addend": 0,
+          "resolved": 10948328
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10948136,
+          "addend": 0,
+          "resolved": 10948136
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294037150
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 10948232,
+          "addend": 0,
+          "resolved": 10948232
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5887728,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-274"
+    },
+    {
+      "entry": 5887776,
+      "method": "0059d720",
+      "body_bytes": 39,
+      "body_sha256": "d28434f54698405ea51d77ef81e8b47c67f61924b1d44f88b99da48ea57551af",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "a61ea044f0f379b2619c590afb38ae522b37433a673d9a5056be70fc178ca6d8",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10948328,
+          "addend": 0,
+          "resolved": 10948328
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1972688
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 10948312,
+          "addend": 0,
+          "resolved": 10948312
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5887776,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-274"
+    },
+    {
+      "entry": 5887824,
+      "method": "0059d750",
+      "body_bytes": 15,
+      "body_sha256": "27673a863007b20ada48646ca0693c9e701fe50ceed966c0c939d350af29e784",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "0fdab870b808d967970b264f4477846cb396bdd5689e0770a542044e8d3f92dd",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10948128,
+          "addend": 0,
+          "resolved": 10948128
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10948128,
+          "addend": 2,
+          "resolved": 10948130
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5887824,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-274"
+    },
+    {
+      "entry": 5887840,
+      "method": "0059d760",
+      "body_bytes": 18,
+      "body_sha256": "8f541fcd8323865b66df3ffa543f5acfdd434ba64180ddcbf81c2efada94bf9a",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "cb9aebc7982c7ae30a147e670b48d42919f3678752cebb1250d6875281e02b23",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10948192,
+          "addend": 0,
+          "resolved": 10948192
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10948192,
+          "addend": 4,
+          "resolved": 10948196
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10948192,
+          "addend": 8,
+          "resolved": 10948200
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5887840,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-274"
+    },
+    {
+      "entry": 5887872,
+      "method": "0059d780",
+      "body_bytes": 382,
+      "body_sha256": "934e68810d64bbdf2e77a84ff65956561c1c0ec5b6bc7749d5da5a4fa3161e20",
+      "padding_bytes": 2,
+      "full_extent_bytes": 384,
+      "full_extent_sha256": "f7c689dfc678194a58b8a34f507146d37d00342470cce6da4e8ceee509f8c56b",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Mono_Window_Init@@YIXPAUHINSTANCE__@@PAUHWND__@@_N@Z",
+      "symbol_prefix": "?Mono_Window_Init@@YIXPAUHINSTANCE__@@PAUHWND__@@_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "_MonoPages",
+          "target": 10948160,
+          "addend": 0,
+          "resolved": 10948160
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_MonoInstance",
+          "target": 10948352,
+          "addend": 0,
+          "resolved": 10948352
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "_MonoParent",
+          "target": 10948356,
+          "addend": 0,
+          "resolved": 10948356
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "_MonoWindowAllowed",
+          "target": 10948360,
+          "addend": 0,
+          "resolved": 10948360
+        },
+        {
+          "offset": 47,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1984612
+        },
+        {
+          "offset": 171,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 4705
+        },
+        {
+          "offset": 195,
+          "kind": 6,
+          "symbol": "_MonoPages",
+          "target": 10948160,
+          "addend": 32,
+          "resolved": 10948192
+        },
+        {
+          "offset": 215,
+          "kind": 6,
+          "symbol": "_MonoPages",
+          "target": 10948160,
+          "addend": 0,
+          "resolved": 10948160
+        },
+        {
+          "offset": 220,
+          "kind": 6,
+          "symbol": "_MonoPages",
+          "target": 10948160,
+          "addend": 0,
+          "resolved": 10948160
+        },
+        {
+          "offset": 226,
+          "kind": 6,
+          "symbol": "?Current@MonoClass@@2PAV1@A",
+          "target": 10948364,
+          "addend": 0,
+          "resolved": 10948364
+        },
+        {
+          "offset": 293,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 4583
+        },
+        {
+          "offset": 302,
+          "kind": 6,
+          "symbol": "_MonoPages",
+          "target": 10948160,
+          "addend": 32,
+          "resolved": 10948192
+        },
+        {
+          "offset": 309,
+          "kind": 6,
+          "symbol": "_MonoWindowRequested",
+          "target": 10948361,
+          "addend": 0,
+          "resolved": 10948361
+        },
+        {
+          "offset": 322,
+          "kind": 6,
+          "symbol": "_MonoWindowAllowed",
+          "target": 10948360,
+          "addend": 0,
+          "resolved": 10948360
+        },
+        {
+          "offset": 331,
+          "kind": 6,
+          "symbol": "_MonoWindow",
+          "target": 10948368,
+          "addend": 0,
+          "resolved": 10948368
+        },
+        {
+          "offset": 340,
+          "kind": 20,
+          "symbol": "?Mono_Window_Create@@YIXXZ",
+          "target": 5888816,
+          "addend": 0,
+          "resolved": 600
+        },
+        {
+          "offset": 345,
+          "kind": 6,
+          "symbol": "_MonoWindow",
+          "target": 10948368,
+          "addend": 0,
+          "resolved": 10948368
+        },
+        {
+          "offset": 354,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 361,
+          "kind": 6,
+          "symbol": "__imp__ShowWindow@8",
+          "target": 7971992,
+          "addend": 0,
+          "resolved": 7971992
+        },
+        {
+          "offset": 367,
+          "kind": 6,
+          "symbol": "_MonoParent",
+          "target": 10948356,
+          "addend": 0,
+          "resolved": 10948356
+        },
+        {
+          "offset": 374,
+          "kind": 6,
+          "symbol": "__imp__SetFocus@4",
+          "target": 7971724,
+          "addend": 0,
+          "resolved": 7971724
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5887872,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5888256,
+      "method": "0059d900",
+      "body_bytes": 105,
+      "body_sha256": "04f0042238e6629d58ad2c633aa1329a26396ca50433ca54784f230ae6f425c7",
+      "padding_bytes": 7,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "12d670272ebdf5dbcde69d13b51ead8dffef4a639df822271ba13f8ce9366cb9",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Mono_Window_Shutdown@@YIXXZ",
+      "symbol_prefix": "?Mono_Window_Shutdown@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_MonoPages",
+          "target": 10948160,
+          "addend": 0,
+          "resolved": 10948160
+        },
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1983529
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_MonoPages",
+          "target": 10948160,
+          "addend": 32,
+          "resolved": 10948192
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "_MonoWindow",
+          "target": 10948368,
+          "addend": 0,
+          "resolved": 10948368
+        },
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "_MonoFont",
+          "target": 10948372,
+          "addend": 0,
+          "resolved": 10948372
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "__imp__DeleteObject@4",
+          "target": 7970904,
+          "addend": 0,
+          "resolved": 7970904
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "_MonoWindow",
+          "target": 10948368,
+          "addend": 0,
+          "resolved": 10948368
+        },
+        {
+          "offset": 67,
+          "kind": 20,
+          "symbol": "?Remove_Audio_File_Window@@YIXPAUHWND__@@@Z",
+          "target": 5385088,
+          "addend": 0,
+          "resolved": 4294464057
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "_MonoWindow",
+          "target": 10948368,
+          "addend": 0,
+          "resolved": 10948368
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "__imp__DestroyWindow@4",
+          "target": 7971796,
+          "addend": 0,
+          "resolved": 7971796
+        },
+        {
+          "offset": 86,
+          "kind": 6,
+          "symbol": "_MonoFont",
+          "target": 10948372,
+          "addend": 0,
+          "resolved": 10948372
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "_MonoWindow",
+          "target": 10948368,
+          "addend": 0,
+          "resolved": 10948368
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5888256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5888368,
+      "method": "0059d970",
+      "body_bytes": 75,
+      "body_sha256": "e1b05e04f7fc2ba80ddd6e1db76412ab247608a5b4ee8f02e38d6ea56e30ec86",
+      "padding_bytes": 5,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "0e7a38d310609db256fc160bbae738079243ae1d6ded72d926c0ffb08fa8a348",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Mono_Window_Show_Requested@@YIXXZ",
+      "symbol_prefix": "?Mono_Window_Show_Requested@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_MonoParent",
+          "target": 10948356,
+          "addend": 0,
+          "resolved": 10948356
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "_MonoWindowRequested",
+          "target": 10948361,
+          "addend": 0,
+          "resolved": 10948361
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_MonoWindowAllowed",
+          "target": 10948360,
+          "addend": 0,
+          "resolved": 10948360
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "_MonoWindow",
+          "target": 10948368,
+          "addend": 0,
+          "resolved": 10948368
+        },
+        {
+          "offset": 36,
+          "kind": 20,
+          "symbol": "?Mono_Window_Create@@YIXXZ",
+          "target": 5888816,
+          "addend": 0,
+          "resolved": 408
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "_MonoWindow",
+          "target": 10948368,
+          "addend": 0,
+          "resolved": 10948368
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "__imp__ShowWindow@8",
+          "target": 7971992,
+          "addend": 0,
+          "resolved": 7971992
+        },
+        {
+          "offset": 63,
+          "kind": 6,
+          "symbol": "_MonoParent",
+          "target": 10948356,
+          "addend": 0,
+          "resolved": 10948356
+        },
+        {
+          "offset": 70,
+          "kind": 6,
+          "symbol": "__imp__SetFocus@4",
+          "target": 7971724,
+          "addend": 0,
+          "resolved": 7971724
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5888368,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5888448,
+      "method": "0059d9c0",
+      "body_bytes": 58,
+      "body_sha256": "4cecc18cc390ffd62ef9b4d2b030a2f0227efa0385301a37b26a098435c59699",
+      "padding_bytes": 6,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "6d5394b48b7b2772b414dbd04fb0198c4411d416a457397d772bd1874a5fbc88",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Enable@MonoClass@@SIXXZ",
+      "symbol_prefix": "?Enable@MonoClass@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_MonoWindowAllowed",
+          "target": 10948360,
+          "addend": 0,
+          "resolved": 10948360
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_MonoWindow",
+          "target": 10948368,
+          "addend": 0,
+          "resolved": 10948368
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?Mono_Window_Create@@YIXXZ",
+          "target": 5888816,
+          "addend": 0,
+          "resolved": 345
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "_MonoWindow",
+          "target": 10948368,
+          "addend": 0,
+          "resolved": 10948368
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "__imp__ShowWindow@8",
+          "target": 7971992,
+          "addend": 0,
+          "resolved": 7971992
+        },
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "_MonoParent",
+          "target": 10948356,
+          "addend": 0,
+          "resolved": 10948356
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "__imp__SetFocus@4",
+          "target": 7971724,
+          "addend": 0,
+          "resolved": 7971724
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5888448,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5888512,
+      "method": "0059da00",
+      "body_bytes": 32,
+      "body_sha256": "e1afc034c6186384bcbe720f170ad84aef5f28bcc527639d627d1d41784d7192",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "e1afc034c6186384bcbe720f170ad84aef5f28bcc527639d627d1d41784d7192",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Disable@MonoClass@@SIXXZ",
+      "symbol_prefix": "?Disable@MonoClass@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_MonoWindow",
+          "target": 10948368,
+          "addend": 0,
+          "resolved": 10948368
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "_MonoWindowRequested",
+          "target": 10948361,
+          "addend": 0,
+          "resolved": 10948361
+        },
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "__imp__ShowWindow@8",
+          "target": 7971992,
+          "addend": 0,
+          "resolved": 7971992
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5888512,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5888544,
+      "method": "0059da20",
+      "body_bytes": 27,
+      "body_sha256": "8d320398ca016a9d1f3e295572338cec8da093e9baf8da8ceda082b0bdf63865",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2875ae3781b8cc2b471f4599206d5613b7055f035df8232f79345aba51d16990",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Mono_Window_Is_Active@@YIHXZ",
+      "symbol_prefix": "?Mono_Window_Is_Active@@YIHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_MonoWindowRequested",
+          "target": 10948361,
+          "addend": 0,
+          "resolved": 10948361
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5888544,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-150"
+    },
+    {
+      "entry": 5888576,
+      "method": "0059da40",
+      "body_bytes": 6,
+      "body_sha256": "28a76ab9e53bef11a75ee3ce25dede5cdaf20356c710e970d945b176dac0e12c",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "703b5db15876b1a1a6036b774560e70336e5c5c857da3d33dc49b557c20bcd85",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Mono_Viewed_Page@@YIPAVMonoClass@@XZ",
+      "symbol_prefix": "?Mono_Viewed_Page@@YIPAVMonoClass@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Current@MonoClass@@2PAV1@A",
+          "target": 10948364,
+          "addend": 0,
+          "resolved": 10948364
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5888576,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 5888592,
+      "method": "0059da50",
+      "body_bytes": 8,
+      "body_sha256": "02be69117d39b2d0635d5bee772719ed2e499748412ef822244128f2b3dd84ab",
+      "padding_bytes": 8,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "58ecac936283f3c0641244ef4a1a704c73ccb638796f477162483b6109051fe4",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Page@MonoClass@@SIPAV1@H@Z",
+      "symbol_prefix": "?Get_Page@MonoClass@@SIPAV1@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_MonoPages",
+          "target": 10948160,
+          "addend": 0,
+          "resolved": 10948160
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5888592,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4352"
+    },
+    {
+      "entry": 5888608,
+      "method": "0059da60",
+      "body_bytes": 104,
+      "body_sha256": "643f2b90aee39278c1d08afa666b66c8d23f0929f17ea8f6c7574eee93e3faab",
+      "padding_bytes": 8,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "6025a37b87fcb20502aed7aca4b0d2e2daa39a01ec9a339b9f5012f26f21f232",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Mono_View_Page@@YIXH@Z",
+      "symbol_prefix": "?Mono_View_Page@@YIXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_MonoPages",
+          "target": 10948160,
+          "addend": 0,
+          "resolved": 10948160
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "?Current@MonoClass@@2PAV1@A",
+          "target": 10948364,
+          "addend": 0,
+          "resolved": 10948364
+        },
+        {
+          "offset": 77,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 4063
+        },
+        {
+          "offset": 83,
+          "kind": 6,
+          "symbol": "?Current@MonoClass@@2PAV1@A",
+          "target": 10948364,
+          "addend": 0,
+          "resolved": 10948364
+        },
+        {
+          "offset": 96,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 4044
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5888608,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5888720,
+      "method": "0059dad0",
+      "body_bytes": 92,
+      "body_sha256": "144c5a8b4184ddf6ac661751da01cceadc16dfccb2a0bd06c8e0b4e840f43adc",
+      "padding_bytes": 4,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "f8caedfa3eb16f3e203794568a14cec0b70c32e26fe198352d1d1c757e958f44",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Mono_Clear_All_Pages@@YIXXZ",
+      "symbol_prefix": "?Mono_Clear_All_Pages@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "_MonoPages",
+          "target": 10948160,
+          "addend": 0,
+          "resolved": 10948160
+        },
+        {
+          "offset": 72,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 3956
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "_MonoPages",
+          "target": 10948160,
+          "addend": 32,
+          "resolved": 10948192
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5888720,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5888816,
+      "method": "0059db30",
+      "body_bytes": 426,
+      "body_sha256": "0f0dd8978c6f60f57e1270345d8f4b57a813b2fa94b14e5ed4f93c001bab4ab7",
+      "padding_bytes": 6,
+      "full_extent_bytes": 432,
+      "full_extent_sha256": "a72092474e8b5fb9e5412ecd68b5d709c8ccec002bd9f509a20d5ccc71540094",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Mono_Window_Create@@YIXXZ",
+      "symbol_prefix": "?Mono_Window_Create@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_MonoParent",
+          "target": 10948356,
+          "addend": 0,
+          "resolved": 10948356
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_MonoInstance",
+          "target": 10948352,
+          "addend": 0,
+          "resolved": 10948352
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "?Mono_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+          "target": 5889248,
+          "addend": 0,
+          "resolved": 5889248
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "__imp__CreateDialogParamA@20",
+          "target": 7971844,
+          "addend": 0,
+          "resolved": 7971844
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "_MonoWindow",
+          "target": 10948368,
+          "addend": 0,
+          "resolved": 10948368
+        },
+        {
+          "offset": 47,
+          "kind": 20,
+          "symbol": "?Add_Audio_File_Window@@YIXPAUHWND__@@@Z",
+          "target": 5384992,
+          "addend": 0,
+          "resolved": 4294463421
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "_MonoWindow",
+          "target": 10948368,
+          "addend": 0,
+          "resolved": 10948368
+        },
+        {
+          "offset": 60,
+          "kind": 6,
+          "symbol": "__imp__GetDC@4",
+          "target": 7971928,
+          "addend": 0,
+          "resolved": 7971928
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "__imp__GetDeviceCaps@8",
+          "target": 7970912,
+          "addend": 0,
+          "resolved": 7970912
+        },
+        {
+          "offset": 82,
+          "kind": 6,
+          "symbol": "__imp__MulDiv@12",
+          "target": 7971072,
+          "addend": 0,
+          "resolved": 7971072
+        },
+        {
+          "offset": 93,
+          "kind": 6,
+          "symbol": "??_C@_07LMLG@Courier?$AA@",
+          "target": 8021180,
+          "addend": 0,
+          "resolved": 8021180
+        },
+        {
+          "offset": 185,
+          "kind": 6,
+          "symbol": "__imp__CreateFontIndirectA@4",
+          "target": 7970908,
+          "addend": 0,
+          "resolved": 7970908
+        },
+        {
+          "offset": 191,
+          "kind": 6,
+          "symbol": "__imp__SelectObject@8",
+          "target": 7970916,
+          "addend": 0,
+          "resolved": 7970916
+        },
+        {
+          "offset": 196,
+          "kind": 6,
+          "symbol": "_MonoFont",
+          "target": 10948372,
+          "addend": 0,
+          "resolved": 10948372
+        },
+        {
+          "offset": 207,
+          "kind": 6,
+          "symbol": "_MonoMetrics",
+          "target": 10948256,
+          "addend": 0,
+          "resolved": 10948256
+        },
+        {
+          "offset": 214,
+          "kind": 6,
+          "symbol": "__imp__GetTextMetricsA@8",
+          "target": 7970988,
+          "addend": 0,
+          "resolved": 7970988
+        },
+        {
+          "offset": 224,
+          "kind": 6,
+          "symbol": "__imp__GetSysColor@4",
+          "target": 7971840,
+          "addend": 0,
+          "resolved": 7971840
+        },
+        {
+          "offset": 233,
+          "kind": 6,
+          "symbol": "_MonoBackColor",
+          "target": 10948096,
+          "addend": 0,
+          "resolved": 10948096
+        },
+        {
+          "offset": 242,
+          "kind": 6,
+          "symbol": "_MonoTextColor",
+          "target": 10948072,
+          "addend": 0,
+          "resolved": 10948072
+        },
+        {
+          "offset": 247,
+          "kind": 6,
+          "symbol": "_MonoMetrics",
+          "target": 10948256,
+          "addend": 24,
+          "resolved": 10948280
+        },
+        {
+          "offset": 261,
+          "kind": 6,
+          "symbol": "_MonoMetrics",
+          "target": 10948256,
+          "addend": 16,
+          "resolved": 10948272
+        },
+        {
+          "offset": 274,
+          "kind": 6,
+          "symbol": "_MonoMetrics",
+          "target": 10948256,
+          "addend": 0,
+          "resolved": 10948256
+        },
+        {
+          "offset": 311,
+          "kind": 6,
+          "symbol": "__imp__AdjustWindowRect@12",
+          "target": 7971836,
+          "addend": 0,
+          "resolved": 7971836
+        },
+        {
+          "offset": 317,
+          "kind": 6,
+          "symbol": "_MonoParent",
+          "target": 10948356,
+          "addend": 0,
+          "resolved": 10948356
+        },
+        {
+          "offset": 329,
+          "kind": 6,
+          "symbol": "__imp__GetWindowRect@8",
+          "target": 7971736,
+          "addend": 0,
+          "resolved": 7971736
+        },
+        {
+          "offset": 361,
+          "kind": 6,
+          "symbol": "_MonoWindow",
+          "target": 10948368,
+          "addend": 0,
+          "resolved": 10948368
+        },
+        {
+          "offset": 374,
+          "kind": 6,
+          "symbol": "__imp__MoveWindow@24",
+          "target": 7971808,
+          "addend": 0,
+          "resolved": 7971808
+        },
+        {
+          "offset": 380,
+          "kind": 6,
+          "symbol": "_MonoWindow",
+          "target": 10948368,
+          "addend": 0,
+          "resolved": 10948368
+        },
+        {
+          "offset": 388,
+          "kind": 6,
+          "symbol": "__imp__ShowWindow@8",
+          "target": 7971992,
+          "addend": 0,
+          "resolved": 7971992
+        },
+        {
+          "offset": 394,
+          "kind": 6,
+          "symbol": "_MonoParent",
+          "target": 10948356,
+          "addend": 0,
+          "resolved": 10948356
+        },
+        {
+          "offset": 401,
+          "kind": 6,
+          "symbol": "__imp__SetFocus@4",
+          "target": 7971724,
+          "addend": 0,
+          "resolved": 7971724
+        },
+        {
+          "offset": 406,
+          "kind": 6,
+          "symbol": "_MonoWindow",
+          "target": 10948368,
+          "addend": 0,
+          "resolved": 10948368
+        },
+        {
+          "offset": 414,
+          "kind": 6,
+          "symbol": "__imp__ReleaseDC@8",
+          "target": 7971960,
+          "addend": 0,
+          "resolved": 7971960
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5888816,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5889248,
+      "method": "0059dce0",
+      "body_bytes": 1148,
+      "body_sha256": "00444eddaef3f0e9ffd20ec500f4ad7ca34816dc9e74a6df88156e3c0de317d0",
+      "padding_bytes": 4,
+      "full_extent_bytes": 1152,
+      "full_extent_sha256": "c97d566d848b88828750770fbd2d7531d0d57f8de8a7216e3861705faae97e30",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 144,
+      "symbol": "?Mono_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+      "symbol_prefix": "?Mono_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "__imp__InvalidateRect@12",
+          "target": 7971988,
+          "addend": 0,
+          "resolved": 7971988
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "__imp__BeginPaint@8",
+          "target": 7972088,
+          "addend": 0,
+          "resolved": 7972088
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "?Current@MonoClass@@2PAV1@A",
+          "target": 10948364,
+          "addend": 0,
+          "resolved": 10948364
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 68,
+          "kind": 20,
+          "symbol": "?Clear@MonoClass@@QAEXXZ",
+          "target": 5890704,
+          "addend": 0,
+          "resolved": 1384
+        },
+        {
+          "offset": 83,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 3417
+        },
+        {
+          "offset": 95,
+          "kind": 6,
+          "symbol": "__imp__EndPaint@8",
+          "target": 7972080,
+          "addend": 0,
+          "resolved": 7972080
+        },
+        {
+          "offset": 125,
+          "kind": 6,
+          "symbol": "_MonoTestHandle",
+          "target": 10948340,
+          "addend": 0,
+          "resolved": 10948340
+        },
+        {
+          "offset": 134,
+          "kind": 6,
+          "symbol": "_MonoTestController",
+          "target": 10948208,
+          "addend": 0,
+          "resolved": 10948208
+        },
+        {
+          "offset": 140,
+          "kind": 6,
+          "symbol": "_MonoTestHandle",
+          "target": 10948340,
+          "addend": 0,
+          "resolved": 10948340
+        },
+        {
+          "offset": 145,
+          "kind": 20,
+          "symbol": "?Init@AudioController@@QAEXXZ",
+          "target": 4217840,
+          "addend": 0,
+          "resolved": 4293295739
+        },
+        {
+          "offset": 169,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5890320,
+          "addend": 0,
+          "resolved": 5890320
+        },
+        {
+          "offset": 176,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5890252,
+          "addend": 0,
+          "resolved": 5890252
+        },
+        {
+          "offset": 187,
+          "kind": 6,
+          "symbol": "_MonoVoicePriority",
+          "target": 10948348,
+          "addend": 0,
+          "resolved": 10948348
+        },
+        {
+          "offset": 202,
+          "kind": 6,
+          "symbol": "_MonoVoiceIndex",
+          "target": 10948336,
+          "addend": 0,
+          "resolved": 10948336
+        },
+        {
+          "offset": 213,
+          "kind": 6,
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "target": 11340080,
+          "addend": 16,
+          "resolved": 11340096
+        },
+        {
+          "offset": 223,
+          "kind": 6,
+          "symbol": "_MonoVoiceIndex",
+          "target": 10948336,
+          "addend": 0,
+          "resolved": 10948336
+        },
+        {
+          "offset": 228,
+          "kind": 6,
+          "symbol": "_MonoVoicePriority",
+          "target": 10948348,
+          "addend": 0,
+          "resolved": 10948348
+        },
+        {
+          "offset": 239,
+          "kind": 20,
+          "symbol": "?Queue_Speech@@YIXHHH@Z",
+          "target": 7428288,
+          "addend": 0,
+          "resolved": 1538797
+        },
+        {
+          "offset": 244,
+          "kind": 6,
+          "symbol": "_MonoVoiceIndex",
+          "target": 10948336,
+          "addend": 0,
+          "resolved": 10948336
+        },
+        {
+          "offset": 252,
+          "kind": 6,
+          "symbol": "_MonoVoiceIndex",
+          "target": 10948336,
+          "addend": 0,
+          "resolved": 10948336
+        },
+        {
+          "offset": 267,
+          "kind": 6,
+          "symbol": "_MonoVoiceIndex",
+          "target": 10948336,
+          "addend": 0,
+          "resolved": 10948336
+        },
+        {
+          "offset": 278,
+          "kind": 6,
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "target": 11340080,
+          "addend": 16,
+          "resolved": 11340096
+        },
+        {
+          "offset": 288,
+          "kind": 6,
+          "symbol": "_MonoVoiceIndex",
+          "target": 10948336,
+          "addend": 0,
+          "resolved": 10948336
+        },
+        {
+          "offset": 294,
+          "kind": 6,
+          "symbol": "_MonoVoicePriority",
+          "target": 10948348,
+          "addend": 0,
+          "resolved": 10948348
+        },
+        {
+          "offset": 305,
+          "kind": 6,
+          "symbol": "_MonoVoiceIndex",
+          "target": 10948336,
+          "addend": 0,
+          "resolved": 10948336
+        },
+        {
+          "offset": 316,
+          "kind": 6,
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "target": 11340080,
+          "addend": 16,
+          "resolved": 11340096
+        },
+        {
+          "offset": 326,
+          "kind": 6,
+          "symbol": "_MonoVoiceIndex",
+          "target": 10948336,
+          "addend": 0,
+          "resolved": 10948336
+        },
+        {
+          "offset": 331,
+          "kind": 6,
+          "symbol": "_MonoVoicePriority",
+          "target": 10948348,
+          "addend": 0,
+          "resolved": 10948348
+        },
+        {
+          "offset": 345,
+          "kind": 6,
+          "symbol": "_MonoVoiceIndex",
+          "target": 10948336,
+          "addend": 0,
+          "resolved": 10948336
+        },
+        {
+          "offset": 356,
+          "kind": 6,
+          "symbol": "?Voxs@@3V?$DynamicVectorClass@PAVVoxClass@@@@A",
+          "target": 11340080,
+          "addend": 16,
+          "resolved": 11340096
+        },
+        {
+          "offset": 366,
+          "kind": 6,
+          "symbol": "_MonoVoiceIndex",
+          "target": 10948336,
+          "addend": 0,
+          "resolved": 10948336
+        },
+        {
+          "offset": 382,
+          "kind": 6,
+          "symbol": "_MonoTestHandle",
+          "target": 10948340,
+          "addend": 0,
+          "resolved": 10948340
+        },
+        {
+          "offset": 387,
+          "kind": 20,
+          "symbol": "?AudioControllerGetEvent@@YIPAVAudioEvent@@PAUAudioController@@@Z",
+          "target": 4219200,
+          "addend": 0,
+          "resolved": 4293296857
+        },
+        {
+          "offset": 393,
+          "kind": 6,
+          "symbol": "_MonoTestHandle",
+          "target": 10948340,
+          "addend": 0,
+          "resolved": 10948340
+        },
+        {
+          "offset": 402,
+          "kind": 20,
+          "symbol": "?End@AudioController@@QAEXXZ",
+          "target": 4218848,
+          "addend": 0,
+          "resolved": 4293296490
+        },
+        {
+          "offset": 424,
+          "kind": 6,
+          "symbol": "??_C@_0BD@KMLH@TestEnvelopeFShift?$AA@",
+          "target": 8268508,
+          "addend": 0,
+          "resolved": 8268508
+        },
+        {
+          "offset": 429,
+          "kind": 20,
+          "symbol": "?From_Name@VocClass@@SI?AW4VocType@@PBD@Z",
+          "target": 7424320,
+          "addend": 0,
+          "resolved": 1534639
+        },
+        {
+          "offset": 441,
+          "kind": 20,
+          "symbol": "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z",
+          "target": 7421360,
+          "addend": 0,
+          "resolved": 1531667
+        },
+        {
+          "offset": 464,
+          "kind": 6,
+          "symbol": "??_C@_0L@HJPA@TestEffect?$AA@",
+          "target": 8268496,
+          "addend": 0,
+          "resolved": 8268496
+        },
+        {
+          "offset": 472,
+          "kind": 6,
+          "symbol": "_MonoStreamCount",
+          "target": 10948344,
+          "addend": 0,
+          "resolved": 10948344
+        },
+        {
+          "offset": 487,
+          "kind": 20,
+          "symbol": "?AudioGetDevice@@YIPAUAudioDevice@@XZ",
+          "target": 4222784,
+          "addend": 0,
+          "resolved": 4293300341
+        },
+        {
+          "offset": 494,
+          "kind": 20,
+          "symbol": "?AudioStreamerCreate@@YIPAUAudioStreamer@@PAUAudioDevice@@_K@Z",
+          "target": 4224912,
+          "addend": 0,
+          "resolved": 4293302462
+        },
+        {
+          "offset": 500,
+          "kind": 6,
+          "symbol": "_MonoStreamCount",
+          "target": 10948344,
+          "addend": 0,
+          "resolved": 10948344
+        },
+        {
+          "offset": 509,
+          "kind": 6,
+          "symbol": "_MonoStreams",
+          "target": 10948076,
+          "addend": 0,
+          "resolved": 10948076
+        },
+        {
+          "offset": 518,
+          "kind": 6,
+          "symbol": "??_C@_09NOGH@intro?4wav?$AA@",
+          "target": 8268484,
+          "addend": 0,
+          "resolved": 8268484
+        },
+        {
+          "offset": 525,
+          "kind": 20,
+          "symbol": "?AudioStreamerPlayWAV@@YIHPAUAudioStreamer@@PBDH@Z",
+          "target": 4225680,
+          "addend": 0,
+          "resolved": 4293303199
+        },
+        {
+          "offset": 532,
+          "kind": 6,
+          "symbol": "_MonoStreamCount",
+          "target": 10948344,
+          "addend": 0,
+          "resolved": 10948344
+        },
+        {
+          "offset": 541,
+          "kind": 6,
+          "symbol": "_MonoStreamCount",
+          "target": 10948344,
+          "addend": 0,
+          "resolved": 10948344
+        },
+        {
+          "offset": 558,
+          "kind": 6,
+          "symbol": "_MonoStreams",
+          "target": 10948076,
+          "addend": 0,
+          "resolved": 10948076
+        },
+        {
+          "offset": 563,
+          "kind": 20,
+          "symbol": "?AudioStreamerDestroy@@YIXPAUAudioStreamer@@@Z",
+          "target": 4225472,
+          "addend": 0,
+          "resolved": 4293302953
+        },
+        {
+          "offset": 579,
+          "kind": 6,
+          "symbol": "_MonoStreamCount",
+          "target": 10948344,
+          "addend": 0,
+          "resolved": 10948344
+        },
+        {
+          "offset": 590,
+          "kind": 6,
+          "symbol": "_MonoStreams",
+          "target": 10948076,
+          "addend": 4294967292,
+          "resolved": 10948072
+        },
+        {
+          "offset": 596,
+          "kind": 6,
+          "symbol": "_MonoStreamCount",
+          "target": 10948344,
+          "addend": 0,
+          "resolved": 10948344
+        },
+        {
+          "offset": 601,
+          "kind": 20,
+          "symbol": "?AudioStreamerStop@@YIXPAUAudioStreamer@@@Z",
+          "target": 4226656,
+          "addend": 0,
+          "resolved": 4293304099
+        },
+        {
+          "offset": 607,
+          "kind": 6,
+          "symbol": "_MonoStreamCount",
+          "target": 10948344,
+          "addend": 0,
+          "resolved": 10948344
+        },
+        {
+          "offset": 614,
+          "kind": 6,
+          "symbol": "_MonoStreams",
+          "target": 10948076,
+          "addend": 0,
+          "resolved": 10948076
+        },
+        {
+          "offset": 619,
+          "kind": 20,
+          "symbol": "?AudioStreamerDestroy@@YIXPAUAudioStreamer@@@Z",
+          "target": 4225472,
+          "addend": 0,
+          "resolved": 4293302897
+        },
+        {
+          "offset": 635,
+          "kind": 6,
+          "symbol": "_MonoAudioToggle",
+          "target": 10948332,
+          "addend": 0,
+          "resolved": 10948332
+        },
+        {
+          "offset": 650,
+          "kind": 6,
+          "symbol": "_MonoAudioToggle",
+          "target": 10948332,
+          "addend": 0,
+          "resolved": 10948332
+        },
+        {
+          "offset": 664,
+          "kind": 20,
+          "symbol": "?Audio_Stop_All@@YIXXZ",
+          "target": 4222496,
+          "addend": 0,
+          "resolved": 4293299876
+        },
+        {
+          "offset": 681,
+          "kind": 6,
+          "symbol": "_MonoPages",
+          "target": 10948160,
+          "addend": 20,
+          "resolved": 10948180
+        },
+        {
+          "offset": 687,
+          "kind": 6,
+          "symbol": "?Current@MonoClass@@2PAV1@A",
+          "target": 10948364,
+          "addend": 0,
+          "resolved": 10948364
+        },
+        {
+          "offset": 692,
+          "kind": 20,
+          "symbol": "?Clear@MonoClass@@QAEXXZ",
+          "target": 5890704,
+          "addend": 0,
+          "resolved": 760
+        },
+        {
+          "offset": 698,
+          "kind": 6,
+          "symbol": "?Current@MonoClass@@2PAV1@A",
+          "target": 10948364,
+          "addend": 0,
+          "resolved": 10948364
+        },
+        {
+          "offset": 711,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 2789
+        },
+        {
+          "offset": 728,
+          "kind": 6,
+          "symbol": "_MonoPages",
+          "target": 10948160,
+          "addend": 28,
+          "resolved": 10948188
+        },
+        {
+          "offset": 736,
+          "kind": 6,
+          "symbol": "_MonoPages",
+          "target": 10948160,
+          "addend": 24,
+          "resolved": 10948184
+        },
+        {
+          "offset": 743,
+          "kind": 6,
+          "symbol": "?Current@MonoClass@@2PAV1@A",
+          "target": 10948364,
+          "addend": 0,
+          "resolved": 10948364
+        },
+        {
+          "offset": 764,
+          "kind": 6,
+          "symbol": "_MonoPages",
+          "target": 10948160,
+          "addend": 0,
+          "resolved": 10948160
+        },
+        {
+          "offset": 772,
+          "kind": 6,
+          "symbol": "?Current@MonoClass@@2PAV1@A",
+          "target": 10948364,
+          "addend": 0,
+          "resolved": 10948364
+        },
+        {
+          "offset": 835,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 2665
+        },
+        {
+          "offset": 846,
+          "kind": 6,
+          "symbol": "?Current@MonoClass@@2PAV1@A",
+          "target": 10948364,
+          "addend": 0,
+          "resolved": 10948364
+        },
+        {
+          "offset": 867,
+          "kind": 6,
+          "symbol": "_MonoPages",
+          "target": 10948160,
+          "addend": 0,
+          "resolved": 10948160
+        },
+        {
+          "offset": 875,
+          "kind": 6,
+          "symbol": "?Current@MonoClass@@2PAV1@A",
+          "target": 10948364,
+          "addend": 0,
+          "resolved": 10948364
+        },
+        {
+          "offset": 938,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 2562
+        },
+        {
+          "offset": 959,
+          "kind": 6,
+          "symbol": "_MonoWindow",
+          "target": 10948368,
+          "addend": 0,
+          "resolved": 10948368
+        },
+        {
+          "offset": 965,
+          "kind": 6,
+          "symbol": "_MonoWindowRequested",
+          "target": 10948361,
+          "addend": 0,
+          "resolved": 10948361
+        },
+        {
+          "offset": 979,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 986,
+          "kind": 6,
+          "symbol": "__imp__ShowWindow@8",
+          "target": 7971992,
+          "addend": 0,
+          "resolved": 7971992
+        },
+        {
+          "offset": 1004,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889990,
+          "addend": 0,
+          "resolved": 5889990
+        },
+        {
+          "offset": 1008,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5890092,
+          "addend": 0,
+          "resolved": 5890092
+        },
+        {
+          "offset": 1012,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889428,
+          "addend": 0,
+          "resolved": 5889428
+        },
+        {
+          "offset": 1016,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889927,
+          "addend": 0,
+          "resolved": 5889927
+        },
+        {
+          "offset": 1020,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889551,
+          "addend": 0,
+          "resolved": 5889551
+        },
+        {
+          "offset": 1024,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889974,
+          "addend": 0,
+          "resolved": 5889974
+        },
+        {
+          "offset": 1028,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889628,
+          "addend": 0,
+          "resolved": 5889628
+        },
+        {
+          "offset": 1032,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889982,
+          "addend": 0,
+          "resolved": 5889982
+        },
+        {
+          "offset": 1036,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889882,
+          "addend": 0,
+          "resolved": 5889882
+        },
+        {
+          "offset": 1040,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889591,
+          "addend": 0,
+          "resolved": 5889591
+        },
+        {
+          "offset": 1044,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889448,
+          "addend": 0,
+          "resolved": 5889448
+        },
+        {
+          "offset": 1048,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889911,
+          "addend": 0,
+          "resolved": 5889911
+        },
+        {
+          "offset": 1052,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889704,
+          "addend": 0,
+          "resolved": 5889704
+        },
+        {
+          "offset": 1056,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889513,
+          "addend": 0,
+          "resolved": 5889513
+        },
+        {
+          "offset": 1060,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889718,
+          "addend": 0,
+          "resolved": 5889718
+        },
+        {
+          "offset": 1064,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889826,
+          "addend": 0,
+          "resolved": 5889826
+        },
+        {
+          "offset": 1068,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5889815,
+          "addend": 0,
+          "resolved": 5889815
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5889248,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5890400,
+      "method": "0059e160",
+      "body_bytes": 48,
+      "body_sha256": "6adbe61c469046f7c37775fe2c4210168b8fc721e799269657695324fff153c4",
+      "padding_bytes": 0,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "6adbe61c469046f7c37775fe2c4210168b8fc721e799269657695324fff153c4",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0MonoPoint@@QAE@HH@Z",
+      "symbol_prefix": "??0MonoPoint@@QAE@HH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_MonoMetrics",
+          "target": 10948256,
+          "addend": 24,
+          "resolved": 10948280
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_MonoMetrics",
+          "target": 10948256,
+          "addend": 0,
+          "resolved": 10948256
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_MonoMetrics",
+          "target": 10948256,
+          "addend": 16,
+          "resolved": 10948272
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5890400,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5890448,
+      "method": "0059e190",
+      "body_bytes": 132,
+      "body_sha256": "91b44c00b4cb6cb93c088306cf977f299d6fb3a40554acc5967346f7d604961a",
+      "padding_bytes": 12,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "f7c0bd7b8f21b1277cf9de6e1136b7e5ef8212d2b19d115c4d49f334b14971d6",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0MonoClass@@QAE@H@Z",
+      "symbol_prefix": "??0MonoClass@@QAE@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 2181
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5890448,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5890592,
+      "method": "0059e220",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1MonoClass@@QAE@XZ",
+      "symbol_prefix": "??1MonoClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5890592,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 5890608,
+      "method": "0059e230",
+      "body_bytes": 7,
+      "body_sha256": "0ea5432c73fda96fb43373dc70938ab0f5d757dcddc34ca69c9102c34e0c083c",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "e1e0115de33db2594bb044aced52eeb609be7189cf26e9dac360370bb529cc2a",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Handle@MonoClass@@QBEHXZ",
+      "symbol_prefix": "?Get_Handle@MonoClass@@QBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5890608,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 5890624,
+      "method": "0059e240",
+      "body_bytes": 23,
+      "body_sha256": "1035f9fdb1fbad7fd68e5ea66a7b28e35c8362e0ca85916ca1d307b51e408073",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2fb2a42afd8f6f627d42d6643005a9532d29bde7d8962a98138bfd6e712b86d5",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Cursor@MonoClass@@QAEXHH@Z",
+      "symbol_prefix": "?Set_Cursor@MonoClass@@QAEXHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5890624,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5890656,
+      "method": "0059e260",
+      "body_bytes": 43,
+      "body_sha256": "2f71ed988245d2a8cac8739449a42342ec976446b6ea4d348450f20dd40cb5ec",
+      "padding_bytes": 5,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "0ae83aedb38416826f3c64524102a427ee891526086c0ca2be340a0c3c2c446d",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Sub_Window@MonoClass@@QAEXHHHH@Z",
+      "symbol_prefix": "?Sub_Window@MonoClass@@QAEXHHHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5890656,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 5890704,
+      "method": "0059e290",
+      "body_bytes": 72,
+      "body_sha256": "7e91c3752d0c6fb5ae46a39bd978d0ac21833723a23ee3e972a78c840d32360b",
+      "padding_bytes": 8,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "78ffdaa68399f37c24ca1db1fc9fde220d6f1d1fbda14ec5dde3aeb2c7a16f52",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@MonoClass@@QAEXXZ",
+      "symbol_prefix": "?Clear@MonoClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 64,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 1980
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5890704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5890784,
+      "method": "0059e2e0",
+      "body_bytes": 7,
+      "body_sha256": "63bcc71db7dafae0e3821292d5b3991c0f4b765708cde99b74ae64d3088c9d45",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "8708dcdca595159bd55216c5061cc8f5a2fe581869be8b38d12460940d00f48c",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Changed@MonoClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Changed@MonoClass@@QBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5890784,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 5890800,
+      "method": "0059e2f0",
+      "body_bytes": 114,
+      "body_sha256": "1d9758bd54836085fa113b207ba15b26a1ec1fe19380c96f8c87feeb0a53de7c",
+      "padding_bytes": 14,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "c7ee9993ad68fd3ba868801fc6509b7f396d27762d2a79533cc359c8f3246daf",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?View@MonoClass@@QAEXXZ",
+      "symbol_prefix": "?View@MonoClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "?Current@MonoClass@@2PAV1@A",
+          "target": 10948364,
+          "addend": 0,
+          "resolved": 10948364
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?Current@MonoClass@@2PAV1@A",
+          "target": 10948364,
+          "addend": 0,
+          "resolved": 10948364
+        },
+        {
+          "offset": 91,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 1857
+        },
+        {
+          "offset": 108,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 1840
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5890800,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5890928,
+      "method": "0059e370",
+      "body_bytes": 22,
+      "body_sha256": "fca6344243c6a9dbf4f6af441ca2f879ca168c48ad804d52dcadac145102b975",
+      "padding_bytes": 10,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "62e088469dbf86bfed1f2a6a15b9bbe547c59eaa67bbe1c59f5be969b3cc3ebf",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Default_Attribute@MonoClass@@QAEXW4MonoAttribute@1@@Z",
+      "symbol_prefix": "?Set_Default_Attribute@MonoClass@@QAEXW4MonoAttribute@1@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5890928,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-148"
+    },
+    {
+      "entry": 5890960,
+      "method": "0059e390",
+      "body_bytes": 121,
+      "body_sha256": "b6f985ffb29afcce90624b6d3782963ee3fa884ce4843e85d5645958d4f32a94",
+      "padding_bytes": 7,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "e208b2fdf90dc74bcfcf505a3f3dc6629831b76bfa982c98c6218be525f74f00",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fill_Attrib@MonoClass@@QAEXHHHHW4MonoAttribute@1@@Z",
+      "symbol_prefix": "?Fill_Attrib@MonoClass@@QAEXHHHHW4MonoAttribute@1@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 111,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 1677
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5890960,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5891088,
+      "method": "0059e410",
+      "body_bytes": 378,
+      "body_sha256": "d381ca2b8cf529a6e0bc5e4c3d26dd7727080243f6cd5c9475707c80be827c81",
+      "padding_bytes": 6,
+      "full_extent_bytes": 384,
+      "full_extent_sha256": "15621bc7fb3eb0295402ea9eec34eb6c5eff3426bd6bcc552f41c3db53e7e05d",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Scroll@MonoClass@@QAEXH@Z",
+      "symbol_prefix": "?Scroll@MonoClass@@QAEXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 364,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 1296
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5891088,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5891472,
+      "method": "0059e590",
+      "body_bytes": 307,
+      "body_sha256": "a9484e815c5bf7b82da22d1601e714f665e4c138af4b20c5c51dc78f11140c60",
+      "padding_bytes": 13,
+      "full_extent_bytes": 320,
+      "full_extent_sha256": "b5cedd7f7429bf84249611afade2b05d2c3ed7629a56c205d7c72dab0629cc18",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Pan@MonoClass@@QAEXH@Z",
+      "symbol_prefix": "?Pan@MonoClass@@QAEXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 295,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 981
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5891472,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5891792,
+      "method": "0059e6d0",
+      "body_bytes": 287,
+      "body_sha256": "3659a29354a77a1dabe1bbdf28de0e9953955ce633af7884924361fd8caf1084",
+      "padding_bytes": 1,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "ca02b52fa533b0bfc690a1ae7023a6737bff6cb328eaa02048e6e0696643d270",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Print@MonoClass@@QAEXPBD@Z",
+      "symbol_prefix": "?Print@MonoClass@@QAEXPBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 171,
+          "kind": 20,
+          "symbol": "?Map_Character@MonoClass@@QAEDD@Z",
+          "target": 5892448,
+          "addend": 0,
+          "resolved": 481
+        },
+        {
+          "offset": 273,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 683
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5891792,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5892080,
+      "method": "0059e7f0",
+      "body_bytes": 76,
+      "body_sha256": "6e4d89b4325039daebbb49acc2a26439a1f14c6360dc47b7ab6bb44c7885a9e8",
+      "padding_bytes": 4,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "19465f5c3254f5e50d07e8dd008a8e11562f5c4d35ac047497b96941bd9ec9f7",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Printf@MonoClass@@QAAXPBDZZ",
+      "symbol_prefix": "?Printf@MonoClass@@QAAXPBDZZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "_vsprintf",
+          "target": 7883194,
+          "addend": 0,
+          "resolved": 1991073
+        },
+        {
+          "offset": 65,
+          "kind": 20,
+          "symbol": "?Print@MonoClass@@QAEXPBD@Z",
+          "target": 5891792,
+          "addend": 0,
+          "resolved": 4294966939
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5892080,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5892160,
+      "method": "0059e840",
+      "body_bytes": 94,
+      "body_sha256": "fbc116e5feb91a200175233c468e65fb2e0420cc755821437d22567182b1babd",
+      "padding_bytes": 2,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "67138f3a3b363d3165434fd38f93761a86807157ff792d6749680b767f771199",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Printf@MonoClass@@QAAXPBGZZ",
+      "symbol_prefix": "?Printf@MonoClass@@QAAXPBGZZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "_vswprintf",
+          "target": 7879256,
+          "addend": 0,
+          "resolved": 1987052
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "??_C@_02GKFL@?$CFS?$AA@",
+          "target": 8268528,
+          "addend": 0,
+          "resolved": 8268528
+        },
+        {
+          "offset": 63,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 1980529
+        },
+        {
+          "offset": 83,
+          "kind": 20,
+          "symbol": "?Print@MonoClass@@QAEXPBD@Z",
+          "target": 5891792,
+          "addend": 0,
+          "resolved": 4294966841
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5892160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5892256,
+      "method": "0059e8a0",
+      "body_bytes": 61,
+      "body_sha256": "2de2ffb3ba639c8cc35b996905c13d3008f0e8311c691a95f28dd8d14e9cf128",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "7a970c721d70c2c1d0d3bc8e9150f4eac220a0c52813495d682014efc662229e",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Text_Print@MonoClass@@QAEXPBDHHW4MonoAttribute@1@@Z",
+      "symbol_prefix": "?Text_Print@MonoClass@@QAEXPBDHHW4MonoAttribute@1@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 54,
+          "kind": 20,
+          "symbol": "?Print@MonoClass@@QAEXPBD@Z",
+          "target": 5891792,
+          "addend": 0,
+          "resolved": 4294966774
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5892256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5892320,
+      "method": "0059e8e0",
+      "body_bytes": 114,
+      "body_sha256": "118178ab31058b5213af4ebb94584702b280766c3e87c1e23092d9f332ec2375",
+      "padding_bytes": 14,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "cb716f2e3c276e54350285921b22b542b11e15ced8adc7496a41b7d989f87cc9",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Text_Print@MonoClass@@QAEXPBGHHW4MonoAttribute@1@@Z",
+      "symbol_prefix": "?Text_Print@MonoClass@@QAEXPBGHHW4MonoAttribute@1@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "??_C@_02GKFL@?$CFS?$AA@",
+          "target": 8268528,
+          "addend": 0,
+          "resolved": 8268528
+        },
+        {
+          "offset": 85,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 1980347
+        },
+        {
+          "offset": 100,
+          "kind": 20,
+          "symbol": "?Print@MonoClass@@QAEXPBD@Z",
+          "target": 5891792,
+          "addend": 0,
+          "resolved": 4294966664
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5892320,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-148"
+    },
+    {
+      "entry": 5892448,
+      "method": "0059e960",
+      "body_bytes": 101,
+      "body_sha256": "dcb43e89366b33e61a1ad031bfbbd41d65c9e83e89e85d8aee6b24841ca9e640",
+      "padding_bytes": 11,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "37f67707efe1fea8781bdba4444f248424ea8804d2a774a974f7eb53d08af232",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Map_Character@MonoClass@@QAEDD@Z",
+      "symbol_prefix": "?Map_Character@MonoClass@@QAEDD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5892448,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-67"
+    },
+    {
+      "entry": 5892560,
+      "method": "0059e9d0",
+      "body_bytes": 187,
+      "body_sha256": "7fcfd5f723226d6061b3b1edf0c4c70b035134b97b82648627f35a7af2c05ba7",
+      "padding_bytes": 5,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "464734c57a44fd294c5ba38cd08cb10ec085c6a099dc190ba6aaf3e3703ad3ac",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Character@MonoClass@@QAEXPAUHDC__@@HH@Z",
+      "symbol_prefix": "?Draw_Character@MonoClass@@QAEXPAUHDC__@@HH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "_MonoTextColor",
+          "target": 10948072,
+          "addend": 0,
+          "resolved": 10948072
+        },
+        {
+          "offset": 55,
+          "kind": 6,
+          "symbol": "__imp__SetBkColor@8",
+          "target": 7970924,
+          "addend": 0,
+          "resolved": 7970924
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "_MonoBackColor",
+          "target": 10948096,
+          "addend": 0,
+          "resolved": 10948096
+        },
+        {
+          "offset": 74,
+          "kind": 6,
+          "symbol": "_MonoBackColor",
+          "target": 10948096,
+          "addend": 0,
+          "resolved": 10948096
+        },
+        {
+          "offset": 86,
+          "kind": 6,
+          "symbol": "__imp__SetBkColor@8",
+          "target": 7970924,
+          "addend": 0,
+          "resolved": 7970924
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "_MonoTextColor",
+          "target": 10948072,
+          "addend": 0,
+          "resolved": 10948072
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "__imp__SetTextColor@8",
+          "target": 7970920,
+          "addend": 0,
+          "resolved": 7970920
+        },
+        {
+          "offset": 126,
+          "kind": 6,
+          "symbol": "_MonoMetrics",
+          "target": 10948256,
+          "addend": 0,
+          "resolved": 10948256
+        },
+        {
+          "offset": 134,
+          "kind": 6,
+          "symbol": "_MonoMetrics",
+          "target": 10948256,
+          "addend": 24,
+          "resolved": 10948280
+        },
+        {
+          "offset": 144,
+          "kind": 6,
+          "symbol": "_MonoMetrics",
+          "target": 10948256,
+          "addend": 16,
+          "resolved": 10948272
+        },
+        {
+          "offset": 176,
+          "kind": 6,
+          "symbol": "__imp__TextOutA@20",
+          "target": 7970928,
+          "addend": 0,
+          "resolved": 7970928
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5892560,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5892752,
+      "method": "0059ea90",
+      "body_bytes": 208,
+      "body_sha256": "7d64affa26612a5bbd26f048b0b59f0ef96308238306cce74a03763e9ae1be29",
+      "padding_bytes": 0,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "7d64affa26612a5bbd26f048b0b59f0ef96308238306cce74a03763e9ae1be29",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+      "symbol_prefix": "?Refresh@MonoClass@@QAEXHHHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "?Current@MonoClass@@2PAV1@A",
+          "target": 10948364,
+          "addend": 0,
+          "resolved": 10948364
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "_MonoWindow",
+          "target": 10948368,
+          "addend": 0,
+          "resolved": 10948368
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "__imp__GetDC@4",
+          "target": 7971928,
+          "addend": 0,
+          "resolved": 7971928
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "__imp__SetBkMode@8",
+          "target": 7970940,
+          "addend": 0,
+          "resolved": 7970940
+        },
+        {
+          "offset": 58,
+          "kind": 6,
+          "symbol": "_MonoBackColor",
+          "target": 10948096,
+          "addend": 0,
+          "resolved": 10948096
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "__imp__SetBkColor@8",
+          "target": 7970924,
+          "addend": 0,
+          "resolved": 7970924
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "_MonoTextColor",
+          "target": 10948072,
+          "addend": 0,
+          "resolved": 10948072
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "__imp__SetTextColor@8",
+          "target": 7970920,
+          "addend": 0,
+          "resolved": 7970920
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "_MonoFont",
+          "target": 10948372,
+          "addend": 0,
+          "resolved": 10948372
+        },
+        {
+          "offset": 98,
+          "kind": 6,
+          "symbol": "__imp__SelectObject@8",
+          "target": 7970916,
+          "addend": 0,
+          "resolved": 7970916
+        },
+        {
+          "offset": 150,
+          "kind": 20,
+          "symbol": "?Draw_Character@MonoClass@@QAEXPAUHDC__@@HH@Z",
+          "target": 5892560,
+          "addend": 0,
+          "resolved": 4294966950
+        },
+        {
+          "offset": 182,
+          "kind": 6,
+          "symbol": "__imp__SelectObject@8",
+          "target": 7970916,
+          "addend": 0,
+          "resolved": 7970916
+        },
+        {
+          "offset": 188,
+          "kind": 6,
+          "symbol": "_MonoWindow",
+          "target": 10948368,
+          "addend": 0,
+          "resolved": 10948368
+        },
+        {
+          "offset": 196,
+          "kind": 6,
+          "symbol": "__imp__ReleaseDC@8",
+          "target": 7971960,
+          "addend": 0,
+          "resolved": 7971960
+        }
+      ],
+      "source_sha256": "2ec5fcaf141aed56f51e14e0cfd131a91e3c19c616252364568c907a4e66d4f2",
+      "source": "src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5892752,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

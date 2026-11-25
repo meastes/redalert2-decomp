@@ -1,0 +1,89 @@
+{
+  "id": "rebuild-trim",
+  "population": {
+    "id": "rebuild-trim",
+    "inventory_sha256": "8c96d07c59d9594da71a7bef6da41ee4b676d420a90147a15697d52e6f35b0c5",
+    "gaps_sha256": "df177c8103268fc13c4dde60f1263da5ba5f0be5f2463bd639f35035f0938f6e",
+    "historical_population_sha256": "558d68d8465d30c8255f0528e6875bb592649cb6e0849440ee8b154837e25715",
+    "historical_acceptance_sha256": "83e1f602f5f8250d69750b5bbceb6189919c2019b5a2eba787f3a90c96379743"
+  },
+  "references": {
+    "_wcscpy": 7878281,
+    "_wcslen": 7878149,
+    "?strtrim@@YIPADPAD@Z": 7270160,
+    "?wcstrim@@YIPAGPAG@Z": 7270272
+  },
+  "regions": [
+    {
+      "entry": 7270160,
+      "method": "006eef10",
+      "body_bytes": 103,
+      "body_sha256": "f74f2347897d673f5bbc099b5c39a5700ddc02520be3fc5828f03cb7c83c7ebc",
+      "padding_bytes": 9,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "24a0b3451189b32a640163708cd97f4c97a1ac674df99e8c1e0b663b52f4b449",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?strtrim@@YIPADPAD@Z",
+      "symbol_prefix": "?strtrim@@YIPADPAD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d6154499f38b2738545cb3776841f95accb84622fc191922aab5deff2048312e",
+      "source": "src/trim.cpp",
+      "population": "rebuild-trim",
+      "source_order": 7270160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7270272,
+      "method": "006eef80",
+      "body_bytes": 95,
+      "body_sha256": "0fd3604e4375a4d3c94b46b5fb1980fa28b4919afdf90765dc9c0fa0d0c72a73",
+      "padding_bytes": 1,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "23df7dc554424d18230586ee486c3a22d654856cd8660361e5a583c7efa9ef79",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?wcstrim@@YIPAGPAG@Z",
+      "symbol_prefix": "?wcstrim@@YIPAGPAG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 43,
+          "kind": 20,
+          "symbol": "_wcscpy",
+          "target": 7878281,
+          "addend": 0,
+          "resolved": 607962
+        },
+        {
+          "offset": 52,
+          "kind": 20,
+          "symbol": "_wcslen",
+          "target": 7878149,
+          "addend": 0,
+          "resolved": 607821
+        }
+      ],
+      "source_sha256": "d6154499f38b2738545cb3776841f95accb84622fc191922aab5deff2048312e",
+      "source": "src/trim.cpp",
+      "population": "rebuild-trim",
+      "source_order": 7270272,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

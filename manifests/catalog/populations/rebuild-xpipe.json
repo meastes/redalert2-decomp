@@ -1,0 +1,163 @@
+{
+  "id": "rebuild-xpipe",
+  "population": {
+    "id": "rebuild-xpipe",
+    "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
+    "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
+    "historical_population_sha256": "708603ff629fca904185b3774cd9d5a06bf1467c2fd816e45bb1219e5ca0471e",
+    "historical_acceptance_sha256": "22281cdbe785e8e485738008837a7aa3ddd8b165ec61f34757623079911d4497"
+  },
+  "references": {
+    "_memmove": 7877264,
+    "??_7FilePipe@@6B@": 7985596,
+    "??1Pipe@@UAE@XZ": 6351456,
+    "?Put@BufferPipe@@UAEHPBXH@Z": 7812912,
+    "??1FilePipe@@UAE@XZ": 7813008,
+    "?Put_To@Pipe@@UAEXPAV1@@Z": 6351520,
+    "?Flush@Pipe@@UAEHXZ": 6351632,
+    "??_GFilePipe@@UAEPAXI@Z": 4639696,
+    "??_R0?AVPipe@@@8": 8199824,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVFilePipe@@@8": 8199928,
+    "??3@YAXPAX@Z": 7871803,
+    "?End@FilePipe@@UAEHXZ": 7813056,
+    "?Put@FilePipe@@UAEHPBXH@Z": 7813104
+  },
+  "regions": [
+    {
+      "entry": 7812912,
+      "method": "00773730",
+      "body_bytes": 88,
+      "body_sha256": "fd43bb89f6916d18ef643704296a2f25e3b72bc4b19372aeab3161f6c6035937",
+      "padding_bytes": 8,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "118766e743f928adc30d2ae16f9b5d7d1a72af7675515a4d3e068c2f8ef189a7",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Put@BufferPipe@@UAEHPBXH@Z",
+      "symbol_prefix": "?Put@BufferPipe@@UAEHPBXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 65,
+          "kind": 20,
+          "symbol": "_memmove",
+          "target": 7877264,
+          "addend": 0,
+          "resolved": 64283
+        }
+      ],
+      "source_sha256": "5e61804a4631cc81ff93f4f7dbba5dc273a10cda377ea513ec872fab3b1b27b8",
+      "source": "src/xpipe.cpp",
+      "population": "rebuild-xpipe",
+      "source_order": 7812912,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1990"
+    },
+    {
+      "entry": 7813008,
+      "method": "00773790",
+      "body_bytes": 48,
+      "body_sha256": "7ef68e90e2c5ea827a0f1a444587afc105a360bc0e8c0b06c456036f4819b140",
+      "padding_bytes": 0,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7ef68e90e2c5ea827a0f1a444587afc105a360bc0e8c0b06c456036f4819b140",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1FilePipe@@UAE@XZ",
+      "symbol_prefix": "??1FilePipe@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7FilePipe@@6B@",
+          "target": 7985596,
+          "addend": 0,
+          "resolved": 7985596
+        },
+        {
+          "offset": 42,
+          "kind": 20,
+          "symbol": "??1Pipe@@UAE@XZ",
+          "target": 6351456,
+          "addend": 0,
+          "resolved": 4293505698
+        }
+      ],
+      "source_sha256": "5e61804a4631cc81ff93f4f7dbba5dc273a10cda377ea513ec872fab3b1b27b8",
+      "source": "src/xpipe.cpp",
+      "population": "rebuild-xpipe",
+      "source_order": 7813008,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7813056,
+      "method": "007737c0",
+      "body_bytes": 39,
+      "body_sha256": "5e8ba5e439cc65c824ebe59091cc35a59dcd9ebad73d2ac538b68fa1bf1d81a0",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "e8a4435cefde6790e6577474c254c30d60e229055f6a7b5bcd785342388707e3",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?End@FilePipe@@UAEHXZ",
+      "symbol_prefix": "?End@FilePipe@@UAEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "5e61804a4631cc81ff93f4f7dbba5dc273a10cda377ea513ec872fab3b1b27b8",
+      "source": "src/xpipe.cpp",
+      "population": "rebuild-xpipe",
+      "source_order": 7813056,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7813104,
+      "method": "007737f0",
+      "body_bytes": 75,
+      "body_sha256": "98f4137d23019b5fbf3cf436d4a446c868348d039cdf005424cafcbc5a1869f1",
+      "padding_bytes": 5,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "cba23a4f911a9a56b7de55f263f913a813c62683f9606f7ca94d9fc06aec031f",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Put@FilePipe@@UAEHPBXH@Z",
+      "symbol_prefix": "?Put@FilePipe@@UAEHPBXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "5e61804a4631cc81ff93f4f7dbba5dc273a10cda377ea513ec872fab3b1b27b8",
+      "source": "src/xpipe.cpp",
+      "population": "rebuild-xpipe",
+      "source_order": 7813104,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

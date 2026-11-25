@@ -1,0 +1,130 @@
+{
+  "id": "rebuild-obscure",
+  "population": {
+    "id": "rebuild-obscure",
+    "inventory_sha256": "b3bd2ecf3efc152c46932e33b18c72b7bcc7a53bf12c2be63e594e123f7a15f4",
+    "gaps_sha256": "4a5690b66c405687735ff5bece50400359e5f27481176c79472b35d6d2a919b4",
+    "historical_population_sha256": "fcc4fb75ca3755bb264a55d21d7c971427bbef399800b998c20a3892356e8948",
+    "historical_acceptance_sha256": "a56af84762f77933caac5519d9b5d3f26cc775f8b9aaf7285cbec4c1ac72ac00"
+  },
+  "references": {
+    "_strncpy": 7873488,
+    "_strupr": 7954916,
+    "_isgraph": 7875725,
+    "??RCRCEngine@@QAEHPBXH@Z": 4800448,
+    "_strrev": 7958640,
+    "_?_addbits@?BF@??Obfuscate@@YIHPBD@Z@4PAEA": 8290876,
+    "_?_lossbits@?BF@??Obfuscate@@YIHPBD@Z@4PAEA": 8290868,
+    "?Obfuscate@@YIHPBD@Z": 6128528
+  },
+  "regions": [
+    {
+      "entry": 6128528,
+      "method": "005d8390",
+      "body_bytes": 578,
+      "body_sha256": "2b3a35e56d32844c01a4cbf984fd7d663310bff15f433be7ae623dd8f073d8b3",
+      "padding_bytes": 14,
+      "full_extent_bytes": 592,
+      "full_extent_sha256": "1d3fe803dba049a3350704a1215a6818111cecdd500237b8c588ea29d793e50b",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Obfuscate@@YIHPBD@Z",
+      "symbol_prefix": "?Obfuscate@@YIHPBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 56,
+          "kind": 20,
+          "symbol": "_strncpy",
+          "target": 7873488,
+          "addend": 0,
+          "resolved": 1744900
+        },
+        {
+          "offset": 94,
+          "kind": 20,
+          "symbol": "_strupr",
+          "target": 7954916,
+          "addend": 0,
+          "resolved": 1826290
+        },
+        {
+          "offset": 114,
+          "kind": 20,
+          "symbol": "_isgraph",
+          "target": 7875725,
+          "addend": 0,
+          "resolved": 1747079
+        },
+        {
+          "offset": 250,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEHPBXH@Z",
+          "target": 4800448,
+          "addend": 0,
+          "resolved": 4293638962
+        },
+        {
+          "offset": 260,
+          "kind": 20,
+          "symbol": "_strrev",
+          "target": 7958640,
+          "addend": 0,
+          "resolved": 1829848
+        },
+        {
+          "offset": 290,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEHPBXH@Z",
+          "target": 4800448,
+          "addend": 0,
+          "resolved": 4293638922
+        },
+        {
+          "offset": 304,
+          "kind": 20,
+          "symbol": "_strrev",
+          "target": 7958640,
+          "addend": 0,
+          "resolved": 1829804
+        },
+        {
+          "offset": 382,
+          "kind": 6,
+          "symbol": "_?_addbits@?BF@??Obfuscate@@YIHPBD@Z@4PAEA",
+          "target": 8290876,
+          "addend": 0,
+          "resolved": 8290876
+        },
+        {
+          "offset": 390,
+          "kind": 6,
+          "symbol": "_?_lossbits@?BF@??Obfuscate@@YIHPBD@Z@4PAEA",
+          "target": 8290868,
+          "addend": 0,
+          "resolved": 8290868
+        },
+        {
+          "offset": 563,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEHPBXH@Z",
+          "target": 4800448,
+          "addend": 0,
+          "resolved": 4293638649
+        }
+      ],
+      "source_sha256": "4534e1c775d07d9d196f4ed759e7ccbdcf1b08054704fc94fe51590d8a46fde0",
+      "source": "src/obscure.cpp",
+      "population": "rebuild-obscure",
+      "source_order": 6128528,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

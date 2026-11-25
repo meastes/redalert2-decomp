@@ -1,5 +1,7 @@
 # Native tree: coupling to this repository's source layout
 
+> **Moved (2026-11-25):** `native/` now lives in github.com/meastes/redalert2-modern (layout move, lane O88); this file is kept as the record of the coupling before the move.
+
 **Since 2026-11-24** `rebuild/` is the exact-match tree of record and `src/` is frozen at the tag
 `src-final`. The native ports keep building from `src/recovered` and `src/shared` unchanged (native/build.sh,
 native_units.py; `tree.py`'s default stays `main` until the native tools pin `RA2_TREE=main`, step 13 of the

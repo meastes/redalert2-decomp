@@ -1,8 +1,14 @@
 # Source and dependency provenance
 
-Authored project tools and the native port use the repository
-GPL-3.0-or-later license; retain LICENSE and all dependency notices. Canonical
-recovered C/C++ in root `src/` is reconstructed from the supplied original target.
+Authored project tools use the repository
+GPL-3.0-or-later license; retain LICENSE, LICENSE.md and all dependency notices. Canonical
+recovered C/C++ in root `src/` and `include/` is reconstructed from the supplied original target.
+
+**Native ports.** Since the layout move of 2026-11-25 (user decision 2026-11-24/25) the native
+ports and the native Yuri's Revenge build live in github.com/meastes/redalert2-modern, which keeps
+their provenance (linked libraries, the Win32/DirectX header source, YR glue adoptions) in its own
+THIRD_PARTY.md. The entries for the native code removed from this repository are at the tag
+`src-final` in this file. This repository keeps the pinned `yr/` copies that redalert2-modern vendors.
 This migration makes no new grant of rights in the original game or compiler,
 and authorizes no publication. Original executables/assets, instruction-byte
 scaffolding, disassembly and proprietary tools remain ignored private inputs.
@@ -15,6 +21,8 @@ files at that tag. No current build uses that code. Capstone and pefile are acti
 inspection tools; VC6 and CrossOver are legitimate user-supplied local build tools.
 
 ## Public references inspected
+
+Paths under `src/recovered/` in these entries are the earlier tree's, at the tag `src-final`.
 
 - **OpenRA**, commit `e7e9e4ad270221d7fb9725b348c75504d48c1ebd`:
   https://github.com/OpenRA/OpenRA/tree/e7e9e4ad270221d7fb9725b348c75504d48c1ebd
@@ -106,21 +114,15 @@ inspection tools; VC6 and CrossOver are legitimate user-supplied local build too
   `src/` as candidates, adapted to our shared headers; an adopted file keeps the source's SPDX and copyright lines
   (including the EA line where present) and the commit subject says "from TibSun <file>". Acceptance is unchanged.
 
-- **Native Yuri's Revenge port (lane Y1, user decision 2026-11-15)**: `yr/ra2-decomp` is a pinned copy of
+- **Pinned Yuri's Revenge sources (`yr/`, lane Y1, user decision 2026-11-15)**: `yr/ra2-decomp` is a pinned copy of
   ra2-decomp at `8719494727dd9d5db16f92087e3cc13ea99f4dd3` (moved from `f8d8d53` by lane Y3) (`src/`, `include/`, `COPYING.md`, `LICENSE`, `README.md`
   and the `data/` function map, manifest, names, library and module tables), GPL-3.0-or-later with Electronic Arts'
   section 7 terms on files carrying an EA or OpenTS copyright line; `data/` and the tooling text are MIT. `yr/tibsun`
   is a pinned copy of the OpenTS TibSun archive's headers (`code/**/*.h`, `LICENSE.md`, `README.md`) at
   `dbfbfbfaac40364ce7e1cd8fad7bcade5c6fb0d4`, GPL-3.0-or-later with EA's section 7 terms. Both are copied unchanged
-  with every notice kept (`yr/README.md`); the native build reads generated copies with `native/yr/fixups.json`
-  applied and never edits them. The Win32/DirectX headers the native YR build compiles against are the mingw-w64
-  headers of the local llvm-mingw toolchain, rewritten into `build/` at configure time and never copied into the
-  repository (mingw-w64 headers: public domain / ZPL, Wine-derived DirectX headers LGPL-2.1-or-later).
-  Lane Y7 adopted two functions from a newer ra2-decomp commit (`0bafad686c6ac1f7cf29777cb291d6002ebbcfd7`,
-  2026-11-16) that the pin lacks: SidebarClass::StripClass::SelectClass::Action (0x006AAD00, src/sidebar.cpp) and
-  SuperClass::Impatient_Click (0x006CC070, src/super.cpp), appended as text to the generated units through
-  `native/yr/glue/sidebar_native.inc` and `super_native.inc` with their origin noted there (GPL-3.0-or-later).
-- **ra2-decomp** (`gibbo101/ra2-decomp` commit `6e6f6a1a3430ae9e2b743fe4fe176da2b5ccf661`, 2026-11-07; earlier pins ca9b8ad, 4453ab030; the rebuild tree's later adoptions, up to commit b95420b, are pinned per file in `rebuild/manifest/adopted.csv`): a matching
+  with every notice kept (`yr/README.md`); the native YR build (redalert2-modern, `tools/update_yr_vendor.sh`)
+  vendors them from here and never edits them.
+- **ra2-decomp** (`gibbo101/ra2-decomp` commit `6e6f6a1a3430ae9e2b743fe4fe176da2b5ccf661`, 2026-11-07; earlier pins ca9b8ad, 4453ab030; the rebuild tree's later adoptions, up to commit b95420b, are pinned per file in `manifests/adopted.csv`): a matching
   decompilation of Yuri's Revenge gamemd.exe 1.001 built with the same VC6 SP3. Game source in `src/` and `include/`
   GPL-3.0-or-later, Copyright 2026 ra2-decomp contributors, with Electronic Arts' section 7 terms on files carrying an
   EA copyright line (COPYING.md); tooling and data MIT. The maintainer, Luke Gibson (gibbo101), gave the user explicit
@@ -131,12 +133,12 @@ inspection tools; VC6 and CrossOver are legitimate user-supplied local build too
   "from ra2-decomp <YR address>". Acceptance is unchanged: strict audit and exact whole-file build.
   Adopted 2026-11-24 (lane O73, user decision in the owner session, AGENTS.md exception "revised, binary-derived
   lines"): `src/ra2asm/detproc.asm`, `isoasm.asm` and `winasm.asm` at commit `f70722414a172d30d124b7271a87d55657d259d8`,
-  copied unchanged into `src/recovered/asm/ra2asm/` with their SPDX line, the ra2-decomp copyright and the Electronic
+  copied unchanged into `asm/ra2asm/` (the earlier tree's copy, `src/recovered/asm/ra2asm/`, is at `src-final`) with their SPDX line, the ra2-decomp copyright and the Electronic
   Arts (GPL section 7 terms) and OpenTS lines; each file's own header marks it as a modified version of the TibSun
   archive's same-named file ("as Red Alert 2 revised it"). Only six procedures are taken from them
   (`tools/original_target/assembly_tools.py` REVISED_ALLOWLIST): Detect_MMX_Availability, Iso_Blit_Asm1 and the four
   Draw_Voxel_*_Normals_ASM routines; each is a TibSun archive procedure with RA2's revisions derived from the binary,
-  credited to Reproduced .text only. Listed in `rebuild/manifest/adopted.csv`. Acceptance is unchanged: each procedure
+  credited to Reproduced .text only. Listed in `manifests/adopted.csv`. Acceptance is unchanged: each procedure
   is assembled with the pinned MASM and proved against the original at build time.
   Adopted 2026-11-11 (Scout1266, owner ruling under DECISIONS row 24): the member AbstractClass::Is_Techno from
   include/abstract.h:92 (header inline in src/shared/abstract_class.hpp; its COMDAT 0x006F8A70 is emitted by
@@ -203,7 +205,7 @@ inspection tools; VC6 and CrossOver are legitimate user-supplied local build too
   Adopted 2026-11-15 (lane M1 batch p3, names only): 18 function names from ra2-decomp's byte-identical twins in units
   without a TibSun/mischa85 counterpart, each name also present in the TibSun archive or mischa85 (YRpp-only names left out).
 
-## Rebuild tree (`rebuild/`, on main since 2026-11-19; formerly branch `rebuild-trial`)
+## The tree (`src/`, `include/`, `asm/`; the rebuild, on main since 2026-11-19 as `rebuild/`, at the root since 2026-11-25)
 
 The rebuild trial (user decision 2026-11-17) is a fresh tree with one source per original unit. Most of its text
 is adopted whole-file from **mischa85/RedAlert2** (`github.com/mischa85/RedAlert2`; commits 32ed14c and 6dee74a, as
@@ -212,31 +214,16 @@ source code released under the GPL), **ra2-decomp** (gibbo101/ra2-decomp) and, f
 **electronicarts/CnC_Renegade**. The licence is GPL-3.0-or-later. Electronic Arts' GPL section 7 additional terms
 apply to the files that carry an Electronic Arts copyright line.
 
-- `rebuild/manifest/adopted.csv` indexes every adopted file: origin, origin commit, origin path and the SHA-256
+- `manifests/adopted.csv` indexes every adopted file: origin, origin commit, origin path and the SHA-256
   of the file as adopted.
 - Each adopted file keeps its own SPDX and copyright lines. A file whose origin had no notice got one line naming
-  its origin (`rebuild/src/mono.cpp`).
-- `rebuild/LICENSE.md` is mischa85's LICENSE.md, copied unchanged: the GPL text plus Electronic Arts' section 7
+  its origin (`src/mono.cpp`).
+- `LICENSE.md` is mischa85's LICENSE.md, copied unchanged: the GPL text plus Electronic Arts' section 7
   terms that the adopted files refer to.
-- `rebuild/manifest/provenance.csv` gives the source of each accepted function's text: a (adopted), b (reshaped
+- `manifests/provenance.csv` gives the source of each accepted function's text: a (adopted), b (reshaped
   from this repository's main tree) or c (written fresh from the seed and the class layout).
 - Acceptance is the main tree's exact standard: every accepted row is checked against the original bytes, and the
   rebuild tree must pass the whole-file exact build.
-
-## Native linked libraries (tested development versions)
-
-| Library | Version | License | Use |
-| --- | --- | --- | --- |
-| SDL3 | 3.4.2 | zlib | Window, input, texture upload, debug text |
-| OpenSSL | 3.6.1 | Apache-2.0 | MIX RSA/Blowfish decoding and original-data SHA-256 |
-| LZO | 2.10 | GPL-2.0-or-later | Safe LZO1X map decompression; compatible GPLv3 distribution |
-| zlib | SDK 1.2.12 interface | zlib | MIX CRC-32 filename IDs |
-
-Licenses were inspected from the installed Homebrew packages (SDL3 LICENSE.txt,
-OpenSSL LICENSE.txt, LZO share/doc/lzo/COPYING) and public OpenRA COPYING. These
-libraries are discovered by CMake, not copied into Git. The Blowfish API is the
-legacy OpenSSL block API because MIX requires that historical cipher; this is
-archive interoperability, not a choice of cipher for new security functionality.
 
 ## Local tooling only
 

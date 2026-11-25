@@ -20,7 +20,9 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
   ra2-decomp's tree (GPL-3.0-or-later, pinned, notices kept, `THIRD_PARTY.md`), sharing
   our native platform layer, staged per `docs/YR_PORT_SIZING.md` (plan 1, a unified
   menu with per-game match logic as the later target); it earns no exact-match credit
-  and never edits `src/`.
+  and never edits `src/`. (Since the layout move of 2026-11-25 the native ports, the YR port among
+  them, live in github.com/meastes/redalert2-modern; this repository keeps only the pinned `yr/` copies
+  that repository vendors.)
 - **Exact means exact:** a region is accepted only when the fresh VC6 object
   reproduces the complete independently bounded original body, references and
   frozen padding. No masks, prefix/tail trimming or candidate-derived bounds.
@@ -64,7 +66,7 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
   dumps, disassembly, Ghidra exports, scaffolding, experiments and build outputs
   stay ignored under `private/` or `build/`; never stage them. Original
   installations and `outpost2-native` are read-only. Tracked: accepted source in
-  `rebuild/` (and the frozen `src/`), authored tools/tests, byte-free manifests, docs.
+  `src/`, `include/` and `asm/`, authored tools/tests, byte-free manifests, docs.
 - **External references:** public/recomp/YRpp material supplies hypotheses only;
   verify on the exact target and check licenses (`THIRD_PARTY.md`). Exception
   (user, 2026-11-06; extended 2026-11-09): text from ra2-decomp, the TibSun archive,
@@ -76,7 +78,24 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
   point pull `private/reference/ra2-decomp` and `private/reference/mischa85-RedAlert2`
   (at most hourly) and report functions they match that we have not accepted.
   Do not adopt a lifted runtime or OpenRA gameplay.
-- **Native phase:** no native/SDL/arm64/gameplay check per recovery batch.
+- **One tree (user decision 2026-11-24/25: layout move at port parity).** When the new ports in
+  github.com/meastes/redalert2-modern reached parity (the Windows recheck passed on the real PC on
+  2026-11-24; the user's Mac/LAN checks are not a gate), the repository made one layout move
+  (2026-11-25, lane O88): the earlier `src/` tree was deleted (the tag `src-final` keeps it), `native/`
+  (the old ports) was deleted, and the rebuild was promoted to the root. The exact-match tree is now:
+  one source per original translation unit in `src/`, one header per class in `include/`,
+  handwritten assembly in `asm/`, the catalog `manifests/catalog/` with the tree's other manifests
+  beside it in `manifests/`, the tools in `tools/original_target/`, the tests in `tests/`. There is no
+  tree switch (`RA2_TREE` is gone) and one gate: catalog, structure gate (census), whole-file build.
+  The earlier tree's catalog `manifests/original_target/` stays, read-only and never edited, as the
+  evidence the catalog rows cite (bounds, hashes, `bound_population`) and for its library ledger; its
+  source is read from the tag `src-final` where a tool needs it. Acceptance, STATUS, ByteMatch and the
+  public snapshot follow this tree. The native ports, the YR port and every native lane live in
+  redalert2-modern, which vendors `src/`, `include/`, `LICENSE.md` and `manifests/adopted.csv` at a pinned
+  commit (its `tools/update_rebuild.sh`).
+- **Earlier decisions, kept as recorded** (paths updated: `rebuild/` is now the repository root and the
+  exact tree is `src/` + `include/`; `native/` is in redalert2-modern):
+  No native/SDL/arm64/gameplay check per recovery batch.
   `historical/` was removed on 2026-11-17 at the user's request (confirmed by the user
   2026-11-17); tag `historical-final`. The shipped game will be
   native arm64 with no Wine/CrossOver, Rosetta, VM, emulation or original code.
@@ -92,20 +111,20 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
   rebuild is the standing matching effort (one Mac lane plus the Windows workers; structure
   checks are landing gates): a tree from the Tiberian Sun layout, mischa85's matched modules
   as the unit map, main's accepted source as the answer key, text adopted with attribution.
-  User decision (2026-11-19): The rebuild lives on main in its own `rebuild/` folder beside
-  `src/`, built and gated separately: a commit touching only `rebuild/` runs the rebuild gate
-  (catalog, structure gate, whole-file build); a commit touching shared tools runs both trees'
-  gates. Rebuild-only commits publish at most hourly.
+  User decision (2026-11-19): The rebuild lives on main in its own folder (then `rebuild/`, now the
+  root) beside the earlier `src/`, built and gated separately (superseded by the one gate above).
+  Rebuild-only commits publish at most hourly.
   User decision (2026-11-22; brought into force by the user, 2026-11-24, in the owner session:
-  rebuild/ is the tree of record from today): `rebuild/` is the exact-match tree of record.
-  Acceptance, STATUS, ByteMatch and the public snapshot follow it. `src/` and main's catalog
+  the rebuild is the tree of record from today): the rebuild is the exact-match tree of record.
+  Acceptance, STATUS, ByteMatch and the public snapshot follow it. The earlier `src/` and main's catalog
   (`manifests/original_target/`) are frozen at the tag `src-final`: read-only, never edited, kept as
-  reference text and as evidence the rebuild's rows cite. `build.command --tree src` still reproduces
-  the original from them. The exceptions recorded above apply to the tree of record as they stand,
+  reference text and as evidence the rebuild's rows cite. The exceptions recorded above apply to the
+  tree of record as they stand,
   including the 2026-11-24 flagged variation forms (each flagged by kind, counted on the judgment line
   and the STATUS kinds line, replaced whenever matching reference text appears). The native ports keep
   building from `src/` until a separate ports repository consumes the rebuild at a pinned commit;
-  creating or publishing that repository is the user's decision.
+  creating or publishing that repository is the user's decision (done: redalert2-modern consumes this
+  tree at a pinned commit).
   From every commit: one source file per original unit, one header and one definition
   per class, no per-unit views or `RA2_` switches, members as members, address-suffixed names
   minimal and never growing silently, no tool data inside sources. Acceptance is main's exact
@@ -113,8 +132,8 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
   carries a checkpoint (rate by provenance, structure line, parked tail, lane-hours, a
   continue/change recommendation) at 25%, 50% and parity of main's matched bytes, or when
   parked large functions pass 500 KB; the owner reports a stall unasked (two consecutive days
-  where parked bytes grow faster than matched bytes outside adopted text). It builds the native tree from
-  `src/recovered` and `src/shared`; unmatched functions are carried as their best
+  where parked bytes grow faster than matched bytes outside adopted text). Native work (now in
+  redalert2-modern) carries unmatched functions as their best
   parked draft (flagged non-exact with its score) or a behaviour-written
   implementation, never empty stubs. Native work earns no exact-match credit.
   User decision (2026-11-08): the native port may read data the original stores
@@ -128,23 +147,22 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
 
 ## How to work
 
-1. **Pick by unit or family, not by single function.** `rebuild/tools/tail.py` and the
-   twin map (`rebuild/tools/twinmap.py`) rank parked functions; the frozen `src/` is the
-   answer key. A class's layout lives once in its header under `rebuild/include/` (one
+1. **Pick by unit or family, not by single function.** `tools/original_target/tail.py` and the
+   twin map (`tools/original_target/twinmap.py`) rank parked functions; the earlier tree at the tag
+   `src-final` is the answer key. A class's layout lives once in its header under `include/` (one
    header per class); sweep its unit with those types.
-2. **Iterate.** Edit the unit in `rebuild/src/<unit>.cpp` and run `rebuild/tools/rebuild.py
+2. **Iterate.** Edit the unit in `src/<unit>.cpp` and run `tools/original_target/rebuild.py
    check <unit>`, which compiles it with the real compiler and compares every row.
    Iterating on near misses (statement order, temporaries, types, expression shape, inline
    splits, option variant) is the normal work, not a forbidden "steering". A
    miss is never "closed": record its best score and move on when the time box
    (about 30 minutes per KB of body, capped at four hours) runs out; anyone may resume it.
-3. **Land in bulk.** Exact units go through the rebuild landing: `rebuild.py check` /
+3. **Land in bulk.** Exact units go through the landing: `rebuild.py check` /
    `catalog` (the structure gate), then the owner's landing script (house format, catalog,
    whole-file build, progress.csv). No separate reviewer is required for source, tools or
    build changes; the catalog audit and the exact whole-file build are the checks.
-4. **Build periodically.** Run the full `./build.command` (the rebuild; add `--tree src` when
-   a shared tool changes) before each commit that changes accepted source or build logic,
-   not for every candidate.
+4. **Build periodically.** Run the full `./build.command` before each commit that changes
+   accepted source or build logic, not for every candidate.
 5. **Record briefly.** Commit accepted source with a short message. Regenerate
    numbers with `tools/original_target/status.py --write`; update `HANDOFF.md`
    with what is in flight and the next target. No per-batch cost receipts, hash
@@ -154,8 +172,8 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
 
 The executable carries MSVC RTTI: original class names and inheritance for
 every polymorphic class (`docs/CLASS_HIERARCHY.md`, `manifests/rtti_classes.json`).
-Sources live one per original unit in `rebuild/src/`, one header per class in
-`rebuild/include/`; use the original class names for shared layouts and members.
+Sources live one per original unit in `src/`, one header per class in
+`include/`; use the original class names for shared layouts and members.
 
 Name understood operations, parameters and fields as you match them, with the
 original address as a suffix; keep honest `unknown_0xNN` names for the rest.
@@ -163,17 +181,18 @@ Prefer real shared types over per-function owner classes and register-named
 locals. Existing transliterated sources (`unsigned int ecx = ...`) may be
 replaced whenever a class sweep touches them, provided the replacement still
 matches exactly. Formatting and renaming earn no matched-byte credit but are
-welcome. Canonical source in `rebuild/` is authoritative.
+welcome. Canonical source in `src/` and `include/` is authoritative.
 
-Retired with `src/` (frozen at `src-final`; kept here as the record of how it was built): the
+Retired with the earlier `src/` tree (at the tag `src-final`; kept here as the record of how it was built): the
 standing rename lane (user, 2026-11-09: one lane, counted within the lane total, renames toward
 Westwood/TibSun names first, then ra2-decomp, then mischa85 names.csv, then RTTI names, order
 changed by the user 2026-11-15; YRpp-only names stay until better evidenced; one class per round;
 no source-shape change; whole-file exact build gates every round), the seed tools
 (`seed_candidate.py`, `sweep_seeds.py`, `class_inventory.py`, `regenerate_seeds.py` and the
 `seed-generated` marker), `compile_candidates.py` acceptance into `src/recovered/`, and Ghidra type
-names from `src/shared/ghidra_types.hpp`. Renames toward those sources continue in `rebuild/` under
-the same order.
+names from `src/shared/ghidra_types.hpp` (the seed and rename tools stay as text in
+`tools/original_target/`; they need the earlier tree from `src-final` to run). Renames toward those
+sources continue in the tree under the same order.
 
 ## Ownership and workers
 
@@ -221,7 +240,7 @@ and preserve unexpected changes rather than overwriting them.
 Every status (each landing and lane hand-back) uses this order, in plain words, with a
 function's name rather than its address where it has one:
 1. What happened since the last status.
-2. Measures table (user, 2026-11-22), rebuild first, src-final as the frozen reference column:
+2. Measures table (user, 2026-11-22), this tree first, src-final as the frozen reference column:
    Reproduced .text % (like for like); C/C++ bodies matched, padding separate
    (bytes, %, gap to main in KB: the parity line, kept until "matched in src-final, not yet in
    the rebuild" is zero); exact with no judgment call (bytes, %);

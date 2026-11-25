@@ -1,7 +1,7 @@
 # Pinned Yuri's Revenge source (native YR port, lane Y1)
 
 User decision (2026-11-15, AGENTS.md): the native Yuri's Revenge port is built from
-ra2-decomp's tree, pinned here and never edited. Native-only changes live in `native/yr/`
+ra2-decomp's tree, pinned here and never edited. Native-only changes lived in `native/yr/` (since 2026-11-25 in github.com/meastes/redalert2-modern)
 (text fixups applied to generated copies, glue, the SDK layer); `src/` and the RA2 exact build
 are untouched.
 

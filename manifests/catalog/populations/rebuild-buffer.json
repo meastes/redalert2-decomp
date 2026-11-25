@@ -1,0 +1,155 @@
+{
+  "id": "rebuild-buffer",
+  "population": {
+    "id": "rebuild-buffer",
+    "inventory_sha256": "a85a3f115958f021664dcc978987a840a8f27f50fb935840f6b213f86f44d0f0",
+    "gaps_sha256": "7c769d8750ab39e03792a543e1dd53c77e512586b3f3bb958ca47b6c7069321e",
+    "historical_population_sha256": "17a1758a74026c7728f2bd7d6186b5f09cfb18a87ae765cba8f56693961a3733",
+    "historical_acceptance_sha256": "f57abf82529615d0c3a7e6a8b4d9ddd67f8d5c7c603567bdc82c5c0a47db46b0"
+  },
+  "references": {
+    "??2@YAPAXI@Z": 7872535,
+    "??3@YAXPAX@Z": 7871803,
+    "??0BufferClass@@QAE@PAXH@Z": 4424816,
+    "??0BufferClass@@QAE@H@Z": 4424880,
+    "??0BufferClass@@QAE@XZ": 4424912,
+    "??1BufferClass@@QAE@XZ": 4424928
+  },
+  "regions": [
+    {
+      "entry": 4424816,
+      "method": "00438470",
+      "body_bytes": 51,
+      "body_sha256": "f2fc8bfeab5286d903aa7a33bf4c6719a9402297e5eadfa1539b70af3fd0827f",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "58e025407a9b019c7808cfac886e7a969a42e35087cf7b230e791bb52955f962",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0BufferClass@@QAE@PAXH@Z",
+      "symbol_prefix": "??0BufferClass@@QAE@PAXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3447683
+        }
+      ],
+      "source_sha256": "5f337efb05d56c5d05e7b7d32779f2d0dad0b470cdabf5dfec217f6cca244979",
+      "source": "src/buffer.cpp",
+      "population": "rebuild-buffer",
+      "source_order": 4424816,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4424880,
+      "method": "004384b0",
+      "body_bytes": 31,
+      "body_sha256": "c34f2dd9601ec1a58ed823f39adaf2e06d394e178bc30409de8c4302094fabb1",
+      "padding_bytes": 1,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "ba1aa862c8cbd6c8004edb4b9ab156254c2c5d3ba9950f0d0a9a0146c537c70e",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0BufferClass@@QAE@H@Z",
+      "symbol_prefix": "??0BufferClass@@QAE@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3447639
+        }
+      ],
+      "source_sha256": "5f337efb05d56c5d05e7b7d32779f2d0dad0b470cdabf5dfec217f6cca244979",
+      "source": "src/buffer.cpp",
+      "population": "rebuild-buffer",
+      "source_order": 4424880,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4424912,
+      "method": "004384d0",
+      "body_bytes": 13,
+      "body_sha256": "59fc594d3b97fa941a3ea953be833b7f7836432c60b32289c149a13365615da0",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "723d19c0cc69d107e27ee4da4f61dc6d09a979572ca9857e8dcaa02473839737",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0BufferClass@@QAE@XZ",
+      "symbol_prefix": "??0BufferClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "5f337efb05d56c5d05e7b7d32779f2d0dad0b470cdabf5dfec217f6cca244979",
+      "source": "src/buffer.cpp",
+      "population": "rebuild-buffer",
+      "source_order": 4424912,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4424928,
+      "method": "004384e0",
+      "body_bytes": 17,
+      "body_sha256": "09b620679473a4f54cddd541936923035a36241f3330c239052cd75cfb20e732",
+      "padding_bytes": 15,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "3a3b02737729afc3b1699a73fdc52d0cd3770670f9381883ab63e499b1707386",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1BufferClass@@QAE@XZ",
+      "symbol_prefix": "??1BufferClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3446860
+        }
+      ],
+      "source_sha256": "5f337efb05d56c5d05e7b7d32779f2d0dad0b470cdabf5dfec217f6cca244979",
+      "source": "src/buffer.cpp",
+      "population": "rebuild-buffer",
+      "source_order": 4424928,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

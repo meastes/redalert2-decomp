@@ -5310,3 +5310,41 @@ data symbols a unit's object defines, their bindings and relocation targets), no
   the same bytes and did not move a nested decision; wrappers around a whole block grew the frame; and a draft
   can sit on the one count where its inline decisions hold, so that every probe loses a call. Check the call
   list of a count survey before reading its byte counts.
+
+## A twin's forms are taken together and then read by count; a term of a sum that is a named value is added first; channel orders that no count gives (found in the rebuild (lane F62, high))
+
+Found in the rebuild (lane F62, high); one draft brought from 3,479 to 6 bytes on ra2-decomp's matched twin text (2e5b2c1),
+one row measured and left at 6 bytes, one binding. Lane tools in build/r/f62: v.py (compile a scratch copy of a unit, compare
+one row, `--blind` masks frame slots, `--sites` names the state of chosen sites, `--base` lists rows that change), t.py
+(named toggles over one function's text, plus referenced-int probes), win.sh (the byte count per probe count), fl.py (a table
+of variants of one statement).
+
+- techno TechnoClass::Fire_At 0x6CA890: a twin form that "moves nothing alone" is still measured with the twin's other
+  forms and over a short count survey. The velocity spelling (`Nonzero_Check(); velocity *= speed / velocity.Speed();`)
+  compiles to Set_Speed's bytes alone, and so does each of the twin's other statements; together with the twin's flak block
+  (the vector copy-initialised, the scatter angle a named double in both arms) the same text is 12 bytes at three to seven
+  more referenced locals. Each further twin statement then shifts that window by the locals it adds or removes, and two of
+  them (the reveal test through `As_Object` into a named pointer, the firing direction assigned straight from `atan2`) put
+  the draft inside it with no added local.
+- Read each site's state, not the byte total, while surveying: the three products of the speed scaling turn one at a time
+  (X at one count, Y at the next, Z after), so a total of 3,4xx bytes can be one product away from 6. A total hides it
+  because the frame size changes with the last product.
+- One statement can fix a site the count never reaches: the X product stayed wrong over a whole period (lane F60) and
+  followed the removal of one named double (`double angle = atan2(...); dir = DirType(angle);` against the twin's
+  `dir = atan2(...)`).
+- The order of a sum of three squares is the compiler's, not the text's: `Z*Z + X*X + Y*Y` written out compiles to X, Y, Z,
+  eighteen orders of named doubles keep the image's order away, and neither referenced locals nor live stores ahead of the
+  site move it. What moves it is a term that is already a value: with Z*Z held in a named double the sum starts with it
+  (the image's Z, X, Y). No reference has such a local, so the draft keeps `Length()` and the 6 bytes; a file helper with
+  the named square leaves 2 bytes (the X and Y loads change places), the same in place 10.
+- A third reference is checked against its own claim list before its text is measured: RobinDigitalPro's 1.001 rebuild
+  does not claim TechnoClass::Fire_At, marks its flak block as steering, and that block compiled here keeps the site wrong.
+- sidebar StripClass::Draw_It 0x67F800: before taking a twin's named locals, read in its attempt log what they were for.
+  The four print styles met a count for Yuri's Revenge's observer rows, which RA2's function does not have; here they
+  change nothing, and the twin's by-value colour with the three-value call turns the text colour instead (48 bytes).
+- A pixel's channel order can be surveyed with distinct live globals where referenced ints do nothing (1 to 16 at five
+  places: no change): stores to n extern ints ahead of the function turn the two pixels separately (18 to 21 and 52: the
+  outline to Red, Blue, Green; 32: the text colour to Green, Blue, Red; 64: both). None of these is the image's Blue, Red,
+  Green with Blue, Green, Red, so the row is not a count either.
+- A worktree needs the `private` link beside `build/r` (rebuild.py reads private/original-target.interactive.json), and the
+  copied `build/r/last` can be older than the tree: `--base` then reports rows as changed that are only missing there.

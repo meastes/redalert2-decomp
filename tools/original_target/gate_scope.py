@@ -1,38 +1,19 @@
 #!/usr/bin/env python3
-"""Which gates a change needs (lane P1, 2026-11-15).
+"""Which gates a change needs (lane P1, 2026-11-15; one tree since the layout move, lane O88, 2026-11-25).
 
     gate_scope.py [--base REV]      print {"scope": ..., "paths": N, "exact_paths": [...]} for REV..HEAD
                                     plus the working tree (default REV: main)
 
-* "exact": the change touches what the whole-file exact build reads (src/, manifests/, the
-  build tools, build.command, the toolchain pins): the whole-file exact gate, then native
-  configure, compile and ctest (the native tree is generated from src/).
-* "native": every changed path is native-only (native/, native tests, docs): native configure,
-  compile and ctest only. It takes neither the full-build lock nor the whole-file gate; it rests
-  on the last exact whole-file receipt for an ancestor of HEAD, which the native gate records.
-* "rebuild": every changed path is the rebuild tree's (rebuild/) or documentation: the rebuild
-  gate only (catalog, structure gate, the rebuild's whole-file build; private/tools/
-  land_rebuild_lane.sh), neither main's whole-file exact gate nor native ctest (the native tree
-  is generated from src/, which the rebuild never edits).
+* "exact": the change touches what the gate reads (src/, include/, asm/, manifests/, tools/, tests/,
+  build.command, test.command, the toolchain pins): the tree's gate (catalog, structure gate,
+  whole-file exact build; private/tools/land_rebuild_lane.sh).
 * "none": documentation only.
-* "frozen" (user decision 2026-11-22, brought into force on 2026-11-24: rebuild/ is the tree of record):
-  the change touches src/ or main's catalog (manifests/original_target/), frozen at the tag
-  src-final. Refused: nothing lands there (tests/test_src_frozen.py fails on it).
+* "frozen": the change touches manifests/original_target/, the earlier tree's catalog, kept read-only
+  as the evidence the catalog rows cite (bounds, hashes, bound_population; the tree itself is the tag
+  src-final). Refused: nothing lands there.
 
-Shared tools (SHARED_PREFIXES: the canonical tools both trees run, and the toolchain pins) also
-need the rebuild gate: a change touching them runs both trees' gates ("rebuild_gate": true
-beside scope "exact"): the rebuild's whole-file build (`./build.command`) and the frozen tree's
-(`./build.command --tree src`, which must still reproduce the original from src-final).
-
-Which native tests (lane P2, 2026-11-16; the ctest labels of native/CMakeLists.txt):
-
-* tier "fast": the static checks and the fast played checks, plus each slow test whose area the
-  change touches (AREAS: its paths, and its own test script);
-* tier "full": every test. Chosen when asked (--tier full: once per landing batch, and before any
-  build for the user's devices), and by "auto" when the native gate history
-  (native_gate.HISTORY) holds no full pass from the last FULL_TIER_HOURS hours.
-
-    gate_scope.py [--base REV] --tests      also print the tier and the slow tests it adds
+The native ports moved to github.com/meastes/redalert2-modern (user decision 2026-11-24/25), so there
+is no native scope or native test tier here any more.
 """
 import argparse
 import json
@@ -41,75 +22,18 @@ import subprocess
 
 REPOSITORY = Path(__file__).resolve().parents[2]
 
-# Paths the native tree alone reads; anything else that is not documentation counts as exact.
-NATIVE_PREFIXES = ('native/', 'tests/test_native', 'build-ios.command', 'play-native.command')
-DOC_PREFIXES = ('docs/', 'README', 'THIRD_PARTY.md', 'AGENTS.md', 'CLAUDE.md', '.gitignore')
-# The rebuild tree (AGENTS.md: on main in its own rebuild/ folder, gated separately).
-REBUILD_PREFIXES = ('rebuild/',)
-# Paths both trees' builds read: a change here runs main's gates and the rebuild gate.
-SHARED_PREFIXES = ('tools/original_target/', 'manifests/toolchain.json', 'build.command')
-# Frozen at the tag src-final (rebuild/ is the tree of record from 2026-11-24): read-only reference text.
-FROZEN_PREFIXES = ('src/', 'manifests/original_target/')
+DOC_PREFIXES = ('docs/', 'README', 'THIRD_PARTY.md', 'AGENTS.md', 'CLAUDE.md', '.gitignore', 'LICENSE')
+# The earlier tree's catalog, frozen at the tag src-final: read-only evidence.
+FROZEN_PREFIXES = ('manifests/original_target/',)
 
 
 def classify(path):
-    """'frozen', 'native', 'rebuild', 'doc' or 'exact' for one repository path."""
+    """'frozen', 'doc' or 'exact' for one repository path."""
     if path.startswith(FROZEN_PREFIXES):
         return 'frozen'
-    if path.startswith(REBUILD_PREFIXES):
-        return 'rebuild'
-    if path.startswith(NATIVE_PREFIXES):
-        return 'native'
     if path.startswith(DOC_PREFIXES) or (path.endswith('.md') and '/' not in path):
         return 'doc'
     return 'exact'
-
-
-# Slow-test areas: a changed path matching one of these (case-insensitive, anywhere in the path)
-# adds that area's slow tests to a fast run. Kept broad: a false match costs one slow test.
-AREAS = {
-    'network': r'(?:\blan|lan_|_lan|network|netw|ipx|udp|wsock|winsock|wol|session|lobby|nullmodem|connect|packet|/event\.)',
-    'campaign': r'(?:campaign|scenario|mission|score|briefing|movie|vqa|ending)',
-    'saves': r'(?:save|load|swizzle|stream|persist|pipe|straw)',
-    'hd-aircraft': r'(?:hd_vehicles|hd-vehicles|hdvox|voxel|vox|aircraft|air_base|paradrop|plane)',
-    'widescreen': r'(?:widescreen|aspect|resolution|native_map_zoom|window|display)',
-}
-# Each slow test's own script (a change to it runs it).
-SLOW_SCRIPTS = {
-    'native/tests/lan_pair.py': 'network', 'native/tests/lan_lobby.py': 'network',
-    'native/tests/campaign_chain.py': 'campaign', 'native/tests/original_save_write.py': 'saves',
-    'native/tests/hd_vehicles.py': 'hd-aircraft', 'native/tests/widescreen.py': 'widescreen',
-}
-FULL_TIER_HOURS = 12.0
-
-
-def areas(paths):
-    """The slow-test areas the changed paths touch."""
-    import re
-    found = set()
-    for p in paths:
-        if p in SLOW_SCRIPTS:
-            found.add(SLOW_SCRIPTS[p])
-        if classify(p) in ('doc', 'rebuild', 'frozen'):
-            continue
-        for area, pattern in AREAS.items():
-            if re.search(pattern, p, re.I):
-                found.add(area)
-    return sorted(found)
-
-
-def tier(paths, requested='auto', history=None, now=None):
-    """('fast' | 'full', [areas], reason)."""
-    import time
-    if requested == 'full':
-        return 'full', [], 'asked'
-    touched = areas(paths)
-    if requested == 'auto' and history is not None:
-        now = now or time.time()
-        fulls = [row for row in history if row.get('tier') == 'full' and row.get('ok')]
-        if not fulls or now - max(r.get('time', 0) for r in fulls) > FULL_TIER_HOURS * 3600:
-            return 'full', touched, 'no full pass in the last %g hours' % FULL_TIER_HOURS
-    return 'fast', touched, 'fast tier' + (' with areas ' + ', '.join(touched) if touched else '')
 
 
 def scope(paths):
@@ -118,16 +42,12 @@ def scope(paths):
         return 'frozen'
     if 'exact' in kinds:
         return 'exact'
-    if 'native' in kinds:
-        return 'native'
-    if 'rebuild' in kinds:
-        return 'rebuild'
     return 'none'
 
 
 def rebuild_gate(paths):
-    """Whether the change needs the rebuild gate: it touches rebuild/ or a shared tool."""
-    return any(p.startswith(REBUILD_PREFIXES + SHARED_PREFIXES) for p in paths)
+    """Whether the change needs the gate (kept for the landing scripts: true for any non-doc change)."""
+    return scope(paths) == 'exact'
 
 
 def changed_paths(base, repository=REPOSITORY):
@@ -166,16 +86,11 @@ def resting_receipt(repository=REPOSITORY):
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('--base', default='main')
-    parser.add_argument('--tests', action='store_true', help='also print the native test tier and areas')
     args = parser.parse_args()
     paths = changed_paths(args.base)
     out = dict(scope=scope(paths), rebuild_gate=rebuild_gate(paths), paths=len(paths),
                exact_paths=[p for p in paths if classify(p) == 'exact'][:20],
                frozen_paths=[p for p in paths if classify(p) == 'frozen'][:20])
-    if args.tests:
-        import native_gate
-        chosen, touched, reason = tier(paths, 'auto', native_gate.read_history())
-        out.update(tier=chosen, areas=touched, reason=reason)
     print(json.dumps(out, indent=1))
 
 

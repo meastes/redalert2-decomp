@@ -1,0 +1,1717 @@
+{
+  "id": "rebuild-gamedlg",
+  "population": {
+    "id": "rebuild-gamedlg",
+    "inventory_sha256": "d8264f12c10910f023f07e4111d1a563322f63354c8dda321e5f88fd6e685da2",
+    "gaps_sha256": "e7224a98023fdaa02cd5c91264577c9ef1aaaa036f6d9492fd5242d1e99c7d4f",
+    "historical_population_sha256": "f5f3bd6db6060f414b872ac448a7015b33e0af2991c9861a4f5c19b607fe5bf4",
+    "historical_acceptance_sha256": "a19b0ffed545769ea92bb1930def5a90d3211bd8b3e46041d5bb9dd748dddfdd"
+  },
+  "references": {
+    "_RECT_NONE": 8806408,
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 8806432,
+    "_ISO_TILE_SIZE": 8001760,
+    "_LEPTONS_PER_PIXEL": 8806504,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 8806488,
+    "_ONE_RAD": 8001768,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 8806480,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 8806440,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 8806400,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 8806512,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 8806448,
+    "_CELL_DIAG_SLOPE_ANGLE": 8806472,
+    "_BRIDGE_LEPTON_HEIGHT": 8806496,
+    "_CELL_NONE": 8806424,
+    "_COORD_NONE": 8806456,
+    "?Options@@3VGameOptionsClass@@A": 10750744,
+    "??_C@_0DM@LBOA@GameControls?3?5GameSpeed?5?$DN?5?$CFd?0?5Sc@": 8225948,
+    "?DebugString@@YAXPBDZZ": 4221168,
+    "?GameActive@@3_NA": 10750296,
+    "?Game_Controls_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z": 5045248,
+    "?Begin_Dialog@OwnerDraw@@YIPAUHWND__@@HP6GHPAU2@IIJ@ZJ@Z": 6288912,
+    "__imp__SetWindowLongA@12": 7971976,
+    "?Display_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z": 6289344,
+    "?Dialog_Message_Handler@OwnerDraw@@YI_NXZ": 6291664,
+    "?Title_Screen_Restore@@YIX_N@Z": 5337968,
+    "?Set@GameControlsClass@@AAEXXZ": 5044736,
+    "?Save_Settings@OptionsClass@@QAEXXZ": 6132144,
+    "?End_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z": 6289120,
+    "__imp__GetDlgItem@8": 7971996,
+    "__imp__SendMessageA@16": 7972000,
+    "?Session@@3VSessionClass@@A": 10736280,
+    "?PlayerPtr@@3PAVHouseClass@@A": 10706356,
+    "??0EventClass@@QAE@HEH@Z": 4939824,
+    "?OutList@@3V?$QueueClass@VEventClass@@$0IA@@@A": 10691384,
+    "__imp__timeGetTime@0": 7972132,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "?Reinit_Cell_Drawers@DisplayClass@@QAEXXZ": 4842864,
+    "?Set_Action_Lines@TechnoClass@@SIX_N@Z": 7174592,
+    "?ToolTips@@3PAVCCToolTip@@A": 8624560,
+    "?Activate@ToolTipManager@@QAEX_N@Z": 7255168,
+    "?Default_Dialog_Proc@OwnerDraw@@YIHPAUHWND__@@IIJ@Z": 6290176,
+    "?GameControlsShown@@3_NA": 10751364,
+    "__imp__ShowWindow@8": 7971992,
+    "?MuteSWLaunches@@3HA": 10736968,
+    "?AudioDeviceAvailable@@YIHXZ": 4222768,
+    "__imp__EnableWindow@8": 7971984,
+    "?Game_Speed_Labels@@3QBQBDB": 8225728,
+    "_Game_Scroll_Labels": 8225756,
+    "_Game_Detail_Labels": 8225784,
+    "?Difficulty_Labels@@3QBQBDB": 8225796,
+    "??_C@_0BD@HMDA@D?3?2Ra2?2GameDlg?4CPP?$AA@": 8226008,
+    "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z": 7315136,
+    "__imp__GetWindowLongA@8": 7971980,
+    "?SpecialDialog@@3W4SpecialDialogType@@A": 10751304,
+    "??_C@_08JMKH@TXT_HIGH?$AA@": 8225844,
+    "??_C@_07EJME@TXT_LOW?$AA@": 8225856,
+    "??_C@_0M@FOAI@TXT_FASTEST?$AA@": 8225864,
+    "??_C@_0L@EOLN@TXT_FASTER?$AA@": 8225876,
+    "??_C@_08JOPJ@TXT_FAST?$AA@": 8225888,
+    "??_C@_0L@BLEB@TXT_MEDIUM?$AA@": 8225900,
+    "??_C@_08ILNF@TXT_SLOW?$AA@": 8225912,
+    "??_C@_0L@OKMH@TXT_SLOWER?$AA@": 8225924,
+    "??_C@_0M@KBKM@TXT_SLOWEST?$AA@": 8225936,
+    "_$E2": 5044016,
+    "_$E5": 5044048,
+    "_$E8": 5044096,
+    "_$E11": 5044128,
+    "_$E14": 5044160,
+    "_$E17": 5044192,
+    "_$E20": 5044224,
+    "_$E23": 5044256,
+    "_$E26": 5044320,
+    "_$E29": 5044368,
+    "_$E32": 5044416,
+    "_$E35": 5044464,
+    "_$E38": 5044480,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "?Dialog@GameControlsClass@@QAEXXZ": 5044512,
+    "?Game_Controls_Command@@YIXPAUHWND__@@H0I@Z": 5046192,
+    "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
+    "??_7type_info@@6B@": 8066532,
+    "??3@YAXPAX@Z": 7871803,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
+    "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
+    "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "??2@YAPAXI@Z": 7872535,
+    "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
+    "??_EWstring@@QAEPAXI@Z": 4239168,
+    "??1Wstring@@QAE@XZ": 7789024
+  },
+  "regions": [
+    {
+      "entry": 5044016,
+      "method": "004cf730",
+      "body_bytes": 23,
+      "body_sha256": "18465a0d7ad5070ae2e6f77bd9ab4b63517bde8db76897af51b0b73762768ee3",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "3ba7e660ac48383eae73f8f2b211af47c0a2a10f65b2f98a0cc7b5b5e88d8089",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8806408,
+          "addend": 0,
+          "resolved": 8806408
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8806408,
+          "addend": 4,
+          "resolved": 8806412
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8806408,
+          "addend": 8,
+          "resolved": 8806416
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8806408,
+          "addend": 12,
+          "resolved": 8806420
+        }
+      ],
+      "source_sha256": "5a05bbfbbaed2525f8c7c95d120509c28a461817bd90b1591939f109c94fc42c",
+      "source": "src/gamedlg.cpp",
+      "population": "rebuild-gamedlg",
+      "source_order": 5044016,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5044048,
+      "method": "004cf750",
+      "body_bytes": 40,
+      "body_sha256": "c8f73c4b7ebc7aca5e99aabdcfc1b8fb0a313f8c8554237f67ce1591c190df31",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "d147ff49816f8f07825058fbf8c21d29cd96db7d3091042346c97fed629b3488",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 2828879
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4294880418
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8806432,
+          "addend": 0,
+          "resolved": 8806432
+        }
+      ],
+      "source_sha256": "5a05bbfbbaed2525f8c7c95d120509c28a461817bd90b1591939f109c94fc42c",
+      "source": "src/gamedlg.cpp",
+      "population": "rebuild-gamedlg",
+      "source_order": 5044048,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5044096,
+      "method": "004cf780",
+      "body_bytes": 19,
+      "body_sha256": "12820f100ad3c89f73da2e1b733bf0304d961f698392035e6b26197298e9bd7e",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b8c470d5c6b96052b77bd2b3777aa7ba32cc9912854e99aaf88518cb294bec2c",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8806432,
+          "addend": 0,
+          "resolved": 8806432
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8001760,
+          "addend": 0,
+          "resolved": 8001760
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 8806504,
+          "addend": 0,
+          "resolved": 8806504
+        }
+      ],
+      "source_sha256": "5a05bbfbbaed2525f8c7c95d120509c28a461817bd90b1591939f109c94fc42c",
+      "source": "src/gamedlg.cpp",
+      "population": "rebuild-gamedlg",
+      "source_order": 5044096,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5044128,
+      "method": "004cf7a0",
+      "body_bytes": 19,
+      "body_sha256": "1419b7f03e8792fb442805655157c30333adc07c324456edf9c38725e1284e0b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "703c20ca238a704107ae94a3cb656aba841c21ac58894bbfeb68c8dcc94651af",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 8806504,
+          "addend": 0,
+          "resolved": 8806504
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 8806488,
+          "addend": 0,
+          "resolved": 8806488
+        }
+      ],
+      "source_sha256": "5a05bbfbbaed2525f8c7c95d120509c28a461817bd90b1591939f109c94fc42c",
+      "source": "src/gamedlg.cpp",
+      "population": "rebuild-gamedlg",
+      "source_order": 5044128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5044160,
+      "method": "004cf7c0",
+      "body_bytes": 19,
+      "body_sha256": "75771dd8df6083e09cdc36dd3f3be40273becd8986570622b587b17bad717a5d",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b5e0515684fe5ba3657a7acca58b1e0c74448bea16af7c86e2659543b80cb96d",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8001768,
+          "addend": 0,
+          "resolved": 8001768
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 8806480,
+          "addend": 0,
+          "resolved": 8806480
+        }
+      ],
+      "source_sha256": "5a05bbfbbaed2525f8c7c95d120509c28a461817bd90b1591939f109c94fc42c",
+      "source": "src/gamedlg.cpp",
+      "population": "rebuild-gamedlg",
+      "source_order": 5044160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5044192,
+      "method": "004cf7e0",
+      "body_bytes": 19,
+      "body_sha256": "1f3300d37d83529d5f14f06f842fad0ac73cb0176de1fa8a314345dc37d6164e",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "ad72def795e35c570ff3a2766630cc36d24089dd2fd7193f8d4342d622897a0f",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8001768,
+          "addend": 0,
+          "resolved": 8001768
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 8806440,
+          "addend": 0,
+          "resolved": 8806440
+        }
+      ],
+      "source_sha256": "5a05bbfbbaed2525f8c7c95d120509c28a461817bd90b1591939f109c94fc42c",
+      "source": "src/gamedlg.cpp",
+      "population": "rebuild-gamedlg",
+      "source_order": 5044192,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5044224,
+      "method": "004cf800",
+      "body_bytes": 19,
+      "body_sha256": "025d1f5bdc72c5193afcab56296218db2bcdd5aaff1c6bf3898c04f80de64286",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "bf3e2d14b08cb57d58be1c7ffcdbe1f3cd3a538149aa20f8d0e143d428702aa8",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8001768,
+          "addend": 0,
+          "resolved": 8001768
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 8806400,
+          "addend": 0,
+          "resolved": 8806400
+        }
+      ],
+      "source_sha256": "5a05bbfbbaed2525f8c7c95d120509c28a461817bd90b1591939f109c94fc42c",
+      "source": "src/gamedlg.cpp",
+      "population": "rebuild-gamedlg",
+      "source_order": 5044224,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5044256,
+      "method": "004cf820",
+      "body_bytes": 49,
+      "body_sha256": "3674adade59f55fefba9740bc1f2cff9cbb86804aab3b33b7931f1c82097ac4c",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "ffff86c1292ea1a859884a00c0e6c1218bd37e4f70b4f5f24e990a3c31cec633",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 8806400,
+          "addend": 0,
+          "resolved": 8806400
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 8806440,
+          "addend": 0,
+          "resolved": 8806440
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4294880489
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8806432,
+          "addend": 0,
+          "resolved": 8806432
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2816197
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8806512,
+          "addend": 0,
+          "resolved": 8806512
+        }
+      ],
+      "source_sha256": "5a05bbfbbaed2525f8c7c95d120509c28a461817bd90b1591939f109c94fc42c",
+      "source": "src/gamedlg.cpp",
+      "population": "rebuild-gamedlg",
+      "source_order": 5044256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5044320,
+      "method": "004cf860",
+      "body_bytes": 33,
+      "body_sha256": "50191c89f3ef565aa4aaedfd0fd419e399cc18e12d8ea3c428596c8b32db3892",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "5533366628103a9d945a24cb36e9992ccea0701dd67b686000406937f0534839",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8806512,
+          "addend": 0,
+          "resolved": 8806512
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294880569
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 8806448,
+          "addend": 0,
+          "resolved": 8806448
+        }
+      ],
+      "source_sha256": "5a05bbfbbaed2525f8c7c95d120509c28a461817bd90b1591939f109c94fc42c",
+      "source": "src/gamedlg.cpp",
+      "population": "rebuild-gamedlg",
+      "source_order": 5044320,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5044368,
+      "method": "004cf890",
+      "body_bytes": 44,
+      "body_sha256": "a1b7d322363e4131cbd5f63bf451fb35b6315464aa1abb81ced265178e5d0be4",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "a451781cdbdb8df33e81f924dc92e13da98d4ea0943465e9291baa45b038f44d",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8806512,
+          "addend": 0,
+          "resolved": 8806512
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8806432,
+          "addend": 0,
+          "resolved": 8806432
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294880510
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 8806472,
+          "addend": 0,
+          "resolved": 8806472
+        }
+      ],
+      "source_sha256": "5a05bbfbbaed2525f8c7c95d120509c28a461817bd90b1591939f109c94fc42c",
+      "source": "src/gamedlg.cpp",
+      "population": "rebuild-gamedlg",
+      "source_order": 5044368,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5044416,
+      "method": "004cf8c0",
+      "body_bytes": 39,
+      "body_sha256": "bfe1cf073875fe2c9a0fe9d300045dfd7448b96ce066ddcc909ab84ac4ce34f8",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "5a678bb332921ee1511214fa25dc741aafc74603b4201bd69747503d6ed75319",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8806512,
+          "addend": 0,
+          "resolved": 8806512
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2816048
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 8806496,
+          "addend": 0,
+          "resolved": 8806496
+        }
+      ],
+      "source_sha256": "5a05bbfbbaed2525f8c7c95d120509c28a461817bd90b1591939f109c94fc42c",
+      "source": "src/gamedlg.cpp",
+      "population": "rebuild-gamedlg",
+      "source_order": 5044416,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5044464,
+      "method": "004cf8f0",
+      "body_bytes": 15,
+      "body_sha256": "aad25df5a792b84b668c99d2c19ce02cc848efe8fad8297b8c07d766a66eec88",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "1f44c6759ab01f588e33f9b65157d1080482beefee7f8bea6322896e3126cc28",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8806424,
+          "addend": 0,
+          "resolved": 8806424
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8806424,
+          "addend": 2,
+          "resolved": 8806426
+        }
+      ],
+      "source_sha256": "5a05bbfbbaed2525f8c7c95d120509c28a461817bd90b1591939f109c94fc42c",
+      "source": "src/gamedlg.cpp",
+      "population": "rebuild-gamedlg",
+      "source_order": 5044464,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5044480,
+      "method": "004cf900",
+      "body_bytes": 18,
+      "body_sha256": "2e8ad3a54fe61fce7c574762643333c3551d5b0ffe8ac2e305bec16af0f93e08",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4382882d60ad295d513f30ab421aed93cdadd3a09c60fcc12efd73df34945743",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8806456,
+          "addend": 0,
+          "resolved": 8806456
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8806456,
+          "addend": 4,
+          "resolved": 8806460
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8806456,
+          "addend": 8,
+          "resolved": 8806464
+        }
+      ],
+      "source_sha256": "5a05bbfbbaed2525f8c7c95d120509c28a461817bd90b1591939f109c94fc42c",
+      "source": "src/gamedlg.cpp",
+      "population": "rebuild-gamedlg",
+      "source_order": 5044480,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5044512,
+      "method": "004cf920",
+      "body_bytes": 219,
+      "body_sha256": "33c39ba1e2162a94a2f2ed82bccc8081d474a80f90ff60f9e8fb863e249333b5",
+      "padding_bytes": 5,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "63a7370c348aa2e09a81934bc66048193d9040595fc1ad5d0e8ba132592c1ec4",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Dialog@GameControlsClass@@QAEXXZ",
+      "symbol_prefix": "?Dialog@GameControlsClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 20,
+          "resolved": 10750764
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 0,
+          "resolved": 10750744
+        },
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 12,
+          "resolved": 10750756
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "??_C@_0DM@LBOA@GameControls?3?5GameSpeed?5?$DN?5?$CFd?0?5Sc@",
+          "target": 8225948,
+          "addend": 0,
+          "resolved": 8225948
+        },
+        {
+          "offset": 38,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294143910
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "?GameActive@@3_NA",
+          "target": 10750296,
+          "addend": 0,
+          "resolved": 10750296
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?Game_Controls_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+          "target": 5045248,
+          "addend": 0,
+          "resolved": 5045248
+        },
+        {
+          "offset": 72,
+          "kind": 20,
+          "symbol": "?Begin_Dialog@OwnerDraw@@YIPAUHWND__@@HP6GHPAU2@IIJ@ZJ@Z",
+          "target": 6288912,
+          "addend": 0,
+          "resolved": 1244324
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "__imp__SetWindowLongA@12",
+          "target": 7971976,
+          "addend": 0,
+          "resolved": 7971976
+        },
+        {
+          "offset": 99,
+          "kind": 20,
+          "symbol": "?Display_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z",
+          "target": 6289344,
+          "addend": 0,
+          "resolved": 1244729
+        },
+        {
+          "offset": 113,
+          "kind": 20,
+          "symbol": "?Dialog_Message_Handler@OwnerDraw@@YI_NXZ",
+          "target": 6291664,
+          "addend": 0,
+          "resolved": 1247035
+        },
+        {
+          "offset": 130,
+          "kind": 6,
+          "symbol": "?GameActive@@3_NA",
+          "target": 10750296,
+          "addend": 0,
+          "resolved": 10750296
+        },
+        {
+          "offset": 141,
+          "kind": 20,
+          "symbol": "?Title_Screen_Restore@@YIX_N@Z",
+          "target": 5337968,
+          "addend": 0,
+          "resolved": 293311
+        },
+        {
+          "offset": 162,
+          "kind": 20,
+          "symbol": "?Set@GameControlsClass@@AAEXXZ",
+          "target": 5044736,
+          "addend": 0,
+          "resolved": 58
+        },
+        {
+          "offset": 167,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 0,
+          "resolved": 10750744
+        },
+        {
+          "offset": 172,
+          "kind": 20,
+          "symbol": "?Save_Settings@OptionsClass@@QAEXXZ",
+          "target": 6132144,
+          "addend": 0,
+          "resolved": 1087456
+        },
+        {
+          "offset": 179,
+          "kind": 20,
+          "symbol": "?End_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z",
+          "target": 6289120,
+          "addend": 0,
+          "resolved": 1244425
+        },
+        {
+          "offset": 185,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 20,
+          "resolved": 10750764
+        },
+        {
+          "offset": 190,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 12,
+          "resolved": 10750756
+        },
+        {
+          "offset": 196,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 0,
+          "resolved": 10750744
+        },
+        {
+          "offset": 204,
+          "kind": 6,
+          "symbol": "??_C@_0DM@LBOA@GameControls?3?5GameSpeed?5?$DN?5?$CFd?0?5Sc@",
+          "target": 8225948,
+          "addend": 0,
+          "resolved": 8225948
+        },
+        {
+          "offset": 209,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294143739
+        }
+      ],
+      "source_sha256": "5a05bbfbbaed2525f8c7c95d120509c28a461817bd90b1591939f109c94fc42c",
+      "source": "src/gamedlg.cpp",
+      "population": "rebuild-gamedlg",
+      "source_order": 5044512,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5044736,
+      "method": "004cfa00",
+      "body_bytes": 511,
+      "body_sha256": "e97667962557f105af70e8a06fc7bb7648b531d7e82f38a6f0f445e1eab355ad",
+      "padding_bytes": 1,
+      "full_extent_bytes": 512,
+      "full_extent_sha256": "d72e26de018ff87a707ab89666d5e45b17f69681af93bf238e8a12fff650e281",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set@GameControlsClass@@AAEXXZ",
+      "symbol_prefix": "?Set@GameControlsClass@@AAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 60,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 0,
+          "resolved": 10750744
+        },
+        {
+          "offset": 74,
+          "kind": 6,
+          "symbol": "?GameActive@@3_NA",
+          "target": 10750296,
+          "addend": 0,
+          "resolved": 10750296
+        },
+        {
+          "offset": 86,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 102,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 117,
+          "kind": 20,
+          "symbol": "??0EventClass@@QAE@HEH@Z",
+          "target": 4939824,
+          "addend": 0,
+          "resolved": 4294862263
+        },
+        {
+          "offset": 123,
+          "kind": 6,
+          "symbol": "?OutList@@3V?$QueueClass@VEventClass@@$0IA@@@A",
+          "target": 10691384,
+          "addend": 0,
+          "resolved": 10691384
+        },
+        {
+          "offset": 135,
+          "kind": 6,
+          "symbol": "?OutList@@3V?$QueueClass@VEventClass@@$0IA@@@A",
+          "target": 10691384,
+          "addend": 8,
+          "resolved": 10691392
+        },
+        {
+          "offset": 150,
+          "kind": 6,
+          "symbol": "?OutList@@3V?$QueueClass@VEventClass@@$0IA@@@A",
+          "target": 10691384,
+          "addend": 12,
+          "resolved": 10691396
+        },
+        {
+          "offset": 166,
+          "kind": 6,
+          "symbol": "__imp__timeGetTime@0",
+          "target": 7972132,
+          "addend": 0,
+          "resolved": 7972132
+        },
+        {
+          "offset": 172,
+          "kind": 6,
+          "symbol": "?OutList@@3V?$QueueClass@VEventClass@@$0IA@@@A",
+          "target": 10691384,
+          "addend": 8,
+          "resolved": 10691392
+        },
+        {
+          "offset": 178,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 185,
+          "kind": 6,
+          "symbol": "?OutList@@3V?$QueueClass@VEventClass@@$0IA@@@A",
+          "target": 10691384,
+          "addend": 14220,
+          "resolved": 10705604
+        },
+        {
+          "offset": 191,
+          "kind": 6,
+          "symbol": "?OutList@@3V?$QueueClass@VEventClass@@$0IA@@@A",
+          "target": 10691384,
+          "addend": 8,
+          "resolved": 10691392
+        },
+        {
+          "offset": 196,
+          "kind": 6,
+          "symbol": "?OutList@@3V?$QueueClass@VEventClass@@$0IA@@@A",
+          "target": 10691384,
+          "addend": 0,
+          "resolved": 10691384
+        },
+        {
+          "offset": 207,
+          "kind": 6,
+          "symbol": "?OutList@@3V?$QueueClass@VEventClass@@$0IA@@@A",
+          "target": 10691384,
+          "addend": 8,
+          "resolved": 10691392
+        },
+        {
+          "offset": 212,
+          "kind": 6,
+          "symbol": "?OutList@@3V?$QueueClass@VEventClass@@$0IA@@@A",
+          "target": 10691384,
+          "addend": 0,
+          "resolved": 10691384
+        },
+        {
+          "offset": 220,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 0,
+          "resolved": 10750744
+        },
+        {
+          "offset": 260,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 12,
+          "resolved": 10750756
+        },
+        {
+          "offset": 293,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 20,
+          "resolved": 10750764
+        },
+        {
+          "offset": 300,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 305,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 20,
+          "resolved": 10750764
+        },
+        {
+          "offset": 310,
+          "kind": 20,
+          "symbol": "?Reinit_Cell_Drawers@DisplayClass@@QAEXXZ",
+          "target": 4842864,
+          "addend": 0,
+          "resolved": 4294765110
+        },
+        {
+          "offset": 349,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 26,
+          "resolved": 10750770
+        },
+        {
+          "offset": 354,
+          "kind": 20,
+          "symbol": "?Set_Action_Lines@TechnoClass@@SIX_N@Z",
+          "target": 7174592,
+          "addend": 0,
+          "resolved": 2129498
+        },
+        {
+          "offset": 393,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 27,
+          "resolved": 10750771
+        },
+        {
+          "offset": 426,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 439,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 28,
+          "resolved": 10750772
+        },
+        {
+          "offset": 447,
+          "kind": 6,
+          "symbol": "?GameActive@@3_NA",
+          "target": 10750296,
+          "addend": 0,
+          "resolved": 10750296
+        },
+        {
+          "offset": 458,
+          "kind": 20,
+          "symbol": "?Activate@ToolTipManager@@QAEX_N@Z",
+          "target": 7255168,
+          "addend": 0,
+          "resolved": 2209970
+        },
+        {
+          "offset": 463,
+          "kind": 6,
+          "symbol": "?GameActive@@3_NA",
+          "target": 10750296,
+          "addend": 0,
+          "resolved": 10750296
+        },
+        {
+          "offset": 499,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 4,
+          "resolved": 10750748
+        }
+      ],
+      "source_sha256": "5a05bbfbbaed2525f8c7c95d120509c28a461817bd90b1591939f109c94fc42c",
+      "source": "src/gamedlg.cpp",
+      "population": "rebuild-gamedlg",
+      "source_order": 5044736,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5045248,
+      "method": "004cfc00",
+      "body_bytes": 935,
+      "body_sha256": "064b9719b0f3aa1b462543e417342af100440fe9912d77cc607c960df1ce1ed7",
+      "padding_bytes": 9,
+      "full_extent_bytes": 944,
+      "full_extent_sha256": "227a523400339a1646ad1602a375c545772ae9b9870066da1844c1ee38c04452",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Game_Controls_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+      "symbol_prefix": "?Game_Controls_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "?Default_Dialog_Proc@OwnerDraw@@YIHPAUHWND__@@IIJ@Z",
+          "target": 6290176,
+          "addend": 0,
+          "resolved": 1244897
+        },
+        {
+          "offset": 74,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 88,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 95,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "?GameControlsShown@@3_NA",
+          "target": 10751364,
+          "addend": 0,
+          "resolved": 10751364
+        },
+        {
+          "offset": 117,
+          "kind": 6,
+          "symbol": "__imp__ShowWindow@8",
+          "target": 7971992,
+          "addend": 0,
+          "resolved": 7971992
+        },
+        {
+          "offset": 184,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 0,
+          "resolved": 10750744
+        },
+        {
+          "offset": 208,
+          "kind": 6,
+          "symbol": "__imp__ShowWindow@8",
+          "target": 7971992,
+          "addend": 0,
+          "resolved": 7971992
+        },
+        {
+          "offset": 213,
+          "kind": 6,
+          "symbol": "?MuteSWLaunches@@3HA",
+          "target": 10736968,
+          "addend": 0,
+          "resolved": 10736968
+        },
+        {
+          "offset": 303,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 12,
+          "resolved": 10750756
+        },
+        {
+          "offset": 368,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 20,
+          "resolved": 10750764
+        },
+        {
+          "offset": 397,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 26,
+          "resolved": 10750770
+        },
+        {
+          "offset": 433,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 27,
+          "resolved": 10750771
+        },
+        {
+          "offset": 469,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 28,
+          "resolved": 10750772
+        },
+        {
+          "offset": 493,
+          "kind": 6,
+          "symbol": "?GameActive@@3_NA",
+          "target": 10750296,
+          "addend": 0,
+          "resolved": 10750296
+        },
+        {
+          "offset": 519,
+          "kind": 20,
+          "symbol": "?AudioDeviceAvailable@@YIHXZ",
+          "target": 4222768,
+          "addend": 0,
+          "resolved": 4294144293
+        },
+        {
+          "offset": 527,
+          "kind": 6,
+          "symbol": "__imp__EnableWindow@8",
+          "target": 7971984,
+          "addend": 0,
+          "resolved": 7971984
+        },
+        {
+          "offset": 587,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 4,
+          "resolved": 10750748
+        },
+        {
+          "offset": 623,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 645,
+          "kind": 6,
+          "symbol": "?Game_Speed_Labels@@3QBQBDB",
+          "target": 8225728,
+          "addend": 0,
+          "resolved": 8225728
+        },
+        {
+          "offset": 671,
+          "kind": 6,
+          "symbol": "_Game_Scroll_Labels",
+          "target": 8225756,
+          "addend": 0,
+          "resolved": 8225756
+        },
+        {
+          "offset": 697,
+          "kind": 6,
+          "symbol": "_Game_Detail_Labels",
+          "target": 8225784,
+          "addend": 0,
+          "resolved": 8225784
+        },
+        {
+          "offset": 709,
+          "kind": 6,
+          "symbol": "?GameActive@@3_NA",
+          "target": 10750296,
+          "addend": 0,
+          "resolved": 10750296
+        },
+        {
+          "offset": 740,
+          "kind": 6,
+          "symbol": "?Difficulty_Labels@@3QBQBDB",
+          "target": 8225796,
+          "addend": 0,
+          "resolved": 8225796
+        },
+        {
+          "offset": 768,
+          "kind": 6,
+          "symbol": "??_C@_0BD@HMDA@D?3?2Ra2?2GameDlg?4CPP?$AA@",
+          "target": 8226008,
+          "addend": 0,
+          "resolved": 8226008
+        },
+        {
+          "offset": 777,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2269107
+        },
+        {
+          "offset": 792,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 815,
+          "kind": 6,
+          "symbol": "__imp__GetWindowLongA@8",
+          "target": 7971980,
+          "addend": 0,
+          "resolved": 7971980
+        },
+        {
+          "offset": 865,
+          "kind": 6,
+          "symbol": "?GameActive@@3_NA",
+          "target": 10750296,
+          "addend": 0,
+          "resolved": 10750296
+        },
+        {
+          "offset": 875,
+          "kind": 6,
+          "symbol": "?SpecialDialog@@3W4SpecialDialogType@@A",
+          "target": 10751304,
+          "addend": 0,
+          "resolved": 10751304
+        },
+        {
+          "offset": 903,
+          "kind": 6,
+          "symbol": "?GameActive@@3_NA",
+          "target": 10750296,
+          "addend": 0,
+          "resolved": 10750296
+        },
+        {
+          "offset": 912,
+          "kind": 6,
+          "symbol": "?SpecialDialog@@3W4SpecialDialogType@@A",
+          "target": 10751304,
+          "addend": 0,
+          "resolved": 10751304
+        }
+      ],
+      "source_sha256": "5a05bbfbbaed2525f8c7c95d120509c28a461817bd90b1591939f109c94fc42c",
+      "source": "src/gamedlg.cpp",
+      "population": "rebuild-gamedlg",
+      "source_order": 5045248,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5046192,
+      "method": "004cffb0",
+      "body_bytes": 115,
+      "body_sha256": "b832e36cefddfecc61bba672c04c58b1374cfaedfbb169957f9a4099928ea43d",
+      "padding_bytes": 13,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "fd9dd615468ef934f28aaffaac2399df8211c9c576b2103ec52af346ba593f6a",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Game_Controls_Command@@YIXPAUHWND__@@H0I@Z",
+      "symbol_prefix": "?Game_Controls_Command@@YIXPAUHWND__@@H0I@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__imp__GetWindowLongA@8",
+          "target": 7971980,
+          "addend": 0,
+          "resolved": 7971980
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?GameActive@@3_NA",
+          "target": 10750296,
+          "addend": 0,
+          "resolved": 10750296
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "?SpecialDialog@@3W4SpecialDialogType@@A",
+          "target": 10751304,
+          "addend": 0,
+          "resolved": 10751304
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "?GameActive@@3_NA",
+          "target": 10750296,
+          "addend": 0,
+          "resolved": 10750296
+        },
+        {
+          "offset": 98,
+          "kind": 6,
+          "symbol": "?SpecialDialog@@3W4SpecialDialogType@@A",
+          "target": 10751304,
+          "addend": 0,
+          "resolved": 10751304
+        }
+      ],
+      "source_sha256": "5a05bbfbbaed2525f8c7c95d120509c28a461817bd90b1591939f109c94fc42c",
+      "source": "src/gamedlg.cpp",
+      "population": "rebuild-gamedlg",
+      "source_order": 5046192,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

@@ -807,9 +807,10 @@ def remove_intermediates(destination, groups):
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--config',type=Path,default=REPOSITORY/'private/original-target.local.json')
-    parser.add_argument('--manifest',type=Path,default=catalog_io.locate(REPOSITORY),
-                        help='catalog directory (or a legacy .json file)')
+    # The tree's build config is written by the gate (rebuild.py catalog) under build/r (lane O88: one tree).
+    parser.add_argument('--config',type=Path,default=REPOSITORY/'build/r/rebuild-config.json')
+    parser.add_argument('--manifest',type=Path,default=REPOSITORY/'manifests/catalog',
+                        help='catalog directory (default: the tree\'s, manifests/catalog)')
     parser.add_argument('--output',type=Path,default=None)
     parser.add_argument('--verify-inputs',action='store_true')
     parser.add_argument('--keep-intermediates',action='store_true',

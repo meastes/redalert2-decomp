@@ -1,0 +1,99 @@
+{
+  "id": "rebuild-shapipe",
+  "population": {
+    "id": "rebuild-shapipe",
+    "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
+    "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
+    "historical_population_sha256": "b37edd6211078c5a5561b5a0928e80f8030a755ab1490161d2ffbbd5db7fb573",
+    "historical_acceptance_sha256": "0bef60c4423f162d513849ce4e530f13a771a72d3f04aa5af68bfeb3673ac7e6"
+  },
+  "references": {
+    "?Hash@SHAEngine@@QAEXPBXH@Z": 6769808,
+    "?Put@Pipe@@UAEHPBXH@Z": 6351600,
+    "?Result@SHAEngine@@QBEHPAX@Z": 6769936,
+    "?Put@SHAPipe@@UAEHPBXH@Z": 6771584,
+    "?Result@SHAPipe@@QBEHPAX@Z": 6771632
+  },
+  "regions": [
+    {
+      "entry": 6771584,
+      "method": "00675380",
+      "body_bytes": 38,
+      "body_sha256": "804ef2314282547a3bd396b4e4c5161ff010c8828a4ca517c6949bcf521898d9",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c748c8b4ba727b9e8a62a2869c555421d12168429115d1ac9831fa0198bf671b",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Put@SHAPipe@@UAEHPBXH@Z",
+      "symbol_prefix": "?Put@SHAPipe@@UAEHPBXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?Hash@SHAEngine@@QAEXPBXH@Z",
+          "target": 6769808,
+          "addend": 0,
+          "resolved": 4294965497
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+          "target": 6351600,
+          "addend": 0,
+          "resolved": 4294547280
+        }
+      ],
+      "source_sha256": "ecac550a21dba5f6a654e73c98f5fab5de563b36b066d2f646a259108c2de231",
+      "source": "src/shapipe.cpp",
+      "population": "rebuild-shapipe",
+      "source_order": 6771584,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6771632,
+      "method": "006753b0",
+      "body_bytes": 16,
+      "body_sha256": "951b1ba8a750b94a743fe0a1aa9f4cbae64bd97841f4774c79cf4865658cac13",
+      "padding_bytes": 0,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "951b1ba8a750b94a743fe0a1aa9f4cbae64bd97841f4774c79cf4865658cac13",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Result@SHAPipe@@QBEHPAX@Z",
+      "symbol_prefix": "?Result@SHAPipe@@QBEHPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "?Result@SHAEngine@@QBEHPAX@Z",
+          "target": 6769936,
+          "addend": 0,
+          "resolved": 4294965587
+        }
+      ],
+      "source_sha256": "ecac550a21dba5f6a654e73c98f5fab5de563b36b066d2f646a259108c2de231",
+      "source": "src/shapipe.cpp",
+      "population": "rebuild-shapipe",
+      "source_order": 6771632,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

@@ -1,0 +1,3656 @@
+{
+  "id": "rebuild-audfile",
+  "population": {
+    "id": "rebuild-audfile",
+    "inventory_sha256": "7c04c27330bd1019d23a14109eba9c07ef36207c1975eab0ab710881987d066d",
+    "gaps_sha256": "dc33680887897a9bdd793b6e2306894356787791eac454410a698a823137b7ea",
+    "historical_population_sha256": "3f22c2ad11019b851b28a4aaade9b276c2d1506c3a76149128c6622ce99bb424",
+    "historical_acceptance_sha256": "1d7ed8e274c5d999963c320d3b451df49c2f7cc3fa7ba0ced6bd4a73f13cb64f"
+  },
+  "references": {
+    "_RECT_NONE": 10821568,
+    "__imp__InitializeCriticalSection@4": 7971304,
+    "_AudioFileLock": 10822272,
+    "_AudioFileCursorLock": 10822248,
+    "_AudioFileLocksReady": 10822332,
+    "??2@YAPAXI@Z": 7872535,
+    "_AudioFileWindows": 10822324,
+    "_AudioFileWindowCount": 10822328,
+    "_AudioFileWindowSlots": 10822108,
+    "_AudioFileThread": 10822112,
+    "?AudioServiceInfoInit@@YIXPAUAudioServiceInfo@@@Z": 4208672,
+    "?AudioServiceSetInterval@@YIXPAUAudioServiceInfo@@_K@Z": 4208752,
+    "__allmul": 7872704,
+    "?AudioServiceSetMustServiceInterval@@YIXPAUAudioServiceInfo@@_K@Z": 4208800,
+    "?AudioServiceSetResetInterval@@YIXPAUAudioServiceInfo@@_K@Z": 4208832,
+    "_AudioFileThreadId": 10822244,
+    "?Audio_File_Thread@@YGKPAX@Z": 5384144,
+    "__imp__CreateThread@24": 7971308,
+    "_AudioFileThreadHandle": 10822240,
+    "_AudioFileThreadRunning": 10822336,
+    "__imp__SetThreadPriority@8": 7971312,
+    "__imp__GetLastError@0": 7971316,
+    "__imp__FormatMessageA@28": 7971320,
+    "??_C@_0DL@CKCP@Unable?5to?5change?5the?5priority?5of@": 8179024,
+    "?DebugString@@YAXPBDZZ": 4221168,
+    "?Audio_File_Shutdown@@YIXXZ": 5384496,
+    "?STM_StreamCreate@@YIPAUSTM_STREAM@@XZ": 4228880,
+    "_AudioFileRing": 10822340,
+    "?STM_StreamCreateSBuffers@@YIHPAUSTM_STREAM@@HHH@Z": 4229728,
+    "?STM_StreamReset@@YIXPAUSTM_STREAM@@@Z": 4229520,
+    "?STM_StreamAcquireAccess@@YIPAUSTM_ACCESS@@PAUSTM_STREAM@@H@Z": 4229968,
+    "_AudioFileReadQueue": 10822344,
+    "_AudioFileFlushQueue": 10822348,
+    "?MainWindow@@3PAUHWND__@@A": 11690968,
+    "_KeyStates": 10821584,
+    "_AudioFileReady": 10822320,
+    "__imp__EnterCriticalSection@4": 7971292,
+    "?AudioGetTime@@YI_KXZ": 4231888,
+    "?AudioServicePerform@@YIXPAUAudioServiceInfo@@_K@Z": 4208928,
+    "_AudioFileMode": 10822316,
+    "_AudioFileStream": 10822352,
+    "?STM_StreamTotalBytes@@YIHPAUSTM_STREAM@@@Z": 4230256,
+    "?STM_StreamTotalBytesIn@@YIIPAUSTM_STREAM@@@Z": 4230224,
+    "?STM_StreamTotalBytesTillFull@@YIIPAUSTM_STREAM@@@Z": 4230240,
+    "?STM_AccessCRTFileTransfer@@YIHPAUSTM_ACCESS@@PAU_iobuf@@HPAH@Z": 4230992,
+    "_AudioFileFillFailed": 10822356,
+    "_fflush": 7881628,
+    "__imp__LeaveCriticalSection@4": 7971296,
+    "__imp__Sleep@4": 7971300,
+    "?STM_AccessTotalBytes@@YIIPAUSTM_ACCESS@@@Z": 4231744,
+    "_fclose": 7879003,
+    "??3@YAXPAX@Z": 7871803,
+    "__imp__WaitForSingleObject@8": 7971280,
+    "__imp__CloseHandle@4": 7971284,
+    "?STM_AccessRelease@@YIXPAUSTM_ACCESS@@@Z": 4230544,
+    "?STM_StreamDestroy@@YIXPAUSTM_STREAM@@@Z": 4228960,
+    "__imp__DeleteCriticalSection@4": 7971288,
+    "_AudioFileFoundId": 10822360,
+    "_AudioFileFoundIndex": 10822364,
+    "??_C@_02NGAF@wb?$AA@": 8248424,
+    "_fopen": 7879237,
+    "??_C@_02JKAF@rb?$AA@": 8248428,
+    "?Peek_Windows_Message@@YIHPAUtagMSG@@PAUHWND__@@III@Z": 5385936,
+    "?MouseCursor@@3PAVMouse@@A": 8625256,
+    "__imp__GetCursorPos@4": 7971752,
+    "_AudioFileCursorX": 10822300,
+    "_AudioFileCursorY": 10822304,
+    "_AudioFileLastCursorX": 10822308,
+    "_AudioFileLastCursorY": 10822312,
+    "?MessageLoopCount@@3HA": 10822296,
+    "?Frame@@3HA": 10751276,
+    "?STM_AccessTransfer@@YIHPAUSTM_ACCESS@@PAXH@Z": 4230656,
+    "__imp__PeekMessageA@20": 7971940,
+    "__imp__DispatchMessageA@4": 7972020,
+    "_AudioFileHeaderRead": 10822368,
+    "_AudioFileNextHeader": 10822096,
+    "__imp__GetKeyState@4": 7971756,
+    "__imp__GetAsyncKeyState@4": 7971764,
+    "_$E2": 5383488,
+    "?Audio_File_Init@@YIHHH@Z": 5383520,
+    "?Add_Audio_File_Window@@YIXPAUHWND__@@@Z": 5384992,
+    "?Remove_Audio_File_Window@@YIXPAUHWND__@@@Z": 5385088,
+    "?Audio_File_Find@@YIHH@Z": 5385168,
+    "?Audio_File_Window@@YIPAUHWND__@@H@Z": 5385248,
+    "?Audio_File_Create_Stream@@YIHPBD@Z": 5385296,
+    "?Audio_File_Open_Stream@@YIHPBD@Z": 5385392,
+    "?Audio_File_Close_Stream@@YIXXZ": 5385552,
+    "?Audio_File_Flush@@YIXXZ": 5385744,
+    "?Get_Input_Record_Mode@@YIHXZ": 5385856,
+    "?Get_Windows_Message@@YIHPAUtagMSG@@PAUHWND__@@II@Z": 5385872,
+    "?Audio_File_Get_Cursor@@YIXPAI0@Z": 5387104,
+    "?Set_Key_State@@YIXI_N@Z": 5387168,
+    "?Get_Key_State@@YIFI@Z": 5387216,
+    "?Get_Async_Key_State@@YIFI@Z": 5387248
+  },
+  "regions": [
+    {
+      "entry": 5383488,
+      "method": "522540",
+      "body_bytes": 23,
+      "body_sha256": "7982bdf90c7e68667ab561a93054b06bc9f8c1f11fa7e60d34104dd367fb8e5e",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "5960321c321c95882a2b624747cc77bd3e2bbe5f3b986862c8b7c624f4da54a5",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10821568,
+          "addend": 0,
+          "resolved": 10821568
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10821568,
+          "addend": 4,
+          "resolved": 10821572
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10821568,
+          "addend": 8,
+          "resolved": 10821576
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10821568,
+          "addend": 12,
+          "resolved": 10821580
+        }
+      ],
+      "source_sha256": "4cbe6a077ecdfa469ec9f04acca5192122990b8ee24b796389ce601fe0e74c13",
+      "source": "src/audfile.cpp",
+      "population": "rebuild-audfile",
+      "source_order": 5383488,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-106"
+    },
+    {
+      "entry": 5383520,
+      "method": "00522560",
+      "body_bytes": 609,
+      "body_sha256": "d0b7016932693955b2139b994c8231e04198df535cc3a2dc6754d902d19cdaed",
+      "padding_bytes": 15,
+      "full_extent_bytes": 624,
+      "full_extent_sha256": "c2a87c5ed711487ba7e30811dcef0a61e41072c4e9eba7508d060c6aabe82529",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Audio_File_Init@@YIHHH@Z",
+      "symbol_prefix": "?Audio_File_Init@@YIHHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "__imp__InitializeCriticalSection@4",
+          "target": 7971304,
+          "addend": 0,
+          "resolved": 7971304
+        },
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_AudioFileCursorLock",
+          "target": 10822248,
+          "addend": 0,
+          "resolved": 10822248
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "_AudioFileLocksReady",
+          "target": 10822332,
+          "addend": 0,
+          "resolved": 10822332
+        },
+        {
+          "offset": 83,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2488928
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "_AudioFileWindows",
+          "target": 10822324,
+          "addend": 0,
+          "resolved": 10822324
+        },
+        {
+          "offset": 126,
+          "kind": 6,
+          "symbol": "_AudioFileWindowCount",
+          "target": 10822328,
+          "addend": 0,
+          "resolved": 10822328
+        },
+        {
+          "offset": 132,
+          "kind": 6,
+          "symbol": "_AudioFileWindowSlots",
+          "target": 10822108,
+          "addend": 0,
+          "resolved": 10822108
+        },
+        {
+          "offset": 138,
+          "kind": 6,
+          "symbol": "_AudioFileThread",
+          "target": 10822112,
+          "addend": 0,
+          "resolved": 10822112
+        },
+        {
+          "offset": 144,
+          "kind": 6,
+          "symbol": "_AudioFileThread",
+          "target": 10822112,
+          "addend": 8,
+          "resolved": 10822120
+        },
+        {
+          "offset": 150,
+          "kind": 6,
+          "symbol": "_AudioFileThread",
+          "target": 10822112,
+          "addend": 24,
+          "resolved": 10822136
+        },
+        {
+          "offset": 156,
+          "kind": 6,
+          "symbol": "_AudioFileThread",
+          "target": 10822112,
+          "addend": 16,
+          "resolved": 10822128
+        },
+        {
+          "offset": 166,
+          "kind": 6,
+          "symbol": "_AudioFileThread",
+          "target": 10822112,
+          "addend": 20,
+          "resolved": 10822132
+        },
+        {
+          "offset": 172,
+          "kind": 6,
+          "symbol": "_AudioFileThread",
+          "target": 10822112,
+          "addend": 4,
+          "resolved": 10822116
+        },
+        {
+          "offset": 177,
+          "kind": 6,
+          "symbol": "_AudioFileThread",
+          "target": 10822112,
+          "addend": 32,
+          "resolved": 10822144
+        },
+        {
+          "offset": 182,
+          "kind": 20,
+          "symbol": "?AudioServiceInfoInit@@YIXPAUAudioServiceInfo@@@Z",
+          "target": 4208672,
+          "addend": 0,
+          "resolved": 4293792262
+        },
+        {
+          "offset": 187,
+          "kind": 6,
+          "symbol": "_AudioFileThread",
+          "target": 10822112,
+          "addend": 16,
+          "resolved": 10822128
+        },
+        {
+          "offset": 193,
+          "kind": 6,
+          "symbol": "_AudioFileThread",
+          "target": 10822112,
+          "addend": 20,
+          "resolved": 10822132
+        },
+        {
+          "offset": 200,
+          "kind": 6,
+          "symbol": "_AudioFileThread",
+          "target": 10822112,
+          "addend": 32,
+          "resolved": 10822144
+        },
+        {
+          "offset": 205,
+          "kind": 20,
+          "symbol": "?AudioServiceSetInterval@@YIXPAUAudioServiceInfo@@_K@Z",
+          "target": 4208752,
+          "addend": 0,
+          "resolved": 4293792319
+        },
+        {
+          "offset": 211,
+          "kind": 6,
+          "symbol": "_AudioFileThread",
+          "target": 10822112,
+          "addend": 16,
+          "resolved": 10822128
+        },
+        {
+          "offset": 216,
+          "kind": 6,
+          "symbol": "_AudioFileThread",
+          "target": 10822112,
+          "addend": 20,
+          "resolved": 10822132
+        },
+        {
+          "offset": 226,
+          "kind": 20,
+          "symbol": "__allmul",
+          "target": 7872704,
+          "addend": 0,
+          "resolved": 2488954
+        },
+        {
+          "offset": 231,
+          "kind": 6,
+          "symbol": "_AudioFileThread",
+          "target": 10822112,
+          "addend": 32,
+          "resolved": 10822144
+        },
+        {
+          "offset": 238,
+          "kind": 20,
+          "symbol": "?AudioServiceSetMustServiceInterval@@YIXPAUAudioServiceInfo@@_K@Z",
+          "target": 4208800,
+          "addend": 0,
+          "resolved": 4293792334
+        },
+        {
+          "offset": 244,
+          "kind": 6,
+          "symbol": "_AudioFileThread",
+          "target": 10822112,
+          "addend": 16,
+          "resolved": 10822128
+        },
+        {
+          "offset": 250,
+          "kind": 6,
+          "symbol": "_AudioFileThread",
+          "target": 10822112,
+          "addend": 20,
+          "resolved": 10822132
+        },
+        {
+          "offset": 260,
+          "kind": 20,
+          "symbol": "__allmul",
+          "target": 7872704,
+          "addend": 0,
+          "resolved": 2488920
+        },
+        {
+          "offset": 265,
+          "kind": 6,
+          "symbol": "_AudioFileThread",
+          "target": 10822112,
+          "addend": 32,
+          "resolved": 10822144
+        },
+        {
+          "offset": 272,
+          "kind": 20,
+          "symbol": "?AudioServiceSetResetInterval@@YIXPAUAudioServiceInfo@@_K@Z",
+          "target": 4208832,
+          "addend": 0,
+          "resolved": 4293792332
+        },
+        {
+          "offset": 277,
+          "kind": 6,
+          "symbol": "_AudioFileThreadId",
+          "target": 10822244,
+          "addend": 0,
+          "resolved": 10822244
+        },
+        {
+          "offset": 283,
+          "kind": 6,
+          "symbol": "_AudioFileThread",
+          "target": 10822112,
+          "addend": 0,
+          "resolved": 10822112
+        },
+        {
+          "offset": 288,
+          "kind": 6,
+          "symbol": "?Audio_File_Thread@@YGKPAX@Z",
+          "target": 5384144,
+          "addend": 0,
+          "resolved": 5384144
+        },
+        {
+          "offset": 300,
+          "kind": 6,
+          "symbol": "__imp__CreateThread@24",
+          "target": 7971308,
+          "addend": 0,
+          "resolved": 7971308
+        },
+        {
+          "offset": 307,
+          "kind": 6,
+          "symbol": "_AudioFileThreadHandle",
+          "target": 10822240,
+          "addend": 0,
+          "resolved": 10822240
+        },
+        {
+          "offset": 323,
+          "kind": 6,
+          "symbol": "_AudioFileThreadRunning",
+          "target": 10822336,
+          "addend": 0,
+          "resolved": 10822336
+        },
+        {
+          "offset": 329,
+          "kind": 6,
+          "symbol": "__imp__SetThreadPriority@8",
+          "target": 7971312,
+          "addend": 0,
+          "resolved": 7971312
+        },
+        {
+          "offset": 351,
+          "kind": 6,
+          "symbol": "__imp__GetLastError@0",
+          "target": 7971316,
+          "addend": 0,
+          "resolved": 7971316
+        },
+        {
+          "offset": 364,
+          "kind": 6,
+          "symbol": "__imp__FormatMessageA@28",
+          "target": 7971320,
+          "addend": 0,
+          "resolved": 7971320
+        },
+        {
+          "offset": 374,
+          "kind": 6,
+          "symbol": "??_C@_0DL@CKCP@Unable?5to?5change?5the?5priority?5of@",
+          "target": 8179024,
+          "addend": 0,
+          "resolved": 8179024
+        },
+        {
+          "offset": 379,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293804561
+        },
+        {
+          "offset": 387,
+          "kind": 20,
+          "symbol": "?Audio_File_Shutdown@@YIXXZ",
+          "target": 5384496,
+          "addend": 0,
+          "resolved": 585
+        },
+        {
+          "offset": 405,
+          "kind": 20,
+          "symbol": "?STM_StreamCreate@@YIPAUSTM_STREAM@@XZ",
+          "target": 4228880,
+          "addend": 0,
+          "resolved": 4293812247
+        },
+        {
+          "offset": 412,
+          "kind": 6,
+          "symbol": "_AudioFileRing",
+          "target": 10822340,
+          "addend": 0,
+          "resolved": 10822340
+        },
+        {
+          "offset": 429,
+          "kind": 20,
+          "symbol": "?STM_StreamCreateSBuffers@@YIHPAUSTM_STREAM@@HHH@Z",
+          "target": 4229728,
+          "addend": 0,
+          "resolved": 4293813071
+        },
+        {
+          "offset": 439,
+          "kind": 6,
+          "symbol": "_AudioFileRing",
+          "target": 10822340,
+          "addend": 0,
+          "resolved": 10822340
+        },
+        {
+          "offset": 444,
+          "kind": 20,
+          "symbol": "?STM_StreamReset@@YIXPAUSTM_STREAM@@@Z",
+          "target": 4229520,
+          "addend": 0,
+          "resolved": 4293812848
+        },
+        {
+          "offset": 450,
+          "kind": 6,
+          "symbol": "_AudioFileRing",
+          "target": 10822340,
+          "addend": 0,
+          "resolved": 10822340
+        },
+        {
+          "offset": 457,
+          "kind": 20,
+          "symbol": "?STM_StreamAcquireAccess@@YIPAUSTM_ACCESS@@PAUSTM_STREAM@@H@Z",
+          "target": 4229968,
+          "addend": 0,
+          "resolved": 4293813283
+        },
+        {
+          "offset": 463,
+          "kind": 6,
+          "symbol": "_AudioFileRing",
+          "target": 10822340,
+          "addend": 0,
+          "resolved": 10822340
+        },
+        {
+          "offset": 470,
+          "kind": 6,
+          "symbol": "_AudioFileReadQueue",
+          "target": 10822344,
+          "addend": 0,
+          "resolved": 10822344
+        },
+        {
+          "offset": 475,
+          "kind": 20,
+          "symbol": "?STM_StreamAcquireAccess@@YIPAUSTM_ACCESS@@PAUSTM_STREAM@@H@Z",
+          "target": 4229968,
+          "addend": 0,
+          "resolved": 4293813265
+        },
+        {
+          "offset": 481,
+          "kind": 6,
+          "symbol": "_AudioFileReadQueue",
+          "target": 10822344,
+          "addend": 0,
+          "resolved": 10822344
+        },
+        {
+          "offset": 486,
+          "kind": 6,
+          "symbol": "_AudioFileFlushQueue",
+          "target": 10822348,
+          "addend": 0,
+          "resolved": 10822348
+        },
+        {
+          "offset": 500,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 512,
+          "kind": 6,
+          "symbol": "_KeyStates",
+          "target": 10821584,
+          "addend": 0,
+          "resolved": 10821584
+        },
+        {
+          "offset": 520,
+          "kind": 6,
+          "symbol": "_AudioFileReady",
+          "target": 10822320,
+          "addend": 0,
+          "resolved": 10822320
+        },
+        {
+          "offset": 530,
+          "kind": 6,
+          "symbol": "_AudioFileWindowSlots",
+          "target": 10822108,
+          "addend": 0,
+          "resolved": 10822108
+        },
+        {
+          "offset": 535,
+          "kind": 6,
+          "symbol": "_AudioFileWindows",
+          "target": 10822324,
+          "addend": 0,
+          "resolved": 10822324
+        },
+        {
+          "offset": 583,
+          "kind": 6,
+          "symbol": "_AudioFileWindowCount",
+          "target": 10822328,
+          "addend": 0,
+          "resolved": 10822328
+        },
+        {
+          "offset": 589,
+          "kind": 6,
+          "symbol": "_AudioFileWindowCount",
+          "target": 10822328,
+          "addend": 0,
+          "resolved": 10822328
+        }
+      ],
+      "source_sha256": "4cbe6a077ecdfa469ec9f04acca5192122990b8ee24b796389ce601fe0e74c13",
+      "source": "src/audfile.cpp",
+      "population": "rebuild-audfile",
+      "source_order": 5383520,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5384144,
+      "method": "005227d0",
+      "body_bytes": 344,
+      "body_sha256": "e168b89403ba34d0c99f5c99f2218b2538c64dda8d4c2a70b8f371111fc01ad6",
+      "padding_bytes": 8,
+      "full_extent_bytes": 352,
+      "full_extent_sha256": "a431e32bf0bb19b699d2eeafb1941b6f178678fe3c026c21beae10f2192b0342",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Audio_File_Thread@@YGKPAX@Z",
+      "symbol_prefix": "?Audio_File_Thread@@YGKPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "__imp__EnterCriticalSection@4",
+          "target": 7971292,
+          "addend": 0,
+          "resolved": 7971292
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "?AudioGetTime@@YI_KXZ",
+          "target": 4231888,
+          "addend": 0,
+          "resolved": 4293814997
+        },
+        {
+          "offset": 49,
+          "kind": 20,
+          "symbol": "?AudioServicePerform@@YIXPAUAudioServiceInfo@@_K@Z",
+          "target": 4208928,
+          "addend": 0,
+          "resolved": 4293792027
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "_AudioFileRing",
+          "target": 10822340,
+          "addend": 0,
+          "resolved": 10822340
+        },
+        {
+          "offset": 69,
+          "kind": 6,
+          "symbol": "_AudioFileMode",
+          "target": 10822316,
+          "addend": 0,
+          "resolved": 10822316
+        },
+        {
+          "offset": 82,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 95,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "_AudioFileMode",
+          "target": 10822316,
+          "addend": 0,
+          "resolved": 10822316
+        },
+        {
+          "offset": 113,
+          "kind": 20,
+          "symbol": "?STM_StreamTotalBytes@@YIHPAUSTM_STREAM@@@Z",
+          "target": 4230256,
+          "addend": 0,
+          "resolved": 4293813291
+        },
+        {
+          "offset": 124,
+          "kind": 20,
+          "symbol": "?STM_StreamTotalBytesIn@@YIIPAUSTM_STREAM@@@Z",
+          "target": 4230224,
+          "addend": 0,
+          "resolved": 4293813248
+        },
+        {
+          "offset": 133,
+          "kind": 6,
+          "symbol": "_AudioFileReadQueue",
+          "target": 10822344,
+          "addend": 0,
+          "resolved": 10822344
+        },
+        {
+          "offset": 153,
+          "kind": 20,
+          "symbol": "?STM_StreamTotalBytesTillFull@@YIIPAUSTM_STREAM@@@Z",
+          "target": 4230240,
+          "addend": 0,
+          "resolved": 4293813235
+        },
+        {
+          "offset": 159,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 165,
+          "kind": 6,
+          "symbol": "_AudioFileReadQueue",
+          "target": 10822344,
+          "addend": 0,
+          "resolved": 10822344
+        },
+        {
+          "offset": 171,
+          "kind": 20,
+          "symbol": "?STM_AccessCRTFileTransfer@@YIHPAUSTM_ACCESS@@PAU_iobuf@@HPAH@Z",
+          "target": 4230992,
+          "addend": 0,
+          "resolved": 4293813969
+        },
+        {
+          "offset": 182,
+          "kind": 6,
+          "symbol": "_AudioFileFillFailed",
+          "target": 10822356,
+          "addend": 0,
+          "resolved": 10822356
+        },
+        {
+          "offset": 194,
+          "kind": 6,
+          "symbol": "_AudioFileMode",
+          "target": 10822316,
+          "addend": 0,
+          "resolved": 10822316
+        },
+        {
+          "offset": 204,
+          "kind": 20,
+          "symbol": "?STM_StreamTotalBytes@@YIHPAUSTM_STREAM@@@Z",
+          "target": 4230256,
+          "addend": 0,
+          "resolved": 4293813200
+        },
+        {
+          "offset": 215,
+          "kind": 20,
+          "symbol": "?STM_StreamTotalBytesTillFull@@YIIPAUSTM_STREAM@@@Z",
+          "target": 4230240,
+          "addend": 0,
+          "resolved": 4293813173
+        },
+        {
+          "offset": 224,
+          "kind": 6,
+          "symbol": "_AudioFileFlushQueue",
+          "target": 10822348,
+          "addend": 0,
+          "resolved": 10822348
+        },
+        {
+          "offset": 237,
+          "kind": 20,
+          "symbol": "?STM_StreamTotalBytes@@YIHPAUSTM_STREAM@@@Z",
+          "target": 4230256,
+          "addend": 0,
+          "resolved": 4293813167
+        },
+        {
+          "offset": 243,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 249,
+          "kind": 6,
+          "symbol": "_AudioFileFlushQueue",
+          "target": 10822348,
+          "addend": 0,
+          "resolved": 10822348
+        },
+        {
+          "offset": 257,
+          "kind": 20,
+          "symbol": "?STM_AccessCRTFileTransfer@@YIHPAUSTM_ACCESS@@PAU_iobuf@@HPAH@Z",
+          "target": 4230992,
+          "addend": 0,
+          "resolved": 4293813883
+        },
+        {
+          "offset": 263,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 269,
+          "kind": 20,
+          "symbol": "_fflush",
+          "target": 7881628,
+          "addend": 0,
+          "resolved": 2497211
+        },
+        {
+          "offset": 277,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        },
+        {
+          "offset": 283,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        },
+        {
+          "offset": 301,
+          "kind": 6,
+          "symbol": "__imp__Sleep@4",
+          "target": 7971300,
+          "addend": 0,
+          "resolved": 7971300
+        }
+      ],
+      "source_sha256": "4cbe6a077ecdfa469ec9f04acca5192122990b8ee24b796389ce601fe0e74c13",
+      "source": "src/audfile.cpp",
+      "population": "rebuild-audfile",
+      "source_order": 5384144,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5384496,
+      "method": "00522930",
+      "body_bytes": 488,
+      "body_sha256": "e0652536f76ae05b01ef354be0eac85e09216a436c3c860c7a8f5c21170f6238",
+      "padding_bytes": 8,
+      "full_extent_bytes": 496,
+      "full_extent_sha256": "224606f37523ff9273c016238f57a34f36311905a9dbf22befad2a3bbfacd006",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Audio_File_Shutdown@@YIXXZ",
+      "symbol_prefix": "?Audio_File_Shutdown@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_AudioFileReady",
+          "target": 10822320,
+          "addend": 0,
+          "resolved": 10822320
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "__imp__EnterCriticalSection@4",
+          "target": 7971292,
+          "addend": 0,
+          "resolved": 7971292
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "_AudioFileRing",
+          "target": 10822340,
+          "addend": 0,
+          "resolved": 10822340
+        },
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "_AudioFileMode",
+          "target": 10822316,
+          "addend": 0,
+          "resolved": 10822316
+        },
+        {
+          "offset": 58,
+          "kind": 6,
+          "symbol": "_AudioFileFlushQueue",
+          "target": 10822348,
+          "addend": 0,
+          "resolved": 10822348
+        },
+        {
+          "offset": 68,
+          "kind": 20,
+          "symbol": "?STM_AccessTotalBytes@@YIIPAUSTM_ACCESS@@@Z",
+          "target": 4231744,
+          "addend": 0,
+          "resolved": 4293814472
+        },
+        {
+          "offset": 74,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "_AudioFileFlushQueue",
+          "target": 10822348,
+          "addend": 0,
+          "resolved": 10822348
+        },
+        {
+          "offset": 86,
+          "kind": 20,
+          "symbol": "?STM_AccessCRTFileTransfer@@YIHPAUSTM_ACCESS@@PAU_iobuf@@HPAH@Z",
+          "target": 4230992,
+          "addend": 0,
+          "resolved": 4293813702
+        },
+        {
+          "offset": 91,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 97,
+          "kind": 20,
+          "symbol": "_fflush",
+          "target": 7881628,
+          "addend": 0,
+          "resolved": 2497031
+        },
+        {
+          "offset": 106,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        },
+        {
+          "offset": 111,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "_AudioFileReady",
+          "target": 10822320,
+          "addend": 0,
+          "resolved": 10822320
+        },
+        {
+          "offset": 130,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        },
+        {
+          "offset": 138,
+          "kind": 6,
+          "symbol": "_AudioFileReady",
+          "target": 10822320,
+          "addend": 0,
+          "resolved": 10822320
+        },
+        {
+          "offset": 145,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        },
+        {
+          "offset": 153,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 161,
+          "kind": 6,
+          "symbol": "_AudioFileRing",
+          "target": 10822340,
+          "addend": 0,
+          "resolved": 10822340
+        },
+        {
+          "offset": 169,
+          "kind": 6,
+          "symbol": "_AudioFileMode",
+          "target": 10822316,
+          "addend": 0,
+          "resolved": 10822316
+        },
+        {
+          "offset": 178,
+          "kind": 6,
+          "symbol": "_AudioFileFlushQueue",
+          "target": 10822348,
+          "addend": 0,
+          "resolved": 10822348
+        },
+        {
+          "offset": 188,
+          "kind": 20,
+          "symbol": "?STM_AccessTotalBytes@@YIIPAUSTM_ACCESS@@@Z",
+          "target": 4231744,
+          "addend": 0,
+          "resolved": 4293814352
+        },
+        {
+          "offset": 194,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 200,
+          "kind": 6,
+          "symbol": "_AudioFileFlushQueue",
+          "target": 10822348,
+          "addend": 0,
+          "resolved": 10822348
+        },
+        {
+          "offset": 206,
+          "kind": 20,
+          "symbol": "?STM_AccessCRTFileTransfer@@YIHPAUSTM_ACCESS@@PAU_iobuf@@HPAH@Z",
+          "target": 4230992,
+          "addend": 0,
+          "resolved": 4293813582
+        },
+        {
+          "offset": 212,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 218,
+          "kind": 20,
+          "symbol": "_fflush",
+          "target": 7881628,
+          "addend": 0,
+          "resolved": 2496910
+        },
+        {
+          "offset": 226,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        },
+        {
+          "offset": 233,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 239,
+          "kind": 6,
+          "symbol": "_AudioFileMode",
+          "target": 10822316,
+          "addend": 0,
+          "resolved": 10822316
+        },
+        {
+          "offset": 249,
+          "kind": 20,
+          "symbol": "_fclose",
+          "target": 7879003,
+          "addend": 0,
+          "resolved": 2494254
+        },
+        {
+          "offset": 258,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 263,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        },
+        {
+          "offset": 270,
+          "kind": 6,
+          "symbol": "_AudioFileWindows",
+          "target": 10822324,
+          "addend": 0,
+          "resolved": 10822324
+        },
+        {
+          "offset": 280,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2487023
+        },
+        {
+          "offset": 289,
+          "kind": 6,
+          "symbol": "_AudioFileWindows",
+          "target": 10822324,
+          "addend": 0,
+          "resolved": 10822324
+        },
+        {
+          "offset": 294,
+          "kind": 6,
+          "symbol": "_AudioFileThreadRunning",
+          "target": 10822336,
+          "addend": 0,
+          "resolved": 10822336
+        },
+        {
+          "offset": 300,
+          "kind": 6,
+          "symbol": "_AudioFileWindowCount",
+          "target": 10822328,
+          "addend": 0,
+          "resolved": 10822328
+        },
+        {
+          "offset": 310,
+          "kind": 6,
+          "symbol": "_AudioFileThread",
+          "target": 10822112,
+          "addend": 0,
+          "resolved": 10822112
+        },
+        {
+          "offset": 319,
+          "kind": 6,
+          "symbol": "_AudioFileThread",
+          "target": 10822112,
+          "addend": 8,
+          "resolved": 10822120
+        },
+        {
+          "offset": 329,
+          "kind": 6,
+          "symbol": "__imp__Sleep@4",
+          "target": 7971300,
+          "addend": 0,
+          "resolved": 7971300
+        },
+        {
+          "offset": 337,
+          "kind": 6,
+          "symbol": "_AudioFileThread",
+          "target": 10822112,
+          "addend": 8,
+          "resolved": 10822120
+        },
+        {
+          "offset": 347,
+          "kind": 6,
+          "symbol": "_AudioFileThreadHandle",
+          "target": 10822240,
+          "addend": 0,
+          "resolved": 10822240
+        },
+        {
+          "offset": 359,
+          "kind": 6,
+          "symbol": "__imp__WaitForSingleObject@8",
+          "target": 7971280,
+          "addend": 0,
+          "resolved": 7971280
+        },
+        {
+          "offset": 364,
+          "kind": 6,
+          "symbol": "_AudioFileThreadHandle",
+          "target": 10822240,
+          "addend": 0,
+          "resolved": 10822240
+        },
+        {
+          "offset": 371,
+          "kind": 6,
+          "symbol": "__imp__CloseHandle@4",
+          "target": 7971284,
+          "addend": 0,
+          "resolved": 7971284
+        },
+        {
+          "offset": 377,
+          "kind": 6,
+          "symbol": "_AudioFileThreadRunning",
+          "target": 10822336,
+          "addend": 0,
+          "resolved": 10822336
+        },
+        {
+          "offset": 383,
+          "kind": 6,
+          "symbol": "_AudioFileReadQueue",
+          "target": 10822344,
+          "addend": 0,
+          "resolved": 10822344
+        },
+        {
+          "offset": 392,
+          "kind": 20,
+          "symbol": "?STM_AccessRelease@@YIXPAUSTM_ACCESS@@@Z",
+          "target": 4230544,
+          "addend": 0,
+          "resolved": 4293812948
+        },
+        {
+          "offset": 398,
+          "kind": 6,
+          "symbol": "_AudioFileReadQueue",
+          "target": 10822344,
+          "addend": 0,
+          "resolved": 10822344
+        },
+        {
+          "offset": 404,
+          "kind": 6,
+          "symbol": "_AudioFileFlushQueue",
+          "target": 10822348,
+          "addend": 0,
+          "resolved": 10822348
+        },
+        {
+          "offset": 413,
+          "kind": 20,
+          "symbol": "?STM_AccessRelease@@YIXPAUSTM_ACCESS@@@Z",
+          "target": 4230544,
+          "addend": 0,
+          "resolved": 4293812927
+        },
+        {
+          "offset": 419,
+          "kind": 6,
+          "symbol": "_AudioFileFlushQueue",
+          "target": 10822348,
+          "addend": 0,
+          "resolved": 10822348
+        },
+        {
+          "offset": 425,
+          "kind": 6,
+          "symbol": "_AudioFileRing",
+          "target": 10822340,
+          "addend": 0,
+          "resolved": 10822340
+        },
+        {
+          "offset": 434,
+          "kind": 20,
+          "symbol": "?STM_StreamDestroy@@YIXPAUSTM_STREAM@@@Z",
+          "target": 4228960,
+          "addend": 0,
+          "resolved": 4293811322
+        },
+        {
+          "offset": 440,
+          "kind": 6,
+          "symbol": "_AudioFileRing",
+          "target": 10822340,
+          "addend": 0,
+          "resolved": 10822340
+        },
+        {
+          "offset": 446,
+          "kind": 6,
+          "symbol": "_AudioFileLocksReady",
+          "target": 10822332,
+          "addend": 0,
+          "resolved": 10822332
+        },
+        {
+          "offset": 454,
+          "kind": 6,
+          "symbol": "__imp__DeleteCriticalSection@4",
+          "target": 7971288,
+          "addend": 0,
+          "resolved": 7971288
+        },
+        {
+          "offset": 459,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        },
+        {
+          "offset": 466,
+          "kind": 6,
+          "symbol": "_AudioFileCursorLock",
+          "target": 10822248,
+          "addend": 0,
+          "resolved": 10822248
+        },
+        {
+          "offset": 474,
+          "kind": 6,
+          "symbol": "_AudioFileLocksReady",
+          "target": 10822332,
+          "addend": 0,
+          "resolved": 10822332
+        },
+        {
+          "offset": 480,
+          "kind": 6,
+          "symbol": "_AudioFileReady",
+          "target": 10822320,
+          "addend": 0,
+          "resolved": 10822320
+        }
+      ],
+      "source_sha256": "4cbe6a077ecdfa469ec9f04acca5192122990b8ee24b796389ce601fe0e74c13",
+      "source": "src/audfile.cpp",
+      "population": "rebuild-audfile",
+      "source_order": 5384496,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5384992,
+      "method": "00522b20",
+      "body_bytes": 85,
+      "body_sha256": "7dd4ca28bc85562cab3b81530ce45933a69ce8f22a36a7dfcc184c529103b276",
+      "padding_bytes": 11,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "27d3f6c6166f0b5e9ec4c8439cc3f2b425396ae5aa813125ab5aa68cc4e69efb",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Add_Audio_File_Window@@YIXPAUHWND__@@@Z",
+      "symbol_prefix": "?Add_Audio_File_Window@@YIXPAUHWND__@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_AudioFileReady",
+          "target": 10822320,
+          "addend": 0,
+          "resolved": 10822320
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_AudioFileWindowSlots",
+          "target": 10822108,
+          "addend": 0,
+          "resolved": 10822108
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "_AudioFileWindows",
+          "target": 10822324,
+          "addend": 0,
+          "resolved": 10822324
+        },
+        {
+          "offset": 71,
+          "kind": 6,
+          "symbol": "_AudioFileWindowCount",
+          "target": 10822328,
+          "addend": 0,
+          "resolved": 10822328
+        },
+        {
+          "offset": 77,
+          "kind": 6,
+          "symbol": "_AudioFileWindowCount",
+          "target": 10822328,
+          "addend": 0,
+          "resolved": 10822328
+        }
+      ],
+      "source_sha256": "4cbe6a077ecdfa469ec9f04acca5192122990b8ee24b796389ce601fe0e74c13",
+      "source": "src/audfile.cpp",
+      "population": "rebuild-audfile",
+      "source_order": 5384992,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5385088,
+      "method": "00522b80",
+      "body_bytes": 67,
+      "body_sha256": "81eb5bcca6c9cf5d9432eecb05b41725be00fbb659d0ecfe3f5b29a2d4eb7bdc",
+      "padding_bytes": 13,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "4be0ea1978ea18733b491334080a97e999950ccde7cdf37eb485fecd13cfd242",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Remove_Audio_File_Window@@YIXPAUHWND__@@@Z",
+      "symbol_prefix": "?Remove_Audio_File_Window@@YIXPAUHWND__@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_AudioFileReady",
+          "target": 10822320,
+          "addend": 0,
+          "resolved": 10822320
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "_AudioFileWindowSlots",
+          "target": 10822108,
+          "addend": 0,
+          "resolved": 10822108
+        },
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "_AudioFileWindows",
+          "target": 10822324,
+          "addend": 0,
+          "resolved": 10822324
+        },
+        {
+          "offset": 55,
+          "kind": 6,
+          "symbol": "_AudioFileWindowCount",
+          "target": 10822328,
+          "addend": 0,
+          "resolved": 10822328
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "_AudioFileWindowCount",
+          "target": 10822328,
+          "addend": 0,
+          "resolved": 10822328
+        }
+      ],
+      "source_sha256": "4cbe6a077ecdfa469ec9f04acca5192122990b8ee24b796389ce601fe0e74c13",
+      "source": "src/audfile.cpp",
+      "population": "rebuild-audfile",
+      "source_order": 5385088,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5385168,
+      "method": "00522bd0",
+      "body_bytes": 74,
+      "body_sha256": "8f84133d82cc18306512545c63f7d442966d8fe26a84c8f2aee03fed2c730309",
+      "padding_bytes": 6,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "fc467702b554caab17e669f84aade4cc3fc90ba8bc379401376fe86f3da6ff5c",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Audio_File_Find@@YIHH@Z",
+      "symbol_prefix": "?Audio_File_Find@@YIHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_AudioFileReady",
+          "target": 10822320,
+          "addend": 0,
+          "resolved": 10822320
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "_AudioFileFoundId",
+          "target": 10822360,
+          "addend": 0,
+          "resolved": 10822360
+        },
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "_AudioFileWindows",
+          "target": 10822324,
+          "addend": 0,
+          "resolved": 10822324
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_AudioFileFoundIndex",
+          "target": 10822364,
+          "addend": 0,
+          "resolved": 10822364
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "_AudioFileWindowSlots",
+          "target": 10822108,
+          "addend": 0,
+          "resolved": 10822108
+        },
+        {
+          "offset": 63,
+          "kind": 6,
+          "symbol": "_AudioFileFoundId",
+          "target": 10822360,
+          "addend": 0,
+          "resolved": 10822360
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "_AudioFileFoundIndex",
+          "target": 10822364,
+          "addend": 0,
+          "resolved": 10822364
+        }
+      ],
+      "source_sha256": "4cbe6a077ecdfa469ec9f04acca5192122990b8ee24b796389ce601fe0e74c13",
+      "source": "src/audfile.cpp",
+      "population": "rebuild-audfile",
+      "source_order": 5385168,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5385248,
+      "method": "00522c20",
+      "body_bytes": 33,
+      "body_sha256": "6e8bb2d79ae3eacc8a0eb366124d53a33ca6d464fbc17472b0a84f46676e8fb1",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8831bede719dffad4fd593404c61180d521307e6e97fd9a3d10a36afa5775eed",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Audio_File_Window@@YIPAUHWND__@@H@Z",
+      "symbol_prefix": "?Audio_File_Window@@YIPAUHWND__@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_AudioFileReady",
+          "target": 10822320,
+          "addend": 0,
+          "resolved": 10822320
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "_AudioFileWindowSlots",
+          "target": 10822108,
+          "addend": 0,
+          "resolved": 10822108
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_AudioFileWindows",
+          "target": 10822324,
+          "addend": 0,
+          "resolved": 10822324
+        }
+      ],
+      "source_sha256": "4cbe6a077ecdfa469ec9f04acca5192122990b8ee24b796389ce601fe0e74c13",
+      "source": "src/audfile.cpp",
+      "population": "rebuild-audfile",
+      "source_order": 5385248,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-123"
+    },
+    {
+      "entry": 5385296,
+      "method": "00522c50",
+      "body_bytes": 95,
+      "body_sha256": "794dcb5dd50df2dd77ccae5fdacfa8998aac17eb9755af2fc291f04c6f9041c8",
+      "padding_bytes": 1,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "3e15707bd002d8b896bc448da7189e7f824a2886148010f06624f1d71e89ad0b",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Audio_File_Create_Stream@@YIHPBD@Z",
+      "symbol_prefix": "?Audio_File_Create_Stream@@YIHPBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_AudioFileReady",
+          "target": 10822320,
+          "addend": 0,
+          "resolved": 10822320
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "__imp__EnterCriticalSection@4",
+          "target": 7971292,
+          "addend": 0,
+          "resolved": 7971292
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "??_C@_02NGAF@wb?$AA@",
+          "target": 8248424,
+          "addend": 0,
+          "resolved": 8248424
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "_fopen",
+          "target": 7879237,
+          "addend": 0,
+          "resolved": 2493898
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "_AudioFileMode",
+          "target": 10822316,
+          "addend": 0,
+          "resolved": 10822316
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        }
+      ],
+      "source_sha256": "4cbe6a077ecdfa469ec9f04acca5192122990b8ee24b796389ce601fe0e74c13",
+      "source": "src/audfile.cpp",
+      "population": "rebuild-audfile",
+      "source_order": 5385296,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-148"
+    },
+    {
+      "entry": 5385392,
+      "method": "00522cb0",
+      "body_bytes": 155,
+      "body_sha256": "8268318eb5c32e0451e735c58134c09c7443b3ddb40bcd06500b6e72600cb18a",
+      "padding_bytes": 5,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "1301e469f5e4c18067ff0b3427973ae283d7506418a288ef01142901ad3b499b",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Audio_File_Open_Stream@@YIHPBD@Z",
+      "symbol_prefix": "?Audio_File_Open_Stream@@YIHPBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_AudioFileReady",
+          "target": 10822320,
+          "addend": 0,
+          "resolved": 10822320
+        },
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "__imp__EnterCriticalSection@4",
+          "target": 7971292,
+          "addend": 0,
+          "resolved": 7971292
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "??_C@_02JKAF@rb?$AA@",
+          "target": 8248428,
+          "addend": 0,
+          "resolved": 8248428
+        },
+        {
+          "offset": 43,
+          "kind": 20,
+          "symbol": "_fopen",
+          "target": 7879237,
+          "addend": 0,
+          "resolved": 2493798
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 59,
+          "kind": 6,
+          "symbol": "_AudioFileFillFailed",
+          "target": 10822356,
+          "addend": 0,
+          "resolved": 10822356
+        },
+        {
+          "offset": 71,
+          "kind": 6,
+          "symbol": "_AudioFileReadQueue",
+          "target": 10822344,
+          "addend": 0,
+          "resolved": 10822344
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "_AudioFileMode",
+          "target": 10822316,
+          "addend": 0,
+          "resolved": 10822316
+        },
+        {
+          "offset": 88,
+          "kind": 20,
+          "symbol": "?STM_AccessTotalBytes@@YIIPAUSTM_ACCESS@@@Z",
+          "target": 4231744,
+          "addend": 0,
+          "resolved": 4293813556
+        },
+        {
+          "offset": 94,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 100,
+          "kind": 6,
+          "symbol": "_AudioFileReadQueue",
+          "target": 10822344,
+          "addend": 0,
+          "resolved": 10822344
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "?STM_AccessCRTFileTransfer@@YIHPAUSTM_ACCESS@@PAU_iobuf@@HPAH@Z",
+          "target": 4230992,
+          "addend": 0,
+          "resolved": 4293812786
+        },
+        {
+          "offset": 117,
+          "kind": 6,
+          "symbol": "_AudioFileFillFailed",
+          "target": 10822356,
+          "addend": 0,
+          "resolved": 10822356
+        },
+        {
+          "offset": 126,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        },
+        {
+          "offset": 132,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        },
+        {
+          "offset": 138,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        }
+      ],
+      "source_sha256": "4cbe6a077ecdfa469ec9f04acca5192122990b8ee24b796389ce601fe0e74c13",
+      "source": "src/audfile.cpp",
+      "population": "rebuild-audfile",
+      "source_order": 5385392,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5385552,
+      "method": "00522d50",
+      "body_bytes": 181,
+      "body_sha256": "3ab8ec580821fe8f0705014064982bee8ba311533b426e6435b3c2882d349fdb",
+      "padding_bytes": 11,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "9241c5de0971e06802fd92e347c810cfd264ba4a58274c7c76846c6126b249ad",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Audio_File_Close_Stream@@YIXXZ",
+      "symbol_prefix": "?Audio_File_Close_Stream@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_AudioFileReady",
+          "target": 10822320,
+          "addend": 0,
+          "resolved": 10822320
+        },
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "__imp__EnterCriticalSection@4",
+          "target": 7971292,
+          "addend": 0,
+          "resolved": 7971292
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "_AudioFileReady",
+          "target": 10822320,
+          "addend": 0,
+          "resolved": 10822320
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 60,
+          "kind": 6,
+          "symbol": "_AudioFileRing",
+          "target": 10822340,
+          "addend": 0,
+          "resolved": 10822340
+        },
+        {
+          "offset": 70,
+          "kind": 6,
+          "symbol": "_AudioFileMode",
+          "target": 10822316,
+          "addend": 0,
+          "resolved": 10822316
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "_AudioFileFlushQueue",
+          "target": 10822348,
+          "addend": 0,
+          "resolved": 10822348
+        },
+        {
+          "offset": 90,
+          "kind": 20,
+          "symbol": "?STM_AccessTotalBytes@@YIIPAUSTM_ACCESS@@@Z",
+          "target": 4231744,
+          "addend": 0,
+          "resolved": 4293813394
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 102,
+          "kind": 6,
+          "symbol": "_AudioFileFlushQueue",
+          "target": 10822348,
+          "addend": 0,
+          "resolved": 10822348
+        },
+        {
+          "offset": 108,
+          "kind": 20,
+          "symbol": "?STM_AccessCRTFileTransfer@@YIHPAUSTM_ACCESS@@PAU_iobuf@@HPAH@Z",
+          "target": 4230992,
+          "addend": 0,
+          "resolved": 4293812624
+        },
+        {
+          "offset": 113,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "_fflush",
+          "target": 7881628,
+          "addend": 0,
+          "resolved": 2495953
+        },
+        {
+          "offset": 127,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        },
+        {
+          "offset": 134,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 140,
+          "kind": 6,
+          "symbol": "_AudioFileMode",
+          "target": 10822316,
+          "addend": 0,
+          "resolved": 10822316
+        },
+        {
+          "offset": 154,
+          "kind": 20,
+          "symbol": "_fclose",
+          "target": 7879003,
+          "addend": 0,
+          "resolved": 2493293
+        },
+        {
+          "offset": 163,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 172,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        }
+      ],
+      "source_sha256": "4cbe6a077ecdfa469ec9f04acca5192122990b8ee24b796389ce601fe0e74c13",
+      "source": "src/audfile.cpp",
+      "population": "rebuild-audfile",
+      "source_order": 5385552,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5385744,
+      "method": "00522e10",
+      "body_bytes": 108,
+      "body_sha256": "fd74263faabad11b7b3dc070926f512a88fca4b13caec1d68abb85fb185ae905",
+      "padding_bytes": 4,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "9929c6c7f375818653c2da360a35aa5243cf611710e28883a77d6b51e98cb12b",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Audio_File_Flush@@YIXXZ",
+      "symbol_prefix": "?Audio_File_Flush@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_AudioFileReady",
+          "target": 10822320,
+          "addend": 0,
+          "resolved": 10822320
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "__imp__EnterCriticalSection@4",
+          "target": 7971292,
+          "addend": 0,
+          "resolved": 7971292
+        },
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "_AudioFileRing",
+          "target": 10822340,
+          "addend": 0,
+          "resolved": 10822340
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "_AudioFileMode",
+          "target": 10822316,
+          "addend": 0,
+          "resolved": 10822316
+        },
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "_AudioFileFlushQueue",
+          "target": 10822348,
+          "addend": 0,
+          "resolved": 10822348
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "?STM_AccessTotalBytes@@YIIPAUSTM_ACCESS@@@Z",
+          "target": 4231744,
+          "addend": 0,
+          "resolved": 4293813232
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "_AudioFileFlushQueue",
+          "target": 10822348,
+          "addend": 0,
+          "resolved": 10822348
+        },
+        {
+          "offset": 78,
+          "kind": 20,
+          "symbol": "?STM_AccessCRTFileTransfer@@YIHPAUSTM_ACCESS@@PAU_iobuf@@HPAH@Z",
+          "target": 4230992,
+          "addend": 0,
+          "resolved": 4293812462
+        },
+        {
+          "offset": 83,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 89,
+          "kind": 20,
+          "symbol": "_fflush",
+          "target": 7881628,
+          "addend": 0,
+          "resolved": 2495791
+        },
+        {
+          "offset": 97,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        }
+      ],
+      "source_sha256": "4cbe6a077ecdfa469ec9f04acca5192122990b8ee24b796389ce601fe0e74c13",
+      "source": "src/audfile.cpp",
+      "population": "rebuild-audfile",
+      "source_order": 5385744,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5385856,
+      "method": "00522e80",
+      "body_bytes": 6,
+      "body_sha256": "93edb57cb25c029de6f2d722ccedef852402022eb58c4ed27668e58fe3967216",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "7b4445e2762b61b569799c326cb646dc04b2a920ea1b565825ed3a07ebbd80e4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Input_Record_Mode@@YIHXZ",
+      "symbol_prefix": "?Get_Input_Record_Mode@@YIHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_AudioFileMode",
+          "target": 10822316,
+          "addend": 0,
+          "resolved": 10822316
+        }
+      ],
+      "source_sha256": "4cbe6a077ecdfa469ec9f04acca5192122990b8ee24b796389ce601fe0e74c13",
+      "source": "src/audfile.cpp",
+      "population": "rebuild-audfile",
+      "source_order": 5385856,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4352"
+    },
+    {
+      "entry": 5385872,
+      "method": "00522e90",
+      "body_bytes": 50,
+      "body_sha256": "226e4e10d0bf08af020bd698ef2625661a89b56a8421a8899af5697d23ebcd86",
+      "padding_bytes": 14,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "3ce02638661c4821c427e6f2329d071f1088bbfcd9e596a5badf6e0cb9af2a32",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Windows_Message@@YIHPAUtagMSG@@PAUHWND__@@II@Z",
+      "symbol_prefix": "?Get_Windows_Message@@YIHPAUtagMSG@@PAUHWND__@@II@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "?Peek_Windows_Message@@YIHPAUtagMSG@@PAUHWND__@@III@Z",
+          "target": 5385936,
+          "addend": 0,
+          "resolved": 35
+        }
+      ],
+      "source_sha256": "4cbe6a077ecdfa469ec9f04acca5192122990b8ee24b796389ce601fe0e74c13",
+      "source": "src/audfile.cpp",
+      "population": "rebuild-audfile",
+      "source_order": 5385872,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5385936,
+      "method": "00522ed0",
+      "body_bytes": 1156,
+      "body_sha256": "7ee096d9a6dd583ad6faa1b4a1fcd1e8d8583debdd69f1b8905768620fbd34f9",
+      "padding_bytes": 12,
+      "full_extent_bytes": 1168,
+      "full_extent_sha256": "8ac69a2fb8b6edcbe2ec0369065e96ec335885df7f7a994b555484a39d02ce9a",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Peek_Windows_Message@@YIHPAUtagMSG@@PAUHWND__@@III@Z",
+      "symbol_prefix": "?Peek_Windows_Message@@YIHPAUtagMSG@@PAUHWND__@@III@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_AudioFileMode",
+          "target": 10822316,
+          "addend": 0,
+          "resolved": 10822316
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "__imp__GetCursorPos@4",
+          "target": 7971752,
+          "addend": 0,
+          "resolved": 7971752
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "_AudioFileCursorX",
+          "target": 10822300,
+          "addend": 0,
+          "resolved": 10822300
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "_AudioFileCursorY",
+          "target": 10822304,
+          "addend": 0,
+          "resolved": 10822304
+        },
+        {
+          "offset": 83,
+          "kind": 6,
+          "symbol": "_AudioFileCursorY",
+          "target": 10822304,
+          "addend": 0,
+          "resolved": 10822304
+        },
+        {
+          "offset": 90,
+          "kind": 6,
+          "symbol": "_AudioFileCursorX",
+          "target": 10822300,
+          "addend": 0,
+          "resolved": 10822300
+        },
+        {
+          "offset": 99,
+          "kind": 6,
+          "symbol": "_AudioFileCursorX",
+          "target": 10822300,
+          "addend": 0,
+          "resolved": 10822300
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "_AudioFileLastCursorX",
+          "target": 10822308,
+          "addend": 0,
+          "resolved": 10822308
+        },
+        {
+          "offset": 114,
+          "kind": 6,
+          "symbol": "_AudioFileCursorY",
+          "target": 10822304,
+          "addend": 0,
+          "resolved": 10822304
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "_AudioFileLastCursorY",
+          "target": 10822312,
+          "addend": 0,
+          "resolved": 10822312
+        },
+        {
+          "offset": 128,
+          "kind": 6,
+          "symbol": "?MessageLoopCount@@3HA",
+          "target": 10822296,
+          "addend": 0,
+          "resolved": 10822296
+        },
+        {
+          "offset": 134,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 144,
+          "kind": 6,
+          "symbol": "__imp__EnterCriticalSection@4",
+          "target": 7971292,
+          "addend": 0,
+          "resolved": 7971292
+        },
+        {
+          "offset": 149,
+          "kind": 6,
+          "symbol": "_AudioFileCursorLock",
+          "target": 10822248,
+          "addend": 0,
+          "resolved": 10822248
+        },
+        {
+          "offset": 164,
+          "kind": 6,
+          "symbol": "_AudioFileCursorY",
+          "target": 10822304,
+          "addend": 0,
+          "resolved": 10822304
+        },
+        {
+          "offset": 170,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 176,
+          "kind": 6,
+          "symbol": "_AudioFileCursorX",
+          "target": 10822300,
+          "addend": 0,
+          "resolved": 10822300
+        },
+        {
+          "offset": 187,
+          "kind": 6,
+          "symbol": "_AudioFileCursorX",
+          "target": 10822300,
+          "addend": 0,
+          "resolved": 10822300
+        },
+        {
+          "offset": 193,
+          "kind": 6,
+          "symbol": "_AudioFileCursorY",
+          "target": 10822304,
+          "addend": 0,
+          "resolved": 10822304
+        },
+        {
+          "offset": 198,
+          "kind": 6,
+          "symbol": "_AudioFileCursorLock",
+          "target": 10822248,
+          "addend": 0,
+          "resolved": 10822248
+        },
+        {
+          "offset": 211,
+          "kind": 6,
+          "symbol": "_AudioFileLastCursorX",
+          "target": 10822308,
+          "addend": 0,
+          "resolved": 10822308
+        },
+        {
+          "offset": 217,
+          "kind": 6,
+          "symbol": "_AudioFileLastCursorY",
+          "target": 10822312,
+          "addend": 0,
+          "resolved": 10822312
+        },
+        {
+          "offset": 223,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        },
+        {
+          "offset": 229,
+          "kind": 6,
+          "symbol": "_AudioFileReadQueue",
+          "target": 10822344,
+          "addend": 0,
+          "resolved": 10822344
+        },
+        {
+          "offset": 240,
+          "kind": 20,
+          "symbol": "?STM_AccessTransfer@@YIHPAUSTM_ACCESS@@PAXH@Z",
+          "target": 4230656,
+          "addend": 0,
+          "resolved": 4293811772
+        },
+        {
+          "offset": 248,
+          "kind": 6,
+          "symbol": "__imp__EnterCriticalSection@4",
+          "target": 7971292,
+          "addend": 0,
+          "resolved": 7971292
+        },
+        {
+          "offset": 254,
+          "kind": 6,
+          "symbol": "_AudioFileMode",
+          "target": 10822316,
+          "addend": 0,
+          "resolved": 10822316
+        },
+        {
+          "offset": 267,
+          "kind": 6,
+          "symbol": "__imp__PeekMessageA@20",
+          "target": 7971940,
+          "addend": 0,
+          "resolved": 7971940
+        },
+        {
+          "offset": 307,
+          "kind": 6,
+          "symbol": "__imp__DispatchMessageA@4",
+          "target": 7972020,
+          "addend": 0,
+          "resolved": 7972020
+        },
+        {
+          "offset": 325,
+          "kind": 6,
+          "symbol": "_AudioFileHeaderRead",
+          "target": 10822368,
+          "addend": 0,
+          "resolved": 10822368
+        },
+        {
+          "offset": 337,
+          "kind": 6,
+          "symbol": "_AudioFileFlushQueue",
+          "target": 10822348,
+          "addend": 0,
+          "resolved": 10822348
+        },
+        {
+          "offset": 342,
+          "kind": 20,
+          "symbol": "?STM_AccessTotalBytes@@YIIPAUSTM_ACCESS@@@Z",
+          "target": 4231744,
+          "addend": 0,
+          "resolved": 4293812758
+        },
+        {
+          "offset": 356,
+          "kind": 6,
+          "symbol": "_AudioFileFillFailed",
+          "target": 10822356,
+          "addend": 0,
+          "resolved": 10822356
+        },
+        {
+          "offset": 370,
+          "kind": 6,
+          "symbol": "_AudioFileReady",
+          "target": 10822320,
+          "addend": 0,
+          "resolved": 10822320
+        },
+        {
+          "offset": 377,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        },
+        {
+          "offset": 385,
+          "kind": 6,
+          "symbol": "_AudioFileReady",
+          "target": 10822320,
+          "addend": 0,
+          "resolved": 10822320
+        },
+        {
+          "offset": 392,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        },
+        {
+          "offset": 400,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 408,
+          "kind": 6,
+          "symbol": "_AudioFileRing",
+          "target": 10822340,
+          "addend": 0,
+          "resolved": 10822340
+        },
+        {
+          "offset": 416,
+          "kind": 6,
+          "symbol": "_AudioFileMode",
+          "target": 10822316,
+          "addend": 0,
+          "resolved": 10822316
+        },
+        {
+          "offset": 425,
+          "kind": 6,
+          "symbol": "_AudioFileFlushQueue",
+          "target": 10822348,
+          "addend": 0,
+          "resolved": 10822348
+        },
+        {
+          "offset": 435,
+          "kind": 20,
+          "symbol": "?STM_AccessTotalBytes@@YIIPAUSTM_ACCESS@@@Z",
+          "target": 4231744,
+          "addend": 0,
+          "resolved": 4293812665
+        },
+        {
+          "offset": 441,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 447,
+          "kind": 6,
+          "symbol": "_AudioFileFlushQueue",
+          "target": 10822348,
+          "addend": 0,
+          "resolved": 10822348
+        },
+        {
+          "offset": 453,
+          "kind": 20,
+          "symbol": "?STM_AccessCRTFileTransfer@@YIHPAUSTM_ACCESS@@PAU_iobuf@@HPAH@Z",
+          "target": 4230992,
+          "addend": 0,
+          "resolved": 4293811895
+        },
+        {
+          "offset": 459,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 465,
+          "kind": 20,
+          "symbol": "_fflush",
+          "target": 7881628,
+          "addend": 0,
+          "resolved": 2495223
+        },
+        {
+          "offset": 473,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        },
+        {
+          "offset": 479,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        },
+        {
+          "offset": 484,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 490,
+          "kind": 6,
+          "symbol": "_AudioFileMode",
+          "target": 10822316,
+          "addend": 0,
+          "resolved": 10822316
+        },
+        {
+          "offset": 500,
+          "kind": 20,
+          "symbol": "_fclose",
+          "target": 7879003,
+          "addend": 0,
+          "resolved": 2492563
+        },
+        {
+          "offset": 509,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 514,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        },
+        {
+          "offset": 520,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        },
+        {
+          "offset": 540,
+          "kind": 6,
+          "symbol": "_AudioFileFlushQueue",
+          "target": 10822348,
+          "addend": 0,
+          "resolved": 10822348
+        },
+        {
+          "offset": 547,
+          "kind": 6,
+          "symbol": "_AudioFileNextHeader",
+          "target": 10822096,
+          "addend": 0,
+          "resolved": 10822096
+        },
+        {
+          "offset": 552,
+          "kind": 20,
+          "symbol": "?STM_AccessTransfer@@YIHPAUSTM_ACCESS@@PAXH@Z",
+          "target": 4230656,
+          "addend": 0,
+          "resolved": 4293811460
+        },
+        {
+          "offset": 558,
+          "kind": 6,
+          "symbol": "_AudioFileHeaderRead",
+          "target": 10822368,
+          "addend": 0,
+          "resolved": 10822368
+        },
+        {
+          "offset": 568,
+          "kind": 6,
+          "symbol": "_AudioFileNextHeader",
+          "target": 10822096,
+          "addend": 4,
+          "resolved": 10822100
+        },
+        {
+          "offset": 573,
+          "kind": 6,
+          "symbol": "?MessageLoopCount@@3HA",
+          "target": 10822296,
+          "addend": 0,
+          "resolved": 10822296
+        },
+        {
+          "offset": 586,
+          "kind": 6,
+          "symbol": "_AudioFileNextHeader",
+          "target": 10822096,
+          "addend": 8,
+          "resolved": 10822104
+        },
+        {
+          "offset": 599,
+          "kind": 6,
+          "symbol": "_AudioFileHeaderRead",
+          "target": 10822368,
+          "addend": 0,
+          "resolved": 10822368
+        },
+        {
+          "offset": 607,
+          "kind": 6,
+          "symbol": "_AudioFileFlushQueue",
+          "target": 10822348,
+          "addend": 0,
+          "resolved": 10822348
+        },
+        {
+          "offset": 618,
+          "kind": 20,
+          "symbol": "?STM_AccessTransfer@@YIHPAUSTM_ACCESS@@PAXH@Z",
+          "target": 4230656,
+          "addend": 0,
+          "resolved": 4293811394
+        },
+        {
+          "offset": 623,
+          "kind": 6,
+          "symbol": "_AudioFileCursorLock",
+          "target": 10822248,
+          "addend": 0,
+          "resolved": 10822248
+        },
+        {
+          "offset": 631,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 646,
+          "kind": 6,
+          "symbol": "_AudioFileCursorX",
+          "target": 10822300,
+          "addend": 0,
+          "resolved": 10822300
+        },
+        {
+          "offset": 652,
+          "kind": 6,
+          "symbol": "_AudioFileCursorY",
+          "target": 10822304,
+          "addend": 0,
+          "resolved": 10822304
+        },
+        {
+          "offset": 666,
+          "kind": 6,
+          "symbol": "_AudioFileCursorLock",
+          "target": 10822248,
+          "addend": 0,
+          "resolved": 10822248
+        },
+        {
+          "offset": 672,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        },
+        {
+          "offset": 683,
+          "kind": 6,
+          "symbol": "_AudioFileFlushQueue",
+          "target": 10822348,
+          "addend": 0,
+          "resolved": 10822348
+        },
+        {
+          "offset": 692,
+          "kind": 20,
+          "symbol": "?STM_AccessTransfer@@YIHPAUSTM_ACCESS@@PAXH@Z",
+          "target": 4230656,
+          "addend": 0,
+          "resolved": 4293811320
+        },
+        {
+          "offset": 698,
+          "kind": 6,
+          "symbol": "_AudioFileReady",
+          "target": 10822320,
+          "addend": 0,
+          "resolved": 10822320
+        },
+        {
+          "offset": 714,
+          "kind": 6,
+          "symbol": "_AudioFileWindowSlots",
+          "target": 10822108,
+          "addend": 0,
+          "resolved": 10822108
+        },
+        {
+          "offset": 722,
+          "kind": 6,
+          "symbol": "_AudioFileWindows",
+          "target": 10822324,
+          "addend": 0,
+          "resolved": 10822324
+        },
+        {
+          "offset": 750,
+          "kind": 6,
+          "symbol": "_AudioFileReady",
+          "target": 10822320,
+          "addend": 0,
+          "resolved": 10822320
+        },
+        {
+          "offset": 761,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        },
+        {
+          "offset": 769,
+          "kind": 6,
+          "symbol": "_AudioFileReady",
+          "target": 10822320,
+          "addend": 0,
+          "resolved": 10822320
+        },
+        {
+          "offset": 776,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        },
+        {
+          "offset": 784,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 792,
+          "kind": 6,
+          "symbol": "_AudioFileRing",
+          "target": 10822340,
+          "addend": 0,
+          "resolved": 10822340
+        },
+        {
+          "offset": 800,
+          "kind": 6,
+          "symbol": "_AudioFileMode",
+          "target": 10822316,
+          "addend": 0,
+          "resolved": 10822316
+        },
+        {
+          "offset": 809,
+          "kind": 6,
+          "symbol": "_AudioFileFlushQueue",
+          "target": 10822348,
+          "addend": 0,
+          "resolved": 10822348
+        },
+        {
+          "offset": 819,
+          "kind": 20,
+          "symbol": "?STM_AccessTotalBytes@@YIIPAUSTM_ACCESS@@@Z",
+          "target": 4231744,
+          "addend": 0,
+          "resolved": 4293812281
+        },
+        {
+          "offset": 825,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 831,
+          "kind": 6,
+          "symbol": "_AudioFileFlushQueue",
+          "target": 10822348,
+          "addend": 0,
+          "resolved": 10822348
+        },
+        {
+          "offset": 837,
+          "kind": 20,
+          "symbol": "?STM_AccessCRTFileTransfer@@YIHPAUSTM_ACCESS@@PAU_iobuf@@HPAH@Z",
+          "target": 4230992,
+          "addend": 0,
+          "resolved": 4293811511
+        },
+        {
+          "offset": 843,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 849,
+          "kind": 20,
+          "symbol": "_fflush",
+          "target": 7881628,
+          "addend": 0,
+          "resolved": 2494839
+        },
+        {
+          "offset": 857,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        },
+        {
+          "offset": 863,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        },
+        {
+          "offset": 868,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 874,
+          "kind": 6,
+          "symbol": "_AudioFileMode",
+          "target": 10822316,
+          "addend": 0,
+          "resolved": 10822316
+        },
+        {
+          "offset": 884,
+          "kind": 20,
+          "symbol": "_fclose",
+          "target": 7879003,
+          "addend": 0,
+          "resolved": 2492179
+        },
+        {
+          "offset": 893,
+          "kind": 6,
+          "symbol": "_AudioFileStream",
+          "target": 10822352,
+          "addend": 0,
+          "resolved": 10822352
+        },
+        {
+          "offset": 898,
+          "kind": 6,
+          "symbol": "_AudioFileLock",
+          "target": 10822272,
+          "addend": 0,
+          "resolved": 10822272
+        },
+        {
+          "offset": 904,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        },
+        {
+          "offset": 936,
+          "kind": 6,
+          "symbol": "__imp__PeekMessageA@20",
+          "target": 7971940,
+          "addend": 0,
+          "resolved": 7971940
+        },
+        {
+          "offset": 944,
+          "kind": 6,
+          "symbol": "_AudioFileMode",
+          "target": 10822316,
+          "addend": 0,
+          "resolved": 10822316
+        },
+        {
+          "offset": 964,
+          "kind": 6,
+          "symbol": "_AudioFileReady",
+          "target": 10822320,
+          "addend": 0,
+          "resolved": 10822320
+        },
+        {
+          "offset": 975,
+          "kind": 6,
+          "symbol": "_AudioFileFoundId",
+          "target": 10822360,
+          "addend": 0,
+          "resolved": 10822360
+        },
+        {
+          "offset": 981,
+          "kind": 6,
+          "symbol": "_AudioFileWindows",
+          "target": 10822324,
+          "addend": 0,
+          "resolved": 10822324
+        },
+        {
+          "offset": 990,
+          "kind": 6,
+          "symbol": "_AudioFileFoundIndex",
+          "target": 10822364,
+          "addend": 0,
+          "resolved": 10822364
+        },
+        {
+          "offset": 998,
+          "kind": 6,
+          "symbol": "_AudioFileWindowSlots",
+          "target": 10822108,
+          "addend": 0,
+          "resolved": 10822108
+        },
+        {
+          "offset": 1024,
+          "kind": 6,
+          "symbol": "_AudioFileFoundId",
+          "target": 10822360,
+          "addend": 0,
+          "resolved": 10822360
+        },
+        {
+          "offset": 1029,
+          "kind": 6,
+          "symbol": "_AudioFileFoundIndex",
+          "target": 10822364,
+          "addend": 0,
+          "resolved": 10822364
+        },
+        {
+          "offset": 1067,
+          "kind": 6,
+          "symbol": "__imp__PeekMessageA@20",
+          "target": 7971940,
+          "addend": 0,
+          "resolved": 7971940
+        },
+        {
+          "offset": 1090,
+          "kind": 6,
+          "symbol": "?MessageLoopCount@@3HA",
+          "target": 10822296,
+          "addend": 0,
+          "resolved": 10822296
+        },
+        {
+          "offset": 1096,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 1127,
+          "kind": 6,
+          "symbol": "_AudioFileReadQueue",
+          "target": 10822344,
+          "addend": 0,
+          "resolved": 10822344
+        },
+        {
+          "offset": 1140,
+          "kind": 20,
+          "symbol": "?STM_AccessTransfer@@YIHPAUSTM_ACCESS@@PAXH@Z",
+          "target": 4230656,
+          "addend": 0,
+          "resolved": 4293810872
+        }
+      ],
+      "source_sha256": "4cbe6a077ecdfa469ec9f04acca5192122990b8ee24b796389ce601fe0e74c13",
+      "source": "src/audfile.cpp",
+      "population": "rebuild-audfile",
+      "source_order": 5385936,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5387104,
+      "method": "00523360",
+      "body_bytes": 64,
+      "body_sha256": "4b0fc6de3c8f888d31fe359f655d1f9e09d4124d38abaa008d1161cdc8c687b7",
+      "padding_bytes": 0,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "4b0fc6de3c8f888d31fe359f655d1f9e09d4124d38abaa008d1161cdc8c687b7",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Audio_File_Get_Cursor@@YIXPAI0@Z",
+      "symbol_prefix": "?Audio_File_Get_Cursor@@YIXPAI0@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_AudioFileReady",
+          "target": 10822320,
+          "addend": 0,
+          "resolved": 10822320
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "_AudioFileMode",
+          "target": 10822316,
+          "addend": 0,
+          "resolved": 10822316
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_AudioFileCursorLock",
+          "target": 10822248,
+          "addend": 0,
+          "resolved": 10822248
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "__imp__EnterCriticalSection@4",
+          "target": 7971292,
+          "addend": 0,
+          "resolved": 7971292
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_AudioFileCursorX",
+          "target": 10822300,
+          "addend": 0,
+          "resolved": 10822300
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_AudioFileCursorY",
+          "target": 10822304,
+          "addend": 0,
+          "resolved": 10822304
+        },
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "_AudioFileCursorLock",
+          "target": 10822248,
+          "addend": 0,
+          "resolved": 10822248
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        }
+      ],
+      "source_sha256": "4cbe6a077ecdfa469ec9f04acca5192122990b8ee24b796389ce601fe0e74c13",
+      "source": "src/audfile.cpp",
+      "population": "rebuild-audfile",
+      "source_order": 5387104,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2913"
+    },
+    {
+      "entry": 5387168,
+      "method": "005233a0",
+      "body_bytes": 40,
+      "body_sha256": "9f7ae39ad84767b3dd2208cbc4b9a8c5784c4968730c7f0193300a565af46902",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c29a8b3e26d82c1c8ea99ec74e97e65a50936c8359481603b0c291812a403dec",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Key_State@@YIXI_N@Z",
+      "symbol_prefix": "?Set_Key_State@@YIXI_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_AudioFileMode",
+          "target": 10822316,
+          "addend": 0,
+          "resolved": 10822316
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_KeyStates",
+          "target": 10821584,
+          "addend": 0,
+          "resolved": 10821584
+        }
+      ],
+      "source_sha256": "4cbe6a077ecdfa469ec9f04acca5192122990b8ee24b796389ce601fe0e74c13",
+      "source": "src/audfile.cpp",
+      "population": "rebuild-audfile",
+      "source_order": 5387168,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3700"
+    },
+    {
+      "entry": 5387216,
+      "method": "005233d0",
+      "body_bytes": 32,
+      "body_sha256": "6d2da45b81fc30e6cbbfd48ef83b356d0a3ae8e3012c5392a0acb6ca5f9a1801",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "6d2da45b81fc30e6cbbfd48ef83b356d0a3ae8e3012c5392a0acb6ca5f9a1801",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Key_State@@YIFI@Z",
+      "symbol_prefix": "?Get_Key_State@@YIFI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_AudioFileMode",
+          "target": 10822316,
+          "addend": 0,
+          "resolved": 10822316
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "__imp__GetKeyState@4",
+          "target": 7971756,
+          "addend": 0,
+          "resolved": 7971756
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "_KeyStates",
+          "target": 10821584,
+          "addend": 0,
+          "resolved": 10821584
+        }
+      ],
+      "source_sha256": "4cbe6a077ecdfa469ec9f04acca5192122990b8ee24b796389ce601fe0e74c13",
+      "source": "src/audfile.cpp",
+      "population": "rebuild-audfile",
+      "source_order": 5387216,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3700"
+    },
+    {
+      "entry": 5387248,
+      "method": "005233f0",
+      "body_bytes": 32,
+      "body_sha256": "c72985df28e9ea2e66e4f59192c0dda7be7c97c6a25e1117e8bfb2ff99108c13",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "c72985df28e9ea2e66e4f59192c0dda7be7c97c6a25e1117e8bfb2ff99108c13",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Async_Key_State@@YIFI@Z",
+      "symbol_prefix": "?Get_Async_Key_State@@YIFI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_AudioFileMode",
+          "target": 10822316,
+          "addend": 0,
+          "resolved": 10822316
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "__imp__GetAsyncKeyState@4",
+          "target": 7971764,
+          "addend": 0,
+          "resolved": 7971764
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "_KeyStates",
+          "target": 10821584,
+          "addend": 0,
+          "resolved": 10821584
+        }
+      ],
+      "source_sha256": "4cbe6a077ecdfa469ec9f04acca5192122990b8ee24b796389ce601fe0e74c13",
+      "source": "src/audfile.cpp",
+      "population": "rebuild-audfile",
+      "source_order": 5387248,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3700"
+    }
+  ]
+}

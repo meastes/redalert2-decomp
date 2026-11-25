@@ -1,0 +1,2972 @@
+{
+  "id": "rebuild-ovrlight",
+  "population": {
+    "id": "rebuild-ovrlight",
+    "inventory_sha256": "701995512cd92635a10191bc6a1af00ce13b8d1fd8908a2616676afff1944366",
+    "gaps_sha256": "c171e1e3cec4dcea43b74fbbe4fc3aeb76a97bf4401cbfac43594120a7542154",
+    "historical_population_sha256": "aa4c819cd58788bae03dccc72f6386981c8b4d56236214f92d5d0bd9a9a2ca50",
+    "historical_acceptance_sha256": "666aeca27f290ccb4074c9928671869c34deb5bf03507d6868b52e24e61906fa"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 10957600,
+    "_ISO_TILE_SIZE": 8026800,
+    "_LEPTONS_PER_PIXEL": 10957672,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 10957656,
+    "_ONE_RAD": 8026808,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 10957648,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 10957608,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 10957272,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 10957680,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 10957616,
+    "_CELL_DIAG_SLOPE_ANGLE": 10957640,
+    "_BRIDGE_LEPTON_HEIGHT": 10957664,
+    "_CELL_NONE": 10957592,
+    "_COORD_NONE": 10957624,
+    "_RECT_NONE": 10957576,
+    "_$E146": 6149456,
+    "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A": 10957248,
+    "??_7?$DynamicVectorClass@PAVSpotLightClass@@@@6B@": 8026820,
+    "_atexit": 7874954,
+    "??_7?$VectorClass@PAVSpotLightClass@@@@6B@": 8026852,
+    "??3@YAXPAX@Z": 7871803,
+    "_?_one_time@?1??One_Time@SpotLightClass@@SIXXZ@4_NA": 10957684,
+    "?SpotLightSurfaces@@3PAPAVBSurface@@A": 10957280,
+    "??2@YAPAXI@Z": 7872535,
+    "??0Surface@@QAE@HH@Z": 4844944,
+    "??_7XSurface@@6B@": 7974796,
+    "??0Buffer@@QAE@PAXH@Z": 4424384,
+    "??_7BSurface@@6B@": 7974648,
+    "?Fill@XSurface@@UAE_NH@Z": 7818784,
+    "?Draw_Circle@XSurface@@QAEXVPoint2D@@HV?$TRect@H@@H@Z": 7818384,
+    "??1Buffer@@QAE@XZ": 4424720,
+    "??_7Surface@@6B@": 7974944,
+    "?Rule@@3PAVRulesClass@@A": 8624200,
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "?Get_Primary_Color_Mode@DSurface@@SIHXZ": 4897680,
+    "?SpotLightColorMode@@3HA": 8293452,
+    "?Get_CPU_Type@@YIXAAHAA_NPADH@Z": 5057056,
+    "?SpotLightMMXBuffer@@3PAHA": 10957688,
+    "?RedRight@DSurface@@2HA": 8728504,
+    "?RedLeft@DSurface@@2HA": 8728508,
+    "?GreenRight@DSurface@@2HA": 8728520,
+    "?GreenLeft@DSurface@@2HA": 8728524,
+    "?BlueRight@DSurface@@2HA": 8728512,
+    "?BlueLeft@DSurface@@2HA": 8728516,
+    "?GetMinFrameRate@Detail@@YIIXZ": 5494848,
+    "?CurrentFrameRate@FPSCounter@@3IA": 10939164,
+    "?TacticalMap@@3PAVTactical@@A": 8624492,
+    "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z": 6957520,
+    "?Scen@@3PAVScenarioClass@@A": 10736272,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "?Is_Fogged@MapClass@@QAE_NABVCoord@@@Z": 5669824,
+    "?TacticalRect@@3V?$TRect@H@@A": 8623664,
+    "?LogicalSurface@@3PAVSurface@@A": 8624476,
+    "_?_index_table@?1??Draw_It@SpotLightClass@@QAEXXZ@4PADA": 8293456,
+    "?Prep_For_Blit@XSurface@@SI_NAAVSurface@@ABV?$TRect@H@@AAV3@ABV2@12AA_NAAPAX5@Z": 7820208,
+    "_MMX_Brighten_Color_555": 7964162,
+    "_Brighten_Color_555": 7963601,
+    "_MMX_Brighten_Color_556": 7964480,
+    "_Brighten_Color_556": 7963380,
+    "_MMX_Brighten_Color_565": 7963840,
+    "_Brighten_Color_565": 7962938,
+    "_MMX_Brighten_Color_655": 7964800,
+    "_Brighten_Color_655": 7963159,
+    "?Draw_It@SpotLightClass@@QAEXXZ": 6151056,
+    "_$E2": 6148896,
+    "_$E5": 6148944,
+    "_$E8": 6148976,
+    "_$E11": 6149008,
+    "_$E14": 6149040,
+    "_$E17": 6149072,
+    "_$E20": 6149104,
+    "_$E23": 6149168,
+    "_$E26": 6149216,
+    "_$E29": 6149264,
+    "_$E32": 6149312,
+    "_$E35": 6149328,
+    "_$E38": 6149360,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "_$E148": 6149392,
+    "??_G?$DynamicVectorClass@PAVSpotLightClass@@@@UAEPAXI@Z": 6153744,
+    "??_7type_info@@6B@": 8066532,
+    "??_G?$VectorClass@PAVSpotLightClass@@@@UAEPAXI@Z": 6153664,
+    "??0SpotLightClass@@QAE@VCoord@@H@Z": 6149520,
+    "??1SpotLightClass@@QAE@XZ": 6149648,
+    "?AI@SpotLightClass@@QAEXXZ": 6149728,
+    "?Update_All@SpotLightClass@@SIXXZ": 6149840,
+    "?One_Time@SpotLightClass@@SIXXZ": 6149984,
+    "??_GXSurface@@UAEPAXI@Z": 4264736,
+    "?Get_Pixel_Clip@XSurface@@UBEHABVPoint2D@@ABV?$TRect@H@@@Z": 7815808,
+    "?Put_Pixel_Clip@XSurface@@UAE_NABVPoint2D@@HABV?$TRect@H@@@Z": 7815936,
+    "?Draw_Rect@XSurface@@UAE_NABV?$TRect@H@@H@Z": 7815424,
+    "?Draw_Rect@XSurface@@UAE_NABV?$TRect@H@@0H@Z": 7815472,
+    "?Draw_Masked_Line@XSurface@@UAE_NABVPoint2D@@0I_N@Z": 7814832,
+    "?Draw_Masked_Dashed_Line@XSurface@@UAEHABVPoint2D@@0IQA_NH_N@Z": 7814816,
+    "?Draw_Dashed_Line@XSurface@@UAEHABVPoint2D@@0IQA_NH@Z": 7814192,
+    "?Draw_RGB_Multiplying_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1ABVRGBClass@@MHH@Z": 7814896,
+    "?Draw_Depth_Antialiased_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1AAVRGBClass@@HH_N333M@Z": 7814880,
+    "?Draw_Depth_Glow_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1HHH_N@Z": 7814864,
+    "?Draw_Depth_Shaded_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1IHH_N@Z": 7814848,
+    "?Draw_Line@XSurface@@UAE_NABVPoint2D@@0H@Z": 7813456,
+    "?Draw_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1H@Z": 7813504,
+    "?Get_Pixel@XSurface@@UBEHABVPoint2D@@@Z": 7815632,
+    "?Put_Pixel@XSurface@@UAE_NABVPoint2D@@H@Z": 7815712,
+    "?Fill_Rect_Trans@XSurface@@UAE_NABV?$TRect@H@@ABVRGBClass@@I@Z": 7816880,
+    "?Fill_Rect@XSurface@@UAE_NABV?$TRect@H@@H@Z": 7816080,
+    "?Fill_Rect@XSurface@@UAE_NABV?$TRect@H@@0H@Z": 7816128,
+    "?Blit_From@XSurface@@UAE_NABV?$TRect@H@@0ABVSurface@@00_N2@Z": 7819360,
+    "?Blit_From@XSurface@@UAE_NABV?$TRect@H@@ABVSurface@@0_N2@Z": 7819008,
+    "?Blit_From@XSurface@@UAE_NABVSurface@@_N1@Z": 7818848,
+    "??_GBSurface@@UAEPAXI@Z": 4264912,
+    "??_R0?AVXSurface@@@8": 8184520,
+    "??_R0?AVBSurface@@@8": 8184544,
+    "__purecall": 4950368,
+    "??_GSurface@@UAEPAXI@Z": 4264784,
+    "??_R0?AVSurface@@@8": 8184496,
+    "?Can_Lock@Surface@@UBE_NHH@Z": 4264560,
+    "?entry_64@Surface@@UBE_NVPoint2D@@@Z": 4264576,
+    "?Get_Rect@Surface@@UBE?AV?$TRect@H@@XZ": 4264592,
+    "?Get_Width@Surface@@UBEHXZ": 4264640,
+    "?Get_Height@Surface@@UBEHXZ": 4264656,
+    "?Is_Direct_Draw@Surface@@UBE_NXZ": 4264768,
+    "?Lock@XSurface@@UBEPAXVPoint2D@@@Z": 4264672,
+    "?Unlock@XSurface@@UBE_NXZ": 4264688,
+    "?Is_Locked@XSurface@@UBE_NXZ": 4264704,
+    "?Is_Direct_Draw@XSurface@@UBE_NXZ": 4264720,
+    "?Lock@BSurface@@UBEPAXVPoint2D@@@Z": 4264816,
+    "?Bytes_Per_Pixel@BSurface@@UBEHXZ": 4264880,
+    "?Stride@BSurface@@UBEHXZ": 4264896,
+    "?Clear_All@SpotLightClass@@SIXXZ": 6150976,
+    "?Draw_All@SpotLightClass@@SIXXZ": 6152928,
+    "?Clear@?$DynamicVectorClass@PAVSpotLightClass@@@@UAEXXZ": 6152960,
+    "?ID@?$DynamicVectorClass@PAVSpotLightClass@@@@UAEHPBQAVSpotLightClass@@@Z": 6153008,
+    "?GetItem@?$VectorClass@PAVSpotLightClass@@@@UBEPAVSpotLightClass@@H@Z": 6153040,
+    "??8?$VectorClass@PAVSpotLightClass@@@@UBE_NABV0@@Z": 6153056,
+    "?Resize@?$VectorClass@PAVSpotLightClass@@@@UAE_NHPBQAVSpotLightClass@@@Z": 6153120,
+    "?Clear@?$VectorClass@PAVSpotLightClass@@@@UAEXXZ": 6153296,
+    "?ID@?$VectorClass@PAVSpotLightClass@@@@UAEHABQAVSpotLightClass@@@Z": 6153344,
+    "?ID@?$VectorClass@PAVSpotLightClass@@@@UAEHPBQAVSpotLightClass@@@Z": 6153408,
+    "?Resize@?$DynamicVectorClass@PAVSpotLightClass@@@@UAE_NHPBQAVSpotLightClass@@@Z": 6153440,
+    "?ID@?$DynamicVectorClass@PAVSpotLightClass@@@@UAEHABQAVSpotLightClass@@@Z": 6153616,
+    "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
+    "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
+    "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888
+  },
+  "regions": [
+    {
+      "entry": 6148896,
+      "method": "005dd320",
+      "body_bytes": 40,
+      "body_sha256": "17749aeafd5f8957c8218e1c067da0ea3619e459e9ae6787ada78e48c5cdd22e",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "afc9327170baa6fce25326eab585ec57d9abc74cde2e87f399c703e5b8d36541",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 1724031
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4293775570
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10957600,
+          "addend": 0,
+          "resolved": 10957600
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6148896,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6148944,
+      "method": "005dd350",
+      "body_bytes": 19,
+      "body_sha256": "0ef837438a1c8c5507c23fe88aa19ab9c62534790860e5c67596c643eeefb01f",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f84a914a4ae090f7af11f43e751432339146ae219732b7489fce6ec925e5dcbd",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10957600,
+          "addend": 0,
+          "resolved": 10957600
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8026800,
+          "addend": 0,
+          "resolved": 8026800
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10957672,
+          "addend": 0,
+          "resolved": 10957672
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6148944,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6148976,
+      "method": "005dd370",
+      "body_bytes": 19,
+      "body_sha256": "90faf3759ce5de2640636847d657b855db6f6535a6b0342a0dba200ad12baccb",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "a56e4d2545753b423ce6a5453a08843f49f26615dfb311661f854aed0e1a3e37",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10957672,
+          "addend": 0,
+          "resolved": 10957672
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 10957656,
+          "addend": 0,
+          "resolved": 10957656
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6148976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6149008,
+      "method": "005dd390",
+      "body_bytes": 19,
+      "body_sha256": "39810cba764564138b2a8868756c37b1ab5b414c822e9de080027aeeccab0b4e",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "19eb9e7197944a58319980da0958a1f3c9eef1b95f7e0e9ed875d35fdcd76fcb",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8026808,
+          "addend": 0,
+          "resolved": 8026808
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 10957648,
+          "addend": 0,
+          "resolved": 10957648
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6149008,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6149040,
+      "method": "005dd3b0",
+      "body_bytes": 19,
+      "body_sha256": "80748f9dcd1ae2171e7b19392d3fba2b164b9e165f3858c3b75813757317b43f",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "732aa3b60a908d1478790f15516d4e055ed27fb9d1916277a48b70fe33c27ca7",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8026808,
+          "addend": 0,
+          "resolved": 8026808
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10957608,
+          "addend": 0,
+          "resolved": 10957608
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6149040,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6149072,
+      "method": "005dd3d0",
+      "body_bytes": 19,
+      "body_sha256": "269ebdb04808d960850ebda6a10d1e0e790a98ea384be984aae65d3882542c8b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "6ae3b9db37f34abd39d45173759fcf717c0bdb1a3e5f6de1e0eccc139281521d",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8026808,
+          "addend": 0,
+          "resolved": 8026808
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10957272,
+          "addend": 0,
+          "resolved": 10957272
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6149072,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6149104,
+      "method": "005dd3f0",
+      "body_bytes": 49,
+      "body_sha256": "ccbf18911cca83b521b49599a7c81677bd951fe6690d55097b8152f8d6f0d256",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "d8b7dba7cf4b7611bdd8de990678e38d8563361282c9088e4909315be0808af0",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10957272,
+          "addend": 0,
+          "resolved": 10957272
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10957608,
+          "addend": 0,
+          "resolved": 10957608
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4293775641
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10957600,
+          "addend": 0,
+          "resolved": 10957600
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1711349
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10957680,
+          "addend": 0,
+          "resolved": 10957680
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6149104,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6149168,
+      "method": "005dd430",
+      "body_bytes": 33,
+      "body_sha256": "23637a6e2067400ab35aa557daa952a17ac9b5a09024e5d377f88a2893327b19",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "37e8e8a6fe5f25f35c0094f8fb38be7c8fef5e90330f005034163f62bc939942",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10957680,
+          "addend": 0,
+          "resolved": 10957680
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4293775721
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 10957616,
+          "addend": 0,
+          "resolved": 10957616
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6149168,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6149216,
+      "method": "005dd460",
+      "body_bytes": 44,
+      "body_sha256": "715dc4075b0acb8937f40dea890a198418ecf2da3dd2b7b712660f78836d4251",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "a84adda6d7a16aea272acda2c7fca603f731bf5e5489774c6659199b72d21c96",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10957680,
+          "addend": 0,
+          "resolved": 10957680
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10957600,
+          "addend": 0,
+          "resolved": 10957600
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4293775662
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 10957640,
+          "addend": 0,
+          "resolved": 10957640
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6149216,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6149264,
+      "method": "005dd490",
+      "body_bytes": 39,
+      "body_sha256": "0a9b0c1e43851bc04d7e600aecf678d6aa61663bc7661aa097794c3e1cc57b73",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "f5d9f8d9d8f7729ca7f624b837769d7bce5528df2327c9057180480279e18dde",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10957680,
+          "addend": 0,
+          "resolved": 10957680
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1711200
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 10957664,
+          "addend": 0,
+          "resolved": 10957664
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6149264,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6149312,
+      "method": "005dd4c0",
+      "body_bytes": 15,
+      "body_sha256": "5ab248340985dff595b1a93179d370b3515bb5092f6ce767acadb4e880fc53ac",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "861654c9434c762650b8d9da518ee5e43aae3f51a993a0f19a93f50723733050",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10957592,
+          "addend": 0,
+          "resolved": 10957592
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10957592,
+          "addend": 2,
+          "resolved": 10957594
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6149312,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6149328,
+      "method": "005dd4d0",
+      "body_bytes": 18,
+      "body_sha256": "d528211021897eba1011e7b2f4e751a0ab7d6abb71ea7061560561b5eaa31a1f",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "a9bb263981f7e61aa7786943a99728f459b0b364de39d98e10360734c9c97952",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10957624,
+          "addend": 0,
+          "resolved": 10957624
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10957624,
+          "addend": 4,
+          "resolved": 10957628
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10957624,
+          "addend": 8,
+          "resolved": 10957632
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6149328,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6149360,
+      "method": "005dd4f0",
+      "body_bytes": 23,
+      "body_sha256": "33976527bba25063e0660a4b49cb7c7ce56eea3f09191e761b327ad60eff97a5",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4bc6689e638340a9748831b73c7c07615780b1476d5017c9f42842d5503a6217",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10957576,
+          "addend": 0,
+          "resolved": 10957576
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10957576,
+          "addend": 4,
+          "resolved": 10957580
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10957576,
+          "addend": 8,
+          "resolved": 10957584
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10957576,
+          "addend": 12,
+          "resolved": 10957588
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6149360,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6149392,
+      "method": "005dd510",
+      "body_bytes": 61,
+      "body_sha256": "7ecd2d8d403e5b8bfca4ddfdbdbe2f358202ab83f3b36cacdea20bf0ddceadfe",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "d423b4660765450bdf81d18fef6632a3ac5f90d4b060c6ab6b4f4da14ed6867e",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E148",
+      "symbol_prefix": "_$E148",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E146",
+          "target": 6149456,
+          "addend": 0,
+          "resolved": 6149456
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 4,
+          "resolved": 10957252
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 8,
+          "resolved": 10957256
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 12,
+          "resolved": 10957260
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 13,
+          "resolved": 10957261
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 0,
+          "resolved": 10957248
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVSpotLightClass@@@@6B@",
+          "target": 8026820,
+          "addend": 0,
+          "resolved": 8026820
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 20,
+          "resolved": 10957268
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 16,
+          "resolved": 10957264
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 1725503
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6149392,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6149456,
+      "method": "005dd550",
+      "body_bytes": 59,
+      "body_sha256": "cae9ea297865b8cc57376947f426551471f016dfe15dd5c077c3b6047e12f2c3",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c8f2ca0a1a9075a96b5f4af7dbd818bc865f9a6524f22f5c9b399e8d7a19a9ed",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E146",
+      "symbol_prefix": "_$E146",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 4,
+          "resolved": 10957252
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 0,
+          "resolved": 10957248
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVSpotLightClass@@@@6B@",
+          "target": 8026852,
+          "addend": 0,
+          "resolved": 8026852
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 13,
+          "resolved": 10957261
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1722311
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 4,
+          "resolved": 10957252
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 13,
+          "resolved": 10957261
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 8,
+          "resolved": 10957256
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6149456,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6149520,
+      "method": "005dd590",
+      "body_bytes": 127,
+      "body_sha256": "051845c9b82c05a882df6946c7b28d3aba7dc9f75b7b292fc400870def96295e",
+      "padding_bytes": 1,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "7c2f8df13b89657ba612392ec8e6895264532b303e7151bc2871f91a80378a55",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0SpotLightClass@@QAE@VCoord@@H@Z",
+      "symbol_prefix": "??0SpotLightClass@@QAE@VCoord@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 8,
+          "resolved": 10957256
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 16,
+          "resolved": 10957264
+        },
+        {
+          "offset": 55,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 13,
+          "resolved": 10957261
+        },
+        {
+          "offset": 67,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 20,
+          "resolved": 10957268
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 0,
+          "resolved": 10957248
+        },
+        {
+          "offset": 86,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 0,
+          "resolved": 10957248
+        },
+        {
+          "offset": 99,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 16,
+          "resolved": 10957264
+        },
+        {
+          "offset": 108,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 16,
+          "resolved": 10957264
+        },
+        {
+          "offset": 114,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 4,
+          "resolved": 10957252
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6149520,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6149648,
+      "method": "005dd610",
+      "body_bytes": 76,
+      "body_sha256": "048cdf1c4249d249aa7e5b839e0d97cbc72f0eb08a86f38626e9d406ad0c5dab",
+      "padding_bytes": 4,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "16657f0a6fd220d70067d97c5be34c397f268434abd9081d7dc738753255e119",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1SpotLightClass@@QAE@XZ",
+      "symbol_prefix": "??1SpotLightClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 0,
+          "resolved": 10957248
+        },
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 0,
+          "resolved": 10957248
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 16,
+          "resolved": 10957264
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 16,
+          "resolved": 10957264
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 4,
+          "resolved": 10957252
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 16,
+          "resolved": 10957264
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6149648,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6149728,
+      "method": "005dd660",
+      "body_bytes": 109,
+      "body_sha256": "e068e9846f6b8aff3bf166e815c1bdf4eeb0799fe4f7f65edb0d3c1b57490806",
+      "padding_bytes": 3,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "af92471a2448d97533ca2236b388b38027d26f059302e1e190c3d42d93bed718",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AI@SpotLightClass@@QAEXXZ",
+      "symbol_prefix": "?AI@SpotLightClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 0,
+          "resolved": 10957248
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 0,
+          "resolved": 10957248
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 16,
+          "resolved": 10957264
+        },
+        {
+          "offset": 67,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 16,
+          "resolved": 10957264
+        },
+        {
+          "offset": 75,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 4,
+          "resolved": 10957252
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 16,
+          "resolved": 10957264
+        },
+        {
+          "offset": 99,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1721972
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6149728,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6149840,
+      "method": "005dd6d0",
+      "body_bytes": 132,
+      "body_sha256": "a6568f298b5ca47959277a035224ca2efe7ada74110748b0aabe5d8f00976587",
+      "padding_bytes": 12,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "a1be20b58022508d696d868b892194761a4d7accfb98570de103c7ec8d69adfb",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Update_All@SpotLightClass@@SIXXZ",
+      "symbol_prefix": "?Update_All@SpotLightClass@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 16,
+          "resolved": 10957264
+        },
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 4,
+          "resolved": 10957252
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 0,
+          "resolved": 10957248
+        },
+        {
+          "offset": 55,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 0,
+          "resolved": 10957248
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 16,
+          "resolved": 10957264
+        },
+        {
+          "offset": 86,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 16,
+          "resolved": 10957264
+        },
+        {
+          "offset": 94,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 4,
+          "resolved": 10957252
+        },
+        {
+          "offset": 108,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 16,
+          "resolved": 10957264
+        },
+        {
+          "offset": 118,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1721841
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6149840,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6149984,
+      "method": "005dd760",
+      "body_bytes": 983,
+      "body_sha256": "60f730b0e168f1dbbb66ae3f81f90eae03dcfe5b7564ebd7aca865ff73895d14",
+      "padding_bytes": 9,
+      "full_extent_bytes": 992,
+      "full_extent_sha256": "a47a18846ac25ad5fd9e155f972976587a4898f0ffa4a4c823586cf433c5541d",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?One_Time@SpotLightClass@@SIXXZ",
+      "symbol_prefix": "?One_Time@SpotLightClass@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_?_one_time@?1??One_Time@SpotLightClass@@SIXXZ@4_NA",
+          "target": 10957684,
+          "addend": 0,
+          "resolved": 10957684
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "?SpotLightSurfaces@@3PAPAVBSurface@@A",
+          "target": 10957280,
+          "addend": 0,
+          "resolved": 10957280
+        },
+        {
+          "offset": 44,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1722503
+        },
+        {
+          "offset": 70,
+          "kind": 20,
+          "symbol": "??0Surface@@QAE@HH@Z",
+          "target": 4844944,
+          "addend": 0,
+          "resolved": 4293662182
+        },
+        {
+          "offset": 88,
+          "kind": 6,
+          "symbol": "??_7XSurface@@6B@",
+          "target": 7974796,
+          "addend": 0,
+          "resolved": 7974796
+        },
+        {
+          "offset": 96,
+          "kind": 20,
+          "symbol": "??0Buffer@@QAE@PAXH@Z",
+          "target": 4424384,
+          "addend": 0,
+          "resolved": 4293241596
+        },
+        {
+          "offset": 102,
+          "kind": 6,
+          "symbol": "??_7BSurface@@6B@",
+          "target": 7974648,
+          "addend": 0,
+          "resolved": 7974648
+        },
+        {
+          "offset": 137,
+          "kind": 20,
+          "symbol": "??0Surface@@QAE@HH@Z",
+          "target": 4844944,
+          "addend": 0,
+          "resolved": 4293662115
+        },
+        {
+          "offset": 159,
+          "kind": 6,
+          "symbol": "??_7XSurface@@6B@",
+          "target": 7974796,
+          "addend": 0,
+          "resolved": 7974796
+        },
+        {
+          "offset": 168,
+          "kind": 20,
+          "symbol": "??0Buffer@@QAE@PAXH@Z",
+          "target": 4424384,
+          "addend": 0,
+          "resolved": 4293241524
+        },
+        {
+          "offset": 180,
+          "kind": 6,
+          "symbol": "??_7BSurface@@6B@",
+          "target": 7974648,
+          "addend": 0,
+          "resolved": 7974648
+        },
+        {
+          "offset": 186,
+          "kind": 20,
+          "symbol": "?Fill@XSurface@@UAE_NH@Z",
+          "target": 7818784,
+          "addend": 0,
+          "resolved": 1668610
+        },
+        {
+          "offset": 257,
+          "kind": 20,
+          "symbol": "?Draw_Circle@XSurface@@QAEXVPoint2D@@HV?$TRect@H@@H@Z",
+          "target": 7818384,
+          "addend": 0,
+          "resolved": 1668139
+        },
+        {
+          "offset": 357,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 4293241671
+        },
+        {
+          "offset": 375,
+          "kind": 6,
+          "symbol": "??_7Surface@@6B@",
+          "target": 7974944,
+          "addend": 0,
+          "resolved": 7974944
+        },
+        {
+          "offset": 399,
+          "kind": 6,
+          "symbol": "?SpotLightSurfaces@@3PAPAVBSurface@@A",
+          "target": 10957280,
+          "addend": 256,
+          "resolved": 10957536
+        },
+        {
+          "offset": 415,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1722132
+        },
+        {
+          "offset": 441,
+          "kind": 20,
+          "symbol": "??0Surface@@QAE@HH@Z",
+          "target": 4844944,
+          "addend": 0,
+          "resolved": 4293661811
+        },
+        {
+          "offset": 459,
+          "kind": 6,
+          "symbol": "??_7XSurface@@6B@",
+          "target": 7974796,
+          "addend": 0,
+          "resolved": 7974796
+        },
+        {
+          "offset": 471,
+          "kind": 20,
+          "symbol": "??0Buffer@@QAE@PAXH@Z",
+          "target": 4424384,
+          "addend": 0,
+          "resolved": 4293241221
+        },
+        {
+          "offset": 477,
+          "kind": 6,
+          "symbol": "??_7BSurface@@6B@",
+          "target": 7974648,
+          "addend": 0,
+          "resolved": 7974648
+        },
+        {
+          "offset": 510,
+          "kind": 20,
+          "symbol": "??0Surface@@QAE@HH@Z",
+          "target": 4844944,
+          "addend": 0,
+          "resolved": 4293661742
+        },
+        {
+          "offset": 532,
+          "kind": 6,
+          "symbol": "??_7XSurface@@6B@",
+          "target": 7974796,
+          "addend": 0,
+          "resolved": 7974796
+        },
+        {
+          "offset": 545,
+          "kind": 20,
+          "symbol": "??0Buffer@@QAE@PAXH@Z",
+          "target": 4424384,
+          "addend": 0,
+          "resolved": 4293241147
+        },
+        {
+          "offset": 557,
+          "kind": 6,
+          "symbol": "??_7BSurface@@6B@",
+          "target": 7974648,
+          "addend": 0,
+          "resolved": 7974648
+        },
+        {
+          "offset": 563,
+          "kind": 20,
+          "symbol": "?Fill@XSurface@@UAE_NH@Z",
+          "target": 7818784,
+          "addend": 0,
+          "resolved": 1668233
+        },
+        {
+          "offset": 571,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 622,
+          "kind": 6,
+          "symbol": "__real@8@bff6b6db6db6db6db800",
+          "target": 8026880,
+          "addend": 0,
+          "resolved": 8026880
+        },
+        {
+          "offset": 627,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1709881
+        },
+        {
+          "offset": 650,
+          "kind": 20,
+          "symbol": "?Draw_Circle@XSurface@@QAEXVPoint2D@@HV?$TRect@H@@H@Z",
+          "target": 7818384,
+          "addend": 0,
+          "resolved": 1667746
+        },
+        {
+          "offset": 739,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 4293241289
+        },
+        {
+          "offset": 761,
+          "kind": 6,
+          "symbol": "??_7Surface@@6B@",
+          "target": 7974944,
+          "addend": 0,
+          "resolved": 7974944
+        },
+        {
+          "offset": 777,
+          "kind": 6,
+          "symbol": "_?_one_time@?1??One_Time@SpotLightClass@@SIXXZ@4_NA",
+          "target": 10957684,
+          "addend": 0,
+          "resolved": 10957684
+        },
+        {
+          "offset": 783,
+          "kind": 20,
+          "symbol": "?Get_Primary_Color_Mode@DSurface@@SIHXZ",
+          "target": 4897680,
+          "addend": 0,
+          "resolved": 4293714205
+        },
+        {
+          "offset": 798,
+          "kind": 6,
+          "symbol": "?SpotLightColorMode@@3HA",
+          "target": 8293452,
+          "addend": 0,
+          "resolved": 8293452
+        },
+        {
+          "offset": 815,
+          "kind": 20,
+          "symbol": "?Get_CPU_Type@@YIXAAHAA_NPADH@Z",
+          "target": 5057056,
+          "addend": 0,
+          "resolved": 4293873549
+        },
+        {
+          "offset": 831,
+          "kind": 6,
+          "symbol": "?SpotLightMMXBuffer@@3PAHA",
+          "target": 10957688,
+          "addend": 0,
+          "resolved": 10957688
+        },
+        {
+          "offset": 847,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1721700
+        },
+        {
+          "offset": 855,
+          "kind": 6,
+          "symbol": "?SpotLightMMXBuffer@@3PAHA",
+          "target": 10957688,
+          "addend": 0,
+          "resolved": 10957688
+        },
+        {
+          "offset": 862,
+          "kind": 6,
+          "symbol": "?RedRight@DSurface@@2HA",
+          "target": 8728504,
+          "addend": 0,
+          "resolved": 8728504
+        },
+        {
+          "offset": 873,
+          "kind": 6,
+          "symbol": "?RedLeft@DSurface@@2HA",
+          "target": 8728508,
+          "addend": 0,
+          "resolved": 8728508
+        },
+        {
+          "offset": 884,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 893,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 902,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 917,
+          "kind": 6,
+          "symbol": "?BlueLeft@DSurface@@2HA",
+          "target": 8728516,
+          "addend": 0,
+          "resolved": 8728516
+        },
+        {
+          "offset": 949,
+          "kind": 6,
+          "symbol": "?SpotLightMMXBuffer@@3PAHA",
+          "target": 10957688,
+          "addend": 0,
+          "resolved": 10957688
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6149984,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6150976,
+      "method": "005ddb40",
+      "body_bytes": 65,
+      "body_sha256": "be29b4850eefabc6a242e3e62cc1f9380fafcffe9bddb462a72e843389ed2c9d",
+      "padding_bytes": 15,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "e095d7c042cb81749341aa52f7c3d10765d724852f68dcec896d4ab16b8c4daa",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear_All@SpotLightClass@@SIXXZ",
+      "symbol_prefix": "?Clear_All@SpotLightClass@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?SpotLightMMXBuffer@@3PAHA",
+          "target": 10957688,
+          "addend": 0,
+          "resolved": 10957688
+        },
+        {
+          "offset": 11,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1720812
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "?SpotLightMMXBuffer@@3PAHA",
+          "target": 10957688,
+          "addend": 0,
+          "resolved": 10957688
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "?SpotLightSurfaces@@3PAPAVBSurface@@A",
+          "target": 10957280,
+          "addend": 0,
+          "resolved": 10957280
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "?SpotLightSurfaces@@3PAPAVBSurface@@A",
+          "target": 10957280,
+          "addend": 296,
+          "resolved": 10957576
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6150976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6151056,
+      "method": "005ddb90",
+      "body_bytes": 1860,
+      "body_sha256": "dc16a19fdd78737766cfbda61f09a0b5c7ca75c070ab7e3eb2d28cf0204e2b77",
+      "padding_bytes": 12,
+      "full_extent_bytes": 1872,
+      "full_extent_sha256": "28b01278dfaa791ff0ea0865f1048aefac612ed5c13371f2e6f5620d27e0599a",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 16,
+      "symbol": "?Draw_It@SpotLightClass@@QAEXXZ",
+      "symbol_prefix": "?Draw_It@SpotLightClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 31,
+          "kind": 20,
+          "symbol": "?GetMinFrameRate@Detail@@YIIXZ",
+          "target": 5494848,
+          "addend": 0,
+          "resolved": 4294311053
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "?CurrentFrameRate@FPSCounter@@3IA",
+          "target": 10939164,
+          "addend": 0,
+          "resolved": 10939164
+        },
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 806400
+        },
+        {
+          "offset": 74,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 87,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 92,
+          "kind": 20,
+          "symbol": "?Is_Fogged@MapClass@@QAE_NABVCoord@@@Z",
+          "target": 5669824,
+          "addend": 0,
+          "resolved": 4294485968
+        },
+        {
+          "offset": 110,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        },
+        {
+          "offset": 127,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 4,
+          "resolved": 8623668
+        },
+        {
+          "offset": 133,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 146,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 12,
+          "resolved": 8623676
+        },
+        {
+          "offset": 178,
+          "kind": 6,
+          "symbol": "_?_index_table@?1??Draw_It@SpotLightClass@@QAEXXZ@4PADA",
+          "target": 8293456,
+          "addend": 0,
+          "resolved": 8293456
+        },
+        {
+          "offset": 187,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 8,
+          "resolved": 8623672
+        },
+        {
+          "offset": 242,
+          "kind": 6,
+          "symbol": "?SpotLightSurfaces@@3PAPAVBSurface@@A",
+          "target": 10957280,
+          "addend": 0,
+          "resolved": 10957280
+        },
+        {
+          "offset": 360,
+          "kind": 20,
+          "symbol": "?Prep_For_Blit@XSurface@@SI_NAAVSurface@@ABV?$TRect@H@@AAV3@ABV2@12AA_NAAPAX5@Z",
+          "target": 7820208,
+          "addend": 0,
+          "resolved": 1668788
+        },
+        {
+          "offset": 382,
+          "kind": 6,
+          "symbol": "?SpotLightColorMode@@3HA",
+          "target": 8293452,
+          "addend": 0,
+          "resolved": 8293452
+        },
+        {
+          "offset": 420,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6152900,
+          "addend": 0,
+          "resolved": 6152900
+        },
+        {
+          "offset": 426,
+          "kind": 6,
+          "symbol": "?SpotLightMMXBuffer@@3PAHA",
+          "target": 10957688,
+          "addend": 0,
+          "resolved": 10957688
+        },
+        {
+          "offset": 454,
+          "kind": 20,
+          "symbol": "_MMX_Brighten_Color_555",
+          "target": 7964162,
+          "addend": 0,
+          "resolved": 1812648
+        },
+        {
+          "offset": 485,
+          "kind": 20,
+          "symbol": "_Brighten_Color_555",
+          "target": 7963601,
+          "addend": 0,
+          "resolved": 1812056
+        },
+        {
+          "offset": 499,
+          "kind": 6,
+          "symbol": "?SpotLightMMXBuffer@@3PAHA",
+          "target": 10957688,
+          "addend": 0,
+          "resolved": 10957688
+        },
+        {
+          "offset": 527,
+          "kind": 20,
+          "symbol": "_MMX_Brighten_Color_556",
+          "target": 7964480,
+          "addend": 0,
+          "resolved": 1812893
+        },
+        {
+          "offset": 558,
+          "kind": 20,
+          "symbol": "_Brighten_Color_556",
+          "target": 7963380,
+          "addend": 0,
+          "resolved": 1811762
+        },
+        {
+          "offset": 572,
+          "kind": 6,
+          "symbol": "?SpotLightMMXBuffer@@3PAHA",
+          "target": 10957688,
+          "addend": 0,
+          "resolved": 10957688
+        },
+        {
+          "offset": 600,
+          "kind": 20,
+          "symbol": "_MMX_Brighten_Color_565",
+          "target": 7963840,
+          "addend": 0,
+          "resolved": 1812180
+        },
+        {
+          "offset": 631,
+          "kind": 20,
+          "symbol": "_Brighten_Color_565",
+          "target": 7962938,
+          "addend": 0,
+          "resolved": 1811247
+        },
+        {
+          "offset": 645,
+          "kind": 6,
+          "symbol": "?SpotLightMMXBuffer@@3PAHA",
+          "target": 10957688,
+          "addend": 0,
+          "resolved": 10957688
+        },
+        {
+          "offset": 673,
+          "kind": 20,
+          "symbol": "_MMX_Brighten_Color_655",
+          "target": 7964800,
+          "addend": 0,
+          "resolved": 1813067
+        },
+        {
+          "offset": 704,
+          "kind": 20,
+          "symbol": "_Brighten_Color_655",
+          "target": 7963159,
+          "addend": 0,
+          "resolved": 1811395
+        },
+        {
+          "offset": 791,
+          "kind": 6,
+          "symbol": "?RedRight@DSurface@@2HA",
+          "target": 8728504,
+          "addend": 0,
+          "resolved": 8728504
+        },
+        {
+          "offset": 797,
+          "kind": 6,
+          "symbol": "?RedLeft@DSurface@@2HA",
+          "target": 8728508,
+          "addend": 0,
+          "resolved": 8728508
+        },
+        {
+          "offset": 829,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 844,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 853,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 865,
+          "kind": 6,
+          "symbol": "?BlueLeft@DSurface@@2HA",
+          "target": 8728516,
+          "addend": 0,
+          "resolved": 8728516
+        },
+        {
+          "offset": 878,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 906,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 936,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 1124,
+          "kind": 6,
+          "symbol": "?RedRight@DSurface@@2HA",
+          "target": 8728504,
+          "addend": 0,
+          "resolved": 8728504
+        },
+        {
+          "offset": 1138,
+          "kind": 6,
+          "symbol": "?RedLeft@DSurface@@2HA",
+          "target": 8728508,
+          "addend": 0,
+          "resolved": 8728508
+        },
+        {
+          "offset": 1163,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 1178,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 1187,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 1196,
+          "kind": 6,
+          "symbol": "?BlueLeft@DSurface@@2HA",
+          "target": 8728516,
+          "addend": 0,
+          "resolved": 8728516
+        },
+        {
+          "offset": 1319,
+          "kind": 6,
+          "symbol": "?RedLeft@DSurface@@2HA",
+          "target": 8728508,
+          "addend": 0,
+          "resolved": 8728508
+        },
+        {
+          "offset": 1331,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 1339,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 1347,
+          "kind": 6,
+          "symbol": "?BlueLeft@DSurface@@2HA",
+          "target": 8728516,
+          "addend": 0,
+          "resolved": 8728516
+        },
+        {
+          "offset": 1355,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 1511,
+          "kind": 6,
+          "symbol": "?RedRight@DSurface@@2HA",
+          "target": 8728504,
+          "addend": 0,
+          "resolved": 8728504
+        },
+        {
+          "offset": 1517,
+          "kind": 6,
+          "symbol": "?RedLeft@DSurface@@2HA",
+          "target": 8728508,
+          "addend": 0,
+          "resolved": 8728508
+        },
+        {
+          "offset": 1552,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 1567,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 1576,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 1591,
+          "kind": 6,
+          "symbol": "?BlueLeft@DSurface@@2HA",
+          "target": 8728516,
+          "addend": 0,
+          "resolved": 8728516
+        },
+        {
+          "offset": 1698,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 1706,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 1714,
+          "kind": 6,
+          "symbol": "?BlueLeft@DSurface@@2HA",
+          "target": 8728516,
+          "addend": 0,
+          "resolved": 8728516
+        },
+        {
+          "offset": 1722,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 1844,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6151480,
+          "addend": 0,
+          "resolved": 6151480
+        },
+        {
+          "offset": 1848,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6151553,
+          "addend": 0,
+          "resolved": 6151553
+        },
+        {
+          "offset": 1852,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6151626,
+          "addend": 0,
+          "resolved": 6151626
+        },
+        {
+          "offset": 1856,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6151699,
+          "addend": 0,
+          "resolved": 6151699
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6151056,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6152928,
+      "method": "005de2e0",
+      "body_bytes": 32,
+      "body_sha256": "cc1a2f5421e07be987e4e8b04c2267aeb9ededd995c2c393cfcce314c244445f",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "cc1a2f5421e07be987e4e8b04c2267aeb9ededd995c2c393cfcce314c244445f",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_All@SpotLightClass@@SIXXZ",
+      "symbol_prefix": "?Draw_All@SpotLightClass@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 16,
+          "resolved": 10957264
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "?SpotLights@@3V?$DynamicVectorClass@PAVSpotLightClass@@@@A",
+          "target": 10957248,
+          "addend": 4,
+          "resolved": 10957252
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "?Draw_It@SpotLightClass@@QAEXXZ",
+          "target": 6151056,
+          "addend": 0,
+          "resolved": 4294965397
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6152928,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6152960,
+      "method": "005de300",
+      "body_bytes": 42,
+      "body_sha256": "5625db820a90d9f3ce90b952a6d79d0740f7eb05b23b518e50a51e371c4cb898",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "12f06122d53997fc64ded1fd10720ac45a23469e09f2e807e95f26cb770fe207",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@PAVSpotLightClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAVSpotLightClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1718816
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6152960,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1597"
+    },
+    {
+      "entry": 6153008,
+      "method": "005de330",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVSpotLightClass@@@@UAEHPBQAVSpotLightClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVSpotLightClass@@@@UAEHPBQAVSpotLightClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6153008,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1597"
+    },
+    {
+      "entry": 6153040,
+      "method": "005de350",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PAVSpotLightClass@@@@UBEPAVSpotLightClass@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAVSpotLightClass@@@@UBEPAVSpotLightClass@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6153040,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1597"
+    },
+    {
+      "entry": 6153056,
+      "method": "005de360",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PAVSpotLightClass@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAVSpotLightClass@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6153056,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1597"
+    },
+    {
+      "entry": 6153120,
+      "method": "005de3a0",
+      "body_bytes": 174,
+      "body_sha256": "bc4aa9547606010231dfbb72192941112cfecede6f9f98424e8b1c5698f64140",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "a999f59acf43dc0cc978dcd13be9aae3dc7e6ad4f953ea143b57ab8469377db7",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PAVSpotLightClass@@@@UAE_NHPBQAVSpotLightClass@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAVSpotLightClass@@@@UAE_NHPBQAVSpotLightClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1719372
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1718560
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6153120,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1597"
+    },
+    {
+      "entry": 6153296,
+      "method": "005de450",
+      "body_bytes": 39,
+      "body_sha256": "968f98853e7891c2c0d2a678156a202805a606f3c322b18be5431f9124e618bf",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c8d2ef8a32753e87be42be700626bc8618ef3191a39406c1d7ac727425aa56e1",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PAVSpotLightClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAVSpotLightClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1718483
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6153296,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1597"
+    },
+    {
+      "entry": 6153344,
+      "method": "005de480",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVSpotLightClass@@@@UAEHABQAVSpotLightClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVSpotLightClass@@@@UAEHABQAVSpotLightClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6153344,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1597"
+    },
+    {
+      "entry": 6153408,
+      "method": "005de4c0",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVSpotLightClass@@@@UAEHPBQAVSpotLightClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVSpotLightClass@@@@UAEHPBQAVSpotLightClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6153408,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6153440,
+      "method": "005de4e0",
+      "body_bytes": 176,
+      "body_sha256": "1eaf47df267b0ac7819225537e278635e7c94326b4c0a877f8be8d044f711517",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "1eaf47df267b0ac7819225537e278635e7c94326b4c0a877f8be8d044f711517",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PAVSpotLightClass@@@@UAE_NHPBQAVSpotLightClass@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAVSpotLightClass@@@@UAE_NHPBQAVSpotLightClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1719056
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1718253
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6153440,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6153616,
+      "method": "005de590",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVSpotLightClass@@@@UAEHABQAVSpotLightClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVSpotLightClass@@@@UAEHABQAVSpotLightClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6153616,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6153664,
+      "method": "5de5c0",
+      "body_bytes": 73,
+      "body_sha256": "d825b59685f886bcc95b516678ff3f9280af63b61d286c512d5c24562eb8b6ca",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "8a167d350f34eb7659f08a39b793bd9048b062161890c8338c0dc32a03e80ea1",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAVSpotLightClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAVSpotLightClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVSpotLightClass@@@@6B@",
+          "target": 8026852,
+          "addend": 0,
+          "resolved": 8026852
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1718110
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1718075
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6153664,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 6153744,
+      "method": "5de610",
+      "body_bytes": 73,
+      "body_sha256": "a66544a448cb09728b8efe52a8a2020edc1faf7af5892a8da7d4a4a0c4386173",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "97384d1f18454d360071fd063c56367e54b3190e28adfe90f8ae66c6c5b3cd58",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAVSpotLightClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAVSpotLightClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVSpotLightClass@@@@6B@",
+          "target": 8026852,
+          "addend": 0,
+          "resolved": 8026852
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1718030
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1717995
+        }
+      ],
+      "source_sha256": "447073df785c24885ab44102cc619c86f0e44befa2b4af41ec02eb0b5ef90ee3",
+      "source": "src/ovrlight.cpp",
+      "population": "rebuild-ovrlight",
+      "source_order": 6153744,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-12"
+    }
+  ]
+}

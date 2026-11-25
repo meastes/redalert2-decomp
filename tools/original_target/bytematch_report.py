@@ -5,30 +5,25 @@ ByteMatch (https://bytematch.dev) reads objdiff reports. Our build needs the pri
 VC6 toolchain, so it cannot run in GitHub Actions; this tool converts the landing numbers instead and
 posts them through ByteMatch's upload API.
 
-Input is build/treemap.json (treemap.py --json, regenerated at each landing) plus the canonical
-manifest for source paths. The report holds only names, addresses, sizes and match percentages; no
+Input is build/treemap.json (treemap.py --json, last written at src-final; frozen) plus the tree's
+catalog and units.json. The report holds only names, addresses, sizes and match percentages; no
 bytes from the target. Scope matches STATUS "In-scope functions matched": game code below the C
 runtime, handwritten-assembly ranges, evidenced inline-asm regions and known false rows excluded. Accepted handwritten assembly
 procedures count as matched, as they do in the treemap.
 
-One unit per treemap group (class, recovered directory or original source file). A function counts as
-matched only when accepted exact; others carry their best recorded score as fuzzy_match_percent.
+One unit per unit of the tree (manifests/units.json, source src/<unit>.cpp); in-scope functions in no
+unit go to unplaced/<treemap group>. Matched = catalogued in manifests/catalog. Others carry the tree's
+own recorded score: the unit's last check (build/r/last/<unit>.json, only when it is of the current
+source) or units.json parked_rows best_differing; count-sensitive rows are not matched. Library and
+handwritten assembly stay out of scope.
 
-    python3 tools/original_target/bytematch_report.py --tree main        # build/bytematch/report.json
-    python3 tools/original_target/bytematch_report.py --tree main --upload   # token from private/bytematch.token
-
-The default is --tree rebuild (rebuild/ is the tree of record from 2026-11-24, user decision in the owner
-session); main's series (src/, frozen at the tag src-final) had its last upload at src-final.
-
-Rebuild mode (--tree rebuild, version ra2-rebuild) reports the rebuild tree (branch rebuild-trial, worktree
-.claude/worktrees/lane-r) over the same in-scope function set and byte denominator, so its percentages
-compare with main's. One unit per rebuild unit (rebuild/manifest/units.json, source rebuild/src/<unit>.cpp);
-in-scope functions in no rebuild unit go to unplaced/<treemap group>. Matched = catalogued in
-rebuild/manifest/catalog. Others carry the rebuild's own recorded score: the unit's last check
-(build/r/last/<unit>.json, only when it is of the current source) or units.json parked_rows best_differing;
-count-sensitive rows are not matched. Library and handwritten assembly stay out of scope, as in main's mode.
+The in-scope function set and byte denominator are src-final's, so the series stays comparable: the
+frozen treemap (build/treemap.json, written by treemap.py at src-final) and the in-scope row of
+docs/history/SRC_FINAL_STATUS.md. The earlier src/ series (version ra2) had its last upload at src-final;
+since the layout move (lane O88, 2026-11-25) there is one tree and one series (version ra2-rebuild).
 
     python3 tools/original_target/bytematch_report.py                  # build/bytematch/rebuild-report.json
+    python3 tools/original_target/bytematch_report.py --upload         # token from private/bytematch.token
 """
 import argparse
 import hashlib
@@ -48,10 +43,8 @@ import status  # noqa: E402
 
 REPOSITORY = Path(__file__).resolve().parents[2]
 PROJECT = 'meastes/redalert2-decomp'
-VERSION = 'ra2'
-REBUILD_VERSION = 'ra2-rebuild'
-REBUILD_WORKTREE = REPOSITORY / '.claude/worktrees/lane-r'
-REBUILD_BRANCH = 'rebuild-trial'
+VERSION = 'ra2-rebuild'                # the series name kept from the two-tree days
+SRC_FINAL_STATUS = REPOSITORY / 'docs/history/SRC_FINAL_STATUS.md'
 TOKEN_FILE = REPOSITORY / 'private/bytematch.token'  # ignored by git; never stage it
 API = 'https://bytematch.dev/api/v1/projects/{project}/reports?version={version}&commit={commit}'
 
@@ -109,10 +102,6 @@ def load_catalog():
     return catalog_io.load(catalog_io.locate(REPOSITORY), references=False)
 
 
-def sources(catalog):
-    return {r['entry']: r['source'] for r in catalog['regions'] if r.get('source')}
-
-
 def asm_ranges(catalog):
     return [(a, b) for a, b, _ in status.HANDWRITTEN] + [
         (r['entry'], r['entry'] + r['body_bytes']) for r in catalog['regions']
@@ -129,23 +118,13 @@ def in_scope(rows, catalog):
             and not status.inside(r['entry'], asm)]
 
 
-def unit_name(group, source):
-    if source:
-        folder = str(Path(source).parent)
-        for prefix in ('src/recovered/', 'src/'):
-            if folder.startswith(prefix):
-                folder = folder[len(prefix):]
-        return folder if Path(folder).name == group else '%s/%s' % (folder, group)
-    return 'unplaced/%s' % group
-
-
 def status_in_scope():
-    """In-scope matched and total C/C++ bytes from the generated STATUS table (status.py --write)."""
-    for line in (REPOSITORY / 'docs/STATUS.md').read_text().splitlines():
+    """src-final's in-scope matched and total C/C++ bytes (its frozen STATUS table)."""
+    for line in SRC_FINAL_STATUS.read_text().splitlines():
         if line.startswith('| In-scope matched C/C++ bytes'):
             found = re.search(r'\| ([\d,]+) of ([\d,]+) \(', line)
             return tuple(int(x.replace(',', '')) for x in found.groups())
-    sys.exit('docs/STATUS.md has no in-scope bytes row: run status.py --write')
+    sys.exit('%s has no in-scope bytes row' % SRC_FINAL_STATUS)
 
 
 def reconcile(units, matched=None):
@@ -167,29 +146,6 @@ def reconcile(units, matched=None):
                 sections=[dict(name='.text', size=str(m['total_code']), fuzzy_match_percent=m['fuzzy_match_percent'])],
                 functions=[], metadata=dict(complete=False, progress_categories=['other'], auto_generated=True))
     return dict(unit=unit, m=m, cat='other')
-
-
-def build(treemap):
-    best = status.best_scores(REPOSITORY / 'docs/MISSES_INDEX.md', REPOSITORY / 'build/sweep-6b/results.jsonl')
-    catalog = load_catalog()
-    src = sources(catalog)
-    groups = defaultdict(list)
-    for r in in_scope(treemap, catalog):
-        groups[r['group']].append(r)
-
-    units, names = [], Counter()
-    for group, rows in sorted(groups.items()):
-        rows.sort(key=lambda r: r['entry'])
-        paths = Counter(src[r['entry']] for r in rows if r['entry'] in src)
-        source = paths.most_common(1)[0][0] if paths else None
-        name = unit_name(group, source)
-        names[name] += 1
-        if names[name] > 1:
-            name = '%s~%d' % (name, names[name])
-        units.append(make_unit(name, rows, source, lambda r: r['status'] == 'exact',
-                               lambda r: float(r.get('score') or best.get(r['entry'], 0.0))))
-    units.append(reconcile(units))
-    return assemble(units)
 
 
 def make_unit(name, rows, source, is_exact, score_of):
@@ -240,7 +196,7 @@ def assemble(units):
 def rebuild_scores(worktree):
     """(unit of each entry, recorded score of each entry, count-sensitive entries) from the rebuild's
     units.json and its last checks. A last check counts only when it is of the unit's current source."""
-    units = json.loads((worktree / 'rebuild/manifest/units.json').read_text())
+    units = json.loads((worktree / 'manifests/units.json').read_text())
     owner, score, sensitive = {}, {}, set()
     for unit, info in units.items():
         for row in info['rows']:
@@ -266,9 +222,9 @@ def rebuild_scores(worktree):
 
 
 def build_rebuild(treemap, worktree):
-    """Rebuild tree over main's in-scope function set and STATUS denominator (see the module docstring)."""
+    """The tree over src-final's in-scope function set and denominator (see the module docstring)."""
     catalog = load_catalog()
-    rebuilt = catalog_io.load(worktree / 'rebuild/manifest/catalog', references=False)
+    rebuilt = catalog_io.load(worktree / 'manifests/catalog', references=False)
     accepted = {r['entry'] for r in rebuilt['regions']}
     units_info, owner, score, sensitive = rebuild_scores(worktree)
     rows = in_scope(treemap, catalog)
@@ -304,22 +260,19 @@ def build_rebuild(treemap, worktree):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--treemap', type=Path, default=REPOSITORY / 'build/treemap.json')
-    ap.add_argument('--tree', choices=('main', 'rebuild'), default='rebuild',
-                    help='rebuild (default: the tree of record since 2026-11-24) or main (src/, frozen at src-final)')
-    ap.add_argument('--worktree', type=Path, default=REBUILD_WORKTREE, help='rebuild worktree (--tree rebuild)')
+    ap.add_argument('--worktree', type=Path, default=REPOSITORY, help='checkout to report (default: this one)')
     ap.add_argument('--out', type=Path)
     ap.add_argument('--upload', action='store_true', help='POST to ByteMatch (token in $BYTEMATCH_TOKEN)')
-    ap.add_argument('--commit', help='commit the report describes (default: HEAD, or rebuild-trial\'s tip)')
+    ap.add_argument('--commit', help='commit the report describes (default: the checkout\'s HEAD)')
     ap.add_argument('--version')
     args = ap.parse_args()
-    rebuild = args.tree == 'rebuild'
-    args.out = args.out or REPOSITORY / ('build/bytematch/rebuild-report.json' if rebuild else 'build/bytematch/report.json')
-    args.version = args.version or (REBUILD_VERSION if rebuild else VERSION)
+    args.out = args.out or REPOSITORY / 'build/bytematch/rebuild-report.json'
+    args.version = args.version or VERSION
 
     treemap = json.loads(args.treemap.read_text())
     if not treemap:
         sys.exit('empty treemap: regenerate it with treemap.py --json build/treemap.json')
-    report, total = build_rebuild(treemap, args.worktree) if rebuild else build(treemap)
+    report, total = build_rebuild(treemap, args.worktree)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     data = json.dumps(report, separators=(',', ':')).encode()
     args.out.write_bytes(data)
@@ -334,7 +287,7 @@ def main():
         if not token:
             sys.exit('put the ByteMatch upload token in %s (or $BYTEMATCH_TOKEN)' % TOKEN_FILE)
         commit = args.commit or subprocess.check_output(
-            ['git', 'rev-parse', REBUILD_BRANCH if rebuild else 'HEAD'], cwd=REPOSITORY, text=True).strip()
+            ['git', 'rev-parse', 'HEAD'], cwd=args.worktree, text=True).strip()
         request = urllib.request.Request(
             API.format(project=PROJECT, version=args.version, commit=commit), data=gzip.compress(data),
             method='POST', headers={'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json',

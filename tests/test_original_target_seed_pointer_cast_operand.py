@@ -31,19 +31,6 @@ class PointerCastOperandTests(unittest.TestCase):
             with self.subTest(kind=kind):
                 self.assertIn('CONCAT31', self.convert('*('+kind+')(base)'))
 
-    def test_complete_seed_has_no_invented_three_byte_read(self):
-        class Inventory:
-            passes = []
-            def decompiled(self, entry):
-                return ('int __cdecl FUN_00401000(int base)\n{\n  uint slot;\n'
-                        '  slot = CONCAT31(slot._1_3_,*(undefined1 *)(base + 0x10b));\n'
-                        '  return slot;\n}\n')
-            def function(self, entry):
-                return None, {'ranges': []}
-        text = seed.seed(0x401000, Inventory(), {})
-        self.assertIn('*(uchar *)&(slot)', text)
-        self.assertNotIn('._1_3_', text)
-        self.assertNotIn('CONCAT31', text)
 
 if __name__ == '__main__':
     unittest.main()

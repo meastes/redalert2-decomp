@@ -1,20 +1,26 @@
 # Canonical original-target build
 
-**Tree of record (user, 2026-11-24, in the owner session).** The source of truth is `rebuild/`:
-`rebuild/src/` (one source per original unit) and `rebuild/include/`, selected by the catalog
-`rebuild/manifest/catalog`, with assembly under `rebuild/asm/` (ledger
-`rebuild/manifest/assembly.json`). `./build.command` builds it: `RA2_TREE=rebuild`,
-`build.py --config build/r/rebuild-config.json --manifest rebuild/manifest/catalog`. The build config
-is written by the rebuild gate (`rebuild/tools/rebuild.py catalog` after `rebuild.py check` of the
-units) and never tracked; a fresh worktree copies `build/r/{check,last,rebuild-config.json,
-xcu-table.json}` from a gated checkout (plus the `private/` link). `./build.command --tree src`
-builds the frozen tree described below, unchanged: `src/` and `manifests/original_target/` at the
-tag `src-final`, which the native ports still build from. `./test.command` runs `tests/` and
-`rebuild/tests/`.
+**One tree (layout move at port parity, user decision 2026-11-24/25; lane O88, 2026-11-25).** The
+source of truth is `src/` (one source per original unit) and `include/` (one header per class), selected
+by the catalog `manifests/catalog/`, with handwritten assembly under `asm/` (ledger
+`manifests/assembly.json`). `./build.command` builds it:
+`build.py --config build/r/rebuild-config.json --manifest manifests/catalog` (both are also build.py's
+defaults). The build config is written by the gate (`tools/original_target/rebuild.py catalog` after
+`rebuild.py check` of the units) and never tracked; a fresh worktree copies
+`build/r/{check,last,rebuild-config.json,xcu-table.json}` from a gated checkout (plus the `private/`
+link), and may point `RA2_OBJECT_CACHE` at that checkout's `build/object-cache` (the cache key is the
+compile's inputs, not the checkout path). `./test.command` runs `tests/`. There is no tree switch
+(`RA2_TREE` and `--tree src` are gone); `tools/original_target/tree.py` names the single layout.
 
-The frozen tree's source of truth is tracked `src/recovered/`, selected by
-the catalog `manifests/original_target/`. The active build executes tracked Python under
-`tools/original_target/`. Frozen old private source, manifests and receipts stay
+The earlier tree (`src/recovered/`, `src/shared/`) is the tag `src-final`; its catalog
+`manifests/original_target/` stays in the repository, read-only, as the evidence the catalog rows cite
+(bounds, hashes, `bound_population`), for the library ledger (`library.json`) and as src-final's
+reference column in STATUS. Build it from a checkout of the tag with that checkout's own
+`./build.command --tree src`. The sections below were written for that tree; where they name
+`src/recovered/` or `src/shared/`, read `src/` and `include/` for the current tree. The catalog format
+is the same in both:
+
+The active build executes tracked Python under `tools/original_target/`. Frozen old private source, manifests and receipts stay
 unchanged as provenance; they are not the source implementation consumed by this
 build. The catalog is sharded by population (`index.json` holds the global keys,
 the populations and region order and every shard's SHA-256;
@@ -89,17 +95,16 @@ listed under `skipped_other`.
 
 Westwood's assembly (the VQA/audio codecs, clipping, CPU detection, the MMX
 interpolation block) was assembled with MASM 6.13.7299 (Rich header: 48 objects).
-The rebuild assembles the same files from its own copy, `rebuild/asm/` (and `rebuild/asm/ra2asm/`),
-listed in `rebuild/manifest/assembly.json` (`tree.ASM`, `tree.ASSEMBLY`); the paths below are the
-frozen tree's (`src/recovered/asm/`, read by the native asm check too).
-`src/recovered/asm/*.asm` holds the TibSun archive's `.asm` files adopted
+The tree assembles them from `asm/` (and `asm/ra2asm/`), listed in `manifests/assembly.json`
+(`tree.ASM`, `tree.ASSEMBLY`); the earlier tree's copy was `src/recovered/asm/` (at `src-final`).
+`asm/*.asm` holds the TibSun archive's `.asm` files adopted
 unchanged (THIRD_PARTY.md; SPDX and EA lines inside). `tools/original_target/
 assembly_link.py --write` assembles them with the pinned MASM 6.15.8803
 (`assembler` in `manifests/toolchain.json`; files under the local-config key
 `assembler_directory`, default `toolchain/masm615/`, from the VC6 Processor Pack
 `vcpp5.exe`, SHA-256 `96817df1…cfb6c`), splits each object at its public symbols,
 searches every procedure in `.text` with relocation sites masked, and writes
-`manifests/original_target/assembly.json`: source and its SHA-256, section,
+`manifests/assembly.json`: source and its SHA-256, section,
 symbol, offset, length (trailing alignment fill the original does not keep is
 trimmed), relocation values from the original, SHA-256 of the original bytes.
 At build time `assembly_build.py` re-assembles the sources under the compiler
@@ -107,7 +112,7 @@ lock, patches each row and proves it equal to the original before it joins the
 placement container; the receipt reports `assembly_bytes`/`assembly_regions`.
 
 Revised, binary-derived lines (user decision 2026-11-24, AGENTS.md "No fake
-source"): `src/recovered/asm/ra2asm/` holds ra2-decomp's `src/ra2asm` files
+source"): `asm/ra2asm/` holds ra2-decomp's `src/ra2asm` files
 (f707224; detproc.asm, isoasm.asm, winasm.asm) adopted unchanged with their
 notices. Each revises a TibSun archive procedure with lines read off the binary.
 Only the procedures on the per-source allowlist (`assembly_tools.py`
@@ -150,8 +155,7 @@ audit and module_ledger use the same function and the audit result lists `data_b
 ```sh
 ./test.command
 ./run.command
-./build.command                 # rebuild/, the tree of record
-./build.command --tree src      # src/, frozen at src-final (shared-tool changes run both)
+./build.command                 # the tree: fresh compile, strict audit, link, compare
 # Optional deterministic destination, which must not already exist:
 ./build.command --output build/my-fresh-build
 ```
@@ -226,143 +230,24 @@ No original game launch, full decompilation, native-port or playability claim.
 [Migration evidence](history/ORIGINAL_TARGET_MIGRATION_20261020.md) records the fresh
 tracked-source reproduction. Native build entrypoints were preserved separately
 under `historical/native-reconstruction/` (since removed on 2026-11-17 at the user's request, recoverable from git history at tag `historical-final`;
-the native port is now `native/`); old root native caches were stale after
+the native ports moved to github.com/meastes/redalert2-modern on 2026-11-25); old root native caches were stale after
 the move and were not tested during this migration.
 
-## Gates, locks and stage timings (lane P1, 2026-11-15)
+## Gates, locks and stage timings (lane P1, 2026-11-15; one tree since 2026-11-25)
 
 **Stage timings.** build.py writes `stages` (seconds per stage, in order) and `lock_waits`
 (seconds each Wine step waited for the compiler lock) into build-receipt.json and prints the
-table at the end. `tools/original_target/native_gate.py` runs the native gate (configure,
-compile and link, ctest, optional `--played COMMAND`) and writes DIR/native-gate.json: stage
-seconds, each test's seconds and status (ctest JUnit), the slowest compile steps (.ninja_log),
-the link-closure count and the whole-file receipt the native tree rests on. join_gate.py
-records the same stages.
+table at the end. join_gate.py records the same stages.
 
-**Which gate.** `gate_scope.py --base REV`: a change that touches only `native/` (native tests,
-docs) is scope `native`: native gate only, no full-build lock, no whole-file build; its receipt
-names the last exact whole-file receipt for an ancestor of HEAD (`rests_on_whole_file_receipt`).
-Anything that touches `src/`, `manifests/`, the build tools or `build.command` is scope `exact`:
-whole-file exact gate, then native compile and ctest. join_gate.py applies it (`--scope auto`). A change touching only
-`rebuild/` (and docs) is scope `rebuild`: the rebuild gate alone (join_gate.py records it and runs
-nothing of main's); a change to `tools/original_target/` or `manifests/toolchain.json` also prints
-`"rebuild_gate": true`, and the rebuild gate runs beside main's (ORIGINAL_TARGET_PROCESS.md, "Two
-trees, two gates").
+**Which gate.** `gate_scope.py --base REV`: a change touching only documentation is scope `none`; a
+change touching `manifests/original_target/` (src-final's catalog, read-only evidence) is scope
+`frozen` and refused; anything else is scope `exact`: the gate (catalog of the touched units,
+structure gate, whole-file build; `private/tools/land_rebuild_lane.sh`). `join_gate.py --base REV`
+runs the whole-file step of it and records a whole-file receipt. build.py takes the full-build lock
+itself, then heavy-job slots (`job_control.py`; `RA2_HEAVY_SLOTS`, default 4, 0 turns it off).
 
-**Locks.** build.py takes the shared full-build lock itself (the mkdir lock of
-private/tools/fullbuild_lock.sh, build/owner-watch/fullbuild.lock in the main checkout, reentrant
-under a wrapper that already holds it), then heavy-job slots. The native gate never takes the
-full-build lock. Wrappers that hold the full-build lock around all of join_gate.py (lane gate.sh
-scripts) keep the native stage under it; drop the wrapper's lock, the build takes it.
-Optional config keys `gate_wine_prefix` and `gate_lock` (beside `lock`) give whole-file builds
-their own Wine prefix and compiler lock, so a gate does not queue behind lane candidate compiles
-on the shared compiler lock (785 s of the 1,156 s build of 2026-11-14).
-
-**Heavy-job cap.** `job_control.py` keeps a counting semaphore of flock'd slot files in
-build/owner-watch/heavy/ (count: RA2_HEAVY_SLOTS, else the integer in build/owner-watch/heavy/slots,
-else 4; 0 turns it off). Weights: whole-file build 2, native compile 2, ctest 1 per two parallel
-tests. `job_control.py run --weight N [--full-build] -- COMMAND` runs any other heavy command
-under it; `job_control.py status` lists the holders. Order is always full-build lock, then slots.
-
-Measured 2026-11-15 on the 10-core 16 GB Mac after the restart (load 4-10, lane C16 running):
-
-| Stage | Before | After |
-|---|---:|---:|
-| whole-file build: load and audit setup | 71.7 s | 13.4 s |
-| compile (object cache; 23 / 0 groups compiled) | 7.5 s | 3.0 s |
-| verify fresh objects | 37.8 s | 48.8-62.1 s (load) |
-| integrate and link | 25.2 s | 25.8-27.8 s |
-| final input checks | 75.9 s | 28.0-33.5 s |
-| **whole-file build total** | **220 s** | **127-142 s** |
-| native gate: configure | 12.6 s | 11.8 s |
-| native compile and link (cold, 1,527 steps) | 27.8 s | 12.5 s incremental |
-| ctest, 30 tests | 1,069.5 s serial | 270.3 s `--ctest-jobs 4` |
-| **native gate total** | **1,110 s** | **295 s** |
-
-The setup and final checks were spent re-reading, re-hashing and re-scanning each module source
-once per row (validate_catalog); they now read each source once. ctest is real-time bound (the
-games run frames at game speed: load stays near 4 at -j4); its critical path is
-native-original-save-write (186 s). A parallel run's failures are run again alone (the known
-frame-timing flakes; native-zoom-steps failed once at -j4 and passed alone) and both results stay
-in the receipt. On this Mac about 11 GB is in use before any heavy job; a whole-file build peaks
-near 2.9 GB, a cold native compile near 1.2 GB of clang, one ctest game near 0.25 GB.
-
-## Native test tiers and the identical-build rule (lane P2, 2026-11-16)
-
-**Tiers.** Every native test carries one ctest label (end of native/CMakeLists.txt): `static` (no
-game play: unit checks, layouts, view and vtable audits, link closure, name rules; always run),
-`fast` (played checks under about 100 s each) or `slow` with an `area:<name>` label:
-
-| Slow test | Area | Seconds (2026-11-16, -j4 under load) |
-|---|---|---:|
-| native-lan-pair | network | 645 |
-| native-campaign-soviet, native-campaign-allied | campaign | 428, 416 |
-| native-lan-background | network | 270 |
-| native-original-save-write | saves | 190 |
-| native-widescreen | widescreen | 181 |
-| native-hd-air-base-3x, native-hd-air-base | hd-aircraft | 123, 123 |
-| native-lan-lobby | network | 118 |
-
-`native_gate.py --tier fast` runs `static` + `fast` + the slow tests of the areas the change
-touches (gate_scope.py AREAS: path patterns, and each slow test's own script); `--tier full` runs
-every test; `--tier auto` (the default with `--base`, and join_gate.py's) is fast unless the
-native gate history holds no full pass from the last 12 hours. The full set still runs once per
-landing batch (`--tier full`) and before any build goes to the user's devices: the owner's
-land_ios.sh runs native_main.sh, whose bare `ctest -j4` runs every test (keep it that way, or call
-`native_gate.py --tier full`). The receipt's `tier`, `areas` and `slow_tests_run` say what ran.
-
-**Identical-build rule.** After the native compile the gate records the build's identity
-(`tools/original_target/native_identity.py`, its docstring is the definition) and compares it with
-the builds whose played tests passed (build/owner-watch/native-gate/history.jsonl in the main
-checkout, with each run's identity and receipt; any worktree's passing run counts). Two builds are
-*identical* when every section of ra2-native outside __LINKEDIT has the same bytes at the same
-address and the same dylibs load; *equivalent* when the image differs but the link is the same up
-to names: same link flags, same inputs in the same order, and every input object has the same
-sections, bytes and relocations once each symbol is replaced by the place that defines it (input,
-section, atom, offset), with the symbol table compared as the set of defined places. Bytes that
-carry a name are compared by kind, and only these: RTTI type names (`__ZTS`), the link closure's
-traps and placeholders (by kind, size and first referencing place), the source folder's path in
-strings, an unnamed type's line and column, and the type in `original_type_name<T>`'s text. An
-identical or equivalent build with the same test scripts and ctest registrations runs the static
-checks only; the receipt's `played_skipped` names the passing receipt it rests on and its tier.
-`--names-only` (native_gate.py, join_gate.py) declares a names-only landing: a build that is
-neither fails the gate (`names-only build differs`, with the differing inputs) until
-`--explained TEXT`, which then runs the full set and keeps the text in the receipt.
-
-Proof against the 2026-11-15 tank-damage regression (0d65d9378, names only, whose rename slipped
-past native_units.py's RadiusCount rule): 0d65d9378 against its parent a1ab41e69 compares
-*different*, and the differing inputs are exactly the three units whose functions read the table
-(Explosion_Damage; MapClass::Sight_From, RevealArea1 and 0x0054A550; TActionClass's
-iron-curtain-at-waypoint action); everything else in the 574-file rename (trap renames, an
-unnamed struct's moved line, 140 type names) compares equal. 0d65d9378 with only C22's rule fix
-(de761bc78's native_units.py) against a1ab41e69 compares *equivalent*. The CA2 h1 landing
-(60724cdd3, 16 global names) builds an image identical to its parent's.
-
-Measured 2026-11-16 on the 10-core Mac with other lanes' ctest runs alongside (seconds, slot
-waits left out; receipts in lane P2's build/p2):
-
-| Native gate | configure | compile | identity | ctest | total |
-|---|---:|---:|---:|---:|---:|
-| before: every test (60), old gate | 11.6 | 39.3 | | 1,769 | 1,820 |
-| full tier (61, with native-basics) | 12.2 | 12.9 | 1.0 | 1,939 | 1,965 |
-| names-only landing (reverse of 60724cdd3): identical, static only (12) | 12.6 | 23.2 | 1.0 | 64.2 | 101 |
-| names-only declared, build differs (one string): fails at once | 12.9 | 17.5 | 1.5 | | 32 |
-| native-only change (a log line): fast tier (52) | 14.2 | 21.7 | 1.2 | 351 | 389 |
-
-The static-only run is bound by native-vtable-views (64 s). The full set's wall time is bound by
-the three RUN_SERIAL LAN tests, which run with nothing beside them (lan-pair alone took 645-829 s
-under load); a shared RESOURCE_LOCK among the three instead of RUN_SERIAL would let other tests run
-beside them, if their frame timing allows it (not changed here).
-
-**Shared launches (not done).** A launch costs about 8 s before the first frame with the movies'
-test pace (init 5.6 s, scenario load 2.5 s; a test without RA2_NATIVE_MOVIE_SKIP also plays the
-intro at full length, about 13 s: native-tank-damage now sets it). The 23 launches of the touch,
-zoom, controls and HD-vehicle families would save about 180 s summed, about 45 s at -j4, but their
-cases differ in settings (controls, scales, budgets) and end states (score, abort), so sharing a
-launch needs the harness to start further skirmishes in one process with other settings. Larger
-wins for later: frames uncapped (RA2_NATIVE_UNCAPPED, game speed 0) for checks that measure no
-time: native-basics runs 6,000 frames in about 12 s that way, while the played tests run at game
-speed (about 21 frames a second).
+The native gate, the native test tiers and the identical-build rule (lanes P1 and P2) moved with
+`native/` to github.com/meastes/redalert2-modern; their text is in this file at the tag `src-final`.
 
 ## Fixed compile folder (build environment, 2026-11-13)
 

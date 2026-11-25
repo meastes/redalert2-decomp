@@ -12,7 +12,7 @@ import assembly_tools as AT
 import tree
 
 REPOSITORY = AT.REPOSITORY
-MANIFEST = REPOSITORY / tree.ASSEMBLY            # the tree's ledger (rebuild/manifest/assembly.json in the rebuild)
+MANIFEST = REPOSITORY / tree.ASSEMBLY            # the tree's ledger (manifests/assembly.json in the rebuild)
 
 
 def require(condition, message):

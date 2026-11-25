@@ -1,0 +1,2190 @@
+{
+  "id": "rebuild-smudge",
+  "population": {
+    "id": "rebuild-smudge",
+    "inventory_sha256": "29e29256c2fe8566936c170dfe1beb3e9243895fdb19fc6e921f0e6ed1b6dd91",
+    "gaps_sha256": "deeb6d29d687073fc2c535a40daa14a6d1b8d7de38fd92d38f89f246fa2f3550",
+    "historical_population_sha256": "02fe33aabf379c1ba157b6562b67fd31d0d4053e35c13ad000529e15cfcb6640",
+    "historical_acceptance_sha256": "a878b1ce072c78d54cbbcc781587fb53536e8d5b7bacaf9d6f4e7bca6f9450b0"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 11259600,
+    "_ISO_TILE_SIZE": 8041800,
+    "_LEPTONS_PER_PIXEL": 11259672,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 11259656,
+    "_ONE_RAD": 8041808,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 11259648,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 11259608,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 11259568,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 11259680,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 11259616,
+    "_CELL_DIAG_SLOPE_ANGLE": 11259640,
+    "_BRIDGE_LEPTON_HEIGHT": 11259664,
+    "_CELL_NONE": 11259592,
+    "_COORD_NONE": 11259624,
+    "_RECT_NONE": 11259576,
+    "??0ObjectClass@@QAE@XZ": 6103776,
+    "??_7SmudgeClass@@6BIPersistStream@@@": 8041868,
+    "??_7SmudgeClass@@6BINoticeSink@@@": 8041860,
+    "??_7SmudgeClass@@6BIRTTITypeInfo@@@": 8041832,
+    "??_7SmudgeClass@@6BINoticeSource@@@": 8041824,
+    "?Create_ID@AbstractClass@@UAGXXZ": 4259792,
+    "?Smudges@@3V?$DynamicVectorClass@PAVSmudgeClass@@@@A": 10736192,
+    "?ToOwn@SmudgeClass@@0W4HousesType@@A": 8340016,
+    "?Unlimbo@ObjectClass@@UAE_NABVCoord@@W4Dir256@@@Z": 6109328,
+    "?Delete_Me@ObjectClass@@UAEXXZ": 6114960,
+    "?Detach_This_From_All@@YIXPBVAbstractClass@@_N@Z": 7261072,
+    "?GameActive@@3_NA": 10750296,
+    "?Limbo@ObjectClass@@UAE_NXZ": 6108928,
+    "??1ObjectClass@@UAE@XZ": 6104368,
+    "?Mark@ObjectClass@@UAE_NW4MarkType@@@Z": 6111584,
+    "?ScenarioInit@@3HA": 10749812,
+    "?Debug_Map@@3_NA": 10751251,
+    "?Can_Place_Here@SmudgeTypeClass@@QBE_NABVCell@@_N@Z": 6851136,
+    "?Place@SmudgeTypeClass@@QBEXABVCell@@@Z": 6851392,
+    "?INI_NAME@SmudgeClass@@0QBDB": 8041816,
+    "?Entry_Count@INIClass@@QBEHPBD@Z": 5294848,
+    "?Get_Entry@INIClass@@QBEPBDPBDH@Z": 5295616,
+    "?Get_String@INIClass@@QBEHPBD00PADH@Z": 5302688,
+    "??_C@_01KMAE@?0?$AA@": 8186304,
+    "_strtok": 7876290,
+    "?From_Name@SmudgeTypeClass@@SI?AW4SmudgeType@@PBD@Z": 6848352,
+    "_atoi": 7876093,
+    "??2@YAPAXI@Z": 7872535,
+    "?SmudgeTypes@@3V?$DynamicVectorClass@PAVSmudgeTypeClass@@@@A": 10750920,
+    "??0SmudgeClass@@QAE@PBVSmudgeTypeClass@@ABVCoord@@W4HousesType@@@Z": 6845888,
+    "?Clear@INIClass@@QAE_NPBD0@Z": 5290400,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
+    "??_C@_02MECO@?$CFd?$AA@": 8186300,
+    "_sprintf": 7872756,
+    "??_C@_0M@NJFN@?$CFs?0?$CFd?0?$CFd?0?$CFd?$AA@": 8340052,
+    "?Put_String@INIClass@@QAE_NPBD00@Z": 5301744,
+    "?Load@ObjectClass@@UAGJPAUIStream@@@Z": 6113120,
+    "??0ObjectClass@@QAE@ABVNoInitClass@@@Z": 6104320,
+    "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
+    "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
+    "?Save@AbstractClass@@UAGJPAUIStream@@H@Z": 4260032,
+    "_CLSID_SmudgeClass": 8002560,
+    "??3@YAXPAX@Z": 7871803,
+    "??_C@_06NNBP@Smudge?$AA@": 8183172,
+    "_$E2": 6845392,
+    "_$E5": 6845440,
+    "_$E8": 6845472,
+    "_$E11": 6845504,
+    "_$E14": 6845536,
+    "_$E17": 6845568,
+    "_$E20": 6845600,
+    "_$E23": 6845664,
+    "_$E26": 6845712,
+    "_$E29": 6845760,
+    "_$E32": 6845808,
+    "_$E35": 6845824,
+    "_$E38": 6845856,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "?Unknown_Virtual_0@AbstractClass@@UAEXH@Z": 4260656,
+    "?Unknown_Virtual_0@AbstractClass@@UAE_NHH@Z": 4260640,
+    "?Fetch_ID@AbstractClass@@UBGHXZ": 4259776,
+    "?What_Am_I@AbstractClass@@UBGHXZ": 4259760,
+    "?Get_Height@ObjectClass@@UBEHXZ": 6113280,
+    "?Set_Height_AGL@ObjectClass@@UAEXH@Z": 6113376,
+    "?Get_Height_AGL@ObjectClass@@UBEHXZ": 6113296,
+    "?Get_Target_Cell_Ptr@ObjectClass@@UBEPAVCellClass@@XZ": 6115984,
+    "?Get_Target_Cell@ObjectClass@@UBE?AVCell@@XZ": 6115904,
+    "?Get_Cell_Ptr@ObjectClass@@UBEPAVCellClass@@XZ": 6115808,
+    "?Set_Coord@ObjectClass@@UAEXABVCoord@@@Z": 6115776,
+    "?Move@ObjectClass@@UAEXW4FacingType@@@Z": 6106464,
+    "?Set_Waypoint_Path@ObjectClass@@UAEXW4PathType@@D@Z": 6116304,
+    "?Sell_Back@ObjectClass@@UAEXH@Z": 6106448,
+    "?Repair@ObjectClass@@UAEXH@Z": 6106432,
+    "?Revealed@ObjectClass@@UAE_NPAVHouseClass@@@Z": 6111792,
+    "?Receive_Message@ObjectClass@@UAE?AW4RadioMessageType@@PAVRadioClass@@W42@AAH@Z": 6110384,
+    "?Who_Can_Build_Me@ObjectClass@@UBEPAVBuildingClass@@_N0@Z": 6112512,
+    "?Get_Mission@ObjectClass@@UBE?AW4MissionType@@XZ": 6106416,
+    "?Value@ObjectClass@@UBEHXZ": 6106400,
+    "?Fire_Out@ObjectClass@@UAEXXZ": 6106384,
+    "?Catch_Fire@ObjectClass@@UAE_NXZ": 6106368,
+    "?Scatter@ObjectClass@@UAEXABVCoord@@_N1@Z": 6106352,
+    "?Take_Damage@ObjectClass@@UAE?AW4ResultType@@AAHHPBVWarheadTypeClass@@PAVTechnoClass@@_N3@Z": 6110496,
+    "?Weapon_Range@ObjectClass@@UBEHH@Z": 6106336,
+    "?In_Range@ObjectClass@@UBE_NABVCoord@@H@Z": 6106320,
+    "?Unselect@ObjectClass@@UAEXXZ": 6106608,
+    "?Select@ObjectClass@@UAE_NXZ": 6106736,
+    "?Clicked_As_Target@ObjectClass@@UAEXH@Z": 6106304,
+    "?Active_Click_With@ObjectClass@@UAE_NW4ActionType@@PAV1@_N@Z": 6106272,
+    "?Active_Click_With@ObjectClass@@UAE_NW4ActionType@@ABVCell@@1_N@Z": 6106288,
+    "?CanBeSelected@ObjectClass@@UBE_NXZ": 6116528,
+    "?Mark_For_Redraw@ObjectClass@@EAEXXZ": 6108896,
+    "?Get_Render_Rect@ObjectClass@@UAE?AV?$TRect@H@@XZ": 6107584,
+    "?Get_Visual_Rect@ObjectClass@@UBE?AV?$TRect@H@@XZ": 6107232,
+    "?Look@ObjectClass@@UAEX_N0@Z": 6106256,
+    "?Hidden@ObjectClass@@UAEXXZ": 6106240,
+    "?Editor_Draw_It@ObjectClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z": 6114928,
+    "?Occupy_List@ObjectClass@@UBEPBVCell@@_N@Z": 6112368,
+    "?Render@ObjectClass@@UBE_NAAV?$TRect@H@@_N1@Z": 6108384,
+    "?Exit_Object@ObjectClass@@UAEHPAVTechnoClass@@@Z": 6106224,
+    "?Do_Shimmer@ObjectClass@@UAEXXZ": 6106208,
+    "?Clear_Occupy_Bit@ObjectClass@@UAEXABVCoord@@@Z": 6113760,
+    "?Set_Occupy_Bit@ObjectClass@@UAEXABVCoord@@@Z": 6113632,
+    "?Fall_From_Height@ObjectClass@@UAEXXZ": 6105792,
+    "?Paradrop@ObjectClass@@UAE_NABVCoord@@@Z": 6111808,
+    "?Record_The_Kill@ObjectClass@@UAEXPAVTechnoClass@@@Z": 6106192,
+    "?Detach_All@ObjectClass@@UAEX_N@Z": 6110224,
+    "?Is_Moving_Onto_Bridge@ObjectClass@@UBE_NPAVTechnoClass@@@Z": 6116080,
+    "?Sort_Y@ObjectClass@@UBEHXZ": 6116432,
+    "?Docking_Coord@ObjectClass@@UBE?AVCoord@@PAVTechnoClass@@@Z": 6116592,
+    "?Can_Player_Move@ObjectClass@@UBE_NXZ": 6106176,
+    "?Can_Player_Fire@ObjectClass@@UBE_NXZ": 6106160,
+    "?Can_Demolish@ObjectClass@@UBE_NXZ": 6106144,
+    "?Can_Repair@ObjectClass@@UBE_NXZ": 6106128,
+    "?Get_Ownable@ObjectClass@@UBEHXZ": 6106112,
+    "?Techno_Type_Class@ObjectClass@@UBEPBVTechnoTypeClass@@XZ": 6116416,
+    "?Not_Underground@ObjectClass@@UBE_NXZ": 6116496,
+    "?In_Which_Layer@ObjectClass@@UBE?AW4LayerType@@XZ": 6106048,
+    "?What_Action@ObjectClass@@UBE?AW4ActionType@@PBV1@_N@Z": 6106016,
+    "?What_Action@ObjectClass@@UBE?AW4ActionType@@ABVCell@@_N1@Z": 6106032,
+    "?Get_Image_Data@ObjectClass@@UBEPBXXZ": 6105008,
+    "?AI@ObjectClass@@UAEXXZ": 6105072,
+    "?As_Coord@AbstractClass@@UBE?AVCoord@@XZ": 4260576,
+    "?In_Air@ObjectClass@@UBE_NXZ": 6116368,
+    "?On_Ground@ObjectClass@@UBE_NXZ": 6116320,
+    "?Destination_Coord@AbstractClass@@UBE?AVCoord@@PAVTechnoClass@@@Z": 4260496,
+    "?Center_Coord@ObjectClass@@UBE?AVCoord@@XZ": 6114880,
+    "?Is_Inactive@ObjectClass@@UBE_NXZ": 6115088,
+    "?Fetch_Heap_ID@AbstractClass@@UBEHXZ": 4260432,
+    "?Owner_HouseClass@AbstractClass@@UBEPAVHouseClass@@XZ": 4260416,
+    "?Owner@AbstractClass@@UBE?AW4HousesType@@XZ": 4260400,
+    "?Compute_CRC@ObjectClass@@UBEXAAVCRCEngine@@@Z": 6114064,
+    "?Detach@ObjectClass@@UAEXPBVAbstractClass@@_N@Z": 6110160,
+    "?Init@AbstractClass@@UAEXXZ": 4260368,
+    "??_GSmudgeClass@@UAEPAXI@Z": 6847232,
+    "?GetSizeMax@AbstractClass@@UAGJPAT_ULARGE_INTEGER@@@Z": 4260224,
+    "?IsDirty@AbstractClass@@UAGJXZ": 4260336,
+    "?Release@AbstractClass@@UAGKXZ": 4260016,
+    "?AddRef@AbstractClass@@UAGKXZ": 4260000,
+    "?QueryInterface@AbstractClass@@UAGJABU_GUID@@PAPAX@Z": 4259840,
+    "??_R0?AVINoticeSource@@@8": 8184264,
+    "??_R0?AVINoticeSink@@@8": 8181272,
+    "??_R0?AUIRTTITypeInfo@@@8": 8184296,
+    "??_R0?AUIUnknown@@@8": 8181304,
+    "??_R0?AUIPersist@@@8": 8184328,
+    "??_R0?AUIPersistStream@@@8": 8184352,
+    "??_R0?AVAbstractClass@@@8": 8184384,
+    "??_R0?AVObjectClass@@@8": 8185160,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVSmudgeClass@@@8": 8340024,
+    "?Is_Players_Army@ObjectClass@@UBE_NXZ": 4341008,
+    "?Visual_Character@ObjectClass@@UBE?AW4VisualType@@_NPBVHouseClass@@@Z": 4341024,
+    "?Considered_Vehicle@ObjectClass@@UBE_NXZ": 4341040,
+    "?Full_Name@ObjectClass@@UBEPBGXZ": 4341056,
+    "??_C@_1BA@MEGH@?$AAN?$AAo?$AA?5?$AAn?$AAa?$AAm?$AAe?$AA?$AA@": 8187056,
+    "?Target_Coord@ObjectClass@@UBE?AVCoord@@XZ": 4305472,
+    "?Render_Coord@ObjectClass@@UBE?AVCoord@@XZ": 4305520,
+    "?Fire_Coord@ObjectClass@@UBE?AVCoord@@H@Z": 4341072,
+    "?Exit_Coord@ObjectClass@@UBE?AVCoord@@H@Z": 4305568,
+    "?Occupies_Cells@ObjectClass@@UBE_NXZ": 4341136,
+    "?IsDisguised@ObjectClass@@UBE_NXZ": 4341152,
+    "?IsDisguisedAs@ObjectClass@@UBE_NPAVHouseClass@@@Z": 4341168,
+    "?GetDisguise@ObjectClass@@UBEPAVObjectTypeClass@@_N@Z": 4305616,
+    "?GetDisguiseHouse@ObjectClass@@UBEPAVHouseClass@@_N@Z": 4305632,
+    "?Draw_Pre_Render@ObjectClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z": 4341184,
+    "?Draw_Post_Render@ObjectClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z": 4341200,
+    "?Draw_Radial_Indicator@ObjectClass@@UAEXK@Z": 4305648,
+    "?IronCurtain@ObjectClass@@UAEXH@Z": 4341216,
+    "?IsIronCurtained@ObjectClass@@UBE_NXZ": 4305664,
+    "?Assign_Mission@ObjectClass@@UAEXW4MissionType@@@Z": 4305680,
+    "?Per_Cell_Process@ObjectClass@@UAEXW4PCPType@@@Z": 4341232,
+    "?Can_Enter_Cell@ObjectClass@@UBE?AW4MoveType@@PBVCellClass@@W4FacingType@@H0_N@Z": 4341248,
+    "?Can_Reach@ObjectClass@@UBE?AW4MoveType@@PBVCellClass@@W4FacingType@@AAHAA_N0@Z": 4341264,
+    "?Get_Cell@ObjectClass@@UBE?AVCell@@XZ": 4305696,
+    "?IsBeingWarpedOut@ObjectClass@@UBE_NXZ": 4341280,
+    "?IsWarpingIn@ObjectClass@@UBE_NXZ": 4341296,
+    "?IsWarpingSomethingOut@ObjectClass@@UBE_NXZ": 4341312,
+    "?IsNotWarping@ObjectClass@@UBE_NXZ": 4341328,
+    "?GetRemapColour@ObjectClass@@UBEPAXXZ": 4341344,
+    "?Draw_It@SmudgeClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z": 6847216,
+    "??1SmudgeClass@@UAE@XZ": 6846128,
+    "?Mark@SmudgeClass@@UAE_NW4MarkType@@@Z": 6846288,
+    "?Disown@SmudgeClass@@QAEXABVCell@@@Z": 6846432,
+    "?Read_INI@SmudgeClass@@SIXABVCCINIClass@@@Z": 6846448,
+    "?Write_INI@SmudgeClass@@SIXAAVCCINIClass@@@Z": 6846768,
+    "?Load@SmudgeClass@@UAGJPAUIStream@@@Z": 6846976,
+    "?Save@SmudgeClass@@UAGJPAUIStream@@H@Z": 6847072,
+    "?Class_Of@SmudgeClass@@UBEPBVObjectTypeClass@@XZ": 6847104,
+    "?Fetch_Object_Size@SmudgeClass@@UBEHXZ": 6847120,
+    "?Fetch_RTTI@SmudgeClass@@UBE?AW4RTTIType@@XZ": 6847136,
+    "?GetClassID@SmudgeClass@@UAGJPAU_GUID@@@Z": 6847152,
+    "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
+    "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
+    "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
+    "?QueryInterface@AbstractClass@@W3AGJABU_GUID@@PAPAX@Z": 4260736,
+    "?AddRef@AbstractClass@@W3AGKXZ": 4260752,
+    "?Release@AbstractClass@@W3AGKXZ": 4260768
+  },
+  "regions": [
+    {
+      "entry": 6845392,
+      "method": "006873d0",
+      "body_bytes": 40,
+      "body_sha256": "20e090cc861d75ebdf680c9dcb8f90175738fa30d02ff8680ca089bcc4b9e253",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "f92e803911581355cf82d248c8b799a93da207640e75660ed16738f554da4e83",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 1027535
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4293079074
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11259600,
+          "addend": 0,
+          "resolved": 11259600
+        }
+      ],
+      "source_sha256": "5324060e1b2630e0e46a41fba34e5b4c77783b03d8537ac620908bcc5e9426df",
+      "source": "src/smudge.cpp",
+      "population": "rebuild-smudge",
+      "source_order": 6845392,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6845440,
+      "method": "00687400",
+      "body_bytes": 19,
+      "body_sha256": "6114067c64667f12cc5cf6febcad16e7b7e667d809a06b8bc884a1cb7338e591",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "358e03e944896deba6be16aaadefe5ec0a0ec6f96f35440b16de8e8a2d387ed3",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11259600,
+          "addend": 0,
+          "resolved": 11259600
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8041800,
+          "addend": 0,
+          "resolved": 8041800
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11259672,
+          "addend": 0,
+          "resolved": 11259672
+        }
+      ],
+      "source_sha256": "5324060e1b2630e0e46a41fba34e5b4c77783b03d8537ac620908bcc5e9426df",
+      "source": "src/smudge.cpp",
+      "population": "rebuild-smudge",
+      "source_order": 6845440,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6845472,
+      "method": "00687420",
+      "body_bytes": 19,
+      "body_sha256": "5c45a2a43a3222d10ef8df1314d9b5857e96115d3c218f3f826a30eec0dcd3da",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2090265eb1560ce7a9f7adee45fc6d4ac76d4e83afe6c4b817b4161643701b81",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11259672,
+          "addend": 0,
+          "resolved": 11259672
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 11259656,
+          "addend": 0,
+          "resolved": 11259656
+        }
+      ],
+      "source_sha256": "5324060e1b2630e0e46a41fba34e5b4c77783b03d8537ac620908bcc5e9426df",
+      "source": "src/smudge.cpp",
+      "population": "rebuild-smudge",
+      "source_order": 6845472,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6845504,
+      "method": "00687440",
+      "body_bytes": 19,
+      "body_sha256": "0d557e47b8eaa9bd1f700d1212369d103e42ef78bf36c65826a2b5a5f634c139",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2729c8309cb5745903fa647529a39f126056389b8360baa9623d26c89ec203ad",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8041808,
+          "addend": 0,
+          "resolved": 8041808
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 11259648,
+          "addend": 0,
+          "resolved": 11259648
+        }
+      ],
+      "source_sha256": "5324060e1b2630e0e46a41fba34e5b4c77783b03d8537ac620908bcc5e9426df",
+      "source": "src/smudge.cpp",
+      "population": "rebuild-smudge",
+      "source_order": 6845504,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6845536,
+      "method": "00687460",
+      "body_bytes": 19,
+      "body_sha256": "6f206088c1bde7f7e358dee17c2f97baccc5f7a93b0bfd4864afda228928ac14",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "47a9e667e46792f641cdbae79f611a28181bd0f43d094d59356599ba10c7fd59",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8041808,
+          "addend": 0,
+          "resolved": 8041808
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11259608,
+          "addend": 0,
+          "resolved": 11259608
+        }
+      ],
+      "source_sha256": "5324060e1b2630e0e46a41fba34e5b4c77783b03d8537ac620908bcc5e9426df",
+      "source": "src/smudge.cpp",
+      "population": "rebuild-smudge",
+      "source_order": 6845536,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6845568,
+      "method": "00687480",
+      "body_bytes": 19,
+      "body_sha256": "5efac5898b259b6596816c789e758c1828e2030a0e0a750a6b846bc494e680d2",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "3713dfbcb977f29b99c895ccbb5adbd8200f013b55e460222744d909d8e02960",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8041808,
+          "addend": 0,
+          "resolved": 8041808
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11259568,
+          "addend": 0,
+          "resolved": 11259568
+        }
+      ],
+      "source_sha256": "5324060e1b2630e0e46a41fba34e5b4c77783b03d8537ac620908bcc5e9426df",
+      "source": "src/smudge.cpp",
+      "population": "rebuild-smudge",
+      "source_order": 6845568,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6845600,
+      "method": "006874a0",
+      "body_bytes": 49,
+      "body_sha256": "e95a3f2d59ce86d5b89f8c94a5879cd3e0f2a95e41427897313678dc77317fbd",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "47cc3bbe4db48b1f48d61bce5a3d0ff5aa9322e550c7d8b15ed4b30ac6789db0",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11259568,
+          "addend": 0,
+          "resolved": 11259568
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11259608,
+          "addend": 0,
+          "resolved": 11259608
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4293079145
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11259600,
+          "addend": 0,
+          "resolved": 11259600
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1014853
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11259680,
+          "addend": 0,
+          "resolved": 11259680
+        }
+      ],
+      "source_sha256": "5324060e1b2630e0e46a41fba34e5b4c77783b03d8537ac620908bcc5e9426df",
+      "source": "src/smudge.cpp",
+      "population": "rebuild-smudge",
+      "source_order": 6845600,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6845664,
+      "method": "006874e0",
+      "body_bytes": 33,
+      "body_sha256": "41d0c1c3002905ca1a30ccdfb6fd30f63b7ba929f0f2eb92a9e887152753aea4",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "dc787dfb7bba13f1b33d77d8b2876044a5f9ad0b4b3e2c740f0999c52b8d1c97",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11259680,
+          "addend": 0,
+          "resolved": 11259680
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4293079225
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 11259616,
+          "addend": 0,
+          "resolved": 11259616
+        }
+      ],
+      "source_sha256": "5324060e1b2630e0e46a41fba34e5b4c77783b03d8537ac620908bcc5e9426df",
+      "source": "src/smudge.cpp",
+      "population": "rebuild-smudge",
+      "source_order": 6845664,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6845712,
+      "method": "00687510",
+      "body_bytes": 44,
+      "body_sha256": "9a9e6954bd359cb3bc4d308db579e1eb324a429532cf7b88a40788c4d8e2cff5",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "dcbd4ad98d5f2759b7827a6552f00ce5a32f4df486d96f29b11001ff70a7eedd",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11259680,
+          "addend": 0,
+          "resolved": 11259680
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11259600,
+          "addend": 0,
+          "resolved": 11259600
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4293079166
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 11259640,
+          "addend": 0,
+          "resolved": 11259640
+        }
+      ],
+      "source_sha256": "5324060e1b2630e0e46a41fba34e5b4c77783b03d8537ac620908bcc5e9426df",
+      "source": "src/smudge.cpp",
+      "population": "rebuild-smudge",
+      "source_order": 6845712,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6845760,
+      "method": "00687540",
+      "body_bytes": 39,
+      "body_sha256": "a9102a07b236628c1e8a62a52b28c8e43e7c47a35c22771215c163cf63467717",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "a799a5413e5366656ff0964b96866f2d2e83c1460875eaafb52a6e275e5175e0",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11259680,
+          "addend": 0,
+          "resolved": 11259680
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1014704
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11259664,
+          "addend": 0,
+          "resolved": 11259664
+        }
+      ],
+      "source_sha256": "5324060e1b2630e0e46a41fba34e5b4c77783b03d8537ac620908bcc5e9426df",
+      "source": "src/smudge.cpp",
+      "population": "rebuild-smudge",
+      "source_order": 6845760,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6845808,
+      "method": "00687570",
+      "body_bytes": 15,
+      "body_sha256": "6c75a54a2c04cecf83693eec2e3c07271d28b104a0c7d3420f933509a773e906",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "fdabea714b9df16d92fab5ab7f269581b4dedc6ed995971c59f5c6707bd01e85",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11259592,
+          "addend": 0,
+          "resolved": 11259592
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11259592,
+          "addend": 2,
+          "resolved": 11259594
+        }
+      ],
+      "source_sha256": "5324060e1b2630e0e46a41fba34e5b4c77783b03d8537ac620908bcc5e9426df",
+      "source": "src/smudge.cpp",
+      "population": "rebuild-smudge",
+      "source_order": 6845808,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6845824,
+      "method": "00687580",
+      "body_bytes": 18,
+      "body_sha256": "e38c4b0e8bfccb2d90167ee81bab8baf46220a89b4e183e8bccceb2ed57cc6bd",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "7ec303e5ff65d6ce427af56fcb508e3ca9ead1d6eb3a056b0af3a3bd6d14d795",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11259624,
+          "addend": 0,
+          "resolved": 11259624
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11259624,
+          "addend": 4,
+          "resolved": 11259628
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11259624,
+          "addend": 8,
+          "resolved": 11259632
+        }
+      ],
+      "source_sha256": "5324060e1b2630e0e46a41fba34e5b4c77783b03d8537ac620908bcc5e9426df",
+      "source": "src/smudge.cpp",
+      "population": "rebuild-smudge",
+      "source_order": 6845824,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6845856,
+      "method": "006875a0",
+      "body_bytes": 23,
+      "body_sha256": "f914cef4393cb5a0543450192890851b2e00879fa714a6c508a133361238ac81",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "3f52bde317c90035e1edb38d3c902bcba055f96492eb80f5d23847dfb03ca578",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11259576,
+          "addend": 0,
+          "resolved": 11259576
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11259576,
+          "addend": 4,
+          "resolved": 11259580
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11259576,
+          "addend": 8,
+          "resolved": 11259584
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11259576,
+          "addend": 12,
+          "resolved": 11259588
+        }
+      ],
+      "source_sha256": "5324060e1b2630e0e46a41fba34e5b4c77783b03d8537ac620908bcc5e9426df",
+      "source": "src/smudge.cpp",
+      "population": "rebuild-smudge",
+      "source_order": 6845856,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6845888,
+      "method": "006875c0",
+      "body_bytes": 234,
+      "body_sha256": "2597a3485b9f4811ae8a92d8375f6fed595f70382871ef72616949c782343100",
+      "padding_bytes": 6,
+      "full_extent_bytes": 240,
+      "full_extent_sha256": "96d5755a2647f9432dad75e7b8664eaab8648a971eaf7d3baf0623d2f1b68654",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0SmudgeClass@@QAE@PBVSmudgeTypeClass@@ABVCoord@@W4HousesType@@@Z",
+      "symbol_prefix": "??0SmudgeClass@@QAE@PBVSmudgeTypeClass@@ABVCoord@@W4HousesType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??0ObjectClass@@QAE@XZ",
+          "target": 6103776,
+          "addend": 0,
+          "resolved": 4294225176
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7SmudgeClass@@6BIPersistStream@@@",
+          "target": 8041868,
+          "addend": 0,
+          "resolved": 8041868
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "??_7SmudgeClass@@6BINoticeSink@@@",
+          "target": 8041860,
+          "addend": 0,
+          "resolved": 8041860
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "??_7SmudgeClass@@6BIRTTITypeInfo@@@",
+          "target": 8041832,
+          "addend": 0,
+          "resolved": 8041832
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "??_7SmudgeClass@@6BINoticeSource@@@",
+          "target": 8041824,
+          "addend": 0,
+          "resolved": 8041824
+        },
+        {
+          "offset": 49,
+          "kind": 20,
+          "symbol": "?Create_ID@AbstractClass@@UAGXXZ",
+          "target": 4259792,
+          "addend": 0,
+          "resolved": 4292381147
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "?Smudges@@3V?$DynamicVectorClass@PAVSmudgeClass@@@@A",
+          "target": 10736192,
+          "addend": 8,
+          "resolved": 10736200
+        },
+        {
+          "offset": 60,
+          "kind": 6,
+          "symbol": "?Smudges@@3V?$DynamicVectorClass@PAVSmudgeClass@@@@A",
+          "target": 10736192,
+          "addend": 16,
+          "resolved": 10736208
+        },
+        {
+          "offset": 70,
+          "kind": 6,
+          "symbol": "?Smudges@@3V?$DynamicVectorClass@PAVSmudgeClass@@@@A",
+          "target": 10736192,
+          "addend": 13,
+          "resolved": 10736205
+        },
+        {
+          "offset": 84,
+          "kind": 6,
+          "symbol": "?Smudges@@3V?$DynamicVectorClass@PAVSmudgeClass@@@@A",
+          "target": 10736192,
+          "addend": 20,
+          "resolved": 10736212
+        },
+        {
+          "offset": 94,
+          "kind": 6,
+          "symbol": "?Smudges@@3V?$DynamicVectorClass@PAVSmudgeClass@@@@A",
+          "target": 10736192,
+          "addend": 0,
+          "resolved": 10736192
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "?Smudges@@3V?$DynamicVectorClass@PAVSmudgeClass@@@@A",
+          "target": 10736192,
+          "addend": 0,
+          "resolved": 10736192
+        },
+        {
+          "offset": 117,
+          "kind": 6,
+          "symbol": "?Smudges@@3V?$DynamicVectorClass@PAVSmudgeClass@@@@A",
+          "target": 10736192,
+          "addend": 16,
+          "resolved": 10736208
+        },
+        {
+          "offset": 126,
+          "kind": 6,
+          "symbol": "?Smudges@@3V?$DynamicVectorClass@PAVSmudgeClass@@@@A",
+          "target": 10736192,
+          "addend": 16,
+          "resolved": 10736208
+        },
+        {
+          "offset": 132,
+          "kind": 6,
+          "symbol": "?Smudges@@3V?$DynamicVectorClass@PAVSmudgeClass@@@@A",
+          "target": 10736192,
+          "addend": 4,
+          "resolved": 10736196
+        },
+        {
+          "offset": 145,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11259624,
+          "addend": 0,
+          "resolved": 11259624
+        },
+        {
+          "offset": 160,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11259624,
+          "addend": 4,
+          "resolved": 11259628
+        },
+        {
+          "offset": 173,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11259624,
+          "addend": 8,
+          "resolved": 11259632
+        },
+        {
+          "offset": 189,
+          "kind": 6,
+          "symbol": "?ToOwn@SmudgeClass@@0W4HousesType@@A",
+          "target": 8340016,
+          "addend": 0,
+          "resolved": 8340016
+        },
+        {
+          "offset": 197,
+          "kind": 20,
+          "symbol": "?Unlimbo@ObjectClass@@UAE_NABVCoord@@W4Dir256@@@Z",
+          "target": 6109328,
+          "addend": 0,
+          "resolved": 4294230535
+        },
+        {
+          "offset": 208,
+          "kind": 20,
+          "symbol": "?Delete_Me@ObjectClass@@UAEXXZ",
+          "target": 6114960,
+          "addend": 0,
+          "resolved": 4294236156
+        },
+        {
+          "offset": 220,
+          "kind": 6,
+          "symbol": "?ToOwn@SmudgeClass@@0W4HousesType@@A",
+          "target": 8340016,
+          "addend": 0,
+          "resolved": 8340016
+        }
+      ],
+      "source_sha256": "5324060e1b2630e0e46a41fba34e5b4c77783b03d8537ac620908bcc5e9426df",
+      "source": "src/smudge.cpp",
+      "population": "rebuild-smudge",
+      "source_order": 6845888,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6846128,
+      "method": "006876b0",
+      "body_bytes": 147,
+      "body_sha256": "3e7060ad09be09d2c826043a16120bd141e568d6a2bf67b59acac239b7a0fc0f",
+      "padding_bytes": 13,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "70269e87c55411208548d197284ad8ed279c8ecb839891a5400d7b86d0b10181",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1SmudgeClass@@UAE@XZ",
+      "symbol_prefix": "??1SmudgeClass@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7SmudgeClass@@6BIPersistStream@@@",
+          "target": 8041868,
+          "addend": 0,
+          "resolved": 8041868
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "??_7SmudgeClass@@6BIRTTITypeInfo@@@",
+          "target": 8041832,
+          "addend": 0,
+          "resolved": 8041832
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "??_7SmudgeClass@@6BINoticeSink@@@",
+          "target": 8041860,
+          "addend": 0,
+          "resolved": 8041860
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "??_7SmudgeClass@@6BINoticeSource@@@",
+          "target": 8041824,
+          "addend": 0,
+          "resolved": 8041824
+        },
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "?Detach_This_From_All@@YIXPBVAbstractClass@@_N@Z",
+          "target": 7261072,
+          "addend": 0,
+          "resolved": 414906
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?Smudges@@3V?$DynamicVectorClass@PAVSmudgeClass@@@@A",
+          "target": 10736192,
+          "addend": 0,
+          "resolved": 10736192
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?Smudges@@3V?$DynamicVectorClass@PAVSmudgeClass@@@@A",
+          "target": 10736192,
+          "addend": 0,
+          "resolved": 10736192
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "?Smudges@@3V?$DynamicVectorClass@PAVSmudgeClass@@@@A",
+          "target": 10736192,
+          "addend": 16,
+          "resolved": 10736208
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?Smudges@@3V?$DynamicVectorClass@PAVSmudgeClass@@@@A",
+          "target": 10736192,
+          "addend": 16,
+          "resolved": 10736208
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "?Smudges@@3V?$DynamicVectorClass@PAVSmudgeClass@@@@A",
+          "target": 10736192,
+          "addend": 4,
+          "resolved": 10736196
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "?Smudges@@3V?$DynamicVectorClass@PAVSmudgeClass@@@@A",
+          "target": 10736192,
+          "addend": 16,
+          "resolved": 10736208
+        },
+        {
+          "offset": 112,
+          "kind": 6,
+          "symbol": "?GameActive@@3_NA",
+          "target": 10750296,
+          "addend": 0,
+          "resolved": 10750296
+        },
+        {
+          "offset": 123,
+          "kind": 20,
+          "symbol": "?Limbo@ObjectClass@@UAE_NXZ",
+          "target": 6108928,
+          "addend": 0,
+          "resolved": 4294229969
+        },
+        {
+          "offset": 140,
+          "kind": 20,
+          "symbol": "??1ObjectClass@@UAE@XZ",
+          "target": 6104368,
+          "addend": 0,
+          "resolved": 4294225392
+        }
+      ],
+      "source_sha256": "5324060e1b2630e0e46a41fba34e5b4c77783b03d8537ac620908bcc5e9426df",
+      "source": "src/smudge.cpp",
+      "population": "rebuild-smudge",
+      "source_order": 6846128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6846288,
+      "method": "00687750",
+      "body_bytes": 136,
+      "body_sha256": "196cc0bf8c518e153fa134c7ebde2ed3b1e1367ca03958738af55c27a707065f",
+      "padding_bytes": 8,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "713aa7367f372a7db50e3e3da28abefc68856e780b8fb020de0768f25b97a5e6",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Mark@SmudgeClass@@UAE_NW4MarkType@@@Z",
+      "symbol_prefix": "?Mark@SmudgeClass@@UAE_NW4MarkType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 20,
+          "symbol": "?Mark@ObjectClass@@UAE_NW4MarkType@@@Z",
+          "target": 6111584,
+          "addend": 0,
+          "resolved": 4294232577
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "?ScenarioInit@@3HA",
+          "target": 10749812,
+          "addend": 0,
+          "resolved": 10749812
+        },
+        {
+          "offset": 60,
+          "kind": 6,
+          "symbol": "?Debug_Map@@3_NA",
+          "target": 10751251,
+          "addend": 0,
+          "resolved": 10751251
+        },
+        {
+          "offset": 82,
+          "kind": 20,
+          "symbol": "?Can_Place_Here@SmudgeTypeClass@@QBE_NABVCell@@_N@Z",
+          "target": 6851136,
+          "addend": 0,
+          "resolved": 4762
+        },
+        {
+          "offset": 102,
+          "kind": 20,
+          "symbol": "?Place@SmudgeTypeClass@@QBEXABVCell@@@Z",
+          "target": 6851392,
+          "addend": 0,
+          "resolved": 4998
+        }
+      ],
+      "source_sha256": "5324060e1b2630e0e46a41fba34e5b4c77783b03d8537ac620908bcc5e9426df",
+      "source": "src/smudge.cpp",
+      "population": "rebuild-smudge",
+      "source_order": 6846288,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6846432,
+      "method": "006877e0",
+      "body_bytes": 3,
+      "body_sha256": "e598d0c3ba86d917b177d7adde0556aa99bc355543c57aee0a3e50b684dd7e99",
+      "padding_bytes": 13,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "c4e48398aa494fd8abf1c3e8e6cc058bcdca3836fdfe6744b7d353c518e1c019",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Disown@SmudgeClass@@QAEXABVCell@@@Z",
+      "symbol_prefix": "?Disown@SmudgeClass@@QAEXABVCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "5324060e1b2630e0e46a41fba34e5b4c77783b03d8537ac620908bcc5e9426df",
+      "source": "src/smudge.cpp",
+      "population": "rebuild-smudge",
+      "source_order": 6846432,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 6846448,
+      "method": "006877f0",
+      "body_bytes": 315,
+      "body_sha256": "cbc911dc99624a48c924bf95213b261faa5433bde970b58e97cf5d5ef32eb360",
+      "padding_bytes": 5,
+      "full_extent_bytes": 320,
+      "full_extent_sha256": "7f334fb9be913fe9e13c14ae2db4afaf20afb924108d4896e045f7f952b2e6c4",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Read_INI@SmudgeClass@@SIXABVCCINIClass@@@Z",
+      "symbol_prefix": "?Read_INI@SmudgeClass@@SIXABVCCINIClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "?INI_NAME@SmudgeClass@@0QBDB",
+          "target": 8041816,
+          "addend": 0,
+          "resolved": 8041816
+        },
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "?Entry_Count@INIClass@@QBEHPBD@Z",
+          "target": 5294848,
+          "addend": 0,
+          "resolved": 4293415676
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "?INI_NAME@SmudgeClass@@0QBDB",
+          "target": 8041816,
+          "addend": 0,
+          "resolved": 8041816
+        },
+        {
+          "offset": 52,
+          "kind": 20,
+          "symbol": "?Get_Entry@INIClass@@QBEPBDPBDH@Z",
+          "target": 5295616,
+          "addend": 0,
+          "resolved": 4293416408
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "?INI_NAME@SmudgeClass@@0QBDB",
+          "target": 8041816,
+          "addend": 0,
+          "resolved": 8041816
+        },
+        {
+          "offset": 78,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHPBD00PADH@Z",
+          "target": 5302688,
+          "addend": 0,
+          "resolved": 4293423454
+        },
+        {
+          "offset": 87,
+          "kind": 6,
+          "symbol": "??_C@_01KMAE@?0?$AA@",
+          "target": 8186304,
+          "addend": 0,
+          "resolved": 8186304
+        },
+        {
+          "offset": 93,
+          "kind": 20,
+          "symbol": "_strtok",
+          "target": 7876290,
+          "addend": 0,
+          "resolved": 1029745
+        },
+        {
+          "offset": 103,
+          "kind": 20,
+          "symbol": "?From_Name@SmudgeTypeClass@@SI?AW4SmudgeType@@PBD@Z",
+          "target": 6848352,
+          "addend": 0,
+          "resolved": 1797
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "??_C@_01KMAE@?0?$AA@",
+          "target": 8186304,
+          "addend": 0,
+          "resolved": 8186304
+        },
+        {
+          "offset": 126,
+          "kind": 20,
+          "symbol": "_strtok",
+          "target": 7876290,
+          "addend": 0,
+          "resolved": 1029712
+        },
+        {
+          "offset": 143,
+          "kind": 20,
+          "symbol": "_atoi",
+          "target": 7876093,
+          "addend": 0,
+          "resolved": 1029498
+        },
+        {
+          "offset": 148,
+          "kind": 6,
+          "symbol": "??_C@_01KMAE@?0?$AA@",
+          "target": 8186304,
+          "addend": 0,
+          "resolved": 8186304
+        },
+        {
+          "offset": 157,
+          "kind": 20,
+          "symbol": "_strtok",
+          "target": 7876290,
+          "addend": 0,
+          "resolved": 1029681
+        },
+        {
+          "offset": 163,
+          "kind": 20,
+          "symbol": "_atoi",
+          "target": 7876093,
+          "addend": 0,
+          "resolved": 1029478
+        },
+        {
+          "offset": 168,
+          "kind": 6,
+          "symbol": "??_C@_01KMAE@?0?$AA@",
+          "target": 8186304,
+          "addend": 0,
+          "resolved": 8186304
+        },
+        {
+          "offset": 178,
+          "kind": 20,
+          "symbol": "_strtok",
+          "target": 7876290,
+          "addend": 0,
+          "resolved": 1029660
+        },
+        {
+          "offset": 191,
+          "kind": 20,
+          "symbol": "_atoi",
+          "target": 7876093,
+          "addend": 0,
+          "resolved": 1029450
+        },
+        {
+          "offset": 208,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1025875
+        },
+        {
+          "offset": 253,
+          "kind": 6,
+          "symbol": "?SmudgeTypes@@3V?$DynamicVectorClass@PAVSmudgeTypeClass@@@@A",
+          "target": 10750920,
+          "addend": 4,
+          "resolved": 10750924
+        },
+        {
+          "offset": 279,
+          "kind": 20,
+          "symbol": "??0SmudgeClass@@QAE@PBVSmudgeTypeClass@@ABVCoord@@W4HousesType@@@Z",
+          "target": 6845888,
+          "addend": 0,
+          "resolved": 4294966453
+        }
+      ],
+      "source_sha256": "5324060e1b2630e0e46a41fba34e5b4c77783b03d8537ac620908bcc5e9426df",
+      "source": "src/smudge.cpp",
+      "population": "rebuild-smudge",
+      "source_order": 6846448,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6846768,
+      "method": "00687930",
+      "body_bytes": 207,
+      "body_sha256": "064c0ccdaa478323f16c53a1ba64299d5e761aac0c29ac6c1ac130dc9d089943",
+      "padding_bytes": 1,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "8510aca31662ee8fc02ccc3fef37a12bc9e905c89a609f21184ff00677579850",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Write_INI@SmudgeClass@@SIXAAVCCINIClass@@@Z",
+      "symbol_prefix": "?Write_INI@SmudgeClass@@SIXAAVCCINIClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "?INI_NAME@SmudgeClass@@0QBDB",
+          "target": 8041816,
+          "addend": 0,
+          "resolved": 8041816
+        },
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "?Clear@INIClass@@QAE_NPBD0@Z",
+          "target": 5290400,
+          "addend": 0,
+          "resolved": 4293410900
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293658373
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?SmudgeTypes@@3V?$DynamicVectorClass@PAVSmudgeTypeClass@@@@A",
+          "target": 10750920,
+          "addend": 4,
+          "resolved": 10750924
+        },
+        {
+          "offset": 98,
+          "kind": 6,
+          "symbol": "??_C@_02MECO@?$CFd?$AA@",
+          "target": 8186300,
+          "addend": 0,
+          "resolved": 8186300
+        },
+        {
+          "offset": 104,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 1025880
+        },
+        {
+          "offset": 128,
+          "kind": 6,
+          "symbol": "??_C@_0M@NJFN@?$CFs?0?$CFd?0?$CFd?0?$CFd?$AA@",
+          "target": 8340052,
+          "addend": 0,
+          "resolved": 8340052
+        },
+        {
+          "offset": 134,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 1025850
+        },
+        {
+          "offset": 139,
+          "kind": 6,
+          "symbol": "?INI_NAME@SmudgeClass@@0QBDB",
+          "target": 8041816,
+          "addend": 0,
+          "resolved": 8041816
+        },
+        {
+          "offset": 162,
+          "kind": 20,
+          "symbol": "?Put_String@INIClass@@QAE_NPBD00@Z",
+          "target": 5301744,
+          "addend": 0,
+          "resolved": 4293422106
+        }
+      ],
+      "source_sha256": "5324060e1b2630e0e46a41fba34e5b4c77783b03d8537ac620908bcc5e9426df",
+      "source": "src/smudge.cpp",
+      "population": "rebuild-smudge",
+      "source_order": 6846768,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6846976,
+      "method": "00687a00",
+      "body_bytes": 90,
+      "body_sha256": "6f9f4d4e41e43a3e28b8239abaad13f5ea07d166be2b29727a3d6e71a4c2ea5d",
+      "padding_bytes": 6,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "f29bafb21ede1610f4f19a60501514ea50f07dcccc7cc4ca6e15a295332e1778",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load@SmudgeClass@@UAGJPAUIStream@@@Z",
+      "symbol_prefix": "?Load@SmudgeClass@@UAGJPAUIStream@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "?Load@ObjectClass@@UAGJPAUIStream@@@Z",
+          "target": 6113120,
+          "addend": 0,
+          "resolved": 4294233423
+        },
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??0ObjectClass@@QAE@ABVNoInitClass@@@Z",
+          "target": 6104320,
+          "addend": 0,
+          "resolved": 4294224601
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "??_7SmudgeClass@@6BIPersistStream@@@",
+          "target": 8041868,
+          "addend": 0,
+          "resolved": 8041868
+        },
+        {
+          "offset": 48,
+          "kind": 6,
+          "symbol": "??_7SmudgeClass@@6BIRTTITypeInfo@@@",
+          "target": 8041832,
+          "addend": 0,
+          "resolved": 8041832
+        },
+        {
+          "offset": 55,
+          "kind": 6,
+          "symbol": "??_7SmudgeClass@@6BINoticeSink@@@",
+          "target": 8041860,
+          "addend": 0,
+          "resolved": 8041860
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "??_7SmudgeClass@@6BINoticeSource@@@",
+          "target": 8041824,
+          "addend": 0,
+          "resolved": 8041824
+        },
+        {
+          "offset": 74,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 79,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 98509
+        }
+      ],
+      "source_sha256": "5324060e1b2630e0e46a41fba34e5b4c77783b03d8537ac620908bcc5e9426df",
+      "source": "src/smudge.cpp",
+      "population": "rebuild-smudge",
+      "source_order": 6846976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6847072,
+      "method": "00687a60",
+      "body_bytes": 23,
+      "body_sha256": "67aa5188d267e2d40828b549667331f5ae8243714eba78b37d42e5108e77429b",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "e8ca17548d3c739bacd2eb3efb84735bdf03ca3dc29a289522aab72d4e708fcb",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Save@SmudgeClass@@UAGJPAUIStream@@H@Z",
+      "symbol_prefix": "?Save@SmudgeClass@@UAGJPAUIStream@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "?Save@AbstractClass@@UAGJPAUIStream@@H@Z",
+          "target": 4260032,
+          "addend": 0,
+          "resolved": 4292380236
+        }
+      ],
+      "source_sha256": "5324060e1b2630e0e46a41fba34e5b4c77783b03d8537ac620908bcc5e9426df",
+      "source": "src/smudge.cpp",
+      "population": "rebuild-smudge",
+      "source_order": 6847072,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6847104,
+      "method": "00687a80",
+      "body_bytes": 7,
+      "body_sha256": "84358b64bfaccfd336ed4b2ce706f45729f875f610a80f96346cc982b5cad304",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "481c6a7bee7c3498d5d33c7caebaa012418257550fa590bd50f9a042c44a2d33",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Class_Of@SmudgeClass@@UBEPBVObjectTypeClass@@XZ",
+      "symbol_prefix": "?Class_Of@SmudgeClass@@UBEPBVObjectTypeClass@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "5324060e1b2630e0e46a41fba34e5b4c77783b03d8537ac620908bcc5e9426df",
+      "source": "src/smudge.cpp",
+      "population": "rebuild-smudge",
+      "source_order": 6847104,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6847120,
+      "method": "00687a90",
+      "body_bytes": 6,
+      "body_sha256": "e319391862dd479b2a44dc6b74ba42d6e1e51ffaa25c52bad1b7fca3da26b14f",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "51eea8ed1edeab918f21478946cdd7164766b4fcf661a6d1f9d679acb4609745",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Object_Size@SmudgeClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Object_Size@SmudgeClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "5324060e1b2630e0e46a41fba34e5b4c77783b03d8537ac620908bcc5e9426df",
+      "source": "src/smudge.cpp",
+      "population": "rebuild-smudge",
+      "source_order": 6847120,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6847136,
+      "method": "00687aa0",
+      "body_bytes": 6,
+      "body_sha256": "c918a1203a69259982d83238765cc1a18775f73fff4d3db51c0c3933871719ed",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "df951bc7a2af79c28586447f1d79e5422c3e3a936439fb3cd8efb2fa0b5e1cce",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_RTTI@SmudgeClass@@UBE?AW4RTTIType@@XZ",
+      "symbol_prefix": "?Fetch_RTTI@SmudgeClass@@UBE?AW4RTTIType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "5324060e1b2630e0e46a41fba34e5b4c77783b03d8537ac620908bcc5e9426df",
+      "source": "src/smudge.cpp",
+      "population": "rebuild-smudge",
+      "source_order": 6847136,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6847152,
+      "method": "00687ab0",
+      "body_bytes": 56,
+      "body_sha256": "c7e4890a5adb807fe2685d80e9beb31e3f814d1d359aacf1e4a563e8bb3d7430",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "ae07a20fc8a2d8be332fec8621d7318d2e864f405dd04dadb8756db24cc11200",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetClassID@SmudgeClass@@UAGJPAU_GUID@@@Z",
+      "symbol_prefix": "?GetClassID@SmudgeClass@@UAGJPAU_GUID@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_CLSID_SmudgeClass",
+          "target": 8002560,
+          "addend": 0,
+          "resolved": 8002560
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_CLSID_SmudgeClass",
+          "target": 8002560,
+          "addend": 4,
+          "resolved": 8002564
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_CLSID_SmudgeClass",
+          "target": 8002560,
+          "addend": 8,
+          "resolved": 8002568
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_CLSID_SmudgeClass",
+          "target": 8002560,
+          "addend": 12,
+          "resolved": 8002572
+        }
+      ],
+      "source_sha256": "5324060e1b2630e0e46a41fba34e5b4c77783b03d8537ac620908bcc5e9426df",
+      "source": "src/smudge.cpp",
+      "population": "rebuild-smudge",
+      "source_order": 6847152,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6847216,
+      "method": "00687af0",
+      "body_bytes": 3,
+      "body_sha256": "1d10894625976bca9d8906f3ecf1e766b94e9219ec3bf1c30e02feea5e18e45a",
+      "padding_bytes": 13,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "2a2f950faf0d7851fcb17366fb6bc179054ac4270b9c00d37aa03373db6cc20a",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_It@SmudgeClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z",
+      "symbol_prefix": "?Draw_It@SmudgeClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "5324060e1b2630e0e46a41fba34e5b4c77783b03d8537ac620908bcc5e9426df",
+      "source": "src/smudge.cpp",
+      "population": "rebuild-smudge",
+      "source_order": 6847216,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6847232,
+      "method": "00687b00",
+      "body_bytes": 167,
+      "body_sha256": "77100c950b6bc946ad463321b180e2050d4823d708f87cdc1aea8998eaba68e5",
+      "padding_bytes": 9,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "834c78b00cf14b39e19ff10867a0689fb8fa813030040bb0d23d157edd6b671b",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GSmudgeClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GSmudgeClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7SmudgeClass@@6BIPersistStream@@@",
+          "target": 8041868,
+          "addend": 0,
+          "resolved": 8041868
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "??_7SmudgeClass@@6BIRTTITypeInfo@@@",
+          "target": 8041832,
+          "addend": 0,
+          "resolved": 8041832
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "??_7SmudgeClass@@6BINoticeSink@@@",
+          "target": 8041860,
+          "addend": 0,
+          "resolved": 8041860
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "??_7SmudgeClass@@6BINoticeSource@@@",
+          "target": 8041824,
+          "addend": 0,
+          "resolved": 8041824
+        },
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "?Detach_This_From_All@@YIXPBVAbstractClass@@_N@Z",
+          "target": 7261072,
+          "addend": 0,
+          "resolved": 413802
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?Smudges@@3V?$DynamicVectorClass@PAVSmudgeClass@@@@A",
+          "target": 10736192,
+          "addend": 0,
+          "resolved": 10736192
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?Smudges@@3V?$DynamicVectorClass@PAVSmudgeClass@@@@A",
+          "target": 10736192,
+          "addend": 0,
+          "resolved": 10736192
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "?Smudges@@3V?$DynamicVectorClass@PAVSmudgeClass@@@@A",
+          "target": 10736192,
+          "addend": 16,
+          "resolved": 10736208
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?Smudges@@3V?$DynamicVectorClass@PAVSmudgeClass@@@@A",
+          "target": 10736192,
+          "addend": 16,
+          "resolved": 10736208
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "?Smudges@@3V?$DynamicVectorClass@PAVSmudgeClass@@@@A",
+          "target": 10736192,
+          "addend": 4,
+          "resolved": 10736196
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "?Smudges@@3V?$DynamicVectorClass@PAVSmudgeClass@@@@A",
+          "target": 10736192,
+          "addend": 16,
+          "resolved": 10736208
+        },
+        {
+          "offset": 112,
+          "kind": 6,
+          "symbol": "?GameActive@@3_NA",
+          "target": 10750296,
+          "addend": 0,
+          "resolved": 10750296
+        },
+        {
+          "offset": 123,
+          "kind": 20,
+          "symbol": "?Limbo@ObjectClass@@UAE_NXZ",
+          "target": 6108928,
+          "addend": 0,
+          "resolved": 4294228865
+        },
+        {
+          "offset": 140,
+          "kind": 20,
+          "symbol": "??1ObjectClass@@UAE@XZ",
+          "target": 6104368,
+          "addend": 0,
+          "resolved": 4294224288
+        },
+        {
+          "offset": 153,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1024414
+        }
+      ],
+      "source_sha256": "5324060e1b2630e0e46a41fba34e5b4c77783b03d8537ac620908bcc5e9426df",
+      "source": "src/smudge.cpp",
+      "population": "rebuild-smudge",
+      "source_order": 6847232,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

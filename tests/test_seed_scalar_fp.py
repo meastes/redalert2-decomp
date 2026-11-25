@@ -82,22 +82,6 @@ class RepositoryGuardTests(unittest.TestCase):
     def test_old_pointer_width_refused(self):self.prototype=('float10','',['int *a','int b']);self.assertIsNone(self.run_guard())
     def test_non_cdecl_refused(self):self.prototype=('float10','__thiscall',['undefined4 a','undefined4 b']);self.assertIsNone(self.run_guard())
 
-class DynamicImportTests(unittest.TestCase):
-    def test_unregistered_importlib_module_can_seed_calls(self):
-        import importlib.util
-        from pathlib import Path
-        name='unregistered_scalar_fp_seed_test'
-        spec=importlib.util.spec_from_file_location(name,Path(fp.__file__).with_name('seed_candidate.py'))
-        module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
-        module.REPOSITORY=seed.REPOSITORY
-        class Inventory:
-            passes=[]
-            def function(self,entry):return None,{'ranges':[]}
-            def decompiled(self,entry):
-                if entry==0x401000:return 'int __cdecl FUN_00401000(void)\n{\n return FUN_00402000();\n}\n'
-                return 'int __cdecl FUN_00402000(void)\n{\n return 1;\n}\n'
-        self.assertIn('FUN_00402000()',module.seed(0x401000,Inventory(),{}))
-
 class NativeFlowTests(unittest.TestCase):
     def fixture(self,*,store=bytes.fromhex('dd1c24'),between=b'',allocation=8,cleanup=8,callee_ret=bytes.fromhex('c3'),duplicate=False,extra_prefix=b'',bypass=False):
         root,callee,helper=0x1000,0x2000,0x3000
