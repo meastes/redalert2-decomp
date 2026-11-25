@@ -52,6 +52,10 @@ The whole-file build already reproduces the original executable exactly (4,485,3
 SHA256 `e6418111c2c36081a1795fb000e0927beea1630170b334c5013d12102602e70f`), because whatever is
 not yet rebuilt from source is still taken from the original. STATUS counts exactly what that is.
 
+[docs/STATUS.md](docs/STATUS.md) also reports, on a line of its own, how much of the program's data (text strings,
+tables, vtables and other non-code bytes) the compiled source reproduces exactly at the original addresses. That
+figure is a report beside the code figure: it does not count toward Reproduced .text or toward the finish line.
+
 Most of the code is adopted from other projects, with credit: mischa85's RedAlert2 decompilation (the largest
 source), gibbo101's ra2-decomp, the Tiberian Sun reconstruction, RobinDigitalPro's 1.001 rebuild, and EA's Renegade
 and Generals sources; the rest is this project's own work. These sources build on one another, so the split by

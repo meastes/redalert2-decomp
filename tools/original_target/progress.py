@@ -143,6 +143,12 @@ line.update(duplicates=m['duplicates'], externs_landed=ext_landed, externs_all=m
             # in-scope function not exact at its best measured draft score (bytematch_report.py), its own series.
             fuzzy_best_draft=_fuzzy(),
             tree='rebuild-trial')
+# Data reproduced from source (user, 2026-11-25, lane O89): its own series, two new columns, no break in the others;
+# a report beside the code figure, never acceptance or credit (data_measure.py, docs/DATA_AS_SOURCE.md). Read from
+# the gated build's receipt; inserted before `tree`, so the columns read with the measures.
+import data_measure
+tail = {k: line.pop(k) for k in ('tree',)}
+line.update(data_measure.progress_columns(R.ROOT), **tail)
 path = R.MANIFEST / 'progress.csv'
 rows = list(csv.DictReader(open(path))) if path.exists() else []
 # Series breaks are marked on the row where they start (the 2026-11-18T16:07Z one is in the README).

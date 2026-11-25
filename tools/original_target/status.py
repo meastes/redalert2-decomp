@@ -392,6 +392,7 @@ def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, reposi
              'counted at its best measured draft score against its image-derived bound, (body - differing) / body; no '
              'exact-match credit (bytematch_report.py; progress.csv fuzzy_best_draft) | | {} |'.format(
                  fuzzy_cell(r, repository)),
+             data_line(rows, repository),
              '| C/C++ bodies matched (body bytes: no padding, no evidenced inline asm; the parity line) | {:,} B, {} '
              '| {} |'.format(main['body'], pct(main['body']), body_cell),
              '| Evidenced inline assembly (cited TibSun `__asm`; not C/C++ credit) | {:,} B | {:,} B in {:,} rows '
@@ -465,6 +466,29 @@ def fuzzy_cell(row, repository=REPOSITORY):
         return 'from the next gated landing'
     return 'fuzzy (best draft scores): **{:.2f}%** (measured from the checkout; progress.csv from the next gated ' \
            'landing)'.format(value)
+
+# Lane D's sizing of the earlier tree (docs/DATA_AS_SOURCE.md, 2026-11-13): proven by module maps and other objects.
+SRC_FINAL_DATA = (151518, 711662)
+
+
+def data_line(rows, repository=REPOSITORY):
+    """Data reproduced from source (user, 2026-11-25; data_measure.py names the measure): the file-backed non-code
+    bytes a compiled unit's object reproduces at their original addresses. A report beside the code figure: not in
+    Reproduced .text and not acceptance. From the newest progress row of the series, else the newest measured build."""
+    row = next((r for r in reversed(rows) if r.get('data_reproduced_bytes')), None)
+    if row is not None:
+        value, total, when = int(row['data_reproduced_bytes']), SRC_FINAL_DATA[1], 'gated landing ' + row['time_utc']
+    else:
+        import data_measure
+        figure = data_measure.latest_build_figure(repository)
+        if figure is None:
+            return '| Data reproduced from source | n/a | from the next gated landing |'
+        value, total, when = figure[0], figure[1], 'whole-file build ' + figure[2]
+    return ('| Data reproduced from source (file-backed non-code bytes, 711,662 B: headers, .rdata, raw .data, .rsrc; '
+            'equal to the original where a compiled unit\'s object lays them; a report, not in Reproduced .text or '
+            'acceptance; by kind in docs/DATA_AS_SOURCE.md) | {:,} B, {:.1f}% (lane D sizing, 2026-11-13) | **{:,} B, '
+            '{:.1f}%** ({}) |').format(SRC_FINAL_DATA[0], 100.0 * SRC_FINAL_DATA[0] / SRC_FINAL_DATA[1], value,
+                                       100.0 * value / total, when)
 
 
 def rebuild_first(line):

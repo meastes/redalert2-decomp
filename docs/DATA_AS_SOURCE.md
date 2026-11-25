@@ -1,4 +1,110 @@
-# Data as source: sizing and pilot (lane D, 2026-11-13)
+# Data as source
+
+## Data reproduced from source: the measure on this tree (lane O89, 2026-11-25)
+
+User decision (2026-11-25): STATUS prints a second measured line, **data reproduced from source**, beside the
+code figure. It is a report only: data stays out of acceptance, out of Reproduced .text and out of the completion
+criteria. Whether to work data deliberately is the user's later decision.
+
+**The measure** (named once; `tools/original_target/data_measure.py`): the file-backed non-code bytes of the
+original image (headers, `.rdata`, raw `.data`, `.rsrc`, each up to its virtual size: 711,662 bytes) that a
+compiled unit's object emits and that equal the original at the address the object's section is bound to. The
+whole-file build already requires every allocatable data section of every compile group to be an exact duplicate
+of the original (`verify_manifest.original_duplicate`); after its final input checks, `build.py` runs the same
+check again with the original's reads recorded, so the ranges counted are the ranges that check compared.
+Copies are deduplicated by address. The ??_R3 attribute bit stays a recorded known difference (17 descriptors in
+the first measurement), counted, never a failure. A vtable slot naming a virtual function the tree does not compile
+keeps the original entry in that check; those slots are left out (313 slots, 1,252 B). Zero-initialised data
+past raw `.data` (bss) has no bytes to prove: its laid-out symbols are counted on their own line, outside the total.
+The build writes `data-measure.json` (counts and address ranges only) into its folder and the two figures into
+`build-receipt.json`; a failure of the measure never fails the gate. `progress.py` copies them into their own
+series in `manifests/progress.csv` (`data_reproduced_bytes`, `data_reproduced_share`; new columns, no break in the
+others); `status.py` prints the line. Standalone: `data_measure.py BUILD_DIR --table` on a build made with
+`--keep-intermediates`, or `--receipt BUILD_DIR`.
+
+Kinds are lane D's, re-derived from the image by the tool (each byte gets one kind): headers and the debug
+directory, imports and resources from the PE directories; vtables (with the locator slot) and RTTI from the 770
+vtables of `manifests/rtti_classes.json`, the COL/CHD/BCA/BCD/TD graph they reach and every other type descriptor
+in initialised data; float constants from the `__real@` names the catalog binds; string literals from the
+inventory's string types; library data from the linked library members' relocation targets
+(`manifests/original_target/library.json`) that no accepted row references; other `.rdata` is a constant table,
+other raw `.data` an initialised global (runs of four or more zero bytes on their own line). The re-derived kind
+totals differ from lane D's by a few KB (strings 128,367 against 126,489, RTTI 94,434 against 95,236, floats 1,636
+against 1,436, library 5,083 against 5,490); the file-backed total is the same.
+
+### First measurement (tip 73b8d276e2, whole-file exact, 2026-11-25)
+
+**329,296 of 711,662 file-backed non-code bytes, 46.3%** (lane D, earlier tree: 151,518, 21.3%).
+
+| Kind | Bytes | Reproduced from source | Referenced by matched code, not yet emitted | Rest |
+| --- | ---: | ---: | ---: | ---: |
+| String literals | 128,367 | 119,233 | 84 | 9,050 |
+| Float constants (`__real@`) | 1,636 | 1,636 | 0 | 0 |
+| Other constant tables (.rdata) | 79,789 | 50,845 | 1,925 | 27,019 |
+| Vtables (with locator slot) | 44,844 | 43,224 | 20 | 1,600 |
+| RTTI (COL, CHD, BCA, BCD, TD) | 94,434 | 63,873 | 0 | 30,561 |
+| Initialised globals (non-zero) | 228,102 | 45,504 | 24,970 | 157,628 |
+| Initialised globals (zero-valued runs in .data) | 25,705 | 4,957 | 2,172 | 18,576 |
+| Library data (CRT only) | 5,083 | 24 | 0 | 5,059 |
+| Import (descriptors, IAT, ILT, names) | 9,538 | 0 | 1,104 | 8,434 |
+| Resources (.rsrc) | 90,040 | 0 | 0 | 90,040 |
+| Headers, debug directory | 4,124 | 0 | 0 | 4,124 |
+| **File-backed total** | **711,662** | **329,296** | **30,275** | **352,091** |
+| Zero-initialised globals (bss), not file-backed | 3,127,748 | (no bytes to prove; 2,917,558 laid out) | 105,765 | 3,021,983 |
+
+"Referenced by matched code, not yet emitted" runs from each relocation target of an accepted row to the next
+known item start (at most 4 KB) over bytes no object reproduces; "Rest" is the remainder. The newest figure is
+the STATUS line; this table is the first measurement and is not regenerated per landing.
+
+### What rose against 21.3%
+
+| Kind | Lane D, earlier tree (module maps + other objects) | This tree | Rise |
+| --- | ---: | ---: | ---: |
+| String literals | 95,442 | 119,233 | +23,791 |
+| Float constants | 1,436 | 1,636 | +200 |
+| Constant tables | 12,794 | 50,845 | +38,051 |
+| Vtables | 28,380 | 43,224 | +14,844 |
+| RTTI | 593 | 63,873 | +63,280 |
+| Initialised globals (non-zero and zero runs) | 12,873 | 50,461 | +37,588 |
+| Library data | 0 | 24 | +24 |
+| **Total** | **151,518** | **329,296** | **+177,778** |
+
+Nothing was written for data's sake. The rise comes from the tree's shape: one source file per original unit
+compiles every table, literal and function-local static the unit defines into one object, so whole unit blocks
+lay at their original addresses (constant tables and initialised globals, about 75 KB); 368 of 441 units compile
+with `/GR` as the original did, so their RTTI and vtables are emitted and proven (about 78 KB); and literals
+spelled in place rather than as externs (about 24 KB). The 222,266 B (31.2%) the earlier tree reached after its
+/GR batch was the same effect for 354 of 675 populations.
+
+### Next gains (rough lane-days; none lands if it disturbs an exact row)
+
+1. **fastmath tables, 155,712 B (to about 68%).** The five tables at 0x801DC4-0x827E04 are counted here as
+   initialised globals (135,180 B rest, 20,464 B referenced by matched code). The earlier tree reproduced them as a
+   generated data module (`manifests/original_target/generated_data.json`, generator at tag src-final);
+   `generated_data.load()` returns nothing in this tree because the module binds the earlier tree's names (this
+   tree binds five of its seven). Porting the generator and binding the names: about 0.5 lane-day. The measure
+   counts compiled unit objects only; counting a generated module is a separate ruling (it is built from tracked
+   source, not compiled from C++).
+2. **Referenced by matched code, not yet emitted, outside fastmath: about 9.8 KB** (globals 4.5 KB, zero runs
+   2.2 KB, tables 1.9 KB, strings 84 B, vtables 20 B; the 1.1 KB of imports is the IAT, a linker product). Each is
+   a definition, with the original's values, in the unit that owns the block; the code already names it. About
+   1 lane-day. Strings spelled as externs at a literal's address are nearly gone (84 B).
+3. **RTTI 30.6 KB and vtable slots 1.6 KB.** 73 units compile without `/GR` because their RTTI does not match yet
+   (const element types of the type lists, base lists, other vector element types: section "Type findings" below).
+   Each flip is a type audit through shared headers, which can move count-sensitive rows; about 4-6 lane-days. The
+   vtable rest is mostly slots of virtual functions the tree does not compile yet: it closes as parked functions land.
+4. **Authored definitions for unreferenced data: about 77 KB** (constant tables 27.0 KB, strings 9.1 KB, globals
+   22.4 KB outside fastmath, zero runs 18.6 KB). Nothing matched names them; types and extents come from residual
+   code, data pointers or twins. Lane AG's rate was about 0.3 h per KB with the types right: 3 lane-days at best,
+   5-8 with types and extents to establish. The 5.1 KB of library data belongs to the library ledger, not to
+   authored source.
+5. **Not C++ definitions: 103.7 KB.** Imports (9.5 KB) and headers (4.1 KB) are linker products (import libraries,
+   a real link); resources (90.0 KB) need an .rc script and the binary resources (icons, dialog templates), which
+   are original assets and cannot be tracked source. A user decision if ever.
+
+Ceiling of items 1-4: about 600 KB, roughly 84% of the file-backed bytes.
+
+## Sizing and pilot (lane D, 2026-11-13; the earlier tree)
 
 Byte-free counts. Every non-code byte of the image (headers, `.rdata`, `.data` with its
 uninitialised tail, `.rsrc`) gets one kind, and each kind is split by proof state. Nothing

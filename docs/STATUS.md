@@ -16,6 +16,7 @@ A15 is in [history/](history/); current work is in [HANDOFF.md](HANDOFF.md).
 | --- | ---: | ---: |
 | Reproduced .text (both trees: C/C++ body + evidenced inline asm + frozen padding + linked library members + assembled handwritten asm, the six lines below) | **94.34% whole-unit** (3,556,514 B) (94.52% function-level, 3,563,378 B) | 93.58% (3,527,727 B) |
 | Fuzzy (best draft scores): ByteMatch's fuzzy match, in-scope C/C++ bytes with each function not exact counted at its best measured draft score against its image-derived bound, (body - differing) / body; no exact-match credit (bytematch_report.py; progress.csv fuzzy_best_draft) | fuzzy (best draft scores): **95.98%** (measured from the checkout; progress.csv from the next gated landing) | |
+| Data reproduced from source (file-backed non-code bytes, 711,662 B: headers, .rdata, raw .data, .rsrc; equal to the original where a compiled unit's object lays them; a report, not in Reproduced .text or acceptance; by kind in docs/DATA_AS_SOURCE.md) | **329,296 B, 46.3%** (whole-file build 2026-11-25T15:52Z) | 151,518 B, 21.3% (lane D sizing, 2026-11-13) |
 | C/C++ bodies matched (body bytes: no padding, no evidenced inline asm; the parity line) | **3,303,651 B, 87.63% whole-unit** (3,310,176 B, 87.81% function-level); gap to src-final -29.2 KB (-35.7 KB function-level) | 3,274,492 B, 86.86% |
 | Evidenced inline assembly (cited TibSun `__asm`; not C/C++ credit) | 2,555 B in 8 rows (whole-unit) | 2,514 B |
 | Frozen padding of accepted rows | 142,629 B whole-unit (142,968 B function-level) | 143,042 B |

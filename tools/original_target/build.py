@@ -863,7 +863,7 @@ def _build(args,config,catalog,catalog_blobs,audit,tools,library,assembly,genera
     inputs=[REPOSITORY/'manifests/toolchain.json',
             *[Path(__file__).with_name(name) for name in ['build.py','remote_compile.py','canonical.py','catalog_io.py','source_paths.py','verify_manifest.py','coff.py','compiler_output.py',
                                                            'library_build.py','library_identity.py','library_link.py',
-                                                           'assembly_tools.py','assembly_build.py','assembly_link.py','generated_data.py','job_control.py']],
+                                                           'assembly_tools.py','assembly_build.py','assembly_link.py','generated_data.py','job_control.py','data_measure.py']],
             *generated_data.inputs(generated),
             *([library_build.MANIFEST] if library else []),
             *([assembly_build.MANIFEST, *[REPOSITORY/s for s in assembly['sources'] + assembly_build.revised_sources(assembly)], *[REPOSITORY/s for s in assembly.get('includes', {})]] if assembly else [])]
@@ -904,6 +904,18 @@ def _build(args,config,catalog,catalog_blobs,audit,tools,library,assembly,genera
     resolved={p: p.resolve() for p in [*audit.blobs, *getattr(audit,'blob_digests',{})]}
     audit.verify_inputs_unchanged({p: current[r] for p, r in resolved.items() if r in current})
     phase('final input checks')
+    # Data reproduced from source (user, 2026-11-25): a report beside the code figure, never acceptance or
+    # credit; measured on the compile groups while they exist (data_measure.py writes data-measure.json).
+    # A failure of the measure never fails the gate; the receipt says so.
+    data_measure_result=None
+    if not args.shift_module:
+        try:
+            import data_measure
+            data_measure_result=data_measure.run_on_build(audit,catalog,destination,
+                                                          [('fresh-%03d'%i,obj) for i,(_,obj) in enumerate(compiled)])
+        except Exception as error:
+            data_measure_result=dict(error='%s: %s'%(type(error).__name__,str(error)[:300]))
+        phase('data measure')
     report.update(canonical_manifest_sha256=fingerprints[catalog_key],tracked_sources=len(catalog['regions']),
                   tracked_headers=catalog.get('headers', []),
                   discarded_output_receipt_sha256=sha((destination/'discarded-output-receipt.json').read_bytes()),
@@ -914,6 +926,10 @@ def _build(args,config,catalog,catalog_blobs,audit,tools,library,assembly,genera
                   assembly_regions=0 if not assembly else len(assembly['regions']),
                   revised_assembly_bytes=0 if not assembly else sum(r['bytes'] for r in assembly['regions'] if r.get('revised')),
                   generated_data_bytes=json.loads((destination/'integration-receipt.json').read_text()).get('generated_data_bytes', 0),
+                  **({'data_reproduced_bytes':data_measure_result['reproduced_bytes'],
+                      'data_file_backed_bytes':data_measure_result['file_backed_bytes']}
+                     if data_measure_result and 'reproduced_bytes' in data_measure_result else
+                     {'data_measure_error':data_measure_result['error']} if data_measure_result else {}),
                   toolchain=tools,authored_dependencies=fingerprints,seconds=time.monotonic()-started,
                   stages=stages.items,lock_waits=lock_waits(destination),
                   compile_policy='Fresh accepted-only sources; historical population/option groups, no candidate-search matrices')
