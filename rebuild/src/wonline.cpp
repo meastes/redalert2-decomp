@@ -7546,8 +7546,13 @@ void Update_Channel_Player_Limit(void) // RA2: 0x00749F20, not in TibSun: tells 
 	}
 }
 
-wchar_t * __fastcall Player_Info_Tooltip(wchar_t const * name); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 857 bytes differ (main's text; the original hashes the key out of line, Dictionary<Wstring,Ladder> 0x00767550, where getValue expands it here)
+/// <summary>
+/// RA2: the clan name of a lobby user, widened (ra2-decomp src/wonline.cpp's file-local Wide_Squad_Name).
+/// </summary>
+static inline wchar_t * Wide_Squad_Name(User const & user)
+{
+	return Narrow_To_Wide((char const *)user.squadname);
+}
 wchar_t g_PlayerTooltip[256]; // RA2: the text Player_Info_Tooltip returns
 wchar_t * __fastcall Player_Info_Tooltip(wchar_t const * name) // RA2: 0x0074A120, not in TibSun: the tooltip of a player of the game lobby: the rank of the player and of the player's clan, when they have one
 {
@@ -7571,15 +7576,15 @@ wchar_t * __fastcall Player_Info_Tooltip(wchar_t const * name) // RA2: 0x0074A12
 		has_squad=true;
 		squad_abbreviation.set((char *)user.squadabbrev);
 		squad_abbreviation.toLower();
-		squad_found=g_BattleClansLadderDict.getValue(squad_abbreviation,squad_ladder)!=0;
+		if (g_BattleClansLadderDict.getValue(squad_abbreviation, squad_ladder)) squad_found = true;
 	}
 	if(player_found) {
 		if(has_squad) {
 			if(squad_found) {
-				wchar_t *squad_name=Narrow_To_Wide((char *)user.squadname);
+				wchar_t * squad_name = Wide_Squad_Name(user);
 				swprintf(g_PlayerTooltip,StringTable::LoadString("TXT_PLAYER_TOOLTIP_R_C_CR",0,"D:\\Ra2\\wonline.cpp",0x36ce),StringTable::LoadString("TXT_RANK",0,"D:\\Ra2\\wonline.cpp",0x36ce),player_ladder.rung,squad_name,squad_ladder.rung);
 			} else {
-				wchar_t *squad_name=Narrow_To_Wide((char *)user.squadname);
+				wchar_t * squad_name = Wide_Squad_Name(user);
 				swprintf(g_PlayerTooltip,StringTable::LoadString("TXT_PLAYER_TOOLTIP_R_C_CUNR",0,"D:\\Ra2\\wonline.cpp",0x36d2),StringTable::LoadString("TXT_RANK",0,"D:\\Ra2\\wonline.cpp",0x36d2),player_ladder.rung,squad_name);
 			}
 		} else {
@@ -7588,10 +7593,10 @@ wchar_t * __fastcall Player_Info_Tooltip(wchar_t const * name) // RA2: 0x0074A12
 	} else {
 		if(has_squad) {
 			if(squad_found) {
-				wchar_t *squad_name=Narrow_To_Wide((char *)user.squadname);
+				wchar_t * squad_name = Wide_Squad_Name(user);
 				swprintf(g_PlayerTooltip,StringTable::LoadString("TXT_PLAYER_TOOLTIP_UNR_C_CR",0,"D:\\Ra2\\wonline.cpp",0x36dc),StringTable::LoadString("TXT_UNRANKED",0,"D:\\Ra2\\wonline.cpp",0x36dc),squad_name,squad_ladder.rung);
 			} else {
-				wchar_t *squad_name=Narrow_To_Wide((char *)user.squadname);
+				wchar_t * squad_name = Wide_Squad_Name(user);
 				swprintf(g_PlayerTooltip,StringTable::LoadString("TXT_PLAYER_TOOLTIP_UNR_C_CUNR",0,"D:\\Ra2\\wonline.cpp",0x36e0),StringTable::LoadString("TXT_UNRANKED",0,"D:\\Ra2\\wonline.cpp",0x36e0),squad_name);
 			}
 		} else {
@@ -7600,7 +7605,6 @@ wchar_t * __fastcall Player_Info_Tooltip(wchar_t const * name) // RA2: 0x0074A12
 	}
 	return g_PlayerTooltip;
 }
-#endif
 
 
 wchar_t * __fastcall Player_Ping_Tooltip(wchar_t const * name) // RA2: 0x0074A4E0, not in TibSun: the tooltip of the ping icon of the player of this slot name: "unknown" when no ping is known, else good (below 300), fair (below 500) or poor with the number
