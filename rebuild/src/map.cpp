@@ -10901,12 +10901,11 @@ void MapClass::Register_Subzone_Zone_Connections(int subzone)
 /// </summary>
 /// <param name="connection">The bridge or tunnel connection to stitch in.</param>
 /// <param name="index">The subzone level whose staging set receives the links.</param>
-#ifdef RA2_NON_MATCHING // not exact: 74 bytes differ (2026-11-23, the bridge facing index written as in this file's Compute_Zone_Connections; main's record helper and count locals; the original leaves the third Add_Object out of line)
-static inline void Set_Zone_Record(SUBZONE_CONNECTION_HASH_SET::ObjectType & record, unsigned int key, SubzoneConnectionStruct const & value)
+static inline void Set_Zone_Record(SUBZONE_CONNECTION_HASH_SET::ObjectType & record, unsigned int key)
 {
 	record.Key = key;
-	record.Value.SubzoneID = value.SubzoneID;
-	record.Value.IsCrossBlock = value.IsCrossBlock;
+	record.Value.SubzoneID = key;
+	record.Value.IsCrossBlock = false;
 }
 
 void MapClass::Register_Zone_Connection_Entries(ZoneConnectionClass * connection, int index) // RA2: 0x564B60, takes the connection by pointer
@@ -10963,7 +10962,7 @@ void MapClass::Register_Zone_Connection_Entries(ZoneConnectionClass * connection
 		int to_zone = CellSubzones[Get_Cell_Zone_Index(to)].SubzoneID[index];
 
 		int value = Zone_Pack32(from_zone, to_zone);
-		Set_Zone_Record(connstr, value, SubzoneConnectionStruct(value));
+		Set_Zone_Record(connstr, value);
 		set->Add_Object(Zone_Pack8(from_zone, to_zone), connstr);
 	}
 
@@ -10972,7 +10971,7 @@ void MapClass::Register_Zone_Connection_Entries(ZoneConnectionClass * connection
 		int to_zone = CellSubzones[Get_Cell_Zone_Index(newcell1)].SubzoneID[index];
 
 		int value = Zone_Pack32(from_zone, to_zone);
-		Set_Zone_Record(connstr, value, SubzoneConnectionStruct(value));
+		Set_Zone_Record(connstr, value);
 		set->Add_Object(Zone_Pack8(from_zone, to_zone), connstr);
 	}
 
@@ -10981,11 +10980,10 @@ void MapClass::Register_Zone_Connection_Entries(ZoneConnectionClass * connection
 		int to_zone = CellSubzones[Get_Cell_Zone_Index(newcell2)].SubzoneID[index];
 
 		int value = Zone_Pack32(from_zone, to_zone);
-		Set_Zone_Record(connstr, value, SubzoneConnectionStruct(value));
+		Set_Zone_Record(connstr, value);
 		set->Add_Object(Zone_Pack8(from_zone, to_zone), connstr);
 	}
 }
-#endif
 
 
 /// <summary>
