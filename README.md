@@ -20,19 +20,14 @@ exact rebuild covers base Red Alert 2 1.006 only.
 
 ## Where it stands
 
-Numbers are generated into [docs/STATUS.md](docs/STATUS.md); the headline ones (25 November 2026):
+Current figures (Reproduced .text, functions matched, the drafts still open, the data line, the split by source)
+are generated into [docs/STATUS.md](docs/STATUS.md) at each landing and shown on
+[bytematch.dev](https://bytematch.dev/meastes/redalert2-decomp); this README carries none, so it never goes stale.
 
-| Measure | Value |
-| --- | ---: |
-| Reproduced .text (built from real inputs, not copied from the original) | 94.34% (94.52% function by function) |
-| C/C++ function bodies matched exactly | 3,303,651 bytes (87.63%) |
-| Functions matched exactly | 17,819 in 441 original source files |
-| Functions not yet exact (kept as labelled drafts) | 102 (84,118 bytes) |
-
-22 of the matched functions (55,650 bytes, 1.5% of the code) use a form chosen by this project
-rather than one found in Westwood's code or a reference decompilation, allowed since 24 November
-and flagged by kind: 7 keep a small inline helper whose existence the machine code shows, 11 spell a
-statement or condition differently, 4 name a local variable the compiler needs. Matching reference
+A small share of the matched functions use a form chosen by this project rather than one found in Westwood's code or a
+reference decompilation, allowed since 24 November and flagged by kind (a small inline helper whose existence the
+machine code shows, a different spelling of a statement or condition, a local variable named for the compiler), and
+forms carried in with adopted reference text are flagged too; STATUS counts each kind. Matching reference
 text replaces any of them when it turns up. The earlier tree (`src-final`) reached 93.58% on the same
 measure; its frozen table is [docs/history/SRC_FINAL_STATUS.md](docs/history/SRC_FINAL_STATUS.md).
 
