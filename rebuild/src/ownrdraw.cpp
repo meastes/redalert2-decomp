@@ -10641,7 +10641,7 @@ TextNode * NodeList::Add_Node(int length)
 	return node;
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 6538 bytes differ against the image-derived bound 005f4ba0 (6,895 body bytes) (was 6554; the item-data and selection cases first in the order of ra2-decomp's banked form banks/0x00617250_odh.cpp (11df85d), RA2 case bodies and fall-through groups kept; the text query's shared result with the signed clamp and the item sentinel tested before null as the bank has them)
+#ifdef RA2_NON_MATCHING // not exact: 6502 bytes differ against the image-derived bound 005f4ba0 (6,895 body bytes) (was 6538; the dropdown's visible rows computed before the count is read, as ra2-decomp's banked form banks/0x00617250_odh.cpp (11df85d) has it; the item-data and selection cases first in the bank's order, RA2 case bodies and fall-through groups kept; the text query's shared result with the signed clamp and the item sentinel tested before null as the bank has them)
 namespace OwnerDraw {
 
 LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
@@ -10791,12 +10791,13 @@ LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lp
 			int item_height = SendMessageA(window, CB_GETITEMHEIGHT, 0, 0);
 			if (item_height <= 0) return 0;
 			int height = drop_rect.bottom - drop_rect.top;
+			int visible = (height - 1) / item_height;
 			int count = SendMessageA(window, CB_GETCOUNT, 0, 0);
 			if (count < 1) count = 1;
 			if (data->ComboStyle > 0) {
-				if (count > data->ComboStyle) count = data->ComboStyle;
+				if (count >= data->ComboStyle) count = data->ComboStyle;
 				height = count * item_height + 1;
-			} else if ((height - 1) / item_height > count) {
+			} else if (visible > count) {
 				height = count * item_height + 1;
 			}
 			if (display.bottom + height > parent_rect.bottom) height = parent_rect.bottom - display.bottom;

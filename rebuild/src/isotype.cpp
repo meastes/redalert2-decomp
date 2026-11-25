@@ -1789,7 +1789,6 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
 				}
 
 				int right_clip = ISO_DRAW_WIDTH-1;
-				int lock_x = work.X;
 				int clip_right = cliprect.Width + cliprect.X;
 				if (work.X + spanw > clip_right) {
 					int overhang = spanw - cliprect.Width - cliprect.X + work.X;
@@ -1827,7 +1826,7 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
 						IsoDrawData.RowRunLength = (unsigned char *)&_iso_run_lengths[MAX(0, right_clip)][table_off];
 					}
 					IsoDrawData.SurfacePitch = surface.Stride();
-					IsoDrawData.DestPtr = (unsigned short *)surface.Lock(Point2D(lock_x, work.Y));
+					IsoDrawData.DestPtr = (unsigned short *)surface.Lock(Point2D(work.X, work.Y));
 					if (IsoDrawData.DestPtr == NULL) {
 						skip_extra = true;
 					} else {
@@ -1837,10 +1836,10 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
 						if (!record->IsHasZData) {
 							use_z = 0;
 						} else if (use_z) {
-							IsoDrawData.DepthPtr = (unsigned short *)DepthBuffer->Get_Buffer_Offset(Point2D(lock_x, work.Y - TacticalRect.Y));
+							IsoDrawData.DepthPtr = (unsigned short *)DepthBuffer->Get_Buffer_Offset(Point2D(work.X, work.Y - TacticalRect.Y));
 							IsoDrawData.DepthWidth = DepthBuffer->BufferWidth;
 						}
-						arow = (unsigned short *)AlphaBuffer->Get_Buffer_Offset(Point2D(lock_x, work.Y - TacticalRect.Y));
+						arow = (unsigned short *)AlphaBuffer->Get_Buffer_Offset(Point2D(work.X, work.Y - TacticalRect.Y));
 						IsoDrawData.AlphaPtr = arow;
 						IsoDrawData.AlphaWidth = AlphaBuffer->Get_Buffer_Width();
 						IsoDrawData.SrcPixel = (int)(record + 1);

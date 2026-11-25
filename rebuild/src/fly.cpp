@@ -44,6 +44,7 @@
 #include "_rtti.h"
 #include "_rules.h"
 #include "aircraft.h"
+#include "cast.h"
 #include "airctype.h"
 #include "anim.h"
 #include "animtype.h"
@@ -1094,7 +1095,7 @@ bool FlyLocomotionClass::Process_Landing(void)
 /// </summary>
 /// <param name="stage_approach">Should the approach speed and turret aim be staged for arrival?</param>
 /// <returns>Returns with the distance remaining to the destination.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 562 bytes differ against the image bound 004be720 (1633 body bytes; 1456 before TibSun's strafe block at its place: the Coord here local, Point2D(here).Distance_To and DIR_STEP_8 from its fly.cpp): DirType's operator>= inline where the original calls it (0x4be97d); frame 0x34 against 0x2c, 2026-11-23 (lane F35): the first direction through Red Alert's inline ObjectClass::Direction(Coord const &), from which the image calls DirType::Direction 0x423EF0 as it does here
+#ifdef RA2_NON_MATCHING // not exact: 547 bytes differ against the image bound 004be720 (1633 body bytes; the building kept as a BuildingClass pointer and the aircraft through As_Aircraft before New_LZ, as ra2-decomp (PR339) has it, same code; 1456 before TibSun's strafe block at its place: the Coord here local, Point2D(here).Distance_To and DIR_STEP_8 from its fly.cpp): DirType's operator>= inline where the original calls it (0x4be97d); frame 0x34 against 0x2c, 2026-11-23 (lane F35): the first direction through Red Alert's inline ObjectClass::Direction(Coord const &), from which the image calls DirType::Direction 0x423EF0 as it does here
 int FlyLocomotionClass::Nearing_Target(bool stage_approach, CoordStruct coord)
 {
 	LinkedTo->Get_Cell(); // RA2: the cell is fetched and not used
@@ -1113,12 +1114,12 @@ int FlyLocomotionClass::Nearing_Target(bool stage_approach, CoordStruct coord)
 	 * cell (and this isn't a hunter-seeker), measure to the center of that building instead.
 	 */
 	Coord aim = coord;
-	ObjectClass * building = Map[Coord(coord).As_Cell()].Cell_Building(); // RA2: the building is kept as an object
+	BuildingClass * building = Map[Coord(coord).As_Cell()].Cell_Building();
 	if (building != NULL && !LinkedTo->TClass->IsHunterSeeker) {
-		if (!LinkedTo->ContainsLink((TechnoClass *)building)) { // RA2: a building the aircraft is not linked to is no aim point; an aircraft heads for a landing zone near it instead
-			FootClass * self = LinkedTo;
-			if (self != NULL && self->Fetch_RTTI() == RTTI_AIRCRAFT) {
-				AbstractClass * dock = ((AircraftClass *)self)->New_LZ(building);
+		if (!LinkedTo->ContainsLink(building)) { // RA2: a building the aircraft is not linked to is no aim point; an aircraft heads for a landing zone near it instead
+			AircraftClass * aircraft = As_Aircraft(LinkedTo);
+			if (aircraft != NULL) {
+				AbstractClass * dock = aircraft->New_LZ(building);
 				if (dock == NULL) {
 					aim = COORD_NONE;
 				} else {

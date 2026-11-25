@@ -6438,14 +6438,8 @@ DirType UnitClass::Turret_Facing(void) const
 /// <param name="xdrawpoint">The pixel position to center the unit's model upon.</param>
 /// <param name="xcliprect">The clipping rectangle to draw within.</param>
 /// <param name="brightness">The lighting level to draw the unit at.</param>
-#ifdef RA2_NON_MATCHING // not exact: no row yet (image-derived bound 006ff690-007005a5, 3861+11, in image_bounds.csv); 2465 bytes differ against it (was 2468; both turret paths in TibSun unit.cpp's branch order, the barrel drawn at once in the first arm, deferred in the other) with Is_Archive_Same bound at 0x0070A3F0 (lane O28, 2026-11-22: ra2-decomp's Is_Barrel_Ahead and shadow-key goto; was 123 instructions off); open: the original calls Is_Present 0x70A350 out of line at the barrel_cached site (the body is exact but for that and the Is_Archive_Same 0x70A3F0 binding when three more inline sites are pending after it, a probe, not a source)
+#ifdef RA2_NON_MATCHING // not exact: no row yet (image-derived bound 006ff690-007005a5, 3861+11, in image_bounds.csv); 2461 bytes differ against it (was 2465; both barrel-order decisions test the four-way facing directly as TibSun unit.cpp does, no unit-local predicate; both turret paths in TibSun's branch order, the barrel drawn at once in the first arm, deferred in the other) with Is_Archive_Same bound at 0x0070A3F0 (lane O28, 2026-11-22: shadow-key goto; was 123 instructions off); open: the original calls Is_Present 0x70A350 out of line at the barrel_cached site (the body is exact but for that and the Is_Archive_Same 0x70A3F0 binding when three more inline sites are pending after it, a probe, not a source)
 #include "spawnmanager.h"
-
-static inline bool Is_Barrel_Ahead(FacingClass const & facing) // RA2: ra2-decomp include/voxfacing.h
-{
-	return(facing.Current().As_Dir4() > 0
-		&& facing.Current().As_Dir4() < 3);
-}
 
 void UnitClass::Unit_Draw_Voxel(Point2D xdrawpoint, Rect xcliprect, int brightness) const
 {
@@ -6540,7 +6534,7 @@ void UnitClass::Unit_Draw_Voxel(Point2D xdrawpoint, Rect xcliprect, int brightne
 
 		if (((UnitClass *)this)->Has_Turret_Weapons()) {
 			bool draw_barrel;
-			if (!Is_Barrel_Ahead(SecondaryFacing)) {
+			if (SecondaryFacing.Current().As_Dir4() <= 0 || SecondaryFacing.Current().As_Dir4() >= 3) {
 				draw_barrel = false;
 				if (has_barrel) {
 					Draw_Voxel(drawclass->ChargerBarrels[charger], 0, tkey, &drawclass->AuxVoxel2Index, cliprect, drawpoint, barrel_matrix, brightness, ShapeFlags_Type(SHAPE_ALPHA | SHAPE_ZGRAD));
@@ -6556,7 +6550,7 @@ void UnitClass::Unit_Draw_Voxel(Point2D xdrawpoint, Rect xcliprect, int brightne
 			}
 		} else {
 			bool draw_barrel;
-			if (!Is_Barrel_Ahead(SecondaryFacing)) {
+			if (SecondaryFacing.Current().As_Dir4() <= 0 || SecondaryFacing.Current().As_Dir4() >= 3) {
 				draw_barrel = false;
 				voxl = &drawclass->AuxVoxel2;
 				if (voxl->VoxLib != NULL && voxl->MotLib != NULL) {

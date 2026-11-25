@@ -453,24 +453,24 @@ void LoadProgressManager::Draw(void)
 			int side = Progress.Get_Side();
 			char const * title_name = Get_Title_Bar_File(VideoModeWidth, VideoModeHeight, side);
 			char const * bar_name = Get_Splash_Bar_File(VideoModeWidth, VideoModeHeight, side);
-			TitleBarShape = Load_Alloc_Data(title_name, TitleBarShapeLoaded);
-			TextBarShape = Load_Alloc_Data(bar_name, TextBarShapeLoaded);
-			PictureShape = Load_Alloc_Data(name, PictureShapeLoaded);
+			TitleBarShape = (ShapeSet *)Load_Alloc_Data(title_name, TitleBarShapeLoaded);
+			TextBarShape = (ShapeSet *)Load_Alloc_Data(bar_name, TextBarShapeLoaded);
+			PictureShape = (ShapeSet *)Load_Alloc_Data(name, PictureShapeLoaded);
 			ConvertClass * title_drawer = Get_Load_Screen_Drawer();
 			ConvertClass * picture_drawer = Get_Load_Screen_Side_Drawer();
 			ConvertClass * bar_drawer = Get_Splash_Bar_Drawer();
 
 			Point2D point(TitleBarRect.X, TitleBarRect.Y);
 			if (TitleBarShape != NULL) {
-				Draw_Shape(*ProgressSurface, *title_drawer, (ShapeSet const *)TitleBarShape, 0, point, screen, SHAPE_WIN_REL, NULL, 0, ZGRAD_GROUND, 1000, NULL, 0, Point2D(0, 0));
+				Draw_Shape(*ProgressSurface, *title_drawer, TitleBarShape, 0, point, screen, SHAPE_WIN_REL, NULL, 0, ZGRAD_GROUND, 1000, NULL, 0, Point2D(0, 0));
 			} else {
 				ProgressSurface->Fill_Rect(screen, TitleBarRect, background);
 			}
 			point.Y = PictureRect.Y;
-			Draw_Shape(*ProgressSurface, *picture_drawer, (ShapeSet const *)PictureShape, 0, point, screen, SHAPE_WIN_REL, NULL, 0, ZGRAD_GROUND, 1000, NULL, 0, Point2D(0, 0));
+			Draw_Shape(*ProgressSurface, *picture_drawer, PictureShape, 0, point, screen, SHAPE_WIN_REL, NULL, 0, ZGRAD_GROUND, 1000, NULL, 0, Point2D(0, 0));
 			point.Y = TextBarRect.Y;
 			if (TextBarShape != NULL) {
-				Draw_Shape(*ProgressSurface, *bar_drawer, (ShapeSet const *)TextBarShape, 0, point, screen, SHAPE_WIN_REL, NULL, 0, ZGRAD_GROUND, 1000, NULL, 0, Point2D(0, 0));
+				Draw_Shape(*ProgressSurface, *bar_drawer, TextBarShape, 0, point, screen, SHAPE_WIN_REL, NULL, 0, ZGRAD_GROUND, 1000, NULL, 0, Point2D(0, 0));
 			} else {
 				ProgressSurface->Fill_Rect(screen, TextBarRect, background);
 			}
@@ -507,10 +507,10 @@ void LoadProgressManager::Draw(void)
 		int side = Session.Players[0]->Get_Country();
 		char const * suffix = VideoModeWidth == LowResWidth ? Suffix640 : Suffix800;
 		Loading_Filename(filename, side, suffix);
-		PictureShape = Load_Alloc_Data(filename, PictureShapeLoaded);
+		PictureShape = (ShapeSet *)Load_Alloc_Data(filename, PictureShapeLoaded);
 		ConvertClass * drawer = Get_MP_Load_Drawer();
 		Point2D point = Copy_Point(&PictureRect);
-		Draw_Shape(*ProgressSurface, *drawer, (ShapeSet const *)PictureShape, 0, point, screen, SHAPE_WIN_REL, NULL, 0, ZGRAD_GROUND, 1000, NULL, 0, Point2D(0, 0));
+		Draw_Shape(*ProgressSurface, *drawer, PictureShape, 0, point, screen, SHAPE_WIN_REL, NULL, 0, ZGRAD_GROUND, 1000, NULL, 0, Point2D(0, 0));
 
 		ColorScheme * scheme = Progress.Text_Scheme();
 		RGBClass pixel_color = scheme->HSV;

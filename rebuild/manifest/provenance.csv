@@ -9893,6 +9893,7 @@ particle,00608b20,??1ParticleClass@@UAE@XZ,138,a,mischa85,yes,,released by lane 
 particle,00608bb0,?Gas_Behavior_AI@ParticleClass@@QAEXXZ,1601,a,"gibbo101/ra2-decomp f5e9025 include/ballistic.h (Ballistic_Move) and src/particle.cpp, src/bounce.cpp",edit,12,"lane F18: the flat block replaced by ra2-decomp's Ballistic_Move(position, velocity, Rule->Gravity, 1.0, 0.0) (their YR twin 0x62BD50); Slope_Vector removed (no user left); calibration:no",
 particle,00609200,?Railgun_Behavior_AI@ParticleClass@@QAEXXZ,401,a,mischa85,yes,,released by lane R4 tooling,
 particle,006093a0,?Smoke_Behavior_AI@ParticleClass@@QAEXXZ,405,a,mischa85,yes,,released by lane R4 tooling,
+particle,00609540,?Spark_Behavior_AI@ParticleClass@@QAEXXZ,1069,a,"ra2-decomp 58ce6c5 matched Yuri's Revenge Spark_Behavior_AI (0x62C6E0) with its independent obstacle tests in ballistic.h's Ballistic_Move; RA2 Considered_Vehicle at the second test",yes,1,"c2land C1T (codex1 r3100): guard removed; ballistic.h includers particle and bounce checked (bounce unchanged). Calibration: no",
 particle,00609970,?Fire_Behavior_AI@ParticleClass@@QAEXXZ,800,a,mischa85,yes,,released by lane R4 tooling,
 particle,00609c90,?Behavior_AI@ParticleClass@@QAEXXZ,116,a,mischa85,yes,,released by lane R4 tooling,
 particle,00609d10,?Draw_It@ParticleClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z,964,a,mischa85,yes,,released by lane R4 tooling,

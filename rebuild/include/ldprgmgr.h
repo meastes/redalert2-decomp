@@ -15,6 +15,7 @@
 #include "abstract.h"
 
 class MixFileClass;
+class ShapeSet;
 class Surface;
 class BSurface;
 
@@ -51,9 +52,9 @@ class LoadProgressManager : public INoticeSink
 		Rect TextBarRect; // RA2: +0x28, a campaign's bar below the picture
 		wchar_t const * LoadMessage; // RA2: +0x38, the text in the title bar
 		wchar_t const * LoadBriefing; // RA2: +0x3C, the text in the picture
-		void * TitleBarShape; // RA2: +0x40
-		void * PictureShape; // RA2: +0x44
-		void * TextBarShape; // RA2: +0x48
+		ShapeSet * TitleBarShape; // RA2: +0x40
+		ShapeSet * PictureShape; // RA2: +0x44
+		ShapeSet * TextBarShape; // RA2: +0x48
 		bool TitleBarShapeLoaded; // RA2: +0x4C, the shape was read from a file and is ours to free
 		bool PictureShapeLoaded; // RA2: +0x4D
 		bool TextBarShapeLoaded; // RA2: +0x4E
