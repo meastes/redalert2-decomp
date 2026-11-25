@@ -224,22 +224,16 @@ HWND GameoptWindow(void)
 	HWND dialog;
 
 	dialog = WS_Find_Dialog(IDD_WOL_GAMEOPT);
-	if (dialog) {
-		return(dialog);
+	if (dialog == NULL) {
+		dialog = WS_Find_Dialog(IDD_WOL_GUEST);
 	}
-	dialog = WS_Find_Dialog(IDD_WOL_GUEST);
-	if (dialog) {
-		return(dialog);
+	if (dialog == NULL) {
+		dialog = WS_Find_Dialog(IDD_MPLAYER_HOST);
 	}
-	dialog = WS_Find_Dialog(IDD_MPLAYER_HOST);
-	if (dialog) {
-		return(dialog);
+	if (dialog == NULL) {
+		dialog = WS_Find_Dialog(IDD_MPLAYER_GUEST);
 	}
-	dialog = WS_Find_Dialog(IDD_MPLAYER_GUEST);
-	if (dialog) {
-		return(dialog);
-	}
-	return(0);
+	return(dialog);
 }
 
 
@@ -1055,12 +1049,12 @@ int __fastcall Get_Slot_Control_Id(int slot); // RA2: 0x005C97A0, as above
 /// <param name="name">Name of the player the options came from.</param>
 /// <returns>bool; Did the scenario change?</returns>
 bool __fastcall Net2DecodeGameopt(char const * text, char const * sender); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 7730 bytes differ by position against the image-derived bound 005c3ff0 (8,191 B, ours 8,208 B; 7,768 before, main-derived text): ra2-decomp's text for the Yuri's Revenge twin (DecodePubGameopt 0x005E3D10, matched there) in this tree's names, every reference bound from the image's operands (lane O91), with the executable's shapes where it differs from the twin: no lock wrapper (an early return), the observer dialog test as one condition, a free and return in each NAT case and one map-state call. Every call and its order are the executable's except one: the executable calls GenericNode's constructor (0x0040E160) for the INI's first list node where ours expands it (an inline budget difference). Left: register allocation (the executable keeps zero in edi and the copy in ebx with the sender in ebp; ours the copy in edi, the sender in ebx) and the frame (0x390 there, 0x39C here; every buffer 8 to 12 bytes off)
-static inline void AI_Slot_String(char * buffer) // RA2: ra2-decomp's file-local helper of the same name (src/netshare.cpp); this executable lists the computer players' countries only
+#ifdef RA2_NON_MATCHING // not exact: 7723 bytes differ by position against the image-derived bound 005c3ff0 (8,191 B, ours 8,176 B; 7,730 before): ra2-decomp's text for the Yuri's Revenge twin (DecodePubGameopt 0x005E3D10, matched there) in this tree's names, every reference bound from the image's operands (lane O91). Lane F65: the frame is the executable's (0x390, every slot) with the twin's own forms (a break in each NAT case, the implicit Wstring conversions, the address as an unsigned long and a cast store, GameoptWindow kept in one variable) and this executable's buffer sizes (one number a slot: text[4], and lists that fit under the INI's 56 bytes). The executable's shapes where it differs from the twin stay: no lock wrapper (an early return), the observer dialog test as one condition and one map-state call. Left: one register order at the top (the executable keeps zero in edi, the copy in ebx and the sender in ebp; ours the copy in edi and the sender in ebx, with 4 cached in ebp), and one inline charge (the executable calls GenericNode's constructor, 0x0040E160, for the INI's second list node). Both turn together: with one reference to the sender fewer, or one more inline site ahead of the Ping case, 71 instructions are left (the NAT case 3 pointer registers, two zero pushes in the observer case, the map name's register in the campaign case and the INI's node)
+static inline void AI_Slot_String(char * buffer) // RA2: ra2-decomp's file-local helper of the same name (src/netshare.cpp); this executable lists the computer players' countries only, so one number and its comma fit in four characters (the executable keeps the text in a dword slot it shares with the port)
 {
 	buffer[0] = 0;
 	for (int s = 0; s < 8; s++) {
-		char text[12];
+		char text[4];
 		sprintf(text, "%d,", Session.Options.AISlots.Countries[s]);
 		strcat(buffer, text);
 	}
@@ -1085,6 +1079,8 @@ bool __fastcall Net2DecodeGameopt(char const * options, char const * name) // RA
 	static bool _last_goodies; // RA2: 0x00A72D57
 
 	bool do_decode = false;
+	char old_ai[32];
+	char new_ai[32];
 
 	char * string = strdup(options);
 	char * token = string;
@@ -1100,15 +1096,13 @@ bool __fastcall Net2DecodeGameopt(char const * options, char const * name) // RA
 						Register_Connection_State(name, buffer, state);
 					}
 				}
-				free(string);
-				return(false);
+				break;
 			}
 
 			case '2': {
 				int port = atol(&token[2]);
 				Store_Player_Port(name, port);
-				free(string);
-				return(false);
+				break;
 			}
 
 			case '3':
@@ -1186,7 +1180,7 @@ bool __fastcall Net2DecodeGameopt(char const * options, char const * name) // RA
 		} else if (*token == 'A') {
 			int status = atol(&token[1]);
 			if (g_pChat != NULL) {
-				SetPlayerAccepted(Wstring(name), status);
+				SetPlayerAccepted(name, status);
 			} else {
 				Net2SetAccept(name, status);
 			}
@@ -1254,7 +1248,7 @@ bool __fastcall Net2DecodeGameopt(char const * options, char const * name) // RA
 			free(string);
 			return(false);
 		} else if (*token == 'L') {
-			WideWstring list = Wstring_ToWide(Wstring(options + 1));
+			WideWstring list = Wstring_ToWide(options + 1);
 			Set_Slot_Names(list.get());
 			HWND dialog = WS_Find_Dialog(IDD_WOL_GUEST);
 			if (dialog) {
@@ -1373,7 +1367,7 @@ bool __fastcall Net2DecodeGameopt(char const * options, char const * name) // RA
 
 		bool same_scenario = true;
 		char * scenario_description = strtok(NULL, ",");
-		WideWstring description = (Session.Type == GAME_INTERNET && Is_Tournament_Session()) ? WideWstring(L"") : Wide_From_7_Bit(Wstring(scenario_description));
+		WideWstring description = (Session.Type == GAME_INTERNET && Is_Tournament_Session()) ? WideWstring(L"") : Wide_From_7_Bit(scenario_description);
 
 		token = strtok(NULL, ",");
 		int old_max = Session.ScenarioMaxPlayers;
@@ -1521,20 +1515,19 @@ bool __fastcall Net2DecodeGameopt(char const * options, char const * name) // RA
 				int i;
 				for (i = 0; i < 8; i++) {
 					if (_stricmp(handle, Wide_To_Narrow(Session.Slots[i]->Name)) == 0) {
-						NetNumType net;
+						unsigned long net = 0;
 						NetNodeType node;
 						memset(node, 0, sizeof(node));
-						memcpy(node, &address, sizeof(address));
-						memset(net, 0, sizeof(net));
-						Session.SlotAddresses[i].Set_Address(net, node, 0);
+						*(unsigned long *)node = address;
+						Session.SlotAddresses[i].Set_Address((unsigned char *)&net, node, 0);
 						token = strtok(NULL, ",:");
 						if (token) {
-							int value;
+							unsigned int value;
 							sscanf(token, "%X", &value);
 							Session.WolPlayerState[i] = value;
 							token = strtok(NULL, ",:");
 							if (token) {
-								int port;
+								unsigned int port;
 								sscanf(token, "%X", &port);
 								Session.PlayerPortBase[i] = port;
 							}
@@ -1562,7 +1555,7 @@ bool __fastcall Net2DecodeGameopt(char const * options, char const * name) // RA
 				IsColorChangePending = false;
 			}
 
-			if (g_pChat != NULL && Assign_House_And_Color(Wstring(handle), house, color) ||
+			if (g_pChat != NULL && Assign_House_And_Color(handle, house, color) ||
 				g_pChat == NULL && Net2SetHouseAndColor(handle, house, color)) {
 				do_decode = true;
 			}
@@ -1570,7 +1563,6 @@ bool __fastcall Net2DecodeGameopt(char const * options, char const * name) // RA
 			token = strtok(NULL, ",:");
 		}
 
-		char old_ai[84];
 		AI_Slot_String(old_ai);
 		int ai_players = 0;
 		for (int k = 0; k < 8; k++) {
@@ -1586,7 +1578,6 @@ bool __fastcall Net2DecodeGameopt(char const * options, char const * name) // RA
 			if (Session.Options.AISlots.Countries[k] != -1) ai_players++;
 		}
 		Session.Options.AIPlayers = ai_players;
-		char new_ai[84];
 		AI_Slot_String(new_ai);
 		if (strcmp(old_ai, new_ai) != 0) {
 			do_decode = true;
@@ -3040,21 +3031,6 @@ void __fastcall Get_Slot_Names(wchar_t * list) // RA2: 0x005C8CF0, not in TibSun
 	}
 }
 
-inline HWND Find_Lobby_Dialog(void) // RA2: the lobby dialog of the session type: the dialog is kept in a variable between the four searches (GameoptWindow returns without it)
-{
-	HWND dialog = WS_Find_Dialog(IDD_WOL_GAMEOPT);
-	if (dialog == NULL) {
-		dialog = WS_Find_Dialog(IDD_WOL_GUEST);
-	}
-	if (dialog == NULL) {
-		dialog = WS_Find_Dialog(IDD_MPLAYER_HOST);
-	}
-	if (dialog == NULL) {
-		dialog = WS_Find_Dialog(IDD_MPLAYER_GUEST);
-	}
-	return(dialog);
-}
-
 #ifdef RA2_NON_MATCHING // not exact: 4 bytes differ (adopted text); exact with the twin's order of the four locals (open ahead of closed) once the seven lobby entries are separate globals, the twin's form (lane F59, held: OnPrivateGameOptions then turns by one byte)
 void __fastcall Set_Slot_Names(wchar_t const * list) // RA2: 0x005C8DD0, not in TibSun; takes the slot names the host sent, seats the entries and sets the observer's combo boxes
 {
@@ -3092,7 +3068,7 @@ void __fastcall Set_Slot_Names(wchar_t const * list) // RA2: 0x005C8DD0, not in 
 				&& entry != LobbyEntries[5] && entry != LobbyEntries[2]
 				&& entry != LobbyEntries[3] && entry != LobbyEntries[4]
 				&& entry->Slot.SpectatorFlag == -1)) {
-			HWND dialog = Find_Lobby_Dialog();
+			HWND dialog = GameoptWindow();
 			if (!observer[slot]) {
 				Set_Player_Slot(slot, entry); // RA2: the seat is set through Set_Player_Slot (0x005C8CC0), expanded inline
 				Fill_Observer_Combo(dialog, Player_Side_Combo_ID(slot));
@@ -3102,7 +3078,7 @@ void __fastcall Set_Slot_Names(wchar_t const * list) // RA2: 0x005C8DD0, not in 
 				Select_Color_Combo(dialog, id, 8);
 			}
 		} else {
-			HWND dialog = Find_Lobby_Dialog();
+			HWND dialog = GameoptWindow();
 			if (observer[slot]) {
 				int id = Player_Side_Combo_ID(slot);
 				if (Side_Combo_Data(dialog, id, -1) == -3) {

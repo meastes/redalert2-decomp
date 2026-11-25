@@ -5434,3 +5434,37 @@ replacements on a function text, spliced and scored), reorder.py (case blocks of
   Green is none of these with a reference's operand order. ra2-decomp's two statements exactly as written (the
   copy read through the three accessors, the text pixel straight from the global) are 45 B and turn
   SelectClass::Action by 4 B through the added local.
+
+## A frame miss is read slot by slot before any register work; a string web loses its register to a parameter by one reference; one inline charge and one register order can be the same miss (found in the rebuild (lane F65, high))
+
+Found in the rebuild (lane F65, high); nothing exact. netshare Net2DecodeGameopt 0x5C3FF0 (8,191 B) keeps its guard: the frame
+and the size are the image's, the top register order and one inline charge are left. Lane tools in the session scratch
+(f65/var.py: named text edits on the function, compile, instruction-diff count; fm.py: a frame map of both listings with
+a push-depth walk, uses listed per slot).
+
+- A frame 12 bytes large with every call agreeing was three things, each read from the slot map, none from trying sizes:
+  a 12-byte array of an expanded helper that the image keeps in a dword slot (the twin prints three numbers a slot,
+  this executable one: `text[4]`, which then shares the port's slot); two buffers the image keeps inside another
+  object's slot (the lists start where the INI object does and the address bytes begin 56 bytes on, so they are at
+  most 56 bytes, not the twin's 84; any size from 32 to 56 gives the same bytes, so the size is a recorded choice);
+  and explicit `Wstring(...)` temporaries where the twin converts implicitly (an explicit temporary is passed through
+  the constructor's result in eax and takes its own slot; the implicit one is passed by `lea`).
+- Port a twin whole before reading the gap. The earlier port had kept four of the tree's own forms where the twin's
+  text gives the image: `break` in the NAT cases (the image's `add ebx, 2` ahead of a free that reloads the copy is
+  the shared tail, duplicated by the compiler), `unsigned long net = 0` with `*(unsigned long *)node = address`
+  (a late immediate store, no second zero), and GameoptWindow with the dialog kept in one variable (`mov esi, eax`
+  ahead of each test where the result is a named local; the function's own row and every other site stay exact, so
+  the second inline of the same body, Find_Lobby_Dialog, went).
+- The top register order (the image: zero in edi, the copy in ebx, the sender in ebp; ours: the copy in edi, the
+  sender in ebx, 4 cached in ebp) is one reference of the sender parameter: deleting its use in the port case or in
+  the map-state case gives the image's order and all but 71 instructions; deleting one of the two in the accept case
+  does not, and adding references to the copy or to zero does not. So does one more expanded inline site in an arm
+  ahead of the main path, which also makes the INI's second list node call GenericNode's constructor as the image
+  does: the function is one inline charge short, and the charge and the register order turn together. Wrapping
+  existing text in a helper (the twin's accept-reset function as a static) changes neither. The twin's three
+  map-state calls compile to the image's one call and add two references, the wrong way; the one-call form stays.
+- With the order right, what is left names the next reads: the GetDlgItem and ShowWindow pointers exchanged in NAT
+  case 3 (the image colours the first before the second), two zero pushes in the observer case that the image does
+  not take from the zero register (the block that lends edi to the colour box id), the map name against the
+  virtual table pointer in the campaign case, and `found` in bl once the node constructor is called.
+- `tailmap.py --help` runs the whole map; read its docstring instead.
