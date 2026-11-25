@@ -5660,7 +5660,7 @@ int __fastcall Hash_CtrlMsg(int *);
 namespace OwnerDraw {
 LRESULT __stdcall Owner_Button_Proc(HWND, UINT, WPARAM, LPARAM);
 LRESULT __stdcall List_Proc(HWND, UINT, WPARAM, LPARAM);
-#ifdef RA2_NON_MATCHING // not exact: 4884 bytes differ against the image-derived bound 005ee460 (7,252 body bytes, 12 padding) (was 4892; window offset and rectangle translations as ra2-decomp's banked form banks/0x00610CA0_odh.cpp (11df85d) has it); TibSun CtrlProc's getTail and named WM_SYSKEYUP/VK_TAB give the same score
+#ifdef RA2_NON_MATCHING // not exact: 4863 bytes differ against the image-derived bound 005ee460 (7,252 body bytes, 12 padding) (was 4884, the 1.001 dialog copies the update rectangle for its destination (RobinDigitalPro/ra2-1001-decomp 1510aed); previously 4892; window offset and rectangle translations as ra2-decomp's banked form banks/0x00610CA0_odh.cpp (11df85d) has it); TibSun CtrlProc's getTail and named WM_SYSKEYUP/VK_TAB give the same score
 LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
 	static POINT min_update_rect = {0xFFFFFF, 0xFFFFFF};
@@ -6242,7 +6242,7 @@ cleanup:
         if (--num_rect_updates == 0) {
 			if (!data->SkipCheckPaint && anim_state >= 1) {
 				Rect source(min_update_rect.x, min_update_rect.y, max_update_rect.x - min_update_rect.x, max_update_rect.y - min_update_rect.y);
-				Rect destination(min_update_rect.x, min_update_rect.y, max_update_rect.x - min_update_rect.x, max_update_rect.y - min_update_rect.y);
+				Rect destination(source);
 				if (*(int *)((char *)data + 0x1FC) == 1) {
                     *(int *)((char *)data + 0x1FC) = 2;
 					if (GetWindowLongA(window, 4) && Play_Dialog_Move_In(window)) *(int *)((char *)data + 0x1FC) = 3;

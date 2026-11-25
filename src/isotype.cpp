@@ -1645,10 +1645,9 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
 	#undef __
 	#undef XX
 
-	LightConvertClass * drawtest = drawer;
 	IsometricTileTypeClass const * tileptr;
 	tileptr = this;
-	if (drawtest != NULL) {
+	if (drawer != NULL) {
 		/*
 		 * If a random variation was requested, walk the tile-set list to the
 		 * requested variation and draw that tile instead of this one.

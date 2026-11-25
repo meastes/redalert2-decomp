@@ -44,7 +44,7 @@
 /// <param name="level">Should the projectile hold its height (no climb or dive steering)?</param>
 /// <returns>Returns with the distance still to be covered, with the vertical component
 /// discounted. A projectile with nothing to home on levels out, advances and returns its speed.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 191 bytes differ against the image-derived bound 00593870 (2,101 B) (was 1,332; ra2-decomp's text with the archive's named level-turn arguments, TibSun missile.cpp:100, and the copy-initialised direction temporary of ra2-decomp's matched Fire_At, aircraft.cpp:831; the worker's ternaries and parenthesised Speed, 13 B, held on variation_candidates.csv); main: best 99.22, tried 4 times (order, float, register)
+#ifdef RA2_NON_MATCHING // not exact: 179 bytes differ against the image-derived bound 00593870 (2,101 B) (was 1,332; ra2-decomp's text with the direct level turn of RobinDigitalPro/ra2-1001-decomp 1510aed, previously 191 with the named arguments from TibSun missile.cpp:100, and the copy-initialised direction temporary of ra2-decomp's matched Fire_At, aircraft.cpp:831; the worker's ternaries and parenthesised Speed, 13 B, held on variation_candidates.csv); main: best 99.22, tried 4 times (order, float, register)
 int Projectile_Motion(Coord & coord, TVelocity3D<double> & velocity, Coord const & target_coord, DirType const & rot, bool aircraft, bool airburst, bool veryhigh, bool level)
 {
 	if (target_coord == COORD_NONE) {
@@ -101,9 +101,7 @@ int Projectile_Motion(Coord & coord, TVelocity3D<double> & velocity, Coord const
 				} else if (height_delta > LEVEL_LEPTON_H / 2) {
 					desired_pitch.Turn(DirType(Dir256(DIR_E + DIR_STEP_32)), rot / 2);
 				} else {
-					DirType level_pitch(DIR_E);
-					DirType turn_rate = rot / 2;
-					desired_pitch.Turn(level_pitch, turn_rate);
+					desired_pitch.Turn(DIR_E, rot / 2);
 				}
 			}
 		} else if (!level) {

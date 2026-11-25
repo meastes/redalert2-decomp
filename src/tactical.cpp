@@ -1023,7 +1023,7 @@ void Tactical::Render_Terrain(Rect const & xpanrect, Rect const & ypanrect, bool
 /// <param name="surface">The composite surface the foreground objects are drawn onto.</param>
 /// <param name="fullredraw">Redraw the whole view rather than just the scrolled strips?</param>
 /// <param name="drawpass">Which rendering pass to perform. See DrawPassType.</param>
-#ifdef RA2_NON_MATCHING // not exact: against the image bound (3,288 B) 2,650 bytes differ (was 2,722 against main's function-map extent; Surface pointer parameter as the image's symbol has it); main: best 64.69, tried 13 times (register, layout, frame)
+#ifdef RA2_NON_MATCHING // not exact: against the image bound (3,288 B) 2645 bytes differ (was 2,722 against main's function-map extent; Surface pointer parameter as the image's symbol has it); main: best 64.69, tried 13 times (register, layout, frame)
 #include "beacon.h"
 #include "capmgr.h"
 #include "ebolt.h"
@@ -1124,10 +1124,10 @@ void Tactical::Render(Surface * surface, bool fullredraw, int drawpass)
 		 */
 		unsigned panwidth = abs(xoffset);
 		unsigned panheight = abs(yoffset);
-		int width = TacticalDimensions.Width - panwidth;
 		int height = TacticalDimensions.Height - panheight;
-		int ystart = (yoffset >= 0) ? 0 : -yoffset;
-		int xstart = (xoffset >= 0) ? 0 : -xoffset;
+		int width = TacticalDimensions.Width - panwidth;
+		int xstart = (xoffset < 0) ? -xoffset : 0;
+		int ystart = (yoffset < 0) ? -yoffset : 0;
 
 		Rect sourcerect(TacticalDimensions.X + xstart, TacticalDimensions.Y + ystart,
 			width, height);

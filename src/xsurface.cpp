@@ -961,7 +961,7 @@ bool XSurface::Fill_Rect_Trans(Rect const & rect, RGBClass const & color, unsign
 /// <param name="cliprect">The clipping rectangle to draw within.</param>
 /// <param name="color">The raw color value to draw the ellipse with.</param>
 /// <returns>bool; Was the ellipse drawn?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 1244 bytes differ against the image-derived bound 007746c0 (1478 body bytes, 10 padding); the TibSun ellipse renderer, with all seven virtual calls in retail order
+#ifdef RA2_NON_MATCHING // not exact: 1229 bytes differ against the image-derived bound 007746c0 (1478 body bytes, 10 padding); the TibSun ellipse renderer, with all seven virtual calls in retail order
 bool XSurface::Draw_Ellipse(Point2D point, int radx, int rady, Rect cliprect, int color)
 {
 	int pitch = Stride() >> 1;
@@ -1072,16 +1072,16 @@ bool XSurface::Draw_Ellipse(Point2D point, int radx, int rady, Rect cliprect, in
 	yterm = 0;
 	product = radx * rady_squared;
 	xterm = 2 * product;
-	int x = radx;		/// This value is never used.
+	pixel.X = radx;
 	decision = rady_squared / 4 - product;
 
-	int left_offset = pitch * point.Y - radx;
+	int left_offset = pitch * point.Y - pixel.X;
 	int center_offset = pitch * point.Y;
-	xleft = point.X - radx;
-	bottom_right = &buffer[point.X + center_offset + radx];
-	top_left = &buffer[point.X + center_offset - radx];
-	top_right = &buffer[point.X + center_offset + radx];
-	xright = point.X + radx;
+	xleft = point.X - pixel.X;
+	bottom_right = &buffer[point.X + center_offset + pixel.X];
+	top_left = &buffer[point.X + center_offset - pixel.X];
+	top_right = &buffer[point.X + center_offset + pixel.X];
+	xright = point.X + pixel.X;
 	bottom_left = &buffer[point.X + left_offset];
 
 	while (true) {

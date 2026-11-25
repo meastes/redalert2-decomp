@@ -15,12 +15,12 @@ init,00519500,Allocate_Surfaces,1118,inline_body,1016,a,variation_candidates.csv
 ldprgmgr,00535bf0,LoadProgressManager::Draw,3978,no_row,1906,a,"variation_candidates.csv: codex1 r2698 (refs/c1pk/r2698, 75f8a9f509): the briefing and loading origins bound as `Point2D const & brief_origin = Copy_Point(&area);` / `loading_origin` (a ",,yes,,,,,,,
 map,005484e0,MapClass::Set_Map_Dimensions,5322,no_row,3665,a,variation_candidates.csv: a Cell operator+= forwarder in coord.h in the TPoint3D idiom (TPoint2D<short> const & operator += (TPoint2D<short> const & rvalue) {BASECLASS::operator += (rval,,yes,,,,,,,
 map,00569320,MapClass::Can_Repair_Bridge,2109,no_row,3,a,"variation_candidates.csv: kind T (an evidenced twin header form held behind the count-sensitive exact rows map Zone_Reset 0x54EBD0, queue Print_CRCs 0x62A360 and sidebar SelectClass::Act",,yes,,,,,,,
-missile,00593870,Projectile_Motion,2101,no_row,191,a,"variation_candidates.csv: kind C (statement and header forms chosen for the inline budget): codex1 r2713 (refs/c1pk/r2713, 39886119e8): ternaries for cell_distance (`airburst || veryhigh",,yes,,,,,,,
+missile,00593870,Projectile_Motion,2101,no_row,179,a,"variation_candidates.csv: kind C (statement and header forms chosen for the inline budget): codex1 r2713 (refs/c1pk/r2713, 39886119e8): ternaries for cell_distance (`airburst || veryhigh",,yes,,,,,,,
 netshare,005c8dd0,Set_Slot_Names,920,register_order,4,a,"variation_candidates.csv: kind B (data form): the seven fixed lobby entries as separate globals (ra2-decomp: DAT_00AC119C..B4) in place of LobbyEntries[7] (mischa85: one array, inferred)",,yes,,,,A,structure,yes,920
 ownrdraw,005e0760,Is_Tested_Control,1594,inline_call,1444,a,variation_candidates.csv: none admissible: as Enable_Animated_Control 0x5E4780 (the declared-only second name for Is_Listed_Kind),,yes,,,,B,structure,no,1594
 ownrdraw,005e4780,OwnerDraw::Enable_Animated_Control,2468,inline_call,,a,variation_candidates.csv: none admissible: main and ra2-decomp both reach the out-of-line Is_Listed_Kind call through a declared-only second name for the predicate (main's Is_Listed_Kind,,yes,,,,B,structure,no,2468
 ownrdraw,005e9410,Adjust_Control_Position,1938,no_row,1749,a,variation_candidates.csv: none admissible: as Enable_Animated_Control 0x5E4780 (the declared-only second name for Is_Listed_Kind); main also needed two dead self-assignments for the last,,yes,,,,,,,
-ownrdraw,005ee460,Control_Proc,7252,no_row,4884,a,"variation_candidates.csv: codex1 r2692 (refs/c1pk/r2692, 80ab511e9b): three coined record blocks ({ unsigned int control_key = (unsigned int)window; WinData *record = NULL; Control_Table",,yes,,,,,,,
+ownrdraw,005ee460,Control_Proc,7252,no_row,4863,a,"variation_candidates.csv: codex1 r2692 (refs/c1pk/r2692, 80ab511e9b): three coined record blocks ({ unsigned int control_key = (unsigned int)window; WinData *record = NULL; Control_Table",,yes,,,,,,,
 ownrdraw,005f2b50,Static_Proc,4512,no_row,3056,a,"variation_candidates.csv: codex1 r2703 (refs/c1pk/r2703, 89cb227e56): WinData plain members for +0x58..+0x60, +0x78..+0xAC, +0xB4/+0xB8 (one declaration each), ControlAnimationState and ",,yes,,,,,,,
 ownrdraw,005fee70,Dialog_On_WM_PAINT,1281,inline_call,536,a,variation_candidates.csv: main's coined callee declarations / helpers,,yes,,,,B,structure,not tested,1281
 palette,00603d50,Palette_Scheme_Count,592,no_row,119,a,variation_candidates.csv: an unread `SchemeLibrary * library = Scheme_Library();` local ahead of the iterator (main's text; mischa85's src/palette.cpp has the same line),,yes,,,,,,,
@@ -174,7 +174,7 @@ sidebar,006802d0,SidebarClass::StripClass::Recalc,1732,no_row,1660,e,"no row of 
 tab,,TabClass::Hilite_Tab,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 tab,,TabClass::Set_Active,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 tactical,,Tactical::Draw_Radial_Indicators,0,unplaced,820,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
-tactical,006a45a0,Tactical::Render,3288,no_row,2650,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
+tactical,006a45a0,Tactical::Render,3288,no_row,2645,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 tactical,006a8560,Tactical::Draw_Tiles,824,no_row,535,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 tactical,006ac7a0,_$E298,1,no_draft,,e,no draft yet,,no,,,,,,,
 techno,,TechnoClass::Find_Docking_Bay,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
@@ -196,7 +196,7 @@ wdtnet,,WDTTerritory::To_String,0,unplaced,,e,no row of the original matches the
 wonline,0075f530,CChatEventSink::OnChannelJoin,5780,inline_body,,e,stays a flagged draft,,yes,,,,,,,
 wonline,00767bb0,WolNameTable::Get_Pointer_00767bb0,107,no_draft,,e,no draft yet,,no,,,,,,,
 wonline,00767cd0,WolNameTable::Key_Hash_00767cd0,29,no_draft,,e,no draft yet,,no,,,,,,,
-xsurface,007746c0,XSurface::Draw_Ellipse,1478,no_row,1244,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
+xsurface,007746c0,XSurface::Draw_Ellipse,1478,no_row,1229,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 (total),,flex a: 35 functions,111699,,,a,,,,,,,,,,
 (total),,flex b: 52 functions,4612,,,b,,,,,,,,,,
 (total),,flex c: 1 functions,1913,,,c,,,,,,,,,,

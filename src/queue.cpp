@@ -2995,7 +2995,7 @@ static int Add_Compressed_Events(void *buf, int bufsize, int frame_delay,
  * HISTORY:                                                                *
  *   11/21/1995 DRD : Created.                                             *
  *=========================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: against the image-derived bound 006282d0 (1,455 B) 921 bytes differ (was 923; the saved run decrements numunits before counting the event, as the RA2 1.001 decoder does (the Yuri's Revenge cache's count-first order gave 923); the saved run's list index and unit count computed before the stream advance, a statement order no reference shows: flag spelling if it lands; TibSun queue.cpp sets the first event pointer after the frame-info data size; the megamission Slot byte and the flat saved-count table as ra2-decomp's event.h and queue.cpp have them); main: best 57.62, tried 6 times (register, frame, inline)
+#ifdef RA2_NON_MATCHING // not exact: against the image-derived bound 006282d0 (1,455 B) 921 bytes differ (was 923; the saved run decrements numunits before counting the event, as the RA2 1.001 decoder does (RobinDigitalPro/ra2-1001-decomp 1510aed; the Yuri's Revenge cache's count-first order gave 923); the saved run's list index and unit count computed before the stream advance, a statement order no reference shows: flag spelling if it lands; TibSun queue.cpp sets the first event pointer after the frame-info data size; the megamission Slot byte and the flat saved-count table as ra2-decomp's event.h and queue.cpp have them); main: best 57.62, tried 6 times (register, frame, inline)
 int Extract_Compressed_Events(void * buf, int bufsize)
 {
 	int pos = 0;                // current buffer parsing position
