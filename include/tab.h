@@ -40,7 +40,7 @@
 
 extern int const NoAdvancedCommand; // RA2: 0x7F67F4, -1
 
-class TabClass: public SidebarClass, public INoticeSink // RA2: INoticeSink added; its vtable pointer is at +0x4EE8
+class TabClass : public SidebarClass, INoticeSink // RA2: INoticeSink added (private, per its RTTI), vtable at +0x4EE8
 {
 		typedef SidebarClass BASECLASS;
 

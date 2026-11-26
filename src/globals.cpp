@@ -22,7 +22,32 @@
 **	second building list before MoveFlashes, and TimedSuperWeapons where they have ShowTimers.
 */
 
+#define INCLUDE_COM
 #include "always.h"
+
+/// create all com interfaces here
+#include "iblowfish.h"
+#include "iblowfish_i.c"
+#include "sun.h"
+#include "isun_i.c"
+#include "ilocos.h"
+#include "ilocos_i.c"
+#include "irtti.h"
+#include "irtti_i.c"
+#include "iaihouse.h"
+#include "iaihouse_i.c"
+#include "ipublichouse.h"
+#include "ipublichouse_i.c"
+#include "ipiggy.h"
+#include "ipiggy_i.c"
+#include "iswizzle.h"
+#include "iswizzle_i.c"
+#include "iblockci.h"
+#include "iblockci_i.c"
+#include "iflyctrl.h"
+#include "iflyctrl_i.c"
+#undef INCLUDE_COM
+
 #include "geometry.h"
 #include "rect.h"
 #include "vector.h"

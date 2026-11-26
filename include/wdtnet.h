@@ -566,8 +566,7 @@ namespace WorldDominationTour
 			/*
 			 * RA2: a palette file of the map and the drawer made from it (Get_Drawer keeps them).
 			 */
-			class AnimationPalette {
-				public:
+			struct AnimationPalette {
 					AnimationPalette(Wstring const & name, ConvertClass * drawer) : Name(name), Drawer(drawer) {}
 					~AnimationPalette(void); // RA2: 0x0072A600
 

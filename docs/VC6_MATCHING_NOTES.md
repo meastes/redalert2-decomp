@@ -6260,3 +6260,54 @@ reorder.py (case groups of a switch in a given order), port1.py.
   size and calls; here the twin's file order gave the fewest lines and its newest bank order the image's exact size.
 - The post-switch block and a shared `return 0` are placed after whichever group falls out last; they are a later
   question than the groups.
+
+## A twin is ported whole and then read case by case against the image; an out-of-line helper inside one expansion dates its site in source order; a key bound by reference to a member keeps the member's address (found in the rebuild (lane F81, high))
+
+Found in the rebuild (lane F81, high); no row landed. ownrdraw List_Proc 0x5F6690 went from 2,876 to 2,215 instruction
+lines off (stack offsets blind; 1,276 to 603 with registers blind too), the frame, the switch layout and all but one inline
+decision now the image's. Lane tools in build/r/f81 (removed at hand-back; copies in private/dossiers/fable/f81_tools):
+port.py (the twin's case groups, names mapped, swapped into the draft one at a time or all at once), seg.py (the function
+cut at the switch entries sw.py finds; per case group the lines off, exact and register-blind, and a diff of one group),
+ic.py (per case group the direct calls of image and draft, the draft's named from its relocations), m.py, reorder.py.
+
+- Port the whole twin before tuning any site. Case by case on the old draft each port moved the score by a few lines either
+  way, because the old cases held the registers; all of them together gave the image's frame, the post-switch block at the
+  end and 600 lines. A twin of another build (Yuri's Revenge) is then corrected by reading each case group's
+  register-blind diff: what that build added shows as one whole block (a row bound check in the button-down case).
+- Score a large switch by case group. The dispatch emulator gives every group's entry in both listings, so each group is
+  compared with its own counterpart and a moved block costs nothing. Register-blind lines separate structure from
+  allocation; the exact count per group shows which groups only wait on the allocation.
+- The inline budget dates a site. Sites are decided in source order (Inline248), so a helper the image calls out of line
+  inside one expansion (shrinkVector inside the select-range case's setSize, expanded in the draft) says the site comes
+  earlier in the source than the draft has it, where more sites still wait behind it. Moved up beside its neighbour case
+  the call list was right, and the shared `return 0` of the erase-background case and the post-switch block fell where the
+  image has them: the group that had stood between them was the cause. Read inline decisions per group from the
+  relocations (ic.py), not from call counts.
+- The image's layout order taken as the source order is still worse with the ported text (15,008 B, the lookups called
+  out of line): lane F80's reading holds, groups are laid out by cluster and in source order inside a cluster.
+- A buffer's scope sets the frame through slot sharing. The paint case's `wchar_t string[512]` declared in the case
+  shares its 0x400 bytes with the record temporary that Restore_Child's expansion needs in the post-switch block;
+  declared at function scope the frame is 0x200 larger. The 0x204 over of the old draft was this and one slot.
+- A helper is recognised by what it does and drops. The image's two row-text fetches end in a wcslen whose result is
+  unused: the unit's Get_Item_Text, which returns it. A hand-written copy without the call can never match.
+- `Control_Table.getPointer((unsigned int const &)data->ScrollBar, &sb_data)` binds the key to the member, so the
+  member's address is taken once (`lea esi, [ecx + 0xc]`) and every later read and write of the member in the block goes
+  through it; a cast to a value makes a temporary and the reads stay `[ecx + 0xc]`.
+- A function-level variable assigned in many cases earns a register for the whole function. The twin's
+  `parent = GetParent(window)` ahead of each selection notice put the parent in edi and the record in ebx from the top;
+  the image holds each GetParent result in a scratch register and never writes the function's parent slot, so each is a
+  local of its block. With that the preamble and the small cases take the image's registers (the delete-item, top-index
+  query, selected-count and double-click groups exact), while the paint loop still differs (below).
+- A local passed to an expanded helper's `T const &` parameter stays in memory for its whole life. The paint loop's row
+  index, the function's `int index` handed to Get_Item_Text(HWND, int const &, ...), was read from its slot at every use
+  and the freed registers went to hoisted import pointers; the image has the index in ebp. Declared in the case as an
+  LRESULT (what SendMessage returns) the reference binds a converted temporary and the index is a register again: 400
+  exact lines in that case. A paint-local `int index` does not do it.
+- Open, with what was tried. (1) The paint loop still keeps the SendMessage pointer in a register where the image calls
+  through memory inside the loop. (2) ArrayList::add's clamp (`if (pos > Entries_) pos = Entries_`) is folded away at the
+  two int sites after `position < length()`, and the image keeps it with the flags reused; the result as the argument, an
+  LRESULT position and a named count change nothing. (3) The preamble's rectangle sums are scheduled differently (the image loads four values
+  before the first store) and the image holds the message in ebx from the three scroll-state tests to the switch. Before
+  the parent locals the record sat in ebx there; the lookup written directly loses the out-of-line keyHash and a slot,
+  and a reference-parameter helper changes nothing, so Get_Record stays. (4) One inline decision in Restore_Child's expansion at the end differs (the WideText delete
+  expanded where the image calls the scalar deleting destructor), so the budget there is within a site of the image's.

@@ -643,9 +643,18 @@
     "??0ScenarioClass@@QAE@XZ": 6665456,
     "??_G?$TypeList@PAVTechnoTypeClass@@@@UAEPAXI@Z": 4640432,
     "??_G?$TypeList@H@@UAEPAXI@Z": 4640208,
-    "?Swap@CD@@UAE_NW4DiskID@@@Z": 4646736,
-    "?Request_Disk@CD@@UAE_NW4DiskID@@@Z": 4646176,
-    "?Force_Available@CD@@UAE_NW4DiskID@@@Z": 4646128,
+    "??_7type_info@@6B@": 8066532,
+    "?Error@CCFileClass@@UAEXHHPBD@Z": 4624384,
+    "?Set_Date_Time@CCFileClass@@UAE_NI@Z": 4625408,
+    "?Get_Date_Time@CCFileClass@@UAEIXZ": 4625232,
+    "?Write@CCFileClass@@UAEHPBXH@Z": 4624432,
+    "?Size@CCFileClass@@UAEHXZ": 4624720,
+    "?Seek@CCFileClass@@UAEHHH@Z": 4624624,
+    "?Read@CCFileClass@@UAEHPAXH@Z": 4624480,
+    "?Open@CCFileClass@@UAEHH@Z": 4624928,
+    "?Is_Open@CCFileClass@@UBE_NXZ": 4624864,
+    "??_GCCFileClass@@UAEPAXI@Z": 4200864,
+    "??_R0?AVCCFileClass@@@8": 8177840,
     "?Error@RawFileClass@@UAEXHHPBD@Z": 6523696,
     "?Set_Date_Time@RawFileClass@@UAE_NI@Z": 6525680,
     "?Get_Date_Time@RawFileClass@@UAEIXZ": 6525600,
@@ -658,22 +667,24 @@
     "?Open@CDFileClass@@UAEHH@Z": 4652560,
     "?Is_Open@BufferIOFileClass@@UBE_NXZ": 4388608,
     "?Is_Available@BufferIOFileClass@@UAE_NH@Z": 4388576,
-    "??_GCDFileClass@@UAEPAXI@Z": 4200784,
-    "??_GCCINIClass@@UAEPAXI@Z": 4252384,
-    "??_G?$List@PAUINISection@INIClass@@@@UAEPAXI@Z": 4252416,
-    "?Error@CCFileClass@@UAEXHHPBD@Z": 4624384,
-    "?Set_Date_Time@CCFileClass@@UAE_NI@Z": 4625408,
-    "?Get_Date_Time@CCFileClass@@UAEIXZ": 4625232,
-    "?Write@CCFileClass@@UAEHPBXH@Z": 4624432,
-    "?Size@CCFileClass@@UAEHXZ": 4624720,
-    "?Seek@CCFileClass@@UAEHHH@Z": 4624624,
-    "?Read@CCFileClass@@UAEHPAXH@Z": 4624480,
-    "?Open@CCFileClass@@UAEHH@Z": 4624928,
-    "?Is_Open@CCFileClass@@UBE_NXZ": 4624864,
     "?Delete@RawFileClass@@UAEHXZ": 6525504,
     "?Create@RawFileClass@@UAEHXZ": 6525440,
-    "??_GCCFileClass@@UAEPAXI@Z": 4200864,
+    "??_GCDFileClass@@UAEPAXI@Z": 4200784,
+    "??_R0?AVFileClass@@@8": 8177872,
+    "??_R0?AVRawFileClass@@@8": 8177896,
+    "??_R0?AVBufferIOFileClass@@@8": 8177928,
+    "??_R0?AVCDFileClass@@@8": 8177960,
+    "??_G?$List@PAUINISection@INIClass@@@@UAEPAXI@Z": 4252416,
+    "??_R0?AVGenericList@@@8": 8183648,
+    "??_GCCINIClass@@UAEPAXI@Z": 4252384,
+    "??_R0?AVINIClass@@@8": 8183560,
+    "??_R0?AVCCINIClass@@@8": 8183584,
+    "?Swap@CD@@UAE_NW4DiskID@@@Z": 4646736,
+    "?Request_Disk@CD@@UAE_NW4DiskID@@@Z": 4646176,
+    "?Force_Available@CD@@UAE_NW4DiskID@@@Z": 4646128,
+    "??_R0?AVCD@@@8": 8198488,
     "??_GGenericNode@@UAEPAXI@Z": 4252112,
+    "??_R0?AVGenericNode@@@8": 8183616,
     "??_GGenericList@@UAEPAXI@Z": 4252192,
     "??_7GenericList@@6B@": 7973620,
     "??_7GenericNode@@6B@": 7973628,
@@ -693,14 +704,14 @@
     "?Do_Abort@@YIXXZ": 6677904,
     "?Set_Scenario_Name@ScenarioClass@@QAEXPBD@Z": 6678320,
     "?Write_Scenario_INI@@YIXPBD_N@Z": 6683008,
-    "??_G?$VectorClass@VCell@@@@UAEPAXI@Z": 4379536,
     "??_G?$DynamicVectorClass@VCell@@@@UAEPAXI@Z": 4379616,
+    "??_G?$VectorClass@VCell@@@@UAEPAXI@Z": 4379536,
     "??_G?$VectorClass@PAVInfantryTypeClass@@@@UAEPAXI@Z": 5099744,
-    "??_G?$VectorClass@PAVTechnoClass@@@@UAEPAXI@Z": 4242288,
     "??_G?$DynamicVectorClass@PAVInfantryTypeClass@@@@UAEPAXI@Z": 5099824,
-    "??_G?$DynamicVectorClass@PAVTechnoClass@@@@UAEPAXI@Z": 4242368,
     "??_G?$VectorClass@PAVUnitTypeClass@@@@UAEPAXI@Z": 5099424,
     "??_G?$DynamicVectorClass@PAVUnitTypeClass@@@@UAEPAXI@Z": 5099504,
+    "??_G?$VectorClass@PAVTechnoClass@@@@UAEPAXI@Z": 4242288,
+    "??_G?$DynamicVectorClass@PAVTechnoClass@@@@UAEPAXI@Z": 4242368,
     "?Save@ScenarioClass@@QBEXPAUIStream@@@Z": 6688608,
     "?Load@ScenarioClass@@QAEXPAUIStream@@@Z": 6688960,
     "?Set_Global_To@ScenarioClass@@QAE_NH_N@Z": 6689472,
@@ -828,7 +839,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -895,7 +907,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -946,7 +959,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -997,7 +1011,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1048,7 +1063,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1099,7 +1115,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1150,7 +1167,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1233,7 +1251,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1292,7 +1311,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1351,7 +1371,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1410,7 +1431,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1453,7 +1475,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1504,7 +1527,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1563,7 +1587,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1639,7 +1664,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "31d6d392c7cf66621ed8c17e03743394bff6acfb18e5787a3629b2134b17380e",
@@ -1666,7 +1692,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1917,7 +1944,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -2120,7 +2148,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -2875,7 +2904,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -3110,7 +3140,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -3273,7 +3304,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -3460,7 +3492,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -3599,7 +3632,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -3698,7 +3732,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -3797,7 +3832,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -3954,7 +3990,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -4326,7 +4363,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -5481,7 +5519,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -6348,7 +6387,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -6559,7 +6599,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -7610,7 +7651,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -8933,7 +8975,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -10056,7 +10099,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -10339,7 +10383,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -10750,7 +10795,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -10786,7 +10832,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -11021,7 +11068,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -11472,7 +11520,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -14571,7 +14620,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -14966,7 +15016,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -15553,7 +15604,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -15860,7 +15912,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -16464,7 +16517,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -16843,7 +16897,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -16902,7 +16957,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -17081,7 +17137,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -17116,7 +17173,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -17151,7 +17209,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "31d6d392c7cf66621ed8c17e03743394bff6acfb18e5787a3629b2134b17380e",
@@ -17177,7 +17236,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "31d6d392c7cf66621ed8c17e03743394bff6acfb18e5787a3629b2134b17380e",
@@ -17203,7 +17263,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "31d6d392c7cf66621ed8c17e03743394bff6acfb18e5787a3629b2134b17380e",
@@ -17229,7 +17290,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -17328,7 +17390,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -17363,7 +17426,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -17398,7 +17462,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "31d6d392c7cf66621ed8c17e03743394bff6acfb18e5787a3629b2134b17380e",
@@ -17424,7 +17489,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "31d6d392c7cf66621ed8c17e03743394bff6acfb18e5787a3629b2134b17380e",
@@ -17450,7 +17516,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "31d6d392c7cf66621ed8c17e03743394bff6acfb18e5787a3629b2134b17380e",
@@ -17476,7 +17543,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -17615,7 +17683,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -17698,7 +17767,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "31d6d392c7cf66621ed8c17e03743394bff6acfb18e5787a3629b2134b17380e",
@@ -17725,7 +17795,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "31d6d392c7cf66621ed8c17e03743394bff6acfb18e5787a3629b2134b17380e",
@@ -17752,7 +17823,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -19739,7 +19811,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -21430,7 +21503,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -21529,7 +21603,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -21981,7 +22056,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "31d6d392c7cf66621ed8c17e03743394bff6acfb18e5787a3629b2134b17380e",
@@ -22007,7 +22083,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "31d6d392c7cf66621ed8c17e03743394bff6acfb18e5787a3629b2134b17380e",
@@ -22033,7 +22110,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -22077,7 +22155,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -22128,7 +22207,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -22164,7 +22244,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -22207,7 +22288,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -22306,7 +22388,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -22397,7 +22480,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -22433,7 +22517,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "31d6d392c7cf66621ed8c17e03743394bff6acfb18e5787a3629b2134b17380e",
@@ -22460,7 +22545,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -22504,7 +22590,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -22563,7 +22650,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -22631,7 +22719,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -22683,7 +22772,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "31d6d392c7cf66621ed8c17e03743394bff6acfb18e5787a3629b2134b17380e",
@@ -22710,7 +22800,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {

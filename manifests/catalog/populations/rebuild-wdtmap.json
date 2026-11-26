@@ -52,14 +52,14 @@
     "??0Wstring@@QAE@PBD@Z": 7788832,
     "??0?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@QAE@HPBV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z": 7518992,
     "??_7?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@6B@": 8057372,
-    "??_7?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@6B@": 8057340,
+    "??_7?$DynamicVectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@6B@": 8057340,
     "??_7Map@WorldDominationTour@@6B@": 8057324,
     "??1Wstring@@QAE@XZ": 7789024,
     "??3@YAXPAX@Z": 7871803,
     "?AlternateSurface@@3PAVSurface@@A": 8624472,
     "?HiddenSurface@@3PAVSurface@@A": 8624468,
     "?VisibleSurface@@3PAVSurface@@A": 8624464,
-    "??_7?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@6B@": 8057436,
+    "??_7?$VectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@6B@": 8057436,
     "??_7?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@6B@": 8057404,
     "??1ReferenceCounted@@UAE@XZ": 6526736,
     "??0Wstring@@QAE@XZ": 7788816,
@@ -182,6 +182,9 @@
     "_$E38": 7508384,
     "??0MSFrameAnim@@QAE@XZ": 7508416,
     "??_GMSFrameAnim@@UAEPAXI@Z": 7515904,
+    "??_R0?AVMSAnim@@@8": 8280064,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVMSFrameAnim@@@8": 8371464,
     "?Set_Active@MSAnim@@UAEX_N@Z": 5962752,
     "?Pause@MSAnim@@UAEXXZ": 5962768,
     "?Resume@MSAnim@@UAEXXZ": 5962848,
@@ -193,14 +196,16 @@
     "?Get_Rect@MSFrameAnim@@UBE?AV?$TRect@H@@XZ": 7508656,
     "?Create@Map@WorldDominationTour@@SI?AV?$rc_ptr@VMap@WorldDominationTour@@@@HHH@Z": 7508704,
     "??_G?$rc_ptr@VMap@WorldDominationTour@@@@UAEPAXI@Z": 7516352,
-    "??_G?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEPAXI@Z": 7518800,
+    "??_R0?AVrc_ptr_base@@@8": 8248008,
+    "??_G?$DynamicVectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAEPAXI@Z": 7518800,
     "??_GMap@WorldDominationTour@@UAEPAXI@Z": 7515952,
     "??_G?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEPAXI@Z": 7518640,
     "?Release@ReferenceCounted@@UAEXXZ": 6526752,
     "?Unknown_Virtual_4@ReferenceCounted@@UAE_NH@Z": 6526784,
     "??_GReferenceCounted@@UAEPAXI@Z": 6526800,
+    "??_R0?AVReferenceCounted@@@8": 8316240,
     "??_G?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEPAXI@Z": 7518448,
-    "??_G?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEPAXI@Z": 7518720,
+    "??_G?$VectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAEPAXI@Z": 7518720,
     "?Load@Map@WorldDominationTour@@QAEXAAVINIClass@@PAVMSEngine@@_N@Z": 7509264,
     "?Error@CCFileClass@@UAEXHHPBD@Z": 4624384,
     "?Set_Date_Time@CCFileClass@@UAE_NI@Z": 4625408,
@@ -213,6 +218,7 @@
     "?Is_Open@CCFileClass@@UBE_NXZ": 4624864,
     "?Is_Available@CCFileClass@@UAE_NH@Z": 4624800,
     "??_GCCFileClass@@UAEPAXI@Z": 4200864,
+    "??_R0?AVCCFileClass@@@8": 8177840,
     "?Error@RawFileClass@@UAEXHHPBD@Z": 6523696,
     "?Set_Date_Time@RawFileClass@@UAE_NI@Z": 6525680,
     "?Get_Date_Time@RawFileClass@@UAEIXZ": 6525600,
@@ -227,6 +233,10 @@
     "?Create@RawFileClass@@UAEHXZ": 6525440,
     "?Set_Name@CDFileClass@@UAEPBDPBD@Z": 4653392,
     "??_GCDFileClass@@UAEPAXI@Z": 4200784,
+    "??_R0?AVFileClass@@@8": 8177872,
+    "??_R0?AVRawFileClass@@@8": 8177896,
+    "??_R0?AVBufferIOFileClass@@@8": 8177928,
+    "??_R0?AVCDFileClass@@@8": 8177960,
     "?File_Name@RawFileClass@@UBEPBDXZ": 4200768,
     "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
     "??0NamedValue@@QAE@ABVWstring@@H@Z": 7513568,
@@ -240,12 +250,15 @@
     "??8Centroid@WorldDominationTour@@QBE_NABV01@@Z": 7514176,
     "?Territory_Of_Color@@YIII@Z": 7514224,
     "?WDT_Write_Map_Ini@@YIXABVWstring@@0@Z": 7514240,
-    "??_GINIClass@@UAEPAXI@Z": 5107440,
-    "??_G?$VectorClass@V?$TRect@H@@@@UAEPAXI@Z": 5827904,
     "??_G?$VectorClass@VCentroid@WorldDominationTour@@@@UAEPAXI@Z": 7518880,
+    "??_GINIClass@@UAEPAXI@Z": 5107440,
+    "??_R0?AVINIClass@@@8": 8183560,
+    "??_G?$VectorClass@V?$TRect@H@@@@UAEPAXI@Z": 5827904,
     "??_G?$List@PAUINISection@INIClass@@@@UAEPAXI@Z": 4252416,
+    "??_R0?AVGenericList@@@8": 8183648,
     "??_G?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UAEPAXI@Z": 7516400,
     "??_GGenericNode@@UAEPAXI@Z": 4252112,
+    "??_R0?AVGenericNode@@@8": 8183616,
     "??_GGenericList@@UAEPAXI@Z": 4252192,
     "??_7GenericList@@6B@": 7973620,
     "??_7GenericNode@@6B@": 7973628,
@@ -253,9 +266,9 @@
     "?Clear@?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEXXZ": 7516032,
     "?ID@?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEHPBV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z": 7516080,
     "?GetItem@?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UBE?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@H@Z": 7516112,
-    "?Clear@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEXXZ": 7516160,
-    "?ID@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHPBQAVAnimationPalette@Map@WorldDominationTour@@@Z": 7516208,
-    "?GetItem@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UBEPAVAnimationPalette@Map@WorldDominationTour@@H@Z": 7516240,
+    "?Clear@?$DynamicVectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAEXXZ": 7516160,
+    "?ID@?$DynamicVectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAEHPBQAUAnimationPalette@Map@WorldDominationTour@@@Z": 7516208,
+    "?GetItem@?$VectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UBEPAUAnimationPalette@Map@WorldDominationTour@@H@Z": 7516240,
     "?GetItem@?$VectorClass@VCentroid@WorldDominationTour@@@@UBE?AVCentroid@WorldDominationTour@@H@Z": 7516256,
     "??B?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UBE_NXZ": 7516336,
     "??E?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UAEAAV0@XZ": 7518416,
@@ -271,21 +284,19 @@
     "?ID@?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEHPBV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z": 7516912,
     "?Resize@?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAE_NHPBV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z": 7516944,
     "?ID@?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEHABV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z": 7517232,
-    "??8?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UBE_NABV0@@Z": 7517280,
-    "?Resize@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAE_NHPBQAVAnimationPalette@Map@WorldDominationTour@@@Z": 7517344,
-    "?Clear@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEXXZ": 7517520,
-    "?ID@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHABQAVAnimationPalette@Map@WorldDominationTour@@@Z": 7517568,
-    "?ID@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHPBQAVAnimationPalette@Map@WorldDominationTour@@@Z": 7517632,
-    "?Resize@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAE_NHPBQAVAnimationPalette@Map@WorldDominationTour@@@Z": 7517664,
-    "?ID@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHABQAVAnimationPalette@Map@WorldDominationTour@@@Z": 7517840,
+    "??8?$VectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UBE_NABV0@@Z": 7517280,
+    "?Resize@?$VectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAE_NHPBQAUAnimationPalette@Map@WorldDominationTour@@@Z": 7517344,
+    "?Clear@?$VectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAEXXZ": 7517520,
+    "?ID@?$VectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAEHABQAUAnimationPalette@Map@WorldDominationTour@@@Z": 7517568,
+    "?ID@?$VectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAEHPBQAUAnimationPalette@Map@WorldDominationTour@@@Z": 7517632,
+    "?Resize@?$DynamicVectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAE_NHPBQAUAnimationPalette@Map@WorldDominationTour@@@Z": 7517664,
+    "?ID@?$DynamicVectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAEHABQAUAnimationPalette@Map@WorldDominationTour@@@Z": 7517840,
     "??8?$VectorClass@VCentroid@WorldDominationTour@@@@UBE_NABV0@@Z": 7517888,
     "?Resize@?$VectorClass@VCentroid@WorldDominationTour@@@@UAE_NHPBVCentroid@WorldDominationTour@@@Z": 7517984,
     "?ID@?$VectorClass@VCentroid@WorldDominationTour@@@@UAEHABVCentroid@WorldDominationTour@@@Z": 7518288,
     "?ID@?$VectorClass@VCentroid@WorldDominationTour@@@@UAEHPBVCentroid@WorldDominationTour@@@Z": 7518368,
     "??_E?$rc_ptr@VWDTTerritory@@@@UAEPAXI@Z": 5367296,
     "??_7?$rc_ptr@VWDTTerritory@@@@6B@": 8013100,
-    "??_E?$rc_ptr@VConflict@WorldDominationTour@@@@UAEPAXI@Z": 7499616,
-    "??_7?$rc_ptr@VConflict@WorldDominationTour@@@@6B@": 8056812,
     "??_E?$rc_ptr@VTerritory@WorldDominationTour@@@@UAEPAXI@Z": 7518528,
     "??_E?$rc_ptr@VGameOption@WorldDominationTour@@@@UAEPAXI@Z": 7504800,
     "??_7?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@": 8057052,
@@ -310,7 +321,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -369,7 +381,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -436,7 +449,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -487,7 +501,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -538,7 +553,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -589,7 +605,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -640,7 +657,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -691,7 +709,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -774,7 +793,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -833,7 +853,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -892,7 +913,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -951,7 +973,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -994,7 +1017,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1045,7 +1069,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1088,7 +1113,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1132,7 +1158,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1176,7 +1203,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1227,7 +1255,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -1253,7 +1282,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1320,7 +1350,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1366,7 +1397,7 @@
         {
           "offset": 149,
           "kind": 6,
-          "symbol": "??_7?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@6B@",
+          "symbol": "??_7?$DynamicVectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@6B@",
           "target": 8057340,
           "addend": 0,
           "resolved": 8057340
@@ -1403,7 +1434,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1465,7 +1497,7 @@
         {
           "offset": 177,
           "kind": 6,
-          "symbol": "??_7?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@6B@",
+          "symbol": "??_7?$VectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@6B@",
           "target": 8057436,
           "addend": 0,
           "resolved": 8057436
@@ -1526,7 +1558,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -3369,7 +3402,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -3772,7 +3806,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -3831,7 +3866,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -3867,7 +3903,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -3902,7 +3939,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -3945,7 +3983,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -3971,7 +4010,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -4023,7 +4063,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -4075,7 +4116,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -4102,7 +4144,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -4128,7 +4171,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -4154,7 +4198,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -4180,7 +4225,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -4207,7 +4253,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -4234,7 +4281,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -4749,7 +4797,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -4801,7 +4850,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -4845,7 +4895,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -4872,7 +4923,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -4899,7 +4951,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -4926,7 +4979,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -4953,7 +5007,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -4998,14 +5053,15 @@
       "full_extent_sha256": "3541420d3bd7d315bfccb8086b9e67496e6dff76fc314ae0d5320d87d104dd42",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "?Clear@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEXXZ",
-      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEXXZ",
+      "symbol": "?Clear@?$DynamicVectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -5034,14 +5090,15 @@
       "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "?ID@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHPBQAVAnimationPalette@Map@WorldDominationTour@@@Z",
-      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHPBQAVAnimationPalette@Map@WorldDominationTour@@@Z",
+      "symbol": "?ID@?$DynamicVectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAEHPBQAUAnimationPalette@Map@WorldDominationTour@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAEHPBQAUAnimationPalette@Map@WorldDominationTour@@@Z",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -5061,14 +5118,15 @@
       "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "?GetItem@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UBEPAVAnimationPalette@Map@WorldDominationTour@@H@Z",
-      "symbol_prefix": "?GetItem@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UBEPAVAnimationPalette@Map@WorldDominationTour@@H@Z",
+      "symbol": "?GetItem@?$VectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UBEPAUAnimationPalette@Map@WorldDominationTour@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UBEPAUAnimationPalette@Map@WorldDominationTour@@H@Z",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -5095,7 +5153,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -5122,7 +5181,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -5158,7 +5218,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -5185,7 +5246,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -5237,7 +5299,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -5281,7 +5344,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -5308,7 +5372,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -5384,7 +5449,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -5411,7 +5477,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -5438,7 +5505,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -5465,7 +5533,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -5533,7 +5602,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -5553,14 +5623,15 @@
       "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "??8?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UBE_NABV0@@Z",
-      "symbol_prefix": "??8?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UBE_NABV0@@Z",
+      "symbol": "??8?$VectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UBE_NABV0@@Z",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -5580,14 +5651,15 @@
       "full_extent_sha256": "8ecbf90cd3ebe905b0de9e80117595ed288717472b9d3dc0fbc86b91e0da6ac8",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "?Resize@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAE_NHPBQAVAnimationPalette@Map@WorldDominationTour@@@Z",
-      "symbol_prefix": "?Resize@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAE_NHPBQAVAnimationPalette@Map@WorldDominationTour@@@Z",
+      "symbol": "?Resize@?$VectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAE_NHPBQAUAnimationPalette@Map@WorldDominationTour@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAE_NHPBQAUAnimationPalette@Map@WorldDominationTour@@@Z",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -5624,14 +5696,15 @@
       "full_extent_sha256": "3488e33ddb03dc3bfd1709047148405cfc1b63cfcdf120833cb31bee72b1b53f",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "?Clear@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEXXZ",
-      "symbol_prefix": "?Clear@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEXXZ",
+      "symbol": "?Clear@?$VectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -5660,14 +5733,15 @@
       "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "?ID@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHABQAVAnimationPalette@Map@WorldDominationTour@@@Z",
-      "symbol_prefix": "?ID@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHABQAVAnimationPalette@Map@WorldDominationTour@@@Z",
+      "symbol": "?ID@?$VectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAEHABQAUAnimationPalette@Map@WorldDominationTour@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAEHABQAUAnimationPalette@Map@WorldDominationTour@@@Z",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -5687,14 +5761,15 @@
       "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "?ID@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHPBQAVAnimationPalette@Map@WorldDominationTour@@@Z",
-      "symbol_prefix": "?ID@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHPBQAVAnimationPalette@Map@WorldDominationTour@@@Z",
+      "symbol": "?ID@?$VectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAEHPBQAUAnimationPalette@Map@WorldDominationTour@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAEHPBQAUAnimationPalette@Map@WorldDominationTour@@@Z",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -5714,14 +5789,15 @@
       "full_extent_sha256": "eee379d45e2c9b8cbe6c4d99bb019ac326a3762bd4a73a3f04785d3d678267dc",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "?Resize@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAE_NHPBQAVAnimationPalette@Map@WorldDominationTour@@@Z",
-      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAE_NHPBQAVAnimationPalette@Map@WorldDominationTour@@@Z",
+      "symbol": "?Resize@?$DynamicVectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAE_NHPBQAUAnimationPalette@Map@WorldDominationTour@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAE_NHPBQAUAnimationPalette@Map@WorldDominationTour@@@Z",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -5758,14 +5834,15 @@
       "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "?ID@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHABQAVAnimationPalette@Map@WorldDominationTour@@@Z",
-      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHABQAVAnimationPalette@Map@WorldDominationTour@@@Z",
+      "symbol": "?ID@?$DynamicVectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAEHABQAUAnimationPalette@Map@WorldDominationTour@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAEHABQAUAnimationPalette@Map@WorldDominationTour@@@Z",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -5792,7 +5869,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -5819,7 +5897,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -5863,7 +5942,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -5899,7 +5979,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -5926,7 +6007,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -5953,7 +6035,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -5980,7 +6063,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
@@ -6007,7 +6091,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -6050,7 +6135,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -6125,7 +6211,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -6161,20 +6248,21 @@
       "full_extent_sha256": "25938c29a70943c7b353409b9e79373f7c8ad285ab60a255fec9945857ec94b2",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "??_G?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEPAXI@Z",
-      "symbol_prefix": "??_G?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEPAXI@Z",
+      "symbol": "??_G?$VectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAEPAXI@Z",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
           "offset": 8,
           "kind": 6,
-          "symbol": "??_7?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@6B@",
+          "symbol": "??_7?$VectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@6B@",
           "target": 8057436,
           "addend": 0,
           "resolved": 8057436
@@ -6213,20 +6301,21 @@
       "full_extent_sha256": "4ad792d924964e351d5b63d5215f4910ede7f4eac9e126c14f002f0b373ec17f",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "??_G?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEPAXI@Z",
-      "symbol_prefix": "??_G?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEPAXI@Z",
+      "symbol": "??_G?$DynamicVectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@UAEPAXI@Z",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
           "offset": 8,
           "kind": 6,
-          "symbol": "??_7?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@6B@",
+          "symbol": "??_7?$VectorClass@PAUAnimationPalette@Map@WorldDominationTour@@@@6B@",
           "target": 8057436,
           "addend": 0,
           "resolved": 8057436
@@ -6272,7 +6361,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -6324,7 +6414,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -6368,7 +6459,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {

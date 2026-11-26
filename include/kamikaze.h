@@ -17,9 +17,8 @@ struct IStream;
 /*
 **	One missile and the cell it flies at.
 */
-class KamikazeControl
+struct KamikazeControl
 {
-	public:
 		AircraftClass * Unit;
 		CellClass * Cell;
 };

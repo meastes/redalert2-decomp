@@ -38,12 +38,12 @@
     "_RECT_NONE": 10937424,
     "?Frame@@3HA": 10751276,
     "?Kamikazes@@3VKamikazeClass@@A": 10937384,
-    "??0?$VectorClass@PAVKamikazeControl@@@@QAE@HPBQAVKamikazeControl@@@Z": 5447392,
+    "??0?$VectorClass@PAUKamikazeControl@@@@QAE@HPBQAUKamikazeControl@@@Z": 5447392,
     "_$E149": 5445056,
-    "??_7?$DynamicVectorClass@PAVKamikazeControl@@@@6B@": 8016820,
+    "??_7?$DynamicVectorClass@PAUKamikazeControl@@@@6B@": 8016820,
     "_atexit": 7874954,
     "??3@YAXPAX@Z": 7871803,
-    "??_7?$VectorClass@PAVKamikazeControl@@@@6B@": 8016852,
+    "??_7?$VectorClass@PAUKamikazeControl@@@@6B@": 8016852,
     "??2@YAPAXI@Z": 7872535,
     "?Current@FacingClass@@QBE?AVDirType@@XZ": 4951008,
     "?Adjacent_Cell@CellClass@@QBEABV1@W4FacingType@@@Z": 4680384,
@@ -67,8 +67,9 @@
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
     "_$E151": 5444944,
-    "??_G?$DynamicVectorClass@PAVKamikazeControl@@@@UAEPAXI@Z": 5447312,
-    "??_G?$VectorClass@PAVKamikazeControl@@@@UAEPAXI@Z": 5447232,
+    "??_G?$DynamicVectorClass@PAUKamikazeControl@@@@UAEPAXI@Z": 5447312,
+    "??_7type_info@@6B@": 8066532,
+    "??_G?$VectorClass@PAUKamikazeControl@@@@UAEPAXI@Z": 5447232,
     "??0KamikazeClass@@QAE@XZ": 5445200,
     "?Add@KamikazeClass@@QAEXPAVAircraftClass@@PAVAbstractClass@@@Z": 5445280,
     "?Update@KamikazeClass@@QAEXXZ": 5445568,
@@ -77,16 +78,16 @@
     "?Clear@KamikazeClass@@QAEXXZ": 5446112,
     "?Save@KamikazeClass@@QAEJPAUIStream@@@Z": 5446208,
     "?Load@KamikazeClass@@QAEJPAUIStream@@@Z": 5446304,
-    "?Clear@?$DynamicVectorClass@PAVKamikazeControl@@@@UAEXXZ": 5446528,
-    "?ID@?$DynamicVectorClass@PAVKamikazeControl@@@@UAEHPBQAVKamikazeControl@@@Z": 5446576,
-    "?GetItem@?$VectorClass@PAVKamikazeControl@@@@UBEPAVKamikazeControl@@H@Z": 5446608,
-    "??8?$VectorClass@PAVKamikazeControl@@@@UBE_NABV0@@Z": 5446624,
-    "?Resize@?$VectorClass@PAVKamikazeControl@@@@UAE_NHPBQAVKamikazeControl@@@Z": 5446688,
-    "?Clear@?$VectorClass@PAVKamikazeControl@@@@UAEXXZ": 5446864,
-    "?ID@?$VectorClass@PAVKamikazeControl@@@@UAEHABQAVKamikazeControl@@@Z": 5446912,
-    "?ID@?$VectorClass@PAVKamikazeControl@@@@UAEHPBQAVKamikazeControl@@@Z": 5446976,
-    "?Resize@?$DynamicVectorClass@PAVKamikazeControl@@@@UAE_NHPBQAVKamikazeControl@@@Z": 5447008,
-    "?ID@?$DynamicVectorClass@PAVKamikazeControl@@@@UAEHABQAVKamikazeControl@@@Z": 5447184,
+    "?Clear@?$DynamicVectorClass@PAUKamikazeControl@@@@UAEXXZ": 5446528,
+    "?ID@?$DynamicVectorClass@PAUKamikazeControl@@@@UAEHPBQAUKamikazeControl@@@Z": 5446576,
+    "?GetItem@?$VectorClass@PAUKamikazeControl@@@@UBEPAUKamikazeControl@@H@Z": 5446608,
+    "??8?$VectorClass@PAUKamikazeControl@@@@UBE_NABV0@@Z": 5446624,
+    "?Resize@?$VectorClass@PAUKamikazeControl@@@@UAE_NHPBQAUKamikazeControl@@@Z": 5446688,
+    "?Clear@?$VectorClass@PAUKamikazeControl@@@@UAEXXZ": 5446864,
+    "?ID@?$VectorClass@PAUKamikazeControl@@@@UAEHABQAUKamikazeControl@@@Z": 5446912,
+    "?ID@?$VectorClass@PAUKamikazeControl@@@@UAEHPBQAUKamikazeControl@@@Z": 5446976,
+    "?Resize@?$DynamicVectorClass@PAUKamikazeControl@@@@UAE_NHPBQAUKamikazeControl@@@Z": 5447008,
+    "?ID@?$DynamicVectorClass@PAUKamikazeControl@@@@UAEHABQAUKamikazeControl@@@Z": 5447184,
     "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
     "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
     "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
@@ -115,7 +116,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -182,7 +184,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -233,7 +236,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -284,7 +288,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -335,7 +340,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -386,7 +392,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -437,7 +444,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -520,7 +528,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -579,7 +588,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -638,7 +648,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -697,7 +708,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -740,7 +752,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -791,7 +804,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -850,7 +864,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -888,7 +903,7 @@
         {
           "offset": 33,
           "kind": 20,
-          "symbol": "??0?$VectorClass@PAVKamikazeControl@@@@QAE@HPBQAVKamikazeControl@@@Z",
+          "symbol": "??0?$VectorClass@PAUKamikazeControl@@@@QAE@HPBQAUKamikazeControl@@@Z",
           "target": 5447392,
           "addend": 0,
           "resolved": 2411
@@ -920,7 +935,7 @@
         {
           "offset": 62,
           "kind": 6,
-          "symbol": "??_7?$DynamicVectorClass@PAVKamikazeControl@@@@6B@",
+          "symbol": "??_7?$DynamicVectorClass@PAUKamikazeControl@@@@6B@",
           "target": 8016820,
           "addend": 0,
           "resolved": 8016820
@@ -997,7 +1012,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1083,7 +1099,7 @@
         {
           "offset": 83,
           "kind": 6,
-          "symbol": "??_7?$VectorClass@PAVKamikazeControl@@@@6B@",
+          "symbol": "??_7?$VectorClass@PAUKamikazeControl@@@@6B@",
           "target": 8016852,
           "addend": 0,
           "resolved": 8016852
@@ -1152,7 +1168,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1166,7 +1183,7 @@
         {
           "offset": 40,
           "kind": 6,
-          "symbol": "??_7?$DynamicVectorClass@PAVKamikazeControl@@@@6B@",
+          "symbol": "??_7?$DynamicVectorClass@PAUKamikazeControl@@@@6B@",
           "target": 8016820,
           "addend": 0,
           "resolved": 8016820
@@ -1203,7 +1220,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1270,7 +1288,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1321,7 +1340,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1372,7 +1392,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1386,7 +1407,7 @@
         {
           "offset": 59,
           "kind": 6,
-          "symbol": "??_7?$VectorClass@PAVKamikazeControl@@@@6B@",
+          "symbol": "??_7?$VectorClass@PAUKamikazeControl@@@@6B@",
           "target": 8016852,
           "addend": 0,
           "resolved": 8016852
@@ -1423,7 +1444,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1466,7 +1488,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "9c7b5428dbf991956e428e5f165a0f638f54a7caadbf822bcc4e3617a4e0aae0",
@@ -1492,7 +1515,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1552,14 +1576,15 @@
       "full_extent_sha256": "5386155c241b2ccebdc0fd0f2b61545282f965cf65f752a51df7f4c7deed5986",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "?Clear@?$DynamicVectorClass@PAVKamikazeControl@@@@UAEXXZ",
-      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAVKamikazeControl@@@@UAEXXZ",
+      "symbol": "?Clear@?$DynamicVectorClass@PAUKamikazeControl@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAUKamikazeControl@@@@UAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1588,14 +1613,15 @@
       "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "?ID@?$DynamicVectorClass@PAVKamikazeControl@@@@UAEHPBQAVKamikazeControl@@@Z",
-      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVKamikazeControl@@@@UAEHPBQAVKamikazeControl@@@Z",
+      "symbol": "?ID@?$DynamicVectorClass@PAUKamikazeControl@@@@UAEHPBQAUKamikazeControl@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAUKamikazeControl@@@@UAEHPBQAUKamikazeControl@@@Z",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "9c7b5428dbf991956e428e5f165a0f638f54a7caadbf822bcc4e3617a4e0aae0",
@@ -1615,14 +1641,15 @@
       "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "?GetItem@?$VectorClass@PAVKamikazeControl@@@@UBEPAVKamikazeControl@@H@Z",
-      "symbol_prefix": "?GetItem@?$VectorClass@PAVKamikazeControl@@@@UBEPAVKamikazeControl@@H@Z",
+      "symbol": "?GetItem@?$VectorClass@PAUKamikazeControl@@@@UBEPAUKamikazeControl@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAUKamikazeControl@@@@UBEPAUKamikazeControl@@H@Z",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "9c7b5428dbf991956e428e5f165a0f638f54a7caadbf822bcc4e3617a4e0aae0",
@@ -1642,14 +1669,15 @@
       "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "??8?$VectorClass@PAVKamikazeControl@@@@UBE_NABV0@@Z",
-      "symbol_prefix": "??8?$VectorClass@PAVKamikazeControl@@@@UBE_NABV0@@Z",
+      "symbol": "??8?$VectorClass@PAUKamikazeControl@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAUKamikazeControl@@@@UBE_NABV0@@Z",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "9c7b5428dbf991956e428e5f165a0f638f54a7caadbf822bcc4e3617a4e0aae0",
@@ -1669,14 +1697,15 @@
       "full_extent_sha256": "819964ba1368f814324329d2cf81836aaf42926e887fd1b787d074286de28d8f",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "?Resize@?$VectorClass@PAVKamikazeControl@@@@UAE_NHPBQAVKamikazeControl@@@Z",
-      "symbol_prefix": "?Resize@?$VectorClass@PAVKamikazeControl@@@@UAE_NHPBQAVKamikazeControl@@@Z",
+      "symbol": "?Resize@?$VectorClass@PAUKamikazeControl@@@@UAE_NHPBQAUKamikazeControl@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAUKamikazeControl@@@@UAE_NHPBQAUKamikazeControl@@@Z",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1713,14 +1742,15 @@
       "full_extent_sha256": "172c789c59d1e01c6070f6045fa514633d09aa52e25a5e2e9cdef4821ac73d53",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "?Clear@?$VectorClass@PAVKamikazeControl@@@@UAEXXZ",
-      "symbol_prefix": "?Clear@?$VectorClass@PAVKamikazeControl@@@@UAEXXZ",
+      "symbol": "?Clear@?$VectorClass@PAUKamikazeControl@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAUKamikazeControl@@@@UAEXXZ",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1749,14 +1779,15 @@
       "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "?ID@?$VectorClass@PAVKamikazeControl@@@@UAEHABQAVKamikazeControl@@@Z",
-      "symbol_prefix": "?ID@?$VectorClass@PAVKamikazeControl@@@@UAEHABQAVKamikazeControl@@@Z",
+      "symbol": "?ID@?$VectorClass@PAUKamikazeControl@@@@UAEHABQAUKamikazeControl@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAUKamikazeControl@@@@UAEHABQAUKamikazeControl@@@Z",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "9c7b5428dbf991956e428e5f165a0f638f54a7caadbf822bcc4e3617a4e0aae0",
@@ -1776,14 +1807,15 @@
       "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "?ID@?$VectorClass@PAVKamikazeControl@@@@UAEHPBQAVKamikazeControl@@@Z",
-      "symbol_prefix": "?ID@?$VectorClass@PAVKamikazeControl@@@@UAEHPBQAVKamikazeControl@@@Z",
+      "symbol": "?ID@?$VectorClass@PAUKamikazeControl@@@@UAEHPBQAUKamikazeControl@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAUKamikazeControl@@@@UAEHPBQAUKamikazeControl@@@Z",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "9c7b5428dbf991956e428e5f165a0f638f54a7caadbf822bcc4e3617a4e0aae0",
@@ -1803,14 +1835,15 @@
       "full_extent_sha256": "3362bc2962dcbe3cadbc2ea4a8d21e188e4363047b770eb098c42c2968f99f14",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "?Resize@?$DynamicVectorClass@PAVKamikazeControl@@@@UAE_NHPBQAVKamikazeControl@@@Z",
-      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAVKamikazeControl@@@@UAE_NHPBQAVKamikazeControl@@@Z",
+      "symbol": "?Resize@?$DynamicVectorClass@PAUKamikazeControl@@@@UAE_NHPBQAUKamikazeControl@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAUKamikazeControl@@@@UAE_NHPBQAUKamikazeControl@@@Z",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -1847,14 +1880,15 @@
       "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "?ID@?$DynamicVectorClass@PAVKamikazeControl@@@@UAEHABQAVKamikazeControl@@@Z",
-      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVKamikazeControl@@@@UAEHABQAVKamikazeControl@@@Z",
+      "symbol": "?ID@?$DynamicVectorClass@PAUKamikazeControl@@@@UAEHABQAUKamikazeControl@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAUKamikazeControl@@@@UAEHABQAUKamikazeControl@@@Z",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "9c7b5428dbf991956e428e5f165a0f638f54a7caadbf822bcc4e3617a4e0aae0",
@@ -1874,20 +1908,21 @@
       "full_extent_sha256": "253c9445591e7f525f8fe19f22769ae48acbdc12ce92172c14cb5d60007e700d",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "??_G?$VectorClass@PAVKamikazeControl@@@@UAEPAXI@Z",
-      "symbol_prefix": "??_G?$VectorClass@PAVKamikazeControl@@@@UAEPAXI@Z",
+      "symbol": "??_G?$VectorClass@PAUKamikazeControl@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAUKamikazeControl@@@@UAEPAXI@Z",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
           "offset": 8,
           "kind": 6,
-          "symbol": "??_7?$VectorClass@PAVKamikazeControl@@@@6B@",
+          "symbol": "??_7?$VectorClass@PAUKamikazeControl@@@@6B@",
           "target": 8016852,
           "addend": 0,
           "resolved": 8016852
@@ -1926,20 +1961,21 @@
       "full_extent_sha256": "f1c870929be7a825becee3bfab0c0a3664a50e1d616a6d6ecaeea02c2b638b02",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "??_G?$DynamicVectorClass@PAVKamikazeControl@@@@UAEPAXI@Z",
-      "symbol_prefix": "??_G?$DynamicVectorClass@PAVKamikazeControl@@@@UAEPAXI@Z",
+      "symbol": "??_G?$DynamicVectorClass@PAUKamikazeControl@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAUKamikazeControl@@@@UAEPAXI@Z",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
           "offset": 8,
           "kind": 6,
-          "symbol": "??_7?$VectorClass@PAVKamikazeControl@@@@6B@",
+          "symbol": "??_7?$VectorClass@PAUKamikazeControl@@@@6B@",
           "target": 8016852,
           "addend": 0,
           "resolved": 8016852
@@ -1978,20 +2014,21 @@
       "full_extent_sha256": "aa4636b8bdcaac485f52dea995117cfddda96ce1008b883f95564a41fbde50b5",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "??0?$VectorClass@PAVKamikazeControl@@@@QAE@HPBQAVKamikazeControl@@@Z",
-      "symbol_prefix": "??0?$VectorClass@PAVKamikazeControl@@@@QAE@HPBQAVKamikazeControl@@@Z",
+      "symbol": "??0?$VectorClass@PAUKamikazeControl@@@@QAE@HPBQAUKamikazeControl@@@Z",
+      "symbol_prefix": "??0?$VectorClass@PAUKamikazeControl@@@@QAE@HPBQAUKamikazeControl@@@Z",
       "options": [
         "/O2",
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
           "offset": 26,
           "kind": 6,
-          "symbol": "??_7?$VectorClass@PAVKamikazeControl@@@@6B@",
+          "symbol": "??_7?$VectorClass@PAUKamikazeControl@@@@6B@",
           "target": 8016852,
           "addend": 0,
           "resolved": 8016852

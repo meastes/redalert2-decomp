@@ -22,7 +22,7 @@ class ConvertClass;
 class ColorScheme;
 class Surface;
 
-class ProgressScreenClass : public INoticeSource // RA2: INoticeSource
+class ProgressScreenClass : INoticeSource // RA2: INoticeSource, a private base (its base class descriptor is marked so)
 {
 	public:
 		ProgressScreenClass(void);

@@ -11033,7 +11033,7 @@ LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lp
 }
 #endif
 
-#ifdef RA2_NON_MATCHING // not exact: 13716 bytes differ against the image-derived bound 005f6690 (14,618 body bytes, 6 padding) (position score 13716, was 13857: 2,938 instruction lines off of 4,435, was 3,759; 227 of 274 calls in order, was 202; 14,608 B, was 14,512 (lane F80): the three text-message groups ported from ra2-decomp's ListBoxHandler (src/ownrdraw.cpp at 82250f72, PR #406: the narrow search, add and get messages each convert or clear wide_messages and fall into the wide group, the node made through Add_Node and dropped through Remove_Node), which gives the image's switch (every case group at its own entry and in the image's layout order, the message kept in ebx), and the case groups in that text's source order; left: the frame is 0x204 over (0x2f30 for 0x2d2c), the post-switch block and the erase-background return are laid out early, the paint case has three wcsncpy sites for the image's two; the bank's newest order (origin/banked-forms 41d009df, 0x00618D40.cpp) gives the image's size exactly, 14,618 B, at 3,053 lines; before that position score 13857, was 13798, taken for the structure under the owner's ruling: 3,759 instruction lines off of 4,435, was 3,814; 202 of 274 calls in order, was 201; 14,512 B: the record fetched through the unit's Get_Record, ra2-decomp's Find_Data, which gives the image's out-of-line Dictionary::keyHash call at the top (lanes F77, F79); the whole port of ra2-decomp's ListBoxHandler (PR #406, unmarked there) is still to do; image-faithful widths; before that position score 13802, was 13791: the subclassed item height read and added as a dword before the low-word mask, as the image does at 0x005F861F; before that 13841; the three selection queries read the state through ArrayList::get as RA2 1.001 does, one indexed load each as in the image; before that 13847; the selection-change notifications sent with MAKEWPARAM and the SDK LBN_ codes; before that 14527; the message groups in the order of ra2-decomp's banked form banks/0x00618D40_lbh.cpp (11df85d), each RA2 handler and fall-through chain kept)
+#ifdef RA2_NON_MATCHING // not exact: 12208 bytes differ against the image-derived bound 005f6690 (14,618 body bytes, 6 padding) (position score 12208, was 13716: 2,215 instruction lines off of 4,435, was 2,876 (stack offsets blind; 603 with registers blind too, was 1,276); 14,592 B; the frame is the image's, 0x2d2c; the switch, the post-switch block and the erase-background return are laid out as in the image; every inline decision is the image's but one in the post-switch block (lane F81): the rest of ra2-decomp's ListBoxHandler ported (src/ownrdraw.cpp at 82250f72: the preamble, the paint case with the row text through the unit's Get_Item_Text, the selection, item-data, top-index, column, hit-test, delete-item and size cases, the post-switch block), and read against the image: the select-range case beside the item-rect case (the image calls its setSize's shrinkVector out of line, as an earlier site does), the Yuri's Revenge-only row bound of the button-down case left out, the add-string calls with the narrow branch first, the tip's empty test as a branch, the scroll bar's record looked up by a reference to the member (the image keeps its address and reads the member through it), the parent of each selection notice in a local of its own (the image holds it in a register and never writes the function's parent slot; with the parent out of the registers the record is reloaded from its slot in each case as in the image), the paint case's row index an LRESULT of its own (Get_Item_Text takes the index by reference, which kept the function's index in memory through the loop; the image has it in ebp); left: the preamble's rectangle sums are scheduled differently and the message is not held in ebx up to the switch, the paint loop keeps the SendMessage pointer in a register where the image calls through memory, ArrayList::add's position clamp is folded away at the two int sites, the record's WideText is deleted inline in the post-switch block where the image calls the scalar deleting destructor; before that position score 13716, was 13857: 2,938 instruction lines off of 4,435, was 3,759; 227 of 274 calls in order, was 202; 14,608 B, was 14,512 (lane F80): the three text-message groups ported from ra2-decomp's ListBoxHandler (src/ownrdraw.cpp at 82250f72, PR #406: the narrow search, add and get messages each convert or clear wide_messages and fall into the wide group, the node made through Add_Node and dropped through Remove_Node), which gives the image's switch (every case group at its own entry and in the image's layout order, the message kept in ebx), and the case groups in that text's source order; left: the frame is 0x204 over (0x2f30 for 0x2d2c), the post-switch block and the erase-background return are laid out early, the paint case has three wcsncpy sites for the image's two; the bank's newest order (origin/banked-forms 41d009df, 0x00618D40.cpp) gives the image's size exactly, 14,618 B, at 3,053 lines; before that position score 13857, was 13798, taken for the structure under the owner's ruling: 3,759 instruction lines off of 4,435, was 3,814; 202 of 274 calls in order, was 201; 14,512 B: the record fetched through the unit's Get_Record, ra2-decomp's Find_Data, which gives the image's out-of-line Dictionary::keyHash call at the top (lanes F77, F79); the whole port of ra2-decomp's ListBoxHandler (PR #406, unmarked there) is still to do; image-faithful widths; before that position score 13802, was 13791: the subclassed item height read and added as a dword before the low-word mask, as the image does at 0x005F861F; before that 13841; the three selection queries read the state through ArrayList::get as RA2 1.001 does, one indexed load each as in the image; before that 13847; the selection-change notifications sent with MAKEWPARAM and the SDK LBN_ codes; before that 14527; the message groups in the order of ra2-decomp's banked form banks/0x00618D40_lbh.cpp (11df85d), each RA2 handler and fall-through chain kept)
 namespace OwnerDraw {
 
 LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
@@ -11044,12 +11044,11 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 	HWND parent = GetParent(window);
 	int needs_scrollbar = -1;
 	int max_position = 0;
-	bool call_default = true;
+	char call_default = 1;
 	LRESULT result = 0;
-	wchar_t string[512];
 
 	WinData * data = Get_Record(window);
-	if (!data) return 0;
+	if (data == NULL) return 0;
 	wchar_t converted[0x1400];
 
 	int scrollbar_width = 2 * Border_Width + 18;
@@ -11070,6 +11069,7 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 	client_rect.bottom -= 2 * Border_Width;
 	display_rect.bottom -= Border_Width;
 	content_rect.Height = client_rect.bottom - client_rect.top;
+
 
 	/*
 	 * Keep the attached scrollbar synchronized with the listbox state. This is skipped for
@@ -11094,10 +11094,11 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 		}
 	}
 
+
 	int index;
 	switch (message) {
 		case LB_SETSEL: {
-			int index = (int)lparam;
+			index = (int)lparam;
 			if (index < -1) {
 				return(-1);
 			}
@@ -11109,9 +11110,10 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			if (index >= SendMessage(window, LB_GETCOUNT, 0, 0) - 1) {
 				index = SendMessage(window, LB_GETCOUNT, 0, 0) - 1;
 			}
-			if (index >= sel_states->length()) {
+			int max_index = MAX(index, SendMessage(window, LB_GETCOUNT, 0, 0) - 1);
+			if (max_index >= sel_states->length()) {
 				int unselected = 0;
-				sel_states->setSize(index + 1, unselected);
+				sel_states->setSize(max_index + 1, unselected);
 			}
 			if (index == -1) {
 				for (int i = 0; i < sel_states->length(); i++) {
@@ -11122,27 +11124,35 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 				int selected = (int)wparam;
 				sel_states->replace(selected, index);
 			}
-			parent = GetParent(window);
-			SendMessage(parent, WM_COMMAND, MAKEWPARAM(GetWindowLong(window, GWL_ID), LBN_SELCHANGE), (LPARAM)window);
+			HWND owner = GetParent(window);
+			SendMessage(owner, WM_COMMAND, MAKEWPARAM(GetWindowLong(window, GWL_ID), LBN_SELCHANGE), (LPARAM)window);
 			InvalidateRect(window, NULL, FALSE);
-			return(0);
+			return 0;
 		}
 
-		case CB_GETITEMDATA:
-		case CB_SETITEMDATA:
 		case LB_GETITEMDATA:
-		case LB_SETITEMDATA: {
-			TextNode * node = (TextNode *)CallWindowProcA(previous, window, LB_GETITEMDATA, wparam, 0);
+		case LB_SETITEMDATA:
+
+		case CB_GETITEMDATA:
+		case CB_SETITEMDATA: {
 			call_default = false;
-			result = (LRESULT)node;
-			if (!node || node == (TextNode *)LB_ERR) result = LB_ERR;
-			else if (message == CB_GETITEMDATA || message == LB_GETITEMDATA) result = node->Reserved_04;
-			else node->Reserved_04 = lparam;
+			result = CallWindowProc(previous, window, LB_GETITEMDATA, wparam, 0);
+			if (result == -1) break;
+			TextNode * node = (TextNode *)result;
+			if (node == NULL) {
+				result = -1;
+				break;
+			}
+			if (message == LB_GETITEMDATA || message == CB_GETITEMDATA) {
+				result = node->Reserved_04;
+			} else {
+				node->Reserved_04 = lparam;
+			}
 			break;
 		}
 
 		case LB_SETTOPINDEX: {
-			int index = (int)wparam;
+			index = (int)wparam;
 			int count = SendMessage(window, LB_GETCOUNT, 0, 0);
 			int item_height = SendMessage(window, LB_GETITEMHEIGHT, 0, 0);
 			if (!count || !item_height) {
@@ -11152,10 +11162,12 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			if (index < 0) {
 				index = 0;
 			}
-			if (count - visible <= 0) {
+			if (count - visible > 0) {
+				if (index > count - visible) {
+					index = count - visible;
+				}
+			} else {
 				index = 0;
-			} else if (index > count - visible) {
-				index = count - visible;
 			}
 			if (index != data->Position) {
 				data->Position = index;
@@ -11172,56 +11184,56 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			if (sel_states == NULL) {
 				return(0);
 			}
+			int count = sel_states->length();
 			int selected = 0;
-			int count = 0;
-			for (int row = 0; row < sel_states->length(); row++) {
-				sel_states->get(selected, row);
+			int total = 0;
+			for (int i = 0; i < count; i++) {
+				sel_states->get(selected, i);
 				if (selected) {
-					count++;
+					total++;
 				}
 			}
-			return(count);
+			return(total);
 		}
 
 		case LB_GETSELITEMS: {
 			ArrayList<int> * sel_states = (ArrayList<int> *)data->RangeMax;
+			int selected = 0;
 			int total = 0;
-			if (sel_states != NULL) {
-				int selected = 0;
-				if (sel_states->length() > 0) {
-					int * out = (int *)lparam;
-					int max = (int)wparam;
-					for (int i = 0; i < sel_states->length(); i++) {
-						sel_states->get(selected, i);
-						if (selected) {
-							*out = i;
-							total++;
-							out++;
-						}
-						if (total >= max) {
-							break;
-						}
-					}
+			if (sel_states == NULL) {
+				return(0);
+			}
+			int * out = (int *)lparam;
+			int max = (int)wparam;
+			for (int i = 0; i < sel_states->length(); i++) {
+				sel_states->get(selected, i);
+				if (selected) {
+					*out = i;
+					total++;
+					out++;
+				}
+				if (total >= max) {
+					break;
 				}
 			}
 			return(total);
 		}
 
 		case LB_GETSEL: {
-			int selected = 0;
 			ArrayList<int> * sel_states = (ArrayList<int> *)data->RangeMax;
+			int selected = 0;
 			if (sel_states == NULL) {
-				return(selected);
+				return(0);
 			}
 			if ((int)wparam >= sel_states->length()) {
 				return(0);
 			}
-			sel_states->get(selected, wparam);
+			sel_states->get(selected, (int)wparam);
 			return(selected);
 		}
 
 		case LB_SETCURSEL: {
-			int index = (int)wparam;
+			index = (int)wparam;
 			if ((int)wparam >= -1 && index < SendMessage(window, LB_GETCOUNT, 0, 0)) {
 				if (data->IsEditFocus != -1) {
 					SendMessage(window, LB_SETSEL, 0, data->IsEditFocus);
@@ -11231,8 +11243,8 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 					SendMessage(window, LB_SETSEL, TRUE, index);
 				}
 			}
-			parent = GetParent(window);
-			SendMessage(parent, WM_COMMAND, MAKEWPARAM(GetWindowLong(window, GWL_ID), LBN_SELCHANGE), (LPARAM)window);
+			HWND owner = GetParent(window);
+			SendMessage(owner, WM_COMMAND, MAKEWPARAM(GetWindowLong(window, GWL_ID), LBN_SELCHANGE), (LPARAM)window);
 			InvalidateRect(window, NULL, FALSE);
 			return(0);
 		}
@@ -11241,7 +11253,7 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			return(data->IsEditFocus);
 
 		case LB_GETITEMRECT: {
-			int index = (int)wparam;
+			index = (int)wparam;
 			if (index < data->Position) {
 				return(-1);
 			}
@@ -11255,45 +11267,76 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			}
 			RECT * out = (RECT *)lparam;
 			out->top = relative * item_height;
-			out->bottom = relative * item_height + item_height;
+			out->bottom = out->top + item_height;
 			out->left = client_rect.left;
 			out->right = client_rect.right - client_rect.left;
+			return(0);
+		}
+
+		case LB_SELITEMRANGE: {
+			int last = HIWORD(lparam);
+			int first = LOWORD(lparam);
+			int count = SendMessage(window, LB_GETCOUNT, 0, 0);
+			if (first < 0 || last < 0 || last < first) {
+				return(-1);
+			}
+			if (last >= count) {
+				last = count - 1;
+			}
+			ArrayList<int> * sel_states = (ArrayList<int> *)data->RangeMax;
+			if (sel_states == NULL) {
+				sel_states = new ArrayList<int>;
+				data->RangeMax = (int)sel_states;
+			}
+			if (last >= sel_states->length()) {
+				int unselected = 0;
+				sel_states->setSize(last + 1, unselected);
+			}
+			for (int i = first; i <= last; i++) {
+				int selected = (int)wparam;
+				sel_states->replace(selected, i);
+			}
+			HWND owner = GetParent(window);
+			SendMessage(owner, WM_COMMAND, MAKEWPARAM(GetWindowLong(window, GWL_ID), LBN_SELCHANGE), (LPARAM)window);
 			return(0);
 		}
 
 		case WM_LBUTTONDBLCLK:
 			PostMessage(parent, WM_COMMAND, MAKEWPARAM(GetWindowLong(window, GWL_ID), LBN_DBLCLK), (LPARAM)window);
 			return(0);
+
 		case WM_LBUTTONDOWN: {
 			int top = SendMessage(window, LB_GETTOPINDEX, 0, 0);
 			int item_height = SendMessage(window, LB_GETITEMHEIGHT, 0, 0);
-			int index = top + (int)HIWORD(lparam) / item_height;
+			index = top + (int)HIWORD(lparam) / item_height;
 			LONG style = GetWindowLong(window, GWL_STYLE);
 			SetFocus(window);
 			int paint_disabled = SendMessage(window, OD_DISABLEPAINT, 0, 1);
 			if ((style & LBS_MULTIPLESEL) != 0) {
 				int select = (SendMessage(window, LB_GETSEL, index, 0) == 0);
-				VocClass::PlayGlobal(Rule->GenericClick, 1.0f, 0x2000, NULL);
+				VocClass::PlayGlobal(Rule->GenericClick, 1.0f, 0x2000, 0);
 				SendMessage(window, LB_SETSEL, select, index);
-				InvalidateRect(window, NULL, FALSE);
 			} else if ((style & LBS_NOSEL) == 0) {
-				VocClass::PlayGlobal(Rule->GenericClick, 1.0f, 0x2000, NULL);
+				VocClass::PlayGlobal(Rule->GenericClick, 1.0f, 0x2000, 0);
 				SendMessage(window, LB_SETCURSEL, index, 0);
-				InvalidateRect(window, NULL, FALSE);
 			}
 			SendMessage(window, OD_DISABLEPAINT, 0, paint_disabled);
-			parent = GetParent(window);
-			SendMessage(parent, WM_COMMAND, MAKEWPARAM(GetWindowLong(window, GWL_ID), LBN_SELCHANGE), (LPARAM)window);
+			InvalidateRect(window, NULL, FALSE);
+			HWND owner = GetParent(window);
+			SendMessage(owner, WM_COMMAND, MAKEWPARAM(GetWindowLong(window, GWL_ID), LBN_SELCHANGE), (LPARAM)window);
 			return(0);
 		}
 
 		case WM_RBUTTONDOWN:
+			if (GetWindowLong(window, GWL_STYLE) & LBS_MULTIPLESEL) {
 			SendMessage(window, LB_SETSEL, 0, -1);
 			SendMessage(window, LB_SETCURSEL, (WPARAM)-1, 0);
-			parent = GetParent(window);
-			SendMessage(parent, WM_COMMAND, MAKEWPARAM(GetWindowLong(window, GWL_ID), LBN_SELCHANGE), (LPARAM)window);
+			HWND owner = GetParent(window);
+			SendMessage(owner, WM_COMMAND, MAKEWPARAM(GetWindowLong(window, GWL_ID), LBN_SELCHANGE), (LPARAM)window);
 			InvalidateRect(window, NULL, FALSE);
-			return(0);
+				return(0);
+			}
+			break;
 
 		case OD_SETCOLOR: {
 			ArrayList<int> * row_colors = (ArrayList<int> *)data->ItemState;
@@ -11301,7 +11344,7 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 				row_colors = new ArrayList<int>;
 				data->ItemState = (int)row_colors;
 			}
-			int index = (int)wparam;
+			index = (int)wparam;
 			if (index >= row_colors->length()) {
 				int blank = -1;
 				row_colors->setSize(index + 1, blank);
@@ -11312,12 +11355,10 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			break;
 		}
 
-		case OD_SUBCLASSED: {
+		case OD_SUBCLASSED:
 			data->IsEditFocus = -1;
-			int height = data->Font->LineHeight + 2;
-			SendMessage(window, LB_SETITEMHEIGHT, (WPARAM)-1, height & 0xffff);
+			SendMessage(window, LB_SETITEMHEIGHT, (WPARAM)-1, ((data->Font->LineHeight + 2) & 0xFFFF));
 			break;
-		}
 
 		case OD_ADDCOLUMN: {
 			ArrayList<ColumnData> * columns = (ArrayList<ColumnData> *)data->HadTabStop;
@@ -11337,8 +11378,7 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			ColumnData new_column;
 			new_column.xPos = lparam;
 			new_column.width = wparam;
-			int length = columns->length();
-			columns->add(new_column, length);
+			columns->addTail(new_column);
 			return(lparam);
 		}
 
@@ -11361,14 +11401,15 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 					}
 				}
 				if (best_column != -1 && row >= 0 && row < count) {
-					column = NULL;
 					columns->getPointer(&column, best_column);
-					if (column != NULL && row < column->cells.length()) {
-						CellData * cell = NULL;
-						column->cells.getPointer(&cell, row);
+					if (column != NULL) {
+						CellData * cell;
+						if (!column->cells.getPointer(&cell, row)) return 0;
 						if (cell != NULL && lparam != 0) {
 							wcscpy((wchar_t *)lparam, cell->hint.get());
-							return(wcslen(cell->hint.get()) == 0);
+							if (wcslen(cell->hint.get()) == 0) {
+								return(1);
+							}
 						}
 					}
 				}
@@ -11378,15 +11419,16 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 
 		case OD_REMOVECOLUMN: {
 			ArrayList<ColumnData> * columns = (ArrayList<ColumnData> *)data->HadTabStop;
-			if (columns != NULL) {
-				ColumnData * column = NULL;
-				for (int col = 0; col < columns->length(); col++) {
+			if (columns == NULL) {
+				return -1;
+			}
+			ColumnData * column = NULL;
+			for (int col = 0; col < columns->length(); col++) {
 					columns->getPointer(&column, col);
 					if (column->xPos == lparam) {
 						columns->remove(col);
 						return(lparam);
 					}
-				}
 			}
 			return(-1);
 		}
@@ -11427,7 +11469,7 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 		case 0x4c4:
 		case 0x4c5:
 		case 0x4c6:
-			Char_To_Wide(converted, (char const *)lparam, 0x1400);
+			Char_To_Wide(converted, (char *)lparam, 0x1400);
 			lparam = (LPARAM)converted;
 		case 0x4c9:
 		case 0x4ca:
@@ -11435,11 +11477,11 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			call_default = false;
 			int count = SendMessage(window, LB_GETCOUNT, 0, 0);
 			BOOL found = FALSE;
-			if (count == LB_ERR) break;
+			if (count == -1) break;
 			for (index = (int)wparam; index < count; ++index) {
 				if (found) break;
-				result = CallWindowProcA(previous, window, LB_GETITEMDATA, index, 0);
-				if (result != LB_ERR) {
+				result = CallWindowProc(previous, window, LB_GETITEMDATA, index, 0);
+				if (result != -1) {
 					TextNode * node = (TextNode *)result;
 					if (message == 0x4c5 || message == 0x4ca) {
 						found = (wcsicmp((wchar_t *)lparam, node->Data) == 0);
@@ -11450,7 +11492,7 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 				}
 			}
 			if (!found) {
-				result = LB_ERR;
+				result = -1;
 			} else if (message == 0x4c6) {
 				result = SendMessage(window, LB_SETCURSEL, result, 0);
 			}
@@ -11463,21 +11505,21 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 		case 0x4cc:
 		case OD_ADDSTRINGW: {
 			call_default = false;
-			if (message == 0x4c8 || message == 0x4cd) {
-				if (wide_messages) {
-					result = CallWindowProcA(previous, window, LB_ADDSTRING, 0, (LPARAM)Wide_To_Narrow((wchar_t const *)lparam));
+			if (message == 0x4c8 || message == OD_ADDSTRINGW) {
+				if (!wide_messages) {
+					result = CallWindowProc(previous, window, LB_ADDSTRING, 0, lparam);
 				} else {
-					result = CallWindowProcA(previous, window, LB_ADDSTRING, 0, lparam);
+					result = CallWindowProc(previous, window, LB_ADDSTRING, 0, (LPARAM)Wide_To_Narrow((wchar_t *)lparam));
 				}
 			} else {
-				if (wide_messages) {
-					result = CallWindowProcA(previous, window, LB_INSERTSTRING, wparam, (LPARAM)Wide_To_Narrow((wchar_t const *)lparam));
+				if (!wide_messages) {
+					result = CallWindowProc(previous, window, LB_INSERTSTRING, wparam, lparam);
 				} else {
-					result = CallWindowProcA(previous, window, LB_INSERTSTRING, wparam, lparam);
+					result = CallWindowProc(previous, window, LB_INSERTSTRING, wparam, (LPARAM)Wide_To_Narrow((wchar_t *)lparam));
 				}
 			}
-			if (result == LB_ERR || result == LB_ERRSPACE) break;
-			int position = result;
+			if (result == -1 || result == -2) break;
+			LRESULT position = result;
 			int length = wide_messages ? wcslen((wchar_t *)lparam) : strlen((char *)lparam);
 			TextNode * node = ((NodeList *)data)->Add_Node(length);
 			if (node != NULL) {
@@ -11485,17 +11527,17 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 				if (wide_messages) {
 					wcscpy(node->Data, (wchar_t *)lparam);
 				} else {
-					Char_To_Wide(node->Data, (char const *)lparam, -1);
+					Char_To_Wide(node->Data, (char *)lparam, -1);
 				}
-				result = CallWindowProcA(previous, window, LB_SETITEMDATA, position, (LPARAM)node);
-				if (result != LB_ERR && result != LB_ERRSPACE) {
+				result = CallWindowProc(previous, window, LB_SETITEMDATA, position, (LPARAM)node);
+				if (result != -1 && result != -2) {
 					result = position;
 					if (message != 0x4c8 && position != -1) {
 						ArrayList<int> * row_colors = (ArrayList<int> *)data->ItemState;
 						if (row_colors != NULL && position < row_colors->length()) {
 							int color = -1;
 							row_colors->add(color, position);
-						}
+							}
 						ArrayList<int> * sel_states = (ArrayList<int> *)data->RangeMax;
 						if (sel_states != NULL && position < sel_states->length()) {
 							int selected = 0;
@@ -11523,9 +11565,9 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 					break;
 				}
 			} else {
-				result = LB_ERRSPACE;
+				result = -2;
 			}
-			CallWindowProcA(previous, window, LB_DELETESTRING, position, 0);
+			CallWindowProc(previous, window, LB_DELETESTRING, position, 0);
 			if (node != NULL) ((NodeList *)data)->Remove_Node(node);
 			break;
 		}
@@ -11542,8 +11584,8 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 				if (wide_messages) *(wchar_t *)lparam = 0;
 				else *(char *)lparam = 0;
 			}
-			result = CallWindowProcA(previous, window, LB_GETITEMDATA, wparam, 0);
-			if (result != LB_ERR) {
+			result = CallWindowProc(previous, window, LB_GETITEMDATA, wparam, 0);
+			if (result != -1) {
 				TextNode * node = (TextNode *)result;
 				if (node == NULL) break;
 				if (message == 0x4cf) {
@@ -11561,50 +11603,36 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 		}
 
 		case 0x4e8: {
-			if (LOWORD(lparam) >= client_rect.right || HIWORD(lparam) >= client_rect.bottom) return -1;
+			int x = LOWORD(lparam);
+			int y = HIWORD(lparam);
+			if (x < 0 || y < 0 || x >= client_rect.right || y >= client_rect.bottom) return -1;
 			int height = SendMessage(window, LB_GETITEMHEIGHT, 0, 0);
-			if (height <= 0) return -1;
-			int row = data->Position + HIWORD(lparam) / height;
-			return row >= 0 && row < SendMessage(window, LB_GETCOUNT, 0, 0) ? row : -1;
+			int count = SendMessage(window, LB_GETCOUNT, 0, 0);
+			index = y / height + data->Position;
+			if (index < 0 || index > count - 1) return -1;
+			return index;
 		}
 
 		case 0x4ef:
 			return (LRESULT)data->ScrollBar;
 
-		case WM_DELETEITEM: {
+		case WM_DELETEITEM:
+			((NodeList *)data)->Remove_Node((TextNode *)((DELETEITEMSTRUCT *)lparam)->itemData);
 			result = 1;
-			DELETEITEMSTRUCT * item = (DELETEITEMSTRUCT *)lparam;
-			TextNode ** link = &data->Nodes;
-			while (*link) {
-				TextNode * node = *link;
-				if (node == (TextNode *)item->itemData) {
-					*link = node->Next;
-					operator delete(node);
-					break;
-				}
-				link = &node->Next;
-			}
 			break;
-		}
 
 		case WM_SIZE: {
 			if ((int)data->ScrollBar > 1) {
 				RECT parent_display;
 				Get_Display_Rect(GetParent(window), &parent_display);
-				RECT win_display;
-				Get_Display_Rect(window, &win_display);
-				MoveWindow(data->ScrollBar, win_display.right - parent_display.left, win_display.top - parent_display.top, scrollbar_width, win_display.bottom - win_display.top, TRUE);
+				Rect win_display;
+				Get_Display_Rect(window, (LPRECT)&win_display);
+				MoveWindow(data->ScrollBar, win_display.Width - parent_display.left, win_display.Y - parent_display.top, scrollbar_width, win_display.Height - win_display.Y, TRUE);
 			}
 			Surface * surface = data->Back;
 			if (surface != NULL) {
 				if ((unsigned short)lparam != surface->Get_Width() || HIWORD(lparam) != surface->Get_Height()) {
-					WinData * cache_data = NULL;
-					Control_Table.getPointer((unsigned int)window, &cache_data);
-					if (cache_data != NULL && cache_data->Back != NULL) {
-						delete cache_data->Back;
-						cache_data->Back = NULL;
-						Surface_Count--;
-					}
+					On_WM_NCDESTROY(window);
 				}
 			}
 			break;
@@ -11622,39 +11650,28 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 
 		case WM_ERASEBKGND:
 			return(0);
+
 		case WM_PAINT: {
-			BitFont * font = data->Font;
+			wchar_t string[512];
 			call_default = false;
+			BitFont * font = data->Font;
 			Draw_Dimmed_Back(content_rect, window, data->TextStyle);
 			Draw_Frame(AlternateSurface, content_rect, 1, -1);
-
 			int fill_color = Color_To_Pixel(Fill_Color);
-
 			RECT update_rect;
 			if (!GetUpdateRect(window, &update_rect, FALSE)) {
 				break;
 			}
-
 			int count = SendMessage(window, LB_GETCOUNT, 0, 0);
-			int index = SendMessage(window, LB_GETTOPINDEX, 0, 0);
+			LONG style = GetWindowLong(window, GWL_STYLE);
+			LRESULT index = SendMessage(window, LB_GETTOPINDEX, 0, 0);
 			while (index < count) {
 				RECT item_rect;
 				if (SendMessage(window, LB_GETITEMRECT, index, (LPARAM)&item_rect) != -1) {
 					if (client_rect.top + item_rect.bottom > client_rect.bottom) {
 						break;
 					}
-					{
-						WNDPROC proc = NULL;
-						Window_Proc_Table.getValue(window, proc);
-						string[0] = 0;
-						TextNode * item = (TextNode *)CallWindowProcA(proc, window, LB_GETITEMDATA, index, 0);
-						if (!item || item == (TextNode *)LB_ERR) item = (TextNode *)CallWindowProcA(proc, window, CB_GETITEMDATA, index, 0);
-						if (item && item != (TextNode *)LB_ERR) {
-							wcsncpy(string, item->Data, 512);
-							string[511] = 0;
-						}
-					}
-
+					Get_Item_Text(window, index, string, 512);
 					ArrayList<ColumnData> * columns = (ArrayList<ColumnData> *)data->HadTabStop;
 					if (columns != NULL) {
 						if (SendMessage(window, LB_GETSEL, index, 0) > 0) {
@@ -11665,81 +11682,77 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 							fill.Height = item_rect.bottom - item_rect.top;
 							AlternateSurface->Fill_Rect(fill, fill_color);
 						}
-
+						ColumnData * column = NULL;
 						HDC dc = GetDC(window);
-						for (int col = 0; col < columns->length(); col++) {
-							ColumnData * column = NULL;
+						for (int col = 0; col < columns->length(); ++col) {
 							columns->getPointer(&column, col);
-							CellData * cell = NULL;
-							column->cells.getPointer(&cell, index);
+							CellData * cell;
+							if (!column->cells.getPointer(&cell, index)) {
+								continue;
+							}
 							if (cell == NULL || cell->type == CellData::INVALID) {
 								continue;
 							}
-
 							if (cell->type == CellData::TEXT || cell->type == CellData::PRIMARY) {
 								Rect text_rect;
 								text_rect.X = display_rect.left + item_rect.left + column->xPos;
 								text_rect.Y = display_rect.top + item_rect.top;
-								text_rect.Width = 0;
-								text_rect.Height = 0;
+								text_rect.Width = item_rect.right - item_rect.left;
+								text_rect.Height = item_rect.bottom - item_rect.top;
 								if (cell->type == CellData::TEXT) {
-									wcsncpy(string, cell->string.get(), 512);
-									string[511] = 0;
+									wcscpy(string, cell->string.get());
 								} else if (cell->type == CellData::PRIMARY) {
-									{
-										WNDPROC proc = NULL;
-										Window_Proc_Table.getValue(window, proc);
-										string[0] = 0;
-										TextNode * item = (TextNode *)CallWindowProcA(proc, window, LB_GETITEMDATA, index, 0);
-										if (!item || item == (TextNode *)LB_ERR) item = (TextNode *)CallWindowProcA(proc, window, CB_GETITEMDATA, index, 0);
-										if (item && item != (TextNode *)LB_ERR) {
-											wcsncpy(string, item->Data, 512);
-											string[511] = 0;
-										}
-									}
+									Get_Item_Text(window, index, string, 512);
 								}
 								COLORREF text_color = cell->color;
 								if (text_color == -1) {
 									text_color = Text_Color;
 								}
-								int max_width = column->width;
-								if (max_width == 0) {
-									max_width = 0xFFFF;
+								if (style & WS_DISABLED) {
+									text_color = Disabled_Text_Color;
 								}
-								if (display_rect.right - max_width - column->xPos - item_rect.left - display_rect.left < 0) {
-									max_width = display_rect.right - column->xPos - item_rect.left - display_rect.left;
+								if (column->width != 0) {
+									text_rect.Width = column->width;
+								}
+								int max_width = text_rect.Width;
+								if (max_width == 0) max_width = 0xFFFF;
+								int overflow = display_rect.right - max_width - item_rect.left - display_rect.left - column->xPos;
+								if (overflow < 0) {
+									max_width += overflow;
 								}
 								SendMessage(window, OD_RESTOREDC, 0, (LPARAM)dc);
-								int width, height;
 								int length = wcslen(string);
-								font->Text_Dimensions(string, &width, &height, 0);
-								while (length && width > max_width) {
+								Point2D text_dimensions;
+								font->Text_Dimensions(string, &text_dimensions.X, &text_dimensions.Y, 0);
+								while (length && text_dimensions.X > max_width) {
 									string[--length] = 0;
-									if (length <= 508) wcscat(string, L"...");
-									font->Text_Dimensions(string, &width, &height, 0);
+									wcscat(string, L"...");
+									font->Text_Dimensions(string, &text_dimensions.X, &text_dimensions.Y, 0);
 								}
 								OD_Draw_Text(text_color, font, text_rect, string, wcslen(string), 0, 0, NULL, 0);
 							} else if (cell->type == CellData::SURFACE) {
-								Surface * surface = cell->surf;
-								if (surface != NULL) {
-									int height = surface->Get_Height();
-									int width = surface->Get_Width();
+								if (cell->surf != NULL) {
+									int height = cell->surf->Get_Height();
+									int width = cell->surf->Get_Width();
 									Rect surface_rect;
 									surface_rect.Width = width;
 									surface_rect.X = display_rect.left + item_rect.left + column->xPos;
 									surface_rect.Height = height;
 									surface_rect.Y = display_rect.top + item_rect.top + (item_rect.bottom - item_rect.top - height) / 2;
-									SurfaceCache.DrawTrans(surface_rect, *AlternateSurface, *surface, (255 >> DSurface::RedLeft << DSurface::RedRight) | (255u >> DSurface::BlueLeft << DSurface::BlueRight));
+									SurfaceCache.DrawTrans(surface_rect, *AlternateSurface, *cell->surf, DSurface::Build_Hicolor_Pixel(255, 0, 255));
 								}
-							} else {
+							} else if (cell->type == CellData::PING) {
 								int ping = cell->pingtime;
 								Rect ping_rect;
 								ping_rect.X = display_rect.left + item_rect.left + column->xPos;
 								ping_rect.Y = display_rect.top + item_rect.top;
-								ping_rect.Width = 28;
+								ping_rect.Width = 32;
 								ping_rect.Height = 12;
 								unsigned color;
-								if (ping < 300) {
+								if (ping < 0) {
+									color = DSurface::Build_Hicolor_Pixel(0, 0, 192);
+									ping = 1000;
+								} else if (ping < 300) {
 									color = DSurface::Build_Hicolor_Pixel(0, 192, 0);
 								} else if (ping < 500) {
 									color = DSurface::Build_Hicolor_Pixel(192, 192, 0);
@@ -11752,23 +11765,19 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 						ReleaseDC(window, dc);
 					} else {
 						ArrayList<int> * row_colors = (ArrayList<int> *)data->ItemState;
-						COLORREF text_color;
-						int * color_ptr = NULL;
-						if (row_colors == NULL || !row_colors->getPointer(&color_ptr, index) || *color_ptr == -1) {
+						int text_color;
+						if (row_colors == NULL || !row_colors->get(text_color, index) || text_color == -1) {
 							text_color = Text_Color;
-						} else {
-							text_color = *color_ptr;
 						}
-
+						if (style & WS_DISABLED) text_color = Disabled_Text_Color;
 						if (SendMessage(window, LB_GETSEL, index, 0) > 0) {
 							Rect fill;
 							fill.X = item_rect.left + display_rect.left;
 							fill.Y = item_rect.top + display_rect.top;
-							fill.Height = item_rect.bottom - item_rect.top;
 							fill.Width = item_rect.right - item_rect.left;
+							fill.Height = item_rect.bottom - item_rect.top;
 							AlternateSurface->Fill_Rect(fill, fill_color);
 						}
-
 						Rect text_rect;
 						text_rect.X = item_rect.left + display_rect.left + 2;
 						text_rect.Y = display_rect.top + item_rect.top;
@@ -11777,38 +11786,11 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 						OD_Draw_Text(text_color, font, text_rect, string, wcslen(string), 0, 0, NULL, 0);
 					}
 				}
-				index++;
+				++index;
 			}
 			ValidateRect(window, &update_rect);
+			if (data->ScrollBar) InvalidateRect(data->ScrollBar, NULL, FALSE);
 			break;
-		}
-
-		case LB_SELITEMRANGE: {
-			int last = HIWORD(lparam);
-			int first = LOWORD(lparam);
-			int count = SendMessage(window, LB_GETCOUNT, 0, 0);
-			if (last < 0 || last < first) {
-				return(-1);
-			}
-			if (last >= count) {
-				last = count - 1;
-			}
-			ArrayList<int> * sel_states = (ArrayList<int> *)data->RangeMax;
-			if (sel_states == NULL) {
-				sel_states = new ArrayList<int>;
-				data->RangeMax = (int)sel_states;
-			}
-			if (last >= sel_states->length()) {
-				int unselected = 0;
-				sel_states->setSize(last + 1, unselected);
-			}
-			for (int i = first; i <= last; i++) {
-				int selected = (int)wparam;
-				sel_states->replace(selected, i);
-			}
-			parent = GetParent(window);
-			SendMessage(parent, WM_COMMAND, MAKEWPARAM(GetWindowLong(window, GWL_ID), LBN_SELCHANGE), (LPARAM)window);
-			return(0);
 		}
 
 		case WM_VSCROLL: {
@@ -11831,12 +11813,10 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			}
 			ArrayList<ColumnData> * columns = (ArrayList<ColumnData> *)data->HadTabStop;
 			if (columns != NULL) {
+				ColumnData * column = NULL;
 				for (int col = 0; col < columns->length(); col++) {
-					ColumnData * column = NULL;
 					columns->getPointer(&column, col);
-					if (column->cells.length() != 0) {
-						column->cells.remove((int)wparam);
-					}
+					column->cells.remove((int)wparam);
 				}
 			}
 			break;
@@ -11852,15 +11832,15 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			if (sel_states != NULL) {
 				delete sel_states;
 			}
-			data->ItemState = 0;
-			data->RangeMax = 0;
+			data->ItemState = (int)0;
+			data->RangeMax = (int)0;
 			data->Position = 0;
 			data->IsEditFocus = -1;
 
 			ArrayList<ColumnData> * columns = (ArrayList<ColumnData> *)data->HadTabStop;
 			if (columns != NULL) {
+				ColumnData * column = NULL;
 				for (int col = 0; col < columns->length(); col++) {
-					ColumnData * column = NULL;
 					columns->getPointer(&column, col);
 					column->cells.clear();
 				}
@@ -11870,14 +11850,15 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 				if (columns != NULL) {
 					delete columns;
 				}
-				data->HadTabStop = 0;
+				data->HadTabStop = (int)NULL;
 			} else {
-				parent = GetParent(window);
-				SendMessage(parent, WM_COMMAND, MAKEWPARAM(GetWindowLong(window, GWL_ID), LBN_SELCHANGE), (LPARAM)window);
+				HWND owner = GetParent(window);
+				SendMessage(owner, WM_COMMAND, MAKEWPARAM(GetWindowLong(window, GWL_ID), LBN_SELCHANGE), (LPARAM)window);
 			}
 			break;
 		}
 	}
+
 
 	/*
 	 * Create or destroy the attached scrollbar based on whether the listbox needs one,
@@ -11903,8 +11884,9 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			Subclass_Control(data->ScrollBar, 0);
 
 			WinData * sb_data = NULL;
-			Control_Table.getPointer((unsigned int)data->ScrollBar, &sb_data);
+			Control_Table.getPointer((unsigned int const &)data->ScrollBar, &sb_data);
 			sb_data->ScrollOwner = window;
+			sb_data->IsAlternateColors = false;
 
 			SCROLLINFO info;
 			info.nMax = max_position;
@@ -11920,16 +11902,17 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			InvalidateRect(data->ScrollBar, NULL, FALSE);
 			UpdateWindow(data->ScrollBar);
 
-			RECT validate_rect;
-			validate_rect.left = x;
-			validate_rect.top = y;
-			validate_rect.right = x + client_rect.right + 1;
-			validate_rect.bottom = client_rect.bottom + y + 1;
-			ValidateRect(parent, &validate_rect);
+			Rect validate_rect;
+			validate_rect.X = x;
+			validate_rect.Y = y;
+			validate_rect.Width = x + client_rect.right + 1;
+			validate_rect.Height = client_rect.bottom + y + 1;
+			ValidateRect(parent, (const RECT *)&validate_rect);
 		}
 	} else if (needs_scrollbar == 0 && data->ScrollBar != NULL && !data->SkipCheckPaint) {
 		DestroyWindow(data->ScrollBar);
-		Restore_Child(data->ScrollBar, 0);
+		HWND scrollbar = data->ScrollBar;
+		Restore_Child(scrollbar, 0);
 		data->ScrollBar = NULL;
 		data->ScrollWidth = 0;
 		SetWindowPos(window, NULL, 0, 0, client_rect.right + Border_Width - client_rect.left + scrollbar_width + 1, client_rect.bottom + 2 * Border_Width - client_rect.top, SWP_NOMOVE);

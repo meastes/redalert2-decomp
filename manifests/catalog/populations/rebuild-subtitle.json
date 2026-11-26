@@ -70,6 +70,10 @@
     "?Blit_From@XSurface@@UAE_NABV?$TRect@H@@ABVSurface@@0_N2@Z": 7819008,
     "?Blit_From@XSurface@@UAE_NABVSurface@@_N1@Z": 7818848,
     "??_GBSurface@@UAEPAXI@Z": 4264912,
+    "??_R0?AVSurface@@@8": 8184496,
+    "??_R0?AVXSurface@@@8": 8184520,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVBSurface@@@8": 8184544,
     "?Can_Lock@Surface@@UBE_NHH@Z": 4264560,
     "?entry_64@Surface@@UBE_NVPoint2D@@@Z": 4264576,
     "?Get_Rect@Surface@@UBE?AV?$TRect@H@@XZ": 4264592,
@@ -87,9 +91,6 @@
     "?Stride@BSurface@@UBEHXZ": 4264896,
     "??0MovieSubtitles@@QAE@XZ": 6926976,
     "??1MovieSubtitles@@QAE@XZ": 6927008,
-    "?Get@FileStraw@@UAEHPAXH@Z": 7813280,
-    "?Get_From@Straw@@UAEXPAV1@@Z": 6926416,
-    "??_GFileStraw@@UAEPAXI@Z": 4639664,
     "?Error@CCFileClass@@UAEXHHPBD@Z": 4624384,
     "?Set_Date_Time@CCFileClass@@UAE_NI@Z": 4625408,
     "?Get_Date_Time@CCFileClass@@UAEIXZ": 4625232,
@@ -101,6 +102,7 @@
     "?Open@CCFileClass@@UAEHH@Z": 4624928,
     "?Is_Open@CCFileClass@@UBE_NXZ": 4624864,
     "??_GCCFileClass@@UAEPAXI@Z": 4200864,
+    "??_R0?AVCCFileClass@@@8": 8177840,
     "?Error@RawFileClass@@UAEXHHPBD@Z": 6523696,
     "?Set_Date_Time@RawFileClass@@UAE_NI@Z": 6525680,
     "?Get_Date_Time@RawFileClass@@UAEIXZ": 6525600,
@@ -117,6 +119,15 @@
     "?Create@RawFileClass@@UAEHXZ": 6525440,
     "?Set_Name@CDFileClass@@UAEPBDPBD@Z": 4653392,
     "??_GCDFileClass@@UAEPAXI@Z": 4200784,
+    "??_R0?AVFileClass@@@8": 8177872,
+    "??_R0?AVRawFileClass@@@8": 8177896,
+    "??_R0?AVBufferIOFileClass@@@8": 8177928,
+    "??_R0?AVCDFileClass@@@8": 8177960,
+    "?Get@FileStraw@@UAEHPAXH@Z": 7813280,
+    "?Get_From@Straw@@UAEXPAV1@@Z": 6926416,
+    "??_GFileStraw@@UAEPAXI@Z": 4639664,
+    "??_R0?AVStraw@@@8": 8199872,
+    "??_R0?AVFileStraw@@@8": 8199896,
     "?File_Name@RawFileClass@@UBEPBDXZ": 4200768,
     "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
     "?Process@MovieSubtitles@@QAE_NK@Z": 6927392,
@@ -141,7 +152,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -200,7 +212,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -283,7 +296,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "e7933714d0585beee5243d33339816229faae6e3914bdba429dff17aef8b7338",
@@ -309,7 +323,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -352,7 +367,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -523,7 +539,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
@@ -558,7 +575,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "e7933714d0585beee5243d33339816229faae6e3914bdba429dff17aef8b7338",
@@ -584,7 +602,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [],
       "source_sha256": "e7933714d0585beee5243d33339816229faae6e3914bdba429dff17aef8b7338",
@@ -610,7 +629,8 @@
         "/Ob2",
         "/G5",
         "/Gy",
-        "/Gr"
+        "/Gr",
+        "/GR"
       ],
       "relocations": [
         {
