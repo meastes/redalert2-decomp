@@ -6085,3 +6085,13 @@ includer before and after a header change, baseline first).
   chosen as a budget unit, and a row should not depend on it: this one is exact with and without.
 - build/r/last after a header trial holds the trial's results for every includer. Check those units again on the final tree
   before `rebuild.py catalog`, or the catalog leaves out the rows the trial flipped ("unguarded drafts").
+- Task 2 rows read the same way (no row landed). A position score hides how near a large function is: building
+  BuildingClass::Exit_Object 0x440520 reads 3,380 B off by position and is 33 instruction lines off in two sites, both a
+  choice of destination operand in an expanded sum (the member loaded and the local added into it; the cell loaded and the
+  table word added into it). Its referenced-probe ladder has period 8 and four states, none exact, and writing a sum the
+  other way round is a count unit with no code change; in the two arms of a merged tail it must be written in both or the
+  tail does not merge (+16 B). Read every large draft by instruction diff and call alignment (d.py, calls2.py) before
+  choosing rows: Exit_Object 33 lines, Draw_Depth_Antialiased_Line 2,548, Draw_Tile 2,066, Combo_Proc 2,707, List_Proc 3,814.
+- ownrdraw List_Proc and Combo_Proc fetch their record at the top; through the unit's Get_Record (the twin's Find_Data) the
+  image's out-of-line Dictionary::keyHash call appears there. The instruction diff improves and the position score gets
+  worse, so the drafts were left as they are and the form is recorded as a lead for whoever ports the twin's handler whole.
