@@ -21,3 +21,4 @@ HEADER_PARTS = len(HEADERS.split('/'))
 MIN_SOURCE_PARTS = SOURCE_PARTS + 1                 # src/x.cpp
 ASM = 'asm'
 ASSEMBLY = 'manifests/assembly.json'
+LIBRARY = 'manifests/library.json'                  # the tree's library ledger (src-final's stays frozen)

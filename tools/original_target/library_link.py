@@ -10,9 +10,18 @@ library_identity.py (relocation sites masked, longest first, non-overlapping);
 sections that overlap an accepted source region are left out and listed, so the
 catalog stays authoritative for what it already covers.
 
+The tree's ledger is manifests/library.json (since 2026-11-26, lane O96, menu R1; the
+pattern of manifests/assembly.json): src-final's ledger manifests/original_target/library.json
+stays frozen as evidence, and the tree's copy is regenerated against the tree's catalog
+(manifests/catalog). Short sections that no byte search can place (fewer than 10 fixed
+bytes) enter through the ledger's `identified` list: one row per section with its evidence
+(a relocation resolving to the ledger's placement of the named symbol or to the named import's
+IAT slot, a data or call reference, or the member's object order), re-verified at each
+regeneration; an `identified` row replaces a searched row at the same address.
+
 This is identified library code: its own ledger category, never source credit.
 
-    python3 tools/original_target/library_link.py --write          # manifests/original_target/library.json
+    python3 tools/original_target/library_link.py --write          # manifests/library.json
     python3 tools/original_target/library_link.py                  # report only
 """
 import argparse
@@ -26,7 +35,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import library_identity as LI  # noqa: E402
 
 REPOSITORY = Path(__file__).resolve().parents[2]
-MANIFEST = REPOSITORY / 'manifests/original_target/library.json'
+MANIFEST = REPOSITORY / 'manifests/library.json'                     # the tree's ledger
+FROZEN = REPOSITORY / 'manifests/original_target/library.json'       # src-final's ledger (frozen evidence)
+CATALOG = REPOSITORY / 'manifests/catalog'                           # the tree's catalog
 TOOLCHAIN = REPOSITORY / 'private/original-target-20261020/toolchain'
 # Priority order: the original links Service Pack 3's LIBCMT (tzset.obj identity,
 # OPEN_MISSES "Library identity" 2026-11-07); RTM LIBCMT only for members SP3
@@ -99,7 +110,7 @@ def coff_sections_with_types(obj):
 def accepted_extents():
     sys.path.insert(0, str(REPOSITORY / 'tools/original_target'))
     import catalog_io
-    cat = catalog_io.load(catalog_io.locate(REPOSITORY), references=False)
+    cat = catalog_io.load(CATALOG, references=False)
     return sorted((r['entry'], r['entry'] + r['full_extent_bytes'], r.get('symbol') or '') for r in cat['regions'])
 
 
@@ -324,6 +335,54 @@ def import_thunks(text, base, executable, covered, accepted):
     return rows, skipped, {k: (v[0], v[1]) for k, v in libraries.items()}
 
 
+def identified_rows(text, base, executable, archives, rows, identified):
+    """Ledger rows for the `identified` list ({entry, archive_role, member, section_index, evidence}): each
+    section's bytes must equal the original with relocation sites patched, every relocation against an import
+    must hold that import's IAT slot, and every relocation against a symbol the ledger places must resolve to
+    one of its placed addresses (a call or jump target, or the absolute address). Refuses otherwise."""
+    import pefile
+    pe = pefile.PE(str(executable), fast_load=True)
+    pe.parse_data_directories()
+    iat = {imp.address: (imp.name or b'').decode() for entry in pe.DIRECTORY_ENTRY_IMPORT for imp in entry.imports}
+    placed = {}
+    for r in rows:
+        for symbol in r['symbols']:
+            placed.setdefault(symbol, set()).add(int(r['entry'], 16))
+    out = []
+    for item in identified:
+        entry = int(item['entry'], 16)
+        found = [(name, role, path, s) for name, role, path, sections in archives if role == item['archive_role']
+                 for s in sections if s['member'] == item['member'] and s['section_index'] == item['section_index']]
+        if len(found) != 1:
+            raise SystemExit('identified %s: no single section %s #%d in %s' % (item['entry'], item['member'],
+                                                                                 item['section_index'], item['archive_role']))
+        name, role, path, s = found[0]
+        n = len(s['raw']); off = entry - base
+        original = text[off:off + n]
+        patched = bytearray(s['raw']); relocations = []
+        for roff, rtype, symbol in s['relocs']:
+            width = REL_WIDTH.get(rtype)
+            if width is None or roff + width > n:
+                raise SystemExit('identified %s: relocation type %d unsupported' % (item['entry'], rtype))
+            value = struct.unpack_from('<I', original, roff)[0]
+            struct.pack_into('<I', patched, roff, value)
+            relocations.append(dict(offset=roff, type=rtype, resolved=value))
+            target = (entry + roff + 4 + value) & 0xFFFFFFFF if rtype == 0x14 else value
+            if symbol.startswith('__imp_'):
+                if not import_name_matches(symbol, iat.get(value, '')):
+                    raise SystemExit('identified %s: %s does not hold the IAT slot of its import' % (item['entry'], symbol))
+            elif symbol in placed and target not in placed[symbol]:
+                raise SystemExit('identified %s: %s resolves to %08x, the ledger places it elsewhere' % (
+                    item['entry'], symbol, target))
+        if bytes(patched) != original:
+            raise SystemExit('identified %s: patched member differs from the original' % item['entry'])
+        out.append(dict(entry='%08x' % entry, bytes=n, archive=name, archive_role=role, archive_sha256=sha(path.read_bytes()),
+                        member=s['member'], member_index=s['member_index'], section_index=s['section_index'],
+                        assignment='identified: ' + item['evidence'], section=s['section'], symbols=s['symbols'][:8],
+                        relocations=relocations, sha256=sha(original)))
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--config', type=Path, default=REPOSITORY / 'private/original-target.local.json')
@@ -364,6 +423,15 @@ def main():
                          archive_sha256=s['archive_sha256'], member=s['member'], member_index=s['member_index'],
                          section_index=s['section_index'], **({'assignment': s['assignment']} if s.get('assignment') else {}),
                          section=s['section'], symbols=s['symbols'][:8], relocations=relocations, sha256=sha(original)))
+    identified = json.loads(MANIFEST.read_text()).get('identified', []) if MANIFEST.exists() else []
+    extra = identified_rows(text, base, executable, archives, rows, identified)
+    replaced = {r['entry'] for r in extra}
+    for r in extra:
+        e = int(r['entry'], 16)
+        overlap = [x for x in rows if x['entry'] not in replaced and int(x['entry'], 16) < e + r['bytes'] and e < int(x['entry'], 16) + x['bytes']]
+        if overlap or any(a < e + r['bytes'] and e < b for a, b, _ in accepted):
+            raise SystemExit('identified %s overlaps a searched row or an accepted source region' % r['entry'])
+    rows = [r for r in rows if r['entry'] not in replaced] + extra
     covered = bytearray(len(text))
     for r in rows:
         e = int(r['entry'], 16) - base; covered[e:e + r['bytes']] = b'\1' * r['bytes']
@@ -378,7 +446,7 @@ def main():
     doc = dict(schema='original-target-library-v1',
                scope='Identified library code linked from pinned archives in place of original-byte scaffold; own ledger category, not source credit. '
                      'Generated by tools/original_target/library_link.py; identity by relocation-masked byte search (library_identity.py).',
-               region=['%08x' % lo, '%08x' % hi], archives=archives_out, regions=rows,
+               region=['%08x' % lo, '%08x' % hi], archives=archives_out, identified=identified, regions=rows,
                skipped_overlapping_accepted=[s for s in skipped if 'accepted_entry' in s],
                skipped_other=[s for s in skipped if 'accepted_entry' not in s])
     total = sum(r['bytes'] for r in rows)
@@ -391,7 +459,7 @@ def main():
         print('  %s (%s): %d members used, sha256 %s' % (a['name'], a['role'], a['members_used'], a['sha256'][:16]))
     if args.write:
         MANIFEST.write_text(json.dumps(doc, indent=1) + '\n')
-        toolchain = REPOSITORY / 'manifests/toolchain.json'
+        toolchain = REPOSITORY / 'manifests/toolchain.json'      # pins only grow: the frozen ledger's stay
         pins = json.loads(toolchain.read_text())
         pins.setdefault('libraries', {})
         for a in archives_out:

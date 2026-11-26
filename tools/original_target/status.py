@@ -196,14 +196,17 @@ def load_assembly(repository=REPOSITORY):
                 revised_bytes=sum(r['bytes'] for r in revised), revised_regions=len(revised))
 
 
-def load_library(repository=REPOSITORY):
-    """Linked library ledger from manifests/original_target/library.json (library_link.py --write): the
-    archive sections the build links in place of scaffold. None when the manifest is absent."""
-    path = repository / 'manifests/original_target/library.json'
+def load_library(repository=REPOSITORY, frozen=False):
+    """Linked library ledger (library_link.py --write): the archive sections the build links in place of
+    scaffold. The tree's ledger is manifests/library.json; FROZEN reads src-final's manifests/original_target/
+    library.json (its column: src-final credited 12 libcmt rows as C that the tree's ledger links, lane O96 menu
+    R1). None when the manifest is absent."""
+    path = repository / ('manifests/original_target/library.json' if frozen else 'manifests/library.json')
     if not path.exists():
         return None
     regions = json.loads(path.read_text())['regions']
-    return dict(bytes=sum(r['bytes'] for r in regions), sections=len(regions))
+    return dict(bytes=sum(r['bytes'] for r in regions), sections=len(regions),
+                entries={int(r['entry'], 16) for r in regions})
 
 
 def coverage(catalog):
@@ -263,10 +266,12 @@ def manifest_local_paths(repository=REPOSITORY, folder='manifests'):
     return found
 
 
-def main_only(main_catalog, rebuild_catalog):
+def main_only(main_catalog, rebuild_catalog, library_entries=()):
     """(functions, body bytes) of main's accepted rows whose entry has no row in the rebuild catalog: matched in
-    src-final (main), not yet in the rebuild (lane O50, 2026-11-22; the line stays until it reaches zero)."""
-    have = {r['entry'] for r in rebuild_catalog['regions']}
+    src-final (main), not yet in the rebuild (lane O50, 2026-11-22; the line stays until it reaches zero). Rows the
+    tree's library ledger links (LIBRARY_ENTRIES: libcmt code src-final took as C, lane O96 menu R1) are reproduced
+    here as library code and leave the line."""
+    have = {r['entry'] for r in rebuild_catalog['regions']} | set(library_entries)
     rows = [r for r in main_catalog['regions'] if r.get('entry') is not None and r['entry'] not in have]
     return len(rows), sum(r['body_bytes'] for r in rows)
 
@@ -281,7 +286,8 @@ def rebuild_categories(repository=REPOSITORY, main_catalog=None):
     catalog = catalog_io.load(path, references=False)
     return dict(coverage(catalog), inline_asm_rows=sum(1 for r in catalog['regions'] if evidenced_inline_asm(r)),
                 flagged_judgment=rebuild_flagged_judgment(catalog, repository),
-                main_only=main_only(main_catalog, catalog) if main_catalog is not None else None)
+                main_only=main_only(main_catalog, catalog, (load_library(repository) or {}).get('entries', ()))
+                if main_catalog is not None else None)
 
 
 # A rebuild judgment note under main's definition (owner ruling, 2026-11-22, lane O46): the note names one of main's
@@ -317,7 +323,7 @@ def kb(value):
 
 
 def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, repository=REPOSITORY, categories=None,
-                  main_catalog=None, revised_bytes=0):
+                  main_catalog=None, revised_bytes=0, main_lib_bytes=None):
     """Main's tree and the rebuild tree (rebuild/, on main since 2026-11-19) side by side, never added, on the same
     category lines (lane O41, 2026-11-22; AGENTS.md status measures): Reproduced .text is the sum of C/C++ body,
     evidenced inline asm, frozen padding, linked library members and assembled handwritten asm in both trees. The
@@ -339,7 +345,8 @@ def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, reposi
     if cat is None:
         return []
     pct = lambda value: '{:.2f}%'.format(100.0 * value / text)
-    reproduced = main['body'] + main['evidenced_inline_asm'] + main['padding'] + lib_bytes + asm_bytes
+    main_lib_bytes = lib_bytes if main_lib_bytes is None else main_lib_bytes    # src-final's frozen ledger
+    reproduced = main['body'] + main['evidenced_inline_asm'] + main['padding'] + main_lib_bytes + asm_bytes
     whole_repro = cat['body'] + cat['evidenced_inline_asm'] + cat['padding'] + lib_bytes + asm_bytes
     # Function-level body and padding exist from the first progress row with c_body_bytes (series break).
     level = r.get('function_level_c_body_bytes')
@@ -398,8 +405,8 @@ def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, reposi
              '| Evidenced inline assembly (cited TibSun `__asm`; not C/C++ credit) | {:,} B | {:,} B in {:,} rows '
              '(whole-unit) |'.format(main['evidenced_inline_asm'], cat['evidenced_inline_asm'], cat['inline_asm_rows']),
              '| Frozen padding of accepted rows | {:,} B | {} |'.format(main['padding'], pad_cell),
-             '| Linked library members (the same archive members in both builds) | {:,} B | {:,} B |'.format(
-                 lib_bytes, lib_bytes),
+             '| Linked library members (each tree\'s ledger: the tree\'s adds the 12 libcmt rows src-final took as C, '
+             'lane O96 menu R1) | {:,} B | {:,} B |'.format(main_lib_bytes, lib_bytes),
              '| Assembled handwritten assembly (the same adopted TibSun .asm procedures in both builds) | {:,} B '
              '| {:,} B |'.format(asm_bytes - revised_bytes, asm_bytes - revised_bytes),
              '| Assembled handwritten assembly, revised (binary-derived lines: ra2-decomp src/ra2asm text revising a '
@@ -550,7 +557,7 @@ def source_lines(split=None):
             'body bytes include evidenced inline asm):', ''] + provenance_rollup.table_lines(split) + ['', provenance_rollup.CAVEAT, '']
 
 
-def render(catalog, text, lib=None, asm=None):
+def render(catalog, text, lib=None, asm=None, main_lib=None):
     """The generated block: the tree's figures beside src-final's (CATALOG: src-final's frozen catalog)."""
     now = coverage(catalog)
     judgment = judgment_coverage(catalog)
@@ -560,7 +567,8 @@ def render(catalog, text, lib=None, asm=None):
                      if not evidenced_inline_asm(r) and not any(r.get(flag) is True for flag in JUDGMENT_FLAGS))
     revised_bytes = asm.get('revised_bytes', 0) if asm else 0
     lines = [BEGIN, ''] + rebuild_lines(text, now, lib_bytes, asm_bytes, judgment, main_clean, main_catalog=catalog,
-                                        revised_bytes=revised_bytes) + rebuild_history_lines() + [
+                                        revised_bytes=revised_bytes,
+                                        main_lib_bytes=main_lib['bytes'] if main_lib else None) + rebuild_history_lines() + [
              'src-final (the earlier tree: `src/recovered`, `src/shared` and the catalog manifests/original_target/, '
              'frozen on {}): its full table and commit history, which cannot change, are in '
              '[history/SRC_FINAL_STATUS.md](history/SRC_FINAL_STATUS.md).'.format(FROZEN_ON), ''] + source_lines()
@@ -574,10 +582,10 @@ def main():
     parser.add_argument('--text-bytes', type=int, help='override instead of reading the executable')
     parser.add_argument('--write', action='store_true', help='replace the generated block in docs/STATUS.md')
     args = parser.parse_args()
-    # src-final's catalog (frozen evidence): the reference column, and the library and assembly ledgers both trees share.
+    # src-final's catalog (frozen evidence): the reference column; each tree's library ledger, the shared assembly ledger.
     catalog = catalog_io.load(catalog_io.locate(REPOSITORY), references=False)
     text = args.text_bytes or text_bytes(json.loads(args.config.read_bytes())['executable'])
-    block = render(catalog, text, lib=load_library(), asm=load_assembly())
+    block = render(catalog, text, lib=load_library(), asm=load_assembly(), main_lib=load_library(frozen=True))
     if not args.write:
         print(block); return
     path = REPOSITORY / 'docs/STATUS.md'

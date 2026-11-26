@@ -5,7 +5,9 @@ import csv, json, time, datetime
 import rebuild as R, catalog_io
 START = datetime.datetime(2026, 11, 17, 18, 17, tzinfo=datetime.timezone.utc)
 TEXT = 3769805                       # .text bytes (docs/STATUS.md denominator)
-LIBRARY = 89127                      # linked library bytes the build reproduces (receipt)
+# Linked library bytes the build reproduces, read from the tree's ledger (manifests/library.json, src-final's
+# 89,127 B plus the 12 libcmt rows src-final took as C, +110 B, lane O96 menu R1 2026-11-26).
+LIBRARY = sum(r['bytes'] for r in json.load(open(R.ROOT / 'manifests/library.json'))['regions'])
 # Assembled handwritten asm, read from the rebuild's ledger (manifests/assembly.json, a copy of main's with
 # asm paths since the 2026-11-24 switch; the same procedures and bytes):
 # ASSEMBLY the archive text adopted unchanged (16,999 B), REVISED the revised, binary-derived lines (user decision

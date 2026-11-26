@@ -1,4 +1,5 @@
-"""Link-time side of the library ledger: read manifests/original_target/library.json,
+"""Link-time side of the library ledger: read the tree's ledger manifests/library.json (src-final's
+manifests/original_target/library.json stays frozen; library_link.py regenerates the tree's copy),
 locate each pinned archive by SHA-256, extract the named member section, patch the
 recorded relocation values and prove the bytes equal the original before they
 enter the placement container as fixed-address `.text$VA` fragments.
@@ -15,7 +16,7 @@ from library_identity import archive_members
 from library_link import coff_sections_with_types, short_imports
 
 REPOSITORY = Path(__file__).resolve().parents[2]
-MANIFEST = REPOSITORY / 'manifests/original_target/library.json'
+MANIFEST = REPOSITORY / 'manifests/library.json'          # the tree's ledger (tree.LIBRARY)
 DEFAULT_DIRECTORIES = [REPOSITORY / 'private/original-target-20261020/toolchain/media-sp3/VC98/LIB',
                        REPOSITORY / 'private/original-target-20261020/toolchain/media/VC98/LIB']
 

@@ -89794,7 +89794,7 @@
   "status": "catalogued",
   "range": [
    "005c29b0",
-   "005cdaf0"
+   "005cdb40"
   ],
   "mischa85": "tibsun: functions compiled from src/netshare.cpp, without gaps; matched except ?Net2DecodeGameopt@@YI_NPBD0@Z and ?LBSaveSelections@@YIXPAUHWND__@@AAV?$Dictionary@VWideWstring@@_N@@@Z and ?Scenario_DlgProc@@YGHPAUHWND__@@IIJ@Z and ?Send_Map_Preview@@YIXPAVMapPreviewClass@@@Z and ?Set_Slot_Names@@YIXPBG@Z and ?Is_Observer_Slot_Occupied@@YI_NXZ and ?Is_Channel_Full@@YI_NXZ and ?Show_Slot_Controls@@YIXPAUHWND__@@HH@Z and ?Hide_Slot_Controls@@YIXPAUHWND__@@H@Z and ?Change_Scenario_Slots@@YIXPAUHWND__@@HH@Z and ?Change_Slot_Type@@YIXPAUHWND__@@HHH@Z and ?Load_Lobby_Options@@YIXPAUHWND__@@PAUSessionOptionsClass@@@Z; one placed by the gap; ?Net2DecodeGameopt@@YI_NPBD0@Z to ?LBSaveSelections@@YIXPAUHWND__@@AAV?$Dictionary@VWideWstring@@_N@@@Z share the room between their neighbours; ?Is_Observer_Slot_Occupied@@YI_NXZ to ?Is_Channel_Full@@YI_NXZ share the room between their neighbours",
   "main_options": [
@@ -90974,6 +90974,14 @@
     "padding": 4,
     "symbol": "?expand@?$Dictionary@VWideWstring@@_N@@AAEXXZ",
     "main_symbol": "?Grow_Table@?$WolDictionary@VWideString@@_N@@QAEXXZ",
+    "main_source": "src/recovered/netshare.cpp"
+   },
+   {
+    "entry": "005cdaf0",
+    "body": 74,
+    "padding": 6,
+    "symbol": "??0?$VectorClass@PBVMultiMission@@@@QAE@HPBQBVMultiMission@@@Z",
+    "main_symbol": "?get@Storage_5cdaf0@@QAEPAXIPAI@Z",
     "main_source": "src/recovered/netshare.cpp"
    }
   ],
@@ -132919,7 +132927,7 @@
   "status": "catalogued",
   "range": [
    "006fa1e0",
-   "0070a350"
+   "0070a410"
   ],
   "mischa85": "tibsun: functions compiled from src/unit.cpp, without gaps; matched except ??1UnitClass@@UAE@XZ and ?Tunnel_AI@UnitClass@@QAEXXZ and ?Rotation_AI@UnitClass@@QAEXXZ and ?Visceroid_AI@UnitClass@@QAEXXZ and ?Per_Cell_Process@UnitClass@@UAEXW4PCPType@@@Z and ?Unit_Draw_Shape@UnitClass@@UBEXVPoint2D@@V?$TRect@H@@H@Z and ?Do_MISSION_UNLOAD@UnitClass@@UAEHXZ and ?Do_MISSION_HARVEST@UnitClass@@UAEHXZ and ?Assign_Destination@UnitClass@@UAEXPAVAbstractClass@@_N@Z and ?Read_INI@UnitClass@@SIXABVCCINIClass@@@Z and ?Scatter@UnitClass@@UAEXABVCoord@@_N1@Z and ?Plan_Route@UnitClass@@QBEPAVAbstractClass@@ABV2@@Z; two placed by the gap; ??1UnitClass@@UAE@XZ and ?Assign_Destination@UnitClass@@UAEXPAVAbstractClass@@_N@Z and ?Do_MISSION_HARVEST@UnitClass@@UAEHXZ and ?Do_MISSION_UNLOAD@UnitClass@@UAEHXZ and ?Plan_Route@UnitClass@@QBEPAVAbstractClass@@ABV2@@Z and ?Read_INI@UnitClass@@SIXABVCCINIClass@@@Z and ?Rotation_AI@UnitClass@@QAEXXZ and ?Scatter@UnitClass@@UAEXABVCoord@@_N1@Z and ?Tunnel_AI@UnitClass@@QAEXXZ and ?Visceroid_AI@UnitClass@@QAEXXZ placed at their function starts; ?Unit_Draw_Voxel@UnitClass@@UBEXVPoint2D@@V?$TRect@H@@H@Z not placed; ?Weed_Load@UnitClass@@QBENXZ not placed; ?Get_Max_Speed@UnitClass@@UBEHXZ not placed; ?EMPulse_Blast@UnitClass@@QAEXXZ not placed; ?Reload_AI@UnitClass@@QAEXXZ not placed; ?Jellyfish_AI@UnitClass@@QAEXXZ not placed",
   "main_options": [
@@ -133803,6 +133811,22 @@
     "padding": 2,
     "symbol": "??_GUnitClass@@UAEPAXI@Z",
     "main_symbol": "??_GUnitClass@@UAEPAXI@Z",
+    "main_source": "src/recovered/unit.cpp"
+   },
+   {
+    "entry": "0070a350",
+    "body": 151,
+    "padding": 9,
+    "symbol": "?Is_Present@?$IndexClass@HPAUEntry@StaticBufferClass@@@@QBE_NABH@Z",
+    "main_symbol": "?Is_Present_0070a350@UnknownBuffer@@QBE_NABH@Z",
+    "main_source": "src/recovered/unit.cpp"
+   },
+   {
+    "entry": "0070a3f0",
+    "body": 27,
+    "padding": 5,
+    "symbol": "?Is_Archive_Same@?$IndexClass@HPAUEntry@StaticBufferClass@@@@ABE_NABH@Z",
+    "main_symbol": "?Is_Archive_Same_0070a3f0@UnknownBuffer@@QBE_NABH@Z",
     "main_source": "src/recovered/unit.cpp"
    }
   ],
@@ -149084,7 +149108,7 @@
   "status": "catalogued",
   "range": [
    "00535720",
-   "00536ed0"
+   "00536f30"
   ],
   "mischa85": "source: functions compiled from src/ldprgmgr.cpp, without gaps; matched except ?Draw@LoadProgressManager@@QAEXXZ",
   "main_options": [
@@ -149311,6 +149335,14 @@
     "symbol": "?Unknown_Virtual_0@LoadProgressManager@@UAE_NHH@Z",
     "main_symbol": "?Message_00536ea0@UnknownLoadProgress@@UAE_NHPAX@Z",
     "main_source": "src/recovered/LdPrgMgr/UnknownLoadProgress_Message.cpp"
+   },
+   {
+    "entry": "00536ed0",
+    "body": 88,
+    "padding": 8,
+    "symbol": "?Deconstruct_Hicolor_Pixel@DSurface@@SI?AVRGBClass@@G@Z",
+    "main_symbol": "?Pixel_To_RGB_00536ed0@@YI?AVRGBClass@@G@Z",
+    "main_source": "src/recovered/unowned/Pixel_To_RGB.cpp"
    }
   ],
   "references": {
