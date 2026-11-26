@@ -3223,3 +3223,4 @@ __purecall,0x004B8960,slot +10 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb
 ?LobbyHardAIEntry@@3PAUNodeNameType@@A,0x00A72D3C,lane F67: the seven lobby entries as separate globals (was LobbyEntries[7] at 0x00A72D2C)
 ?LobbyWaitingEntry@@3PAUNodeNameType@@A,0x00A72D40,lane F67: the seven lobby entries as separate globals (was LobbyEntries[7] at 0x00A72D2C)
 ?LobbyObserverEntry@@3PAUNodeNameType@@A,0x00A72D44,lane F67: the seven lobby entries as separate globals (was LobbyEntries[7] at 0x00A72D2C)
+?BuildingRunAwayOnDamage@@3_NA,0x007CF670,"main: accepted row 0043ee70 (BuildingClass::Take_Damage, src-final) refers to it there (Damage_Radio_Runaway_007cf670); mischa85 building.cpp names the address"

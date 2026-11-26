@@ -2,7 +2,7 @@
 
 Reads mischa85/RedAlert2's config/ra2-1.006/functions.csv (same game.exe; address,size,evidence) and lists rows
 whose evidence says "matched" and whose address is not the start of, or inside, one of our accepted catalog
-regions, library-ledger regions or assembly regions. Hypothesis feed only (AGENTS.md External references):
+regions (the tree's manifests/catalog), library-ledger regions or assembly regions. Hypothesis feed only (AGENTS.md External references):
 a hit is routed to a lane and accepted only by the strict audit and the exact whole-file build.
 
     python3 tools/original_target/reference_hits.py [--repo private/reference/mischa85-RedAlert2] [--json]
@@ -18,7 +18,9 @@ import catalog_io  # noqa: E402
 def covered_spans(root=ROOT):
     """Sorted (start, end) spans of everything we already reproduce."""
     spans = []
-    cat = catalog_io.load(catalog_io.locate(root))
+    # The tree of record's catalog (manifests/catalog), not src-final's frozen one (manifests/original_target, which
+    # catalog_io.locate finds): reading the frozen catalog listed rows this tree already accepts (lane O99, 2026-11-26).
+    cat = catalog_io.load(Path(root) / 'manifests/catalog')
     for r in cat['regions']:
         spans.append((r['entry'], r['entry'] + max(r.get('full_extent_bytes') or 0, r.get('body_bytes') or 0, 1)))
     for name in ('library.json', 'assembly.json'):

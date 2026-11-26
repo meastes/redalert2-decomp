@@ -2587,7 +2587,18 @@ void BuildingClass::Leave_Rubble(void) // RA2: not in TibSun, at 0x43EBA0
  *   11/22/1994 JLB : Shares base damage handler for techno objects.                           *
  *   07/15/1995 JLB : Power ratio gets adjusted.                                               *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 1309 bytes differ by position with BuildingRunAwayOnDamage bound at 0x007CF670 (was 1318; Distance_To(contact) tested directly at the radio-link comparison, as the TibSun and Yuri's Revenge ObjectClass accessors are used, no single-use local): at the run-away loop the image expands Length (the square root 0x4BA410 called) and calls it (0x41B780) at the destroyed-contacts loop; this calls it at both. The loop is Red Alert 2's own (ra2-decomp's Yuri's Revenge twin has none), and the twin's forms after it (PositionCoord at the sound, the animation pointer inside the sparky block) give the same bytes
+/// <summary>
+/// The distance between two objects' centres, its terms summed Y, Z, X (Length_YZX).
+/// Adopted from RobinDigitalPro/ra2-1001-decomp (src/m85/src/building.cpp at 7e84ed4), whose text places the
+/// distance of the run-away test in this inline helper; the image expands it there one level deeper than the
+/// destroyed-contacts test's Distance_To.
+/// </summary>
+inline int Center_Distance_YZX(ObjectClass const * object, ObjectClass const * other)
+{
+	return(object->Center_Coord().Distance_YZX(other->Center_Coord()));
+}
+
+
 ResultType BuildingClass::Take_Damage(int & damage, int distance, WarheadTypeClass const * warhead, TechnoClass * source, bool forced, bool no_crew)
 {
 	ResultType res = RESULT_NONE;
@@ -2685,7 +2696,7 @@ ResultType BuildingClass::Take_Damage(int & damage, int distance, WarheadTypeCla
 						for (int index = 0; index < RadioLinks.Length(); index++) {
 							TechnoClass * contact = Radio_Link(index);
 							if (contact) {
-								if (Distance_To(contact) < 2 * CELL_LEPTON && !Class->IsHelipad) {
+								if (Center_Distance_YZX(this, contact) < 2 * CELL_LEPTON && !Class->IsHelipad) { // RA2: the distance through the helper, as RobinDigitalPro's ra2-1001-decomp has it (Distance_YZX written here directly: 1,825 B off)
 									Transmit_Message(RADIO_RUN_AWAY, contact);
 									contact->QueueUpToEnter = NULL;
 								}
@@ -2702,7 +2713,10 @@ ResultType BuildingClass::Take_Damage(int & damage, int distance, WarheadTypeCla
 
 						AnimClass * anim = NULL;
 
-						Coord coord(cell);
+						Coord coord; // RA2: the cell's centre built member by member, the height cleared first, as RobinDigitalPro's ra2-1001-decomp has it (Coord(cell): 1,079 B off)
+						coord.Z = 0;
+						coord.X = cell.X * CELL_LEPTON_W + CELL_LEPTON_W / 2;
+						coord.Y = cell.Y * CELL_LEPTON_H + CELL_LEPTON_H / 2;
 						coord.Z = Map.Get_Height_GL(coord);
 						/*
 						**	Show pieces of fire to indicate that a significant change in
@@ -2807,7 +2821,6 @@ ResultType BuildingClass::Take_Damage(int & damage, int distance, WarheadTypeCla
 
 	return(res);
 }
-#endif
 
 
 
