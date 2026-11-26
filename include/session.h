@@ -737,12 +737,12 @@ class SessionClass
 		IPXAddressClass SlotAddresses[MAX_PLAYERS];
 		int WolPlayerState[MAX_PLAYERS]; // RA2: +0x299C, cleared by Select_Game before the Internet game dialogs; name from that use only
 		int PeerProbeData[64][2]; // RA2: +0x29BC, cleared by Start_Network_Session
-		int ConnectionResults[64][2]; // RA2: +0x2BBC, set to -1 by Start_Network_Session (YR: ConnectionResults)
+		int ConnectionResults[128]; // RA2: +0x2BBC, two per pair (ra2-decomp's flat form), set to -1 by Start_Network_Session (YR: ConnectionResults)
 		int ConnectionResultCount; // RA2: +0x2DBC, cleared by Start_Network_Session
 		unsigned short PeerPorts[MAX_PLAYERS]; // RA2: +0x2DC0, cleared by Start_Network_Session
 		char NatPeerNames[MAX_PLAYERS][36]; // RA2: +0x2DD0, names of the players behind the local player's NAT (Allocate_Player_Ports)
 		bool SendDelay; // RA2: [MultiPlayer] SendDelay of RA2.INI
-		unsigned char PeerAttemptBlock[0x23]; // RA2: +0x2EF1, three bytes and then eight ints (+0x2EF4) that Connect_Player_Pairs clears; what else they hold is not known
+		int PeerSourcePorts[MAX_PLAYERS]; // RA2: +0x2EF4, the mangled source port each peer was reached from (Start_Talking_To stores it, reuses it for a peer at the same address; Connect_Player_Pairs clears them; YR twin: ra2-decomp's unknown_2F4C)
 		int KeepAliveSlot[MAX_PLAYERS]; // RA2: +0x2F14, the slot of each peer whose keepalive (NET_PING) is due (Queue_Peer_Timeout, Retry_Requests)
 		CDTimerClass<SystemTimerClass> KeepAliveTimer[MAX_PLAYERS]; // RA2: +0x2F34, the countdown of each (1200 ticks)
 		int KeepAliveCount; // RA2: +0x2F94, how many keepalives wait

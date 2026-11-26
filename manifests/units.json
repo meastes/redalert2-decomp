@@ -140754,6 +140754,15 @@
     "main_source": "src/recovered/wonline.cpp"
    },
    {
+    "entry": "0074e5e0",
+    "body": 2456,
+    "padding": 8,
+    "symbol": "?Start_Talking_To@@YI_NHHH@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "0074ef80",
     "body": 886,
     "padding": 10,
@@ -141555,14 +141564,6 @@
     "main_source": "src/recovered/wonline.cpp"
    },
    {
-    "entry": "00760bd0",
-    "body": 40,
-    "padding": 8,
-    "symbol": "?OnChannelLeave@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@3@@Z",
-    "main_symbol": "?OnChannelLeave@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@3@@Z",
-    "main_source": "src/recovered/wonline.cpp"
-   },
-   {
     "entry": "0075f530",
     "body": 5780,
     "padding": 12,
@@ -141570,6 +141571,14 @@
     "main_symbol": "",
     "main_source": "",
     "bound": "image-derived"
+   },
+   {
+    "entry": "00760bd0",
+    "body": 40,
+    "padding": 8,
+    "symbol": "?OnChannelLeave@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@3@@Z",
+    "main_symbol": "?OnChannelLeave@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@3@@Z",
+    "main_source": "src/recovered/wonline.cpp"
    },
    {
     "entry": "00760c00",
@@ -142807,7 +142816,17 @@
    "??_C@_0BF@GIKL@TXT_NEED_EQUAL_TEAMS?$AA@": "007fec3c",
    "??_C@_0BF@JCPA@TXT_TOO_MANY_PLAYERS?$AA@": "007fec24",
    "??_C@_0BG@BOBP@TXT_NEED_MORE_PLAYERS?$AA@": "007fec54",
-   "??_C@_0BG@JHDG@TXT_NO_AI_OBSERVATION?$AA@": "007fec6c"
+   "??_C@_0BG@JHDG@TXT_NO_AI_OBSERVATION?$AA@": "007fec6c",
+   "??_C@_0BL@CIGH@Got?5NET_PORT_PROBE?5packet?6?$AA@": "007ff084",
+   "??_C@_0BM@KBHM@Trying?5again?5?9?5trying?5?$DN?5?$CFd?6?$AA@": "007fefd8",
+   "??_C@_0BP@PMHD@Doing?5the?5netgear?5sleep?5thing?6?$AA@": "007ff0d0",
+   "??_C@_0CD@BKEI@Got?5NET_PORT_PROBE?5packet?5from?5?$CF@": "007ff060",
+   "??_C@_0CK@LCMK@Start_Talking_To?5player?5?$CFd?0?5retr@": "007ff180",
+   "??_C@_0CP@CBFA@Other?5player?5is?5trying?5again?5?9?5t@": "007feff4",
+   "??_C@_0DA@FPDM@Sending?5NET_PORT_PROBE?5packet?5to@": "007ff0a0",
+   "??_C@_0DJ@HEGO@Got?5connection?5result?5?9?5my?5packe@": "007ff024",
+   "??_C@_0DK@ODPD@Found?5old?5connection?5port?5number@": "007ff0f0",
+   "??_C@_0FB@IMLK@No?5destination?5port?5delta?5?9?5look@": "007ff12c"
   },
   "partial_ok": true,
   "parked_rows": [

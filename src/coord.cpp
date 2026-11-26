@@ -56,10 +56,6 @@
 #include "mouse.h"
 
 
-/*
-**	RA2: Coord_Scatter below calls Move_Coord directly with the input
-**	coordinate, a random facing and the requested distance.
-*/
 
 /***************************************************************************
 **	This array is used to index a facing in order to retrieve a cell
@@ -114,25 +110,29 @@ Point2D const AdjacentPoint[FACING_COUNT] = {
  *   02/01/1992 JLB : Created.                                                                 *
  *   05/13/1992 JLB : Only uses Random().                                                      *
  *=============================================================================================*/
-Coord Coord_Scatter(Coord const & coord, int distance, bool lock); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 173 bytes differ (TibSun's text): the frame is 4 bytes smaller than the original's; ra2-decomp's twin reaches it through a pass-through wrapper of Move_Coord, which does no work (decision test b)
+// RA2: ra2-decomp's coord.cpp reaches Move_Coord through this pass-through (reference-borne: it does no work of its
+// own, but the original's 4 bytes larger frame comes with it; a clean form replaces it if one ever stays exact).
+static inline Coord _Move_Coord(Coord const & start, DirType const & dir, int distance)
+{
+	return(Move_Coord(start, dir, distance));
+}
+
 Coord Coord_Scatter(Coord const & coord, int distance, bool lock)
 {
 	Coord newcoord;
 
-	newcoord = Move_Coord(coord, Random_Dir(DIR_N, DIR_MAX), distance);
+	newcoord = _Move_Coord(coord, Random_Dir(DIR_N, DIR_MAX), distance);
 
 	unsigned int cell_x = newcoord.X / CELL_LEPTON_W;
 	unsigned int cell_y = newcoord.Y / CELL_LEPTON_H;
 	if (cell_x >= MAP_CELL_W || cell_y >= MAP_CELL_H) newcoord = coord;
 
 	if (lock) {
-		newcoord = Coord_Snap(newcoord);
+		newcoord = newcoord - Point2D(newcoord.X & (CELL_LEPTON_W - 1), newcoord.Y & (CELL_LEPTON_H - 1)) + Point2D(CELL_LEPTON_W / 2, CELL_LEPTON_H / 2);
 	}
 
 	return(newcoord);
 }
-#endif
 
 
 /// <summary>

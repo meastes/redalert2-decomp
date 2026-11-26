@@ -30,6 +30,8 @@ class FirewallHelperClass
 
 		bool Is_Netgear(int behavior) { if ((behavior & 8) != 0) { return(true); } return(false); }
 		bool Is_Netgear(void) { if ((Detected & 8) != 0) { return(true); } return(false); }
+		unsigned short Get_Raw_Firewall_Behavior(void) { return((unsigned short)Detected); } // ra2-decomp firewall.h
+		bool Is_NAT(int behavior) { if (behavior == 0 || (behavior & 1) != 0) { return(false); } return(true); } // ra2-decomp firewall.h
 
 		int Detected; // RA2: +0x00
 		int Settings; // RA2: +0x04
