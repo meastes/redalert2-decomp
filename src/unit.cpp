@@ -6883,3 +6883,54 @@ void UnitClass::Visceroid_AI()
     }
     VisceroidFacing = FACING_NONE;
 }
+
+// Canonical members of the existing voxel-cache index.
+template<>
+bool IndexClass<int, StaticBufferClass::Entry *>::Is_Archive_Same(int const & id) const
+{
+	if (Archive != 0 && Archive->ID == id) {
+		return(true);
+	}
+	return(false);
+}
+
+template<>
+bool IndexClass<int, StaticBufferClass::Entry *>::Is_Present(int const & id) const
+{
+	/*
+	**	If there are no data elements in the index table, then it can
+	**	never find the specified index. Check for and return failure
+	**	in this case.
+	*/
+	if (IndexCount == 0) {
+		return(false);
+	}
+
+	/*
+	**	Check to see if this same index element was previously searched for. If
+	**	so and it was previously found, then there is no need to search for it
+	**	again -- just return true.
+	*/
+	if (Is_Archive_Same(id)) {
+		return(true);
+	}
+
+	/*
+	**	Perform a binary search on the index nodes in order to look for a
+	**	matching index value.
+	*/
+	NodeElement const * nodeptr = Search_For_Node(id);
+
+	/*
+	**	If a matching index was found, then record it for future reference and return success.
+	*/
+	if (nodeptr != 0) {
+		Set_Archive(nodeptr);
+		return(true);
+	}
+
+	/*
+	**	Could not find element so return failure condition.
+	*/
+	return(false);
+}

@@ -160624,7 +160624,7 @@
     "entry": "00601490",
     "body": 68,
     "padding": 12,
-    "symbol": "?Clear_Vector@?$WolArrayList@UUnknownListEntry_6017c0@@@@QAEXXZ",
+    "symbol": "?clear@?$ArrayList@UCellData@OwnerDraw@@@@QAEXXZ",
     "main_symbol": "?Clear_Vector@?$WolArrayList@UUnknownListEntry_6017c0@@@@QAEXXZ",
     "main_source": "src/recovered/ownrdraw.cpp"
    },
@@ -160664,7 +160664,7 @@
     "entry": "00601850",
     "body": 136,
     "padding": 8,
-    "symbol": "?Shrink_Vector@?$WolArrayList@UUnknownListEntry_6017c0@@@@QAE_NXZ",
+    "symbol": "?shrinkVector@?$ArrayList@UCellData@OwnerDraw@@@@AAEDXZ",
     "main_symbol": "?Shrink_Vector@?$WolArrayList@UUnknownListEntry_6017c0@@@@QAE_NXZ",
     "main_source": "src/recovered/ownrdraw.cpp"
    },
@@ -160752,7 +160752,7 @@
     "entry": "00602360",
     "body": 143,
     "padding": 1,
-    "symbol": "?Grow_Vector@?$WolArrayList@H@@QAE_NXZ",
+    "symbol": "?growVector@?$ArrayList@H@@AAEDXZ",
     "main_symbol": "?Grow_Vector@?$WolArrayList@H@@QAE_NXZ",
     "main_source": "src/recovered/ownrdraw.cpp"
    },
@@ -160760,7 +160760,7 @@
     "entry": "006023f0",
     "body": 134,
     "padding": 10,
-    "symbol": "?Shrink_Vector@?$WolArrayList@H@@QAE_NXZ",
+    "symbol": "?shrinkVector@?$ArrayList@H@@AAEDXZ",
     "main_symbol": "?Shrink_Vector@?$WolArrayList@H@@QAE_NXZ",
     "main_source": "src/recovered/ownrdraw.cpp"
    },
@@ -160768,7 +160768,7 @@
     "entry": "00602480",
     "body": 136,
     "padding": 8,
-    "symbol": "?Shrink_Vector@?$WolArrayList@UUnknownListEntry_602480@@@@QAE_NXZ",
+    "symbol": "?shrinkVector@?$ArrayList@UColumnData@OwnerDraw@@@@AAEDXZ",
     "main_symbol": "?Shrink_Vector@?$WolArrayList@UUnknownListEntry_602480@@@@QAE_NXZ",
     "main_source": "src/recovered/ownrdraw.cpp"
    },
@@ -160824,7 +160824,7 @@
     "entry": "006029d0",
     "body": 135,
     "padding": 9,
-    "symbol": "?Grow_Vector@?$WolArrayList@UUnknownListEntry_602480@@@@QAE_NXZ",
+    "symbol": "?growVector@?$ArrayList@UColumnData@OwnerDraw@@@@AAEDXZ",
     "main_symbol": "?Grow_Vector@?$WolArrayList@UUnknownListEntry_602480@@@@QAE_NXZ",
     "main_source": "src/recovered/ownrdraw.cpp"
    }

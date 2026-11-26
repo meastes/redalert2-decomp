@@ -6393,3 +6393,100 @@ printed), ar.py (named replacement sets), wn.cpp (the Movement_AI text described
   state in steps (K 1-4 as the draft; 5-7 none; 8-12 runs; 13-16 none; 17-25 one at the first flag of +0x140 of the restore
   copy; 26 and up runs); none is the image's (one, at bit 16 of +0x140 of the restore copy). ra2-decomp's twin 0x565C10
   records the same kind of gauge (K of 16 or more for its last register tie).
+
+## A flag read through an accessor shows as a second fetch of the element; frame slots are read before registers; a ported twin is first checked for the other game's values (found in the rebuild (lane F84, high))
+
+Found in the rebuild (lane F84, high); Tactical::Render 0x6A45A0 landed exact (3,288 B), ownrdraw Combo_Proc 0x5F4BA0 went from 6,042 to
+86 bytes by position (37 instruction lines, the image's size, frame and call list), Control_Proc 0x5EE460 measured only. Lane tools in
+build/r/f84 (removed at hand-back; copies in private/dossiers/fable/f84_tools): t.sh (one line per compile: position, size, frame, lines,
+calls, exact LCS), vv.py (named sets of exact replacements over a base, one line each), cl.py (who holds the counter, the vector, the line
+and Frame in Render's timer loop), allchk.sh (a header's includers before and after), sw2.py and seg2.py (lane F80/F81's dispatch emulator
+and per-case-group scorer for any entry), d3.py (the LCS diff with unbound absolute operands blind), c.sh / tp.sh (Combo_Proc and
+Control_Proc measures).
+
+- Read a draft's frame slots before its registers. A stack-blind line diff called Render 90 lines from the image; with the slots in view
+  every hunk before the last block was a slot number, and all of them followed the last block's locals. One count variable shared by three
+  loops gave three webs in other slots than the image's; a count of its own per loop (`supers`, `houses`) and a second value for the line
+  number where the image copies one home to another (0x14 to 0x18 between the loops: `int line = index;`) put every slot right at once
+  (2,058 to 417 B by position). A copy between two homes of what the draft treats as one variable is two variables.
+- An element read through an inline accessor is fetched again afterwards. `TimedSuperWeapons[i]->Is_Suspended()` copies the element
+  pointer into the accessor's `this` (the image's `mov esi, ecx` ahead of the third condition), and that single-use value keeps the loads
+  of `TimedSuperWeapons[i]` from merging into one: the image fetches the element again for the draw (0x6A512D), which gives the loop
+  counter and the vector base two references each and both a register, with the line number in memory. With the member read directly
+  every load merges, the line number and the frame counter take the registers and the counter goes to memory. Sixty spellings of the loop
+  body compiled identically until the accessor: a pointer local at any place, helpers by value and by reference, a loop variable of its
+  own, the timer through its conversion, an inline predicate on another condition. main's note that a second index read "is never a
+  spelling" (Scout1291) holds for direct reads only.
+- The same single-use value can be written as a named condition (`bool suspended = TimedSuperWeapons[i]->IsSuspended;`) or a pointer
+  local used exactly once; any second use of the local merges the loads again (16 mixes). Use it only when the accessor cannot land.
+- An accessor that the image and a reference both show can still be unlandable: one more member of SuperClass flips WinMain 0x68E280 and
+  Reposition_Sidebar 0x6819A0 by declaration count (probe with k members: +1 both, +2 to +4 the sidebar row, +5 and +6 neither, +8
+  WinMain; taking out a `friend class` line moves nothing; declaring it in the class and defining it outside counts the same). Probe the
+  count rows before choosing where a helper lives.
+- Unguarding a function that has a function static renumbers the unit's later initializer names (`_$E294` to `_$E295`) and their `$S`
+  guards; rename the rows and let `check --learn` bind the guards, then drop the stale references. `--learn` rewrites symbols.csv in its
+  own order: restore the file and insert the one learned line by hand.
+- A branch target can be the last difference. Render's background-pass return was written after the blit block; the image's `jne`
+  skips it (the return is inside the block). The bytes differ in one displacement, which the inference of unbound names then refuses.
+- A twin ported whole carries the other game's values, and they cost far more than their own bytes. Combo_Proc's bank text had three:
+  a frame thickness (push 2 for 1), a rules member (GenericClick, a VocType, for GUIComboOpenSound, an int: the enum argument changed an
+  inline decision 600 lines away, the WideWstring delete), and a copy of lparam into a field RA2 does not have, which took lparam's
+  address, moved the frame 8 bytes and cost the paint case its zero register. Read each case group's register-blind diff for constants,
+  displacements and extra stores first (seg2.py -v GROUP); here that was 6,042 to 86 bytes in three edits.
+- Where the twin's own record names a residue, expect the same one. ra2-decomp's notes for the twin 0x617250 (99.0) say the handler sits
+  on a tie between the record and the result, turned by holding the font's line height across the item-height query plus one more
+  reference to the record; RA2 is the same: every form that reads the height ahead of the call swaps ebx and edi for the whole function,
+  and one extra store through the record turns it back with that block exact. No code-free reference was found (self-assignment, an empty
+  test, an expression statement, a repeated store: none counts); a helper that takes the record by value does not count either.
+- Diff with unbound absolutes blind before judging a draft with many statics. Control_Proc reads 198 lines by LCS and 98 with the
+  statics blind, and 69 of those are one inline decision: the image expands the last of three Dictionary::remove sites and calls the first
+  two. A later site expanded where earlier ones are called is not a budget that ran out; the wrapper spelling (direct call at the last
+  site or at the first two), the twin's recorded levers (flat rectangle sums, int offsets, a Rect corner, the declaration apart from the
+  assignment) and the archive's member-wise tail do not turn it.
+
+## A parked draft is measured without its own stand-in specializations; a probe's side effects are read before its count; three states, not two (found in the rebuild (lane F85, high))
+
+Found in the rebuild (lane F85, high); nothing landed as bytes. ownrdraw Control_Proc 0x5EE460 now has the image's call list and frame
+when measured as it will open; Combo_Proc 0x5F4BA0 measured only. Lane tools in build/r/f85 (removed at hand-back; copies in
+private/dossiers/fable/f85_tools): pm.py (one probe statement at the top of every case group, one line each), tq.sh (Control_Proc: position,
+size, statics-blind lines, call count, removal calls, frame), dg.sh (a diagnostic compile with one exact edit inside dict.h's remove, the
+header restored afterwards), w*.py and x*.py (the variant sets, for vv.py).
+
+- Before reading "the image expands this site and we call it" as a budget, search the unit for `template<>` (lane FH1's rule, missed for
+  two lanes here). Control_Proc's "one inline decision" was the unit's explicit specialization of `Dictionary<MessageKey, bool>::remove` at
+  the end of the file. It gives row 0x602040 a body while Control_Proc, the only natural emitter, is parked; a specialization defined after
+  its first use is always called, so no wrapper spelling, budget lever or twin form could expand the last site. With the specialization
+  taken out of the measured text the template's own member decides: the first two removals are calls and the last expands, with keyHash
+  and both operator== called, 159 of 159 calls, frame 0x36c, 7,232 B of 7,252, and the template still emits 0x602040 exact. The draft
+  measures tailmap prints keep the stand-in, so a draft like this reads worse than it is; say in the guard label which stand-ins must
+  leave when the draft opens, and measure with them out.
+- A wrapper one level down is what gives "called early, expanded late" (lane F27's N): the unit's Remove_Entry and dict.h's own
+  one-argument `remove(key)` decide alike. A direct two-argument call at the last site is decided at the root and then also expands the
+  nested operator== (157 calls for 159).
+- With the removal expanded, the head of Control_Proc exchanges registers from the contains() test on (zero in ebx, the message in edi
+  and the constant 1 in ebp for the whole function, the record in esi; the image has the record in ebx, loads the message per test in the
+  else-if chain and starts the constant 1 at Get_Record), while the tail from the removal on is the image's. A diagnostic edit names the
+  cause without solving it: with remove()'s `if (entries==0) return(FALSE);` deleted the head is the image's (42 lines, all inside the
+  expansion). Moving the test below the percent lines, writing it `entries<1` (no zero use) or returning TRUE from it changes nothing, so
+  it is the early exit ahead of the keyHash call, not the compare, the constant or the returned value. One to three extra reads of the
+  record and a plain call after the removal do not turn it in this tree (ra2-decomp's twin 0x610CA0 turned on such a call; its tree's
+  other levers were not needed here for the inline decisions).
+- The next lead for Control_Proc is the frame, not the registers (lane F84's rule, slots first). Even in the diagnostic state with the
+  image's registers the low slots are permuted: the image has result at 0x10, call_proc at 0x14 sharing its slot with the set-top arm's
+  loop index (call_proc is dead in that arm: its closing `call_proc = FALSE` is threaded to the removal and dropped), `found` at 0x18,
+  specific_proc at 0x20 sharing with `target`, the bools at 0x1E and 0x1F; the draft has the index with two later counters in one slot
+  at 0x10, result at 0x14, specific_proc and `target` at 0x1C, call_proc sharing with `found` at 0x20, the bools at 0x1A and 0x1B. A
+  local the draft orders differently from the image is the likeliest thing that also sets the head's exchange.
+- Read what a probe does besides counting. In Combo_Proc one more reference to the record (a read or a store, at any of eight case tops)
+  moves the draft to a third state, 6,944 B, where a store also takes 8 bytes off the frame and the paint case loses its zero register.
+  Lane F84 met that state through the copy of lparam to +0x1D8 and put it down to lparam's address; it is the record's count. So the draft
+  sits in a window one reference wide: this text, the exchanged state under the held line height, the third state one reference up.
+- Under the hold a single record reference returns the image's state only at the tops of cases 0x4DD, 0x4F1 and 0x4E8 (a store also at
+  0x4BD) and not at the other twenty case tops; two references give the third state; a global store in place of the record reference
+  never returns it. A count that depends on where the reference stands is not a plain use count: map every case top with one probe
+  (pm.py, two minutes) before describing a tie as "one reference short".
+- Not moved under the hold (Combo_Proc): the three line-height reads through one accessor, on the font or on the record; the `item` and
+  `index` aliases written out (copies are propagated before counting); the two bool stores as if/else (other code) or as a conditional; a
+  cursor variable for the blend loop (16 to 33 bytes over); the colour fill through a helper on the pointer or on the record; seven
+  declaration orders of result, wide, pass_on, proc and the record. The lookup written first, which turns ra2-decomp's twin, does not
+  turn this tree's draft (300 lines).

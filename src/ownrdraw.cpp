@@ -5661,7 +5661,7 @@ int __fastcall Hash_CtrlMsg(int *);
 namespace OwnerDraw {
 LRESULT __stdcall Owner_Button_Proc(HWND, UINT, WPARAM, LPARAM);
 LRESULT __stdcall List_Proc(HWND, UINT, WPARAM, LPARAM);
-#ifdef RA2_NON_MATCHING // not exact: 6108 bytes differ against the image-derived bound 005ee460 (7,252 body bytes, 12 padding) (ra2-decomp banked-forms 41d009df banks/0x00610CA0.cpp DefaultHandler whole, RA2 fields and names: 157 of 159 calls in order, was 145, 1301 instruction lines off, was 1376; position score 6108, was 4863, taken for structure; before that 4863, was 4884: the 1.001 dialog copies the update rectangle for its destination (RobinDigitalPro/ra2-1001-decomp 1510aed); previously 4892; window offset and rectangle translations as ra2-decomp's banked form banks/0x00610CA0_odh.cpp (11df85d) has it); TibSun CtrlProc's getTail and named WM_SYSKEYUP/VK_TAB give the same score
+#ifdef RA2_NON_MATCHING // not exact: 6108 bytes differ against the image-derived bound 005ee460 (7,252 body bytes, 12 padding) (lane F85: the "one inline decision" is this unit's own stand-in, not a budget: the explicit specialization of Dictionary<MessageKey, bool>::remove at the end of the file, which gives row 0x602040 a body while this draft is parked, is defined after its first use and so is always called; measured with that specialization taken out (it must leave when this draft opens; the template's own member then emits 0x602040 exact, 607 B) the draft has the image's call list (159 of 159: the first two removals called, the last expanded with keyHash and both operator== called), the image's frame 0x36c and 7,232 B of 7,252; the unit's Remove_Entry wrapper and dict.h's one-argument remove(key) decide alike, a direct two-argument call at the last site expands operator== too (157 calls); left: one allocation exchange from the contains() test to about +0x1700 (329 lines with statics blind, 6,160 by position): ours keeps zero in ebx, the message in edi and the constant 1 in ebp from contains() on and the record in esi, the image has the record in ebx, loads the message per test in the else-if chain and starts the constant 1 at Get_Record; the tail from the last removal on is the image's; with the entries==0 early return of remove() deleted as a diagnostic the head is the image's too (42 lines, all in the expansion), and moving that test below the percent lines, writing it entries<1 or returning TRUE from it changes nothing, so any early exit ahead of the keyHash call sets it; record probes (1 to 3 reads) and an extra plain call after the removal do not turn it; the same wall as ra2-decomp's twin 0x610CA0) (lane F84 read it with unbound statics blind: 20 hunks, 98 instruction lines, almost all one decision: the image expands the last Dictionary<MessageKey, bool>::remove (after Remove_Audio_File_Window: keyHash, two operator== and deletes, shrink) and calls the first two, ours calls all three (154 calls for 159), the frame is 4 bytes over (0x370 for 0x36c) and the message is loaded one test early in the image at 0x5EEE86; not moved by ra2-decomp's recorded levers for the twin (one or both rectangle sums written flat, int offsets, a Rect corner, the screen rectangle declared apart from its assignment, the archive's member-wise tail: 5,901 to 6,843 by position) nor by the removal written without its wrapper at the last site or at the first two; ra2-decomp banked-forms 41d009df banks/0x00610CA0.cpp DefaultHandler whole, RA2 fields and names: 157 of 159 calls in order, was 145, 1301 instruction lines off, was 1376; position score 6108, was 4863, taken for structure; before that 4863, was 4884: the 1.001 dialog copies the update rectangle for its destination (RobinDigitalPro/ra2-1001-decomp 1510aed); previously 4892; window offset and rectangle translations as ra2-decomp's banked form banks/0x00610CA0_odh.cpp (11df85d) has it); TibSun CtrlProc's getTail and named WM_SYSKEYUP/VK_TAB give the same score
 static inline void Remove_Entry(Dictionary<MessageKey, bool> & dict, MessageKey & key)
 {
 	bool value;
@@ -10610,7 +10610,7 @@ TextNode * NodeList::Add_Node(int length)
 	return node;
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 6042 bytes differ against the image-derived bound 005f4ba0 (6,895 body bytes) (ra2-decomp banked-forms 41d009df banks/0x00617250.cpp ComboBoxHandler whole, RA2 fields and names: 128 of 134 calls in order, was 101, 1419 instruction lines off, was 2739; before that position score 6481, was 6532; 2,696 instruction lines off of 2,197, was 2,707; 98 of 134 calls in order: the record fetched through the unit's Get_Record, ra2-decomp's Find_Data, which gives the image's out-of-line Dictionary::keyHash call at the top (lanes F77, F79); before that the background pixel count computed before the surface lock, as RA2 1.001 and the image do, was 6541; image-faithful reads; position score 6541, was 6501: the dropdown handle is read from WinData again after ReleaseCapture and after notifying the parent, as the image does at 005f587b and 005f589e (RA2 1.001 cac41ca); owner ruling 2026-11-25; before that 6502; the forwarded dropdown result returned on its own path, as ra2-decomp's attempt f9e49e2 separates it; the dropdown's visible rows computed before the count is read, as ra2-decomp's banked form banks/0x00617250_odh.cpp (11df85d) has it; the item-data and selection cases first in the bank's order, RA2 case bodies and fall-through groups kept; the text query's shared result with the signed clamp and the item sentinel tested before null as the bank has them)
+#ifdef RA2_NON_MATCHING // not exact: 86 bytes differ against the image-derived bound 005f4ba0 (6,895 body bytes; ours 6,895 B, the frame 0x2b80, the switch layout and all 134 calls as the image; 37 instruction lines off by exact longest common subsequence, 22 hunks, of which 10 are the unbound text buffer; was 6042 and 418 lines) (lane F85, no text change: the draft has three allocation states, not two: this text; one more read or store of the record at any of 8 case tops tried gives a third state (6,944 B; with a store the frame is 0x2b78 and the paint case has no zero register: what lane F84 put down to lparam's address); the held line height gives the exchanged state, and with it one record reference returns the image's state only at the tops of cases 0x4DD, 0x4F1 and 0x4E8 (a store also at 0x4BD), does not at the other 20 case tops, and two give the third state; a global store in place of the record reference never does; not moved under the hold: the three height reads through one accessor (on the font or on the record), the item and index aliases written out, the bool stores as if/else or conditional, a cursor for the blend loop, the fill through a helper on the pointer or the record, seven declaration orders of result, wide, pass_on, proc and the record) (lane F84: the bank's three Yuri's Revenge values read against the image and set to RA2's: the frame drawn one pixel thick, the button-down sound Rule->GUIComboOpenSound (an int member: with the VocType member the WideWstring delete was expanded), and the set-colour case with one bound test and no copy of lparam to +0x1D8 (that copy took lparam's address and cost the frame 8 bytes and the paint case its zero register); left, the same residue ra2-decomp records for the twin 0x617250 (99.0 there): the subclassed case reads the font's line height ahead of the item-height query and holds it in edi across the call, ours reads it after; every form that reads it first (a local, a helper on the font or on the record, Robin's conditional) flips the record and the result between ebx and edi for the whole function (346 lines), and with one more reference to the record (a probe store) the image's allocation returns with that block right, leaving the fill's operand order (lea edi ahead of mov ecx), the dropdown height clamp built in esi (mov esi, ecx / sub esi, eax) and one reload a line early; the bank port before it: ra2-decomp banked-forms 41d009df banks/0x00617250.cpp ComboBoxHandler whole, RA2 fields and names: 128 of 134 calls in order, was 101, 1419 instruction lines off, was 2739; before that position score 6481, was 6532; 2,696 instruction lines off of 2,197, was 2,707; 98 of 134 calls in order: the record fetched through the unit's Get_Record, ra2-decomp's Find_Data, which gives the image's out-of-line Dictionary::keyHash call at the top (lanes F77, F79); before that the background pixel count computed before the surface lock, as RA2 1.001 and the image do, was 6541; image-faithful reads; position score 6541, was 6501: the dropdown handle is read from WinData again after ReleaseCapture and after notifying the parent, as the image does at 005f587b and 005f589e (RA2 1.001 cac41ca); owner ruling 2026-11-25; before that 6502; the forwarded dropdown result returned on its own path, as ra2-decomp's attempt f9e49e2 separates it; the dropdown's visible rows computed before the count is read, as ra2-decomp's banked form banks/0x00617250_odh.cpp (11df85d) has it; the item-data and selection cases first in the bank's order, RA2 case bodies and fall-through groups kept; the text query's shared result with the signed clamp and the item sentinel tested before null as the bank has them)
 namespace OwnerDraw {
 
 static inline WNDPROC Find_Original_Proc(HWND & window)
@@ -10823,7 +10823,7 @@ LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lp
 
 		case WM_LBUTTONDOWN:
 		case WM_LBUTTONDBLCLK:
-			VocClass::PlayGlobal(Rule->GenericClick, 1.0f, 0x2000);
+			VocClass::PlayGlobal(Rule->GUIComboOpenSound, 1.0f, 0x2000); // RA2: the rules member at +0x19C (0x5F5E04)
 			if ((unsigned short)LOWORD(lparam) > client_rect.right - 20) {
 				BOOL show = (SendMessageA(window, CB_GETDROPPEDSTATE, 0, 0) != 1);
 				PostMessageA(window, CB_SHOWDROPDOWN, show, 0);
@@ -11006,11 +11006,14 @@ LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lp
 		break;
 
 	case OD_SETCOLOR:
+			/*
+			 * RA2: one test and the store (0x5F6367); index 50 writes one past the table. The
+			 * second test and the copy to +0x1D8 are Yuri's Revenge's.
+			 */
 			if ((unsigned int)wparam <= 50) {
-				if (wparam < 50) data->ItemColors[wparam] = lparam;
-				else memcpy(data->Reserved_1D8, &lparam, sizeof(lparam));
-		}
-		break;
+			data->ItemColors[wparam] = lparam;
+			}
+			break;
 
 		case 0x4DD:
 			data->IsItemFilled = (lparam == 1);
@@ -11121,7 +11124,7 @@ LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lp
 					color = Color_To_Pixel(Frame_Color);
 				}
 			}
-			OwnerDraw::Draw_Frame(AlternateSurface, rect, 2, color);
+			OwnerDraw::Draw_Frame(AlternateSurface, rect, 1, color); // RA2: one pixel (push 1 at 0x5F51DD); Yuri's Revenge draws two
 
 			Rect text_area = rect;
 			text_area.Width = rect.Width - 20;
@@ -12249,6 +12252,148 @@ char ArrayList<HWND>::growVector(void)
 
 	if (Vector_ != NULL)
 		memcpy(newVector, Vector_, Entries_ * sizeof(HWND));
+
+	delete[] ((unsigned char *)Vector_);
+
+	Vector_ = newVector;
+	Slots_ = newSlots;
+
+	return(TRUE);
+}
+
+// Canonical growth and shrink members of the existing integer row lists.
+template<>
+char ArrayList<int>::growVector(void)
+{
+	if (Entries_ < Slots_)
+		return(FALSE);
+
+	int newSlots = Entries_ * 2;
+	if (newSlots < INITIAL_SIZE)
+		newSlots = INITIAL_SIZE;
+
+	int * newVector = (int *)(new unsigned char[newSlots * sizeof(int)]);
+	memset(newVector, 0, newSlots * sizeof(int));
+
+	if (Vector_ != NULL)
+		memcpy(newVector, Vector_, Entries_ * sizeof(int));
+
+	delete[] ((unsigned char *)Vector_);
+
+	Vector_ = newVector;
+	Slots_ = newSlots;
+
+	return(TRUE);
+}
+
+template<>
+char ArrayList<int>::shrinkVector(void)
+{
+
+	if ((Entries_ * 3) > Slots_)
+		return(FALSE);
+
+	int newSlots = Slots_ / 2;
+	if (newSlots < INITIAL_SIZE)
+		newSlots = INITIAL_SIZE;
+
+	if (newSlots >= Slots_)
+		return(FALSE);
+
+	int * newVector = (int *)(new unsigned char[newSlots * sizeof(int)]);
+
+	if (Vector_ != NULL)
+		memcpy(newVector, Vector_, Entries_ * sizeof(int));
+
+	delete[] ((unsigned char *)Vector_);
+
+	Vector_ = newVector;
+	Slots_ = newSlots;
+
+	return(TRUE);
+}
+
+// Canonical members of the existing cell and column lists.
+template<>
+void ArrayList<OwnerDraw::CellData>::clear(void)
+{
+	for (int i = 0; i < Entries_; i++)
+	{
+		(Vector_ + i)->~CellData();
+
+	}
+	Entries_ = 0;
+}
+
+template<>
+char ArrayList<OwnerDraw::CellData>::shrinkVector(void)
+{
+
+	if ((Entries_ * 3) > Slots_)
+		return(FALSE);
+
+	int newSlots = Slots_ / 2;
+	if (newSlots < INITIAL_SIZE)
+		newSlots = INITIAL_SIZE;
+
+	if (newSlots >= Slots_)
+		return(FALSE);
+
+	OwnerDraw::CellData * newVector = (OwnerDraw::CellData *)(new unsigned char[newSlots * sizeof(OwnerDraw::CellData)]);
+
+	if (Vector_ != NULL)
+		memcpy(newVector, Vector_, Entries_ * sizeof(OwnerDraw::CellData));
+
+	delete[] ((unsigned char *)Vector_);
+
+	Vector_ = newVector;
+	Slots_ = newSlots;
+
+	return(TRUE);
+}
+
+template<>
+char ArrayList<OwnerDraw::ColumnData>::shrinkVector(void)
+{
+
+	if ((Entries_ * 3) > Slots_)
+		return(FALSE);
+
+	int newSlots = Slots_ / 2;
+	if (newSlots < INITIAL_SIZE)
+		newSlots = INITIAL_SIZE;
+
+	if (newSlots >= Slots_)
+		return(FALSE);
+
+	OwnerDraw::ColumnData * newVector = (OwnerDraw::ColumnData *)(new unsigned char[newSlots * sizeof(OwnerDraw::ColumnData)]);
+
+	if (Vector_ != NULL)
+		memcpy(newVector, Vector_, Entries_ * sizeof(OwnerDraw::ColumnData));
+
+	delete[] ((unsigned char *)Vector_);
+
+	Vector_ = newVector;
+	Slots_ = newSlots;
+
+	return(TRUE);
+}
+
+template<>
+char ArrayList<OwnerDraw::ColumnData>::growVector(void)
+{
+	if (Entries_ < Slots_)
+		return(FALSE);
+
+	int newSlots = Entries_ * 2;
+	if (newSlots < INITIAL_SIZE)
+		newSlots = INITIAL_SIZE;
+
+	OwnerDraw::ColumnData * newVector = (OwnerDraw::ColumnData *)(new unsigned char[newSlots * sizeof(OwnerDraw::ColumnData)]);
+	memset(newVector, 0, newSlots * sizeof(OwnerDraw::ColumnData));
+
+	if (Vector_ != NULL)
+		memcpy(newVector, Vector_, Entries_ * sizeof(OwnerDraw::ColumnData));
 
 	delete[] ((unsigned char *)Vector_);
 
