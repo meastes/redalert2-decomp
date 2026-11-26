@@ -11024,7 +11024,7 @@ LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lp
 }
 #endif
 
-#ifdef RA2_NON_MATCHING // not exact: 13841 bytes differ against the image-derived bound 005f6690 (14,618 body bytes, 6 padding) (was 13847; the selection-change notifications sent with MAKEWPARAM and the SDK LBN_ codes; before that 14527; the message groups in the order of ra2-decomp's banked form banks/0x00618D40_lbh.cpp (11df85d), each RA2 handler and fall-through chain kept)
+#ifdef RA2_NON_MATCHING // not exact: 13791 bytes differ against the image-derived bound 005f6690 (14,618 body bytes, 6 padding) (was 13841; the three selection queries read the state through ArrayList::get as RA2 1.001 does, one indexed load each as in the image; before that 13847; the selection-change notifications sent with MAKEWPARAM and the SDK LBN_ codes; before that 14527; the message groups in the order of ra2-decomp's banked form banks/0x00618D40_lbh.cpp (11df85d), each RA2 handler and fall-through chain kept)
 namespace OwnerDraw {
 
 LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
@@ -11157,19 +11157,15 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			if (sel_states == NULL) {
 				return(0);
 			}
-			int count = sel_states->length();
 			int selected = 0;
-			int total = 0;
-			for (int i = 0; i < count; i++) {
-				int * value = NULL;
-				if (sel_states->getPointer(&value, i)) {
-					selected = *value;
-				}
+			int count = 0;
+			for (int row = 0; row < sel_states->length(); row++) {
+				sel_states->get(selected, row);
 				if (selected) {
-					total++;
+					count++;
 				}
 			}
-			return(total);
+			return(count);
 		}
 		case LB_GETSELITEMS: {
 			ArrayList<int> * sel_states = (ArrayList<int> *)data->RangeMax;
@@ -11180,10 +11176,7 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 					int * out = (int *)lparam;
 					int max = (int)wparam;
 					for (int i = 0; i < sel_states->length(); i++) {
-						int * value = NULL;
-						if (sel_states->getPointer(&value, i)) {
-							selected = *value;
-						}
+						sel_states->get(selected, i);
 						if (selected) {
 							*out = i;
 							total++;
@@ -11198,18 +11191,16 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			return(total);
 		}
 		case LB_GETSEL: {
+			int selected = 0;
 			ArrayList<int> * sel_states = (ArrayList<int> *)data->RangeMax;
 			if (sel_states == NULL) {
-				return(0);
+				return(selected);
 			}
 			if ((int)wparam >= sel_states->length()) {
 				return(0);
 			}
-			int * selected = NULL;
-			if (!sel_states->getPointer(&selected, (int)wparam)) {
-				return(0);
-			}
-			return(*selected);
+			sel_states->get(selected, wparam);
+			return(selected);
 		}
 		case LB_SETCURSEL: {
 			int index = (int)wparam;

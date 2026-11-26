@@ -432,7 +432,9 @@ void LoadProgressManager::Draw(void)
 		return;
 	}
 	int background = DSurface::Build_Hicolor_Pixel(BlackColor);
-	Rect screen(0, 0, VideoModeWidth, VideoModeHeight);
+	Rect screen(0, 0, 0, 0);
+	screen.Width = VideoModeWidth;
+	screen.Height = VideoModeHeight;
 	ProgressSurface->Fill_Rect(screen, screen, background);
 
 	if (Session.Type == GAME_NORMAL) {
