@@ -91102,7 +91102,9 @@
    "_?_last_super_weapons@?1??Net2DecodeGameopt@@YI_NPBD0@Z@4_NA": "00a72d54",
    "_?_last_build_off_ally@?1??Net2DecodeGameopt@@YI_NPBD0@Z@4_NA": "00a72d55",
    "_?_last_mcv_redeploy@?1??Net2DecodeGameopt@@YI_NPBD0@Z@4_NA": "00a72d56",
-   "_?_last_goodies@?1??Net2DecodeGameopt@@YI_NPBD0@Z@4_NA": "00a72d57"
+   "_?_last_goodies@?1??Net2DecodeGameopt@@YI_NPBD0@Z@4_NA": "00a72d57",
+   "??_7?$VectorClass@PBVMultiMission@@@@6B@": "007a7388",
+   "??_7?$DynamicVectorClass@PBVMultiMission@@@@6B@": "007a73a8"
   },
   "partial_ok": true
  },
@@ -142472,7 +142474,7 @@
     "entry": "00767bb0",
     "body": 107,
     "padding": 5,
-    "symbol": "?Get_Pointer_00767bb0@WolNameTable@@QBE_NABVWstring@@PAPAI@Z",
+    "symbol": "?getPointer@?$Dictionary@VWstring@@I@@QAEDABVWstring@@PAPAI@Z",
     "main_symbol": "?Get_Pointer_00767bb0@WolNameTable@@QBE_NABVWstring@@PAPAI@Z",
     "main_source": "src/recovered/classes/WolNameTable/Get_Pointer.cpp"
    },
@@ -142488,7 +142490,7 @@
     "entry": "00767cd0",
     "body": 29,
     "padding": 3,
-    "symbol": "?Key_Hash_00767cd0@WolNameTable@@QBEIABVWstring@@@Z",
+    "symbol": "?keyHash@?$Dictionary@VWstring@@I@@AAEIABVWstring@@@Z",
     "main_symbol": "?Key_Hash_00767cd0@WolNameTable@@QBEIABVWstring@@@Z",
     "main_source": "src/recovered/classes/WolNameTable/Key_Hash.cpp"
    },

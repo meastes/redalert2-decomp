@@ -13390,3 +13390,78 @@ BOOL CALLBACK Add_Match_Buddy_Dialog_Proc(HWND window, UINT message, WPARAM wpar
 	}
 	return(FALSE);
 }
+
+// ra2-decomp Dictionary member bodies for the native unsigned buddy lookup.
+template<>
+unsigned int Dictionary<Wstring, unsigned int>::keyHash(Wstring const & key) // RA2: keys by const reference
+{
+	unsigned int retval = hashFunc((Wstring &)key); // RA2: the hash function still takes Wstring &
+	retval &= ((1 << tableBits) - 1);
+	assert(retval < getSize());
+	return(retval);
+}
+
+template<>
+char Dictionary<Wstring, unsigned int>::getPointer(Wstring const & key, unsigned int ** valptr) // RA2: keys by const reference
+{
+	int offset;
+	DNode<Wstring, unsigned int> * node;
+
+	if (entries == 0)
+		return(FALSE);
+
+	offset = keyHash(key);
+
+	node = table[offset];
+
+	if (node == NULL)
+		return(FALSE);
+
+#ifdef KEY_MEM_OPS
+	while ((node != NULL) && (memcmp(&(node->key), &key, sizeof(Wstring))))
+#else
+	while ((node != NULL) && (!((node->key) == key)))
+#endif
+	{ node = node->hashNext; }
+
+	if (node == NULL)
+	{ return(FALSE); }
+
+	*valptr = &(node->value);
+
+	return(TRUE);
+}
+
+
+
+// ra2-decomp Dictionary member body for the native channel lookup.
+template<>
+char Dictionary<Wstring, Channel>::getPointer(Wstring const & key, Channel ** valptr) // RA2: keys by const reference
+{
+	int offset;
+	DNode<Wstring, Channel> * node;
+
+	if (entries == 0)
+		return(FALSE);
+
+	offset = keyHash(key);
+
+	node = table[offset];
+
+	if (node == NULL)
+		return(FALSE);
+
+#ifdef KEY_MEM_OPS
+	while ((node != NULL) && (memcmp(&(node->key), &key, sizeof(Wstring))))
+#else
+	while ((node != NULL) && (!((node->key) == key)))
+#endif
+	{ node = node->hashNext; }
+
+	if (node == NULL)
+	{ return(FALSE); }
+
+	*valptr = &(node->value);
+
+	return(TRUE);
+}

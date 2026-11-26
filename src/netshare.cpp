@@ -4645,3 +4645,62 @@ void __fastcall Update_Observer_Buttons(HWND dialog) // RA2: 0x005CD540, not in 
 	}
 }
 
+// Canonical vector constructors for the scenario dialog's const mission list.
+template<>
+VectorClass<MultiMission const *>::VectorClass(int size, MultiMission const * const * array) :
+	Vector(0),
+	VectorMax(size),
+	IsValid(true),
+	IsAllocated(false)
+{
+	/*
+	**	Allocate the vector. The default constructor will be called for every
+	**	object in this vector.
+	*/
+	if (size) {
+		if (array) {
+			Vector = new ((void *)array) MultiMission const *[size];
+		} else {
+			Vector = new MultiMission const *[size];
+			IsAllocated = true;
+		}
+	}
+}
+
+template<>
+DynamicVectorClass<MultiMission const *>::DynamicVectorClass(unsigned size, MultiMission const * const * array)
+	: BASECLASS(size, array)
+{
+	GrowthStep = 10;
+	ActiveCount = 0;
+}
+
+template<>
+bool DynamicVectorClass<MultiMission const *>::Add(MultiMission const * const & object)
+{
+	if (ActiveCount >= Length()) {
+		if ((IsAllocated || !VectorMax) && GrowthStep > 0) {
+			if (!Resize(Length() + GrowthStep)) {
+
+				/*
+				**	Failure to increase the size of the vector is an error condition.
+				**	Return with the error flag.
+				*/
+				return(false);
+			}
+		} else {
+
+			/*
+			**	Increasing the size of this vector is not allowed! Bail this
+			**	routine with the error code.
+			*/
+			return(false);
+		}
+	}
+
+	/*
+	**	There is room for the new object now. Add it to the end of the object vector.
+	*/
+	(*this)[ActiveCount++] = object;
+	return(true);
+}
