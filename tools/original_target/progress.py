@@ -199,6 +199,15 @@ if not any(r.get('library_bytes') not in (None, '', '89127') for r in rows):
         'library_bytes reads the tree\'s ledger manifests/library.json (lane O96): src-final\'s 89,127 B plus 16 '
         'identified libcmt sections (%s B in all); reproduced_text moves with it, the C/C++ columns do not' %
         format(LIBRARY, ','))) if n)
+# Lane O104 (2026-11-26, review-session ruling): the data line's "with generated modules" sub-line starts, its own
+# series (data_with_generated_*), always beside the authored data_reproduced_*; no other column moves.
+if line.get('data_with_generated_bytes') != '' and not any(r.get('data_with_generated_bytes') for r in rows):
+    line['note'] = '; '.join(n for n in (line['note'], (
+        'new series data_with_generated_bytes/share (lane O104, review-session ruling 2026-11-26): the data line\'s '
+        '"with generated modules" sub-line, the authored data_reproduced_* plus the fastmath tables (.data '
+        '0x801DC4-0x827E04, 155,712 B) a tracked generator computes from formulas, proven whole with all seven names '
+        'bound; flagged constant ATAN_STEP_BITS = 0x3CC7FE84 (derivation unknown); empty on earlier rows; no other '
+        'column moves')) if n)
 rows.append({k: str(v) for k, v in line.items()})
 with open(path, 'w', newline='') as f:
     w = csv.DictWriter(f, fieldnames=list(line), restval=''); w.writeheader(); w.writerows(rows)

@@ -32,6 +32,45 @@ other raw `.data` an initialised global (runs of four or more zero bytes on thei
 totals differ from lane D's by a few KB (strings 128,367 against 126,489, RTTI 94,434 against 95,236, floats 1,636
 against 1,436, library 5,083 against 5,490); the file-backed total is the same.
 
+### Two figures: authored and with generated modules (lane O104, review-session ruling 2026-11-26)
+
+The data line prints two rows, always together. The headline stays **authored**: data compiled from unit sources
+and tracked assembly (the measure above). Beside it, **with generated modules**: the authored bytes plus each block
+a generated data module proves. Report only, like the headline: no acceptance change, no .text credit, the exact
+build stays the gate.
+
+- **The rule (applies to every later generated data module too).** A tracked generator in our own code computes
+  every entry from its formula. A generator that carries the values in any form is refused: no literals,
+  compressed values, differences or lookup table of exceptions. Its output is written under the build folder
+  (`build/.../generated/<name>.asm`) and never committed. The module counts only when the whole block compares
+  exact at its original addresses with every name it defines bound by accepted code; part of the names does not
+  count. Every constant the generator reads from the image rather than derives is a flagged constant with its
+  derivation stated as unknown, listed in the manifest and named on the STATUS sub-line (the build refuses a
+  generator whose `FLAGGED_CONSTANTS` and the manifest differ).
+- **fastmath, 155,712 B.** `tools/original_target/generate_fastmath.py` (ported from the tag src-final), manifest
+  `manifests/generated_data.json` (the earlier tree's `manifests/original_target/generated_data.json` stays
+  frozen). The tables are in **.data, 0x801DC4-0x827E04** (not .rdata): sin_tab 10,244, asin_tab 4,100, tan_tab
+  4,100, atan_tab 4,098, sqrt_tab 16,386 dwords. Seven names bound: the five table symbols (`_sin_tab`, `_asin_tab`,
+  `_tan_tab`, `_atan_tab`, `_sqrt_tab`, src/fastmath.cpp's `extern "C"` declarations) by the accepted references,
+  all to one base equal to 0x801DC4, and the two inner points the code reads, `tan_tab[ATAN_MAX_INDEX]` (0x810DC8)
+  and `atan_tab[ATAN_TABLE_SIZE + 1]` (0x817DF8), by accepted relocations that resolve there as table plus addend
+  (the earlier tree named those two as symbols of their own). `generated_data.py` assembles the module with the
+  pinned MASM, proves the one `.data` section whole and places it over the scaffold's copy; `data_measure.py` adds
+  its range on the sub-line.
+- **Constants.** One read from the image: `ATAN_STEP_BITS` = 0x3CC7FE84, atan_tab[4097], the arctangent input
+  step (derivation unknown; TibSun's pi/size/pi * tan_tab[1017] and RA2's Remap_Atan_Table tan_tab[1017]/4096 give
+  other values). The two values of pi the formulas use are derived, not carried: pi by Machin's formula, then
+  rounded to 53 significant bits (M_PI) and to 66 (the x87's internal pi, used by fsin/fptan argument reduction).
+  The rest are formula parameters (table sizes, the 320-bit working precision). `generate_fastmath.py --check EXE`
+  reports every table entry-for-entry equal to the image (0 of 38,928 differ).
+- **Evidence for the formulas.** All five tables of the TibSun archive's `code/fastmathtab.asm` are identical entry
+  for entry with the image (sin 10,244, asin 4,100, tan 4,100, atan 4,098, sqrt 16,386; 0 differ), including the
+  step at atan_tab[4097], which the archive also carries as data. The archive file is read as evidence only, not
+  adopted.
+- **Series.** `progress.csv` gains `data_with_generated_bytes` and `data_with_generated_share`, their start marked
+  in the note of the first row that carries them; no other column moves. At the ruling the figures were 369,212 B,
+  51.9% authored and about 524,924 B, 73.8% with generated modules.
+
 ### First measurement (tip 73b8d276e2, whole-file exact, 2026-11-25)
 
 **329,296 of 711,662 file-backed non-code bytes, 46.3%** (lane D, earlier tree: 151,518, 21.3%).
@@ -78,13 +117,8 @@ spelled in place rather than as externs (about 24 KB). The 222,266 B (31.2%) the
 
 ### Next gains (rough lane-days; none lands if it disturbs an exact row)
 
-1. **fastmath tables, 155,712 B (to about 68%).** The five tables at 0x801DC4-0x827E04 are counted here as
-   initialised globals (135,180 B rest, 20,464 B referenced by matched code). The earlier tree reproduced them as a
-   generated data module (`manifests/original_target/generated_data.json`, generator at tag src-final);
-   `generated_data.load()` returns nothing in this tree because the module binds the earlier tree's names (this
-   tree binds five of its seven). Porting the generator and binding the names: about 0.5 lane-day. The measure
-   counts compiled unit objects only; counting a generated module is a separate ruling (it is built from tracked
-   source, not compiled from C++).
+1. **fastmath tables, 155,712 B: done as a generated data module (lane O104, 2026-11-26).** Counted on the
+   "with generated modules" sub-line, not in the authored headline (section "Two figures" above).
 2. **Referenced by matched code, not yet emitted, outside fastmath: about 9.8 KB** (globals 4.5 KB, zero runs
    2.2 KB, tables 1.9 KB, strings 84 B, vtables 20 B; the 1.1 KB of imports is the IAT, a linker product). Each is
    a definition, with the original's values, in the unit that owns the block; the code already names it. About

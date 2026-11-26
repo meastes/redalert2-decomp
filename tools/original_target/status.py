@@ -408,7 +408,7 @@ def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, reposi
              'counted at its best measured draft score against its image-derived bound, (body - differing) / body; no '
              'exact-match credit (bytematch_report.py; progress.csv fuzzy_best_draft) | | {} |'.format(
                  fuzzy_cell(r, repository)),
-             data_line(rows, repository),
+             *data_line(rows, repository),
              '| C/C++ bodies matched (body bytes: no padding, no evidenced inline asm; the parity line) | {:,} B, {} '
              '| {} |'.format(main['body'], pct(main['body']), body_cell),
              '| Evidenced inline assembly (cited TibSun `__asm`; not C/C++ credit) | {:,} B | {:,} B in {:,} rows '
@@ -490,24 +490,45 @@ def fuzzy_cell(row, repository=REPOSITORY):
 SRC_FINAL_DATA = (151518, 711662)
 
 
+def generated_constants(repository=REPOSITORY):
+    """The flagged constants of the tree's generated data modules (manifests/generated_data.json): every constant a
+    generator reads from the image rather than derives, named on the "with generated modules" sub-line."""
+    path = Path(repository) / 'manifests/generated_data.json'
+    if not path.exists():
+        return []
+    return ['{} = 0x{} ({}, derivation unknown)'.format(c['name'], c['value'].upper(), m['name'])
+            for m in json.loads(path.read_text())['modules'] for c in m.get('flagged_constants', [])]
+
+
 def data_line(rows, repository=REPOSITORY):
     """Data reproduced from source (user, 2026-11-25; data_measure.py names the measure): the file-backed non-code
     bytes a compiled unit's object reproduces at their original addresses. A report beside the code figure: not in
-    Reproduced .text and not acceptance. From the newest progress row of the series, else the newest measured build."""
+    Reproduced .text and not acceptance. From the newest progress row of the series, else the newest measured build.
+    Two rows, always together (review-session ruling 2026-11-26, lane O104): the headline "authored" (unit sources
+    and tracked assembly) and the sub-line "with generated modules" (plus the blocks generated data modules prove)."""
     row = next((r for r in reversed(rows) if r.get('data_reproduced_bytes')), None)
     if row is not None:
         value, total, when = int(row['data_reproduced_bytes']), SRC_FINAL_DATA[1], 'gated landing ' + row['time_utc']
+        generated = int(row['data_with_generated_bytes']) if row.get('data_with_generated_bytes') else None
     else:
         import data_measure
         figure = data_measure.latest_build_figure(repository)
         if figure is None:
-            return '| Data reproduced from source | n/a | from the next gated landing |'
-        value, total, when = figure[0], figure[1], 'whole-file build ' + figure[2]
-    return ('| Data reproduced from source (file-backed non-code bytes, 711,662 B: headers, .rdata, raw .data, .rsrc; '
-            'equal to the original where a compiled unit\'s object lays them; a report, not in Reproduced .text or '
-            'acceptance; by kind in docs/DATA_AS_SOURCE.md) | {:,} B, {:.1f}% (lane D sizing, 2026-11-13) | **{:,} B, '
-            '{:.1f}%** ({}) |').format(SRC_FINAL_DATA[0], 100.0 * SRC_FINAL_DATA[0] / SRC_FINAL_DATA[1], value,
-                                       100.0 * value / total, when)
+            return ['| Data reproduced from source, authored | n/a | from the next gated landing |',
+                    '| Data reproduced from source, with generated modules | n/a | from the next gated landing |']
+        value, total, when, generated = figure[0], figure[1], 'whole-file build ' + figure[2], figure[3]
+    constants = generated_constants(repository)
+    return ('| Data reproduced from source, authored (file-backed non-code bytes, 711,662 B: headers, .rdata, raw '
+            '.data, .rsrc; equal to the original where a compiled unit\'s object or tracked assembly lays them; a '
+            'report, not in Reproduced .text or acceptance; by kind in docs/DATA_AS_SOURCE.md) | {:,} B, {:.1f}% '
+            '(lane D sizing, 2026-11-13) | **{:,} B, {:.1f}%** ({}) |\n'  # split below: two rows, always together
+            '| Data reproduced from source, with generated modules (authored plus the blocks a tracked generator '
+            'computes entry by entry from formulas, proven whole at their original addresses: the fastmath tables, '
+            '.data 0x801DC4-0x827E04, 155,712 B; flagged constants: {}) | n/a | {} |').format(
+                SRC_FINAL_DATA[0], 100.0 * SRC_FINAL_DATA[0] / SRC_FINAL_DATA[1], value, 100.0 * value / total, when,
+                '; '.join(constants) or 'none',
+                'from the next gated landing' if generated is None else '{:,} B, {:.1f}% ({})'.format(
+                    generated, 100.0 * generated / total, when)).split('\n')
 
 
 def rebuild_first(line):

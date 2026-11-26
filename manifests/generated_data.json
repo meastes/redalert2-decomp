@@ -1,0 +1,23 @@
+{
+ "schema": "original-target-generated-data-v1",
+ "note": "The tree's generated data modules (review-session ruling 2026-11-26, lane O104; docs/DECISIONS.md \"fastmath tables as a generated data module\"). A report-only sub-line of the data measure (\"with generated modules\"); no acceptance change and no .text credit. A module is generated data only when its tracked generator computes every entry from a formula: no values carried in any form (literals, compressed values, differences, tables of exceptions). Every constant read from the image rather than derived is listed under flagged_constants and named on the STATUS sub-line. The generator's output is written under the build folder and never committed. The earlier tree's manifests/original_target/generated_data.json stays frozen.",
+ "modules": [
+  {
+   "name": "fastmath_tables",
+   "unit": "fastmath",
+   "generator": "tools/original_target/generate_fastmath.py",
+   "range": ["00801dc4", "00827e04"],
+   "section": ".data",
+   "citation": "TibSun fastmathtab.asm (five dword tables sin_tab, asin_tab, tan_tab, atan_tab, sqrt_tab; counts 10244, 4100, 4100, 4098, 16386; all five identical entry for entry with the image, read as evidence for the formulas, not adopted) and fastmath.cpp init_sin_tab, init_asin_tab, init_tan_tab, init_atan_tab, init_sqrt_tab (src/fastmath.cpp)",
+   "symbols": ["_sin_tab", "_asin_tab", "_tan_tab", "_atan_tab", "_sqrt_tab"],
+   "inner_points": [
+    {"name": "tan_tab[ATAN_MAX_INDEX]", "symbol": "_tan_tab", "offset": 4068},
+    {"name": "atan_tab[ATAN_TABLE_SIZE + 1]", "symbol": "_atan_tab", "offset": 16388}
+   ],
+   "flagged_constants": [
+    {"name": "ATAN_STEP_BITS", "value": "3cc7fe84",
+     "note": "atan_tab[4097], the arctangent input step (about 99.997/4096), read from the image; derivation unknown: TibSun's pi/size/pi*tan_tab[1017] and RA2 Remap_Atan_Table's tan_tab[1017]/4096 give other values (the archive's fastmathtab.asm carries the same value as data). Every atan_tab entry is generated from it."}
+   ]
+  }
+ ]
+}

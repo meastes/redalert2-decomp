@@ -75,6 +75,19 @@ class MeasureTest(unittest.TestCase):
         self.assertEqual(r['kinds']['bss']['proven'], 0)
         self.assertEqual(r['bss_laid_out_bytes'], 8)
 
+    def test_with_generated_modules_adds_each_block_once(self):
+        # The authored headline stays; the sub-line adds a generated block over bytes no object proves (lane O104).
+        catalog = dict(regions=[])
+        proof = dict(copies=[(BASE + 16, 4, 'x', '.rdata')], placeholders=[], bss=[], refused=[])
+        module = dict(name='m', range=['%08x' % (BASE + 16), '%08x' % (BASE + 32)], bytes=16,
+                      flagged_constants=['K'])
+        r = D.measure(None, catalog, proof, generated=[module])
+        self.assertEqual(r['reproduced_bytes'], 4)
+        self.assertEqual(r['with_generated_bytes'], 16)
+        self.assertEqual(r['generated_modules'][0]['flagged_constants'], ['K'])
+        r = D.measure(None, catalog, proof)
+        self.assertEqual(r['with_generated_bytes'], r['reproduced_bytes'])
+
     def test_table_totals(self):
         r = self.run_measure([(BASE, 16, 's', '.data')])
         table = D.table_markdown(r)
@@ -85,7 +98,8 @@ class ReceiptTest(unittest.TestCase):
     def test_progress_columns_from_newest_exact_receipt(self):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
-            self.assertEqual(D.progress_columns(root), dict(data_reproduced_bytes='', data_reproduced_share=''))
+            self.assertEqual(D.progress_columns(root), dict(data_reproduced_bytes='', data_reproduced_share='',
+                                                            data_with_generated_bytes='', data_with_generated_share=''))
             for name, exact, value, age in (('wfo1', True, 100, 20), ('wfo2', False, 300, 10), ('wfo3', True, 200, 0)):
                 path = root / 'build' / 'r' / name / 'build-receipt.json'
                 path.parent.mkdir(parents=True)
@@ -93,7 +107,15 @@ class ReceiptTest(unittest.TestCase):
                                                 data_file_backed_bytes=400)))
                 stamp = time.time() - age
                 os.utime(path, (stamp, stamp))
-            self.assertEqual(D.progress_columns(root), dict(data_reproduced_bytes=200, data_reproduced_share='50.000%'))
+            self.assertEqual(D.progress_columns(root), dict(data_reproduced_bytes=200, data_reproduced_share='50.000%',
+                                                            data_with_generated_bytes='', data_with_generated_share=''))
+            path = root / 'build' / 'r' / 'wfo4' / 'build-receipt.json'
+            path.parent.mkdir(parents=True)
+            path.write_text(json.dumps(dict(whole_file_exact=True, data_reproduced_bytes=200, data_file_backed_bytes=400,
+                                            data_with_generated_bytes=300)))
+            self.assertEqual(D.progress_columns(root), dict(data_reproduced_bytes=200, data_reproduced_share='50.000%',
+                                                            data_with_generated_bytes=300,
+                                                            data_with_generated_share='75.000%'))
 
 
 class HelpersTest(unittest.TestCase):

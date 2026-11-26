@@ -927,7 +927,10 @@ def _build(args,config,catalog,catalog_blobs,audit,tools,library,assembly,genera
                   revised_assembly_bytes=0 if not assembly else sum(r['bytes'] for r in assembly['regions'] if r.get('revised')),
                   generated_data_bytes=json.loads((destination/'integration-receipt.json').read_text()).get('generated_data_bytes', 0),
                   **({'data_reproduced_bytes':data_measure_result['reproduced_bytes'],
-                      'data_file_backed_bytes':data_measure_result['file_backed_bytes']}
+                      'data_file_backed_bytes':data_measure_result['file_backed_bytes'],
+                      'data_with_generated_bytes':data_measure_result['with_generated_bytes'],
+                      'data_generated_flagged_constants':sorted({c for m in data_measure_result['generated_modules']
+                                                                 for c in m['flagged_constants']})}
                      if data_measure_result and 'reproduced_bytes' in data_measure_result else
                      {'data_measure_error':data_measure_result['error']} if data_measure_result else {}),
                   toolchain=tools,authored_dependencies=fingerprints,seconds=time.monotonic()-started,
