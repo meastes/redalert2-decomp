@@ -111,7 +111,7 @@ Paths under `src/recovered/` in these entries are the earlier tree's, at the tag
   `code/` only; read-only shape reference, see [docs/WESTWOOD_SOURCES.md](docs/WESTWOOD_SOURCES.md)): a community
   source reconstruction of Tiberian Sun GAME.EXE 2.03, not Westwood text. GPL-3.0-or-later plus EA's section 7 terms
   for the parts derived from the Red Alert release. Cloned under the ignored `private/reference/TibSun`. Since 2026-11-06 (user decision) its text may be adopted into
-  `src/` as candidates, adapted to our shared headers; an adopted file keeps the source's SPDX and copyright lines
+  `src/` and `include/` (headers and MIDL `_i.c` identifier files, listed in `manifests/adopted.csv`) as candidates, adapted to our shared headers; an adopted file keeps the source's SPDX and copyright lines
   (including the EA line where present) and the commit subject says "from TibSun <file>". Acceptance is unchanged.
 
 - **Pinned Yuri's Revenge sources (`yr/`, lane Y1, user decision 2026-11-15)**: `yr/ra2-decomp` is a pinned copy of
