@@ -5699,3 +5699,84 @@ wrapper per row (s.sh, sf.sh, u.sh, x.sh, m.sh, lf.sh, sc.sh).
   constructor 0x65B780 (one pending site short behind AllowableUnitMaximums; no class member follows the lists, so the site is
   in the body: operator bool, the conversion twice and Length() do not give it), the TechnoTypeClass constructor (any one of
   many scalar members as a class with a one-argument constructor: interchangeable, and no existing class is evidenced for one).
+
+## The uncalled list as a tool: what it finds and what it does not (found in the rebuild (lane F70, high))
+
+Found in the rebuild (lane F70, high); no row landed. Lane F69's lead (an image function nothing calls is an inline site of its
+user) was made a tool and run over the parked tail. Lane tools in build/r/f70 (removed at hand-back; copies with both lists in
+private/dossiers/fable/f70_tools): uncalled.py (every unit row that no call or jmp rel32 in .text targets and whose address
+occurs nowhere in the image as a dword), unused.py (of those, the ones whose name the tree's text uses only in declarations and
+definitions), v.py (named text variants of one function from a Python table, one score line each), calls.py (the call list of
+the image against the draft, by name).
+
+- Size of the list: 2,101 unit rows have no caller, 389 of them in units that still hold parked drafts. Most are
+  already expanded by the tree's text where they belong. 153 are used by no text at all; those are the candidates.
+- A candidate is worth a compile only when a parked draft writes its body out. Search the draft for the function's statements,
+  not for its name: sidebar's StripClass::Draw_It held `button->IsHovered && !IgnoreInput`, the body of SelectClass::Is_Hovered
+  0x681690, with a comment that the function exists. The call compiles to the same code and is the image's site; it is in the
+  draft now. It did not move the row's 6 bytes, so an evidenced site is taken for what it is and the miss is read again.
+- The lead closes rows as well as opening them. For Run_Online_Menu, OnFind, Scenario_DlgProc, Read_RMG_INI, the ScenarioClass
+  NoInit constructor and the Is_Listed_Kind family, no uncalled function of the unit does work the function does at the place
+  the budget needs a site. Their missing sites are therefore not small free functions of the unit; what is left is a header
+  inline (a member or an accessor) or the root's own size.
+- A function can be uncalled because the game no longer uses it (Search_For_Tiberium_Weighted in RA2, Is_Tested_Control). Read
+  its users in the archive before treating it as a site of anything.
+- An uncalled function next to a parked row is not evidence by position. The three ahead of Read_RMG_INI are the random
+  generator's distribution helpers; the two in reinf are a constant predicate of the archive and a stub.
+- A helper that takes a member by reference does not remove a reference to the object from the root: the address is kept in a
+  register for the helper's two uses (Do_Chrono_Reinforcements with Begin_Piggyback_Locomotion, 84 to 596 B).
+- The byte scan for callers over-counts (a rel32 pattern inside another instruction, or a dword that happens to equal an
+  address, hides an uncalled function) and never under-counts, so every function it lists has no direct caller and no stored address.
+- Tooling: `rebuild.py catalog` in a lane worktree records a source hash for every row of a touched unit, so a change inside a
+  guard still needs the unit grafted (private/tools/c2land/graft.py UNIT after restoring units.json and the config).
+
+## A predicate a draft wrote out, minus the compare the compiler folded, is still the predicate's inline site; a register order that follows one variable's references case by case (found in the rebuild (lane F71, high))
+
+Found in the rebuild (lane F71, high); no row landed. netshare Net2DecodeGameopt 0x5C3FF0 (8,191 B) keeps its guard with the
+inline charge found and the register order narrowed to one operand. Lane tools in build/r/f71 (removed at hand-back; copies in
+private/dossiers/fable/f71_tools: m.sh one measure, v.py named text variants from a Python table, img.py the image listing with
+call names, calls.py the call-list diff, v1.py to v19.py the surveys below).
+
+- The missing inline site was a predicate the draft had written out. The observer test read `node != NULL && node != Open &&
+  ... && node != Hard && SpectatorFlag == -1` because the image shows six compares; the twin's text calls FUN_005E93F0, which
+  is this unit's Is_Real_Player_Entry 0x5C9320 (seven compares). The seventh, with the observer entry, follows `node ==
+  LobbyObserverEntry ||` and the compiler folds it away, so the written-out form had copied the folded result. With the call
+  the size is the image's (8,176 to 8,191 B) and the INI's second list node calls GenericNode's constructor. Diff a draft's
+  conditions against the twin's calls even where the instruction counts differ by one compare: a compare the compiler can prove
+  is not in the image.
+- The uncalled list was read first (the brief's check): netshare's uncalled functions with no user in the text are
+  Set_Scenario_Item_Text, Unlock_Slots and Close_Slots_From; none does work this function does. Handle_Reset_Ready (uncalled)
+  and Handle_Start_Reminder (called elsewhere) are both expanded here by the draft already. The site was not an uncalled
+  function but one with callers of its own in netshare and wonline: read the twin's calls, not only the uncalled list.
+- What is left is the order at the top (zero in edi, the copy in ebx, the sender in ebp; ours the copy in edi, the sender in
+  ebx, 4 cached in ebp), and it is the sender's reference in the map-state case: with `options`, a constant or NULL passed to
+  Set_Player_Map_State instead of `name` every other instruction of the function is the image's (1 byte differs, the operand
+  itself). The NAT case 3 pointers, the observer case's zero pushes, the campaign case's map name and `found` in bl all follow.
+- It is not a count of the sender's references. The table (sender present in: port case Z2, accept case A with its two
+  exclusive calls, map-state case K; G = `DebugString(name)` statements added at the top of the start-reminder case as a
+  probe) with the image's order marked +:
+  Z2 A K: -; A K (no Z2): +; Z2 K (no A): +; Z2 A (no K): +; Z2 alone: +; A alone: -; K alone: -; none: -; one accept call
+  only (either), with or without K: -. Z2 A K with G1, G2, G3: -; with G4 to G9: +. Z2 A (no K) with G1: -; G2 to G8: +.
+  K with one more reference inside its if: -; with two more: +. No sum of weights fits (A alone against Z2 alone; K removed
+  plus G2 against G1). The cases are judged against each other, not added.
+- Not the cause, each measured on the new text: referenced probes 1 to 24 at the top (the order never turns; from +12 the node
+  constructor expands again, so the function sits eleven probes inside its budget), probes 1 to 8 inside the Z, A, G and K
+  cases, named bools over six conditions, the twin's lock wrapper in three spellings (same code), the twin's three map-state
+  calls (same code), an inline helper around the map-state switch and call (same code), a conditional expression for the state,
+  an alias local for the sender, early returns in the accept and map-state cases, the Z cases returning instead of breaking,
+  `string` against `token` in every case (same code), the case order (K first, K before G, P before K, A last), one reference
+  fewer to the options text at each of its sites, 4 replaced at each of its five sites (the lock test's 4 gives zero in ebp:
+  another order, not the image's), zero stores added in the start-reminder case (1 to 6).
+- F65's "one more inline site in the G or P case turns the order" was an extra AI_Slot_String, a loop with string
+  instructions: it moved the weights of the cases, not the budget. The budget and the order are two separate misses; the
+  first is closed.
+- A count by position can rise when the code comes closer (7,723 to 7,828 here: the size became the image's, so the tail no
+  longer lines up by accident). Read the instruction diff with the order probe applied (2 lines) beside the byte count.
+- netdlg2 MPlayer_Host_Dialog_Proc 0x5BEFE0 (61 B, message and lparam in each other's registers) is the same kind of miss,
+  read with the same probe: lparam replaced by wparam at each of its sites one at a time. Only the set-up case's
+  `Options_Dialog_Proc(window, OD_SUBCLASSED, wparam, lparam)` turns the pair (7 B left: that operand and the case's zero
+  register); the two coordinate reads do not (67 and 69 B), the edit-text case does not (61 B). Writing `message` for the
+  constant in that call folds back to the constant (61 B), so one more reference to message is not available there. netdlg2
+  has no uncalled function. In both rows a parameter passed once, at the end of one case of a long dispatcher, after calls
+  it stays live across, weighs more in our compile than in the image; a per-site substitution probe finds the site in one
+  pass (as many compiles as the variable has references) and should come before any count survey on a register exchange.

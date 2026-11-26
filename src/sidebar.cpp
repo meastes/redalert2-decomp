@@ -2170,7 +2170,7 @@ void SidebarClass::StripClass::Draw_It(bool complete)
 				**	slot. This shape pointer is used to draw the underlying graphic there.
 				*/
 				if (index < BuildableCount) {
-					hover = button->IsHovered && !IgnoreInput; // RA2: the mouse is over the button and input is on (Is_Hovered, 0x681690, is a separate function)
+					hover = button->Is_Hovered(); // RA2: the mouse is over the button and input is on (Is_Hovered 0x681690: nothing in the image calls it, so it is expanded here; same code)
 
 					if (Buildables[index].BuildableType != RTTI_SPECIAL) {
 
