@@ -1,17 +1,15 @@
 unit,entry,function,bytes,bucket,best,flex,flex_note,also,draft,gap_reason,allowance,brings,main_form,main_form_cost,tested_exact,net_bytes
-(summary),,main's accepted forms the rebuild's rules refuse: 21 rows / 62592 B,,,,,,,,,,,,,,
+(summary),,main's accepted forms the rebuild's rules refuse: 18 rows / 51210 B,,,,,,,,,,,,,,
 (main forms),,A: 10 rows,22103,,,,,,,,,,A,,3 rows,8073
-(main forms),,B: 8 rows,30099,,,,,,,,,,B,,0 rows,0
-(main forms),,C: 3 rows,10390,,,,,,,,,,C,,2 rows,8188
+(main forms),,B: 7 rows,28818,,,,,,,,,,B,,0 rows,0
+(main forms),,C: 1 rows,289,,,,,,,,,,C,,1 rows,289
 (main forms),,D: 0 rows,0,,,,,,,,,,D,,0 rows,0
 (main forms),,E: 2 rows,1336,,,,,,,,,,E,,0 rows,0
 building,0043ee70,BuildingClass::Take_Damage,2501,inline_call,1309,a,variation_candidates.csv: main's coined Damage_Object_Distance / Damage_Object_Distance_Squared helpers with an explicit sqrt (main src/recovered/building.cpp:2029-2131),,yes,,,,A,structure,no,2501
 building,00440520,BuildingClass::Exit_Object,6505,no_row,3380,a,"variation_candidates.csv: worker form (refused, owner 2026-11-22): inline.h Direction(Cell const &, Cell const &) rewritten with copy locals short x1 = cell1.X; short x2 = cell2.X; befor",,yes,,,,,,,
-bullet,0045f710,BulletClass::AI,6438,no_row,4639,a,"variation_candidates.csv: ra2-decomp banked forms banks/0x004666E0_ballistic.cpp / _bullet.cpp with overlay _bullet_velocity.h (11df85d; codex1 r2835 d066cb0e31, r2837 e3df88b874): the b",,yes,,,,,,,
-coord,00491750,Coord_Scatter,289,inline_call,173,a,variation_candidates.csv: ra2-decomp's pass-through _Move_Coord (return(Move_Coord(...))) with its lock expression,,yes,,,,C,strictness,yes,289
+bullet,0045f710,BulletClass::AI,6438,no_row,3931,a,"variation_candidates.csv: ra2-decomp banked forms banks/0x004666E0_ballistic.cpp / _bullet.cpp with overlay _bullet_velocity.h (11df85d; codex1 r2835 d066cb0e31, r2837 e3df88b874): the b",,yes,,,,,,,
 dropship,004a6b90,Dropship_Screen,10797,inline_body,4453,a,"variation_candidates.csv: unsigned VectorClass index (operator[] / body casts) plus caller repairs: reaches the function-wide signedness-conversion window; costs 26 exact rows (47,385 B)",,yes,,,,B,structure,yes,-36588
 foot,004cbb40,FootClass::Search_For_Tiberium_Weighted,1467,inline_body,2,a,variation_candidates.csv: main's inline Tiberium_Value wrapper around each tiberium read (a budget form),,yes,,,,,,,
-init,00519500,Allocate_Surfaces,1118,inline_body,1016,a,variation_candidates.csv: main's inline Memory_Flag(bool) helper,,yes,,,,A,structure,no,1118
 ldprgmgr,00535bf0,LoadProgressManager::Draw,3978,no_row,1828,a,"variation_candidates.csv: codex1 r2698 (refs/c1pk/r2698, 75f8a9f509): the briefing and loading origins bound as `Point2D const & brief_origin = Copy_Point(&area);` / `loading_origin` (a ",,yes,,,,,,,
 map,005484e0,MapClass::Set_Map_Dimensions,5322,no_row,3665,a,variation_candidates.csv: a Cell operator+= forwarder in coord.h in the TPoint3D idiom (TPoint2D<short> const & operator += (TPoint2D<short> const & rvalue) {BASECLASS::operator += (rval,,yes,,,,,,,
 map,00569320,MapClass::Can_Repair_Bridge,2109,no_row,3,a,"variation_candidates.csv: kind T (an evidenced twin header form held behind the count-sensitive exact rows map Zone_Reset 0x54EBD0, queue Print_CRCs 0x62A360 and sidebar SelectClass::Act",,yes,,,,,,,
@@ -22,8 +20,6 @@ ownrdraw,005e4780,OwnerDraw::Enable_Animated_Control,2468,inline_call,,a,variati
 ownrdraw,005e9410,Adjust_Control_Position,1938,no_row,1749,a,variation_candidates.csv: none admissible: as Enable_Animated_Control 0x5E4780 (the declared-only second name for Is_Listed_Kind); main also needed two dead self-assignments for the last,,yes,,,,,,,
 ownrdraw,005ee460,Control_Proc,7252,no_row,4863,a,"variation_candidates.csv: codex1 r2692 (refs/c1pk/r2692, 80ab511e9b): three coined record blocks ({ unsigned int control_key = (unsigned int)window; WinData *record = NULL; Control_Table",,yes,,,,,,,
 ownrdraw,005f2b50,Static_Proc,4512,no_row,3056,a,"variation_candidates.csv: codex1 r2703 (refs/c1pk/r2703, 89cb227e56): WinData plain members for +0x58..+0x60, +0x78..+0xAC, +0xB4/+0xB8 (one declaration each), ControlAnimationState and ",,yes,,,,,,,
-ownrdraw,005fee70,Dialog_On_WM_PAINT,1281,inline_call,536,a,variation_candidates.csv: main's coined callee declarations / helpers,,yes,,,,B,structure,not tested,1281
-palette,00603d50,Palette_Scheme_Count,592,no_row,119,a,variation_candidates.csv: an unread `SchemeLibrary * library = Scheme_Library();` local ahead of the iterator (main's text; mischa85's src/palette.cpp has the same line),,yes,,,,,,,
 sidebar,0067e210,SidebarClass::Activate,1067,no_row,58,a,"variation_candidates.csv: 8 to 12 dead locals in the function (`int p = 0;`), or 3 to 6 in SidebarClass::Max_Visible: a count calibration, no reference has them",,yes,,,,,,,
 sidebar,0067f800,SidebarClass::StripClass::Draw_It,2760,register_order,6,a,"variation_candidates.csv: main's open-coded hicolor packing with chosen channel orders (outline Green|Red|Blue from a by-value RGBClass copy, text Red|Blue|Green from TooltipColor) in pl",,yes,,,,A,structure,no,2760
 strtable,006f8e30,StringTable::LoadFile,1134,inline_call,777,a,"variation_candidates.csv: none needed: the Generals shape (getStringCount as its own static function, init's choice of format) is two inline sites short where the tree's old text was fou",,yes,,,,A,structure,yes,1134
@@ -31,11 +27,8 @@ strtable,006f9790,Read_Text_File,1317,no_row,6,a,variation_candidates.csv: none 
 techno,006c2c40,TechnoClass::Draw_Post_Render,3341,inline_call,3138,a,"variation_candidates.csv: main's coined unit-local readers Mouse_Hover_Flag and Techno_Is_Selected (techno.cpp, 'its site decides the temporaries')",,yes,,,,A,structure,no,3341
 techtype,006d9b40,TechnoTypeClass::TechnoTypeClass,2961,register_order,15,a,"variation_candidates.csv: main's coined `Leptons` class for GuardRange (a class with an inline constructor, after YRpp's name)",,yes,,,,B,structure,yes,-8262
 unit,006ff690,UnitClass::Unit_Draw_Voxel,3861,no_row,2461,a,"variation_candidates.csv: main's coined Unit_Voxel_Loaded_007005b0 (two uses; 0x7005B0 is Unit_Draw_Shape) and Position_Coord_004f3f40 accessor, which add about three pending inline site",,yes,,,,,,,
-walk,0071e220,WalkLocomotionClass::Movement_AI,4967,no_row,3482,a,"variation_candidates.csv: an unnamed As_Radian angle in inline.h Move_Coord (TibSun's and ra2-decomp's text name the double), and only together with In_Radio_Contact for the radio test w",,yes,,,,,,,
-wonline,0074a710,Wonline_Game_Options_Dialog_Proc,7899,inline_body,386,a,"variation_candidates.csv: six reference locals aliasing Session.Options fields (int & unit_count = Session.Options.UnitCount; ... Credits, Bases, BridgeDestruction, Goodies, HarvTruce); ",,yes,,,,C,strictness,yes,7899
-wonline,0074e5e0,Start_Talking_To,2456,no_row,2112,a,"variation_candidates.csv: ra2-decomp banked form banks/0x00793D20_nat.cpp (11df85d; r2932 1933e483c0, base ae0582884d): the partner and participant held in single-use NodeNameType * loca",,yes,,,,,,,
+walk,0071e220,WalkLocomotionClass::Movement_AI,4967,no_row,3504,a,"variation_candidates.csv: an unnamed As_Radian angle in inline.h Move_Coord (TibSun's and ra2-decomp's text name the double), and only together with In_Radio_Contact for the radio test w",,yes,,,,,,,
 wonline,00759370,Run_Online_Menu,2687,calls_differ,2579,a,"variation_candidates.csv: main's coined single-caller helpers Request_Buddy_Game_List and Report_Disconnected (2391 bytes differ with them, the second lookup bound to a const reference o",,yes,,,,,,,
-wonline,00759e20,Start_Quick_Match,2202,inline_call,1350,a,"variation_candidates.csv: main's .Count read for the one g_UserList.length() > 1 test after Reset_Buddy_State (no inline site), but Count is the private Entries_ in the reference arrayli",,yes,,,,C,strictness,no,2202
 wonline,00762f70,CChatEventSink::OnFind,2867,inline_call,,a,variation_candidates.csv: main's Key_Hash specialisation switch (src/shared/wol_dictionary.hpp RA2_WOL_DICTIONARY_KEY_SPECIALIZATIONS: keyHash declared in the class and defined per key t,,yes,,,,B,structure,not tested,2867
 xsurface,00773f00,XSurface::Plot_Line,511,no_row,9,a,variation_candidates.csv: kind B (a statement written in both arms of an if/else): `int dy = end.Y - start.Y; int pitch; if (dy >= 0) { pitch = 1; dy = abs(dy); } else { pitch = -1; dy =,,yes,,,,,,,
 dropship,004a9b00,?Clear@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEXXZ,42,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
@@ -97,11 +90,9 @@ building,,BuildingClass::Charge_Turret,0,unplaced,,e,no row of the original matc
 building,,BuildingClass::Charging_AI,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 building,,BuildingClass::Discharge_Turret,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 building,,BuildingClass::Get_Collateral_Damage,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
-building,004386f0,Building_Player_Detector_Covers_Target,865,no_row,792,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 bullet,004642a0,??Y?$TVelocity3D@N@@QAEAAU0@ABU0@@Z,33,no_draft,,e,no draft yet,,no,,,,,,,
 combuf,,CommBufferClass::Mono_Debug_Print,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 combuf,,CommBufferClass::Mono_Debug_Print2,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
-drive,,DriveLocomotionClass::Draw_Matrix,0,unplaced,708,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 dsurface,004ac650,DSurface::Draw_Depth_Antialiased_Line,6064,no_row,5778,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 fly,004be720,FlyLocomotionClass::Nearing_Target,1633,inline_call,547,e,stays a flagged draft,,yes,,,,A,structure,no,1633
 fly,004bfb30,UnknownFacingDir::Magnitude_At_Least_004bfb30,36,no_draft,,e,no draft yet,,no,,,,,,,
@@ -148,7 +139,7 @@ ownrdraw,,Enable_Animated_Control,0,unplaced,2216,e,no row of the original match
 ownrdraw,005f00c0,unknown_modal_list_atexit_5f00c0,23,no_draft,,e,no draft yet,,no,,,,,,,
 ownrdraw,005f00e0,unknown_active_messages_atexit_5f00e0,291,no_draft,,e,no draft yet,,no,,,,,,,
 ownrdraw,005f4ba0,Combo_Proc,6895,no_row,6538,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
-ownrdraw,005f6690,List_Proc,14618,no_row,13791,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
+ownrdraw,005f6690,List_Proc,14618,no_row,13802,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 ownrdraw,00601410,Leaf_601410::get,21,not_emitted,,e,stays a flagged draft,,yes,,,,E,,not tested,21
 ownrdraw,00601490,?Clear_Vector@?$WolArrayList@UUnknownListEntry_6017c0@@@@QAEXXZ,68,no_draft,,e,no draft yet,,no,,,,,,,
 ownrdraw,00601850,?Shrink_Vector@?$WolArrayList@UUnknownListEntry_6017c0@@@@QAE_NXZ,136,no_draft,,e,no draft yet,,no,,,,,,,
@@ -156,13 +147,11 @@ ownrdraw,00602360,?Grow_Vector@?$WolArrayList@H@@QAE_NXZ,143,no_draft,,e,no draf
 ownrdraw,006023f0,?Shrink_Vector@?$WolArrayList@H@@QAE_NXZ,134,no_draft,,e,no draft yet,,no,,,,,,,
 ownrdraw,00602480,?Shrink_Vector@?$WolArrayList@UUnknownListEntry_602480@@@@QAE_NXZ,136,no_draft,,e,no draft yet,,no,,,,,,,
 ownrdraw,006029d0,?Grow_Vector@?$WolArrayList@UUnknownListEntry_602480@@@@QAE_NXZ,135,no_draft,,e,no draft yet,,no,,,,,,,
-palette,00603750,Set_Scheme_Table_Theater,504,no_row,454,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 particle,,ParticleClass::Web_Behavior_AI,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 partsys,,ParticleSystemClass::Web_AI,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
-queue,006282d0,Extract_Compressed_Events,1455,no_row,921,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
+queue,006282d0,Extract_Compressed_Events,1455,no_row,791,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 reinf,0063a880,Do_Chrono_Reinforcements,1567,no_row,84,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 scenario,0065b780,ScenarioClass::ScenarioClass,171,inline_call,,e,stays a flagged draft,,yes,,,,,,,
-ship,,ShipLocomotionClass::Draw_Matrix,0,unplaced,714,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 sidebar,,SidebarClass::Abandon_Production,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 sidebar,,SidebarClass::Activate_Upgrade,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 sidebar,,SidebarClass::Reload_Sidebar,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
@@ -179,7 +168,7 @@ techno,,TechnoClass::Weed_Load,0,unplaced,,e,no row of the original matches the 
 techno,006ca890,TechnoClass::Fire_At,6019,inline_call,6,e,stays a flagged draft,,yes,,,,A,structure,yes,6019
 techtype,,TechnoTypeClass::In_Range,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 techtype,,TechnoTypeClass::Set_Weapon,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
-uicmnds,006f81b0,Select_By_Type,741,no_row,10,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
+uicmnds,006f81b0,Select_By_Type,741,no_row,7,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 unit,,UnitClass::EMPulse_Blast,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 unit,,UnitClass::Get_Max_Speed,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 unit,,UnitClass::Jellyfish_AI,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
@@ -194,11 +183,11 @@ wonline,0075f530,CChatEventSink::OnChannelJoin,5780,inline_body,,e,stays a flagg
 wonline,00767bb0,WolNameTable::Get_Pointer_00767bb0,107,no_draft,,e,no draft yet,,no,,,,,,,
 wonline,00767cd0,WolNameTable::Key_Hash_00767cd0,29,no_draft,,e,no draft yet,,no,,,,,,,
 xsurface,007746c0,XSurface::Draw_Ellipse,1478,no_row,1229,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
-(total),,flex a: 33 functions,103212,,,a,,,,,,,,,,
+(total),,flex a: 26 functions,87375,,,a,,,,,,,,,,
 (total),,flex b: 51 functions,4469,,,b,,,,,,,,,,
 (total),,flex c: 1 functions,1913,,,c,,,,,,,,,,
 (total),,flex d: 3 functions,219,,,d,,,,,,,,,,
-(total),,flex e: 101 functions,84282,,,e,,,,,,,,,,
+(total),,flex e: 97 functions,82913,,,e,,,,,,,,,,
 (total),,no draft yet: 18 functions,1478,,,e,,,no,,,,,,,
 (gap),,51 functions,4800,,,,,,,guard-open exact (not probed),unknown until probed,,,,,
 (gap),,1 functions,1920,,,,,,,exact form parked count-sensitive,a count-holding declaration,,,,,

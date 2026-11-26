@@ -5144,7 +5144,14 @@ void Execute_Command(char const * name) // RA2: 0x00519480; the command takes a 
 /// <param name="sidebar_rect">The dimensions for the sidebar surface.</param>
 /// <param name="hidden_first">Should the hidden surface get first claim on video memory?</param>
 /// <returns>bool; Were the surfaces allocated?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 1016 bytes differ against the image-derived bound 00519500 (1118 body bytes, 2 padding) (adopted text; both hidden surfaces with the archive's DSurface default argument, same code; was recorded as 1015 before all operands were bound)
+static inline int System_Memory_Flag(bool system_memory)
+{
+	if (system_memory) {
+		return(1);
+	}
+	return(0);
+}
+
 bool Allocate_Surfaces(const Rect & hidden_rect, const Rect & composite_rect, const Rect & tile_rect, const Rect & sidebar_rect, bool hidden_first) // RA2: 0x00519500; the composite and tile surfaces follow VideoBackBuffer, the sidebar surface AllowVRAMSidebar; the composite, tile and sidebar constructor calls normalize the memory flags in the original
 {
 	DebugString("Allocating new surfaces\n");
@@ -5191,7 +5198,7 @@ bool Allocate_Surfaces(const Rect & hidden_rect, const Rect & composite_rect, co
 	}
 
 	if (composite_rect.Is_Valid()) {
-		CompositeSurface = new DSurface(composite_rect.Width, composite_rect.Height, tile_in_system);
+		CompositeSurface = new DSurface(composite_rect.Width, composite_rect.Height, System_Memory_Flag(tile_in_system));
 		CompositeSurface->Fill(0);
 
 		DebugString("CompositeSurface (%dx%d) %s\n", composite_rect.Width, composite_rect.Height,
@@ -5199,7 +5206,7 @@ bool Allocate_Surfaces(const Rect & hidden_rect, const Rect & composite_rect, co
 	}
 
 	if (tile_rect.Is_Valid()) {
-		TileSurface = new DSurface(tile_rect.Width, tile_rect.Height, tile_in_system);
+		TileSurface = new DSurface(tile_rect.Width, tile_rect.Height, System_Memory_Flag(tile_in_system));
 		TileSurface->Fill(0);
 
 		DebugString("TileSurface (%dx%d) %s\n", tile_rect.Width, tile_rect.Height,
@@ -5220,7 +5227,7 @@ bool Allocate_Surfaces(const Rect & hidden_rect, const Rect & composite_rect, co
 	}
 
 	if (sidebar_rect.Is_Valid()) {
-		SidebarSurface = new DSurface(sidebar_rect.Width, sidebar_rect.Height, sidebar_in_system);
+		SidebarSurface = new DSurface(sidebar_rect.Width, sidebar_rect.Height, System_Memory_Flag(sidebar_in_system));
 		SidebarSurface->Fill(0);
 
 		DebugString("SidebarSurface (%dx%d) %s\n", sidebar_rect.Width, sidebar_rect.Height,
@@ -5245,7 +5252,6 @@ bool Allocate_Surfaces(const Rect & hidden_rect, const Rect & composite_rect, co
 
 	return(true);
 }
-#endif
 
 
 /// <summary>

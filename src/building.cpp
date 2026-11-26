@@ -3320,7 +3320,7 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 						return(2);
 					}
 
-					base->ArchiveTarget = ArchiveTarget;
+					base->Assign_Archive_Target(ArchiveTarget);
 
 					if (Mission == MISSION_UNLOAD) {
 						int count = House->Buildings.Count();
@@ -3353,7 +3353,7 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 
 				} else if (Class->ToBuild == RTTI_INFANTRYTYPE || Class->IsHospital || Class->IsArmory || Class->Cloning) {
 
-					base->ArchiveTarget = ArchiveTarget;
+					base->Assign_Archive_Target(ArchiveTarget);
 
 					cell = Find_Exit_Cell(base);
 					if (cell == CELL_NONE) {

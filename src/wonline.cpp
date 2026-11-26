@@ -12416,7 +12416,6 @@ void __fastcall Set_Match_State(int state, int timeout, int result) // RA2: 0x00
 }
 
 int __fastcall Start_Quick_Match(void); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 1350 bytes differ (main and ra2-decomp channel-list request; the original calls Reset_Wait_Events here)
 void __fastcall Collect_Remote_Player_Names(void); // RA2: 0x0075A6C0, below
 bool __fastcall Start_Match(void); // RA2: 0x0075BE10, below
 BOOL CALLBACK Wonline_Waiting_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam); // RA2: 0x0075C350, below
@@ -12457,11 +12456,13 @@ int __fastcall Start_Quick_Match(void) // RA2: 0x00759E20, the quick or tour mat
 	}
 	Channel channel;
 	memset(&channel, 0, sizeof(channel));
-	char const * prefix = (Session.Type == GAME_INTERNET && Online_Session_State == 2) ? "Lob_35_" : "Lob_38_";
+	bool tour = Session.Type == GAME_INTERNET && Online_Session_State == 2;
+	char const * prefix = tour ? "Lob_35_" : "Lob_38_";
 	int i;
 	for (i = 0; i < g_UserChannels.length(); i++) {
 		g_UserChannels.get(channel, i);
-		if (_strnicmp((char *)channel.name, prefix, strlen(prefix)) == 0) break;
+		int length = strlen(prefix);
+		if (_strnicmp((char *)channel.name, prefix, length) == 0) break;
 	}
 	if (i >= g_UserChannels.length()) {
 		Show_Match_Message("WOL:MatchingServerUnavailable", 25870);
@@ -12488,7 +12489,8 @@ int __fastcall Start_Quick_Match(void) // RA2: 0x00759E20, the quick or tour mat
 			}
 			Set_Match_State(3, 20, 0);
 		}
-		if (g_MatchState == 3 && g_UserList.length() > 1 && strcmp((char *)channel.name, (char *)g_CurrentChannel.name) == 0) Request_Match();
+		int users = g_UserList.length();
+		if (g_MatchState == 3 && users > 1 && strcmp((char *)channel.name, (char *)g_CurrentChannel.name) == 0) Request_Match();
 		DWORD event;
 		while ((event = WaitForMultipleObjects(18, g_WaitEventHandles, FALSE, 20)) == WAIT_TIMEOUT) WOL_Wait_Callback();
 		ResetEvent(g_WaitEventHandles[event]);
@@ -12537,7 +12539,6 @@ int __fastcall Start_Quick_Match(void) // RA2: 0x00759E20, the quick or tour mat
 	}
 	return(result);
 }
-#endif
 
 void __fastcall Collect_Remote_Player_Names(void) // RA2: 0x0075A6C0, queues a ping request for every user of the channel but its operator and the player (main's text)
 {

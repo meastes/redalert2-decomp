@@ -129,7 +129,7 @@ bool DSurface::OverlappedVideoBlits = true;	// Can video driver blit overlapped 
  * HISTORY:                                                                                    *
  *   02/07/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
-DSurface::DSurface(int width, int height, bool system_memory) :
+DSurface::DSurface(int width, int height, unsigned char system_memory) :
 	BASECLASS(width, height),
 	BytesPerPixel(0),
 	LockPtr(NULL),

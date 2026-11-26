@@ -518,9 +518,9 @@ extern void * ArtMainButton; // RA2: 0xAC10C0, the main menu button shapes (txtl
 extern RGBClass DarkRedColor1; // RA2: 0xAC109C, a disabled button's caption outside a game (txtlabel2.cpp)
 extern RGBClass DarkRedColor2; // RA2: 0xAC1100, the same on the Soviet side (txtlabel2.cpp)
 extern RGBClass TealColor; // RA2: 0xAC1008, the same on the Allied side (txtlabel2.cpp)
-extern void * Art_Popup_Back;
-extern void * Art_Popup_Back_Allied;
-extern void * Art_Popup_Back_Soviet;
+extern void * ArtPopupBack; // RA2: 0xAC1218, the popup dialog backdrops (txtlabel2.cpp)
+extern void * ArtPopupBackAllied; // RA2: 0xAC121C (txtlabel2.cpp)
+extern void * ArtPopupBackSoviet; // RA2: 0xAC1220 (txtlabel2.cpp)
 extern int Counter; // RA2: 0x00A3FABC, nonzero while a modal loop runs (Dialog_Message_Handler then leaves the message to it)
 
 extern QueueClass<EventClass, 256> MegaMissionQueue;

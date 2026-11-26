@@ -222,7 +222,7 @@ void STDMETHODCALLTYPE WalkLocomotionClass::Force_Immediate_Destination(CoordStr
  * HISTORY:                                                                                    *
  *   07/29/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 3482 bytes differ against the image-derived bound 0071e220 (4,967 B); the EMP stop and further movement are alternatives in the expansion walk bank (previously 3483 bytes differed; the non-tube movement in the else branch as in the expansion walk bank; the tube entrance read into its own Cell as ra2-decomp's ship tube block (PR257) does; the tube path shift sized by ARRAY_SIZE(LinkedTo->Path) as TibSun and the bank write it; the visual cell coordinate evaluated inside the LastTubeCoord sum as ra2-decomp's banked form banks/0x0075AEC0_returns.cpp (11df85d) has it; the end of the move as TibSun walk.cpp and the bank write it; TibSun walk.cpp's tube intermediates and the bank's single arrival test bring back the second three-axis Coord constructor: all 119 calls in native order); main: best 89.83, tried 12 times (frame, inline, register)
+#ifdef RA2_NON_MATCHING // not exact: 3504 bytes differ against the image-derived bound 0071e220 (4,967 B) (image-faithful read; position score 3504, was 3482: LinkedTo reloaded after Per_Cell_Process and IsActive read at once, no null branch, as RA2 1.001 walk.cpp and the original at 0071f196; owner ruling 2026-11-25); the EMP stop and further movement are alternatives in the expansion walk bank (previously 3483 bytes differed; the non-tube movement in the else branch as in the expansion walk bank; the tube entrance read into its own Cell as ra2-decomp's ship tube block (PR257) does; the tube path shift sized by ARRAY_SIZE(LinkedTo->Path) as TibSun and the bank write it; the visual cell coordinate evaluated inside the LastTubeCoord sum as ra2-decomp's banked form banks/0x0075AEC0_returns.cpp (11df85d) has it; the end of the move as TibSun walk.cpp and the bank write it; TibSun walk.cpp's tube intermediates and the bank's single arrival test bring back the second three-axis Coord constructor: all 119 calls in native order); main: best 89.83, tried 12 times (frame, inline, register)
 void WalkLocomotionClass::Movement_AI(bool first_pass)
 {
 	if (HeadToCoord == COORD_NONE) {
@@ -479,7 +479,7 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 
 			LinkedTo->Per_Cell_Process(PCP_END);
 
-			if (LinkedTo && LinkedTo->IsActive && !LinkedTo->IsInLimbo && !LinkedTo->IsFalling) {
+			if (LinkedTo->IsActive && !LinkedTo->IsInLimbo && !LinkedTo->IsFalling) {
 				if (DestinationCoord == COORD_NONE ||
 					(LinkedTo->Destination_Coord().As_Cell() == DestinationCoord.As_Cell() &&
 						abs(LinkedTo->Destination_Coord().Z - DestinationCoord.Z) < 2 * LEVEL_LEPTON_H)) {

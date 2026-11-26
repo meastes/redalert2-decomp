@@ -1169,6 +1169,19 @@ int LastHealthKind = -1;
 int LastRankKind = -1;
 
 /// <summary>
+/// Whether the object is of the named kind (Yuri's Revenge 0x00733C60; RA2 leaves out its selectability test and
+/// keeps no out-of-line copy).
+/// </summary>
+static int __fastcall Is_Of_Type(TechnoClass * techno, char const * name)
+{
+	char const * id = techno->Class_Of()->IniName;
+	if (name != NULL && strcmp(id, name) == 0) {
+		return(true);
+	}
+	return(false);
+}
+
+/// <summary>
 /// Selects the type-select list's objects in the next health state (the first, when the list is new), and reports
 /// the state, or "mixed" when the current selection holds objects in other states.
 /// </summary>
@@ -1271,7 +1284,7 @@ void __fastcall Select_By_Rank(bool flag)
 }
 
 void __fastcall Select_By_Type(bool flag); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 10 bytes differ against the image-derived bound 006f81b0 (741 B + 11), same size and calls; ra2-decomp's twin text (Yuri's Revenge 0x007339B0) with its name test (the id read ahead of the null test) and its SmartPtr selection list. Left: the mixed-kind loop's exit branch (the image leaves through jge and loops back through jmp, ours the reverse; a flag, an index test, continue and a loop-header test do not move it) and one store scheduled across pop ebp at the end
+#ifdef RA2_NON_MATCHING // not exact: 7 bytes differ against the image-derived bound 006f81b0 (741 B + 11), same size and calls; ra2-decomp's twin text (Yuri's Revenge 0x007339B0): its name test as a function and the mixed-kind test through All_Technos_Pass, which /Ob2 expands with the test (the loop's exit branch then matches; written out it was 10). Left: one store scheduled across pop ebp at the end (TypeSelectMode = 0 before the image's pop ebp); declaration order, probes 1-12, the count and delete spellings, a raw list pointer and the statement orders do not move it
 char * __fastcall Pick_Type_By_Cost(TechnoList const & objects, char const * name, int limit, int * best);
 
 // RA2: remembers the kind of object the last type selection picked and its total cost (0x00AC1250, 0x00AC1348).
@@ -1305,21 +1318,14 @@ void __fastcall Select_By_Type(bool flag)
 	int count = list->Count();
 	for (int index = 0; index < count; index++) {
 		TechnoClass * techno = (*list)[index];
-		char const * id = techno->Class_Of()->IniName;
-		if (name != NULL && strcmp(id, name) == 0) {
+		if (Is_Of_Type(techno, name)) {
 			techno->Select();
 		}
 	}
 	wchar_t const * text = NULL;
 	SmartPtr<TechnoList> objects(Collect_Selected_Technos());
-	int objects_count = objects->Count();
-	for (int check = 0; check < objects_count; check++) {
-		TechnoClass * item = (*objects)[check];
-		char const * id = item->Class_Of()->IniName;
-		if (name == NULL || strcmp(id, name) != 0) {
-			text = StringTable::LoadString("MSG:Mixed", NULL, "D:\\Ra2\\UICmnds.cpp", 0x62d);
-			break;
-		}
+	if (!All_Technos_Pass(objects, (TechnoTest)Is_Of_Type, (int)name)) {
+		text = StringTable::LoadString("MSG:Mixed", NULL, "D:\\Ra2\\UICmnds.cpp", 0x62d);
 	}
 	if (text == NULL && CurrentObject.Count() > 0) {
 		text = CurrentObject[0]->Class_Of()->UIName;

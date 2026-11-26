@@ -6646,7 +6646,7 @@ void UnitClass::Unit_Draw_Voxel(Point2D xdrawpoint, Rect xcliprect, int brightne
 		}
 	}
 
-	composite->Fill_Rect(dirty, 0);
+	composite->Fill_Rect(dirty, TBLACK);
 }
 #endif
 

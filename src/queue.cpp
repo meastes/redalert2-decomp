@@ -2995,7 +2995,7 @@ static int Add_Compressed_Events(void *buf, int bufsize, int frame_delay,
  * HISTORY:                                                                *
  *   11/21/1995 DRD : Created.                                             *
  *=========================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: against the image-derived bound 006282d0 (1,455 B) 921 bytes differ (was 923; the saved run decrements numunits before counting the event, as the RA2 1.001 decoder does (RobinDigitalPro/ra2-1001-decomp 1510aed; the Yuri's Revenge cache's count-first order gave 923); the saved run's list index and unit count computed before the stream advance, a statement order no reference shows: flag spelling if it lands; TibSun queue.cpp sets the first event pointer after the frame-info data size; the megamission Slot byte and the flat saved-count table as ra2-decomp's event.h and queue.cpp have them); main: best 57.62, tried 6 times (register, frame, inline)
+#ifdef RA2_NON_MATCHING // not exact: against the image-derived bound 006282d0 (1,455 B) 791 bytes differ (was 921; each packed target of a newly saved run copied as sizeof(*list), as the RA2 1.001 decoder does; before that 923; the saved run decrements numunits before counting the event, as the RA2 1.001 decoder does (RobinDigitalPro/ra2-1001-decomp 1510aed; the Yuri's Revenge cache's count-first order gave 923); the saved run's list index and unit count computed before the stream advance, a statement order no reference shows: flag spelling if it lands; TibSun queue.cpp sets the first event pointer after the frame-info data size; the megamission Slot byte and the flat saved-count table as ra2-decomp's event.h and queue.cpp have them); main: best 57.62, tried 6 times (register, frame, inline)
 int Extract_Compressed_Events(void * buf, int bufsize)
 {
 	int pos = 0;                // current buffer parsing position
@@ -3116,8 +3116,8 @@ int Extract_Compressed_Events(void * buf, int bufsize)
 								}
 								count++;
 								numunits--;
-								memcpy(&eventdata.Data.MegaMission.Whom, ((char *)buf) + pos, datasize);
-								memcpy(list++, &eventdata.Data.MegaMission.Whom, datasize); // RA2: save the decoded target in this run
+								memcpy(&eventdata.Data.MegaMission.Whom, ((char *)buf) + pos, sizeof(*list));
+								memcpy(list++, &eventdata.Data.MegaMission.Whom, sizeof(*list)); // RA2: save the decoded target in this run
 								units++;
 								SavedUnitCounts[index] = units;
 								if (numunits == 1) {

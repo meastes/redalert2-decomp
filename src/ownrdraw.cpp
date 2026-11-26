@@ -2742,7 +2742,7 @@ inline bool __cdecl Is_Plain_Control(HWND window)
 	return false;
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 2216 bytes differ (adopted text; the image calls Is_Listed_Kind out of line, ours expands it)
+#ifdef RA2_NON_MATCHING // not exact: 2216 bytes differ (adopted text; the image calls Is_Listed_Kind out of line, ours expands it: Is_Listed_Kind's || chain is under VC6's auto-inline size cap here; written as nine if groups returning unsigned int it stays exact and this row is 1 byte off, the image testing al where ours tests eax)
 inline bool Is_Quick_Control_B(int id)
 {
 	return id == 0x411 ||
@@ -9574,7 +9574,6 @@ void __fastcall Draw_Sidebar_Art(Surface * surface, Rect const & window, bool ta
 ConvertClass * __cdecl Get_Dialog_Drawer(void); // RA2: 0x6F2230 (txtlabel2.cpp)
 
 
-#ifdef RA2_NON_MATCHING // not exact: 536 bytes differ: ra2-decomp's twin text (OwnerDraw::Paint, Yuri's Revenge 0x00621E90) with RA2's popup art; Is_Chat_Dialog's lookup calls keyHash (0x602020) where the executable expands it: the root is a little short of IL for that budget (two probe statements flip it; the twin's named position and palette do not), and three art pointers are unbound until the row is exact (lanes O5, F33)
 void __fastcall Dialog_On_WM_PAINT(HWND window)
 {
 	using namespace OwnerDraw;
@@ -9590,11 +9589,13 @@ void __fastcall Dialog_On_WM_PAINT(HWND window)
 
 	Rect full;
 	full.Set(screen.left, screen.top, screen.right - screen.left, screen.bottom - screen.top);
-	if (full.Width <= client.right) {
-		full.Width = client.right;
+	int client_width = client.right;
+	if (full.Width <= client_width) {
+		full.Width = client_width;
 	}
-	if (full.Height <= client.bottom) {
-		full.Height = client.bottom;
+	int client_height = client.bottom;
+	if (full.Height <= client_height) {
+		full.Height = client_height;
 	}
 
 	if (entry->SkipCheckPaint == 0) {
@@ -9610,7 +9611,8 @@ void __fastcall Dialog_On_WM_PAINT(HWND window)
 			if (Session.Is_In_Game()) {
 				Draw_Sidebar_Art(surface, full, false);
 			} else if (Is_Interface_Art_Loaded()) {
-				Draw_Interface_Frame(surface, full, !entry->IsWaiting);
+				bool active = !entry->IsWaiting;
+				Draw_Interface_Frame(surface, full, active);
 
 				ConvertClass * drawer = (ConvertClass *)Control_Drawer(window);
 				ShapeSet * shape640 = (ShapeSet *)Control_Shape_640(window);
@@ -9635,13 +9637,14 @@ void __fastcall Dialog_On_WM_PAINT(HWND window)
 
 			void * shape;
 			if (Session.Is_In_Game()) {
-				if (Scen->IsGDI) {
-					shape = Art_Popup_Back_Allied;
+				bool allied = Scen->IsGDI;
+				if (allied) {
+					shape = ArtPopupBackAllied;
 				} else {
-					shape = Art_Popup_Back_Soviet;
+					shape = ArtPopupBackSoviet;
 				}
 			} else {
-				shape = Art_Popup_Back;
+				shape = ArtPopupBack;
 			}
 			ConvertClass * drawer = Get_Dialog_Drawer();
 			Draw_Shape(*surface, *drawer, (ShapeSet const *)shape, 0, Point2D(0, 0), to, SHAPE_WIN_REL);
@@ -9655,11 +9658,13 @@ void __fastcall Dialog_On_WM_PAINT(HWND window)
 
 			int width = back->Get_Width();
 			int height = back->Get_Height();
-			if (VideoModeWidth > width) {
-				from.X += (VideoModeWidth - width) / -2;
+			int screen_width = VideoModeWidth;
+			if (screen_width > width) {
+				from.X += (screen_width - width) / -2;
 			}
-			if (VideoModeHeight > height) {
-				from.Y += (VideoModeHeight - height) / -2;
+			int screen_height = VideoModeHeight;
+			if (screen_height > height) {
+				from.Y += (screen_height - height) / -2;
 			}
 			surface->Blit_From(to, *back, from, false, true);
 		}
@@ -9672,7 +9677,6 @@ void __fastcall Dialog_On_WM_PAINT(HWND window)
 		}
 	}
 }
-#endif
 
 namespace OwnerDraw {
 
@@ -11025,7 +11029,7 @@ LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lp
 }
 #endif
 
-#ifdef RA2_NON_MATCHING // not exact: 13791 bytes differ against the image-derived bound 005f6690 (14,618 body bytes, 6 padding) (was 13841; the three selection queries read the state through ArrayList::get as RA2 1.001 does, one indexed load each as in the image; before that 13847; the selection-change notifications sent with MAKEWPARAM and the SDK LBN_ codes; before that 14527; the message groups in the order of ra2-decomp's banked form banks/0x00618D40_lbh.cpp (11df85d), each RA2 handler and fall-through chain kept)
+#ifdef RA2_NON_MATCHING // not exact: 13802 bytes differ against the image-derived bound 005f6690 (14,618 body bytes, 6 padding) (image-faithful widths; position score 13802, was 13791: the subclassed item height read and added as a dword before the low-word mask, as the image does at 0x005F861F; before that 13841; the three selection queries read the state through ArrayList::get as RA2 1.001 does, one indexed load each as in the image; before that 13847; the selection-change notifications sent with MAKEWPARAM and the SDK LBN_ codes; before that 14527; the message groups in the order of ra2-decomp's banked form banks/0x00618D40_lbh.cpp (11df85d), each RA2 handler and fall-through chain kept)
 namespace OwnerDraw {
 
 LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
@@ -11316,10 +11320,12 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			InvalidateRect(window, NULL, FALSE);
 			break;
 		}
-		case OD_SUBCLASSED:
+		case OD_SUBCLASSED: {
 			data->IsEditFocus = -1;
-			SendMessage(window, LB_SETITEMHEIGHT, (WPARAM)-1, (unsigned short)(data->Font->LineHeight + 2));
+			int height = data->Font->LineHeight + 2;
+			SendMessage(window, LB_SETITEMHEIGHT, (WPARAM)-1, height & 0xffff);
 			break;
+		}
 		case OD_ADDCOLUMN: {
 			ArrayList<ColumnData> * columns = (ArrayList<ColumnData> *)data->HadTabStop;
 			if (columns == NULL) {

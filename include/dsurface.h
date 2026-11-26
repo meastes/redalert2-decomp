@@ -66,7 +66,7 @@ class DSurface : public XSurface
 		/*
 		**	Constructs a working surface (not visible).
 		*/
-		DSurface(int width, int height, bool system_memory = false);
+		DSurface(int width, int height, unsigned char system_memory = false);
 
 		/*
 		**	Creates a surface from a previously created DirectDraw surface object.
