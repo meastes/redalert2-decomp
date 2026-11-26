@@ -3167,7 +3167,7 @@ void BuildingClass::Assign_Target(AbstractClass * target)
  *   04/10/1995 JLB : Handles building production by computer.                                 *
  *   06/17/1995 JLB : Handles refinery exit.                                                   *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row yet (image-derived bound 00440520-00441eab, 6539+5, in image_bounds.csv); 3380 bytes differ against it (was 4469; the two exit directions as TibSun building.cpp builds them, a temporary Coord in the first branch, a stored exitcellcoord in the second; the water exit facing through the DirType Direction member as ra2-decomp's banked form banks/0x00443C60_exit.cpp (11df85d) has it; the bank's exit paths adapted to RA2, keeping RA2's one-argument exits, native mission paths and the cloning-vat loop calling the image's own Exit_New_Object (0x4538D0) for each vat); all 146 calls in order (3569 and frame 0x12c only with copy locals in inline.h Direction(Cell, Cell), refused: variation_candidates.csv); main: best 92.27, tried 12 times (frame, register, inline)
+#ifdef RA2_NON_MATCHING // not exact: no row yet (image-derived bound 00440520-00441eab, 6539+5, in image_bounds.csv); 17 bytes differ against it, six instruction lines in one site, size and frame right, all 146 calls in order (was 3380 by position, 33 lines in two sites; lane F79): the unit exit declares its exit coordinate where it is built, from Coord(to, 0), as TibSun's unit block does, and its first door sum is written as one Coord constructor [spelling: no reference has it; the image builds that sum straight into the coordinate, one copy level under operator+]; the infantry exit keeps the cell coordinate in a local as TibSun's infantry block does; the two refinery sums are written as cell + AdjacentCell[] [spelling: TibSun calls Adjacent_Cell; with the helper the text is three counted locals short of this state]. Left: the refinery's first sum adds the table word into the cell in the image (add edx, ecx) and the cell into the table word here; it turns only where the unit exit's temporary is gone (b_log_f79.csv). Earlier: the water exit facing through the DirType Direction member as ra2-decomp's banked form banks/0x00443C60_exit.cpp (11df85d) has it; the bank's exit paths adapted to RA2, keeping RA2's one-argument exits, native mission paths and the cloning-vat loop calling the image's own Exit_New_Object (0x4538D0) for each vat; 3569 and frame 0x12c only with copy locals in inline.h Direction(Cell, Cell), refused: variation_candidates.csv; main: best 92.27, tried 12 times (frame, register, inline)
 #include "airctype.h"
 #include "targetcell.h"
 int BuildingClass::Exit_Object(TechnoClass * base)
@@ -3382,7 +3382,8 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 						}
 					}
 
-					Dir256 dir = ::Direction(Center_Coord(), Coord(cell)).As_Dir256();
+					Coord exitcellcoord(cell);
+					Dir256 dir = ::Direction(Center_Coord(), exitcellcoord).As_Dir256();
 
 					Cell to = cell;
 					Cell here = Get_Cell();
@@ -3452,7 +3453,6 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 					}
 				} else {
 
-					Coord exitcoord;
 					cell = Find_Exit_Cell(base);
 					if (cell == CELL_NONE) {
 						return(0);
@@ -3476,14 +3476,14 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 						to.Y += 1;
 					}
 
-					exitcoord = to.As_Coord();
+					Coord exitcoord = Coord(to, 0);
 					/*
 					 * The barracks types have a special exit door location that the
 					 * exiting object should be placed at.
 					 */
 					if (Class->IsGDIBarracks) {
 						if (cell.X == x + 1 && cell.Y == y + 2) {
-							exitcoord = exitcoord + Class->ExitCoordinate;
+							exitcoord = Coord(exitcoord.X + Class->ExitCoordinate.X, exitcoord.Y + Class->ExitCoordinate.Y, exitcoord.Z + Class->ExitCoordinate.Z);
 						}
 					}
 					if (Class->IsNODBarracks && cell.X == x + 2 && cell.Y == y + 2) {
@@ -3526,10 +3526,10 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 				 */
 				if (base->Fetch_RTTI() == RTTI_UNIT) {
 
-					cell = Adjacent_Cell(Center_Coord().As_Cell(), FACING_SW);
+					cell = Center_Coord().As_Cell() + AdjacentCell[FACING_SW];
 
 					ScenarioInit++;
-					if (base->Unlimbo(Coord(Adjacent_Cell(cell, FACING_S), 0), DIR_SW)) {
+					if (base->Unlimbo(Coord(cell + AdjacentCell[FACING_S], 0), DIR_SW)) {
 						base->PrimaryFacing.Set(DirType(DIR_S));
 						base->QueueMission(MISSION_HARVEST, false);
 					}

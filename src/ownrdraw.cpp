@@ -10666,7 +10666,7 @@ TextNode * NodeList::Add_Node(int length)
 	return node;
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 6538 bytes differ against the image-derived bound 005f4ba0 (6,895 body bytes) (the background pixel count computed before the surface lock, as RA2 1.001 and the image do, was 6541; image-faithful reads; position score 6541, was 6501: the dropdown handle is read from WinData again after ReleaseCapture and after notifying the parent, as the image does at 005f587b and 005f589e (RA2 1.001 cac41ca); owner ruling 2026-11-25; before that 6502; the forwarded dropdown result returned on its own path, as ra2-decomp's attempt f9e49e2 separates it; the dropdown's visible rows computed before the count is read, as ra2-decomp's banked form banks/0x00617250_odh.cpp (11df85d) has it; the item-data and selection cases first in the bank's order, RA2 case bodies and fall-through groups kept; the text query's shared result with the signed clamp and the item sentinel tested before null as the bank has them)
+#ifdef RA2_NON_MATCHING // not exact: 6481 bytes differ against the image-derived bound 005f4ba0 (6,895 body bytes) (position score 6481, was 6532; 2,696 instruction lines off of 2,197, was 2,707; 98 of 134 calls in order: the record fetched through the unit's Get_Record, ra2-decomp's Find_Data, which gives the image's out-of-line Dictionary::keyHash call at the top (lanes F77, F79); before that the background pixel count computed before the surface lock, as RA2 1.001 and the image do, was 6541; image-faithful reads; position score 6541, was 6501: the dropdown handle is read from WinData again after ReleaseCapture and after notifying the parent, as the image does at 005f587b and 005f589e (RA2 1.001 cac41ca); owner ruling 2026-11-25; before that 6502; the forwarded dropdown result returned on its own path, as ra2-decomp's attempt f9e49e2 separates it; the dropdown's visible rows computed before the count is read, as ra2-decomp's banked form banks/0x00617250_odh.cpp (11df85d) has it; the item-data and selection cases first in the bank's order, RA2 case bodies and fall-through groups kept; the text query's shared result with the signed clamp and the item sentinel tested before null as the bank has them)
 namespace OwnerDraw {
 
 LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
@@ -10677,8 +10677,7 @@ LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lp
 	Get_Display_Rect(window, &display);
 	GetClientRect(window, &client);
 	GetWindowRect(window, &screen);
-	WinData * data = NULL;
-	Control_Table.getPointer((unsigned int)window, &data);
+	WinData * data = Get_Record(window);
 	if (!data) return CallWindowProcA(previous, window, message, wparam, lparam);
 
 	switch (message) {
@@ -11034,7 +11033,7 @@ LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lp
 }
 #endif
 
-#ifdef RA2_NON_MATCHING // not exact: 13802 bytes differ against the image-derived bound 005f6690 (14,618 body bytes, 6 padding) (image-faithful widths; position score 13802, was 13791: the subclassed item height read and added as a dword before the low-word mask, as the image does at 0x005F861F; before that 13841; the three selection queries read the state through ArrayList::get as RA2 1.001 does, one indexed load each as in the image; before that 13847; the selection-change notifications sent with MAKEWPARAM and the SDK LBN_ codes; before that 14527; the message groups in the order of ra2-decomp's banked form banks/0x00618D40_lbh.cpp (11df85d), each RA2 handler and fall-through chain kept)
+#ifdef RA2_NON_MATCHING // not exact: 13857 bytes differ against the image-derived bound 005f6690 (14,618 body bytes, 6 padding) (position score 13857, was 13798, taken for the structure under the owner's ruling: 3,759 instruction lines off of 4,435, was 3,814; 202 of 274 calls in order, was 201; 14,512 B: the record fetched through the unit's Get_Record, ra2-decomp's Find_Data, which gives the image's out-of-line Dictionary::keyHash call at the top (lanes F77, F79); the whole port of ra2-decomp's ListBoxHandler (PR #406, unmarked there) is still to do; image-faithful widths; before that position score 13802, was 13791: the subclassed item height read and added as a dword before the low-word mask, as the image does at 0x005F861F; before that 13841; the three selection queries read the state through ArrayList::get as RA2 1.001 does, one indexed load each as in the image; before that 13847; the selection-change notifications sent with MAKEWPARAM and the SDK LBN_ codes; before that 14527; the message groups in the order of ra2-decomp's banked form banks/0x00618D40_lbh.cpp (11df85d), each RA2 handler and fall-through chain kept)
 namespace OwnerDraw {
 
 LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
@@ -11048,8 +11047,7 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 	LRESULT result = 0;
 	wchar_t string[512];
 
-	WinData * data = NULL;
-	Control_Table.getPointer((unsigned int)window, &data);
+	WinData * data = Get_Record(window);
 	if (!data) return 0;
 
 	int scrollbar_width = 2 * Border_Width + 18;

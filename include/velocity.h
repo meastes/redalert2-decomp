@@ -92,8 +92,8 @@ class TVelocity3D : public TVelocity2D<T>
 		TVelocity3D(const TVelocity3D & velocity) : BASECLASS(velocity), Z(velocity.Z) {}
 		TVelocity3D(Dir256 pitch, Dir256 yaw, T magnitude);
 		TVelocity3D(DirType const & yaw, DirType const & pitch, T magnitude);
-		TVelocity3D(double angle, T magnitude);
 		TVelocity3D(T x, T y, T z) : BASECLASS(x, y), Z(z) {} // RA2: the base from x and y directly (ra2-decomp's form)
+		TVelocity3D(BASECLASS const & planar, T z); // RA2: the planar part and Z apart (ra2-decomp's include/velocity.h, in place of the archive's unused TVelocity3D(double angle, T magnitude))
 
 		void Set(T x, T y, T z)
 		{
@@ -184,6 +184,16 @@ class TVelocity3D : public TVelocity2D<T>
 };
 
 
+/*
+ * RA2: builds a velocity from a planar velocity and a separate vertical speed
+ * (ra2-decomp's include/velocity.h).
+ */
+template<typename T>
+TVelocity3D<T>::TVelocity3D(BASECLASS const & planar, T z) : BASECLASS(planar), Z(z)
+{
+}
+
+
 template <typename T>
 TVelocity3D<T>::TVelocity3D(Dir256 pitch, Dir256 yaw, T magnitude)
 	: BASECLASS(
@@ -207,18 +217,4 @@ TVelocity3D<T>::TVelocity3D(DirType const & yaw, DirType const & pitch, T magnit
 			fastmath::sin(yaw.As_Radian()) * fastmath::cos(pitch.As_Radian()) * magnitude)),
 		Z(fastmath::sin(pitch.As_Radian()) * magnitude)
 {
-}
-
-
-/*
- * Builds a level velocity from a math angle in radians. Note that this form
- * negates the sine, matching the Get_Yaw/Set_Yaw convention (unlike the
- * direction constructors above).
- */
-template <typename T>
-TVelocity3D<T>::TVelocity3D(double angle, T magnitude)
-{
-	X = magnitude * fastmath::cos(angle);
-	Y = -(magnitude * fastmath::sin(angle));
-	Z = 0;
 }

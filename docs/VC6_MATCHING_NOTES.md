@@ -6095,3 +6095,116 @@ includer before and after a header change, baseline first).
 - ownrdraw List_Proc and Combo_Proc fetch their record at the top; through the unit's Get_Record (the twin's Find_Data) the
   image's out-of-line Dictionary::keyHash call appears there. The instruction diff improves and the position score gets
   worse, so the drafts were left as they are and the form is recorded as a lead for whoever ports the twin's handler whole.
+
+
+## A block the compiler deletes is still charged to the inline budget: size it from the calls the image makes after it; a flag the image never tests is a jump; a wrapper with reference parameters turns an x87 order (found in the rebuild (lane F78, high))
+
+Found in the rebuild (lane F78, high); one row landed (bullet BulletClass::AI 0x45F710 on its image-derived bound, 6,438 B, new
+row). Lane tools in build/r/f78 (removed at hand-back; copies in private/dossiers/fable/f78_tools): F75's gp.py, e.py, d.py and
+inc.py, k.sh (one named variant: bytes, differing lines, call counts by target), probe.sh (n empty inline sites at one of eight
+places in the root or the helper), spend.sh (one charged inline of 12 + 6k units at a place, the place inside a dead block
+included), ft.py (two residual differences read as features), spec.json for il_lab.py (the sizes below).
+
+- BulletClass::AI stood at 3,931 B with "every call but one" and looked like one inline decision. It was five separate things,
+  and the order they were found in is the method: read the listing's hunks one by one before believing a summary.
+  1. The firestorm block's exit: the image jumps to the shared `LastMapCoords = coord.As_Cell()` tail. The draft repeated the
+     store and returned. `break` there (3,931 to 3,862 B). A jump to a function's own tail from inside a switch case is a break.
+  2. The planar constructor (`captured(previous, previous.Z)`, ra2-decomp's): X and Y copied as four words through a second
+     pointer and Z through the x87 stack is a by-value double beside a reference to the base. It is not charged (under 41
+     units; the three-value constructor is 48), so with it the helper's share rises and `position += velocity` expands.
+  3. The budget inside Ballistic_Move. Sizes read with il_lab.py in the unit: TVelocity3D Speed 58, operator*= 46, operator+=
+     54, Set_Speed 68, the copy constructor 46, the three-value constructor 48, the planar constructor free; Coord(int, int,
+     int) 44 with TPoint3D's constructor 48 inside; Distance_To free, TPoint3D operator- 72, Length 64; Vector3's constructor
+     48, its operator*= 64. The image builds old_coord's Coord in place and calls TPoint3D's constructor, calls operator+=,
+     and calls Coord's constructor for new_coord: 44 fitted once and then neither 54 nor 44 did, so the share left ahead of
+     old_coord was 44 to 87. Ours was 98 to 103 (a charged probe of 42 to 54 units at the helper's top gives the image's call
+     list, 60 refuses the first Coord too). Empty sites inside the helper only move it by the helper's own size over the
+     root's pending sites (two of them, 8 units of size, one unit of share) and then saturate; a site added to the root after the helper turns the
+     closure's two Length calls instead, because `old_coord.Distance_To(target_coord)` sits in its own window (operator-
+     with its constructor expanded, Length refused: a share of 168 to 183). So the missing charge is inside the helper,
+     ahead of old_coord, and compiles to nothing: the speed limit block, which every caller switches off with 0.0. A block
+     the optimiser deletes is decided and charged like any other. ra2-decomp's text there (`velocity *= (float)(speed /
+     speed)`, Speed 58 + operator*= 46 = 104) fits Yuri's Revenge's root; RA2's root (the firestorm block makes it larger)
+     needs more: 126 to 158 measured (164 is 2 B off, 170 refuses the first Coord; below 126 a probe is free and cannot be read, by the sizes the edge is near 115), and Speed with `velocity.Set_Speed(max_velocity)` is 126. The same probe placed inside the dead block
+     (spend.sh HD) measures the window without emitting an instruction.
+  4. With the image's calls the function was one instruction longer and bridge_height and the bridge bit mask held each
+     other's register (edi and ebx) through the helper. One more reference to bridge_height after the mask's last use gives
+     the image's registers, and nothing natural supplies one. What does is removing the `contact` flag: the image never tests
+     it. The no-impact case of a fired projectile (no bridge deck crossed) jumps to the result, `goto done`, and the store of
+     the impact follows the arms unconditionally. A bool that VC6 threads away almost completely still costs one instruction
+     and one register candidate; when a draft is one instruction long around a flag, write the flag as the jump it compiles
+     to. An early return does not do it here: the helper returns the Coord the caller assigns (three values held in esi and
+     edi, then stored together), and a second result block is 26 lines off.
+  5. The slow-speed test's sum of squares (`Y*Y + X*X + Z*Z` in the image from `X * X + Y * Y + Z * Z`) follows the number of
+     Set_Horizontal_Velocity sites: two (the twin's text) give X, Y, Z; one gives the image; none gives Z first. The wrapper
+     takes `double const &`, so each site takes the address of two members. Referenced int probes (1 to 12) and eight other
+     single removals do not move it: the unit here is the wrapper's expansion, not a local.
+- A probe table that saturates is a quantity divided by something large. Two empty sites flipped operator+= and thirty did
+  nothing more: that is 8 units of helper size divided by the root's pending sites, a floor division crossing one boundary. Use
+  a charged probe (spend.sh) to read a nested budget; use empty sites only for the count of pending sites.
+- Includes that a guard carried move with the function when the guard comes off. `ion.h` and `revent.h` at the top of
+  bullet.cpp turn the unit's static initialisers ($E names) and one row; they stay where the guard had them, with a comment.
+- velocity.h: the planar constructor added beside the archive's constructors turns queue Print_CRCs 0x62A360 (8 B, lane F73's
+  table reproduced). In place of the archive's `TVelocity3D(double angle, T magnitude)`, which nothing calls and the twin does
+  not have, every one of the 444 units keeps its rows (baseline made in the same session).
+- sidebar StripClass::Draw_It 0x67F800 (6 B, unchanged): the outline's by-value copy named and passed as three values
+  (`RGBClass c = color; Build_Hicolor_Pixel(c.Get_Red(), c.Get_Green(), c.Get_Blue())`) is the same code as the draft, so the
+  copy's form is not the lever; the image's Blue, Red, Green is what the three-value inline gives when its body lists green
+  first. The six operand orders written out on the copy (as the Draw_Rect argument and as a named local) are 2,361 to 2,467 B
+  off by position: a written-out expression moves the function's other ties (the strip's top and the text pixel) as well.
+  robin's green-first RGB overload in dsurface.h is 42 B here and turns three rows among the overload's 14 user units
+  (beacon 0x42DA20, ownrdraw Owner_Button_Proc 0x5F0320, techno 0x6D0DC0).
+- xsurface Plot_Line 0x773F00 (9 B, unchanged; the doubled-abs form is still the only exact one): not it, each measured: a
+  conditional expression in place of abs (333 B), a copy of dy named ahead of pitch (24 B, the declaration moves the loop
+  registers), `dy = -dy` in the negative arm ahead of abs (195 B), a constant step local negated in the arms, a goto over the
+  second store, abs in the negative arm only, the test on start.Y against end.Y (all 204 to 350 B). A late constant is still
+  early enough for the setcc form.
+- foot Search_For_Tiberium_Weighted 0x4CBB40 (2 B, unchanged): the other users of Sample (teamtype Suggested_New_Team, house
+  AI_Build_Defense) name the result at once and wrap nothing. The class's own unused accessors as a guard around the call
+  (Is_Empty, Count, Get_Total_Weight; with Fetch_CellID and with the member) are 856 to 1,054 B off: the test is not folded
+  into Sample's own.
+
+## A sum that operator+ never builds in place is one constructor; a count site can be tied to another site's temporary; survey every site of a draft over the ladder, not the score (found in the rebuild (lane F79, high))
+
+Found in the rebuild (lane F79, high); no row landed, building BuildingClass::Exit_Object 0x440520 went from 33 instruction
+lines in two sites to 6 in one (17 bytes by position, size and frame right, no probe in the text). Lane tools in build/r/f79
+(removed at hand-back; copies in private/dossiers/fable/f79_tools): mk.py (the draft from named toggles and exact
+replacements per block), cls.py (one code per compile: each door sum's destination, the frame, the refinery sum), sc2.sh
+(that code over a count ladder), scan.py (every constant-facing AdjacentCell sum in the image by destination, with its row),
+lab2.sh (a statement tried inside a copy of an exact function), tb.sh (a free test function appended to a unit).
+
+- Read a wrong add destination by what the result is, before treating it as a tie. In the unit exit's first door sum the
+  image loads the type's member into the register that holds the coordinate's X from then on and adds the local into it
+  (`mov ebp, [edx+0xc54]; add ebp, eax`). `exitcoord = exitcoord + Class->ExitCoordinate` computes into the dying local and
+  copies (`add eax, ebx ... mov ebp, eax`) at every count, with either operand first, in either block. The copy is the
+  tell: operator+ returns a Point3D, the Coord conversion makes a second object, the assignment a third. One constructor,
+  `exitcoord = Coord(exitcoord.X + Class->ExitCoordinate.X, ...)`, is one level less and gives the image's code at once,
+  whichever operand is written first. A register copy of a sum's result directly ahead of its stores is a copy level,
+  not a count.
+- The other door sums (the same statement three more times) stay operator+: their destinations are count sites and come
+  right together in one window.
+- A draft tuned to a near state can sit on the wrong forms. The old text declared the unit block's coordinate ahead of
+  Find_Exit_Cell and built the infantry block's direction from a temporary, the reverse of TibSun's two blocks; under the
+  constructor sum the image wants TibSun's forms back (declared where built, from `Coord(to, 0)`; `Coord exitcellcoord`
+  in the infantry block). After a structural fix, try each archive form again before any count work.
+- Survey by site. One compile per count with a code for every site (cls.py) shows each site's own window: here the unit
+  block's temporary (five counts of eight), the infantry block's last sum (four of eight) and the refinery sum (two or
+  three of sixteen). A position score or a line count gives only their intersection and hides which site is short.
+- Count units with no code change, to place a text in its window without probes: a named cell passed to Adjacent_Cell,
+  the sum written directly (`cell + AdjacentCell[f]`) in place of the helper, `Cell(...)` around a helper result, a local
+  for a temporary Coord argument. Each is one unit; the windows are not exactly periodic past the first eight (the good
+  pair came at +3/+4 and then +10/+11 with int probes, at +3/+4, +11/+12, +19/+20 with unused Cell locals), so
+  measure, do not add.
+- A count site can be tied to a temporary of another site. The refinery's first sum (`add edx, ecx` in the image, the
+  cell loaded from its slot and the table word added) turned in no statement form (about 90) and at no count while the
+  unit block had its temporary; it turns at +12..+14 of sixteen, exactly where that temporary goes. A named local or a
+  discarded class temporary placed between the two sites moves both together, so position in the text is not the lever.
+  In a copy of TechnoClass::Get_Z_Fudge_Tunnel the same statement gives the image's order while the function keeps its
+  two later sums or gains three Cell locals, and the image itself has both orders in exact rows of one function
+  (Fixup_LAT, Get_Z_Fudge_Tunnel), so the helper text is not in question.
+- In those exact rows the rule reads: a cell that is a dying temporary is the destination, a cell kept in a callee-saved
+  register is not (the table word is then loaded into the destination). A table-first add on a dying temporary, as this
+  draft has, is the unusual one.
+- ownrdraw List_Proc and Combo_Proc now fetch their record through Get_Record (lane F77's lead, taken under the owner's
+  ruling that structure counts over position). Read by call sequence, List_Proc's next difference is block order after
+  the record fetch, to be taken from ra2-decomp's ListBoxHandler as a whole.

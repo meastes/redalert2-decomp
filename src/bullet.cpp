@@ -300,18 +300,34 @@ bool BulletClass::Mark(MarkType mark)
  * HISTORY:                                                                                    *
  *   05/02/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 3931 bytes differ against the image-derived bound 0045f710 (6438 body bytes, image_bounds.csv; ours 6480) (was 4639; ra2-decomp's AI from PR #422 with its Ballistic_Move, Flight_Speed and Set_Horizontal_Velocity helpers, RA2's firestorm and nuke tail kept; every call in order but one: the original calls Coord(int,int,int) 0x434820 out of line for Ballistic_Move's new_coord and copies the velocity through TVelocity3D's planar constructor, both inline-budget sites; adding the planar constructor to velocity.h moves the budget so the closure Length calls inline again)
-#include "ion.h"
+#include "ion.h" // RA2: the nuke flash and the radar event of the tail; here, ahead of AI, because the unit's earlier rows count the declarations before them
 #include "revent.h"
 static inline int Coord_Dist(Coord const & a, Coord const & b);
 
+/*
+**	RA2: the ballistic step of a projectile, ra2-decomp's helper (its bullet.cpp), the bullet's
+**	form of the Ballistic_Move that BounceClass and the particles share (ballistic.h). The image
+**	expands it here: its two coordinates and the position step are inline sites decided on this
+**	helper's share of the budget (the first Coord built in place with TPoint3D's constructor
+**	called, operator+= and the second Coord called).
+*/
 static inline Coord Ballistic_Move(TVelocity3D<double> & position, TVelocity3D<double> & velocity, double gravity, double elasticity, double max_velocity, TechnoClass * payback, ImpactType & impact, bool & forced)
 {
 	velocity.Z -= gravity;
 	if (max_velocity > 0.0) {
 		double speed = velocity.Speed();
 		if (speed > max_velocity) {
-			velocity *= (float)(speed / speed);
+			/*
+			**	RA2 [spelling]: the block compiles to nothing; the image constrains its size only and
+			**	cannot confirm the statement. Every caller passes no limit, but the block's inline sites
+			**	are charged all the same, and the image's decisions after it need 126 to 158 units here
+			**	(measured). The archive's own text, `velocity *= (float)(speed / speed)` (TibSun
+			**	bounce.cpp:164, BounceClass::AI; live in ballistic.h), is ra2-decomp's and measures 104;
+			**	`velocity *= (float)(max_velocity / speed)` misses the same way. Set_Speed is the archive's
+			**	own idiom for limiting a TVelocity3D in this unit (TibSun bullet.cpp:421 and :427).
+			**	Matching reference text of the right size replaces it.
+			*/
+			velocity.Set_Speed(max_velocity);
 		}
 	}
 	Coord old_coord(position.X, position.Y, position.Z);
@@ -320,10 +336,8 @@ static inline Coord Ballistic_Move(TVelocity3D<double> & position, TVelocity3D<d
 	int height = Map.Get_Height_GL(new_coord);
 	int bridge_height = height + BRIDGE_LEPTON_HEIGHT;
 	CellClass * cellptr = &Map[new_coord];
-	bool rose_through_bridge;
-	bool fell_through_bridge;
-	fell_through_bridge = false;
-	rose_through_bridge = false;
+	bool fell_through_bridge = false;
+	bool rose_through_bridge = false;
 	if (cellptr->IsUnderBridge || Map[old_coord].IsUnderBridge) {
 		if (new_coord.Z >= bridge_height) {
 			if (old_coord.Z < bridge_height) {
@@ -360,7 +374,6 @@ static inline Coord Ballistic_Move(TVelocity3D<double> & position, TVelocity3D<d
 		}
 	}
 	if (do_bounce) {
-		bool contact = true;
 		if (payback == NULL) {
 			if (fell_through_bridge) {
 				position.Z = bridge_height;
@@ -390,14 +403,13 @@ static inline Coord Ballistic_Move(TVelocity3D<double> & position, TVelocity3D<d
 				bridge_height -= 20;
 				position.Z = bridge_height;
 			} else {
-				contact = false;
+				goto done; // RA2: a fired projectile that crossed no bridge deck is no impact (the image branches straight to the result)
 			}
 		}
-		if (contact) {
-			impact = IMPACT_NORMAL;
-			forced = true;
-		}
+		impact = IMPACT_NORMAL;
+		forced = true;
 	}
+done:
 	Coord result;
 	result.X = (int)position.X;
 	result.Y = (int)position.Y;
@@ -563,7 +575,7 @@ void BulletClass::AI(void)
 	} else {
 		TVelocity3D<double> new_velocity;
 		TVelocity3D<double> const & previous = Velocity;
-		TVelocity3D<double> captured(previous.X, previous.Y, previous.Z);
+		TVelocity3D<double> captured(previous, previous.Z);
 		new_velocity = captured;
 		TVelocity3D<double> velocity;
 		Set_Horizontal_Velocity(velocity, captured.X, captured.Y);
@@ -643,7 +655,8 @@ void BulletClass::AI(void)
 					forced = true;
 					coord = PositionCoord;
 				} else {
-					Set_Horizontal_Velocity(new_velocity, velocity.X, velocity.Y);
+					new_velocity.X = velocity.X; // RA2: written out here (ra2-decomp calls its Set_Horizontal_Velocity at both places)
+					new_velocity.Y = velocity.Y;
 					if (!Class->Vertical) {
 						TVelocity3D<double> updated_velocity = new_velocity;
 						updated_velocity.Z = velocity.Z;
@@ -696,8 +709,7 @@ void BulletClass::AI(void)
 					if (Class_Of() != NULL && !Class_Of()->IsIgnoresFirestorm) {
 						building->Crossing_Firestorm(this, false);
 						Delete_Me();
-						LastMapCoords = coord.As_Cell();
-						return;
+						break;
 					}
 				}
 			}
@@ -779,7 +791,6 @@ void BulletClass::AI(void)
 
 	LastMapCoords = coord.As_Cell();
 }
-#endif
 
 
 /***********************************************************************************************

@@ -60,12 +60,60 @@
     "_$E177": 4585184,
     "_?_list@?1??Occupy_List@BulletClass@@UBEPBVCell@@_N@Z@4QBV3@B": 8717020,
     "?Mark@ObjectClass@@UAE_NW4MarkType@@@Z": 6111584,
+    "?AI@ObjectClass@@UAEXXZ": 6105072,
+    "?Bullet_Explodes@BulletClass@@QAEX_N@Z": 4595168,
+    "?Frame@@3HA": 10751276,
+    "??2@YAPAXI@Z": 7872535,
+    "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z": 4325648,
+    "__real@8@00000000000000000000": 7976464,
+    "?Rule@@3PAVRulesClass@@A": 8624200,
+    "__real@8@3ffb8888888888888800": 7984496,
+    "__real@8@4001c90fdaa22168c000": 7981496,
+    "?sin@fastmath@@YANN@Z": 4957312,
+    "??0?$TPoint3D@H@@QAE@HHH@Z": 4306480,
+    "__real@8@3fffc000000000000000": 7984488,
+    "?Projectile_Motion@@YIHAAVCoord@@AAV?$TVelocity3D@N@@ABV1@ABVDirType@@_N444@Z": 5847152,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z": 5537792,
+    "?Length@?$TPoint3D@H@@QBEHXZ": 4306816,
+    "__real@8@3ffefbbbbbbbbbbbb800": 7984480,
+    "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z": 5612160,
+    "__real@8@40028000000000000000": 7984472,
+    "?Get_Floater_Gravity@@YINXZ": 4717776,
+    "??Y?$TVelocity3D@N@@QAEAAV0@ABV0@@Z": 4604576,
+    "??0Coord@@QAE@HHH@Z": 4409376,
+    "__real@8@40069600000000000000": 7984464,
+    "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ": 4659120,
+    "?Has_Wall_Or_Gate@CellClass@@QBE_NW4OverlayType@@W4FacingType@@@Z": 4675648,
+    "?Is_Ally@HouseClass@@QBE_NPBVObjectClass@@@Z": 5133696,
+    "?TacticalMap@@3PAVTactical@@A": 8624492,
+    "?Get_Cell_Ramp@Tactical@@QAEHABVCoord@@@Z": 6975760,
+    "?Get_Slope_Matrix@@YI?AVMatrix3D@@H@Z": 7441760,
+    "?Orthogonal_Inverse@Matrix3D@@SI?AV1@ABV1@@Z": 5837856,
+    "??0Vector3@@QAE@MMM@Z": 4421264,
+    "?Rotate_Vector@Matrix3D@@QAE?AVVector3@@ABV2@@Z": 5835984,
+    "??XVector3@@QAEAAV0@M@Z": 4421296,
+    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
+    "?Cell_Techno@CellClass@@QBEPAVTechnoClass@@ABVPoint2D@@_NPBV2@@Z": 4658784,
+    "?In_Radar@MapClass@@QBE_NABVCoord@@@Z": 5548800,
+    "__real@8@4002a000000000000000": 7983408,
+    "?Crossing_Firestorm@BuildingClass@@QAE_NPAVObjectClass@@_N@Z": 4525232,
+    "?Is_Forced_To_Explode@BulletClass@@QBE_NAAVCoord@@@Z": 4594704,
+    "?Fuse_Checkup@FuseClass@@QAE?AW4FuseResultType@@ABVCoord@@@Z": 5041888,
+    "__real@8@40068000000000000000": 7976472,
+    "??_C@_04JOHA@NUKE?$AA@": 8196664,
+    "??8AbstractTypeClass@@QBE_NPBD@Z": 4261824,
+    "?Start_Nuke_Flash@IonStormClass@@SIXXZ": 5376160,
+    "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z": 6534576,
+    "??_C@_08KHCJ@NUKEBALL?$AA@": 8196652,
+    "?From_Name@AnimTypeClass@@SI?AW4AnimType@@PBD@Z": 4347456,
+    "?AnimTypes@@3V?$DynamicVectorClass@PAVAnimTypeClass@@@@A": 8806880,
+    "?Get_Explosion_Z@@YIHVCoord@@@Z": 4717760,
     "?atan2@fastmath@@YANNN@Z": 4957696,
     "__real@8@3fffc90fdaa22168c000": 7976496,
     "__real@8@c00ca2f83d7b47677800": 7976488,
     "?BodyShape@TechnoClass@@2QBHB": 8047280,
     "?Scen@@3PAVScenarioClass@@A": 10736272,
-    "?Map@@3VMouseClass@@A": 8594656,
     "?Is_Fogged@MapClass@@QAE_NABVCoord@@@Z": 5669824,
     "?Make_Identity@Matrix3D@@QAEXXZ": 5832800,
     "__real@8@bffcc90fdaa22168c000": 7983248,
@@ -74,8 +122,6 @@
     "?Get_Isometric_View_Matrix@@YI?AVMatrix3D@@XZ": 7438224,
     "??D@YI?AVMatrix3D@@ABV0@0@Z": 5837184,
     "?Draw_Voxel@BulletClass@@QBEXABUVoxelDataStruct@@ABVMatrix3D@@ABVPoint2D@@ABV?$TRect@H@@HW4ShapeFlags_Type@@H@Z": 4602368,
-    "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z": 5612160,
-    "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z": 5537792,
     "?Z_Lepton_To_Pixel@Tactical@@SIHH@Z": 6957424,
     "?LogicalSurface@@3PAVSurface@@A": 8624476,
     "?NormalDrawer@@3PAVConvertClass@@A": 8594372,
@@ -84,33 +130,24 @@
     "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A": 11235064,
     "?PlayerPtr@@3PAVHouseClass@@A": 10706356,
     "?ScenarioInit@@3HA": 10749812,
-    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
     "?Detach@ObjectClass@@UAEXPBVAbstractClass@@_N@Z": 6110160,
     "??0Cell@@QAE@HH@Z": 4369712,
     "?Unlimbo@ObjectClass@@UAE_NABVCoord@@W4Dir256@@@Z": 6109328,
     "?Remove@DisplayClass@@QAEXPBVObjectClass@@@Z": 4823696,
-    "?Rule@@3PAVRulesClass@@A": 8624200,
     "??RRandom2Class@@QAEHHH@Z": 6523040,
     "__real@8@3fe08000000200000000": 7979648,
-    "__real@8@4001c90fdaa22168c000": 7981496,
     "__real@8@bff1c9116cc4faf2b800": 7976480,
-    "?sin@fastmath@@YANN@Z": 4957312,
     "?cos@fastmath@@YANN@Z": 4957392,
     "?Firestorm_On_Path@MapClass@@QAE?AVCoord@@ABV2@0PAVHouseClass@@@Z": 5676976,
-    "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ": 4659120,
-    "?Crossing_Firestorm@BuildingClass@@QAE_NPAVObjectClass@@_N@Z": 4525232,
     "?FindFirstObstacle@TrajectoryHelper@@SIPAVCellClass@@ABVCoord@@0PBVBulletTypeClass@@PBVHouseClass@@@Z": 4962448,
-    "__real@8@00000000000000000000": 7976464,
     "?Arm_Fuse@FuseClass@@QAEXABVCoord@@0HH@Z": 5041696,
     "?Submit@DisplayClass@@QAEXPBVObjectClass@@@Z": 4823616,
     "?GetObstacle@TrajectoryHelper@@SIPAVCellClass@@PBV2@00VCoord@@PBVBulletTypeClass@@PBVHouseClass@@@Z": 4963056,
     "?Distance@ObjectClass@@QBEHPBVAbstractClass@@@Z": 6114304,
-    "??0?$TPoint3D@H@@QAE@HHH@Z": 4306480,
     "?Detonate@BulletClass@@QAEXABVCoord@@@Z": 4595984,
     "?Coord_Scatter@@YI?AVCoord@@ABV1@H_N@Z": 4790096,
     "?NonCriticalRandomNumber@@3VRandom2Class@@A": 8622616,
     "?Get_Rad_Site@CellClass@@QAEPAVRadSiteClass@@XZ": 4705856,
-    "??2@YAPAXI@Z": 7872535,
     "??0RadSiteClass@@QAE@XZ": 6517408,
     "?SetBaseCell@RadSiteClass@@QAEXPAVCell@@@Z": 6518144,
     "?SetSpread@RadSiteClass@@QAEXH@Z": 6518160,
@@ -133,18 +170,14 @@
     "?Explosion_Damage@@YIHABVCoord@@HPAVTechnoClass@@PBVWarheadTypeClass@@_N@Z": 4711104,
     "?Combat_Anim@@YIPBVAnimTypeClass@@HPBVWarheadTypeClass@@W4LandType@@ABVCoord@@@Z": 4715728,
     "?Combat_Lighting@@YIXVCoord@@HPBVWarheadTypeClass@@HH@Z": 4716032,
-    "?Get_Explosion_Z@@YIHVCoord@@@Z": 4717760,
-    "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z": 4325648,
     "?Do_Atom_Damage@AnimClass@@SIXW4HousesType@@ABVCell@@@Z": 4336544,
     "?Adjacent_Cell@CellClass@@QBEABV1@W4FacingType@@@Z": 4680384,
     "_IID_IUnknown": 8060128,
     "_CLSID_BulletClass": 8002640,
     "__imp__CoCreateInstance@20": 7972336,
     "?Set_Bullet_Data@BulletClass@@QAEXPBVBulletTypeClass@@PAVAbstractClass@@PAVTechnoClass@@HPBVWarheadTypeClass@@H_N@Z": 4584688,
-    "?Length@?$TPoint3D@H@@QBEHXZ": 4306816,
     "?RadiusCount@MapClass@@2QBHB": 8018184,
     "?RadiusOffset@MapClass@@2QBVCell@@B": 10941000,
-    "?Is_Ally@HouseClass@@QBE_NPBVObjectClass@@@Z": 5133696,
     "?Speed@?$TVelocity2D@N@@QBENXZ": 4306992,
     "?Horizontal_Speed@?$TVelocity3D@N@@QBENXZ": 4306768,
     "?Speed@?$TVelocity3D@N@@QBENXZ": 4306880,
@@ -175,7 +208,6 @@
     "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A": 8625040,
     "__real@8@bfff8000000000000000": 7984504,
     "??1BulletClass@@UAE@XZ": 4584848,
-    "?Frame@@3HA": 10751276,
     "?AddRef@BulletClass@@UAGKXZ": 4602128,
     "?Release@BulletClass@@UAGKXZ": 4602160,
     "_$E2": 4583712,
@@ -259,7 +291,6 @@
     "?What_Action@ObjectClass@@UBE?AW4ActionType@@PBV1@_N@Z": 6106016,
     "?What_Action@ObjectClass@@UBE?AW4ActionType@@ABVCell@@_N1@Z": 6106032,
     "?Get_Image_Data@ObjectClass@@UBEPBXXZ": 6105008,
-    "?AI@BulletClass@@UAEXXZ": 4585232,
     "?As_Coord@AbstractClass@@UBE?AVCoord@@XZ": 4260576,
     "?In_Air@ObjectClass@@UBE_NXZ": 6116368,
     "?On_Ground@ObjectClass@@UBE_NXZ": 6116320,
@@ -315,14 +346,13 @@
     "?GetRemapColour@ObjectClass@@UBEPAXXZ": 4341344,
     "?Occupy_List@BulletClass@@UBEPBVCell@@_N@Z": 4585104,
     "?Mark@BulletClass@@UAE_NW4MarkType@@@Z": 4585200,
+    "?AI@BulletClass@@UAEXXZ": 4585232,
     "?Shape_Number@BulletClass@@UBEHXZ": 4591680,
     "?Draw_It@BulletClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z": 4591824,
     "?LoseTarget@BulletClass@@QAEXXZ": 4592752,
     "?Detach@BulletClass@@UAEXPBVAbstractClass@@_N@Z": 4592928,
     "?Unlimbo@BulletClass@@UAE_NABVCoord@@ABV?$TVelocity3D@N@@@Z": 4593328,
     "?In_Which_Layer@BulletClass@@UBE?AW4LayerType@@XZ": 4594672,
-    "?Is_Forced_To_Explode@BulletClass@@QBE_NAAVCoord@@@Z": 4594704,
-    "?Bullet_Explodes@BulletClass@@QAEX_N@Z": 4595168,
     "?ApplyRadiationToCell@BulletClass@@QAEXVCell@@HH@Z": 4601632,
     "?Load@BulletClass@@UAGJPAUIStream@@@Z": 4601776,
     "?Save@BulletClass@@UAGJPAUIStream@@H@Z": 4602096,
@@ -422,7 +452,7 @@
           "resolved": 8717024
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4583712,
@@ -474,7 +504,7 @@
           "resolved": 8717120
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4583760,
@@ -526,7 +556,7 @@
           "resolved": 8717104
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4583792,
@@ -578,7 +608,7 @@
           "resolved": 8717096
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4583824,
@@ -630,7 +660,7 @@
           "resolved": 8717032
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4583856,
@@ -682,7 +712,7 @@
           "resolved": 8716984
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4583888,
@@ -766,7 +796,7 @@
           "resolved": 8717128
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4583920,
@@ -826,7 +856,7 @@
           "resolved": 8717040
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4583984,
@@ -886,7 +916,7 @@
           "resolved": 8717088
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4584032,
@@ -946,7 +976,7 @@
           "resolved": 8717112
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4584080,
@@ -990,7 +1020,7 @@
           "resolved": 8717018
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4584128,
@@ -1042,7 +1072,7 @@
           "resolved": 8717080
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4584144,
@@ -1102,7 +1132,7 @@
           "resolved": 8717012
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4584176,
@@ -1210,7 +1240,7 @@
           "resolved": 3290687
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4584208,
@@ -1318,7 +1348,7 @@
           "resolved": 8717056
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4584272,
@@ -1474,7 +1504,7 @@
           "resolved": 10751212
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4584368,
@@ -1501,7 +1531,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4584688,
@@ -1689,7 +1719,7 @@
           "resolved": 1519273
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4584848,
@@ -1765,7 +1795,7 @@
           "resolved": 8717020
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4585104,
@@ -1792,7 +1822,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4585184,
@@ -1828,11 +1858,1314 @@
           "resolved": 1526374
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4585200,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4585232,
+      "method": "0045f710",
+      "body_bytes": 6438,
+      "body_sha256": "97d12c5a8f9b4b124cf799d7b9a3580c8ff25fb7956de5475dee07e6ea3fd7d1",
+      "padding_bytes": 10,
+      "full_extent_bytes": 6448,
+      "full_extent_sha256": "d7da2c3efc7ac83929186a6ee6dd87d69a2efa4d3a59bcd886858078b488b2c2",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Image-derived bound (manifests/image_bounds.csv, image_bounds.py; start dataslot@0079d3d0, end bound row)",
+      "padding_provenance": null,
+      "bound": "image-derived",
+      "symbol": "?AI@BulletClass@@UAEXXZ",
+      "symbol_prefix": "?AI@BulletClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?AI@ObjectClass@@UAEXXZ",
+          "target": 6105072,
+          "addend": 0,
+          "resolved": 1519817
+        },
+        {
+          "offset": 60,
+          "kind": 6,
+          "symbol": "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275256,
+          "addend": 0,
+          "resolved": 11275256
+        },
+        {
+          "offset": 70,
+          "kind": 6,
+          "symbol": "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275256,
+          "addend": 0,
+          "resolved": 11275256
+        },
+        {
+          "offset": 88,
+          "kind": 6,
+          "symbol": "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275256,
+          "addend": 16,
+          "resolved": 11275272
+        },
+        {
+          "offset": 101,
+          "kind": 6,
+          "symbol": "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275256,
+          "addend": 16,
+          "resolved": 11275272
+        },
+        {
+          "offset": 109,
+          "kind": 6,
+          "symbol": "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275256,
+          "addend": 4,
+          "resolved": 11275260
+        },
+        {
+          "offset": 123,
+          "kind": 6,
+          "symbol": "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275256,
+          "addend": 16,
+          "resolved": 11275272
+        },
+        {
+          "offset": 143,
+          "kind": 20,
+          "symbol": "?Bullet_Explodes@BulletClass@@QAEX_N@Z",
+          "target": 4595168,
+          "addend": 0,
+          "resolved": 9789
+        },
+        {
+          "offset": 341,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 362,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3286937
+        },
+        {
+          "offset": 420,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3286879
+        },
+        {
+          "offset": 463,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4294707245
+        },
+        {
+          "offset": 558,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 371406
+        },
+        {
+          "offset": 600,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 687,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 763,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 783,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 803,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 864,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 895,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 911,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 927,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 988,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 370976
+        },
+        {
+          "offset": 1106,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8717072,
+          "addend": 0,
+          "resolved": 8717072
+        },
+        {
+          "offset": 1184,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 1206,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 1233,
+          "kind": 6,
+          "symbol": "__real@8@3ffb8888888888888800",
+          "target": 7984496,
+          "addend": 0,
+          "resolved": 7984496
+        },
+        {
+          "offset": 1239,
+          "kind": 6,
+          "symbol": "__real@8@4001c90fdaa22168c000",
+          "target": 7981496,
+          "addend": 0,
+          "resolved": 7981496
+        },
+        {
+          "offset": 1247,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 370829
+        },
+        {
+          "offset": 1257,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 1279,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3273981
+        },
+        {
+          "offset": 1339,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4294687201
+        },
+        {
+          "offset": 1404,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 370560
+        },
+        {
+          "offset": 1412,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3273848
+        },
+        {
+          "offset": 1429,
+          "kind": 6,
+          "symbol": "__real@8@3fffc000000000000000",
+          "target": 7984488,
+          "addend": 0,
+          "resolved": 7984488
+        },
+        {
+          "offset": 1434,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3273826
+        },
+        {
+          "offset": 1566,
+          "kind": 20,
+          "symbol": "?Projectile_Motion@@YIHAAVCoord@@AAV?$TVelocity3D@N@@ABV1@ABVDirType@@_N444@Z",
+          "target": 5847152,
+          "addend": 0,
+          "resolved": 1260350
+        },
+        {
+          "offset": 1575,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1585,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 950971
+        },
+        {
+          "offset": 1738,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 370226
+        },
+        {
+          "offset": 1744,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 1826,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8717072,
+          "addend": 0,
+          "resolved": 8717072
+        },
+        {
+          "offset": 1844,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8717072,
+          "addend": 4,
+          "resolved": 8717076
+        },
+        {
+          "offset": 1852,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8717072,
+          "addend": 8,
+          "resolved": 8717080
+        },
+        {
+          "offset": 1886,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8717072,
+          "addend": 0,
+          "resolved": 8717072
+        },
+        {
+          "offset": 1894,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8717072,
+          "addend": 4,
+          "resolved": 8717076
+        },
+        {
+          "offset": 1902,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8717072,
+          "addend": 8,
+          "resolved": 8717080
+        },
+        {
+          "offset": 1921,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 2025,
+          "kind": 20,
+          "symbol": "?Length@?$TPoint3D@H@@QBEHXZ",
+          "target": 4306816,
+          "addend": 0,
+          "resolved": 4294686851
+        },
+        {
+          "offset": 2036,
+          "kind": 20,
+          "symbol": "?Length@?$TPoint3D@H@@QBEHXZ",
+          "target": 4306816,
+          "addend": 0,
+          "resolved": 4294686840
+        },
+        {
+          "offset": 2104,
+          "kind": 6,
+          "symbol": "__real@8@3ffefbbbbbbbbbbbb800",
+          "target": 7984480,
+          "addend": 0,
+          "resolved": 7984480
+        },
+        {
+          "offset": 2114,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 2133,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 2224,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2230,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 950326
+        },
+        {
+          "offset": 2252,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2257,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 1024667
+        },
+        {
+          "offset": 2263,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 8717112,
+          "addend": 0,
+          "resolved": 8717112
+        },
+        {
+          "offset": 2547,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 369417
+        },
+        {
+          "offset": 2553,
+          "kind": 6,
+          "symbol": "__real@8@40028000000000000000",
+          "target": 7984472,
+          "addend": 0,
+          "resolved": 7984472
+        },
+        {
+          "offset": 2580,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 2635,
+          "kind": 20,
+          "symbol": "?Get_Floater_Gravity@@YINXZ",
+          "target": 4717776,
+          "addend": 0,
+          "resolved": 129905
+        },
+        {
+          "offset": 2698,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 369266
+        },
+        {
+          "offset": 2706,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3272554
+        },
+        {
+          "offset": 2752,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 2768,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 2784,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 2845,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 369119
+        },
+        {
+          "offset": 2928,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3272332
+        },
+        {
+          "offset": 2942,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3272318
+        },
+        {
+          "offset": 2949,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3272311
+        },
+        {
+          "offset": 3068,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3073,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 1023851
+        },
+        {
+          "offset": 3079,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 8717112,
+          "addend": 0,
+          "resolved": 8717112
+        },
+        {
+          "offset": 3084,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3097,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 949459
+        },
+        {
+          "offset": 3122,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3127,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 949429
+        },
+        {
+          "offset": 3263,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3271997
+        },
+        {
+          "offset": 3276,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3271984
+        },
+        {
+          "offset": 3286,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3271974
+        },
+        {
+          "offset": 3299,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4294685241
+        },
+        {
+          "offset": 3316,
+          "kind": 20,
+          "symbol": "??Y?$TVelocity3D@N@@QAEAAV0@ABV0@@Z",
+          "target": 4604576,
+          "addend": 0,
+          "resolved": 16024
+        },
+        {
+          "offset": 3328,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3271932
+        },
+        {
+          "offset": 3341,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3271919
+        },
+        {
+          "offset": 3351,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3271909
+        },
+        {
+          "offset": 3361,
+          "kind": 20,
+          "symbol": "??0Coord@@QAE@HHH@Z",
+          "target": 4409376,
+          "addend": 0,
+          "resolved": 4294788075
+        },
+        {
+          "offset": 3371,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3376,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 1023548
+        },
+        {
+          "offset": 3382,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 8717112,
+          "addend": 0,
+          "resolved": 8717112
+        },
+        {
+          "offset": 3391,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3408,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 949148
+        },
+        {
+          "offset": 3446,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3451,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 949105
+        },
+        {
+          "offset": 3557,
+          "kind": 6,
+          "symbol": "__real@8@40069600000000000000",
+          "target": 7984464,
+          "addend": 0,
+          "resolved": 7984464
+        },
+        {
+          "offset": 3575,
+          "kind": 20,
+          "symbol": "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ",
+          "target": 4659120,
+          "addend": 0,
+          "resolved": 70309
+        },
+        {
+          "offset": 3592,
+          "kind": 20,
+          "symbol": "?Has_Wall_Or_Gate@CellClass@@QBE_NW4OverlayType@@W4FacingType@@@Z",
+          "target": 4675648,
+          "addend": 0,
+          "resolved": 86820
+        },
+        {
+          "offset": 3676,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NPBVObjectClass@@@Z",
+          "target": 5133696,
+          "addend": 0,
+          "resolved": 544784
+        },
+        {
+          "offset": 3854,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 3864,
+          "kind": 20,
+          "symbol": "?Get_Cell_Ramp@Tactical@@QAEHABVCoord@@@Z",
+          "target": 6975760,
+          "addend": 0,
+          "resolved": 2386660
+        },
+        {
+          "offset": 3878,
+          "kind": 20,
+          "symbol": "?Get_Slope_Matrix@@YI?AVMatrix3D@@H@Z",
+          "target": 7441760,
+          "addend": 0,
+          "resolved": 2852646
+        },
+        {
+          "offset": 3913,
+          "kind": 20,
+          "symbol": "?Orthogonal_Inverse@Matrix3D@@SI?AV1@ABV1@@Z",
+          "target": 5837856,
+          "addend": 0,
+          "resolved": 1248707
+        },
+        {
+          "offset": 3973,
+          "kind": 20,
+          "symbol": "??0Vector3@@QAE@MMM@Z",
+          "target": 4421264,
+          "addend": 0,
+          "resolved": 4294799351
+        },
+        {
+          "offset": 3998,
+          "kind": 20,
+          "symbol": "?Rotate_Vector@Matrix3D@@QAE?AVVector3@@ABV2@@Z",
+          "target": 5835984,
+          "addend": 0,
+          "resolved": 1246750
+        },
+        {
+          "offset": 4035,
+          "kind": 20,
+          "symbol": "??XVector3@@QAEAAV0@M@Z",
+          "target": 4421296,
+          "addend": 0,
+          "resolved": 4294799321
+        },
+        {
+          "offset": 4067,
+          "kind": 20,
+          "symbol": "?Rotate_Vector@Matrix3D@@QAE?AVVector3@@ABV2@@Z",
+          "target": 5835984,
+          "addend": 0,
+          "resolved": 1246681
+        },
+        {
+          "offset": 4182,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3271078
+        },
+        {
+          "offset": 4196,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3271064
+        },
+        {
+          "offset": 4210,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3271050
+        },
+        {
+          "offset": 4378,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8717128,
+          "addend": 0,
+          "resolved": 8717128
+        },
+        {
+          "offset": 4420,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 4426,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 948242
+        },
+        {
+          "offset": 4438,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 4443,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 948225
+        },
+        {
+          "offset": 4452,
+          "kind": 20,
+          "symbol": "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ",
+          "target": 4659120,
+          "addend": 0,
+          "resolved": 69432
+        },
+        {
+          "offset": 4461,
+          "kind": 20,
+          "symbol": "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ",
+          "target": 4659120,
+          "addend": 0,
+          "resolved": 69423
+        },
+        {
+          "offset": 4502,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8717128,
+          "addend": 0,
+          "resolved": 8717128
+        },
+        {
+          "offset": 4528,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 4541,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 948015
+        },
+        {
+          "offset": 4548,
+          "kind": 20,
+          "symbol": "?Cell_Techno@CellClass@@QBEPAVTechnoClass@@ABVPoint2D@@_NPBV2@@Z",
+          "target": 4658784,
+          "addend": 0,
+          "resolved": 69000
+        },
+        {
+          "offset": 4604,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NPBVObjectClass@@@Z",
+          "target": 5133696,
+          "addend": 0,
+          "resolved": 543856
+        },
+        {
+          "offset": 4711,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 367253
+        },
+        {
+          "offset": 4719,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3270541
+        },
+        {
+          "offset": 4825,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 4831,
+          "kind": 20,
+          "symbol": "?In_Radar@MapClass@@QBE_NABVCoord@@@Z",
+          "target": 5548800,
+          "addend": 0,
+          "resolved": 958733
+        },
+        {
+          "offset": 5106,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 366858
+        },
+        {
+          "offset": 5112,
+          "kind": 6,
+          "symbol": "__real@8@4002a000000000000000",
+          "target": 7983408,
+          "addend": 0,
+          "resolved": 7983408
+        },
+        {
+          "offset": 5202,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 5208,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 947348
+        },
+        {
+          "offset": 5215,
+          "kind": 20,
+          "symbol": "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ",
+          "target": 4659120,
+          "addend": 0,
+          "resolved": 68669
+        },
+        {
+          "offset": 5317,
+          "kind": 20,
+          "symbol": "?Crossing_Firestorm@BuildingClass@@QAE_NPAVObjectClass@@_N@Z",
+          "target": 4525232,
+          "addend": 0,
+          "resolved": 4294901975
+        },
+        {
+          "offset": 5383,
+          "kind": 20,
+          "symbol": "?Is_Forced_To_Explode@BulletClass@@QBE_NAAVCoord@@@Z",
+          "target": 4594704,
+          "addend": 0,
+          "resolved": 4085
+        },
+        {
+          "offset": 5483,
+          "kind": 20,
+          "symbol": "?Fuse_Checkup@FuseClass@@QAE?AW4FuseResultType@@ABVCoord@@@Z",
+          "target": 5041888,
+          "addend": 0,
+          "resolved": 451169
+        },
+        {
+          "offset": 5793,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 366171
+        },
+        {
+          "offset": 5801,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3269459
+        },
+        {
+          "offset": 5895,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 366069
+        },
+        {
+          "offset": 5903,
+          "kind": 6,
+          "symbol": "__real@8@40068000000000000000",
+          "target": 7976472,
+          "addend": 0,
+          "resolved": 7976472
+        },
+        {
+          "offset": 5919,
+          "kind": 6,
+          "symbol": "__real@8@40068000000000000000",
+          "target": 7976472,
+          "addend": 0,
+          "resolved": 7976472
+        },
+        {
+          "offset": 5972,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 365992
+        },
+        {
+          "offset": 6031,
+          "kind": 6,
+          "symbol": "??_C@_04JOHA@NUKE?$AA@",
+          "target": 8196664,
+          "addend": 0,
+          "resolved": 8196664
+        },
+        {
+          "offset": 6036,
+          "kind": 20,
+          "symbol": "??8AbstractTypeClass@@QBE_NPBD@Z",
+          "target": 4261824,
+          "addend": 0,
+          "resolved": 4294637848
+        },
+        {
+          "offset": 6077,
+          "kind": 20,
+          "symbol": "?Start_Nuke_Flash@IonStormClass@@SIXXZ",
+          "target": 5376160,
+          "addend": 0,
+          "resolved": 784847
+        },
+        {
+          "offset": 6106,
+          "kind": 20,
+          "symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z",
+          "target": 6534576,
+          "addend": 0,
+          "resolved": 1943234
+        },
+        {
+          "offset": 6111,
+          "kind": 6,
+          "symbol": "??_C@_08KHCJ@NUKEBALL?$AA@",
+          "target": 8196652,
+          "addend": 0,
+          "resolved": 8196652
+        },
+        {
+          "offset": 6116,
+          "kind": 20,
+          "symbol": "?From_Name@AnimTypeClass@@SI?AW4AnimType@@PBD@Z",
+          "target": 4347456,
+          "addend": 0,
+          "resolved": 4294723400
+        },
+        {
+          "offset": 6131,
+          "kind": 6,
+          "symbol": "?AnimTypes@@3V?$DynamicVectorClass@PAVAnimTypeClass@@@@A",
+          "target": 8806880,
+          "addend": 4,
+          "resolved": 8806884
+        },
+        {
+          "offset": 6152,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3281147
+        },
+        {
+          "offset": 6215,
+          "kind": 20,
+          "symbol": "?Get_Explosion_Z@@YIHVCoord@@@Z",
+          "target": 4717760,
+          "addend": 0,
+          "resolved": 126309
+        },
+        {
+          "offset": 6238,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4294701470
+        },
+        {
+          "offset": 6260,
+          "kind": 6,
+          "symbol": "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275256,
+          "addend": 8,
+          "resolved": 11275264
+        },
+        {
+          "offset": 6266,
+          "kind": 6,
+          "symbol": "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275256,
+          "addend": 16,
+          "resolved": 11275272
+        },
+        {
+          "offset": 6276,
+          "kind": 6,
+          "symbol": "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275256,
+          "addend": 13,
+          "resolved": 11275269
+        },
+        {
+          "offset": 6290,
+          "kind": 6,
+          "symbol": "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275256,
+          "addend": 20,
+          "resolved": 11275276
+        },
+        {
+          "offset": 6300,
+          "kind": 6,
+          "symbol": "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275256,
+          "addend": 0,
+          "resolved": 11275256
+        },
+        {
+          "offset": 6310,
+          "kind": 6,
+          "symbol": "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275256,
+          "addend": 0,
+          "resolved": 11275256
+        },
+        {
+          "offset": 6323,
+          "kind": 6,
+          "symbol": "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275256,
+          "addend": 16,
+          "resolved": 11275272
+        },
+        {
+          "offset": 6332,
+          "kind": 6,
+          "symbol": "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275256,
+          "addend": 16,
+          "resolved": 11275272
+        },
+        {
+          "offset": 6338,
+          "kind": 6,
+          "symbol": "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275256,
+          "addend": 4,
+          "resolved": 11275260
+        },
+        {
+          "offset": 6355,
+          "kind": 20,
+          "symbol": "?Bullet_Explodes@BulletClass@@QAEX_N@Z",
+          "target": 4595168,
+          "addend": 0,
+          "resolved": 3577
+        }
+      ],
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
+      "source": "src/bullet.cpp",
+      "population": "rebuild-bullet",
+      "source_order": 4585232,
+      "source_quality_family": "rebuild",
+      "bound_population": "image-bounds"
     },
     {
       "entry": 4591680,
@@ -1896,7 +3229,7 @@
           "resolved": 8047280
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4591680,
@@ -2228,7 +3561,7 @@
           "resolved": 252483
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4591824,
@@ -2296,7 +3629,7 @@
           "resolved": 945014
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4592752,
@@ -2444,7 +3777,7 @@
           "resolved": 8717064
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4592928,
@@ -2832,7 +4165,7 @@
           "resolved": 228967
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4593328,
@@ -2859,7 +4192,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4594672,
@@ -2975,7 +4308,7 @@
           "resolved": 1519168
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4594704,
@@ -3107,7 +4440,7 @@
           "resolved": 13
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4595168,
@@ -3783,7 +5116,7 @@
           "resolved": 4294694090
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4595984,
@@ -4491,7 +5824,7 @@
           "resolved": 2517282
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4598864,
@@ -4607,7 +5940,7 @@
           "resolved": 1916499
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4601632,
@@ -4867,7 +6200,7 @@
           "resolved": 2343498
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4601776,
@@ -4903,7 +6236,7 @@
           "resolved": 4294625212
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4602096,
@@ -4955,7 +6288,7 @@
           "resolved": 7971260
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4602128,
@@ -5007,7 +6340,7 @@
           "resolved": 7971264
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4602160,
@@ -5034,7 +6367,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4602224,
@@ -5094,7 +6427,7 @@
           "resolved": 4294949637
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4602256,
@@ -5234,7 +6567,7 @@
           "resolved": 243733
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4602368,
@@ -5261,7 +6594,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4602784,
@@ -5288,7 +6621,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4602800,
@@ -5404,7 +6737,7 @@
           "resolved": 5385
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4602816,
@@ -5568,7 +6901,7 @@
           "resolved": 7984504
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4602960,
@@ -5595,7 +6928,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4603520,
@@ -5622,7 +6955,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4603536,
@@ -5682,7 +7015,7 @@
           "resolved": 8002652
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4603552,
@@ -5709,7 +7042,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4603616,
@@ -5736,7 +7069,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4603632,
@@ -5780,7 +7113,7 @@
           "resolved": 3268134
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4603648,
@@ -5816,7 +7149,7 @@
           "resolved": 3268096
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4603680,
@@ -5844,7 +7177,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4603728,
@@ -5872,7 +7205,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4603760,
@@ -5909,7 +7242,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4603776,
@@ -5936,7 +7269,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4603808,
@@ -5981,7 +7314,7 @@
           "resolved": 3267808
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4603872,
@@ -6018,7 +7351,7 @@
           "resolved": 3267731
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4604048,
@@ -6046,7 +7379,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4604096,
@@ -6074,7 +7407,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4604160,
@@ -6119,7 +7452,7 @@
           "resolved": 3267501
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4604192,
@@ -6147,7 +7480,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4604368,
@@ -6200,7 +7533,7 @@
           "resolved": 3267323
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4604416,
@@ -6253,12 +7586,39 @@
           "resolved": 3267243
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4604496,
       "source_quality_family": "rebuild",
       "bound_population": "population-15"
+    },
+    {
+      "entry": 4604576,
+      "method": "004642a0",
+      "body_bytes": 33,
+      "body_sha256": "d74095bca632f183f6fbaf6a928a8ceea24c4bc04c68329131f4f6b272504c74",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "70ec1157ce238d191ed4dbe83af706777e7077296b5342c841e376c025e9029b",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??Y?$TVelocity3D@N@@QAEAAV0@ABV0@@Z",
+      "symbol_prefix": "??Y?$TVelocity3D@N@@QAEAAV0@ABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
+      "source": "src/bullet.cpp",
+      "population": "rebuild-bullet",
+      "source_order": 4604576,
+      "source_quality_family": "rebuild"
     },
     {
       "entry": 4604624,
@@ -6290,7 +7650,7 @@
           "resolved": 4294964790
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4604624,
@@ -6326,7 +7686,7 @@
           "resolved": 4294964806
         }
       ],
-      "source_sha256": "e137207ac268f77a68f8fd60dcfbb00a33edf39e6f5f8162467b1f40fb8ecfa4",
+      "source_sha256": "7d3ae5097295842064f497a34a7ca5743d55ea0ba7b2a317580f57868517a33f",
       "source": "src/bullet.cpp",
       "population": "rebuild-bullet",
       "source_order": 4604640,
