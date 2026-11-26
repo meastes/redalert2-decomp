@@ -2519,7 +2519,7 @@ void Tactical::Draw_Tile_Shadows(Rect const & area, Rect const & cliprect)
 /// </summary>
 /// <param name="cell">The cell whose tile needs refreshing.</param>
 /// <param name="cliprect">Not referenced; the tiles clip to the tactical rectangle.</param>
-#ifdef RA2_NON_MATCHING // not exact: 535 bytes differ against the image-derived bound 006a8560 (824 body bytes, 8 padding) (was 923; the two projected pixel positions and the shared last-subtile bound as ra2-decomp's banked form banks/0x006D7F20_tact.cpp (11df85d) has them, RA2's elevation test kept; 10 of 10 calls in order, frame 0x48 against 0x44); main: best 63.04, tried 7 times (inline, frame, register)
+#ifdef RA2_NON_MATCHING // not exact: 529 bytes differ against the image-derived bound 006a8560 (824 body bytes, 8 padding; ours 816 B) (lane F76, 2026-11-26: the elevation test on the image's height difference, which the draft had one level off in both arms (RobinDigitalPro/ra2-1001-decomp 7e84ed4 reads 1.001 the same way); left there: the image reads Elevation from the cell three times and keeps height in edx and draw in al, ours holds Elevation in al, draw in cl and reads Height again for the level test; not moved by the declaration order of draw, overlap and height, overlap set from draw, or the difference written out at each use (526 B). Robin's whole text is 385 B by position at the image's size with more instructions off (its elevation local is not the image's) (was 535, 923; the two projected pixel positions and the shared last-subtile bound as ra2-decomp's banked form banks/0x006D7F20_tact.cpp (11df85d) has them, RA2's elevation test kept; 10 of 10 calls in order, frame 0x48 against 0x44); main: best 63.04, tried 7 times (inline, frame, register)
 void Tactical::Draw_Tiles(Cell const & cell, Rect const & cliprect)
 {
 	CellClass * basecell = &Map[cell];
@@ -2557,18 +2557,18 @@ void Tactical::Draw_Tiles(Cell const & cell, Rect const & cliprect)
 				}
 
 				if (cellptr->Elevation > 0 && !draw) {
-					int diff = height - level - 1;
+					int diff = height - level; // RA2: the image tests height - level in the outer columns and height - level + 1 in the middle one (0x6A86D4 to 0x6A8703)
 					if (col != 1) {
 						if (diff < 0 && cellptr->Elevation + diff >= 0) {
 							draw = true;
 						} else {
 							draw = overlap;
 						}
-					} else if (height - level > 0) {
+					} else if (diff + 1 > 0) {
 						draw = overlap;
 					} else {
 						draw = true;
-						if (cellptr->Elevation + height - level <= 0) {
+						if (cellptr->Elevation + diff + 1 <= 0) {
 							draw = overlap;
 						}
 					}

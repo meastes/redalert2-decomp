@@ -5921,3 +5921,167 @@ change, rows that change listed), hdr.py (the header forms of one twin commit sw
   Distance_To calls. With the twin's header the last two move the wrong way here (5,727 and 5,780 B: both Length calls expand
   where the image calls them and two more point constructors are called), so the draft is unchanged. Coord_Dist does give the
   image's out-of-line `Coord(int, int, int)` call that the draft lacks.
+
+
+## A site that takes a call's result as its argument is a different unit from a site on the named local; a callee that must be refused in one unit and expanded in another has a size window, and it can be empty (found in the rebuild (lane F75, high))
+
+Found in the rebuild (lane F75, high); no row landed. Lane tools in build/r/f75 (removed at hand-back; copies in
+private/dossiers/fable/f75_tools): F74's gp.py, e.py and d.py, k.sh / kn.sh / kl.sh (one named variant of foot, fly, ldprgmgr),
+feat.py (Search_For_Tiberium_Weighted read as three features: the fourth Add called, the four Cell sums, the tail register),
+sft_grid.py (form grid), ge.sh / gh.sh / he.sh (a face.h form tried and put back, fly and hover read), inc.py (every unit
+checked at six jobs against a saved copy of build/r/last: rows whose status changes).
+
+- foot Search_For_Tiberium_Weighted 0x4CBB40 (1,467 B, 2 B): read by feature instead of by bytes. Three things move: whether
+  the fourth `celldist.Add` is called (the image calls all four), the operand order of the four Cell sums, and the register of
+  the CELL_NONE copy. The draft (Fetch_CellID) has the calls and the sums and the wrong register; `cellptr->CellID` has the
+  register, expands the fourth Add and loses all four sums. The twin's clamp forms are code-neutral with the accessor
+  (`numharv = max(1, numharv)`, `int divisor = max(1, share)` or MAX, `radius * 3 / numharv` with no ringspan local: all 2 B),
+  and with the member read `max`/MAX for the divisor keeps the fourth Add called (the if form does not) with one sum right of
+  four. A grid of 177 measured forms (numharv x divisor x weight x tail, f75_tools/sft_grid.out) has no cell with both sums and tail.
+- What decides it is one inline site after the loops plus one symbol. An empty inline called after the x loop (before or after
+  Sample, or inside the if) gives "fourth Add called, one sum of four, tail right": the site alone is the budget. A site ahead
+  of or inside the loops does nothing. The sums then need a symbol, and which symbol matters: an identity inline around the
+  call itself, `CellClass *cellptr = Site(celldist.Sample());`, with the member read, is exact (diagnostic only;
+  patches/f75_foot_sft_identity_site_diagnostic.patch). The same identity on the named local (`Site(cellptr)->CellID`,
+  `Site(cellptr) != NULL`), a reference-returning form, a by-value Cell wrapper at either return, a predicate on the pointer,
+  and an identity around `&Map[cell]` or the harvester type all miss. So the missing text takes Sample's result as an argument
+  before it is named. Not found as real text: Sample split into two levels in ddist.h (a Pick body under Sample, or
+  Sample(pick) under Sample(void)) does not do it (nested, not a root site), and Fetch_CellID returning `Cell const &` gives
+  the member state and flips foot 0x4C3000. Next angle: what RA2 wraps a distribution's sample in (a checked or typed
+  conversion of the sampled pointer) in audbag, house and teamtype, the other users of Sample.
+- A probe that adds IL raises this root's budget (2 x S above the 1,000 floor): one referenced local expands the fourth Add.
+  Read "every probe costs a call" as the root sitting on its own size, and probe with empty inline sites instead of locals.
+- fly Nearing_Target 0x4BE720 (1,633 B): robin's text is exact here once its pragma'd FlyTurnLimit::Magnitude_At_Least is bound
+  to 0x4BFB30 (the "2 B" was the unbound call). Its text is src-final's with our names; the coined part is only the fly-local
+  class, the helper and the pragma. With the header's `dir.Is_Complete_Turn(LinkedTo->PrimaryFacing.Current(), DIR_STEP_8)`
+  in their place every instruction is the image's except that operator>= is expanded (14 instructions; 1,056 B by position
+  against the draft's 547, 64 differing lines against 146: patches/f75_fly_nearing_target_robin_text_header_turn.patch).
+  Four empty sites after `if (turn) {` close it (three do not; F-lane's result reproduced on this base).
+- A heavier operator>= does refuse there, against the earlier record (which was on the older draft). The ladder, fly only:
+  not refused: the one-liner, `if (...) return(true); return(false);`, two named ints with `return(mine >= theirs)` in either
+  order, a named bool, a conditional, ints then abs in the return. Refused: `int mine = As_Int(); int theirs =
+  rvalue.As_Int(); mine = abs(mine); theirs = abs(theirs); return(mine >= theirs);` (Nearing_Target exact and the out-of-line
+  copy 0x4BFB30 exact, 36 B), two ints with if/return (copy 32 B, not the image's), written-out negations, MAX forms.
+- It cannot land: the same header is expanded in hover. With the refused form hover Process 0x4FBFC0 calls the operator
+  where the image expands it and Motion_AI 0x4FDAF0 changes; bodies one step lighter (one int assigned and then abs'd, the
+  other inline) already change Motion_AI and are not yet refused in fly; only the forms with a single named int leave hover
+  alone, and they are not refused. The size window between fly's refusal and hover's expansion is empty, so the operator's
+  body is not the lever and the four sites stand. Not it either: operator- through As_Int, the difference copy-initialised,
+  built from the two As_Int values, unnamed, or by `-=`; the second direction as the free Direction, DirType(Direction(..)),
+  DirType().Direction(..) at the root, an explicit Coord(coord).
+- When a shared inline must be refused in one unit, run the units that expand it in the same pass (gh.sh: fly, its own copy,
+  then hover, building, unit, infantry through inc.py). A form that is exact in the row's unit and its out-of-line copy is
+  not a finding until the expanding units are read.
+- ldprgmgr LoadProgressManager::Draw 0x535BF0 (F73's 966 B draft; 1,092 by position here, 163 differing lines): read as an
+  order of choice. In the image the country and then its name share ebp (the country is reloaded from its slot after
+  Country_Name), zero and later the text colour share ebx; ours has the pairs exchanged. Every earlier probe fits one rule:
+  the first of name and text colour to choose takes ebp (more name references, fewer colour references, or a longer stretch
+  under the colour all give the image). The top of the function (test against cmp for the new expression, the second zero
+  for the campaign pointers) follows from that choice and is not a separate miss. Not it, each the same code: the twin's
+  bodies for Shade_Text_Area (a box and a copied area) and Draw_Area_Text (the colour built blue-first); the whole body
+  under `if (ProgressSurface != NULL)`; the campaign picture name as a conditional; the colour or the name declared at the
+  top of the branch or of the function and assigned later. Computing the colour after Country_Name is far worse (504 lines).
+
+## A third reference's study of the tree's own draft is read before the draft; a short bit copy in an expanded assignment follows the variables, not a count; a draft's arithmetic is checked against the image before its registers (found in the rebuild (lane F76, high))
+
+Found in the rebuild (lane F76, high); no row landed, three guarded drafts moved (map Set_Map_Dimensions 0x5484E0 3,665 to
+590 B; walk Movement_AI 0x71E220 3,504 to 946 B; tactical Draw_Tiles 0x6A8560 535 to 529 B with its arithmetic corrected).
+Lane tools in build/r/f76 (removed at hand-back; copies in private/dossiers/fable/f76_tools): F74's gp.py, e.py, d.py; m.sh
+and k.sh (one measure, one named variant), pr.sh / pm.sh (k referenced probes at the top or ahead of a marker line), gg.sh
+(scratch-temp gauge statements ahead of a marker), tf.py (where an expanded bitfield copy uses the short form), tg.py
+(named toggles in any combination, one score line each), hy.py (a reference's text with each diff hunk taken back to the
+tree's text singly, or the reverse), tp.py (a reference's function transplanted and measured beside the tree's).
+
+- Robin's 1.001 tree starts from this tree's text (its inventory names `meastes1006_*.cpp` as the source), and it has gone
+  on working the same parked functions. Its inventory (docs/inventory.csv: source_status, differing_bytes) and its
+  docs/OPEN_PATTERNS.md hold a study per function. For a parked row, `grep <function> docs/inventory.csv` there first: a
+  smaller differing_bytes than the guard label's score means text worth a transplant (tp.py), whatever the build
+  difference; Set_Map_Dimensions and Movement_AI have the same size in 1.001 and 1.006. Its forms marked STEERING or
+  INFERRED are not evidence; they are kept in a guarded draft only as the best score and named in the label.
+- Set_Map_Dimensions with robin's BB2 forms: the saved cells indexed (`cells[cellcount]`, `cells_base + i`), the shift in
+  its own Cell, freshcalled set ahead of the restore block, `delete cells`, the object loop on its own counter (the image
+  has two `xor` for two zero starts where one variable gives one), and the tube ends through a nested inline (the image's
+  two calls of TPoint2D<short>::operator+= 0x56AA20 with Tubes[i] loaded once; the flat statements expand both). The
+  size and the instruction count are the image's; four hunks are left.
+- Hunk one: TibSun and ra2-decomp clear cellcount at its declaration ahead of `if (!reset_cells)`. That form gives the
+  image's `xor edi, edi / mov al, [reset] / mov [cellcount], edi / test al, al / jne` and its `test esi, esi`, and then
+  keeps operator new's result in a callee-saved register up to the loop (the image stores it to both slots at once and
+  reloads it), with ebp and edi exchanged from the top and cellcount in a new slot at the bottom of the frame (4,816 B).
+  Cleared inside the block (robin) the frame and registers are the image's and the store is one place late. Not found:
+  the declaration at five places, an else arm holding the store (the order comes right, the registers after the block
+  do not), the reversed arms, the assignment chained or reordered, a destination pointer local, probes 1 to 16.
+- Hunk two is one short bit copy. The expanded CellClass assignment copies each one-bit field as load, copy, xor, and,
+  xor, store; the short form drops the copy and xors into the loaded register. The image's save loop has none and its
+  restore copy has one, at bit 16 of the word at +0x140. It is not a count: referenced probes 1 to 62 at the top, 1 to 12
+  between the two copies and 1 to 8 inside the restore loop leave it where it is. It moves with the variables the
+  copies and the later bridge loop read through: no reference in the restore copy, none anywhere (2 B long, 1,739 by
+  position); `CellClass const &from = *cptr` there, one at bit 1 of +0x12C; the bridge loop on cptr instead of its own
+  pointer, one at bit 11 of +0x140 in the save copy, which is IsBridgeEastWest, the bit that loop reads; other
+  combinations give runs of 5 to 38. tf.py lists them; a state with exactly one short copy is the family to stay in.
+- Scratch-temp gauge statements (robin's B4: `g = member;`) are too heavy here: one of them anywhere ahead of the
+  restore copy gives runs of short copies in both copies.
+- A guard that changes the unit's compiler-numbered symbols when open (map: Close_Object's guard variable `$S266` becomes
+  `$S268`) reports rows after it as differing or missing. Read the difference before treating it as a lost row: it is a
+  binding, relearned at landing. Zone_Reset 0x54EBD0 (count_watch) is a real turn: with this guard open it is exact only
+  with 9 to 19 more referenced locals in the function, so the landing form has to be measured on that row as well.
+- Movement_AI with robin's batch 71 text is the image's size with 40 hunks, most in the tube block. hy.py over its 29
+  hunks against the tree's earlier text: eight change nothing, one (the exit height in one expression) gives 28 fewer
+  differing lines for 3 bytes more, the rest turn the call list or the frame (1,588 to 4,627 B). Two neutral reverts
+  taken together were not neutral (4,690 B): this function sits on its inline budget, so hunks are judged in sets.
+- Draw_Tiles: the draft's elevation test was one level off in both arms (`height - level - 1` where the image computes
+  `height - level`, and `+ 1` in the middle column). Robin's comment on 1.001 pointed at it; the image listing confirms
+  it for 1.006. A parked draft is what the ports run, so its arithmetic is read against the image even when the row will
+  not land. What is left there is one allocation: the image reads Elevation from the cell three times and keeps height
+  in edx and draw in al; ours holds Elevation in al and reads Height again.
+- Read and left: StripClass::Recalc (ra2-decomp's twin calls the member the image expands; robin's form is a
+  target-local second copy of Update_Column_Availability, refused as a second name), Adjust_Control_Position (robin has
+  the same one byte and keeps Is_Listed_Kind out of line by pragma), Draw_Ellipse (robin 1,220 against 1,229),
+  Draw_Shroud_Or_Fog_Shape (ra2-decomp and robin both carry it as assembly-shaped text).
+
+## Coined trailing inline sites can stand for a root that is too heavy: N sites behind a nest equal 48 N units of the root's own text; read the nest's call pattern, not the frame (found in the rebuild (lane F77, high))
+
+Found in the rebuild (lane F77, high); one row landed reader-free (techno TechnoClass::Draw_Post_Render 0x6C2C40, 3,341 B, with
+TPoint3D<int>::operator/ 0x6D9770; held since lane F6 on main's coined Mouse_Hover_Flag / Techno_Is_Selected). Lane tools in
+build/r/f77 (removed at hand-back; copies in private/dossiers/fable/f77_tools): gen.py (the function written from named toggles,
+one per reference form), g.sh / q.sh (one toggle set, one score line with the bracket call pattern), combo.sh (every subset),
+pk.sh (referenced probes), pat.sh (the call pattern), sim.py (the /Ob2 rule run over the function's sites), hdrcheck.sh (every
+includer before and after a header change, baseline first).
+
+- Read the miss as a call pattern. Each `center + Coord(x, y, z)` argument is two sites (the Coord wrapper, operator+), each with
+  the out-of-line point constructor 0x41B630 nested one level down. The image's four double-bracket statements call it 0, 1, 2
+  and 3 times (`D cD ccD cccD`), then four times at every single bracket: the nested share (budget left // sites still pending
+  in the root) falls below the constructor's 48 units part-way through. Printing that pattern for every variant (pat.sh) showed
+  that the draft's "register allocation differs through the whole function, this in ebp" states were other patterns
+  (`D D cccD ccD`), not a register question: a different set of expanded constructors changes the pressure everywhere.
+- A free inline site behind the nest raises the divisor for every site ahead of it. By the rule (refuse the nested callee when
+  48 > R // N) N + k sites with budget R decide exactly as N sites with R - 48 k, and R is twice the root's own IL size. So the
+  two coined readers stood for a root 48 units lighter. Measured the same way: the draft plus 12 referenced probes
+  (`int p; p = 0;`, about 4 units each) is where the exact reader text sits, and one reader moves the pattern like six probes.
+  When a row is exact only with coined trailing sites, ask what in the root is 48 units per site too wordy before looking for
+  real accessors.
+- The lighter text was the twin's and the archive's, form by form: a returned object copied straight into its local
+  (`Coord center = Center_Coord();`, about 5 probes lighter than a named reference plus a copy), `Point3D dim =
+  TClass->Lepton_Dimensions();` in place of a named reference and a Coord conversion (the image's copy through a second
+  register is this form's, not a reference's), a test and its cast in one condition with no local, a one-line `if (x < 2) x = 2;`
+  (a braced single statement is a unit), a pointer tested without `!= NULL` as a whole condition (inside an && chain it costs
+  nothing), `(int)timer` for `timer.Value()`. Spellings that cost nothing here: default arguments written out or not, a pointer
+  cast on an argument (one to six stacked casts), the operand order of a constant product, local names.
+- F49 had measured each twin form alone as "worse" and the whole twin text as worse. Both readings were right and beside the
+  point: on a budget ladder a single form moves the state one notch into a worse pattern, and the whole twin text carries
+  Yuri's Revenge's nesting where RA2 has one condition. Take the forms as a set and survey the subsets (128 compiles here)
+  with the pattern printed; the near states then line up (overshoot by one unit: 3,360 B with the fourth bracket's expanded
+  constructor on the wrong argument; exact; one unit under: the first single bracket expands one more).
+- The sibling image can be in another budget state. Yuri's Revenge's twin calls the constructor `cD ccD cccD ccD` and keeps this
+  in ebp, which is one of the states RA2's draft passes through. A twin that matches there with plain text is evidence for the
+  text, not for RA2's budget; RA2's function is the same text with RA2's own lines.
+- What was left to choose was one unit: `int y = dim.Y /= 2;` against `dim.Y /= 2; int y = dim.Y;` (same code; the image
+  keeps the half in the dimensions' Y slot, which the twin's `int y = dim.Y / 2;` does not, 4 bytes of frame). Landed flagged
+  [spelling]. The window is this text and two lighter steps.
+- A virtual and a non-virtual declaration of one function: vtable slot 247 of every TechnoClass vtable holds 0x6C3B20, the
+  empty Draw_Health_Bar_Old, which the header also declared as `Unknown_Virtual_3DC(unsigned, unsigned)`. Declared once as
+  the virtual and called by name (the archive's line) the row is exact too, but one declaration fewer in techno.h flips
+  sidebar SelectClass::Action 0x6809F0 (count_watch) and startup WinMain 0x68E280. Held; the patch is in the dossier. A
+  structure fix in a widely included header is checked against every includer on a same-session baseline before it is
+  chosen as a budget unit, and a row should not depend on it: this one is exact with and without.
+- build/r/last after a header trial holds the trial's results for every includer. Check those units again on the final tree
+  before `rebuild.py catalog`, or the catalog leaves out the rows the trial flipped ("unguarded drafts").

@@ -1,0 +1,10 @@
+unit,entry,function,bytes,class,first_try,minutes,note
+(map),,"robin 1.001 map refreshed (private/dossiers/robin_1001_map_2026-11-26.csv, 105 parked rows / 154,867 B)",0,map,yes,45,"robin at 5ca3ecd: 10 new claims since bd7e611, none parked here but Projectile_Motion (held; its claimed text compiles identical in our toolchain); 46 claimed rows of 100 B or more recompiled from robin's TUs with our toolchain. Calibration: no"
+unit,006ff690,UnitClass::Unit_Draw_Voxel,3861,b,no,40,"robin's body exact here only with TibSun matrix3d.h Matrix3D::operator= (memcpy) and robin's INFERRED shadow offsets Point2D(0, 14).Y / Point2D(0, 60).Y; with the archive's -= 14 / -= 60 or without operator=, 2,468 B. operator= over all 444 units flips techno 0x6D24E0, drive 0x4A0050, ship 0x676010, voxel 0x718060, queue 0x62A360 and sidebar 0x6819A0 (count_watch): refused; draft unchanged at 2,461 B. Calibration: no"
+tactical,006ac420,Tactical::Draw_Radial_Indicators,893,b,no,10,"robin's text 334 B here (ours 820) through its STEERING forms; the ra2-decomp twin's forms alone 819 B: no change. Calibration: no"
+mapgen,0056ef20,MapRegionClass::Split_Region,4012,b,no,3,"robin's text transplanted 1,566 B, ours 1,285 B. Calibration: no"
+mapgen,00579960,MapGeneratorClass::Read_RMG_INI,1897,b,no,3,"robin's text transplanted 221 B, same as ours. Calibration: no"
+ownrdraw,005e8130,OwnerDraw::Init_Control_Animation,1110,b,no,3,"robin's text needs its Is_Listed_Dialog_Kind (bool); not ported. Calibration: no"
+ownrdraw,005e9410,OwnerDraw::Adjust_Control_Position,1938,b,no,3,"robin's text needs its Draw_Arrow arity; F76: its 1 B rests on a pragma'd out-of-line helper. Calibration: no"
+wonline,00759370,Run_Online_Menu,2687,b,no,3,"robin's text needs wonline helpers absent here; 1.001 body 2,544 vs 1.006 2,688 B. Calibration: no"
+tactical,006a45a0,Tactical::Render,3288,b,no,3,"robin's text needs Psychic_Detector_Covers_Techno and SuperClass::Is_Suspended; ours 2,647 B. Calibration: no"

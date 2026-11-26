@@ -222,7 +222,12 @@ void STDMETHODCALLTYPE WalkLocomotionClass::Force_Immediate_Destination(CoordStr
  * HISTORY:                                                                                    *
  *   07/29/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 3504 bytes differ against the image-derived bound 0071e220 (4,967 B) (image-faithful read; position score 3504, was 3482: LinkedTo reloaded after Per_Cell_Process and IsActive read at once, no null branch, as RA2 1.001 walk.cpp and the original at 0071f196; owner ruling 2026-11-25); the EMP stop and further movement are alternatives in the expansion walk bank (previously 3483 bytes differed; the non-tube movement in the else branch as in the expansion walk bank; the tube entrance read into its own Cell as ra2-decomp's ship tube block (PR257) does; the tube path shift sized by ARRAY_SIZE(LinkedTo->Path) as TibSun and the bank write it; the visual cell coordinate evaluated inside the LastTubeCoord sum as ra2-decomp's banked form banks/0x0075AEC0_returns.cpp (11df85d) has it; the end of the move as TibSun walk.cpp and the bank write it; TibSun walk.cpp's tube intermediates and the bank's single arrival test bring back the second three-axis Coord constructor: all 119 calls in native order); main: best 89.83, tried 12 times (frame, inline, register)
+#ifdef RA2_NON_MATCHING // not exact: 946 bytes differ against the image-derived bound 0071e220 (4,967 B; ours 4,967 B, 1,500 instructions against 1,505, 40 hunks, most in the tube block) (lane F76, 2026-11-26: RobinDigitalPro/ra2-1001-decomp 7e84ed4 src/m85/src/walk.cpp (its batch 71, 22ebdd6) in this tree's names, kept as the best score: the receiver read once per block (tube_foot, adjacent_foot, temp_foot), the tube ends read through one Cell, the height difference in its own local, the adjacent coordinate through an inferred inline, the arrival test in two nested ifs with the stop written twice, the EMP stop as an early return, IsNewNavCom cleared on each path with one shared tail; its named copies and the goto are not evidenced. Each of its forms taken back to this tree's earlier text singly: no change (the accessor Get_Exit, the Distance call, the one-line return), 949 B with 28 fewer diff lines (the exit height in one expression), or 1,588 to 4,627 B (the others: the call list or the frame turns). Robin's frame study: the image's plain frame against an aligned one is decided by one register candidate's weight, docs/OPEN_PATTERNS.md "VC6 aligned frames". Was 3504: (image-faithful read; position score 3504, was 3482: LinkedTo reloaded after Per_Cell_Process and IsActive read at once, no null branch, as RA2 1.001 walk.cpp and the original at 0071f196; owner ruling 2026-11-25); the EMP stop and further movement are alternatives in the expansion walk bank (previously 3483 bytes differed; the non-tube movement in the else branch as in the expansion walk bank; the tube entrance read into its own Cell as ra2-decomp's ship tube block (PR257) does; the tube path shift sized by ARRAY_SIZE(LinkedTo->Path) as TibSun and the bank write it; the visual cell coordinate evaluated inside the LastTubeCoord sum as ra2-decomp's banked form banks/0x0075AEC0_returns.cpp (11df85d) has it; the end of the move as TibSun walk.cpp and the bank write it; TibSun walk.cpp's tube intermediates and the bank's single arrival test bring back the second three-axis Coord constructor: all 119 calls in native order); main: best 89.83, tried 12 times (frame, inline, register)
+static inline Coord Walk_Adjacent(Coord const & start, Point2D const & offset) // RA2: RobinDigitalPro/ra2-1001-decomp's inferred helper (the adjacent coordinate with the height kept)
+{
+	return Point3D(Point2D(start.X, start.Y) + offset, start.Z);
+}
+
 void WalkLocomotionClass::Movement_AI(bool first_pass)
 {
 	if (HeadToCoord == COORD_NONE) {
@@ -248,7 +253,7 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 								LinkedTo->TryTryAgain--;
 							} else {
 								if (LinkedTo->IsNewNavCom) {
-									VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000); // RA2: as in drive.cpp
+									VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000, 0); // RA2: as in drive.cpp
 								}
 								LinkedTo->IsNewNavCom = false;
 
@@ -290,15 +295,16 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 				}
 			}
 
-			FacingType dir = LinkedTo->Path[0];
+			FootClass * const tube_foot = LinkedTo;
+			FacingType dir = (FacingType)tube_foot->Path[0];
 			if (dir == FACING_COUNT) {
-				int tube = Map[LinkedTo->Get_Coord()].Tube;
+				int tube = Map[tube_foot->Get_Coord()].Tube;
 				if (tube >= 0 && tube < Tubes.Count()) {
-					LinkedTo->Mark(MARK_UP);
+					tube_foot->Mark(MARK_UP);
 					LinkedTo->Clear_Occupy_Bit(LinkedTo->Get_Coord());
 
 					TubeClass * tube_ptr = Tubes[tube];
-					Cell cell = tube_ptr->Get_Exit();
+					Cell cell = tube_ptr->Exit;
 					HeadToCoord = Coord(cell, 0);
 
 					memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * (ARRAY_SIZE(LinkedTo->Path) - 1));
@@ -307,13 +313,17 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 					LinkedTo->CurrentTube = tube;
 					LinkedTo->CurrentTubeDir = FACING_FIRST;
 
-					Cell entry = tube_ptr->Enter;
-					Cell visual_cell = Adjacent_Cell(entry, tube_ptr->Dirs[0]);
-					Coord enter_coord(entry);
-					LinkedTo->LastTubeCoord = LinkedTo->Get_Coord() + (Map[visual_cell].Cell_Coord() - enter_coord);
+					cell = tube_ptr->Enter;
+					Coord enter_coord(cell);
+					Coord visual_coord = Map[Adjacent_Cell(cell, tube_ptr->Dirs[0])].Cell_Coord();
+					LinkedTo->LastTubeCoord = LinkedTo->Get_Coord() + (visual_coord - enter_coord);
 
 					int start_h = Map.Get_Height_GL(LinkedTo->Get_Coord());
-					LinkedTo->LastTubeCoord.Z = start_h + (Map.Get_Height_GL(Coord(tube_ptr->Get_Exit(), 0)) - start_h) / tube_ptr->Get_Count();
+					cell = tube_ptr->Exit;
+					int count = tube_ptr->Count;
+					int end_h = Map.Get_Height_GL(cell);
+					int height_difference = end_h - start_h;
+					LinkedTo->LastTubeCoord.Z = start_h + height_difference / count;
 					return;
 				}
 
@@ -323,10 +333,13 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 				LinkedTo->Assign_Destination(NULL);
 				return;
 			} else {
-				Coord coord = Adjacent_Cell(LinkedTo->Get_Coord(), dir);
+
+				FootClass * const adjacent_foot = LinkedTo;
+				Point2D const & offset = AdjacentPoint[(int)dir & 7]; // RA2: a named reference (not evidenced)
+				Coord coord = Walk_Adjacent(adjacent_foot->Get_Coord(), offset);
 				Cell cell = coord;
 
-				if (LinkedTo->IsOnBridge ^ Map[Adjacent_Cell(LinkedTo->Get_Coord(), dir)].IsUnderBridge) {
+				if (adjacent_foot->IsOnBridge ^ Map[Adjacent_Cell(adjacent_foot->Get_Coord(), dir)].IsUnderBridge) {
 					LinkedTo->IsPlanningToLook = true;
 				}
 
@@ -343,9 +356,10 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 							LinkedTo->PathDelay = 0;
 							Movement_AI(false);
 						} else {
-							int dist = LinkedTo->Center_Coord().Distance_To(DestinationCoord);
+							FootClass * const temp_foot = LinkedTo; // RA2: the receiver read once for the Center_Coord call (not evidenced)
+							int dist = temp_foot->Center_Coord().Distance_To(DestinationCoord);
 							if (dist < Rule->CloseEnoughDistance &&
-								!LinkedTo->HasAnyLink() /* RA2: HasAnyLink, not In_Radio_Contact */ &&
+								!LinkedTo->HasAnyLink() && // RA2: HasAnyLink, not In_Radio_Contact
 								abs(DestinationCoord.Z - LinkedTo->Get_Coord().Z) < 2 * LEVEL_LEPTON_H &&
 								Map[LinkedTo->Get_Coord()].Land_Type() != LAND_TUNNEL) {
 
@@ -421,6 +435,7 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 							LinkedTo->Set_Speed(0.0);
 							Stop_Moving();
 							LinkedTo->IsNewNavCom = false;
+							LinkedTo->IsNewNavCom = false;
 							return;
 						}
 					} else {
@@ -438,25 +453,30 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 
 				if (Mark_Head_To(coord)) {
 					IsReallyMoving = true;
-					if (!LinkedTo->IsActive) return;
+					if (!LinkedTo->IsActive) {
+						return;
+					}
 					DirStruct face = (DirStruct &)::Direction(LinkedTo->Center_Coord(), HeadToCoord);
 					Do_Turn(face);
 					LinkedTo->Set_Speed(1.0);
 				} else {
 					LinkedTo->Set_Speed(0.0);
 				}
+				LinkedTo->IsNewNavCom = false;
+				return;
 			}
 		} else {
 			if (LinkedTo->Speed > 0.0) {
 				LinkedTo->Set_Speed(0.0);
 			}
+			goto clear_new_nav; // RA2: the flag write shared with the cell entry path (not evidenced)
 		}
-		LinkedTo->IsNewNavCom = false;
 	} else {
 
 		IsReallyMoving = true;
 
-		if (Distance(Point2D(LinkedTo->Center_Coord()), Point2D(HeadToCoord)) < 17) {
+		Point2D delta = Point2D(LinkedTo->Center_Coord()) - Point2D(HeadToCoord);
+		if (delta.Length() < 17) {
 			LinkedTo->Mark(MARK_UP);
 
 			if (LinkedTo->Path[0] == FACING_NONE) {
@@ -480,14 +500,22 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 			LinkedTo->Per_Cell_Process(PCP_END);
 
 			if (LinkedTo->IsActive && !LinkedTo->IsInLimbo && !LinkedTo->IsFalling) {
-				if (DestinationCoord == COORD_NONE ||
-					(LinkedTo->Destination_Coord().As_Cell() == DestinationCoord.As_Cell() &&
-						abs(LinkedTo->Destination_Coord().Z - DestinationCoord.Z) < 2 * LEVEL_LEPTON_H)) {
+				if (DestinationCoord == COORD_NONE) {
 					LinkedTo->Assign_Destination(NULL);
 					LinkedTo->Set_Speed(0.0);
 					HeadToCoord = COORD_NONE;
 					Stop_Moving();
 					IsReallyMoving = false;
+				} else {
+					if (LinkedTo->Destination_Coord().As_Cell() == DestinationCoord.As_Cell()) {
+						if (abs(LinkedTo->Destination_Coord().Z - DestinationCoord.Z) < 2 * LEVEL_LEPTON_H) {
+							LinkedTo->Assign_Destination(NULL);
+							LinkedTo->Set_Speed(0.0);
+							HeadToCoord = COORD_NONE;
+							Stop_Moving();
+							IsReallyMoving = false;
+						}
+					}
 				}
 
 				LinkedTo->Mark(MARK_DOWN);
@@ -499,48 +527,52 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 		if (LinkedTo->IsUnderEMP()) { // RA2: the virtual, as in Process
 			IsReallyMoving = false;
 			LinkedTo->IsNewNavCom = false;
-		} else {
-			LinkedTo->Set_Speed(1.0);
-			int speed = LinkedTo->Current_Speed();
-			LinkedTo->IsToPathAroundBlockage = false;
+			return;
+		}
 
-			DirStruct face = (DirStruct &)::Direction(LinkedTo->Center_Coord(), HeadToCoord);
-			Do_Turn(face);
+		LinkedTo->Set_Speed(1.0);
+		int speed = LinkedTo->Current_Speed();
+		LinkedTo->IsToPathAroundBlockage = false;
 
-			Cell old_cell = LinkedTo->Get_Cell();
-			Coord new_coord = Move_Coord(LinkedTo->Get_Coord(), face, speed);
-			Cell new_cell = new_coord.As_Cell();
+		DirStruct face = (DirStruct &)::Direction(LinkedTo->Center_Coord(), HeadToCoord);
+		Do_Turn(face);
 
-			if (old_cell != new_cell) {
-				LinkedTo->Mark(MARK_UP);
-				LinkedTo->Set_Coord(new_coord);
+		Cell old_cell = LinkedTo->Get_Cell();
+		Coord new_coord = Move_Coord(LinkedTo->Get_Coord(), face, speed);
+		Cell new_cell(new_coord);
 
-				CellClass * old_cellptr = &Map[old_cell];
-				CellClass * new_cellptr = &Map[new_cell];
+		if (old_cell != new_cell) {
+			LinkedTo->Mark(MARK_UP);
+			LinkedTo->Set_Coord(new_coord);
 
-				if (new_cellptr->Height == old_cellptr->Height - BRIDGE_CELL_HEIGHT) {
-					if (new_cellptr->IsUnderBridge) {
-						LinkedTo->IsOnBridge = true;
-					}
+			CellClass * old_cellptr = &Map[old_cell];
+			CellClass * new_cellptr = &Map[new_cell];
+
+			if (new_cellptr->Height == old_cellptr->Height - BRIDGE_CELL_HEIGHT) {
+				if (new_cellptr->IsUnderBridge) {
+					LinkedTo->IsOnBridge = true;
 				}
-				if (!new_cellptr->IsUnderBridge && old_cellptr->IsUnderBridge) {
-					LinkedTo->IsOnBridge = false;
-				}
-
-				LinkedTo->Set_Height_AGL(0);
-				LinkedTo->Mark(MARK_DOWN);
-				Map[LinkedTo->Get_Coord()].Trigger_Veins();
-				LinkedTo->IsNewNavCom = false;
-			} else {
-				bool was_down = LinkedTo->IsDown;
-				LinkedTo->IsDown = false;
-				LinkedTo->Set_Coord(new_coord);
-				LinkedTo->Set_Height_AGL(0);
-				LinkedTo->IsDown = was_down;
-				LinkedTo->IsNewNavCom = false;
 			}
+			if (!new_cellptr->IsUnderBridge && old_cellptr->IsUnderBridge) {
+				LinkedTo->IsOnBridge = false;
+			}
+
+			LinkedTo->Set_Height_AGL(0);
+			LinkedTo->Mark(MARK_DOWN);
+			CellClass & entered = Map[LinkedTo->Get_Coord()];
+			entered.Trigger_Veins();
+		} else {
+			bool was_down = LinkedTo->IsDown;
+			LinkedTo->IsDown = false;
+			LinkedTo->Set_Coord(new_coord);
+			LinkedTo->Set_Height_AGL(0);
+			LinkedTo->IsDown = was_down;
+			LinkedTo->IsNewNavCom = false;
+			return;
 		}
 	}
+clear_new_nav:
+	LinkedTo->IsNewNavCom = false;
 }
 #endif
 

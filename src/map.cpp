@@ -1066,21 +1066,29 @@ void MapClass::Init_Cells(void)
  * HISTORY:                                                                                    *
  *   05/14/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 3665 bytes differ against the image-derived bound 005484e0 (5,335 body bytes, 9 padding) (2026-11-22 lane O30: no header form evidenced for either lead. TibSun point.h/coord.h, ra2-decomp and mischa85 all define TPoint2D::operator+= in class as ours and give Cell none; the image calls 0x56AA20 only from the two tube sites here, yet expands the 118-unit In_Radar after them, so a 46-unit += at depth 1 cannot be budget-refused there: the original decides it a level deeper (a Cell += forwarder, ra2-decomp YR 0x565C10's unproven hypothesis, gives the same calls but a 0x54 frame and 245 -> 358 instructions off); the +0x140 copy is register context, as CellClass's own operator= compiled alone gives the original's order; lane O27: main's offset and tube locals give the original's 0x50 frame, instruction score 73.21 -> 83.54; the original calls TPoint2D<short>::operator+= out of line, 0x56AA20, and copies CellClass's second bitfield word with another register order; lane O19: TibSun cells and cells_base kept apart as the original keeps both slots, ra2-decomp freshcalled; was 3842)
+#ifdef RA2_NON_MATCHING // not exact: 590 bytes differ against the image-derived bound 005484e0 (5,335 body bytes, 9 padding; ours 5,335 B, 1,411 instructions as the image, four hunks) (lane F76, 2026-11-26: RobinDigitalPro/ra2-1001-decomp 7e84ed4 src/m85/src/map.cpp (its BB2 study) in this tree's names: the saved cells indexed, the shift in its own Cell, freshcalled set ahead of the restore block, the buffer freed through cells, the tube ends through a nested inline (the image's two operator+= calls), the object loop on its own counter; not evidenced and kept only as the best score: cellcount cleared inside the block (TibSun and ra2-decomp clear it at its declaration, which gives the image's store ahead of the branch and its test esi, esi but keeps operator new's result in a register and exchanges ebp and edi from the top, 4,816 B), the two named references. Left: the cellcount store one place late with cmp esi, edi for the image's test; one short bit copy (load, xor in place) at IsCursorHere +0x12C in the restore copy where the image has it at bit 16 of +0x140. Read: the short form is not a count (referenced probes 1 to 62 at the top, 1 to 12 between the copies and inside the restore loop leave it); it moves with the variables the two copies and the bridge loop read through (bridge loop on cptr: bit 11, IsBridgeEastWest, of the save copy; no reference in the restore copy: none, 1,739 B by position, 2 B longer). With the guard open Zone_Reset 0x54EBD0 (count_watch) is exact only with 9 to 19 more referenced locals here, and Close_Object's guard symbol is renumbered (binding only). Was 3,665: 2026-11-22 lane O30, no header form evidenced for either lead; lane O27 main's offset and tube locals; lane O19 TibSun cells and cells_base kept apart; was 3842)
+static inline void Shift_Tube(TubeClass * tube, Cell const & offset) // RA2: RobinDigitalPro/ra2-1001-decomp's inferred helper: the image loads Tubes[i] once and calls TPoint2D<short>::operator+= 0x56AA20 for both ends
+{
+	tube->Enter += offset;
+	tube->Exit += offset;
+}
+
+
 void MapClass::Set_Map_Dimensions(Rect const & rect, bool reset_cells, int cell_height, bool refresh_map)
 {
 	int i = 0;
 
 	int w = PlayRect.Width;
-	int h = 2 * Map.PlayRect.Height + 8;
+	int h;
 	CellClass *cptr;
 	CellClass *cells = NULL;
 	CellClass *cells_base = NULL;
+	h = 2 * Map.PlayRect.Height + 8;
 
 	Cell cell(CELL_NONE);
 
-	for (i = 0; i < Objects.Count(); i++) {
-		Objects[i]->Mark(MARK_UP);
+	for (int object_index = 0; object_index < Objects.Count(); object_index++) {
+		Objects[object_index]->Mark(MARK_UP);
 	}
 
 	for (i = 0; i < Array.Length(); i++) {
@@ -1096,15 +1104,16 @@ void MapClass::Set_Map_Dimensions(Rect const & rect, bool reset_cells, int cell_
 
 	if (!reset_cells) {
 		cellcount = 0;
-		cells = (CellClass *)new char[sizeof(CellClass) * w * h];//new CellClass[w * h];
+		cells = (CellClass *) new char[sizeof(CellClass) * w * h];//new CellClass[w * h];
 		cells_base = cells;
 		Reset_Iterator();
 		cptr = Iterate();
 		cell = cptr->Fetch_CellID();
 		while (cptr != NULL) {
-			cells_base[cellcount] = *cptr;
-			cells_base[cellcount].BridgeDeckCell = NULL;
-			cells_base[cellcount].UnusedCell = NULL;
+			CellClass const & source = *cptr;
+			cells[cellcount] = source;
+			cells[cellcount].BridgeDeckCell = NULL;
+			cells[cellcount].UnusedCell = NULL;
 			cptr = Iterate();
 			cellcount++;
 		}
@@ -1147,25 +1156,27 @@ void MapClass::Set_Map_Dimensions(Rect const & rect, bool reset_cells, int cell_
 	}
 
 	bool freshcalled = false;
+
 	if (!reset_cells) {
 		Reset_Iterator();
-		Cell icell = Iterate()->CellID;
+		Cell icell(Iterate()->Fetch_CellID());
 		Cell cellpos = Cell(rect.Y + rect.X, rect.Y - rect.X);
 		Cell offset = (icell - cell) - cellpos;
 
 		for (i = 0; i < cellcount; i++) {
-			cptr = &cells[i];
-			Cell scell = cptr->CellID;
+			CellClass * saved = cells_base + i;
+			Cell scell = saved->Fetch_CellID();
 			Cell shifted = scell + offset;
+			cptr = saved;
 
 			CellClass *c = &(*this)[shifted];
 
-			Cell dcell = c->CellID;
+			Cell dcell = c->Fetch_CellID();
 			if (c != NULL) {
-				*c = *cptr;
+				CellClass const & from = *cptr; // RA2: a named reference (not evidenced; without it the restore copy has no short bit copy at all)
+				*c = from;
 				c->Set_CellID(dcell);
 			}
-
 		}
 
 		Reset_Iterator();
@@ -1200,9 +1211,7 @@ void MapClass::Set_Map_Dimensions(Rect const & rect, bool reset_cells, int cell_
 		}
 
 		for (i = 0; i < Tubes.Count(); i++) {
-			TubeClass * tube = Tubes[i];
-			tube->Enter += offset;
-			tube->Exit += offset;
+			Shift_Tube(Tubes[i], offset);
 		}
 
 		Coord coord = Coord(offset, 0) - Coord(CELL_LEPTON_W / 2, CELL_LEPTON_H / 2, 0);
@@ -1210,7 +1219,7 @@ void MapClass::Set_Map_Dimensions(Rect const & rect, bool reset_cells, int cell_
 		for (i = 0; i < Objects.Count(); i++) {
 			ObjectClass *obj = Objects[i];
 			if (obj->RTTI != RTTI_ANIM) {
-				obj->Set_Coord(coord + obj->Get_Coord());
+				obj->Set_Coord(obj->Get_Coord() + coord);
 			}
 		}
 
@@ -1254,17 +1263,17 @@ void MapClass::Set_Map_Dimensions(Rect const & rect, bool reset_cells, int cell_
 		}
 
 		Reset_Iterator();
-		cptr = Iterate();
-		while (cptr != NULL) {
-			if (cptr->IsBridgeDeck && cptr->BridgeDeckCell == NULL) {
-				FacingType facing = cptr->IsBridgeEastWest ? FACING_N : FACING_E;
-				if (cptr->Overlay == OVERLAY_BRIDGE1 || cptr->Overlay == OVERLAY_BRIDGE2) {
-					cptr->Set_Under_Bridge(facing);
+		CellClass * iter = Iterate(); // RA2: its own pointer (not evidenced; on cptr the short bit copy moves into the save loop)
+		while (iter) {
+			if (iter->IsBridgeDeck && iter->BridgeDeckCell == NULL) {
+				FacingType facing = iter->IsBridgeEastWest ? FACING_N : FACING_E;
+				if (iter->Overlay == OVERLAY_BRIDGE1 || iter->Overlay == OVERLAY_BRIDGE2) {
+					iter->Set_Under_Bridge(facing);
 				} else {
-					cptr->Set_Under_Rail_Bridge(facing);
+					iter->Set_Under_Rail_Bridge(facing);
 				}
 			}
-			cptr = Iterate();
+			iter = Iterate();
 		}
 
 		if (refresh_map) {
@@ -1284,7 +1293,7 @@ void MapClass::Set_Map_Dimensions(Rect const & rect, bool reset_cells, int cell_
 	}
 
 	new(&BlubCell) CellClass;
-	delete (void *)cells_base; /// operator delete is called directly here.
+	delete (void *)cells; /// operator delete is called directly here.
 }
 #endif
 
