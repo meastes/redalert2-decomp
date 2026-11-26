@@ -184,10 +184,12 @@ def image_bound_rows(by_entry, populations):
                             padding_provenance=None, population=IMAGE_BOUNDS_POPULATION, bound='image-derived')
         # Switch tables the code indexes at the end of the body (the audit's own rule, verify_manifest).
         from verify_manifest import switch_data_start
-        if sum(i.size for i in audit.decoder.disasm(body, va)) != len(body):
-            start = switch_data_start(audit.decoder, body, va)
-            if start is None:
-                raise ValueError('bound: image-derived row %s: body does not decode and holds no indexed table' % row['entry'])
+        # Table bytes can decode as instructions by accident (strtable Read_Text_File 0x6F9790, lane F69), so the
+        # tables are looked for in every body, as the audit does for a row that states them.
+        start = switch_data_start(audit.decoder, body, va)
+        if start is None and sum(i.size for i in audit.decoder.disasm(body, va)) != len(body):
+            raise ValueError('bound: image-derived row %s: body does not decode and holds no indexed table' % row['entry'])
+        if start is not None:
             by_entry[va]['switch_data_bytes'] = len(body) - start
 
 

@@ -5553,6 +5553,73 @@ by address), sweep.py (declaration probes), rev.py (one name against another, us
   apart). Here the image's pattern needs one pending inline site more after the last statement than any reference
   text has, so the row stays parked; the pattern table is in b_log_f66.csv.
 
+
+## A count window can also be read by rows after the function; a member class is a header declaration every includer counts (found in the rebuild (lane O98, high))
+
+Found in the rebuild (lane O98, high): a sweep of the parked tail for F66's count windows, beside lane F68's all-unit
+probe survey (referenced probes k = 1 to 10, 12, 14, 17 at the top of every not-exact function, build/r/f68/allsweep.csv
+in that lane). Lane tools in /tmp/o98 (removed at hand-back): bsv.py (one function, row or image bound, with every
+compilable guard open: `probe` k probes at the top, `bool` each `if (c) {` held in a named bool singly then the neutral ones
+cumulatively, `prefix` a separate function holding k probes just ahead of the definition), vt.py (one guard opened, text
+replacements, every row of the unit checked and the image bound measured).
+
+- One window in the tail: SidebarClass::Activate 0x67E210 (58 B) is exact with 8 to 12 referenced probes. It is held, not
+  landed: eight names would be needed and any eight of the function's values do (the OnChannelJoin ruling).
+- A window can be read by rows after the function as well. Eight referenced locals anywhere ahead of SelectClass::Action
+  0x6809F0 (in Recalc, One_Time, Page, Set_Owner, or Activate) turn Action's two parameter loads, and nine or more also
+  Reposition_Sidebar 0x6819A0. With 40 to 248 more locals in Set_Owner both come back. A separate function holding the same
+  probes just ahead of Action leaves it exact at 8 and 16. So when a probe makes a row exact, check every row of the unit,
+  not only the target. Probes in Max_Visible or Remove_Buttons make Activate exact too, but they lose Update_Column_Availability,
+  Select_Tab and both AI rows.
+- The TechnoTypeClass constructor 0x6D9B40 (15 B, one member's scheduling) is exact with src-final's Leptons class
+  (shared/leptons.hpp, `Leptons() {}` and `Leptons(int value) : Value(value) {}`) as ThreatRange (+0x504, the INI's
+  GuardRange) and its 18 users reading `.Value`. But the class declaration alone, with the member left an int, loses
+  six rows in other units by the header's declaration count: house, map, queue Print_CRCs 0x62A360 (count_watch),
+  sidebar Reposition_Sidebar, startup and unit, about 28.8 KB in all. Dropping the default constructor brings unit back
+  only, and the NoInit constructor needs it (C2512). Refused as a header form under which other functions stop being exact.
+  It reopens if those count-sensitive rows leave their edges.
+- No window (referenced probes 0 to 17, named bools singly and cumulatively, and prefix probes 1 to 32 where measured):
+  StripClass::Draw_It (6 B), Select_By_Type (7), MPlayer_Host_Dialog_Proc (61), ScenarioClass(NoInitClass) (103),
+  Draw_Tiles (535), Draw_Shroud_Or_Fog_Shape (642), Get_String_Count (777), Extract_Compressed_Events (801),
+  Draw_Radial_Indicators (820), Init_Control_Animation (1,049), Draw_Ellipse (1,229), StripClass::Recalc (1,660;
+  one named bool on `Debug_Map || !BuildableCount` gives 1,597), Adjust_Control_Position (1,749), Static_Proc (3,056),
+  Movement_AI (3,504), Set_Map_Dimensions (3,665), Coord_Dist (3,931) and AI_Slot_String (7,723; no simple conditions);
+  named bools only, after F68's probe sweep: LoadProgressManager::Draw (1,878), Control_Proc (5,018), Draw_Depth_Antialiased_Line
+  (5,794; cumulative sets wander 5,755 to 5,918), Combo_Proc (6,532) and List_Proc (13,798).
+- Split_Region 0x56EF20 (1,285 B) is at a local minimum, not below a window. One probe more gives 2,571 B, and one
+  single-use local fewer (heap_size, max_index or the remaining cell) gives 1,750 to 2,581 B.
+- Translate_Copy (6 B inside Read_Text_File) was measured by F68: 6 B at 0 to 4 probes, 854 B from 5.
+
+| row | miss (B) | window | result |
+|---|---|---|---|
+| SidebarClass::Activate 0x67E210 | 58 | probes 8-12 | held (count met by choice; Action/Reposition flip) |
+| TechnoTypeClass ctor 0x6D9B40 | 15 | header member class (Leptons) | held (six rows elsewhere lost) |
+| StripClass::Draw_It 0x67F800 | 6 | none | parked |
+| Select_By_Type 0x6F81B0 | 7 | none | parked |
+| MPlayer_Host_Dialog_Proc 0x5BEFE0 | 61 | none | parked |
+| ScenarioClass(NoInitClass) 0x65B780 | 103 | none | parked |
+| Draw_Tiles 0x6A8560 | 535 | none | parked |
+| Draw_Shroud_Or_Fog_Shape 0x474260 | 642 | none | parked |
+| Get_String_Count 0x6F8E30 | 777 | none | parked |
+| Extract_Compressed_Events 0x6282D0 | 801 | none | parked |
+| Draw_Radial_Indicators 0x6AC420 | 820 | none | parked |
+| Init_Control_Animation 0x5E8130 | 1,049 | none | parked |
+| Draw_Ellipse 0x7746C0 | 1,229 | none | parked |
+| Split_Region 0x56EF20 | 1,285 | none (local minimum) | parked |
+| StripClass::Recalc 0x6802D0 | 1,660 | none | parked |
+| Adjust_Control_Position 0x5E9410 | 1,749 | none | parked |
+| Static_Proc 0x5F2B50 | 3,056 | none | parked |
+| Movement_AI 0x71E220 | 3,504 | none | parked |
+| Set_Map_Dimensions 0x5484E0 | 3,665 | none | parked |
+| Coord_Dist 0x45F710 | 3,931 | none | parked |
+| AI_Slot_String 0x5C3FF0 | 7,723 | none | parked |
+| LoadProgressManager::Draw 0x535BF0 | 1,878 | none | parked |
+| Control_Proc 0x5EE460 | 5,018 | none | parked |
+| Draw_Depth_Antialiased_Line 0x4AC650 | 5,794 | none | parked |
+| Combo_Proc 0x5F4BA0 | 6,532 | none | parked |
+| List_Proc 0x5F6690 | 13,798 | none | parked |
+
+
 ## A count window can lie below zero: a twin text one named local over; survey every draft with referenced probes before choosing rows (found in the rebuild (lane F68, high))
 
 Found in the rebuild (lane F68, high); one row landed (map MapClass::Can_Repair_Bridge 0x569320 on its image-derived bound,

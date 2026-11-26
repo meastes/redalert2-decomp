@@ -12466,14 +12466,6 @@
     "main_source": "src/recovered/classes/DynamicVectorClass_CrossDissolveEffect_ptr/ID_object.cpp"
    },
    {
-    "entry": "004aa080",
-    "body": 73,
-    "padding": 7,
-    "symbol": "??_G?$DynamicVectorClass@PAVTechnoTypeClass@@@@UAEPAXI@Z",
-    "main_symbol": "??_G?$DynamicVectorClass@PAVTechnoTypeClass@@@@UAEPAXI@Z",
-    "main_source": "src/recovered/dropship.cpp"
-   },
-   {
     "entry": "004aa0d0",
     "body": 73,
     "padding": 7,
@@ -123370,6 +123362,15 @@
     "main_source": "src/recovered/uicmnds2.cpp"
    },
    {
+    "entry": "006f9790",
+    "body": 1469,
+    "padding": 3,
+    "symbol": "?Read_Text_File@@YIHXZ",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "006f9d50",
     "body": 55,
     "padding": 9,
@@ -135684,7 +135685,17 @@
    "??0StageClass@@QAE@XZ": "00682520",
    "?CameoDrawer@@3PAVConvertClass@@A": "008323b0"
   },
-  "partial_ok": true
+  "partial_ok": true,
+  "count_watch": {
+   "006809f0": {
+    "windows": "referenced locals (`int p; p = 0;`) in functions ahead of it (lane O98): +0 to +7 exact; +8 to +32 off (4 B, its two parameter loads swap) with the locals in Recalc, One_Time, Page, Set_Owner or Activate; +36 to +256 exact (8 in Activate plus 28 to 248 in Set_Owner); a separate function holding the locals just ahead of it: +8 and +16 exact, +40 off",
+    "note": "exact but count-sensitive (lane O98, owner 2026-11-26): SidebarClass::Activate 0x67E210 is exact only with 8 to 12 more locals of its own, which this row reads too (Activate held on variation_candidates.csv)"
+   },
+   "006819a0": {
+    "windows": "referenced locals ahead of it, 8 in Activate plus the rest in Set_Owner (lane O98): +8 to +16 exact, +17, +18, +20, +24 off (2 to 6 B), +32 exact, +36 to +44 off, +48 to +256 exact; the Leptons class declared in techtype.h turns it (4 B)",
+    "note": "exact but count-sensitive (lane O98, owner 2026-11-26): moves with SelectClass::Action 0x6809F0 and with header declaration counts (the TechnoTypeClass Leptons trial, variation_candidates.csv)"
+   }
+  }
  },
  "event": {
   "core": [
@@ -162668,6 +162679,14 @@
    ]
   ],
   "rows": [
+   {
+    "entry": "004aa080",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$DynamicVectorClass@PAVTechnoTypeClass@@@@UAEPAXI@Z",
+    "main_symbol": "??_G?$DynamicVectorClass@PAVTechnoTypeClass@@@@UAEPAXI@Z",
+    "main_source": "src/recovered/dropship.cpp"
+   },
    {
     "entry": "004d2ba0",
     "body": 40,

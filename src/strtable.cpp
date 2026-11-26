@@ -70,13 +70,13 @@ wchar_t CSFWideText[8192]; // RA2: 0x00AC93FC; the text of one string while it i
 char TextLine[4096]; // RA2: 0x00ACF410; one line of a text file, and the label of a .csf file
 int NarrowIndex; // RA2: 0x00AD045C; which of the eight buffers Wide_To_Narrow uses next
 int WideIndex; // RA2: 0x00AD0460; which of the eight buffers Narrow_To_Wide uses next
-#ifdef RA2_NON_MATCHING // used only by the parked LoadFile and Read_Text_File drafts (DECISIONS: a global whose only user is a parked function)
 char TextBuffer[4104]; // RA2: 0x00AC3378; the text of one entry of a text file (the executable gives only the distance to the next object)
 char LabelBuffer[4104]; // RA2: 0x00AC4380; the speech name of one entry of a text file
+#ifdef RA2_NON_MATCHING // used only by the parked LoadFile draft (DECISIONS: a global whose only user is a parked function)
 char CSFName[116]; // RA2: 0x00AC5388; the file name with its extension replaced by .csf
+#endif
 char ReversedText[8192]; // RA2: 0x00ACD410; the text of one entry with its runs of letters reversed
 FILE * TextFile; // RA2: 0x00AD0430; the text file being read
-#endif
 
 /// <summary>
 /// The table entry of a language, or NULL when the language is not in the table.
@@ -467,7 +467,6 @@ int StringTable::ReadFile(char const * name) // RA2: 0x006F9400
 	return 1;
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 6 bytes differ against the image-derived bound 006f9790 (1,469 B, the image's calls, every reference bound): two instructions of the jabber block's entry change places (the image copies the first character to the loop's register before it stores the advanced input, here after). The first character as its own local, from RobinDigitalPro's ra2-1001-decomp, gives the image's registers through the whole block (740 B without it); robin's own text compiled here is the same 6 B. Not a count (1 to 8 referenced locals in the root), not the declaration place, not the order of the read, the copy and the step in the text; one more local in the helper stops Collapse_White_Space expanding (lane F63). Text from Generals GameText.cpp (parseStringFile), modified for RA2: several strings to a label, the tables allocated here
 /// <summary>
 /// Copies a string into a wide buffer, resolving its backslash escapes. With the jabber option every run of
 /// letters is written backwards first.
@@ -475,7 +474,8 @@ int StringTable::ReadFile(char const * name) // RA2: 0x006F9400
 /// <remarks>From Generals GameText.cpp (GameTextManager::translateCopy), Copyright 2025 Electronic Arts Inc.,
 /// GPL-3.0-or-later; modified: RA2's globals, no munkee branch, no format-word flag, and the escape cases
 /// store through the pointer and step it once after the switch (RA2: the image's register ranks); the jabber
-/// loop's first character is read into its own local (robin-ra2-1001-decomp).</remarks>
+/// loop is entered on its first character, read into its own local (robin-ra2-1001-decomp), and runs as a
+/// do-while.</remarks>
 static void Translate_Copy(wchar_t * outbuf, char * inbuf)
 {
 	int slash = FALSE;
@@ -484,9 +484,10 @@ static void Translate_Copy(wchar_t * outbuf, char * inbuf)
 		char *firstLetter = NULL, *lastLetter;
 		char * b = ReversedText;
 		char ch;
-		char first = *inbuf++; // RA2: the first character is read apart from the loop's (RobinDigitalPro's ra2-1001-decomp, src/m85/src/strtable.cpp at bd7e611)
+		char first = *inbuf; // RA2: the loop is entered on the character ahead of the read (the image tests it, copies it to the loop's register and only then stores the advanced input); the local from RobinDigitalPro's ra2-1001-decomp, src/m85/src/strtable.cpp at bd7e611
 
-		for (ch = first; ch != 0; ch = *inbuf++) {
+		ch = *inbuf++;
+		if (first != 0) do {
 			if (!((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))) {
 				if (firstLetter) {
 					lastLetter = b - 1;
@@ -510,7 +511,7 @@ static void Translate_Copy(wchar_t * outbuf, char * inbuf)
 
 				*b++ = ch;
 			}
-		}
+			} while ((ch = *inbuf++) != 0);
 
 		if (firstLetter) {
 			lastLetter = b - 1;
@@ -597,7 +598,9 @@ int __fastcall Read_Text_File(void) // RA2: 0x006F9790
 		}
 
 		for (int i = 0; i < listCount; i++) {
-			_stricmp(StringLabels[i].Name, TextLine);
+			if (!_stricmp(StringLabels[i].Name, TextLine)) {
+				// RA2: Generals asserts here that the label is new (DEBUG_ASSERTCRASH, nothing in a release build)
+			}
 		}
 
 		strcpy(StringLabels[listCount].Name, TextLine);
@@ -647,7 +650,6 @@ quit:
 
 	return(ok);
 }
-#endif
 
 /// <summary>
 /// Reverses the characters from start to end in place. The first pair also swaps its case when the first

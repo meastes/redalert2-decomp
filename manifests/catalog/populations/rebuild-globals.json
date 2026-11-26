@@ -8,6 +8,8 @@
     "historical_acceptance_sha256": "e29a9ba2b057be5070d0e0803a8622c8504f859f54895959d7d3cef766fcc7c3"
   },
   "references": {
+    "??_7?$VectorClass@PAVTechnoTypeClass@@@@6B@": 7985684,
+    "??3@YAXPAX@Z": 7871803,
     "__real@8@40078000000000000000": 7972608,
     "__real@8@40008000000000000000": 7972600,
     "__CIpow": 7872944,
@@ -41,7 +43,6 @@
     "??_7?$DynamicVectorClass@PAVAITriggerTypeClass@@@@6B@": 8003748,
     "_atexit": 7874954,
     "??_7?$VectorClass@PAVAITriggerTypeClass@@@@6B@": 8003780,
-    "??3@YAXPAX@Z": 7871803,
     "_$E89": 5058128,
     "?TriggerTypes@@3V?$DynamicVectorClass@PAVTriggerTypeClass@@@@A": 8806920,
     "??_7?$DynamicVectorClass@PAVTriggerTypeClass@@@@6B@": 8003812,
@@ -211,7 +212,6 @@
     "_$E299": 5063504,
     "?TechnoTypes@@3V?$DynamicVectorClass@PAVTechnoTypeClass@@@@A": 10750648,
     "??_7?$DynamicVectorClass@PAVTechnoTypeClass@@@@6B@": 7998364,
-    "??_7?$VectorClass@PAVTechnoTypeClass@@@@6B@": 7985684,
     "_$E304": 5063632,
     "?Objects@@3V?$DynamicVectorClass@PAVObjectClass@@@@A": 10748776,
     "??_7?$DynamicVectorClass@PAVObjectClass@@@@6B@": 7986044,
@@ -922,6 +922,58 @@
     "??_I@YGXPAXIHP6EX0@Z@Z": 4239104
   },
   "regions": [
+    {
+      "entry": 4890752,
+      "method": "4aa080",
+      "body_bytes": 73,
+      "body_sha256": "c78305b8b028abe99fefaee4c14588f6a07d060ffc231f72c050156af6217bda",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "7eaa00bee420482c8d51f0cb7561df9376cbed256f179de8faba8e88a985c55a",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAVTechnoTypeClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAVTechnoTypeClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVTechnoTypeClass@@@@6B@",
+          "target": 7985684,
+          "addend": 0,
+          "resolved": 7985684
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2981022
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2980987
+        }
+      ],
+      "source_sha256": "e24ee98eb9d837285e28854fd85f1df9250bcf37f6e175850b93de7cc53ff4a4",
+      "source": "src/globals.cpp",
+      "population": "rebuild-globals",
+      "source_order": 4890752,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
     {
       "entry": 5057440,
       "method": "004d2ba0",

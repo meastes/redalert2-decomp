@@ -2,10 +2,10 @@
   "id": "rebuild-strtable",
   "population": {
     "id": "rebuild-strtable",
-    "inventory_sha256": "84ba659192833cd91b30bfcd365d760dc02eac6324fe916016480ea254ecba4f",
-    "gaps_sha256": "ed312d24efd8235e0c38bc7d317c58d2e2a22dc5bcf5465521f20275ef2ec4e2",
-    "historical_population_sha256": "5eb90a6977ca6cb81cd902eebbcd49922d409c60ff0ad749361c7c9ea513fe30",
-    "historical_acceptance_sha256": "198efbbed0b81b119c3490da8fff705167cb0724d6f580a7ba436df32b1381c8"
+    "inventory_sha256": "3ef54957ead29a46e6eea750cf77b51ffc34d00fd9f92cbc8d84610084a29092",
+    "gaps_sha256": "b308050a46b7cf6e70bfe0e590d67bf26b9b9ffdf6333c695e3d171b36a26c95",
+    "historical_population_sha256": "049468079aedb57815ea518b6e5704d2962cafd85acfbfd338a8f7ed769409ad",
+    "historical_acceptance_sha256": "049468079aedb57815ea518b6e5704d2962cafd85acfbfd338a8f7ed769409ad"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -57,6 +57,16 @@
     "??1Buffer@@QAE@XZ": 4424720,
     "??_7CDFileClass@@6B@": 7972440,
     "??1BufferIOFileClass@@UAE@XZ": 4387664,
+    "?TextFile@@3PAU_iobuf@@A": 11338800,
+    "_fgets": 7886151,
+    "_stricmp": 7872288,
+    "?LabelBuffer@@3PADA": 11289472,
+    "?TextBuffer@@3PADA": 11285368,
+    "?Read_Text_Entry@@YIXPAU_iobuf@@PAD11H@Z": 7312032,
+    "?JabberOption@@3HA": 11338832,
+    "?ReversedText@@3PADA": 11326480,
+    "?Reverse_String@StringTable@@SIXPAD0@Z": 7314768,
+    "??_C@_03PIHE@END?$AA@": 8359524,
     "?StringChunkList@@3PAUCSFString@@A": 11338840,
     "??3@YAXPAX@Z": 7871803,
     "?StringValueCount@@3HA": 11338812,
@@ -64,7 +74,6 @@
     "?StringsLoaded@@3HA": 11338828,
     "??_C@_1HE@KFCA@?$AA?$CK?$AA?$CK?$AA?$CK?$AAF?$AAA?$AAT?$AAA?$AAL?$AA?$CK?$AA?$CK?$AA?$CK?$AA?5?$AAS?$AAt?$AAr?$AAi?$AAn?$AAg?$AA?5?$AAM@": 8359608,
     "?StringLabelCount@@3HA": 11338808,
-    "_stricmp": 7872288,
     "_bsearch": 7872549,
     "??_C@_1BM@EMMK@?$AAM?$AAI?$AAS?$AAS?$AAI?$AAN?$AAG?$AA?3?$AA?8?$AA?$CF?$AAh?$AAs?$AA?8?$AA?$AA@": 8359580,
     "_swprintf": 7878500,
@@ -72,7 +81,6 @@
     "?DebugString@@YAXPBDZZ": 4221168,
     "?StringLanguage@@3W4CSFLanguages@@A": 8359328,
     "??_C@_01PHOL@e?$AA@": 8359476,
-    "?JabberOption@@3HA": 11338832,
     "?Unload@StringTable@@SIXXZ": 7314832,
     "?StringFileName@@3PBDB": 11338804,
     "?LoadFile@StringTable@@SIHPBD@Z": 7310896,
@@ -127,7 +135,6 @@
     "_$E45": 7310768,
     "?GetLanguage@StringTable@@SIPBUCSFLanguage@@W4CSFLanguages@@@Z": 7310800,
     "?GetLanguageName@StringTable@@SIPBDW4CSFLanguages@@@Z": 7310848,
-    "?Read_Text_Entry@@YIXPAU_iobuf@@PAD11H@Z": 7312032,
     "?ReadFile@StringTable@@SIHPBD@Z": 7312384,
     "?Error@RawFileClass@@UAEXHHPBD@Z": 6523696,
     "?Set_Date_Time@RawFileClass@@UAE_NI@Z": 6525680,
@@ -162,7 +169,7 @@
     "??_R0?AVCCFileClass@@@8": 8177840,
     "?File_Name@RawFileClass@@UBEPBDXZ": 4200768,
     "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
-    "?Reverse_String@StringTable@@SIXPAD0@Z": 7314768,
+    "?Read_Text_File@@YIHXZ": 7313296,
     "?Is_Narrow_Text@@YIHPBG@Z": 7315088,
     "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z": 7315136,
     "?Is_Language_English@@YIHXZ": 7315328,
@@ -244,11 +251,12 @@
           "resolved": 11285360
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7310304,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3441"
     },
     {
       "entry": 7310352,
@@ -296,11 +304,12 @@
           "resolved": 11338784
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7310352,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3441"
     },
     {
       "entry": 7310384,
@@ -348,11 +357,12 @@
           "resolved": 11338768
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7310384,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3441"
     },
     {
       "entry": 7310416,
@@ -400,11 +410,12 @@
           "resolved": 11326472
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7310416,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3441"
     },
     {
       "entry": 7310448,
@@ -452,11 +463,12 @@
           "resolved": 11289464
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7310448,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3441"
     },
     {
       "entry": 7310480,
@@ -504,11 +516,12 @@
           "resolved": 11277136
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7310480,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3441"
     },
     {
       "entry": 7310512,
@@ -588,11 +601,12 @@
           "resolved": 11338796
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7310512,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3441"
     },
     {
       "entry": 7310576,
@@ -648,11 +662,12 @@
           "resolved": 11293568
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7310576,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3441"
     },
     {
       "entry": 7310624,
@@ -708,11 +723,12 @@
           "resolved": 11326464
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7310624,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3441"
     },
     {
       "entry": 7310672,
@@ -768,11 +784,12 @@
           "resolved": 11338776
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7310672,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3441"
     },
     {
       "entry": 7310720,
@@ -812,11 +829,12 @@
           "resolved": 11277162
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7310720,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3441"
     },
     {
       "entry": 7310736,
@@ -864,11 +882,12 @@
           "resolved": 11293688
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7310736,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3441"
     },
     {
       "entry": 7310768,
@@ -924,11 +943,12 @@
           "resolved": 11277156
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7310768,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3441"
     },
     {
       "entry": 7310800,
@@ -968,11 +988,12 @@
           "resolved": 8359152
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7310800,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3441"
     },
     {
       "entry": 7310848,
@@ -1020,11 +1041,12 @@
           "resolved": 8178912
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7310848,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3441"
     },
     {
       "entry": 7312032,
@@ -1080,7 +1102,7 @@
           "resolved": 571172
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7312032,
@@ -1509,10 +1531,674 @@
           "resolved": 4292041681
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7312384,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3441"
+    },
+    {
+      "entry": 7313296,
+      "method": "006f9790",
+      "body_bytes": 1469,
+      "body_sha256": "0a478ac63c1fff2f5d69b3f6e176ca224009a2bb703e378b22177bcef19b2acc",
+      "padding_bytes": 3,
+      "full_extent_bytes": 1472,
+      "full_extent_sha256": "86d47a76391093c6378b89ed2f3d8fd1a755817c94fd7b115f57b851706a541c",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Image-derived bound (manifests/image_bounds.csv, image_bounds.py; start call@006f91d3, end bound row)",
+      "switch_data_bytes": 149,
+      "padding_provenance": null,
+      "bound": "image-derived",
+      "symbol": "?Read_Text_File@@YIHXZ",
+      "symbol_prefix": "?Read_Text_File@@YIHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "?TextFile@@3PAU_iobuf@@A",
+          "target": 11338800,
+          "addend": 0,
+          "resolved": 11338800
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "?TextLine@@3PADA",
+          "target": 11334672,
+          "addend": 0,
+          "resolved": 11334672
+        },
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "_fgets",
+          "target": 7886151,
+          "addend": 0,
+          "resolved": 572817
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?TextLine@@3PADA",
+          "target": 11334672,
+          "addend": 0,
+          "resolved": 11334672
+        },
+        {
+          "offset": 55,
+          "kind": 6,
+          "symbol": "?TextLine@@3PADA",
+          "target": 11334672,
+          "addend": 0,
+          "resolved": 11334672
+        },
+        {
+          "offset": 69,
+          "kind": 20,
+          "symbol": "_iswspace",
+          "target": 7883432,
+          "addend": 0,
+          "resolved": 570063
+        },
+        {
+          "offset": 94,
+          "kind": 6,
+          "symbol": "?TextLine@@3PADA",
+          "target": 11334672,
+          "addend": 0,
+          "resolved": 11334672
+        },
+        {
+          "offset": 99,
+          "kind": 6,
+          "symbol": "?TextLine@@3PADA",
+          "target": 11334672,
+          "addend": 1,
+          "resolved": 11334673
+        },
+        {
+          "offset": 120,
+          "kind": 6,
+          "symbol": "?TextLine@@3PADA",
+          "target": 11334672,
+          "addend": 0,
+          "resolved": 11334672
+        },
+        {
+          "offset": 138,
+          "kind": 20,
+          "symbol": "_iswspace",
+          "target": 7883432,
+          "addend": 0,
+          "resolved": 569994
+        },
+        {
+          "offset": 152,
+          "kind": 6,
+          "symbol": "?TextLine@@3PADA",
+          "target": 11334672,
+          "addend": 0,
+          "resolved": 11334672
+        },
+        {
+          "offset": 165,
+          "kind": 6,
+          "symbol": "?TextLine@@3PADA",
+          "target": 11334672,
+          "addend": 0,
+          "resolved": 11334672
+        },
+        {
+          "offset": 178,
+          "kind": 6,
+          "symbol": "?TextLine@@3PADA",
+          "target": 11334672,
+          "addend": 0,
+          "resolved": 11334672
+        },
+        {
+          "offset": 199,
+          "kind": 6,
+          "symbol": "?StringLabels@@3PAUCSFLabel@@A",
+          "target": 11338816,
+          "addend": 0,
+          "resolved": 11338816
+        },
+        {
+          "offset": 204,
+          "kind": 6,
+          "symbol": "?TextLine@@3PADA",
+          "target": 11334672,
+          "addend": 0,
+          "resolved": 11334672
+        },
+        {
+          "offset": 213,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 558775
+        },
+        {
+          "offset": 228,
+          "kind": 6,
+          "symbol": "?StringLabels@@3PAUCSFLabel@@A",
+          "target": 11338816,
+          "addend": 0,
+          "resolved": 11338816
+        },
+        {
+          "offset": 240,
+          "kind": 6,
+          "symbol": "?TextLine@@3PADA",
+          "target": 11334672,
+          "addend": 0,
+          "resolved": 11334672
+        },
+        {
+          "offset": 282,
+          "kind": 6,
+          "symbol": "?TextLine@@3PADA",
+          "target": 11334672,
+          "addend": 0,
+          "resolved": 11334672
+        },
+        {
+          "offset": 292,
+          "kind": 6,
+          "symbol": "?MaxLabelLen@@3HA",
+          "target": 11338792,
+          "addend": 0,
+          "resolved": 11338792
+        },
+        {
+          "offset": 305,
+          "kind": 6,
+          "symbol": "?MaxLabelLen@@3HA",
+          "target": 11338792,
+          "addend": 0,
+          "resolved": 11338792
+        },
+        {
+          "offset": 315,
+          "kind": 6,
+          "symbol": "?StringLabels@@3PAUCSFLabel@@A",
+          "target": 11338816,
+          "addend": 0,
+          "resolved": 11338816
+        },
+        {
+          "offset": 344,
+          "kind": 6,
+          "symbol": "?TextFile@@3PAU_iobuf@@A",
+          "target": 11338800,
+          "addend": 0,
+          "resolved": 11338800
+        },
+        {
+          "offset": 355,
+          "kind": 6,
+          "symbol": "?TextLine@@3PADA",
+          "target": 11334672,
+          "addend": 0,
+          "resolved": 11334672
+        },
+        {
+          "offset": 360,
+          "kind": 20,
+          "symbol": "_fgets",
+          "target": 7886151,
+          "addend": 0,
+          "resolved": 572491
+        },
+        {
+          "offset": 376,
+          "kind": 6,
+          "symbol": "?TextLine@@3PADA",
+          "target": 11334672,
+          "addend": 0,
+          "resolved": 11334672
+        },
+        {
+          "offset": 381,
+          "kind": 6,
+          "symbol": "?TextLine@@3PADA",
+          "target": 11334672,
+          "addend": 0,
+          "resolved": 11334672
+        },
+        {
+          "offset": 395,
+          "kind": 20,
+          "symbol": "_iswspace",
+          "target": 7883432,
+          "addend": 0,
+          "resolved": 569737
+        },
+        {
+          "offset": 420,
+          "kind": 6,
+          "symbol": "?TextLine@@3PADA",
+          "target": 11334672,
+          "addend": 0,
+          "resolved": 11334672
+        },
+        {
+          "offset": 425,
+          "kind": 6,
+          "symbol": "?TextLine@@3PADA",
+          "target": 11334672,
+          "addend": 1,
+          "resolved": 11334673
+        },
+        {
+          "offset": 446,
+          "kind": 6,
+          "symbol": "?TextLine@@3PADA",
+          "target": 11334672,
+          "addend": 0,
+          "resolved": 11334672
+        },
+        {
+          "offset": 464,
+          "kind": 20,
+          "symbol": "_iswspace",
+          "target": 7883432,
+          "addend": 0,
+          "resolved": 569668
+        },
+        {
+          "offset": 478,
+          "kind": 6,
+          "symbol": "?TextLine@@3PADA",
+          "target": 11334672,
+          "addend": 0,
+          "resolved": 11334672
+        },
+        {
+          "offset": 489,
+          "kind": 6,
+          "symbol": "?TextLine@@3PADA",
+          "target": 11334672,
+          "addend": 0,
+          "resolved": 11334672
+        },
+        {
+          "offset": 502,
+          "kind": 6,
+          "symbol": "?TextLine@@3PADA",
+          "target": 11334672,
+          "addend": 0,
+          "resolved": 11334672
+        },
+        {
+          "offset": 522,
+          "kind": 6,
+          "symbol": "?LabelBuffer@@3PADA",
+          "target": 11289472,
+          "addend": 0,
+          "resolved": 11289472
+        },
+        {
+          "offset": 527,
+          "kind": 6,
+          "symbol": "?TextBuffer@@3PADA",
+          "target": 11285368,
+          "addend": 0,
+          "resolved": 11285368
+        },
+        {
+          "offset": 532,
+          "kind": 6,
+          "symbol": "?TextLine@@3PADA",
+          "target": 11334672,
+          "addend": 1,
+          "resolved": 11334673
+        },
+        {
+          "offset": 538,
+          "kind": 6,
+          "symbol": "?TextLine@@3PADA",
+          "target": 11334672,
+          "addend": 0,
+          "resolved": 11334672
+        },
+        {
+          "offset": 545,
+          "kind": 6,
+          "symbol": "?TextLine@@3PADA",
+          "target": 11334672,
+          "addend": 1,
+          "resolved": 11334673
+        },
+        {
+          "offset": 551,
+          "kind": 6,
+          "symbol": "?TextFile@@3PAU_iobuf@@A",
+          "target": 11338800,
+          "addend": 0,
+          "resolved": 11338800
+        },
+        {
+          "offset": 556,
+          "kind": 20,
+          "symbol": "?Read_Text_Entry@@YIXPAU_iobuf@@PAD11H@Z",
+          "target": 7312032,
+          "addend": 0,
+          "resolved": 4294965472
+        },
+        {
+          "offset": 561,
+          "kind": 6,
+          "symbol": "?JabberOption@@3HA",
+          "target": 11338832,
+          "addend": 0,
+          "resolved": 11338832
+        },
+        {
+          "offset": 566,
+          "kind": 6,
+          "symbol": "?CSFWideText@@3PAGA",
+          "target": 11310076,
+          "addend": 0,
+          "resolved": 11310076
+        },
+        {
+          "offset": 573,
+          "kind": 6,
+          "symbol": "?TextBuffer@@3PADA",
+          "target": 11285368,
+          "addend": 0,
+          "resolved": 11285368
+        },
+        {
+          "offset": 594,
+          "kind": 6,
+          "symbol": "?TextBuffer@@3PADA",
+          "target": 11285368,
+          "addend": 0,
+          "resolved": 11285368
+        },
+        {
+          "offset": 601,
+          "kind": 6,
+          "symbol": "?TextBuffer@@3PADA",
+          "target": 11285368,
+          "addend": 1,
+          "resolved": 11285369
+        },
+        {
+          "offset": 606,
+          "kind": 6,
+          "symbol": "?ReversedText@@3PADA",
+          "target": 11326480,
+          "addend": 0,
+          "resolved": 11326480
+        },
+        {
+          "offset": 804,
+          "kind": 20,
+          "symbol": "?Reverse_String@StringTable@@SIXPAD0@Z",
+          "target": 7314768,
+          "addend": 0,
+          "resolved": 664
+        },
+        {
+          "offset": 825,
+          "kind": 6,
+          "symbol": "?ReversedText@@3PADA",
+          "target": 11326480,
+          "addend": 0,
+          "resolved": 11326480
+        },
+        {
+          "offset": 854,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7314648,
+          "addend": 0,
+          "resolved": 7314648
+        },
+        {
+          "offset": 861,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7314616,
+          "addend": 0,
+          "resolved": 7314616
+        },
+        {
+          "offset": 961,
+          "kind": 6,
+          "symbol": "?CSFWideText@@3PAGA",
+          "target": 11310076,
+          "addend": 0,
+          "resolved": 11310076
+        },
+        {
+          "offset": 976,
+          "kind": 6,
+          "symbol": "?CSFWideText@@3PAGA",
+          "target": 11310076,
+          "addend": 0,
+          "resolved": 11310076
+        },
+        {
+          "offset": 981,
+          "kind": 6,
+          "symbol": "?CSFWideText@@3PAGA",
+          "target": 11310076,
+          "addend": 2,
+          "resolved": 11310078
+        },
+        {
+          "offset": 1071,
+          "kind": 6,
+          "symbol": "?CSFWideText@@3PAGA",
+          "target": 11310076,
+          "addend": 0,
+          "resolved": 11310076
+        },
+        {
+          "offset": 1081,
+          "kind": 20,
+          "symbol": "_wcslen",
+          "target": 7878149,
+          "addend": 0,
+          "resolved": 563768
+        },
+        {
+          "offset": 1090,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 558145
+        },
+        {
+          "offset": 1096,
+          "kind": 6,
+          "symbol": "?StringValues@@3PAPAGA",
+          "target": 11338820,
+          "addend": 0,
+          "resolved": 11338820
+        },
+        {
+          "offset": 1101,
+          "kind": 6,
+          "symbol": "?CSFWideText@@3PAGA",
+          "target": 11310076,
+          "addend": 0,
+          "resolved": 11310076
+        },
+        {
+          "offset": 1110,
+          "kind": 6,
+          "symbol": "?StringValues@@3PAPAGA",
+          "target": 11338820,
+          "addend": 0,
+          "resolved": 11338820
+        },
+        {
+          "offset": 1119,
+          "kind": 20,
+          "symbol": "_wcscpy",
+          "target": 7878281,
+          "addend": 0,
+          "resolved": 563862
+        },
+        {
+          "offset": 1124,
+          "kind": 6,
+          "symbol": "?LabelBuffer@@3PADA",
+          "target": 11289472,
+          "addend": 0,
+          "resolved": 11289472
+        },
+        {
+          "offset": 1147,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 558088
+        },
+        {
+          "offset": 1153,
+          "kind": 6,
+          "symbol": "?StringExtraValues@@3PAPADA",
+          "target": 11338824,
+          "addend": 0,
+          "resolved": 11338824
+        },
+        {
+          "offset": 1158,
+          "kind": 6,
+          "symbol": "?LabelBuffer@@3PADA",
+          "target": 11289472,
+          "addend": 0,
+          "resolved": 11289472
+        },
+        {
+          "offset": 1176,
+          "kind": 6,
+          "symbol": "?StringExtraValues@@3PAPADA",
+          "target": 11338824,
+          "addend": 0,
+          "resolved": 11338824
+        },
+        {
+          "offset": 1229,
+          "kind": 6,
+          "symbol": "??_C@_03PIHE@END?$AA@",
+          "target": 8359524,
+          "addend": 0,
+          "resolved": 8359524
+        },
+        {
+          "offset": 1234,
+          "kind": 6,
+          "symbol": "?TextLine@@3PADA",
+          "target": 11334672,
+          "addend": 0,
+          "resolved": 11334672
+        },
+        {
+          "offset": 1239,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 557749
+        },
+        {
+          "offset": 1256,
+          "kind": 6,
+          "symbol": "?StringLabels@@3PAUCSFLabel@@A",
+          "target": 11338816,
+          "addend": 0,
+          "resolved": 11338816
+        },
+        {
+          "offset": 1320,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7314256,
+          "addend": 0,
+          "resolved": 7314256
+        },
+        {
+          "offset": 1324,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7314181,
+          "addend": 0,
+          "resolved": 7314181
+        },
+        {
+          "offset": 1328,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7314171,
+          "addend": 0,
+          "resolved": 7314171
+        },
+        {
+          "offset": 1332,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7314191,
+          "addend": 0,
+          "resolved": 7314191
+        },
+        {
+          "offset": 1336,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7314161,
+          "addend": 0,
+          "resolved": 7314161
+        },
+        {
+          "offset": 1340,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7314211,
+          "addend": 0,
+          "resolved": 7314211
+        },
+        {
+          "offset": 1344,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7314201,
+          "addend": 0,
+          "resolved": 7314201
+        },
+        {
+          "offset": 1348,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7314225,
+          "addend": 0,
+          "resolved": 7314225
+        }
+      ],
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
+      "source": "src/strtable.cpp",
+      "population": "rebuild-strtable",
+      "source_order": 7313296,
       "source_quality_family": "rebuild"
     },
     {
@@ -1536,11 +2222,12 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7314768,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3441"
     },
     {
       "entry": 7314832,
@@ -1772,7 +2459,7 @@
           "resolved": 11338828
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7314832,
@@ -1800,7 +2487,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7315088,
@@ -1941,7 +2628,7 @@
           "resolved": 11338836
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7315136,
@@ -2002,7 +2689,7 @@
           "resolved": 556925
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7315328,
@@ -2071,7 +2758,7 @@
           "resolved": 4294962782
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7315376,
@@ -2140,7 +2827,7 @@
           "resolved": 4294962734
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7315424,
@@ -2177,7 +2864,7 @@
           "resolved": 11338832
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7315472,
@@ -2214,7 +2901,7 @@
           "resolved": 8359144
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7315488,
@@ -2251,7 +2938,7 @@
           "resolved": 11338828
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7315504,
@@ -2304,7 +2991,7 @@
           "resolved": 7971964
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7315520,
@@ -2332,7 +3019,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7315648,
@@ -2360,7 +3047,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7315696,
@@ -2421,7 +3108,7 @@
           "resolved": 11338844
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7315744,
@@ -2482,7 +3169,7 @@
           "resolved": 11338848
         }
       ],
-      "source_sha256": "5642975113d7f3b9c96b09481b0d952ceb13000c0a9c7255e80d67d91721c8c5",
+      "source_sha256": "fff688f171cc9ac6558f9b4055b36456b0f4c725417149de458107e7ee94a571",
       "source": "src/strtable.cpp",
       "population": "rebuild-strtable",
       "source_order": 7315840,

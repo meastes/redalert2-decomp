@@ -4709,7 +4709,7 @@ BulletClass * TechnoClass::Fire_At(AbstractClass * target, int which)
 		velocity.Nonzero_Check();
 		velocity *= speed / velocity.Speed();
 		if (segments > 0) {
-			double angle = M_PI / segments * RadialFireSegment - M_PI_2;
+			double angle = M_PI * 2.0 / segments * RadialFireSegment - M_PI_2;
 			DirType yaw(PrimaryFacing.Current().As_Radian() + angle);
 			velocity.Set_Yaw(yaw);
 			RadialFireSegment++;
