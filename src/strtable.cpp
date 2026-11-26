@@ -72,9 +72,7 @@ int NarrowIndex; // RA2: 0x00AD045C; which of the eight buffers Wide_To_Narrow u
 int WideIndex; // RA2: 0x00AD0460; which of the eight buffers Narrow_To_Wide uses next
 char TextBuffer[4104]; // RA2: 0x00AC3378; the text of one entry of a text file (the executable gives only the distance to the next object)
 char LabelBuffer[4104]; // RA2: 0x00AC4380; the speech name of one entry of a text file
-#ifdef RA2_NON_MATCHING // used only by the parked LoadFile draft (DECISIONS: a global whose only user is a parked function)
 char CSFName[116]; // RA2: 0x00AC5388; the file name with its extension replaced by .csf
-#endif
 char ReversedText[8192]; // RA2: 0x00ACD410; the text of one entry with its runs of letters reversed
 FILE * TextFile; // RA2: 0x00AD0430; the text file being read
 
@@ -198,9 +196,9 @@ static void Strip_Line(char * line)
 }
 
 void __fastcall Read_Text_Entry(FILE * file, char * source, char * text, char * label, int limit); // RA2: 0x006F92A0, defined below
-int __fastcall Read_Text_File(void); // RA2: 0x006F9790, defined below
+static int __fastcall Read_Text_File(void); // RA2: 0x006F9790, defined below; file-static like Get_String_Count, the other pass over the text file
+int __fastcall Get_Str_Option(void); // RA2: 0x006FA020, defined below
 
-#ifdef RA2_NON_MATCHING // not exact: one call differs (the failing exit of the expanded Read_CSF_Header calls ~CCFileClass 0x51AD20 in the image and expands it here); 777 bytes differ by position, 1,168 B against 1,134. The image's LoadFile holds two more inline sites behind the header helper than this text: it is exact (measured, not landed) with any two of: Read_Text_File file-static, ReadFile file-static, the option read through Get_Str_Option(). Text of the counting pass and of the choice of format from Generals GameText.cpp (getStringCount, init), modified for RA2: the .csf file first, two counts, the tables allocated one by one
 #define STRING_FILE 0
 #define CSF_FILE 1
 
@@ -274,7 +272,7 @@ int StringTable::LoadFile(char const * filename) // RA2: 0x006F8E30
 
 	if (Read_CSF_Header(CSFName)) {
 		format = CSF_FILE;
-	} else if (StrOption && Get_String_Count(filename)) { // RA2: no .csf file, and -nostr forbids the text file
+	} else if (Get_Str_Option() && Get_String_Count(filename)) { // RA2: no .csf file, and -nostr forbids the text file; the option through its accessor, which the image holds (0x6FA020) and nothing calls
 		format = STRING_FILE;
 	} else {
 		return 0;
@@ -318,7 +316,6 @@ int StringTable::LoadFile(char const * filename) // RA2: 0x006F8E30
 	RandomMapGen.SeedData.Set_Default_Description();
 	return 1;
 }
-#endif
 
 /// <summary>
 /// Takes the next character of an entry: from the rest of the line already read (source, which becomes NULL
@@ -579,7 +576,7 @@ static void Translate_Copy(wchar_t * outbuf, char * inbuf)
 /// </summary>
 /// <remarks>From Generals GameText.cpp (GameTextManager::parseStringFile), Copyright 2025 Electronic Arts Inc.,
 /// GPL-3.0-or-later; modified: RA2 keeps several strings to a label and allocates each text here.</remarks>
-int __fastcall Read_Text_File(void) // RA2: 0x006F9790
+static int __fastcall Read_Text_File(void) // RA2: 0x006F9790
 {
 	int listCount = 0;
 	int string_index = 0;
@@ -818,7 +815,7 @@ int __fastcall Get_Jabber_Option(void) // RA2: 0x006FA010
 }
 
 /// <summary>
-/// The value of the -str option. Nothing calls it.
+/// The value of the -str option. Nothing calls it: LoadFile expands it.
 /// </summary>
 int __fastcall Get_Str_Option(void) // RA2: 0x006FA020
 {

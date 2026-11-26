@@ -5653,3 +5653,49 @@ edits, one score line), combo.py (every combination of two texts' differing form
   The one known form that gives it (Plot_Line with the store in both arms of an if/else, the first arm's store hoisted
   above the branch) puts the store there by hoisting. An inline sign helper with two returns becomes a setcc like the bare
   if/else. Not found for the other two: a guarded do-while with the step inside the arm changes the frame instead.
+
+## A store directly ahead of a branch is an else arm's store, or the end of a read whose value was read once before; an image function nothing calls is an inline site of its user (found in the rebuild (lane F69, high))
+
+Found in the rebuild (lane F69, high); three rows landed (uicmnds Select_By_Type 0x6F81B0, 741 B; strtable Read_Text_File
+0x6F9790, 1,469 B, new row; strtable StringTable::LoadFile 0x6F8E30, 1,134 B; strtable has no guard left). Lane tools in
+build/r/f69 (removed at hand-back; copies in private/dossiers/fable/f69_tools): F68's gp.py, var.py, ps.py and t.sh with one
+wrapper per row (s.sh, sf.sh, u.sh, x.sh, m.sh, lf.sh, sc.sh).
+
+- The three "store second" rows (F68) are one reading, not one spelling. In each the image has `flag-setting instruction /
+  register-only instruction / store / jcc` and the draft has the store one place earlier. The compiler moves the test up over
+  at most the two instructions ahead of the branch, so what differs is the order of those two before the move: in the image
+  the store was created after the other instruction. Ask where a later store can come from, not how to move the earlier one.
+- Source 1, an if/else whose arms end alike: the tails are merged, and what is left (two constant stores) is too late for the
+  sbb/setcc form, so the else arm's store is hoisted to just ahead of the branch, behind anything already there (a pop of the
+  epilogue, the first instruction of the merged tail). `x = a; if (c) x = b;` gives the same instructions with the store one
+  earlier; a bare if/else or a conditional expression gives sbb/and or setcc. The arm order matters (the other order was 3 B).
+- When that is the shape, look for the common tail as an existing function before writing a statement twice. Select_By_Type:
+  the tail `TypeSelectMode = n; AttackMoveMode = false;` is the unit's own Set_Type_Select_Mode 0x6F6780, so the text is the
+  setter in each arm. Plot_Line 0x773F00 has the same shape (the tail is `dy = abs(dy)`) and nothing to carry it: still held.
+- Two new call sites of a free helper still cost: they raise the count of pending sites that divides an expanded callee's
+  share (here Is_Of_Type inside the expanded All_Technos_Pass stopped expanding). A helper with no out-of-line copy is known
+  only through its expansions, so its text is the first place to look for the units: `return a && b;` is lighter than
+  `if (a && b) return(true); return(false);`.
+- Source 2 (Read_Text_File), a read with post-increment whose value was already read: `char first = *p; ch = *p++; if (first)
+  do { ... } while ((ch = *p++) != 0);`. The two loads are shared, ch is assigned from the shared value, the increment is
+  stored, and the test uses the first read: copy, then store. A copy written after `first = *p++` comes behind the store; a
+  copy written with nothing between it and `first = *p` folds into one load (the loop register is loaded directly and every
+  register after it changes). Only a store that may change what was read keeps the two apart.
+- `__forceinline` as a diagnostic (F68) made this findable: four spellings were exact under it and all four stopped
+  Collapse_White_Space expanding without it. Then the budget is its own question: a root whose own size is over 500 units has a
+  budget of twice its size, so the missing units can lie in the root's text. Diff the root against its reference for statements
+  that compile to nothing: Generals' `if (!stricmp(...)) { DEBUG_ASSERTCRASH(...) }` had been carried as a bare call; as an if
+  with an empty body it gives the units back and every row is exact. Measure with referenced probes in the root first (one or
+  two brought the expansion back), then find the reference's statement.
+- An image function with no caller ("nothing calls it") is expanded where its value is used. Get_Str_Option 0x6FA020 is one of
+  LoadFile's two missing pending sites; the other is Read_Text_File file-static, as the file's other text pass already was.
+  Before coining anything for a budget or a shape, list the unit's small functions and its uncalled ones.
+- Tooling: switch tables can decode as instructions (Read_Text_File's do), so a table is looked for in every image-derived
+  body, not only in one that fails to decode (rebuild_catalog.py, owner commit); the symptom was the strict audit's
+  "DIR32 not at original operand boundary" at the table's offset.
+- Read, unchanged: Projectile_Motion 0x593870 (ra2-decomp has more than 800 minutes on the twin since 25 November; its only
+  match needs two header forms that flip four of its rows), Read_RMG_INI 0x579960 (F66's pattern stands: one pending inline
+  site short behind the last list statement; no uncalled function of mapgen fits the tail), the ScenarioClass NoInit
+  constructor 0x65B780 (one pending site short behind AllowableUnitMaximums; no class member follows the lists, so the site is
+  in the body: operator bool, the conversion twice and Length() do not give it), the TechnoTypeClass constructor (any one of
+  many scalar members as a class with a one-argument constructor: interchangeable, and no existing class is evidenced for one).
