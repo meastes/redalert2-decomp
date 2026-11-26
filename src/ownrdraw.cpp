@@ -7286,16 +7286,38 @@ namespace OwnerDraw {
 /*
 **	RA2: stops the control's movies (and its timer).
 */
-static void Stop_Static_Movie(HWND window, StaticRecord * data)
+static inline void Stop_Static_Movie(StaticRecord * data, HWND window)
 {
-	if (data->Movie) {
+	if (data->Movie != NULL) {
 		delete data->Movie;
-		data->Movie = 0;
+		data->Movie = NULL;
 	}
 	KillTimer(window, 0x65);
-	if (data->Movie2) {
+	if (data->Movie2 != NULL) {
 		delete data->Movie2;
-		data->Movie2 = 0;
+		data->Movie2 = NULL;
+	}
+}
+
+/*
+**	RA2: starts a movie in the control (ra2-decomp's Play_Static_Movie).
+*/
+static inline void Play_Static_Movie(StaticRecord * data, HWND window, char const * name)
+{
+	Stop_Static_Movie(data, window);
+	RECT display;
+	Get_Display_Rect(window, &display);
+	data->Movie = OwnerDraw_InitMovieHandle(name, AlternateSurface, NULL);
+	if (data->Movie != NULL) {
+		data->Movie->SetPosition(display.left, display.top);
+		MoveWindow(window, display.left, display.top, data->Movie->Width, data->Movie->Height, FALSE);
+		SetTimer(window, 0x65, 34, NULL);
+	} else {
+		KillTimer(window, 0x65);
+		if (data->Movie2 != NULL) {
+			delete data->Movie2;
+			data->Movie2 = NULL;
+		}
 	}
 }
 
@@ -7303,76 +7325,84 @@ static void Stop_Static_Movie(HWND window, StaticRecord * data)
 **	RA2: the window procedure of the static controls: text (typed out), an image, a shape or its
 **	animation, or a movie.
 */
-#ifdef RA2_NON_MATCHING // not exact: 3056 bytes differ against the image-derived bound 005f2b50 (4512 body bytes, image_bounds.csv; 4326 before, 3067 before the published Yuri's Revenge StaticHandler's frame step, ++frame in the paint case): the record through ra2-decomp's Get_Data (its sibling dialog procedures, flagged: another site), the cases in the image's dispatch order with the real Control_Frame_Delay and Control_Animation_Rate calls, both movie starts written out
 LRESULT __stdcall Static_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-	StaticRecord * data = (StaticRecord *)Get_Data(window);
-	if (data == 0) {
+	StaticRecord * data = (StaticRecord *)Get_Record(window);
+	RECT area;
+	if (data == NULL) {
 		return(0);
 	}
 
 	switch (message) {
-		case WM_DESTROY:
-			if (data->Back) {
+		case WM_DESTROY: {
+			if (data->Back != NULL) {
 				delete data->Back;
-				data->Back = 0;
+				data->Back = NULL;
 			}
 			if (data->IsShapeAllocated) {
-				operator delete(data->Shape);
-				data->Shape = 0;
+				delete data->Shape;
+				data->Shape = NULL;
 			}
-			if ((data->PictureMode == 1 && data->IsPlaying) || data->PictureMode == 4) KillTimer(window, 0);
-			Stop_Static_Movie(window, data);
-			// RA2: destruction continues through the previous window procedure.
-		default: {
-			WNDPROC proc = 0;
-			Window_Proc_Table.getValue(window, proc);
-			return(CallWindowProcA(proc, window, message, wparam, lparam));
+			if (data->PictureMode == 1) {
+				if (data->IsPlaying) {
+					KillTimer(window, 0);
+				}
+			} else if (data->PictureMode == 4) {
+				KillTimer(window, 0);
+			}
+			HWND const movie_window = window;
+			if (data->Movie != NULL) {
+				delete data->Movie;
+				data->Movie = NULL;
+			}
+			KillTimer(movie_window, 0x65);
+			if (data->Movie2 != NULL) {
+				delete data->Movie2;
+				data->Movie2 = NULL;
+			}
 		}
-
-
-		case WM_MOVE:
-		case WM_SIZE:
-		case WM_WINDOWPOSCHANGED:
-			if (data->Back) {
-				delete data->Back;
-			}
-			data->Back = 0;
-			InvalidateRect(window, 0, FALSE);
-			break;
+		// RA2: destruction continues through the previous window procedure.
+		default:
+			goto call_original;
 
 		case WM_PAINT: {
 			if (data->IsDisabled) {
-				ValidateRect(window, 0);
+				ValidateRect(window, NULL);
 				break;
 			}
-			if (data->Movie) {
-				ValidateRect(window, 0);
+			if (data->Movie != NULL) {
+				ValidateRect(window, NULL);
 				break;
 			}
-			if (!data->Back) {
+			if (data->Back == NULL) {
 				RECT display;
 				Get_Display_Rect(window, &display);
 				RECT client;
 				GetClientRect(window, &client);
-				Surface * surface = new BSurface(client.right + 1, client.bottom + 1, 2);
+				BSurface * surface = new BSurface(client.right + 1, client.bottom + 1, 2);
 				data->Back = surface;
 				++Surface_Count;
-				Rect destination(0, 0, client.right + 1, client.bottom + 1);
-				Rect source(display.left, display.top, client.right + 1, client.bottom + 1);
-				surface->Blit_From(destination, *AlternateSurface, source, false, true);
+				Rect destination;
+				destination.X = 0;
+				destination.Y = 0;
+				destination.Width = client.right + 1;
+				destination.Height = client.bottom + 1;
+				Rect source;
+				source.X = display.left;
+				source.Y = display.top;
+				source.Width = client.right + 1;
+				source.Height = client.bottom + 1;
+				surface->Blit_From(destination, *AlternateSurface, source);
 			}
-			RECT area;
 			Get_Display_Rect(window, &area);
 			if (data->IsFilled) {
 				Rect fill(area.left, area.top, area.right - area.left, area.bottom - area.top);
-				AlternateSurface->Fill_Rect(fill, DSurface::Build_Hicolor_Pixel(GetRValue(data->FillColor), GetGValue(data->FillColor), (data->FillColor >> 16) & 0xff));
+				AlternateSurface->Fill_Rect(fill, DSurface::Build_Hicolor_Pixel(GetRValue(data->FillColor), (unsigned char)(data->FillColor >> 8), GetBValue(data->FillColor)));
 			}
-			int mode = data->PictureMode;
-			bool plain = mode == 0;
-			bool typed = (mode == 1);
+			bool plain = data->PictureMode == 0;
+			bool typed = data->PictureMode == 1;
 			if (plain || typed) {
-				if (data->Text && (plain || (typed && data->IsPlaying))) {
+				if (data->Text != NULL && (plain || (typed && data->IsPlaying))) {
 					LONG style = GetWindowLongA(window, GWL_STYLE);
 					int flags = 16;
 					if (style & SS_CENTER) {
@@ -7389,7 +7419,7 @@ LRESULT __stdcall Static_Proc(HWND window, UINT message, WPARAM wparam, LPARAM l
 						VocClass::PlayGlobal(data->TypingSound, 1.0f, 0x2000, 0);
 					}
 					if (typed) {
-						int length = wcslen(data->Text) + 1 + data->TypeExtra;
+						int length = wcslen(data->Text) + data->TypeExtra + 1;
 						if (data->Typed < length) {
 							data->Typed += data->TypeStep;
 							if (data->Typed >= length) {
@@ -7399,151 +7429,88 @@ LRESULT __stdcall Static_Proc(HWND window, UINT message, WPARAM wparam, LPARAM l
 					}
 				}
 			} else {
-				bool image_mode = mode == 2;
-				bool shape_mode = mode == 3;
-				bool animated = (mode == 4);
-				if ((image_mode || shape_mode || animated) && (int)(GetTickCount() - data->StartTime) > data->Delay) {
-					Rect bounds(area.left, area.top, area.right - area.left, area.bottom - area.top);
-					RECT client;
-					GetClientRect(window, &client);
-					Rect source(client.left, client.top, client.right - client.left, client.bottom - client.top);
-					AlternateSurface->Blit_From(bounds, *data->Back, source, false, true);
-					if (image_mode) {
-						Surface * image = data->Image;
-						if (image) {
-							int width = image->Get_Width();
-							int height = image->Get_Height();
-							Rect rect = bounds;
-							if (width < bounds.Width) {
-								rect.X = (bounds.Width - width) / 2 + bounds.X;
-								rect.Width = width;
+				bool image_mode = data->PictureMode == 2;
+				bool shape_mode = data->PictureMode == 3;
+				bool animated = data->PictureMode == 4;
+				if (image_mode || shape_mode || animated) {
+					int now = GetTickCount();
+					if (now - data->StartTime > data->Delay) {
+						Rect bounds(area.left, area.top, area.right - area.left, area.bottom - area.top);
+						RECT client;
+						GetClientRect(window, &client);
+						Rect source(client.left, client.top, client.right - client.left, client.bottom - client.top);
+						AlternateSurface->Blit_From(bounds, *data->Back, source);
+						if (image_mode) {
+							Surface * image = data->Image;
+							if (image != NULL) {
+								int width = image->Get_Width();
+								int height = image->Get_Height();
+								Rect rect = bounds;
+								if (rect.Width > width) {
+									rect.X += (rect.Width - width) / 2;
+									rect.Width = width;
+								}
+								if (rect.Height > height) {
+									rect.Y += (rect.Height - height) / 2;
+									rect.Height = height;
+								}
+								SurfaceCache.DrawTrans(rect, *AlternateSurface, *image, DSurface::Build_Hicolor_Pixel(255, 0, 255));
 							}
-							if (height < bounds.Height) {
-								rect.Y = bounds.Y + (bounds.Height - height) / 2;
-								rect.Height = height;
-							}
-							SurfaceCache.DrawTrans(rect, *AlternateSurface, *image, (short)DSurface::Build_Hicolor_Pixel(255, 0, 255));
-							ValidateRect(window, 0);
-							break;
-						}
-					} else if ((shape_mode || animated) && data->Shape) {
-						ShapeSet * shape = data->Shape;
-						ConvertClass * drawer = data->Drawer;
-						int height = shape->Get_Height();
-						int width = shape->Get_Width();
-						Rect rect = bounds;
-						if (rect.Width > width) {
-							rect.X += (rect.Width - width) / 2;
-							rect.Width = width;
-						}
-						if (rect.Height > height) {
-							rect.Y += (rect.Height - height) / 2;
-							rect.Height = height;
-						}
-						Point2D point(rect.X, rect.Y);
-						Rect window_rect = AlternateSurface->Get_Rect();
-						int frame = data->Frame;
-						Draw_Shape(*AlternateSurface, *drawer, shape, frame, point, window_rect, SHAPE_WIN_REL, 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0));
-						if (animated && data->IsPlaying) {
-							if (++frame >= data->FrameCount) {
-								frame = 0;
-							}
-							data->Frame = frame;
-							if (data->Notify) {
-								SendMessageA(data->Notify, WM_USER + 216, frame, (LPARAM)window); // RA2: the new frame
-								ValidateRect(window, 0);
-								break;
+						} else if (shape_mode || animated) {
+							ShapeSet * shape = data->Shape;
+							if (shape != NULL) {
+								ConvertClass * drawer = data->Drawer;
+								int height = shape->Get_Height();
+								int width = shape->Get_Width();
+								Rect rect = bounds;
+								if (rect.Width > width) {
+									rect.X += (rect.Width - width) / 2;
+									rect.Width = width;
+								}
+								if (rect.Height > height) {
+									rect.Y += (rect.Height - height) / 2;
+									rect.Height = height;
+								}
+								Point2D point(rect.X, rect.Y);
+								Rect window_rect = AlternateSurface->Get_Rect();
+								int frame = data->Frame;
+								Draw_Shape(*AlternateSurface, *drawer, shape, frame, point, window_rect, SHAPE_WIN_REL);
+								if (animated && data->IsPlaying) {
+									if (++frame >= data->FrameCount) {
+										frame = 0;
+									}
+									data->Frame = frame;
+									if (data->Notify != NULL) {
+										SendMessageA(data->Notify, WM_USER + 216, frame, (LPARAM)window); // RA2: the new frame
+									}
+								}
 							}
 						}
 					}
 				}
 			}
-			ValidateRect(window, 0);
+			ValidateRect(window, NULL);
 			break;
 		}
 
-		case WM_TIMER:
-			if (wparam == 0x65) {
-				if (!data->Movie) {
-					break;
-				}
-				if (data->Movie->AdvanceFrame()) {
-					InvalidateRect(window, 0, FALSE);
-				}
-				if (!data->Movie->FramesLeft()) {
-					break;
-				}
-				if (data->IsLooping) {
-					data->Movie->SeekToFrame(1);
-					DebugString("Looping movie\n");
-					break;
-				}
-				Stop_Static_Movie(window, data);
-				break;
-			} else {
-				int mode = data->PictureMode;
-				bool once;
-				if (mode == 1) {
-					InvalidateRect(window, 0, TRUE);
-					break;
-				}
-				bool animated = mode == 4;
-				if (mode == 2 || mode == 3) {
-					once = true;
-				} else {
-					once = false;
-					if (!animated) break;
-				}
-				if ((int)(GetTickCount() - data->StartTime) <= data->Delay) {
-					break;
-				}
-				if (once || (animated && data->IsPlaying)) {
-					InvalidateRect(window, 0, TRUE);
-					if (once) {
-						KillTimer(window, 0);
-						break;
-					}
-				}
-				if (data->FrameCount) {
-					break;
-				}
-				KillTimer(window, 0);
-				if (!data->Shape) {
-					break;
-				}
-				data->FrameCount = data->Shape->Get_Count();
-				SetTimer(window, 0, data->FrameCount, 0);
-				break;
+		case WM_USER + 211: // RA2: starts the animation
+			if (data->Shape != NULL && data->PictureMode == 4 && !data->IsPlaying) {
+				data->IsPlaying = true;
+				HWND parent = GetParent(window);
+				int interval = Control_Animation_Rate((unsigned int)parent, window);
+				SetTimer(window, 0, interval, NULL);
 			}
-
-		case OD_SUBCLASSED: {
-			WNDPROC proc = 0;
-			Window_Proc_Table.getValue(window, proc);
-			HWND parent = GetParent(window);
-			data->PictureMode = 0;
-			data->TextFlags = Control_Frame_Delay((unsigned int)parent, window);
-			data->TextColor = Text_Color;
 			break;
-		}
-
-		case WM_USER + 211: { // RA2: starts the animation
-			if (!data->Shape || data->PictureMode != 4 || data->IsPlaying) {
-				break;
-			}
-			data->IsPlaying = true;
-			SetTimer(window, 0, Control_Animation_Rate((unsigned int)GetParent(window), window), 0);
-			break;
-		}
 
 		case OD_SETCOLOR:
 			if ((COLORREF)lparam != data->TextColor) {
-				InvalidateRect(window, 0, FALSE);
+				InvalidateRect(window, NULL, FALSE);
 			}
 			if (lparam == -1) {
 				data->TextColor = Text_Color;
-				break;
+			} else {
+				data->TextColor = lparam;
 			}
-			data->TextColor = lparam;
 			break;
 
 		case WM_USER + 177: // RA2: a solid background colour
@@ -7554,54 +7521,50 @@ LRESULT __stdcall Static_Proc(HWND window, UINT message, WPARAM wparam, LPARAM l
 		case OD_SETTEXTW:
 		case WM_USER + 180: { // RA2: the text changed: the background is put back
 			Surface * back = data->Back;
-			if (back) {
-				RECT display;
-				Get_Display_Rect(window, &display);
+			if (back != NULL) {
+				Get_Display_Rect(window, &area);
 				RECT client;
 				GetClientRect(window, &client);
-				Rect destination, source;
-				source.X = 0;
-				source.Y = 0;
-				source.Width = client.right + 1;
-				source.Height = client.bottom + 1;
-				destination.X = display.left;
-				destination.Y = display.top;
-				destination.Width = client.right + 1;
-				destination.Height = client.bottom + 1;
-				AlternateSurface->Blit_From(destination, *back, source, false, true);
-				InvalidateRect(window, 0, FALSE);
+
+				Rect source(0, 0, client.right + 1, client.bottom + 1);
+				Rect destination(area.left, area.top, source.Width, source.Height);
+
+				AlternateSurface->Blit_From(destination, *back, source);
+				InvalidateRect(window, NULL, FALSE);
 			}
 			return(1);
-
-				}
+		}
 
 		case WM_USER + 212: // RA2: stops the animation
-			if (data->PictureMode != 4 || !data->IsPlaying) {
-				break;
+			if (data->PictureMode == 4 && data->IsPlaying) {
+				KillTimer(window, 0);
+				data->IsPlaying = false;
 			}
-			KillTimer(window, 0);
-			data->IsPlaying = false;
 			break;
 
 		case WM_USER + 238: // RA2: starts typing the text out
 			if (data->PictureMode == 1 && !data->IsPlaying) {
 				data->IsPlaying = true;
 				data->Typed = 1;
-				SetTimer(window, 0, data->TypeRate, 0);
-				InvalidateRect(window, 0, FALSE);
+				SetTimer(window, 0, data->TypeRate, NULL);
+				InvalidateRect(window, NULL, FALSE);
 			}
 			break;
 
 		case WM_USER + 213: // RA2: sets the animation frame
 			if (data->PictureMode == 4) {
 				data->Frame = lparam;
-				InvalidateRect(window, 0, TRUE);
+				InvalidateRect(window, NULL, TRUE);
 			}
 			break;
 
-		case WM_USER + 214: // RA2: the animation frame
-			if (data->PictureMode != 4) return(-1);
-			return(data->Frame);
+		case WM_USER + 214: { // RA2: the animation frame
+			int frame = -1;
+			if (data->PictureMode == 4) {
+				frame = data->Frame;
+			}
+			return(frame);
+		}
 
 		case WM_USER + 215: // RA2: the window told of new frames
 			if (data->PictureMode == 4) {
@@ -7611,62 +7574,35 @@ LRESULT __stdcall Static_Proc(HWND window, UINT message, WPARAM wparam, LPARAM l
 
 		case WM_USER + 223: // RA2: plays the movie of the Movies list at wparam
 			if ((int)wparam >= 0 && (int)wparam < Movies.Count()) {
-				char const * name = Movies[wparam];
-				Stop_Static_Movie(window, data);
-				RECT display;
-				Get_Display_Rect(window, &display);
-				data->Movie = OwnerDraw_InitMovieHandle(name, AlternateSurface, 0);
-				if (data->Movie) {
-					data->Movie->SetPosition(display.left, display.top);
-					MoveWindow(window, display.left, display.top, data->Movie->Width, data->Movie->Height, FALSE);
-					SetTimer(window, 0x65, 0x22, 0);
-				} else {
-					KillTimer(window, 0x65);
-					if (data->Movie2) {
-						delete data->Movie2;
-						data->Movie2 = NULL;
-					}
-				}
+				char const * name = Movies[(int)wparam];
+				Play_Static_Movie(data, window, name);
 			}
 			break;
 
 		case WM_USER + 228: { // RA2: plays the named movie
-			Stop_Static_Movie(window, data);
-			RECT display;
-			Get_Display_Rect(window, &display);
-			data->Movie = OwnerDraw_InitMovieHandle((char const *)lparam, AlternateSurface, 0);
-			if (data->Movie) {
-				data->Movie->SetPosition(display.left, display.top);
-				MoveWindow(window, display.left, display.top, data->Movie->Width, data->Movie->Height, FALSE);
-				SetTimer(window, 0x65, 0x22, 0);
-			} else {
-				KillTimer(window, 0x65);
-				if (data->Movie2) {
-					delete data->Movie2;
-					data->Movie2 = NULL;
-				}
-			}
+			Play_Static_Movie(data, window, (char const *)lparam);
 			break;
 		}
 
-		case WM_USER + 226: // RA2: stops the movie
-			Stop_Static_Movie(window, data);
+		case WM_USER + 226: { // RA2: stops the movie
+			Stop_Static_Movie(data, window);
 			break;
+		}
 
 		case WM_USER + 240: // RA2: draws the movie's frame
-			if (data->Movie) {
+			if (data->Movie != NULL) {
 				data->Movie->Blit();
 			}
 			break;
 
 		case WM_USER + 224: // RA2: pauses the movie
-			if (data->Movie) {
+			if (data->Movie != NULL) {
 				data->Movie->Pause(true);
 			}
 			break;
 
 		case WM_USER + 225: // RA2: resumes the movie
-			if (data->Movie) {
+			if (data->Movie != NULL) {
 				data->Movie->Pause(false);
 			}
 			break;
@@ -7674,11 +7610,80 @@ LRESULT __stdcall Static_Proc(HWND window, UINT message, WPARAM wparam, LPARAM l
 		case WM_USER + 227: // RA2: the movie loops
 			data->IsLooping = wparam;
 			break;
-	}
 
+		case WM_TIMER: {
+			if (wparam == 0x65) {
+				if (data->Movie != NULL) {
+					if (data->Movie->AdvanceFrame()) {
+						InvalidateRect(window, NULL, FALSE);
+					}
+					if (data->Movie->FramesLeft()) {
+						if (data->IsLooping) {
+							data->Movie->SeekToFrame(1);
+							DebugString("Looping movie\n");
+						} else {
+							Stop_Static_Movie(data, window);
+						}
+					}
+				}
+				break;
+			}
+			if (data->PictureMode == 1) {
+				InvalidateRect(window, NULL, TRUE);
+				break;
+			}
+			bool animated = data->PictureMode == 4;
+			bool still = data->PictureMode == 2 || data->PictureMode == 3;
+			if (still || animated) {
+				int now = GetTickCount();
+				if (now - data->StartTime > data->Delay) {
+					if (still || (animated && data->IsPlaying)) {
+						InvalidateRect(window, NULL, TRUE);
+						if (still) {
+							KillTimer(window, 0);
+							break;
+						}
+					}
+					if (data->FrameCount == 0) {
+						KillTimer(window, 0);
+						if (data->Shape != NULL) {
+							data->FrameCount = data->Shape->Get_Count();
+							SetTimer(window, 0, data->FrameCount, NULL);
+						}
+					}
+				}
+			}
+			break;
+		}
+
+		case WM_MOVE:
+		case WM_SIZE:
+		case WM_WINDOWPOSCHANGED:
+			delete data->Back;
+			data->Back = NULL;
+			InvalidateRect(window, NULL, FALSE);
+			break;
+
+		case OD_SUBCLASSED: {
+			WNDPROC proc = NULL;
+			Window_Proc_Table.getValue(window, proc);
+			HWND parent = GetParent(window);
+			data->PictureMode = 0;
+			data->TextFlags = Control_Frame_Delay((unsigned int)parent, window);
+			data->TextColor = Text_Color;
+			break;
+		}
+	}
 	return(0);
+
+call_original:
+	WNDPROC proc = NULL;
+	WNDPROC * found = NULL;
+	if (Window_Proc_Table.getPointer(window, &found) && found) {
+		proc = *found;
+	}
+	return(CallWindowProcA(proc, window, message, wparam, lparam));
 }
-#endif
 
 }
 
