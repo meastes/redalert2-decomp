@@ -11033,11 +11033,12 @@ LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lp
 }
 #endif
 
-#ifdef RA2_NON_MATCHING // not exact: 13857 bytes differ against the image-derived bound 005f6690 (14,618 body bytes, 6 padding) (position score 13857, was 13798, taken for the structure under the owner's ruling: 3,759 instruction lines off of 4,435, was 3,814; 202 of 274 calls in order, was 201; 14,512 B: the record fetched through the unit's Get_Record, ra2-decomp's Find_Data, which gives the image's out-of-line Dictionary::keyHash call at the top (lanes F77, F79); the whole port of ra2-decomp's ListBoxHandler (PR #406, unmarked there) is still to do; image-faithful widths; before that position score 13802, was 13791: the subclassed item height read and added as a dword before the low-word mask, as the image does at 0x005F861F; before that 13841; the three selection queries read the state through ArrayList::get as RA2 1.001 does, one indexed load each as in the image; before that 13847; the selection-change notifications sent with MAKEWPARAM and the SDK LBN_ codes; before that 14527; the message groups in the order of ra2-decomp's banked form banks/0x00618D40_lbh.cpp (11df85d), each RA2 handler and fall-through chain kept)
+#ifdef RA2_NON_MATCHING // not exact: 13716 bytes differ against the image-derived bound 005f6690 (14,618 body bytes, 6 padding) (position score 13716, was 13857: 2,938 instruction lines off of 4,435, was 3,759; 227 of 274 calls in order, was 202; 14,608 B, was 14,512 (lane F80): the three text-message groups ported from ra2-decomp's ListBoxHandler (src/ownrdraw.cpp at 82250f72, PR #406: the narrow search, add and get messages each convert or clear wide_messages and fall into the wide group, the node made through Add_Node and dropped through Remove_Node), which gives the image's switch (every case group at its own entry and in the image's layout order, the message kept in ebx), and the case groups in that text's source order; left: the frame is 0x204 over (0x2f30 for 0x2d2c), the post-switch block and the erase-background return are laid out early, the paint case has three wcsncpy sites for the image's two; the bank's newest order (origin/banked-forms 41d009df, 0x00618D40.cpp) gives the image's size exactly, 14,618 B, at 3,053 lines; before that position score 13857, was 13798, taken for the structure under the owner's ruling: 3,759 instruction lines off of 4,435, was 3,814; 202 of 274 calls in order, was 201; 14,512 B: the record fetched through the unit's Get_Record, ra2-decomp's Find_Data, which gives the image's out-of-line Dictionary::keyHash call at the top (lanes F77, F79); the whole port of ra2-decomp's ListBoxHandler (PR #406, unmarked there) is still to do; image-faithful widths; before that position score 13802, was 13791: the subclassed item height read and added as a dword before the low-word mask, as the image does at 0x005F861F; before that 13841; the three selection queries read the state through ArrayList::get as RA2 1.001 does, one indexed load each as in the image; before that 13847; the selection-change notifications sent with MAKEWPARAM and the SDK LBN_ codes; before that 14527; the message groups in the order of ra2-decomp's banked form banks/0x00618D40_lbh.cpp (11df85d), each RA2 handler and fall-through chain kept)
 namespace OwnerDraw {
 
 LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
+	BOOL wide_messages = TRUE;
 	WNDPROC previous = NULL;
 	Window_Proc_Table.getValue(window, previous);
 	HWND parent = GetParent(window);
@@ -11049,6 +11050,7 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 
 	WinData * data = Get_Record(window);
 	if (!data) return 0;
+	wchar_t converted[0x1400];
 
 	int scrollbar_width = 2 * Border_Width + 18;
 
@@ -11092,41 +11094,8 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 		}
 	}
 
+	int index;
 	switch (message) {
-		case CB_GETITEMDATA:
-		case CB_SETITEMDATA:
-		case LB_GETITEMDATA:
-		case LB_SETITEMDATA: {
-			TextNode * node = (TextNode *)CallWindowProcA(previous, window, LB_GETITEMDATA, wparam, 0);
-			call_default = false;
-			result = (LRESULT)node;
-			if (!node || node == (TextNode *)LB_ERR) result = LB_ERR;
-			else if (message == CB_GETITEMDATA || message == LB_GETITEMDATA) result = node->Reserved_04;
-			else node->Reserved_04 = lparam;
-			break;
-		}
-		case LB_SETTOPINDEX: {
-			int index = (int)wparam;
-			int count = SendMessage(window, LB_GETCOUNT, 0, 0);
-			int item_height = SendMessage(window, LB_GETITEMHEIGHT, 0, 0);
-			if (!count || !item_height) {
-				break;
-			}
-			int visible = (client_rect.bottom - client_rect.top) / item_height;
-			if (index < 0) {
-				index = 0;
-			}
-			if (count - visible <= 0) {
-				index = 0;
-			} else if (index > count - visible) {
-				index = count - visible;
-			}
-			if (index != data->Position) {
-				data->Position = index;
-				InvalidateRect(window, NULL, FALSE);
-			}
-			return(0);
-		}
 		case LB_SETSEL: {
 			int index = (int)lparam;
 			if (index < -1) {
@@ -11158,8 +11127,46 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			InvalidateRect(window, NULL, FALSE);
 			return(0);
 		}
+
+		case CB_GETITEMDATA:
+		case CB_SETITEMDATA:
+		case LB_GETITEMDATA:
+		case LB_SETITEMDATA: {
+			TextNode * node = (TextNode *)CallWindowProcA(previous, window, LB_GETITEMDATA, wparam, 0);
+			call_default = false;
+			result = (LRESULT)node;
+			if (!node || node == (TextNode *)LB_ERR) result = LB_ERR;
+			else if (message == CB_GETITEMDATA || message == LB_GETITEMDATA) result = node->Reserved_04;
+			else node->Reserved_04 = lparam;
+			break;
+		}
+
+		case LB_SETTOPINDEX: {
+			int index = (int)wparam;
+			int count = SendMessage(window, LB_GETCOUNT, 0, 0);
+			int item_height = SendMessage(window, LB_GETITEMHEIGHT, 0, 0);
+			if (!count || !item_height) {
+				break;
+			}
+			int visible = (client_rect.bottom - client_rect.top) / item_height;
+			if (index < 0) {
+				index = 0;
+			}
+			if (count - visible <= 0) {
+				index = 0;
+			} else if (index > count - visible) {
+				index = count - visible;
+			}
+			if (index != data->Position) {
+				data->Position = index;
+				InvalidateRect(window, NULL, FALSE);
+			}
+			return(0);
+		}
+
 		case LB_GETTOPINDEX:
 			return(data->Position);
+
 		case LB_GETSELCOUNT: {
 			ArrayList<int> * sel_states = (ArrayList<int> *)data->RangeMax;
 			if (sel_states == NULL) {
@@ -11175,6 +11182,7 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			}
 			return(count);
 		}
+
 		case LB_GETSELITEMS: {
 			ArrayList<int> * sel_states = (ArrayList<int> *)data->RangeMax;
 			int total = 0;
@@ -11198,6 +11206,7 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			}
 			return(total);
 		}
+
 		case LB_GETSEL: {
 			int selected = 0;
 			ArrayList<int> * sel_states = (ArrayList<int> *)data->RangeMax;
@@ -11210,6 +11219,7 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			sel_states->get(selected, wparam);
 			return(selected);
 		}
+
 		case LB_SETCURSEL: {
 			int index = (int)wparam;
 			if ((int)wparam >= -1 && index < SendMessage(window, LB_GETCOUNT, 0, 0)) {
@@ -11226,8 +11236,10 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			InvalidateRect(window, NULL, FALSE);
 			return(0);
 		}
+
 		case LB_GETCURSEL:
 			return(data->IsEditFocus);
+
 		case LB_GETITEMRECT: {
 			int index = (int)wparam;
 			if (index < data->Position) {
@@ -11248,33 +11260,7 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			out->right = client_rect.right - client_rect.left;
 			return(0);
 		}
-		case LB_SELITEMRANGE: {
-			int last = HIWORD(lparam);
-			int first = LOWORD(lparam);
-			int count = SendMessage(window, LB_GETCOUNT, 0, 0);
-			if (last < 0 || last < first) {
-				return(-1);
-			}
-			if (last >= count) {
-				last = count - 1;
-			}
-			ArrayList<int> * sel_states = (ArrayList<int> *)data->RangeMax;
-			if (sel_states == NULL) {
-				sel_states = new ArrayList<int>;
-				data->RangeMax = (int)sel_states;
-			}
-			if (last >= sel_states->length()) {
-				int unselected = 0;
-				sel_states->setSize(last + 1, unselected);
-			}
-			for (int i = first; i <= last; i++) {
-				int selected = (int)wparam;
-				sel_states->replace(selected, i);
-			}
-			parent = GetParent(window);
-			SendMessage(parent, WM_COMMAND, MAKEWPARAM(GetWindowLong(window, GWL_ID), LBN_SELCHANGE), (LPARAM)window);
-			return(0);
-		}
+
 		case WM_LBUTTONDBLCLK:
 			PostMessage(parent, WM_COMMAND, MAKEWPARAM(GetWindowLong(window, GWL_ID), LBN_DBLCLK), (LPARAM)window);
 			return(0);
@@ -11300,6 +11286,7 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			SendMessage(parent, WM_COMMAND, MAKEWPARAM(GetWindowLong(window, GWL_ID), LBN_SELCHANGE), (LPARAM)window);
 			return(0);
 		}
+
 		case WM_RBUTTONDOWN:
 			SendMessage(window, LB_SETSEL, 0, -1);
 			SendMessage(window, LB_SETCURSEL, (WPARAM)-1, 0);
@@ -11307,6 +11294,7 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			SendMessage(parent, WM_COMMAND, MAKEWPARAM(GetWindowLong(window, GWL_ID), LBN_SELCHANGE), (LPARAM)window);
 			InvalidateRect(window, NULL, FALSE);
 			return(0);
+
 		case OD_SETCOLOR: {
 			ArrayList<int> * row_colors = (ArrayList<int> *)data->ItemState;
 			if (row_colors == NULL) {
@@ -11323,12 +11311,14 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			InvalidateRect(window, NULL, FALSE);
 			break;
 		}
+
 		case OD_SUBCLASSED: {
 			data->IsEditFocus = -1;
 			int height = data->Font->LineHeight + 2;
 			SendMessage(window, LB_SETITEMHEIGHT, (WPARAM)-1, height & 0xffff);
 			break;
 		}
+
 		case OD_ADDCOLUMN: {
 			ArrayList<ColumnData> * columns = (ArrayList<ColumnData> *)data->HadTabStop;
 			if (columns == NULL) {
@@ -11351,6 +11341,7 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			columns->add(new_column, length);
 			return(lparam);
 		}
+
 		case OD_GETCELLTIP: {
 			int count = SendMessage(window, LB_GETCOUNT, 0, 0);
 			int item_height = SendMessage(window, LB_GETITEMHEIGHT, 0, 0);
@@ -11384,6 +11375,7 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			}
 			return(0);
 		}
+
 		case OD_REMOVECOLUMN: {
 			ArrayList<ColumnData> * columns = (ArrayList<ColumnData> *)data->HadTabStop;
 			if (columns != NULL) {
@@ -11398,6 +11390,7 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			}
 			return(-1);
 		}
+
 		case OD_SETCELL: {
 			ArrayList<ColumnData> * columns = (ArrayList<ColumnData> *)data->HadTabStop;
 			if (columns == NULL) {
@@ -11430,69 +11423,81 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			column->cells.replace(*(CellData *)lparam, row);
 			return(column_id);
 		}
+
 		case 0x4c4:
 		case 0x4c5:
 		case 0x4c6:
+			Char_To_Wide(converted, (char const *)lparam, 0x1400);
+			lparam = (LPARAM)converted;
 		case 0x4c9:
 		case 0x4ca:
 		case 0x4cb: {
-			wchar_t buffer[0x1400];
-			wchar_t const * find;
-			if (message <= 0x4c6) {
-				Char_To_Wide(buffer, (char const *)lparam, sizeof(buffer) / sizeof(buffer[0]));
-				find = buffer;
-			} else {
-				find = (wchar_t const *)lparam;
-			}
-			int count = SendMessageA(window, LB_GETCOUNT, 0, 0);
 			call_default = false;
+			int count = SendMessage(window, LB_GETCOUNT, 0, 0);
+			BOOL found = FALSE;
 			if (count == LB_ERR) break;
-			result = LB_ERR;
-			for (int index = wparam; index < count; ++index) {
-				TextNode * node = (TextNode *)CallWindowProcA(previous, window, LB_GETITEMDATA, index, 0);
-				if (!node || node == (TextNode *)LB_ERR) continue;
-				int match = (message == 0x4c5 || message == 0x4ca) ? wcsicmp(find, node->Data) : wcsnicmp(find, node->Data, wcslen(find));
-				if (match == 0) {
+			for (index = (int)wparam; index < count; ++index) {
+				if (found) break;
+				result = CallWindowProcA(previous, window, LB_GETITEMDATA, index, 0);
+				if (result != LB_ERR) {
+					TextNode * node = (TextNode *)result;
+					if (message == 0x4c5 || message == 0x4ca) {
+						found = (wcsicmp((wchar_t *)lparam, node->Data) == 0);
+					} else {
+						found = (wcsnicmp((wchar_t *)lparam, node->Data, wcslen((wchar_t *)lparam)) == 0);
+					}
 					result = index;
-					if (message == 0x4c6) result = SendMessage(window, LB_SETCURSEL, index, 0);
-					break;
 				}
+			}
+			if (!found) {
+				result = LB_ERR;
+			} else if (message == 0x4c6) {
+				result = SendMessage(window, LB_SETCURSEL, result, 0);
 			}
 			break;
 		}
+
 		case 0x4c7:
 		case 0x4c8:
+			wide_messages = FALSE;
 		case 0x4cc:
 		case OD_ADDSTRINGW: {
-			bool wide = message >= 0x4cc;
-			bool append = message == 0x4c8 || message == 0x4cd;
-			char const * caption = wide ? Wide_To_Narrow((wchar_t const *)lparam) : (char const *)lparam;
-			LRESULT index = CallWindowProcA(previous, window, append ? LB_ADDSTRING : LB_INSERTSTRING, append ? 0 : wparam, (LPARAM)caption);
 			call_default = false;
-			if (index == LB_ERR || index == LB_ERRSPACE) { result = index; break; }
-			int length = wide ? wcslen((wchar_t const *)lparam) : strlen(caption);
-			TextNode * node = (TextNode *)operator new(offsetof(TextNode, Text) + (length + 1) * sizeof(wchar_t));
-			result = LB_ERRSPACE;
-			if (node) {
-				node->Data = node->Text;
-				node->Next = data->Nodes;
-				node->Reserved_04 = 0;
-				data->Nodes = node;
-				node->Reserved_0C = wide;
-				if (wide) wcscpy(node->Data, (wchar_t const *)lparam);
-				else Char_To_Wide(node->Data, caption, -1);
-				result = CallWindowProcA(previous, window, LB_SETITEMDATA, index, (LPARAM)node);
+			if (message == 0x4c8 || message == 0x4cd) {
+				if (wide_messages) {
+					result = CallWindowProcA(previous, window, LB_ADDSTRING, 0, (LPARAM)Wide_To_Narrow((wchar_t const *)lparam));
+				} else {
+					result = CallWindowProcA(previous, window, LB_ADDSTRING, 0, lparam);
+				}
+			} else {
+				if (wide_messages) {
+					result = CallWindowProcA(previous, window, LB_INSERTSTRING, wparam, (LPARAM)Wide_To_Narrow((wchar_t const *)lparam));
+				} else {
+					result = CallWindowProcA(previous, window, LB_INSERTSTRING, wparam, lparam);
+				}
+			}
+			if (result == LB_ERR || result == LB_ERRSPACE) break;
+			int position = result;
+			int length = wide_messages ? wcslen((wchar_t *)lparam) : strlen((char *)lparam);
+			TextNode * node = ((NodeList *)data)->Add_Node(length);
+			if (node != NULL) {
+				node->Reserved_0C = wide_messages;
+				if (wide_messages) {
+					wcscpy(node->Data, (wchar_t *)lparam);
+				} else {
+					Char_To_Wide(node->Data, (char const *)lparam, -1);
+				}
+				result = CallWindowProcA(previous, window, LB_SETITEMDATA, position, (LPARAM)node);
 				if (result != LB_ERR && result != LB_ERRSPACE) {
-					result = index;
-					int position = index;
+					result = position;
 					if (message != 0x4c8 && position != -1) {
 						ArrayList<int> * row_colors = (ArrayList<int> *)data->ItemState;
-						if (row_colors && position < row_colors->length()) {
+						if (row_colors != NULL && position < row_colors->length()) {
 							int color = -1;
 							row_colors->add(color, position);
 						}
 						ArrayList<int> * sel_states = (ArrayList<int> *)data->RangeMax;
-						if (sel_states && position < sel_states->length()) {
+						if (sel_states != NULL && position < sel_states->length()) {
 							int selected = 0;
 							sel_states->add(selected, position);
 						}
@@ -11500,55 +11505,61 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 					if (message == 0x4c8 || position < 0) {
 						position = SendMessage(window, LB_GETCOUNT, 0, 0);
 					}
-
 					ArrayList<ColumnData> * columns = (ArrayList<ColumnData> *)data->HadTabStop;
 					CellData cell;
 					if (columns != NULL) {
-						for (int col = 0; col < columns->length(); col++) {
+						ColumnData * column = NULL;
+						for (int col = 0; col < columns->length(); ++col) {
+							columns->getPointer(&column, col);
 
 							/*
 							 * The first column added implicitly holds the row's listbox string,
 							 * so the new row gets a PRIMARY cell there and INVALID cells elsewhere.
 							 */
 							cell.type = (col == 0) ? CellData::PRIMARY : CellData::INVALID;
-							ColumnData * column = NULL;
-							columns->getPointer(&column, col);
 							column->cells.add(cell, position);
 						}
 					}
 					break;
 				}
+			} else {
+				result = LB_ERRSPACE;
 			}
-			CallWindowProcA(previous, window, LB_DELETESTRING, index, 0);
-			TextNode ** link = &data->Nodes;
-			while (*link && *link != node) link = &(*link)->Next;
-			if (*link) {
-				*link = node->Next;
-				operator delete(node);
-			}
+			CallWindowProcA(previous, window, LB_DELETESTRING, position, 0);
+			if (node != NULL) ((NodeList *)data)->Remove_Node(node);
 			break;
 		}
-		case LB_GETTEXTLEN:
-		case 0x4b3:
+
 		case 0x4b5:
-		case 0x4b6:
 		case 0x4b7:
-		case 0x4cf: {
-			bool wide = message != 0x4b5 && message != 0x4b7;
-			bool copy = message != LB_GETTEXTLEN && message != 0x4cf && lparam;
-			if (copy) {
-				if (wide) *(wchar_t *)lparam = 0;
+			wide_messages = FALSE;
+		case 0x4b3:
+		case 0x4b6:
+		case 0x4cf:
+		case LB_GETTEXTLEN: {
+			call_default = false;
+			if (lparam && message != LB_GETTEXTLEN && message != 0x4cf) {
+				if (wide_messages) *(wchar_t *)lparam = 0;
 				else *(char *)lparam = 0;
 			}
-			call_default = false;
-			TextNode * node = (TextNode *)CallWindowProcA(previous, window, LB_GETITEMDATA, wparam, 0);
-			if (node && node != (TextNode *)LB_ERR) {
-				result = message == 0x4cf ? node->Reserved_0C : wcslen(node->Data);
-				if (copy && wide) wcscpy((wchar_t *)lparam, node->Data);
-				if (copy && !wide) WideToCharString((char *)lparam, node->Data, -1);
+			result = CallWindowProcA(previous, window, LB_GETITEMDATA, wparam, 0);
+			if (result != LB_ERR) {
+				TextNode * node = (TextNode *)result;
+				if (node == NULL) break;
+				if (message == 0x4cf) {
+					result = node->Reserved_0C;
+				} else {
+					result = wcslen(node->Data);
+					if (message != LB_GETTEXTLEN) {
+						if (wide_messages) wcscpy((wchar_t *)lparam, node->Data);
+						else WideToCharString((char *)lparam, node->Data, -1);
+					}
+				}
 			}
+			if (result < 0) result = 0;
 			break;
 		}
+
 		case 0x4e8: {
 			if (LOWORD(lparam) >= client_rect.right || HIWORD(lparam) >= client_rect.bottom) return -1;
 			int height = SendMessage(window, LB_GETITEMHEIGHT, 0, 0);
@@ -11556,72 +11567,10 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			int row = data->Position + HIWORD(lparam) / height;
 			return row >= 0 && row < SendMessage(window, LB_GETCOUNT, 0, 0) ? row : -1;
 		}
+
 		case 0x4ef:
 			return (LRESULT)data->ScrollBar;
-		case WM_VSCROLL: {
-			call_default = false;
-			LRESULT position = SendMessage(data->ScrollBar, SBM_GETPOS, 0, 0);
-			if (position != SendMessage(window, LB_GETTOPINDEX, 0, 0)) {
-				SendMessage(window, LB_SETTOPINDEX, position, 0);
-			}
-			break;
-		}
-		case LB_DELETESTRING: {
-			ArrayList<int> * row_colors = (ArrayList<int> *)data->ItemState;
-			if (row_colors != NULL && row_colors->length() > (int)wparam) {
-				row_colors->remove((int)wparam);
-			}
-			ArrayList<int> * sel_states = (ArrayList<int> *)data->RangeMax;
-			if (sel_states != NULL && sel_states->length() > (int)wparam) {
-				sel_states->remove((int)wparam);
-			}
-			ArrayList<ColumnData> * columns = (ArrayList<ColumnData> *)data->HadTabStop;
-			if (columns != NULL) {
-				for (int col = 0; col < columns->length(); col++) {
-					ColumnData * column = NULL;
-					columns->getPointer(&column, col);
-					if (column->cells.length() != 0) {
-						column->cells.remove((int)wparam);
-					}
-				}
-			}
-			break;
-		}
-		case WM_NCDESTROY:
-		case LB_RESETCONTENT: {
-			ArrayList<int> * row_colors = (ArrayList<int> *)data->ItemState;
-			if (row_colors != NULL) {
-				delete row_colors;
-			}
-			ArrayList<int> * sel_states = (ArrayList<int> *)data->RangeMax;
-			if (sel_states != NULL) {
-				delete sel_states;
-			}
-			data->ItemState = 0;
-			data->RangeMax = 0;
-			data->Position = 0;
-			data->IsEditFocus = -1;
 
-			ArrayList<ColumnData> * columns = (ArrayList<ColumnData> *)data->HadTabStop;
-			if (columns != NULL) {
-				for (int col = 0; col < columns->length(); col++) {
-					ColumnData * column = NULL;
-					columns->getPointer(&column, col);
-					column->cells.clear();
-				}
-			}
-
-			if (message == WM_NCDESTROY) {
-				if (columns != NULL) {
-					delete columns;
-				}
-				data->HadTabStop = 0;
-			} else {
-				parent = GetParent(window);
-				SendMessage(parent, WM_COMMAND, MAKEWPARAM(GetWindowLong(window, GWL_ID), LBN_SELCHANGE), (LPARAM)window);
-			}
-			break;
-		}
 		case WM_DELETEITEM: {
 			result = 1;
 			DELETEITEMSTRUCT * item = (DELETEITEMSTRUCT *)lparam;
@@ -11637,6 +11586,7 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			}
 			break;
 		}
+
 		case WM_SIZE: {
 			if ((int)data->ScrollBar > 1) {
 				RECT parent_display;
@@ -11659,6 +11609,7 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			}
 			break;
 		}
+
 		case WM_SETFONT: {
 			HDC dc = GetDC(window);
 			TEXTMETRIC tm;
@@ -11668,6 +11619,7 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			data->Font = (BitFont *)wparam;
 			return(0);
 		}
+
 		case WM_ERASEBKGND:
 			return(0);
 		case WM_PAINT: {
@@ -11828,6 +11780,101 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 				index++;
 			}
 			ValidateRect(window, &update_rect);
+			break;
+		}
+
+		case LB_SELITEMRANGE: {
+			int last = HIWORD(lparam);
+			int first = LOWORD(lparam);
+			int count = SendMessage(window, LB_GETCOUNT, 0, 0);
+			if (last < 0 || last < first) {
+				return(-1);
+			}
+			if (last >= count) {
+				last = count - 1;
+			}
+			ArrayList<int> * sel_states = (ArrayList<int> *)data->RangeMax;
+			if (sel_states == NULL) {
+				sel_states = new ArrayList<int>;
+				data->RangeMax = (int)sel_states;
+			}
+			if (last >= sel_states->length()) {
+				int unselected = 0;
+				sel_states->setSize(last + 1, unselected);
+			}
+			for (int i = first; i <= last; i++) {
+				int selected = (int)wparam;
+				sel_states->replace(selected, i);
+			}
+			parent = GetParent(window);
+			SendMessage(parent, WM_COMMAND, MAKEWPARAM(GetWindowLong(window, GWL_ID), LBN_SELCHANGE), (LPARAM)window);
+			return(0);
+		}
+
+		case WM_VSCROLL: {
+			call_default = false;
+			LRESULT position = SendMessage(data->ScrollBar, SBM_GETPOS, 0, 0);
+			if (position != SendMessage(window, LB_GETTOPINDEX, 0, 0)) {
+				SendMessage(window, LB_SETTOPINDEX, position, 0);
+			}
+			break;
+		}
+
+		case LB_DELETESTRING: {
+			ArrayList<int> * row_colors = (ArrayList<int> *)data->ItemState;
+			if (row_colors != NULL && row_colors->length() > (int)wparam) {
+				row_colors->remove((int)wparam);
+			}
+			ArrayList<int> * sel_states = (ArrayList<int> *)data->RangeMax;
+			if (sel_states != NULL && sel_states->length() > (int)wparam) {
+				sel_states->remove((int)wparam);
+			}
+			ArrayList<ColumnData> * columns = (ArrayList<ColumnData> *)data->HadTabStop;
+			if (columns != NULL) {
+				for (int col = 0; col < columns->length(); col++) {
+					ColumnData * column = NULL;
+					columns->getPointer(&column, col);
+					if (column->cells.length() != 0) {
+						column->cells.remove((int)wparam);
+					}
+				}
+			}
+			break;
+		}
+
+		case WM_NCDESTROY:
+		case LB_RESETCONTENT: {
+			ArrayList<int> * row_colors = (ArrayList<int> *)data->ItemState;
+			if (row_colors != NULL) {
+				delete row_colors;
+			}
+			ArrayList<int> * sel_states = (ArrayList<int> *)data->RangeMax;
+			if (sel_states != NULL) {
+				delete sel_states;
+			}
+			data->ItemState = 0;
+			data->RangeMax = 0;
+			data->Position = 0;
+			data->IsEditFocus = -1;
+
+			ArrayList<ColumnData> * columns = (ArrayList<ColumnData> *)data->HadTabStop;
+			if (columns != NULL) {
+				for (int col = 0; col < columns->length(); col++) {
+					ColumnData * column = NULL;
+					columns->getPointer(&column, col);
+					column->cells.clear();
+				}
+			}
+
+			if (message == WM_NCDESTROY) {
+				if (columns != NULL) {
+					delete columns;
+				}
+				data->HadTabStop = 0;
+			} else {
+				parent = GetParent(window);
+				SendMessage(parent, WM_COMMAND, MAKEWPARAM(GetWindowLong(window, GWL_ID), LBN_SELCHANGE), (LPARAM)window);
+			}
 			break;
 		}
 	}

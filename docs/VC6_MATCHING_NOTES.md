@@ -6205,6 +6205,58 @@ lab2.sh (a statement tried inside a copy of an exact function), tb.sh (a free te
 - In those exact rows the rule reads: a cell that is a dying temporary is the destination, a cell kept in a callee-saved
   register is not (the table word is then loaded into the destination). A table-first add on a dying temporary, as this
   draft has, is the unusual one.
+- The tie broke when the last operator+ sum next to it changed form: with the infantry block's second door sum as one
+  constructor too, the survey reads exact at +10 and +11 unused Cell locals (the refinery sum right at +10..+14, the blocks
+  right to +11). A site that never turns in the good window can be waiting on a sibling site's form, and the survey over
+  sixteen counts, not eight, is what shows it. The count itself is not available: real forms span three units, and ten
+  interchangeable locals are a held variation (owner, 26 Nov), so the row stays a draft with the count recorded.
 - ownrdraw List_Proc and Combo_Proc now fetch their record through Get_Record (lane F77's lead, taken under the owner's
   ruling that structure counts over position). Read by call sequence, List_Proc's next difference is block order after
   the record fetch, to be taken from ra2-decomp's ListBoxHandler as a whole.
+
+## A count's unit is measured before names are sought; a twin's recorded lever is tried in this tree first; a switch is read by running its dispatch (found in the rebuild (lane F80, high))
+
+Found in the rebuild (lane F80, high); no row landed. building BuildingClass::Exit_Object 0x440520 stays at 6 instruction
+lines (17 bytes), with the count's unit and a second lever recorded; ownrdraw List_Proc 0x5F6690 went from 3,759 to 2,938
+instruction lines off (202 to 227 of 274 calls in order). Lane tools in build/r/f80 (removed at hand-back; copies in
+private/dossiers/fable/f80_tools): lad2.sh and lad3.sh (k copies of any probe statement, one state or site code per k),
+pm.sh (dead reads of distinct statics), sw.py (switch dispatch emulator), lp.sh and ld.py (List_Proc measures),
+reorder.py (case groups of a switch in a given order), port1.py.
+
+- Measure what a count counts before looking for names. For Exit_Object's tie the unit is a local that is stored to or
+  constructed: `int p = 0;`, a pointer copy, `Cell q;` and `{ Cell q; }` are one each, `Coord q;` two. An uninitialised
+  int, a struct with no constructor, an expression statement, a call of an empty inline and an inline's parameters are
+  nothing. A local inside an inline counts once per expansion (`inline void F(void) {int t = 0;}` called k times reads
+  like k locals). File-scope `struct` and `extern` lines do not move it and neither does the place in the function. So
+  "ten more counted locals" can also be a helper with one local expanded ten times, or helper calls where the text
+  spells an expression out; and a named value of class type with a real use is not a free unit: it takes a slot and
+  moves the frame (TibSun's `int x = Map.LocalRect.X`, `Cell cellnum`, the shared `cell`: frame 0x128 each).
+- The same function can hold two windows on one counter that react differently to a form. `to.As_Coord()` for
+  `Coord(to, 0)` is code-free and moves the block sites' window by two (the helper's `coord` local) but not the
+  refinery sum's, so the two never meet again over twenty counts. Read each site's window per form (lad3.sh), not
+  the exact/not-exact answer.
+- Dead reads of distinct statics (lane F32's ruler) are a different axis: here they change only the refinery sum's code
+  (other load orders at 6-7 and 17-22 reads, the Yuri's Revenge twin's load order at 8-16) and never give the image's add;
+  they do not add to the local count.
+- A twin's attempts file is a list of levers to try in this tree before any survey. ra2-decomp's lanes found that one
+  more direct read of `AdjacentCell[FACING_SW].X` anywhere in the function turns their last add; the same dead read gives
+  every byte here at no count change (two reads too; the whole Cell, `.Y`, another facing or an address-of do not; X and Y
+  together break 2 KB). It reads as the operand with more references being kept: the X word has two, the Y word one.
+  Neither tree has found a real statement that reads X alone and emits nothing, so it stays a diagnostic; TS 2.03 has
+  the other add with TibSun's statement, so the image does not need the read.
+- A helper call can keep the frame through a reference local: `cell = Center_Coord().As_Cell(); Cell const & from =
+  cell; cell = Adjacent_Cell(from, FACING_SW);` gives the same bytes as `Center_Coord().As_Cell() +
+  AdjacentCell[FACING_SW]` (frame 0x12c), where the helper called on the temporary or on `cell` itself drops a slot
+  (0x128). It is lane F12's bridge-walk form.
+- Read a large switch by running it. sw.py takes the listing and bytes of image and draft, runs every message value
+  through the compare tree and the byte and dword tables, and prints each case group's entry in layout order. Groups
+  that share a body in the draft but have two entries in the image (a narrow-character variant that converts its
+  argument or clears a flag and falls into the wide one) are the first thing to fix: VC6 merges consecutive values with
+  one target into a range before it picks pivots, so one merged group too many moves the tree's pivot (0x199-0x19a for
+  0x19b), adds a jump table and can cost the selector its register.
+- Case layout is not source order: with the image's layout order as the source order the draft was 450 bytes larger and
+  lost calls. Blocks are placed by the dispatch tree (clusters ascending, a pivot's case ahead of its cluster) and
+  inline decisions follow the source order of the groups, so take the order from the reference text and judge it by
+  size and calls; here the twin's file order gave the fewest lines and its newest bank order the image's exact size.
+- The post-switch block and a shared `return 0` are placed after whichever group falls out last; they are a later
+  question than the groups.
