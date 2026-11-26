@@ -90745,6 +90745,15 @@
     "main_source": "src/recovered/netshare.cpp"
    },
    {
+    "entry": "005cbf20",
+    "body": 2003,
+    "padding": 13,
+    "symbol": "?Change_Slot_Type@@YIXPAUHWND__@@HPAUNodeNameType@@H@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "005cc700",
     "body": 244,
     "padding": 12,
@@ -122827,7 +122836,7 @@
     "entry": "0072af70",
     "body": 3,
     "padding": 13,
-    "symbol": "?unknown_identity_0072af70@seed_0072af70@@YIII@Z",
+    "symbol": "??0?$TRect@H@@QAE@XZ",
     "main_symbol": "?unknown_identity_0072af70@seed_0072af70@@YIII@Z",
     "main_source": "src/recovered/wdtmap.cpp"
    },
@@ -123075,7 +123084,7 @@
     "entry": "0072b8d0",
     "body": 6,
     "padding": 10,
-    "symbol": "?get@Leaf_72b8d0@@QAEIXZ",
+    "symbol": "??E?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UAEAAV0@XZ",
     "main_symbol": "?get@Leaf_72b8d0@@QAEIXZ",
     "main_source": "src/recovered/wdtmap.cpp"
    },
@@ -123083,7 +123092,7 @@
     "entry": "0072b8e0",
     "body": 6,
     "padding": 10,
-    "symbol": "?get@Leaf_72b8e0@@QAEIXZ",
+    "symbol": "??F?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UAEAAV0@XZ",
     "main_symbol": "?get@Leaf_72b8e0@@QAEIXZ",
     "main_source": "src/recovered/wdtmap.cpp"
    },
@@ -123170,7 +123179,8 @@
    "_RECT_NONE": "00b257e8",
    "?Advance@MSFrameAnim@@UAE_NPAVSurface@@AAV?$TRect@H@@@Z": "00729200",
    "?Redraw@MSFrameAnim@@UAEXPAVSurface@@PBV?$TRect@H@@@Z": "00729220",
-   "?Get_Rect@MSFrameAnim@@UBE?AV?$TRect@H@@XZ": "007292b0"
+   "?Get_Rect@MSFrameAnim@@UBE?AV?$TRect@H@@XZ": "007292b0",
+   "??_7?$VectorClass@VCentroid@WorldDominationTour@@@@6B@": "007af298"
   },
   "partial_ok": true,
   "build_refused": {
@@ -137960,6 +137970,15 @@
     "symbol": "?Damage_Bridge@MapClass@@QAE_NABVCell@@@Z",
     "main_symbol": "?Damage_Bridge@MapClass@@QAE_NPAVCell@@@Z",
     "main_source": "src/recovered/map.cpp"
+   },
+   {
+    "entry": "00569320",
+    "body": 2109,
+    "padding": 3,
+    "symbol": "?Can_Repair_Bridge@MapClass@@QAE_NABVCell@@@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
    },
    {
     "entry": "00569b60",

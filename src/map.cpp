@@ -12615,8 +12615,7 @@ bool MapClass::Damage_Bridge(Cell const & cell)
 /// </summary>
 /// <param name="cell">The cell the repair attempt was aimed at.</param>
 /// <returns>bool; Is there a repairable bridge within reach of this cell?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 3 of 2109 bytes differ against the image-derived bound 00569320 (was 1332; 12 before the three function statics were bound): one byte in each of three instructions, the frame slot of the walk's search cell, which the image keeps in offset's slot [esp+0x14] (with the low bridge walks' cells) and this text in topleft's [esp+0x2c], the state ra2-decomp's bank records for the twin; declaration orders, scopes, loop forms (lane F58), a named offset cell, an inner block and added locals (lane F59) do not move the slot. ra2-decomp has since matched the twin (a102ad5) with the walk as `bool broken = false; while (!broken)`: under this tree's headers that text has the slot right and is 193 bytes off, the last walk's nested Map lookup expanded where the image calls 0x548070; it is exact with the twin's `Cell::operator ==` member in coord.h, which turns three exact rows that follow declaration counts (held, variation_candidates.csv; lane F60)
-bool MapClass::Can_Repair_Bridge(Cell const & cell) // RA2: 0x00569320; ra2-decomp's flag-free text of its twin (Yuri's Revenge 0x00587410, branch banked-forms, banks/0x00587410_bridge.cpp) in this tree's names
+bool MapClass::Can_Repair_Bridge(Cell const & cell) // RA2: 0x00569320; ra2-decomp's matched text of its twin (Yuri's Revenge 0x00587410, a102ad5) in this tree's names; the top-left cell written inside the search cell's sum
 {
 	static short _x[] = {
 		1, 1, 0, 2, 2, 2, 0, 0,
@@ -12662,32 +12661,35 @@ bool MapClass::Can_Repair_Bridge(Cell const & cell) // RA2: 0x00569320; ra2-deco
 
 	if (found) {
 		IsometricTileTypeClass * isotype = IsometricTileTypes[cellptr->ITType];
-		Cell topleft = cellptr->CellID - Cell(cellptr->SubTile % isotype->Width, cellptr->SubTile / isotype->Width);
-		Cell search = Cell(_x[offset], _y[offset]) + topleft;
+		Cell search = Cell(_x[offset], _y[offset]) + (cellptr->CellID - Cell(cellptr->SubTile % isotype->Width, cellptr->SubTile / isotype->Width));
 		FacingType dir = _facings[offset];
 
 		if (dir != FACING_NONE) {
 			Cell entry = search;
-			while (true) {
+			bool broken = false;
+			while (!broken) {
 				int index = Zone_Connection_Index(search, 3, 0);
 				if (index < 0) {
 					break;
 				}
 				if (!ZoneConnections[index].IsPassable) {
-					return(true);
+					broken = true;
 				}
-				ZoneConnectionClass * con = &ZoneConnections[index];
-				Cell next;
-				if (con->From == entry) {
-					entry = con->To;
-					next = Adjacent_Cell(entry, dir);
-				} else if (con->To == entry) {
-					entry = con->From;
-					next = Adjacent_Cell(entry, dir);
-				} else {
-					return(true);
+				if (!broken) {
+					ZoneConnectionClass * con = &ZoneConnections[index];
+					if (con->From == entry) {
+						entry = con->To;
+						search = Adjacent_Cell(entry, dir);
+					} else if (con->To == entry) {
+						entry = con->From;
+						search = Adjacent_Cell(entry, dir);
+					} else {
+						return(true);
+					}
 				}
-				search = next;
+			}
+			if (broken) {
+				return(true);
 			}
 		}
 		return(false);
@@ -12779,7 +12781,6 @@ bool MapClass::Can_Repair_Bridge(Cell const & cell) // RA2: 0x00569320; ra2-deco
 		return(false);
 	}
 }
-#endif
 
 
 /// <summary>

@@ -484,7 +484,6 @@ unsigned __fastcall Territory_Of_Color(unsigned color) // RA2: 0x0072A870, the e
 /// </summary>
 /// <param name="prefix">The prefix of the territory sections.</param>
 /// <param name="filename">The PCX file of the click map.</param>
-#ifdef RA2_NON_MATCHING // not exact: 1 of 1652 bytes differ (one lea operand order in the expanded VectorClass<Rect>::Resize; the VectorClass<Centroid> vtable then binds; VectorCursor::operator= at 0x72AF50 matches with plain member copies; the cursor constructor 0x72B090 (25 B), the cursor assignment (21 B) and VectorClass<Centroid>::Clear (39 B) exact with the guard open; the cursor types close with `> >`, a `>>` is a shift to VC6)
 void __fastcall WDT_Write_Map_Ini(Wstring const & prefix, Wstring const & filename) // RA2: a development tool that no code calls. It scans a click map, finds each territory's bounding rectangle and
 {
 	Wstring __fastcall operator+(Wstring const & left, Wstring const & right); // RA2: 0x0076F7D0, the free join of two strings (wstring.h has only the member), declared here because file scope makes the other joins in this file ambiguous
@@ -516,7 +515,8 @@ void __fastcall WDT_Write_Map_Ini(Wstring const & prefix, Wstring const & filena
 					centroids.Resize(index + 1);
 				}
 				centroids[index] += point;
-				if (rects.Length() < index + 1) {
+				bool grow = rects.Length() < index + 1;
+				if (grow) {
 					int count = rects.Length();
 					rects.Resize(index + 1);
 					VectorCursor<Rect, VectorClass<Rect> > fresh(rects, count);
@@ -525,7 +525,8 @@ void __fastcall WDT_Write_Map_Ini(Wstring const & prefix, Wstring const & filena
 					}
 				}
 				Rect & rect = rects[index];
-				if (rect.Width == 0) {
+				bool empty = rect.Width == 0;
+				if (empty) {
 					rect.Height = 0;
 				}
 				if (!rect.Is_Point_Within(point)) {
@@ -553,4 +554,3 @@ void __fastcall WDT_Write_Map_Ini(Wstring const & prefix, Wstring const & filena
 	file.Open("..\\code\\wdtmap.ini", FileClass::WRITE);
 	ini.Save(file);
 }
-#endif

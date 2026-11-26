@@ -75,4 +75,11 @@ extern int IsColorChangePending;
 // Declarations moved from the units that used them (one declaration per name).
 extern wchar_t const * LobbyEntryTexts[7]; // RA2: 0x00A72D0C, the names of the fixed lobby entries
 struct NodeNameType;
-extern NodeNameType * LobbyEntries[7]; // RA2: 0x00A72D2C, the fixed lobby entries; entry 6 is the player entry (netshare.cpp)
+// RA2: 0x00A72D2C to 0x00A72D44, the fixed lobby entries: seven separate objects, as ra2-decomp declares them (netshare.cpp)
+extern NodeNameType * LobbyOpenEntry;
+extern NodeNameType * LobbyClosedEntry;
+extern NodeNameType * LobbyEasyAIEntry;
+extern NodeNameType * LobbyNormalAIEntry;
+extern NodeNameType * LobbyHardAIEntry;
+extern NodeNameType * LobbyWaitingEntry;
+extern NodeNameType * LobbyObserverEntry;

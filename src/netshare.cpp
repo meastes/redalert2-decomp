@@ -1148,10 +1148,10 @@ bool __fastcall Net2DecodeGameopt(char const * options, char const * name) // RA
 							return(false);
 						}
 					}
-						if (node == LobbyEntries[6]
-						|| (node != NULL && node != LobbyEntries[0] && node != LobbyEntries[1]
-							&& node != LobbyEntries[5] && node != LobbyEntries[2]
-							&& node != LobbyEntries[3] && node != LobbyEntries[4]
+					if (node == LobbyObserverEntry
+						|| (node != NULL && node != LobbyOpenEntry && node != LobbyClosedEntry
+							&& node != LobbyWaitingEntry && node != LobbyEasyAIEntry
+							&& node != LobbyNormalAIEntry && node != LobbyHardAIEntry
 							&& node->Slot.SpectatorFlag == -1)) {
 							Session.Slots[LobbyObserverSlot] = node;
 							int id = Player_Side_Combo_ID(LobbyObserverSlot);
@@ -2802,7 +2802,13 @@ int CreateRandomMap(void)
 // RA2: the lobby's slot logic starts here (0x005C8660): the fixed entries, the slot table and its lists, in address order
 
 wchar_t const * LobbyEntryTexts[7]; // RA2: 0x00A72D0C, the names of the fixed lobby entries, loaded by Init_Lobby_Entries
-NodeNameType * LobbyEntries[7]; // RA2: 0x00A72D2C, as above
+NodeNameType * LobbyOpenEntry; // RA2: 0x00A72D2C
+NodeNameType * LobbyClosedEntry; // RA2: 0x00A72D30
+NodeNameType * LobbyEasyAIEntry; // RA2: 0x00A72D34
+NodeNameType * LobbyNormalAIEntry; // RA2: 0x00A72D38
+NodeNameType * LobbyHardAIEntry; // RA2: 0x00A72D3C
+NodeNameType * LobbyWaitingEntry; // RA2: 0x00A72D40
+NodeNameType * LobbyObserverEntry; // RA2: 0x00A72D44
 int LobbyObserverSlot = -1; // RA2: 0x007E6D90, the slot of the observer, -1 at first
 char SlotColorsOld[36]; // RA2: 0x00A726B0, the color list Refresh_Slot_Settings saw last (cleared by Clear_Slot_Lists)
 char SlotColors[36]; // RA2: 0x00A726D4, the color list of the slots now
@@ -2848,65 +2854,65 @@ void __fastcall Init_Lobby_Entries(void) // RA2: 0x005C86E0, not in TibSun; the 
 		LobbyEntryTexts[5] = StringTable::LoadString("GUI:Waiting", NULL, "D:\\Ra2\\netshare.cpp", 3741);
 		LobbyEntryTexts[6] = StringTable::LoadString("GUI:OpenObserver", NULL, "D:\\Ra2\\netshare.cpp", 3742);
 	}
-	if (LobbyEntries[0] == NULL) {
-		LobbyEntries[0] = new NodeNameType;
-		wcscpy(LobbyEntries[0]->Name, LobbyEntryTexts[0]);
+	if (LobbyOpenEntry == NULL) {
+		LobbyOpenEntry = new NodeNameType;
+		wcscpy(LobbyOpenEntry->Name, LobbyEntryTexts[0]);
 	}
-	if (LobbyEntries[1] == NULL) {
-		LobbyEntries[1] = new NodeNameType;
-		wcscpy(LobbyEntries[1]->Name, LobbyEntryTexts[1]);
+	if (LobbyClosedEntry == NULL) {
+		LobbyClosedEntry = new NodeNameType;
+		wcscpy(LobbyClosedEntry->Name, LobbyEntryTexts[1]);
 	}
-	if (LobbyEntries[2] == NULL) {
-		LobbyEntries[2] = new NodeNameType;
-		wcscpy(LobbyEntries[2]->Name, LobbyEntryTexts[2]);
+	if (LobbyEasyAIEntry == NULL) {
+		LobbyEasyAIEntry = new NodeNameType;
+		wcscpy(LobbyEasyAIEntry->Name, LobbyEntryTexts[2]);
 	}
-	if (LobbyEntries[3] == NULL) {
-		LobbyEntries[3] = new NodeNameType;
-		wcscpy(LobbyEntries[3]->Name, LobbyEntryTexts[3]);
+	if (LobbyNormalAIEntry == NULL) {
+		LobbyNormalAIEntry = new NodeNameType;
+		wcscpy(LobbyNormalAIEntry->Name, LobbyEntryTexts[3]);
 	}
-	if (LobbyEntries[4] == NULL) {
-		LobbyEntries[4] = new NodeNameType;
-		wcscpy(LobbyEntries[4]->Name, LobbyEntryTexts[4]);
+	if (LobbyHardAIEntry == NULL) {
+		LobbyHardAIEntry = new NodeNameType;
+		wcscpy(LobbyHardAIEntry->Name, LobbyEntryTexts[4]);
 	}
-	if (LobbyEntries[5] == NULL) {
-		LobbyEntries[5] = new NodeNameType;
-		wcscpy(LobbyEntries[5]->Name, LobbyEntryTexts[5]);
+	if (LobbyWaitingEntry == NULL) {
+		LobbyWaitingEntry = new NodeNameType;
+		wcscpy(LobbyWaitingEntry->Name, LobbyEntryTexts[5]);
 	}
-	if (LobbyEntries[6] == NULL) {
-		LobbyEntries[6] = new NodeNameType;
-		wcscpy(LobbyEntries[6]->Name, LobbyEntryTexts[6]);
+	if (LobbyObserverEntry == NULL) {
+		LobbyObserverEntry = new NodeNameType;
+		wcscpy(LobbyObserverEntry->Name, LobbyEntryTexts[6]);
 	}
 }
 
 void __fastcall Free_Lobby_Entries(void) // RA2: 0x005C8950, not in TibSun; the fixed entries are freed and the player list emptied
 {
-	if (LobbyEntries[0] != NULL) {
-		delete LobbyEntries[0];
-		LobbyEntries[0] = NULL;
+	if (LobbyOpenEntry != NULL) {
+		delete LobbyOpenEntry;
+		LobbyOpenEntry = NULL;
 	}
-	if (LobbyEntries[1] != NULL) {
-		delete LobbyEntries[1];
-		LobbyEntries[1] = NULL;
+	if (LobbyClosedEntry != NULL) {
+		delete LobbyClosedEntry;
+		LobbyClosedEntry = NULL;
 	}
-	if (LobbyEntries[2] != NULL) {
-		delete LobbyEntries[2];
-		LobbyEntries[2] = NULL;
+	if (LobbyEasyAIEntry != NULL) {
+		delete LobbyEasyAIEntry;
+		LobbyEasyAIEntry = NULL;
 	}
-	if (LobbyEntries[3] != NULL) {
-		delete LobbyEntries[3];
-		LobbyEntries[3] = NULL;
+	if (LobbyNormalAIEntry != NULL) {
+		delete LobbyNormalAIEntry;
+		LobbyNormalAIEntry = NULL;
 	}
-	if (LobbyEntries[4] != NULL) {
-		delete LobbyEntries[4];
-		LobbyEntries[4] = NULL;
+	if (LobbyHardAIEntry != NULL) {
+		delete LobbyHardAIEntry;
+		LobbyHardAIEntry = NULL;
 	}
-	if (LobbyEntries[5] != NULL) {
-		delete LobbyEntries[5];
-		LobbyEntries[5] = NULL;
+	if (LobbyWaitingEntry != NULL) {
+		delete LobbyWaitingEntry;
+		LobbyWaitingEntry = NULL;
 	}
-	if (LobbyEntries[6] != NULL) {
-		delete LobbyEntries[6];
-		LobbyEntries[6] = NULL;
+	if (LobbyObserverEntry != NULL) {
+		delete LobbyObserverEntry;
+		LobbyObserverEntry = NULL;
 	}
 	Clear_Vector(&Session.Players);
 }
@@ -2915,10 +2921,10 @@ void __fastcall Fill_Slots(void) // RA2: 0x005C8A10, not in TibSun; the slots up
 {
 	int limit = Get_Lobby_Slot_Limit();
 	for (int i = 0; i < limit; i++) {
-		Session.Slots[i] = LobbyEntries[0];
+		Session.Slots[i] = LobbyOpenEntry;
 	}
 	for (int j = limit; j < 8; j++) {
-		Session.Slots[j] = LobbyEntries[1];
+		Session.Slots[j] = LobbyClosedEntry;
 	}
 }
 
@@ -2934,10 +2940,10 @@ void __fastcall Reset_Slots(void) // RA2: 0x005C8A90, not in TibSun; the slots a
 {
 	int limit = Get_Lobby_Slot_Limit();
 	for (int i = 0; i < limit; i++) {
-		Session.Slots[i] = LobbyEntries[0];
+		Session.Slots[i] = LobbyOpenEntry;
 	}
 	for (int j = limit; j < 8; j++) {
-		Session.Slots[j] = LobbyEntries[1];
+		Session.Slots[j] = LobbyClosedEntry;
 	}
 	Session.LocalSlot = -1;
 	Session.Options.Reset_AI();
@@ -2947,26 +2953,26 @@ void __fastcall Reset_Slots(void) // RA2: 0x005C8A90, not in TibSun; the slots a
 
 NodeNameType * __fastcall Find_Lobby_Name(wchar_t const * name) // RA2: 0x005C8B20, not in TibSun; the fixed entry of this name, or the player of the list
 {
-	if (wcscmp(LobbyEntries[0]->Name, name) == 0) {
-		return(LobbyEntries[0]);
+	if (wcscmp(LobbyOpenEntry->Name, name) == 0) {
+		return(LobbyOpenEntry);
 	}
-	if (wcscmp(LobbyEntries[1]->Name, name) == 0) {
-		return(LobbyEntries[1]);
+	if (wcscmp(LobbyClosedEntry->Name, name) == 0) {
+		return(LobbyClosedEntry);
 	}
-	if (wcscmp(LobbyEntries[2]->Name, name) == 0) {
-		return(LobbyEntries[2]);
+	if (wcscmp(LobbyEasyAIEntry->Name, name) == 0) {
+		return(LobbyEasyAIEntry);
 	}
-	if (wcscmp(LobbyEntries[3]->Name, name) == 0) {
-		return(LobbyEntries[3]);
+	if (wcscmp(LobbyNormalAIEntry->Name, name) == 0) {
+		return(LobbyNormalAIEntry);
 	}
-	if (wcscmp(LobbyEntries[4]->Name, name) == 0) {
-		return(LobbyEntries[4]);
+	if (wcscmp(LobbyHardAIEntry->Name, name) == 0) {
+		return(LobbyHardAIEntry);
 	}
-	if (wcscmp(LobbyEntries[5]->Name, name) == 0) {
-		return(LobbyEntries[5]);
+	if (wcscmp(LobbyWaitingEntry->Name, name) == 0) {
+		return(LobbyWaitingEntry);
 	}
-	if (wcscmp(LobbyEntries[6]->Name, name) == 0) {
-		return(LobbyEntries[6]);
+	if (wcscmp(LobbyObserverEntry->Name, name) == 0) {
+		return(LobbyObserverEntry);
 	}
 	int count = Session.Players.Count();
 	for (int i = 0; i < count; i++) {
@@ -3018,9 +3024,9 @@ void __fastcall Get_Slot_Names(wchar_t * list) // RA2: 0x005C8CF0, not in TibSun
 	for (int i = 0; i < 8; i++) {
 		NodeNameType * entry = Session.Slots[i];
 		WideWstring name;
-		if (entry == NULL || entry == LobbyEntries[0] || entry == LobbyEntries[1] // RA2: the test of Is_Real_Player_Entry is written out, the executable does not call it here
-			|| entry == LobbyEntries[5] || entry == LobbyEntries[6]
-			|| entry == LobbyEntries[2] || entry == LobbyEntries[3] || entry == LobbyEntries[4]) {
+		if (entry == NULL || entry == LobbyOpenEntry || entry == LobbyClosedEntry // RA2: the test of Is_Real_Player_Entry is written out, the executable does not call it here
+			|| entry == LobbyWaitingEntry || entry == LobbyObserverEntry
+			|| entry == LobbyEasyAIEntry || entry == LobbyNormalAIEntry || entry == LobbyHardAIEntry) {
 			Wstring text = Lobby_Entry_Name(entry);
 			name = Wstring_ToWide(text);
 		} else {
@@ -3031,7 +3037,6 @@ void __fastcall Get_Slot_Names(wchar_t * list) // RA2: 0x005C8CF0, not in TibSun
 	}
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 4 bytes differ (adopted text); exact with the twin's order of the four locals (open ahead of closed) once the seven lobby entries are separate globals, the twin's form (lane F59, held: OnPrivateGameOptions then turns by one byte)
 void __fastcall Set_Slot_Names(wchar_t const * list) // RA2: 0x005C8DD0, not in TibSun; takes the slot names the host sent, seats the entries and sets the observer's combo boxes
 {
 	if (*list == L'\0') {
@@ -3040,10 +3045,10 @@ void __fastcall Set_Slot_Names(wchar_t const * list) // RA2: 0x005C8DD0, not in 
 	wchar_t buffer[170];
 	wcscpy(buffer, list);
 	bool observer[8]; // RA2: the slots that held an observer before
-	NodeNameType * observer_entry = LobbyEntries[6]; // RA2: the entries are read once into locals
-	NodeNameType * waiting = LobbyEntries[5];
-	NodeNameType * closed = LobbyEntries[1];
-	NodeNameType * open = LobbyEntries[0];
+	NodeNameType * observer_entry = LobbyObserverEntry; // RA2: the entries are read once into locals, in ra2-decomp's order (its twin 0x005E8EA0)
+	NodeNameType * waiting = LobbyWaitingEntry;
+	NodeNameType * open = LobbyOpenEntry;
+	NodeNameType * closed = LobbyClosedEntry;
 	for (int i = 0; i < 8; i++) {
 		NodeNameType * entry = Session.Slots[i];
 		observer[i] = entry == observer_entry
@@ -3060,13 +3065,13 @@ void __fastcall Set_Slot_Names(wchar_t const * list) // RA2: 0x005C8DD0, not in 
 		if (entry == NULL) {
 			entry = Find_Lobby_Name(name);
 			if (entry == NULL) {
-				entry = LobbyEntries[5];
+				entry = LobbyWaitingEntry;
 			}
 		}
-		if (entry == LobbyEntries[6]
-			|| (entry != NULL && entry != LobbyEntries[0] && entry != LobbyEntries[1]
-				&& entry != LobbyEntries[5] && entry != LobbyEntries[2]
-				&& entry != LobbyEntries[3] && entry != LobbyEntries[4]
+		if (entry == LobbyObserverEntry
+			|| (entry != NULL && entry != LobbyOpenEntry && entry != LobbyClosedEntry
+				&& entry != LobbyWaitingEntry && entry != LobbyEasyAIEntry
+				&& entry != LobbyNormalAIEntry && entry != LobbyHardAIEntry
 				&& entry->Slot.SpectatorFlag == -1)) {
 			HWND dialog = GameoptWindow();
 			if (!observer[slot]) {
@@ -3094,13 +3099,12 @@ void __fastcall Set_Slot_Names(wchar_t const * list) // RA2: 0x005C8DD0, not in 
 		slot++;
 	}
 }
-#endif
 
 int __fastcall Assign_Slot(NodeNameType * entry) // RA2: 0x005C9170, not in TibSun; seats a joining entry in an open slot, or an observer in an observer slot, and gives the slot
 {
 	for (int i = 0; i < 8; i++) {
-		if ((Session.Slots[i] == LobbyEntries[0] && entry->Slot.SpectatorFlag != -1)
-			|| (Session.Slots[i] == LobbyEntries[6] && entry->Slot.SpectatorFlag == -1)) {
+		if ((Session.Slots[i] == LobbyOpenEntry && entry->Slot.SpectatorFlag != -1)
+			|| (Session.Slots[i] == LobbyObserverEntry && entry->Slot.SpectatorFlag == -1)) {
 			Session.Slots[i] = entry;
 			return(i);
 		}
@@ -3125,12 +3129,12 @@ void __fastcall Release_Slot_By_Address(IPXAddressClass & address) // RA2: 0x005
 		NodeNameType * node = Session.Slots[i];
 		if (node->Address == address) {
 			if (Session.Slots[i]->Slot.SpectatorFlag == -1) {
-				Session.Slots[i] = LobbyEntries[6];
+				Session.Slots[i] = LobbyObserverEntry;
 				return;
 			}
-			NodeNameType * entry = LobbyEntries[0];
+			NodeNameType * entry = LobbyOpenEntry;
 			if (i >= limit) {
-				entry = LobbyEntries[1];
+				entry = LobbyClosedEntry;
 			}
 			Session.Slots[i] = entry;
 			return;
@@ -3148,12 +3152,12 @@ void __fastcall Release_Slot_By_Name(char const * name) // RA2: 0x005C9270, not 
 		NodeNameType * node = Session.Slots[i];
 		if (node != NULL && _stricmp(name, Wide_To_Narrow(node->Name)) == 0) {
 			if (Session.Slots[i]->Slot.SpectatorFlag == -1) {
-				Session.Slots[i] = LobbyEntries[6];
+				Session.Slots[i] = LobbyObserverEntry;
 				return;
 			}
-			NodeNameType * entry = LobbyEntries[0];
+			NodeNameType * entry = LobbyOpenEntry;
 			if (i >= limit) {
-				entry = LobbyEntries[1];
+				entry = LobbyClosedEntry;
 			}
 			Session.Slots[i] = entry;
 			return;
@@ -3163,29 +3167,29 @@ void __fastcall Release_Slot_By_Name(char const * name) // RA2: 0x005C9270, not 
 
 bool __fastcall Is_Real_Player_Entry(NodeNameType * entry) // RA2: 0x005C9320, not in TibSun; the entry is a player: not open, closed, waiting, observer or a computer player; the value is a plain expression, the executable returns it in eax
 {
-	return(entry != NULL && entry != LobbyEntries[0] && entry != LobbyEntries[1] && entry != LobbyEntries[5] && entry != LobbyEntries[6] && entry != LobbyEntries[2] && entry != LobbyEntries[3] && entry != LobbyEntries[4]);
+	return(entry != NULL && entry != LobbyOpenEntry && entry != LobbyClosedEntry && entry != LobbyWaitingEntry && entry != LobbyObserverEntry && entry != LobbyEasyAIEntry && entry != LobbyNormalAIEntry && entry != LobbyHardAIEntry);
 }
 
 bool __fastcall Is_AI_Entry(NodeNameType * entry) // RA2: 0x005C9370, not in TibSun; the entry is a computer player, as above
 {
-	return(entry != NULL && (entry == LobbyEntries[2] || entry == LobbyEntries[3] || entry == LobbyEntries[4]));
+	return(entry != NULL && (entry == LobbyEasyAIEntry || entry == LobbyNormalAIEntry || entry == LobbyHardAIEntry));
 }
 
 bool __fastcall Is_Seated_Entry(NodeNameType * entry) // RA2: 0x005C93A0, not in TibSun; the entry is a player or a computer player: not open, closed, waiting or observer, as above
 {
-	return(entry != NULL && entry != LobbyEntries[0] && entry != LobbyEntries[1] && entry != LobbyEntries[6] && entry != LobbyEntries[5]);
+	return(entry != NULL && entry != LobbyOpenEntry && entry != LobbyClosedEntry && entry != LobbyObserverEntry && entry != LobbyWaitingEntry);
 }
 
 int __fastcall Get_AI_Difficulty(NodeNameType * entry) // RA2: 0x005C93D0, not in TibSun; 2 for the easy, 1 for the medium and 0 for the hard computer player, -1 for any other entry
 {
 	int difficulty = -1;
-	if (entry == LobbyEntries[2]) {
+	if (entry == LobbyEasyAIEntry) {
 		return(2);
 	}
-	if (entry == LobbyEntries[3]) {
+	if (entry == LobbyNormalAIEntry) {
 		return(1);
 	}
-	if (entry == LobbyEntries[4]) {
+	if (entry == LobbyHardAIEntry) {
 		difficulty = 0;
 	}
 	return(difficulty);
@@ -3193,9 +3197,9 @@ int __fastcall Get_AI_Difficulty(NodeNameType * entry) // RA2: 0x005C93D0, not i
 
 int Count_AI_Slots(void) // RA2: 0x005C9400, not in TibSun; the slots holding an easy, medium or hard computer player
 {
-	NodeNameType * easy = LobbyEntries[2]; // RA2: the entries are read once into locals
-	NodeNameType * medium = LobbyEntries[3];
-	NodeNameType * hard = LobbyEntries[4];
+	NodeNameType * easy = LobbyEasyAIEntry; // RA2: the entries are read once into locals
+	NodeNameType * medium = LobbyNormalAIEntry;
+	NodeNameType * hard = LobbyHardAIEntry;
 	int count = 0;
 	for (int i = 0; i < 8; i++) {
 		NodeNameType * entry = Session.Slots[i];
@@ -3210,11 +3214,11 @@ bool __fastcall Is_All_Slots_Filled(void) // RA2: 0x005C9440, not in TibSun; no 
 {
 	int count = Session.MaxPlayers < Session.ScenarioMaxPlayers ? Session.MaxPlayers : Session.ScenarioMaxPlayers;
 	for (int i = 0; i < count; i++) {
-		if (Session.Slots[i] == LobbyEntries[0]) {
+		if (Session.Slots[i] == LobbyOpenEntry) {
 			return(false);
 		}
 	}
-	if (LobbyObserverSlot == 0 && count < 8 && Session.Slots[count] == LobbyEntries[0]) {
+	if (LobbyObserverSlot == 0 && count < 8 && Session.Slots[count] == LobbyOpenEntry) {
 		return(false);
 	}
 	return(true);
@@ -3223,7 +3227,7 @@ bool __fastcall Is_All_Slots_Filled(void) // RA2: 0x005C9440, not in TibSun; no 
 bool __fastcall Is_Observer_Slot_Full(void) // RA2: 0x005C9490, not in TibSun; no slot is left for an observer
 {
 	for (int i = 0; i < 8; i++) {
-		if (Session.Slots[i] == LobbyEntries[6]) {
+		if (Session.Slots[i] == LobbyObserverEntry) {
 			return(false);
 		}
 	}
@@ -3233,12 +3237,12 @@ bool __fastcall Is_Observer_Slot_Full(void) // RA2: 0x005C9490, not in TibSun; n
 bool __fastcall Is_Observer_Slot_Occupied(void) // RA2: 0x005C94B0, not in TibSun; the observer slot holds a seated entry whose spectator flag is set (ra2-decomp's YR twin text, 0x5E9580)
 {
 	int index = LobbyObserverSlot;
-	NodeNameType * open = LobbyEntries[0];
-	NodeNameType * closed = LobbyEntries[1];
+	NodeNameType * open = LobbyOpenEntry;
+	NodeNameType * closed = LobbyClosedEntry;
 
 	for (int i = 0; i < 8; i++) {
 		NodeNameType * slot = Session.Slots[i];
-		if (slot && slot != open && slot != closed && slot != LobbyEntries[6] && slot != LobbyEntries[5] && i == index && slot->Slot.SpectatorFlag == -1) {
+		if (slot && slot != open && slot != closed && slot != LobbyObserverEntry && slot != LobbyWaitingEntry && i == index && slot->Slot.SpectatorFlag == -1) {
 			return(true);
 		}
 	}
@@ -3276,42 +3280,42 @@ bool __fastcall Is_Color_Taken(int color) // RA2: 0x005C95D0, not in TibSun; a c
 
 int __fastcall Get_Entry_Kind(NodeNameType * entry) // RA2: 0x005C9650, not in TibSun; the type of a fixed entry: 2 open, 3 closed, 4 easy, 5 medium, 6 hard computer, 7 observer (other entries count as open)
 {
-	if (entry == LobbyEntries[0]) {
+	if (entry == LobbyOpenEntry) {
 		return(2);
 	}
-	if (entry == LobbyEntries[1]) {
+	if (entry == LobbyClosedEntry) {
 		return(3);
 	}
-	if (entry == LobbyEntries[2]) {
+	if (entry == LobbyEasyAIEntry) {
 		return(4);
 	}
-	if (entry == LobbyEntries[3]) {
+	if (entry == LobbyNormalAIEntry) {
 		return(5);
 	}
-	if (entry == LobbyEntries[4]) {
+	if (entry == LobbyHardAIEntry) {
 		return(6);
 	}
-	return(entry == LobbyEntries[6] ? 7 : 2);
+	return(entry == LobbyObserverEntry ? 7 : 2);
 }
 
 NodeNameType * __fastcall Get_Kind_Entry(int kind) // RA2: 0x005C96B0, not in TibSun; the fixed entry of a type (see Get_Entry_Kind), NULL for any other
 {
 	if (kind == 2) {
-		return(LobbyEntries[0]);
+		return(LobbyOpenEntry);
 	}
 	if (kind == 3) {
-		return(LobbyEntries[1]);
+		return(LobbyClosedEntry);
 	}
 	if (kind == 4) {
-		return(LobbyEntries[2]);
+		return(LobbyEasyAIEntry);
 	}
 	if (kind == 5) {
-		return(LobbyEntries[3]);
+		return(LobbyNormalAIEntry);
 	}
 	if (kind == 6) {
-		return(LobbyEntries[4]);
+		return(LobbyHardAIEntry);
 	}
-	return(kind == 7 ? LobbyEntries[6] : NULL);
+	return(kind == 7 ? LobbyObserverEntry : NULL);
 }
 
 void __fastcall Enable_Start_Button(void) // RA2: 0x005C9700, not in TibSun; the start button is enabled and every player but the host loses the accept status
@@ -3357,7 +3361,7 @@ int __fastcall Get_Slot_Control_Id(int slot) // RA2: 0x005C97A0, the id of the c
 	return(-1);
 }
 
-int __fastcall Control_Slot(int id) // RA2: 0x005C9800, not in TibSun; the slot a control belongs to, or -1
+int __fastcall Control_Slot(int id) // RA2: 0x005C9800, not in TibSun; the slot a control belongs to, or -1; the last test written as ra2-decomp's twin has it (FUN_005E9950): Change_Slot_Type expands this function and is exact only with it
 {
 	if (id == 1041) {
 		return(0);
@@ -3380,27 +3384,30 @@ int __fastcall Control_Slot(int id) // RA2: 0x005C9800, not in TibSun; the slot 
 	if (id == 1047) {
 		return(6);
 	}
-	return(id == 1048 ? 7 : -1);
+	if (id == 1048) {
+		return(7);
+	}
+	return(-1);
 }
 
 wchar_t const * __fastcall Entry_Type_Name(NodeNameType * entry) // RA2: 0x005C9870, not in TibSun; the tool tip text of an entry's type
 {
-	if (entry == LobbyEntries[0]) {
+	if (entry == LobbyOpenEntry) {
 		return(StringTable::LoadString("STT:PlayerOpen", NULL, "D:\\Ra2\\netshare.cpp", 4538));
 	}
-	if (entry == LobbyEntries[1]) {
+	if (entry == LobbyClosedEntry) {
 		return(StringTable::LoadString("STT:PlayerClosed", NULL, "D:\\Ra2\\netshare.cpp", 4540));
 	}
-	if (entry == LobbyEntries[2]) {
+	if (entry == LobbyEasyAIEntry) {
 		return(StringTable::LoadString("STT:PlayerDumbAI", NULL, "D:\\Ra2\\netshare.cpp", 4542));
 	}
-	if (entry == LobbyEntries[3]) {
+	if (entry == LobbyNormalAIEntry) {
 		return(StringTable::LoadString("STT:PlayerSmartAI", NULL, "D:\\Ra2\\netshare.cpp", 4544));
 	}
-	if (entry == LobbyEntries[4]) {
+	if (entry == LobbyHardAIEntry) {
 		return(StringTable::LoadString("STT:PlayerGeniusAI", NULL, "D:\\Ra2\\netshare.cpp", 4546));
 	}
-	if (entry == LobbyEntries[6]) {
+	if (entry == LobbyObserverEntry) {
 		return(StringTable::LoadString("STT:PlayerOpenObserver", NULL, "D:\\Ra2\\netshare.cpp", 4548));
 	}
 	return(StringTable::LoadString("STT:PlayerHuman", NULL, "D:\\Ra2\\netshare.cpp", 4550));
@@ -3440,7 +3447,7 @@ void __fastcall Set_Slot_Country(HWND dialog, int id) // RA2: 0x005C9A10, not in
 		}
 	} else {
 		NodeNameType * entry = Session.Slots[slot];
-		if (entry != NULL && (entry == LobbyEntries[2] || entry == LobbyEntries[3] || entry == LobbyEntries[4])) {
+		if (entry != NULL && (entry == LobbyEasyAIEntry || entry == LobbyNormalAIEntry || entry == LobbyHardAIEntry)) {
 			Session.Options.AISlots.Countries[slot] = country;
 		} else {
 			Session.Options.AISlots.Countries[slot] = -1;
@@ -3473,7 +3480,7 @@ void __fastcall Update_Slot_Controls(HWND dialog, int slot, bool redraw) // RA2:
 	int side_id = Player_Side_Combo_ID(slot);
 	int color_id = Player_Color_Combo_ID(slot);
 	if (LobbyObserverSlot >= 0 && slot == LobbyObserverSlot
-		&& (Session.Slots[slot] == LobbyEntries[6] || slot == 0 || Session.Slots[slot]->Slot.SpectatorFlag == -1)) {
+		&& (Session.Slots[slot] == LobbyObserverEntry || slot == 0 || Session.Slots[slot]->Slot.SpectatorFlag == -1)) {
 		Select_Side_Combo(dialog, side_id, -3);
 		Select_Color_Combo(dialog, color_id, -2);
 		HWND side = GetDlgItem(dialog, side_id);
@@ -3634,7 +3641,7 @@ int __fastcall Is_Slot_Accepted(int slot) // RA2: 0x005CA3B0, not in TibSun; the
 {
 	NodeNameType * entry = Session.Slots[slot];
 	int accepted = 0;
-	if ((entry != NULL && (entry == LobbyEntries[2] || entry == LobbyEntries[3] || entry == LobbyEntries[4]))
+	if ((entry != NULL && (entry == LobbyEasyAIEntry || entry == LobbyNormalAIEntry || entry == LobbyHardAIEntry))
 		|| entry->Player.Status == 1) {
 		accepted = 1;
 	}
@@ -3648,13 +3655,13 @@ int __fastcall Slot_Country(int slot) // RA2: 0x005CA3F0, not in TibSun; the sid
 	if (Session.MPGameMode != NULL && (Session.Type == GAME_IPX || Session.Type == GAME_INTERNET)) {
 		country = Session.MPGameMode->DefaultCountry();
 	}
-	if (entry != NULL && (entry == LobbyEntries[2] || entry == LobbyEntries[3] || entry == LobbyEntries[4])) {
+	if (entry != NULL && (entry == LobbyEasyAIEntry || entry == LobbyNormalAIEntry || entry == LobbyHardAIEntry)) {
 		return(Session.Options.AISlots.Countries[slot]);
 	}
-	if (entry == LobbyEntries[0] || entry == LobbyEntries[1] || entry == LobbyEntries[5]) {
+	if (entry == LobbyOpenEntry || entry == LobbyClosedEntry || entry == LobbyWaitingEntry) {
 		return(country);
 	}
-	if (entry == LobbyEntries[6]) {
+	if (entry == LobbyObserverEntry) {
 		return(-3);
 	}
 	return(entry->Get_Country());
@@ -3663,19 +3670,19 @@ int __fastcall Slot_Country(int slot) // RA2: 0x005CA3F0, not in TibSun; the sid
 int __fastcall Slot_Color(int slot) // RA2: 0x005CA480, not in TibSun; the color of a slot: a computer player's choice, -2 (random) for an open, closed, waiting or observer slot
 {
 	NodeNameType * entry = Session.Slots[slot];
-	if (entry != NULL && (entry == LobbyEntries[2] || entry == LobbyEntries[3] || entry == LobbyEntries[4])) {
+	if (entry != NULL && (entry == LobbyEasyAIEntry || entry == LobbyNormalAIEntry || entry == LobbyHardAIEntry)) {
 		return(Session.Options.AISlots.Colors[slot]);
 	}
-	if (entry == LobbyEntries[0]) {
+	if (entry == LobbyOpenEntry) {
 		return(-2);
 	}
-	if (entry == LobbyEntries[1]) {
+	if (entry == LobbyClosedEntry) {
 		return(-2);
 	}
-	if (entry == LobbyEntries[5]) {
+	if (entry == LobbyWaitingEntry) {
 		return(-2);
 	}
-	if (entry == LobbyEntries[6]) {
+	if (entry == LobbyObserverEntry) {
 		return(-2);
 	}
 	return(entry->Get_Color());
@@ -3748,7 +3755,7 @@ void __fastcall Refresh_Slot_Combos(HWND dialog) // RA2: 0x005CA6C0, not in TibS
 		if (slot == LobbyObserverSlot) {
 			if (slot > Get_Scenario_Slot_Limit(Session.Options.ScenarioIndex)) {
 				NodeNameType * seated = Session.Slots[slot];
-				if (seated != LobbyEntries[0] && (seated == NULL || (seated != LobbyEntries[2] && seated != LobbyEntries[3] && seated != LobbyEntries[4]))) {
+				if (seated != LobbyOpenEntry && (seated == NULL || (seated != LobbyEasyAIEntry && seated != LobbyNormalAIEntry && seated != LobbyHardAIEntry))) {
 					beyond_map = true;
 				}
 			}
@@ -3762,22 +3769,22 @@ void __fastcall Refresh_Slot_Combos(HWND dialog) // RA2: 0x005CA6C0, not in TibS
 		SendDlgItemMessageA(dialog, id, CB_RESETCONTENT, 0, 0);
 		NodeNameType * entry = Session.Slots[slot];
 		wchar_t const * text = entry->Name;
-		if (entry == LobbyEntries[0]) {
+		if (entry == LobbyOpenEntry) {
 			text = StringTable::LoadString("GUI:Open", NULL, "D:\\Ra2\\netshare.cpp", 4885);
-		} else if (entry == LobbyEntries[1]) {
+		} else if (entry == LobbyClosedEntry) {
 			text = StringTable::LoadString("GUI:Closed", NULL, "D:\\Ra2\\netshare.cpp", 4887);
-		} else if (entry == LobbyEntries[2]) {
+		} else if (entry == LobbyEasyAIEntry) {
 			text = StringTable::LoadString("GUI:AIEasy", NULL, "D:\\Ra2\\netshare.cpp", 4889);
-		} else if (entry == LobbyEntries[3]) {
+		} else if (entry == LobbyNormalAIEntry) {
 			text = StringTable::LoadString("GUI:AINormal", NULL, "D:\\Ra2\\netshare.cpp", 4891);
-		} else if (entry == LobbyEntries[4]) {
+		} else if (entry == LobbyHardAIEntry) {
 			text = StringTable::LoadString("GUI:AIHard", NULL, "D:\\Ra2\\netshare.cpp", 4893);
-		} else if (entry == LobbyEntries[5]) {
+		} else if (entry == LobbyWaitingEntry) {
 			text = StringTable::LoadString("GUI:Waiting", NULL, "D:\\Ra2\\netshare.cpp", 4895);
-		} else if (entry == LobbyEntries[6]) {
+		} else if (entry == LobbyObserverEntry) {
 			text = StringTable::LoadString("GUI:OpenObserver", NULL, "D:\\Ra2\\netshare.cpp", 4897);
 		}
-		if (entry != NULL && (entry == LobbyEntries[2] || entry == LobbyEntries[3] || entry == LobbyEntries[4]) && !ai_allowed) {
+		if (entry != NULL && (entry == LobbyEasyAIEntry || entry == LobbyNormalAIEntry || entry == LobbyHardAIEntry) && !ai_allowed) {
 			text = StringTable::LoadString("GUI:Open", NULL, "D:\\Ra2\\netshare.cpp", 4904);
 		}
 		WideWstring current(text);
@@ -3787,16 +3794,16 @@ void __fastcall Refresh_Slot_Combos(HWND dialog) // RA2: 0x005CA6C0, not in TibS
 			}
 			if (!Is_Local_Name(text)) {
 				if (slot < limit && (!beyond_map || slot != LobbyObserverSlot || slot < Get_Scenario_Slot_Limit(Session.Options.ScenarioIndex))) {
-					Add_Combo_Entry(combo, StringTable::LoadString("GUI:Open", NULL, "D:\\Ra2\\netshare.cpp", 4928), LobbyEntries[0]);
+					Add_Combo_Entry(combo, StringTable::LoadString("GUI:Open", NULL, "D:\\Ra2\\netshare.cpp", 4928), LobbyOpenEntry);
 				}
 				if (slot == LobbyObserverSlot) {
-					Add_Combo_Entry(combo, StringTable::LoadString("GUI:OpenObserver", NULL, "D:\\Ra2\\netshare.cpp", 4938), LobbyEntries[6]);
+					Add_Combo_Entry(combo, StringTable::LoadString("GUI:OpenObserver", NULL, "D:\\Ra2\\netshare.cpp", 4938), LobbyObserverEntry);
 				}
-				Add_Combo_Entry(combo, StringTable::LoadString("GUI:Closed", NULL, "D:\\Ra2\\netshare.cpp", 4945), LobbyEntries[1]);
+				Add_Combo_Entry(combo, StringTable::LoadString("GUI:Closed", NULL, "D:\\Ra2\\netshare.cpp", 4945), LobbyClosedEntry);
 				if (ai_allowed && !beyond_map) {
-					Add_Combo_Entry(combo, StringTable::LoadString("GUI:AIEasy", NULL, "D:\\Ra2\\netshare.cpp", 4953), LobbyEntries[2]);
-					Add_Combo_Entry(combo, StringTable::LoadString("GUI:AINormal", NULL, "D:\\Ra2\\netshare.cpp", 4959), LobbyEntries[3]);
-					Add_Combo_Entry(combo, StringTable::LoadString("GUI:AIHard", NULL, "D:\\Ra2\\netshare.cpp", 4965), LobbyEntries[4]);
+					Add_Combo_Entry(combo, StringTable::LoadString("GUI:AIEasy", NULL, "D:\\Ra2\\netshare.cpp", 4953), LobbyEasyAIEntry);
+					Add_Combo_Entry(combo, StringTable::LoadString("GUI:AINormal", NULL, "D:\\Ra2\\netshare.cpp", 4959), LobbyNormalAIEntry);
+					Add_Combo_Entry(combo, StringTable::LoadString("GUI:AIHard", NULL, "D:\\Ra2\\netshare.cpp", 4965), LobbyHardAIEntry);
 				}
 			}
 		} else {
@@ -3820,9 +3827,9 @@ bool __fastcall Reset_AI_Slots(HWND dialog) // RA2: 0x005CACB0, not in TibSun; a
 		NodeNameType * data = (NodeNameType *)SendDlgItemMessageA(dialog, id, CB_GETITEMDATA, selected, 0);
 		if (Is_AI_Entry(data)) {
 			if (i < limit) {
-				Session.Slots[i] = LobbyEntries[0];
+				Session.Slots[i] = LobbyOpenEntry;
 			} else {
-				Session.Slots[i] = LobbyEntries[1];
+				Session.Slots[i] = LobbyClosedEntry;
 			}
 			Update_Slot_Controls(dialog, i, false);
 			Session.Options.AISlots.Difficulties[i] = -1;
@@ -3850,7 +3857,7 @@ void __fastcall Show_Slot_Controls(HWND dialog, int first, int count) // RA2: 0x
 		HWND side = GetDlgItem(dialog, side_id);
 		NodeNameType * entry = Session.Slots[slot];
 		bool observer;
-		if (entry == LobbyEntries[6] || (entry != NULL && entry != LobbyEntries[0] && entry != LobbyEntries[1] && entry != LobbyEntries[5] && entry->Slot.SpectatorFlag == -1)) {
+		if (entry == LobbyObserverEntry || (entry != NULL && entry != LobbyOpenEntry && entry != LobbyClosedEntry && entry != LobbyWaitingEntry && entry->Slot.SpectatorFlag == -1)) {
 			observer = true;
 		} else {
 			observer = false;
@@ -3914,7 +3921,7 @@ void __fastcall Show_Observer_Slot_Controls(HWND dialog) // RA2: 0x005CAFD0, not
 	int side_combo_id = Player_Side_Combo_ID(slot);
 	NodeNameType * entry = Session.Slots[slot];
 	bool observer;
-	if (entry == LobbyEntries[6] || (entry != NULL && entry != LobbyEntries[0] && entry != LobbyEntries[1] && entry != LobbyEntries[5] && entry->Slot.SpectatorFlag == -1)) {
+	if (entry == LobbyObserverEntry || (entry != NULL && entry != LobbyOpenEntry && entry != LobbyClosedEntry && entry != LobbyWaitingEntry && entry->Slot.SpectatorFlag == -1)) {
 		observer = true;
 	} else {
 		observer = false;
@@ -3998,9 +4005,9 @@ void __fastcall Change_Slot_Range(HWND dialog, int first, int count) // RA2: 0x0
 		int id = Get_Slot_Control_Id(i);
 		int index = SendDlgItemMessageA(dialog, id, CB_GETCURSEL, 0, 0);
 		NodeNameType * entry = (NodeNameType *)SendDlgItemMessageA(dialog, id, CB_GETITEMDATA, index, 0);
-		NodeNameType * open = LobbyEntries[0]; // RA2: the open and closed entries are read once, before the test: the executable loads both into registers there
-		NodeNameType * closed = LobbyEntries[1];
-		if (entry != (NodeNameType *)-1 && entry != NULL && entry != open && entry != closed && entry != LobbyEntries[6] && entry != LobbyEntries[5]) {
+		NodeNameType * open = LobbyOpenEntry; // RA2: the open and closed entries are read once, before the test: the executable loads both into registers there
+		NodeNameType * closed = LobbyClosedEntry;
+		if (entry != (NodeNameType *)-1 && entry != NULL && entry != open && entry != closed && entry != LobbyObserverEntry && entry != LobbyWaitingEntry) {
 			Change_Slot_Type(dialog, id, entry, 0);
 		} else if (i != LobbyObserverSlot) {
 			if (i < limit) {
@@ -4024,22 +4031,22 @@ void __fastcall Clear_Observer_Slots(HWND dialog) // RA2: 0x005CB560, not in Tib
 			int id = Get_Slot_Control_Id(slot);
 			NodeNameType * entry = Session.Slots[slot];
 			if (slot < limit) {
-				if (entry == LobbyEntries[6] || entry->Slot.SpectatorFlag == -1) {
-					Change_Slot_Type(dialog, id, LobbyEntries[0], 1);
+				if (entry == LobbyObserverEntry || entry->Slot.SpectatorFlag == -1) {
+					Change_Slot_Type(dialog, id, LobbyOpenEntry, 1);
 					changed = true;
 				}
-			} else if (entry == LobbyEntries[6] || entry->Slot.SpectatorFlag == -1) {
-				Change_Slot_Type(dialog, id, LobbyEntries[1], 1);
+			} else if (entry == LobbyObserverEntry || entry->Slot.SpectatorFlag == -1) {
+				Change_Slot_Type(dialog, id, LobbyClosedEntry, 1);
 				changed = true;
 			}
 		}
 	} else {
 		NodeNameType * entry = Session.Slots[LobbyObserverSlot];
 		if (LobbyObserverSlot > Get_Scenario_Slot_Limit(Session.Options.ScenarioIndex)) {
-			NodeNameType * open = LobbyEntries[0]; // RA2: read once at the head of the test, as in Change_Slot_Range
-			NodeNameType * closed = LobbyEntries[1];
+			NodeNameType * open = LobbyOpenEntry; // RA2: read once at the head of the test, as in Change_Slot_Range
+			NodeNameType * closed = LobbyClosedEntry;
 			if ((Is_Seated_Entry(entry) && entry->Slot.SpectatorFlag != -1)
-				|| (entry != NULL && (entry == LobbyEntries[2] || entry == LobbyEntries[3] || entry == LobbyEntries[4]))
+				|| (entry != NULL && (entry == LobbyEasyAIEntry || entry == LobbyNormalAIEntry || entry == LobbyHardAIEntry))
 				|| entry == open) {
 				entry = closed;
 				changed = true;
@@ -4062,10 +4069,10 @@ void __fastcall Close_Slots_From(HWND dialog, int first) // RA2: 0x005CB7C0, not
 		int id = Get_Slot_Control_Id(slot);
 		if (slot < limit) {
 			if (slot != LobbyObserverSlot) {
-				Change_Slot_Type(dialog, id, LobbyEntries[0], 1);
+				Change_Slot_Type(dialog, id, LobbyOpenEntry, 1);
 			}
 		} else if (slot != LobbyObserverSlot) {
-			Change_Slot_Type(dialog, id, LobbyEntries[1], 1);
+			Change_Slot_Type(dialog, id, LobbyClosedEntry, 1);
 		}
 	}
 	Hide_Slot_Controls(dialog, first);
@@ -4124,10 +4131,10 @@ void __fastcall Change_Scenario_Slots(HWND dialog, int previous, int scenario) /
 			int id = Get_Slot_Control_Id(slot);
 			if (slot < limit) {
 				if (slot != LobbyObserverSlot) {
-					Change_Slot_Type(dialog, id, LobbyEntries[0], 1);
+					Change_Slot_Type(dialog, id, LobbyOpenEntry, 1);
 				}
 			} else if (slot != LobbyObserverSlot) {
-				Change_Slot_Type(dialog, id, LobbyEntries[1], 1);
+				Change_Slot_Type(dialog, id, LobbyClosedEntry, 1);
 			}
 		}
 		Hide_Slot_Controls(dialog, first);
@@ -4147,8 +4154,8 @@ void __fastcall Change_Scenario_Slots(HWND dialog, int previous, int scenario) /
 		DebugString("Sending observer slot of 7\n");
 		NodeNameType * entry = Session.Slots[LobbyObserverSlot];
 		WideWstring name;
-		if (entry == NULL || entry == LobbyEntries[0] || entry == LobbyEntries[1] || entry == LobbyEntries[5] || entry == LobbyEntries[6]
-			|| entry == LobbyEntries[2] || entry == LobbyEntries[3] || entry == LobbyEntries[4]) {
+		if (entry == NULL || entry == LobbyOpenEntry || entry == LobbyClosedEntry || entry == LobbyWaitingEntry || entry == LobbyObserverEntry
+			|| entry == LobbyEasyAIEntry || entry == LobbyNormalAIEntry || entry == LobbyHardAIEntry) {
 			Wstring narrow = Lobby_Entry_Name(entry);
 			name = Wstring_ToWide(narrow);
 		} else {
@@ -4182,7 +4189,7 @@ bool __fastcall Lobby_Update_Dialog(HWND dialog, int count, bool flag1, bool fla
 			return(true);
 		}
 		if (i >= count) {
-			bool player = entry != NULL && entry != LobbyEntries[0] && entry != LobbyEntries[1] && entry != LobbyEntries[6] && entry != LobbyEntries[5];
+			bool player = entry != NULL && entry != LobbyOpenEntry && entry != LobbyClosedEntry && entry != LobbyObserverEntry && entry != LobbyWaitingEntry;
 			if (player && entry->Get_Country() != -3) {
 				return(true);
 			}
@@ -4200,29 +4207,28 @@ void Send_Player_List(void); // RA2: 0x0073C480, defined in wonline.cpp
 void __fastcall Kick_Channel_User(wchar_t const * name); // RA2: 0x0075CAE0, looks the channel user up by name and has the chat service remove it (WOL)
 void Update_Channel_Player_Limit(void); // RA2: 0x00749F20, tells the chat service the channel's new player limit (WOL)
 
-#ifdef RA2_NON_MATCHING // not exact: 11 bytes differ against the image-derived bound 005cbf20 (2,003 B, ours 2,003 B; previously 1,745): ra2-decomp's banked text for the Yuri's Revenge twin (0x5EC9F0) in this tree's names, the entry as a NodeNameType pointer. Left: the load order of three lobby entries ahead of the first player test and the registers of the three computer entries in the count loop; 6 bytes (the count loop's load order alone) with the seven lobby entries as separate globals, the twin's form (lane F59, held)
-void __fastcall Change_Slot_Type(HWND dialog, int id, NodeNameType * node, int mode) // RA2: 0x005CBF20, not in TibSun; seats an entry in the slot of a combo box: a computer player is refused beside an observer, a player who is replaced is turned away, and the boxes follow the new entry; mode 1 and 2 tell the other players, mode 2 sends the lobby options as well
+void __fastcall Change_Slot_Type(HWND dialog, int id, NodeNameType * node, int mode) // RA2: 0x005CBF20, not in TibSun; ra2-decomp's twin text (Yuri's Revenge 0x005EC9F0) without its start and team boxes; seats an entry in the slot of a combo box: a computer player is refused beside an observer, a player who is replaced is turned away, and the boxes follow the new entry; mode 1 and 2 tell the other players, mode 2 sends the lobby options as well
 {
 	NodeNameType * newnode = node;
 	int slot = Control_Slot(id);
 	NodeNameType * old = Session.Slots[slot];
 
 	if (Is_AI_Entry(node) && slot != LobbyObserverSlot) {
-		if (ObserverMode || (LobbyObserverSlot > 0 && (Session.Slots[LobbyObserverSlot]->Slot.SpectatorFlag == -1 || Session.Slots[LobbyObserverSlot] == LobbyEntries[6]))) {
+		if (ObserverMode || (LobbyObserverSlot > 0 && (Session.Slots[LobbyObserverSlot]->Slot.SpectatorFlag == -1 || Session.Slots[LobbyObserverSlot] == LobbyObserverEntry))) {
 			Lobby_Chat_Printf(-1, StringTable::LoadString("TXT_NO_AI_WITH_OBSERVER", NULL, "D:\\Ra2\\netshare.cpp", 5538));
 			swap(node, old);
 			if (Is_AI_Entry(node)) {
-				node = LobbyEntries[1];
+				node = LobbyClosedEntry;
 			}
 			Select_Combo_By_Data(dialog, id, (int)node);
 		}
-	} else if (node == LobbyEntries[6]) {
+	} else if (node == LobbyObserverEntry) {
 		bool booted = false;
 		for (int j = 0; j < 8; j++) {
 			if (j != slot && Is_AI_Entry(Session.Slots[j])) {
 				int slot_id = Get_Slot_Control_Id(j);
-				Select_Combo_By_Data(dialog, slot_id, (int)LobbyEntries[1]);
-				Change_Slot_Type(dialog, slot_id, LobbyEntries[1], false);
+				Select_Combo_By_Data(dialog, slot_id, (int)LobbyClosedEntry);
+				Change_Slot_Type(dialog, slot_id, LobbyClosedEntry, false);
 				booted = true;
 			}
 		}
@@ -4253,8 +4259,8 @@ void __fastcall Change_Slot_Type(HWND dialog, int id, NodeNameType * node, int m
 
 	bool new_ai = Is_AI_Entry(newnode);
 	bool old_ai = Is_AI_Entry(old);
-	bool new_obs = newnode == LobbyEntries[6] || (Is_Real_Player_Entry(newnode) && newnode->Slot.SpectatorFlag == -1);
-	bool old_obs = old == LobbyEntries[6] || (Is_Real_Player_Entry(old) && old->Slot.SpectatorFlag == -1);
+	bool new_obs = newnode == LobbyObserverEntry || (Is_Real_Player_Entry(newnode) && newnode->Slot.SpectatorFlag == -1);
+	bool old_obs = old == LobbyObserverEntry || (Is_Real_Player_Entry(old) && old->Slot.SpectatorFlag == -1);
 
 	if (new_obs) {
 		Fill_Observer_Combo(dialog, Player_Side_Combo_ID(slot));
@@ -4308,7 +4314,6 @@ void __fastcall Change_Slot_Type(HWND dialog, int id, NodeNameType * node, int m
 		}
 	}
 }
-#endif
 
 void __fastcall Select_Entry_Kind(HWND dialog, int id, int kind) // RA2: 0x005CC700, not in TibSun; picks the item of a type (see Get_Entry_Kind) in a slot's combo box and seats it
 {
@@ -4512,25 +4517,25 @@ char const * LobbyEntryCodes[7] = { "@Open@", "@Closed@", "@Waiting@", "@EasyAI@
 
 Wstring __fastcall Lobby_Entry_Name(NodeNameType * entry) // RA2: 0x005CD0E0, not in TibSun; the name of a fixed entry in the slot names the host sends
 {
-	if (entry == LobbyEntries[0]) {
+	if (entry == LobbyOpenEntry) {
 		return(Wstring(LobbyEntryCodes[0]));
 	}
-	if (entry == LobbyEntries[1]) {
+	if (entry == LobbyClosedEntry) {
 		return(Wstring(LobbyEntryCodes[1]));
 	}
-	if (entry == LobbyEntries[5]) {
+	if (entry == LobbyWaitingEntry) {
 		return(Wstring(LobbyEntryCodes[2]));
 	}
-	if (entry == LobbyEntries[2]) {
+	if (entry == LobbyEasyAIEntry) {
 		return(Wstring(LobbyEntryCodes[3]));
 	}
-	if (entry == LobbyEntries[3]) {
+	if (entry == LobbyNormalAIEntry) {
 		return(Wstring(LobbyEntryCodes[4]));
 	}
-	if (entry == LobbyEntries[4]) {
+	if (entry == LobbyHardAIEntry) {
 		return(Wstring(LobbyEntryCodes[5]));
 	}
-	if (entry == LobbyEntries[6]) {
+	if (entry == LobbyObserverEntry) {
 		return(Wstring(LobbyEntryCodes[6]));
 	}
 	return(Wstring(LobbyEntryCodes[2]));
@@ -4541,25 +4546,25 @@ NodeNameType * __fastcall Find_Lobby_Entry_By_Name(WideWstring const & name) // 
 	if (name.Is_Narrow()) {
 		Wstring narrow = Wstring_Narrow(name);
 		if (narrow == LobbyEntryCodes[0]) {
-			return(LobbyEntries[0]);
+			return(LobbyOpenEntry);
 		}
 		if (narrow == LobbyEntryCodes[1]) {
-			return(LobbyEntries[1]);
+			return(LobbyClosedEntry);
 		}
 		if (narrow == LobbyEntryCodes[2]) {
-			return(LobbyEntries[5]);
+			return(LobbyWaitingEntry);
 		}
 		if (narrow == LobbyEntryCodes[3]) {
-			return(LobbyEntries[2]);
+			return(LobbyEasyAIEntry);
 		}
 		if (narrow == LobbyEntryCodes[4]) {
-			return(LobbyEntries[3]);
+			return(LobbyNormalAIEntry);
 		}
 		if (narrow == LobbyEntryCodes[5]) {
-			return(LobbyEntries[4]);
+			return(LobbyHardAIEntry);
 		}
 		if (narrow == LobbyEntryCodes[6]) {
-			return(LobbyEntries[6]);
+			return(LobbyObserverEntry);
 		}
 	}
 	return(NULL);

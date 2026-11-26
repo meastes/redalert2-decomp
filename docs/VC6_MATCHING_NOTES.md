@@ -5488,3 +5488,101 @@ a push-depth walk, uses listed per slot).
   provenance note. Prefer values used twice and names that match a neighbouring case (the action button's `HWND input`).
 - The tool's score for a row with unbound string literals stays above zero when every instruction is the image's (21 here:
   five TXT_ literals); `check --learn` binds them once nothing else differs.
+- The same probes turn inline-budget misses (lane F66, later rows). Start_Quick_Match 0x759E20 (an expanded callee's
+  second clear called where the image expands it) is exact from +3 to +17; Dialog_On_WM_PAINT 0x5FEE70 (keyHash called
+  under an expanded lookup) from +6 to +17; Palette_Scheme_Count 0x603D50 at +1, +2, +9, +10, +17 (period 8). A count
+  unit can come from an expanded callee's text: the twin's `SchemeNode * entry = *node;` in SchemeListIterator::Next
+  gave Palette_Scheme_Count its unit with nothing added to the function itself. Read the twin's text of every helper
+  the row expands before naming values in the row.
+- Batch surveys that found no window in 0 to 17 (so the miss is something else): Search_For_Tiberium_Weighted, Set_Slot_Names,
+  Coord_Scatter, Create_Urban_Area, Nearing_Target, Take_Damage, Allocate_Surfaces, OnFind, Run_Online_Menu,
+  Is_Tested_Control, Enable_Animated_Control, Draw_Post_Render, OnChannelJoin (0 to 33), Scenario_DlgProc (1,217 to
+  1,093 at +3, never the image's calls), Projectile_Motion and Read_RMG_INI (worse from +1).
+- A second counter: named bools. WDT_Write_Map_Ini 0x72A880 (one lea order in an expanded Resize, ten lanes) does not
+  answer to referenced ints (+4 turns an inline decision instead). It answers to conditions held in a named bool and
+  tested on the next line: exactly two of them (any two of grow, empty, valid) give the image's order, one or three do
+  not. OnChannelJoin 0x75F530 (17 B, the memmove source of an expanded ArrayList add) is the image's code with 14 to
+  24 simple conditions held in named bools (any of them; compound `&&` / `||` conditions, named ints, named call
+  results and named pointers count nothing there). So: when referenced-int probes read nothing, survey with
+  `bool b = <condition>; if (b) {` over the function's own conditions, singly for neutrality, then cumulatively.
+- Dropship_Screen 0x4A6B90: of six sites two follow the referenced-local count (+5 to +11); the other four turn only
+  when the index conversions inside vector.h's own members (Add, Delete, ID use `(*this)[..]`) are unsigned, which
+  is the header form. A scratch unsigned overload beside the int accessor with casts chosen per call site separates
+  the two causes; explicit casts at call sites are units of the local count (32 casts stood for the +5 to +11 window).
+- A lane merging main several times: take main's catalog whole (`rm -rf manifests/catalog; git checkout main --
+  manifests/catalog`), commit the merge, recheck every unit (six jobs, twelve minutes), then `rebuild.py catalog` and
+  graft only the lane's units. graft.py reads the committed catalog from HEAD, so the merge must be committed first.
+
+
+## A row that will not move by its own text is read through the helpers it expands; a second name for a member is a data symbol the function counts (found in the rebuild (lane F67, high))
+
+Found in the rebuild (lane F67, high); two rows landed (netshare Change_Slot_Type 0x5CBF20 on its image-derived bound,
+2,003 B, and Set_Slot_Names 0x5C8DD0, 920 B) with the seven lobby entries as separate globals. Lane tools in
+build/r/f67 (removed at hand-back): gp.py (one guarded draft compiled open and compared with its image bound, slot-blind
+diff, every row of the unit listed), var.py (exact-string variants), syms.py (the data symbols a function references,
+by address), sweep.py (declaration probes), rev.py (one name against another, use by use).
+
+- netshare Change_Slot_Type: when a twin is newly matched, diff its whole file against ours helper by helper, not only
+  the function. The last site (the order of three hoisted loads ahead of an expanded count loop) did not answer to the
+  function's own text: named single-use values in every combination moved nothing, while removing any unrelated
+  statement rotated the three loads. The text that decided it was the body of Control_Slot 0x5C9800, expanded at the
+  top of the function: `return(id == 1048 ? 7 : -1);` here, `if (id == 0x418) return(7); return(-1);` in the twin.
+  Both are exact out of line. A helper that is exact on its own row is still unproven text wherever it is expanded.
+- A hoisted-load order that rotates (A B C, B C A, C A B, and the mirror orders) under unrelated edits is a count the
+  function carries, not a spelling of the loop. Do not hunt it in the loop.
+- List a function's data symbols by resolved address before reading a one-byte `lea` operand order. Two symbols whose
+  addresses lie inside one object are one object under two names: Online_Session_State 0xA3D2A4 is
+  Session.TournamentState (Session + 0xC), AllowDisableableSupers 0xA3D2C3 is Session.Options.SWAllowed,
+  Online_Session_Return 0xA3D2A8 is Session.unknown_10. ra2-decomp writes the member in all three places.
+- The unit of that count is a distinct data symbol referenced in the function body (its expanded helpers included).
+  Unused extern declarations ahead of the function (0 to 12) change nothing; one use of the second name elsewhere in the
+  file changes nothing; the three uses inside Pick_Lobby 0x744090 decide its inline decision.
+- The two names disagree by row today. With the member everywhere: OnPrivateGameOptions 0x761C50 and Host_Game are
+  exact, Pick_Lobby and Wonline_Game_Options_Dialog_Proc 0x74A710 are lost (each short of one data symbol). With the
+  second name everywhere and two lobby symbols: only OnPrivateGameOptions is off, by one `lea`. Landed: the second
+  names stay, and OnPrivateGameOptions writes its tournament test on the member (flagged spelling). The clean end
+  state (members only) opens when Pick_Lobby and the dialog procedure each find one more data symbol.
+- A mixed state is worse than either: the member in Is_Tournament_Session alone stops Host_Game sharing one load of
+  the state between its written-out test and the expanded helper.
+- Read an inline miss as a pattern over its sites before touching text (lane F66, Read_RMG_INI 0x579960). A listing with
+  wide diff context (difflib's n raised in a scratch run of rebuild.py check --asm) gives, per site in source order,
+  called or expanded for the image and for the draft. Ten statements with the same temporary destructor read
+  CCCCCCCCxCx in the image and CCCCCCCCxxC in the draft: the budget is divided by the sites still pending, so late
+  sites expand first, an expansion charges the next site, and the site after that has fewer sites behind it. Map each
+  knob by the pattern it gives, not by the byte score (a 127-byte displacement and a 1,549-byte one were one step
+  apart). Here the image's pattern needs one pending inline site more after the last statement than any reference
+  text has, so the row stays parked; the pattern table is in b_log_f66.csv.
+
+## A count window can lie below zero: a twin text one named local over; survey every draft with referenced probes before choosing rows (found in the rebuild (lane F68, high))
+
+Found in the rebuild (lane F68, high); one row landed (map MapClass::Can_Repair_Bridge 0x569320 on its image-derived bound,
+2,109 B). Lane tools in build/r/f68 (removed at hand-back; copies in private/dossiers/fable/f68_tools): ps.py (k referenced
+probes after a marked line of one function, score per k), allsweep.py (the same over every not-exact row or image bound of
+every unit with guards, one compile per unit and k; results in the dossier as allsweep.csv), t.sh with var.py (named text
+edits, one score line), combo.py (every combination of two texts' differing forms).
+
+- Can_Repair_Bridge: the matched twin text was 193 B off (one nested Map lookup expanded where the image calls it) and exact
+  only with a header member that turns three count-sensitive rows. Referenced probes (`int p; p = 0;`) had never been run on
+  it. On the twin text: 193 at +0 to +4, worse above. On the older draft, which has fewer named values: 3 B at +0 and +1, 196
+  from +2. So the twin text was already past the upper edge and the window lay below zero. One named local fewer (the
+  top-left cell written inside the search cell's sum, parenthesised) is exact; one probe on top of that is 193 again.
+- Read a probe sweep in both directions. A row whose score is best at +0 and jumps at +1 is an edge row: try one named
+  local fewer before anything else. Candidates are single-use locals whose removal changes no instruction; test each, since
+  some change code (here the connection pointer, the direction and the tile type did; a shared `overlay` gave the right
+  calls with other slots).
+- The survey (13 values of k, 0 to 17, 46 functions) found one more window: sidebar SidebarClass::Activate 0x67E210 is exact
+  at +8 to +12 (lane O98's row). Edge rows by the same reading: mapgen Split_Region (1,285 at +0, 2,571 from +1), foot
+  Search_For_Tiberium_Weighted (2 at +0, 1,045 from +1), mapgen Read_RMG_INI (221, then 1,456), missile Projectile_Motion.
+  Flat to +17, so not count rows: Plot_Line, Do_Chrono_Reinforcements, Read_Text_File, Draw_Ellipse, Select_By_Type, Draw_It,
+  MPlayer_Host_Dialog_Proc, Extract_Compressed_Events, Nearing_Target, the six ownrdraw procedures, Net2DecodeGameopt.
+- An edge can be the inline budget itself. In Search_For_Tiberium_Weighted every referenced probe costs the vector
+  constructor's call (the function has no spare inline site), so a probe sweep there reads the budget and says nothing about
+  the register it was meant to move.
+- `__forceinline` on a helper is a usable diagnostic (VC6 SP3 accepts it): with Collapse_White_Space forced, forms of
+  Translate_Copy that cost budget could still be read at the two instructions that differ. Diagnostic only, never landed.
+- Three near rows share one shape that no spelling has moved: a store to memory and a register-only instruction, both
+  placed ahead of a branch or return, the image with the store second (Read_Text_File: `mov bl, al` then the store of the
+  advanced input; Plot_Line: `mov eax, esi` then `mov [pitch], 1`; Select_By_Type: `pop ebp` then the store of the mode).
+  The one known form that gives it (Plot_Line with the store in both arms of an if/else, the first arm's store hoisted
+  above the branch) puts the store there by hoisting. An inline sign helper with two returns becomes a setcc like the bare
+  if/else. Not found for the other two: a guarded do-while with the step inside the arm changes the frame instead.

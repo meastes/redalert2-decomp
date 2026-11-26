@@ -137,6 +137,34 @@
     "?Set_Frame@MSOverlayAnim@@QAEXH@Z": 5953568,
     "?Broadcast@MSEngine@@QAEXPAX@Z": 5978112,
     "?Redraw@MSEngine@@QAEXXZ": 5975952,
+    "??0CDFileClass@@QAE@XZ": 4652432,
+    "??_C@_0L@HMJF@WDTMap?4ini?$AA@": 8372524,
+    "?Open@CDFileClass@@UAEHPBDH@Z": 4653648,
+    "??0GenericList@@QAE@XZ": 4787840,
+    "??_7?$List@PAUINISection@INIClass@@@@6B@": 7973612,
+    "??0?$IndexClass@HPAUINISection@INIClass@@@@QAE@XZ": 4788416,
+    "??_7INIClass@@6B@": 8006452,
+    "?Load@INIClass@@QAEHAAVFileClass@@_N@Z": 5290976,
+    "?Close@BufferIOFileClass@@UAEXXZ": 4390304,
+    "??0CDFileClass@@QAE@ABVWstring@@@Z": 4652384,
+    "??_7?$VectorClass@V?$TRect@H@@@@6B@": 8019632,
+    "??0?$TRect@H@@QAE@XZ": 7516016,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_7?$VectorClass@VCentroid@WorldDominationTour@@@@6B@": 8057496,
+    "??0Centroid@WorldDominationTour@@QAE@XZ": 7514032,
+    "??_7?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@6B@": 8057476,
+    "??0?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@QAE@AAV?$VectorClass@V?$TRect@H@@@@H@Z": 7516304,
+    "??4?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@QAEAAV0@ABV0@@Z": 7515984,
+    "??H@YI?AVWstring@@ABV0@0@Z": 7796688,
+    "?Center_Point@Centroid@WorldDominationTour@@QBE?AVPoint2D@@XZ": 7514096,
+    "??_C@_07GLHL@Target_?$AA@": 8372516,
+    "?Put_Point@INIClass@@QAE_NABVWstring@@0ABV?$TPoint2D@H@@@Z": 5305872,
+    "?Save@INIClass@@QBEHAAVFileClass@@@Z": 5293536,
+    "??_C@_0BD@JCPH@?4?4?2code?2wdtmap?4ini?$AA@": 8372496,
+    "?Clear@?$VectorClass@VCentroid@WorldDominationTour@@@@UAEXXZ": 7518240,
+    "?Clear@?$VectorClass@V?$TRect@H@@@@UAEXXZ": 5826192,
+    "??1CDFileClass@@UAE@XZ": 5352720,
+    "??1INIClass@@UAE@XZ": 5290192,
     "??1Map@WorldDominationTour@@UAE@XZ": 7508976,
     "??0?$rc_ptr@VTerritory@WorldDominationTour@@@@QAE@XZ": 7518960,
     "_$E2": 7507920,
@@ -152,7 +180,6 @@
     "_$E32": 7508320,
     "_$E35": 7508368,
     "_$E38": 7508384,
-    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??0MSFrameAnim@@QAE@XZ": 7508416,
     "??_GMSFrameAnim@@UAEPAXI@Z": 7515904,
     "?Set_Active@MSAnim@@UAEX_N@Z": 5962752,
@@ -189,12 +216,10 @@
     "?Error@RawFileClass@@UAEXHHPBD@Z": 6523696,
     "?Set_Date_Time@RawFileClass@@UAE_NI@Z": 6525680,
     "?Get_Date_Time@RawFileClass@@UAEIXZ": 6525600,
-    "?Close@BufferIOFileClass@@UAEXXZ": 4390304,
     "?Write@BufferIOFileClass@@UAEHPBXH@Z": 4388912,
     "?Size@BufferIOFileClass@@UAEHXZ": 4390272,
     "?Seek@BufferIOFileClass@@UAEHHH@Z": 4390032,
     "?Read@BufferIOFileClass@@UAEHPAXH@Z": 4389504,
-    "?Open@CDFileClass@@UAEHPBDH@Z": 4653648,
     "?Open@CDFileClass@@UAEHH@Z": 4652560,
     "?Is_Open@BufferIOFileClass@@UBE_NXZ": 4388608,
     "?Is_Available@BufferIOFileClass@@UAE_NH@Z": 4388576,
@@ -211,17 +236,34 @@
     "?Set_Back_Hot@Map@WorldDominationTour@@QAEXPAVMSEngine@@_N@Z": 7513808,
     "?Set_Back_Down@Map@WorldDominationTour@@QAEXPAVMSEngine@@_N@Z": 7513888,
     "?Is_Over_Back@Map@WorldDominationTour@@QBEHABVPoint2D@@@Z": 7513968,
-    "??0Centroid@WorldDominationTour@@QAE@XZ": 7514032,
     "??YCentroid@WorldDominationTour@@QAEABV01@ABVPoint2D@@@Z": 7514048,
-    "?Center_Point@Centroid@WorldDominationTour@@QBE?AVPoint2D@@XZ": 7514096,
     "??8Centroid@WorldDominationTour@@QBE_NABV01@@Z": 7514176,
     "?Territory_Of_Color@@YIII@Z": 7514224,
+    "?WDT_Write_Map_Ini@@YIXABVWstring@@0@Z": 7514240,
+    "??_GINIClass@@UAEPAXI@Z": 5107440,
+    "??_G?$VectorClass@V?$TRect@H@@@@UAEPAXI@Z": 5827904,
+    "??_G?$VectorClass@VCentroid@WorldDominationTour@@@@UAEPAXI@Z": 7518880,
+    "??_G?$List@PAUINISection@INIClass@@@@UAEPAXI@Z": 4252416,
+    "??_G?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UAEPAXI@Z": 7516400,
+    "??_GGenericNode@@UAEPAXI@Z": 4252112,
+    "??_GGenericList@@UAEPAXI@Z": 4252192,
+    "??_7GenericList@@6B@": 7973620,
+    "??_7GenericNode@@6B@": 7973628,
+    "?GetItem@?$VectorClass@V?$TRect@H@@@@UBE?AV?$TRect@H@@H@Z": 5823968,
     "?Clear@?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEXXZ": 7516032,
     "?ID@?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEHPBV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z": 7516080,
     "?GetItem@?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UBE?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@H@Z": 7516112,
     "?Clear@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEXXZ": 7516160,
     "?ID@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHPBQAVAnimationPalette@Map@WorldDominationTour@@@Z": 7516208,
     "?GetItem@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UBEPAVAnimationPalette@Map@WorldDominationTour@@H@Z": 7516240,
+    "?GetItem@?$VectorClass@VCentroid@WorldDominationTour@@@@UBE?AVCentroid@WorldDominationTour@@H@Z": 7516256,
+    "??B?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UBE_NXZ": 7516336,
+    "??E?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UAEAAV0@XZ": 7518416,
+    "??F?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UAEAAV0@XZ": 7518432,
+    "??8?$VectorClass@V?$TRect@H@@@@UBE_NABV0@@Z": 5825840,
+    "?Resize@?$VectorClass@V?$TRect@H@@@@UAE_NHPBV?$TRect@H@@@Z": 5825952,
+    "?ID@?$VectorClass@V?$TRect@H@@@@UAEHABV?$TRect@H@@@Z": 5826240,
+    "?ID@?$VectorClass@V?$TRect@H@@@@UAEHPBV?$TRect@H@@@Z": 5826336,
     "??8?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UBE_NABV0@@Z": 7516432,
     "?Resize@?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAE_NHPBV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z": 7516512,
     "?Clear@?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEXXZ": 7516800,
@@ -236,6 +278,10 @@
     "?ID@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHPBQAVAnimationPalette@Map@WorldDominationTour@@@Z": 7517632,
     "?Resize@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAE_NHPBQAVAnimationPalette@Map@WorldDominationTour@@@Z": 7517664,
     "?ID@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHABQAVAnimationPalette@Map@WorldDominationTour@@@Z": 7517840,
+    "??8?$VectorClass@VCentroid@WorldDominationTour@@@@UBE_NABV0@@Z": 7517888,
+    "?Resize@?$VectorClass@VCentroid@WorldDominationTour@@@@UAE_NHPBVCentroid@WorldDominationTour@@@Z": 7517984,
+    "?ID@?$VectorClass@VCentroid@WorldDominationTour@@@@UAEHABVCentroid@WorldDominationTour@@@Z": 7518288,
+    "?ID@?$VectorClass@VCentroid@WorldDominationTour@@@@UAEHPBVCentroid@WorldDominationTour@@@Z": 7518368,
     "??_E?$rc_ptr@VWDTTerritory@@@@UAEPAXI@Z": 5367296,
     "??_7?$rc_ptr@VWDTTerritory@@@@6B@": 8013100,
     "??_E?$rc_ptr@VConflict@WorldDominationTour@@@@UAEPAXI@Z": 7499616,
@@ -300,7 +346,7 @@
           "resolved": 11687924
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7507920,
@@ -367,7 +413,7 @@
           "resolved": 11687936
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7507952,
@@ -418,7 +464,7 @@
           "resolved": 11688008
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7508000,
@@ -469,7 +515,7 @@
           "resolved": 11687992
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7508032,
@@ -520,7 +566,7 @@
           "resolved": 11687984
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7508064,
@@ -571,7 +617,7 @@
           "resolved": 11687944
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7508096,
@@ -622,7 +668,7 @@
           "resolved": 11687904
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7508128,
@@ -705,7 +751,7 @@
           "resolved": 11688016
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7508160,
@@ -764,7 +810,7 @@
           "resolved": 11687952
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7508224,
@@ -823,7 +869,7 @@
           "resolved": 11687976
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7508272,
@@ -882,7 +928,7 @@
           "resolved": 11688000
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7508320,
@@ -925,7 +971,7 @@
           "resolved": 11687930
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7508368,
@@ -976,7 +1022,7 @@
           "resolved": 11687968
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7508384,
@@ -1019,7 +1065,7 @@
           "resolved": 8057276
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7508416,
@@ -1062,7 +1108,7 @@
           "resolved": 4293407893
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7508464,
@@ -1106,7 +1152,7 @@
           "resolved": 4294747192
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7508480,
@@ -1158,7 +1204,7 @@
           "resolved": 4294747054
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7508512,
@@ -1184,7 +1230,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7508656,
@@ -1251,7 +1297,7 @@
           "resolved": 4293984780
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7508704,
@@ -1334,7 +1380,7 @@
           "resolved": 8057324
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7508784,
@@ -1457,7 +1503,7 @@
           "resolved": 4293984783
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7508976,
@@ -3300,7 +3346,7 @@
           "resolved": 276333
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7509264,
@@ -3703,7 +3749,7 @@
           "resolved": 275684
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7512704,
@@ -3762,7 +3808,7 @@
           "resolved": 275479
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7513360,
@@ -3797,7 +3843,7 @@
           "resolved": 275347
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7513568,
@@ -3833,7 +3879,7 @@
           "resolved": 275401
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7513600,
@@ -3876,7 +3922,7 @@
           "resolved": 4293429477
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7513632,
@@ -3902,7 +3948,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7513696,
@@ -3953,7 +3999,7 @@
           "resolved": 4293429375
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7513808,
@@ -4005,7 +4051,7 @@
           "resolved": 4293429295
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7513888,
@@ -4032,7 +4078,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7513968,
@@ -4059,7 +4105,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7514032,
@@ -4085,7 +4131,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7514048,
@@ -4111,7 +4157,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7514096,
@@ -4137,7 +4183,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7514176,
@@ -4164,12 +4210,527 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7514224,
       "source_quality_family": "rebuild",
       "bound_population": "population-3817"
+    },
+    {
+      "entry": 7514240,
+      "method": "0072a880",
+      "body_bytes": 1652,
+      "body_sha256": "aee310788af228d9713352f01c5c83d11b824f7ebfa43dd25526aff59bb52dfe",
+      "padding_bytes": 12,
+      "full_extent_bytes": 1664,
+      "full_extent_sha256": "8f6018d27486346188be7b14b11ccac9b93c22f70d4ca73f271275972c55b153",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?WDT_Write_Map_Ini@@YIXABVWstring@@0@Z",
+      "symbol_prefix": "?WDT_Write_Map_Ini@@YIXABVWstring@@0@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "??0CDFileClass@@QAE@XZ",
+          "target": 4652432,
+          "addend": 0,
+          "resolved": 4292105460
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "??_C@_0L@HMJF@WDTMap?4ini?$AA@",
+          "target": 8372524,
+          "addend": 0,
+          "resolved": 8372524
+        },
+        {
+          "offset": 43,
+          "kind": 20,
+          "symbol": "?Open@CDFileClass@@UAEHPBDH@Z",
+          "target": 4653648,
+          "addend": 0,
+          "resolved": 4292106657
+        },
+        {
+          "offset": 52,
+          "kind": 20,
+          "symbol": "??0GenericList@@QAE@XZ",
+          "target": 4787840,
+          "addend": 0,
+          "resolved": 4292240840
+        },
+        {
+          "offset": 67,
+          "kind": 6,
+          "symbol": "??_7?$List@PAUINISection@INIClass@@@@6B@",
+          "target": 7973612,
+          "addend": 0,
+          "resolved": 7973612
+        },
+        {
+          "offset": 72,
+          "kind": 20,
+          "symbol": "??0?$IndexClass@HPAUINISection@INIClass@@@@QAE@XZ",
+          "target": 4788416,
+          "addend": 0,
+          "resolved": 4292241396
+        },
+        {
+          "offset": 108,
+          "kind": 6,
+          "symbol": "??_7INIClass@@6B@",
+          "target": 8006452,
+          "addend": 0,
+          "resolved": 8006452
+        },
+        {
+          "offset": 113,
+          "kind": 20,
+          "symbol": "?Load@INIClass@@QAEHAAVFileClass@@_N@Z",
+          "target": 5290976,
+          "addend": 0,
+          "resolved": 4292743915
+        },
+        {
+          "offset": 125,
+          "kind": 20,
+          "symbol": "?Close@BufferIOFileClass@@UAEXXZ",
+          "target": 4390304,
+          "addend": 0,
+          "resolved": 4291843231
+        },
+        {
+          "offset": 138,
+          "kind": 20,
+          "symbol": "??0CDFileClass@@QAE@ABVWstring@@@Z",
+          "target": 4652384,
+          "addend": 0,
+          "resolved": 4292105298
+        },
+        {
+          "offset": 154,
+          "kind": 20,
+          "symbol": "?Read_PCX_File@@YIPAVSurface@@AAVFileClass@@PAVPaletteClass@@PAXH@Z",
+          "target": 6344976,
+          "addend": 0,
+          "resolved": 4293797874
+        },
+        {
+          "offset": 222,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@V?$TRect@H@@@@6B@",
+          "target": 8019632,
+          "addend": 0,
+          "resolved": 8019632
+        },
+        {
+          "offset": 227,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 358064
+        },
+        {
+          "offset": 241,
+          "kind": 6,
+          "symbol": "??0?$TRect@H@@QAE@XZ",
+          "target": 7516016,
+          "addend": 0,
+          "resolved": 7516016
+        },
+        {
+          "offset": 250,
+          "kind": 20,
+          "symbol": "??_H@YGXPAXIHP6EX0@Z@Z",
+          "target": 4239056,
+          "addend": 0,
+          "resolved": 4291691858
+        },
+        {
+          "offset": 293,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@VCentroid@WorldDominationTour@@@@6B@",
+          "target": 8057496,
+          "addend": 0,
+          "resolved": 8057496
+        },
+        {
+          "offset": 298,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 357993
+        },
+        {
+          "offset": 312,
+          "kind": 6,
+          "symbol": "??0Centroid@WorldDominationTour@@QAE@XZ",
+          "target": 7514032,
+          "addend": 0,
+          "resolved": 7514032
+        },
+        {
+          "offset": 321,
+          "kind": 20,
+          "symbol": "??_H@YGXPAXIHP6EX0@Z@Z",
+          "target": 4239056,
+          "addend": 0,
+          "resolved": 4291691787
+        },
+        {
+          "offset": 358,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@6B@",
+          "target": 8057476,
+          "addend": 0,
+          "resolved": 8057476
+        },
+        {
+          "offset": 364,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@6B@",
+          "target": 8057476,
+          "addend": 4,
+          "resolved": 8057480
+        },
+        {
+          "offset": 534,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 357757
+        },
+        {
+          "offset": 548,
+          "kind": 6,
+          "symbol": "??0Centroid@WorldDominationTour@@QAE@XZ",
+          "target": 7514032,
+          "addend": 0,
+          "resolved": 7514032
+        },
+        {
+          "offset": 557,
+          "kind": 20,
+          "symbol": "??_H@YGXPAXIHP6EX0@Z@Z",
+          "target": 4239056,
+          "addend": 0,
+          "resolved": 4291691551
+        },
+        {
+          "offset": 645,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 356914
+        },
+        {
+          "offset": 753,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 357538
+        },
+        {
+          "offset": 767,
+          "kind": 6,
+          "symbol": "??0?$TRect@H@@QAE@XZ",
+          "target": 7516016,
+          "addend": 0,
+          "resolved": 7516016
+        },
+        {
+          "offset": 776,
+          "kind": 20,
+          "symbol": "??_H@YGXPAXIHP6EX0@Z@Z",
+          "target": 4239056,
+          "addend": 0,
+          "resolved": 4291691332
+        },
+        {
+          "offset": 870,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 356689
+        },
+        {
+          "offset": 916,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@6B@",
+          "target": 8057476,
+          "addend": 0,
+          "resolved": 8057476
+        },
+        {
+          "offset": 934,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@6B@",
+          "target": 8057476,
+          "addend": 4,
+          "resolved": 8057480
+        },
+        {
+          "offset": 1249,
+          "kind": 20,
+          "symbol": "??0?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@QAE@AAV?$VectorClass@V?$TRect@H@@@@H@Z",
+          "target": 7516304,
+          "addend": 0,
+          "resolved": 811
+        },
+        {
+          "offset": 1263,
+          "kind": 20,
+          "symbol": "??4?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@QAEAAV0@ABV0@@Z",
+          "target": 7515984,
+          "addend": 0,
+          "resolved": 477
+        },
+        {
+          "offset": 1299,
+          "kind": 20,
+          "symbol": "?Wstring_FromInt@@YI?AVWstring@@HH@Z",
+          "target": 7796240,
+          "addend": 0,
+          "resolved": 280697
+        },
+        {
+          "offset": 1313,
+          "kind": 20,
+          "symbol": "??H@YI?AVWstring@@ABV0@0@Z",
+          "target": 7796688,
+          "addend": 0,
+          "resolved": 281131
+        },
+        {
+          "offset": 1322,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 273458
+        },
+        {
+          "offset": 1328,
+          "kind": 6,
+          "symbol": "?VideoModeWidth@@3HA",
+          "target": 8725472,
+          "addend": 0,
+          "resolved": 8725472
+        },
+        {
+          "offset": 1337,
+          "kind": 20,
+          "symbol": "?Wstring_FromInt@@YI?AVWstring@@H@Z",
+          "target": 7796096,
+          "addend": 0,
+          "resolved": 280515
+        },
+        {
+          "offset": 1354,
+          "kind": 20,
+          "symbol": "?Center_Point@Centroid@WorldDominationTour@@QBE?AVPoint2D@@XZ",
+          "target": 7514096,
+          "addend": 0,
+          "resolved": 4294965794
+        },
+        {
+          "offset": 1389,
+          "kind": 6,
+          "symbol": "??_C@_07GLHL@Target_?$AA@",
+          "target": 8372516,
+          "addend": 0,
+          "resolved": 8372516
+        },
+        {
+          "offset": 1398,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 273190
+        },
+        {
+          "offset": 1405,
+          "kind": 20,
+          "symbol": "??HWstring@@QBE?AV0@ABV0@@Z",
+          "target": 7791040,
+          "addend": 0,
+          "resolved": 275391
+        },
+        {
+          "offset": 1420,
+          "kind": 20,
+          "symbol": "?Put_Point@INIClass@@QAE_NABVWstring@@0ABV?$TPoint2D@H@@@Z",
+          "target": 5305872,
+          "addend": 0,
+          "resolved": 4292757504
+        },
+        {
+          "offset": 1429,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 273351
+        },
+        {
+          "offset": 1438,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 273342
+        },
+        {
+          "offset": 1462,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 273318
+        },
+        {
+          "offset": 1471,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 273309
+        },
+        {
+          "offset": 1497,
+          "kind": 6,
+          "symbol": "??_C@_0L@HMJF@WDTMap?4ini?$AA@",
+          "target": 8372524,
+          "addend": 0,
+          "resolved": 8372524
+        },
+        {
+          "offset": 1509,
+          "kind": 20,
+          "symbol": "?Open@CDFileClass@@UAEHPBDH@Z",
+          "target": 4653648,
+          "addend": 0,
+          "resolved": 4292105191
+        },
+        {
+          "offset": 1526,
+          "kind": 20,
+          "symbol": "?Save@INIClass@@QBEHAAVFileClass@@@Z",
+          "target": 5293536,
+          "addend": 0,
+          "resolved": 4292745062
+        },
+        {
+          "offset": 1540,
+          "kind": 6,
+          "symbol": "??_C@_0BD@JCPH@?4?4?2code?2wdtmap?4ini?$AA@",
+          "target": 8372496,
+          "addend": 0,
+          "resolved": 8372496
+        },
+        {
+          "offset": 1545,
+          "kind": 20,
+          "symbol": "?Open@CDFileClass@@UAEHPBDH@Z",
+          "target": 4653648,
+          "addend": 0,
+          "resolved": 4292105155
+        },
+        {
+          "offset": 1562,
+          "kind": 20,
+          "symbol": "?Save@INIClass@@QBEHAAVFileClass@@@Z",
+          "target": 5293536,
+          "addend": 0,
+          "resolved": 4292745026
+        },
+        {
+          "offset": 1574,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@6B@",
+          "target": 8057476,
+          "addend": 0,
+          "resolved": 8057476
+        },
+        {
+          "offset": 1582,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@VCentroid@WorldDominationTour@@@@6B@",
+          "target": 8057496,
+          "addend": 0,
+          "resolved": 8057496
+        },
+        {
+          "offset": 1587,
+          "kind": 20,
+          "symbol": "?Clear@?$VectorClass@VCentroid@WorldDominationTour@@@@UAEXXZ",
+          "target": 7518240,
+          "addend": 0,
+          "resolved": 2409
+        },
+        {
+          "offset": 1599,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@V?$TRect@H@@@@6B@",
+          "target": 8019632,
+          "addend": 0,
+          "resolved": 8019632
+        },
+        {
+          "offset": 1604,
+          "kind": 20,
+          "symbol": "?Clear@?$VectorClass@V?$TRect@H@@@@UAEXXZ",
+          "target": 5826192,
+          "addend": 0,
+          "resolved": 4293277640
+        },
+        {
+          "offset": 1616,
+          "kind": 20,
+          "symbol": "??1CDFileClass@@UAE@XZ",
+          "target": 5352720,
+          "addend": 0,
+          "resolved": 4292804156
+        },
+        {
+          "offset": 1625,
+          "kind": 20,
+          "symbol": "??1INIClass@@UAE@XZ",
+          "target": 5290192,
+          "addend": 0,
+          "resolved": 4292741619
+        },
+        {
+          "offset": 1637,
+          "kind": 20,
+          "symbol": "??1CDFileClass@@UAE@XZ",
+          "target": 5352720,
+          "addend": 0,
+          "resolved": 4292804135
+        }
+      ],
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
+      "source": "src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7514240,
+      "source_quality_family": "rebuild"
     },
     {
       "entry": 7515904,
@@ -4216,7 +4777,7 @@
           "resolved": 355872
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7515904,
@@ -4260,12 +4821,66 @@
           "resolved": 355830
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7515952,
       "source_quality_family": "rebuild",
       "bound_population": "population-66"
+    },
+    {
+      "entry": 7515984,
+      "method": "0072af50",
+      "body_bytes": 21,
+      "body_sha256": "76d6a84cad5a2beeefbd388abb7194f855880e4e5e3dea2c516698e0627f1340",
+      "padding_bytes": 11,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "314b5ddccccc1d0f1d26c81901b912281ec41594ade4ad536262b62c5f8501b5",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??4?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@QAEAAV0@ABV0@@Z",
+      "symbol_prefix": "??4?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@QAEAAV0@ABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
+      "source": "src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7515984,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3774"
+    },
+    {
+      "entry": 7516016,
+      "method": "0072af70",
+      "body_bytes": 3,
+      "body_sha256": "58367ffa2a0179375018fa0f5c26da24391e42ebe0ed8fdda35a21fc7bdc396f",
+      "padding_bytes": 13,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "29f4ac27c274a9f1c52a282cbe6f8a57ec6e073cc0936fc0a2cbac85290fbfd4",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$TRect@H@@QAE@XZ",
+      "symbol_prefix": "??0?$TRect@H@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
+      "source": "src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7516016,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
     },
     {
       "entry": 7516032,
@@ -4287,7 +4902,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7516032,
@@ -4314,7 +4929,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7516080,
@@ -4366,7 +4981,7 @@
           "resolved": 4293977400
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7516112,
@@ -4402,7 +5017,7 @@
           "resolved": 355616
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7516160,
@@ -4429,7 +5044,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7516208,
@@ -4456,12 +5071,102 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7516240,
       "source_quality_family": "rebuild",
       "bound_population": "population-1622"
+    },
+    {
+      "entry": 7516256,
+      "method": "0072b060",
+      "body_bytes": 40,
+      "body_sha256": "0a628aea233e5e008872b6299e87205d87498a61c1deb0804f83daa179addb82",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "e55485338a5167962b08348dfa4c034063dffa5fff41bb840289861761102e8f",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@VCentroid@WorldDominationTour@@@@UBE?AVCentroid@WorldDominationTour@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@VCentroid@WorldDominationTour@@@@UBE?AVCentroid@WorldDominationTour@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
+      "source": "src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7516256,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7516304,
+      "method": "0072b090",
+      "body_bytes": 25,
+      "body_sha256": "1835c62f2ad1b21f7ff57ccaa0ea72a0d51c141f60eea8657e31c451496ac15f",
+      "padding_bytes": 7,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "6151f4a3aeb5bcdd8c00efc8e19fe9116873709b98fed69431de3cf1a4503662",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@QAE@AAV?$VectorClass@V?$TRect@H@@@@H@Z",
+      "symbol_prefix": "??0?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@QAE@AAV?$VectorClass@V?$TRect@H@@@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@6B@",
+          "target": 8057476,
+          "addend": 0,
+          "resolved": 8057476
+        }
+      ],
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
+      "source": "src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7516304,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3774"
+    },
+    {
+      "entry": 7516336,
+      "method": "0072b0b0",
+      "body_bytes": 14,
+      "body_sha256": "e46812ccc89d38450582276359da63fc018f87cfacfc644f0e2749121eab2a55",
+      "padding_bytes": 2,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "83ee98738395cc359c02fbd3f8d46c8339b8fbda60f8c5c48309a91864a983e9",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??B?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UBE_NXZ",
+      "symbol_prefix": "??B?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
+      "source": "src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7516336,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
     },
     {
       "entry": 7516352,
@@ -4508,10 +5213,54 @@
           "resolved": 355424
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7516352,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-66"
+    },
+    {
+      "entry": 7516400,
+      "method": "0072b0f0",
+      "body_bytes": 32,
+      "body_sha256": "9fd61dd2c6039bff5141ae0cc5cc857e9bd4f871eb9c34ef6d6103c92e3278f2",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "9fd61dd2c6039bff5141ae0cc5cc857e9bd4f871eb9c34ef6d6103c92e3278f2",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@6B@",
+          "target": 8057476,
+          "addend": 0,
+          "resolved": 8057476
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 355380
+        }
+      ],
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
+      "source": "src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7516400,
       "source_quality_family": "rebuild",
       "bound_population": "population-66"
     },
@@ -4535,7 +5284,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7516432,
@@ -4611,7 +5360,7 @@
           "resolved": 4293976841
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7516512,
@@ -4638,7 +5387,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7516800,
@@ -4665,7 +5414,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7516848,
@@ -4692,7 +5441,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7516912,
@@ -4760,7 +5509,7 @@
           "resolved": 4293976421
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7516944,
@@ -4787,7 +5536,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7517232,
@@ -4814,7 +5563,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7517280,
@@ -4858,7 +5607,7 @@
           "resolved": 354336
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7517344,
@@ -4894,7 +5643,7 @@
           "resolved": 354259
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7517520,
@@ -4921,7 +5670,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7517568,
@@ -4948,7 +5697,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7517632,
@@ -4992,7 +5741,7 @@
           "resolved": 354029
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7517664,
@@ -5019,12 +5768,227 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7517840,
       "source_quality_family": "rebuild",
       "bound_population": "population-1622"
+    },
+    {
+      "entry": 7517888,
+      "method": "0072b6c0",
+      "body_bytes": 92,
+      "body_sha256": "7fecea8addb8c18895818c1b28b6f6a75c66def1aa8aebd06920f05826f3b8f4",
+      "padding_bytes": 4,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "ab430173e2f0ea084db3e80dee6a16a5ab45e25bd68622cc75e01269bf5ca1da",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@VCentroid@WorldDominationTour@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@VCentroid@WorldDominationTour@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
+      "source": "src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7517888,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 7517984,
+      "method": "0072b720",
+      "body_bytes": 249,
+      "body_sha256": "5fe8b53f47143bbb3f968b6dcc7fbb268ab81ac07680e6490e95021a4f7eaa35",
+      "padding_bytes": 7,
+      "full_extent_bytes": 256,
+      "full_extent_sha256": "dd81f789e938624d3d4de190d1bb1b188c95ea036ed7faa44234818db1856bb0",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@VCentroid@WorldDominationTour@@@@UAE_NHPBVCentroid@WorldDominationTour@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@VCentroid@WorldDominationTour@@@@UAE_NHPBVCentroid@WorldDominationTour@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 354507
+        },
+        {
+          "offset": 194,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 353621
+        }
+      ],
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
+      "source": "src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7517984,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 7518240,
+      "method": "0072b820",
+      "body_bytes": 39,
+      "body_sha256": "ae38ff63cc9803778ba020b685e3af8f00527353fee75444b56453f87d072d07",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "d226953121692fa0bb2d370da1532c8ddf89f62ab15718b117ce44ccdd673af9",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@VCentroid@WorldDominationTour@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@VCentroid@WorldDominationTour@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 353539
+        }
+      ],
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
+      "source": "src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7518240,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7518288,
+      "method": "0072b850",
+      "body_bytes": 80,
+      "body_sha256": "ce7929f88c214ac4b7ce4d0c5450c8214825282f86e39e892c56d631b8f5a1ec",
+      "padding_bytes": 0,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "ce7929f88c214ac4b7ce4d0c5450c8214825282f86e39e892c56d631b8f5a1ec",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@VCentroid@WorldDominationTour@@@@UAEHABVCentroid@WorldDominationTour@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@VCentroid@WorldDominationTour@@@@UAEHABVCentroid@WorldDominationTour@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
+      "source": "src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7518288,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 7518368,
+      "method": "0072b8a0",
+      "body_bytes": 36,
+      "body_sha256": "9dcefccc4d67c0cb9c6f89fd70c7f511db358042a092bd600df3de62832feb54",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "68ffc8ce258c8e5594dacacb26abcaff55e8620a198e68d48fba0c8b750352fd",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@VCentroid@WorldDominationTour@@@@UAEHPBVCentroid@WorldDominationTour@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@VCentroid@WorldDominationTour@@@@UAEHPBVCentroid@WorldDominationTour@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
+      "source": "src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7518368,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7518416,
+      "method": "72b8d0",
+      "body_bytes": 6,
+      "body_sha256": "14db3be74843d875a82d78d97382ed667f85eecbb309b4584b94beaa27676d12",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "2b52fe92ab420b3b64fe68bc7ae3b694023146ceb9e26b177681ea7bc1f8d734",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??E?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UAEAAV0@XZ",
+      "symbol_prefix": "??E?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UAEAAV0@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
+      "source": "src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7518416,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-09"
+    },
+    {
+      "entry": 7518432,
+      "method": "72b8e0",
+      "body_bytes": 6,
+      "body_sha256": "f5d6ab61265ab17ba1aa24eec1dd3f880a3da42d1b1c807d32deaafa992aaa82",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "91a91676eb37e28fb88f9f6d0da9088cf2b2c06f7e1a18de246ed2f4e5ca1a27",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??F?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UAEAAV0@XZ",
+      "symbol_prefix": "??F?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UAEAAV0@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
+      "source": "src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7518432,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-09"
     },
     {
       "entry": 7518448,
@@ -5063,7 +6027,7 @@
           "resolved": 353290
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7518448,
@@ -5138,7 +6102,7 @@
           "resolved": 353179
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7518528,
@@ -5181,7 +6145,7 @@
           "resolved": 353098
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7518640,
@@ -5232,7 +6196,7 @@
           "resolved": 353019
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7518720,
@@ -5284,10 +6248,62 @@
           "resolved": 352939
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7518800,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 7518880,
+      "method": "72baa0",
+      "body_bytes": 73,
+      "body_sha256": "5023be671fd2ee5b3350a817478377ec4631ecec355137a3ab5e799fbe4728f6",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "2156be89a1d1a18eb3272421d4bf28b2b14c3cf6a7e608d42ca84e44c6b5177e",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@VCentroid@WorldDominationTour@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@VCentroid@WorldDominationTour@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@VCentroid@WorldDominationTour@@@@6B@",
+          "target": 8057496,
+          "addend": 0,
+          "resolved": 8057496
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 352894
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 352859
+        }
+      ],
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
+      "source": "src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7518880,
       "source_quality_family": "rebuild",
       "bound_population": "population-15"
     },
@@ -5328,7 +6344,7 @@
           "resolved": 8057468
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7518960,
@@ -5404,7 +6420,7 @@
           "resolved": 8057468
         }
       ],
-      "source_sha256": "85a10910fc6bf8b49c65846595922717fe2c85d39f3507acac52d7b2cff57ebc",
+      "source_sha256": "c2d32f3c9b846da16aebc2a7c738c75d5205718497679430dc2006147f516b5f",
       "source": "src/wdtmap.cpp",
       "population": "rebuild-wdtmap",
       "source_order": 7518992,

@@ -3544,7 +3544,7 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 
 			if (WolOptionsLocked && options[0] != 'Z') return(S_OK); // RA2: the port messages still come once the options are locked
 
-			if (Is_Tournament_Session() && options[0] != 'Z') return(S_OK); // RA2: a tournament game has no options to ask for
+			if ((Session.TournamentState == 2 || Session.TournamentState == 1) && options[0] != 'Z') return(S_OK); // RA2: a tournament game has no options to ask for; the test of Is_Tournament_Session written out on the Session member (flagged spelling: with the helper's Online_Session_State the function holds one data symbol more and one lea turns)
 
 			int index = Player_Name_To_Index((char *)user->name);
 			if (index == -1) return(S_OK);
@@ -3648,7 +3648,7 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 							host = Find_Owner_User();
 							if (host && stricmp((char *)host->name, g_NickName.text()) == 0) {
 								if (Is_All_Slots_Filled()) {
-									Change_Slot_Type(window, Get_Slot_Control_Id(row), LobbyEntries[6], 0);
+									Change_Slot_Type(window, Get_Slot_Control_Id(row), LobbyObserverEntry, 0);
 									changed = true;
 									Send_Player_List();
 									Send_Lobby_Options(true, false);
@@ -3656,7 +3656,7 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 								} else {
 									player->Set_Country(-2);
 									player->Slot.SpectatorFlag = 0;
-									Change_Slot_Type(window, Get_Slot_Control_Id(LobbyObserverSlot), LobbyEntries[6], 0);
+									Change_Slot_Type(window, Get_Slot_Control_Id(LobbyObserverSlot), LobbyObserverEntry, 0);
 									index = Assign_Slot(player);
 									Change_Slot_Type(window, Get_Slot_Control_Id(index), player, 0);
 									Send_Player_List();
@@ -3668,12 +3668,12 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 							host = Find_Owner_User();
 							if (host && stricmp((char *)host->name, g_NickName.text()) == 0) {
 								if (Is_Observer_Slot_Full()) {
-									Change_Slot_Type(window, Get_Slot_Control_Id(index), LobbyEntries[0], 0);
+									Change_Slot_Type(window, Get_Slot_Control_Id(index), LobbyOpenEntry, 0);
 									Send_Player_List();
 								} else {
 									player->Set_Country(-3);
 									player->Slot.SpectatorFlag = -1;
-									Change_Slot_Type(window, Get_Slot_Control_Id(index), LobbyEntries[0], 0);
+									Change_Slot_Type(window, Get_Slot_Control_Id(index), LobbyOpenEntry, 0);
 									Change_Slot_Type(window, Get_Slot_Control_Id(LobbyObserverSlot), player, 0);
 									Send_Player_List();
 									Fill_Observer_Combo(window, Player_Side_Combo_ID(LobbyObserverSlot));
@@ -7588,7 +7588,7 @@ void Update_Channel_Player_Limit(void) // RA2: 0x00749F20, not in TibSun: tells 
 	int i = 1;
 	for (; i < limit; ++i) { // RA2: the slots the scenario has
 		NodeNameType * entry = Session.Slots[i];
-		if (entry != LobbyEntries[0] && entry != LobbyEntries[6]) {
+		if (entry != LobbyOpenEntry && entry != LobbyObserverEntry) {
 			if (Is_Real_Player_Entry(entry)) {
 				++fixed_slots;
 			} else if (Is_AI_Entry(entry)) {
@@ -7600,7 +7600,7 @@ void Update_Channel_Player_Limit(void) // RA2: 0x00749F20, not in TibSun: tells 
 	}
 	for (; i < 8; ++i) { // RA2: the slots beyond
 		NodeNameType * entry = Session.Slots[i];
-		if (entry == LobbyEntries[6]) {
+		if (entry == LobbyObserverEntry) {
 			++open_slots;
 		} else if (Is_Real_Player_Entry(entry)) {
 			++fixed_slots;

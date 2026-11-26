@@ -348,7 +348,7 @@ void __fastcall Fill_Side_Combos(HWND dialog) // RA2: 0x004D16D0, not in TibSun
 	for (int player = 0; player < 8; player++) { // RA2: a slot whose entry is the player entry (lobby entry 6) gets the observer combo box
 		int data = Combo_Selected_Data(dialog, player, -1);
 		bool observer = false;
-		if (LobbyEntries[6] != NULL && data == (int)LobbyEntries[6]) {
+		if (LobbyObserverEntry != NULL && data == (int)LobbyObserverEntry) {
 			observer = true;
 		}
 		int id = Player_Side_Combo_ID(player);
@@ -587,7 +587,7 @@ void __fastcall Fill_Color_Combos(HWND dialog) // RA2: 0x004D2300, not in TibSun
 	for (int player = 0; player < 8; player++) { // RA2: game types 3 and 4 are IPX and Internet games
 		int id = Player_Color_Combo_ID(player);
 		if ((Session.Type == GAME_IPX || Session.Type == GAME_INTERNET)
-			&& (Session.Slots[player] == LobbyEntries[6] || Session.Slots[player]->Slot.SpectatorFlag == -1)) {
+			&& (Session.Slots[player] == LobbyObserverEntry || Session.Slots[player]->Slot.SpectatorFlag == -1)) {
 			Fill_Random_Color_Combo(dialog, id);
 		} else {
 			Fill_Color_Combo(dialog, id);
@@ -604,7 +604,7 @@ void __fastcall Select_Player_Color(HWND dialog, int player) // RA2: 0x004D23C0,
 	}
 	int id = Player_Color_Combo_ID(player);
 	if ((Session.Type == GAME_IPX || Session.Type == GAME_INTERNET)
-		&& Session.Slots[player] == LobbyEntries[6] && Session.Slots[player]->Slot.SpectatorFlag == -1) {
+		&& Session.Slots[player] == LobbyObserverEntry && Session.Slots[player]->Slot.SpectatorFlag == -1) {
 		color = 8;
 	}
 	Select_Color_Combo(dialog, id, color);
