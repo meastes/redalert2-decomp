@@ -6181,7 +6181,7 @@ bool __fastcall Join_Game_Channel(Channel const * channel, bool observer) // RA2
 }
 
 LRESULT CALLBACK Create_Game_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam); // RA2: 0x00748E10, the dialog proc of the create game dialog (0xC3); not yet defined
-BOOL CALLBACK Wonline_Game_Options_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam); // RA2: 0x0074A710, the dialog proc of the game options dialog (0xC2); not yet defined
+BOOL CALLBACK Wonline_Game_Options_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam); // RA2: 0x0074A710, the dialog proc of the game options dialog (0xC2); below
 void __fastcall Seat_First_Player(int slot); // RA2: 0x005C8CD0, defined in netshare.cpp
 void Clear_Vector(DynamicVectorClass<NodeNameType *> * vector); // RA2: 0x005A7480, defined in mplayer.cpp
 MultiplayerGameMode * First_Game_Mode(void); // RA2: 0x005B6EC0, defined in multiplayer.cpp
@@ -7788,7 +7788,6 @@ void __fastcall Select_Player_Side(HWND dialog, int player); // RA2: 0x004D1820,
 void __fastcall Select_Player_Color(HWND dialog, int player); // RA2: 0x004D23C0, defined in gdlgsupp.cpp
 void __fastcall Send_User_Pings(void); // RA2: 0x0075B1B0, below: sends the host's pings of the channel's users to them
 
-#ifdef RA2_NON_MATCHING // not exact: 386 bytes differ (main's text; in the start button's checks the slot sum keeps the AI count, so the later temporaries take other registers)
 BOOL CALLBACK Wonline_Game_Options_Dialog_Proc(HWND window,UINT message,WPARAM wparam,LPARAM lparam)
 {
     int i;
@@ -7909,9 +7908,11 @@ BOOL CALLBACK Wonline_Game_Options_Dialog_Proc(HWND window,UINT message,WPARAM w
         }
         case 0x540: {
             wchar_t nickname[16],primary_command[64],alternate_command[64];
-            WideWstring text=Limit_Name_Text((HWND)lparam);
-            if((unsigned short)(wparam>>16)==0x501) {
-                SendMessageA((HWND)lparam,0x4b2,0,(LPARAM)L"");
+			HWND input = (HWND)lparam;
+			int notify = (unsigned short)(wparam >> 16);
+			WideWstring text = Limit_Name_Text(input);
+			if (notify == 0x501) {
+				SendMessageA(input, 0x4b2, 0, (LPARAM)L"");
                 if(text.length()>0) {
                     int parsed=Parse_Page_Command(text.get());
                     if(parsed!=0) {
@@ -7979,7 +7980,8 @@ BOOL CALLBACK Wonline_Game_Options_Dialog_Proc(HWND window,UINT message,WPARAM w
             Send_Lobby_Options(true,false); Refresh_Slot_Settings(window,true);
             return 0;
         case 0x588: {
-            SetFocus(GetDlgItem(window,0x540));
+			HWND input = GetDlgItem(window, 0x540);
+			SetFocus(input);
             if(g_GameStartRequested==1) goto host_unhandled;
             Save_Lobby_Options(window,&Session.WOL);
             Session.Write_MultiPlayer_Settings();
@@ -7987,7 +7989,8 @@ BOOL CALLBACK Wonline_Game_Options_Dialog_Proc(HWND window,UINT message,WPARAM w
             int observers=0;
             for(i=0;i<Session.Players.Count();++i) if(Session.Players[i]->Slot.SpectatorFlag==-1) ++observers;
             if(g_UserList.length()-observers<2) { Lobby_Chat_Printf(-1,StringTable::LoadString("TXT_ONLY_ONE",0,"D:\\Ra2\\wonline.cpp",0x397c)); return 0; }
-            if(observers && Session.Options.AIPlayers) { Lobby_Chat_Printf(-1,StringTable::LoadString("TXT_NO_AI_OBSERVATION",0,"D:\\Ra2\\wonline.cpp",0x3987)); return 0; }
+			int ai_players = Session.Options.AIPlayers;
+			if (observers && ai_players) { Lobby_Chat_Printf(-1, StringTable::LoadString("TXT_NO_AI_OBSERVATION", 0, "D:\\Ra2\\wonline.cpp", 0x3987)); return 0; }
             bool missing=false;
             for(i=1;i<Session.Players.Count();++i) if(!Session.Players[i]->Slot.Unknown7F) {
                 Lobby_Chat_Printf(-1,StringTable::LoadString("GUI:HostNoMap",0,"D:\\Ra2\\wonline.cpp",0x3992),Session.Players[i],Session.Options.ScenarioDescription); missing=true;
@@ -7997,9 +8000,13 @@ BOOL CALLBACK Wonline_Game_Options_Dialog_Proc(HWND window,UINT message,WPARAM w
                 Dispatch_Game_Mode(); Lobby_Chat_Printf(-1,StringTable::LoadString("GUI:HostGameStartHost",0,"D:\\Ra2\\wonline.cpp",0x39a5)); return 0;
             }
             if(Session.Type==4 && Online_Session_State==2) {
-                if(g_UserList.length()<(int)g_CurrentChannel.maxUsers) { Lobby_Chat_Printf(-1,StringTable::LoadString("TXT_NEED_MORE_PLAYERS",0,"D:\\Ra2\\wonline.cpp",0x39af),g_CurrentChannel.maxUsers); return 0; }
+				int needed = g_CurrentChannel.maxUsers;
+				if (g_UserList.length() < needed) { Lobby_Chat_Printf(-1, StringTable::LoadString("TXT_NEED_MORE_PLAYERS", 0, "D:\\Ra2\\wonline.cpp", 0x39af), needed); return 0; }
                 int team1=0,team2=0;
-                for(i=0;i<g_UserList.length();++i) { if(g_UserInfo[i].house==0) ++team2; else ++team1; }
+				for (i = 0; i < g_UserList.length(); ++i) {
+					int house = g_UserInfo[i].house;
+					if (house == 0) ++team2; else ++team1;
+				}
                 if(team1!=team2) { Lobby_Chat_Printf(-1,StringTable::LoadString("TXT_NEED_EQUAL_TEAMS",0,"D:\\Ra2\\wonline.cpp",0x39be)); return 0; }
             }
             int limit=Get_Scenario_Slot_Limit(Session.Options.ScenarioIndex);
@@ -8234,7 +8241,6 @@ host_unhandled:
     }
     return 0;
 }
-#endif
 
 
 

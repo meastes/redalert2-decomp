@@ -1,0 +1,837 @@
+{
+  "id": "rebuild-map2",
+  "population": {
+    "id": "rebuild-map2",
+    "inventory_sha256": "62a5580690f0edb75c625fd60713815485aa2efb82142474c7cd126514d1aba6",
+    "gaps_sha256": "411562098218f9742a0cb3190cf1d44af87477483155ee8d222732200e1262b7",
+    "historical_population_sha256": "2c2ff251c762457c702ad1b5e8a815089f0a9d7d0ddd1db8666128b10eba7577",
+    "historical_acceptance_sha256": "ff119e94e4b31d8757fadad9bf34a93f7cbceaa960ddb48dbfd3ca18e3e98d18"
+  },
+  "references": {
+    "_RECT_NONE": 10943552,
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 10943576,
+    "_ISO_TILE_SIZE": 8018744,
+    "_LEPTONS_PER_PIXEL": 10943648,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 10943632,
+    "_ONE_RAD": 8018752,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 10943624,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 10943584,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 10943544,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 10943656,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 10943592,
+    "_CELL_DIAG_SLOPE_ANGLE": 10943616,
+    "_BRIDGE_LEPTON_HEIGHT": 10943640,
+    "_CELL_NONE": 10943568,
+    "_COORD_NONE": 10943600,
+    "_SecondRectNone": 10943672,
+    "_$E2": 5689072,
+    "_$E5": 5689104,
+    "_$E8": 5689152,
+    "_$E11": 5689184,
+    "_$E14": 5689216,
+    "_$E17": 5689248,
+    "_$E20": 5689280,
+    "_$E23": 5689312,
+    "_$E26": 5689376,
+    "_$E29": 5689424,
+    "_$E32": 5689472,
+    "_$E35": 5689520,
+    "_$E38": 5689536,
+    "_$E41": 5689568
+  },
+  "regions": [
+    {
+      "entry": 5689072,
+      "method": "0056cef0",
+      "body_bytes": 23,
+      "body_sha256": "26a2e7087c12d3ce660e2ef39fa2671ab5ca86a56df1c61caab27e34bc5b82e5",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2d8f3749b841b9e4bfe830aae75738e21ccde435604ec6f4d71b408d1d1e22ea",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10943552,
+          "addend": 0,
+          "resolved": 10943552
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10943552,
+          "addend": 4,
+          "resolved": 10943556
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10943552,
+          "addend": 8,
+          "resolved": 10943560
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10943552,
+          "addend": 12,
+          "resolved": 10943564
+        }
+      ],
+      "source_sha256": "41dc14a5a4c58adbcfe0fabf9b45b17c2000a8add2bbdc104d8062c37ac66cc3",
+      "source": "src/map2.cpp",
+      "population": "rebuild-map2",
+      "source_order": 5689072,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5689104,
+      "method": "0056cf10",
+      "body_bytes": 40,
+      "body_sha256": "3fe505de7f35bec77361df42542307e562c822ccd548e5db7fc407be3f2f0f4e",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "9ae572a3566b77393b4e776bc648d0678f18584d186dd156615389ed8f004427",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 2183823
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4294235362
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10943576,
+          "addend": 0,
+          "resolved": 10943576
+        }
+      ],
+      "source_sha256": "41dc14a5a4c58adbcfe0fabf9b45b17c2000a8add2bbdc104d8062c37ac66cc3",
+      "source": "src/map2.cpp",
+      "population": "rebuild-map2",
+      "source_order": 5689104,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5689152,
+      "method": "0056cf40",
+      "body_bytes": 19,
+      "body_sha256": "293d357280283f90966a73478006ac47a073a8490be47faac4d291947a33ee27",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "1cfa77a925226e3dfc8ef2080d66b273c178405104157a006f1078af68858727",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10943576,
+          "addend": 0,
+          "resolved": 10943576
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8018744,
+          "addend": 0,
+          "resolved": 8018744
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10943648,
+          "addend": 0,
+          "resolved": 10943648
+        }
+      ],
+      "source_sha256": "41dc14a5a4c58adbcfe0fabf9b45b17c2000a8add2bbdc104d8062c37ac66cc3",
+      "source": "src/map2.cpp",
+      "population": "rebuild-map2",
+      "source_order": 5689152,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5689184,
+      "method": "0056cf60",
+      "body_bytes": 19,
+      "body_sha256": "c3b87574e9e5616debc754766e309d8b73f5a5f62e508dc556ee1e5e9ad6927b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b1de57160fd12406733205ed74871460a58e0a77516936f5ba9d696992316c65",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10943648,
+          "addend": 0,
+          "resolved": 10943648
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 10943632,
+          "addend": 0,
+          "resolved": 10943632
+        }
+      ],
+      "source_sha256": "41dc14a5a4c58adbcfe0fabf9b45b17c2000a8add2bbdc104d8062c37ac66cc3",
+      "source": "src/map2.cpp",
+      "population": "rebuild-map2",
+      "source_order": 5689184,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5689216,
+      "method": "0056cf80",
+      "body_bytes": 19,
+      "body_sha256": "5b14c730df09fa25b97f1ad69ed6eb8fee0fef20ea449b015499d372cd63d33b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "04e70768c9b141d3a7e1c8e3f6839859e0ed85444519c0745be05e919a5d2524",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8018752,
+          "addend": 0,
+          "resolved": 8018752
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 10943624,
+          "addend": 0,
+          "resolved": 10943624
+        }
+      ],
+      "source_sha256": "41dc14a5a4c58adbcfe0fabf9b45b17c2000a8add2bbdc104d8062c37ac66cc3",
+      "source": "src/map2.cpp",
+      "population": "rebuild-map2",
+      "source_order": 5689216,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5689248,
+      "method": "0056cfa0",
+      "body_bytes": 19,
+      "body_sha256": "3f9c48c31bcac303f64798a1fa10a91a3df98a5cc57e51ad507f89c442e7d07f",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "cb55c9f6243ca3bbfa2a83b15a44079d459d312df392d3743127a97605cf9f1a",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8018752,
+          "addend": 0,
+          "resolved": 8018752
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10943584,
+          "addend": 0,
+          "resolved": 10943584
+        }
+      ],
+      "source_sha256": "41dc14a5a4c58adbcfe0fabf9b45b17c2000a8add2bbdc104d8062c37ac66cc3",
+      "source": "src/map2.cpp",
+      "population": "rebuild-map2",
+      "source_order": 5689248,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5689280,
+      "method": "0056cfc0",
+      "body_bytes": 19,
+      "body_sha256": "c9bbc6a4f192e21aa9f8626118dd01959e026d0e108f414dda32213e06354198",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "1aa49f57ac8fb6998f54d7b11a8e0d00d23e38ad9640498e025bb0e28dff7ef4",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8018752,
+          "addend": 0,
+          "resolved": 8018752
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10943544,
+          "addend": 0,
+          "resolved": 10943544
+        }
+      ],
+      "source_sha256": "41dc14a5a4c58adbcfe0fabf9b45b17c2000a8add2bbdc104d8062c37ac66cc3",
+      "source": "src/map2.cpp",
+      "population": "rebuild-map2",
+      "source_order": 5689280,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5689312,
+      "method": "0056cfe0",
+      "body_bytes": 49,
+      "body_sha256": "a63e9be7b94244c65cbe3d01864c0555839d49a9f51f8cfacd8f5ae89a644386",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "48c4cbe6943eb9d2b2e1d9c9480f8c020b98436f612e1bacea4217d3ddf0c3dd",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10943544,
+          "addend": 0,
+          "resolved": 10943544
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10943584,
+          "addend": 0,
+          "resolved": 10943584
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4294235433
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10943576,
+          "addend": 0,
+          "resolved": 10943576
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2171141
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10943656,
+          "addend": 0,
+          "resolved": 10943656
+        }
+      ],
+      "source_sha256": "41dc14a5a4c58adbcfe0fabf9b45b17c2000a8add2bbdc104d8062c37ac66cc3",
+      "source": "src/map2.cpp",
+      "population": "rebuild-map2",
+      "source_order": 5689312,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5689376,
+      "method": "0056d020",
+      "body_bytes": 33,
+      "body_sha256": "b743925279e9d826213a01dfd97c875a7ea6b370d65fd45cf608d54056998904",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "f2d349eb7124d84b448895facf0b44fa5c134da1f6bf0c4e21cc59bbbc4bf34f",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10943656,
+          "addend": 0,
+          "resolved": 10943656
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294235513
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 10943592,
+          "addend": 0,
+          "resolved": 10943592
+        }
+      ],
+      "source_sha256": "41dc14a5a4c58adbcfe0fabf9b45b17c2000a8add2bbdc104d8062c37ac66cc3",
+      "source": "src/map2.cpp",
+      "population": "rebuild-map2",
+      "source_order": 5689376,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5689424,
+      "method": "0056d050",
+      "body_bytes": 44,
+      "body_sha256": "a06a168b47df0b748f16710af3ee5ca419ebf3cffcbf564b21d325a26661da40",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "bb169934618c6120436e57753545c36ae3ee8612c5dc672d5c8383b672808b4c",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10943656,
+          "addend": 0,
+          "resolved": 10943656
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10943576,
+          "addend": 0,
+          "resolved": 10943576
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294235454
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 10943616,
+          "addend": 0,
+          "resolved": 10943616
+        }
+      ],
+      "source_sha256": "41dc14a5a4c58adbcfe0fabf9b45b17c2000a8add2bbdc104d8062c37ac66cc3",
+      "source": "src/map2.cpp",
+      "population": "rebuild-map2",
+      "source_order": 5689424,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5689472,
+      "method": "0056d080",
+      "body_bytes": 39,
+      "body_sha256": "9b70e3b236ce1a7049f8eee175b4002dfdf1ddc804e4679fc38d48d2b4c0df74",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8505511962cb7dbfb387ce3b6f6a72c465f1df7d22b00c64254894515efadb24",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10943656,
+          "addend": 0,
+          "resolved": 10943656
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2170992
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 10943640,
+          "addend": 0,
+          "resolved": 10943640
+        }
+      ],
+      "source_sha256": "41dc14a5a4c58adbcfe0fabf9b45b17c2000a8add2bbdc104d8062c37ac66cc3",
+      "source": "src/map2.cpp",
+      "population": "rebuild-map2",
+      "source_order": 5689472,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5689520,
+      "method": "0056d0b0",
+      "body_bytes": 15,
+      "body_sha256": "6d9b53464308bb83312a7ba1bdc1f376b52560845a318b842ab34d189e153844",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "6efbe15646ea3d94e5717d6f9d9af9026e1ce0c22facc353c12011222a9460a7",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10943568,
+          "addend": 0,
+          "resolved": 10943568
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10943568,
+          "addend": 2,
+          "resolved": 10943570
+        }
+      ],
+      "source_sha256": "41dc14a5a4c58adbcfe0fabf9b45b17c2000a8add2bbdc104d8062c37ac66cc3",
+      "source": "src/map2.cpp",
+      "population": "rebuild-map2",
+      "source_order": 5689520,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5689536,
+      "method": "0056d0c0",
+      "body_bytes": 18,
+      "body_sha256": "852945f3b2e19cb3eb61d3ba532f366ce797440bfea16d7ea5c1b02f8bf3b309",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "ea4ca8b9460dfb64be169dbe51f7c05ed53b4bfd304112f934f20ae180976d8e",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10943600,
+          "addend": 0,
+          "resolved": 10943600
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10943600,
+          "addend": 4,
+          "resolved": 10943604
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10943600,
+          "addend": 8,
+          "resolved": 10943608
+        }
+      ],
+      "source_sha256": "41dc14a5a4c58adbcfe0fabf9b45b17c2000a8add2bbdc104d8062c37ac66cc3",
+      "source": "src/map2.cpp",
+      "population": "rebuild-map2",
+      "source_order": 5689536,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5689568,
+      "method": "0056d0e0",
+      "body_bytes": 23,
+      "body_sha256": "f326add848b61c29bcbeb182860da3051e04af99207c8b8dd2ef5c1ecf372f34",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2af35a6641498f11f254825531a44a08d758e46b40b1067ad63aed7b65acc09b",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E41",
+      "symbol_prefix": "_$E41",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_SecondRectNone",
+          "target": 10943672,
+          "addend": 0,
+          "resolved": 10943672
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_SecondRectNone",
+          "target": 10943672,
+          "addend": 4,
+          "resolved": 10943676
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_SecondRectNone",
+          "target": 10943672,
+          "addend": 8,
+          "resolved": 10943680
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_SecondRectNone",
+          "target": 10943672,
+          "addend": 12,
+          "resolved": 10943684
+        }
+      ],
+      "source_sha256": "41dc14a5a4c58adbcfe0fabf9b45b17c2000a8add2bbdc104d8062c37ac66cc3",
+      "source": "src/map2.cpp",
+      "population": "rebuild-map2",
+      "source_order": 5689568,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

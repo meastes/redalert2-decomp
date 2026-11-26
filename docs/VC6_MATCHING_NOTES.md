@@ -5468,3 +5468,23 @@ a push-depth walk, uses listed per slot).
   not take from the zero register (the block that lends edi to the colour box id), the map name against the
   virtual table pointer in the campaign case, and `found` in bl once the node constructor is called.
 - `tailmap.py --help` runs the whole map; read its docstring instead.
+
+## Dead probes do not read a count window; a named value counts only where it replaces no compiler temporary (found in the rebuild (lane F66, high))
+
+- Wonline_Game_Options_Dialog_Proc 0x74A710 (7,899 B) stood at 403 B for five lanes: one sum order (`requested - observers +
+  count`) and the registers after it. Earlier surveys used unused locals (1 to 8: nothing) and file-scope declarations, and the
+  only exact form known was six reference locals with equivalent names (refused). Unused locals are not in the count. Referenced
+  probes (`int p; p = 0;`, 1 to 16 at the top) read it at once: 403 B at +1 to +5, exact at +6 to +14, 403 B at +15 and +16.
+- The reference aliases were not special: they were six referenced locals. Any six count.
+- Not every named value counts. Tested one at a time on top of five probes (the candidate either makes the row exact or does
+  not): a local that names what the compiler already held in a temporary of its own counts zero (a call result passed straight
+  on: the slot total, VerNum's number, a first map index, a default country, GetSurface results, a slider position; also a
+  parameter copied once: `int timer = wparam`). A local counts one when it names a cast of a parameter (`(HWND)lparam`,
+  `(unsigned short)(wparam >> 16)`), a global or member read (`g_CurrentChannel.maxUsers`, `Session.Options.AIPlayers`,
+  `g_UserInfo[i].house`, `Online_Session_State`), or a call result ahead of a second call in the same statement
+  (`GetDlgItem(window, 0x540)` ahead of SetFocus counted at one of three sites only: test each).
+- Method for a tie row: (1) referenced probes 1 to 32 to find the window; (2) list values the function computes or reads;
+  (3) test each on top of window-minus-one probes; (4) land the most natural ones, flagged compiler-local, with the survey in the
+  provenance note. Prefer values used twice and names that match a neighbouring case (the action button's `HWND input`).
+- The tool's score for a row with unbound string literals stays above zero when every instruction is the image's (21 here:
+  five TXT_ literals); `check --learn` binds them once nothing else differs.

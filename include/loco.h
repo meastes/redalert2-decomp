@@ -89,6 +89,8 @@ class LocomotionClass : public IPersistStream, public ILocomotion
 		 */
 		HRESULT STDMETHODCALLTYPE Load(IStream * stream) const;
 
+		static bool Is_Cache_Key(int const * key); // RA2: ra2-decomp's helper (include/loco.h:96 at b20f510), defined after the class
+
 	protected:
 		FootClass *Owner; // RA2: +0x08, set to the same object as LinkedTo by Link_To
 
@@ -119,3 +121,8 @@ class LocomotionClass : public IPersistStream, public ILocomotion
 		 */
 		LONG RefCount;
 };
+
+inline bool LocomotionClass::Is_Cache_Key(int const * key)
+{
+	return(key != NULL && *key != -1);
+}

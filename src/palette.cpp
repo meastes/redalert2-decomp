@@ -427,15 +427,13 @@ DynamicVectorClass<ColorScheme *> * SchemeListIterator::Next(void) // RA2: 0x006
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: 454 bytes differ by position against the image-derived bound 00603750 (504 B; ours 512 B, the image's calls): one register exchange, the library pointer in ebp where the image has edi, and the vectors' growth step, a bucket and a node in edi where it has ebp. Added reads of the library, declaration counts and the twin's table form leave it there
 void __fastcall Set_Scheme_Table_Theater(TheaterType theater) // RA2: 0x00603750, switches the library to the theater (made on first use)
 {
-	SchemeLibrary * library = Scheme_Library();
-	if (library->Mode != theater) {
-		library->Set_Mode(theater);
+	Scheme_Library();
+	if (TheSchemeLibrary->Mode != theater) {
+		TheSchemeLibrary->Set_Mode(theater);
 	}
 }
-#endif
 
 
 void SchemeLibrary_Free(void) // RA2: 0x00603950, empties the lists of player colors
@@ -583,8 +581,9 @@ void SchemeLibrary::Add(char const * name) // RA2: 0x00604870, generates the sch
 void SchemeLibrary::Replace(char const * name) // RA2: 0x006049C0, generates the schemes of a filed palette again
 {
 	HashString key(name);
-	SchemeNode * node = *Table->Find(key);
-	node->Replace(Generate(name));
+	SchemeNode ** node = Table->Find(key);
+	SchemeNode * entry = *node;
+	entry->Replace(Generate(name));
 }
 
 

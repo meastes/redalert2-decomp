@@ -1,0 +1,1473 @@
+{
+  "id": "rebuild--vanim",
+  "population": {
+    "id": "rebuild--vanim",
+    "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
+    "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
+    "historical_population_sha256": "2e722b9ced37a07bdd00d28fc40f832c8066b9d93b78397ac0e216c7b195fc0c",
+    "historical_acceptance_sha256": "b165caf65ac1f33564173bd757e9ed358d1a70ee1a40b3e576c873a7e75dacf8"
+  },
+  "references": {
+    "_RECT_NONE": 8624544,
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 8624624,
+    "_ISO_TILE_SIZE": 7974048,
+    "_LEPTONS_PER_PIXEL": 8624696,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 8624680,
+    "_ONE_RAD": 7974056,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 8624672,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 8624632,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 8624568,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 8624704,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 8624640,
+    "_CELL_DIAG_SLOPE_ANGLE": 8624664,
+    "_BRIDGE_LEPTON_HEIGHT": 8624688,
+    "_CELL_NONE": 8624616,
+    "_COORD_NONE": 8624648,
+    "_SecondRectNone": 8624576,
+    "_$E44": 4254848,
+    "?VoxelAnims@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A": 8624592,
+    "??_7?$DynamicVectorClass@PAVVoxelAnimClass@@@@6B@": 7974068,
+    "_atexit": 7874954,
+    "??_7?$VectorClass@PAVVoxelAnimClass@@@@6B@": 7974100,
+    "??3@YAXPAX@Z": 7871803,
+    "??2@YAPAXI@Z": 7872535,
+    "_$E2": 4254256,
+    "_$E5": 4254288,
+    "_$E8": 4254336,
+    "_$E11": 4254368,
+    "_$E14": 4254400,
+    "_$E17": 4254432,
+    "_$E20": 4254464,
+    "_$E23": 4254496,
+    "_$E26": 4254560,
+    "_$E29": 4254608,
+    "_$E32": 4254656,
+    "_$E35": 4254704,
+    "_$E38": 4254720,
+    "_$E41": 4254752,
+    "_$E46": 4254784,
+    "??_G?$DynamicVectorClass@PAVVoxelAnimClass@@@@UAEPAXI@Z": 4255696,
+    "??_G?$VectorClass@PAVVoxelAnimClass@@@@UAEPAXI@Z": 4255616,
+    "?Clear@?$DynamicVectorClass@PAVVoxelAnimClass@@@@UAEXXZ": 4254912,
+    "?ID@?$DynamicVectorClass@PAVVoxelAnimClass@@@@UAEHPBQAVVoxelAnimClass@@@Z": 4254960,
+    "?GetItem@?$VectorClass@PAVVoxelAnimClass@@@@UBEPAVVoxelAnimClass@@H@Z": 4254992,
+    "??8?$VectorClass@PAVVoxelAnimClass@@@@UBE_NABV0@@Z": 4255008,
+    "?Resize@?$VectorClass@PAVVoxelAnimClass@@@@UAE_NHPBQAVVoxelAnimClass@@@Z": 4255072,
+    "?Clear@?$VectorClass@PAVVoxelAnimClass@@@@UAEXXZ": 4255248,
+    "?ID@?$VectorClass@PAVVoxelAnimClass@@@@UAEHABQAVVoxelAnimClass@@@Z": 4255296,
+    "?ID@?$VectorClass@PAVVoxelAnimClass@@@@UAEHPBQAVVoxelAnimClass@@@Z": 4255360,
+    "?Resize@?$DynamicVectorClass@PAVVoxelAnimClass@@@@UAE_NHPBQAVVoxelAnimClass@@@Z": 4255392,
+    "?ID@?$DynamicVectorClass@PAVVoxelAnimClass@@@@UAEHABQAVVoxelAnimClass@@@Z": 4255568
+  },
+  "regions": [
+    {
+      "entry": 4254256,
+      "method": "0040ea30",
+      "body_bytes": 23,
+      "body_sha256": "e97ebd4cc92a30c0041c8a49133f0ed10f2250ade80647adc07cf7762cbd4437",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "15ef3c5c7a693a5d39cd3025e69b953f1c7294376e8c17d07ff50be198e111d7",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8624544,
+          "addend": 0,
+          "resolved": 8624544
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8624544,
+          "addend": 4,
+          "resolved": 8624548
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8624544,
+          "addend": 8,
+          "resolved": 8624552
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8624544,
+          "addend": 12,
+          "resolved": 8624556
+        }
+      ],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4254256,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1600"
+    },
+    {
+      "entry": 4254288,
+      "method": "0040ea50",
+      "body_bytes": 40,
+      "body_sha256": "a165cff04c29f911278a9fd30ef5c9a3d91c642bb9204d0ab88ad307d37f250f",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f51d30f37433da53caf977721ae9f0c89efc233966bebcbbc5ef81d5c486a49",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 3618639
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 702882
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8624624,
+          "addend": 0,
+          "resolved": 8624624
+        }
+      ],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4254288,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1600"
+    },
+    {
+      "entry": 4254336,
+      "method": "0040ea80",
+      "body_bytes": 19,
+      "body_sha256": "c4ac0b853b962edebb79c1b458c8b751bcd6e941426dd507ee1f55ca6ba614ab",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "43bacf1aa29ecaad04de49912f9b94b978af89befb278124b04411137623f18e",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8624624,
+          "addend": 0,
+          "resolved": 8624624
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 7974048,
+          "addend": 0,
+          "resolved": 7974048
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 8624696,
+          "addend": 0,
+          "resolved": 8624696
+        }
+      ],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4254336,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1600"
+    },
+    {
+      "entry": 4254368,
+      "method": "0040eaa0",
+      "body_bytes": 19,
+      "body_sha256": "c994e037538113e6f75d78d6689497e82bdb86b18c373c4ddac00d36e5218dbc",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "30f6b930b0e093ca863b6bfa5478f675feee9a5293c7a0a3a91f014f50572f49",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 8624696,
+          "addend": 0,
+          "resolved": 8624696
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 8624680,
+          "addend": 0,
+          "resolved": 8624680
+        }
+      ],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4254368,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1600"
+    },
+    {
+      "entry": 4254400,
+      "method": "0040eac0",
+      "body_bytes": 19,
+      "body_sha256": "a0e0a8360c705ee3cb88570a36690b592831dc1df8706b38c4b50aaabaf82a48",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "401f681988b1901497ffee7c124b9ff3f23866f87e9fa3f8135c6eb67ae76912",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7974056,
+          "addend": 0,
+          "resolved": 7974056
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 8624672,
+          "addend": 0,
+          "resolved": 8624672
+        }
+      ],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4254400,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1600"
+    },
+    {
+      "entry": 4254432,
+      "method": "0040eae0",
+      "body_bytes": 19,
+      "body_sha256": "b05141c8848b9c9dc0d7844818ca994b0b74b60e74a88051809d39ece84ea929",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "61b3a5089769f8cfeaf7244f2026a9ffd2d0ad80f3a3f752658e6c91a495e947",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7974056,
+          "addend": 0,
+          "resolved": 7974056
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 8624632,
+          "addend": 0,
+          "resolved": 8624632
+        }
+      ],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4254432,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1600"
+    },
+    {
+      "entry": 4254464,
+      "method": "0040eb00",
+      "body_bytes": 19,
+      "body_sha256": "d58939246a7ebf9ea9437a45ee5346d53ef0b3acbd54818a0217bb469d9c78ef",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4a6de9595423c207a48a647750d6a0995e2b2db1d9513d267d689bd2aa463ed0",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7974056,
+          "addend": 0,
+          "resolved": 7974056
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 8624568,
+          "addend": 0,
+          "resolved": 8624568
+        }
+      ],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4254464,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1600"
+    },
+    {
+      "entry": 4254496,
+      "method": "0040eb20",
+      "body_bytes": 49,
+      "body_sha256": "4b3f146b47e4e816d3027c4fc63fa97329f65018c282c50218dd3d339cf4f496",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "86c918e41a66d231cfc16bc97d7bd0685bf4b55490bb7cb4fbd535c446d87c81",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 8624568,
+          "addend": 0,
+          "resolved": 8624568
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 8624632,
+          "addend": 0,
+          "resolved": 8624632
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 702953
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8624624,
+          "addend": 0,
+          "resolved": 8624624
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3605957
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8624704,
+          "addend": 0,
+          "resolved": 8624704
+        }
+      ],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4254496,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1600"
+    },
+    {
+      "entry": 4254560,
+      "method": "0040eb60",
+      "body_bytes": 33,
+      "body_sha256": "e3e4c1ed6814a390636f023b40ea1ec943ce4428edc43559c4554c8115452e90",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "a385791a45bc1cc5ac66d491d955dafaca140a5a22471d8cf14bedb1cd324685",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8624704,
+          "addend": 0,
+          "resolved": 8624704
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 703033
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 8624640,
+          "addend": 0,
+          "resolved": 8624640
+        }
+      ],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4254560,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1600"
+    },
+    {
+      "entry": 4254608,
+      "method": "0040eb90",
+      "body_bytes": 44,
+      "body_sha256": "ffa307f4c79ef61ab4712228cea52424e35d3d671c88a62ecb640cc9771c096a",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7dfb7ad27ae9059dbf0697c0c235c73bb06ba8566856ef5a1f57e818f5b6e985",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8624704,
+          "addend": 0,
+          "resolved": 8624704
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8624624,
+          "addend": 0,
+          "resolved": 8624624
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 702974
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 8624664,
+          "addend": 0,
+          "resolved": 8624664
+        }
+      ],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4254608,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1600"
+    },
+    {
+      "entry": 4254656,
+      "method": "0040ebc0",
+      "body_bytes": 39,
+      "body_sha256": "8ce506c4ea1d9d3c0f9ffa7ee3ff0066f06260816eb1a4c06c7916f605d5299d",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "cc44ac418f4d10b1cfd4105f62ecf58278d44887d71bf61981c86b2716b7bd57",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8624704,
+          "addend": 0,
+          "resolved": 8624704
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3605808
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 8624688,
+          "addend": 0,
+          "resolved": 8624688
+        }
+      ],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4254656,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1600"
+    },
+    {
+      "entry": 4254704,
+      "method": "0040ebf0",
+      "body_bytes": 15,
+      "body_sha256": "7339eff454ce8e6f02881fc95ceebc94db049e2a8b36433cd981c24c3d37ba96",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "219d8f15746b6221f3c10d0c36a3376d48179039c94a86e614491ecf807039f9",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8624616,
+          "addend": 0,
+          "resolved": 8624616
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8624616,
+          "addend": 2,
+          "resolved": 8624618
+        }
+      ],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4254704,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1600"
+    },
+    {
+      "entry": 4254720,
+      "method": "0040ec00",
+      "body_bytes": 18,
+      "body_sha256": "7533aa34c2860c9a104d052a491d24b093878fb122356a9b15e302fa18dc2d5a",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "c1010fd85e1ffadeba610a9f8a902c96b8444655f558e2d8ae7442c8f56cd533",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8624648,
+          "addend": 0,
+          "resolved": 8624648
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8624648,
+          "addend": 4,
+          "resolved": 8624652
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8624648,
+          "addend": 8,
+          "resolved": 8624656
+        }
+      ],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4254720,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1600"
+    },
+    {
+      "entry": 4254752,
+      "method": "0040ec20",
+      "body_bytes": 23,
+      "body_sha256": "8f19c40e2275308828132e4e0078ec1d173e9117fac95e33cbdffe06f5c43e57",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "9a30acbeb9f82ce1bdca8f7405e9c2ba687529f306657f40f699c6ec263df323",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E41",
+      "symbol_prefix": "_$E41",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_SecondRectNone",
+          "target": 8624576,
+          "addend": 0,
+          "resolved": 8624576
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_SecondRectNone",
+          "target": 8624576,
+          "addend": 4,
+          "resolved": 8624580
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_SecondRectNone",
+          "target": 8624576,
+          "addend": 8,
+          "resolved": 8624584
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_SecondRectNone",
+          "target": 8624576,
+          "addend": 12,
+          "resolved": 8624588
+        }
+      ],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4254752,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1600"
+    },
+    {
+      "entry": 4254784,
+      "method": "0040ec40",
+      "body_bytes": 61,
+      "body_sha256": "1a5e48631f13d5d6e5c337cd0d4e939bf451304c2d8aa17955f0da08404c024a",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c946604d1e98dd0d7e31261083cbf983e61cd91b570ecf110b5aa9d21569cb08",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E46",
+      "symbol_prefix": "_$E46",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E44",
+          "target": 4254848,
+          "addend": 0,
+          "resolved": 4254848
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?VoxelAnims@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A",
+          "target": 8624592,
+          "addend": 4,
+          "resolved": 8624596
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?VoxelAnims@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A",
+          "target": 8624592,
+          "addend": 8,
+          "resolved": 8624600
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?VoxelAnims@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A",
+          "target": 8624592,
+          "addend": 12,
+          "resolved": 8624604
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?VoxelAnims@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A",
+          "target": 8624592,
+          "addend": 13,
+          "resolved": 8624605
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?VoxelAnims@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A",
+          "target": 8624592,
+          "addend": 0,
+          "resolved": 8624592
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVVoxelAnimClass@@@@6B@",
+          "target": 7974068,
+          "addend": 0,
+          "resolved": 7974068
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?VoxelAnims@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A",
+          "target": 8624592,
+          "addend": 20,
+          "resolved": 8624612
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?VoxelAnims@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A",
+          "target": 8624592,
+          "addend": 16,
+          "resolved": 8624608
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 3620111
+        }
+      ],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4254784,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1600"
+    },
+    {
+      "entry": 4254848,
+      "method": "0040ec80",
+      "body_bytes": 59,
+      "body_sha256": "22916aca769251d4f086249bba21f398124ced915bf2571c078fb6ba0d1b1f9f",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "7cb9b06d8293f989ee1d7b98ff6da84c27fb7f29b8772d67b0229eb471329f6a",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E44",
+      "symbol_prefix": "_$E44",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?VoxelAnims@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A",
+          "target": 8624592,
+          "addend": 4,
+          "resolved": 8624596
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?VoxelAnims@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A",
+          "target": 8624592,
+          "addend": 0,
+          "resolved": 8624592
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVVoxelAnimClass@@@@6B@",
+          "target": 7974100,
+          "addend": 0,
+          "resolved": 7974100
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?VoxelAnims@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A",
+          "target": 8624592,
+          "addend": 13,
+          "resolved": 8624605
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3616919
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?VoxelAnims@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A",
+          "target": 8624592,
+          "addend": 4,
+          "resolved": 8624596
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?VoxelAnims@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A",
+          "target": 8624592,
+          "addend": 13,
+          "resolved": 8624605
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?VoxelAnims@@3V?$DynamicVectorClass@PAVVoxelAnimClass@@@@A",
+          "target": 8624592,
+          "addend": 8,
+          "resolved": 8624600
+        }
+      ],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4254848,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1600"
+    },
+    {
+      "entry": 4254912,
+      "method": "0040ecc0",
+      "body_bytes": 42,
+      "body_sha256": "0fe9afaf38cf8fc4ce4410cbcf6b7a142b74c8fc71f96cbbcd86742314a81f89",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "e57803f85619fff149f3ffa390ce62852d2ef59b80ba1cb3b9f435be8fe2b9e8",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@PAVVoxelAnimClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAVVoxelAnimClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3616864
+        }
+      ],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4254912,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4254960,
+      "method": "0040ecf0",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVVoxelAnimClass@@@@UAEHPBQAVVoxelAnimClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVVoxelAnimClass@@@@UAEHPBQAVVoxelAnimClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4254960,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4254992,
+      "method": "0040ed10",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PAVVoxelAnimClass@@@@UBEPAVVoxelAnimClass@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAVVoxelAnimClass@@@@UBEPAVVoxelAnimClass@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4254992,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4255008,
+      "method": "0040ed20",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PAVVoxelAnimClass@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAVVoxelAnimClass@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4255008,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4255072,
+      "method": "0040ed60",
+      "body_bytes": 174,
+      "body_sha256": "f3e4af4ade87c972431b9c065b1d8f39b8696c6b21a0eb6b0210f0c5dbaf3e88",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "9d68a9af465044d64ac9117fe54cb31d174ae4622fa3b274c65d806baadf684c",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PAVVoxelAnimClass@@@@UAE_NHPBQAVVoxelAnimClass@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAVVoxelAnimClass@@@@UAE_NHPBQAVVoxelAnimClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3617420
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3616608
+        }
+      ],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4255072,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4255248,
+      "method": "0040ee10",
+      "body_bytes": 39,
+      "body_sha256": "1650c8d213eb70c9d0242e6a6f45fe6d988b2bc7954dc4ccd3a84c17a4ad748c",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "85330d45b79f0457af9f4872ae5c8a97d27c43a077a54e18b0f2ea9daec1fa76",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PAVVoxelAnimClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAVVoxelAnimClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3616531
+        }
+      ],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4255248,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4255296,
+      "method": "0040ee40",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVVoxelAnimClass@@@@UAEHABQAVVoxelAnimClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVVoxelAnimClass@@@@UAEHABQAVVoxelAnimClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4255296,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4255360,
+      "method": "0040ee80",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVVoxelAnimClass@@@@UAEHPBQAVVoxelAnimClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVVoxelAnimClass@@@@UAEHPBQAVVoxelAnimClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4255360,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4255392,
+      "method": "0040eea0",
+      "body_bytes": 176,
+      "body_sha256": "94441aaec84e7d3c0c41d4824f8b7261eb4864df1e6418e0a6e2679cc0bcaa28",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "94441aaec84e7d3c0c41d4824f8b7261eb4864df1e6418e0a6e2679cc0bcaa28",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PAVVoxelAnimClass@@@@UAE_NHPBQAVVoxelAnimClass@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAVVoxelAnimClass@@@@UAE_NHPBQAVVoxelAnimClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3617104
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3616301
+        }
+      ],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4255392,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4255568,
+      "method": "0040ef50",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVVoxelAnimClass@@@@UAEHABQAVVoxelAnimClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVVoxelAnimClass@@@@UAEHABQAVVoxelAnimClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4255568,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4255616,
+      "method": "40ef80",
+      "body_bytes": 73,
+      "body_sha256": "3266fcfd263b5a3ba4a70e5873a9c7c508dd4150b4ba5116218a5e76e71dcecb",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "00999a3b02b62993a256ad31a8ee1b60621cde93b50ae4dae384a1152079e87d",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAVVoxelAnimClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAVVoxelAnimClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVVoxelAnimClass@@@@6B@",
+          "target": 7974100,
+          "addend": 0,
+          "resolved": 7974100
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3616158
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3616123
+        }
+      ],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4255616,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 4255696,
+      "method": "40efd0",
+      "body_bytes": 73,
+      "body_sha256": "39aef96e70ffa26c9eace75588e0463de7016ca516ee26202bde8a64bf1099c4",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "1c4ebda0d39a04d6c3789e5ff9e8e4c35fdeeab95ac4e025bd98c05ff236c867",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAVVoxelAnimClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAVVoxelAnimClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVVoxelAnimClass@@@@6B@",
+          "target": 7974100,
+          "addend": 0,
+          "resolved": 7974100
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3616078
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3616043
+        }
+      ],
+      "source_sha256": "b9951b73a2743bde0c07548559410aed53c12e663d12f69154dc36a0880d25b5",
+      "source": "src/_vanim.cpp",
+      "population": "rebuild--vanim",
+      "source_order": 4255696,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-12"
+    }
+  ]
+}

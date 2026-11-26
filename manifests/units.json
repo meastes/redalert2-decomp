@@ -24403,6 +24403,15 @@
     "main_source": "src/recovered/palette.cpp"
    },
    {
+    "entry": "00603750",
+    "body": 504,
+    "padding": 8,
+    "symbol": "?Set_Scheme_Table_Theater@@YIXW4TheaterType@@@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "00603950",
     "body": 268,
     "padding": 4,
@@ -80487,6 +80496,15 @@
     "main_source": "src/recovered/building.cpp"
    },
    {
+    "entry": "004386f0",
+    "body": 865,
+    "padding": 15,
+    "symbol": "?Building_Player_Detector_Covers_Target@@YI_NPAVFootClass@@@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "00438a60",
     "body": 276,
     "padding": 12,
@@ -101282,6 +101300,15 @@
     "main_source": "src/recovered/drive.cpp"
    },
    {
+    "entry": "004a0050",
+    "body": 1189,
+    "padding": 11,
+    "symbol": "?Draw_Matrix@DriveLocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "004a0500",
     "body": 178,
     "padding": 14,
@@ -102015,6 +102042,15 @@
     "symbol": "?Is_Angled@ShipLocomotionClass@@QBEHXZ",
     "main_symbol": "?Is_Level@ShipLocomotionClass@@QAEHXZ",
     "main_source": "src/recovered/ship.cpp"
+   },
+   {
+    "entry": "00676010",
+    "body": 1189,
+    "padding": 11,
+    "symbol": "?Draw_Matrix@ShipLocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
    },
    {
     "entry": "006764c0",
@@ -142742,7 +142778,12 @@
    "??_C@_0BM@IBDL@TXT_PLAYER_TOOLTIP_UNR_C_CR?$AA@": "007feb30",
    "??_C@_0BO@KMGG@TXT_PLAYER_TOOLTIP_UNR_C_CUNR?$AA@": "007feb10",
    "??_C@_0BL@EFJE@TXT_PLAYER_TOOLTIP_UNR_NOC?$AA@": "007feaf4",
-   "?g_PlayerTooltip@@3PAGA": "00b290a4"
+   "?g_PlayerTooltip@@3PAGA": "00b290a4",
+   "??_C@_0BB@LHHE@TXT_CLAN_NOSTART?$AA@": "007fec10",
+   "??_C@_0BF@GIKL@TXT_NEED_EQUAL_TEAMS?$AA@": "007fec3c",
+   "??_C@_0BF@JCPA@TXT_TOO_MANY_PLAYERS?$AA@": "007fec24",
+   "??_C@_0BG@BOBP@TXT_NEED_MORE_PLAYERS?$AA@": "007fec54",
+   "??_C@_0BG@JHDG@TXT_NO_AI_OBSERVATION?$AA@": "007fec6c"
   },
   "partial_ok": true,
   "parked_rows": [
@@ -171590,5 +171631,579 @@
     "main_source": "src/recovered/empulse.cpp"
    }
   ]
+ },
+ "_vanim": {
+  "core": [
+   "0040ea30",
+   "0040f020"
+  ],
+  "symbol_overrides": {},
+  "source": "src/_vanim.cpp",
+  "options": [
+   "/O2",
+   "/Ob2",
+   "/G5",
+   "/Gy"
+  ],
+  "status": "catalogued",
+  "range": [
+   "0040ea30",
+   "0040f020"
+  ],
+  "mischa85": "none: no mischa85 module; range from main's unit map",
+  "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy"
+   ]
+  ],
+  "rows": [
+   {
+    "entry": "0040ea30",
+    "body": 23,
+    "padding": 9,
+    "symbol": "_$E2",
+    "main_symbol": "_$E2",
+    "main_source": "src/recovered/header_statics/_voxel/HeaderStatics_empty_rect_init.cpp"
+   },
+   {
+    "entry": "0040ea50",
+    "body": 40,
+    "padding": 8,
+    "symbol": "_$E5",
+    "main_symbol": "_$E5",
+    "main_source": "src/recovered/header_statics/_voxel/HeaderStatics_diagonal_init.cpp"
+   },
+   {
+    "entry": "0040ea80",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E8",
+    "main_symbol": "_$E8",
+    "main_source": "src/recovered/header_statics/_voxel/HeaderStatics_b_init.cpp"
+   },
+   {
+    "entry": "0040eaa0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E11",
+    "main_symbol": "_$E11",
+    "main_source": "src/recovered/header_statics/_voxel/HeaderStatics_c_init.cpp"
+   },
+   {
+    "entry": "0040eac0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E14",
+    "main_symbol": "_$E14",
+    "main_source": "src/recovered/header_statics/_voxel/HeaderStatics_angle45_init.cpp"
+   },
+   {
+    "entry": "0040eae0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E17",
+    "main_symbol": "_$E17",
+    "main_source": "src/recovered/header_statics/_voxel/HeaderStatics_angle60_init.cpp"
+   },
+   {
+    "entry": "0040eb00",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E20",
+    "main_symbol": "_$E20",
+    "main_source": "src/recovered/header_statics/_voxel/HeaderStatics_angle90_init.cpp"
+   },
+   {
+    "entry": "0040eb20",
+    "body": 49,
+    "padding": 15,
+    "symbol": "_$E23",
+    "main_symbol": "_$E23",
+    "main_source": "src/recovered/header_statics/_voxel/HeaderStatics_g_init.cpp"
+   },
+   {
+    "entry": "0040eb60",
+    "body": 33,
+    "padding": 15,
+    "symbol": "_$E26",
+    "main_symbol": "_$E26",
+    "main_source": "src/recovered/header_statics/_voxel/HeaderStatics_h_init.cpp"
+   },
+   {
+    "entry": "0040eb90",
+    "body": 44,
+    "padding": 4,
+    "symbol": "_$E29",
+    "main_symbol": "_$E29",
+    "main_source": "src/recovered/header_statics/_voxel/HeaderStatics_i_init.cpp"
+   },
+   {
+    "entry": "0040ebc0",
+    "body": 39,
+    "padding": 9,
+    "symbol": "_$E32",
+    "main_symbol": "_$E32",
+    "main_source": "src/recovered/header_statics/_voxel/HeaderStatics_j_init.cpp"
+   },
+   {
+    "entry": "0040ebf0",
+    "body": 15,
+    "padding": 1,
+    "symbol": "_$E35",
+    "main_symbol": "_$E35",
+    "main_source": "src/recovered/header_statics/_voxel/HeaderStatics_k_init.cpp"
+   },
+   {
+    "entry": "0040ec00",
+    "body": 18,
+    "padding": 14,
+    "symbol": "_$E38",
+    "main_symbol": "_$E38",
+    "main_source": "src/recovered/header_statics/_voxel/HeaderStatics_l_init.cpp"
+   },
+   {
+    "entry": "0040ec20",
+    "body": 23,
+    "padding": 9,
+    "symbol": "_$E41",
+    "main_symbol": "_$E41",
+    "main_source": "src/recovered/header_statics/_voxel/HeaderStatics_static_rect_init.cpp"
+   },
+   {
+    "entry": "0040ec40",
+    "body": 61,
+    "padding": 3,
+    "symbol": "_$E46",
+    "main_symbol": "_$E46",
+    "main_source": "src/recovered/classes/VoxelAnimClass/VoxelAnimClass_list_init.cpp"
+   },
+   {
+    "entry": "0040ec80",
+    "body": 59,
+    "padding": 5,
+    "symbol": "_$E44",
+    "main_symbol": "_$E44",
+    "main_source": "src/recovered/classes/VoxelAnimClass/VoxelAnimClass_list_atexit_destructor.cpp"
+   },
+   {
+    "entry": "0040ecc0",
+    "body": 42,
+    "padding": 6,
+    "symbol": "?Clear@?$DynamicVectorClass@PAVVoxelAnimClass@@@@UAEXXZ",
+    "main_symbol": "?Clear@?$DynamicVectorClass@PAVVoxelAnimClass@@@@UAEXXZ",
+    "main_source": "src/recovered/classes/DynamicVectorClass_VoxelAnimClass_ptr/Clear.cpp"
+   },
+   {
+    "entry": "0040ecf0",
+    "body": 27,
+    "padding": 5,
+    "symbol": "?ID@?$DynamicVectorClass@PAVVoxelAnimClass@@@@UAEHPBQAVVoxelAnimClass@@@Z",
+    "main_symbol": "?ID@?$DynamicVectorClass@PAVVoxelAnimClass@@@@UAEHPBQAVVoxelAnimClass@@@Z",
+    "main_source": "src/recovered/classes/DynamicVectorClass_VoxelAnimClass_ptr/ID_pointer.cpp"
+   },
+   {
+    "entry": "0040ed10",
+    "body": 13,
+    "padding": 3,
+    "symbol": "?GetItem@?$VectorClass@PAVVoxelAnimClass@@@@UBEPAVVoxelAnimClass@@H@Z",
+    "main_symbol": "?Fetch@?$VectorClass@PAVVoxelAnimClass@@@@UBEPAVVoxelAnimClass@@H@Z",
+    "main_source": "src/recovered/classes/VectorClass_VoxelAnimClass_ptr/Fetch.cpp"
+   },
+   {
+    "entry": "0040ed20",
+    "body": 62,
+    "padding": 2,
+    "symbol": "??8?$VectorClass@PAVVoxelAnimClass@@@@UBE_NABV0@@Z",
+    "main_symbol": "??8?$VectorClass@PAVVoxelAnimClass@@@@UBE_NABV0@@Z",
+    "main_source": "src/recovered/classes/VectorClass_VoxelAnimClass_ptr/operator_equal.cpp"
+   },
+   {
+    "entry": "0040ed60",
+    "body": 174,
+    "padding": 2,
+    "symbol": "?Resize@?$VectorClass@PAVVoxelAnimClass@@@@UAE_NHPBQAVVoxelAnimClass@@@Z",
+    "main_symbol": "?Resize@?$VectorClass@PAVVoxelAnimClass@@@@UAE_NHPBQAVVoxelAnimClass@@@Z",
+    "main_source": "src/recovered/classes/VectorClass_VoxelAnimClass_ptr/Resize.cpp"
+   },
+   {
+    "entry": "0040ee10",
+    "body": 39,
+    "padding": 9,
+    "symbol": "?Clear@?$VectorClass@PAVVoxelAnimClass@@@@UAEXXZ",
+    "main_symbol": "?Clear@?$VectorClass@PAVVoxelAnimClass@@@@UAEXXZ",
+    "main_source": "src/recovered/classes/VectorClass_VoxelAnimClass_ptr/Clear.cpp"
+   },
+   {
+    "entry": "0040ee40",
+    "body": 51,
+    "padding": 13,
+    "symbol": "?ID@?$VectorClass@PAVVoxelAnimClass@@@@UAEHABQAVVoxelAnimClass@@@Z",
+    "main_symbol": "?ID@?$VectorClass@PAVVoxelAnimClass@@@@UAEHABQAVVoxelAnimClass@@@Z",
+    "main_source": "src/recovered/classes/VectorClass_VoxelAnimClass_ptr/ID_object.cpp"
+   },
+   {
+    "entry": "0040ee80",
+    "body": 27,
+    "padding": 5,
+    "symbol": "?ID@?$VectorClass@PAVVoxelAnimClass@@@@UAEHPBQAVVoxelAnimClass@@@Z",
+    "main_symbol": "?ID@?$VectorClass@PAVVoxelAnimClass@@@@UAEHPBQAVVoxelAnimClass@@@Z",
+    "main_source": "src/recovered/classes/VectorClass_VoxelAnimClass_ptr/ID_pointer.cpp"
+   },
+   {
+    "entry": "0040eea0",
+    "body": 176,
+    "padding": 0,
+    "symbol": "?Resize@?$DynamicVectorClass@PAVVoxelAnimClass@@@@UAE_NHPBQAVVoxelAnimClass@@@Z",
+    "main_symbol": "?Resize@?$DynamicVectorClass@PAVVoxelAnimClass@@@@UAE_NHPBQAVVoxelAnimClass@@@Z",
+    "main_source": "src/recovered/classes/DynamicVectorClass_VoxelAnimClass_ptr/Resize.cpp"
+   },
+   {
+    "entry": "0040ef50",
+    "body": 38,
+    "padding": 10,
+    "symbol": "?ID@?$DynamicVectorClass@PAVVoxelAnimClass@@@@UAEHABQAVVoxelAnimClass@@@Z",
+    "main_symbol": "?ID@?$DynamicVectorClass@PAVVoxelAnimClass@@@@UAEHABQAVVoxelAnimClass@@@Z",
+    "main_source": "src/recovered/classes/DynamicVectorClass_VoxelAnimClass_ptr/ID_object.cpp"
+   },
+   {
+    "entry": "0040ef80",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$VectorClass@PAVVoxelAnimClass@@@@UAEPAXI@Z",
+    "main_symbol": "?get@Leaf_40ef80@@QAEPAXI@Z",
+    "main_source": "src/recovered/awaiting_join/deleting_destructors/VectorClass_VoxelAnimClass_ptr_0040ef80.cpp"
+   },
+   {
+    "entry": "0040efd0",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$DynamicVectorClass@PAVVoxelAnimClass@@@@UAEPAXI@Z",
+    "main_symbol": "?get@Leaf_40efd0@@QAEPAXI@Z",
+    "main_source": "src/recovered/awaiting_join/deleting_destructors/DynamicVectorClass_VoxelAnimClass_ptr_0040efd0.cpp"
+   }
+  ],
+  "references": {
+   "_BRIDGE_LEPTON_HEIGHT": "00839a30",
+   "_CELL_DIAG_SLOPE_ANGLE": "00839a18",
+   "_CELL_LEPTON_DIAG": "008399f0",
+   "_CELL_NONE": "008399e8",
+   "_CELL_SLOPE_ANGLE": "00839a00",
+   "_COORD_NONE": "00839a08",
+   "_ISO_TILE_SIZE": "0079aca0",
+   "_LEPTONS_PER_PIXEL": "00839a38",
+   "_LEVEL_LEPTON_H": "00839a40",
+   "_ONE_RAD": "0079aca8",
+   "_PIXELS_PER_LEPTON": "00839a28",
+   "_RAD_45": "00839a20",
+   "_RAD_60": "008399f8",
+   "_RAD_90": "008399b8",
+   "_RECT_NONE": "008399a0",
+   "_SecondRectNone": "008399c0"
+  }
+ },
+ "map2": {
+  "core": [
+   "0056cef0",
+   "0056d100"
+  ],
+  "symbol_overrides": {},
+  "source": "src/map2.cpp",
+  "options": [
+   "/O2",
+   "/Ob2",
+   "/G5",
+   "/Gy"
+  ],
+  "status": "catalogued",
+  "range": [
+   "0056cef0",
+   "0056d100"
+  ],
+  "mischa85": "none: no mischa85 module; range from main's unit map",
+  "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy"
+   ]
+  ],
+  "rows": [
+   {
+    "entry": "0056cef0",
+    "body": 23,
+    "padding": 9,
+    "symbol": "_$E2",
+    "main_symbol": "_$E2",
+    "main_source": "src/recovered/header_statics/after_map/HeaderStatics_empty_rect_init.cpp"
+   },
+   {
+    "entry": "0056cf10",
+    "body": 40,
+    "padding": 8,
+    "symbol": "_$E5",
+    "main_symbol": "_$E5",
+    "main_source": "src/recovered/header_statics/after_map/HeaderStatics_diagonal_init.cpp"
+   },
+   {
+    "entry": "0056cf40",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E8",
+    "main_symbol": "_$E8",
+    "main_source": "src/recovered/header_statics/after_map/HeaderStatics_b_init.cpp"
+   },
+   {
+    "entry": "0056cf60",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E11",
+    "main_symbol": "_$E11",
+    "main_source": "src/recovered/header_statics/after_map/HeaderStatics_c_init.cpp"
+   },
+   {
+    "entry": "0056cf80",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E14",
+    "main_symbol": "_$E14",
+    "main_source": "src/recovered/header_statics/after_map/HeaderStatics_angle45_init.cpp"
+   },
+   {
+    "entry": "0056cfa0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E17",
+    "main_symbol": "_$E17",
+    "main_source": "src/recovered/header_statics/after_map/HeaderStatics_angle60_init.cpp"
+   },
+   {
+    "entry": "0056cfc0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E20",
+    "main_symbol": "_$E20",
+    "main_source": "src/recovered/header_statics/after_map/HeaderStatics_angle90_init.cpp"
+   },
+   {
+    "entry": "0056cfe0",
+    "body": 49,
+    "padding": 15,
+    "symbol": "_$E23",
+    "main_symbol": "_$E23",
+    "main_source": "src/recovered/header_statics/after_map/HeaderStatics_g_init.cpp"
+   },
+   {
+    "entry": "0056d020",
+    "body": 33,
+    "padding": 15,
+    "symbol": "_$E26",
+    "main_symbol": "_$E26",
+    "main_source": "src/recovered/header_statics/after_map/HeaderStatics_h_init.cpp"
+   },
+   {
+    "entry": "0056d050",
+    "body": 44,
+    "padding": 4,
+    "symbol": "_$E29",
+    "main_symbol": "_$E29",
+    "main_source": "src/recovered/header_statics/after_map/HeaderStatics_i_init.cpp"
+   },
+   {
+    "entry": "0056d080",
+    "body": 39,
+    "padding": 9,
+    "symbol": "_$E32",
+    "main_symbol": "_$E32",
+    "main_source": "src/recovered/header_statics/after_map/HeaderStatics_j_init.cpp"
+   },
+   {
+    "entry": "0056d0b0",
+    "body": 15,
+    "padding": 1,
+    "symbol": "_$E35",
+    "main_symbol": "_$E35",
+    "main_source": "src/recovered/header_statics/after_map/HeaderStatics_k_init.cpp"
+   },
+   {
+    "entry": "0056d0c0",
+    "body": 18,
+    "padding": 14,
+    "symbol": "_$E38",
+    "main_symbol": "_$E38",
+    "main_source": "src/recovered/header_statics/after_map/HeaderStatics_l_init.cpp"
+   },
+   {
+    "entry": "0056d0e0",
+    "body": 23,
+    "padding": 9,
+    "symbol": "_$E41",
+    "main_symbol": "_$E41",
+    "main_source": "src/recovered/header_statics/after_map/HeaderStatics_static_rect_init.cpp"
+   }
+  ],
+  "references": {
+   "_BRIDGE_LEPTON_HEIGHT": "00a6fc98",
+   "_CELL_DIAG_SLOPE_ANGLE": "00a6fc80",
+   "_CELL_LEPTON_DIAG": "00a6fc58",
+   "_CELL_NONE": "00a6fc50",
+   "_CELL_SLOPE_ANGLE": "00a6fc68",
+   "_COORD_NONE": "00a6fc70",
+   "_ISO_TILE_SIZE": "007a5b38",
+   "_LEPTONS_PER_PIXEL": "00a6fca0",
+   "_LEVEL_LEPTON_H": "00a6fca8",
+   "_ONE_RAD": "007a5b40",
+   "_PIXELS_PER_LEPTON": "00a6fc90",
+   "_RAD_45": "00a6fc88",
+   "_RAD_60": "00a6fc60",
+   "_RAD_90": "00a6fc38",
+   "_RECT_NONE": "00a6fc40",
+   "_SecondRectNone": "00a6fcb8"
+  }
+ },
+ "map3": {
+  "core": [
+   "0056d100",
+   "0056d2d0"
+  ],
+  "symbol_overrides": {},
+  "source": "src/map3.cpp",
+  "options": [
+   "/O2",
+   "/Ob2",
+   "/G5",
+   "/Gy"
+  ],
+  "status": "catalogued",
+  "range": [
+   "0056d100",
+   "0056d2d0"
+  ],
+  "mischa85": "none: no mischa85 module; range from main's unit map",
+  "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy"
+   ]
+  ],
+  "rows": [
+   {
+    "entry": "0056d100",
+    "body": 40,
+    "padding": 8,
+    "symbol": "_$E2",
+    "main_symbol": "_$E2",
+    "main_source": "src/recovered/header_statics/before_mapgen/HeaderStatics_diagonal_init.cpp"
+   },
+   {
+    "entry": "0056d130",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E5",
+    "main_symbol": "_$E5",
+    "main_source": "src/recovered/header_statics/before_mapgen/HeaderStatics_b_init.cpp"
+   },
+   {
+    "entry": "0056d150",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E8",
+    "main_symbol": "_$E8",
+    "main_source": "src/recovered/header_statics/before_mapgen/HeaderStatics_c_init.cpp"
+   },
+   {
+    "entry": "0056d170",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E11",
+    "main_symbol": "_$E11",
+    "main_source": "src/recovered/header_statics/before_mapgen/HeaderStatics_angle45_init.cpp"
+   },
+   {
+    "entry": "0056d190",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E14",
+    "main_symbol": "_$E14",
+    "main_source": "src/recovered/header_statics/before_mapgen/HeaderStatics_angle60_init.cpp"
+   },
+   {
+    "entry": "0056d1b0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E17",
+    "main_symbol": "_$E17",
+    "main_source": "src/recovered/header_statics/before_mapgen/HeaderStatics_angle90_init.cpp"
+   },
+   {
+    "entry": "0056d1d0",
+    "body": 49,
+    "padding": 15,
+    "symbol": "_$E20",
+    "main_symbol": "_$E20",
+    "main_source": "src/recovered/header_statics/before_mapgen/HeaderStatics_g_init.cpp"
+   },
+   {
+    "entry": "0056d210",
+    "body": 33,
+    "padding": 15,
+    "symbol": "_$E23",
+    "main_symbol": "_$E23",
+    "main_source": "src/recovered/header_statics/before_mapgen/HeaderStatics_h_init.cpp"
+   },
+   {
+    "entry": "0056d240",
+    "body": 44,
+    "padding": 4,
+    "symbol": "_$E26",
+    "main_symbol": "_$E26",
+    "main_source": "src/recovered/header_statics/before_mapgen/HeaderStatics_i_init.cpp"
+   },
+   {
+    "entry": "0056d270",
+    "body": 39,
+    "padding": 9,
+    "symbol": "_$E29",
+    "main_symbol": "_$E29",
+    "main_source": "src/recovered/header_statics/before_mapgen/HeaderStatics_j_init.cpp"
+   },
+   {
+    "entry": "0056d2a0",
+    "body": 15,
+    "padding": 1,
+    "symbol": "_$E32",
+    "main_symbol": "_$E32",
+    "main_source": "src/recovered/header_statics/before_mapgen/HeaderStatics_k_init.cpp"
+   },
+   {
+    "entry": "0056d2b0",
+    "body": 18,
+    "padding": 14,
+    "symbol": "_$E35",
+    "main_symbol": "_$E35",
+    "main_source": "src/recovered/header_statics/before_mapgen/HeaderStatics_l_init.cpp"
+   }
+  ],
+  "references": {
+   "_BRIDGE_LEPTON_HEIGHT": "00a6fd10",
+   "_CELL_DIAG_SLOPE_ANGLE": "00a6fcf8",
+   "_CELL_LEPTON_DIAG": "00a6fcd0",
+   "_CELL_NONE": "00a6fcc8",
+   "_CELL_SLOPE_ANGLE": "00a6fce0",
+   "_COORD_NONE": "00a6fce8",
+   "_ISO_TILE_SIZE": "007a5b48",
+   "_LEPTONS_PER_PIXEL": "00a6fd18",
+   "_LEVEL_LEPTON_H": "00a6fd20",
+   "_ONE_RAD": "007a5b50",
+   "_PIXELS_PER_LEPTON": "00a6fd08",
+   "_RAD_45": "00a6fd00",
+   "_RAD_60": "00a6fcd8",
+   "_RAD_90": "00a6fcb0"
+  }
  }
 }

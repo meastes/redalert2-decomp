@@ -311,7 +311,7 @@ Matrix3D DriveLocomotionClass::Get_Slope_Matrix(void) const
 {
 	Matrix3D mtx(true);
 
-	if (!RampTimer.Has_Completed2()) {
+	if (RampTimer.Progress() < 1.0) {
 		mtx = ::Get_Slope_Transition_Matrix(PreviousRamp, CurrentRamp, Get_Slope_Ratio());
 	} else if (CurrentRamp) {
 		mtx = ::Get_Slope_Matrix(CurrentRamp);
@@ -498,7 +498,6 @@ BOOL DriveLocomotionClass::Is_Angled(void) const
 /// </summary>
 /// <param name="key">Pointer to the voxel cache key to be updated. May be NULL.</param>
 /// <returns>Returns with the matrix the unit is to be rendered through.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced); main: best 95.91, tried 9 times (inline, bound, frame); lane F43: 0x4A0050 708 bytes differ, frame the image's with ra2-decomp's plain temporaries in the product (hover's form) and hover's offsets; left: which CDTimerClass::operator() sites expand (image: both of the level path and the first of the tilted path; ours: the last site first); lane F46: 577 bytes differ with the two paths as if/else and one shared return (the form ra2-decomp's attempt log describes, 2026-11-16); with site 2 never ahead of site 3 under root pads, weighted helpers or a one-statement Progress
 Matrix3DStruct STDMETHODCALLTYPE DriveLocomotionClass::Draw_Matrix(int *key)
 {
 	Matrix3DStruct m;
@@ -519,10 +518,11 @@ Matrix3DStruct STDMETHODCALLTYPE DriveLocomotionClass::Draw_Matrix(int *key)
 
 		int num = fabs(ssin) * val + fabs(fsin) * val2;
 
-		int x_offset = (int)(val2 - (float)(int)(fcos * val2));
+		int x_shift = (int)(val2 - (float)(int)(fcos * val2));
+		int x_offset = x_shift;
 		int y_offset = (int)(val - (float)(int)(scos * val));
 		if (LinkedTo->AngleRotatedForwards < 0.0f) {
-			x_offset = -x_offset;
+			x_offset = -x_shift;
 		}
 		if (LinkedTo->AngleRotatedSideways > 0.0f) {
 			y_offset = -y_offset;
@@ -540,17 +540,15 @@ Matrix3DStruct STDMETHODCALLTYPE DriveLocomotionClass::Draw_Matrix(int *key)
 
 		m = (Matrix3DStruct &)(((m1 * Get_Slope_Matrix()) * BASECLASS::Draw_Matrix(key)) * m2);
 	} else {
-		if (key && *key != -1) {
-			int keybase = *key << 6;
-			*key = keybase;
-			*key = keybase + CurrentRamp;
+		if (Is_Cache_Key(key)) {
+			*key = *key << 6;
+			*key += CurrentRamp;
 		}
 
 		m = (Matrix3DStruct &)(Get_Slope_Matrix() * BASECLASS::Draw_Matrix(key));
 	}
 	return(m);
 }
-#endif
 
 
 /// <summary>

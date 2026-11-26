@@ -218,29 +218,44 @@ enum SAMState {
 /// place it is ordered to go; never for the player's allies. The tactical display asks before it draws an
 /// enemy's action line.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 792 bytes differ by position against the image-derived bound 004386f0 (865 B; ours 800 B, frame 0xD8 against 0x100): the four range tests are BuildingClass::Is_In_Psychic_Range and Is_Cell_In_Psychic_Range expanded, as in the image, but the image calls the Coord constructor 0x41B630 in all four and expands Length only in the third, where ours expands the constructor in the last two and Length in the last (the nested shares of the root budget); main: best 82.58
-bool __fastcall Building_Player_Detector_Covers_Target(FootClass * object) // RA2: 0x004386F0
+static inline bool Is_Cell(AbstractClass const * target) // RA2: ra2-decomp's file-local test (src/building.cpp:135 at b20f510)
 {
-	if (PlayerPtr->Is_Ally(object->House)) return(false);
+	if (target == NULL) return(false);
+	RTTIType rtti = target->RTTI;
+	return(rtti == RTTI_CELL);
+}
+
+
+bool __fastcall Building_Player_Detector_Covers_Target(FootClass * object) // RA2: 0x004386F0; ra2-decomp's matched twin text (FUN_0043B150, b20f510)
+{
+	HouseClass * owner = object->House;
+	if (PlayerPtr->Is_Ally(owner)) return(false);
 	int count = PlayerPtr->PsychicDetectionBuildings.Count();
 	for (int index = 0; index < count; index++) {
 		BuildingClass * detector = PlayerPtr->PsychicDetectionBuildings[index];
 		if (detector->IsPowerOnline()) {
 			AbstractClass * target = object->TarCom;
-			if (target != NULL) {
-				if (target->Is_Techno()) {
-					if (detector->Is_In_Psychic_Range(target)) return(true);
-				} else if (target->Fetch_RTTI() == RTTI_CELL) {
-					if (detector->Is_Cell_In_Psychic_Range((CellClass *)target)) return(true);
-				}
+			if (As_Techno(target) != NULL) {
+				bool in_range = detector->Is_In_Psychic_Range(As_Techno(target));
+				if (in_range) return(in_range);
+			} else if (Is_Cell(target)) {
+				bool in_range = detector->Is_Cell_In_Psychic_Range((CellClass *)target);
+				if (in_range) return(in_range);
 			}
 			if (object->Is_Foot()) {
-				AbstractClass * nav = object->NavQueue.Count() == 0 ? object->NavCom : object->NavQueue[object->NavQueue.Count() - 1];
+				AbstractClass * nav;
+				if (object->RouteQueue.Count() == 0) {
+					nav = object->NavCom;
+				} else {
+					nav = object->RouteQueue[object->RouteQueue.Count() - 1];
+				}
 				if (nav != NULL) {
-					if (nav->Fetch_RTTI() == RTTI_CELL) {
-						if (detector->Is_Cell_In_Psychic_Range((CellClass *)nav)) return(true);
-					} else if (nav->Is_Techno()) {
-						if (detector->Is_In_Psychic_Range(nav)) return(true);
+					if (Is_Cell(nav)) {
+						bool in_range = detector->Is_Cell_In_Psychic_Range((CellClass *)nav);
+						if (in_range) return(in_range);
+					} else if (nav->AbstractFlags & 1) {
+						bool in_range = detector->Is_In_Psychic_Range(nav);
+						if (in_range) return(in_range);
 					}
 				}
 			}
@@ -248,7 +263,6 @@ bool __fastcall Building_Player_Detector_Covers_Target(FootClass * object) // RA
 	}
 	return(false);
 }
-#endif
 
 
 /// <summary>
@@ -9039,7 +9053,8 @@ bool BuildingClass::Is_In_Psychic_Range(AbstractClass const * target) // RA2: no
 {
 	Coord a = Center_Coord();
 	Coord b = target->Center_Coord();
-	return(a.Distance_To(b) <= Class->PsychicDetectionRadius << 8);
+	int distance = Coord(a - b).Length();
+	return(distance <= Class->PsychicDetectionRadius << 8);
 }
 
 
@@ -9050,7 +9065,8 @@ bool BuildingClass::Is_Cell_In_Psychic_Range(CellClass const * cell) // RA2: not
 {
 	Coord a = Center_Coord();
 	Coord b = cell->Cell_Coord();
-	return(a.Distance_To(b) <= Class->PsychicDetectionRadius << 8);
+	int distance = Coord(a - b).Length();
+	return(distance <= Class->PsychicDetectionRadius << 8);
 }
 
 
