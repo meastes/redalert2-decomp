@@ -179,13 +179,45 @@ def twin_file_local(text, name):
 LARGE = 1024    # a parked function of 1 KB or more (the checkpoint measure: "parked large functions pass 500 KB")
 
 
-def parked_tail():
+def parked_no_row():
+    """{entry: (body bytes, symbol)} of parked drafts with no row (series break, lane O96, 2026-11-26; owner after
+    the review of lane O95's pool A dossier): the functions src-final carried as not exact (manifests/function_map.csv
+    flags `non_exact`) and the image-derived bounds (manifests/image_bounds.csv, status bound) whose entry is neither a
+    row of units.json nor a row of the catalog. Their guarded drafts sit in the sources, but before this break the
+    parked line counted only units.json rows. Bytes: the image bound's body where there is one (it may run past
+    src-final's size), else src-final's size."""
+    import csv
+    have = {r['entry'] for info in R.load_json(R.UNITS, {}).values() for r in info['rows']}
+    have |= {'%08x' % r['entry'] for r in catalog_io.load(R.MANIFEST / 'catalog', references=False)['regions']}
+    found = {}
+    path = R.MANIFEST / 'function_map.csv'
+    for r in (csv.DictReader(open(path)) if path.exists() else []):
+        if r['flags'].startswith('non_exact'):
+            found['%08x' % int(r['address'], 16)] = (int(r['size']), r['symbol'])
+    path = R.MANIFEST / 'image_bounds.csv'
+    for r in (csv.DictReader(open(path)) if path.exists() else []):
+        if r['status'] == 'bound':
+            body, symbol = int(r['body_bytes']), r['catalog_symbol']
+            if r['entry'] in found:
+                body, symbol = max(body, found[r['entry']][0]), found[r['entry']][1]
+            found[r['entry']] = (body, symbol)
+    return {e: v for e, v in found.items() if e not in have}
+
+
+def parked_tail(no_row=True):
     """(rows, body bytes, rows of LARGE bytes or more, their bytes) not exact: the parked tail behind the
     guards. One definition for the census and progress.py (owner, 2026-11-18): every row of every unit in
-    units.json that its check of the unit's current text does not find exact. A unit whose last check is
-    missing or of older text is checked again first; a unit that does not compile counts all its rows."""
+    units.json that its check of the unit's current text does not find exact, and (series break, lane O96,
+    2026-11-26) every parked draft with no row (parked_no_row); NO_ROW=False gives the definition before the
+    break. A unit whose last check is missing or of older text is checked again first; a unit that does not
+    compile counts all its rows."""
     import hashlib, io, contextlib
     rows = total = large = large_total = 0
+    if no_row:
+        for body, _symbol in parked_no_row().values():
+            rows += 1; total += body
+            if body >= LARGE:
+                large += 1; large_total += body
     for unit, info in R.load_json(R.UNITS, {}).items():
         source = R.ROOT / info['source']
         last = R.last_check(unit, info)
@@ -756,6 +788,10 @@ def main(quiet=False):
                                   measures['field_names_headers'], measures['fun_names_headers']))
     print('Parked tail (reported, not gated): RA2_NON_MATCHING guards %d; %d rows not exact, %d body bytes; '
           '1 KB or more: %d rows, %d body bytes' % ((measures['draft_guards'],) + parked_tail()))
+    no_row = parked_no_row()
+    print('  of which parked drafts with no row (src-final non_exact rows and image-derived bounds that no units.json '
+          'or catalog row holds; in the parked tail since lane O96): %d functions, %d body bytes' % (
+              len(no_row), sum(b for b, _ in no_row.values())))
     print('Judgment calls (reported, not gated): %d rows, %d body bytes; header members %d (%s)' % (
         measures['judgment_rows'], measures['judgment_bytes'], len(measures['judgment_members']),
         ', '.join(measures['judgment_members']) or 'none'))

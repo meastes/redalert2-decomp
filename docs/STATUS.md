@@ -12,26 +12,26 @@ A15 is in [history/](history/); current work is in [HANDOFF.md](HANDOFF.md).
 
 <!-- generated:status -->
 
-| Tree (numbers side by side, never added) | this tree (`src/`, `include/`; last gated landing 2026-11-26T03:39Z) | src-final (the earlier tree, frozen 2026-11-24; tag src-final) |
+| Tree (numbers side by side, never added) | this tree (`src/`, `include/`; last gated landing 2026-11-26T04:20Z) | src-final (the earlier tree, frozen 2026-11-24; tag src-final) |
 | --- | ---: | ---: |
-| Reproduced .text (both trees: C/C++ body + evidenced inline asm + frozen padding + linked library members + assembled handwritten asm, the six lines below) | **94.95% whole-unit** (3,579,488 B) (95.13% function-level, 3,586,208 B) | 93.58% (3,527,727 B) |
-| Fuzzy (best draft scores): ByteMatch's fuzzy match, in-scope C/C++ bytes with each function not exact counted at its best measured draft score against its image-derived bound, (body - differing) / body; no exact-match credit (bytematch_report.py; progress.csv fuzzy_best_draft) | fuzzy (best draft scores): **96.300%** | |
-| Data reproduced from source (file-backed non-code bytes, 711,662 B: headers, .rdata, raw .data, .rsrc; equal to the original where a compiled unit's object lays them; a report, not in Reproduced .text or acceptance; by kind in docs/DATA_AS_SOURCE.md) | **329,683 B, 46.3%** (gated landing 2026-11-26T03:39Z) | 151,518 B, 21.3% (lane D sizing, 2026-11-13) |
-| C/C++ bodies matched (body bytes: no padding, no evidenced inline asm; the parity line) | **3,325,933 B, 88.23% whole-unit** (3,332,315 B, 88.39% function-level); gap to src-final -51.4 KB (-57.8 KB function-level) | 3,274,492 B, 86.86% |
+| Reproduced .text (both trees: C/C++ body + evidenced inline asm + frozen padding + linked library members + assembled handwritten asm, the six lines below) | **95.03% whole-unit** (3,582,301 B) (95.20% function-level, 3,589,021 B) | 93.58% (3,527,727 B) |
+| Fuzzy (best draft scores): ByteMatch's fuzzy match, in-scope C/C++ bytes with each function not exact counted at its best measured draft score against its image-derived bound, (body - differing) / body; no exact-match credit (bytematch_report.py; progress.csv fuzzy_best_draft) | fuzzy (best draft scores): **96.374%** | |
+| Data reproduced from source (file-backed non-code bytes, 711,662 B: headers, .rdata, raw .data, .rsrc; equal to the original where a compiled unit's object lays them; a report, not in Reproduced .text or acceptance; by kind in docs/DATA_AS_SOURCE.md) | **330,137 B, 46.4%** (gated landing 2026-11-26T04:20Z) | 151,518 B, 21.3% (lane D sizing, 2026-11-13) |
+| C/C++ bodies matched (body bytes: no padding, no evidenced inline asm; the parity line) | **3,328,678 B, 88.30% whole-unit** (3,335,060 B, 88.47% function-level); gap to src-final -54.2 KB (-60.6 KB function-level) | 3,274,492 B, 86.86% |
 | Evidenced inline assembly (cited TibSun `__asm`; not C/C++ credit) | 2,555 B in 8 rows (whole-unit) | 2,514 B |
-| Frozen padding of accepted rows | 143,211 B whole-unit (143,549 B function-level) | 143,042 B |
-| Linked library members (each tree's ledger: the tree's adds the 12 libcmt rows src-final took as C, lane O96 menu R1) | 89,237 B | 89,127 B |
+| Frozen padding of accepted rows | 143,234 B whole-unit (143,572 B function-level) | 143,042 B |
+| Linked library members (each tree's ledger: the tree's adds the 12 libcmt rows src-final took as C, lane O96 menu R1, and 4 CRT fragments; not linked, no real input reproduces them: 33 import thunks, 198 B (13 BINKW32, 1 COMCTL32, 19 WSOCK32)) | 89,282 B | 89,127 B |
 | Assembled handwritten assembly (the same adopted TibSun .asm procedures in both builds) | 16,999 B | 16,999 B |
 | Assembled handwritten assembly, revised (binary-derived lines: ra2-decomp src/ra2asm text revising a cited TibSun archive procedure, allowlisted and flagged; Reproduced .text only, never C/C++; user 2026-11-24) | 1,553 B | 1,553 B |
-| C/C++ bodies, exact with no judgment call (each tree's judgment rows left out) | **3,092,016 B, 82.021% whole-unit** (3,096,485 B, 82.139% function-level) of .text; left out: judgment calls 125 rows / 233,917 B (of which header-form dependents 7 / 23,173 B), count-sensitive 1 rows / 1,913 B | 3,245,325 B, 86.09% |
-| C/C++ bodies, exact with no soft judgment (only the judgment rows resting on a choice left out: in the rebuild kinds iii author idiom unreferenced at the line, iv-b looked-up local no reference has, vii other, the flagged variation forms and reference-borne forms; main's flags are all choices, so its figure is the line above) | **3,221,997 B, 85.469% whole-unit** (3,226,466 B, 85.587% function-level); left out: soft judgment rows 40 / 103,936 B (kinds iii, iv-b, vii, the variation forms, reference-borne and header-form dependents of such a form), count-sensitive 1 rows / 1,913 B | 3,245,325 B, 86.09% |
-| Rebuild judgment calls by kind (function-level, rows/body bytes; i reference form chosen by caller evidence, ii sibling-image helper form, iii author idiom unreferenced at the line, iv-a twin or reference text at this or a sibling site, iv-b looked-up local no reference has, v image-derived or frozen bound, vi header-form dependent, joined two references joined at one site, vii other; helper, spelling, compiler-local, readability-alias flagged variation forms; reference-borne a refused-if-coined form in adopted reference text; kinds tagged in provenance.csv and header_judgments.csv) | iii 1/747; iv-a 66/99139; iv-b 1/7752; v 7/6073; vi 8/23522; joined 5/12413; vii 2/1407; helper 8/23946; spelling 11/22386; compiler-local 7/22775; reference-borne 9/13757 | |
+| C/C++ bodies, exact with no judgment call (each tree's judgment rows left out) | **3,092,016 B, 82.021% whole-unit** (3,096,485 B, 82.139% function-level) of .text; left out: judgment calls 127 rows / 236,662 B (of which header-form dependents 7 / 23,173 B), count-sensitive 1 rows / 1,913 B | 3,245,325 B, 86.09% |
+| C/C++ bodies, exact with no soft judgment (only the judgment rows resting on a choice left out: in the rebuild kinds iii author idiom unreferenced at the line, iv-b looked-up local no reference has, vii other, the flagged variation forms and reference-borne forms; main's flags are all choices, so its figure is the line above) | **3,221,997 B, 85.469% whole-unit** (3,226,466 B, 85.587% function-level); left out: soft judgment rows 42 / 106,681 B (kinds iii, iv-b, vii, the variation forms, reference-borne and header-form dependents of such a form), count-sensitive 1 rows / 1,913 B | 3,245,325 B, 86.09% |
+| Rebuild judgment calls by kind (function-level, rows/body bytes; i reference form chosen by caller evidence, ii sibling-image helper form, iii author idiom unreferenced at the line, iv-a twin or reference text at this or a sibling site, iv-b looked-up local no reference has, v image-derived or frozen bound, vi header-form dependent, joined two references joined at one site, vii other; helper, spelling, compiler-local, readability-alias flagged variation forms; reference-borne a refused-if-coined form in adopted reference text; kinds tagged in provenance.csv and header_judgments.csv) | iii 1/747; iv-a 66/99139; iv-b 1/7752; v 7/6073; vi 8/23522; joined 5/12413; vii 2/1407; helper 8/23946; spelling 11/22386; compiler-local 8/25231; reference-borne 10/14046 | |
 | Judgment calls, one definition for both trees (main's: the manifest flags count_calibrated, split_declaration, declarations_only; in the rebuild, the accepted rows whose provenance.csv judgment note, or a header_judgments.csv form they depend on, names one of those flags; whole-unit, body bytes) | 0 rows / 0 B | 10 rows / 29,167 B |
-| Judgment calls, each tree's own count (not comparable row for row: main counts the manifest flags above; the rebuild counts every provenance.csv judgment note, which includes twin-text forms and bounds, plus the rows listed as dependents of a flagged header form; body bytes) | 125 rows / 233,917 B | 10 rows / 29,167 B |
-| Matched in src-final (main), not yet in the rebuild (main's accepted entries with no rebuild catalog row; body bytes; stays until it reaches zero) | 98 functions / 58,723 B | |
-| Accepted | 17,881 functions in 444 units; function-level 17,933 functions | 17,910 regions |
-| Provenance (docs/REBUILD.md; body plus padding) | adopted 16,939 fn / 2,967,247 B; reshaped from src/ 187 / 210,324 B; fresh 163 / 19,920 B; Windows workers 592 / 274,208 B | |
-| Rebuild structure | duplicates 0, externs 6 landed / 6 all, address-suffixed 0; parked 98 functions / 67,589 B (>=1 KB: 20 / 58,689 B); judgment 118 rows / 210,744 B; count-sensitive 1 rows / 1,913 B | |
+| Judgment calls, each tree's own count (not comparable row for row: main counts the manifest flags above; the rebuild counts every provenance.csv judgment note, which includes twin-text forms and bounds, plus the rows listed as dependents of a flagged header form; body bytes) | 127 rows / 236,662 B | 10 rows / 29,167 B |
+| Matched in src-final (main), not yet in the rebuild (main's accepted entries with no rebuild catalog row; body bytes; stays until it reaches zero) | 97 functions / 58,434 B | |
+| Accepted | 17,883 functions in 444 units; function-level 17,935 functions | 17,910 regions |
+| Provenance (docs/REBUILD.md; body plus padding) | adopted 16,941 fn / 2,970,015 B; reshaped from src/ 187 / 210,324 B; fresh 163 / 19,920 B; Windows workers 592 / 274,208 B | |
+| Rebuild structure | duplicates 0, externs 6 landed / 6 all, address-suffixed 0; parked 101 functions / 67,640 B (>=1 KB: 20 / 58,689 B); judgment 120 rows / 213,489 B; count-sensitive 1 rows / 1,913 B | |
 | Rebuild evidenced inline assembly reached through a file-static helper of its unit | 2 rows / 789 B | |
 | Rebuild asm bytes not yet flagged (main flags them; header-template attribution to fix) | 0 rows / 0 B | |
 
@@ -39,7 +39,6 @@ Rebuild history (manifests/progress.csv; C/C++ body bytes whole-unit per gated l
 
 | Landing (UTC) | Functions | C/C++ body bytes | +Body | +Body/hour |
 | --- | ---: | ---: | ---: | ---: |
-| 2026-11-24T22:51Z | 17,811 | 3,297,960 | +2,194 | 563 |
 | 2026-11-25T00:50Z | 17,812 | 3,299,029 | +1,069 | 539 |
 | 2026-11-25T02:49Z | 17,813 | 3,299,057 | +28 | 14 |
 | 2026-11-25T02:58Z | 17,814 | 3,300,735 | +1,678 | 11,187 |
@@ -51,6 +50,7 @@ Rebuild history (manifests/progress.csv; C/C++ body bytes whole-unit per gated l
 | 2026-11-25T18:03Z | 17,822 | 3,312,281 | +7,315 | 18,288 |
 | 2026-11-26T03:37Z | 17,880 | 3,318,034 | +5,753 | 601 |
 | 2026-11-26T03:39Z | 17,881 | 3,325,933 | +7,899 | 236,970 |
+| 2026-11-26T04:20Z | 17,883 | 3,328,678 | +2,745 | 4,017 |
 
 src-final (the earlier tree: `src/recovered`, `src/shared` and the catalog manifests/original_target/, frozen on 2026-11-24): its full table and commit history, which cannot change, are in [history/SRC_FINAL_STATUS.md](history/SRC_FINAL_STATUS.md).
 
@@ -59,7 +59,7 @@ Where the accepted text came from (tools/original_target/provenance_rollup.py ov
 | Source of the text | Functions | Body bytes | Share of body bytes | Of the functions: placed by the unit file's adopted origin |
 | --- | ---: | ---: | ---: | ---: |
 | mischa85 | 14,328 | 2,280,488 | 68.5% | 855 |
-| ra2-decomp | 1,021 | 247,618 | 7.4% |  |
+| ra2-decomp | 1,023 | 250,363 | 7.5% |  |
 | tibsun | 751 | 65,954 | 2.0% |  |
 | robin | 1 | 866 | 0.0% |  |
 | renegade | 0 | 0 | 0.0% |  |
@@ -68,7 +68,7 @@ Where the accepted text came from (tools/original_target/provenance_rollup.py ov
 | fresh (written here from the seed and the class layout) | 163 | 18,563 | 0.6% |  |
 | windows-workers (this project's own matching, done on its Windows machines) | 592 | 269,398 | 8.1% |  |
 | mixed (template copies and header scans in files not adopted from one source) | 836 | 235,659 | 7.1% |  |
-| total | 17,881 | 3,328,488 | 100.0% | 855 |
+| total | 17,883 | 3,331,233 | 100.0% | 855 |
 
 The sources build on one another (mischa85's on the TibSun reconstruction; the Yuri's Revenge and 1.001 projects on each other and on this one), so this records where each function's text was taken from, not who first wrote it.
 

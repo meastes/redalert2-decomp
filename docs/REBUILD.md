@@ -241,6 +241,16 @@ index regenerated (`python3 tools/original_target/notes_index.py --write docs/VC
   relocations resolving to the ledger's placement or an import's IAT slot, object order, data or call references).
   The same list corrects 0x785678 from rmdir.obj to remove (unlink.obj section 0: it imports DeleteFileA; the
   masked bytes are the same). STATUS shows each tree's ledger; the pool line leaves out rows the tree links.
+  Four more CRT fragments entered the same way (lane O96 tip 3: _fpmath 0x782146, _toupper 0x7829CB, _tolower
+  0x7841EC, _get_sbh_threshold 0x7879F2; +45 B). The 33 linker import thunks at 0x781B66-0x781C8B stay unlinked and
+  are listed on STATUS's library line: no import library on the VC98 disc reproduces them (19 WSOCK32 imported by
+  name where VC98's lib imports by ordinal, COMCTL32 #17, 13 BINKW32 with no lib). 0x782196, 0x794AD8 and the
+  int3/lea fill stay uncredited (no single member, or fill owned by no row).
+- **Series break, the parked tail** (lane O96, owner 2026-11-26 after the review of lane O95's pool A dossier): the
+  parked line also counts the parked drafts with no row (`rebuild_census.parked_no_row`: src-final's `non_exact`
+  rows in function_map.csv and the image-derived bounds that no units.json or catalog row holds; 36 functions /
+  116,364 B at the break). progress.csv gains parked_no_row_*, and the first row after the break carries the old and
+  new figures in its note.
 - **Data no exact code refers to: layout by run, pending ranges** (review session 2026-11-19, `docs/DECISIONS.md`
   "Rebuild data no exact code refers to"; lane R25, mapgen). A: `data_bound_by: layout` falls back, when the whole
   section has no one base, to its nearest reference-bound neighbours in the same section (both sides, one base, no

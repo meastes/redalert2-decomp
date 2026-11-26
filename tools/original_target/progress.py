@@ -81,6 +81,10 @@ ext_landed = sum(len(C.extern_names(C.code_only((R.ROOT / i['source']).read_text
                  for i in units_info.values() if i['source'] in landed)
 # Parked: rebuild_census.parked_tail, the one definition the census prints (owner, 2026-11-18).
 parked_f, parked_b, large_f, large_b = rebuild_census.parked_tail()
+# Series break (lane O96, 2026-11-26): the parked tail now also counts the parked drafts with no row; the
+# definition before the break is kept beside it once, on the row where the break starts (note below).
+_no_row = rebuild_census.parked_no_row()
+no_row_f, no_row_b = len(_no_row), sum(b for b, _ in _no_row.values())
 # External functions the audit would omit as kept copies (review ruling 2026-11-18; budgeted, lane R7).
 import rebuild_catalog
 from coff import Coff
@@ -98,6 +102,7 @@ line.update(external_omitted=ext_omitted)
 line.update(duplicates=m['duplicates'], externs_landed=ext_landed, externs_all=m['externs'],
             address_suffixed=m['address_suffixed'], parked_units=sum(i['source'] not in landed for i in units_info.values()),
             parked_functions=parked_f, parked_bytes=parked_b, parked_large_functions=large_f, parked_large_bytes=large_b,
+            parked_no_row_functions=no_row_f, parked_no_row_bytes=no_row_b,
             judgment_rows=m['judgment_rows'], judgment_bytes=m['judgment_bytes'],
             unplaced_symbols=m['unplaced_symbols'], unplaced_bytes=m['unplaced_bytes'],
             content_symbols=m['content_symbols'], content_bytes=m['content_bytes'],
@@ -178,6 +183,22 @@ if not any(r.get('fuzzy_best_draft') for r in rows):
     line['note'] = '; '.join(n for n in (line['note'], (
         'new series fuzzy_best_draft (lane O90): ByteMatch\'s fuzzy figure, each in-scope function not exact at its '
         'best measured draft score against its image-derived bound; empty on earlier rows; no other column moves')) if n)
+# Lane O96 (2026-11-26, owner after the review of lane O95's dossier): the parked tail counts the parked drafts with
+# no row; marked once, with the old and the new figure side by side.
+if not any(r.get('parked_no_row_functions') for r in rows):
+    old_f, old_b, old_lf, old_lb = rebuild_census.parked_tail(no_row=False)
+    line['note'] = '; '.join(n for n in (line['note'], (
+        'series break: parked_* count the parked drafts with no row too (src-final non_exact rows and image-derived '
+        'bounds no units.json or catalog row holds: %d functions / %s B, in parked_no_row_*): parked %d functions / '
+        '%s B (1 KB or more %d / %s B) by the old definition, %d / %s B (%d / %s B) by the new' % (
+            no_row_f, format(no_row_b, ','), old_f, format(old_b, ','), old_lf, format(old_lb, ','), parked_f,
+            format(parked_b, ','), large_f, format(large_b, ',')))) if n)
+# Lane O96: the library ledger is the tree's manifests/library.json from here (src-final's 89,127 B before).
+if not any(r.get('library_bytes') not in (None, '', '89127') for r in rows):
+    line['note'] = '; '.join(n for n in (line['note'], (
+        'library_bytes reads the tree\'s ledger manifests/library.json (lane O96): src-final\'s 89,127 B plus 16 '
+        'identified libcmt sections (%s B in all); reproduced_text moves with it, the C/C++ columns do not' %
+        format(LIBRARY, ','))) if n)
 rows.append({k: str(v) for k, v in line.items()})
 with open(path, 'w', newline='') as f:
     w = csv.DictWriter(f, fieldnames=list(line), restval=''); w.writeheader(); w.writerows(rows)

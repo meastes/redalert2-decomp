@@ -204,9 +204,13 @@ def load_library(repository=REPOSITORY, frozen=False):
     path = repository / ('manifests/original_target/library.json' if frozen else 'manifests/library.json')
     if not path.exists():
         return None
-    regions = json.loads(path.read_text())['regions']
+    doc = json.loads(path.read_text())
+    regions = doc['regions']
+    # Linker import thunks in the library band that no real input reproduces (no import library on the VC98 disc
+    # names them the way the original does): listed, never credited (lane O96, owner 2026-11-26).
+    unlinked = [x for x in doc.get('skipped_other', []) if int(x['entry'], 16) >= 0x781000]
     return dict(bytes=sum(r['bytes'] for r in regions), sections=len(regions),
-                entries={int(r['entry'], 16) for r in regions})
+                entries={int(r['entry'], 16) for r in regions}, unlinked=unlinked)
 
 
 def coverage(catalog):
@@ -323,7 +327,7 @@ def kb(value):
 
 
 def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, repository=REPOSITORY, categories=None,
-                  main_catalog=None, revised_bytes=0, main_lib_bytes=None):
+                  main_catalog=None, revised_bytes=0, main_lib_bytes=None, unlinked=()):
     """Main's tree and the rebuild tree (rebuild/, on main since 2026-11-19) side by side, never added, on the same
     category lines (lane O41, 2026-11-22; AGENTS.md status measures): Reproduced .text is the sum of C/C++ body,
     evidenced inline asm, frozen padding, linked library members and assembled handwritten asm in both trees. The
@@ -346,6 +350,11 @@ def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, reposi
         return []
     pct = lambda value: '{:.2f}%'.format(100.0 * value / text)
     main_lib_bytes = lib_bytes if main_lib_bytes is None else main_lib_bytes    # src-final's frozen ledger
+    import collections
+    dlls = collections.Counter(re.search(r'(\w+)\.(?:LIB|DLL)', x['reason']).group(1) if re.search(
+        r'(\w+)\.(?:LIB|DLL)', x['reason']) else 'other' for x in unlinked)
+    unlinked_text = '{} import thunks, {} B ({})'.format(len(unlinked), 6 * len(unlinked), ', '.join(
+        '{} {}'.format(n, d) for d, n in sorted(dlls.items()))) if unlinked else 'none'
     reproduced = main['body'] + main['evidenced_inline_asm'] + main['padding'] + main_lib_bytes + asm_bytes
     whole_repro = cat['body'] + cat['evidenced_inline_asm'] + cat['padding'] + lib_bytes + asm_bytes
     # Function-level body and padding exist from the first progress row with c_body_bytes (series break).
@@ -406,7 +415,8 @@ def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, reposi
              '(whole-unit) |'.format(main['evidenced_inline_asm'], cat['evidenced_inline_asm'], cat['inline_asm_rows']),
              '| Frozen padding of accepted rows | {:,} B | {} |'.format(main['padding'], pad_cell),
              '| Linked library members (each tree\'s ledger: the tree\'s adds the 12 libcmt rows src-final took as C, '
-             'lane O96 menu R1) | {:,} B | {:,} B |'.format(main_lib_bytes, lib_bytes),
+             'lane O96 menu R1, and 4 CRT fragments; not linked, no real input reproduces them: {}) | {:,} B | {:,} B |'.format(
+                 unlinked_text, main_lib_bytes, lib_bytes),
              '| Assembled handwritten assembly (the same adopted TibSun .asm procedures in both builds) | {:,} B '
              '| {:,} B |'.format(asm_bytes - revised_bytes, asm_bytes - revised_bytes),
              '| Assembled handwritten assembly, revised (binary-derived lines: ra2-decomp src/ra2asm text revising a '
@@ -568,7 +578,8 @@ def render(catalog, text, lib=None, asm=None, main_lib=None):
     revised_bytes = asm.get('revised_bytes', 0) if asm else 0
     lines = [BEGIN, ''] + rebuild_lines(text, now, lib_bytes, asm_bytes, judgment, main_clean, main_catalog=catalog,
                                         revised_bytes=revised_bytes,
-                                        main_lib_bytes=main_lib['bytes'] if main_lib else None) + rebuild_history_lines() + [
+                                        main_lib_bytes=main_lib['bytes'] if main_lib else None,
+                                        unlinked=lib.get('unlinked', ()) if lib else ()) + rebuild_history_lines() + [
              'src-final (the earlier tree: `src/recovered`, `src/shared` and the catalog manifests/original_target/, '
              'frozen on {}): its full table and commit history, which cannot change, are in '
              '[history/SRC_FINAL_STATUS.md](history/SRC_FINAL_STATUS.md).'.format(FROZEN_ON), ''] + source_lines()

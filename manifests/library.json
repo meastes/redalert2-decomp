@@ -10,7 +10,7 @@
    "name": "LIBCMT.LIB",
    "role": "VC6 SP3",
    "sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
-   "members_used": 559
+   "members_used": 563
   },
   {
    "name": "COMSUPP.LIB",
@@ -106,11 +106,32 @@
    "evidence": "operator delete: its call resolves to _free where the ledger places it (0x7825E8); the other members of these bytes (atol, remove, fgetc, putchar thunks) resolve elsewhere"
   },
   {
+   "entry": "00782146",
+   "archive_role": "VC6 SP3",
+   "member": "fpinit.obj",
+   "section_index": 0,
+   "evidence": "_fpmath: its calls resolve to __cfltcvt_init, __ms_p5_mp_test_fdiv and __setdefaultprecision where the ledger places them; the member's section 0, directly before section 1 _fpclear at 0x78215D"
+  },
+  {
    "entry": "0078215d",
    "archive_role": "VC6 SP3",
    "member": "fpinit.obj",
    "section_index": 1,
    "evidence": "_fpclear: the member's section 1, directly before section 2 __cfltcvt_init at 0x78215E; .data 0x82EBFC and 0x82EC00 (_FPmtinit, _FPmtterm, after _FPinit = __fpmath 0x782146) point at it"
+  },
+  {
+   "entry": "007829cb",
+   "archive_role": "VC6 SP3",
+   "member": "toupper.obj",
+   "section_index": 0,
+   "evidence": "_toupper: the member's section 0, directly before section 1 toupper at 0x7829D3"
+  },
+  {
+   "entry": "007841ec",
+   "archive_role": "VC6 SP3",
+   "member": "tolower.obj",
+   "section_index": 0,
+   "evidence": "_tolower: the member's section 0, directly before section 1 tolower at 0x7841F4"
   },
   {
    "entry": "0078469d",
@@ -132,6 +153,13 @@
    "member": "unlink.obj",
    "section_index": 1,
    "evidence": "_unlink: its call resolves to _remove at 0x785678, the member's section 0 directly before it"
+  },
+  {
+   "entry": "007879f2",
+   "archive_role": "VC6 SP3",
+   "member": "sbheap.obj",
+   "section_index": 0,
+   "evidence": "_get_sbh_threshold: the member's section 0, directly before section 1 at 0x7879F8 (the other members with these masked bytes have no placed neighbour here)"
   },
   {
    "entry": "0078f3f5",
@@ -7080,6 +7108,44 @@
    "sha256": "663ba6aaa3b3b04e9853d090430ae5a1baafbeb5387e6f61d10835cc72459401"
   },
   {
+   "entry": "00782146",
+   "bytes": 23,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "fpinit.obj",
+   "member_index": 580,
+   "section_index": 0,
+   "assignment": "identified: _fpmath: its calls resolve to __cfltcvt_init, __ms_p5_mp_test_fdiv and __setdefaultprecision where the ledger places them; the member's section 0, directly before section 1 _fpclear at 0x78215D",
+   "section": ".text",
+   "symbols": [
+    "__fpmath"
+   ],
+   "relocations": [
+    {
+     "offset": 1,
+     "type": 20,
+     "resolved": 19
+    },
+    {
+     "offset": 6,
+     "type": 20,
+     "resolved": 19519
+    },
+    {
+     "offset": 11,
+     "type": 6,
+     "resolved": 11710360
+    },
+    {
+     "offset": 16,
+     "type": 20,
+     "resolved": 19429
+    }
+   ],
+   "sha256": "eb866dbee0ca403dee7e075d943c357b8bd78d8ee9dd3e6967cbed09b8830055"
+  },
+  {
    "entry": "0078215d",
    "bytes": 1,
    "archive": "LIBCMT.LIB",
@@ -7789,6 +7855,23 @@
     }
    ],
    "sha256": "e2e1c8a0856f510bd20757f9be103127537bc501ac363df2718fde9d85db3f1c"
+  },
+  {
+   "entry": "007829cb",
+   "bytes": 8,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "toupper.obj",
+   "member_index": 17,
+   "section_index": 0,
+   "assignment": "identified: _toupper: the member's section 0, directly before section 1 toupper at 0x7829D3",
+   "section": ".text",
+   "symbols": [
+    "__toupper"
+   ],
+   "relocations": [],
+   "sha256": "25c795932cd06738a4dd900ee5b977650a62f2ff8b951419a292e2c6dfa1f4fb"
   },
   {
    "entry": "007829d3",
@@ -10163,6 +10246,23 @@
    ],
    "relocations": [],
    "sha256": "a4d43aa01f5b3db8839024433e2579f873e3cd2a234dbd89ac151292935a770c"
+  },
+  {
+   "entry": "007841ec",
+   "bytes": 8,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "tolower.obj",
+   "member_index": 16,
+   "section_index": 0,
+   "assignment": "identified: _tolower: the member's section 0, directly before section 1 tolower at 0x7841F4",
+   "section": ".text",
+   "symbols": [
+    "__tolower"
+   ],
+   "relocations": [],
+   "sha256": "896bc6d5fe67391885caffc40607e53c66493d01b693e3c3eb07b286ea451710"
   },
   {
    "entry": "007841f4",
@@ -15243,6 +15343,29 @@
     }
    ],
    "sha256": "efd7b327bc53deafcfa5219e08fe10b1c4df18eed201f8a9754acf188748c010"
+  },
+  {
+   "entry": "007879f2",
+   "bytes": 6,
+   "archive": "LIBCMT.LIB",
+   "archive_role": "VC6 SP3",
+   "archive_sha256": "7922ed5dfd9da6d945a601f28b17e1cd67db97a87d995b579bfcade16e6e5765",
+   "member": "sbheap.obj",
+   "member_index": 134,
+   "section_index": 0,
+   "assignment": "identified: _get_sbh_threshold: the member's section 0, directly before section 1 at 0x7879F8 (the other members with these masked bytes have no placed neighbour here)",
+   "section": ".text",
+   "symbols": [
+    "__get_sbh_threshold"
+   ],
+   "relocations": [
+    {
+     "offset": 1,
+     "type": 6,
+     "resolved": 8581652
+    }
+   ],
+   "sha256": "9989165b5b52359f0f1ed10ffd6075b4f7a8ebb50a4b55941692667662600275"
   },
   {
    "entry": "007879f8",
