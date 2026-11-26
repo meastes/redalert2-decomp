@@ -142856,7 +142856,13 @@
    "??_C@_0DA@FPDM@Sending?5NET_PORT_PROBE?5packet?5to@": "007ff0a0",
    "??_C@_0DJ@HEGO@Got?5connection?5result?5?9?5my?5packe@": "007ff024",
    "??_C@_0DK@ODPD@Found?5old?5connection?5port?5number@": "007ff0f0",
-   "??_C@_0FB@IMLK@No?5destination?5port?5delta?5?9?5look@": "007ff12c"
+   "??_C@_0FB@IMLK@No?5destination?5port?5delta?5?9?5look@": "007ff12c",
+   "??_C@_0BA@KIIP@TXT_GAME_CLOSED?$AA@": "007fde74",
+   "??_C@_0BA@PDHI@Joined?5Channel?6?$AA@": "007fde30",
+   "??_C@_0BC@CLPJ@TXT_CANT_JOINCHAN?$AA@": "007fde40",
+   "??_C@_0BN@CEKM@Sending?5observer?5slot?5of?5?$CFc?6?$AA@": "007fde00",
+   "??_C@_0M@GHGJ@TXT_JOINBAN?$AA@": "007fde54",
+   "??_C@_0N@JP@TXT_JOINED_S?$AA@": "007fde20"
   },
   "partial_ok": true,
   "parked_rows": [
@@ -149349,7 +149355,7 @@
     "entry": "00536c70",
     "body": 177,
     "padding": 15,
-    "symbol": "?Shade_Text_Area@@YIXPBGPAVSurface@@HHHH_N@Z",
+    "symbol": "?Shade_Text_Area@@YIXPBGPAVSurface@@VPoint2D@@HH_N@Z",
     "main_symbol": "?Unknown_00536c70@@YIXPBGPAVSurface@@HHHH_N@Z",
     "main_source": "src/recovered/ldprgmgr.cpp"
    },
@@ -149458,7 +149464,7 @@
    },
    {
     "entry": "00536c70",
-    "symbol": "?Shade_Text_Area@@YIXPBGPAVSurface@@HHHH_N@Z",
+    "symbol": "?Shade_Text_Area@@YIXPBGPAVSurface@@VPoint2D@@HH_N@Z",
     "body": 177,
     "best_differing": null,
     "class": "a",

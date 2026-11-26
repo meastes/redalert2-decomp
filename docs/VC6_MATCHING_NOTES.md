@@ -5780,3 +5780,144 @@ call names, calls.py the call-list diff, v1.py to v19.py the surveys below).
   has no uncalled function. In both rows a parameter passed once, at the end of one case of a long dispatcher, after calls
   it stays live across, weighs more in our compile than in the image; a per-site substitution probe finds the site in one
   pass (as many compiles as the variable has references) and should come before any count survey on a register exchange.
+
+## The uniform named-bool form reads two ties at once; an uncalled function written out in its user is one unit of the user's count (found in the rebuild (lane F72, high))
+
+Found in the rebuild (lane F72, high); one row landed under rule (b) of the named-bool ruling (wonline CChatEventSink::OnChannelJoin
+0x75F530, 5,780 B, flagged compiler-local). Lane tools in build/r/f72 (removed at hand-back; copies in private/dossiers/fable/f72_tools):
+F68's gp.py and var.py, nb.py (the simple if conditions of one function listed, held in named bools by index list, one score line),
+names.py (the names), sb.sh and sbk.sh (sidebar variants with k referenced probes, every row checked).
+
+- OnChannelJoin under rule (b). The function has 42 simple if conditions. Held singly, 41 are neutral and one is not: a bit test
+  (`user->flags & 0x8000`) held in a bool is materialised (`shr eax, 15 / test al, 1`) in every spelling, so it cannot be part of
+  any set. Test each condition singly before any cumulative run; one non-neutral member hides the window (4,324 B for every set
+  that holds it).
+- A count window can uncover a second tie. From 14 held conditions the expanded add has the image's order, and then two stack
+  loads ahead of the colour loop exchange depending on which conditions are held: right for the first 16 to 26 in source order,
+  the first 38 and all 41; wrong for the first 14, 15, 30 and 34, for the last 14 to 24, for the first 15 plus any one later
+  condition, and for every natural kind (call results, comparisons, plain value tests, truth tests, constant compares). So the
+  second tie reads position as well as count, and a kind spread over the function does not meet it.
+- The uniform form does: every simple condition that opens an if statement, the bit test excepted because its bool changes the
+  code, else-if conditions excepted because they have no line of their own. That exception is forced by the compiler, not chosen.
+  When testing rule (b), run the uniform form first; the kinds are the fallback, not the other way round.
+- The window had moved since F66 measured it (14 to 24 then; 14 and up now, with the second tie inside it). A held row's window
+  is re-read on the current base before any form is chosen.
+- SidebarClass::Activate 0x67E210 stays held. New for the record: robin's 1.001 notes give the mechanism (local symbols are
+  numbered in inline-expansion order; an expanded copy whose symbols lie past a fixed index loses a hoisting; an initialised local,
+  a named reference and a by-value parameter of an expanded call are one unit each, `this` is none). Activate_Tab 0x67D7E0 has no
+  caller in the image and no user in the text, and Activate's if arm held its three statements written out: with the call the
+  code is the same and the window is 7 to 10 probes instead of 8 to 12. Seven is the only count that leaves SelectClass::Action
+  exact. No one rule fixes seven named values there, so nothing landed; the call is in the draft.
+- A unit that counts for the expansion numbering and not for the text count ahead of a count-sensitive row is a parameter of an
+  expanded call. When a window and a watched row pull against each other, look for a written-out function first: the uncalled
+  list names the candidates.
+- Named locals inside shared helpers are not a way through: one in Max_Visible is three units in Activate (three copies) and
+  loses Update_Column_Availability; one in Remove_Buttons loses AI.
+- The uniform forms run over every guarded draft (34 units; all simple conditions, comparisons only, truth tests only) make
+  no other function exact, so rule (b) has one row. A sweep of this kind costs three compiles a unit; conditions of class
+  type stop the all form compiling (building, netdlg2, ownrdraw, queue), and those units were read singly by lane O98.
+
+
+## A twin's file history is read before its text; a struct passed by value shows as a second read of the returned temporary; one reference decides a chain of callee-saved registers (found in the rebuild (lane F74, high))
+
+Found in the rebuild (lane F74, high); one row landed (ownrdraw OwnerDraw::Static_Proc 0x5F2B50 on its image-derived bound,
+4,512 B, new row). Lane tools in build/r/f74 (removed at hand-back; copies in private/dossiers/fable/f74_tools): F68's gp.py,
+e.py (exact in-place replacements), k.sh / kk.sh (one named variant, one score line, and whether the top of the function has
+the image's zero register), d.py (slot-blind or slot-exact instruction diff with string operands masked), vv.py.
+
+- Static_Proc stood at 3,056 B with a draft assembled from twin pieces. The twin's file had changed after every lane that
+  read it: `git log -S` on the reference showed ra2-decomp reshaping StaticHandler on 2026-11-24 (record through Find_Data,
+  default case as a goto to a shared tail, both movie starts through a file-local inline Play_Static_Movie). That helper is
+  the form the owner had held as coined two days earlier. The twin's text taken whole was exact at the first compile.
+  Before working a twin-backed row, run `git log --since=<the row's last attempt> -- <twin file>` and `git log -S<helper>`
+  in the reference; a held variation row is checked against the reference's newest text, not the text of the day it was held.
+- Clean-form tests follow the port, one at a time: the twin's once-used `movie` local was not needed (dropped); its
+  written-out Stop_Static_Movie body in WM_DESTROY was (the call there is 3,622 B off and turns Trackbar_Proc 0x5FB270), so
+  it stays, flagged reference-borne.
+- A row with no units.json row is added as `bound: image-derived` from image_bounds.csv (entry, body, padding, symbol) and
+  its string literals are bound with `rebuild.py check --learn`; `rebuild.py catalog` rewrites units.json and the config, so
+  copy both first, restore them, then graft the unit.
+- LoadProgressManager::Draw 0x535BF0 (3,978 B, guarded, 1,828 B): ra2-decomp matched the Yuri's Revenge twin on
+  2026-11-26 (e27159e8). Its forms in RA2's text (static helpers on one result local, the name and unit areas written out
+  through an inline centring helper into one shared `box`, the early return) give the image's top with the old helper
+  signatures, but the briefing area is then expanded where the image calls it.
+- A struct argument passed by value shows at the call site as two reads of the callee's returned temporary: the copy into
+  the named local (`origin = Copy_Point(&box)`: load, store, load, store) and then the fields again for the pushes. With
+  `int x, int y` parameters the pushes reuse the first loads. So Shade_Text_Area 0x536C70 takes `Point2D point`, as the
+  twin's FUN_005541C0 does; its own row is exact either way. A by-value struct parameter is not expanded without the
+  `inline` keyword (the twin has it on both text helpers); with it the image's two expansions and three calls appear.
+- With those the function has the image's calls, frame and 3,984 B, and ebx and ebp are exchanged in every web that uses
+  them (the top's zero register, the country, its name, the text colour, the briefing point). It is one decision: the webs
+  form a chain of conflicts (zero with country, country and name with the text colour), so the first one placed fixes the
+  rest. Read with F71's substitution probe: the text colour's use at the briefing call or at the loading call replaced by a
+  constant, or one more read of the country's name, leaves 11 lines (the probe). More reads of the text colour on top of
+  the extra name read do not turn it back, so it is not the difference of the two counts. Removing the scheme local or the
+  `box` copy also turns the top, with other code changed. Not found as text: one shared text variable, the colour argument
+  cast or typed unsigned short, the name declared apart from its call, the helper results returned early or through a
+  local, Draw_Area_Text on a pointer, the centring helper with fewer locals.
+- The two inline-budget states pair with the register states. Lighter text (the three-value colour call at either site,
+  early returns in all three string helpers, 12 referenced probes) gives the image's registers and expands
+  Get_Briefing_Area; with that function kept out of line by pragma (diagnostic) the budget goes to Deconstruct_Hicolor_Pixel
+  at the unit name, which the image calls. The image has the heavier state's calls with the lighter state's registers.
+- The `inline` keyword on a function whose only callers sit inside a closed guard removes its out-of-line copy and its
+  row. Such a draft is kept as a patch (private/dossiers/fable/patches) and described in the guard label until the guarded
+  function lands.
+- Draw_Radial_Indicators 0x6AC420 (893 B, 820 by position): the image's zero in ebx is not a count of zero constants.
+  One to five more stores of zero to globals at the top give no zero register, and making the centre's Z a constant
+  (freeing its register) does not either. The count takes ebx first here and ebp in the image.
+
+## A twin matched since the last pull is ported form by form with the image's call sites as the judge; a register exchange can follow the length of the code a value lives across (found in the rebuild (lane F73, high))
+
+Found in the rebuild (lane F73, high); no row landed, two drafts improved and one exact form held. Lane tools in build/r/f73
+(removed at hand-back; copies in private/dossiers/fable/f73_tools): F69's gp.py with `--bindstr` (unbound string literals bound
+by content, so a listing shows registers and not 0 against an address), allcheck.py (every unit checked before and after a header
+change, rows that change listed), hdr.py (the header forms of one twin commit switched on and off singly), lv.py, lt.py and bv.py
+(named text variants from a Python table), callsum.py (call counts by target, image against ours).
+
+- Two twins had matched since the last pull (ra2-decomp 1368d8de Projectile_Motion, e27159e8 LoadProgressManager::Draw). Read
+  `git log --since` on the twin's file before the row's own record: both leads were in the log, not in tail_twins.csv.
+- missile Projectile_Motion 0x593870 (2,101 B) is exact with the twin's text: two conditional expressions (`(airburst ||
+  veryhigh) ? 10 : min(cell_distance, 5)`, `delta.Z = airburst ? 0 : delta.Z / 4`), `frame_velocity(velocity, velocity.Z)` through
+  the twin's planar constructor, `velocity.Magnitude()`, and DirType::Turn naming its difference (`DirType diff(towards - *this)`).
+  Each of the three header forms moves WinMain, queue's Print_CRCs or both, by declaration count. Measured over every subset (T Turn, M Magnitude, C the constructor,
+  A the archive's unused `TVelocity3D(double angle, T magnitude)` removed, which is the twin's header taken whole): WinMain
+  0x68E280 is exact at none, C, TM, CA, TMA, TMCA; queue Print_CRCs 0x62A360 at none, MA, CA, TMA. The function needs T, M and C,
+  so one of the two rows always stops being exact (TMC: both; TMCA: Print_CRCs, 4 B). The constructor defined in the class gives
+  the same result. Held; the draft keeps the two conditional expressions (179 to 51 B) and the patch is in the dossier.
+- A check of every unit against a header change needs a baseline made in the same session. build/r/last carries
+  `UNIT.preguard.json` beside `UNIT.json`, and a copy from another lane is stale for units checked since: the first comparison
+  missed Print_CRCs for both reasons. Take only `UNIT.json`, and run the units once on main's headers first.
+- WinMain's counter was read with probe members in velocity.h (diagnostic only): on top of TMC it is exact at +4, +6, +7 and
+  +12 and off at +1 to +3, +5, +8, +10. Not a period that a real declaration could be chosen for.
+- ldprgmgr LoadProgressManager::Draw 0x535BF0 (3,978 B), 1,828 to 966 B. The twin's Yuri's Revenge text differs in content
+  (co-operative briefings, a map preview), so it was carried over form by form and each form judged by the image:
+  - The image copies the returned point twice at each Shade_Text_Area site (once to the local, once for the pushes, both read
+    from the returned object). That is a Point2D passed by value, the twin's signature. With `int x, int y` the pushes reuse the
+    loaded registers. The out-of-line row stays exact under the new symbol.
+  - By value the helper is past the size at which a function not declared inline is expanded (no site expanded, four calls);
+    declared `inline`, as the twin has it, two sites expand and two call, as the image. An inline function nothing uses is not
+    emitted, so while the draft is guarded the `inline` declaration sits inside the guard.
+  - The name and unit rectangles built in place and copied to one `box`, the helpers taking the country and returning through
+    one local, and the centring helper with its four locals are the twin's; together they bring the listing from 183
+    differing lines to 167 (1,238 to 966 B).
+- What is left there is one exchange: the image holds zero and later the text colour in ebx and the country in ebp, ours the
+  other way round, and the image makes a second zero in edi for the two campaign text pointers. Read as: with zero in ebx the
+  campaign's picture name takes ebx from it, so the campaign stores get their own register. What decides it:
+  - Not a count of locals: 1 to 12 referenced probes inside an expanded helper change nothing, and at the top they change
+    nothing until one more makes Get_Briefing_Area expand (the root's size is the inline budget).
+  - Any code added to the multiplayer tail gives the image's registers: Get_Briefing_Area expanded (the picture name chosen by
+    if/else, six casts, or three probes: then every instruction but that expansion is the image's, 57 lines), Shade_Text_Area
+    expanded at the briefing, or Deconstruct_Hicolor_Pixel expanded under the unit name. One unit of the root's size separates
+    the two states, and no intermediate state exists (cast ladder 1 to 12: the flip is at 6, both effects together).
+  - Dropping the multiplayer branch's `scheme` local gives the registers too, with a different load of the colour.
+  So the text colour, which lives from its computation to the end, loses its first register when the code it lives across is
+  longer. The image has that length with nothing extra expanded: the missing text is inside the tail and compiles to no
+  instruction of its own, or to instructions the draft already has in another form. Not it, each measured: a named unit name
+  pointer, `Rect box = name_rect`, a copy-assigned box, the unit rectangle drawn without the box (worse), the three-argument
+  pixel form (changes the budget), one `scheme` or colour variable for both branches, the first origin unnamed, the campaign's
+  side or scheme unnamed, the else after the campaign's return, the early return against a nested if.
+- bullet BulletClass::AI 0x45F710 (6,438 B, 3,931 B off): the twin's forms since the draft was taken (9ede9535, 1368d8de) are
+  Magnitude for the Flight_Speed helper (same code here), `captured(previous, previous.Z)` and Coord_Dist for the two
+  Distance_To calls. With the twin's header the last two move the wrong way here (5,727 and 5,780 B: both Length calls expand
+  where the image calls them and two more point constructors are called), so the draft is unchanged. Coord_Dist does give the
+  image's out-of-line `Coord(int, int, int)` call that the draft lacks.

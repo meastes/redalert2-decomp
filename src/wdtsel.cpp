@@ -35,6 +35,7 @@
 #include "vcursor.h"
 #include "vector.h"
 #include "wdtnet.h"
+#include "wdtcampaign.h"
 #include "wonline.h"
 #include "worlddom.h"
 #include "wstring.h"

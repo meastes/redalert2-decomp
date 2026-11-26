@@ -51,7 +51,7 @@
 
 Rect __fastcall Get_Briefing_Area(void);
 Rect __fastcall Get_Loading_Text_Area(void);
-void __fastcall Shade_Text_Area(wchar_t const * text, Surface * surface, int x, int y, int width, int flags, bool fill);
+void __fastcall Shade_Text_Area(wchar_t const * text, Surface * surface, Point2D point, int width, int flags, bool fill);
 void __fastcall Draw_Area_Text(wchar_t const * text, Surface * surface, Rect const & area, unsigned short color, int flags);
 Point2D __fastcall Copy_Point(Rect const * source); // RA2: 0x006F1AE0 (txtlabel2.cpp)
 void __fastcall Load_Loading_Screen_Palettes(int side); // RA2: 0x006F24A0 (txtlabel2.cpp)
@@ -214,7 +214,8 @@ void LoadProgressManager::Load_Mixes(void)
 /// <summary>
 /// Whether the local player watches the game instead of playing it.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 1828 bytes differ against the image-derived bound 00535bf0 (3,978 body bytes, 6 padding) (was 1906; the multiplayer unit name drawn into its own Rect, as RobinDigitalPro/ra2-1001-decomp 171f804 has it; before that 3730; all 85 calls and the 0x1184 stack probe match)
+#ifdef RA2_NON_MATCHING // not exact: 966 bytes differ against the image-derived bound 00535bf0 (3,978 body bytes, 6 padding) (was 1828; ra2-decomp e27159e8's matched Yuri's Revenge text carried over: the file helpers, the name and unit rectangles built in place and copied to one box, and the text origin passed by value; all 85 calls, the frame and the stack probe match; what is left is one register exchange, zero and the pixel in ebx against the country in ebp, 167 instructions; with the campaign picture name chosen by if/else every instruction is the image's except that Get_Briefing_Area is expanded, 57 instructions; lane F74 measured the same forms on its own and found that replacing one of the text colour's two later uses leaves 11 lines, private/dossiers/fable/patches/f74_ldprgmgr_draw_twin_forms_by_value_point.patch)
+inline void __fastcall Shade_Text_Area(wchar_t const * text, Surface * surface, Point2D point, int width, int flags, bool fill); // RA2: inline, as ra2-decomp declares it; with the draft closed nothing else would emit it
 ConvertClass * __cdecl Get_Load_Screen_Drawer(void); // RA2: 0x006F2450
 ConvertClass * __cdecl Get_Load_Screen_Side_Drawer(void); // RA2: 0x006F2470
 ConvertClass * __cdecl Get_Splash_Bar_Drawer(void); // RA2: 0x006F2490
@@ -222,201 +223,157 @@ ConvertClass * __cdecl Get_MP_Load_Drawer(void); // RA2: 0x006F25B0
 char const * __fastcall Get_Title_Bar_File(int width, int, int); // RA2: 0x006F2400
 char const * __fastcall Get_Splash_Bar_File(int width, int, int); // RA2: 0x006F2420
 
-inline bool Is_Observer(void)
+/// <summary>
+/// Moves an area laid out for 800 by 600 to the middle of a larger screen.
+/// </summary>
+inline void __fastcall Center_On_Screen(Rect * rect)
+{
+	int width = VideoModeWidth;
+	int box_width = MedResWidth;
+	if (width >= box_width) {
+		int dy = (VideoModeHeight - MedResHeight) / 2;
+		int dx = (width - box_width) / 2;
+		rect->X += dx;
+		rect->Y += dy;
+	}
+}
+
+static inline bool Is_Observer(void)
 {
 	return (Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) && Session.Players[0]->Slot.SpectatorFlag == -1;
 }
 
 /// <summary>
-/// The name of the picture file of a country, or of the observer, for a screen size.
+/// The name of the picture file of a country, or of the observer, for the screen size.
 /// </summary>
-inline void Loading_Filename(char * filename, int side, char const * suffix)
+static void Background_Name(char * name, int country)
 {
+	char const * res = (VideoModeWidth == LowResWidth) ? Suffix640 : Suffix800;
 	if (Is_Observer()) {
-		sprintf(filename, ObserverShapeName, suffix);
-	} else if (side == 0) {
-		sprintf(filename, USShapeName, suffix);
-	} else if (side == 1) {
-		sprintf(filename, KoreaShapeName, suffix);
-	} else if (side == 2) {
-		sprintf(filename, FranceShapeName, suffix);
-	} else if (side == 3) {
-		sprintf(filename, GermanyShapeName, suffix);
-	} else if (side == 4) {
-		sprintf(filename, UKShapeName, suffix);
-	} else if (side == 5) {
-		sprintf(filename, LibyaShapeName, suffix);
-	} else if (side == 6) {
-		sprintf(filename, IraqShapeName, suffix);
-	} else if (side == 7) {
-		sprintf(filename, CubaShapeName, suffix);
-	} else if (side == 8) {
-		sprintf(filename, RussiaShapeName, suffix);
-	}
-}
-
-/// <summary>
-/// The area of the country's name, 200 by 20 at the bottom, centred on screens past 800 by 600.
-/// </summary>
-inline Rect Name_Area(void)
-{
-	Rect area;
-	if (VideoModeWidth == LowResWidth) {
-		area.X = 385;
-		area.Y = 436;
-	} else {
-		area.X = 533;
-		area.Y = 545;
-	}
-	area.Width = 200;
-	area.Height = 20;
-	if (VideoModeWidth >= MedResWidth) {
-		area.X += (VideoModeWidth - MedResWidth) / 2;
-		area.Y += (VideoModeHeight - MedResHeight) / 2;
-	}
-	return area;
-}
-
-/// <summary>
-/// The area of the name of the country's unit, 200 by 20 at the top, centred on screens past 800 by 600.
-/// </summary>
-inline Rect Unit_Area(void)
-{
-	Rect area;
-	if (VideoModeWidth == LowResWidth) {
-		area.X = 16;
-		area.Y = 72;
-	} else {
-		area.X = 20;
-		area.Y = 90;
-	}
-	area.Width = 200;
-	area.Height = 20;
-	if (VideoModeWidth >= MedResWidth) {
-		area.X += (VideoModeWidth - MedResWidth) / 2;
-		area.Y += (VideoModeHeight - MedResHeight) / 2;
-	}
-	return area;
-}
-
-/// <summary>
-/// Changes the lower case letters of a text to capitals, those of the Latin-1 letters from 0xE0 to 0xFE too.
-/// </summary>
-inline void Upper_Case(wchar_t * string)
-{
-	for (wchar_t * p = string; *p != 0; p++) {
-		if ((*p >= 'a' && *p <= 'z') || (*p >= 0xE0 && *p <= 0xFE)) {
-			*p -= 0x20;
-		}
+		sprintf(name, ObserverShapeName, res);
+	} else if (country == 0) {
+		sprintf(name, USShapeName, res);
+	} else if (country == 1) {
+		sprintf(name, KoreaShapeName, res);
+	} else if (country == 2) {
+		sprintf(name, FranceShapeName, res);
+	} else if (country == 3) {
+		sprintf(name, GermanyShapeName, res);
+	} else if (country == 4) {
+		sprintf(name, UKShapeName, res);
+	} else if (country == 5) {
+		sprintf(name, LibyaShapeName, res);
+	} else if (country == 6) {
+		sprintf(name, IraqShapeName, res);
+	} else if (country == 7) {
+		sprintf(name, CubaShapeName, res);
+	} else if (country == 8) {
+		sprintf(name, RussiaShapeName, res);
 	}
 }
 
 /// <summary>
 /// The name of a country, or of the observer, from the string table.
 /// </summary>
-inline wchar_t const * Country_Name(int side)
+static wchar_t const * Country_Name(int country)
 {
+	wchar_t const * name;
 	if (Is_Observer()) {
-		return StringTable::LoadString("Name:Observer", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 162);
+		name = StringTable::LoadString("Name:Observer", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 162);
+	} else if (country == 0) {
+		name = StringTable::LoadString("Name:Americans", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 167);
+	} else if (country == 1) {
+		name = StringTable::LoadString("Name:Alliance", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 169);
+	} else if (country == 2) {
+		name = StringTable::LoadString("Name:French", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 171);
+	} else if (country == 3) {
+		name = StringTable::LoadString("Name:Germans", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 173);
+	} else if (country == 4) {
+		name = StringTable::LoadString("Name:British", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 175);
+	} else if (country == 5) {
+		name = StringTable::LoadString("Name:Africans", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 177);
+	} else if (country == 6) {
+		name = StringTable::LoadString("Name:Arabs", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 179);
+	} else if (country == 7) {
+		name = StringTable::LoadString("Name:Confederation", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 181);
+	} else if (country == 8) {
+		name = StringTable::LoadString("Name:Russians", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 183);
+	} else {
+		name = NULL;
 	}
-	if (side == 0) {
-		return StringTable::LoadString("Name:Americans", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 167);
-	}
-	if (side == 1) {
-		return StringTable::LoadString("Name:Alliance", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 169);
-	}
-	if (side == 2) {
-		return StringTable::LoadString("Name:French", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 171);
-	}
-	if (side == 3) {
-		return StringTable::LoadString("Name:Germans", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 173);
-	}
-	if (side == 4) {
-		return StringTable::LoadString("Name:British", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 175);
-	}
-	if (side == 5) {
-		return StringTable::LoadString("Name:Africans", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 177);
-	}
-	if (side == 6) {
-		return StringTable::LoadString("Name:Arabs", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 179);
-	}
-	if (side == 7) {
-		return StringTable::LoadString("Name:Confederation", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 181);
-	}
-	if (side == 8) {
-		return StringTable::LoadString("Name:Russians", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 183);
-	}
-	return NULL;
+	return(name);
 }
 
 /// <summary>
 /// The name of a country's unit from the string table.
 /// </summary>
-inline wchar_t const * Unit_Name(int side)
+static wchar_t const * Country_Unit_Name(int country)
 {
-	if (side == 0) {
-		return StringTable::LoadString("Name:Para", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 229);
+	wchar_t const * name;
+	if (country == 0) {
+		name = StringTable::LoadString("Name:Para", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 229);
+	} else if (country == 1) {
+		name = StringTable::LoadString("Name:BEAGLE", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 231);
+	} else if (country == 2) {
+		name = StringTable::LoadString("Name:GTGCAN", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 233);
+	} else if (country == 3) {
+		name = StringTable::LoadString("Name:TNKD", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 235);
+	} else if (country == 4) {
+		name = StringTable::LoadString("Name:SNIPE", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 237);
+	} else if (country == 5) {
+		name = StringTable::LoadString("Name:DTRUCK", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 239);
+	} else if (country == 6) {
+		name = StringTable::LoadString("Name:DESO", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 241);
+	} else if (country == 7) {
+		name = StringTable::LoadString("Name:TERROR", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 243);
+	} else if (country == 8) {
+		name = StringTable::LoadString("Name:TTNK", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 245);
+	} else {
+		name = NULL;
 	}
-	if (side == 1) {
-		return StringTable::LoadString("Name:BEAGLE", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 231);
-	}
-	if (side == 2) {
-		return StringTable::LoadString("Name:GTGCAN", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 233);
-	}
-	if (side == 3) {
-		return StringTable::LoadString("Name:TNKD", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 235);
-	}
-	if (side == 4) {
-		return StringTable::LoadString("Name:SNIPE", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 237);
-	}
-	if (side == 5) {
-		return StringTable::LoadString("Name:DTRUCK", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 239);
-	}
-	if (side == 6) {
-		return StringTable::LoadString("Name:DESO", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 241);
-	}
-	if (side == 7) {
-		return StringTable::LoadString("Name:TERROR", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 243);
-	}
-	if (side == 8) {
-		return StringTable::LoadString("Name:TTNK", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 245);
-	}
-	return NULL;
+	return(name);
 }
 
 /// <summary>
 /// The briefing of a country from the string table.
 /// </summary>
-inline wchar_t const * Briefing(int side)
+static wchar_t const * Country_Brief(int country)
 {
-	if (side == 0) {
-		return StringTable::LoadString("LoadBrief:USA", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 278);
+	wchar_t const * brief;
+	if (country == 0) {
+		brief = StringTable::LoadString("LoadBrief:USA", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 278);
+	} else if (country == 1) {
+		brief = StringTable::LoadString("LoadBrief:Korea", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 280);
+	} else if (country == 2) {
+		brief = StringTable::LoadString("LoadBrief:French", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 282);
+	} else if (country == 3) {
+		brief = StringTable::LoadString("LoadBrief:Germans", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 284);
+	} else if (country == 4) {
+		brief = StringTable::LoadString("LoadBrief:British", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 286);
+	} else if (country == 5) {
+		brief = StringTable::LoadString("LoadBrief:Lybia", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 288);
+	} else if (country == 6) {
+		brief = StringTable::LoadString("LoadBrief:Iraq", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 290);
+	} else if (country == 7) {
+		brief = StringTable::LoadString("LoadBrief:Cuba", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 292);
+	} else if (country == 8) {
+		brief = StringTable::LoadString("LoadBrief:Russia", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 294);
+	} else {
+		brief = NULL;
 	}
-	if (side == 1) {
-		return StringTable::LoadString("LoadBrief:Korea", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 280);
+	return(brief);
+}
+
+/// <summary>
+/// Changes the lower case letters of a text to capitals, those of the Latin-1 letters from 0xE0 to 0xFE too.
+/// </summary>
+static void Upper_Case(wchar_t * text)
+{
+	for (; *text; text++) {
+		if ((*text >= 'a' && *text <= 'z') || (*text >= 0xe0 && *text <= 0xfe)) {
+			*text -= 0x20;
+		}
 	}
-	if (side == 2) {
-		return StringTable::LoadString("LoadBrief:French", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 282);
-	}
-	if (side == 3) {
-		return StringTable::LoadString("LoadBrief:Germans", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 284);
-	}
-	if (side == 4) {
-		return StringTable::LoadString("LoadBrief:British", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 286);
-	}
-	if (side == 5) {
-		return StringTable::LoadString("LoadBrief:Lybia", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 288);
-	}
-	if (side == 6) {
-		return StringTable::LoadString("LoadBrief:Iraq", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 290);
-	}
-	if (side == 7) {
-		return StringTable::LoadString("LoadBrief:Cuba", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 292);
-	}
-	if (side == 8) {
-		return StringTable::LoadString("LoadBrief:Russia", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 294);
-	}
-	return NULL;
 }
 
 /// <summary>
@@ -426,122 +383,147 @@ inline wchar_t const * Briefing(int side)
 /// </summary>
 void LoadProgressManager::Draw(void)
 {
-	bool low_res = VideoModeWidth == LowResWidth;
+	bool low_res = (VideoModeWidth == LowResWidth);
 	ProgressSurface = new BSurface(VideoModeWidth, VideoModeHeight, 2);
 	if (ProgressSurface == NULL) {
 		return;
 	}
-	int background = DSurface::Build_Hicolor_Pixel(BlackColor);
-	Rect screen(0, 0, 0, 0);
-	screen.Width = VideoModeWidth;
-	screen.Height = VideoModeHeight;
-	ProgressSurface->Fill_Rect(screen, screen, background);
+	int color = DSurface::Build_Hicolor_Pixel(BlackColor);
+	Rect rect(0, 0, 0, 0);
+	rect.Width = VideoModeWidth;
+	rect.Height = VideoModeHeight;
+	ProgressSurface->Fill_Rect(rect, rect, color);
 
 	if (Session.Type == GAME_NORMAL) {
-		char const * name = low_res ? Scen->LS640BkgdName : Scen->LS800BkgdName;
-		if (*name != '\0') {
-			LoadMessage = NULL;
-			if (*Scen->LSLoadMessage) {
-				LoadMessage = StringTable::LoadString(Scen->LSLoadMessage, NULL, "D:\\Ra2\\LdPrgMgr.cpp", 591);
-			}
-			LoadBriefing = NULL;
-			if (*Scen->LSBrief) {
-				LoadBriefing = StringTable::LoadString(Scen->LSBrief, NULL, "D:\\Ra2\\LdPrgMgr.cpp", 595);
-			}
-			int side = Progress.Get_Side();
-			char const * title_name = Get_Title_Bar_File(VideoModeWidth, VideoModeHeight, side);
-			char const * bar_name = Get_Splash_Bar_File(VideoModeWidth, VideoModeHeight, side);
-			TitleBarShape = (ShapeSet *)Load_Alloc_Data(title_name, TitleBarShapeLoaded);
-			TextBarShape = (ShapeSet *)Load_Alloc_Data(bar_name, TextBarShapeLoaded);
-			PictureShape = (ShapeSet *)Load_Alloc_Data(name, PictureShapeLoaded);
-			ConvertClass * title_drawer = Get_Load_Screen_Drawer();
-			ConvertClass * picture_drawer = Get_Load_Screen_Side_Drawer();
-			ConvertClass * bar_drawer = Get_Splash_Bar_Drawer();
+		char const * background;
+		if (low_res) {
+			background = Scen->LS640BkgdName;
+		} else {
+			background = Scen->LS800BkgdName;
+		}
+		if (*background == '\0') {
+			return;
+		}
+		LoadMessage = NULL;
+		if (*Scen->LSLoadMessage != '\0') {
+			LoadMessage = StringTable::LoadString(Scen->LSLoadMessage, NULL, "D:\\Ra2\\LdPrgMgr.cpp", 591);
+		}
+		LoadBriefing = NULL;
+		if (*Scen->LSBrief != '\0') {
+			LoadBriefing = StringTable::LoadString(Scen->LSBrief, NULL, "D:\\Ra2\\LdPrgMgr.cpp", 595);
+		}
+		int side = Progress.Get_Side();
+		char const * titlebar = Get_Title_Bar_File(VideoModeWidth, VideoModeHeight, side);
+		char const * loadbar = Get_Splash_Bar_File(VideoModeWidth, VideoModeHeight, side);
+		TitleBarShape = (ShapeSet *)Load_Alloc_Data(titlebar, TitleBarShapeLoaded);
+		TextBarShape = (ShapeSet *)Load_Alloc_Data(loadbar, TextBarShapeLoaded);
+		PictureShape = (ShapeSet *)Load_Alloc_Data(background, PictureShapeLoaded);
+		ConvertClass * titlebar_drawer = Get_Load_Screen_Drawer();
+		ConvertClass * screen_drawer = Get_Load_Screen_Side_Drawer();
+		ConvertClass * loadbar_drawer = Get_Splash_Bar_Drawer();
 
-			Point2D point(TitleBarRect.X, TitleBarRect.Y);
-			if (TitleBarShape != NULL) {
-				Draw_Shape(*ProgressSurface, *title_drawer, TitleBarShape, 0, point, screen, SHAPE_WIN_REL);
-			} else {
-				ProgressSurface->Fill_Rect(screen, TitleBarRect, background);
-			}
-			point.Y = PictureRect.Y;
-			Draw_Shape(*ProgressSurface, *picture_drawer, PictureShape, 0, point, screen, SHAPE_WIN_REL);
-			point.Y = TextBarRect.Y;
-			if (TextBarShape != NULL) {
-				Draw_Shape(*ProgressSurface, *bar_drawer, TextBarShape, 0, point, screen, SHAPE_WIN_REL);
-			} else {
-				ProgressSurface->Fill_Rect(screen, TextBarRect, background);
-			}
+		Point2D pt(TitleBarRect.X, TitleBarRect.Y);
+		if (TitleBarShape != NULL) {
+			Draw_Shape(*ProgressSurface, *titlebar_drawer, TitleBarShape, 0, pt, rect, SHAPE_WIN_REL);
+		} else {
+			ProgressSurface->Fill_Rect(rect, TitleBarRect, color);
+		}
+		pt.Y = PictureRect.Y;
+		Draw_Shape(*ProgressSurface, *screen_drawer, PictureShape, 0, pt, rect, SHAPE_WIN_REL);
+		pt.Y = TextBarRect.Y;
+		if (TextBarShape != NULL) {
+			Draw_Shape(*ProgressSurface, *loadbar_drawer, TextBarShape, 0, pt, rect, SHAPE_WIN_REL);
+		} else {
+			ProgressSurface->Fill_Rect(rect, TextBarRect, color);
+		}
 
-			point.X = TitleBarRect.X + 10;
-			point.Y = TitleBarRect.Y + 10;
-			ColorScheme * scheme = Progress.Side_Scheme();
-			if (LoadMessage != NULL) {
-				Fancy_Text_Print(LoadMessage, *ProgressSurface, screen, point, scheme, 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));
+		pt.X = TitleBarRect.X + 10;
+		pt.Y = TitleBarRect.Y + 10;
+		ColorScheme * scheme = Progress.Side_Scheme();
+		if (LoadMessage != NULL) {
+			Fancy_Text_Print(LoadMessage, *ProgressSurface, rect, pt, scheme, 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));
+		}
+		if (LoadBriefing != NULL) {
+			if (low_res) {
+				pt.X = Scen->LS640BriefLocX + PictureRect.X;
+				pt.Y = Scen->LS640BriefLocY + PictureRect.Y;
+			} else {
+				pt.X = Scen->LS800BriefLocX + PictureRect.X;
+				pt.Y = Scen->LS800BriefLocY + PictureRect.Y;
 			}
-			if (LoadBriefing != NULL) {
-				if (low_res) {
-					point.X = Scen->LS640BriefLocX + PictureRect.X;
-					point.Y = Scen->LS640BriefLocY + PictureRect.Y;
-				} else {
-					point.X = Scen->LS800BriefLocX + PictureRect.X;
-					point.Y = Scen->LS800BriefLocY + PictureRect.Y;
-				}
-				wchar_t text[2048];
-				wcscpy(text, LoadBriefing);
-				RGBClass pixel_color = scheme->HSV;
-				int pixel = DSurface::Build_Hicolor_Pixel(pixel_color.Get_Red(), pixel_color.Get_Green(), pixel_color.Get_Blue());
-				int width = 0;
-				int height = 0;
-				BitFont::Instance->Text_Dimensions(text, &width, &height, 400);
-				Rect area(point.X, point.Y, width, height);
-				Shade_Text_Area(text, ProgressSurface, point.X, point.Y, 400, 0, false);
-				Draw_Area_Text(text, ProgressSurface, area, pixel, 0);
-			}
+			wchar_t buffer[2048];
+			wcscpy(buffer, LoadBriefing);
+			RGBClass rgb = scheme->HSV;
+			int text_color = DSurface::Build_Hicolor_Pixel(rgb);
+			int width = 0;
+			int height = 0;
+			BitFont::Instance->Text_Dimensions(buffer, &width, &height, 400);
+			Rect text_rect;
+			text_rect = Rect(pt.X, pt.Y, width, height);
+			Shade_Text_Area(buffer, ProgressSurface, pt, 400, 0, false);
+			Draw_Area_Text(buffer, ProgressSurface, text_rect, text_color, 0);
 		}
 		return;
-	}
-
-	{
-		int side = Session.Players[0]->Get_Country();
-		char filename[32];
-		char const * suffix = VideoModeWidth == LowResWidth ? Suffix640 : Suffix800;
-		Loading_Filename(filename, side, suffix);
-		PictureShape = (ShapeSet *)Load_Alloc_Data(filename, PictureShapeLoaded);
+	} else {
+		int country = Session.Players[0]->Get_Country();
+		char name[32];
+		Background_Name(name, country);
+		PictureShape = (ShapeSet *)Load_Alloc_Data(name, PictureShapeLoaded);
 		ConvertClass * drawer = Get_MP_Load_Drawer();
-		Point2D point = Copy_Point(&PictureRect);
-		Draw_Shape(*ProgressSurface, *drawer, PictureShape, 0, point, screen, SHAPE_WIN_REL);
-
+		Point2D origin = Copy_Point(&PictureRect);
+		Draw_Shape(*ProgressSurface, *drawer, PictureShape, 0, origin, rect, SHAPE_WIN_REL);
 		ColorScheme * scheme = Progress.Text_Scheme();
-		RGBClass pixel_color = scheme->HSV;
-		int pixel = DSurface::Build_Hicolor_Pixel(pixel_color.Get_Red(), pixel_color.Get_Green(), pixel_color.Get_Blue());
+		RGBClass rgb = scheme->HSV;
+		int text_color = DSurface::Build_Hicolor_Pixel(rgb);
 
-		wchar_t const * country_name = Country_Name(side);
-		Rect area = Name_Area();
-		point = Copy_Point(&area);
-		Shade_Text_Area(country_name, ProgressSurface, point.X, point.Y, area.Width, 2, false);
-		Draw_Area_Text(country_name, ProgressSurface, area, pixel, 2);
+		wchar_t const * country_name = Country_Name(country);
+		Rect name_rect;
+		if (VideoModeWidth == LowResWidth) {
+			name_rect.X = 385;
+			name_rect.Y = 436;
+		} else {
+			name_rect.X = 533;
+			name_rect.Y = 545;
+		}
+		name_rect.Width = 200;
+		name_rect.Height = 20;
+		Center_On_Screen(&name_rect);
+		Rect box(name_rect);
+		origin = Copy_Point(&box);
+		Shade_Text_Area(country_name, ProgressSurface, origin, box.Width, 2, false);
+		Draw_Area_Text(country_name, ProgressSurface, box, text_color, 2);
 
 		if (!Is_Observer()) {
 			wchar_t unit_name[128];
-			wcscpy(unit_name, Unit_Name(side));
+			wcscpy(unit_name, Country_Unit_Name(country));
 			Upper_Case(unit_name);
-			Rect unit_area = Unit_Area();
-			int unit_pixel = DSurface::Build_Hicolor_Pixel(BlackColor);
-			Draw_Area_Text(unit_name, ProgressSurface, unit_area, unit_pixel, 0);
+			Rect unit_rect;
+			if (VideoModeWidth == LowResWidth) {
+				unit_rect.X = 16;
+				unit_rect.Y = 72;
+			} else {
+				unit_rect.X = 20;
+				unit_rect.Y = 90;
+			}
+			unit_rect.Width = 200;
+			unit_rect.Height = 20;
+			Center_On_Screen(&unit_rect);
+			box = unit_rect;
+			int black = DSurface::Build_Hicolor_Pixel(BlackColor);
+			Draw_Area_Text(unit_name, ProgressSurface, box, black, 0);
 
-			wchar_t const * brief = Briefing(side);
-			area = Get_Briefing_Area();
-			point = Copy_Point(&area);
-			Shade_Text_Area(brief, ProgressSurface, point.X, point.Y, area.Width, 0, true);
-			Draw_Area_Text(brief, ProgressSurface, area, pixel, 0);
+			wchar_t const * brief = Country_Brief(country);
+			box = Get_Briefing_Area();
+			origin = Copy_Point(&box);
+			Shade_Text_Area(brief, ProgressSurface, origin, box.Width, 0, true);
+			Draw_Area_Text(brief, ProgressSurface, box, text_color, 0);
 		}
 
 		wchar_t const * loading = StringTable::LoadString("GUI:LoadingEx", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 749);
-		area = Get_Loading_Text_Area();
-		point = Copy_Point(&area);
-		Shade_Text_Area(loading, ProgressSurface, point.X, point.Y, area.Width, 0, false);
-		Draw_Area_Text(loading, ProgressSurface, area, pixel, 0);
+		box = Get_Loading_Text_Area();
+		origin = Copy_Point(&box);
+		Shade_Text_Area(loading, ProgressSurface, origin, box.Width, 0, false);
+		Draw_Area_Text(loading, ProgressSurface, box, text_color, 0);
 	}
 }
 #endif
@@ -587,9 +569,10 @@ Rect __fastcall Get_Loading_Text_Area(void)
 
 /// <summary>
 /// Darkens the area behind a text: the area the text takes from a corner and a width (flags 1 centres it, 2
-/// aligns it to the right, fill makes it as wide as the width), moved in by four pixels.
+/// aligns it to the right, fill makes it as wide as the width), moved in by four pixels. The corner is passed
+/// by value, as ra2-decomp's text has it: the image copies the point at each call.
 /// </summary>
-void __fastcall Shade_Text_Area(wchar_t const * text, Surface * surface, int x, int y, int width, int flags, bool fill)
+void __fastcall Shade_Text_Area(wchar_t const * text, Surface * surface, Point2D point, int width, int flags, bool fill)
 {
 	int text_width = 0;
 	int text_height = 0;
@@ -598,11 +581,11 @@ void __fastcall Shade_Text_Area(wchar_t const * text, Surface * surface, int x, 
 		text_width = width;
 	}
 	Rect area;
-	area = Rect(x, y, text_width, text_height);
+	area = Rect(point.X, point.Y, text_width, text_height);
 	if (flags & 1) {
-		area.X = (width - text_width) / 2 + x;
+		area.X = (width - text_width) / 2 + point.X;
 	} else if (flags & 2) {
-		area.X = x - text_width + width;
+		area.X = point.X - text_width + width;
 	}
 	Inflate_Rect(area, -4);
 	Blend_Rect(&area, surface, 0, 159);

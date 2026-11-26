@@ -1265,7 +1265,7 @@ void SidebarClass::Recalc(void)
  * HISTORY:                                                                                    *
  *   12/09/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 58 bytes differ against the image-derived bound 0067e210 (1067 B): three instructions in the else arm's expanded Remove_Buttons (the side's extra subtracted before StripTop, StripTop in a scratch register). The order follows the number of locals the function holds, its expanded members' locals included: exact with eight to twelve more locals in the function, or three to six more in Max_Visible (dead `int p = 0;` probes, never a landing form); ra2-decomp's written-out loops with `Max_Visible() * 2` move the window the other way (lane F48, 2026-11-23); main: best 99.04
+#ifdef RA2_NON_MATCHING // not exact: 58 bytes differ against the image-derived bound 0067e210 (1067 B): three instructions in the else arm's expanded Remove_Buttons (the side's extra subtracted before StripTop, StripTop in a scratch register). The order follows the number of locals the function holds, its expanded members' locals included: exact with seven to ten more referenced locals in the function now that the uncalled Activate_Tab is called here (its parameter is one unit; lane F72), and seven is the only count that leaves SelectClass::Action exact; or three to six more in Max_Visible (probes, never a landing form); ra2-decomp's written-out loops with `Max_Visible() * 2` move the window the other way (lane F48, 2026-11-23); main: best 99.04
 bool SidebarClass::Activate(int control)
 {
 	bool old = IsSidebarActive;
@@ -1324,9 +1324,7 @@ bool SidebarClass::Activate(int control)
 					TabButton[index].Enable();
 				}
 			}
-			TabButton[ActiveTabIndex].Turn_On();
-			Column[ActiveTabIndex].Activate();
-			Update_Build_Buttons();
+			Activate_Tab(ActiveTabIndex); // RA2: Activate_Tab 0x67D7E0 has no caller in the image; its three statements stand here and the store of ActiveTabIndex to itself folds away
 		} else {
 			Stop_Ingame_Movie();
 			Remove_A_Button(Repair);

@@ -117,6 +117,7 @@
     "_$E38": 7500496,
     "?Create@Conflict@WorldDominationTour@@SI?AV?$rc_ptr@VConflict@WorldDominationTour@@@@ABV?$rc_ptr@VWDTTerritory@@@@@Z": 7500528,
     "??_GConflict@WorldDominationTour@@UAEPAXI@Z": 7502640,
+    "??_G?$rc_ptr@VConflict@WorldDominationTour@@@@UAEPAXI@Z": 7503040,
     "??_R0?AVrc_ptr_base@@@8": 8248008,
     "?Release@ReferenceCounted@@UAEXXZ": 6526752,
     "?Unknown_Virtual_4@ReferenceCounted@@UAE_NH@Z": 6526784,
@@ -131,8 +132,8 @@
     "_$E43": 7500800,
     "??_G?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEPAXI@Z": 7504912,
     "??_G?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEPAXI@Z": 7504720,
-    "??_G?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@UAEPAXI@Z": 7503136,
     "??_G?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@UAEPAXI@Z": 7503088,
+    "??_G?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@UAEPAXI@Z": 7503136,
     "?Deinit_Game_Options@Conflict@WorldDominationTour@@SIXXZ": 7502112,
     "?Describe_Options@Conflict@WorldDominationTour@@QBE?AVWideWstring@@XZ": 7502176,
     "??_G?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@UAEPAXI@Z": 7503232,
@@ -145,9 +146,9 @@
     "??B?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@UBE_NXZ": 7503024,
     "??E?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@UAEAAV0@XZ": 7504688,
     "??F?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@UAEAAV0@XZ": 7504704,
+    "??_G?$ValueGameOption@E@WorldDominationTour@@UAEPAXI@Z": 7503648,
     "__purecall": 4950368,
     "??_GGameOption@WorldDominationTour@@UAEPAXI@Z": 7503344,
-    "??_G?$ValueGameOption@E@WorldDominationTour@@UAEPAXI@Z": 7503648,
     "?Get_Display_Priority@?$ValueGameOption@E@WorldDominationTour@@UBEHABV?$rc_ptr@VWDTTerritory@@@@@Z": 7503376,
     "??8?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UBE_NABV0@@Z": 7503696,
     "?Resize@?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAE_NHPBV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z": 7503776,
@@ -158,7 +159,6 @@
     "?Get_String@?$ValueGameOption@E@WorldDominationTour@@UBE?AVWideWstring@@ABV?$rc_ptr@VWDTTerritory@@@@ABV3@@Z": 7503408,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??_E?$rc_ptr@VWDTTerritory@@@@UAEPAXI@Z": 5367296,
-    "??_E?$rc_ptr@VConflict@WorldDominationTour@@@@UAEPAXI@Z": 7499616,
     "??_E?$rc_ptr@VTerritory@WorldDominationTour@@@@UAEPAXI@Z": 7518528,
     "??_7?$rc_ptr@VTerritory@WorldDominationTour@@@@6B@": 8057468,
     "??_E?$rc_ptr@VGameOption@WorldDominationTour@@@@UAEPAXI@Z": 7504800,
@@ -3123,6 +3123,58 @@
       "source": "src/wdtconflict.cpp",
       "population": "rebuild-wdtconflict",
       "source_order": 7503024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7503040,
+      "method": "00727cc0",
+      "body_bytes": 36,
+      "body_sha256": "3a797c70eaaa8d6005ca91b8b02c58362c44bbabcfeb1b18e2902faab1809b2a",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "2595d2ec108e32c81babe0cae55ed76d77edfb157dadaf9c101188d530539a9f",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$rc_ptr@VConflict@WorldDominationTour@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$rc_ptr@VConflict@WorldDominationTour@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VConflict@WorldDominationTour@@@@6B@",
+          "target": 8056812,
+          "addend": 0,
+          "resolved": 8056812
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293990466
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 368736
+        }
+      ],
+      "source_sha256": "d05f1b135da033374fc07041c43ac1eb557a4fc03ebdd53202a6e060e70252d8",
+      "source": "src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7503040,
       "source_quality_family": "rebuild"
     },
     {

@@ -66,6 +66,7 @@
 #include "wonlinestringcontrol.h"
 #include "creategamecontrol.h"
 #include "wdtnet.h"
+#include "wdtcampaign.h"
 #include "wolopt.h"
 #include "wsproto.h"
 #include "wspudp.h"
@@ -2733,66 +2734,77 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 
 			return(S_OK);
 		}
-#ifdef RA2_NON_MATCHING // not exact: 17 bytes differ in 16 instructions, one byte shorter (1871 by position); ra2-decomp's twin text (Yuri's Revenge 0x007A5890, matched there) in this tree's names with RA2's statements; calls, frame and every other instruction equal. In the expanded ArrayList<User>::add the memmove source is formed in place (add ecx, edx) where the executable takes a new register (lea eax, [edx + ecx]), and three scratch registers after it follow. The order moves with the number of memory references in the function (scratch probes: 29 to 33 more load-and-store statements after the insertion give every instruction of the executable); no reference form found for them
 		STDMETHOD(OnChannelJoin)(HRESULT result, Channel * channel, User * user) // RA2: somebody (the player included) joined a channel, or a join failed (ra2-decomp's twin text, Yuri's Revenge 0x007A5890, in this tree's names)
 		{
-			if (result == 0x8004006C) {
+			bool still_joining = result == 0x8004006C;
+			if (still_joining) {
 				return(S_OK);
 			}
 			int i;
 			int players;
 			wchar_t joinname[64];
 			joinname[0] = 0;
-			if (channel) {
+			bool has_channel = channel != NULL;
+			if (has_channel) {
 				Char_To_Wide(joinname, (char *)channel->name, -1);
-				if (strncmp((char *)channel->name, "Lob_33_", 7) == 0) {
+				bool lobby_name = strncmp((char *)channel->name, "Lob_33_", 7) == 0;
+				if (lobby_name) {
 					int lobby = atol((char *)channel->name + strlen("Lob_33_"));
 					int d = lobby / 8;
 					int m = lobby % 8;
-					if (d == 0) {
+					bool first_page = d == 0;
+					if (first_page) {
 						swprintf(joinname, L"%s", g_Lobbies[m]);
 					} else {
 						swprintf(joinname, L"%s %d", g_Lobbies[m], d + 1);
 					}
 				}
 			}
-			if (result < 0) {
-				if (result == 0x80040070) {
+			bool failed = result < 0;
+			if (failed) {
+				bool channel_gone = result == 0x80040070;
+				if (channel_gone) {
 					Channel * chan = NULL;
 					for (i = 0; i < g_UserChannels.length(); i++) {
 						g_UserChannels.getPointer(&chan, i);
-						if (strcmp((char *)g_PendingChannel.name, (char *)chan->name) == 0) {
+						bool same_channel = strcmp((char *)g_PendingChannel.name, (char *)chan->name) == 0;
+						if (same_channel) {
 							g_UserChannels.remove(i);
 							break;
 						}
 					}
 					for (i = 0; i < g_GameChannelList.length(); i++) {
 						g_GameChannelList.getPointer(&chan, i);
-						if (strcmp((char *)g_PendingChannel.name, (char *)chan->name) == 0) {
+						bool same_channel = strcmp((char *)g_PendingChannel.name, (char *)chan->name) == 0;
+						if (same_channel) {
 							g_GameChannelList.remove(i);
 							break;
 						}
 					}
-					if (Is_Tournament_Session()) {
+					bool tournament = Is_Tournament_Session();
+					if (tournament) {
 						Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("TXT_GAME_CLOSED", NULL, "D:\\Ra2\\wonline.cpp", 0x128A));
 						SetEvent(g_WaitEventHandles[5]);
 					} else {
 						ODMessageBox(StringTable::LoadString("TXT_GAME_CLOSED", NULL, "D:\\Ra2\\wonline.cpp", 0x128D), 0, Wait_Callback_Thunk, false);
 					}
 				} else if (result == 0x80040071) {
-					if (Is_Tournament_Session()) {
+					bool tournament = Is_Tournament_Session();
+					if (tournament) {
 						Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("TXT_BADPASS", NULL, "D:\\Ra2\\wonline.cpp", 0x1294));
 						SetEvent(g_WaitEventHandles[5]);
 					} else {
 						ODMessageBox(StringTable::LoadString("TXT_BADPASS", NULL, "D:\\Ra2\\wonline.cpp", 0x1297), 0, Wait_Callback_Thunk, false);
 					}
 				} else if (result == 0x8004006E) {
-					if (Is_Tournament_Session()) {
+					bool tournament = Is_Tournament_Session();
+					if (tournament) {
 						Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("TXT_CHANNEL_FULL", NULL, "D:\\Ra2\\wonline.cpp", 0x129E));
 						SetEvent(g_WaitEventHandles[5]);
 					} else {
 						ODMessageBox(StringTable::LoadString("TXT_CHANNEL_FULL", NULL, "D:\\Ra2\\wonline.cpp", 0x12A1), 0, Wait_Callback_Thunk, false);
-						if (g_PendingChannel.type == 0) {
+						bool was_lobby = g_PendingChannel.type == 0;
+						if (was_lobby) {
 							SetEvent(g_WaitEventHandles[5]);
 						}
 					}
@@ -2814,7 +2826,8 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 				Draw_Player_List(0, false);
 				SetEvent(g_WaitEventHandles[10]);
 				HWND main = WS_Find_Dialog(0x113);
-				if (main) {
+				bool found_main = main != NULL;
+				if (found_main) {
 					ShowWindow(main, SW_SHOW);
 					OwnerDraw::Set_Paint_Disabled(main, 0);
 				}
@@ -2828,19 +2841,23 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 				Close_Wait_Window(2);
 				g_ChannelCount++;
 				DebugString("Joined Channel\n");
-				if (!Is_Tournament_Session()) {
+				bool not_tournament = !Is_Tournament_Session();
+				if (not_tournament) {
 					Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("TXT_JOINED_S", NULL, "D:\\Ra2\\wonline.cpp", 0x12E1), joinname);
 				}
-				if (channel->type == 0) {
+				bool joined_lobby = channel->type == 0;
+				if (joined_lobby) {
 					g_LobbyNumber = atol((char *)channel->name + strlen("Lob_33_"));
 					HWND main = WS_Find_Dialog(0x113);
-					if (main) {
+					bool found_main = main != NULL;
+					if (found_main) {
 						EnableWindow(GetDlgItem(main, 0x53D), TRUE);
 						bool join = false;
 						bool observe = false;
 						HWND list = GetDlgItem(main, 0x6EE);
 						int index = SendMessage(list, LB_GETCURSEL, 0, 0);
-						if (index != LB_ERR) {
+						bool has_selection = index != LB_ERR;
+						if (has_selection) {
 							index = SendMessage(list, LB_GETITEMDATA, index, 0);
 							if (index >= 0 && index < g_GameChannelList.length()) {
 								Channel choice;
@@ -2860,11 +2877,13 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 						SetFocus(GetDlgItem(main, 0x540));
 					}
 				}
-				if (channel->type == 33) {
+				bool joined_game = channel->type == 33;
+				if (joined_game) {
 					Session.MPGameMode = First_Game_Mode();
 					Session.ScenarioMaxPlayers = 8;
 					LobbyObserverSlot = 7;
-					if (Session.MPGameMode) {
+					bool has_mode = Session.MPGameMode != NULL;
+					if (has_mode) {
 						Session.MPGameMode->vt_entry_24();
 					}
 					Clear_Vector(&Session.Players);
@@ -2882,12 +2901,14 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 					}
 					Session.Players.Add(node);
 					Session.GameName[0] = 0;
-					if (!Is_Tournament_Session()) {
+					bool not_tournament_game = !Is_Tournament_Session();
+					if (not_tournament_game) {
 						Darken_Surface(NULL, true);
 						HWND dlg = WS_Create_Dialog(ProgramInstance, 0xC9, MainWindow, WOL_Guest_Dialog_Proc, FALSE);
 						Show_Dialog(dlg, 0xC9);
 						HWND main = WS_Find_Dialog(0x113);
-						if (main) {
+						bool found_main = main != NULL;
+						if (found_main) {
 							ShowWindow(main, SW_HIDE);
 							OwnerDraw::Set_Paint_Disabled(main, 0);
 						}
@@ -2901,7 +2922,8 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 					}
 				}
 			} else {
-				if (g_CurrentChannel.type == 33) {
+				bool in_game_channel = g_CurrentChannel.type == 33;
+				if (in_game_channel) {
 					VocClass::PlayGlobal(Rule->PlayerJoined, 1.0f, 0x2000, 0);
 				}
 				if (channel->type != 0 && (g_GameStartRequested || WolOptionsLocked != 0 || g_StartGameReceived)) {
@@ -2921,39 +2943,47 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 						bool found = false;
 						for (i = 0; i < g_WDTTeamLookupQueue.length(); i++) {
 							g_WDTTeamLookupQueue.get(name, i);
-							if (name == ladder_name) {
+							bool queued = name == ladder_name;
+							if (queued) {
 								found = true;
 								break;
 							}
 						}
-						if (!found) {
+						bool missing = !found;
+						if (missing) {
 							g_WDTTeamLookupQueue.addHead(ladder_name);
 						}
 					}
-					if (!g_UserLocales.contains(ladder_name)) {
+					bool locale_unknown = !g_UserLocales.contains(ladder_name);
+					if (locale_unknown) {
 						Wstring name;
 						bool found = false;
 						for (i = 0; i < g_UserLocaleLookupQueue.length(); i++) {
 							g_UserLocaleLookupQueue.get(name, i);
-							if (name == ladder_name) {
+							bool queued = name == ladder_name;
+							if (queued) {
 								found = true;
 								break;
 							}
 						}
-						if (!found) {
+						bool missing = !found;
+						if (missing) {
 							g_UserLocaleLookupQueue.addHead(ladder_name);
 						}
 					}
-					if (!g_ActiveLadder->contains(ladder_name)) {
+					bool ladder_unknown = !g_ActiveLadder->contains(ladder_name);
+					if (ladder_unknown) {
 						g_pNetUtil->RequestLadderList(g_LadderAddress, g_LadderPort, ladder_name.get(), g_GameSKU & 0xFFFF00, -1, 0, 0);
 					}
 				}
-				if (channel->type != 0) {
+				bool game_channel = channel->type != 0;
+				if (game_channel) {
 					for (i = 1; i < sizeof(g_UserInfo) / sizeof(ChannelUserInfo); i++) {
 						g_UserInfo[i].accepted = 0;
 						EnableWindow(GetDlgItem(GameoptWindow(), 0x59F), TRUE);
 					}
-					if (!g_IsChannelCreator) {
+					bool guest = !g_IsChannelCreator;
+					if (guest) {
 						HWND dialog = WS_Find_Dialog(0xC9);
 						Enable_Player_Combos(dialog, true);
 					}
@@ -2965,7 +2995,8 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 			User temp_user;
 			for (i = 0; i < g_UserList.length(); i++) {
 				g_UserList.get(temp_user, i);
-				if (Compare_Users(user, &temp_user) < 0) {
+				bool sorts_before = Compare_Users(user, &temp_user) < 0;
+				if (sorts_before) {
 					index = i;
 					break;
 				}
@@ -2976,13 +3007,15 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 			if (!(user->flags & 0x8000) && channel->type == 0 && Is_Tournament_Session()) {
 				Wstring name((char *)user->name);
 				g_PingQueue.addTail(name);
-				if (g_PingsPending.length() == 0) {
+				bool none_pending = g_PingsPending.length() == 0;
+				if (none_pending) {
 					Service_Pending_Player_Pings();
 				}
 			}
 			players = g_UserList.length();
 			int userinfoindex = 0;
-			if (channel->type != 0) {
+			bool game_channel = channel->type != 0;
+			if (game_channel) {
 				{
 					Wstring name((char *)user->name);
 					userinfoindex = Player_Name_To_Index(name);
@@ -2990,8 +3023,10 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 				memmove(&g_UserInfo[userinfoindex + 1], g_UserInfo + userinfoindex, sizeof(ChannelUserInfo) * (15 - userinfoindex));
 				memset(&g_UserInfo[userinfoindex], 0, sizeof(ChannelUserInfo));
 				strcpy(g_UserInfo[userinfoindex].name, (char *)user->name);
-				if (g_IsChannelCreator == 1) {
-					if (!Is_Tournament_Session()) {
+				bool hosting = g_IsChannelCreator == 1;
+				if (hosting) {
+					bool not_tournament = !Is_Tournament_Session();
+					if (not_tournament) {
 						Update_Channel_Player_Limit();
 					}
 					if (Is_All_Slots_Filled() && Is_Observer_Slot_Full()) {
@@ -3009,7 +3044,8 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 									taken = 1;
 								}
 							}
-							if (taken == 0) {
+							bool color_free = taken == 0;
+							if (color_free) {
 								break;
 							}
 						}
@@ -3017,7 +3053,8 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 						memset(node, 0, sizeof(NodeNameType));
 						wcscpy(node->Name, Narrow_To_Wide((char *)user->name));
 						node->Address = User_To_IPX_Address(user);
-						if (Session.MPGameMode) {
+						bool has_mode = Session.MPGameMode != NULL;
+						if (has_mode) {
 							node->Set_Country(Session.MPGameMode->DefaultCountry());
 						} else {
 							node->Set_Country(-2);
@@ -3036,19 +3073,22 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 						Session.Players.Add(node);
 						Assign_Slot(node);
 						if (Is_Tournament_Session() && channel->type != 0) {
-							if (Online_Session_State != 2) {
+							bool not_wdt = Online_Session_State != 2;
+							if (not_wdt) {
 								Net2DecodeGameopt(g_MatchStartText, NULL);
 							} else {
 								Apply_Endpoint_Map(strchr(g_MatchStartText, ':'));
 							}
 							for (i = 0; i < Session.Scenarios.Count(); i++) {
 								char const * filename = Session.Scenarios[i]->Get_Filename();
-								if (stricmp(Session.ScenarioFileName, filename) == 0) {
+								bool same_map = stricmp(Session.ScenarioFileName, filename) == 0;
+								if (same_map) {
 									Set_Scenario_Info_From_Index(i);
 									break;
 								}
 							}
-							if (i >= Session.Scenarios.Count()) {
+							bool map_not_found = i >= Session.Scenarios.Count();
+							if (map_not_found) {
 								Set_Scenario_Info_From_Index(0);
 							}
 						}
@@ -3062,7 +3102,8 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 						g_pChat->RequestPublicGameOptions(options);
 						Send_Player_List();
 						Send_Lobby_Options(true, false);
-						if (Is_Host()) {
+						bool host = Is_Host();
+						if (host) {
 							Send_User_Pings();
 							Request_All_User_Pings();
 						}
@@ -3084,9 +3125,6 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 			Draw_Player_List(0, false);
 			return(S_OK);
 		}
-#else
-		STDMETHOD(OnChannelJoin)(HRESULT result, Channel * channel, User * user);
-#endif
 		STDMETHOD(OnChannelLeave)(HRESULT r, struct Channel *, struct User * user)
 		{
 			if (FAILED(r)) {

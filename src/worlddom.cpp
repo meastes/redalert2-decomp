@@ -24,6 +24,7 @@
 #include "ownrdraw.h"
 #include "pcx.h" // RA2: the side choice pictures are PCX files
 #include "wdtnet.h"
+#include "wdtcampaign.h"
 #include "wonline.h"
 #include "wstring.h" // RA2: the includes this file needs
 #include "goptions.h" // RA2: Setup_Game switches the screen to 640x480 for the tour

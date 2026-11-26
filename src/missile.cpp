@@ -44,7 +44,7 @@
 /// <param name="level">Should the projectile hold its height (no climb or dive steering)?</param>
 /// <returns>Returns with the distance still to be covered, with the vertical component
 /// discounted. A projectile with nothing to home on levels out, advances and returns its speed.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 179 bytes differ against the image-derived bound 00593870 (2,101 B) (was 1,332; ra2-decomp's text with the direct level turn of RobinDigitalPro/ra2-1001-decomp 1510aed, previously 191 with the named arguments from TibSun missile.cpp:100, and the copy-initialised direction temporary of ra2-decomp's matched Fire_At, aircraft.cpp:831; the worker's ternaries and parenthesised Speed, 13 B, held on variation_candidates.csv); main: best 99.22, tried 4 times (order, float, register)
+#ifdef RA2_NON_MATCHING // not exact: 51 bytes differ against the image-derived bound 00593870 (2,101 B) (was 179; ra2-decomp 1368d8de's matched text with its two conditional expressions; exact with the rest of that text, `frame_velocity(velocity, velocity.Z)` and `velocity.Magnitude()`, once velocity.h has the twin's planar constructor and Magnitude and face.h's DirType::Turn names its difference: held, because with those three header forms either WinMain 0x68E280 or queue Print_CRCs 0x62A360 stops being exact (the patch is private/dossiers/fable/f73/projectile_motion_exact.patch); main: best 99.22, tried 4 times (order, float, register)
 int Projectile_Motion(Coord & coord, TVelocity3D<double> & velocity, Coord const & target_coord, DirType const & rot, bool aircraft, bool airburst, bool veryhigh, bool level)
 {
 	if (target_coord == COORD_NONE) {
@@ -82,11 +82,7 @@ int Projectile_Motion(Coord & coord, TVelocity3D<double> & velocity, Coord const
 			}
 
 			int cell_distance = target_distance / CELL_LEPTON;
-			if (airburst || veryhigh) {
-				cell_distance = 10;
-			} else if (cell_distance >= 5) {
-				cell_distance = 5;
-			}
+			cell_distance = (airburst || veryhigh) ? 10 : min(cell_distance, 5);
 
 			if (!level) {
 				int height_delta = coord.Z - LEVEL_LEPTON_H * cell_distance - terrain_height;
@@ -110,11 +106,7 @@ int Projectile_Motion(Coord & coord, TVelocity3D<double> & velocity, Coord const
 
 		velocity.Set_Pitch(desired_pitch);
 
-		if (airburst) {
-			delta.Z = 0;
-		} else {
-			delta.Z /= 4;
-		}
+		delta.Z = airburst ? 0 : delta.Z / 4;
 
 		return(delta.Length());
 	}

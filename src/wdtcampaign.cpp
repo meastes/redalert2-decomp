@@ -14,6 +14,7 @@
 #include "ccfile.h"
 #include "ini.h"
 #include "wdtnet.h"
+#include "wdtcampaign.h"
 #include "wstring.h" // RA2: the includes this file needs
 
 using namespace WorldDominationTour;
