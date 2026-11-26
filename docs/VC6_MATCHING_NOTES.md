@@ -6311,3 +6311,85 @@ ic.py (per case group the direct calls of image and draft, the draft's named fro
   the parent locals the record sat in ebx there; the lookup written directly loses the out-of-line keyHash and a slot,
   and a reference-parameter helper changes nothing, so Get_Record stays. (4) One inline decision in Restore_Child's expansion at the end differs (the WideText delete
   expanded where the image calls the scalar deleting destructor), so the budget there is within a site of the image's.
+
+## A folded test names the spelling that folds it; a function-wide import pointer is seeded by one block; a draft's allocation is read as who holds which saved register where (found in the rebuild (lane F82, high))
+
+Found in the rebuild (lane F82, high); no row landed. ownrdraw List_Proc 0x5F6690 went from 2,215 to 1,877 instruction
+lines off (stack offsets blind; 603 to 565 with registers blind too). Lane tools in build/r/f82 (removed at hand-back;
+copies in private/dossiers/fable/f82_tools): v.py (named exact replacements applied to a copy of the unit, one line of
+measures per variant), sig.py (what is loaded at the switch head and whether the scroll block pushes immediates), imp.py
+(per import, where image and draft load the pointer or call through memory), live.py (per case group, the saved registers
+read before written), slot.py (per case group, the uses of one stack slot), segdump.py (one case group's listing).
+
+- VC6 folds a dominated test only under the same operand order. `if (pos > Entries_)` inside ArrayList::add disappears
+  after `position < list->length()` and stays, with the flags of the first compare reused (`cmp; jge; mov; mov; jle`),
+  after `list->length() > position`. An image that keeps a test the draft folds is asking for the other spelling of the
+  guarding condition, not for a different type or argument (the result as the argument, int or LRESULT, a named count:
+  all still fold).
+- A function-wide import pointer can be the product of one block. With the scroll block's three SendMessage calls taken
+  out (as a test) every case of the draft loads the pointer where the image does: at the head of the cases that call it
+  twice, through memory in the paint loop. The pointer first computed in the preamble is carried to the switch and wins
+  a saved register for the whole function. In the image the block has all four saved registers busy (the message in ebx
+  from the three tests, the scroll bar width in edi, the count in esi, the pointer in ebp), the count*height temporary
+  takes ebp, the third call goes through memory, and the switch head then loads CallWindowProc and GetWindowLong instead.
+  So "the paint loop keeps the pointer in a register" and "the message is not held to the switch" are one difference,
+  and it sits in the preamble.
+- The draft never carries the message from the tests to the switch: not with a saved register free through the block
+  (test: the size case's use of the width removed, so ebx is idle), not with more tests, not through a local copy (same
+  bytes). In the draft the selector is loaded at the switch into esi, which the count holds in the block; in the image
+  esi goes to CallWindowProc at the head and the message has ebx. Which pointer is loaded at the head and where the
+  message lives are tied; neither moved alone.
+- A reference parameter of an expanded helper does not keep its argument in memory by itself: a const-reference
+  predicate or accessor on a loop counter is folded and the loop is strength-reduced as before. A read through a named
+  reference inside the loop does block the reduction and reloads the counter after each store through a pointer, which
+  is the image's add-string column loop; no natural text for it was found.
+- The image shares the pool slots of spilled values by lifetime: the paint case's count lies in the parent's slot
+  (0x28) and its row index in wide_messages' (0x24). A slot seen in two cases does not show one variable.
+- Line measures reward a wrong allocation. With the clamp kept the record and the parent take saved registers across the
+  switch, 180 fewer exact lines differ, and the preamble and the frame slots are further from the image than before.
+  Record the allocation facts (head registers, slot loads per case) beside the score, so the next lane can tell a
+  structural gain from a regime that happens to line up.
+
+## A position score can pick the draft with the wrong call list; the register zero after a loop is the function's top zero; a store both arms begin with is hoisted above the branch (found in the rebuild (lane F83, high))
+
+Found in the rebuild (lane F83, high); no row landed and no draft changed. Lane tools in build/r/f83 (removed at hand-back; copies
+in private/dossiers/fable/f83_tools): q.sh (one named variant, one line: score, short bit copies), dk.sh (a dead sum of K
+distinct extern ints as a gauge), d2.py (an exact longest-common-subsequence diff of two listings, hunks and lines), hz.py /
+hg.py (a second text's hunks applied to a first singly or in sets, with the call list compared in order and the prologue
+printed), ar.py (named replacement sets), wn.cpp (the Movement_AI text described below).
+
+- Measure a long draft with an exact LCS of the instruction lists, the call list in order and the prologue, beside the bytes by
+  position. difflib's unified diff (autojunk) and the position score both follow alignment: walk Movement_AI 0x71E220 at 946 B
+  by position (the 1.001-derived text) has 118 calls for the image's 119 and 1,500 instructions for 1,505: its inferred
+  adjacent-coordinate helper expands the point constructor 0x41B630 that the image calls out of line at 0x71E929. The earlier
+  text (3,504 B by position) has the image's call list and plain frame, 84 hunks and 175 lines by LCS against 69 and 231. With
+  the flag write as one statement after the outer if/else (the no-destination arm and the moved-cell arm fall out to it, no
+  goto) it has the image's size (4,967), instruction count (1,505), 119 calls in the image's order and the plain frame: 90
+  hunks, 178 lines, 3,509 B by position. Kept in the dossier, not in the tree, since the tree's label scores by position.
+- That text is on the budget ladder. With the reference `Adjacent_Cell(LinkedTo->Get_Coord(), dir)` at the first site inside
+  the 1.001-derived structure the constructor is expanded (one call); one free trailing inline site gives the second call and
+  an aligned frame; two give a third call. The archive's separate tails (TibSun walk.cpp: the flag cleared and a return on
+  each path of the Mark_Head_To block and of the no-destination arm) make the root lighter and the call list turns (4,912 B,
+  two calls off). The archive writes `LinkedTo->IsNewNavCom = false;` twice before the return of the blocked-move arm
+  (walk.cpp 412-413), and the image has both stores (0x71EEE1 and 0x71EEED); with the shared tail present that form gives 4,960 or
+  4,967 B and more lines, so it is to be taken in a set. The image clears the flag once on the EMP, moved-cell and same-cell
+  paths, where the shared-tail text clears it twice: those three own clears and the tail are the next set to resolve.
+- Set_Map_Dimensions 0x5484E0, the zero register. The `xor edi, edi` after the cell-height loop is the function's top zero
+  made valid again on the loop exit (the zero-trip `jle` lands behind it), in the register the loop counter shares with it. A
+  zero store uses it only where that web reaches: a single zero store inside the block with no entry compare is an immediate
+  (`do`/`while` as a test), and a second clear inside the block after one ahead of it stays as an immediate store (VC6 removes
+  neither). With the clear ahead of the branch (declaration, statement, any declaration place, or an index variable cleared
+  there) the top zero and the counter take ebp and the loop's scratch edi from the first instruction on; inside the block
+  they take edi. So the image has the web of the clear-ahead forms and the registers of the in-block form.
+- VC6 hoists a store that both arms begin with: `if (!reset_cells) { cellcount = 0; ... } else { cellcount = 0; }` gives the
+  image's `xor edi, edi / mov al / mov [cellcount], edi / test al, al / jne`, slot and top registers; what differs is the
+  entry compare (`cmp esi, edi`: the zero web still reaches it) and `rect` held in edi after the block (3,045 B).
+- Forwarding operator new's result to the loop (`mov ebp, eax ... add ebp, 0x28`) comes with the clear ahead of the branch for
+  the counted variable; it does not happen when the save loop indexes with `i` (frame 0x5C), nor with the clear in the block.
+- The short bit copy is positional. With one unnamed pad bit ahead of IsPlot (a test) it stays at the second flag of the
+  restore copy (mask 4). It does not follow the bit the bridge loop reads: with that loop on cptr the save copy's short copy
+  stays at bit 11 whether the loop reads IsBridgeEastWest or IsOvershadowed. Other states start their runs at fixed places
+  (the first flag of each word, bit 10 or 11 of the save copy). A dead sum of K distinct extern ints at the top moves the
+  state in steps (K 1-4 as the draft; 5-7 none; 8-12 runs; 13-16 none; 17-25 one at the first flag of +0x140 of the restore
+  copy; 26 and up runs); none is the image's (one, at bit 16 of +0x140 of the restore copy). ra2-decomp's twin 0x565C10
+  records the same kind of gauge (K of 16 or more for its last register tie).

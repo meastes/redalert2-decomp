@@ -11033,7 +11033,7 @@ LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lp
 }
 #endif
 
-#ifdef RA2_NON_MATCHING // not exact: 12208 bytes differ against the image-derived bound 005f6690 (14,618 body bytes, 6 padding) (position score 12208, was 13716: 2,215 instruction lines off of 4,435, was 2,876 (stack offsets blind; 603 with registers blind too, was 1,276); 14,592 B; the frame is the image's, 0x2d2c; the switch, the post-switch block and the erase-background return are laid out as in the image; every inline decision is the image's but one in the post-switch block (lane F81): the rest of ra2-decomp's ListBoxHandler ported (src/ownrdraw.cpp at 82250f72: the preamble, the paint case with the row text through the unit's Get_Item_Text, the selection, item-data, top-index, column, hit-test, delete-item and size cases, the post-switch block), and read against the image: the select-range case beside the item-rect case (the image calls its setSize's shrinkVector out of line, as an earlier site does), the Yuri's Revenge-only row bound of the button-down case left out, the add-string calls with the narrow branch first, the tip's empty test as a branch, the scroll bar's record looked up by a reference to the member (the image keeps its address and reads the member through it), the parent of each selection notice in a local of its own (the image holds it in a register and never writes the function's parent slot; with the parent out of the registers the record is reloaded from its slot in each case as in the image), the paint case's row index an LRESULT of its own (Get_Item_Text takes the index by reference, which kept the function's index in memory through the loop; the image has it in ebp); left: the preamble's rectangle sums are scheduled differently and the message is not held in ebx up to the switch, the paint loop keeps the SendMessage pointer in a register where the image calls through memory, ArrayList::add's position clamp is folded away at the two int sites, the record's WideText is deleted inline in the post-switch block where the image calls the scalar deleting destructor; before that position score 13716, was 13857: 2,938 instruction lines off of 4,435, was 3,759; 227 of 274 calls in order, was 202; 14,608 B, was 14,512 (lane F80): the three text-message groups ported from ra2-decomp's ListBoxHandler (src/ownrdraw.cpp at 82250f72, PR #406: the narrow search, add and get messages each convert or clear wide_messages and fall into the wide group, the node made through Add_Node and dropped through Remove_Node), which gives the image's switch (every case group at its own entry and in the image's layout order, the message kept in ebx), and the case groups in that text's source order; left: the frame is 0x204 over (0x2f30 for 0x2d2c), the post-switch block and the erase-background return are laid out early, the paint case has three wcsncpy sites for the image's two; the bank's newest order (origin/banked-forms 41d009df, 0x00618D40.cpp) gives the image's size exactly, 14,618 B, at 3,053 lines; before that position score 13857, was 13798, taken for the structure under the owner's ruling: 3,759 instruction lines off of 4,435, was 3,814; 202 of 274 calls in order, was 201; 14,512 B: the record fetched through the unit's Get_Record, ra2-decomp's Find_Data, which gives the image's out-of-line Dictionary::keyHash call at the top (lanes F77, F79); the whole port of ra2-decomp's ListBoxHandler (PR #406, unmarked there) is still to do; image-faithful widths; before that position score 13802, was 13791: the subclassed item height read and added as a dword before the low-word mask, as the image does at 0x005F861F; before that 13841; the three selection queries read the state through ArrayList::get as RA2 1.001 does, one indexed load each as in the image; before that 13847; the selection-change notifications sent with MAKEWPARAM and the SDK LBN_ codes; before that 14527; the message groups in the order of ra2-decomp's banked form banks/0x00618D40_lbh.cpp (11df85d), each RA2 handler and fall-through chain kept)
+#ifdef RA2_NON_MATCHING // not exact: 13820 bytes differ against the image-derived bound 005f6690 (14,618 body bytes, 6 padding) (position score 13820, was 12208, taken for the structure under the owner's ruling: 1,877 instruction lines off of 4,435, was 2,215 (stack offsets blind; 565 with registers blind too, was 603); 14,480 B, was 14,592; the frame, the switch layout and the inline decisions as before (lane F82): the two int add sites test `length() > position`, the spelling the delete-string case already has, so ArrayList::add's position clamp is kept as in the image (after `position < length()` VC6 folds it away), and the post-switch block's two parent handles are block locals (the image holds each in a scratch register and never writes the function's parent slot); with the clamp present the record and the parent take registers across the switch (ebx, edi) where the image reloads the record from its slot in each case, the preamble is 62 lines further off and the frame slots move (in the preamble the form without the clamp had the image's slots but for four); left: that allocation; the image keeps the message in ebx and the scroll bar width in edi from the preamble to the switch, so that all four saved registers are busy in the scroll block and the SendMessage pointer loses its register there, which is why the image loads it case by case and calls through memory in the paint loop (with the block's SendMessage calls taken out as a test the draft's cases load it as the image does); the add-string column loop reads its counter from memory with no strength reduction (reproduced only by a counter read through a named reference, no natural form found); the paint loop holds a zero in ebx through Get_Item_Text's expansion; the record's WideText delete is expanded in the post-switch block; before that position score 12208, was 13716: 2,215 instruction lines off of 4,435, was 2,876 (stack offsets blind; 603 with registers blind too, was 1,276); 14,592 B; the frame is the image's, 0x2d2c; the switch, the post-switch block and the erase-background return are laid out as in the image; every inline decision is the image's but one in the post-switch block (lane F81): the rest of ra2-decomp's ListBoxHandler ported (src/ownrdraw.cpp at 82250f72: the preamble, the paint case with the row text through the unit's Get_Item_Text, the selection, item-data, top-index, column, hit-test, delete-item and size cases, the post-switch block), and read against the image: the select-range case beside the item-rect case (the image calls its setSize's shrinkVector out of line, as an earlier site does), the Yuri's Revenge-only row bound of the button-down case left out, the add-string calls with the narrow branch first, the tip's empty test as a branch, the scroll bar's record looked up by a reference to the member (the image keeps its address and reads the member through it), the parent of each selection notice in a local of its own (the image holds it in a register and never writes the function's parent slot; with the parent out of the registers the record is reloaded from its slot in each case as in the image), the paint case's row index an LRESULT of its own (Get_Item_Text takes the index by reference, which kept the function's index in memory through the loop; the image has it in ebp); left: the preamble's rectangle sums are scheduled differently and the message is not held in ebx up to the switch, the paint loop keeps the SendMessage pointer in a register where the image calls through memory, ArrayList::add's position clamp is folded away at the two int sites, the record's WideText is deleted inline in the post-switch block where the image calls the scalar deleting destructor; before that position score 13716, was 13857: 2,938 instruction lines off of 4,435, was 3,759; 227 of 274 calls in order, was 202; 14,608 B, was 14,512 (lane F80): the three text-message groups ported from ra2-decomp's ListBoxHandler (src/ownrdraw.cpp at 82250f72, PR #406: the narrow search, add and get messages each convert or clear wide_messages and fall into the wide group, the node made through Add_Node and dropped through Remove_Node), which gives the image's switch (every case group at its own entry and in the image's layout order, the message kept in ebx), and the case groups in that text's source order; left: the frame is 0x204 over (0x2f30 for 0x2d2c), the post-switch block and the erase-background return are laid out early, the paint case has three wcsncpy sites for the image's two; the bank's newest order (origin/banked-forms 41d009df, 0x00618D40.cpp) gives the image's size exactly, 14,618 B, at 3,053 lines; before that position score 13857, was 13798, taken for the structure under the owner's ruling: 3,759 instruction lines off of 4,435, was 3,814; 202 of 274 calls in order, was 201; 14,512 B: the record fetched through the unit's Get_Record, ra2-decomp's Find_Data, which gives the image's out-of-line Dictionary::keyHash call at the top (lanes F77, F79); the whole port of ra2-decomp's ListBoxHandler (PR #406, unmarked there) is still to do; image-faithful widths; before that position score 13802, was 13791: the subclassed item height read and added as a dword before the low-word mask, as the image does at 0x005F861F; before that 13841; the three selection queries read the state through ArrayList::get as RA2 1.001 does, one indexed load each as in the image; before that 13847; the selection-change notifications sent with MAKEWPARAM and the SDK LBN_ codes; before that 14527; the message groups in the order of ra2-decomp's banked form banks/0x00618D40_lbh.cpp (11df85d), each RA2 handler and fall-through chain kept)
 namespace OwnerDraw {
 
 LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
@@ -11534,12 +11534,12 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 					result = position;
 					if (message != 0x4c8 && position != -1) {
 						ArrayList<int> * row_colors = (ArrayList<int> *)data->ItemState;
-						if (row_colors != NULL && position < row_colors->length()) {
+						if (row_colors != NULL && row_colors->length() > position) {
 							int color = -1;
 							row_colors->add(color, position);
 							}
 						ArrayList<int> * sel_states = (ArrayList<int> *)data->RangeMax;
-						if (sel_states != NULL && position < sel_states->length()) {
+						if (sel_states != NULL && sel_states->length() > position) {
 							int selected = 0;
 							sel_states->add(selected, position);
 						}
@@ -11868,9 +11868,9 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 		if (data->ScrollBar == NULL) {
 			data->ScrollBar = (HWND)1;
 			GetWindowLong(window, GWL_ID);
-			parent = GetParent(window);
+			HWND owner = GetParent(window);
 			RECT parent_display;
-			Get_Display_Rect(parent, &parent_display);
+			Get_Display_Rect(owner, &parent_display);
 			RECT win_display;
 			Get_Display_Rect(window, &win_display);
 			int x = win_display.left - parent_display.left;
@@ -11879,7 +11879,7 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 				win_display.left - parent_display.left - scrollbar_width + client_rect.right + 1,
 				client_rect.top + win_display.top - parent_display.top,
 				scrollbar_width, win_display.bottom - win_display.top,
-				parent, NULL, ProgramInstance, NULL);
+				owner, NULL, ProgramInstance, NULL);
 			data->ScrollWidth = scrollbar_width;
 			Subclass_Control(data->ScrollBar, 0);
 
@@ -11907,7 +11907,7 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 			validate_rect.Y = y;
 			validate_rect.Width = x + client_rect.right + 1;
 			validate_rect.Height = client_rect.bottom + y + 1;
-			ValidateRect(parent, (const RECT *)&validate_rect);
+			ValidateRect(owner, (const RECT *)&validate_rect);
 		}
 	} else if (needs_scrollbar == 0 && data->ScrollBar != NULL && !data->SkipCheckPaint) {
 		DestroyWindow(data->ScrollBar);
@@ -11916,15 +11916,15 @@ LRESULT __stdcall List_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpa
 		data->ScrollBar = NULL;
 		data->ScrollWidth = 0;
 		SetWindowPos(window, NULL, 0, 0, client_rect.right + Border_Width - client_rect.left + scrollbar_width + 1, client_rect.bottom + 2 * Border_Width - client_rect.top, SWP_NOMOVE);
-		parent = GetParent(window);
+		HWND owner = GetParent(window);
 		RECT parent_display;
-		Get_Display_Rect(parent, &parent_display);
+		Get_Display_Rect(owner, &parent_display);
 		RECT validate_rect;
 		validate_rect.left = display_rect.left - parent_display.left - 1;
 		validate_rect.top = display_rect.top - parent_display.top - 1;
 		validate_rect.right = scrollbar_width + client_rect.right + display_rect.left - parent_display.left;
 		validate_rect.bottom = display_rect.top - parent_display.top + client_rect.bottom + 1;
-		ValidateRect(parent, &validate_rect);
+		ValidateRect(owner, &validate_rect);
 	}
 
 	if (call_default) {
