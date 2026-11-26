@@ -10657,7 +10657,7 @@ TextNode * NodeList::Add_Node(int length)
 	return node;
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 6541 bytes differ against the image-derived bound 005f4ba0 (6,895 body bytes) (image-faithful reads; position score 6541, was 6501: the dropdown handle is read from WinData again after ReleaseCapture and after notifying the parent, as the image does at 005f587b and 005f589e (RA2 1.001 cac41ca); owner ruling 2026-11-25; before that 6502; the forwarded dropdown result returned on its own path, as ra2-decomp's attempt f9e49e2 separates it; the dropdown's visible rows computed before the count is read, as ra2-decomp's banked form banks/0x00617250_odh.cpp (11df85d) has it; the item-data and selection cases first in the bank's order, RA2 case bodies and fall-through groups kept; the text query's shared result with the signed clamp and the item sentinel tested before null as the bank has them)
+#ifdef RA2_NON_MATCHING // not exact: 6538 bytes differ against the image-derived bound 005f4ba0 (6,895 body bytes) (the background pixel count computed before the surface lock, as RA2 1.001 and the image do, was 6541; image-faithful reads; position score 6541, was 6501: the dropdown handle is read from WinData again after ReleaseCapture and after notifying the parent, as the image does at 005f587b and 005f589e (RA2 1.001 cac41ca); owner ruling 2026-11-25; before that 6502; the forwarded dropdown result returned on its own path, as ra2-decomp's attempt f9e49e2 separates it; the dropdown's visible rows computed before the count is read, as ra2-decomp's banked form banks/0x00617250_odh.cpp (11df85d) has it; the item-data and selection cases first in the bank's order, RA2 case bodies and fall-through groups kept; the text query's shared result with the signed clamp and the item sentinel tested before null as the bank has them)
 namespace OwnerDraw {
 
 LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
@@ -10730,9 +10730,10 @@ LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lp
 					src.Y += display.top - parent_rect.top;
 					surface->Blit_From(dest, *parent_data->Back, src, false, true);
 			}
+			int total = area.Width * area.Height;
 				unsigned short * pixels = (unsigned short *)surface->Lock();
 				if (pixels) {
-					for (int i = 0; i < area.Width * area.Height; ++i) pixels[i] = Blend_Color(pixels[i], 0, data->TextStyle);
+				for (int i = 0; i < total; ++i) pixels[i] = Blend_Color(pixels[i], 0, data->TextStyle);
 					surface->Unlock();
 				}
 			}
