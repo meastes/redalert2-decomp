@@ -153938,6 +153938,15 @@
     "main_source": "src/recovered/tactical.cpp"
    },
    {
+    "entry": "006a45a0",
+    "body": 3288,
+    "padding": 8,
+    "symbol": "?Render@Tactical@@QAEXPAVSurface@@_NH@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "006a5280",
     "body": 358,
     "padding": 10,
@@ -154206,7 +154215,7 @@
     "entry": "006a8c70",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E294",
+    "symbol": "_$E295",
     "main_symbol": "_$E85",
     "main_source": "src/recovered/tactical.cpp"
    },
@@ -154374,7 +154383,7 @@
     "entry": "006aa960",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E296",
+    "symbol": "_$E297",
     "main_symbol": "_$E88",
     "main_source": "src/recovered/tactical.cpp"
    },
@@ -154818,9 +154827,12 @@
    "?Fetch_Object_Size@Tactical@@UBEHXZ": "006ac7f0",
    "_$S274": "00abe498",
    "_$S283": "00abe499",
-   "_?$S295@?1??Scroll_Dir@Tactical@@QAE?AW4FacingType@@W43@@Z@4EA": "00abe4bc",
-   "_?$S293@?1??Scroll_Map@Tactical@@QAEXW4FacingType@@H@Z@4EA": "00abe5d0",
-   "_?_lasttime@?1??Draw_Pixel_Effects@Tactical@@QAEXABV?$TRect@H@@0@Z@4IA": "00abfd70"
+   "_?_lasttime@?1??Draw_Pixel_Effects@Tactical@@QAEXABV?$TRect@H@@0@Z@4IA": "00abfd70",
+   "_?$S294@?1??Scroll_Map@Tactical@@QAEXW4FacingType@@H@Z@4EA": "00abe5d0",
+   "_?$S296@?1??Scroll_Dir@Tactical@@QAE?AW4FacingType@@W43@@Z@4EA": "00abe4bc",
+   "??_C@_0BC@KAME@MSG?3BlackoutTimer?$AA@": "007f6a70",
+   "??_C@_0BE@LNLL@D?3?2Ra2?2Tactical?4CPP?$AA@": "007f6a84",
+   "_?scrolled_off_screen@?1??Render@Tactical@@QAEXPAVSurface@@_NH@Z@4_NA": "00abfd6c"
   },
   "partial_ok": true
  },

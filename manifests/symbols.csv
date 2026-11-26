@@ -1541,6 +1541,7 @@ symbol,address,evidence
 ?Draw_Pre_Render@TechnoClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z,0x006C3B30,slot +108 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot65@TechnoClass@@UAEXHH@Z
 ?Draw_RGB_Multiplying_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1ABVRGBClass@@MHH@Z,0x00773EF0,slot +44 of ??_7BSurface@@6B@ at 0079aef4; main row ?Draw_RGB_Multiplying_Line@XSurface@@UAE_NABVRect@@ABUPoint2D@@1ABVRGBClass@@MHH@Z
 ?Draw_Radial_Indicator@ObjectClass@@UAEXK@Z,0x0041B2F0,slot +12c of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?get@Leaf_41b2f0@@QAEXI@Z
+?Draw_Radial_Indicators@Tactical@@QAEXXZ,0x006AC420,inferred: tactical rows 006a45a0 differ only at its sites (Render calls it at 006a4f0d; image_bounds.csv has the bound 006ac420, 893 B)
 ?Draw_Rect@XSurface@@UAE_NABV?$TRect@H@@0H@Z,0x00774130,slot +58 of ??_7BSurface@@6B@ at 0079aef4; main row ?Draw_Rect@XSurface@@UAE_NABVRect@@0H@Z
 ?Draw_Rect@XSurface@@UAE_NABV?$TRect@H@@H@Z,0x00774100,slot +5c of ??_7BSurface@@6B@ at 0079aef4; main row ?Draw_Rect@XSurface@@UAE_NABVRect@@H@Z
 ?Draw_Text_Overlay@TechnoClass@@UBEXABVPoint2D@@0ABV?$TRect@H@@@Z,0x006D5510,slot +3f0 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot251@TechnoClass@@UAEXABUPoint2D@@0ABVRect@@@Z

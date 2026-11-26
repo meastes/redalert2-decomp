@@ -1023,7 +1023,6 @@ void Tactical::Render_Terrain(Rect const & xpanrect, Rect const & ypanrect, bool
 /// <param name="surface">The composite surface the foreground objects are drawn onto.</param>
 /// <param name="fullredraw">Redraw the whole view rather than just the scrolled strips?</param>
 /// <param name="drawpass">Which rendering pass to perform. See DrawPassType.</param>
-#ifdef RA2_NON_MATCHING // not exact: against the image bound (3,288 B) 2050 bytes differ (was 2645; current ra2-decomp shared cache/background block and documented Y-first Point2D bounds, 483 differing instruction lines against 896, all 57 calls aligned; r3546 supersedes r3541) (was 2,722 against main's function-map extent; Surface pointer parameter as the image's symbol has it); main: best 64.69, tried 13 times (register, layout, frame)
 #include "beacon.h"
 #include "capmgr.h"
 #include "ebolt.h"
@@ -1231,6 +1230,9 @@ void Tactical::Render(Surface * surface, bool fullredraw, int drawpass)
 
 	if (drawpass == DRAW_PASS_BACKGROUND || drawpass == DRAW_PASS_FULL) {
 		LogicalSurface->Blit_From(TacticalRect, *TileSurface, TacticalRect);
+		if (drawpass == DRAW_PASS_BACKGROUND) {
+			return;
+		}
 	}
 
 	if (drawpass == DRAW_PASS_FOREGROUND || drawpass == DRAW_PASS_FULL) {
@@ -1286,22 +1288,33 @@ void Tactical::Render(Surface * surface, bool fullredraw, int drawpass)
 		Draw_Pixel_Effects(TacticalRect, TacticalRect);
 		LogicalSurface = savedlogical;
 		surface->Unlock();
-		int line = 0;
+		int shown = 0;
 		if (Scen->MissionTimer.Is_Active()) {
 			Draw_Timer(0, ColorSchemes[PlayerPtr->Scheme], Scen->MissionTimer.Value() / TICKS_PER_SECOND, Scen->MissionTimerTextCSF, NULL, NULL);
-			line = 1;
+			shown = 1;
 		}
-		count = TimedSuperWeapons.Count();
-		for (i = 0; i < count; i++) {
-			SuperClass * super = TimedSuperWeapons[i];
-			if (!super->IsSuspended || Session.Type != GAME_NORMAL || super->Control.Value() != super->Class->RechargeTime) {
-				Draw_Timer(line, ColorSchemes[super->House->Scheme], super->Control.Value() / TICKS_PER_SECOND, super->Class->UIName,
-					(unsigned __int64 *)&super->BlinkInfo.Data0, &super->BlinkInfo.State);
-				line++;
+		int index = shown;
+
+		int supers = TimedSuperWeapons.Count();
+		for (i = 0; i < supers; i++) {
+			/*
+			 * RA2: the image reads the flag through a pointer of its own (0x6A50F0, copied at
+			 * 0x6A5103) and fetches the element again for the draw: an inline accessor's `this`
+			 * (RobinDigitalPro/ra2-1001-decomp b5dc31d has SuperClass::Is_Suspended() here). A
+			 * member added to super.h moves WinMain 0x68E280 and Reposition_Sidebar 0x6819A0 by
+			 * declaration count, so the flag is read into a named condition instead.
+			 */
+			bool suspended = TimedSuperWeapons[i]->IsSuspended;
+			if (!suspended || Session.Type != GAME_NORMAL || TimedSuperWeapons[i]->Control.Value() != TimedSuperWeapons[i]->Class->RechargeTime) {
+				Draw_Timer(index, ColorSchemes[TimedSuperWeapons[i]->House->Scheme], TimedSuperWeapons[i]->Control.Value() / TICKS_PER_SECOND, TimedSuperWeapons[i]->Class->UIName,
+					(unsigned __int64 *)&TimedSuperWeapons[i]->BlinkInfo.Data0, &TimedSuperWeapons[i]->BlinkInfo.State);
+				index++;
 			}
 		}
-		count = Houses.Count();
-		for (i = 0; i < count; i++) {
+
+		int line = index;
+		int houses = Houses.Count();
+		for (i = 0; i < houses; i++) {
 			int time = Houses[i]->PowerBlackoutTimer.Value();
 			if (time > 0) {
 				Draw_Timer(line, ColorSchemes[Houses[i]->Scheme], time / TICKS_PER_SECOND,
@@ -1315,7 +1328,6 @@ void Tactical::Render(Surface * surface, bool fullredraw, int drawpass)
 		IsToRedraw = false;
 	}
 }
-#endif
 
 
 
