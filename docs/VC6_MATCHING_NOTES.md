@@ -7252,3 +7252,67 @@ nb2.py (pairs of named conditions against the whole unit), both.py, act.py.
   Reposition_Sidebar) are one set: a form for one of them is to be measured with the others' drafts compiled, and a compiler-local row behind a
   parked function was calibrated against that function's absence. Check every row of the unit, not the function alone, before calling a
   count form exact (og.py does it in one line per variant).
+
+## A named local can be an induction variable, not a count unit; one member text with two operand orders marks a count site; a count row behind parked functions is measured with all their drafts compiled (found in the rebuild (lane F101, high))
+
+Found in the rebuild (lane F101, high); no row gained, no source changed. The sidebar unit was taken as one set: StripClass::Draw_It 0x67F800 in lane
+F100's exact form, SidebarClass::Reposition_Sidebar 0x6819A0, SelectClass::Action 0x6809F0, SidebarClass::Activate 0x67E210 and StripClass::Recalc
+0x6802D0. No text from the references makes the first three exact together while the last two stay parked, so Draw_It stays held. About 290 compiles,
+scripted. Lane tools in build/r/f101 (removed at hand-back; copies in private/dossiers/fable/f101_tools): mm.py (one compile of a unit text with any
+guards opened and probes in any functions; every row compared and the parked functions scored against their image bounds, one line per variant),
+mkv.py (named text forms of Reposition_Sidebar), forms.py (every combination of them), the result tables and three patches.
+
+- Measure a count row with every parked function of its unit compiled, not only the one being landed. With Draw_It compiled alone
+  Reposition_Sidebar is 6 B off; with Activate (7 to 10 probes, its exact window), Recalc's draft and Draw_It all compiled, every row of the unit is
+  exact with the tree's text unchanged, Activate included. Reposition_Sidebar's six named ints fit the full unit. With Recalc closed,
+  SelectClass::Action is 4 B off at each of Activate's counts once Draw_It is compiled. A draft that is far from exact (Recalc, 1,660 B) still
+  carries most of its symbols, but its real text will move the count again: such a result is a reading, not a landing form.
+- Before counting a named local as a unit, look at what it is in the code. Reposition_Sidebar's `tab_id` and `cameo_id` (lane F61 counted them
+  as two of six units) are the induction variables of the two tooltip loops: with them the loop ends `inc edi; add esi, N` as the image does,
+  without them `add esi, N; inc edi`. ra2-decomp's `ToolTips->Remove(tip.ID)` gives the image's order with no named id. Probes at the top of the
+  function do not stand in for such locals: the twin text with six probes is 14 B where the six named ints are 6 B.
+- One member text with two operand orders is a count site. Reposition_Sidebar's head is Recalc_Horizontal_Layout 0x67BA60 expanded (the twin
+  calls its layout member there). The member's own row reads TacticalRect.X and then Width; its expansion in Reposition_Sidebar reads Width and
+  then X. The same text cannot spell both, so that sum is ordered by the count and no spelling is to be searched for it. The function's second
+  TacticalRect sum is a count site as well; the row sum's order (the side's extra subtracted before StripTop) changes once, at three more locals.
+- Probe counts in two functions of one unit add. With Draw_It compiled and the twin text in Reposition_Sidebar, a probes in Activate and k in
+  Reposition_Sidebar are exact at a + k = 16 or 17 for a = 7 to 10 (k = 16 at a = 0; k = 14 to 16 with Activate closed). With Recalc's draft
+  compiled as well the twin text is 3 B at every k from 3 to 18.
+- An inline member called with a local as its argument adds no unit: the twin's Cameos_Width(col) and Cameos_Height(row) in Draw_It give the
+  same code as the written-out products and leave the function two units short as before.
+- Enumerate evidenced forms, not counts. Reposition_Sidebar has four independent evidenced choices (head called or written out, the tooltip ids
+  named or read back from the tip, the cameo loop on a slot index or a walking pointer, each of four named ints kept or dropped): 72 texts,
+  2 to 58 B with Draw_It compiled, none exact. That closes the question for this tree state without picking a count from a sweep.
+
+## A forced inline is free in the compiler's own routine; a member's row is a budget to be solved before its forms are tried; a twin's image can show that a register exchange is not in the twin text (found in the rebuild (lane F102, high))
+
+Found in the rebuild (lane F102, high): xsurface XSurface::Plot_Line 0x773F00 exact on ra2-decomp's newly matched twin (511 B, first compile),
+sidebar Recalc_Horizontal_Layout 0x67BA60 in the twin's form (0 B), StripClass::Recalc 0x6802D0 unchanged at 1,660. About 190 compiles, scripted.
+Lane tools in build/r/f102 (removed at hand-back; copies in private/dossiers/fable/f102_tools): mm.py (lane F101's, with `--diff SYMBOL=ENTRY`: the
+call list against the image's and the instruction hunks, for a row or an image bound), lib.py (whole-function replacement in a scratch text),
+sz.py (the IL size of a member's text through il_lab), v.py and vx.py (named forms of one block), yr.py and c2.py (listings of the local Yuri's
+Revenge image and of the compiler's DLLs).
+
+- The /Ob2 routine read in VC6 SP3's own C2.DLL (8447; the notes' addresses are the RTM build's). Root at 0x1071994F: budget = 2 * S, raised
+  to 1000, capped at 35000. Site loop at 0x107199FA: a callee is refused when the budget is under its size and the size is over 40; an accepted
+  callee over 40 is charged, its body is decided with budget / N and the spend comes off. A callee flagged 0x2000 (`__forceinline`) skips the
+  budget test, is not charged, and its nested spend is not charged. The candidate predicate (0x10716F04) only reads a flag the front end set
+  (0x40): for a caller optimised for speed C2 holds no size test of its own, so the limit for a function not declared inline is the front end's,
+  and it follows the IL size exactly (sidebar: a member of 172 units expands, 176 does not). The test at 0x107940C1 (size under 16 << n, n from
+  the backend option `-vol`, default 3) runs only for a caller not optimised for speed.
+- Solve a member's own row as a budget before trying its forms. SidebarClass::Update_Column_Availability 0x67CA50 (floor budget 1000): the image
+  expands Update_Build_Buttons twice with the doubled count and Max_Visible inside, then Select_Tab with Remove_Buttons expanded (its doubled
+  count called), Add_Buttons called and Update_Build_Buttons expanded (Max_Visible called). With the sizes il_lab reads (170, 42, 64, 148, 86,
+  114) those decisions hold only when 298 to 313 units are left on entry to Select_Tab's body; the tree's text leaves 300. That one window
+  explains every earlier result on the row: a charged First_Used_Column (70) or a charged shutter helper (52) leaves 230 or 248 and the row turns
+  by the same 858 bytes. The twin's text of the member (it calls First_Used_Column) would need Update_Build_Buttons at 147 units or less.
+  When il_lab prints "(none)" at the low end for a statement that ends the root, the call is a tail jump: add a statement after it.
+- The member by parts (sz.py): 164 units without its shutter block, the test 12, the two stores 6 and 16, the search loop 48; no spelling of the
+  loop that keeps the row is under 192, and a free helper (40 or less) holds the two stores but not the test. With the block in a member declared
+  `__forceinline` in the class the member is 172, its own row is exact, every row of the unit is exact and Recalc has the image's calls: a
+  diagnostic, no reference has such a member here.
+- A forced inline declared only at the definition is not forced (the class declaration decides); declare it in the class for the probe.
+- When a matched twin's text leaves a register exchange, read the twin's image at the same place. Recalc's old-position search counts in ecx in
+  RA2 (pointer in eax, the count copied to eax ahead of the second search) and in eax in Yuri's Revenge, which is what the twin text gives in
+  both trees: the exchange is RA2's own and no spelling of the twin's block is to be expected to give it (about 50 forms left it). It follows
+  the count's use in `(oldpos - newpos) / 2`: without that use the image's registers appear in the first search.

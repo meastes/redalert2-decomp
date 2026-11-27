@@ -397,17 +397,20 @@ void SidebarClass::Recalc_Layout()
 
 void SidebarClass::Recalc_Horizontal_Layout()
 {
-	int x = Options.IsSidebarOnRight ? TacticalRect.X + TacticalRect.Width : 0;
-	SidebarRect.X = x;
-	StripLeft = x + 22;
-	if (Scen->IsGDI) {
-		TopButtonX = x + 20;
-		TabButtonX = x + 26;
-		PowerBarLeft = x + 39;
+	if (Options.IsSidebarOnRight) {
+		SidebarRect.X = TacticalRect.X + TacticalRect.Width;
 	} else {
-		TopButtonX = x + 33;
-		TabButtonX = x + 20;
-		PowerBarLeft = x + 39;
+		SidebarRect.X = 0;
+	}
+	StripLeft = SidebarRect.X + 22;
+	if (Scen->IsGDI) {
+		TopButtonX = SidebarRect.X + 20;
+		TabButtonX = SidebarRect.X + 26;
+		PowerBarLeft = SidebarRect.X + 39;
+	} else {
+		TopButtonX = SidebarRect.X + 33;
+		TabButtonX = SidebarRect.X + 20;
+		PowerBarLeft = SidebarRect.X + 39;
 	}
 }
 
