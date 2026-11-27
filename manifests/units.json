@@ -77842,7 +77842,7 @@
     "entry": "0056d4a0",
     "body": 23,
     "padding": 9,
-    "symbol": "_$E45",
+    "symbol": "_$E38",
     "main_symbol": "_$E59",
     "main_source": "src/recovered/mapgen.cpp"
    },
@@ -79484,7 +79484,7 @@
     "entry": "0058b400",
     "body": 17,
     "padding": 15,
-    "symbol": "_$E288",
+    "symbol": "_$E289",
     "main_symbol": "_$E119",
     "main_source": "src/recovered/mapgen.cpp"
    },
@@ -79492,7 +79492,7 @@
     "entry": "0058b420",
     "body": 9537,
     "padding": 15,
-    "symbol": "_$E285",
+    "symbol": "_$E286",
     "main_symbol": "_$E116",
     "main_source": "src/recovered/mapgen.cpp"
    },
@@ -79500,7 +79500,7 @@
     "entry": "0058d970",
     "body": 39,
     "padding": 9,
-    "symbol": "_$E286",
+    "symbol": "_$E287",
     "main_symbol": "_$E117",
     "main_source": "src/recovered/mapgen.cpp"
    },
@@ -80374,14 +80374,7 @@
     "size": 4,
     "owner": "00579960"
    }
-  ],
-  "count_sensitive": {
-   "00586b40": {
-    "windows": "plain probe declarations at the end of abstract.h. New headers (Is_Techno and c_str inline): +8 +10 +12 +16 exact; +0 +1 +2 +3 +4 +5 +6 off. Old headers (main 6b8bd54e0): +0 +10 +12 +16 exact; +1 +2 +3 +4 +5 +6 +8 off",
-    "header": "abstract.h and wstring.h (lane O8, 2026-11-21, review ruling: AbstractClass::Is_Techno defined in the class, as ra2-decomp's abstract.h has it, the executable holding one out-of-line copy, 0x6F8A70, and one call of it in uicmnds Select_All_Combatants 0x6F6D00; Wstring::c_str inline, as ra2-decomp's wstring.h has it; with them cell CellClass::Goodie_Check 0x476CC0 and netshare Change_Scenario_Slots 0x5CB8D0 are exact)",
-    "note": "lane O8 probe 2026-11-21 on the final tree (DoType precedent): (a) the displacing changes are evidenced content (ra2-decomp's abstract.h and wstring.h); (b)(i) mapgen.cpp does not name Is_Techno or c_str and no header inline calls either; (ii) windows above, exact and off on both header states; (c) the unchanged text is exact on the old headers (main 6b8bd54e0). Lane F4's earlier probe with Is_Techno alone: rebuild/manifest/b_log_f4.csv. Guarding the function lowers the compiler's _$E counter by one for the DirtRoadTiles initializers after it; xcu.py renames those rows by the .CRT$XCU table, and they go back when the row returns"
-   }
-  }
+  ]
  },
  "building": {
   "core": [

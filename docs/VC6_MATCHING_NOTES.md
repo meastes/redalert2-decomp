@@ -7084,3 +7084,47 @@ register-blind, with the draft's relocation names), egen.py and erun.py (Draw_El
 - Extract_Compressed_Events 0x6282D0 was read only (36 B, the store of numunits ahead of Whom's first four bytes): the image stores
   Whom's fifth byte in place and defers its first four bytes behind numunits, with the destination's two stores between them. Nothing
   compiled beyond the baseline; lanes F87 and F90 hold the tried orders.
+
+## A count-sensitive row is sensitive at one class definition, and the unit's include order decides the count there; trailing stores follow the order of the definitions (found in the rebuild (lane F97, high))
+
+Found in the rebuild (lane F97, high); one row back (mapgen Create_Urban_Area 0x586B40, 1,913 B, parked count-sensitive since lane O8) and
+no draft changed (two guard labels extended). queue Extract_Compressed_Events 0x6282D0 stays at 36 by position, techno Fire_At 0x6CA890 at
+6. About 480 compiles, nearly all scripted. Lane tools in build/r/f97 (removed at hand-back; copies in private/dossiers/fable/f97_tools):
+lane F96's set, blk.py (one block as a labelled sequence of loads and stores), qrun.py and frun.py (variant sets with an indicator),
+cuh.sh, cuh2.sh and cuw.sh (probe declarations at the end of a header or ahead of one of its lines, the header restored after), cu2.py
+(probes ahead of a line of the unit), cu3.py (include-order variants), incs.py (a unit's include list against ra2-decomp's and
+mischa85's), incsweep.py (the unit's includes in a reference's order, every row compared), topsweep.py (a shift of every declaration
+count in the unit).
+
+- Find where a count-sensitive row counts before looking for a text. Create_Urban_Area's window had been probed at the end of abstract.h
+  only. Probes ahead of the function, anywhere in mapgen.cpp after its includes, do nothing, in any kind (struct, prototype, extern,
+  typedef, enum); probes ahead of the first include do. Bisecting the include closure with twelve probes (ahead of each include line, then
+  inside the header that turned) took seven steps: mapgen.h, loaddlg.h, session.h, house.h, base.h, and there the lines ahead of and after
+  class BaseClass. The row's residue (one reload of a stack value moved, three hunks) follows the declaration count at BaseClass's
+  definition, whose DynamicVectorClass<Cell> members are the first use of the class the function returns (the reason is a hypothesis; the
+  place is measured). Today's window there: +12 to +53 exact, 42 wide.
+- The count at a header class depends on what the unit includes ahead of the header that brings it in, so the include order is the
+  lever, and a reference's include list is evidence for it. The tree's units list their includes in mischa85's order, the unit's own
+  header second; ra2-decomp's files differ in 22 of the 24 units that hold parked rows. Its mapgen.cpp (the matched Yuri's Revenge twin
+  unit) lists mapgen.h after stringtable.h and _keyboar.h, _theater.h and keyboard.h alphabetically; with those four moved (geometry.h
+  kept second, the initializer table's order) the unchanged text of Create_Urban_Area is exact and every other row of the unit stays
+  exact, the function-static initializers renamed by xcu. On the new order the row sits at +0 to +28 of its window.
+- Tried on the other near rows and flat: ra2-decomp's include order (Fire_At, Search_For_Tiberium_Weighted, Do_Chrono_Reinforcements,
+  StripClass::Draw_It; dsurface moves eleven initializer rows and leaves Draw_Depth_Antialiased_Line at 69), and 1 to 64 struct
+  declarations ahead of the unit's first include (those four, Draw_Depth_Antialiased_Line, Tactical::Draw_Tiles,
+  MPlayer_Host_Dialog_Proc, Plot_Line, Extract_Compressed_Events: the same bytes at every count). None of these residues is a
+  declaration count of the unit.
+- Trailing stores follow the order of the definitions; a load order is not evidence of a statement order. In Extract_Compressed_Events'
+  new-run block the stores VC6 leaves for the end of the block (numunits, Whom's first four bytes, units, dest) come out in the order
+  the variables were defined, in all 24 orders of the four statements; the loads are scheduled apart from that (the units load sits
+  ahead of count's increment in the image under any order), and a short-lived value's register (count: edx in the image) follows what is
+  live around it in the scheduled order, six different registers over the 24 orders. So the image says numunits, Whom, units by
+  definition and count in edx, and with Whom assigned from *src no order gives both: the two orders with the right end sequence store
+  numunits or Whom at once. The archive's own line, memcpy(&Whom, src, datasize), does keep both stores at the end in the image's order
+  (why the two copies differ was not established), with other registers through the whole run (958 and up). 234 variants,
+  best unchanged.
+- Fire_At's flak sum, what the count is. File-scope declarations and the include order do not move it; unreferenced locals, repeated
+  stores to one local or to a parameter do not; each referenced local of the function does, of any type, wherever it is declared, after
+  the block as much as ahead of it. The turned window is +31 to +62 exactly. It is not a count alone: with either of two early blocks
+  taken out (diagnostic) no count to +296 turns the sum at all, so "24 to 32 fewer locals" is not shown to be the image's state.
+- A probe set that walks a header must restore it: the scripts copy the header aside, trap the exit and check git status after.

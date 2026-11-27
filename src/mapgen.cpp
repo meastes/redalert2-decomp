@@ -14,13 +14,14 @@
 
 #include "always.h"
 #include "geometry.h" // RA2: the header statics, in the order of the unit's initializer table
+#include "_keyboar.h" // RA2: Keyboard->Clear in Map_Seed_Dialog_Proc
 
-#include "mapgen.h"
 
 #include "_map.h"
 #include "_palette.h"
 #include "_rules.h"
 #include "_tactica.h"
+#include "_theater.h"
 #include "animtype.h"
 #include "astar.h"
 #include "building.h"
@@ -40,6 +41,7 @@
 #include "init.h"
 #include "inline.h"
 #include "isotype.h"
+#include "keyboard.h"
 #include "language\language.h"
 #include "netshare.h"
 #include "nodes.h"
@@ -67,11 +69,9 @@
 
 #include "ramp.hh"
 #include "stringtable.h"
+#include "mapgen.h" // RA2: here, with _keyboar.h, _theater.h and keyboard.h in their alphabetical places, as ra2-decomp's mapgen.cpp lists its includes (ac45ee9e)
 
 #include "rcptr.h"
-#include "_theater.h"
-#include "_keyboar.h" // RA2: Keyboard->Clear in Map_Seed_Dialog_Proc
-#include "keyboard.h"
 #include "findmake.h" // RA2: TGet_TypeList, used by Read_RMG_INI
 
 #define RA2_SOURCE "D:\\Ra2\\MapGen.cpp" // RA2: the file name RA2 passes to StringTable::LoadString
@@ -8517,7 +8517,6 @@ void MapGeneratorClass::Generate_Urban_Areas(void)
 /// <param name="cell">The seed cell to grow the urban area from.</param>
 /// <param name="size">The maximum number of cells to process during the flood fill.</param>
 /// <returns>The collected urban area cells, or NULL if the area is too small or sparse.</returns>
-#ifdef RA2_NON_MATCHING // exact form, count-sensitive (windows and probe in units.json; AbstractClass::Is_Techno and Wstring::c_str became inline class members, ra2-decomp's headers)
 DynamicVectorClass<Cell> * MapGeneratorClass::Create_Urban_Area(Cell const & cell, int size)
 {
 	DynamicVectorClass<Cell> * cells; // RA2: Create_Urban_Area at 0x586B40 matches only so
@@ -8622,7 +8621,6 @@ DynamicVectorClass<Cell> * MapGeneratorClass::Create_Urban_Area(Cell const & cel
 
 	return(cells);
 }
-#endif
 
 
 /// <summary>
