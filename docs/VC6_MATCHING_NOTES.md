@@ -6726,3 +6726,75 @@ tables for qrun.py: the elevation block as a product of four spellings, the two 
   effects. `LinkedTo->Get_Coord() + AdjacentPoint[dir & 7]` written at the first site gives the two leas with the constructor expanded
   (118 calls, 66 lines), the same coupled state as lane F89's; with lane F88's form at the second site only, one more assignment does
   not flip it. The tube block's `rep movsd` does not explain it (the draft's web already steps round it, liveness follows the paths).
+
+## An address-taken parameter's loads join across paths that have no call or pointer store; a fill written as a loop sets its destination first; a draft's frame groups show the order its locals were taken in (found in the rebuild (lane F91, high))
+
+Found in the rebuild (lane F91, high); no row landed and no draft changed. ownrdraw Control_Proc 0x5EE460 stays at 329 lines (6,160 by position,
+measured without its stand-in specialization), Combo_Proc 0x5F4BA0 at 86 by position (37 lines). About 290 measured variants. Lane tools in
+build/r/f91 (removed at hand-back; copies in private/dossiers/fable/f91_tools): lane F85's set, fa.py (a /FAs listing of one function: the
+compiler's own name for every frame offset), sgroups.py (which locals share each frame slot, from that listing), sw.py (a slot's loads and stores
+with the push depth removed), dq.sh / bq.sh (a variant measured with dict.h's early exit deleted as a diagnostic, or as it stands, with its slot
+groups), dp.py / dpc.py (declaration-count ladders), st.sh (which of the two head states a compile is in), pm.py (lane F85's probe map), v1.py to
+v17.py (variant tables for vv.py).
+
+- Control_Proc's head exchange has a named cause. `window` is passed by reference to the two table lookups at the top, so it lives in memory and
+  every later use loads it. Loads that can reach each other along a path with no call and no store through a pointer are treated as one value.
+  The tail's first statement after the last removal, `GetWindowLongA(window, DWL_DLGPROC)`, loads `window`; the removal's `entries == 0` exit
+  gives a path with no call from the head's loads (Get_Record's argument, the arm tests) to that load, and with them joined the head takes the
+  draft's allocation (zero in ebx, the record in esi, the constant 1 from contains()).
+- Measured, each as a single edit that leaves the rest of the function the image's (9 to 30 lines, all of them the edit and unbound statics;
+  the volatile form 37):
+  a call that takes no `window` argument ahead of that load (`GetFocus()`, `SetFocus(NULL)`, `IME_Cancel_Composition()`, in the block, after the
+  removal or just before it), a store through the record ahead of it (`data->Reserved_2C = FALSE`), the argument read from another object
+  (`(HWND)key.Window`: 7,252 B, one instruction off), or the load made volatile. Not turning it: a call that takes `window`
+  (`SetFocus(window)`, `IME_Service_Message(window, ...)`: the load precedes the call), a store to a global, a read of a global with an exit, a
+  copy (`HWND dialog = window`), a reference, `*(HWND *)&window`, a by-value inline helper for the test (with the removal still expanded it
+  compiles to the draft's bytes), the two tests in the other order. This is what lane F85's diagnostic and ra2-decomp's "one extern call on the
+  stretch" both measure; the call need not be extern or direct, it must only come before the load.
+- The image has that load at 0x5EFD8C with nothing ahead of it, so its source differs in a way that leaves no code. Not found. Statements
+  that leave no code do not cut the path either: an empty inline call (it counts as a site and puts the removal out of line), `memcpy` of
+  length 0, a store of a member to itself, `|= 0`, a dead struct copy, a dead local array store, a store through a pointer to a local (folded
+  before the paths are read). Declaration counts do not turn it: 1 to 65 `struct` lines ahead of the function and 1 to 66 dead locals give
+  small reload-order changes (7,248 B at 8, 13, 19, 22, 24, 26 lines; the function has count-sensitive reload sites of its own) and, from 43
+  locals up, other inline decisions, never the exchange. TibSun's forms (the `in_focus` local, `processing` ahead of the removal, a separate
+  `topwindow`, `destroyed`), the wrapper returning char, the one-argument remove and a conditional on the wrapper's result compile to the
+  draft's state.
+- Next read for the exchange: a statement between the last removal and the first `GetWindowLongA` that is a call or a pointer store when
+  the paths are read and is gone afterwards (Combo_Proc's fill below is one such case of text the listing does not show), or a second name
+  for `window` at that one site that reads the parameter's own slot.
+- With the exchange set right by any of those edits the low frame slots still differ, and the pairs say how. The image's groups are
+  {result}, {call_proc, the set-top index, owner}, {the set-top found, the destroy arm's scan, the tip text, child}, {specific_proc, target};
+  the draft's are {call_proc, found, child}, {index, scan, text, owner}, {specific_proc, target}. Under the frame model (most references
+  first, the newest slot that fits) the image took them in descending reference order (owner 7, child 6, text 5, found 4, index and target 3,
+  scan 2). The draft's groups come out only if they are taken in source order (found, target, index, scan, text, owner, child). So the
+  draft's locals reach the frame pass with equal weight, or in another list, and a declaration or scope form is the likely difference;
+  `owner` and `ownerdata` at function scope, as the archive has them, cost four bytes of frame and are not it.
+- A /FAs listing names every frame offset (`_found$81673 = -860`); read slot groups from it, not from store patterns. Pass an absolute
+  `/Fa` path: the compile runs in a temporary folder.
+- Combo_Proc's fill is a loop. `for (int i = 0; i < 50; ++i) data->ItemColors[i] = -1;` (RobinDigitalPro/ra2-1001-decomp's text for the
+  1.001 twin) is turned into `rep stosd` with the destination set first (`lea edi` ahead of `mov ecx, 0x32`), the image's order; `memset`
+  sets the count first in every state and spelling (-1 for 0xFF, `&ItemColors[0]`, the statements exchanged). With the loop, the held line
+  height and one record reference at case 0x4DD the whole subclassed case is the image's instruction for instruction, in a frame eight bytes
+  short (the third state).
+- The loop moves the draft's state, so it is not adopted alone: loop only is lane F85's third state (frame 0x2b78, 6,928 B, 305 lines);
+  loop and hold is the exchanged state (6,912 B, 349 lines) for every loop shape (a block-scoped `int i`, `unsigned`, a counter in `wparam`
+  or `lparam`, a pointer cursor, the statements exchanged) and every hold (the accessor, a local, the comma form, Robin's conditional).
+- What the probe stores matters. On loop and hold a record store of zero (`data->Reserved_1D8[0] = 0`) gives the exchanged or the third
+  state at all 24 case tops; a store of 1 gives the image's state at the tops of CB_GETCURSEL and WM_LBUTTONDBLCLK (51 and 53 lines: the
+  store, the two sites below and the tables its bytes move) and nearly at WM_DESTROY (78), and the third state at 0x4DD, 0x4F1, 0x4E8 and
+  most others. A zero store is also a use of the zero register (the result's edi at entry), so a probe of zero measures two counts at once;
+  probe with a non-zero value. In that state the hold, the fill order and the subclassed case are the image's and two sites are left: the
+  dropdown clamp (parent bottom in eax, `sub eax, ecx / mov esi, eax` for the image's `mov esi, ecx / sub esi, eax`) and the surface reload
+  after the blend loop, one line early. The cases where the store works have no record reference of their own ahead of their first call
+  (or, CB_GETCURSEL, one read), so the missing unit is a record reference early in a case, not a use anywhere; no natural one was found
+  (the flag as a member or a reference, all three heights through the accessor, the redundant `result = 0` of the button-down case
+  taken out: other states).
+- The bank's cases 0x4DD, 0x4F1 and 0x4E8 are the draft's text word for word (banked-forms 41d009df; ra2-decomp's main has no body for the
+  handler), and the image's code for them is the draft's, so no record reference is written differently there.
+- Not moved in Combo_Proc: the dropdown clamp under eight spellings (named bottoms, the sum's operand order, `height = limit; height -=
+  bottom`, the test turned round: the same bytes); the flag at +0x1C read as a member in place of the memcpy pair (the same bytes); the
+  comparison with its operands exchanged (the call is still evaluated first); `LineHeight != SendMessage() - 6` (other code); 1 to 33
+  `struct` lines ahead of the function (the same bytes each time: none of its four sites is count-sensitive).
+- All four of Combo_Proc's sites touch edi: the hold borrows it from the result, the fill takes it, and the reload after the blend loop is
+  the surface coming back to it. In the exchanged state the hold borrows the result's register as well (ebx there), so the hold always
+  takes the result's register and the exchange is which of the record and the result is taken first.
