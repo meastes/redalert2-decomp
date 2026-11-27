@@ -47,7 +47,15 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
   copies of one value, or a once-used copy where the original reads the same; dummy variables, dead code,
   pass-through wrappers and second names for an existing function. Every line does real work; matching
   reference text replaces a flagged form whenever it appears; acceptance is unchanged (one definition,
-  whole-file exact, no other function stops matching). Exception
+  whole-file exact, no other function stops matching). Exception (user, 2026-11-27, in the owner session,
+  agreeing with the review session): a fifth flagged kind, `[count-anchor]`, only for rows that count their unit's
+  total declarations (bis.py) and whose flip is a scheduling tie. Only existing unit-local file-scope declarations
+  move, inside their own .cpp, each directly ahead of its first user; no new text, removals, header edits or
+  include changes for the count; the set is fixed by rule (fewest moves reaching the window, first in file order
+  among equals), with window, weight moved and header state in the note. An evidenced header form lands in one
+  landing with the anchors it needs (whole-file exact, no row lost); counted on the judgment line and the STATUS
+  kinds line; replaced when reference text shows the unit's order. Dead text kept only for its count comes out in
+  that landing unless a reference carries it. Exception
   (user, 2026-11-13, "Let's go with option 2 then", confirmed in the owner
   session): exact matching on the unmatched tail stops; the best drafts of
   unmatched functions are tracked in their unit's source under a non-matching
