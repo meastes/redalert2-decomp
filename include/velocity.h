@@ -106,6 +106,8 @@ class TVelocity3D : public TVelocity2D<T>
 
 		T Speed(void) const { return(fastmath::sqrt(X * X + Y * Y + Z * Z)); }
 
+		T Magnitude(void) const { return(fastmath::sqrt((X * X) + (Y * Y) + (Z * Z))); }
+
 		/*
 		 * Repoints the velocity to the given pitch, preserving the total speed
 		 * and the heading: the horizontal components are rescaled from the old

@@ -304,7 +304,6 @@ bool __fastcall Control_Test(HWND window);
 namespace OwnerDraw { extern unsigned short Blue_Mask; }
 namespace OwnerDraw { extern unsigned short Red_Mask; }
 namespace OwnerDraw { extern unsigned short Green_Mask; }
-bool Is_In_Main_Loop();
 bool __fastcall Main_Loop();
 void __stdcall Set_Paint_Disabled_Children(struct HWND__ * window, int unknown2);
 
@@ -9808,6 +9807,8 @@ int OwnerDraw::Default_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPA
 
 }
 
+
+bool Is_In_Main_Loop();
 
 /// <summary>
 /// Services the game while a dialog is up.

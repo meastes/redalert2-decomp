@@ -132,7 +132,6 @@ bool g_ShowMOTD = true;
 int g_ServerType = -1;
 HRESULT g_OnConnectionResult;
 HRESULT g_LastIgnoredStatus; // RA2: 0x00B2AC00, TibSun's name: the chat's last net status while g_IgnoreNetStatus is set
-bool g_RememberLogin;
 int g_LobbyNumber;
 bool g_HasJoinedLobby = true;
 bool g_WDTSoundsInitialized;
@@ -5382,6 +5381,8 @@ static inline int Fetch_Server_List(void) // RA2: shows "fetching the server lis
 	}
 	return(Request_And_Wait_Server_List(sku));
 }
+
+bool g_RememberLogin;
 
 int __fastcall Login_Wonline(void) // RA2: 0x00742FD0, not in TibSun: logs in to Westwood Online: starts the chat services, fetches the server list, tries the stored login of the auto login persona, else opens the login dialog (the executable's debug text says "Creating login dlg") and connects to the server the persona's profile names; 1 when connected, 0 when not, negative when the server list could not be fetched; NOT matching (unplaced, 1904 bytes against the executable's 1857): the executable calls ArrayList::getPointer 0x00765E60 out of line in the three early expansions of Find_Server_Suffix / Connect_To_Selected_Server (the last two expansions are inline) which our build expands everywhere (about 16 bytes each; wrapper layers around the early calls make the expansions themselves vanish, so the inline budget is not what is wrong); it keeps the zero in ebp and the rc_ptr vtable in ebx where we use ebx; and it expands the derived control destructor (see SimpleWonlineDialogControl)
 {

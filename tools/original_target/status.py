@@ -432,7 +432,7 @@ def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, reposi
              'evidence, ii sibling-image helper form, iii author idiom unreferenced at the line, iv-a twin or reference '
              'text at this or a sibling site, iv-b looked-up local no reference has, v image-derived or frozen bound, vi '
              'header-form dependent, joined two references joined at one site, vii other; helper, spelling, compiler-local, '
-             'readability-alias flagged variation forms; reference-borne a refused-if-coined form in adopted reference '
+             'readability-alias, count-anchor flagged variation forms; reference-borne a refused-if-coined form in adopted reference '
              'text; kinds tagged in provenance.csv and header_judgments.csv) | | {} |'.format(
                  kind_cell),
              '| Judgment calls, one definition for both trees (main\'s: the manifest flags {}; in the rebuild, the '

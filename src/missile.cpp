@@ -44,7 +44,6 @@
 /// <param name="level">Should the projectile hold its height (no climb or dive steering)?</param>
 /// <returns>Returns with the distance still to be covered, with the vertical component
 /// discounted. A projectile with nothing to home on levels out, advances and returns its speed.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 51 bytes differ against the image-derived bound 00593870 (2,101 B) (was 179; ra2-decomp 1368d8de's matched text with its two conditional expressions; exact with the rest of that text, `frame_velocity(velocity, velocity.Z)` and `velocity.Magnitude()`, once velocity.h has the twin's planar constructor and Magnitude and face.h's DirType::Turn names its difference: held, because with those three header forms either WinMain 0x68E280 or queue Print_CRCs 0x62A360 stops being exact (the patch is private/dossiers/fable/f73/projectile_motion_exact.patch); main: best 99.22, tried 4 times (order, float, register)
 int Projectile_Motion(Coord & coord, TVelocity3D<double> & velocity, Coord const & target_coord, DirType const & rot, bool aircraft, bool airburst, bool veryhigh, bool level)
 {
 	if (target_coord == COORD_NONE) {
@@ -53,9 +52,9 @@ int Projectile_Motion(Coord & coord, TVelocity3D<double> & velocity, Coord const
 		velocity.Set_Pitch(pitch);
 		TVelocity3D<double> frame_velocity(velocity);
 		coord = coord + Point3D(frame_velocity.X, frame_velocity.Y, frame_velocity.Z);
-		return(velocity.Speed());
+		return(velocity.Magnitude());
 	} else {
-		TVelocity3D<double> frame_velocity(velocity);
+		TVelocity3D<double> frame_velocity(velocity, velocity.Z);
 		coord = coord + Point3D(frame_velocity.X, frame_velocity.Y, frame_velocity.Z);
 		int target_distance = coord.Distance_To(target_coord);
 		int horizontal_distance = Point2D(coord).Distance_To(Point2D(target_coord));
@@ -111,4 +110,3 @@ int Projectile_Motion(Coord & coord, TVelocity3D<double> & velocity, Coord const
 		return(delta.Length());
 	}
 }
-#endif

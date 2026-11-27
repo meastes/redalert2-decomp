@@ -2,10 +2,10 @@
   "id": "rebuild-missile",
   "population": {
     "id": "rebuild-missile",
-    "inventory_sha256": "dde300cbbb7fbaeb8c1d08f1dd4bc393913e4b6e79a96e7189f392d07c871fa0",
-    "gaps_sha256": "ccc45cc9656d2a521bd1b2abd21e192e858ca721d92399c434b2ea4d56ecc814",
-    "historical_population_sha256": "d00fd0ed83ada4fd544aeff9568bd228132776795c95c93a24c336557a1b18ed",
-    "historical_acceptance_sha256": "5ea4afda28d5dda71434c235f743161442f4c7ad475b45be907873986a5fd108"
+    "inventory_sha256": "3ef54957ead29a46e6eea750cf77b51ffc34d00fd9f92cbc8d84610084a29092",
+    "gaps_sha256": "b308050a46b7cf6e70bfe0e590d67bf26b9b9ffdf6333c695e3d171b36a26c95",
+    "historical_population_sha256": "049468079aedb57815ea518b6e5704d2962cafd85acfbfd338a8f7ed769409ad",
+    "historical_acceptance_sha256": "049468079aedb57815ea518b6e5704d2962cafd85acfbfd338a8f7ed769409ad"
   },
   "references": {
     "_RECT_NONE": 10947544,
@@ -36,6 +36,32 @@
     "_BRIDGE_LEPTON_HEIGHT": 10947632,
     "_CELL_NONE": 10947560,
     "_COORD_NONE": 10947592,
+    "?Horizontal_Speed@?$TVelocity3D@N@@QBENXZ": 4306768,
+    "?atan2@fastmath@@YANNN@Z": 4957696,
+    "__real@8@3fffc90fdaa22168c000": 7976496,
+    "__real@8@c00ca2f83d7b47677800": 7976488,
+    "?Is_Complete_Turn@DirType@@QAE_NABV1@0@Z": 5849360,
+    "??GDirType@@QBE?AV0@ABV0@@Z": 5849296,
+    "?Get_Pitch@?$TVelocity3D@N@@QBE?AVDirType@@XZ": 4306656,
+    "__real@8@bff1c9116cc4faf2b800": 7976480,
+    "?Speed@?$TVelocity3D@N@@QBENXZ": 4306880,
+    "__real@8@00000000000000000000": 7976464,
+    "?cos@fastmath@@YANN@Z": 4957392,
+    "?sin@fastmath@@YANN@Z": 4957312,
+    "??0?$TPoint3D@H@@QAE@HHH@Z": 4306480,
+    "??G?$TPoint3D@H@@QBE?BV0@ABV0@@Z": 4409584,
+    "?Length@?$TPoint3D@H@@QBEHXZ": 4306816,
+    "??G?$TPoint2D@H@@QBE?BV0@ABV0@@Z": 4706368,
+    "?Length@?$TPoint2D@H@@QBEHXZ": 4706400,
+    "?Nonzero_Check@?$TVelocity2D@N@@QAEXXZ": 4307040,
+    "?Speed@?$TVelocity2D@N@@QBENXZ": 4306992,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z": 5612160,
+    "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z": 5537792,
+    "??HDirType@@QBE?AV0@ABV0@@Z": 5849264,
+    "??KDirType@@QBE?AV0@H@Z": 5849328,
+    "?Turn@DirType@@QAE_NABV1@0@Z": 5849408,
+    "?Set_Pitch@?$TVelocity3D@N@@QAEXABVDirType@@@Z": 5849520,
     "_$E2": 5846656,
     "_$E5": 5846688,
     "_$E8": 5846736,
@@ -51,6 +77,7 @@
     "_$E38": 5847120,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "?Projectile_Motion@@YIHAAVCoord@@AAV?$TVelocity3D@N@@ABV1@ABVDirType@@_N444@Z": 5847152,
     "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
     "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
     "??_7type_info@@6B@": 8066532,
@@ -119,11 +146,12 @@
           "resolved": 10947556
         }
       ],
-      "source_sha256": "d4ac915a97c5441df56b0be730266eca1bdc15ebbc2d362a0f850e6519a7140b",
+      "source_sha256": "3054abb57d935daa5ad2e268ab530e55a6a48bddca3ea22369052caefb415c67",
       "source": "src/missile.cpp",
       "population": "rebuild-missile",
       "source_order": 5846656,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3928"
     },
     {
       "entry": 5846688,
@@ -187,11 +215,12 @@
           "resolved": 10947568
         }
       ],
-      "source_sha256": "d4ac915a97c5441df56b0be730266eca1bdc15ebbc2d362a0f850e6519a7140b",
+      "source_sha256": "3054abb57d935daa5ad2e268ab530e55a6a48bddca3ea22369052caefb415c67",
       "source": "src/missile.cpp",
       "population": "rebuild-missile",
       "source_order": 5846688,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3928"
     },
     {
       "entry": 5846736,
@@ -239,11 +268,12 @@
           "resolved": 10947640
         }
       ],
-      "source_sha256": "d4ac915a97c5441df56b0be730266eca1bdc15ebbc2d362a0f850e6519a7140b",
+      "source_sha256": "3054abb57d935daa5ad2e268ab530e55a6a48bddca3ea22369052caefb415c67",
       "source": "src/missile.cpp",
       "population": "rebuild-missile",
       "source_order": 5846736,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3928"
     },
     {
       "entry": 5846768,
@@ -291,11 +321,12 @@
           "resolved": 10947624
         }
       ],
-      "source_sha256": "d4ac915a97c5441df56b0be730266eca1bdc15ebbc2d362a0f850e6519a7140b",
+      "source_sha256": "3054abb57d935daa5ad2e268ab530e55a6a48bddca3ea22369052caefb415c67",
       "source": "src/missile.cpp",
       "population": "rebuild-missile",
       "source_order": 5846768,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3928"
     },
     {
       "entry": 5846800,
@@ -343,11 +374,12 @@
           "resolved": 10947616
         }
       ],
-      "source_sha256": "d4ac915a97c5441df56b0be730266eca1bdc15ebbc2d362a0f850e6519a7140b",
+      "source_sha256": "3054abb57d935daa5ad2e268ab530e55a6a48bddca3ea22369052caefb415c67",
       "source": "src/missile.cpp",
       "population": "rebuild-missile",
       "source_order": 5846800,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3928"
     },
     {
       "entry": 5846832,
@@ -395,11 +427,12 @@
           "resolved": 10947576
         }
       ],
-      "source_sha256": "d4ac915a97c5441df56b0be730266eca1bdc15ebbc2d362a0f850e6519a7140b",
+      "source_sha256": "3054abb57d935daa5ad2e268ab530e55a6a48bddca3ea22369052caefb415c67",
       "source": "src/missile.cpp",
       "population": "rebuild-missile",
       "source_order": 5846832,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3928"
     },
     {
       "entry": 5846864,
@@ -447,11 +480,12 @@
           "resolved": 10947536
         }
       ],
-      "source_sha256": "d4ac915a97c5441df56b0be730266eca1bdc15ebbc2d362a0f850e6519a7140b",
+      "source_sha256": "3054abb57d935daa5ad2e268ab530e55a6a48bddca3ea22369052caefb415c67",
       "source": "src/missile.cpp",
       "population": "rebuild-missile",
       "source_order": 5846864,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3928"
     },
     {
       "entry": 5846896,
@@ -531,11 +565,12 @@
           "resolved": 10947648
         }
       ],
-      "source_sha256": "d4ac915a97c5441df56b0be730266eca1bdc15ebbc2d362a0f850e6519a7140b",
+      "source_sha256": "3054abb57d935daa5ad2e268ab530e55a6a48bddca3ea22369052caefb415c67",
       "source": "src/missile.cpp",
       "population": "rebuild-missile",
       "source_order": 5846896,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3928"
     },
     {
       "entry": 5846960,
@@ -591,11 +626,12 @@
           "resolved": 10947584
         }
       ],
-      "source_sha256": "d4ac915a97c5441df56b0be730266eca1bdc15ebbc2d362a0f850e6519a7140b",
+      "source_sha256": "3054abb57d935daa5ad2e268ab530e55a6a48bddca3ea22369052caefb415c67",
       "source": "src/missile.cpp",
       "population": "rebuild-missile",
       "source_order": 5846960,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3928"
     },
     {
       "entry": 5847008,
@@ -651,11 +687,12 @@
           "resolved": 10947608
         }
       ],
-      "source_sha256": "d4ac915a97c5441df56b0be730266eca1bdc15ebbc2d362a0f850e6519a7140b",
+      "source_sha256": "3054abb57d935daa5ad2e268ab530e55a6a48bddca3ea22369052caefb415c67",
       "source": "src/missile.cpp",
       "population": "rebuild-missile",
       "source_order": 5847008,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3928"
     },
     {
       "entry": 5847056,
@@ -711,11 +748,12 @@
           "resolved": 10947632
         }
       ],
-      "source_sha256": "d4ac915a97c5441df56b0be730266eca1bdc15ebbc2d362a0f850e6519a7140b",
+      "source_sha256": "3054abb57d935daa5ad2e268ab530e55a6a48bddca3ea22369052caefb415c67",
       "source": "src/missile.cpp",
       "population": "rebuild-missile",
       "source_order": 5847056,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3928"
     },
     {
       "entry": 5847104,
@@ -755,11 +793,12 @@
           "resolved": 10947562
         }
       ],
-      "source_sha256": "d4ac915a97c5441df56b0be730266eca1bdc15ebbc2d362a0f850e6519a7140b",
+      "source_sha256": "3054abb57d935daa5ad2e268ab530e55a6a48bddca3ea22369052caefb415c67",
       "source": "src/missile.cpp",
       "population": "rebuild-missile",
       "source_order": 5847104,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3928"
     },
     {
       "entry": 5847120,
@@ -807,11 +846,979 @@
           "resolved": 10947600
         }
       ],
-      "source_sha256": "d4ac915a97c5441df56b0be730266eca1bdc15ebbc2d362a0f850e6519a7140b",
+      "source_sha256": "3054abb57d935daa5ad2e268ab530e55a6a48bddca3ea22369052caefb415c67",
       "source": "src/missile.cpp",
       "population": "rebuild-missile",
       "source_order": 5847120,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3928"
+    },
+    {
+      "entry": 5847152,
+      "method": "00593870",
+      "body_bytes": 2101,
+      "body_sha256": "6510812bb850cab8d58fd11f880a928fa9db8082512f61755a6b1a431053c77e",
+      "padding_bytes": 11,
+      "full_extent_bytes": 2112,
+      "full_extent_sha256": "07f64f41c20d4a5d4313484276af2cde33c45ad936404a01f80f1c5045277ba6",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Image-derived bound (manifests/image_bounds.csv, image_bounds.py; start call@0045fd2d, end bound row)",
+      "padding_provenance": null,
+      "bound": "image-derived",
+      "symbol": "?Projectile_Motion@@YIHAAVCoord@@AAV?$TVelocity3D@N@@ABV1@ABVDirType@@_N444@Z",
+      "symbol_prefix": "?Projectile_Motion@@YIHAAVCoord@@AAV?$TVelocity3D@N@@ABV1@ABVDirType@@_N444@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947592,
+          "addend": 0,
+          "resolved": 10947592
+        },
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947592,
+          "addend": 4,
+          "resolved": 10947596
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947592,
+          "addend": 8,
+          "resolved": 10947600
+        },
+        {
+          "offset": 77,
+          "kind": 20,
+          "symbol": "?Horizontal_Speed@?$TVelocity3D@N@@QBENXZ",
+          "target": 4306768,
+          "addend": 0,
+          "resolved": 4293426831
+        },
+        {
+          "offset": 96,
+          "kind": 20,
+          "symbol": "?atan2@fastmath@@YANNN@Z",
+          "target": 4957696,
+          "addend": 0,
+          "resolved": 4294077740
+        },
+        {
+          "offset": 102,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 111,
+          "kind": 6,
+          "symbol": "__real@8@c00ca2f83d7b47677800",
+          "target": 7976488,
+          "addend": 0,
+          "resolved": 7976488
+        },
+        {
+          "offset": 116,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2013224
+        },
+        {
+          "offset": 154,
+          "kind": 20,
+          "symbol": "?Is_Complete_Turn@DirType@@QAE_NABV1@0@Z",
+          "target": 5849360,
+          "addend": 0,
+          "resolved": 2050
+        },
+        {
+          "offset": 189,
+          "kind": 20,
+          "symbol": "??GDirType@@QBE?AV0@ABV0@@Z",
+          "target": 5849296,
+          "addend": 0,
+          "resolved": 1951
+        },
+        {
+          "offset": 225,
+          "kind": 20,
+          "symbol": "?Get_Pitch@?$TVelocity3D@N@@QBE?AVDirType@@XZ",
+          "target": 4306656,
+          "addend": 0,
+          "resolved": 4293426571
+        },
+        {
+          "offset": 250,
+          "kind": 6,
+          "symbol": "__real@8@bff1c9116cc4faf2b800",
+          "target": 7976480,
+          "addend": 0,
+          "resolved": 7976480
+        },
+        {
+          "offset": 259,
+          "kind": 20,
+          "symbol": "?Speed@?$TVelocity3D@N@@QBENXZ",
+          "target": 4306880,
+          "addend": 0,
+          "resolved": 4293426761
+        },
+        {
+          "offset": 273,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 295,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4294077237
+        },
+        {
+          "offset": 310,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4294077222
+        },
+        {
+          "offset": 347,
+          "kind": 6,
+          "symbol": "__real@8@bff1c9116cc4faf2b800",
+          "target": 7976480,
+          "addend": 0,
+          "resolved": 7976480
+        },
+        {
+          "offset": 355,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4294077177
+        },
+        {
+          "offset": 384,
+          "kind": 6,
+          "symbol": "__real@8@bff1c9116cc4faf2b800",
+          "target": 7976480,
+          "addend": 0,
+          "resolved": 7976480
+        },
+        {
+          "offset": 392,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4294077140
+        },
+        {
+          "offset": 422,
+          "kind": 6,
+          "symbol": "__real@8@bff1c9116cc4faf2b800",
+          "target": 7976480,
+          "addend": 0,
+          "resolved": 7976480
+        },
+        {
+          "offset": 430,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 4294077022
+        },
+        {
+          "offset": 478,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2012862
+        },
+        {
+          "offset": 489,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2012851
+        },
+        {
+          "offset": 498,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2012842
+        },
+        {
+          "offset": 528,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4293426092
+        },
+        {
+          "offset": 587,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4294076753
+        },
+        {
+          "offset": 595,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2012745
+        },
+        {
+          "offset": 645,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2012695
+        },
+        {
+          "offset": 656,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2012684
+        },
+        {
+          "offset": 665,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2012675
+        },
+        {
+          "offset": 695,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4293425925
+        },
+        {
+          "offset": 728,
+          "kind": 20,
+          "symbol": "??G?$TPoint3D@H@@QBE?BV0@ABV0@@Z",
+          "target": 4409584,
+          "addend": 0,
+          "resolved": 4293528996
+        },
+        {
+          "offset": 735,
+          "kind": 20,
+          "symbol": "?Length@?$TPoint3D@H@@QBEHXZ",
+          "target": 4306816,
+          "addend": 0,
+          "resolved": 4293426221
+        },
+        {
+          "offset": 784,
+          "kind": 20,
+          "symbol": "??G?$TPoint2D@H@@QBE?BV0@ABV0@@Z",
+          "target": 4706368,
+          "addend": 0,
+          "resolved": 4293825724
+        },
+        {
+          "offset": 791,
+          "kind": 20,
+          "symbol": "?Length@?$TPoint2D@H@@QBEHXZ",
+          "target": 4706400,
+          "addend": 0,
+          "resolved": 4293825749
+        },
+        {
+          "offset": 829,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4293425791
+        },
+        {
+          "offset": 950,
+          "kind": 20,
+          "symbol": "?atan2@fastmath@@YANNN@Z",
+          "target": 4957696,
+          "addend": 0,
+          "resolved": 4294076886
+        },
+        {
+          "offset": 956,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 965,
+          "kind": 6,
+          "symbol": "__real@8@c00ca2f83d7b47677800",
+          "target": 7976488,
+          "addend": 0,
+          "resolved": 7976488
+        },
+        {
+          "offset": 970,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2012370
+        },
+        {
+          "offset": 1019,
+          "kind": 20,
+          "symbol": "?atan2@fastmath@@YANNN@Z",
+          "target": 4957696,
+          "addend": 0,
+          "resolved": 4294076817
+        },
+        {
+          "offset": 1025,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 1034,
+          "kind": 6,
+          "symbol": "__real@8@c00ca2f83d7b47677800",
+          "target": 7976488,
+          "addend": 0,
+          "resolved": 7976488
+        },
+        {
+          "offset": 1039,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2012301
+        },
+        {
+          "offset": 1062,
+          "kind": 20,
+          "symbol": "?Is_Complete_Turn@DirType@@QAE_NABV1@0@Z",
+          "target": 5849360,
+          "addend": 0,
+          "resolved": 1142
+        },
+        {
+          "offset": 1097,
+          "kind": 20,
+          "symbol": "??GDirType@@QBE?AV0@ABV0@@Z",
+          "target": 5849296,
+          "addend": 0,
+          "resolved": 1043
+        },
+        {
+          "offset": 1128,
+          "kind": 20,
+          "symbol": "?Nonzero_Check@?$TVelocity2D@N@@QAEXXZ",
+          "target": 4307040,
+          "addend": 0,
+          "resolved": 4293426052
+        },
+        {
+          "offset": 1135,
+          "kind": 20,
+          "symbol": "?Speed@?$TVelocity2D@N@@QBENXZ",
+          "target": 4306992,
+          "addend": 0,
+          "resolved": 4293425997
+        },
+        {
+          "offset": 1167,
+          "kind": 6,
+          "symbol": "__real@8@bff1c9116cc4faf2b800",
+          "target": 7976480,
+          "addend": 0,
+          "resolved": 7976480
+        },
+        {
+          "offset": 1175,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4294076357
+        },
+        {
+          "offset": 1206,
+          "kind": 6,
+          "symbol": "__real@8@bff1c9116cc4faf2b800",
+          "target": 7976480,
+          "addend": 0,
+          "resolved": 7976480
+        },
+        {
+          "offset": 1214,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 4294076238
+        },
+        {
+          "offset": 1233,
+          "kind": 20,
+          "symbol": "?Horizontal_Speed@?$TVelocity3D@N@@QBENXZ",
+          "target": 4306768,
+          "addend": 0,
+          "resolved": 4293425675
+        },
+        {
+          "offset": 1252,
+          "kind": 20,
+          "symbol": "?atan2@fastmath@@YANNN@Z",
+          "target": 4957696,
+          "addend": 0,
+          "resolved": 4294076584
+        },
+        {
+          "offset": 1258,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 1267,
+          "kind": 6,
+          "symbol": "__real@8@c00ca2f83d7b47677800",
+          "target": 7976488,
+          "addend": 0,
+          "resolved": 7976488
+        },
+        {
+          "offset": 1272,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2012068
+        },
+        {
+          "offset": 1395,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2011945
+        },
+        {
+          "offset": 1406,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2011934
+        },
+        {
+          "offset": 1415,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2011925
+        },
+        {
+          "offset": 1446,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4293425174
+        },
+        {
+          "offset": 1482,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4293425138
+        },
+        {
+          "offset": 1505,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1517,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4294730783
+        },
+        {
+          "offset": 1526,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1534,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4294656398
+        },
+        {
+          "offset": 1551,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 10947632,
+          "addend": 0,
+          "resolved": 10947632
+        },
+        {
+          "offset": 1616,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10947648,
+          "addend": 0,
+          "resolved": 10947648
+        },
+        {
+          "offset": 1652,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10947648,
+          "addend": 0,
+          "resolved": 10947648
+        },
+        {
+          "offset": 1715,
+          "kind": 20,
+          "symbol": "?Is_Complete_Turn@DirType@@QAE_NABV1@0@Z",
+          "target": 5849360,
+          "addend": 0,
+          "resolved": 489
+        },
+        {
+          "offset": 1753,
+          "kind": 20,
+          "symbol": "??GDirType@@QBE?AV0@ABV0@@Z",
+          "target": 5849296,
+          "addend": 0,
+          "resolved": 387
+        },
+        {
+          "offset": 1850,
+          "kind": 20,
+          "symbol": "?Is_Complete_Turn@DirType@@QAE_NABV1@0@Z",
+          "target": 5849360,
+          "addend": 0,
+          "resolved": 354
+        },
+        {
+          "offset": 1888,
+          "kind": 20,
+          "symbol": "??GDirType@@QBE?AV0@ABV0@@Z",
+          "target": 5849296,
+          "addend": 0,
+          "resolved": 252
+        },
+        {
+          "offset": 1998,
+          "kind": 20,
+          "symbol": "??HDirType@@QBE?AV0@ABV0@@Z",
+          "target": 5849264,
+          "addend": 0,
+          "resolved": 110
+        },
+        {
+          "offset": 2005,
+          "kind": 20,
+          "symbol": "??KDirType@@QBE?AV0@H@Z",
+          "target": 5849328,
+          "addend": 0,
+          "resolved": 167
+        },
+        {
+          "offset": 2023,
+          "kind": 20,
+          "symbol": "?Get_Pitch@?$TVelocity3D@N@@QBE?AVDirType@@XZ",
+          "target": 4306656,
+          "addend": 0,
+          "resolved": 4293424773
+        },
+        {
+          "offset": 2033,
+          "kind": 20,
+          "symbol": "?Turn@DirType@@QAE_NABV1@0@Z",
+          "target": 5849408,
+          "addend": 0,
+          "resolved": 219
+        },
+        {
+          "offset": 2045,
+          "kind": 20,
+          "symbol": "?Set_Pitch@?$TVelocity3D@N@@QAEXABVDirType@@@Z",
+          "target": 5849520,
+          "addend": 0,
+          "resolved": 319
+        },
+        {
+          "offset": 2088,
+          "kind": 20,
+          "symbol": "?Length@?$TPoint3D@H@@QBEHXZ",
+          "target": 4306816,
+          "addend": 0,
+          "resolved": 4293424868
+        }
+      ],
+      "source_sha256": "3054abb57d935daa5ad2e268ab530e55a6a48bddca3ea22369052caefb415c67",
+      "source": "src/missile.cpp",
+      "population": "rebuild-missile",
+      "source_order": 5847152,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5849264,
+      "method": "005940b0",
+      "body_bytes": 28,
+      "body_sha256": "c1a4fd093b1806335a858af96a646502d7bce5d6c7c54b4e815f87274fb0bc62",
+      "padding_bytes": 4,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "bfdd1a9a0998926cbf80e923ada51b939ca7006b32f5180c2237f847d73078a8",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??HDirType@@QBE?AV0@ABV0@@Z",
+      "symbol_prefix": "??HDirType@@QBE?AV0@ABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "3054abb57d935daa5ad2e268ab530e55a6a48bddca3ea22369052caefb415c67",
+      "source": "src/missile.cpp",
+      "population": "rebuild-missile",
+      "source_order": 5849264,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3928"
+    },
+    {
+      "entry": 5849296,
+      "method": "005940d0",
+      "body_bytes": 28,
+      "body_sha256": "1d298be86314b120d0eccae79b431460abf62d4a3ad3ef1e11c7bf9f07764d7b",
+      "padding_bytes": 4,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "61f8ff39c6c7c89b40c4e5043929c4066ed77732ad664d04c2c5b25cf58f3323",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??GDirType@@QBE?AV0@ABV0@@Z",
+      "symbol_prefix": "??GDirType@@QBE?AV0@ABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "3054abb57d935daa5ad2e268ab530e55a6a48bddca3ea22369052caefb415c67",
+      "source": "src/missile.cpp",
+      "population": "rebuild-missile",
+      "source_order": 5849296,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3928"
+    },
+    {
+      "entry": 5849328,
+      "method": "005940f0",
+      "body_bytes": 26,
+      "body_sha256": "7b7670ff5f6710bff787b714b9e32ac5f0ce95a866ec1ac120702a35728e934e",
+      "padding_bytes": 6,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "6ceeb059c33953c9a758c4f5de1a368cf26375f90011b507a21dce2e5f87aae8",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??KDirType@@QBE?AV0@H@Z",
+      "symbol_prefix": "??KDirType@@QBE?AV0@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "3054abb57d935daa5ad2e268ab530e55a6a48bddca3ea22369052caefb415c67",
+      "source": "src/missile.cpp",
+      "population": "rebuild-missile",
+      "source_order": 5849328,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3928"
+    },
+    {
+      "entry": 5849360,
+      "method": "00594110",
+      "body_bytes": 42,
+      "body_sha256": "b26aa1a515e00244b16031d2edf4fc664e312041a2a94b2f452067782eb24d9b",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8a62b616bf85e29436373491f17e6f9517eeb8d30b7cf64ec32a4a1494dd6c22",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Complete_Turn@DirType@@QAE_NABV1@0@Z",
+      "symbol_prefix": "?Is_Complete_Turn@DirType@@QAE_NABV1@0@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "3054abb57d935daa5ad2e268ab530e55a6a48bddca3ea22369052caefb415c67",
+      "source": "src/missile.cpp",
+      "population": "rebuild-missile",
+      "source_order": 5849360,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3928"
+    },
+    {
+      "entry": 5849408,
+      "method": "00594140",
+      "body_bytes": 100,
+      "body_sha256": "9d7ae9fa6bb6a6062da69cec30282a243f79984775819ce64ea14256bcb87822",
+      "padding_bytes": 12,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "5c1c40cd63802c999d521592e2afe3176149b8857e503da32046377a4a7527b6",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Turn@DirType@@QAE_NABV1@0@Z",
+      "symbol_prefix": "?Turn@DirType@@QAE_NABV1@0@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "3054abb57d935daa5ad2e268ab530e55a6a48bddca3ea22369052caefb415c67",
+      "source": "src/missile.cpp",
+      "population": "rebuild-missile",
+      "source_order": 5849408,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3928"
+    },
+    {
+      "entry": 5849520,
+      "method": "005941b0",
+      "body_bytes": 342,
+      "body_sha256": "877b467e06a57523a3385072a8c6bf26f3c4b31600fbef068c433adb6e025199",
+      "padding_bytes": 10,
+      "full_extent_bytes": 352,
+      "full_extent_sha256": "4ba47032813d75bbc3770b99850b94656781a8805f01ea7471e20a0aa74f659a",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Pitch@?$TVelocity3D@N@@QAEXABVDirType@@@Z",
+      "symbol_prefix": "?Set_Pitch@?$TVelocity3D@N@@QAEXABVDirType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4294074932
+        },
+        {
+          "offset": 67,
+          "kind": 20,
+          "symbol": "?atan2@fastmath@@YANNN@Z",
+          "target": 4957696,
+          "addend": 0,
+          "resolved": 4294075401
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "__real@8@c00ca2f83d7b47677800",
+          "target": 7976488,
+          "addend": 0,
+          "resolved": 7976488
+        },
+        {
+          "offset": 84,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2010888
+        },
+        {
+          "offset": 110,
+          "kind": 6,
+          "symbol": "__real@8@bff1c9116cc4faf2b800",
+          "target": 7976480,
+          "addend": 0,
+          "resolved": 7976480
+        },
+        {
+          "offset": 152,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4294074820
+        },
+        {
+          "offset": 166,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 191,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4294074973
+        },
+        {
+          "offset": 202,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4294074962
+        },
+        {
+          "offset": 240,
+          "kind": 6,
+          "symbol": "__real@8@bff1c9116cc4faf2b800",
+          "target": 7976480,
+          "addend": 0,
+          "resolved": 7976480
+        },
+        {
+          "offset": 248,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4294074916
+        },
+        {
+          "offset": 274,
+          "kind": 6,
+          "symbol": "__real@8@bff1c9116cc4faf2b800",
+          "target": 7976480,
+          "addend": 0,
+          "resolved": 7976480
+        },
+        {
+          "offset": 282,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4294074882
+        },
+        {
+          "offset": 311,
+          "kind": 6,
+          "symbol": "__real@8@bff1c9116cc4faf2b800",
+          "target": 7976480,
+          "addend": 0,
+          "resolved": 7976480
+        },
+        {
+          "offset": 319,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 4294074765
+        }
+      ],
+      "source_sha256": "3054abb57d935daa5ad2e268ab530e55a6a48bddca3ea22369052caefb415c67",
+      "source": "src/missile.cpp",
+      "population": "rebuild-missile",
+      "source_order": 5849520,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3928"
     }
   ]
 }

@@ -7419,3 +7419,41 @@ sc.sh and pg.sh (gm.py under patches). Patches: private/dossiers/fable/patches/f
   OnChannelJoin) or two stack slots exchanged (Zone_Reset, Trackbar_Proc), 4 or 8 bytes. The inline budget read in C2.DLL does not enter;
   ra2-decomp calls the same rows heap-sensitive and holds them by keeping a change's net weight at zero or by removing declarations and
   includes nothing uses, which this tree's rulings treat as a subset chosen by count.
+
+## A count anchor is found by compiling sets in rule order, not by adding weights; a row that counts its unit's total also counts at a second place; definitions with initializers cannot move (found in the rebuild (lane F105, high))
+
+Found in the rebuild (lane F105, high); Projectile_Motion 0x593870 and its six header copies landed (2,452 B) with five moved declarations in three
+units, under the `[count-anchor]` rule (AGENTS.md, user 2026-11-27). About 1,900 compiles, scripted (three whole-tree runs of 444 units). Lane tools in
+build/r/f105 (removed at hand-back; copies in private/dossiers/fable/f105_tools): lane F104's set, fs.py (a unit's file-scope items), cand.py (each
+declaration's first user), mv.py (the rule: candidates, every set of one, two or three moves compiled in file order, the first set with every row of
+the unit exact), psweep.py (0 to 64 probes ahead of any line of a unit).
+
+- The rule as applied (owner's rulings of 2026-11-27). A candidate is a file-scope declaration of the unit ahead of the row whose first user (the
+  first later file-scope item naming it) comes after the row. Not candidates: a prototype whose first later mention is its own definition (directly
+  ahead of its own body it does no work); a declaration whose place the TibSun archive's unit of the same name shows (reference order wins, and such
+  an anchor would be due for replacement the day it landed); a static member's definition. The declaration moves, with nothing added, to directly
+  ahead of its first user's comment block; a comment that heads a group of declarations stays with the group.
+- A forward-struct window read at the first include does not predict the moves. Under the three held forms together queue wants +2 or +3 there, yet
+  the same probes placed directly ahead of Print_CRCs are exact at +15, +16, +19, ... and a prototype probe at +8, +11, +13: the row counts the unit's
+  total ahead of its own line and something else at a place inside the include closure (bis.py with the window's own count stops inside _map.h for
+  Print_CRCs, bsurface.h for Trackbar_Proc and map.h for Zone_Reset, because a probe behind that place moves only the first count). So "counts the
+  unit's total" is tested by the F98 criterion itself, a probe directly ahead of the row's own line, and the set is found by compiling.
+- Read at the row's own line the moves are a plain count again: Print_CRCs' pattern over 0 to 64 stands exactly 5 higher after its three moves (an
+  int definition 1, a prototype with no parameter 2 each) and Trackbar_Proc's exactly 1 higher after its prototype (`bool f();` weighs 1 there). The
+  bool definition moved in wonline is not a plain shift (the window edges move by 1 to 4).
+- A definition with an initializer function cannot move: each WDT sound list or account string of wonline.cpp moved ahead of its first user renumbers
+  the unit's `_$E` rows and loses 20 to 40 of them. The image's initializer order fixes those definitions; the compile refuses them without a rule.
+- One move can cure the row and cost others: SyncStates ahead of Fill_Sync_State restores Print_CRCs and turns four rows of queue; DialogInitParam
+  ahead of Begin_Dialog turns ownrdraw 0x5E5150. Every set is judged on all rows of the unit, then on all 444 units.
+- Subsets of the three forms (rows lost; the eight count units, the joint and the landed state over all 444): the grouping alone five (Trackbar_Proc,
+  Print_CRCs, Reposition_Sidebar, WinMain, OnChannelJoin); UnusedField alone five (AI_Build_Defense, Zone_Reset, Print_CRCs, Reposition_Sidebar,
+  WinMain); the Projectile_Motion forms alone three (Trackbar_Proc, Print_CRCs, OnChannelJoin: lane F104's WinMain flips belong to each half, not to
+  the two together); grouping + Projectile_Motion five; grouping + UnusedField six; UnusedField + Projectile_Motion eight; all three five.
+- Two units have no set. house.cpp has two candidates (the prototypes Sidebar_Which_Tab_By_Category and Quarry_To_Threat), and AI_Build_Defense, lost
+  in every state holding `UnusedField Unused2`, stays off with each and with both. startup.cpp has none: WinMain is the last user of every file-scope
+  declaration ahead of it, and it is lost in every state holding the lighting grouping without UnusedField. So the Projectile_Motion forms close alone
+  and the other two wait (owner: an exact row is not parked for a header form). Recorded alternative: all three forms close everywhere but house
+  (map: the bridge enum and Bridge_Start_Cell, the one pair of 78; ownrdraw: the Cancel_Dialog_Proc prototype; wonline: the Update_Buddy_Profile
+  prototype; queue: two moves only with an archive-placed prototype), +5,600 B against AI_Build_Defense's 3,264 B.
+- timer.h's Has_Completed2 (lane O94's ballast) is the archive's: TibSun timer.h declares and defines it and its drive.cpp calls it; mischa85's header
+  has it too. It stays as reference text.

@@ -209,7 +209,6 @@
 static unsigned int GameCRC;
 
 // RA2: file-level state of the reconnect dialog and the stop test (addresses from meastes' Queue.CPP)
-int ReconnectResult; // RA2: 0x00AB5ED0; the dialog's answer (-1 while open, 2 = cancel)
 bool ReconnectMouseCaptured; // RA2: 0x00AB5ED8; the mouse was captured when the dialog opened
 bool ReconnectSavedTactical; // RA2: 0x00AB62FC; TacticalActive before the dialog
 HWND ReconnectDialog; // RA2: 0x00A780D4; the open reconnect dialog
@@ -365,8 +364,6 @@ static int Connection_Index(int player);
 static inline Vector3 Normalized(Vector3 const & v);
 void __fastcall Calc_Frames_Behind(FrameSyncStruct *their, int index); // RA2: 0x0062E5C0, a player's latency in frames
 void Draw_Sync_Bars(HWND window); // RA2: 0x00626CB0, paints the reconnect dialog's response bars
-void Queue_Ipx_Set(void); // RA2: 0x00623260, switches the global channel to routed sending in an internet game
-void Queue_Ipx_Clear(void); // RA2: 0x00623280, switches it back
 void Reset_Reconnect_Pings(void); // RA2: 0x00627330, clears the reconnect dialog's ping counters
 void __fastcall Send_Port_Unreachable(void); // RA2: 0x0062E840, tells the router connections this port is unreachable
 bool __fastcall Add_Outgoing_Event(EventClass event); // RA2: 0x0062E670
@@ -5074,6 +5071,9 @@ void __fastcall Enqueue_Event(EventClass * event) // RA2: 0x0062E6E0
 }
 
 
+void Queue_Ipx_Set(void); // RA2: 0x00623260, switches the global channel to routed sending in an internet game
+void Queue_Ipx_Clear(void); // RA2: 0x00623280, switches it back
+
 /// <summary>
 /// Tells the other players of an internet game that this port cannot be reached.
 /// A NET_PORT_UNREACHABLE packet goes to every player the packet router knows by name, except
@@ -5653,6 +5653,8 @@ static inline void Close_Reconnect_Dialog()
 	}
 }
 
+
+int ReconnectResult; // RA2: 0x00AB5ED0; the dialog's answer (-1 while open, 2 = cancel)
 
 /***************************************************************************
  * Process_Reconnect_Dialog -- processes the reconnection dialog           *

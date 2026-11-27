@@ -369,9 +369,9 @@ HEX_ENTRY = re.compile(r'\b(?:0x)?(?=[0-9A-Fa-f]*[0-9])([0-9A-Fa-f]{6,8})\b')
 # SOFT_KINDS rest on a choice and are left out of "exact with no soft judgment"; a header-form dependent is soft when
 # any form it rests on is of a soft kind. An untagged note counts as vii (soft) and is listed as unclassified.
 JUDGMENT_KINDS = ('i', 'ii', 'iii', 'iv-a', 'iv-b', 'v', 'vi', 'joined', 'vii',
-                  'helper', 'spelling', 'compiler-local', 'readability-alias', 'reference-borne')
+                  'helper', 'spelling', 'compiler-local', 'readability-alias', 'reference-borne', 'count-anchor')
 SOFT_KINDS = frozenset(('iii', 'iv-b', 'vii', 'helper', 'spelling', 'compiler-local', 'readability-alias',
-                        'reference-borne'))
+                        'reference-borne', 'count-anchor'))
 KIND_PREFIX = re.compile(r'\s*\[(%s)\]\s*' % '|'.join(re.escape(k) for k in sorted(JUDGMENT_KINDS, key=len, reverse=True)))
 
 
