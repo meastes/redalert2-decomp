@@ -1591,7 +1591,7 @@ void Send_Chat_Message(HWND dialog, int color, int recipients) // RA2: 0x005BEE2
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: 61 of 2507 bytes differ (image-derived bound 005befe0-005bf9ab): ra2-decomp's twin text (Yuri's Revenge 0x005DE520) with RA2's statements; message and lparam take each other's registers (ebx, edi) and nothing else differs; the pair turns with lparam's use in the set-up case's Options_Dialog_Proc call and with the order of pt.x/pt.y (lane F33, 2026-11-23)
+#ifdef RA2_NON_MATCHING // not exact: 61 of 2507 bytes differ (image-derived bound 005befe0-005bf9ab): ra2-decomp's twin text (Yuri's Revenge 0x005DE520) with RA2's statements; message and lparam take each other's registers (ebx, edi) and nothing else differs; the pair turns with lparam's use in the set-up case's Options_Dialog_Proc call and with the order of pt.x/pt.y (lane F33, 2026-11-23); RobinDigitalPro's 1.001 text of the function (src/ra2/netdlg2.cpp Host_Dialog_Proc: positive tests that return inside each case, a named command id, `message` in the set-up call) compiles to these same bytes (lane F103)
 LRESULT CALLBACK MPlayer_Host_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x005BEFE0; the lobby dialog of the host
 {
 	if (message != OD_SUBCLASSED) {

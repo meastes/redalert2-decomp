@@ -7316,3 +7316,106 @@ Revenge image and of the compiler's DLLs).
   RA2 (pointer in eax, the count copied to eax ahead of the second search) and in eax in Yuri's Revenge, which is what the twin text gives in
   both trees: the exchange is RA2's own and no spelling of the twin's block is to be expected to give it (about 50 forms left it). It follows
   the count's use in `(oldpos - newpos) / 2`: without that use the image's registers appear in the first search.
+
+## A missing inline site can be a member's type: read the members declared after the decision before the body; a member type is a declaration count for every includer (found in the rebuild (lane F103, high))
+
+Found in the rebuild (lane F103, high); no row landed, no draft changed (two guard labels extended, one variation row). scenario ScenarioClass(NoInitClass)
+0x65B780 is exact under a member-type hypothesis that is held; ldprgmgr LoadProgressManager::Draw 0x535BF0 stays at 1,092 by position, foot
+Search_For_Tiberium_Weighted 0x4CBB40 at 2 B, netdlg2 MPlayer_Host_Dialog_Proc 0x5BEFE0 at 61 B. About 60 compiles and three whole-tree runs of 444
+units. Lane tools in build/r/f103 (removed at hand-back; copies in private/dossiers/fable/f103_tools): gm.py (lane F102's mm.py for any unit: `gm.py
+UNIT NAME --open FN --tgt SUB=ENTRY --diff SUB=ENTRY --sub 'old=>new'`; a guard is also opened by `~text` it contains, for constructors), allrows.py
+and lib99.py (lane F98's whole-tree check), hv.sh (a header variant against the count rows), ld.py, ft.py, hd.py, hr.py (variant lists).
+
+- The rule read in C2.DLL (lane F102) says where to look for a missing site. A nested site is decided with the budget left divided by the sites from
+  there to the end of the root, so "one site short" at a member's constructor means one more inline site after that member: in the members declared
+  after it, then in the body. Eleven lanes had looked in the body and at the members ahead of the lists. ScenarioClass's NoInit constructor calls the
+  vector constructor for all three type lists in the image and expands the second in the draft; the members after the lists are ints and character
+  arrays, and four of the ints are two x, y pairs (the loading screen's briefing positions). A Point2D has an empty inline constructor that leaves no
+  instruction, so a pair declared as a point is a site with no code: with either pair or both as Point2D the twin text is exact.
+- A class-typed member can be told from a flat one only by such a site, and the other constructor is the control: a member class whose default
+  constructor stores (TStringID's first byte) would show in ScenarioClass's default constructor, whose row is exact with plain arrays.
+- A member's type is a declaration count for every includer. Two points in place of four ints (two declarations fewer) turn three count rows in
+  other units (sidebar SelectClass::Action 0x6809F0, startup WinMain 0x68E280, wonline 0x744090); one point and two ints (one fewer) turn none of
+  the 444 units; an unnamed struct for the second pair turns three others. So the natural form is refused by its flips and the form that lands is a
+  choice by count: held, with both patches. Run the whole-tree check on a header hypothesis before reading it as found.
+- The hypothesis is not the only one that fits. An empty inline constructor on the nested flag struct (its two arrays stand ahead of the lists: a
+  charged spend, lane F41's other reading) makes the same text exact as well, with no reference either. The image fixes the budget, not the member:
+  a second, independent trace of the member's type is needed before either form is evidence.
+- A hypothesis about a member is tested on its other users, and a null result is recorded as that: LoadProgressManager::Draw reads the positions as
+  two member-wise sums, and no point arithmetic on them (eight spellings) comes nearer than the sums on .X and .Y, which give the draft's bytes.
+- The same lens on a function's locals (foot Search_For_Tiberium_Weighted: a Cell declared after the loops as both the site and the symbol lane F75
+  asked for) gives the vector constructor's call back and nothing else: 856 by position with the image's calls, the Cell sums and the tail register
+  still the draft's. A site and a symbol supplied by one declaration are not the two units the row lacks.
+- A second project's text of another build is a flow-shape control. Robin's 1.001 text of the host lobby procedure has every case as a positive
+  test that returns, a named command id and `message` in the set-up call; ported whole it compiles to the draft's bytes, so the exchange of message
+  and lparam does not sit in the flow shape, the id's name or the set-up call's argument.
+
+## A held header form is a plain declaration count, and one forward declaration already turns three count rows; gate held forms together and read each lost row's window under the joint state (found in the rebuild (lane F104, high))
+
+Found in the rebuild (lane F104, high); no row landed, no source changed (the eight count_watch entries carry their full windows now). The three
+held header forms were measured alone and together on main 2f2a663769: scenario.h's lighting members grouped into ra2-decomp's `LightingStruct` (A), techtype.h's `UnusedField Unused2` (B), and the two
+forms Projectile_Motion needs, velocity.h `Magnitude` and face.h Turn's named difference (C). About 5,200 compiles, scripted (four whole-tree
+runs of 444 units, five window sweeps of 520). Lane tools in build/r/f104 (removed at hand-back; copies in private/dossiers/fable/f104_tools): lane F103's set, v.sh and
+st.sh (a set of patches applied, the units compiled, the tree restored), hx.py (text substitutions in headers, the rows that change state),
+wsweep.py, ws.sh and wsum.py (0 to 64 struct declarations ahead of each unit's first include under a patched tree, one line of states per row,
+the counts common to all units), ruler.py (a declaration's weight read on one row's window), incw.py (a unit under the twin's include list),
+sc.sh and pg.sh (gm.py under patches). Patches: private/dossiers/fable/patches/f104_*.patch.
+
+- A structural adoption is a count change even when no instruction of its users moves. A is reference text and every row of its eight user
+  units (scenario, cell, ion, mapgen, lightcon, aircraft, infantry, unit) stays exact, and five count rows of other units turn (all 444 units
+  compiled): ownrdraw Trackbar_Proc 0x5FB270, queue Print_CRCs 0x62A360, sidebar Reposition_Sidebar 0x6819A0, startup WinMain 0x68E280,
+  wonline OnChannelJoin 0x75F530 (31,882 B). By ra2-decomp's weights (docs/AGENTS.md: 1 per member or forward declaration, 3 per inline
+  definition, 8 plus its members per class) the grouping is a net +1, and that is what the sweep shows: under it the windows of map, queue,
+  unit and wonline stand one count lower, row for row (house at its upper edge). Not landed. A struct with no constructor is no inline site:
+  ScenarioClass's NoInit constructor 0x65B780 is 103 by position with A as without it, and exact with either Point2D patch of lane F103 on top.
+- B is a plain count, not an inline candidate or a budget. The struct alone and unused, with a declared constructor, with the inline
+  constructor, and with the member typed turn the same five rows (house AI_Build_Defense 0x4F1190, map Zone_Reset 0x54EBD0, Print_CRCs,
+  Reposition_Sidebar, WinMain); 6, 8, 10 or 12 `struct P;` lines at the same place turn the same five. One `struct P;` ahead of
+  TechnoTypeClass already turns Print_CRCs, Reposition_Sidebar and WinMain. Of the twelve counts tried from +1 to +16 there, Print_CRCs is
+  exact at none, Reposition_Sidebar at +13 and +14, WinMain at +2, +3 and +11, Zone_Reset to +2, AI_Build_Defense to +4 (measured on house,
+  map, queue, sidebar, startup, ownrdraw, wonline and unit). So techtype.h cannot gain one declaration today, whatever its evidence: the
+  count rows gate a header adoption, not the form being adopted.
+- What the image adds for B: the tree's NoInit constructor of TechnoTypeClass writes `Unused2(0)`, a store a NoInit constructor has no
+  reason to make; under the twin's struct (no NoInit constructor of its own) it is the member's default constructor and the line goes.
+  techtype.h has no other difference from the twin's header outside the Yuri's Revenge members, so no second evidenced change there offsets it.
+- C by parts, in Projectile_Motion 0x593870: with `Magnitude` and the plain Turn the function is 128 by position and expands DirType's
+  operator+ 0x5940B0, which the image calls; with Turn's named difference and `Speed()` it is 38 (one `sub esp, 8` scheduled early); with
+  both exact. Turn's named difference is the budget form (the image's out-of-line operators appear with it) and it turns Trackbar_Proc,
+  Print_CRCs, WinMain and OnChannelJoin alone; `Magnitude` alone turns Print_CRCs and WinMain (the same eight units and missile).
+- Gate held forms together; a clash and a cure both happen. Rows lost on thirteen units (the count units, the forms' own units, mapgen and
+  techno): A+B six, A+C five, B+C eight (unit Draw_It 0x700E70 among them); A+B+C five of the whole tree (house
+  AI_Build_Defense, map Zone_Reset, ownrdraw Trackbar_Proc, queue Print_CRCs, wonline OnChannelJoin; 25,402 B) for 5,600 B gained (the
+  TechnoTypeClass constructor, Projectile_Motion and six missile rows); Reposition_Sidebar and WinMain, lost under each form alone, are exact
+  under all three. No subset of the three keeps every row.
+- A flagged row's natural form is tried in every header state before the state is priced. AI_Build_Defense with the references' reused
+  `count` and OnChannelJoin in the twin's text without its 41 named conditions are off in all eight states.
+- Under the joint state each lost row has a window of its own, read with 0 to 64 struct declarations ahead of the unit's first include:
+  AI_Build_Defense +23 to +27; Zone_Reset +11 to +52 (0x565EB0 off at +10 and +34); ownrdraw +4 to +7, +9, +21 and +59 to +62
+  (Trackbar_Proc with Owner_Button_Proc and 0x5E5150 kept); Print_CRCs +2, +3, +6, +15, +16, +19, +23, +30, +31, +33 to +37, +44, +46,
+  +50; wonline +2 to +4, +36 to +38, +42 to +46, +48, +49 and +62 (OnChannelJoin with 0x73CCB0, 0x73FEE0 and 0x744090 kept). Rows that
+  turn inside 64 and are not on count_watch: map 0x565EB0, ownrdraw 0x5E5150, sidebar 0x67BAD0, unit 0x700E70, wonline 0x73CCB0, 0x73FEE0
+  and 0x744090. The twin's include lists do not reach them: map with the twin's smudtype.h, multiplayer.h and cast.h leaves Zone_Reset
+  off, queue with the twin's list (voc.h and win.h added, the five headers it compiles without dropped) leaves Print_CRCs off and loses
+  0x623180, house.cpp needs each of its four own headers and the twin's one is not in the tree, sidebar's list loses two rows.
+- The count is a number that can be measured, and it wraps at 64. On main 2f2a663769, with struct declarations ahead of the unit's first
+  include, the eight count units (house, map, ownrdraw, queue, sidebar, startup, unit, wonline) are all exact together at +0 and +64 only;
+  +64 to +80 repeats +0 to +16 row for row and +128 is exact in all eight. Read on AI_Build_Defense (exact at +0 to +14): a forward
+  declaration, an extern variable or a typedef weighs 1, an enum of one name 2, a prototype 2 with no parameter and 3 with two, an inline
+  function 3, a struct of one member 9, of five members 13, a struct of one member with an inline constructor 12 (the reference's table,
+  confirmed here; ruler.py). So a header change leaves a row of this kind alone exactly when its net weight is 0 modulo 64 ahead of the row.
+  Rows that count at one place in the include closure (sidebar's two) do not follow the unit's total and are read apart.
+- No state has a count common to all eight units: B, C, A and the three together each leave the units wanting different counts (under B house
+  wants +24 to +28 and sidebar +53 to +57), so no single addition to a shared header restores any of them. The forms' own headers offer no
+  offset: face.h and velocity.h differ from the twin's in the two held forms only; scenario.h's other differences from the twin (an unnamed
+  pad byte after IsInputLocked, the End_Game and Select_House prototypes, Hold_Scenario and Release_Scenario declared at their users) come to
+  +2 with the grouping by these weights (not compiled), and picking among them for a zero sum is a subset chosen by count.
+- A zero sum found is not evidence for its parts. The grouping (+1) with lane F103's single Point2D pair (-1) leaves all 444 units as they
+  are and makes the NoInit constructor exact; with both pairs Print_CRCs turns; the single pair alone turns Print_CRCs today (lane F103
+  measured none on its base). The pair is still a member type no reference has, now chosen by count twice over: held as before.
+- Dead text held as ballast does not free itself either: timer.h's unused ProgressTimerClass::Has_Completed2 (lane O94) taken out turns
+  Trackbar_Proc, three sidebar rows and two wonline rows, and with the grouping on top (with or without the Projectile_Motion forms) sidebar and
+  wonline stay lost.
+- Every one of these flips is a tie, not a decision: one load scheduled one instruction earlier (Print_CRCs, AI_Build_Defense,
+  OnChannelJoin) or two stack slots exchanged (Zone_Reset, Trackbar_Proc), 4 or 8 bytes. The inline budget read in C2.DLL does not enter;
+  ra2-decomp calls the same rows heap-sensitive and holds them by keeping a change's net weight at zero or by removing declarations and
+  includes nothing uses, which this tree's rulings treat as a subset chosen by count.
