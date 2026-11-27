@@ -928,111 +928,95 @@ int __fastcall Control_Typing_Sound(unsigned int key, HWND window)
 }
 
 
+/*
+**	RA2: the dialog kinds and control ids the tests of this module share (inline predicates; the names are this
+**	tree's). The image shows where each list is expanded and the level it sits at: Is_Listed_Kind 0x5E0DA0 stays a
+**	call where Is_General_Kind is expanded in a function with enough inline sites after it (Is_Tested_Control,
+**	Enable_Animated_Control and Adjust_Control_Position's first test) and is expanded where it is used on its own
+**	(Adjust_Control_Position's second test).
+*/
+inline bool Is_Common_Kind(int kind)
+{
+	return kind == 0x10c || kind == 0x94 || kind == 0xa3 || kind == 0x73 || kind == 0xd8 || kind == 0xbbb || kind == 0xf5 || kind == 0x105 ||
+		kind == 0xe2 || kind == 0xd5 || kind == 0x2b5 || kind == 0xb7 || kind == 0x2b4 || kind == 0xbc7 || kind == 0x101 || kind == 0x129 ||
+		kind == 0xbc6 || kind == 0xd7 || kind == 0x108 || kind == 0xbc || kind == 0xbd || kind == 0xbb || kind == 0xb5 || kind == 0xbba ||
+		kind == 0xff || kind == 0x6b || kind == 0x100 || kind == 0x102 || kind == 0xb8 || kind == 0xd6 || kind == 0x103;
+}
+
+inline bool Is_General_Kind(int kind)
+{
+	return Is_Common_Kind(kind) || Is_Listed_Kind(kind);
+}
+
+inline bool Is_Option_Kind(int kind)
+{
+	return kind == 0xbc || kind == 0xbd || kind == 0x102 || kind == 0xc2 || kind == 0xc9;
+}
+
+inline bool Is_Extended_Option_Kind(int kind)
+{
+	return Is_Option_Kind(kind) || kind == 0x105 || kind == 0x6b || kind == 0x113;
+}
+
+inline bool Is_Quick_Control_A(int id)
+{
+	return id == 0x6f3 || id == 0x6f4 || id == 0x69f || id == 0x6f6 || id == 0x6ef || id == 0x6f1 || id == 0x6f0 || id == 0x6f2;
+}
+
+inline bool Is_Quick_Control_B(int id)
+{
+	return id == 0x411 || id == 0x412 || id == 0x419 || id == 0x41a || id == 0x6a3 || id == 0x6a4 || id == 0x6a5 || id == 0x6a7 ||
+		id == 0x6a6 || id == 0x6a8 || id == 0x73a || id == 0x739 || id == 0x73b || id == 0x738;
+}
+
+inline bool Is_Flag_Control_B(int kind, int id)
+{
+	return Is_Option_Kind(kind) && (id == 0x6ec || id == 0x5a8);
+}
+
+
 /// <summary>
-/// Removes one window from the owner-draw dictionaries.
-/// This is the enumeration callback ODCleanupDicts uses. It drops the window's original
-/// procedure, its custom procedure and its owner-draw record.
+/// Says whether a control is one of the controls a dialog of its kind tests for.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 1444 bytes differ (adopted text)
 bool __fastcall Is_Tested_Control(unsigned int key, HWND window)
 {
-
 	OwnerDraw::WinData * record = 0;
-
 	Control_Table.getPointer(key, &record);
 	int kind = record != 0 ? record->Kind : 0;
 	int id = GetDlgCtrlID(window);
-	if ((kind == 0x10c ||
-			kind == 0x94 ||
-			kind == 0xa3 ||
-			kind == 0x73 ||
-			kind == 0xd8 ||
-			kind == 0xbbb ||
-			kind == 0xf5 ||
-			kind == 0x105 ||
-			kind == 0xe2 ||
-			kind == 0xd5 ||
-			kind == 0x2b5 ||
-			kind == 0xb7 ||
-			kind == 0x2b4 ||
-			kind == 0xbc7 ||
-			kind == 0x101 ||
-			kind == 0x129 ||
-			kind == 0xbc6 ||
-			kind == 0xd7 ||
-			kind == 0x108 ||
-			kind == 0xbc ||
-			kind == 0xbd ||
-			kind == 0xbb ||
-			kind == 0xb5 ||
-			kind == 0xbba ||
-			kind == 0xff ||
-			kind == 0x6b ||
-			kind == 0x100 ||
-			kind == 0x102 ||
-			kind == 0xb8 ||
-			kind == 0xd6 ||
-			kind == 0x103 ||
-			Is_Listed_Kind(kind)) && id == 0x694) {
+	if (Is_General_Kind(kind) && id == 0x694) {
 		return true;
 	}
-	bool dual_rail = (((kind == 0xbc) || (kind == 0xbd)) ||
-						 ((kind == 0x102 || ((kind == 0xc2 || (kind == 0xc9)))))) &&
-		((id == 0x6ec || (id == 0x5a8)));
+	bool dual_rail = Is_Flag_Control_B(kind, id);
 	if (dual_rail) {
 		return true;
-    }
-	bool special_103 = ((kind == 0x103) || (kind == 0xbc7)) &&
-		(((((id == 0x6f3 || (((id == 0x6f4 || (id == 0x69f)) || (id == 0x6f6)))) ||
-			   (((id == 0x6ef || (id == 0x6f1)) || (id == 0x6f0)))) ||
-			  (((id == 0x6f2 || (id == 0x733)) ||
-				  ((id == 0x735 || (((id == 0x732 || (id == 0x3ea)) || (id == 0x736)))))))) ||
-			(((id == 0x737 || (id == 0x73c)) ||
-				((((id == 0x73d ||
-					   (((id == 0x73e || (id == 0x73f)) ||
-						   ((id == 0x740 ||
-							   ((((id == 0x411 || (id == 0x412)) || (id == 0x419)) ||
-								   ((id == 0x41a || (id == 0x6a3)))))))))) || (id == 0x6a4)) ||
-					(((id == 0x6a5 || (id == 0x6a7)) ||
-						(((id == 0x6a6 || (((id == 0x6a8 || (id == 0x73a)) || (id == 0x739)))) ||
-							((id == 0x73b || (id == 0x738)))))))))))));
+	}
+	bool special_103 = (kind == 0x103 || kind == 0xbc7) &&
+		(Is_Quick_Control_A(id) ||
+			id == 0x733 || id == 0x735 || id == 0x732 || id == 0x3ea || id == 0x736 || id == 0x737 || id == 0x73c || id == 0x73d ||
+			id == 0x73e || id == 0x73f || id == 0x740 ||
+			Is_Quick_Control_B(id));
 	if (special_103) {
 		return true;
-    }
-	bool special_108 = ((kind == 0x108) || (kind == 0xbc6)) &&
-		(((((id == 0x6d2 || (((id == 0x3ea || (id == 0x69d)) || (id == 0x69f)))) ||
-			   ((((id == 0x69e || (id == 0x6a0)) || (id == 0x6a1)) ||
-				   ((id == 0x5c8 || (id == 0x411)))))) ||
-			  ((id == 0x412 ||
-				  ((((((id == 0x413 || (id == 0x414)) || (id == 0x415)) ||
-						 ((id == 0x416 || (id == 0x417)))) || (id == 0x418)) ||
-					  ((id == 0x419 || (id == 0x41a)))))))) ||
-			(((((id == 0x41b || (((id == 0x41c || (id == 0x41d)) || (id == 0x41e)))) ||
-				   ((((id == 0x41f || (id == 0x420)) ||
-						 ((((id == 0x6a3 || ((id == 0x6a4 || (id == 0x6a9)))) || (id == 0x6ac)) ||
-							 (((id == 0x6af || (id == 0x6b2)) || (id == 0x6b5)))))) ||
-					   ((((id == 0x6b8 || (id == 0x6a5)) ||
-							 ((id == 0x6a7 || ((id == 0x6aa || (id == 0x6ad)))))) || (id == 0x6b0))))))
-                || (((((id == 0x6b3 || (id == 0x6b6)) || (id == 0x6b9)) ||
-						((id == 0x6a6 || (id == 0x6a8)))) ||
-					  (((id == 0x6ab || ((id == 0x6ae || (id == 0x6b1)))) ||
-						  ((id == 0x6b4 ||
-							  ((((((id == 0x6b7 || (id == 0x6ba)) || (id == 0x70a)) ||
-									 ((id == 0x70b || (id == 0x70c)))) ||
-									((id == 0x70d || ((id == 0x70e || (id == 0x70f)))))) || (id == 0x710))))
-                          )))))) ||
-				((((id == 0x711 || (id == 0x733)) || (id == 0x732)) ||
-					((id == 0x71b || (id == 0x735)))))))));
+	}
+	bool special_108 = (kind == 0x108 || kind == 0xbc6) &&
+		(id == 0x6d2 || id == 0x3ea || id == 0x69d || id == 0x69f || id == 0x69e || id == 0x6a0 || id == 0x6a1 || id == 0x5c8 ||
+			id == 0x411 || id == 0x412 || id == 0x413 || id == 0x414 || id == 0x415 || id == 0x416 || id == 0x417 || id == 0x418 ||
+			id == 0x419 || id == 0x41a || id == 0x41b || id == 0x41c || id == 0x41d || id == 0x41e || id == 0x41f || id == 0x420 ||
+			id == 0x6a3 || id == 0x6a4 || id == 0x6a9 || id == 0x6ac || id == 0x6af || id == 0x6b2 || id == 0x6b5 || id == 0x6b8 ||
+			id == 0x6a5 || id == 0x6a7 || id == 0x6aa || id == 0x6ad || id == 0x6b0 || id == 0x6b3 || id == 0x6b6 || id == 0x6b9 ||
+			id == 0x6a6 || id == 0x6a8 || id == 0x6ab || id == 0x6ae || id == 0x6b1 || id == 0x6b4 || id == 0x6b7 || id == 0x6ba ||
+			id == 0x70a || id == 0x70b || id == 0x70c || id == 0x70d || id == 0x70e || id == 0x70f || id == 0x710 || id == 0x711 ||
+			id == 0x733 || id == 0x732 || id == 0x71b || id == 0x735);
 	if (special_108) {
 		return true;
-    }
+	}
 	char special = Kind_Test(kind);
-	if (((special != 0) && (id == 0x695)) && Session.Is_In_Game() == 0) {
+	if (special != 0 && id == 0x695 && Session.Is_In_Game() == 0) {
 		return true;
-    }
+	}
 	return false;
 }
-#endif
 
 
 bool __fastcall Is_Listed_Kind(int kind)
@@ -2720,10 +2704,6 @@ bool __fastcall Is_Control_Disabled(HWND control)
 namespace OwnerDraw {
 
 
-inline bool __cdecl Is_Option_Kind(int kind)
-{
-	return kind == 0xbc || kind == 0xbd || kind == 0x102 || kind == 0xc2 || kind == 0xc9;
-}
 inline int __cdecl Kind_Of(unsigned int key)
 {
 	WinData * record = 0;
@@ -2743,78 +2723,8 @@ inline bool __cdecl Is_Plain_Control(HWND window)
 	return false;
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 2216 bytes differ (adopted text; the image calls Is_Listed_Kind out of line, ours expands it: Is_Listed_Kind's || chain is under VC6's auto-inline size cap here; written as nine if groups returning unsigned int it stays exact and this row is 1 byte off, the image testing al where ours tests eax)
-inline bool Is_Quick_Control_B(int id)
-{
-	return id == 0x411 ||
-		id == 0x412 ||
-		id == 0x419 ||
-		id == 0x41a ||
-		id == 0x6a3 ||
-		id == 0x6a4 ||
-		id == 0x6a5 ||
-		id == 0x6a7 ||
-		id == 0x6a6 ||
-		id == 0x6a8 ||
-		id == 0x73a ||
-		id == 0x739 ||
-		id == 0x73b ||
-		id == 0x738;
-}
 
-inline bool Is_Quick_Control_D(int id)
-{
-	return id == 0x419 ||
-		id == 0x41a ||
-		id == 0x41b ||
-		id == 0x41c ||
-		id == 0x41d ||
-		id == 0x41e ||
-		id == 0x41f ||
-		id == 0x420 ||
-		id == 0x6a3 ||
-		id == 0x6a4 ||
-		id == 0x6a9 ||
-		id == 0x6ac ||
-		id == 0x6af ||
-		id == 0x6b2 ||
-		id == 0x6b5 ||
-		id == 0x6b8 ||
-		id == 0x6a5 ||
-		id == 0x6a7 ||
-		id == 0x6aa ||
-		id == 0x6ad ||
-		id == 0x6b0 ||
-		id == 0x6b3 ||
-		id == 0x6b6 ||
-		id == 0x6b9 ||
-		id == 0x6a6 ||
-		id == 0x6a8 ||
-		id == 0x6ab ||
-		id == 0x6ae ||
-		id == 0x6b1 ||
-		id == 0x6b4 ||
-		id == 0x6b7 ||
-		id == 0x6ba ||
-		id == 0x70a ||
-		id == 0x70b ||
-		id == 0x70c ||
-		id == 0x70d ||
-		id == 0x70e ||
-		id == 0x70f ||
-		id == 0x710 ||
-		id == 0x711;
-}
 
-inline bool Is_Flag_Control_B(int type, int id)
-{
-	return (type == 0xbc ||
-			type == 0xbd ||
-			type == 0x102 ||
-			type == 0xc2 ||
-			   type == 0xc9) && (id == 0x6ec ||
-			id == 0x5a8);
-}
 
 inline int Get_Dialog_Type(HWND dialog)
 {
@@ -2832,20 +2742,19 @@ BOOL __stdcall Enable_Animated_Control(HWND window, LPARAM lparam)
 	int id = GetDlgCtrlID(window);
 	bool value = lparam != 0;
 
-	if (((type == 0x10c || type == 0x94 || type == 0xa3 || type == 0x73 || type == 0xd8 || type == 0xbbb || type == 0xf5 || type == 0x105 || type == 0xe2 || type == 0xd5 || type == 0x2b5 || type == 0xb7 || type == 0x2b4 || type == 0xbc7 || type == 0x101 || type == 0x129 || type == 0xbc6 || type == 0xd7 || type == 0x108 || type == 0xbc || type == 0xbd || type == 0xbb || type == 0xb5 || type == 0xbba || type == 0xff || type == 0x6b || type == 0x100 || type == 0x102 || type == 0xb8 || type == 0xd6 || type == 0x103 || Is_Listed_Kind(type)) && id == 0x694) ||
+	if ((Is_General_Kind(type) && id == 0x694) ||
 		(Kind_Test(type) && id == 0x695) ||
 		((type == 0x94 || type == 0xd8 || type == 0xf5 || type == 0xe2 || type == 0xd5 || type == 0x101 || type == 0x129 || type == 0xd7 || type == 0xbb || type == 0x100 || type == 0xd6 || type == 0x125 || type == 0x122 || type == 0x112 || type == 0xe7 || type == 0x116 || type == 0x11d || type == 0x11c || type == 0xfe || type == 0x10f || type == 0x117 || type == 0x114 || type == 0xe6 || type == 0xf3 || type == 0xf4 || type == 0x2bc || type == 0x10e || type == 0xbc6 || type == 0xbc7) && id == 0x71c) ||
-		((type == 0xbc || type == 0xbd || type == 0x102 || type == 0xc2 || type == 0xc9 || type == 0x105 || type == 0x6b || type == 0x113) && id == 0x468) ||
+		(Is_Extended_Option_Kind(type) && id == 0x468) ||
 		Is_Flag_Control_B(type, id) ||
 		((type == 0x103 || type == 0xbc7) && (id == 0x6f3 || id == 0x6f4 || id == 0x72b || id == 0x6ef || id == 0x6f1 || id == 0x6f0 || id == 0x6f2 || id == 0x69f || id == 0x6f6 || id == 0x733 || id == 0x735 || id == 0x732 || id == 0x3ea || id == 0x736 || id == 0x737 || id == 0x73c || id == 0x73d || id == 0x73e || id == 0x73f || id == 0x740 || Is_Quick_Control_B(id))) ||
-		((type == 0x108 || type == 0xbc6) && (id == 0x6d2 || id == 0x3ea || id == 0x69d || id == 0x69f || id == 0x69e || id == 0x6a0 || id == 0x6a1 || id == 0x5c8 || id == 0x411 || id == 0x412 || id == 0x413 || id == 0x414 || id == 0x415 || id == 0x416 || id == 0x417 || id == 0x418 || Is_Quick_Control_D(id) || id == 0x733 || id == 0x732 || id == 0x71b || id == 0x735)) ||
+		((type == 0x108 || type == 0xbc6) && (id == 0x6d2 || id == 0x3ea || id == 0x69d || id == 0x69f || id == 0x69e || id == 0x6a0 || id == 0x6a1 || id == 0x5c8 || id == 0x411 || id == 0x412 || id == 0x413 || id == 0x414 || id == 0x415 || id == 0x416 || id == 0x417 || id == 0x418 || id == 0x419 || id == 0x41a || id == 0x41b || id == 0x41c || id == 0x41d || id == 0x41e || id == 0x41f || id == 0x420 || id == 0x6a3 || id == 0x6a4 || id == 0x6a9 || id == 0x6ac || id == 0x6af || id == 0x6b2 || id == 0x6b5 || id == 0x6b8 || id == 0x6a5 || id == 0x6a7 || id == 0x6aa || id == 0x6ad || id == 0x6b0 || id == 0x6b3 || id == 0x6b6 || id == 0x6b9 || id == 0x6a6 || id == 0x6a8 || id == 0x6ab || id == 0x6ae || id == 0x6b1 || id == 0x6b4 || id == 0x6b7 || id == 0x6ba || id == 0x70a || id == 0x70b || id == 0x70c || id == 0x70d || id == 0x70e || id == 0x70f || id == 0x710 || id == 0x711 || id == 0x733 || id == 0x732 || id == 0x71b || id == 0x735)) ||
 		(Is_Plain_Control(window) && Is_Owner_Tested_Control((unsigned int)parent, window)) ||
 		(Is_Plain_Control(window) && Is_Default_Button((unsigned int)parent, window))) {
 		Set_Control_Disabled(window, value);
 	}
 	return TRUE;
 }
-#endif
 
 }
 
@@ -4267,7 +4176,7 @@ void __fastcall Move_Centred_Control(HWND window, Point2D const & size)
 
 namespace OwnerDraw {
 
-#ifdef RA2_NON_MATCHING // not exact: 1749 bytes differ against the image-derived bound 005e9410 (1,938 B; ours 1,984 B): the image calls Is_Listed_Kind 0x5E0DA0 in the first test and ours expands it there (the family of Enable_Animated_Control 0x5E4780 and Is_Tested_Control 0x5E0760). With the predicate kept out of line (probe only) the frame, calls and size are the image's and one byte is left: the operand order of the last compare (height against its old value at +0x765), which six orders of the closing test do not give
+#ifdef RA2_NON_MATCHING // not exact: 1 byte differs against the image-derived bound 005e9410 (1,938 B; ours 1,938 B, was 1,749 by position): the operand order of the last compare (the image compares the new height with the old one after loading the old one first). Every call, the frame and the size are the image's with the family's inline predicates (lane F93, 2026-11-27): Is_General_Kind in the first test leaves Is_Listed_Kind 0x5E0DA0 a call there, and Is_Listed_Kind on its own in the second test expands, as the image has both. The compare does not follow unreferenced locals (1 to 48) or six orders of the closing test (lane F55); referenced probes move the inline decisions first (three or more expand Is_Listed_Kind: the root budget is twice the function's size)
 void __fastcall Adjust_Control_Position(HWND window)
 {
     HWND parent = GetParent(window);
@@ -4285,11 +4194,9 @@ void __fastcall Adjust_Control_Position(HWND window)
 	int old_y = y;
 	int old_width = width;
 	int old_height = height;
-	if ((kind == 0x10c || kind == 0x94 || kind == 0xa3 || kind == 0x73 || kind == 0xd8 || kind == 0xbbb || kind == 0xf5 || kind == 0x105 || kind == 0xe2 || kind == 0xd5 || kind == 0x2b5 || kind == 0xb7 || kind == 0x2b4 || kind == 0xbc7 || kind == 0x101 || kind == 0x129 || kind == 0xbc6 || kind == 0xd7 || kind == 0x108 || kind == 0xbc || kind == 0xbd || kind == 0xbb || kind == 0xb5 || kind == 0xbba || kind == 0xff || kind == 0x6b || kind == 0x100 || kind == 0x102 || kind == 0xb8 || kind == 0xd6 || kind == 0x103 || Is_Listed_Kind(kind)) && id == 0x694) {
-		bool c12 = kind == 0x10c || kind == 0x94 || kind == 0xa3 || kind == 0x73 || kind == 0xd8 || kind == 0xbbb || kind == 0xf5 || kind == 0x105 || kind == 0xe2 || kind == 0xd5 || kind == 0x2b5 || kind == 0xb7 || kind == 0x2b4 || kind == 0xbc7 || kind == 0x101 || kind == 0x129 || kind == 0xbc6 || kind == 0xd7 || kind == 0x108 || kind == 0xbc || kind == 0xbd || kind == 0xbb || kind == 0xb5 || kind == 0xbba || kind == 0xff || kind == 0x6b || kind == 0x100 || kind == 0x102 || kind == 0xb8 || kind == 0xd6 || kind == 0x103;
-		if (c12) {
-			bool c4 = Is_Option_Kind(kind) || kind == 0x105 || kind == 0x6b || kind == 0x113;
-			if (c4) {
+	if (Is_General_Kind(kind) && id == 0x694) {
+		if (Is_Common_Kind(kind)) {
+			if (Is_Extended_Option_Kind(kind)) {
 				if (!Session.Is_In_Game()) {
 					y += 1;
                 }
@@ -4299,7 +4206,7 @@ void __fastcall Adjust_Control_Position(HWND window)
 					height += 1;
                 }
             }
-		} else if (kind == 0x125 || kind == 0xe7 || kind == 0x116 || kind == 0xc2 || kind == 0xc9 || kind == 0x11d || kind == 0x11c || kind == 0x114 || kind == 700 || kind == 0x113 || kind == 0x109 || kind == 0x10f || kind == 0x117 || kind == 0xe6 || kind == 0xf3 || kind == 0xf4 || kind == 0x10e) {
+		} else if (Is_Listed_Kind(kind)) {
 			if (kind != 0xc2 && kind != 0xc9 && kind != 0x113) {
 				y += 2;
             }
@@ -4323,7 +4230,7 @@ void __fastcall Adjust_Control_Position(HWND window)
 			x -= 1;
         }
 	} else if (kind == 0x103) {
-		if (id == 0x6f3 || id == 0x6f4 || id == 0x69f || id == 0x6f6 || id == 0x6ef || id == 0x6f1 || id == 0x6f0 || id == 0x6f2) {
+		if (Is_Quick_Control_A(id)) {
 			if (VideoModeWidth >= Base_Screen_Width) {
 				y -= (Base_Screen_Height - LowResHeight) / 2;
             }

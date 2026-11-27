@@ -160858,7 +160858,13 @@
    "_?last_look@?FF@??Owner_Button_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z@4DA": "007e8d4c",
    "??_C@_0P@CLLA@Looping?5movie?6?$AA@": "007eaeb0"
   },
-  "partial_ok": true
+  "partial_ok": true,
+  "count_watch": {
+   "005fb270": {
+    "windows": "declarations ahead of it in ownrdraw.cpp (lane F93, measured on the text that makes Is_Tested_Control 0x5E0760 and Enable_Animated_Control 0x5E4780 exact; off = 8 B, two frame slots exchanged): with the six kind and id predicates and Is_Option_Kind exact; without Is_Option_Kind off; without Is_Extended_Option_Kind off, and from there `struct P;` lines at the top +2 to +5, +10, +12, +16 exact and +0, +1, +6 to +8 off; one more inline function or prototype exact, two off; unreferenced locals in Enable_Animated_Control +2 to +4 exact, +1 off; with Enable_Animated_Control guarded exact",
+    "note": "exact but count-sensitive (lane F93, 2026-11-27): OwnerDraw::Trackbar_Proc reads the number of declarations ahead of it (file-scope and local alike); check it whenever a function ahead of it in the unit gains or loses a declaration or leaves its guard (Adjust_Control_Position 0x5E9410 is the next such row)"
+   }
+  }
  },
  "mpobserver": {
   "core": [

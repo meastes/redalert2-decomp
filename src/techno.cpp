@@ -4573,7 +4573,7 @@ static inline Rect Target_Laser_Rect(Point2D const & point)
  *   07/03/1995 JLB : Moving platforms fire inaccurate projectiles.                            *
  *   02/22/1996 JLB : Handles camera "weapon" case.                                            *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 6 bytes differ (6019-byte body; previously 3479; ra2-decomp's matched twin text (2e5b2c1) for the velocity scaling (Nonzero_Check and operator *=), the flak block (TPoint3D<float> copy-initialised, a named scatter angle in both arms), the muzzle animation's zadjust in one expression with min, the firing direction assigned straight from atan2 and the reveal test through As_Object: every call, the frame and all but one site are the image's with no added local. Left: the flak sum of squares, where the image adds Z, X, Y and ours X, Y, Z. It does not follow the local count (lane F60), live stores ahead of it, the written order of the sum (Z*Z + X*X + Y*Y compiles to X, Y, Z) or eighteen named-double forms; Yuri's Revenge sums X, Y, Z under the twin's text (lanes F59, F62). The radial turret facing is left as it was: the twin's form follows a reference not cleared here (lane F62, 2026-11-25))
+#ifdef RA2_NON_MATCHING // not exact: 6 bytes differ (6019-byte body; previously 3479; ra2-decomp's matched twin text (2e5b2c1) for the velocity scaling (Nonzero_Check and operator *=), the flak block (TPoint3D<float> copy-initialised, a named scatter angle in both arms), the muzzle animation's zadjust in one expression with min, the firing direction assigned straight from atan2 and the reveal test through As_Object: every call, the frame and all but one site are the image's with no added local. Left: the flak sum of squares, where the image adds Z, X, Y and ours X, Y, Z. It does not follow the local count (lane F60), live stores ahead of it, the written order of the sum (Z*Z + X*X + Y*Y compiles to X, Y, Z) or eighteen named-double forms; Yuri's Revenge sums X, Y, Z under the twin's text (lanes F59, F62). The radial turret facing is left as it was: the twin's form follows a reference not cleared here (lane F62, 2026-11-25). Lane F93 (2026-11-27): the radial angle's constant is the image's pi (the draft divided two pi; 8 -> 6 by position on today's tree). The flak sum's order is a rotation of X, Y, Z, as every other order VC6 gives this sum: it follows the function's symbol count in steps of 32, not within them (referenced locals at the top: +0 to +28 X, Y, Z; +32 to +60 Y, Z, X; from +64 X, Y, Z; the rest of the function is the image's only at +0 to +8 of each 32), and Z, X, Y was reached at no count from +4 to +260)
 BulletClass * TechnoClass::Fire_At(AbstractClass * target, int which)
 {
 	WeaponTypeClass * weapon = Get_Class_Weapon_Data(which)->Weapon;
@@ -4701,7 +4701,7 @@ BulletClass * TechnoClass::Fire_At(AbstractClass * target, int which)
 		velocity.Nonzero_Check();
 		velocity *= speed / velocity.Speed();
 		if (segments > 0) {
-			double angle = M_PI * 2.0 / segments * RadialFireSegment - M_PI_2;
+			double angle = M_PI / segments * RadialFireSegment - M_PI_2;
 			DirType yaw(PrimaryFacing.Current().As_Radian() + angle);
 			velocity.Set_Yaw(yaw);
 			RadialFireSegment++;

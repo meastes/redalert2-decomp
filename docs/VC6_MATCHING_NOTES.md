@@ -6798,3 +6798,105 @@ v17.py (variant tables for vv.py).
 - All four of Combo_Proc's sites touch edi: the hold borrows it from the result, the fill takes it, and the reload after the blend loop is
   the surface coming back to it. In the exchanged state the hold borrows the result's register as well (ebx there), so the hold always
   takes the result's register and the exchange is which of the record and the result is taken first.
+
+## The memory-load lens does not reach an exchange between two register variables; an extra use of one parameter turns a pair only in some case arms; a zero register is not made by zero constants, zero-valued locals or a count (found in the rebuild (lane F92, high))
+
+Found in the rebuild (lane F92, high); no row landed and no draft changed. netshare Net2DecodeGameopt 0x5C3FF0 stays at 309 lines (7,828 by
+position), ldprgmgr LoadProgressManager::Draw 0x535BF0 at 134 lines (1,092), netdlg2 MPlayer_Host_Dialog_Proc 0x5BEFE0 at 61 B, tactical
+Draw_Radial_Indicators 0x6AC420 at 59 lines (820), ownrdraw Control_Proc 0x5EE460 unchanged; walk Movement_AI 0x71E220 was read, not measured.
+About 150 measured variants. Lane tools in build/r/f92 (removed at hand-back; copies in private/dossiers/fable/f92_tools): g.sh (one measure of
+any unit's guarded function from UNIT, ENTRY, SYM, OPENF), fag.py (lane F91's /FAs listing for any unit), site.py (one variant per occurrence of
+a text inside one function), multi.py (several occurrences at once), var.py (a variant from a Python list of replacements, which avoids shell
+quoting), and the variant lists.
+
+- Lane F91's lens (a memory value's late load joined to its early loads along a call-free path) was applied to each row first. It names a
+  cause only where the exchanged value is one that lives in memory. In four of the five rows the exchanged values are register variables or
+  constants, and the memory value the function has is a consequence, not the driver:
+  - Net2DecodeGameopt: `string` is the memory value (`_string$` in the listing) and `token` its register copy. In the image every
+    `free(string)` that sits at a join after an arm that reused the copy's register reads the slot into a scratch register (edx, ecx, eax)
+    and the block is repeated per arm (three copies in the Z cases, two in the campaign case, 16 free calls); the draft reloads the slot into
+    the copy's callee-saved register and shares one block (14 calls). That looks like the lens, but it is not the driver: `free(NULL)` at each
+    of the 11 sites one at a time and in seven groups, a call on the Z default path, and one to six more `token` references leave the order.
+    With lane F71's probe (the map-state case's sender replaced) the image's three copies come out of the draft's single statement, so the
+    repeated blocks are the compiler's and follow the order.
+  - MPlayer_Host_Dialog_Proc: message and lparam are both loaded at entry and held; nothing takes an address.
+  - LoadProgressManager::Draw and Draw_Radial_Indicators: the exchanged value is the constant zero.
+- netdlg2 MPlayer_Host_Dialog_Proc: the pair turns with lparam only, and only in some arms. One extra use of lparam placed first in each case
+  arm in turn (a call, `Limit_Name_Text((HWND)lparam)`, or a store, `Seed = lparam`: the same map with both) gives the image's registers
+  from WM_NCHITTEST, WM_PAINT, the top of WM_COMMAND, the set-up case (first or last statement), the scroll case after its lock test, 0x49B
+  and 0x4E9, and leaves the draft's from WM_DRAWITEM, WM_DESTROY, every inner command case (IDCANCEL, 0x411, 0x540, 0x588, 0x6A1, 0x6A2,
+  0x5AA, the inner default), the scroll case ahead of its lock test, the outer default, 0x4EC and WM_ERASEBKGND. The same probe with wparam,
+  window or message turns nothing. So it is neither a count of lparam's uses (none and two in the set-up case both give the image, one does
+  not) nor the kind of use. The import pointer of the scroll case (SendDlgItemMessageA, three calls) takes edi in both states: with the
+  image's registers it shares edi with lparam, in the draft with message; the low word of wparam, pt.x and the 0x4E9 id always share
+  message's register.
+  The same bytes as the draft (copies fold before the registers are chosen): `request` written as a cast of lparam at every use, a copy
+  of message for the switch, a copy of lparam for the coordinates, `POINT pt = { LOWORD(lparam), HIWORD(lparam) }`, `message` for the constant
+  in the set-up call, the top test as a switch, a local for the low word of wparam (other code, 64 lines).
+- A register order is read against a fixed preference before a use is counted. With window in esi and wparam in ebp in both states, the
+  image gives lparam edi and message ebx. If esi and edi are taken before ebx, lparam chose ahead of message in the image and after it in
+  the draft, the opposite of what the prologue's load order suggests.
+- tactical Draw_Radial_Indicators: zero is not a register candidate at all in the draft's text. With the count out of the way (a constant
+  loop bound) and the centre's Z a constant as well, ebx is free through the first half and still no zero register appears. It is not made
+  by: two more calls with three `false` arguments each in the placement block; two more function statics with zeroing constructors; the colour
+  default-constructed and then assigned; a zero-valued local (`bool` or `int`) passed as the last argument (it folds: the same bytes); the
+  second loop's index initialised at the top of the function with no re-initialisation, with or without a separate index for the third loop
+  (the index goes to memory, 68 lines, also with the count and Z out of the way); `if (count > 0)` or `if (count != 0)` around the first
+  loop; the first loop as do-while or while (the same bytes). The image's web runs from the top to the last `false` pushed for the ring
+  call, after which bx and bl are scratch for the colour copy and the second loop's index is zeroed again. ra2-decomp's text (cfebfc77,
+  unchanged since 2026-11-19) differs from the draft in forms lane F53 measured.
+- ldprgmgr LoadProgressManager::Draw: the image's zero web is {the surface test after `new`, the rectangle's two stores, the session type
+  test, `country == 0`} and the campaign's two NULL stores get a second zero in edi because the picture name takes ebx there; the draft's
+  web is {the test inside `new`, the surface test, the rectangle, the session type, the campaign stores} with two zeroings around the
+  constructor, and `country == 0` is a test. That is lane F75's order of choice seen from the zero's side, not a second miss.
+  RobinDigitalPro/ra2-1001-decomp has a 1.001 text for the function (src/ra2/LdPrgMgr.cpp, open there: a near miss of another build); its
+  campaign body under `if (*image != '\0')` with one return compiles to the draft's bytes.
+- ownrdraw Control_Proc, the reference check asked for: `(HWND)key.Window` at the tail load is in no reference. mischa85's tail reads
+  `GetWindowLongA(window, 4)`, both of ra2-decomp's bank bodies (banked-forms banks/0x00610CA0.cpp and 0x00610CA0_odh.cpp) read
+  `GetWindowLong(window, DWL_DLGPROC)` after `Remove_Entry(ctrlmessages, key)`, Robin's 1.001 text is a different draft (gotos, no key
+  read), and the TibSun archive has no such function. No reference has a statement between the removal and that call.
+  One reading to add to lane F91's: the image itself has a call-free path from a load of `window` to the tail load (the record lookup's
+  copy at 0x5EE9E4, its `entries == 0` exit, the 0x4A0 case, the jump to 0x5EFC7D, the removal's `entries == 0` exit, 0x5EFD8C), so the
+  rule "loads joined along any call-free path" cannot be the whole rule: in the image that path exists and the loads are not joined. The
+  inline lookups bind `window` to a by-value parameter that is copied to its own slot (0x70, 0x24, 0x20 in the image), and the tail
+  reads the parameter's slot itself.
+- Measure a probe in both kinds before reading it: a call and a store gave the same map in netdlg2, which rules the call out as the cause.
+
+## A call left inside an expanded predicate is the divided budget at work, and the image names the predicate's levels; a three-term sum's order turns with the symbol count in steps of 32 (found in the rebuild (lane F93, high))
+
+- ownrdraw's family of three (Is_Tested_Control 0x5E0760, Enable_Animated_Control 0x5E4780, Adjust_Control_Position 0x5E9410): each has
+  the same first test, 31 dialog kinds compared in place, then a call to Is_Listed_Kind 0x5E0DA0 (17 more kinds), then `id == 0x694`.
+  Earlier lanes read the call as a function that would not expand (a pragma or a declared-only second name made it a call; both refused).
+  The image says something else when every expansion of the two lists is located (search the image for `cmp reg, first; je; cmp reg,
+  second` of each list): the 17 kinds are expanded in five functions (OwnerDraw_Control_Height, _Kind, _Flags, Is_Owner_Tested_Control
+  and Adjust_Control_Position's second test, where they stand alone) and called in three, and in Adjust_Control_Position both happen in
+  one function. One function, called in one test and expanded in the next, is the /Ob2 rule's divided budget: the first test is an inline
+  predicate `Is_General_Kind(kind)` = `Is_Common_Kind(kind) || Is_Listed_Kind(kind)`, and what is inside an expanded callee is decided with
+  (root budget less the callee's size) / (inline sites from this one to the end of the caller). Is_Common_Kind (about 177 units) fits and
+  Is_Listed_Kind (about 95) does not when the quotient lies between 177 and 272. Alone at the root the same call sees the whole budget.
+- The window is narrow and is set by the sites the function really has. Is_Tested_Control: exact with exactly three predicate sites after
+  the first test out of {Is_Flag_Control_B, Is_Quick_Control_A, Is_Quick_Control_B, the 40-id list}; with two Is_Listed_Kind expands, with
+  four Is_Common_Kind is refused (empty probe sites after the old text gave the same window, four to six). Enable_Animated_Control has
+  more sites of its own (Kind_Test, Is_Plain_Control twice, Is_Owner_Tested_Control, Is_Default_Button, Set_Control_Disabled): exact with
+  {0x468 list, flag}, {0x468 list, quick B}, {0x468 list, quick B, flag} or {0x71c list, flag} of sixteen arrangements, and never with the
+  40-id list as a predicate. Adjust_Control_Position: the image's calls, frame and size with Is_Quick_Control_A and the 0x468 list as
+  predicates (one byte left, a compare's operand order). The set that serves all three uses each predicate wherever its list stands.
+- An inline predicate in an `if` behaves as a named bool: `bool c4 = <list>; if (c4)` and `if (Is_Extended_Option_Kind(kind))` are the
+  same bytes, and both differ from the list written in the `if`. A draft that needs a named bool for a list is asking for a predicate.
+- Referenced probe locals (`int p; p = 0;`) are not neutral for an inline question: they add to the caller's size, the root budget is
+  twice that size, and three of them were enough to expand Is_Listed_Kind in Adjust_Control_Position. Unreferenced locals (`int p;`) add
+  nothing to the budget and still count as declarations for the rows after the function.
+- OwnerDraw::Trackbar_Proc 0x5FB270 reads the number of declarations ahead of it in the unit, locals of earlier functions included (two
+  frame slots exchange, 8 B). Taking Enable_Animated_Control out of its guard turned it; one more inline function, one more prototype, two
+  to five `struct P;` lines or two to four unreferenced locals in Enable_Animated_Control turned it back, and one fewer predicate turns it
+  again (count_watch in units.json). A unit's guarded drafts are part of the count the rows after them see.
+- techno Fire_At's flak sum (the image squares Z, X, Y; the draft X, Y, Z): every order VC6 gives a three-term sum of this kind is a
+  rotation of the written one (X, Y, Z; Y, Z, X; Z, X, Y), here and in the rows that carry Length_YZX. With referenced locals at the top
+  of Fire_At the order is X, Y, Z from +0 to +28, Y, Z, X from +32 to +60 and X, Y, Z again from +64: it follows the count in steps of
+  32 and not inside a step, where lane F60 looked (1 to 64 for the image's order only). With four more float lengths ahead of the block
+  the rotated site moves one length earlier per step of 32. Z, X, Y came out at no count from +4 to +260, and the rest of the function is
+  the image's only at +0 to +8 of each 32 (period 32, lane F60), so the two conditions meet where the sum is Y, Z, X (+32 to +40) or
+  X, Y, Z. The draft's radial angle divided two pi where the image divides pi (corrected in the draft).
+- Count the other project's attempts before calling a row untried: XSurface::Draw_Ellipse has one line in this tree's logs and eleven
+  sessions (1,432 compile checks) in ra2-decomp's data/attempts.csv for the identical twin; the attempt table (private/dossiers/fable/
+  f93_attempt_counts.md) carries both counts.
