@@ -6900,3 +6900,76 @@ quoting), and the variant lists.
 - Count the other project's attempts before calling a row untried: XSurface::Draw_Ellipse has one line in this tree's logs and eleven
   sessions (1,432 compile checks) in ra2-decomp's data/attempts.csv for the identical twin; the attempt table (private/dossiers/fable/
   f93_attempt_counts.md) carries both counts.
+- netshare Scenario_DlgProc, the same rule read as shares: three copies of one list helper come out differently in the image (constructor
+  expanded and Clear called at the first and third, constructor called and Clear expanded at the middle one), which says Clear is charged
+  and gives the order of the three shares. A helper body written in the start case in place of its call (Select_Scenario_Index or
+  Enable_Random_Scenario) gives every call but the middle pair with no empty site; a nested helper around the middle copy overshoots.
+
+## A cached constant is decided by the return structure; a list helper's share states can be read off with il_lab; a compare's evaluation order follows a call on the first arm's path (found in the rebuild (lane F94, high))
+
+Found in the rebuild (lane F94, high); no row landed and no draft changed. ownrdraw Init_Control_Animation 0x5E8130 measured at 779 by position
+with the image's call list (was 995 in lane F57's held form), Adjust_Control_Position 0x5E9410 stays at 1 B, netshare Scenario_DlgProc 0x5C69E0
+has the image's whole call list under probes that say what the text lacks. About 450 measured variants. Lane tools in build/r/f94 (removed at
+hand-back; copies in private/dossiers/fable/f94_tools): lane F93's set, calls.py (the call-list diff with full symbols, register calls
+included), gen.py (Init_Control_Animation bodies from four structure axes), artm.py (a callee's text variants with il_lab size and its own
+row's state), nsum.py (the inline decisions of the three list copies as one string), nsrun.sh, the variant tables.
+
+- ownrdraw Control_Animation_Art 0x5E1820: lane F57 reached the auto-inline limit (174 units) only with unbraced ifs, a probe. The natural
+  spelling `else if (kind == 0x103 && id == 0x72b)` in place of the nested `else if (kind == 0x103) { if (id == 0x72b)` is 174 units with
+  the helper's lookup through Get_Record (182 before), keeps the function's own row exact (the compiler threads the second test) and gives
+  Init_Control_Animation the image's 29 calls. Measured beside it: one result variable assigned in each arm 184, every arm nested 188, a
+  switch 168 and the two chat kinds joined 154 (both turn the row). When a non-inline callee is a few units over the limit, try the
+  conditions joined with && before any brace or statement form.
+- Init_Control_Animation, the register state (lane F57's wall): the image keeps zero in ebp from the first lookup and the constant 1 only
+  in eax for the two stores of the typed-text branch. The held form cached 1 in edi through that branch and had no zero register. Which
+  constant is cached follows the return structure: `if (record == NULL) return TRUE;` at the top with the typed-text branch as the if of
+  an if/else and one `return TRUE` at the end gives a zero register from the first lookup, 1 in eax and the image's two epilogues inside
+  the expanded Control_Typing_Sound (779 by position, 222 lines). The same body under `if (record != NULL) { ... }` with one return, or
+  with `return TRUE` inside the typed-text branch, compiles to the held form's bytes (995). Left: zero and the parent exchanged (ours zero
+  in edi and the parent in ebp with a home slot stored at the top; the image the parent in edi, zero in ebp, the window given up to the
+  helper's id at Is_Animated_Control and reloaded from its parameter slot). Not it, each measured: the declaration order of parent, record
+  and animated; a named key; `!record`; the tail as `< 1`; the shape load shared by modes 3 and 4 after the else chain (the same bytes:
+  the mode-3 test folds first); `animated = Is_Animated_Control(...)` (the parent goes to edi, but the false arms store 0, which the image
+  does not have); content in the dead mode-3 branch as ra2-decomp's bank has for the twin 0x60A5B0 (the call list goes); probe uses of the
+  parent (every one changes the import pointer caches too, nothing read from them). The image copies `animated = true; PictureMode = 4`
+  into the three return-true arms of the expanded Is_Animated_Control, which says the shape test starts a block of its own; no text
+  found for that. The header members lane F57 needed are still the obstacle to putting the form in the tree (patch:
+  private/dossiers/fable/patches/f94_ownrdraw_init_control_animation_early_return.patch).
+- ra2-decomp's attempts file is worth reading for a near twin even when the twin is unmatched: its bank for 0x60A5B0 (84.0 there) named
+  the return structure and the dead mode-3 branch as the two things that move the twin; the first was the lever here, the second does
+  not carry over (RA2's call list needs the branch empty).
+- Adjust_Control_Position 0x5E9410, the one byte. Read as a reload order, not an operand order: the image is `cmp height, old_height` with
+  the right operand loaded first (`mov ecx, [old]; mov eax, [new]; cmp eax, ecx`), ours loads the left operand first in every spelling,
+  so `old_height != height` gets the loads and `height != old_height` the compare, never both. The order turns with one thing found: a
+  call on the path of the first arm (`if (Is_Extended_Option_Kind(kind)) { if (!Session.Is_In_Game()) y += 1; }`). With that arm's call
+  taken out as a diagnostic (the arm deleted, `y += 1` unconditional, or a test with no call) the natural spelling `height != old_height`
+  gives the image's instruction, and with any call on that arm's path (before or after the store, Is_In_Game or another function) the
+  left operand is loaded first again. Calls in the other arms (the second In_Game arm, `y += 2`, the 0x102, 0xBC and 0x103 arms) do not
+  enter. The first arm is the first block in layout order that jumps to the closing test. The image has the call, so its text differs in
+  a way that leaves the call and still reads as a call-free first path; not found.
+  Not it, each 1 or 3 bytes (the spelling's two states) or a changed inline decision: const, unsigned, LONG and volatile old values; the
+  24 declaration orders of the four old values; the 24 orders of the four closing tests (x, width, y, height is also 1); twenty spellings
+  of the last compare (negated, subtraction, exclusive or, relational pairs, +0); nine structures of the closing test (moved and sized
+  bools, nested ifs, an else arm, early returns); an inline compare helper in six forms; `++`, `--` and `v = v + 1` at each of the eight
+  one-step sites; the In_Game arms inverted, joined with &&, under a named bool, as early returns, assigned from the old values; five
+  more lists as predicates and three predicates written out; the lookup through Get_Dialog_Type or Get_Data.
+  Kind_Of has this function as its only user; ra2-decomp's Get_Dialog_Type(parent), which Enable_Animated_Control already uses, gives the
+  same bytes and the same inline decisions (the lookup written direct, a named key or Get_Record expand Is_Listed_Kind: 1,984 B).
+- netshare Scenario_DlgProc 0x5C69E0, the gauge. il_lab on Populate_Scenario_List in the unit (160 units) gives the four states of one
+  copy by the share its body gets: under 72 the constructor and Clear are both called, 72 to 75 the constructor is called and Clear
+  expanded, 76 to 151 the constructor is expanded and Clear called, from 152 both are expanded (the vector's constructor is 80 units and
+  Clear 76). The image's middle copy is the second state: its share lies in a window of four units, and the first and third copies are in
+  the third state. Other sizes: Get_Selected_Game_Mode 64, Select_Scenario_By_Name 164, Save_Scenario_Name 104; Enable_Random_Scenario,
+  Select_Scenario_Index and Select_List_Item_By_Data free at the lab's low end.
+- Where the draft's three copies stand, from a spend ladder at the top of the function: the third copy turns first (84 units of budget in
+  the tree's text, 36 with lane F93's start case), the middle at about 290 and the first at about 300; a spend or a free site between the
+  first and middle copies turns the first before the middle. So the text has one site too many between the first and middle copies (or
+  about 100 units of charge too few there) and four to five sites too few between the middle and third.
+  Measured as probes on the tree's text, none in the tree: the preview surface read without its accessor (one site fewer between the
+  first two copies), five empty inline sites in the 0x4EC case and two to six out-of-line call statements at the top give the image's
+  whole call list (constructor, Add and Clear at each copy, Select_List_Item_By_Data called in the random-map case and expanded in the
+  start case); with four sites all three copies expand the constructor, with five and no size added the middle copy is one state low.
+  Not it: each of Enable_Random_Scenario (either site), Select_Scenario_Index (either site) and Select_Scenario_By_Name written out, in
+  all 31 combinations; the population written out in the mode case (everything expands at the root's own budget).
+  Next read: which statements between the mode list's population and the start case's are inline sites in the original (the warning
+  flag, the list reset, the tool-tip lookup and the current mode are plain statements in the draft), and a reference for the preview test.
