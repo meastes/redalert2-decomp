@@ -177,6 +177,8 @@
 #include "techtype.h"
 #include "capmgr.h" // RA2: BuildingClass::Receive_Message reads the controlled unit of an infantry's capture manager
 #include "temporal.h" // RA2: BuildingClass::AI runs the temporal weapon aimed at the building
+#include "airctype.h" // RA2: BuildingClass::Exit_Object reads the aircraft type's IsAirportBound
+#include "targetcell.h" // RA2: Target_Cell, as ra2-decomp's building.cpp has it
 #include "tiberium.h"
 #include "tracker.h"
 #include "unit.h"
@@ -3167,9 +3169,6 @@ void BuildingClass::Assign_Target(AbstractClass * target)
  *   04/10/1995 JLB : Handles building production by computer.                                 *
  *   06/17/1995 JLB : Handles refinery exit.                                                   *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row yet (image-derived bound 00440520-00441eab, 6539+5, in image_bounds.csv); 17 bytes differ against it, six instruction lines in one site, size and frame right, all 146 calls in order (was 3380 by position, 33 lines in two sites; lane F79): the unit exit declares its exit coordinate where it is built, from Coord(to, 0), as TibSun's unit block does, and its first door sum is written as one Coord constructor [spelling: no reference has it; the image builds that sum straight into the coordinate, one copy level under operator+]; the infantry exit keeps the cell coordinate in a local as TibSun's infantry block does; the two refinery sums are written as cell + AdjacentCell[] [spelling: TibSun calls Adjacent_Cell; with the helper the text is three counted locals short of this state]. The infantry exit's second door sum is the same one-constructor form [spelling]: with it the text is exact at ten or eleven more counted locals (measured with unused Cell locals, which never land) and at no nearer count; the real forms tried move the count by three at most. Held as a count deficit under the rule of OnChannelJoin's arbitrary subset (owner, 26 Nov). Lane F80: the count's unit is a local with a store or a constructor, a helper's own locals included at each expansion (an uninitialised int, a struct with no constructor and helper parameters count nothing); a second direct read of AdjacentCell[FACING_SW].X anywhere in the function also gives every byte with no count change, as ra2-decomp records for the Yuri's Revenge twin (data/attempts.csv, 0x00443C60, 23 to 26 Nov), and no real statement has that read; three real names measured at one unit each with no code change (the infantry exit's FootClass pointer as RobinDigitalPro has it, the failed node's index named as the last case names it, the unit exit's FootClass pointer), which leaves seven (b_log_f80.csv). Left as written: the refinery's first sum adds the table word into the cell in the image (add edx, ecx) and the cell into the table word here (b_log_f79.csv). Earlier: the water exit facing through the DirType Direction member as ra2-decomp's banked form banks/0x00443C60_exit.cpp (11df85d) has it; the bank's exit paths adapted to RA2, keeping RA2's one-argument exits, native mission paths and the cloning-vat loop calling the image's own Exit_New_Object (0x4538D0) for each vat; 3569 and frame 0x12c only with copy locals in inline.h Direction(Cell, Cell), refused: variation_candidates.csv; main: best 92.27, tried 12 times (frame, register, inline)
-#include "airctype.h"
-#include "targetcell.h"
 int BuildingClass::Exit_Object(TechnoClass * base)
 {
 	if (!base) return(0);
@@ -3294,7 +3293,27 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 				}
 			}
 
-			if (!Class->IsRefinery && !Class->IsWeeder) {
+			if (Class->IsRefinery || Class->IsWeeder) {
+
+				/*
+				 * A unit exits a refinery to the south west corner and heads off to
+				 * harvest. Infantry just scatters out.
+				 */
+				if (base->Fetch_RTTI() == RTTI_UNIT) {
+
+					cell = Adjacent_Cell(Center_Coord().As_Cell(), FACING_SW);
+
+					ScenarioInit++;
+					if (base->Unlimbo(Coord(Adjacent_Cell(cell, FACING_S), 0), DIR_SW)) {
+						base->PrimaryFacing.Set(DirType(DIR_S));
+						base->QueueMission(MISSION_HARVEST, false);
+					}
+
+				} else {
+					base->Scatter(COORD_NONE, true, false);
+					return(0);
+				}
+			} else {
 
 				if (Class->IsWeaponsFactory) {
 
@@ -3411,15 +3430,16 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 						}
 					}
 					if (Class->IsNODBarracks && cell.X == x + 2 && cell.Y == y + 2) {
-						exitcoord = Coord(exitcoord.X + Class->ExitCoordinate.X, exitcoord.Y + Class->ExitCoordinate.Y, exitcoord.Z + Class->ExitCoordinate.Z);
+						exitcoord = exitcoord + Class->ExitCoordinate;
 					}
 
 					ScenarioInit++;
 					if (base->Unlimbo(exitcoord, dir)) {
 
-						if (((FootClass *)base)->NavCom != NULL && !base->TClass->JumpJet && !base->TClass->Teleporter) {
-							if (((FootClass *)base)->NavCom != NULL) {
-								base->ArchiveTarget = ((FootClass *)base)->NavCom;
+						FootClass * foot = (FootClass *)base;
+						if (foot->NavCom != NULL && !base->TClass->JumpJet && !base->TClass->Teleporter) {
+							if (foot->NavCom != NULL) {
+								base->ArchiveTarget = foot->NavCom;
 							}
 							base->QueueMission(MISSION_MOVE, false);
 							base->Assign_Destination(&Map[cell]);
@@ -3518,26 +3538,6 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 
 				}
 
-			} else {
-
-				/*
-				 * A unit exits a refinery to the south west corner and heads off to
-				 * harvest. Infantry just scatters out.
-				 */
-				if (base->Fetch_RTTI() == RTTI_UNIT) {
-
-					cell = Center_Coord().As_Cell() + AdjacentCell[FACING_SW];
-
-					ScenarioInit++;
-					if (base->Unlimbo(Coord(cell + AdjacentCell[FACING_S], 0), DIR_SW)) {
-						base->PrimaryFacing.Set(DirType(DIR_S));
-						base->QueueMission(MISSION_HARVEST, false);
-					}
-
-				} else {
-					base->Scatter(COORD_NONE, true, false);
-					return(0);
-				}
 			}
 			ScenarioInit--;
 			break;
@@ -3688,7 +3688,6 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 	*/
 	return(0);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -5966,15 +5965,6 @@ int BuildingClass::Do_MISSION_HARVEST(void)
 	}
 	#endif
 	return(BASECLASS::Do_MISSION_HARVEST());
-}
-
-
-/// <summary>
-/// RA2
-/// </summary>
-static inline Cell Target_Cell(AbstractClass * target)
-{
-	return(target->Center_Coord().As_Cell());
 }
 
 

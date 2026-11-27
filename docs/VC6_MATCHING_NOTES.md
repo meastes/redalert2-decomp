@@ -7173,3 +7173,82 @@ that changed state between two runs: a whole-tree includer check in five minutes
 - Probe kinds do not weigh alike and do not act at the same places: with cast.h in, twelve struct declarations turn Zone_Reset only
   ahead of map.h, while on the tree's text four turn it anywhere ahead of its own line. Read a window with the probe kind and the
   place it was measured at, and do not carry it to another header state.
+
+## A local that loses its register is read again from its field when the base pointer has one, and takes a slot when it has not; a reference helper is measured on each of its users and against the count-watch rows behind it (found in the rebuild (lane F99, high))
+
+Found in the rebuild (lane F99, high); no row gained. Two exact rows had unused lookups replaced by ra2-decomp's file-local helpers (map
+Mark_Fill_Area 0x567710, mapgen Generate_Vegetation 0x5852C0). Drafts unchanged: netshare Net2DecodeGameopt 0x5C3FF0 (7,828 by position),
+tactical Draw_Tiles(Cell) 0x6A8560 (11), ownrdraw Combo_Proc 0x5F4BA0 (86), walk Movement_AI 0x71E220 (2,999 by position, 61 lines).
+About 190 compiles. Lane tools in build/r/f99 (removed at hand-back; copies in private/dossiers/fable/f99_tools): lane F98's set, nbs.py
+(every simple if-condition of one function held in a named bool, one at a time or the first k together), zc.py (zero uses per dispatch
+case, by register), ind.sh and ts.sh (a variant with a state indicator), nd.sh (a diff with stack offsets and jump targets removed).
+
+- Reference helpers are measured per user. dk8827's Fixup_Vegetation_LAT (1eb222e4) serves two functions in Yuri's Revenge; here
+  Generate_Vegetation is exact with it and Generate_Arctic_Vegetation 0x585A60 is 378 B off, exact only with the loop written out. The
+  helper landed with one user. Carry a helper over one call site at a time.
+- A helper defined ahead of a count-watch row is a declaration count change for that row. Is_Severely_Damaged_Bridge_Middle (e6883fef)
+  makes Repair_All_High_Bridges 0x54C7A0 exact without its unused `bool valid`, and turns Zone_Reset 0x54EBD0 (4 B), which stands after it
+  in map.cpp; Init_Fill_Cells stands after Zone_Reset and turns nothing. Not landed. Check where a new file-scope definition falls
+  against the unit's count_watch rows before measuring the row it is for.
+- An implicit destructor that has a row is its caller's child. `OwnerDraw::CellData::~CellData` 0x601410 is called from two places in
+  the whole image, both inside List_Proc 0x5F6690, which expands it elsewhere; ra2-decomp lists it as synthetic, with no text. A
+  definition written to emit it would turn every expanded site into a call. Search the image for the callers of a small missing row
+  before treating it as a row of its own.
+- Draw_Tiles(Cell): the elevation block has no call in it, so its values compete for eax, ecx and edx only. With the image's sign test
+  (`diff < 0`) the cell pointer takes eax, and the height, which has lost, is not given a slot: it is read again from the cell at each
+  use (three loads of +0x11B from one source statement), because its only definition is a field read and its base is in a register.
+  Elevation, read three times in the source, is then loaded once and kept in a byte slot. So the number of loads of a field in the image
+  does not give the number of reads in the source, in either direction. One more use of the height after sharing, or one use of the
+  cell pointer fewer (both as probes), gives the image's registers (draw in al, the height in edx, the pointer in memory) together with
+  its `test ecx, ecx`; Elevation is then still loaded once into cl where the image reads it three times, and the image loads the level
+  into eax ahead of the subtraction although nothing reads it afterwards (the draft's `height < level` is what keeps it live). No
+  written form found has both: an elevation local (int, char, signed char, three places), the sign test as a named bool, seven forms with no
+  difference variable (the difference written out at each use) all give the sign-test state or worse.
+- Net2DecodeGameopt, read web by web: the image gives the token copy ebx and lends that register to the slot pointer inside the first
+  NAT case's loop (the token is read from the string's slot twice per pass there), keeps the sender in ebp and holds zero in edi from
+  entry through the start-reminder case, not in the map-state or ping cases. The draft gives the sender ebx, the slot pointer ebp and the
+  token edi with reloads after each string instruction, caches 4 in ebp and has no zero register. Extra references to the token or to
+  the options text (1 to 4, in the start-reminder case) and zero stores at the top or after the lock test (1 to 8) do not turn it; four
+  sender references do (lane F71's table). Same bytes: the dispatch as separate ifs, eight spellings of the NAT loop, two of the port
+  case. netdlg2 MPlayer_Host_Dialog_Proc has the same signature (lane F92: none and two uses of the parameter in one case give the
+  image, one does not), so the two rows are one question.
+- Named bools, measured where lane O98 had not: Combo_Proc, 50 simple conditions one at a time: 46 the draft's bytes, 4 other code (the
+  `style & WS_DISABLED` tests), none nearer; walk Movement_AI, 38 conditions: one at a time the draft's bytes (one other code), the
+  first k together the draft's bytes to 3, from 4 the state with the first Adjacent_Cell constructor expanded (66 lines, ra2-decomp's
+  mech_inline state), from 28 worse. Neither row has a named-bool window.
+
+## A cached zero is made by double-word stores and does not serve byte tests; a three-term order can follow the count in one evaluation place only; a unit's parked functions and its count rows are one set (found in the rebuild (lane F100, high))
+
+Found in the rebuild (lane F100, high); no row gained, no draft changed (three guard labels extended). tactical Draw_Radial_Indicators 0x6AC420 stays at
+820 by position, reinf Do_Chrono_Reinforcements 0x63A880 at 84, sidebar StripClass::Draw_It 0x67F800 at 6 with an exact form held. About 310
+compiles, nearly all scripted. Lane tools in build/r/f100 (removed at hand-back; copies in private/dossiers/fable/f100_tools): lane F99's set, vr.sh (one
+variant of a unit through its measure script), zi.sh (the same with a zero-register indicator), pk.py and ks.sh (k referenced probes at the top of a
+function, with the channel order of both pixels printed), og.py (any set of guards opened, probes in one function, every row of the unit compared),
+nb2.py (pairs of named conditions against the whole unit), both.py, act.py.
+
+- What makes a cached zero, measured in Draw_Radial_Indicators with probes of each kind at each block. Double-word zero stores to memory make one: two
+  in a straight line or one inside a loop. Nothing else did: byte stores (six inside the loop), compares of memory with zero (VC6 loads and tests),
+  pushed zeros, an index initialised at any place, dead stores to a struct local that is kept in registers, a chained byte assignment. A zero made
+  by stores takes whatever register is free and does not displace a variable (it went ahead of the loop's count only with eight stores inside the
+  loop); it then serves `cmp reg, zero` for register values and never a byte test of memory, which stays `mov cl, [mem]; test cl, cl` with the zero
+  live in ebx. The image's zero in that function serves two byte compares with memory and three byte stores as well as register compares and a
+  push, and the function has no double-word zero store at all. So "find the missing zero stores" is not the reading for that row; a zero that
+  serves byte tests has another source, not found.
+- A whole-function register exchange is weighed, not guessed. In Do_Chrono_Reinforcements one more test of the cell pointer gives the image's
+  registers, one more of each (cell pointer and object) the draft's, two and one the image's, one and two the draft's: the two values are exactly
+  one reference apart, loop depth does not weigh, and a third value live beside them (the team type) does not count. Aliases, initialisers,
+  separate declarations and named bools fold before the count is taken, so no spelling that leaves the instructions alone was found to move it.
+  A test of a pointer the loop already knows to be non-null is deleted before the count: use a compare against another variable as the probe.
+- A three-term sum's order can depend on the count in one evaluation place and be fixed in another. Draw_It's outline pixel, written into a named
+  local or passed beside a named Rect, keeps one cycle of orders at every count of the function's locals from 0 to 72; written as the call's
+  argument beside the Rect temporary it steps through the other cycle, the image's order at one count in sixteen. Survey the orders of every
+  such site over the count for each place the expression can stand before reading a miss as "no count gives it" (lanes O98 and F68 had swept the
+  named-local form only).
+- The count there is the function's own referenced locals, and locals do not weigh alike: a named TextPrintType initialised from a constant is
+  two units, a reference local one, a named copy that replaces a temporary none.
+- A function's locals move the count rows behind it in the unit. Draw_It's exact form (the argument, ra2-decomp's four named print styles, two
+  named conditions) turns Reposition_Sidebar 0x6819A0, whose six named ints were chosen in a tree where Draw_It is not compiled; with Activate's
+  draft compiled ahead all rows are exact again. Activate (58 B), Draw_It, Recalc and the unit's two count rows (SelectClass::Action,
+  Reposition_Sidebar) are one set: a form for one of them is to be measured with the others' drafts compiled, and a compiler-local row behind a
+  parked function was calibrated against that function's absence. Check every row of the unit, not the function alone, before calling a
+  count form exact (og.py does it in one line per variant).
