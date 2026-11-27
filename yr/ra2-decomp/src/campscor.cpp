@@ -258,13 +258,18 @@ wchar_t * __fastcall FUN_00735120(char const * text);
 bool __fastcall FUN_004E4580(int index);
 bool __fastcall FUN_004E50A0(int slot);
 
+inline wchar_t * _Sender_Name(void)
+{
+	return FUN_00735120(Session.GPacket.Name);
+}
+
 // FUNCTION: GAMEMD 0x0046D8B0
 bool FUN_0046D8B0(void)
 {
 	bool changed = false;
 	int index = -1;
 	for (int i = 0; i < 8; i++) {
-		wchar_t const * name = FUN_00735120(Session.GPacket.Name);
+		wchar_t const * name = _Sender_Name();
 		if (wcscmp(name, Session.Slots[i]->Name) == 0) {
 			index = i;
 			break;
@@ -304,7 +309,6 @@ int __fastcall FUN_004E37D0(int index);
 int __fastcall FUN_004E41D0(int index);
 int __fastcall FUN_004E4E60(int index);
 void __fastcall FUN_004E3F70(HWND dialog, int combo, int wanted);
-extern DynamicVectorClass<HouseClass *> DAT_00A80228;
 
 // FUNCTION: GAMEMD 0x0046DA20
 void __fastcall FUN_0046DA20(HWND dialog, int id, int value)
@@ -319,9 +323,9 @@ void __fastcall FUN_0046DA20(HWND dialog, int id, int value)
 void CampaignScoreClass::FUN_0046DA70(void)
 {
 	Session.NumScores = 0;
-	int count = DAT_00A80228.Count();
+	int count = Houses.Count();
 	for (int i = 0; i < count; i++) {
-		HouseClass * house = DAT_00A80228[i];
+		HouseClass * house = Houses[i];
 		if (house && house->Class->IsMultiplayPassive != true && house->FUN_0050B730()) {
 			int index = Session.NumScores++;
 			Session.Score[index].Wins = 0;
@@ -392,7 +396,7 @@ void __fastcall FUN_0046DCC0(HWND dialog, bool enable)
 {
 	HWND item;
 	for (int i = 0; i < 8; i++) {
-		if (FUN_005E93F0(Session.Slots[i]) && i != Session.unknown_2854) {
+		if (FUN_005E93F0(Session.Slots[i]) && i != Session.LocalSlot) {
 			item = GetDlgItem(dialog, FUN_0046F5E0(i));
 			EnableWindow(item, enable);
 			item = GetDlgItem(dialog, FUN_004E37D0(i));
@@ -409,13 +413,13 @@ void __fastcall FUN_0046DCC0(HWND dialog, bool enable)
 void __fastcall FUN_0046DD70(HWND dialog, bool enable)
 {
 	HWND item;
-	item = GetDlgItem(dialog, FUN_0046F5E0(Session.unknown_2854));
+	item = GetDlgItem(dialog, FUN_0046F5E0(Session.LocalSlot));
 	EnableWindow(item, enable);
-	item = GetDlgItem(dialog, FUN_004E37D0(Session.unknown_2854));
+	item = GetDlgItem(dialog, FUN_004E37D0(Session.LocalSlot));
 	EnableWindow(item, enable);
-	item = GetDlgItem(dialog, FUN_004E41D0(Session.unknown_2854));
+	item = GetDlgItem(dialog, FUN_004E41D0(Session.LocalSlot));
 	EnableWindow(item, enable);
-	item = GetDlgItem(dialog, FUN_004E4E60(Session.unknown_2854));
+	item = GetDlgItem(dialog, FUN_004E4E60(Session.LocalSlot));
 	EnableWindow(item, enable);
 	if (FUN_005E8760()) {
 		item = GetDlgItem(dialog, 0x732);
@@ -526,6 +530,406 @@ void __fastcall FUN_0046DE20(HWND dialog, int show)
 	if (item != NULL) {
 		ShowWindow(item, show);
 	}
+}
+
+#include "netshare.h"
+#include "scheme.h"
+
+static int DAT_0081B1EC[8][6] = {
+	{ 0x781, 0x783, 0x785, 0x787, 0x789, 0x70a },
+	{ 0x782, 0x784, 0x786, 0x788, 0x78a, 0x70b },
+};
+
+extern bool DAT_0089E05C;
+extern bool DAT_0089E05D;
+extern bool DAT_0089E04C;
+extern bool DAT_0089E0A0;
+extern bool DAT_0089E0A1;
+extern bool DAT_0089E0A2;
+extern int DAT_007EEF2C;
+extern int DAT_007EEF44;
+extern wchar_t const DAT_00887734[];
+
+namespace UI {
+	int __fastcall StandardWndProc(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
+}
+namespace OwnerDraw {
+	BOOL CALLBACK SetUserData2(HWND window, LPARAM lparam);
+}
+void FUN_00607FD0(HWND dialog);
+WideWstring __fastcall FUN_005EDD00(HWND edit);
+void __cdecl PMessagePrintf(int color, wchar_t const * text, ...);
+unsigned int __fastcall Compute_Name_CRC_W(wchar_t * name);
+void __fastcall FUN_005E9B60(HWND dialog, int combo);
+void __fastcall FUN_005E9C00(HWND dialog, int combo);
+void __fastcall FUN_005E9CE0(HWND dialog, int combo);
+void __fastcall FUN_0046F600(HWND dialog);
+void __fastcall FUN_0046F6D0(HWND dialog);
+void __fastcall FUN_0046F8F0(HWND dialog);
+void __fastcall FUN_0046FAC0(HWND dialog);
+void __fastcall FUN_0046FA20(HWND dialog);
+void __fastcall FUN_0046FB50(HWND dialog);
+void FUN_004E43C0(void);
+void __fastcall FUN_004E4820(HWND dialog);
+void FUN_004E4F50(void);
+void __fastcall FUN_004E48E0(HWND dialog, int side);
+void __fastcall FUN_004E4FC0(int count);
+void FUN_005E2EF0(HWND dialog, MultiplayerGameMode * mode);
+void __fastcall FUN_0060CBA0(HWND dialog);
+void __fastcall FUN_005E2F60(HWND dialog);
+void __fastcall FUN_005ED370(HWND dialog);
+void __fastcall FUN_0060CC00(HWND dialog);
+void __fastcall FUN_0052FEC0(Surface * surface, bool flag);
+
+inline void _Set_Text(HWND dialog, int id, wchar_t const * text)
+{
+	HWND item = GetDlgItem(dialog, id);
+	SendMessage(item, 0x4b2, 0, (LPARAM)text);
+}
+
+inline void _Enable_Item(HWND dialog, int id, BOOL enable)
+{
+	EnableWindow(GetDlgItem(dialog, id), enable);
+}
+
+inline void _Send_To_Players(NetCommandType command)
+{
+	GlobalPacketType packet;
+	memset(&packet, 0, sizeof(packet));
+	packet.Command = command;
+	strcpy(packet.Name, FUN_007350C0(Session.Players[0]->Name));
+	for (int i = 1; i < Session.Players.Count(); i++) {
+		Ipx.Send_Global_Message_To_Name(&packet, 0x2f, 1, Session.Players[i]->Name);
+		Ipx.Service();
+	}
+}
+
+inline void _Refresh_Dialog(HWND window = NULL)
+{
+	if (window == NULL) {
+		window = WS_Find_Dialog(0xbc6);
+	}
+	if (window != NULL) {
+		FUN_0046F600(window);
+		FUN_0046F6D0(window);
+		FUN_0046F8F0(window);
+		FUN_0046FAC0(window);
+		FUN_0046FA20(window);
+		FUN_0046FB50(window);
+	}
+}
+
+inline void _Send_Message(HWND window, int printcolor, int color)
+{
+	wchar_t message[112];
+
+	HWND item = GetDlgItem(window, 0x540);
+	SendMessage(item, 0x4b3, 0x6f, (LPARAM)message);
+	message[111] = 0;
+	int len = wcslen(message);
+	item = GetDlgItem(window, 0x540);
+	SendMessage(item, 0x4b2, 0, (LPARAM)DAT_00887734);
+	InvalidateRect(window, NULL, TRUE);
+
+	if (len > 2) {
+		PMessagePrintf(printcolor, L"[%s] %s", FUN_00735120(Session.Handle), message);
+		GlobalPacketType gpacket;
+		memset(&gpacket, 0, sizeof(gpacket));
+		gpacket.Command = NET_MESSAGE;
+		strcpy(gpacket.Name, Session.Handle);
+		wcscpy((wchar_t *)gpacket.Message.Buf, message);
+		gpacket.Message.Color = color;
+		gpacket.Message.NameCRC = Compute_Name_CRC_W(Session.GameName);
+		int count = Session.Players.Count();
+		for (int i = 1; i < count; i++) {
+			if (Session.Players[i] != NULL) {
+				Ipx.Send_Global_Message_To_Name(&gpacket, 0x1c7, 1, Session.Players[i]->Name);
+				Ipx.Service();
+			}
+		}
+	}
+}
+
+// FUNCTION: GAMEMD 0x0046DFD0
+BOOL CALLBACK FUN_0046DFD0(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
+{
+	wchar_t text[32];
+	HWND item;
+	int i;
+	int rc = UI::StandardWndProc(window, message, wparam, lparam);
+	if (rc != 0) {
+		return rc;
+	}
+	int * result = (int *)GetWindowLong(window, DWL_USER);
+	switch (message) {
+		case 0x497:
+			DAT_0089E0A2 = false;
+			if (DAT_0089E05D) {
+				for (i = 0; i < 8; i++) {
+					Session.Options.AISlots.Countries[i] = Session.Options.AISlots.Colors[i] = -1;
+				}
+				FUN_004E43C0();
+				FUN_004E4820(window);
+				for (i = 0; i < 8; i++) {
+					Session.Options.AISlots.Starts[i] = -2;
+					if (FUN_005E93F0(Session.Slots[i])) {
+						Session.Slots[i]->Set_Start(-2);
+					}
+				}
+				FUN_004E4F50();
+				for (i = 0; i < Session.Players.Count(); i++) {
+					if (Session.Slots[i] != NULL && wcscmp(FUN_00735120(Session.Handle), Session.Slots[i]->Name) == 0) {
+						Session.LocalSlot = i;
+					}
+				}
+				FUN_004E48E0(window, Session.LocalSlot);
+				if (Session.MPGameMode != NULL) {
+					Session.MPGameMode->vt_entry_38(window);
+				}
+				item = GetDlgItem(window, 0x732);
+				if (item != NULL) {
+					PostMessage(item, 0x4ac, 0, 0);
+					PostMessage(item, 0x406, 1, 0x20000);
+					PostMessage(item, 0x405, 1, Options.CampDifficulty);
+				}
+				FUN_0046DCC0(window, false);
+				if (!FUN_005E8760()) {
+					FUN_0046D810();
+				}
+				_Refresh_Dialog(window);
+				FUN_0046DE20(window, SW_SHOW);
+			} else {
+				for (i = 0; i < 8; i++) {
+					Session.Options.AISlots.Countries[i] = Session.Options.AISlots.Colors[i] = -1;
+				}
+				FUN_004E43C0();
+				for (i = 0; i < 8; i++) {
+					Session.Options.AISlots.Starts[i] = -2;
+					if (FUN_005E93F0(Session.Slots[i])) {
+						Session.Slots[i]->Set_Start(-2);
+					}
+				}
+				FUN_004E4F50();
+				FUN_0046DE20(window, SW_HIDE);
+			}
+			SetTimer(window, 1, 20000, NULL);
+		case WM_INITDIALOG:
+			_Set_Text(window, 0x77e, Session.Options.ScenarioDescription);
+			FUN_0046D360(text, DAT_0089E050 / 60);
+			_Set_Text(window, 0x3ea, text);
+			FUN_0046D400(0);
+			FUN_0046D430();
+			for (i = 0; i < Session.NumScores; i++) {
+				ColorScheme * scheme = ColorSchemes[DAT_0089DF80[i]->Scheme];
+				RGBClass rgb = scheme->HSV;
+				COLORREF color = RGB(rgb.Get_Red(), rgb.Get_Green(), rgb.Get_Blue());
+				int id = DAT_0081B1EC[i][0];
+				wchar_t * name = DAT_0089DF80[i]->Name;
+				item = GetDlgItem(window, id);
+				SendMessage(item, 0x4b2, 0, (LPARAM)name);
+				item = GetDlgItem(window, id);
+				SendMessage(item, 0x498, 0, color);
+				id = DAT_0081B1EC[i][1];
+				FUN_0046DA20(window, id, DAT_0089DF80[i]->Kills[0]);
+				item = GetDlgItem(window, id);
+				SendMessage(item, 0x498, 0, color);
+				id = DAT_0081B1EC[i][2];
+				FUN_0046DA20(window, id, DAT_0089DF80[i]->Lost[0]);
+				item = GetDlgItem(window, id);
+				SendMessage(item, 0x498, 0, color);
+				id = DAT_0081B1EC[i][3];
+				FUN_0046DA20(window, id, DAT_0089DF80[i]->Built[0]);
+				item = GetDlgItem(window, id);
+				SendMessage(item, 0x498, 0, color);
+				id = DAT_0081B1EC[i][4];
+				FUN_0046DA20(window, id, DAT_0089DF80[i]->Score[0]);
+				item = GetDlgItem(window, id);
+				SendMessage(item, 0x498, 0, color);
+				bool found = false;
+				int j;
+				for (j = 0; j < 8; j++) {
+					if (wcscmp(Session.Slots[j]->Name, DAT_0089DF80[i]->Name) == 0) {
+						found = true;
+						break;
+					}
+				}
+				id = DAT_0081B1EC[i][5];
+				if (found) {
+					wchar_t const * waiting = StringTable::LoadString("TXT_WAITING", NULL, "D:\\ra2mdpost\\CampScor.cpp", 0x4bd);
+					_Set_Text(window, id, waiting);
+				} else if (!FUN_0046D490(j)) {
+					wchar_t const * aborted = StringTable::LoadString("TXT_ABORTED", NULL, "D:\\ra2mdpost\\CampScor.cpp", 0x4c0);
+					_Set_Text(window, id, aborted);
+					_Enable_Item(window, 0x6d1, FALSE);
+				}
+				item = GetDlgItem(window, id);
+				SendMessage(item, 0x498, 0, color);
+			}
+			if (FUN_005E8760()) {
+				item = GetDlgItem(window, 0x732);
+				if (item != NULL) {
+					EnableWindow(item, TRUE);
+				}
+			}
+			FUN_005E2EF0(window, Session.MPGameMode);
+			if (DAT_0089E05D) {
+				FUN_0060CBA0(window);
+				FUN_005E2F60(window);
+				FUN_005ED370(window);
+			} else {
+				FUN_0060CC00(window);
+			}
+			DAT_0089E05C = false;
+			FUN_004E4FC0(Scen->NumCoopHumanStartSpots);
+			return(0);
+
+		case WM_COMMAND:
+			switch (LOWORD(wparam)) {
+				case 0x540:
+					FUN_005EDD00((HWND)lparam);
+					if (HIWORD(wparam) == EN_MAXTEXT) {
+						_Send_Message(window, DAT_007EEF44, DAT_007EEF2C);
+					}
+					break;
+
+				case 0x5c0:
+					*result = 2;
+					DAT_0089E04C = false;
+					if (Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) {
+						_Send_To_Players((NetCommandType)0x24);
+					}
+					return(1);
+
+				case 0x510:
+				case 0x6a1:
+					FUN_005E9B60(window, LOWORD(wparam));
+					if (FUN_005E8760()) {
+						FUN_0046D4A0();
+					} else {
+						FUN_0046D810();
+					}
+					FUN_0046D430();
+					_Refresh_Dialog(window);
+					return(0);
+
+				case 0x522:
+				case 0x6a2:
+					FUN_005E9C00(window, LOWORD(wparam));
+					if (FUN_005E8760()) {
+						FUN_0046D4A0();
+					} else {
+						FUN_0046D810();
+					}
+					FUN_0046D430();
+					_Refresh_Dialog(window);
+					return(0);
+
+				case 0x6a3:
+				case 0x6a4:
+					FUN_005E9CE0(window, LOWORD(wparam));
+					if (FUN_005E8760()) {
+						FUN_0046D4A0();
+					} else {
+						FUN_0046D810();
+					}
+					FUN_0046D430();
+					_Refresh_Dialog(window);
+					return(0);
+
+				case 0x6d1:
+					FUN_0046DD70(window, false);
+					if (DAT_0089E0A1 && FUN_005E8760()) {
+						FUN_0046D4A0();
+					}
+					if (!DAT_0089E05C) {
+						for (i = 0; i < Session.NumScores; i++) {
+							int id = DAT_0081B1EC[i][5];
+							if (wcscmp(Session.Players[0]->Name, DAT_0089DF80[i]->Name) == 0) {
+								wchar_t const * ready = StringTable::LoadString("TXT_READY", NULL, "D:\\ra2mdpost\\CampScor.cpp", 0x542);
+								_Set_Text(window, id, ready);
+								break;
+							}
+						}
+						_Enable_Item(window, 0x6d1, FALSE);
+						*result = 1;
+						DAT_0089E05C = true;
+						InvalidateRect(window, NULL, FALSE);
+						return(0);
+					}
+					for (i = 0; i < Session.NumScores; i++) {
+						int id = DAT_0081B1EC[i][5];
+						if (wcscmp(Session.Players[0]->Name, DAT_0089DF80[i]->Name) == 0) {
+							wchar_t const * waiting = StringTable::LoadString("TXT_WAITING", NULL, "D:\\ra2mdpost\\CampScor.cpp", 0x553);
+							_Set_Text(window, id, waiting);
+							break;
+						}
+					}
+					_Set_Text(window, 0x6d1, StringTable::LoadString("GUI:Continue", NULL, "D:\\ra2mdpost\\CampScor.cpp", 0x558));
+					_Enable_Item(window, 0x5c0, TRUE);
+					*result = 1;
+					DAT_0089E05C = false;
+					InvalidateRect(window, NULL, FALSE);
+					return(0);
+			}
+			break;
+
+		case WM_HSCROLL:
+			if (lparam == (LPARAM)GetDlgItem(window, 0x732)) {
+				if (DAT_0089E0A2) {
+					Options.CampDifficulty = SendDlgItemMessage(window, 0x732, 0x400, 0, 0);
+				} else {
+					DAT_0089E0A2 = true;
+				}
+				if (!DAT_0089E0A0) {
+					FUN_0046D4A0();
+					FUN_0046D430();
+					_Refresh_Dialog(window);
+					SetTimer(window, 0, 500, NULL);
+					DAT_0089E0A0 = true;
+					return(0);
+				}
+				DAT_0089E0A1 = true;
+			}
+			break;
+
+		case WM_TIMER:
+			if (wparam == 0) {
+				KillTimer(window, 0);
+				DAT_0089E0A0 = false;
+				if (DAT_0089E0A1) {
+					FUN_0046D4A0();
+					FUN_0046D430();
+					_Refresh_Dialog(window);
+					return(0);
+				}
+			} else if (wparam == 1) {
+				_Send_To_Players((NetCommandType)0xd);
+				return(0);
+			}
+			break;
+
+		case WM_PAINT:
+			Draw_Preview_Start_Points(window);
+			FUN_00607FD0(window);
+			ValidateRect(window, NULL);
+			return(0);
+
+		case WM_DESTROY:
+			if (MultiplayerMapPreview) {
+				delete MultiplayerMapPreview;
+				MultiplayerMapPreview = NULL;
+			}
+			KillTimer(window, 1);
+			return(0);
+
+		case 0x4ed:
+			FUN_0052FEC0(NULL, true);
+			OwnerDraw::SetUserData2(window, 1);
+			ShowWindow(window, SW_HIDE);
+			return(0);
+
+	}
+	return(0);
 }
 
 // FUNCTION: GAMEMD 0x0046F5E0
@@ -662,52 +1066,21 @@ void __fastcall FUN_004E5480(HWND dialog, int combo, int value);
 void __fastcall FUN_00603D30(HWND item, Surface * surface);
 void __fastcall FUN_0052FEC0(Surface * surface, bool flag);
 int __fastcall FUN_0060D380(int resource, DLGPROC proc, bool focus);
-struct Game
-{
-	static bool __cdecl CallBack(void);
-};
+void Call_Back(void);
 
 // FUNCTION: GAMEMD 0x0046F8F0
 void __fastcall FUN_0046F8F0(HWND dialog)
 {
-	int own = Session.unknown_2854;
+	int own = Session.LocalSlot;
 	if (own != -1) {
 		int combo = FUN_004E41D0(own);
-		int color;
-		NodeNameType * player = Session.Slots[own];
-		if (FUN_005E9440(player)) {
-			color = Session.Options.AISlots.Colors[own];
-		} else if (player == DAT_00AC119C) {
-			color = -2;
-		} else if (player == DAT_00AC11A0) {
-			color = -2;
-		} else if (player == DAT_00AC11B0) {
-			color = -2;
-		} else if (player == DAT_00AC11B4) {
-			color = -2;
-		} else {
-			color = player->Get_Color();
-		}
+		int color = FUN_0046F810(own);
 		FUN_004E49A0(dialog, combo, color);
 	}
 	for (int i = 0; i < 8; i++) {
 		if (i != own) {
 			int combo = FUN_004E41D0(i);
-			int color;
-			NodeNameType * player = Session.Slots[i];
-			if (FUN_005E9440(player)) {
-				color = Session.Options.AISlots.Colors[i];
-			} else if (player == DAT_00AC119C) {
-				color = -2;
-			} else if (player == DAT_00AC11A0) {
-				color = -2;
-			} else if (player == DAT_00AC11B0) {
-				color = -2;
-			} else if (player == DAT_00AC11B4) {
-				color = -2;
-			} else {
-				color = player->Get_Color();
-			}
+			int color = FUN_0046F810(i);
 			FUN_004E49A0(dialog, combo, color);
 		}
 	}
@@ -768,7 +1141,7 @@ void __fastcall FUN_0046FB50(HWND dialog)
 			if (other != NULL) {
 				EnableWindow(other, 1);
 			}
-		} else if (DAT_0089E000[Session.unknown_2854]) {
+		} else if (DAT_0089E000[Session.LocalSlot]) {
 			EnableWindow(item, 0);
 		} else {
 			EnableWindow(item, 1);
@@ -777,7 +1150,7 @@ void __fastcall FUN_0046FB50(HWND dialog)
 }
 
 bool FUN_005DAF20(void);
-bool FUN_0077F900(void);
+bool WOL_Wait_Callback(void);
 
 // FUNCTION: GAMEMD 0x0046FBD0
 bool FUN_0046FBD0(void)
@@ -786,23 +1159,15 @@ bool FUN_0046FBD0(void)
 		return FUN_005DAF20();
 	}
 	if (Session.Type == GAME_INTERNET) {
-		return FUN_0077F900();
+		return WOL_Wait_Callback();
 	}
-	Game::CallBack();
+	Call_Back();
 	return false;
 }
 
-static int DAT_0081B1EC[8][6] = {
-	{ 0x781, 0x783, 0x785, 0x787, 0x789, 0x70a },
-	{ 0x782, 0x784, 0x786, 0x788, 0x78a, 0x70b },
-};
-
 extern int DAT_0089E054;
 extern int DAT_0089E058;
-extern bool DAT_0089E05C;
-extern bool DAT_0089E05D;
 extern wchar_t DAT_0089E060[];
-extern bool DAT_0089E04C;
 BOOL CALLBACK FUN_0046DFD0(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
 void __fastcall FUN_0072D300(int side);
 void FUN_0072D350(void);
@@ -810,44 +1175,13 @@ void __fastcall FUN_00543080(IPXManagerClass * ipx);
 void __fastcall FUN_00543090(IPXManagerClass * ipx);
 void Windows_Message_Handler(void);
 bool __fastcall Process_Global_Packet(GlobalPacketType * packet, IPXAddressClass * address);
-unsigned int __fastcall FUN_005DAC00(wchar_t const * name);
+unsigned int __fastcall Compute_Name_CRC_W(wchar_t * name);
 void __cdecl PMessagePrintf(int color, wchar_t const * text, ...);
 
 namespace UI {
 	HWND __fastcall BeginDialog(int resource, DLGPROC proc, int param);
 	void __fastcall FocusOnWindow(HWND window);
 	void __fastcall EndDialog(HWND window);
-}
-
-inline void _Set_Text(HWND dialog, int id, wchar_t const * text)
-{
-	HWND item = GetDlgItem(dialog, id);
-	SendMessage(item, 0x4b2, 0, (LPARAM)text);
-}
-
-inline void _Send_To_Players(NetCommandType command)
-{
-	GlobalPacketType packet;
-	memset(&packet, 0, sizeof(packet));
-	packet.Command = command;
-	strcpy(packet.Name, FUN_007350C0(Session.Players[0]->Name));
-	for (int i = 1; i < Session.Players.Count(); i++) {
-		Ipx.Send_Global_Message_To_Name(&packet, 0x2f, 1, Session.Players[i]->Name);
-		Ipx.Service();
-	}
-}
-
-inline void _Refresh_Dialog(void)
-{
-	HWND window = WS_Find_Dialog(0xbc6);
-	if (window != NULL) {
-		FUN_0046F600(window);
-		FUN_0046F6D0(window);
-		FUN_0046F8F0(window);
-		FUN_0046FAC0(window);
-		FUN_0046FA20(window);
-		FUN_0046FB50(window);
-	}
 }
 
 // FUNCTION: GAMEMD 0x0046FC00
@@ -881,7 +1215,7 @@ void CampaignScoreClass::Show(DynamicVectorClass<MPlayerScoreType *> list, int a
 			Windows_Message_Handler();
 			if (result == 1) {
 				if (DAT_0089E05C) {
-					FUN_0046D480(Session.unknown_2854, true);
+					FUN_0046D480(Session.LocalSlot, true);
 					if (Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) {
 						if (FUN_005E8760() && a7) {
 							FUN_0046D4A0();
@@ -890,7 +1224,7 @@ void CampaignScoreClass::Show(DynamicVectorClass<MPlayerScoreType *> list, int a
 					}
 					_Refresh_Dialog();
 				} else {
-					FUN_0046D480(Session.unknown_2854, false);
+					FUN_0046D480(Session.LocalSlot, false);
 					if (Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) {
 						_Send_To_Players((NetCommandType)0x25);
 					}
@@ -982,9 +1316,9 @@ void CampaignScoreClass::Show(DynamicVectorClass<MPlayerScoreType *> list, int a
 					}
 				}
 				_Refresh_Dialog();
-				EnableWindow(GetDlgItem(dialog, 0x6d1), FALSE);
-				EnableWindow(GetDlgItem(dialog, 0x5c0), TRUE);
-				PMessagePrintf(-1, StringTable::LoadString("GUI:PlayerLeftCoop", NULL, "D:\\ra2mdpost\\CampScor.cpp", 0x66f), FUN_00735120(Session.GPacket.Name));
+				_Enable_Item(dialog, 0x6d1, FALSE);
+				_Enable_Item(dialog, 0x5c0, TRUE);
+				PMessagePrintf(-1, StringTable::LoadString("GUI:PlayerLeftCoop", NULL, "D:\\ra2mdpost\\CampScor.cpp", 0x66f), _Sender_Name());
 				continue;
 			} else if (Session.GPacket.Command == 0x25) {
 				int i;
@@ -1006,8 +1340,8 @@ void CampaignScoreClass::Show(DynamicVectorClass<MPlayerScoreType *> list, int a
 				DAT_0089E04C = true;
 				break;
 			} else if (Session.GPacket.Command == NET_MESSAGE) {
-				if (Session.GPacket.Message.NameCRC == FUN_005DAC00(Session.GameName)) {
-					PMessagePrintf(Session.GPacket.Message.Color, L"[%s] %s", FUN_00735120(Session.GPacket.Name), Session.GPacket.Message.Buf);
+				if (Session.GPacket.Message.NameCRC == Compute_Name_CRC_W(Session.GameName)) {
+					PMessagePrintf(Session.GPacket.Message.Color, L"[%s] %s", _Sender_Name(), Session.GPacket.Message.Buf);
 				}
 				continue;
 			} else if (Session.GPacket.Command == 0x32) {
@@ -1018,7 +1352,7 @@ void CampaignScoreClass::Show(DynamicVectorClass<MPlayerScoreType *> list, int a
 					_Refresh_Dialog();
 				}
 				if (requested) {
-					EnableWindow(GetDlgItem(dialog, 0x5c0), 0);
+					_Enable_Item(dialog, 0x5c0, FALSE);
 					_Send_To_Players((NetCommandType)0x23);
 				}
 				continue;
@@ -1106,7 +1440,7 @@ namespace UI {
 }
 namespace OwnerDraw {
 	void __fastcall Paint(HWND window);
-	BOOL CALLBACK SetNeedsControlImage(HWND window, LPARAM lparam);
+	BOOL CALLBACK SetUserData2(HWND window, LPARAM lparam);
 }
 void __fastcall FUN_00607FD0(HWND window);
 extern wchar_t DAT_0089E0A4[];
@@ -1226,7 +1560,7 @@ int CALLBACK FUN_00470D30(HWND window, UINT message, WPARAM wparam, LPARAM lpara
 		case 0x4ed:
 			FUN_0052FEC0(NULL, true);
 			ShowWindow(window, 0);
-			OwnerDraw::SetNeedsControlImage(window, 1);
+			OwnerDraw::SetUserData2(window, 1);
 			break;
 	}
 	return 0;

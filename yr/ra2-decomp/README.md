@@ -11,13 +11,14 @@ over real objects or hard-coded addresses are rejected however well they score.
 `docs/AGENTS.md` holds the rules the agents follow and every lesson learned. Pull requests
 from people are just as welcome and go through the same checker and rules (`CONTRIBUTING.md`).
 
-**Status (15 November 2026):** 3.32 MB of the game's 3.82 MB of code matches byte for byte
-(87%), in 19,099 of its 19,353 functions (99%). Counting each unmatched function at its best
-attempt so far, the fuzzy match is 96%. Each function is checked on its own, and
-`tools/exelink/` links the whole executable with every matched function at its original
-address: with the original's bytes for what isn't matched yet, the image is identical to
-retail 1.001 in every section, and 81% of its code comes from source. `docs/PLAN.md` has
-the method, and `docs/rounds/` records every batch. Live progress, updated on every push:
+**Status (27 November 2026):** 3.58 MB of the game's 3.82 MB of code matches byte for byte
+(95%), in 19,326 of its 19,353 functions (99%) + 6 reconstructed. Counting each unmatched
+function at its best attempt so far, the fuzzy match is 98%. Each function is checked on
+its own, and `tools/exelink/` links the whole executable with every matched function at its
+original address: with the original's bytes for what isn't matched yet, the image is
+identical to retail 1.001 in every section, and 91% of its code comes from source.
+`docs/PLAN.md` has the method, and `docs/rounds/` records every batch. Live progress,
+updated on every push:
 https://bytematch.dev/gibbo101/ra2-decomp
 
 ## Getting started
@@ -44,12 +45,16 @@ https://bytematch.dev/gibbo101/ra2-decomp
    uv run tools/checkall.py                       # the whole tree
    ```
 
-   Each function prints MATCH, or how close it came and why.
+   Each function prints MATCH, or how close it came and why. A near miss prints a diff
+   with two lines of context; `CHECK_CTX=40` before the command widens it.
 
 ## Layout
 
 - `src/`, `include/`: the reconstructed source. A marker in reccmp's format
   (`// FUNCTION: GAMEMD 0x...`) ties each function to its address in the original.
+  `src/ra2asm/` holds the few routines the original wrote in assembly that no source
+  release contains, rebuilt from the executable; the checker prints `RECONSTRUCTED` for
+  them, never `MATCH`, and the counts list them apart.
 - `data/`: the map of the executable (`functions.csv`, `modules.csv`), what matches
   (`progress.csv`), proven names for globals (`names.csv`), and every attempt that fell
   short (`attempts.csv`).
@@ -89,7 +94,9 @@ out of history.
   assembly into the build with MASM; and added the checker's completion checks and
   function-map callbacks.
 - [meastes](https://github.com/meastes): matched functions in the map, VQA loading,
-  static-sound saving, Techno line drawing and the conflict-territory lookup, ported from their matching decompilation
+  static-sound saving, Techno line drawing, the conflict-territory lookup, unit destination assignment and the random map's
+  region seeding (Create_Region_From_Cell's side cells), the lobby join's narrow-text
+  helper and Allocate_Surfaces' memory-flag helper, ported from their matching decompilation
   of Red Alert 2 ([meastes/redalert2-decomp](https://github.com/meastes/redalert2-decomp),
   GPL-3.0-or-later).
 - [r-melvin](https://github.com/r-melvin): wrote `tools/exelink/`, the whole-executable
@@ -99,6 +106,16 @@ out of history.
 - [mischa85](https://github.com/mischa85): named 102 functions and globals in audio, Bink,
   the bit font, dialogs, the radar and the window stub from their byte-for-byte rebuild of
   Red Alert 2 1.006 ([mischa85/RedAlert2](https://github.com/mischa85/RedAlert2), GPL-3.0).
+- [RobinDigitalPro](https://github.com/RobinDigitalPro): shared matched source and names from
+  their byte-matching rebuild of Red Alert 2 1.001
+  ([RobinDigitalPro/ra2-1001-decomp](https://github.com/RobinDigitalPro/ra2-1001-decomp) and
+  [RobinDigitalPro/ra2-decomp-help](https://github.com/RobinDigitalPro/ra2-decomp-help),
+  GPL-3.0-or-later), from which both Tunnel_AI functions' coordinate forms, the lobby join's wait-event
+  reset, Fire_At's turret facing, DSurface's unsigned char memory flag and the rocket
+  locomotor's named turn rate, coordinate, spawner and exploded/step values and the load
+  screen's briefing rectangle, nested briefing block, per-branch colours and named text area
+  are adapted and
+  the rule that placed TechnoTypeClass's self-clearing member comes.
 
 ## You need your own copy of the game
 

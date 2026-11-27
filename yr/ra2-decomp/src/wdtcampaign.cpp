@@ -3,6 +3,7 @@
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 
+#define NDEBUG
 #include "always.h"
 #include "geometry.h"
 #include "rect.h"
@@ -166,7 +167,7 @@ static inline void Load_History(INIClass & ini)
 void WorldDominationTour::Campaign::Write_INI(int index)
 {
 	CycleID = Properties->Get_Cycle_ID();
-	PreviousTicks[index] = Get_Current_Tick();
+	PreviousTicks[index] = Properties->Get_Current_Tick();
 	INIClass ini;
 	Load_History(ini);
 	Wstring key = Wstring("LastDay") + WDT_Country_Name(index);

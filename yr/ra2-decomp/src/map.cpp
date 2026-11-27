@@ -418,6 +418,232 @@ void MapClass::Init_Cells(void)
 	}
 }
 
+void MapClass::Set_Map_Dimensions(Rect const & rect, bool reset_cells, int cell_height, bool refresh_map)
+{
+	int i = 0;
+
+	int w = PlayRect.Width;
+	int h = 2 * Map.PlayRect.Height + 8;
+	CellClass *cptr;
+	CellClass *cells = NULL;
+	CellClass *cells_base = NULL;
+
+	Cell cell(CELL_NONE);
+
+	for (i = 0; i < Objects.Count(); i++) {
+		Objects[i]->Mark(MARK_UP);
+	}
+
+	for (i = 0; i < Array.Length(); i++) {
+		if (!In_Radar(Cell(i % MAP_CELL_W, i / MAP_CELL_H))) {
+			CellClass *c = Array[i];
+			if (c != NULL) {
+				c->Height = cell_height;
+			}
+		}
+	}
+
+	int cellcount = 0;
+
+	if (!reset_cells) {
+		cells = (CellClass *) new char[sizeof(CellClass) * w * h];
+		cells_base = cells;
+		Reset_Iterator();
+		cptr = Iterate();
+		cell = cptr->Fetch_CellID();
+		while (cptr != NULL) {
+			cells[cellcount] = *cptr;
+			cells[cellcount].BridgeDeckCell = NULL;
+			cells[cellcount].UnusedCell = NULL;
+			cptr = Iterate();
+			cellcount++;
+		}
+	}
+
+	PlayRect = rect;
+	PlayRect.X = 0;
+	PlayRect.Y = 0;
+
+	if (PlayRect.Width > 63 || PlayRect.Height > 63) {
+		Map.Set_Radar_Scale(2);
+	}
+
+	MapRegionClass::MapStartDiagonal = Map.PlayRect.Width;
+	MapRegionClass::MapEndDiagonal = Map.PlayRect.Width + 2 * Map.PlayRect.Height;
+
+	MapRect.X = 1;
+	MapRect.Y = 1;
+	int msize = rect.Height + rect.Width - 1;
+	MapRect.Width = msize;
+	MapRect.Height = msize;
+
+	for (int y = 0; y < 2 * MapRect.Height + 2; y++) {
+		for (int x = 0; x < MapRect.Width + 2; x++) {
+			Cell cell(x, y);
+			if (In_Radar(cell)) {
+				int idx = (MAP_CELL_H * y) + x;
+				CellClass *c = Array[idx];
+				if (c == NULL) {
+					CellClass *cc = new CellClass;
+					cc->Set_CellID(cell);
+					Array[idx] = cc;
+				} else {
+					c = new(c) CellClass;
+					c->Set_CellID(cell);
+				}
+				Array[idx]->Height = cell_height;
+			}
+		}
+	}
+
+	bool freshcalled = false;
+	if (!reset_cells) {
+		Reset_Iterator();
+		Cell icell = Iterate()->CellID;
+		Cell cellpos = Cell(rect.Y + rect.X, rect.Y - rect.X);
+		cell = (icell - cell) - cellpos;
+
+		cells = cells_base;
+		while (cellcount > 0) {
+			cptr = cells;
+			Cell scell = cptr->CellID;
+			Cell shifted = scell + cell;
+
+			CellClass *c = &(*this)[shifted];
+
+			Cell dcell = c->CellID;
+			if (c != NULL) {
+				*c = *cptr;
+				c->Set_CellID(dcell);
+			}
+
+			cellcount--;
+			cells++;
+		}
+
+		Reset_Iterator();
+		cptr = Iterate();
+		while (cptr != NULL) {
+
+			Cell c = cptr->Fetch_CellID();
+
+			if (c.X + c.Y < PlayRect.Width - 2 * rect.Y + 1 ||
+				c.Y - c.X > PlayRect.Width + 2 * rect.X - 1 ||
+				c.X + c.Y > PlayRect.Width + 2 * (h + PlayRect.Height - rect.Y - Map.PlayRect.Height) ||
+				c.X - c.Y > PlayRect.Width + 2 * (w - rect.X - Map.PlayRect.Width) - 1) {
+
+				int cellindex = c.X + c.Y * MAP_CELL_W;
+
+				delete Array[cellindex];
+				Array[cellindex] = new CellClass;
+				Array[cellindex]->Set_CellID(c);
+				Array[cellindex]->ITType = ISOTILE_NONE;
+				Array[cellindex]->SubTile = 0;
+				Array[cellindex]->Ramp = 0;
+				Array[cellindex]->Overlay = OVERLAY_NONE;
+				Array[cellindex]->Height = cell_height;
+			}
+			cptr = Iterate();
+		}
+
+		for (i = 0; i < WAYPT_COUNT; i++) {
+			if (Scen->Is_Valid_Waypoint(i)) {
+				Scen->Set_Waypoint(i, Scen->Get_Waypoint_Cell(i) + cell);
+			}
+		}
+
+		for (i = 0; i < Tubes.Count(); i++) {
+			Tubes[i]->Enter += cell;
+			Tubes[i]->Exit += cell;
+		}
+
+		Coord coord = Coord(cell, 0) - Coord(CELL_LEPTON_W / 2, CELL_LEPTON_H / 2, 0);
+
+		for (i = 0; i < Objects.Count(); i++) {
+			ObjectClass *obj = Objects[i];
+			if (obj->RTTI != RTTI_ANIM) {
+				obj->Set_Coord(coord + obj->Get_Coord());
+			}
+		}
+
+		for (i = Houses.Count() - 1; i >= 0; i--) {
+			Houses[i]->FUN_0050D250(cell);
+		}
+
+		for (i = 0; i < Anims.Count(); i++) {
+			AnimClass *anim = Anims[i];
+			if (anim->OwnerObject == NULL) {
+				anim->Set_Coord(coord + anim->Get_Coord());
+			}
+		}
+
+		ScenarioInit++;
+
+		for (i = 0; i < Objects.Count(); i++) {
+			if (Objects[i]->RTTI != RTTI_PARTICLESYSTEM || ((ParticleSystemClass *)Objects[i])->Class->Behaves_Like() != PSYS_BEHAVIOR_GAS) {
+				Cell cell = Objects[i]->PositionCell;
+				const Cell *list = Objects[i]->Occupy_List();
+				while (*list != REFRESH_EOL) {
+					Cell ncell = cell + *list;
+					if (!In_Radar(ncell)) {
+						Objects[i]->Limbo();
+						delete Objects[i];
+						i--;
+						break;
+					}
+					list++;
+				}
+			}
+		}
+
+		ScenarioInit--;
+
+		for (i = 0; i < Array.Length(); i++) {
+			CellClass *c1 = Array[i];
+			CellClass **c2 = &Array[i];
+			if (c1 != NULL) {
+				if (!In_Radar(Cell(i % MAP_CELL_W, i / MAP_CELL_H))) {
+					*c2 = NULL;
+					delete c1;
+				}
+			}
+		}
+
+		Reset_Iterator();
+		cptr = Iterate();
+		while (cptr != NULL) {
+			if (cptr->IsBridgeDeck && cptr->BridgeDeckCell == NULL) {
+				FacingType facing = cptr->IsBridgeEastWest ? FACING_N : FACING_E;
+				if (cptr->Overlay == OVERLAY_BRIDGE1 || cptr->Overlay == OVERLAY_BRIDGE2) {
+					cptr->Set_Under_Bridge(facing);
+				} else {
+					cptr->Set_Under_Rail_Bridge(facing);
+				}
+			}
+			cptr = Iterate();
+		}
+
+		if (refresh_map) {
+			Fresh_Map();
+			freshcalled = true;
+		}
+
+		for (i = 0; i < Objects.Count(); i++) {
+			Objects[i]->Mark(MARK_DOWN);
+		}
+
+		Map.Flag_To_Redraw(GS_REDRAW_ALL);
+
+	}
+
+	if (!freshcalled && refresh_map) {
+		Fresh_Map();
+	}
+
+	new(&InvalidCell) CellClass;
+	delete (void *)cells_base;
+}
+
 // FUNCTION: GAMEMD 0x00567110
 void MapClass::Fresh_Map(void)
 {
@@ -781,6 +1007,87 @@ bool MapClass::In_Radar(Coord const & coord) const
 
 #define Cell_In_Range(c, len) ((c).X + (c).Y * 512 >= 0 && (c).X + (c).Y * 512 < (len) && Array[(c).X + (c).Y * 512] != NULL)
 
+// FUNCTION: GAMEMD 0x005683C0
+void MapClass::AddContentAt(Cell const * coords, TechnoClass * content)
+{
+	if (!content) return;
+	Cell const * list;
+	int height;
+	int length = Array.Length();
+
+	if (content->Class_Of()->IsFootprint && content->In_Which_Layer() == LAYER_GROUND) {
+		Cell xlist[32];
+		List_Copy(content->Occupy_List(), ARRAY_SIZE(xlist), xlist);
+		for (list = xlist; *list != REFRESH_EOL; list++) {
+			Cell newcell = *coords + *list;
+			int cellnum = newcell.X + newcell.Y * MAP_CELL_H;
+			if (cellnum >= 0 && cellnum < length && Is_Valid(newcell)) {
+				(*this)[newcell].Occupy_Down(content, content->IsOnBridge);
+				(*this)[newcell].Recalc_Attributes();
+			}
+		}
+
+		if (content->RTTI == RTTI_BUILDING) {
+			BuildingClass * building = As_Building(content);
+			if (building->Class->CanHideThings) {
+				height = building->Class->OccupyHeight - 1;
+				if (height <= 0) height = 1;
+
+				char seen[2048];
+				memset(seen, 0, sizeof(seen));
+				for (list = xlist; *list != REFRESH_EOL; list++) {
+					Cell newcell = *coords + *list;
+					int rx = list->X;
+					int ry = list->Y;
+					for (int i = height; i > 0; i--) {
+						if (newcell.X < 0 || newcell.Y < 0) continue;
+						if (rx < 0) rx += 16;
+						if (ry < 0) ry += 16;
+						if (!seen[ry * 16 + rx]) {
+							seen[ry * 16 + rx] = 1;
+							int cellnum = newcell.X + newcell.Y * MAP_CELL_H;
+							if (cellnum >= 0 && cellnum < length && Is_Valid(newcell)) {
+								CellClass & cell = (*this)[newcell];
+								cell.OccupyHeightsCoveringMe++;
+							}
+						}
+						newcell.X--;
+						newcell.Y--;
+						rx--;
+						ry--;
+					}
+				}
+
+				for (int i = 0; i < 8; i++) {
+					if (building->Class->RemoveOccupy[i].X != 0xFFFF || building->Class->RemoveOccupy[i].Y != 0xFFFF) {
+						Point2D const & offset = building->Class->RemoveOccupy[i];
+						Cell newcell = *coords;
+						newcell.X += offset.X;
+						newcell.Y += offset.Y;
+						int cellnum = newcell.X + newcell.Y * MAP_CELL_H;
+						if (cellnum >= 0 && cellnum < length && Is_Valid(newcell)) {
+							CellClass & cell = (*this)[newcell];
+							cell.OccupyHeightsCoveringMe++;
+						}
+					}
+					if (building->Class->AddOccupy[i].X != 0xFFFF || building->Class->AddOccupy[i].Y != 0xFFFF) {
+						Point2D const & offset = building->Class->AddOccupy[i];
+						Cell newcell = *coords;
+						newcell.X += offset.X;
+						newcell.Y += offset.Y;
+						int cellnum = newcell.X + newcell.Y * MAP_CELL_H;
+						if (cellnum >= 0 && cellnum < length && Is_Valid(newcell)) {
+							CellClass & cell = (*this)[newcell];
+							if (cell.OccupyHeightsCoveringMe) cell.OccupyHeightsCoveringMe--;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
 // FUNCTION: GAMEMD 0x005687F0
 void MapClass::RemoveContentAt(Cell const * coords, TechnoClass * content)
 {
@@ -905,6 +1212,24 @@ int MapClass::Overpass(bool flag)
 	return(value);
 }
 
+enum {
+	BRIDGE_MIDDLE_OK,
+	BRIDGE_MIDDLE_DAMAGED_1,
+	BRIDGE_MIDDLE_DAMAGED_2,
+	BRIDGE_MIDDLE_DAMAGED_3,
+	BRIDGE_MIDDLE_DESTROYED
+};
+
+static inline void Destroy_Bridge_At(Cell const & cell)
+{
+	Map[cell].Destroy_Bridge();
+}
+
+static inline Cell Adjacent_Cell_L(Cell const &cell, FacingType facing)
+{
+	return (AdjacentCell[(int)facing & 7] + cell);
+}
+
 // FUNCTION: GAMEMD 0x00568E40
 void MapClass::Repair_High_Bridge_Span(CellClass * cptr, FacingType dir, Rect * dirty)
 {
@@ -1026,20 +1351,11 @@ void MapClass::Repair_High_Bridge_Span(CellClass * cptr, FacingType dir, Rect * 
 		Point2D point;
 		TacticalMap->Coord_To_Pixel(coord, point);
 
-		int x1 = dirty->X;
-		int y1 = dirty->Y;
-		int minx = dirty->X;
-		if (dirty->X >= point.X) {
-			minx = point.X;
-		}
-		int miny = dirty->Y;
-		dirty->X = minx - 64;
-		if (y1 >= point.Y) {
-			miny = point.Y;
-		}
-		dirty->Y = miny - 64;
-		dirty->Width = abs(x1 - point.X) + 128;
-		dirty->Height = abs(y1 - point.Y) + 128;
+		Point2D start(dirty->X, dirty->Y);
+		dirty->X = min(start.X, point.X) - 64;
+		dirty->Y = min(start.Y, point.Y) - 64;
+		dirty->Width = abs(start.X - point.X) + 128;
+		dirty->Height = abs(start.Y - point.Y) + 128;
 	}
 
 	if (reset_zones) {
@@ -1049,13 +1365,6 @@ void MapClass::Repair_High_Bridge_Span(CellClass * cptr, FacingType dir, Rect * 
 	if (cells.Count() > 0) {
 		Recalc_Cells_In_List(cells);
 	}
-	int n0 = cells.Count();
-	int n1 = cells.Count();
-	int n2 = cells.Count();
-	int n3 = cells.Count();
-	int n4 = cells.Count();
-	int n5 = cells.Count();
-	int n6 = cells.Count();
 }
 
 // FUNCTION: GAMEMD 0x00569760
@@ -1179,20 +1488,11 @@ void MapClass::Repair_Train_Bridge_Span(CellClass * cptr, FacingType dir, Rect *
 		Point2D point;
 		TacticalMap->Coord_To_Pixel(coord, point);
 
-		int x1 = dirty->X;
-		int y1 = dirty->Y;
-		int minx = dirty->X;
-		if (dirty->X >= point.X) {
-			minx = point.X;
-		}
-		int miny = dirty->Y;
-		dirty->X = minx - 64;
-		if (y1 >= point.Y) {
-			miny = point.Y;
-		}
-		dirty->Y = miny - 64;
-		dirty->Width = abs(x1 - point.X) + 128;
-		dirty->Height = abs(y1 - point.Y) + 128;
+		Point2D start(dirty->X, dirty->Y);
+		dirty->X = min(start.X, point.X) - 64;
+		dirty->Y = min(start.Y, point.Y) - 64;
+		dirty->Width = abs(start.X - point.X) + 128;
+		dirty->Height = abs(start.Y - point.Y) + 128;
 	}
 
 	if (reset_zones) {
@@ -1202,13 +1502,12 @@ void MapClass::Repair_Train_Bridge_Span(CellClass * cptr, FacingType dir, Rect *
 	if (cells.Count() != 0) {
 		Recalc_Cells_In_List(cells);
 	}
-	int n0 = cells.Count();
-	int n1 = cells.Count();
-	int n2 = cells.Count();
-	int n3 = cells.Count();
-	int n4 = cells.Count();
-	int n5 = cells.Count();
-	int n6 = cells.Count();
+}
+
+static inline bool Is_Severely_Damaged_Bridge_Middle(int tile, int intact_tile)
+{
+	return(tile == intact_tile + BRIDGE_MIDDLE_DAMAGED_3 ||
+	       tile == intact_tile + BRIDGE_MIDDLE_DESTROYED);
 }
 
 // FUNCTION: GAMEMD 0x0056A080
@@ -1221,7 +1520,6 @@ void MapClass::Repair_All_High_Bridges(void)
 			if (!Is_Valid(cell)) {
 				continue;
 			}
-			bool valid = Is_Valid(cell);
 			CellClass * cptr = &Map[cell];
 
 			int bridgetile = cptr->ITType - IsometricTileTypeClass::BridgeSet + 1;
@@ -1230,9 +1528,13 @@ void MapClass::Repair_All_High_Bridges(void)
 				Repair_High_Bridge_Span(cptr, FACING_E);
 			}
 
-			if ((bridgetile == IsometricTileTypeClass::BridgeMiddle1 || bridgetile == IsometricTileTypeClass::BridgeMiddle1 + 3 || bridgetile == IsometricTileTypeClass::BridgeMiddle1 + 4 || bridgetile == IsometricTileTypeClass::BridgeMiddle1 + 1 || bridgetile == IsometricTileTypeClass::BridgeMiddle1 + 2) && cptr->SubTile == 5) {
+			if ((bridgetile == IsometricTileTypeClass::BridgeMiddle1 ||
+			     Is_Severely_Damaged_Bridge_Middle(bridgetile, IsometricTileTypeClass::BridgeMiddle1) ||
+			     bridgetile == IsometricTileTypeClass::BridgeMiddle1 + BRIDGE_MIDDLE_DAMAGED_1 ||
+			     bridgetile == IsometricTileTypeClass::BridgeMiddle1 + BRIDGE_MIDDLE_DAMAGED_2) &&
+			    cptr->SubTile == 5) {
 
-				if (bridgetile == IsometricTileTypeClass::BridgeMiddle1 + 4) {
+				if (bridgetile == IsometricTileTypeClass::BridgeMiddle1 + BRIDGE_MIDDLE_DESTROYED) {
 					Set_Bridge_Middle_State(cell, IsometricTileType(IsometricTileTypeClass::BridgeMiddle1 + IsometricTileTypeClass::BridgeSet - 1), ISOTILE_INVALID, -1, false);
 
 					Cell base = Adjacent_Cell(cell, FACING_W);
@@ -1248,9 +1550,13 @@ void MapClass::Repair_All_High_Bridges(void)
 				Repair_High_Bridge_Span(cptr, FACING_S);
 			}
 
-			if ((bridgetile == IsometricTileTypeClass::BridgeMiddle2 || bridgetile == IsometricTileTypeClass::BridgeMiddle2 + 3 || bridgetile == IsometricTileTypeClass::BridgeMiddle2 + 4 || bridgetile == IsometricTileTypeClass::BridgeMiddle2 + 2 || bridgetile == IsometricTileTypeClass::BridgeMiddle2 + 1) && cptr->SubTile == 7) {
+			if ((bridgetile == IsometricTileTypeClass::BridgeMiddle2 ||
+			     Is_Severely_Damaged_Bridge_Middle(bridgetile, IsometricTileTypeClass::BridgeMiddle2) ||
+			     bridgetile == IsometricTileTypeClass::BridgeMiddle2 + BRIDGE_MIDDLE_DAMAGED_2 ||
+			     bridgetile == IsometricTileTypeClass::BridgeMiddle2 + BRIDGE_MIDDLE_DAMAGED_1) &&
+			    cptr->SubTile == 7) {
 
-				if (bridgetile == IsometricTileTypeClass::BridgeMiddle2 + 4) {
+				if (bridgetile == IsometricTileTypeClass::BridgeMiddle2 + BRIDGE_MIDDLE_DESTROYED) {
 					Set_Bridge_Middle_State(cell, IsometricTileType(IsometricTileTypeClass::BridgeMiddle2 + IsometricTileTypeClass::BridgeSet - 1), ISOTILE_INVALID, -1, false);
 
 					Cell base = Adjacent_Cell(cell, FACING_N);
@@ -1834,7 +2140,8 @@ ObjectClass * MapClass::Close_Object(Coord const & coord) const
 		Cell newcell = Cell(cell + _offsets[index]);
 		if (In_Radar(newcell)) {
 			for (ObjectClass * o = (*this)[newcell].Cell_Occupier(); o != NULL; o = o->Next) {
-				if (!(o->AbstractFlags & 1) || ((TechnoClass *)o)->IsOwnedByPlayer || ((TechnoClass *)o)->Cloak != CLOAKED) {
+				TechnoClass * t = As_Techno(o);
+				if (!t || t->IsOwnedByPlayer || t->Cloak != CLOAKED) {
 					int d=-1;
 					if (o->RTTI == RTTI_BUILDING) {
 						d = Distance(coord, (Coord)newcell);
@@ -1854,12 +2161,194 @@ ObjectClass * MapClass::Close_Object(Coord const & coord) const
 	if (object && distance > 0xB5) {
 		object = 0;
 	}
-	Cell unused = cell + _offsets[0];
 	return(object);
 }
 
 // SYNTHETIC: GAMEMD 0x0056C500 SYMBOL
-// _$E238
+// _$E240
+
+extern int LastAdjacentZone;
+
+// Packs a pair of zone numbers into one key.
+static unsigned Zone_Pack32(int zone1, int zone2)
+{
+	return(zone2 | (zone1 << 16));
+}
+
+// Packs a pair of zone numbers into the index of its adjacency bucket.
+static unsigned Zone_Pack8(int zone1, int zone2)
+{
+	return(zone2 & 0xF | ((zone1 & 0xF) << 4));
+}
+
+// FUNCTION: GAMEMD 0x0056C510
+int MapClass::Zone_Reset(void)
+{
+	int i;
+	int j;
+	int k;
+	int bestzone = -1;
+	int bestspan = -1;
+
+	CellZoneStruct * end = &CellZones[CellZoneCount];
+
+	DynamicVectorClass<PassabilityType> vec;
+	vec.Set_Growth_Step(300);
+
+	ZoneAdjacency->Clear();
+
+	for (i = 0; i < MZONE_COUNT; i++) {
+		if (Zones[i] != NULL) {
+			delete Zones[i];
+			Zones[i] = NULL;
+		}
+	}
+
+	CellZoneStruct * czone = CellZones;
+	for (; czone < end; czone++) {
+		czone->ZoneID = 0;
+	}
+
+	int zone = 1;			// Starting zone number.
+
+	vec.Add(PASSABLE_OUTSIDE);
+
+	int skip = 0;
+	czone = CellZones;
+	while (czone < end) {
+		PassabilityType pass = (PassabilityType)czone->Passability;
+		if (pass != PASSABLE_OUTSIDE && czone->ZoneID == 0) {
+			LastAdjacentZone = 0;
+			int span = Zone_Span(czone, zone, skip);
+			if (span > bestspan) {
+				bestzone = (unsigned short)zone;
+				bestspan = span;
+			}
+			vec.Add(pass);
+			zone++;
+			czone += skip;
+		} else {
+			czone++;
+		}
+	}
+
+	ZoneCount = (unsigned short)zone;
+
+	for (i = ZoneConnections.Count() - 1; i >= 0; i--) {
+		if (!ZoneConnections[i].IsPassable) {
+			continue;
+		}
+		int from_zone = Get_Cell_Zone_ID(ZoneConnections[i].From);
+		int to_zone = Get_Cell_Zone_ID(ZoneConnections[i].To);
+		if (to_zone != from_zone) {
+			if (to_zone < from_zone) {
+				swap(to_zone, from_zone);
+			}
+			ZoneAdjacency->Add_Object(ZONE_PAIR_HASH_SET::ObjectType(from_zone, to_zone));
+		}
+	}
+
+	unsigned short * zone_degree = new unsigned short[ZoneCount];
+	for (i = 0; i < ZoneCount; i++) {
+		zone_degree[i] = 0;
+	}
+
+	for (i = 0; i < 256; i++) {
+		ZONE_PAIR_HASH_SET::BucketType & bucket = ZoneAdjacency->Buckets[i];
+		j = bucket.Count();
+		if (j > 0) {
+			ZONE_PAIR_HASH_SET::ObjectType * obj = &bucket[0];
+			do {
+				unsigned int value = obj->Value;
+				unsigned short zone1 = LOWORD(value);
+				unsigned short zone2 = HIWORD(value);
+				zone_degree[zone1]++;
+				zone_degree[zone2]++;
+				obj++;
+			} while (--j);
+		}
+	}
+
+	unsigned short ** zone_neighbors = new unsigned short *[ZoneCount];
+	for (i = 0; i < ZoneCount; i++) {
+		zone_neighbors[i] = new unsigned short[zone_degree[i]];
+	}
+
+	for (i = 0; i < ZoneCount; i++) {
+		zone_degree[i] = 0;
+	}
+
+	for (i = 0; i < 256; i++) {
+		ZONE_PAIR_HASH_SET::BucketType & bucket = ZoneAdjacency->Buckets[i];
+		if (bucket.Count() > 0) {
+			ZONE_PAIR_HASH_SET::ObjectType * obj = &bucket[0];
+			for (j = bucket.Count(); j > 0; j--) {
+				unsigned int value = obj->Value;
+				unsigned short zone1 = LOWORD(value);
+				unsigned short zone2 = HIWORD(value);
+				zone_neighbors[zone1][zone_degree[zone1]] = zone2;
+				zone_neighbors[zone2][zone_degree[zone2]] = zone1;
+				zone_degree[zone1]++;
+				zone_degree[zone2]++;
+				obj++;
+			}
+		}
+	}
+
+	unsigned char * zone_passability = new unsigned char[ZoneCount];
+	for (i = 0; i < ZoneCount; i++) {
+		zone_passability[i] = vec[i];
+	}
+
+	unsigned short * stack = new unsigned short[ZoneCount];
+
+	for (MZoneType mzone = MZONE_FIRST; mzone < MZONE_COUNT; mzone++) {
+		int next_movement_zone = 2;
+		int * table = MZonePassability[mzone];
+
+		unsigned short * nzone = new unsigned short[ZoneCount];
+		Zones[mzone] = nzone;
+
+		for (int n = 0; n < ZoneCount; n++) {
+			nzone[n] = table[zone_passability[n]] != TRAVERSAL_PASSABLE;
+		}
+
+		for (int zone_index = 0; zone_index < ZoneCount; zone_index++) {
+			if (nzone[zone_index] == 0) {
+				int stackcount = 1;
+				stack[0] = zone_index;
+				nzone[zone_index] = next_movement_zone;
+				int passable = table[zone_passability[zone_index]];
+				while (stackcount) {
+					int current = stack[--stackcount];
+					unsigned short * neighbors = zone_neighbors[current];
+					int degree = zone_degree[current];
+					for (k = degree - 1; k >= 0; k--) {
+						int neighbor = neighbors[k];
+						if (table[zone_passability[neighbor]] == passable && nzone[neighbor] == 0) {
+							stack[stackcount++] = neighbor;
+							nzone[neighbor] = next_movement_zone;
+						}
+					}
+				}
+				next_movement_zone++;
+			}
+		}
+
+		nzone[0] = -1;
+	}
+
+	for (i = 0 ; i < ZoneCount; i++) {
+		delete zone_neighbors[i];
+	}
+
+	delete [] zone_passability;
+	delete [] zone_neighbors;
+	delete [] zone_degree;
+	delete [] stack;
+
+	return(bestzone);
+}
 
 // FUNCTION: GAMEMD 0x0056CB80
 int SubzoneHash(unsigned int const & key)
@@ -1895,6 +2384,121 @@ int MapClass::Get_Cell_Zone(Cell const * cell, MZoneType mzone, bool bridge)
 	return(Zones[mzone][Get_Cell_Zone_ID(*cell)]);
 }
 
+// FUNCTION: GAMEMD 0x0056CB90
+int MapClass::Zone_Span(CellZoneStruct * data, int zone, int & skip)
+{
+	CellZoneStruct * begin = data;
+	CellZoneStruct * end = data;
+	int passability = data->Passability;
+	bool nopass = passability == PASSABLE_NO;
+	int cell_height = data->Height;
+	ZONE_PAIR_HASH_SET::ObjectType connection;
+
+	while (begin->Passability == passability) {
+		if (abs(begin->Height - cell_height) >= 2) {
+			break;
+		}
+		begin->ZoneID = zone;
+		cell_height = begin->Height;
+		begin--;
+	}
+
+	int begin_zone = begin->ZoneID;
+	if (begin_zone != 0 && (abs(begin->Height - cell_height) < 2 || nopass) && begin_zone != LastAdjacentZone && begin_zone != (unsigned short)zone) {
+		connection.Key = Zone_Pack32(begin_zone, (unsigned short)zone);
+		connection.Value = connection.Key;
+		ZoneAdjacency->Add_Object(Zone_Pack8(begin_zone, (unsigned short)zone), connection);
+		LastAdjacentZone = begin_zone;
+	}
+
+	while (end->Passability == passability) {
+		if (abs(end->Height - cell_height) >= 4) {
+			break;
+		}
+		end->ZoneID = zone;
+		cell_height = end->Height;
+		end++;
+	}
+
+	begin_zone = end->ZoneID;
+	if (begin_zone != 0 && (abs(end->Height - cell_height) < 2 || nopass) && begin_zone != LastAdjacentZone && begin_zone != (unsigned short)zone) {
+		connection.Key = Zone_Pack32(begin_zone, (unsigned short)zone);
+		connection.Value = connection.Key;
+		ZoneAdjacency->Add_Object(Zone_Pack8(begin_zone, (unsigned short)zone), connection);
+		LastAdjacentZone = begin_zone;
+	}
+
+	int filled = end - begin - 1;
+	skip = end - data - 1;
+	begin++;
+	int skip1 = 0;
+	int skip2 = 0;
+	end--;
+
+	int stride = PlayRect.Height + PlayRect.Width + 1;
+	int diag = stride + 1;
+
+	CellZoneStruct * fbegin = begin - diag;
+	CellZoneStruct * fbegin2 = begin + stride - 1;
+	CellZoneStruct * fend = end - stride + 1;
+	CellZoneStruct * fend2 = end + diag;
+
+	while (fbegin <= fend) {
+		int zzone = fbegin->ZoneID;
+		CellZoneStruct * adjacent;
+		if (fbegin < fend - 1) {
+			adjacent = fbegin + diag;
+		} else {
+			adjacent = fbegin == fend - 1 ? fbegin + stride : fbegin - 1 + stride;
+		}
+		if (zzone == 0) {
+			if (fbegin->Passability == passability && abs(fbegin->Height - adjacent->Height) < 2) {
+				filled += Zone_Span(fbegin, zone, skip1);
+				fbegin += skip1;
+			} else {
+				fbegin++;
+			}
+		} else {
+			if (zzone != (unsigned short)zone && zzone != LastAdjacentZone && (abs(fbegin->Height - adjacent->Height) < 2 || nopass)) {
+				connection.Key = Zone_Pack32(zzone, (unsigned short)zone);
+				connection.Value = connection.Key;
+				ZoneAdjacency->Add_Object(Zone_Pack8(zzone, (unsigned short)zone), connection);
+				LastAdjacentZone = zzone;
+			}
+			fbegin++;
+		}
+	}
+
+	while (fbegin2 <= fend2) {
+		int id = fbegin2->ZoneID;
+		CellZoneStruct * adjacent;
+		if (fbegin2 < fend2 - 1) {
+			adjacent = fbegin2 - stride + 1;
+		} else {
+			adjacent = fbegin2 == fend2 - 1 ? fbegin2 - stride : fbegin2 - diag;
+		}
+		if (id == 0) {
+			if (fbegin2->Passability == passability && abs(fbegin2->Height - adjacent->Height) < 2) {
+				filled += MapClass::Zone_Span(fbegin2, zone, skip2);
+				fbegin2 += skip2;
+			} else {
+				fbegin2++;
+			}
+		} else {
+			if (id != (unsigned short)zone && id != LastAdjacentZone && (abs(fbegin2->Height - adjacent->Height) < 2 || nopass)) {
+				connection.Key = Zone_Pack32(id, (unsigned short)zone);
+				connection.Value = connection.Key;
+				ZoneAdjacency->Add_Object(Zone_Pack8(id, (unsigned short)zone), connection);
+				LastAdjacentZone = id;
+			}
+			fbegin2++;
+		}
+	}
+
+	return(filled);
+}
+
+
 // FUNCTION: GAMEMD 0x0056D3A0
 int MapClass::Get_Cell_Zone_ID(Cell const & cell)
 {
@@ -1919,10 +2523,15 @@ int MapClass::Get_Cell_Subzone_Index(Cell const & cell)
 	return(cell.X + cell.Y * (PlayRect.Height + PlayRect.Width + 1));
 }
 
+static inline CellZoneStruct * Zone_Of(MapClass * map, Cell const & cell)
+{
+	return(&map->CellZones[map->Get_Cell_Zone_Index(cell)]);
+}
+
 // FUNCTION: GAMEMD 0x0056D460
 void MapClass::ResetZones(Cell const & cell)
 {
-	CellZoneStruct * cell_data = &CellZones[Get_Cell_Zone_Index(cell)];
+	CellZoneStruct * cell_data = Zone_Of(this, cell);
 
 	int stride = Map.PlayRect.Width + Map.PlayRect.Height + 1;
 	int offsets[FACING_COUNT] = {
@@ -1972,7 +2581,7 @@ void MapClass::ResetZones(Cell const & cell)
 // FUNCTION: GAMEMD 0x0056D5A0
 void MapClass::Update_Cell_Zone_Constructively(Cell const & cell)
 {
-	CellZoneStruct * cell_data = &CellZones[Get_Cell_Zone_Index(cell)];
+	CellZoneStruct * cell_data = Zone_Of(this, cell);
 	int passability = cell_data->Passability;
 
 	int stride = Map.PlayRect.Width + Map.PlayRect.Height + 1;
@@ -2016,6 +2625,92 @@ void MapClass::Update_Cell_Zone_Constructively(Cell const & cell)
 		}
 
 		Map.Zone_Reset();
+	}
+}
+
+// FUNCTION: GAMEMD 0x0056D6E0
+void MapClass::Compute_Zone_Connections(void)
+{
+	static int _bridge_subtiles1[] = {
+		7, 7, -1, 7, 7, -1, 4, 4,
+		4, 4,  4, 2, 2,  2, 2, 2
+	};
+	static FacingType _facings[] = {
+		FACING_E, FACING_E, FACING_NONE, FACING_S, FACING_S, FACING_NONE, FACING_E, FACING_E,
+		FACING_E, FACING_E,    FACING_E, FACING_S, FACING_S,    FACING_S, FACING_S, FACING_S
+	};
+	static int _bridge_subtiles2[] = {
+		-1, -1, 4, -1, -1, 2, 4, 4,
+		 4,  4, 4,  2,  2, 2, 2, 2
+	};
+
+	ZoneConnections.Clear();
+	Reset_Iterator();
+	CellClass * cptr = Iterate();
+
+	while (cptr != NULL) {
+
+		if (!cptr->Is_Tile_Bridge() && !cptr->Is_Tile_Train_Bridge()) {
+
+			if (cptr->Has_Tunnel()) {
+				if ((cptr->Adjacent_Cell(FACING_E).Has_Tunnel() && cptr->Adjacent_Cell(FACING_W).Has_Tunnel()) ||
+					(cptr->Adjacent_Cell(FACING_S).Has_Tunnel() && cptr->Adjacent_Cell(FACING_N).Has_Tunnel())) {
+
+					if (Map_Cell_Index(cptr->CellID) < Map_Cell_Index(cptr->Get_Tunnel()->Get_Exit())) {
+						Cell exit = cptr->Get_Tunnel()->Get_Exit();
+						ZoneConnectionClass con;
+						con.From = cptr->CellID;
+						con.To = exit;
+						con.IsPassable = true;
+						con.Type = 1;
+						ZoneConnections.Add(con);
+					}
+				}
+			}
+
+		} else {
+
+			int faceindex;
+			if (cptr->Is_Tile_Bridge()) {
+				faceindex = cptr->ITType - IsometricTileTypeClass::BridgeSet;
+			} else {
+				faceindex = cptr->ITType - IsometricTileTypeClass::TrainBridgeSet;
+			}
+
+			if (_bridge_subtiles1[faceindex] == cptr->SubTile) {
+
+				bool crossed = false;
+				FacingType facing = _facings[faceindex];
+				bool passable = true;
+
+				CellClass * bptr = &cptr->Adjacent_Cell(facing);
+				while (In_Radar(bptr->CellID) && !crossed) {
+					int index = -1;
+					if (bptr->Is_Tile_Bridge()) {
+						index = bptr->ITType - IsometricTileTypeClass::BridgeSet;
+					} else if (bptr->Is_Tile_Train_Bridge()) {
+						index = bptr->ITType - IsometricTileTypeClass::TrainBridgeSet;
+					} else if (!bptr->IsUnderBridge) {
+						passable = false;
+					}
+					if (index != -1 && _bridge_subtiles2[index] == bptr->SubTile) {
+						crossed = true;
+					}
+					bptr = &bptr->Adjacent_Cell(facing);
+				}
+
+				if (crossed) {
+					ZoneConnectionClass con;
+					con.To = bptr->Adjacent_Cell(Facing_Sub(facing, FACING_180)).CellID;
+					con.From = cptr->CellID;
+					con.IsPassable = passable;
+					con.Type = 0;
+					ZoneConnections.Add(con);
+				}
+			}
+		}
+
+		cptr = Iterate();
 	}
 }
 
@@ -2135,7 +2830,7 @@ Cell MapClass::Nearby_Location(Cell const &cell, SpeedType speed, int zone, MZon
 					if (!checkheight || abs(height - 4 * cellptr->IsUnderBridge - cellptr->Height) < 2) {
 						if ((!checkburrow || cellptr->Can_Burrow_Here()) &&
 						    (allowunderbridge || !cellptr->IsUnderBridge)) {
-							if (!buildable || ((MapClass *)this)->IsAreaFree(area, -1)) {
+							if (!buildable || ((MapClass *)this)->Is_Area_Available(area, -1)) {
 								candidates[count++] = newcell;
 
 								if (checkbridge || newcell == TacticalMap->Coord_To_Cell(Coord(newcell, 0))) {
@@ -2164,7 +2859,7 @@ Cell MapClass::Nearby_Location(Cell const &cell, SpeedType speed, int zone, MZon
 					if (!checkheight || abs(height - 4 * cellptr->IsUnderBridge - cellptr->Height) < 2) {
 						if ((!checkburrow || cellptr->Can_Burrow_Here()) &&
 						    (allowunderbridge || !cellptr->IsUnderBridge)) {
-							if (!buildable || ((MapClass *)this)->IsAreaFree(area, -1)) {
+							if (!buildable || ((MapClass *)this)->Is_Area_Available(area, -1)) {
 								candidates[count++] = newcell;
 
 								if (checkbridge || newcell == TacticalMap->Coord_To_Cell(Coord(newcell, 0))) {
@@ -2200,7 +2895,7 @@ Cell MapClass::Nearby_Location(Cell const &cell, SpeedType speed, int zone, MZon
 					if (!checkheight || abs(height - 4 * cellptr->IsUnderBridge - cellptr->Height) < 2) {
 						if ((!checkburrow || cellptr->Can_Burrow_Here()) &&
 						    (allowunderbridge || !cellptr->IsUnderBridge)) {
-							if (!buildable || ((MapClass *)this)->IsAreaFree(area, -1)) {
+							if (!buildable || ((MapClass *)this)->Is_Area_Available(area, -1)) {
 								candidates[count++] = newcell;
 
 								if (checkbridge || newcell == TacticalMap->Coord_To_Cell(Coord(newcell, 0))) {
@@ -2225,7 +2920,7 @@ Cell MapClass::Nearby_Location(Cell const &cell, SpeedType speed, int zone, MZon
 			                                                            zone, check, -1, checkbridge, checkoverlay)) {
 				if (!checkheight || abs(height - 4 * cellptr->IsUnderBridge - cellptr->Height) < 2) {
 					if ((!checkburrow || cellptr->Can_Burrow_Here()) && (allowunderbridge || !cellptr->IsUnderBridge)) {
-						if (!buildable || ((MapClass *)this)->IsAreaFree(area, -1)) {
+						if (!buildable || ((MapClass *)this)->Is_Area_Available(area, -1)) {
 							candidates[count++] = newcell;
 
 							if (checkbridge || newcell == TacticalMap->Coord_To_Cell(Coord(newcell, 0))) {
@@ -2329,14 +3024,6 @@ bool MapClass::Base_Region(Cell const & cell, HousesType & house, ZoneType & zon
 	}
 	return(false);
 }
-
-enum {
-	BRIDGE_MIDDLE_OK,
-	BRIDGE_MIDDLE_DAMAGED_1,
-	BRIDGE_MIDDLE_DAMAGED_2,
-	BRIDGE_MIDDLE_DAMAGED_3,
-	BRIDGE_MIDDLE_DESTROYED
-};
 
 // FUNCTION: GAMEMD 0x0056E990
 void MapClass::Set_Bridge_End_State(Cell const & cell, bool damaged, bool recursive)
@@ -2595,12 +3282,6 @@ void MapClass::Internal_Damage_Train_Bridge_NS_TopRight(Cell const & cell, Facin
 	}
 }
 
-
-static inline void Destroy_Bridge_At(Cell const & cell)
-{
-	Map[cell].Destroy_Bridge();
-}
-
 // FUNCTION: GAMEMD 0x0056F8B0
 void MapClass::Internal_Destroy_Train_Bridge_NS_BottomLeft(Cell const & cell, FacingType dir)
 {
@@ -2688,9 +3369,184 @@ void MapClass::Internal_Destroy_Train_Bridge_NS_TopRight(Cell const & cell, Faci
 	}
 }
 
-static inline Cell Adjacent_Cell_L(Cell const &cell, FacingType facing)
+// FUNCTION: GAMEMD 0x00570050
+void MapClass::Repair_Train_Bridge(Cell const & cell)
 {
-	return (AdjacentCell[(int)facing & 7] + cell);
+	for (int x = -2; x < 3; x++) {
+		for (int y = -2; y < 3; y++) {
+			if (Is_Low_Bridge(cell + Cell(x, y))) {
+				Repair_Low_Bridge_Span(cell + Cell(x, y));
+				return;
+			}
+		}
+	}
+
+	CellClass * cellptr = &Map[cell];
+
+	FacingType facing = FACING_N;
+	if (!cellptr->IsUnderBridge && !cellptr->WasUnderBridge) {
+		for (int index = 0; index < FACING_COUNT; index++) {
+
+			Cell adjacent = Adjacent_Cell(cell, facing);
+			cellptr = &Map[adjacent];
+			if (cellptr->IsUnderBridge || cellptr->WasUnderBridge) {
+				break;
+			}
+
+			adjacent = Adjacent_Cell(adjacent, facing);
+			cellptr = &Map[adjacent];
+			if (cellptr->IsUnderBridge || cellptr->WasUnderBridge) {
+				break;
+			}
+
+			adjacent = Adjacent_Cell(adjacent, facing);
+			cellptr = &Map[adjacent];
+			if (cellptr->IsUnderBridge || cellptr->WasUnderBridge) {
+				break;
+			}
+
+			facing = Facing_Add(facing, FACING_45);
+		}
+	}
+
+	if (!cellptr->IsUnderBridge && !cellptr->WasUnderBridge) {
+		return;
+	}
+
+	Cell origin;
+	if (cellptr->IsUnderBridge) {
+
+		origin = cellptr->Get_Bridge_Deck_Cell();
+
+	} else {
+
+		int count = 0;
+		FacingType step = cellptr->IsBridgeEastWest ? FACING_S : FACING_E;
+		origin = cellptr->Fetch_CellID();
+		bool found = false;
+		for (; count < 4; count++) {
+			origin = Adjacent_Cell(origin, step);
+			if (!Map[origin].WasUnderBridge) {
+				found = true;
+				break;
+			}
+		}
+		if (!found) {
+			return;
+		}
+
+		FacingType back = Facing_Sub(step, FACING_180);
+		origin = Adjacent_Cell(origin + AdjacentCell[(int)back & 7], back);
+	}
+
+	FacingType advance = cellptr->IsBridgeEastWest ? FACING_W : FACING_N;
+	Cell spancell = origin;
+
+	char zonechanged = 0;
+	IsometricTileType ittype = ISOTILE_CLEAR;
+
+	DynamicVectorClass<Cell> cells;
+
+	Rect dirty;
+
+	while (true) {
+
+		if (!Map.In_Radar(spancell)) {
+			break;
+		}
+
+		if (Array[spancell.X + spancell.Y * MAP_CELL_W] != NULL) {
+
+			CellClass * spanptr = &Map[spancell];
+			ittype = IsometricTileType(spanptr->ITType - IsometricTileTypeClass::TrainBridgeSet + 1);
+
+			if ((ittype == IsometricTileTypeClass::BridgeTopLeft1
+					|| ittype == IsometricTileTypeClass::BridgeTopLeft2) && 8 == spanptr->SubTile) {
+				Set_Bridge_End_State(spancell, false, false);
+				Repair_Train_Bridge_Span(&Map[spancell], FACING_E, &dirty);
+				TacticalMap->Register_Dirty_Area(dirty, false);
+				break;
+			}
+
+			if ((ittype == IsometricTileTypeClass::BridgeMiddle1
+					|| ittype == IsometricTileTypeClass::BridgeMiddle1 + 3
+					|| ittype == IsometricTileTypeClass::BridgeMiddle1 + 4
+					|| ittype == IsometricTileTypeClass::BridgeMiddle1 + 1
+					|| ittype == IsometricTileTypeClass::BridgeMiddle1 + 2) && spanptr->SubTile == 5) {
+
+				if (ittype == IsometricTileTypeClass::BridgeMiddle1 + 4) {
+
+					Set_Bridge_Middle_State(spancell, IsometricTileType(IsometricTileTypeClass::BridgeMiddle1 + IsometricTileTypeClass::TrainBridgeSet - 1), ISOTILE_INVALID, -1, false);
+
+					Cell middle = Adjacent_Cell(spancell, FACING_W);
+					Map[middle].Height += BRIDGE_CELL_HEIGHT;
+					Map[Adjacent_Cell(middle, FACING_N)].Height += BRIDGE_CELL_HEIGHT;
+					Map[Adjacent_Cell(middle, FACING_S)].Height += BRIDGE_CELL_HEIGHT;
+
+					zonechanged = Register_Subzone_Connections(middle);
+
+					for (int dx = 0; dx < 2; dx++) {
+						for (int dy = -2; dy < 3; dy++) {
+							cells.Add(Cell(middle + Cell(dx, dy)));
+						}
+					}
+				}
+
+				Repair_Train_Bridge(spancell + Cell(-2, 0));
+				Repair_Train_Bridge_Span(&Map[spancell], FACING_E, &dirty);
+				TacticalMap->Register_Dirty_Area(dirty, false);
+				break;
+			}
+
+			if ((ittype == IsometricTileTypeClass::BridgeTopRight1
+					|| ittype == IsometricTileTypeClass::BridgeTopRight2) && spanptr->SubTile == 12) {
+				Set_Bridge_End_State(spancell, false, false);
+				Repair_Train_Bridge_Span(&Map[spancell], FACING_S, &dirty);
+				TacticalMap->Register_Dirty_Area(dirty, false);
+				break;
+			}
+
+			if ((ittype == IsometricTileTypeClass::BridgeMiddle2
+					|| ittype == IsometricTileTypeClass::BridgeMiddle2 + 3
+					|| ittype == IsometricTileTypeClass::BridgeMiddle2 + 4
+					|| ittype == IsometricTileTypeClass::BridgeMiddle2 + 1
+					|| ittype == IsometricTileTypeClass::BridgeMiddle2 + 2) && spanptr->SubTile == 7) {
+
+				if (ittype == IsometricTileTypeClass::BridgeMiddle2 + 4) {
+
+					Set_Bridge_Middle_State(spancell, IsometricTileType(IsometricTileTypeClass::BridgeMiddle2 + IsometricTileTypeClass::TrainBridgeSet - 1), ISOTILE_INVALID, -1, false);
+
+					Cell middle = Adjacent_Cell(spancell, FACING_N);
+					Map[middle].Height += BRIDGE_CELL_HEIGHT;
+					Map[Adjacent_Cell(middle, FACING_E)].Height += BRIDGE_CELL_HEIGHT;
+					Map[Adjacent_Cell(middle, FACING_W)].Height += BRIDGE_CELL_HEIGHT;
+
+					zonechanged = Register_Subzone_Connections(middle);
+
+					for (int dy = 0; dy < 2; dy++) {
+						for (int dx = -2; dx < 3; dx++) {
+							cells.Add(Cell(middle + Cell(dx, dy)));
+						}
+					}
+				}
+
+				Repair_Train_Bridge(spancell + Cell(0, -2));
+				Repair_Train_Bridge_Span(&Map[spancell], FACING_S, &dirty);
+				TacticalMap->Register_Dirty_Area(dirty, false);
+				break;
+			}
+		}
+
+		spancell = Adjacent_Cell(spancell, advance);
+	}
+
+	if (zonechanged) {
+		Zone_Reset();
+	}
+
+	if (cells.Count() > 0) {
+		Recalc_Cells_In_List(cells);
+	}
 }
 
 // FUNCTION: GAMEMD 0x00570AE0
@@ -3516,6 +4372,196 @@ static inline bool Is_Concrete_Low_Bridge(Cell const & cell)
 {
 	OverlayType overlay = Map[cell].Overlay;
 	return(overlay >= 0xCD && overlay <= 0xE8);
+}
+
+// FUNCTION: GAMEMD 0x00573540
+void MapClass::Repair_Bridge(Cell const & cell)
+{
+	for (int x = -2; x < 3; x++) {
+		for (int y = -2; y < 3; y++) {
+			if (Is_Low_Bridge2(cell + Cell(x, y))) {
+				FUN_0057F440(cell + Cell(x, y));
+				return;
+			}
+		}
+	}
+
+	CellClass * cellptr = &Map[cell];
+	FacingType step;
+	FacingType facing = FACING_N;
+	if (!cellptr->IsUnderBridge && !cellptr->WasUnderBridge) {
+		for (int index = 0; index < FACING_COUNT; index++) {
+
+			Cell adjacent = Adjacent_Cell(cell, facing);
+			cellptr = &Map[adjacent];
+			if (cellptr->IsUnderBridge || cellptr->WasUnderBridge) {
+				break;
+			}
+
+			adjacent = Adjacent_Cell(adjacent, facing);
+			cellptr = &Map[adjacent];
+			if (cellptr->IsUnderBridge || cellptr->WasUnderBridge) {
+				break;
+			}
+
+			adjacent = Adjacent_Cell(adjacent, facing);
+			cellptr = &Map[adjacent];
+			if (cellptr->IsUnderBridge || cellptr->WasUnderBridge) {
+				break;
+			}
+
+			facing = Facing_Add(facing, FACING_45);
+		}
+	}
+
+	if (!cellptr->IsUnderBridge && !cellptr->WasUnderBridge) {
+		return;
+	}
+
+	Cell origin;
+	if (cellptr->IsUnderBridge) {
+
+		origin = cellptr->Get_Bridge_Deck_Cell();
+
+	} else {
+
+		Cell walk = cellptr->Fetch_CellID();
+		int count = 0;
+		if (cellptr->IsBridgeEastWest)
+			step = FACING_S;
+		else
+			step = FACING_E;
+		CellClass * walkptr;
+		while (true) {
+			Cell const & from = walk;
+			walk = Adjacent_Cell_L(from, step);
+			walkptr = &Map[walk];
+			if (walkptr->WasUnderBridge) {
+				if (++count >= 4)
+					return;
+			} else {
+				break;
+			}
+		}
+		FacingType back = Facing_Sub(step, FACING_180);
+		origin = Adjacent_Cell(Adjacent_Cell(walk, back), back);
+	}
+
+	FacingType advance;
+	if (cellptr->IsBridgeEastWest) {
+		advance = FACING_W;
+	} else {
+		advance = FACING_N;
+	}
+	Cell spancell = origin;
+
+	DynamicVectorClass<Cell> cells;
+
+	char zonechanged = 0;
+
+	Rect dirty;
+
+	while (spancell.X >= MapRect.X) {
+
+		if (spancell.X > MapRect.X + MapRect.Width) {
+			break;
+		}
+		if (spancell.Y < MapRect.Y || spancell.Y > MapRect.Y + MapRect.Height) {
+			break;
+		}
+
+		if (Array[spancell.X + spancell.Y * MAP_CELL_W] != NULL) {
+
+			CellClass * spanptr = &Map[spancell];
+			IsometricTileType ittype = IsometricTileType(spanptr->ITType - IsometricTileTypeClass::BridgeSet + 1);
+
+			if ((ittype == IsometricTileTypeClass::BridgeTopLeft1
+					|| ittype == IsometricTileTypeClass::BridgeTopLeft2) && 8 == spanptr->SubTile) {
+				Set_Bridge_End_State(spancell, false, false);
+				Repair_High_Bridge_Span(&Map[spancell], FACING_E, &dirty);
+				TacticalMap->Register_Dirty_Area(dirty, false);
+				break;
+			}
+
+			if ((ittype == IsometricTileTypeClass::BridgeMiddle1
+					|| ittype == IsometricTileTypeClass::BridgeMiddle1 + 3
+					|| ittype == IsometricTileTypeClass::BridgeMiddle1 + 4
+					|| ittype == IsometricTileTypeClass::BridgeMiddle1 + 1
+					|| ittype == IsometricTileTypeClass::BridgeMiddle1 + 2) && spanptr->SubTile == 5) {
+
+				if (ittype == IsometricTileTypeClass::BridgeMiddle1 + 4) {
+
+					Set_Bridge_Middle_State(spancell, IsometricTileType(IsometricTileTypeClass::BridgeMiddle1 + IsometricTileTypeClass::BridgeSet - 1), ISOTILE_INVALID, -1, false);
+
+					Cell middle = Adjacent_Cell(spancell, FACING_W);
+					Map[middle].Height += BRIDGE_CELL_HEIGHT;
+					Map[Adjacent_Cell(middle, FACING_N)].Height += BRIDGE_CELL_HEIGHT;
+					Map[Adjacent_Cell(middle, FACING_S)].Height += BRIDGE_CELL_HEIGHT;
+
+					zonechanged = Register_Subzone_Connections(middle);
+
+					for (int dx = 0; dx < 2; dx++) {
+						for (int dy = -2; dy < 3; dy++) {
+							cells.Add(Cell(middle + Cell(dx, dy)));
+						}
+					}
+				}
+
+				Repair_Bridge(spancell + Cell(-2, 0));
+				Repair_High_Bridge_Span(&Map[spancell], FACING_E, &dirty);
+				TacticalMap->Register_Dirty_Area(dirty, false);
+				break;
+			}
+
+			if ((ittype == IsometricTileTypeClass::BridgeTopRight1
+					|| ittype == IsometricTileTypeClass::BridgeTopRight2) && spanptr->SubTile == 12) {
+				Set_Bridge_End_State(spancell, false, false);
+				Repair_High_Bridge_Span(&Map[spancell], FACING_S, &dirty);
+				TacticalMap->Register_Dirty_Area(dirty, false);
+				break;
+			}
+
+			if ((ittype == IsometricTileTypeClass::BridgeMiddle2
+					|| ittype == IsometricTileTypeClass::BridgeMiddle2 + 3
+					|| ittype == IsometricTileTypeClass::BridgeMiddle2 + 4
+					|| ittype == IsometricTileTypeClass::BridgeMiddle2 + 1
+					|| ittype == IsometricTileTypeClass::BridgeMiddle2 + 2) && spanptr->SubTile == 7) {
+
+				if (ittype == IsometricTileTypeClass::BridgeMiddle2 + 4) {
+
+					Set_Bridge_Middle_State(spancell, IsometricTileType(IsometricTileTypeClass::BridgeMiddle2 + IsometricTileTypeClass::BridgeSet - 1), ISOTILE_INVALID, -1, false);
+
+					Cell middle = Adjacent_Cell(spancell, FACING_N);
+					Map[middle].Height += BRIDGE_CELL_HEIGHT;
+					Map[Adjacent_Cell(middle, FACING_E)].Height += BRIDGE_CELL_HEIGHT;
+					Map[Adjacent_Cell(middle, FACING_W)].Height += BRIDGE_CELL_HEIGHT;
+
+					zonechanged = Register_Subzone_Connections(middle);
+
+					for (int dy = 0; dy < 2; dy++) {
+						for (int dx = -2; dx < 3; dx++) {
+							cells.Add(Cell(middle + Cell(dx, dy)));
+						}
+					}
+				}
+
+				Repair_Bridge(spancell + Cell(0, -2));
+				Repair_High_Bridge_Span(&Map[spancell], FACING_S, &dirty);
+				TacticalMap->Register_Dirty_Area(dirty, false);
+				break;
+			}
+		}
+
+		spancell = Adjacent_Cell(spancell, advance);
+	}
+
+	if (zonechanged) {
+		Zone_Reset();
+	}
+
+	if (cells.Count() > 0) {
+		Recalc_Cells_In_List(cells);
+	}
 }
 
 // FUNCTION: GAMEMD 0x00574000
@@ -4781,6 +5827,56 @@ void MapClass::FUN_00577C90(HouseClass * house)
 	}
 }
 
+// FUNCTION: GAMEMD 0x00577D90
+void MapClass::Reveal(HouseClass * house)
+{
+	if (house != NULL) {
+		Houses[house->HeapID]->MapIsClear = true;
+	}
+
+	if (house == PlayerPtr || house == NULL) {
+		if (house == NULL) {
+			FUN_004068E0("We tried to clear the shroud without an owner");
+		}
+		bool edge = (Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) && Session.MPGameMode != NULL && !Session.MPGameMode->vt_entry_04();
+		if (!PlayerPtr->IsVisionary) {
+			Map.FUN_004ADEE0(false, false);
+			PlayerPtr->IsVisionary = true;
+			Map.Reset_Iterator();
+			for (CellClass * cellptr = Map.Iterate(); cellptr != NULL; cellptr = Map.Iterate()) {
+				if (edge) {
+					int x = cellptr->CellID.X;
+					int y = cellptr->CellID.Y;
+					if (x == 7) {
+						if (y == PlayRect.Width + 5) continue;
+					} else if (x == 13) {
+						if (y == PlayRect.Width + 11) continue;
+					}
+					if (x == PlayRect.Height + 13) {
+						if (y == PlayRect.Width + PlayRect.Height - 15) continue;
+					}
+					cellptr->ShroudCounter = 0;
+					cellptr->GapsCoveringThisCell = 0;
+					cellptr->IsMapped = true;
+					cellptr->IsVisible = true;
+					cellptr->IsFogMapped = true;
+					cellptr->IsFogVisible = true;
+				} else {
+					cellptr->ShroudCounter = 0;
+					cellptr->GapsCoveringThisCell = 0;
+					cellptr->IsMapped = true;
+					cellptr->IsVisible = true;
+					cellptr->IsFogMapped = true;
+					cellptr->IsFogVisible = true;
+				}
+			}
+			Map.FUN_004ADCD0(false, false);
+			Map.sub_657CE0();
+			Map.Flag_To_Redraw(GS_REDRAW_ALL);
+		}
+	}
+}
+
 // FUNCTION: GAMEMD 0x00577F30
 void MapClass::Reveal_The_Map(HouseClass * house)
 {
@@ -5331,7 +6427,7 @@ bool MapClass::Expand_High_Ground(CellClass * cellptr, int region_id)
 }
 
 // SYNTHETIC: GAMEMD 0x00579320 SYMBOL
-// _$E243
+// _$E245
 const Cell CliffVariantOffsets[] = {
 	Cell(0, 0), Cell(0, 0), Cell(0, 0), Cell(0, 0), Cell(0, 0), Cell(0, 0), Cell(0, 0), Cell(0, 0), Cell(0, 0), Cell(0, 0),
 	Cell(0, 0), Cell(0, 0), Cell(0, 0), Cell(0, 0), Cell(0, 0), Cell(0, 0), Cell(0, 0), Cell(0, 0), Cell(0, 0), Cell(0, 0),
@@ -5513,7 +6609,7 @@ int MapClass::Get_High_Ground_Mask(CellClass * cellptr)
 }
 
 // FUNCTION: GAMEMD 0x0057A0C0
-bool MapClass::FUN_0057A0C0(int region_id, bool flat_height)
+bool MapClass::Build_All_Shores(int region_id, bool flat_height)
 {
 	Map.Set_Cursor_Shape(NULL);
 
@@ -5715,8 +6811,24 @@ int MapClass::Straight_Shore_Length(CellClass * cellptr, FacingType direction)
 	return(count);
 }
 
+int ShorePieceGroups[] = {
+	0, 0, 0, 1, 2, 3, 4, 4, 5, 5,
+	5, 6, 7, 8, 9, 9, 10, 10, 10, 11,
+	12, 13, 14, 14, 15, 15, 15, 16, 17, 18,
+	19, 19, 20, 20, 21, 21, 22, 22, 23, 23,
+	24, 25
+};
+
+int ShorePieceFacings[] = {
+	4, 4, 4, 4, 4, 4, 3, 3, 2, 2,
+	2, 2, 2, 2, 1, 1, 0, 0, 0, 0,
+	0, 0, 7, 7, 6, 6, 6, 6, 6, 6,
+	5, 5, 3, 3, 1, 1, 7, 7, 5, 5,
+	4, 4
+};
+
 // SYNTHETIC: GAMEMD 0x0057A9C0 SYMBOL
-// _$E247
+// _$E249
 Cell ShorePieceOffsets[] = {
 	Cell(0, -1),
 	Cell(0, -1),
@@ -6033,6 +7145,91 @@ int MapClass::Get_Water_Mask(CellClass * cellptr, int control)
 		mask |= MG_FACINGF_SE;
 	}
 	return(mask);
+}
+
+// FUNCTION: GAMEMD 0x0057B440
+bool MapClass::Pick_Random_Tile_Variant(IsometricTileType tile, int max_tile, int base_height, int seed, bool & success, bool flat_height)
+{
+	if (Map.PendingObject->RTTI == RTTI_ISOTILETYPE) {
+		if (flat_height) {
+			seed = 0;
+		}
+		IsometricTileTypeClass * ttype = (IsometricTileTypeClass *)Map.PendingObject;
+		IsoTileSet const * image = (IsoTileSet const *)ttype->Get_Image_Data();
+		if (image != NULL) {
+			for (int row = 0; row < ttype->Height; row++) {
+				for (int col = 0; col < ttype->Width; col++) {
+					Cell cell;
+					cell = Map.ZoneCell + Cell(col, row);
+					if (!Map.In_Radar(cell)) {
+						continue;
+					}
+					CellClass * cellptr = &Map[cell];
+					int subtile = col + ttype->Width * row;
+					IsoTileRecord const * record = image->Fetch_Record_Pointer_Unsafe(subtile);
+					if (record == NULL) {
+						continue;
+					}
+					int id = RandomMapGen.Get_Cell_Data_Region(cell);
+					if (flat_height) {
+						id = 0;
+					}
+					int existing;
+					int pending;
+					bool place = true;
+					if (id > 0 && id != seed && seed != -1) {
+						existing = cellptr->ITType - IsometricTileTypeClass::ShorePieces;
+						pending = ttype->HeapID - IsometricTileTypeClass::ShorePieces;
+						if (!cellptr->Is_Tile_Clear()) {
+							if (existing < 0 || pending < 0 || existing > 41 || pending > 41
+								|| ShorePieceGroups[existing] != ShorePieceGroups[pending]) {
+								success = false;
+								return(false);
+							}
+							return(true);
+						}
+						RandomMapGen.Set_Cell_Data_Region(cell, seed);
+					} else if (id == seed) {
+						existing = cellptr->ITType - IsometricTileTypeClass::ShorePieces;
+						pending = ttype->HeapID - IsometricTileTypeClass::ShorePieces;
+						if (existing >= 0 && pending >= 0 && existing <= 41 && pending <= 41) {
+							int diff = abs(ShorePieceFacings[existing] - ShorePieceFacings[pending]);
+							if (diff >= 3 && diff <= 5) {
+								success = false;
+								return(false);
+							}
+						}
+					} else {
+						place = cellptr->Is_Tile_Clear();
+						if (place) {
+							RandomMapGen.Set_Cell_Data_Region(cell, seed);
+						} else if (seed != -1) {
+							success = false;
+							return(false);
+						}
+					}
+					if (place) {
+						if (cellptr->Is_Tile_Clear()
+							|| (cellptr->ITType >= tile && cellptr->ITType <= max_tile)) {
+							cellptr->ITType = ttype->HeapID;
+							cellptr->SubTile = subtile;
+							cellptr->Height = base_height + record->Height;
+							continue;
+						}
+						if (cellptr->Is_Tile_Shore() && MapClass::Is_Tile_Cliff(ttype->HeapID, subtile)
+							|| (ttype->HeapID >= IsometricTileTypeClass::ShorePieces
+								&& ttype->HeapID < IsometricTileTypeClass::ShorePieces + SHORE_PIECES_COUNT
+								&& cellptr->Is_Tile_Cliff())) {
+							success = false;
+						}
+						return(false);
+					}
+				}
+			}
+			return(true);
+		}
+	}
+	return(false);
 }
 
 // FUNCTION: GAMEMD 0x0057B790
@@ -7468,9 +8665,9 @@ void MapClass::Shutdown(void)
 	TiberiumClass::Deinit_Tiberium_Growth_System();
 }
 
-static inline CellSubzoneStruct *Cliff_Subzone(MapClass *map, Cell const &cell)
+static inline CellSubzoneStruct * Subzone_Of(MapClass * map, Cell const & cell)
 {
-	return &map->CellSubzones[map->Get_Cell_Zone_Index(cell)];
+	return(&map->CellSubzones[map->Get_Cell_Zone_Index(cell)]);
 }
 
 // FUNCTION: GAMEMD 0x00581140
@@ -7498,7 +8695,7 @@ void MapClass::Collapse_Cliff(CellClass *cptr)
 				Cell cell = point + Cell(x, y);
 				if (image->Fetch_Record_Pointer_Unsafe(x + y * ittype->Width) != NULL) {
 					if (In_Local_Radar(cell, true)) {
-						Cliff_Subzone(this, cell)->SubzoneID[SUBZONE_FINE] = 0;
+						Subzone_Of(this, cell)->SubzoneID[SUBZONE_FINE] = 0;
 						Map[cell].Recalc_Attributes();
 					}
 				}
@@ -7508,7 +8705,7 @@ void MapClass::Collapse_Cliff(CellClass *cptr)
 			for (x = 0; x < ittype->Width; x++) {
 				Cell cell = point + Cell(x, y);
 				if (image->Fetch_Record_Pointer_Unsafe(x + y * ittype->Width) != NULL) {
-					if (In_Local_Radar(cell, true) && Cliff_Subzone(this, cell)->SubzoneID[SUBZONE_FINE] == 0) {
+					if (In_Local_Radar(cell, true) && Subzone_Of(this, cell)->SubzoneID[SUBZONE_FINE] == 0) {
 						Update_Cell_Subzones(cell);
 					}
 				}
@@ -7589,7 +8786,7 @@ void MapClass::Collapse_Cliff(CellClass *cptr)
 				Cell cell = point + Cell(x, y);
 				if (image->Fetch_Record_Pointer_Unsafe(x + y * row_width) != NULL) {
 					if (In_Local_Radar(cell, true)) {
-						Cliff_Subzone(this, cell)->SubzoneID[SUBZONE_FINE] = 0;
+						Subzone_Of(this, cell)->SubzoneID[SUBZONE_FINE] = 0;
 						Map[cell].Recalc_Attributes();
 					}
 				}
@@ -7600,7 +8797,7 @@ void MapClass::Collapse_Cliff(CellClass *cptr)
 			for (x = 0; x < row_width; row_width = ittype->Width, x++) {
 				Cell cell = point + Cell(x, y);
 				if (image->Fetch_Record_Pointer_Unsafe(x + y * row_width) != NULL) {
-					if (In_Local_Radar(cell, true) && Cliff_Subzone(this, cell)->SubzoneID[SUBZONE_FINE] == 0) {
+					if (In_Local_Radar(cell, true) && Subzone_Of(this, cell)->SubzoneID[SUBZONE_FINE] == 0) {
 						Update_Cell_Subzones(cell);
 					}
 				}
@@ -7668,6 +8865,301 @@ void MapClass::Reset_All_Subzones(void)
 	Search.Reset();
 }
 
+
+// FUNCTION: GAMEMD 0x00581F90
+void MapClass::Reset_Subzone(int subzone)
+{
+	CellSubzoneStruct * subend = &CellSubzones[CellZoneCount];
+	SUBZONE_CONNECTION_HASH_SET * set = SubzoneConnectionHashTable[subzone];
+	DynamicVectorClass<SubzoneTrackingStruct> * track = &SubzoneTracking[subzone];
+	set->Clear();
+
+	CellSubzoneStruct * subptr = CellSubzones;
+	CellZoneStruct * zoneptr = CellZones;
+	if (subptr < subend) {
+		do {
+			subptr->SubzoneID[subzone] = 0;
+			subptr->ZoneID = zoneptr->ZoneID;
+			subptr->Height = zoneptr->Height;
+			subptr++;
+			zoneptr++;
+		} while (subptr < subend);
+	}
+
+	int entry_count = 1;
+	track->Add(SubzoneTrackingStruct());
+	(*track)[0].ParentSubzoneID = 0;
+	(*track)[0].Passability = PASSABLE_OUTSIDE;
+
+	subptr = CellSubzones;
+	zoneptr = CellZones;
+	int regionmask = (1 << (subzone + 1)) - 1;
+	int rowwidth = Map.PlayRect.Width + Map.PlayRect.Height + 1;
+	Rect bounds(0, 0, 1 << (subzone + 1), 1 << (subzone + 1));
+	int X = 0;
+	int Y = 0;
+	while (subptr < subend) {
+		int passability = zoneptr->Passability;
+		int parent;
+		if (subzone + 1 < SUBZONE_COUNT) {
+			parent = subptr->SubzoneID[subzone + 1];
+		} else {
+			parent = 0;
+		}
+
+		if (passability == PASSABLE_OUTSIDE || subptr->SubzoneID[subzone] != 0) {
+			subptr++;
+			zoneptr++;
+			X++;
+		} else {
+			LastAdjacentZone = 0;
+			int count = Subzone_Span(subptr, subzone, entry_count, bounds, Cell(X, Y));
+
+			track->Add(SubzoneTrackingStruct());
+
+			SubzoneTrackingStruct * added = &(*track)[(unsigned short)entry_count];
+			added->ParentSubzoneID = (unsigned short)parent;
+			added->Passability = (PassabilityType)passability;
+			added->Connections.Set_Growth_Step(16);
+			added->ThreatRegion = Cell_Region(Cell(X, Y));
+
+			entry_count++;
+			subptr = &subptr[count];
+			zoneptr = &zoneptr[count];
+			X += count;
+		}
+
+		if (X == rowwidth) {
+			Y++;
+			X = 0;
+			bounds.X = 0;
+			bounds.Y = Y - (regionmask & Y);
+		} else if ((X & regionmask) == 0) {
+			bounds.X = X;
+		}
+	}
+
+	SubzoneTrackingEntryCount[subzone] = (unsigned short)entry_count;
+
+	Register_Subzone_Zone_Connections(subzone);
+
+	for (int bucket_index = 0; bucket_index < 256; bucket_index++) {
+		SUBZONE_CONNECTION_HASH_SET::BucketType & bucket = set->Buckets[bucket_index];
+		if (bucket.Count() > 0) {
+			SUBZONE_CONNECTION_HASH_SET::ObjectType * object = &bucket[0];
+			for (int index = bucket.Count(); index > 0; index--) {
+				unsigned packed = object->Value.SubzoneID;
+				WORD low = LOWORD(packed);
+				WORD high = HIWORD(packed);
+				bool costly = object->Value.IsCrossBlock;
+
+				SubzoneConnectionStruct conn(high);
+				conn.IsCrossBlock = costly;
+				(*track)[low].Connections.Add(conn);
+
+				SubzoneConnectionStruct conn2(low);
+				conn2.IsCrossBlock = costly;
+				(*track)[high].Connections.Add(conn2);
+
+				object++;
+			}
+		}
+	}
+}
+
+// FUNCTION: GAMEMD 0x005824A0
+int MapClass::Subzone_Span(CellSubzoneStruct * seed, int subzone_level, int subzone_id, Rect const & bounds, Cell const & cell)
+{
+	int zone = seed->ZoneID;
+	CellSubzoneStruct * begin = seed;
+	CellSubzoneStruct * end = seed;
+	SUBZONE_CONNECTION_HASH_SET::ObjectType entry;
+	int last_adjacent = -1;
+	int y = cell.Y;
+	int x = cell.X;
+	int end_x = x;
+	int xmin = bounds.X;
+	int ymin = bounds.Y;
+	int begin_x = x;
+	int xmax = bounds.Width + bounds.X - 1;
+	int ymax = bounds.Height + bounds.Y - 1;
+	SUBZONE_CONNECTION_HASH_SET * table = SubzoneConnectionHashTable[subzone_level];
+	int prev_height = seed->Height;
+
+	while (begin->ZoneID == zone) {
+		if (x < xmin) {
+			break;
+		}
+		if (abs(begin->Height - prev_height) >= 2) {
+			break;
+		}
+		begin->SubzoneID[subzone_level] = (short)subzone_id;
+		prev_height = begin->Height;
+		begin--;
+		x--;
+	}
+
+	begin_x = x;
+	int neighbor = begin->SubzoneID[subzone_level];
+	if (neighbor > 0 && abs(begin->Height - prev_height) < 2 && neighbor != last_adjacent) {
+		if (In_Local_Radar(Cell(x, y), true)) {
+			if (In_Local_Radar(Cell(x + 1, y), true)) {
+				int packed_pair = Zone_Pack32(neighbor, (unsigned short)subzone_id);
+				entry.Value.IsCrossBlock = false;
+				entry.Key = entry.Value.SubzoneID = packed_pair;
+				table->Add_Object(Zone_Pack8(neighbor, (unsigned short)subzone_id), entry);
+				last_adjacent = neighbor;
+			}
+		}
+	}
+
+	prev_height = seed->Height;
+	while (end->ZoneID == zone) {
+		if (end_x > xmax) {
+			break;
+		}
+		if (abs(end->Height - prev_height) >= 2) {
+			break;
+		}
+		end->SubzoneID[subzone_level] = (short)subzone_id;
+		prev_height = end->Height;
+		end++;
+		end_x++;
+	}
+
+	neighbor = end->SubzoneID[subzone_level];
+	if (neighbor > 0 && abs(end->Height - prev_height) < 2 && neighbor != last_adjacent) {
+		if (In_Local_Radar(Cell(end_x, y), true)) {
+			if (In_Local_Radar(Cell(end_x - 1, y), true)) {
+				int packed_pair = Zone_Pack32(neighbor, (unsigned short)subzone_id);
+				entry.Value.IsCrossBlock = false;
+				entry.Key = entry.Value.SubzoneID = packed_pair;
+				table->Add_Object(Zone_Pack8(neighbor, (unsigned short)subzone_id), entry);
+				last_adjacent = neighbor;
+			}
+		}
+	}
+
+	int skip = end - seed - 1;
+	int stride = PlayRect.Width + PlayRect.Height + 1;
+
+	CellSubzoneStruct * above = &begin[-stride];
+	CellSubzoneStruct * below = &begin[stride];
+	int scan_x = begin_x;
+
+	Cell span_cell;
+	span_cell.X = 0;
+	span_cell.Y = 0;
+
+	while (scan_x <= end_x) {
+		neighbor = above->SubzoneID[subzone_level];
+		CellSubzoneStruct * span_ptr;
+		if (scan_x == begin_x) {
+			span_cell = Cell(scan_x + 1, y);
+			span_ptr = &above[stride + 1];
+		} else if (scan_x < end_x) {
+			span_cell = Cell(scan_x, y);
+			span_ptr = &above[stride];
+		} else {
+			span_cell = Cell(scan_x - 1, y);
+			span_ptr = &above[stride - 1];
+		}
+
+		if (neighbor != 0 || y <= ymin || scan_x < xmin || scan_x > xmax) {
+			if (neighbor != (unsigned short)subzone_id && neighbor != last_adjacent) {
+				if (neighbor != 0) {
+					if (abs(span_ptr->Height - above->Height) < 2 && In_Local_Radar(span_cell, true)) {
+						Cell shadow_cell;
+						shadow_cell.Y = y - 1;
+						shadow_cell.X = scan_x;
+						if (In_Local_Radar(shadow_cell, true)) {
+							int packed_pair = Zone_Pack32(neighbor, (unsigned short)subzone_id);
+							if (scan_x < xmin) {
+								entry.Value.IsCrossBlock = true;
+							} else {
+								entry.Value.IsCrossBlock = false;
+								if (scan_x > xmax) {
+									entry.Value.IsCrossBlock = true;
+								}
+							}
+							entry.Key = entry.Value.SubzoneID = packed_pair;
+							table->Add_Object(Zone_Pack8(neighbor, (unsigned short)subzone_id), entry);
+							last_adjacent = neighbor;
+						}
+					}
+				}
+			}
+			above++;
+			scan_x++;
+		} else if (above->ZoneID == zone) {
+			if (abs(span_ptr->Height - above->Height) < 2) {
+				Cell shadow_cell;
+				shadow_cell.X = scan_x;
+				shadow_cell.Y = y - 1;
+				Subzone_Span(above, subzone_level, subzone_id, bounds, shadow_cell);
+				continue;
+			}
+			above++;
+			scan_x++;
+		} else {
+			above++;
+			scan_x++;
+		}
+	}
+
+	scan_x = begin_x;
+	while (scan_x <= end_x) {
+		neighbor = below->SubzoneID[subzone_level];
+		CellSubzoneStruct * span_ptr;
+		if (scan_x == begin_x) {
+			span_ptr = &below[-stride + 1];
+			span_cell = Cell(scan_x + 1, y);
+		} else if (scan_x < end_x) {
+			span_ptr = &below[-stride];
+			span_cell = Cell(scan_x, y);
+		} else {
+			span_ptr = &below[-stride - 1];
+			span_cell = Cell(scan_x - 1, y);
+		}
+
+		if (neighbor != 0 || y >= ymax || scan_x < xmin || scan_x > xmax) {
+			if (neighbor != (unsigned short)subzone_id && neighbor != last_adjacent) {
+				if (neighbor != 0) {
+					if (abs(below->Height - span_ptr->Height) < 2 && In_Local_Radar(span_cell, true)) {
+						Cell shadow_cell;
+						shadow_cell.X = scan_x;
+						shadow_cell.Y = y + 1;
+						if (In_Local_Radar(shadow_cell, true)) {
+							int packed_pair = Zone_Pack32(neighbor, (unsigned short)subzone_id);
+							if (scan_x < xmin) {
+								entry.Value.IsCrossBlock = true;
+							} else {
+								entry.Value.IsCrossBlock = false;
+								if (scan_x > xmax) {
+									entry.Value.IsCrossBlock = true;
+								}
+							}
+							entry.Key = entry.Value.SubzoneID = packed_pair;
+							table->Add_Object(Zone_Pack8(neighbor, (unsigned short)subzone_id), entry);
+							last_adjacent = neighbor;
+						}
+					}
+				}
+			}
+			below++;
+			scan_x++;
+		} else if (below->ZoneID == zone && abs(below->Height - span_ptr->Height) < 2) {
+			Subzone_Span(below, subzone_level, subzone_id, bounds, Cell(scan_x, y + 1));
+		} else {
+			below++;
+			scan_x++;
+		}
+	}
+
+	return(skip);
+}
+
+
 // FUNCTION: GAMEMD 0x00582D30
 void MapClass::Register_Subzone_Zone_Connections(int subzone)
 {
@@ -7676,6 +9168,93 @@ void MapClass::Register_Subzone_Zone_Connections(int subzone)
 		if (connection.IsPassable) {
 			Register_Zone_Connection_Entries(connection, subzone);
 		}
+	}
+}
+
+extern FacingType DAT_0082A944[];
+
+static inline void Set_Zone_Record(SUBZONE_CONNECTION_HASH_SET::ObjectType & record, unsigned int key)
+{
+	record.Key = key;
+	record.Value.SubzoneID = key;
+	record.Value.IsCrossBlock = false;
+}
+
+// FUNCTION: GAMEMD 0x00582D70
+void MapClass::Register_Zone_Connection_Entries(
+	ZoneConnectionClass & connection, int index)
+{
+	SUBZONE_CONNECTION_HASH_SET::ObjectType connstr;
+	SUBZONE_CONNECTION_HASH_SET * set = SubzoneConnectionHashTable[index];
+
+	Cell from = connection.From;
+	Cell to = connection.To;
+
+	Cell enter1;
+	Cell enter2;
+	Cell newcell1;
+	Cell newcell2;
+
+	CellClass * cell1ptr = &Map[from];
+
+	if (!cell1ptr->Is_Tile_Bridge() &&
+		!cell1ptr->Is_Tile_Train_Bridge()) {
+		FacingType enter_dir = cell1ptr->Get_Tunnel()->EnterDir;
+		enter1 = Adjacent_Cell(from, (FacingType)(enter_dir + FACING_90));
+		enter2 = from + AdjacentCell[(enter_dir - FACING_90) & 7];
+
+		CellClass * enterptr1 = &Map[enter1];
+		TubeClass * tube1 = enterptr1->Get_Tunnel();
+		CellClass * enterptr2 = &Map[enter2];
+		TubeClass * tube2 = enterptr2->Get_Tunnel();
+
+		if (tube1 == NULL || tube2 == NULL) {
+			return;
+		}
+
+		int count1 = tube1->Count;
+		newcell1 = Follow_Path(enter1, count1, tube1->Dirs);
+		int count2 = tube2->Count;
+		newcell2 = Follow_Path(enter2, count2, tube2->Dirs);
+	} else {
+		int tile_offset;
+		if (cell1ptr->Is_Tile_Bridge()) {
+			tile_offset = cell1ptr->ITType - IsometricTileTypeClass::BridgeSet;
+		} else {
+			tile_offset = cell1ptr->ITType - IsometricTileTypeClass::TrainBridgeSet;
+		}
+		FacingType dir = DAT_0082A944[tile_offset];
+		enter1 = Adjacent_Cell(from, dir);
+		enter2 = Adjacent_Cell(from, (FacingType)(dir - FACING_180));
+		newcell1 = Adjacent_Cell(to, dir);
+		newcell2 = Adjacent_Cell(to, (FacingType)(dir - FACING_180));
+	}
+
+	{
+		int from_zone = CellSubzones[Get_Cell_Zone_Index(from)].SubzoneID[index];
+		int to_zone = CellSubzones[Get_Cell_Zone_Index(to)].SubzoneID[index];
+
+		int value = Zone_Pack32(from_zone, to_zone);
+		Set_Zone_Record(connstr, value);
+		set->Add_Object(Zone_Pack8(from_zone, to_zone), connstr);
+	}
+
+	{
+		int from_zone = CellSubzones[Get_Cell_Zone_Index(enter1)].SubzoneID[index];
+		int to_zone = CellSubzones[Get_Cell_Zone_Index(newcell1)].SubzoneID[index];
+
+		int value = Zone_Pack32(from_zone, to_zone);
+		Set_Zone_Record(connstr, value);
+		set->Add_Object(Zone_Pack8(from_zone, to_zone), connstr);
+	}
+
+	{
+		int from_zone = CellSubzones[Get_Cell_Zone_Index(enter2)].SubzoneID[index];
+		int to_zone = CellSubzones[Get_Cell_Zone_Index(newcell2)].SubzoneID[index];
+
+		int value = Zone_Pack32(from_zone, to_zone);
+		Set_Zone_Record(connstr, value);
+		set->Add_Object(Zone_Pack8(from_zone, to_zone), connstr);
 	}
 }
 
@@ -7760,11 +9339,6 @@ Cell MapClass::Get_Zone_Connection_Destination(Cell const & cell, Cell const & r
 	}
 
 	return(cell);
-}
-
-static inline CellSubzoneStruct * Subzone_Of(MapClass * map, Cell const & cell)
-{
-	return(&map->CellSubzones[map->Get_Cell_Zone_Index(cell)]);
 }
 
 // FUNCTION: GAMEMD 0x005835D0
@@ -7964,8 +9538,6 @@ bool MapClass::Is_Area_Shore_Or_Water(Rect const & rect)
 	return(true);
 }
 
-extern FacingType DAT_0082A944[];
-
 static inline unsigned short Cell_Subzone(MapClass *map, Cell const &cell, int layer)
 {
 	return (Subzone_Of(map, cell)->SubzoneID[layer]);
@@ -8067,6 +9639,148 @@ bool MapClass::Build_Reachable_Subzones(CellClass *cptr, int layer, DynamicVecto
 	return false;
 }
 
+// FUNCTION: GAMEMD 0x00584550
+void MapClass::Update_Cell_Subzones(Cell const & cell)
+{
+	if (In_Local_Radar(cell, true)) {
+
+		int y;
+		int x;
+		for (int subzone = SUBZONE_COUNT-1; subzone >= 0; subzone--) {
+
+			int size = 1 << (subzone + 1);
+			Rect bounds = Rect(Point2D(cell.X - cell.X % size, cell.Y - cell.Y % size), size, size);
+
+			DynamicVectorClass<unsigned short> collected;
+			SUBZONE_CONNECTION_HASH_SET * set = SubzoneConnectionHashTable[subzone];
+			set->Clear();
+
+			DynamicVectorClass<SubzoneTrackingStruct> * track = &SubzoneTracking[subzone];
+
+			for (y = bounds.Y; y < bounds.Y + bounds.Height; y++) {
+				for (x = bounds.X; x < bounds.Width + bounds.X; x++) {
+					CellSubzoneStruct * subptr = Subzone_Of(this, Cell(x, y));
+					unsigned short subid = subptr->SubzoneID[subzone];
+					if (subid != 0) {
+						int found;
+						for (found = collected.Count() - 1; found >= 0; found--) {
+							if (collected[found] == subid) {
+								break;
+							}
+						}
+						if (found == -1) {
+							collected.Add(subid);
+						}
+					}
+					subptr->SubzoneID[subzone] = 0;
+					subptr->ZoneID = Zone_Of(this, Cell(x, y))->ZoneID;
+				}
+			}
+
+			for (y = collected.Count() - 1; y >= 0; y--) {
+				unsigned short subid = collected[y];
+				SubzoneTrackingStruct * entry = &SubzoneTracking[subzone][subid];
+				for (x = entry->Connections.Count() - 1; x >= 0; x--) {
+					SubzoneTrackingStruct * neighbor = &SubzoneTracking[subzone][entry->Connections[x].SubzoneID];
+					int j;
+					for (j = neighbor->Connections.Count() - 1; j >= 0; j--) {
+						if (neighbor->Connections[j].SubzoneID == subid) {
+							neighbor->Connections.Delete_Index(j);
+							break;
+						}
+					}
+				}
+				entry->Connections.Clear();
+			}
+
+			int entry_count = SubzoneTrackingEntryCount[subzone];
+			for (y = bounds.Y; y < bounds.Y + bounds.Height; y++) {
+				for (x = bounds.X; x < bounds.Width + bounds.X; x++) {
+
+					if (In_Local_Radar(Cell(x, y), true)) {
+
+						CellSubzoneStruct * subptr = Subzone_Of(this, Cell(x, y));
+						int passability = Zone_Of(this, Cell(x, y))->Passability;
+						if (passability != PASSABLE_OUTSIDE && subptr->SubzoneID[subzone] == 0) {
+
+							Cell seed(x, y);
+							Subzone_Span(subptr, subzone, entry_count, bounds, seed);
+
+							track->Add(SubzoneTrackingStruct());
+
+							SubzoneTrackingStruct * added = &(*track)[entry_count];
+							int parent;
+							if (subzone == SUBZONE_COUNT-1) {
+								parent = 0;
+							} else {
+								parent = subptr->SubzoneID[subzone + 1];
+							}
+							added->ParentSubzoneID = (unsigned short)parent;
+							added->Passability = (PassabilityType)passability;
+							added->Connections.Set_Growth_Step(16);
+							added->ThreatRegion = Cell_Region(Cell(x, y));
+
+							entry_count++;
+							if (entry_count == 0) {
+								Reset_All_Subzones();
+								return;
+							}
+						}
+					}
+				}
+			}
+			SubzoneTrackingEntryCount[subzone] = entry_count;
+
+			for (int connection_index = ZoneConnections.Count() - 1; connection_index >= 0; connection_index--) {
+				ZoneConnectionClass & connection = ZoneConnections[connection_index];
+				if (bounds.Is_Point_Within(Point2D(connection.From.X, connection.From.Y))
+					|| bounds.Is_Point_Within(Point2D(connection.To.X, connection.To.Y))) {
+					if (connection.IsPassable) {
+						Register_Zone_Connection_Entries(connection, subzone);
+					}
+				}
+			}
+
+			for (int bucket_index = 0; bucket_index < 256; bucket_index++) {
+				SUBZONE_CONNECTION_HASH_SET::BucketType & bucket = set->Buckets[bucket_index];
+				if (bucket.Count() > 0) {
+					SUBZONE_CONNECTION_HASH_SET::ObjectType * object = &bucket[0];
+					for (int index = bucket.Count(); index > 0; index--) {
+						unsigned packed = object->Value.SubzoneID;
+						WORD low = LOWORD(packed);
+						WORD high = HIWORD(packed);
+						bool costly = object->Value.IsCrossBlock;
+
+						SubzoneConnectionStruct conn(high);
+						conn.IsCrossBlock = costly;
+						(*track)[low].Connections.Add(conn);
+
+						SubzoneConnectionStruct conn2(low);
+						conn2.IsCrossBlock = costly;
+						(*track)[high].Connections.Add(conn2);
+
+						object++;
+					}
+				}
+			}
+		}
+
+		Rect block(cell.X - cell.X % 8, cell.Y - cell.Y % 8, 8, 8);
+		for (y = block.Y; y < block.Y + block.Height; y++) {
+			for (x = block.X; x < block.Width + block.X; x++) {
+				Cell probe(x, y);
+				if (In_Local_Radar(probe, true)) {
+					CellSubzoneStruct * subptr = Subzone_Of(this, Cell(x, y));
+					for (int level = 0; level < SUBZONE_COUNT-1; level++) {
+						SubzoneTracking[level][subptr->SubzoneID[level]].ParentSubzoneID = subptr->SubzoneID[level + 1];
+					}
+				}
+			}
+		}
+		Search.Reset();
+	}
+}
+
 // FUNCTION: GAMEMD 0x00584E50
 void MapClass::Unregister_Subzone_Connection(ZoneConnectionClass * connection)
 {
@@ -8097,32 +9811,26 @@ void MapClass::Unregister_Subzone_Connection(ZoneConnectionClass * connection)
 	int sidx1;
 	int sidx2;
 	for (int i = 0; i < ARRAY_SIZE(SubzoneTracking); i++) {
-		{
-			sidx1 = Subzone_Of(this, from)->SubzoneID[i];
-			sidx2 = Subzone_Of(this, to)->SubzoneID[i];
+		sidx1 = Subzone_Of(this, from)->SubzoneID[i];
+		sidx2 = Subzone_Of(this, to)->SubzoneID[i];
 
-			SubzoneTracking[i][sidx1].Connections.Delete(SubzoneConnectionStruct(sidx2));
+		SubzoneTracking[i][sidx1].Connections.Delete(SubzoneConnectionStruct(sidx2));
 
-			SubzoneTracking[i][sidx2].Connections.Delete(SubzoneConnectionStruct(sidx1));
-		}
+		SubzoneTracking[i][sidx2].Connections.Delete(SubzoneConnectionStruct(sidx1));
 
-		{
-			sidx1 = Subzone_Of(this, from_adj1)->SubzoneID[i];
-			sidx2 = Subzone_Of(this, to_adj1)->SubzoneID[i];
+		sidx1 = Subzone_Of(this, from_adj1)->SubzoneID[i];
+		sidx2 = Subzone_Of(this, to_adj1)->SubzoneID[i];
 
-			SubzoneTracking[i][sidx1].Connections.Delete(SubzoneConnectionStruct(sidx2));
+		SubzoneTracking[i][sidx1].Connections.Delete(SubzoneConnectionStruct(sidx2));
 
-			SubzoneTracking[i][sidx2].Connections.Delete(SubzoneConnectionStruct(sidx1));
-		}
+		SubzoneTracking[i][sidx2].Connections.Delete(SubzoneConnectionStruct(sidx1));
 
-		{
-			sidx1 = Subzone_Of(this, from_adj2)->SubzoneID[i];
-			sidx2 = Subzone_Of(this, to_adj2)->SubzoneID[i];
+		sidx1 = Subzone_Of(this, from_adj2)->SubzoneID[i];
+		sidx2 = Subzone_Of(this, to_adj2)->SubzoneID[i];
 
-			SubzoneTracking[i][sidx1].Connections.Delete(SubzoneConnectionStruct(sidx2));
+		SubzoneTracking[i][sidx1].Connections.Delete(SubzoneConnectionStruct(sidx2));
 
-			SubzoneTracking[i][sidx2].Connections.Delete(SubzoneConnectionStruct(sidx1));
-		}
+		SubzoneTracking[i][sidx2].Connections.Delete(SubzoneConnectionStruct(sidx1));
 	}
 }
 
@@ -8155,32 +9863,26 @@ void MapClass::Register_Subzone_Connection(ZoneConnectionClass * connection)
 	int sidx1;
 	int sidx2;
 	for (int i = 0; i < ARRAY_SIZE(SubzoneTracking); i++) {
-		{
-			sidx1 = Subzone_Of(this, from)->SubzoneID[i];
-			sidx2 = Subzone_Of(this, to)->SubzoneID[i];
+		sidx1 = Subzone_Of(this, from)->SubzoneID[i];
+		sidx2 = Subzone_Of(this, to)->SubzoneID[i];
 
-			SubzoneTracking[i][sidx1].Connections.Add(SubzoneConnectionStruct(sidx2));
+		SubzoneTracking[i][sidx1].Connections.Add(SubzoneConnectionStruct(sidx2));
 
-			SubzoneTracking[i][sidx2].Connections.Add(SubzoneConnectionStruct(sidx1));
-		}
+		SubzoneTracking[i][sidx2].Connections.Add(SubzoneConnectionStruct(sidx1));
 
-		{
-			sidx1 = Subzone_Of(this, from_adj1)->SubzoneID[i];
-			sidx2 = Subzone_Of(this, to_adj1)->SubzoneID[i];
+		sidx1 = Subzone_Of(this, from_adj1)->SubzoneID[i];
+		sidx2 = Subzone_Of(this, to_adj1)->SubzoneID[i];
 
-			SubzoneTracking[i][sidx1].Connections.Add(SubzoneConnectionStruct(sidx2));
+		SubzoneTracking[i][sidx1].Connections.Add(SubzoneConnectionStruct(sidx2));
 
-			SubzoneTracking[i][sidx2].Connections.Add(SubzoneConnectionStruct(sidx1));
-		}
+		SubzoneTracking[i][sidx2].Connections.Add(SubzoneConnectionStruct(sidx1));
 
-		{
-			sidx1 = Subzone_Of(this, from_adj2)->SubzoneID[i];
-			sidx2 = Subzone_Of(this, to_adj2)->SubzoneID[i];
+		sidx1 = Subzone_Of(this, from_adj2)->SubzoneID[i];
+		sidx2 = Subzone_Of(this, to_adj2)->SubzoneID[i];
 
-			SubzoneTracking[i][sidx1].Connections.Add(SubzoneConnectionStruct(sidx2));
+		SubzoneTracking[i][sidx1].Connections.Add(SubzoneConnectionStruct(sidx2));
 
-			SubzoneTracking[i][sidx2].Connections.Add(SubzoneConnectionStruct(sidx1));
-		}
+		SubzoneTracking[i][sidx2].Connections.Add(SubzoneConnectionStruct(sidx1));
 	}
 }
 
@@ -8285,16 +9987,20 @@ bool MapClass::Rebuild_Shores_At(Cell const & origin)
 	return(expanded);
 }
 
+static inline void Init_Fill_Cells(DynamicVectorClass<Cell> & cells, int growth)
+{
+	cells.DynamicVectorClass<Cell>::Clear();
+	cells.Set_Growth_Step(growth);
+}
+
 // FUNCTION: GAMEMD 0x00585930
 void MapClass::Mark_Fill_Area(Cell const & origin, bool on_water)
 {
 	DynamicVectorClass<Cell> region_cells;
-	region_cells.Clear();
-	region_cells.Set_Growth_Step(100);
+	Init_Fill_Cells(region_cells, 100);
 
 	DynamicVectorClass<Cell> frontier_cells;
-	frontier_cells.Clear();
-	frontier_cells.Set_Growth_Step(1000);
+	Init_Fill_Cells(frontier_cells, 1000);
 
 	for (int i = MapCellStride * MapCellStride - 1; i >= 0; i--) {
 		MapRegionClass::CellData & data = MapRegionClass::Get_Cell_Data(i);
@@ -8323,8 +10029,6 @@ void MapClass::Mark_Fill_Area(Cell const & origin, bool on_water)
 				if (!data.InFillArea) {
 					if (on_water && adjptr->Is_Tile_With_Water() || !on_water && adjptr->Height == height && adjptr->Is_Tile_Clear()) {
 						frontier_cells.Add(adjacent);
-						bool legal = In_Radar(adjacent);
-						bool legal2 = In_Radar(cell);
 						region_cells.Add(adjacent);
 						data.InFillArea = true;
 					}
@@ -8337,14 +10041,9 @@ void MapClass::Mark_Fill_Area(Cell const & origin, bool on_water)
 		Cell cell = region_cells[j];
 		for (int y = cell.Y - 1; y < cell.Y + 2; y++) {
 			for (int x = cell.X - 1; x < cell.X + 2; x++) {
-				Cell influence;
-				influence.X = x;
-				influence.Y = y;
+				Cell influence(x, y);
 				if (In_Radar(influence)) {
-					Cell c;
-					c.X = x;
-					c.Y = y;
-					MapRegionClass::Get_Cell_Data(c).InFillReach = true;
+					MapRegionClass::Get_Cell_Data(Cell(x, y)).InFillReach = true;
 				}
 			}
 		}
@@ -8407,10 +10106,101 @@ bool MapClass::Rebuild_Cliffs_At(Cell const & cell)
 }
 
 // SYNTHETIC: GAMEMD 0x00585EE0 SYMBOL
-// _$E252
+// _$E254
 Cell RegionQuadrantOffsets[4] = {
 	Cell(0, 0), Cell(REGION_WIDTH, 0), Cell(0, REGION_HEIGHT), Cell(REGION_WIDTH, REGION_HEIGHT),
 };
+
+// GLOBAL: GAMEMD 0x0082A984
+int FromRegionQuadrants[FACING_COUNT][2] = {
+	{ 0, 1 }, { 1, 1 }, { 1, 3 }, { 3, 3 }, { 2, 3 }, { 2, 2 }, { 0, 2 }, { 0, 0 },
+};
+// GLOBAL: GAMEMD 0x0082A9C4
+int ToRegionQuadrants[FACING_COUNT][2] = {
+	{ 2, 3 }, { 2, 2 }, { 0, 2 }, { 0, 0 }, { 0, 1 }, { 1, 1 }, { 1, 3 }, { 3, 3 },
+};
+
+// FUNCTION: GAMEMD 0x00585F40
+int MapClass::Region_Threat(HouseClass * house, int level, int from_subzone, int to_subzone)
+{
+	switch (level) {
+		default:
+			break;
+
+		case 0:
+			return(0);
+
+		case 1:
+			return(house->Regions[Map.SubzoneTracking[level][to_subzone].ThreatRegion].Threat_Value());
+
+		case 2: {
+			int from_region = Map.SubzoneTracking[level][from_subzone].ThreatRegion;
+			int index = from_region - 1;
+			int col = index % MAP_REGION_WIDTH;
+			int row = (from_region - col) / MAP_REGION_HEIGHT;
+			int from_x = REGION_WIDTH * col;
+			int from_y = REGION_HEIGHT * (row - 1);
+
+			short from_block_x = from_x - (from_x / REGION_WIDTH % 2 != 0);
+			short from_block_y = from_y - (from_y / REGION_HEIGHT % 2 != 0);
+
+			int to_region = Map.SubzoneTracking[level][to_subzone].ThreatRegion;
+			index = to_region - 1;
+			col = index % MAP_REGION_WIDTH;
+			row = (to_region - col) / MAP_REGION_HEIGHT;
+			int to_x = REGION_WIDTH * col;
+			int to_y = REGION_HEIGHT * (row - 1);
+
+			short to_block_x = to_x - (to_x / REGION_WIDTH % 2 != 0);
+			short to_block_y = to_y - (to_y / REGION_HEIGHT % 2 != 0);
+
+			if (from_block_x == to_block_x && from_block_y == to_block_y) {
+				return((house->Regions[Cell_Region(Cell(from_x, from_y))].Threat_Value() + house->Regions[Cell_Region(Cell(to_x, to_y))].Threat_Value()) >> 1);
+			}
+
+			int facing;
+			if (to_block_x > from_block_x) {
+				if (to_block_y > from_block_y) {
+					facing = FACING_SE;
+				} else if (to_block_y >= from_block_y) {
+					facing = FACING_E;
+				} else {
+					facing = FACING_NE;
+				}
+			} else if (to_block_x < from_block_x) {
+				if (to_block_y > from_block_y) {
+					facing = FACING_SW;
+				} else if (to_block_y >= from_block_y) {
+					facing = FACING_W;
+				} else {
+					facing = FACING_NW;
+				}
+			} else if (to_block_y > from_block_y) {
+				facing = FACING_S;
+			} else {
+				facing = FACING_N;
+			}
+
+			Cell from_cell(from_block_x, from_block_y);
+			Cell to_cell(to_block_x, to_block_y);
+			int from_threat1 = house->Regions[Cell_Region(RegionQuadrantOffsets[FromRegionQuadrants[facing][0]] + from_cell)].Threat_Value();
+			int from_threat2 = house->Regions[Cell_Region(RegionQuadrantOffsets[FromRegionQuadrants[facing][1]] + from_cell)].Threat_Value();
+			int from_threat = from_threat1;
+			if (from_threat1 >= from_threat2) {
+				from_threat = from_threat2;
+			}
+
+			int to_threat1 = house->Regions[Cell_Region(RegionQuadrantOffsets[ToRegionQuadrants[facing][0]] + to_cell)].Threat_Value();
+			int to_threat2 = house->Regions[Cell_Region(RegionQuadrantOffsets[ToRegionQuadrants[facing][1]] + to_cell)].Threat_Value();
+			if (to_threat1 >= to_threat2) {
+				to_threat1 = to_threat2;
+			}
+
+			return((to_threat1 + from_threat) >> 1);
+		}
+	}
+	return(0);
+}
 
 // FUNCTION: GAMEMD 0x005862C0
 bool MapClass::Is_Something_Nearby(Cell const & cell, int radius)
@@ -8529,7 +10319,7 @@ void MapClass::Deinit_Fog_System(void)
 }
 
 // FUNCTION: GAMEMD 0x00586780
-bool MapClass::IsAreaFree(Rect const & rect, int house)
+bool MapClass::Is_Area_Available(Rect const & rect, int house)
 {
 	int mask = (house != -1) ? (1 << house) : 0;
 	for (int x = rect.X; x < rect.X + rect.Width; x++) {
@@ -8782,6 +10572,175 @@ bool MapClass::Damage_Bridge(Cell const & cell)
 
 	PendingBridgeCells.Clear();
 	return(result);
+}
+
+// FUNCTION: GAMEMD 0x00587410
+bool MapClass::Can_Repair_Bridge(Cell const & cell)
+{
+	static short _entry_x[] = {
+		1, 1, 0, 2, 2, 2, 0, 0,
+		0, 0, 0, 2, 2, 2, 2, 2
+	};
+	static short _entry_y[] = {
+		2, 2, 2, 1, 1, 0, 2, 2,
+		2, 2, 2, 0, 0, 0, 0, 0
+	};
+	static FacingType _entry_facings[] = {
+		FACING_E,    FACING_E,    FACING_W,    FACING_S,    FACING_S,    FACING_N,    FACING_NONE, FACING_NONE,
+		FACING_NONE, FACING_NONE, FACING_NONE, FACING_NONE, FACING_NONE, FACING_NONE, FACING_NONE, FACING_NONE
+	};
+
+	bool found = false;
+	bool concrete = false;
+	CellClass * cellptr = NULL;
+	int offset = -1;
+
+	for (int y = -2; y < 3; y++) {
+		for (int x = -2; x < 3; x++) {
+			int ittype = Map[Cell(Cell(x, y) + cell)].ITType;
+
+			if (ittype >= IsometricTileTypeClass::TrainBridgeSet && ittype < IsometricTileTypeClass::TrainBridgeSet + ARRAY_SIZE(_entry_facings)) {
+				found = true;
+				cellptr = &Map[Cell(Cell(x, y) + cell)];
+				offset = ittype - IsometricTileTypeClass::TrainBridgeSet;
+			} else if (ittype >= IsometricTileTypeClass::BridgeSet && ittype < IsometricTileTypeClass::BridgeSet + ARRAY_SIZE(_entry_facings)) {
+				found = true;
+				cellptr = &Map[Cell(Cell(x, y) + cell)];
+				offset = ittype - IsometricTileTypeClass::BridgeSet;
+			} else if (Is_Low_Bridge(Cell(x, y) + cell)) {
+				found = false;
+				concrete = false;
+				cellptr = &Map[Cell(Cell(x, y) + cell)];
+			} else if (Is_Low_Bridge2(Cell(x, y) + cell)) {
+				found = false;
+				concrete = true;
+				cellptr = &Map[Cell(Cell(x, y) + cell)];
+			}
+		}
+	}
+
+	if (found) {
+		IsometricTileTypeClass * isotype = IsometricTileTypes[cellptr->ITType];
+		Cell topleft = cellptr->CellID - Cell(cellptr->SubTile % isotype->Width, cellptr->SubTile / isotype->Width);
+		Cell search = Cell(_entry_x[offset], _entry_y[offset]) + topleft;
+		FacingType dir = _entry_facings[offset];
+
+		if (dir != FACING_NONE) {
+			Cell entry = search;
+			bool broken = false;
+			while (!broken) {
+				int index = Zone_Connection_Index(search, 3, 0);
+				if (index < 0) {
+					break;
+				}
+				if (!ZoneConnections[index].IsPassable) {
+					broken = true;
+				}
+				if (!broken) {
+					ZoneConnectionClass * con = &ZoneConnections[index];
+					if (con->From == entry) {
+						entry = con->To;
+						search = Adjacent_Cell(entry, dir);
+					} else if (con->To == entry) {
+						entry = con->From;
+						search = Adjacent_Cell(entry, dir);
+					} else {
+						return(true);
+					}
+				}
+			}
+			if (broken) {
+				return(true);
+			}
+		}
+		return(false);
+	}
+
+	if (cellptr == NULL) {
+		return(false);
+	}
+
+	if (concrete) {
+		int overlay = cellptr->Overlay;
+		Cell walk;
+		Cell scan;
+		if (overlay >= LB2(1) && overlay <= LB2(9) || overlay >= LB2(19) && overlay <= LB2(22) || overlay == LB2(27)) {
+			walk = cellptr->CellID;
+			while (Is_Low_Bridge2(walk)) {
+				int end = Map[walk].Overlay;
+				if (end == LB2(27) || end == LB2(28)) {
+					return(true);
+				}
+				walk -= Cell(1, 0);
+			}
+			scan = cellptr->CellID;
+			while (Is_Low_Bridge2(scan)) {
+				int end = Map[scan].Overlay;
+				if (end == LB2(27) || end == LB2(28)) {
+					return(true);
+				}
+				scan.X++;
+			}
+			return(false);
+		}
+		scan = cellptr->CellID;
+		while (Is_Low_Bridge2(scan)) {
+			int end = Map[scan].Overlay;
+			if (end == LB2(27) || end == LB2(28)) {
+				return(true);
+			}
+			scan.Y++;
+		}
+		walk = cellptr->CellID;
+		while (Is_Low_Bridge2(walk)) {
+			int end = Map[walk].Overlay;
+			if (end == LB2(27) || end == LB2(28)) {
+				return(true);
+			}
+			walk -= Cell(0, 1);
+		}
+		return(false);
+	} else {
+		int overlay = cellptr->Overlay;
+		Cell walk;
+		Cell scan;
+		if (overlay >= OVERLAY_LOWBRIDGE_01 && overlay <= OVERLAY_LOWBRIDGE_09 || overlay >= OVERLAY_LOWBRIDGE_19 && overlay <= OVERLAY_LOWBRIDGE_22 || overlay == OVERLAY_LOWBRIDGE_27) {
+			walk = cellptr->CellID;
+			while (Is_Low_Bridge(walk)) {
+				int end = Map[walk].Overlay;
+				if (end == OVERLAY_LOWBRIDGE_27 || end == OVERLAY_LOWBRIDGE_28) {
+					return(true);
+				}
+				walk -= Cell(1, 0);
+			}
+			scan = cellptr->CellID;
+			while (Is_Low_Bridge(scan)) {
+				int end = Map[scan].Overlay;
+				if (end == OVERLAY_LOWBRIDGE_27 || end == OVERLAY_LOWBRIDGE_28) {
+					return(true);
+				}
+				scan.X++;
+			}
+			return(false);
+		}
+		scan = cellptr->CellID;
+		while (Is_Low_Bridge(scan)) {
+			int end = Map[scan].Overlay;
+			if (end == OVERLAY_LOWBRIDGE_27 || end == OVERLAY_LOWBRIDGE_28) {
+				return(true);
+			}
+			scan.Y++;
+		}
+		walk = cellptr->CellID;
+		while (Is_Low_Bridge(walk)) {
+			int end = Map[walk].Overlay;
+			if (end == OVERLAY_LOWBRIDGE_27 || end == OVERLAY_LOWBRIDGE_28) {
+				return(true);
+			}
+			walk -= Cell(0, 1);
+		}
+		return(false);
+	}
 }
 
 // FUNCTION: GAMEMD 0x00587C50
@@ -9230,7 +11189,7 @@ template class DynamicVectorClass<HashObject<unsigned int, SubzoneConnectionStru
 // ?ID@?$DynamicVectorClass@USubzoneTrackingStruct@@@@UAEHABUSubzoneTrackingStruct@@@Z
 
 // TEMPLATE: GAMEMD 0x00589C50
-// ?Add@?$DynamicVectorClass@W4PassabilityType@@@@QAE_NABW4PassabilityType@@@Z
+// ?Add@?$DynamicVectorClass@VCell@@@@QAE_NABVCell@@@Z
 
 // TEMPLATE: GAMEMD 0x00589CA0
 // ??8?$VectorClass@PAVCellClass@@@@UBE_NABV0@@Z
@@ -9395,3 +11354,6 @@ SubzoneTrackingStruct & SubzoneTrackingStruct::operator=(const SubzoneTrackingSt
 
 // TEMPLATE: GAMEMD 0x0058B070
 // ??0?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@QAE@HPBU?$HashObject@IUSubzoneConnectionStruct@@@@@Z
+
+// SYNTHETIC: GAMEMD 0x00588C10
+// ??4AbstractClass@@QAEAAV0@ABV0@@Z

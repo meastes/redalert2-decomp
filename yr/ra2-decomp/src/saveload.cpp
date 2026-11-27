@@ -130,17 +130,9 @@
 #define	SAVE_BLOCK_SIZE	4096
 #define	SAVEGAME_VERSION		(DESCRIP_MAX + 0x01000006)
 
-int DAT_00B05420;
-int DAT_00B05424;
-int DAT_00B05428;
 
-// FUNCTION: GAMEMD 0x0067C670
-void FUN_0067C670(void)
-{
-	DAT_00B05428 = 0;
-	DAT_00B05420 = 128;
-	DAT_00B05424 = 128;
-}
+// SYNTHETIC: GAMEMD 0x0067C670 SYMBOL
+// _$E191
 
 // FUNCTION: GAMEMD 0x0067C690
 HRESULT Load_Vector(IStream * stream)
@@ -235,7 +227,7 @@ CRCEngine Object_CRCs(void)
 extern bool UserInputLocked;
 extern int SidebarWidth;
 extern DynamicVectorClass<BuildingClass *> DAT_008B41E0;
-bool __fastcall FUN_00534FA0(int side);
+bool __fastcall Prep_For_Side(int side);
 Rect __fastcall Get_Title_Screen_Area(void);
 void __cdecl FUN_004068E0(char const * format, ...);
 HRESULT __fastcall FUN_00751710(IStream * stream);
@@ -746,7 +738,7 @@ bool Get_All(IStream * stream, bool save_net)
 	Scen->Load(stream);
 	UserInputLocked = Scen->IsInputLocked;
 
-	if (!FUN_00534FA0(Scen->PlayerSideIndex)) {
+	if (!Prep_For_Side(Scen->PlayerSideIndex)) {
 		return(false);
 	}
 
@@ -1123,8 +1115,6 @@ extern double Arguments[19];
 extern bool Naval[19];
 }
 extern int DAT_00B07784;
-HRESULT __fastcall FUN_00539890(IStream * stream);
-HRESULT __fastcall FUN_00539AE0(IStream * stream);
 
 // FUNCTION: GAMEMD 0x0067F7E0
 int Save_Misc_Values(IStream * stream)
@@ -1166,7 +1156,7 @@ int Save_Misc_Values(IStream * stream)
 		return(res);
 	}
 
-	FUN_00539890(stream);
+	IonStormClass::Save(stream);
 
 	count = LogicTags.Count();
 	res = stream->Write(&count, sizeof(count), NULL);
@@ -1274,7 +1264,7 @@ int Load_Misc_Values(IStream * stream)
 		return(res);
 	}
 
-	FUN_00539AE0(stream);
+	IonStormClass::Load(stream);
 
 	res = stream->Read(&count, sizeof(count), NULL);
 	if (FAILED(res)) {

@@ -16,7 +16,6 @@
 #include "language\language.h"
 #include "lzopipe.h"
 #include "lzostraw.h"
-#include "ownrdraw.h"
 #include "pcx.h"
 #include "scenario.h"
 #include "surface.h"
@@ -128,7 +127,7 @@ void MapPreviewClass::DrawStartPoints(HWND window)
 				if (button != NULL) {
 					Draw_Shape(*AlternateSurface, *convert, button, 0, Point2D(x - 9, y - 6), AlternateSurface->Get_Rect(), (ShapeFlags_Type)0x400);
 				}
-				Fancy_Text_Print_Wide(Scratch(Point2D()), L"%d", AlternateSurface, &AlternateSurface->Get_Rect(), &(Point2D const &)Point2D(x - 2, y - 6), scheme, 8, TextPrintType(0x19), i + 1);
+				Fancy_Text_Print_Wide(L"%d", AlternateSurface, &AlternateSurface->Get_Rect(), &(Point2D const &)Point2D(x - 2, y - 6), scheme, 8, TextPrintType(0x19), i + 1);
 			}
 		}
 	}

@@ -81,7 +81,7 @@ class CellClass : public AbstractClass
 
 		FootClass * Jumpjet;
 
-	private:
+	public:
 
 		ObjectClass * OccupierPtr;
 		ObjectClass * BridgeOccupierPtr;
@@ -404,7 +404,7 @@ class CellClass : public AbstractClass
 
 		bool Is_Overlay_Low_Bridge(void) const { return(Overlay >= OVERLAY_LOWBRIDGE_01 && Overlay <= OVERLAY_LOWBRIDGE_26); }
 		bool Is_Overlay_Bridge(void) const { return(Overlay == OVERLAY_BRIDGE1 || Overlay == OVERLAY_BRIDGE2); }
-		bool Is_Overlay_Rail_Bridge(void) const { return(Overlay == OVERLAY_RAIL_BRIDGE1 || Overlay == OVERLAY_RAIL_BRIDGE2); }
+		bool Is_Overlay_Rail_Bridge(void) const { return(Overlay == OVERLAY_BRIDGEHEAD21 || Overlay == OVERLAY_BRIDGEHEAD22); }
 
 		void Attach_Tag(TagClass *tag);
 

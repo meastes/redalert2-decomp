@@ -504,9 +504,7 @@ void BuildingTypeClass::Init_Anim(BStateType state, int start, int count, int ra
 	((int &)Anims[state].Rate) = rate;
 }
 
-struct FileSystem {
-	static void const * LoadFile(char const * name, bool flag);
-};
+#include "filesystem.h"
 
 // FUNCTION: GAMEMD 0x0045E8F0
 void BuildingTypeClass::Fetch_Z_Data(void)
@@ -628,7 +626,7 @@ Cell const * BuildingTypeClass::Occupy_List(bool placement) const
 }
 
 // SYNTHETIC: GAMEMD 0x0045EC80 SYMBOL
-// _$E44
+// _$E251
 // FUNCTION: GAMEMD 0x0045EC90
 int BuildingTypeClass::Width(void) const
 {
@@ -1726,6 +1724,58 @@ Cell const * BuildingTypeClass::Exit_List(void) const
 	return(ExitLists[size]);
 }
 
+// FUNCTION: GAMEMD 0x00465570
+Rect BuildingTypeClass::Get_Draw_Rect(void)
+{
+	int i;
+
+	if (DrawRect != RECT_NONE) {
+		return(DrawRect);
+	}
+
+	SHPStruct const * shape = (SHPStruct const *)Get_Image_Data();
+	if (shape == NULL) {
+		return(RECT_NONE);
+	}
+
+	int frames = shape->Get_Count();
+	Rect rect = RECT_NONE;
+	int width = shape->Get_Width();
+	int height = shape->Get_Height();
+
+	for (i = 0; i < frames; i++) {
+		rect = Union(rect, shape->GetFrameBounds(i));
+	}
+
+	bool free_buildup = (BuildupData == NULL);
+	shape = (SHPStruct const *)Get_Buildup_Data();
+
+	if (shape != NULL) {
+		frames = shape->Get_Count();
+		for (i = 0; i < frames; i++) {
+			rect = Union(rect, shape->GetFrameBounds(i));
+		}
+		if (free_buildup) {
+			Free_Buildup_Data();
+		}
+	}
+
+	if (BibShape != NULL) {
+		Rect bibrect = ((SHPStruct const *)BibShape)->GetFrameBounds(0);
+		rect = Union(rect, bibrect);
+	}
+
+	int x = rect.X - width / 2;
+	int y = rect.Y - height / 2;
+	Rect drawrect;
+	drawrect.X = x;
+	drawrect.Y = y;
+	drawrect.Width = rect.Width;
+	drawrect.Height = rect.Height;
+	DrawRect = drawrect;
+	return(DrawRect);
+}
+
 // FUNCTION: GAMEMD 0x00465910
 bool BuildingTypeClass::CanUseWaypoint(void) const
 {
@@ -1896,11 +1946,8 @@ Dir256 BuildingTypeClass::Deploy_Facing(void) const
 	return(Dir256(DeployFacing));
 }
 
-// FUNCTION: GAMEMD 0x00465D80
-BuildingTypeClass * BuildingTypeClass::FUN_00465D80(void)
-{
-	return(this);
-}
+// TEMPLATE: GAMEMD 0x00465D80
+// ??0Cell@@QAE@XZ
 
 // FUNCTION: GAMEMD 0x00465D90
 RTTIType BuildingTypeClass::Fetch_RTTI(void) const

@@ -74,6 +74,94 @@ SurfaceCacheClass::~SurfaceCacheClass(void)
 	}
 }
 
+// FUNCTION: GAMEMD 0x006B9740
+bool SurfaceCacheClass::CacheBMP(char const * name, void * bitmap, int bytes, int bpp)
+{
+	unsigned char *bitmap_palette_data;
+	unsigned char *bitmap_data;
+	BITMAPFILEHEADER filehead;
+	BITMAPINFO *bitmap_info_header;
+	int bitmap_width;
+	int surface_width;
+	BSurface *surface;
+	unsigned short *surface_data;
+	BITMAPINFOHEADER header;
+	SurfaceCacheEntry new_entry;
+
+	bitmap_palette_data = (unsigned char *)bitmap;
+	filehead = *(BITMAPFILEHEADER *)bitmap_palette_data;
+	bitmap_palette_data += sizeof(BITMAPFILEHEADER);
+	header = *(BITMAPINFOHEADER *)bitmap_palette_data;
+	bitmap_palette_data += sizeof(BITMAPINFOHEADER);
+
+	bitmap_info_header = (BITMAPINFO *)operator new(4 * (1 << header.biBitCount) + sizeof(BITMAPINFOHEADER));
+	bitmap_info_header->bmiHeader.biSize = header.biSize;
+	bitmap_info_header->bmiHeader.biWidth = header.biWidth;
+	bitmap_info_header->bmiHeader.biHeight = header.biHeight;
+	bitmap_info_header->bmiHeader.biPlanes = header.biPlanes;
+	bitmap_info_header->bmiHeader.biBitCount = header.biBitCount;
+	bitmap_info_header->bmiHeader.biCompression = header.biCompression;
+	bitmap_info_header->bmiHeader.biSizeImage = header.biSizeImage;
+	bitmap_info_header->bmiHeader.biXPelsPerMeter = header.biXPelsPerMeter;
+	bitmap_info_header->bmiHeader.biYPelsPerMeter = header.biYPelsPerMeter;
+	bitmap_info_header->bmiHeader.biClrUsed = header.biClrUsed;
+	bitmap_info_header->bmiHeader.biClrImportant = header.biClrImportant;
+	memcpy(bitmap_info_header->bmiColors, bitmap_palette_data, header.biClrUsed * sizeof(RGBQUAD));
+	bitmap_palette_data += header.biClrUsed * sizeof(RGBQUAD);
+
+	unsigned short pal16[256];
+	unsigned char *p = (unsigned char *)bitmap_info_header->bmiColors;
+	for (int i = 0; i < 256; i++) {
+		int blue = *p++;
+		int green = *p++;
+		pal16[i] = ((*p >> DSurface::RedLeft) << DSurface::RedRight) | ((green >> DSurface::GreenLeft) << DSurface::GreenRight) | ((blue >> DSurface::BlueLeft) << DSurface::BlueRight);
+		p += 2;
+	}
+
+	bitmap_data = (unsigned char *)operator new(filehead.bfSize - filehead.bfOffBits);
+	memcpy(bitmap_data, bitmap_palette_data, filehead.bfSize - filehead.bfOffBits);
+
+	int width = header.biWidth;
+	int height = header.biHeight;
+	surface = new BSurface(width, height, bpp);
+	surface_data = (unsigned short *)surface->Lock();
+	surface_width = surface->Stride() / 2;
+	bitmap_width = width - (width & 3) + 4;
+
+	for (int y = 0; y < height; y++) {
+		int source_row = (height - 1 - y) * bitmap_width;
+		for (int x = 0; x < width; x++) {
+			if (bpp == 2) {
+				surface_data[y * surface_width + x] = pal16[bitmap_data[source_row + x]];
+			} else {
+				surface_data[y * surface_width + x] = bitmap_data[source_row + x];
+			}
+		}
+	}
+
+	if (bpp == 1) {
+		memcpy(new_entry.palette, bitmap_info_header->bmiColors, sizeof(new_entry.palette));
+	}
+	new_entry.surf = surface;
+
+	surface->Unlock();
+	operator delete(bitmap_info_header);
+	operator delete(bitmap_data);
+
+	Wstring key(name);
+	key.toLower();
+
+	SurfaceCacheEntry old_entry;
+	if (getValue(key, old_entry)) {
+		remove(key);
+		delete old_entry.surf;
+	}
+
+	add(key, new_entry);
+
+	return(true);
+}
+
 template<> char Dictionary<Wstring, SurfaceCacheEntry>::remove(Wstring &key)
 {
 	SurfaceCacheEntry value;
@@ -181,6 +269,40 @@ void SurfaceCacheClass::Remove(char const *name)
 	getEntries();
 }
 
+// FUNCTION: GAMEMD 0x006BA3E0
+bool SurfaceCacheClass::Draw(Rect const & rect, Surface & tosurface, Surface & fromsurface, int x, int y)
+{
+	unsigned short * dest = (unsigned short *)tosurface.Lock();
+	if (dest == NULL) {
+		return(false);
+	}
+	unsigned short const * src = (unsigned short const *)fromsurface.Lock();
+	if (src == NULL) {
+		tosurface.Unlock();
+		return(false);
+	}
+
+	int dest_pitch = tosurface.Stride() / 2;
+	int src_pitch = fromsurface.Stride() / 2;
+	Rect image = fromsurface.Get_Rect();
+	Rect trect = tosurface.Get_Rect();
+
+	int row = rect.Height;
+	int x_margin = MAX((image.Width - rect.Width) / 2, 0);
+	int y_margin = MAX((image.Height - row) / 2, 0);
+	for (row = 0; row < rect.Height; ++row) {
+		int offset = (rect.Y + row) * dest_pitch + rect.X;
+		for (int column = 0; column < rect.Width; ++column) {
+			int src_row = (y_margin + y + row) % image.Height;
+			int src_column = (x_margin + x + column) % image.Width;
+			dest[offset + column] = src[src_row * src_pitch + src_column];
+		}
+	}
+	fromsurface.Unlock();
+	tosurface.Unlock();
+	return(true);
+}
+
 // FUNCTION: GAMEMD 0x006BA580
 bool SurfaceCacheClass::DrawTrans(Rect const & rect, Surface & tosurface, Surface & fromsurface, short trans)
 {
@@ -217,6 +339,110 @@ bool SurfaceCacheClass::DrawTrans(Rect const & rect, Surface & tosurface, Surfac
 bool SurfaceCacheClass::DrawNullsub(Rect const & rect, Surface & tosurface, Surface & fromsurface)
 {
 	return(false);
+}
+
+// FUNCTION: GAMEMD 0x006BA690
+bool SurfaceCacheClass::DrawMasked(Rect const & rect, Surface & tosurface, Surface & fromsurface, Surface & masksurface, void * palette, int center, int x_offset, int y_offset)
+{
+	unsigned short pal16[256];
+
+	Rect image_rect = fromsurface.Get_Rect();
+	int src_x = 0;
+	int top_clip = 0;
+	int right_clip = 0;
+	int src_y = 0;
+	int dst_x_center = 0;
+	int dst_y_center = 0;
+
+	if (image_rect.Width > rect.Width) {
+		if (center) {
+			src_x = (image_rect.Width - rect.Width + 1) / 2;
+			right_clip = (image_rect.Width - rect.Width) / 2;
+		} else {
+			right_clip = image_rect.Width - rect.Width;
+		}
+	} else if (center) {
+		dst_x_center = (rect.Width - image_rect.Width) / 2;
+	}
+
+	if (image_rect.Height > rect.Height) {
+		if (center) {
+			top_clip = (image_rect.Height - rect.Height + 1) / 2;
+			src_y = (image_rect.Height - rect.Height) / 2;
+		} else {
+			src_y = image_rect.Height - rect.Height;
+		}
+	} else if (center) {
+		dst_y_center = (rect.Height - image_rect.Height) / 2;
+	}
+
+	if (x_offset > src_x) {
+		right_clip += src_x - x_offset;
+		src_x = x_offset;
+	}
+	if (y_offset > top_clip) {
+		src_y += top_clip - y_offset;
+		top_clip = y_offset;
+	}
+
+	unsigned short * dest = (unsigned short *)tosurface.Lock();
+	if (dest == NULL) {
+		return(false);
+	}
+
+	unsigned short * source = NULL;
+	unsigned char * palsource = NULL;
+	if (palette == NULL) {
+		source = (unsigned short *)fromsurface.Lock();
+	} else {
+		palsource = (unsigned char *)fromsurface.Lock();
+	}
+	if (source == NULL && palsource == NULL) {
+		tosurface.Unlock();
+		return(false);
+	}
+
+	unsigned char * mask = (unsigned char *)masksurface.Lock();
+
+	if (palette != NULL) {
+		unsigned char * pal = (unsigned char *)palette;
+		for (int i = 0; i < 256; i++) {
+			pal16[i] = DSurface::Build_Hicolor_Pixel(pal[i * 3], pal[i * 3 + 1], pal[i * 3 + 2]);
+		}
+	}
+
+	int dst_stride = tosurface.Stride() / 2;
+	unsigned int src_stride = fromsurface.Stride();
+	if (palette == NULL) {
+		src_stride >>= 1;
+	}
+
+	for (int y = top_clip; y < image_rect.Height - src_y; y++) {
+		int dst_index = dst_stride * (rect.Y - top_clip + y + dst_y_center) + rect.X + dst_x_center;
+		int src_index = y * src_stride + src_x;
+		if (palette == NULL) {
+			for (int x = src_x; x < image_rect.Width - right_clip; x++) {
+				if (mask[src_index] != 0) {
+					dest[dst_index] = OD_Blend_Color(dest[dst_index], source[src_index], mask[src_index]);
+				}
+				dst_index++;
+				src_index++;
+			}
+		} else {
+			for (int x = src_x; x < image_rect.Width - right_clip; x++) {
+				if (mask[src_index] != 0) {
+					dest[dst_index] = OD_Blend_Color(dest[dst_index], pal16[palsource[src_index]], mask[src_index]);
+				}
+				dst_index++;
+				src_index++;
+			}
+		}
+	}
+
+	tosurface.Unlock();
+	fromsurface.Unlock();
+	masksurface.Unlock();
+	return(true);
 }
 
 // TEMPLATE: GAMEMD 0x006BAC40

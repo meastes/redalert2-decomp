@@ -115,7 +115,7 @@ Paths under `src/recovered/` in these entries are the earlier tree's, at the tag
   (including the EA line where present) and the commit subject says "from TibSun <file>". Acceptance is unchanged.
 
 - **Pinned Yuri's Revenge sources (`yr/`, lane Y1, user decision 2026-11-15)**: `yr/ra2-decomp` is a pinned copy of
-  ra2-decomp at `8719494727dd9d5db16f92087e3cc13ea99f4dd3` (moved from `f8d8d53` by lane Y3) (`src/`, `include/`, `COPYING.md`, `LICENSE`, `README.md`
+  ra2-decomp at `ac45ee9ec1dc44ae2a9c54e37570c25de0fea994` (2026-11-27; moved from `8719494` by ports lane P64, earlier `f8d8d53`) (`src/`, `include/`, `COPYING.md`, `LICENSE`, `README.md`
   and the `data/` function map, manifest, names, library and module tables), GPL-3.0-or-later with Electronic Arts'
   section 7 terms on files carrying an EA or OpenTS copyright line; `data/` and the tooling text are MIT. `yr/tibsun`
   is a pinned copy of the OpenTS TibSun archive's headers (`code/**/*.h`, `LICENSE.md`, `README.md`) at

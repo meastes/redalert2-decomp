@@ -192,7 +192,7 @@ Cell const * BulletClass::Occupy_List(bool) const
 }
 
 // SYNTHETIC: GAMEMD 0x004666B0 SYMBOL
-// _$E41
+// _$E171
 
 // FUNCTION: GAMEMD 0x004666C0
 bool BulletClass::Mark(MarkType mark)
@@ -201,6 +201,429 @@ bool BulletClass::Mark(MarkType mark)
 		return(true);
 	}
 	return(false);
+}
+
+#include "revent.h"
+#include "voxel.h"
+
+void FUN_0053AB70(void);
+
+static inline int Coord_Dist(Coord const & a, Coord const & b);
+
+static inline Coord Ballistic_Move(TVelocity3D<double> & position, TVelocity3D<double> & velocity, double gravity, double elasticity, double max_velocity, TechnoClass * payback, ImpactType & impact, bool & forced)
+{
+	velocity.Z -= gravity;
+	if (max_velocity > 0.0) {
+		double speed = velocity.Speed();
+		if (speed > max_velocity) {
+			velocity *= (float)(speed / speed);
+		}
+	}
+	Coord old_coord(position.X, position.Y, position.Z);
+	position += velocity;
+	Coord new_coord(position.X, position.Y, position.Z);
+	int height = Map.Get_Height_GL(new_coord);
+	int bridge_height = height + BRIDGE_LEPTON_HEIGHT;
+	CellClass * cellptr = &Map[new_coord];
+	bool rose_through_bridge;
+	bool fell_through_bridge;
+	fell_through_bridge = false;
+	rose_through_bridge = false;
+	if (cellptr->IsUnderBridge || Map[old_coord].IsUnderBridge) {
+		if (new_coord.Z >= bridge_height) {
+			if (old_coord.Z < bridge_height) {
+				rose_through_bridge = true;
+			}
+		} else if (old_coord.Z >= bridge_height) {
+			fell_through_bridge = true;
+		}
+	}
+	bool hit_obstacle = false;
+	if (!fell_through_bridge && !rose_through_bridge) {
+		if (position.Z >= height && position.Z - 150 < height) {
+			BuildingClass * building = cellptr->Cell_Building();
+			hit_obstacle = building != NULL || cellptr->Has_Wall_Or_Gate();
+			if (hit_obstacle) {
+				if (building != NULL) {
+					if (building == payback || building->Class->IsLaserFence && building->LaserFenceFrame >= 8) {
+						hit_obstacle = false;
+					}
+					if (building->IsStrange()) {
+						hit_obstacle = false;
+					}
+					if (payback != NULL && payback->House->Is_Ally(building)) {
+						hit_obstacle = false;
+					}
+				}
+			}
+		}
+	}
+	bool do_bounce = true;
+	if (position.Z >= height) {
+		if (!fell_through_bridge && !rose_through_bridge && !hit_obstacle) {
+			do_bounce = false;
+		}
+	}
+	if (do_bounce) {
+		bool contact = true;
+		if (payback == NULL) {
+			if (fell_through_bridge) {
+				position.Z = bridge_height;
+			} else if (rose_through_bridge) {
+				bridge_height -= 20;
+				position.Z = bridge_height;
+			} else {
+				bridge_height = height - 100;
+				if (bridge_height < position.Z) {
+					position.Z = height;
+				}
+			}
+			Matrix3D slope_matrix = Get_Slope_Matrix(TacticalMap->Get_Cell_Ramp(new_coord));
+			Matrix3D slope_matrix_inv = Matrix3D::Orthogonal_Inverse(slope_matrix);
+			Vector3 vec(velocity.X, -velocity.Y, velocity.Z);
+			vec = slope_matrix_inv.Rotate_Vector(vec);
+			vec *= elasticity;
+			vec.Z = -vec.Z;
+			vec = slope_matrix.Rotate_Vector(vec);
+			velocity.X = vec.X;
+			velocity.Y = -vec.Y;
+			velocity.Z = vec.Z;
+		} else {
+			if (fell_through_bridge) {
+				position.Z = bridge_height;
+			} else if (rose_through_bridge) {
+				bridge_height -= 20;
+				position.Z = bridge_height;
+			} else {
+				contact = false;
+			}
+		}
+		if (contact) {
+			impact = IMPACT_NORMAL;
+			forced = true;
+		}
+	}
+	Coord result;
+	result.X = (int)position.X;
+	result.Y = (int)position.Y;
+	result.Z = (int)position.Z;
+	return(result);
+}
+
+static inline void Set_Horizontal_Velocity(TVelocity3D<double> & velocity,
+		double const & x, double const & y)
+{
+	velocity.X = x;
+	velocity.Y = y;
+}
+
+// FUNCTION: GAMEMD 0x004666E0
+void BulletClass::AI(void)
+{
+	static const int _limit = 4 * TICKS_PER_SECOND;
+	Coord coord;
+	int distance;
+
+	BASECLASS::AI();
+	if (!IsActive) return;
+
+	if (SpawnNextAnim) {
+		if (NextAnim != NULL) return;
+		AnimPtrTracker.Delete(this);
+		SpawnNextAnim = false;
+		Bullet_Explodes(false);
+		Delete_Me();
+		return;
+	}
+
+	bool collided = false;
+	bool forced = false;
+	if (Class->IsDropping && !IsFalling) {
+		forced = true;
+	}
+	if (Class->AnimLow || Class->AnimHigh) {
+		AnimRate--;
+		if (AnimRate == 0) {
+			AnimRate = Class->AnimRate;
+			AnimFrame++;
+			if (AnimFrame > Class->AnimHigh) {
+				AnimFrame = Class->AnimLow;
+			}
+		}
+	}
+	coord = PositionCoord;
+	if (Class->Trailer != NULL) {
+		if (Class->ScaledSpawnDelay) {
+			int trailer_phase = Frame % Class->ScaledSpawnDelay;
+			if (trailer_phase == 0) {
+				new AnimClass(Class->Trailer, coord, 1, 1);
+			}
+		} else {
+			int trailer_phase = Frame % Class->SpawnDelay;
+			if (trailer_phase == 0) {
+				new AnimClass(Class->Trailer, coord, 1, 1);
+			}
+		}
+	}
+
+	ImpactType impact = IMPACT_NONE;
+	if (Class->ROT > 0) {
+		int max_speed = MaxSpeed;
+		double speed = Velocity.Magnitude();
+		if (Class->CourseLockDuration == 0) {
+			if (MaxSpeed >= 40 || speed + 0.5 >= max_speed) {
+				IsLaunching = false;
+			}
+		} else {
+			if (CourseLockCounter < Class->CourseLockDuration) {
+				CourseLockCounter++;
+				if (CourseLockCounter >= Class->CourseLockDuration) {
+					IsLaunching = false;
+				}
+			}
+		}
+		int acceleration = Class->Acceleration;
+		if (IsLaunching && Class->CourseLockDuration == 0) {
+			acceleration = (Frame % 2 == 0) ? 1 : 0;
+		}
+		if (speed < max_speed) {
+			speed += acceleration;
+			if (speed >= max_speed) {
+				speed = max_speed;
+			}
+			Velocity.Set_Speed(speed);
+		} else if (speed > max_speed) {
+			speed -= acceleration / 2;
+			if (speed <= 0) {
+				speed = 0;
+			}
+			Velocity.Set_Speed(speed);
+		}
+		TVelocity3D<double> velocity = Velocity;
+		Coord target_coord = TarCom != NULL ? TarCom->As_Coord() : COORD_NONE;
+		if (TarCom != NULL && (TarCom->AbstractFlags & 2)) {
+			target_coord = ((ObjectClass *)TarCom)->Target_Coord();
+		}
+		double & rotvar = Rule->MissileROTVar;
+		double phase = ((Frame + Fetch_ID()) % TICKS_PER_SECOND) * (1.0 / TICKS_PER_SECOND);
+		int rot = (fastmath::sin(phase * DEG_TO_RAD(360)) * rotvar + (rotvar + 1)) * Class->ROT;
+		if (Center_Coord().Distance_To(target_coord) < CELL_LEPTON) {
+			rot *= 1.5;
+		}
+		Coord old_coord = coord;
+		int is_aircraft;
+		if (TarCom != NULL && TarCom->Fetch_RTTI() == RTTI_AIRCRAFT) {
+			is_aircraft = true;
+		} else {
+			is_aircraft = false;
+		}
+		distance = Projectile_Motion(coord, velocity, target_coord, DirType((Dir256)(IsLaunching == false ? rot : 0)), (bool &)is_aircraft, Class->IsAirburst, Class->IsVeryHigh, Class->Level);
+		CellClass * cellptr = &Map[coord];
+		TVelocity3D<double> new_velocity = velocity;
+		Velocity = new_velocity;
+		double half_speed = Velocity.Magnitude() * 0.5;
+		if (distance <= half_speed || HeightAGL <= 0) {
+			forced = true;
+			impact = IMPACT_NORMAL;
+			if (HeightAGL > 0 && !Class->IsAirburst && target_coord != COORD_NONE) {
+				coord = target_coord;
+			}
+		}
+		if (target_coord == COORD_NONE && HeightAGL >= Rule->MissileSafetyAltitude) {
+			forced = true;
+			impact = IMPACT_NORMAL;
+		}
+		int delta = Coord_Dist(old_coord, target_coord) - Coord_Dist(coord, target_coord);
+		if (!IsLaunching) {
+			if (ClosureSamples < _limit) {
+				ClosureSamples++;
+				SmoothedClosure += delta;
+			} else {
+				SmoothedClosure = SmoothedClosure * ((4 * TICKS_PER_SECOND - 1.0) / (4 * TICKS_PER_SECOND)) + delta;
+				if (SmoothedClosure >= 0 && SmoothedClosure < _limit) {
+					if (!Class->IsAirburst && !Class->IsVeryHigh) {
+						forced = true;
+						impact = IMPACT_NORMAL;
+					}
+				}
+			}
+		}
+		if (impact == IMPACT_NONE && (cellptr->IsUnderBridge || Map[old_coord].IsUnderBridge)) {
+			int ground = Map.Get_Height_GL(coord);
+			int bridge_height = ground + BRIDGE_LEPTON_HEIGHT;
+			if (coord.Z > bridge_height && old_coord.Z < bridge_height) {
+				impact = IMPACT_NORMAL;
+				coord.Z = bridge_height;
+				forced = true;
+			} else if (coord.Z < bridge_height && old_coord.Z > bridge_height) {
+				impact = IMPACT_NORMAL;
+				coord.Z = bridge_height;
+				forced = true;
+			}
+		}
+	} else {
+		TVelocity3D<double> new_velocity;
+		TVelocity3D<double> const & previous = Velocity;
+		TVelocity3D<double> captured(previous, previous.Z);
+		new_velocity = captured;
+		TVelocity3D<double> velocity;
+		Set_Horizontal_Velocity(velocity, captured.X, captured.Y);
+		velocity.Z = captured.Z;
+		if (new_velocity.Speed() < 8) {
+			impact = IMPACT_NORMAL;
+		}
+		TVelocity3D<double> position(coord.X, coord.Y, coord.Z);
+		double gravity = Rule->Gravity;
+		if (Class->IsFloater) {
+			gravity = Get_Floater_Gravity();
+		}
+		if (Class->Vertical) {
+			int speed = Velocity.Speed();
+			if (speed < MaxSpeed) {
+				Velocity.Set_Speed(speed + Class->Acceleration);
+			}
+			TVelocity3D<double> move_velocity = Velocity;
+			Point3D displacement(move_velocity.X, move_velocity.Y, move_velocity.Z);
+			Coord old_coord = coord;
+			coord = old_coord + displacement;
+			if (coord.Z > Class->DetonationAltitude) {
+				impact = IMPACT_NORMAL;
+				forced = true;
+			} else if (HeightAGL < 0) {
+				impact = IMPACT_NORMAL;
+				forced = true;
+			} else {
+				int ground = Map.Get_Height_GL(coord);
+				int bridge_height = ground + BRIDGE_LEPTON_HEIGHT;
+				if (Map[coord].IsUnderBridge || Map[old_coord].IsUnderBridge) {
+					if (coord.Z >= bridge_height) {
+						if (old_coord.Z < bridge_height) {
+							impact = IMPACT_NORMAL;
+							forced = true;
+						}
+					} else if (old_coord.Z >= bridge_height) {
+						impact = IMPACT_NORMAL;
+						forced = true;
+					}
+				}
+			}
+		} else {
+			coord = Ballistic_Move(position, velocity, gravity, Class->Elasticity, 0.0, Payback, impact, forced);
+		}
+
+		Cell cell = coord.As_Cell();
+		Cell target_cell = TargetCoords.As_Cell();
+		if (cell == target_cell && !Class->Vertical && HeightAGL < LEVEL_LEPTON_H * 2) {
+			impact = IMPACT_NORMAL;
+			forced = true;
+			collided = true;
+		} else {
+			CellClass * cellptr = &Map[cell];
+			CellClass * target_cellptr = &Map[target_cell];
+			BuildingClass * building = cellptr->Cell_Building();
+			BuildingClass * target_building = target_cellptr->Cell_Building();
+			if (building != NULL && !Class->Vertical && building == target_building && HeightAGL < LEVEL_LEPTON_H * 2) {
+				impact = IMPACT_NORMAL;
+				forced = true;
+				collided = true;
+			} else {
+				TechnoClass * techno = Map[coord].Cell_Techno();
+				bool has_techno = techno != NULL;
+				bool has_payback = Payback != NULL;
+				bool is_payback = has_payback && techno == Payback;
+				bool is_ally = has_techno && has_payback && Payback->House->Is_Ally(techno);
+				bool nearby = has_techno && Coord_Dist(coord, techno->PositionCoord) < CELL_LEPTON / 2;
+				if (!is_payback && !is_ally && nearby) {
+					impact = IMPACT_NORMAL;
+					forced = true;
+					if (!Class->IsInaccurate) {
+						coord = techno->PositionCoord;
+					}
+				} else if (!Map.In_Radar(coord)) {
+					impact = IMPACT_EDGE;
+					forced = true;
+					coord = PositionCoord;
+				} else {
+					Set_Horizontal_Velocity(new_velocity, velocity.X, velocity.Y);
+					if (!Class->Vertical) {
+						TVelocity3D<double> updated_velocity = new_velocity;
+						updated_velocity.Z = velocity.Z;
+						Velocity = updated_velocity;
+					}
+					if (Velocity.Speed() < 10 && HeightAGL < 10) {
+						impact = IMPACT_NORMAL;
+						forced = true;
+					}
+				}
+			}
+		}
+	}
+
+	switch (impact) {
+		case IMPACT_EDGE:
+			Mark();
+			Delete_Me();
+			break;
+		default:
+		case IMPACT_NONE:
+		case IMPACT_NORMAL: {
+			Mark();
+			PositionCoord = coord;
+			if (!forced) {
+				Coord cur_coord = PositionCoord;
+				forced = Is_Forced_To_Explode(cur_coord);
+				PositionCoord = cur_coord;
+			}
+			if (forced && HeightAGL < 0) {
+				HeightAGL = 0;
+			}
+			FuseResultType fuse = (Is_Homing() || Class->IsFueled) ? Fuse.Fuse_Checkup(coord) : FUSE_WAIT;
+			if (Payback != NULL && Payback->Techno_Type_Class()->JumpJet && fuse == FUSE_EXPLODE_FAR) {
+				fuse = FUSE_EXPLODE_CLOSE;
+			}
+			if (!forced && (Class->IsDropping || fuse == FUSE_WAIT)) {
+				if (Class->IsDegenerate && Strength > 5) {
+					Strength--;
+				}
+			} else {
+				if (TarCom != NULL) {
+					if ((fuse == FUSE_EXPLODE_CLOSE || collided) && !Class->IsAirburst && !Class->IsInaccurate) {
+						Coord midpoint = coord;
+						Coord target_coord = TarCom->As_Coord();
+						midpoint.Z = (midpoint.Z + target_coord.Z) / 2;
+						int target_distance = midpoint.Distance_To(target_coord);
+						if (collided) {
+							target_distance /= 3;
+						}
+						if (fuse == FUSE_EXPLODE_CLOSE || target_distance <= MAX(CELL_LEPTON / 2, Velocity.Speed() * 2)) {
+							PositionCoord = TarCom->Center_Coord();
+						}
+					}
+				}
+				if (*Warhead == "NUKE") {
+					if (HeightAGL < 0) {
+						HeightAGL = 0;
+					}
+					FUN_0053AB70();
+					RadarEventClass::Create(RADAREVENT_SUPERWEAPON_ACTIVATED, PositionCell);
+					AnimType anim = AnimTypeClass::From_Name("NUKEBALL");
+					if (anim != ANIM_NONE) {
+						AnimTypeClass * anim_type = AnimTypes[anim];
+						if (anim_type != NULL) {
+							NextAnim = new AnimClass(anim_type, PositionCoord, 0, 1, ShapeFlags_Type(0x2600), Get_Explosion_Z(PositionCoord));
+							SpawnNextAnim = true;
+							PointerExpiredNotification::NotifyInvalidAnim.Add(this);
+							break;
+						}
+					}
+				}
+				Bullet_Explodes(forced);
+				Delete_Me();
+			}
+			break;
+		}
+	}
+	LastMapCoords = coord.As_Cell();
 }
 
 // FUNCTION: GAMEMD 0x00468000
@@ -270,7 +693,7 @@ void BulletClass::Draw_It(Point2D const & point, Rect const & cliprect) const
 // FUNCTION: GAMEMD 0x00468430
 void BulletClass::LoseTarget(void)
 {
-	Cell cell = TarCom->Center_Coord().As_Cell();
+	Cell cell = TarCom->Center_Coord();
 	if (!ScenarioInit && !TarCom->In_Air() && cell != DAT_0089DDF0) {
 		TarCom = &Map[cell];
 	} else {
@@ -302,7 +725,6 @@ void BulletClass::Detach(AbstractClass const * target, bool all)
 	if (all && target->Fetch_RTTI() == RTTI_BULLET) {
 		BulletClass * bullet = (BulletClass *)target;
 		if (bullet->Class->Scalable) {
-			int tracked = ScalableBullets.Count() + ScalableBullets.Count() + ScalableBullets.Count();
 			for (int i = 0; i < ScalableBullets.Count(); i++) {
 				if (bullet == ScalableBullets[i]) {
 					ScalableBullets.Delete(bullet);
@@ -311,6 +733,64 @@ void BulletClass::Detach(AbstractClass const * target, bool all)
 			}
 		}
 	}
+}
+
+// FUNCTION: GAMEMD 0x00468670
+bool BulletClass::Unlimbo(Coord const & coord, TVelocity3D<double> const & velocity)
+{
+	if (BASECLASS::Unlimbo(coord)) {
+		Velocity = velocity;
+		SourceCoords = coord;
+		LastMapCoords = SourceCoords.As_Cell();
+		Map.Remove(this);
+
+		Coord tcoord = TarCom->As_Coord();
+		TargetCoords = tcoord;
+
+		if (Class->FlakScatter && Class->IsInvisible) {
+			TPoint3D<float> delta;
+			delta.X = coord.X - tcoord.X;
+			delta.Y = tcoord.Y - coord.Y;
+			float vertical = coord.Z - tcoord.Z;
+			delta.Z = vertical;
+			float distance = delta.Length();
+			int scatter = Random_Pick(0, Rule->BallisticScatter * 2);
+			scatter *= (int)distance;
+			scatter /= WeaponType->Range;
+			double scatter_angle = Random_Double(0.0, M_PI * 2.0);
+			tcoord = Move_Coord(tcoord, DirType(scatter_angle), scatter);
+		}
+
+		if (Class->IsInvisible) {
+			HouseClass * house = Payback != NULL ? Payback->House : NULL;
+			Coord firestorm_coord = Map.Firestorm_On_Path(coord, tcoord, house);
+			if (firestorm_coord != COORD_NONE) {
+				firestorm_coord.Z = Map.Get_Height_GL(firestorm_coord);
+				PositionCoord = firestorm_coord;
+			} else {
+				CellClass * obstacle = TrajectoryHelper::FindFirstObstacle(coord, tcoord, Class, house);
+				if (obstacle != NULL) {
+					PositionCoord = obstacle->Center_Coord();
+				} else {
+					PositionCoord = tcoord;
+				}
+				// The target position replaces the obstacle position.
+				PositionCoord = tcoord;
+				MaxSpeed = 0;
+				Velocity.Set_Speed(0);
+			}
+		}
+
+		Fuse.Arm_Fuse(PositionCoord, tcoord, As_Aircraft(TarCom) != NULL ? 0 : Class->Arming);
+		if (Is_Homing()) {
+			Velocity.Set_Speed(1);
+		}
+		if (IsActive) {
+			Map.Submit(this);
+		}
+		return(true);
+	}
+	return(false);
 }
 
 // FUNCTION: GAMEMD 0x00468B90
@@ -362,8 +842,7 @@ bool BulletClass::Is_Forced_To_Explode(Coord & coord) const
 
 static inline int Coord_Dist(Coord const & a, Coord const & b)
 {
-	Coord c = a - b;
-	return(c.Length());
+	return(Coord(a - b).Length());
 }
 
 // FUNCTION: GAMEMD 0x00468D80
@@ -660,6 +1139,95 @@ void BulletClass::Detonate(Coord const & coord)
 		if (bullet != NULL) {
 			TVelocity3D<double> velocity(DirType((Dir256)Random_Pick(DIR_MIN, DIR_NE)), DirType(DIR_S), weapon->MaxSpeed / 10);
 			bullet->Unlimbo(PositionCoord, velocity);
+		}
+	}
+}
+
+extern int DAT_007ED3D0[];
+namespace Unsorted { extern Cell CellSpreadTable[]; }
+
+// FUNCTION: GAMEMD 0x0046A310
+void BulletClass::Shrapnel(void)
+{
+	int configured = Class->ShrapnelCount;
+	int count;
+	if (configured < 0) {
+		if (Payback == NULL) {
+			count = 3;
+		} else {
+			count = -configured - ::Distance(Payback->Center_Coord(), PositionCoord) / CELL_LEPTON;
+			if (count <= 0) {
+				return;
+			}
+		}
+	} else {
+		count = configured;
+	}
+
+	if (Get_Cell_Ptr()->Cell_Occupier() == NULL ||
+		Get_Cell_Ptr()->Cell_Occupier()->Fetch_RTTI() == RTTI_BUILDING) {
+		return;
+	}
+
+	WeaponTypeClass * weapon = Class->ShrapnelWeapon;
+	BulletTypeClass const * type = weapon->Bullet;
+	Cell center = Get_Cell();
+	int range = weapon->Range / CELL_LEPTON;
+	int fired = 0;
+	TVelocity3D<double> velocity;
+	for (int radius = 1; radius <= range; radius++) {
+		int end = DAT_007ED3D0[radius];
+		for (int index = DAT_007ED3D0[radius - 1]; index < end; index++) {
+			CellClass * cellptr = &Map[center + Unsorted::CellSpreadTable[index]];
+			ObjectClass * object = cellptr->Cell_Occupier();
+			if (object != NULL && object != Payback && Payback != NULL &&
+				!Payback->House->Is_Ally(object)) {
+				BulletClass * bullet = Create_Bullet(type, object, Payback,
+					weapon->Attack, weapon->WarheadPtr, weapon->MaxSpeed, weapon->IsBright);
+				if (bullet != NULL) {
+					velocity.Set(0, 0, 0);
+					velocity.Set_Yaw(::Direction(PositionCoord, object->Center_Coord()));
+					velocity.Set_Pitch(DirType(DIR_NE));
+					velocity.Set_Speed(weapon->MaxSpeed);
+					bullet->Unlimbo(PositionCoord, velocity);
+					Coord source;
+					source = PositionCoord;
+					if (weapon->IsLaser && Payback != NULL) {
+						Payback->CreateLaser(object, 0, weapon, source);
+					}
+					if (weapon->IsElectricBolt && Payback != NULL) {
+						Payback->CreateEBolt(object, weapon, source);
+					}
+				}
+				fired++;
+				if (fired == count) {
+					return;
+				}
+			}
+		}
+	}
+
+	for (; fired < count; fired++) {
+		Cell cell = Get_Cell();
+		cell.X += Random_Pick(-2, 2);
+		cell.Y += Random_Pick(-2, 2);
+		BulletClass * bullet = Create_Bullet(type, &Map[cell], Payback,
+			weapon->Attack, weapon->WarheadPtr, weapon->MaxSpeed, weapon->IsBright);
+		if (bullet != NULL) {
+			velocity.Set(0, 0, 0);
+			CellClass & destination = Map[cell];
+			velocity.Set_Yaw(::Direction(PositionCoord, destination.Center_Coord()));
+			velocity.Set_Speed(weapon->MaxSpeed);
+			velocity.Set_Pitch(DirType(DIR_NE));
+			bullet->Unlimbo(PositionCoord, velocity);
+			Coord source;
+			source = PositionCoord;
+			if (weapon->IsLaser && Payback != NULL) {
+				Payback->CreateLaser(&Map[cell], 0, weapon, source);
+			}
+			if (weapon->IsElectricBolt && Payback != NULL) {
+				Payback->CreateEBolt(&Map[cell], weapon, source);
+			}
 		}
 	}
 }

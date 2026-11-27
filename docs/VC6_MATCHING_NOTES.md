@@ -7031,3 +7031,56 @@ closing test's loads printed), n.py and nc.py (Scenario_DlgProc edit sets with t
   copy before the middle one (constructor called there). The plain statements between the copies compile to the image's instructions
   as they stand (the warning flag, the list reset, the tool-tip block, the current mode): the 49 differing places are the middle pair,
   the expanded list search and the zero register that follows them. Draft unchanged.
+
+## Loop and update spellings are one code shape; a struct slot shared by two uses is read from the image, not from the frame size; slot-exact line counts do not see a store order (found in the rebuild (lane F96, high))
+
+Found in the rebuild (lane F96, high); no row landed and no draft changed (two guard labels extended). xsurface Draw_Ellipse 0x7746C0 stays at
+1,254 by position, isotype Draw_Tile 0x52C230 at 6,330. About 650 compiles, nearly all scripted. Lane tools in build/r/f96 (removed at
+hand-back; copies in private/dossiers/fable/f96_tools): gp.py, d2.py, d4.py (lanes F87 and F93), sbs.py (image and draft side by side, aligned
+register-blind, with the draft's relocation names), egen.py and erun.py (Draw_Ellipse bodies from eight axes, one CSV line each), erun2.py
+(loop form by update spelling), dup.py, igreedy.py (adjacent independent assignments swapped one pair at a time), the CSVs.
+
+- Standing reference pull: ra2-decomp ac45ee9e and mischa85 8f715e2, both as lane F88 found them; banked-forms 41d009df. No pool row has
+  reference text newer than its last lane. reference_hits.py lists nine functions (2,656 B), none usable: Create_Urban_Area 0x586B40 is
+  this tree's count-sensitive row, the rest are small TibSun-reconstruction functions and one emitted copy.
+- Wall time is not the limit on these rows. A compile and compare is three to six seconds, so a 384-variant matrix is about twenty
+  minutes. Write the generator first and read the matrix by two or three yes/no indicators taken from the image (here: `mov ebp,
+  [esp + 0x5c]` in the entry block, `sar ebp, 2` for the decision), not by the byte count.
+- Draw_Ellipse, read by slot. The image has two Point2D-sized slots. The upper (0x40/0x44) holds the right and left end pixels passed to
+  Put_Pixel and, in the flat loop, the first clip test's row: stored to 0x44 and read back twice, where the other three rows stay in
+  registers. The lower (0x38/0x3C) holds the top and bottom end pixels (Y stored first) and afterwards y (0x3C) and the never-read radx
+  (0x38). The draft has the named point in the upper slot and the temporaries in the lower, the reverse. The end pixels' x are stored to
+  0x24 and 0x20 ahead of their clip tests and the steep arcs load them from there; the draft recomputes them. y is reloaded from its slot
+  at every clip test while cliprect.X is reloaded only where its register was reused, so y's storage is address-exposed and cliprect is
+  not, which is the bank's reading (y is a member of a point passed to Put_Pixel).
+- Draw_Ellipse, the one fact that carries the rest: cliprect.X is in ebp from the entry block through both end tests. With ebp taken, top
+  stays in memory beside bottom, and decision, born after the tests and before Lock, takes ebp through the flat loop. In the draft ebp is
+  free at top's birth, top takes it across Lock and decision goes to a slot, which is also why the draft's squares slot shares the
+  temporaries' slot. ra2-decomp's log has the same contest (decision against top); this lane adds that the first holder is cliprect.X.
+- What does not move it (each compiled): the 384 combinations of {end pixels through temporaries, through pt with Y first, through
+  pt = Point2D(..)} x {side pixels through pt, temporaries, a second named point} x {int x, explicit xleft and xright} x {ends recomputed
+  or carried} x {squares recomputed or not} x {one or two decision variables} x {first row in a local or in the second point} x
+  {Is_Point_Within or the four comparisons}: neither indicator in any; frames 0x34 to 0x44; best 380 slot-exact lines (draft 406) at
+  1,472 B, so nothing replaces the draft. bottom and top as expressions (lazy, worse). Declaration orders of top, bottom and decision.
+- Loop spelling is not a lever. while (true) with a break, for (;;), do .. while (true), do { step; if (more) { plots } } while (more),
+  the else-break form, a goto loop, a redundant bottom test and a done flag, each with seven spellings of the decision update (operand
+  order, two statements, the assignment inside the test, a negated test): 56 texts, one object code. A loop entered in the middle is
+  different code and worse. The step written once ahead of a while loop and again at the end of its body is not merged (1,584 B), so
+  the image's shape is not a rotated while loop.
+- Draw_Tile is nearer than its 6,330 says: with registers, slots and relocated operands blind 154 of 1,807 instructions differ, in 92
+  hunks, and the image is 13 instructions and 71 bytes longer. Read from the image: the row clip stores SpanHeight ahead of ClipTop; the
+  clamp before the table offset works on clip_top itself (edx clamped, stored and multiplied in place; the draft's copy is one mov too
+  many); the table pointers are computed start-column first but the draft's statement order already gives that. Three registers decide
+  most of the rest. ebx: the image keeps cliprect.Height in it across the variation loop (written back after the loop), then x up to
+  the left clip, and work_x lives in a frame slot of its own (0x10) loaded at each use; the draft keeps work_x in ebx. esi and edi:
+  work_y and the tile set, swapped in the draft once clip_top is used directly. ebx again in the extra image: the image keeps the record
+  there and reloads SpanHeight, the draft keeps SpanHeight. Texts that compile to the draft's bytes exactly: the operand order of the
+  depth product, the width kept in the spanw local through the extra clip, SpanHeight += in the row clip, the order of the two table
+  stores' statements when written start-column first (the mirror order).
+- A measure note. Swapping two adjacent stores changes one line pair inside a hunk that exists either way, so the LCS counts (with or
+  without slots) and the byte position stay the same: a store order is settled by reading the pair, not by the score. The greedy swap
+  pass over 106 independent adjacent assignments in Draw_Tile kept one swap, and that one contradicts the image's order (a one-line
+  gain from a register change elsewhere). Do not trust a one-line gain from a swap.
+- Extract_Compressed_Events 0x6282D0 was read only (36 B, the store of numunits ahead of Whom's first four bytes): the image stores
+  Whom's fifth byte in place and defers its first four bytes behind numunits, with the destination's two stores between them. Nothing
+  compiled beyond the baseline; lanes F87 and F90 hold the tried orders.
