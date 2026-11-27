@@ -2995,7 +2995,7 @@ static int Add_Compressed_Events(void *buf, int bufsize, int frame_delay,
  * HISTORY:                                                                *
  *   11/21/1995 DRD : Created.                                             *
  *=========================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: against the image-derived bound 006282d0 (1,455 B) 791 bytes differ (was 921; each packed target of a newly saved run copied as sizeof(*list), as the RA2 1.001 decoder does; before that 923; the saved run decrements numunits before counting the event, as the RA2 1.001 decoder does (RobinDigitalPro/ra2-1001-decomp 1510aed; the Yuri's Revenge cache's count-first order gave 923); the saved run's list index and unit count computed before the stream advance, a statement order no reference shows: flag spelling if it lands; TibSun queue.cpp sets the first event pointer after the frame-info data size; the megamission Slot byte and the flat saved-count table as ra2-decomp's event.h and queue.cpp have them); main: best 57.62, tried 6 times (register, frame, inline)
+#ifdef RA2_NON_MATCHING // not exact: 36 bytes differ against the image-derived bound 006282d0 (1,455 body bytes; ours 1,455 B, the frame 0x9c, 11 of 11 calls and 414 = 414 instructions) (lane F87, 2026-11-26: the two megamission runs as ra2-decomp's bank for the identical Yuri's Revenge twin 0x64BDD0 has them (branch banked-forms 41d009df, banks/0x0064BDD0.cpp; flag reference-borne if it lands): the run locals at function scope, while loops under the count test, the packed unit assigned ahead of the counters and saved with its cursor stepped in the copy. Left: two adjacent stores in the new run, the image stores numunits (0x628581) ahead of the first four bytes of Whom, this text the reverse; the bank records the same residue on the twin. Not moved here: 87 orders of the five statements with the unit copied by assignment or memcpy and saved from the event or from the packet (best 76), the copies sized by datasize (965), a char cursor stepped by datasize (same code), the decrement in the test (850), the save and its step as two statements (1,342), the list saved first and the event read back from it as mischa85 writes it (1,296 and up); was 791: was 921; each packed target of a newly saved run copied as sizeof(*list), as the RA2 1.001 decoder does; before that 923; the saved run decrements numunits before counting the event, as the RA2 1.001 decoder does (RobinDigitalPro/ra2-1001-decomp 1510aed; the Yuri's Revenge cache's count-first order gave 923); the saved run's list index and unit count computed before the stream advance, a statement order no reference shows: flag spelling if it lands; TibSun queue.cpp sets the first event pointer after the frame-info data size; the megamission Slot byte and the flat saved-count table as ra2-decomp's event.h and queue.cpp have them); main: best 57.62, tried 6 times (register, frame, inline)
 int Extract_Compressed_Events(void * buf, int bufsize)
 {
 	int pos = 0;                // current buffer parsing position
@@ -3006,6 +3006,12 @@ int Extract_Compressed_Events(void * buf, int bufsize)
 	EventClass eventdata;       // stores Frame, ID, etc
 	unsigned char numunits = 0; // # units stored in compressed MegaMissions
 	int house; // RA2: the sender, to find his cached unit lists
+	int index; // RA2: the sender's saved list the run belongs to
+	int units; // RA2: # units saved from a new run
+	int reused; // RA2: # units taken from a saved list
+	xTargetClass * src; // RA2: next packed unit of a new run
+	xTargetClass * from; // RA2: next unit of the saved list
+	xTargetClass * dest; // RA2: where the next unit of a new run is saved
 
 	//------------------------------------------------------------------------
 	// Clear work event structure
@@ -3096,70 +3102,71 @@ int Extract_Compressed_Events(void * buf, int bufsize)
 						//......................................................
 						// RA2: a new run; its units are kept in the sender's slot
 						//......................................................
-						pos += (datasize + size_of(EventClass, Type));
-						leftover -= (datasize + size_of(EventClass, Type));
+						pos += (datasize + sizeof(eventdata.Type));
+						leftover -= (datasize + sizeof(eventdata.Type));
 						datasize = sizeof(eventdata.Data.MegaMission.Whom);
 						DebugString("Decoding new MEGAMISSION\n");
-						int index = eventdata.Data.MegaMission.Slot + house * ARRAY_SIZE(MegamissionCounts);
+						index = eventdata.Data.MegaMission.Slot + house * ARRAY_SIZE(MegamissionCounts);
 						MegamissionUnitLists[index][0] = eventdata.Data.MegaMission.Whom;
-						int units = 1;
+						units = 1;
 						SavedUnitCounts[index] = units;
-						if (eventdata.Frame == 0 || eventdata.Type == EventClass::EMPTY) {
+						if (!eventdata.Frame || !eventdata.Type) {
 							DebugString("Frame %d:Empty megamission decoded\n", Frame);
 						}
-
 						if (numunits) {
-							xTargetClass * list = &MegamissionUnitLists[index][units];
-							do {
-								if ( !DoList.Add( eventdata ) ) {
-									return(-1);
-								}
-								count++;
-								numunits--;
-								memcpy(&eventdata.Data.MegaMission.Whom, ((char *)buf) + pos, sizeof(*list));
-								memcpy(list++, &eventdata.Data.MegaMission.Whom, sizeof(*list)); // RA2: save the decoded target in this run
-								units++;
-								SavedUnitCounts[index] = units;
-								if (numunits == 1) {
-									datasize -= size_of(EventClass, Type);
-									DebugString("Got new unit list for player %d with %d units in slot %d\n", house, units, eventdata.Data.MegaMission.Slot);
-									break;
-								}
-								pos += datasize;
-								leftover -= datasize;
-							} while (numunits);
-						}
-					}
-					//.........................................................
-					// RA2: a run with the units of an earlier list
-					//.........................................................
-					else if (numunits == 0) {
-						int index = eventdata.Data.MegaMission.Slot + house * ARRAY_SIZE(MegamissionCounts);
-						int units = 1;
-						pos += (datasize + size_of(EventClass, Type));
-						leftover -= (datasize + size_of(EventClass, Type));
-						datasize = sizeof(eventdata.Data.MegaMission.Whom);
-						numunits = SavedUnitCounts[index];
-						memcpy(&eventdata.Data.MegaMission.Whom, &MegamissionUnitLists[index][0], datasize);
-						if (eventdata.Frame == 0 || eventdata.Type == EventClass::EMPTY) {
-							DebugString("Frame %d:Empty megamission decoded from slot %d. Player %d\n", Frame, eventdata.Data.MegaMission.Slot, house);
-						}
-						if (numunits) {
-							xTargetClass const * src = &MegamissionUnitLists[index][units];
-							do {
+							src = (xTargetClass *)(((char *)buf) + pos);
+							dest = &MegamissionUnitLists[index][units];
+							while (numunits) {
 								if (!DoList.Add(eventdata)) {
 									return(-1);
 								}
-								numunits--;
+								eventdata.Data.MegaMission.Whom = *src;
 								count++;
+								numunits--;
 								units++;
-								memcpy(&eventdata.Data.MegaMission.Whom, src++, datasize);
+								memcpy(dest++, &eventdata.Data.MegaMission.Whom, sizeof(xTargetClass)); // RA2: save the decoded target in this run
+								SavedUnitCounts[index] = units;
+								if (numunits == 1) {
+									datasize -= sizeof(eventdata.Type);
+									DebugString("Got new unit list for player %d with %d units in slot %d\n", house, units, eventdata.Data.MegaMission.Slot);
+									break;
+								} else {
+									pos += datasize;
+									src++;
+									leftover -= datasize;
+								}
+							}
+						}
+					} else if (numunits == 0) {
+						//.........................................................
+						// RA2: a run with the units of an earlier list
+						//.........................................................
+						pos += (datasize + sizeof(eventdata.Type));
+						index = eventdata.Data.MegaMission.Slot + house * ARRAY_SIZE(MegamissionCounts);
+						numunits = SavedUnitCounts[index];
+						leftover -= (datasize + sizeof(eventdata.Type));
+						datasize = sizeof(eventdata.Data.MegaMission.Whom);
+						reused = 1;
+						eventdata.Data.MegaMission.Whom = MegamissionUnitLists[index][0];
+						if (!eventdata.Frame || !eventdata.Type) {
+							DebugString("Frame %d:Empty megamission decoded from slot %d. Player %d\n", Frame, eventdata.Data.MegaMission.Slot, house);
+						}
+						if (numunits) {
+							from = &MegamissionUnitLists[index][reused];
+							while (numunits) {
+								if (!DoList.Add(eventdata)) {
+									return(-1);
+								}
+								count++;
+								numunits--;
+								reused++;
+								memcpy(&eventdata.Data.MegaMission.Whom, from++, sizeof(xTargetClass));
 								if (numunits == 1) {
 									datasize = -1;
-									DebugString("Used old unit list in slot %d - %d bytes saved\n", eventdata.Data.MegaMission.Slot, units * sizeof(eventdata.Data.MegaMission.Whom));
+									DebugString("Used old unit list in slot %d - %d bytes saved\n", eventdata.Data.MegaMission.Slot, reused * sizeof(xTargetClass));
 									break;
 								}
-							} while (numunits);
+							}
 						}
 					}
 					break;

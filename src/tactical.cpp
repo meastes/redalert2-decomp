@@ -2506,12 +2506,13 @@ void Tactical::Draw_Tile_Shadows(Rect const & area, Rect const & cliprect)
 /// </summary>
 /// <param name="cell">The cell whose tile needs refreshing.</param>
 /// <param name="cliprect">Not referenced; the tiles clip to the tactical rectangle.</param>
-#ifdef RA2_NON_MATCHING // not exact: 529 bytes differ against the image-derived bound 006a8560 (824 body bytes, 8 padding; ours 816 B) (lane F76, 2026-11-26: the elevation test on the image's height difference, which the draft had one level off in both arms (RobinDigitalPro/ra2-1001-decomp 7e84ed4 reads 1.001 the same way); left there: the image reads Elevation from the cell three times and keeps height in edx and draw in al, ours holds Elevation in al, draw in cl and reads Height again for the level test; not moved by the declaration order of draw, overlap and height, overlap set from draw, or the difference written out at each use (526 B). Robin's whole text is 385 B by position at the image's size with more instructions off (its elevation local is not the image's) (was 535, 923; the two projected pixel positions and the shared last-subtile bound as ra2-decomp's banked form banks/0x006D7F20_tact.cpp (11df85d) has them, RA2's elevation test kept; 10 of 10 calls in order, frame 0x48 against 0x44); main: best 63.04, tried 7 times (inline, frame, register)
+#ifdef RA2_NON_MATCHING // not exact: 11 bytes differ against the image-derived bound 006a8560 (824 body bytes, 8 padding; ours 824 B, the frame 0x44, 10 of 10 calls and 255 = 255 instructions) (lane F87, 2026-11-26: ra2-decomp's refreshed bank for the Yuri's Revenge twin 0x6D7F20 taken whole (branch banked-forms 41d009df, banks/0x006D7F20.cpp; flag reference-borne if it lands): the coordinate declared and then assigned from Coord_Whole(Tile_Center(cell)), the tests written draw == false, the outer columns tested height < level, the record tests apart with draw set after them. Left, as the bank records for the twin: the outer-column test is cmp edx, eax here where the image tests the difference (test ecx, ecx at 0x6A86D6), and the result pointer of Rectangular_To_Isometric at the second projection is in ecx for edx (0x6A87EA), which lets cdq go ahead of the load of Y. Written diff < 0 the difference has four uses and the block returns to the earlier allocation (frame 0x48, 542); with the middle column then on height + 1 <= level it is 12, on the written-out difference in either middle test 38 or 542, with no named difference 541; the second projection through Project_Tile_Left, a member-wise pixel, the screen point reused or Tile_Center gives 800 and up. Was 529: lane F76, 2026-11-26: the elevation test on the image's height difference, which the draft had one level off in both arms (RobinDigitalPro/ra2-1001-decomp 7e84ed4 reads 1.001 the same way); left there: the image reads Elevation from the cell three times and keeps height in edx and draw in al, ours holds Elevation in al, draw in cl and reads Height again for the level test; not moved by the declaration order of draw, overlap and height, overlap set from draw, or the difference written out at each use (526 B). Robin's whole text is 385 B by position at the image's size with more instructions off (its elevation local is not the image's) (was 535, 923; the two projected pixel positions and the shared last-subtile bound as ra2-decomp's banked form banks/0x006D7F20_tact.cpp (11df85d) has them, RA2's elevation test kept; 10 of 10 calls in order, frame 0x48 against 0x44); main: best 63.04, tried 7 times (inline, frame, register)
 void Tactical::Draw_Tiles(Cell const & cell, Rect const & cliprect)
 {
 	CellClass * basecell = &Map[cell];
 
-	Coord coord = Coord_Whole(Coord(cell));
+	Coord coord;
+	coord = Coord_Whole(Tile_Center(cell));
 	Point2D screen;
 	Coord_To_Pixel(coord, screen);
 	if (basecell->Height < 2) {
@@ -2531,38 +2532,28 @@ void Tactical::Draw_Tiles(Cell const & cell, Rect const & cliprect)
 				CellClass * cellptr = &Map[Cell(cx, cy)];
 				bool draw = false;
 				int height = cellptr->Height;
-				bool overlap = false;
 
 				if (col != 1) {
 					if (height == level + 1) {
 						draw = true;
-						overlap = true;
 					}
 				} else if (height > level && height < level + 4) {
 					draw = true;
-					overlap = true;
 				}
 
-				if (cellptr->Elevation > 0 && !draw) {
+				if (cellptr->Elevation > 0 && draw == false) {
 					int diff = height - level; // RA2: the image tests height - level in the outer columns and height - level + 1 in the middle one (0x6A86D4 to 0x6A8703)
 					if (col != 1) {
-						if (diff < 0 && cellptr->Elevation + diff >= 0) {
+						if (height < level && cellptr->Elevation + diff >= 0) {
 							draw = true;
-						} else {
-							draw = overlap;
 						}
-					} else if (diff + 1 > 0) {
-						draw = overlap;
-					} else {
+					} else if (diff + 1 <= 0 && cellptr->Elevation + diff + 1 > 0) {
 						draw = true;
-						if (cellptr->Elevation + diff + 1 <= 0) {
-							draw = overlap;
-						}
 					}
 				}
 
 				if (height == level) {
-					if (!draw) {
+					if (draw == false) {
 
 						/*
 						 * Same height and not already flagged for redraw: the tile only needs
@@ -2586,11 +2577,15 @@ void Tactical::Draw_Tiles(Cell const & cell, Rect const & cliprect)
 							subtile = last;
 						}
 						IsoTileRecord const * record = set->Fetch_Record_Pointer_Unsafe(subtile);
-						if (record == NULL || !record->IsHasExtraData) {
+						if (record == NULL) {
 							continue;
 						}
+						if (!record->IsHasExtraData) {
+							continue;
+						}
+						draw = true;
 					}
-				} else if (!draw) {
+				} else if (draw == false) {
 					continue;
 				}
 

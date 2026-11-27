@@ -6490,3 +6490,94 @@ header restored afterwards), w*.py and x*.py (the variant sets, for vv.py).
   cursor variable for the blend loop (16 to 33 bytes over); the colour fill through a helper on the pointer or on the record; seven
   declaration orders of result, wide, pass_on, proc and the record. The lookup written first, which turns ra2-decomp's twin, does not
   turn this tree's draft (300 lines).
+
+## A twin's bank branch is read as well as its main branch; a dropped float narrowing is a count unit of its own; a reference census finds the statement a draft lacks (found in the rebuild (lane F86, high))
+
+Found in the rebuild (lane F86, high); no row landed. dsurface Draw_Depth_Antialiased_Line 0x4AC650 went from 5,794 to 69 bytes by
+position (1,664 instruction lines to one order of three loads, the image's size, frame with every slot and 34 of 34 calls); isotype Draw_Tile 0x52C230 measured
+only, text unchanged. Lane tools in build/r/f86 (removed at hand-back; copies in private/dossiers/fable/f86_tools): d4.py (lane F83's LCS
+diff with relocated operands blind by the object's own relocations, `--regs` register-blind, `--slots` frame slots in view), census.py (per
+field of one global struct the loads and stores, image against draft), slots.py (the same per frame slot, push depth corrected), vk.py (the
+k-th occurrence of a text replaced, one measure line), lc.py (statement orders of one loop tail), isotype_image_local.cpp.
+
+- Read the twin's bank branch. ra2-decomp keeps its best text for every unmatched function on `origin/banked-forms` (banks/0xADDR.cpp, a
+  header line with its score and what is left); a search of its main branch finds no text for those functions, which is what the row's
+  record said ("no text for 0x4BC750"). The bank for the twin of Draw_Depth_Antialiased_Line compiled here unchanged.
+- A draft whose only difference from the image is behaviour that looks wrong is checked against the image before it is doubted: loop A
+  steps xoff and neighoff twice per pixel in the bank text, and so does the image (0x4ACF5D, 0x4ACF97).
+- A float local that takes a double product and is read once by a conversion emits nothing (no /Op: the narrowing is dropped), and it is
+  a count unit that ints are not. Ladder here: none, loop D's head loads z ahead of the depth pointer; one, other loads move; two or
+  three, the image's; four to six, loop A's tail moves. It is function-wide: the pair works in any of the four loops, in the two
+  clipped-depth blocks or in the slopes. Dead `int p = 0;` locals at the top are another axis (1 to 4 nothing, 5 to 40 the one-float
+  state, never the image's); a double local is nothing. So the unit is the float conversion node, and a function with float parameters
+  is probed with float locals before ints. The bank spends its two on loop D's gradient indexes; the tree's draft names the clipped
+  fraction in each clipped-depth block (`float ratio`), the same count with a value that has a meaning.
+- What is left in that row is one tie. In loop C's tail the image copies the wrapped alpha pointer out of the wrap's register (edx) into
+  esi and gives edx to the temporaries of the `if (adda > 0)` block; the draft keeps the pointer in edx and the temporaries take esi. The
+  tail's `z += zwrap` is then duplicated per arm by the compiler with different instructions (load, add, store in one arm; an add to
+  memory in the other). Writing the statement in each arm gives the image's instructions with registers blind but moves z and zwrap in
+  the frame (two more references each), so the slots are counted before the duplication and the source has one statement. Tried without
+  effect on the tie: the step and wrap orders, steps folded into the wrap's argument, `2 * xcount` and `xcount + xcount`, the adda
+  statements swapped, the float ladder, forty dead ints, the alpha wrap as a conditional expression or through the Wrap_Overflow member,
+  and every declaration order of the loop's six locals (the bank's order is the best of each set).
+- The tie was a name the unit already uses. Every sibling line routine in dsurface declares `int dx2 = 2 * dx;` in the branch that needs
+  it; loop C's `adda -= xcount << 1` written as `int dx2 = xcount << 1;` beside adda and `adda -= dx2` gives the image's tail (the doubled
+  count as its own web takes edx, the pointer esi) and makes the float window unnecessary: the bank text with that one local and no float
+  is 69 bytes by position with every instruction the image's but one order (loop A reloads the depth pointer ahead of z and the alpha
+  pointer on the path past the row step; the image reloads it last). Declared inside the `if (dx > 0)` block it loses a call; the two
+  loop-A declaration orders that keep the score, the doubled steps' order and the probe ladders do not turn the last order. When a
+  twin's text computes inline what the unit's other functions name, try the name before any count probe.
+- For a function that reads one global struct hundreds of times (Draw_Tile: 546 references to IsoDrawData), count per field the loads and
+  stores of image and draft before reading any hunk. Every field agreed but SpanHeight (21 loads for 24), which put the whole structural
+  difference in the extra-image clip: there the image holds the record in ebx and cliprect.Y in ecx from the block's entry, has no
+  register left for SpanHeight and reloads it three times. The same census per frame slot found a value the draft does not have: the
+  image stores `record + 1` in a slot (0x52C724) and reads it at both checker sites, a named local. With it every slot from 0x10 to 0x54
+  has the image's reference count and the function 1,804 instructions for 1,807 (1,793 before), while the position score falls back
+  (6,330 to 6,488): the record then takes ebx, where the image keeps x in ebx to the left clip and the record in memory.
+- In Draw_Tile the tail call to the variant's own Draw_Tile is a loop, so every parameter is a loop variable: the image loads
+  cliprect.Height into ebx and cliprect.X into ebp ahead of the loop head and stores both home on the way out, where the draft copies
+  Height through a temporary inside the loop. After the loop the image keeps the parameter x in ebx (reloaded from its own home after the
+  table builder) and the clipped copy in memory until the right clip, the reverse of what it does for y. Writing the left clip on the
+  copy or on the parameter compiles the same, and so do both declaration orders; without the `tileptr` local the frame slots are the
+  image's but `this` stays in ecx through the loop. Open.
+
+## A bank is looked up by its function, not through the twin map; an edge's reloads keep one cyclic order and only its start moves; a bank's score is its own tree's (found in the rebuild (lane F87, high))
+
+Found in the rebuild (lane F87, high); no row landed. Three drafts were replaced by ra2-decomp's banked text: tactical Draw_Tiles(Cell)
+0x6A8560 from 529 to 11 bytes by position, queue Extract_Compressed_Events 0x6282D0 from 801 to 36, xsurface Draw_Ellipse 0x7746C0 to
+the image's size and frame (1,254 by position for 1,229, 406 instruction lines for 601). dsurface Draw_Depth_Antialiased_Line 0x4AC650
+stays at 69. The list of every bank against this tree's rows is private/dossiers/fable/f87_bank_list.md. Lane tools in build/r/f87
+(removed at hand-back; copies in private/dossiers/fable/f87_tools): lane F86's set, run.py (named k-th-occurrence replacements inside
+one function, one measure line each with the edge order and the loop-head picks), qrun.py (the same over any base file and row
+script), edge.py and heads.py (the order of an edge's reloads; which register holds each compare operand), s1.py to s15.py, qs*.py,
+ts*.py and ms1.py (the variant sets).
+
+- Look a bank up by its function. ra2-decomp's bank branch has 21 addresses; the twin map names 16 of them, because its candidates
+  leave out twins found only by name and rows whose unit already checks exact. Draw_Tiles(Cell) was one of the five: its bank (98.0 on
+  the twin, new in the refresh of 26 November) compiled here unchanged to 11 bytes, where the draft built on the bank of 23 November
+  stood at 529. Re-read a bank whenever its branch moves; a label that cites an older commit is a lead by itself.
+- A bank's first line scores it in its own tree. "39.6% natural" (Draw_Ellipse) was the image's size and frame here against a draft
+  20 bytes short with a frame 12 bytes larger; "76.7% raw" (Split_Region) was 3,161 by position for the draft's 1,285 and yet 86
+  instruction lines for 183 with 59 of 59 calls for 56. Port first, then read size, frame, calls and lines, and only then position.
+- A bank that names companion bodies (Split_Region: Get_Region, Increase_Height, Grow_Water_Region) is not ported until they are; its
+  inline decisions rest on them.
+- The reloads a join needs on the path that skipped a block come out in one cyclic order, and only the starting point moves. In
+  Draw_Depth_Antialiased_Line's first loop the three are z, the alpha pointer and the depth pointer: the image starts at z, the
+  draft at the depth pointer, and a third state starts at the alpha pointer. Every one of about 300 variants that kept the frame
+  slots gave one of the three rotations and never another permutation, so a difference of this kind is not a statement order and no spelling of the three
+  variables reaches it: their declaration order (18 forms), the steps folded into the wraps, the tail's statement orders (28), the
+  compare's operand order and the loop top's read order all leave it.
+- What moves the start: one constant new to the function (a table bound written 257, or the row step's threshold in the same loop)
+  moves it one place; two or more new constants at once put it back; a float narrowing in any loop (subsets of up to four) does
+  not move it; the doubled count as a named local moves it one place from the image's start whatever its scope (17 placements, 8
+  spellings: one code) as long as it lies outside the `if (dx > 0)` block, and inside the `if (adda > 0)` block it is the
+  inline form again. Taking the doubled alpha delta out as a variable (all four uses written 2 * abs_adelta, as the sibling
+  routine writes its zdelta) gives the image's start and moves the frame. The other loop heads' operand picks move with the same
+  levers but not in step, so the state is not a count modulo anything; it reads like a candidate list whose order depends on what
+  else is in it. Record such a tie as the rotation and the levers that move it, and do not spend statement orders on it.
+- A copy written as the save and its step in two statements is not the copy with a stepped cursor: `memcpy(dest, ...); dest++;`
+  moved the frame of Extract_Compressed_Events by four bytes against `memcpy(dest++, ...)`, and so did `*dest++ = value`. When a
+  bank steps a cursor inside a call's argument, keep it there.
+- A named difference with three uses and with four are two allocations (Draw_Tiles: `int diff = height - level;`). The image tests
+  the difference where the text must test the operands to stay at three uses; the fourth use, written as the variable or as the
+  expression again, returns the earlier allocation with a larger frame. The compiler counts the value, not the name.

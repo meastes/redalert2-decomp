@@ -961,32 +961,29 @@ bool XSurface::Fill_Rect_Trans(Rect const & rect, RGBClass const & color, unsign
 /// <param name="cliprect">The clipping rectangle to draw within.</param>
 /// <param name="color">The raw color value to draw the ellipse with.</param>
 /// <returns>bool; Was the ellipse drawn?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 1229 bytes differ against the image-derived bound 007746c0 (1478 body bytes, 10 padding); the TibSun ellipse renderer, with all seven virtual calls in retail order
+#ifdef RA2_NON_MATCHING // not exact: 1254 bytes differ by position against the image-derived bound 007746c0 (1478 body bytes, 10 padding; ours 1,478 B, the frame 0x38 as the image, 7 of 7 calls, 406 instruction lines with the slots in view) (lane F87, 2026-11-26, structure over position as the owner ruled for walk: ra2-decomp's bank for the identical Yuri's Revenge twin 0x7BB350 taken whole (branch banked-forms 41d009df, banks/0x007BB350.cpp; flag reference-borne if it lands): four pixel pointers walked around the ellipse, the steep arcs on a decision variable of their own. It replaces the TibSun renderer text, which was 1,229 by position at 1,456 B with the frame 0x44 and 601 lines (kept in private/dossiers/fable/f87_tools/xsurface_draw_ellipse_tibsun_draft.cpp). The bank records the twin at 39.6% with eight loop-head decision probes as its gauge; was 1229; the TibSun ellipse renderer, with all seven virtual calls in retail order
 bool XSurface::Draw_Ellipse(Point2D point, int radx, int rady, Rect cliprect, int color)
 {
 	int pitch = Stride() >> 1;
+	Point2D pt;
 
 	/*
 	 * Plot the bottom and top points of the ellipse if they are visible.
 	 */
 	int bottom = point.Y + rady;
-	if (point.X >= cliprect.X && point.X < cliprect.X + cliprect.Width && bottom >= cliprect.Y && bottom < cliprect.Y + cliprect.Height) {
+	if (cliprect.Is_Point_Within(Point2D(point.X, bottom))) {
 		Put_Pixel(Point2D(point.X, bottom), color);
 	}
 
 	int top = point.Y - rady;
-	if (point.X >= cliprect.X && point.X < cliprect.X + cliprect.Width && top >= cliprect.Y && top < cliprect.Y + cliprect.Height) {
+	if (cliprect.Is_Point_Within(Point2D(point.X, top))) {
 		Put_Pixel(Point2D(point.X, top), color);
 	}
 
-	/*
-	 * Set up the decision variables for the flat (low slope) arcs of the
-	 * ellipse that extend away from the vertical extreme points.
-	 */
-	int rady_squared = rady * rady;
 	int radx_squared = radx * radx;
+	int rady_squared = rady * rady;
 	int product = rady * radx_squared;
-	int y = rady;
+	pt.Y = rady;
 	int xterm = 0;
 	int yterm = 2 * product;
 	int decision = radx_squared / 4 - product;
@@ -995,19 +992,18 @@ bool XSurface::Draw_Ellipse(Point2D point, int radx, int rady, Rect cliprect, in
 
 	int bottom_offset = pitch * bottom;
 	int top_offset = pitch * top;
-	int xleft = point.X;
-	short * bottom_right = &buffer[bottom_offset + point.X];
-	short * top_left = &buffer[top_offset + point.X];
-	short * top_right = top_left;
-	int xright = point.X;
-	short * bottom_left = &buffer[bottom_offset + point.X];
+	int x = 0;
+	short * bottom_right = &buffer[bottom_offset + point.X + x];
+	short * top_left = &buffer[top_offset - x + point.X];
+	short * top_right = &buffer[top_offset + point.X + x];
+	short * bottom_left = &buffer[bottom_offset - x + point.X];
 
 	while (true) {
 		decision += rady_squared + xterm;
 		if (decision >= 0) {
 			yterm -= 2 * radx_squared;
 			decision -= yterm;
-			y--;
+			pt.Y--;
 
 			bottom_right -= pitch;
 			top_left += pitch;
@@ -1016,79 +1012,71 @@ bool XSurface::Draw_Ellipse(Point2D point, int radx, int rady, Rect cliprect, in
 		}
 		xterm += 2 * rady_squared;
 
+		x++;
+
 		bottom_right++;
 		top_left--;
 		top_right++;
 		bottom_left--;
 
-		xright++;
-		xleft--;
-
 		if (xterm >= yterm) {
 			break;
 		}
-		int ypos = y + point.Y;
-		if (xright >= cliprect.X && xright < cliprect.X + cliprect.Width && ypos >= cliprect.Y && ypos < cliprect.Y + cliprect.Height) {
+		int ypos = pt.Y + point.Y;
+		if (cliprect.Is_Point_Within(Point2D(point.X + x, ypos))) {
 			*bottom_right = color;
 		}
-		ypos = point.Y - y;
-		if (xleft >= cliprect.X && xleft < cliprect.X + cliprect.Width && ypos >= cliprect.Y && ypos < cliprect.Y + cliprect.Height) {
+		ypos = point.Y - pt.Y;
+		if (cliprect.Is_Point_Within(Point2D(point.X - x, ypos))) {
 			*top_left = color;
 		}
-		ypos = point.Y - y;
-		if (xright >= cliprect.X && xright < cliprect.X + cliprect.Width && ypos >= cliprect.Y && ypos < cliprect.Y + cliprect.Height) {
+		ypos = point.Y - pt.Y;
+		if (cliprect.Is_Point_Within(Point2D(point.X + x, ypos))) {
 			*top_right = color;
 		}
-		ypos = point.Y + y;
-		if (xleft >= cliprect.X && xleft < cliprect.X + cliprect.Width && ypos >= cliprect.Y && ypos < cliprect.Y + cliprect.Height) {
+		ypos = point.Y + pt.Y;
+		if (cliprect.Is_Point_Within(Point2D(point.X - x, ypos))) {
 			*bottom_left = color;
 		}
 	}
 
-	/*
-	 * Plot the right and left points of the ellipse if they are visible.
-	 */
-	Point2D pixel;
-
-	xright = point.X + radx;
-	if (xright >= cliprect.X && xright < cliprect.X + cliprect.Width && point.Y >= cliprect.Y && point.Y < cliprect.Y + cliprect.Height) {
-		pixel.X = xright;
-		pixel.Y = point.Y;
-		Put_Pixel(pixel, color);
+	int xright = point.X + radx;
+	if (cliprect.Is_Point_Within(Point2D(xright, point.Y))) {
+		pt.X = xright;
+		pt.Y = point.Y;
+		Put_Pixel(pt, color);
 	}
 
-	xleft = point.X - radx;
-	if (xleft >= cliprect.X && xleft < cliprect.X + cliprect.Width && point.Y >= cliprect.Y && point.Y < cliprect.Y + cliprect.Height) {
-		pixel.X = xleft;
-		pixel.Y = point.Y;
-		Put_Pixel(pixel, color);
+	int xleft = point.X - radx;
+	if (cliprect.Is_Point_Within(Point2D(xleft, point.Y))) {
+		pt.X = xleft;
+		pt.Y = point.Y;
+		Put_Pixel(pt, color);
 	}
 
-	/*
-	 * Set up the decision variables for the steep (high slope) arcs of the
-	 * ellipse that extend away from the horizontal extreme points.
-	 */
-	y = 0;
+	rady_squared = rady * rady;
+	radx_squared = radx * radx;
+	pt.Y = 0;
 	yterm = 0;
 	product = radx * rady_squared;
 	xterm = 2 * product;
-	pixel.X = radx;
-	decision = rady_squared / 4 - product;
+	pt.X = radx;
+	int steep_decision = rady_squared / 4 - product;
 
-	int left_offset = pitch * point.Y - pixel.X;
-	int center_offset = pitch * point.Y;
-	xleft = point.X - pixel.X;
-	bottom_right = &buffer[point.X + center_offset + pixel.X];
-	top_left = &buffer[point.X + center_offset - pixel.X];
-	top_right = &buffer[point.X + center_offset + pixel.X];
-	xright = point.X + pixel.X;
-	bottom_left = &buffer[point.X + left_offset];
+	bottom_offset = pitch * (point.Y + pt.Y);
+	top_offset = pitch * (point.Y - pt.Y);
+	xleft = point.X - radx;
+	bottom_right = &buffer[bottom_offset + point.X + pt.X];
+	top_left = &buffer[top_offset - pt.X + point.X];
+	top_right = &buffer[top_offset + point.X + pt.X];
+	xright = point.X + radx;
+	bottom_left = &buffer[bottom_offset - pt.X + point.X];
 
 	while (true) {
-		decision += radx_squared + yterm;
-		if (decision >= 0) {
+		steep_decision += radx_squared + yterm;
+		if (steep_decision >= 0) {
 			xterm -= 2 * rady_squared;
-			decision -= xterm;
+			steep_decision -= xterm;
 			bottom_right--;
 			xright--;
 			top_left++;
@@ -1097,7 +1085,7 @@ bool XSurface::Draw_Ellipse(Point2D point, int radx, int rady, Rect cliprect, in
 			bottom_left++;
 		}
 		yterm += 2 * radx_squared;
-		y++;
+		pt.Y++;
 
 		bottom_right += pitch;
 		top_left -= pitch;
@@ -1107,20 +1095,20 @@ bool XSurface::Draw_Ellipse(Point2D point, int radx, int rady, Rect cliprect, in
 		if (yterm > xterm) {
 			break;
 		}
-		int ypos = y + point.Y;
-		if (xright >= cliprect.X && xright < cliprect.X + cliprect.Width && ypos >= cliprect.Y && ypos < cliprect.Y + cliprect.Height) {
+		int ypos = pt.Y + point.Y;
+		if (cliprect.Is_Point_Within(Point2D(xright, ypos))) {
 			*bottom_right = color;
 		}
-		ypos = point.Y - y;
-		if (xleft >= cliprect.X && xleft < cliprect.X + cliprect.Width && ypos >= cliprect.Y && ypos < cliprect.Y + cliprect.Height) {
+		ypos = point.Y - pt.Y;
+		if (cliprect.Is_Point_Within(Point2D(xleft, ypos))) {
 			*top_left = color;
 		}
-		ypos = point.Y - y;
-		if (xright >= cliprect.X && xright < cliprect.X + cliprect.Width && ypos >= cliprect.Y && ypos < cliprect.Y + cliprect.Height) {
+		ypos = point.Y - pt.Y;
+		if (cliprect.Is_Point_Within(Point2D(xright, ypos))) {
 			*top_right = color;
 		}
-		ypos = point.Y + y;
-		if (xleft >= cliprect.X && xleft < cliprect.X + cliprect.Width && ypos >= cliprect.Y && ypos < cliprect.Y + cliprect.Height) {
+		ypos = point.Y + pt.Y;
+		if (cliprect.Is_Point_Within(Point2D(xleft, ypos))) {
 			*bottom_left = color;
 		}
 	}
