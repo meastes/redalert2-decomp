@@ -6581,3 +6581,92 @@ ts*.py and ms1.py (the variant sets).
 - A named difference with three uses and with four are two allocations (Draw_Tiles: `int diff = height - level;`). The image tests
   the difference where the text must test the operands to stay at three uses; the fourth use, written as the variable or as the
   expression again, returns the earlier allocation with a larger frame. The compiler counts the value, not the name.
+
+## A bank's companion bodies are part of the bank; a member-address web and an expanded constructor can be one state; a sibling's exact text is the control for a web the twin could not close (found in the rebuild (lane F88, high))
+
+Found in the rebuild (lane F88, high); no row landed, two drafts moved by structure. walk WalkLocomotionClass::Movement_AI 0x71E220 went from
+178 to 61 instruction lines (3,509 to 2,999 B by position, 119 of 119 calls in order, 1,505 = 1,505 instructions, frame 0x38); mapgen
+MapRegionClass::Split_Region 0x56EF20 went from 183 to 17 lines (56 to 59 of 59 calls, the image's 4,012 B bound, frame 0xA0; 1,285 to 1,603 B
+by position), with three exact companion rows retexted and every exact mapgen row still exact. Lane tools in build/r/f88 (removed at hand-back;
+copies in private/dossiers/fable/f88_tools): vr.sh / vm.sh / vt.sh (one named variant of a scratch copy, one measure line with the web state
+and the constructor call count), hy.py (two sibling bodies cut into regions and recombined), mv.sh (a variant of an exact sibling), dc.sh.
+
+- Port a bank's companion bodies with it and check the whole unit. The Split_Region bank also carries Get_Region, Increase_Height and
+  Grow_Water_Region. Get_Region indexing RMGCellData itself (not through Get_Cell_Data) is the whole of the gain: the accessor is then too
+  heavy for the nested share inside the two Increase_Height expansions and ~MapRegionClass also stays out of line, as in the image (86 lines
+  and 4,128 B with the Split_Region text alone; 17 and 4,012 with Get_Region). That one line flipped two exact rows, and each had an answer in
+  reference text: Grow_Water_Region wants the bank's body (its own two deletes for Delete_Forest_Search, the bounds test spelled out for
+  Is_Point_Within: 213 B, then 1,512 B with only the deletes, exact with both), and Create_Region_From_Cell (99 B: Cell(0,0) inside its
+  Recount_Cells expansion called out of line) wants ra2-decomp main's Recount_Cells, which declares `Cell empty_cell` and stores its two
+  members, so there is no constructor site. Lane O39 had moved Get_Region to the accessor form for Grow_Water_Region's budget; the bank
+  moves both back together. Not taken: Increase_Height(int), since the image's symbol has a char and the text reads the same either way;
+  Delete_Forest_Search stays for Place_Forest (34 B off without it). Create_Urban_Area (count-sensitive, parked) reads the same before and
+  after (1,341 B by position, 7 lines).
+- This root sits on the edge of its budget: `i = i - 1` for `i--` in one loop header turns two calls (4,080 B). Loop spellings are tried
+  with the call list in view.
+- Split_Region, what is left (the bank records the same for the twin): the new_regions loop reloads i at its top past a jmp and keeps
+  the region in eax; the draft keeps i in eax across the back edge. The cells loop just above forwards i in edx across its back edge in
+  both, so i is not address-exposed; the two loops differ in which web the latch's decrement belongs to. Tried without change: the region
+  declared in the loop (frame 0xA8), `--i`, `!(i < 0)`, the index through a pointer, the declaration order of i, j and region, `int i`
+  without the initialiser; a second counter or a named index turn the call list.
+- Movement_AI: the refreshed bank ports whole (the zone guard first, guard returns, one IsNewNavCom store at the end, `bool moved` tested
+  twice, a named `CellClass & next`). No name was missing: the expansion's IsInPlayfield is this tree's IsLocked, and Cell::As_Coord,
+  ObjectClass::Distance(Coord) and DirType exist. What is left is the twin's own residue: &DestinationCoord is held in edi from the first test
+  through the MOVE_TEMP and MOVE_MOVING_BLOCK arms, where the image holds it in esi to the end of the path block, reads the members
+  directly in the MOVE_TEMP arm and takes the address again at 0x71EC9E; that also keeps edi from the second Adjacent_Cell sum.
+- That web and the point constructor at the first Adjacent_Cell site are one state in this text. Every variant measured is either (address
+  held throughout, constructor called at 0x71E929: the image's call list) or (the image's three short webs, constructor expanded, 118
+  calls). Root weight moves it one way (mech.cpp's named `Cell exit` and `Coord offset` together in the tube block, five or more probe
+  locals, a guard statement ahead of the first test) and one trailing inline site moves it back, both at once. So the web is not a
+  common-subexpression decision: it is register pressure at the Adjacent_Cell sites, and the image has the pressure without the expanded
+  constructor. `Map[LinkedTo->Get_Coord() + AdjacentPoint[dir & 7]]` at the second site gives the image's size (4,967 B) and its three
+  coordinate loads ahead of the table's, with the address still held (87 lines); that site is the next read.
+- An exact sibling is the control. mech.cpp's Movement_AI is exact here and its image has the same three short webs, so the compiler
+  makes them from natural text; its body compiled inside the walk class keeps them, and regions of the two bodies recombined (hy.py)
+  place the cause in weight, not in one statement. Sibling spellings that changed nothing: `int dist` ahead of the test with the (int)
+  cast, `Cell dest = DestinationCoord`, `TryTryAgain != 0`, the cell as a pointer, Cell_Object(Point2D(0, 0), false), As_Cell() for the
+  conversions.
+- Draw_Tiles(Cell) 0x6A8560 stays at 11: the difference incremented in place for the middle column, a named middle difference, a nested
+  test of the difference and the difference written out again in the outer test are all the four-use allocation (513 to 549 B).
+
+## A coupled pair of states is tested for which one drives the other; a budget edge is found with one assignment; frame slots read the allocator's order and ignore declarations (found in the rebuild (lane F89, high))
+
+Found in the rebuild (lane F89, high); no row landed and no draft changed. walk Movement_AI 0x71E220 stays at 61 lines, mapgen Split_Region
+0x56EF20 at 17, map Set_Map_Dimensions 0x5484E0 at 590 by position (its bank ported whole in scratch: 34 lines against the tree's 29). Place_Forest
+0x585DC0 takes `[reference-borne]` for Delete_Forest_Search. Lane tools in build/r/f89 (removed at hand-back; copies in
+private/dossiers/fable/f89_tools): lane F88's set, vs.sh (a Split_Region variant with the slot-aware line count beside the blind one), sl.py (frame
+slots paired over the matched instructions, image slot > draft slot per variable), mp.sh / vp.sh (Set_Map_Dimensions), v_bankrobin.cpp.
+
+- When two differences always flip together, find which drives. In Movement_AI the address web of &DestinationCoord and the point constructor at
+  0x71E929 were recorded as one state. Replace the first Adjacent_Cell site with a plain copy (a control that has no constructor there) and add the
+  statement that flips the pair: the web stays whole. Put a call back between the two sites with the constructor expanded: the web stays short.
+  So the expansion at the first site shortens the web, not the other way round and not a third count, and the image (short web, constructor
+  called) has a second cause this text lacks.
+- In that control the held address sits in esi, the image's register at the top; the draft holds it in edi because the adjacent-point table
+  pointer, live across the constructor call from the first site to the second, has esi first. The image has the table pointer in esi and the
+  address in esi before and after it, so its address web ended before the table pointer's began (read from the control; the allocator's rule is not proven).
+- The budget edge has a direction and a size. Here more root gives more expansion: one assignment (`LinkedTo->CurrentTube = LinkedTo->CurrentTube
+  + 1;`) anywhere, even in the other arm of the function, or one conditional call anywhere, even as the last statement, expands the constructor;
+  a bare call statement, a conditional store and a named local for a temporary do not (the named local gives the same bytes at five places).
+  Measure the edge with one assignment and one conditional call before reading any variant: on such a root every probe that adds weight reports
+  the flip, not its own effect, and lane F88's "root weight" levers (two named locals, five probe locals, a leading guard) were all this.
+- With the web short the top, the MOVE_TEMP arm and the MOVE_MOVING_BLOCK arm are the image's; the hunks left are the path dispatch (0x71E69E on)
+  and the two sites. The next read is therefore not the web but what else keeps the constructor out of line on a root this heavy: an inline site
+  the draft has written out, looked for from the dispatch to the second site.
+- Not the cause, each measured: another expansion of operator!=, As_Cell or Is_In_Same_Zone on another Coord between the top and the MOVE_TEMP
+  arm (the web is not ended by a callee's parameter being bound again); the archive's unnamed `Map[Adjacent_Cell(...)].IsUnderBridge` test (103
+  lines) and its visual_cell / visual_coord locals (191, frame 0x3C); Center_Coord().Distance_To for Distance (same bytes).
+- Frame slots do not follow declarations. In Split_Region five orders of `i`, `j` and `region` and two orders inside the spread loop give the same
+  bytes; statement order does move them. The slots are packed by lifetime, several variables to a slot, so their pairing shows which variable the
+  allocator took first: the image pairs i with spread_count (0x2C), the new_regions loop's region with nodes (0x3C) and the cells loop's region
+  with target_count (0x40); the draft pairs both regions with spread_count (0x14) and i with nodes (0x3C). The image treats the two loops' regions
+  as two values and takes the second ahead of i, which is also the loop top's difference (the region in eax, i reloaded). A region declared in a
+  loop gives the two slots and one variable too many (frame 0xA8). Read sl.py's pairs before spending spellings on a loop top.
+- Split_Region's root is on its edge as well: the Discardable test written on new_regions[i], ahead of the assignment or after it, turns the call
+  list (61 calls). `if (!region->Discardable) { ... }` for the `continue` is the same code.
+- A bank's residues are not the tree's. Set_Map_Dimensions' bank (`_robin`) ported whole has the image's top (the cellcount store ahead of the
+  branch, `test esi, esi`) and no short copy at +0x12C, two of the tree's three residues, and brings the twin's own tie (list->X in dx for cx)
+  with 9 bytes more; the tree's differences applied to it singly are equal or worse. Neither text dominates by parts, so the port stays in the
+  dossier and the label keeps the tree's text.
+- A single-use file-local helper is looked up in every reference before it is called coined: Delete_Forest_Search is ra2-decomp's (since
+  2026-11-02, its Place_Forest matches through it) and mischa85's, so Place_Forest is `[reference-borne]`, with the helper in twin_helpers.csv.

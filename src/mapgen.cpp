@@ -516,8 +516,13 @@ void MapRegionClass::Recount_Cells(void)
 	int grid_size = MapCellStride * MapCellStride;
 
 	for (int i = 0; i < grid_size; i++) {
-		if (RMGCellData[i].RegionID == ID && RMGCellData[i].CellID != Cell(0,0)) {
-			CellCount++;
+		if (RMGCellData[i].RegionID == ID) {
+			Cell empty_cell;
+			empty_cell.X = 0;
+			empty_cell.Y = 0;
+			if (RMGCellData[i].CellID != empty_cell) {
+				CellCount++;
+			}
 		}
 	}
 }
@@ -889,7 +894,7 @@ int MapRegionClass::CellData::Get_Region(Cell const &cell)
 	if (RMGCellData == NULL) {
 		return(-1);
 	}
-	return(MapRegionClass::Get_Cell_Data(cell).RegionID);
+	return(RMGCellData[cell.X + cell.Y * (int)MapCellStride].RegionID);
 }
 
 
@@ -1071,17 +1076,18 @@ void MapRegionClass::Increase_Height(char cell_height)
 /// neighbor instead. A region marked unsplittable is left well alone.
 /// </summary>
 /// <returns>bool; Was the region split?</returns>
-#ifdef RA2_NON_MATCHING // not exact: against the image bound (4,012 B) 1,285 bytes differ (was 1,701; the neighbour cell as cell + AdjacentCell[], as the tree's other sites write it); main: best 70.68, tried 7 times (bound, frame, order, inlining)
+#ifdef RA2_NON_MATCHING // not exact: 1,603 bytes differ by position against the image bound 0056ef20 (4,012 B; ours 4,004 B, 1,247 instructions for 1,250, all 59 calls in the image's order, every inlining decision the image's; 17 lines in 6 hunks by an exact LCS of the instruction lists, was 183 in 78 with 56 calls and 1,285 by position: lanes F87 and F88, structure over position) (ra2-decomp's bank banks/0x0058D620.cpp at 41d009df on origin/banked-forms, with its companion bodies: Get_Region indexing RMGCellData itself, which is what leaves it and ~MapRegionClass out of line here, and Grow_Water_Region with its own two deletes and the bounds test spelled out; Recount_Cells takes ra2-decomp main's `Cell empty_cell` text so that Create_Region_From_Cell stays exact beside that Get_Region; the bank's Increase_Height(int) is not taken: the image's symbol has a char and the text reads the same either way. Left, as the bank records for the twin: the top of the new_regions loop (the image reloads i past a jmp at 0056F89D and keeps the region in eax; ours keeps i in eax and the region in ecx), the place where `this` is reloaded after that loop (0056FE0F; ours ahead of the latch) and the order of the frame slots (i at 0x2C in the image, 0x3C here)); main: best 70.68, tried 7 times (bound, frame, order, inlining)
 bool MapRegionClass::Split_Region(void)
 {
-	int i, j;
+	int i = 0;
+	int j;
+	MapRegionClass * region;
 
 	if (Unsplittable) {
 		return(false);
 	}
 
-	int heap_size = (2 * CellCount) + 10;
-	CellNode * nodes = new CellNode[heap_size];
+	CellNode * nodes = new CellNode[(2 * CellCount) + 10];
 	PriorityQueueClass<CellNode> * queue = new PriorityQueueClass<CellNode>((2 * CellCount) + 10);
 	queue->Clear();
 
@@ -1154,7 +1160,7 @@ bool MapRegionClass::Split_Region(void)
 		if (MapRegionClass::Get_Cell_Data(cell_index).RegionID < -1) {
 			int old_id = MapRegionClass::Get_Cell_Data(cell_index).RegionID;
 
-			MapRegionClass * region = new MapRegionClass(cell);
+			region = new MapRegionClass(cell);
 			region->Cells.Add(cell);
 			region->CellCount++;
 			new_regions.Add(region);
@@ -1169,8 +1175,8 @@ bool MapRegionClass::Split_Region(void)
 				Cell c = open[index];
 				open.Delete_Index(index);
 
-				for (int m = 0; m < FACING_COUNT; m++) {
-					Cell ncell = Adjacent_Cell(c, (FacingType)m);
+				for (j = 0; j < FACING_COUNT; j++) {
+					Cell ncell = Adjacent_Cell(c, (FacingType)j);
 					if (My_In_Radar(ncell)) {
 						CellData & ndata = MapRegionClass::Get_Cell_Data(ncell);
 						if (ndata.RegionID == old_id) {
@@ -1186,7 +1192,7 @@ bool MapRegionClass::Split_Region(void)
 	}
 
 	for (i = new_regions.Count() - 1; i >= 0; i--) {
-		MapRegionClass * region = new_regions[i];
+		region = new_regions[i];
 		if (region->Discardable) {
 			continue;
 		}
@@ -1200,7 +1206,7 @@ bool MapRegionClass::Split_Region(void)
 		for (j = cells->Count() - 1; j >= 0; j--) {
 			Cell c = (*cells)[j];
 			for (int m = 0; m < FACING_COUNT; m++) {
-				Cell ncell = c + AdjacentCell[(FacingType)m & 7];
+				Cell ncell = Adjacent_Cell(c, (FacingType)m);
 				if (My_In_Radar(ncell)) {
 					int id = MapRegionClass::Get_Cell_Data(ncell).RegionID;
 					if (id >= 0 && id != region->ID) {
@@ -1213,20 +1219,20 @@ bool MapRegionClass::Split_Region(void)
 		delete cells;
 
 		MapRegionClass * merge_target = NULL;
-		int min_height = -1;
-		int max_height = -1;
 		int merge_height = -1;
 		int max_count = -1;
+		int min_height = -1;
+		int max_height = -1;
 
 		for (j = 0; j < MapRegionClass::TotalCount; j++) {
 			if (adjacent[j]) {
-				MapRegionClass * other = From_ID(j);
+				MapRegionClass * other = MapRegionClass::From_ID(j);
 
 				if (!other->Discardable) {
 					if (other->CellCount > max_count && !other->ContainsWater) {
 						max_count = other->CellCount;
-						merge_height = other->CellHeight;
 						merge_target = other;
+						merge_height = other->CellHeight;
 					}
 
 					if (min_height == -1) {
@@ -1289,7 +1295,7 @@ bool MapRegionClass::Split_Region(void)
 				int height_diff = region->CellHeight - old_height;
 				region->Increase_Height(height_diff);
 
-				for (int j = region->Cells.Count() - 1; j >= 0; j--) {
+				for (j = region->Cells.Count() - 1; j >= 0; j--) {
 					Cell c = region->Cells[j];
 					merge_target->Cells.Add(c);
 					merge_target->CellCount++;
@@ -1302,9 +1308,9 @@ bool MapRegionClass::Split_Region(void)
 	}
 
 	for (i = MapRegionClass::MapRegions.Count() - 1; i >= 0; i--) {
-		MapRegionClass * region = MapRegionClass::MapRegions[i];
+		region = MapRegionClass::MapRegions[i];
 		if (region != this && region->Discardable) {
-			delete region;
+			delete MapRegionClass::MapRegions[i];
 		}
 	}
 
@@ -7167,8 +7173,6 @@ DynamicVectorClass<Cell> *MapGeneratorClass::Build_Region_Border_Cell_List(int i
 }
 
 
-static inline void Delete_Forest_Search(CellNode * nodes, PriorityQueueClass<CellNode> * queue);
-
 /// <summary>
 /// Grows the region identified by region_id outward across the map as a
 /// priority-queue flood fill, scoring candidate cells by their angle relative
@@ -7242,7 +7246,7 @@ bool MapGeneratorClass::Grow_Water_Region(int region_id, float spread_scale, Rec
 			if (My_In_Radar(newcell)) {
 				if (MapRegionClass::CellData::Get_Region(newcell) == 0 &&
 					MapRegionClass::Get_Cell_Data(newcell).SpreadID != region_id &&
-					bounds.Is_Point_Within(Point2D(newcell.X, newcell.Y)) &&
+					newcell.X >= bounds.X && newcell.X < bounds.X + bounds.Width && newcell.Y >= bounds.Y && newcell.Y < bounds.Y + bounds.Height &&
 					Map[newcell].Is_Tile_Clear()) {
 					nodes[marker_index].Element = newcell;
 					nodes[marker_index].Score = Get_Angle_Score(origin, newcell, angle);
@@ -7273,7 +7277,8 @@ bool MapGeneratorClass::Grow_Water_Region(int region_id, float spread_scale, Rec
 		}
 	}
 
-	Delete_Forest_Search(nodes, queue);
+	delete[] nodes;
+	delete queue;
 
 	return(result_flag);
 }
