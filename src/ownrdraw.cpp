@@ -915,8 +915,7 @@ namespace OwnerDraw {
 
 int __fastcall Control_Typing_Sound(unsigned int key, HWND window)
 {
-	WinData * record = 0;
-	Control_Table.getPointer(key, &record);
+	WinData * record = Get_Record((HWND)key);
 	int kind = record != 0 ? record->Kind : 0;
 	int id = GetDlgCtrlID(window);
 	if (((kind == 0x103) || (kind == 0xbc7)) && (id == 0x6f4)) {
@@ -1092,8 +1091,7 @@ namespace OwnerDraw {
 
 bool __fastcall Is_Image_Mode3_Control(unsigned int key, HWND window)
 {
-	WinData * record = 0;
-	Control_Table.getPointer(key, &record);
+	WinData * record = Get_Record((HWND)key);
 	int kind = record != 0 ? record->Kind : 0;
 	int id = GetDlgCtrlID(window);
 	return false;
@@ -1112,8 +1110,7 @@ namespace OwnerDraw {
 
 bool __fastcall Is_Animated_Control(unsigned int key, HWND window)
 {
-	WinData * record = 0;
-	Control_Table.getPointer(key, &record);
+	WinData * record = Get_Record((HWND)key);
 	int kind = record != 0 ? record->Kind : 0;
 	int id = GetDlgCtrlID(window);
 	if (Is_Listed_Dialog_Kind(kind) && id == 0x71c) {
@@ -1193,8 +1190,7 @@ namespace OwnerDraw {
 
 int __fastcall Control_Animation_Loops(unsigned int key, HWND window)
 {
-	WinData * record = 0;
-	Control_Table.getPointer(key, &record);
+	WinData * record = Get_Record((HWND)key);
 	int kind = record != 0 ? record->Kind : 0;
 	int id = GetDlgCtrlID(window);
 	if (Is_Listed_Dialog_Kind(kind) && id == 0x71c) {
@@ -1245,25 +1241,22 @@ namespace OwnerDraw {
 
 void * __fastcall Control_Animation_Art(unsigned int key, HWND window)
 {
-	WinData * record = 0;
-	Control_Table.getPointer(key, &record);
+	WinData * record = Get_Record((HWND)key);
 	int kind = record != 0 ? record->Kind : 0;
 	int id = GetDlgCtrlID(window);
 	void * art = Get_Drawer();
 	if (Is_Listed_Dialog_Kind(kind) && id == 0x71c) {
 		art = Get_Listed_Drawer();
-    }
+	}
 	if (kind == 0x94) {
 		if (id == 0x6ea || id == 0x6eb || id == 0x6ec) {
 			return Get_Slot_Art();
-        }
-	} else if (kind == 0x103) {
-		if (id == 0x72b) {
-			return Get_Chat_Art();
-        }
+		}
+	} else if (kind == 0x103 && id == 0x72b) {
+		return Get_Chat_Art();
 	} else if (kind == 0xbc7 && id == 0x72b) {
 		return Get_Chat_Art();
-    }
+	}
 	return art;
 }
 
@@ -1274,8 +1267,7 @@ namespace OwnerDraw {
 
 int __fastcall Control_Image(unsigned int key, HWND window)
 {
-	WinData * record = 0;
-	Control_Table.getPointer(key, &record);
+	WinData * record = Get_Record((HWND)key);
 	int kind = record != 0 ? record->Kind : 0;
 	int id = GetDlgCtrlID(window);
 	return 0;
@@ -3729,89 +3721,77 @@ void __fastcall Assign_Button_Kinds(HWND window)
 
 namespace OwnerDraw {
 
-
-struct ControlAnimationState {
-		void const * Shape;
+#ifdef RA2_NON_MATCHING // not exact: 778 bytes differ by position against the image-derived bound 005e8130 (1,110 B; ours 1,088 B): the image's 29 calls and its two epilogues inside the expanded Control_Typing_Sound; left: zero and the parent exchanged (the image keeps the parent in edi and zero in ebp, gives the window up to Is_Animated_Control's id and reloads it from its parameter slot) and the mode-4 store pair, which the image copies into the fall-through return-true arms of the expanded Is_Animated_Control (lanes F57, F94, F95); main: best 49.20
+struct ControlAnimationState
+{
+		void const * AnimationShape;
 		bool IsShapeAllocated;
-		int IsTestedControl;
-		int ControlHeight;
-		int ControlKind;
-		int ControlFlags;
+		int Typed;
+		int TypeRate;
+		int TypeStep;
+		int TypeExtra;
 		int Reserved_90;
 		int FrameCount;
 		int Frame;
-		int LastTick;
-		int TimerInterval;
+		int StartTime;
+		int Delay;
 		int Reserved_A4;
 		bool IsPlaying;
 };
-static inline ControlAnimationState * __cdecl Animation(WinData * record)
-{
-	return (ControlAnimationState *)record->Animation;
-}
-
-static inline void __cdecl Get_Animation_Record(unsigned int const & key, WinData *& record)
-{
-	Control_Table.getPointer(key, &record);
-}
-#ifdef RA2_NON_MATCHING // not exact: 1049 bytes differ by position against the image-derived bound 005e8130 (1,110 B; ours 896 B): the call list differs. The image's list is reached (995 by position, 1,072 B; registers then differ: zero in ebp, the parent in edi and GetDlgCtrlID through memory in the image) with the record through Get_Record, the animation fields as WinData members, the six helpers' lookups through Get_Record and Control_Animation_Art at 174 units; held, because the member declarations and the helper text turn count-sensitive rows (lane F57, private/dossiers/fable/patches/f57_ownrdraw_init_control_animation_call_list.patch); main: best 49.20
 BOOL __stdcall Init_Control_Animation(HWND window, LPARAM)
 {
-    HWND parent = GetParent(window);
-	unsigned int key = (unsigned int)window;
-	WinData * record = 0;
-	Get_Animation_Record(key, record);
-	if (record == 0) {
+	HWND parent = GetParent(window);
+	WinData * record = Get_Record(window);
+	if (record == NULL) {
 		return TRUE;
-    }
+	}
+	ControlAnimationState * animation = (ControlAnimationState *)record->Animation;
 	if (Is_Tested_Control((unsigned int)parent, window)) {
 		record->PictureMode = 1;
-		Animation(record)->IsPlaying = false;
-		Animation(record)->IsTestedControl = 1;
-		Animation(record)->ControlHeight = OwnerDraw_Control_Height((unsigned int)parent, window);
-		Animation(record)->ControlKind = OwnerDraw_Control_Kind((unsigned int)parent, window);
-		Animation(record)->ControlFlags = OwnerDraw_Control_Flags((unsigned int)parent, window);
+		animation->IsPlaying = false;
+		animation->Typed = 1;
+		animation->TypeRate = OwnerDraw_Control_Height((unsigned int)parent, window);
+		animation->TypeStep = OwnerDraw_Control_Kind((unsigned int)parent, window);
+		animation->TypeExtra = OwnerDraw_Control_Flags((unsigned int)parent, window);
 		record->TypingSound = Control_Typing_Sound((unsigned int)parent, window);
-		return TRUE;
-    }
-	bool animated = false;
-	if (Is_Image_Control((unsigned int)parent, window)) {
-		record->PictureMode = 2;
-		if (record->Image == 0) {
-			record->Image = (Surface *)Control_Image((unsigned int)parent, window);
-        }
-    } else {
-		if (Is_Image_Mode3_Control((unsigned int)parent, window)) {
-			record->PictureMode = 3;
-		} else if (Is_Animated_Control((unsigned int)parent, window)) {
-			record->PictureMode = 4;
-			animated = true;
-			if (Animation(record)->Shape == 0) {
-				bool allocated = false;
-				void * art = Control_Animation_Art((unsigned int)parent, window);
-				Animation(record)->Shape = Control_Animation_Shape((unsigned int)parent, window, allocated);
-				record->Drawer = (int)art;
-				Animation(record)->IsShapeAllocated = allocated;
-            }
-        } else {
-			goto done;
-        }
-    }
-	Animation(record)->Frame = 0;
-	Animation(record)->LastTick = GetTickCount();
-	Animation(record)->TimerInterval = Control_Animation_Loops((unsigned int)parent, window);
-done:
-	if (Animation(record)->TimerInterval < 1) {
-		if (animated && Animation(record)->Shape) {
-			Animation(record)->FrameCount = ((short const *)Animation(record)->Shape)[3];
-			Animation(record)->IsPlaying = false;
-        }
-    } else {
-		SetTimer(window, 0, Animation(record)->TimerInterval, 0);
-		if (animated) {
-			Animation(record)->IsPlaying = true;
-        }
-    }
+	} else {
+		bool animated = false;
+		if (Is_Image_Control((unsigned int)parent, window)) {
+			record->PictureMode = 2;
+			if (record->Image == NULL) {
+				record->Image = (Surface *)Control_Image((unsigned int)parent, window);
+			}
+		} else {
+			if (Is_Image_Mode3_Control((unsigned int)parent, window)) {
+				record->PictureMode = 3;
+			} else if (Is_Animated_Control((unsigned int)parent, window)) {
+				animated = true;
+				record->PictureMode = 4;
+				if (animation->AnimationShape == NULL) {
+					bool allocated = false;
+					void * art = Control_Animation_Art((unsigned int)parent, window);
+					animation->AnimationShape = Control_Animation_Shape((unsigned int)parent, window, allocated);
+					record->Drawer = (int)art;
+					animation->IsShapeAllocated = allocated;
+				}
+			} else {
+				goto done;
+			}
+		}
+		animation->Frame = 0;
+		animation->StartTime = GetTickCount();
+		animation->Delay = Control_Animation_Loops((unsigned int)parent, window);
+	done:
+		if (animation->Delay > 0) {
+			SetTimer(window, 0, animation->Delay, NULL);
+			if (animated) {
+				animation->IsPlaying = true;
+			}
+		} else if (animated && animation->AnimationShape != NULL) {
+			animation->FrameCount = ((short const *)animation->AnimationShape)[3];
+			animation->IsPlaying = false;
+		}
+	}
 	return TRUE;
 }
 #endif
@@ -5908,9 +5888,9 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 					bool changed = added || removed || (either && wcscmp(old_text, new_text) != 0);
 					data->Set_Wide_Text(new_text);
 					data->Reserved_2C = FALSE;
-					if (changed && data->PictureMode == 1 && data->Reserved_94[0xA8 - 0x94]) {
+					if (changed && data->PictureMode == 1 && data->IsPlaying) {
 						KillTimer(window, 0);
-						data->Reserved_94[0xA8 - 0x94] = false;
+						data->IsPlaying = false;
 						SendMessageA(window, 0x4ee, 0, 0);
 					}
 				} else if (message == WM_MOUSEMOVE) {

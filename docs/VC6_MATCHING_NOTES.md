@@ -6973,3 +6973,61 @@ row's state), nsum.py (the inline decisions of the three list copies as one stri
   all 31 combinations; the population written out in the mode case (everything expands at the root's own budget).
   Next read: which statements between the mode list's population and the start case's are inline sites in the original (the warning
   flag, the list reset, the tool-tip lookup and the current mode are plain statements in the draft), and a reference for the preview test.
+
+## A draft's view struct belongs under its guard; a short block is copied into its jumps only while live code lies between it and its successor; a compare's operand registers follow a call on the first arm's path (found in the rebuild (lane F95, high))
+
+Found in the rebuild (lane F95, high); one draft replaced (ownrdraw Init_Control_Animation 0x5E8130, 1,049 to 778 by position, no header
+change), no row landed. About 110 measured variants. Lane tools in build/r/f95 (removed at hand-back; copies in
+private/dossiers/fable/f95_tools): lane F94's set, inc.py (every unit whose include closure holds a header, checked before and after a
+header edit), v.py (Init_Control_Animation bodies over a file-local view), a.py and pat.sh (Adjust_Control_Position variants with the
+closing test's loads printed), n.py and nc.py (Scenario_DlgProc edit sets with the three list copies' inline decisions as one string).
+
+- ownrdraw Init_Control_Animation 0x5E8130, the header cost measured. Lane F94's form with the animation fields as WinData members
+  (fifteen declarations in place of two in include/ownrdraw.h) turns six exact rows in five other units, every one of them count-
+  sensitive by a few bytes: queue Print_CRCs 0x62A360 (4 B differ; 11,223 B body), sidebar SelectClass::Action 0x6809F0 (4) and
+  Reposition_Sidebar 0x6819A0 (2; 4,397 B together), srfcache CachePCX 0x68C600 (9; 1,046 B), startup WinMain 0x68E280 (826 by
+  position; 10,076 B) and wonline Draw_Player_List 0x73FEE0 (9; 5,132 B): 31,874 B of exact bodies for a draft. countsens reports the
+  three watched rows among them (queue, both sidebar rows) as flipped; map 0x54EBD0 and Trackbar_Proc hold. Run the includer check before
+  reading any gain from a header edit: 42 units include ownrdraw.h.
+- The members are not needed. One local pointer to a file-local view struct, taken once after the null test
+  (`ControlAnimationState * animation = (ControlAnimationState *)record->Animation;`), compiles to the member form's code (778 by
+  position against 779, the image's 29 calls) with no header change. The per-use accessor is what cost sites (lane F57); a cast written at
+  each use is a third state (971 by position at the image's size, one call differs). The draft in the tree is now this form.
+- A struct and helpers that only a guarded draft uses are part of the declaration count the rows after the guard read. With the view
+  struct left outside the guard and the two accessors gone, Trackbar_Proc 0x5FB270 turned (8 B) with the guard closed and was exact with
+  it open; with the struct inside the guard it is exact both ways. Put what only the draft uses under the draft's guard, and check a
+  count_watch row in both states.
+- The mode-4 store pair in the return-true arms, the mechanism. VC6 replaces `jmp B` by a copy of B and a jump to B's successor when B
+  is a short block that ends in a jump, and B ends in a jump only while live code lies between B and its successor C in layout (ra2-
+  decomp's reading for the twin 0x60A5B0, reproduced here: an else arm with one store, falling into the shape test, gives the copy in the
+  0x94 arm with the image's call list). Measured as not giving it: the shape test after the chain under `animated &&` (the same bytes as
+  the nested form: the test is threaded before layout), the image-mode arm joined into the shape test, the dead mode-3 arm placed after
+  the animated arm (it folds first), the tail written inside the else arm with a backward goto, a reset flag in three forms, a named
+  result for Is_Animated_Control, the shape load as an inline helper, the image-mode arm placed after the animated arm. An else arm that
+  ends in `goto done` and holds live code is not moved between: VC6 copies the tail (the timer test, the SetTimer call and an epilogue)
+  into it. The image's false arms jump straight to the timer test, so whatever lay between B and C left no instruction; no text found.
+- The copies and the register exchange are separate questions: `else { animated = false; }` (a probe; it also runs the reset for a
+  plain control) gives the copies with the image's 29 calls, and the parent is still in ebp with zero in edi (779 by position).
+- ownrdraw Adjust_Control_Position 0x5E9410, the byte read once more. Both loads of the last compare always go ecx first and eax second;
+  what turns is which operand gets which register. With the Is_In_Game call on the first arm the left operand takes ecx and the right
+  eax (`cmp ecx, eax` in either spelling); with no call on that arm the right operand is loaded first into ecx and the left second into
+  eax (`cmp eax, ecx`, the image, for `height != old_height`; the mirror for `old_height != height`). With the two arms exchanged
+  (`if (!Is_Extended_Option_Kind(kind))` first, 86 bytes of layout away from the image) or the first arm deleted, the new height is loaded
+  first in both spellings. So the state follows the first arm that reaches the closing test, not the spelling.
+  Not it, each the tree's state or a changed function: `== false`, `== 0`, `!= true`, an empty if with the store in its else, an
+  unsigned char result, `y = old_y + 1`, `y += !Session.Is_In_Game()`, one In_Game test around both arms, a named bool for the extended
+  kinds, conditional operators for the two steps. Probes that leave the state: a second store on the first arm (x, width or height), the
+  call made unconditional.
+  Kind_Of measured: taking it out for ra2-decomp's Get_Dialog_Type(parent) leaves the draft at 1 B and turns Trackbar_Proc (8 B) with
+  the guard closed; with the guard open Trackbar_Proc is exact either way. Kind_Of stays.
+- netshare Scenario_DlgProc 0x5C69E0, the sites between the copies. Read against RA2's own text: Accept_Map_Selection 0x5C71F0 (exact,
+  not in TibSun) writes the selected-mode lookup out where the twin's text has a helper. Written out in the mode list's case, the lookup
+  is one inline site fewer between the first and middle copies, and Select_List_Item_By_Data expands in the start case as in the image
+  (1,124 by position from 1,212; the third copy then expands Clear as well). Swept with it: the lookup written out in the random-map
+  case, the tool-tip block as an inline function (one site more between the middle and third copies), Enable_Random_Scenario and
+  Select_Scenario_Index written out at either site, 64 combinations. None gives the middle copy's pair (constructor called, Clear
+  expanded) with the first and third copies right; the best is lane F93's state again (1,088 by position at the image's 1,920 B, every
+  call but the middle pair) with the start case's index written out, with or without the lookup. The tool-tip helper lowers the third
+  copy before the middle one (constructor called there). The plain statements between the copies compile to the image's instructions
+  as they stand (the warning flag, the list reset, the tool-tip block, the current mode): the 49 differing places are the middle pair,
+  the expanded list search and the zero register that follows them. Draft unchanged.
