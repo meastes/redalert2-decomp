@@ -6670,3 +6670,59 @@ slots paired over the matched instructions, image slot > draft slot per variable
   dossier and the label keeps the tree's text.
 - A single-use file-local helper is looked up in every reference before it is called coined: Delete_Forest_Search is ra2-decomp's (since
   2026-11-02, its Place_Forest matches through it) and mischa85's, so Place_Forest is `[reference-borne]`, with the helper in twin_helpers.csv.
+
+## A budget window is measured with dead locals before any spelling is judged; trailing stores keep the order their statements were written in; a common value's uses are counted after sharing (found in the rebuild (lane F90, high))
+
+Found in the rebuild (lane F90, high); no row landed and no draft changed. tactical Draw_Tiles(Cell) 0x6A8560 stays at 11 bytes by position (8
+lines), queue Extract_Compressed_Events 0x6282D0 at 36 (two stores), walk Movement_AI 0x71E220 at 61 lines. About 1,700 measured variants. Lane
+tools in build/r/f90 (removed at hand-back; copies in private/dossiers/fable/f90_tools): lane F89's set, ft1.py to ft20.py (tactical variant
+tables for qrun.py: the elevation block as a product of four spellings, the two projection sites, weights), fq1.py to fq5.py (queue), wv.sh (walk).
+
+- Measure the budget window first, with dead locals, and only then read a variant. Draw_Tiles(Cell) has the image's call list (the absolute
+  projection called at the first site, expanded at the second with Rectangular_To_Isometric and Z_Lepton_To_Pixel called) over a window of at
+  least seven units: the bank text sits on its lower edge (one `!draw` for `draw == false` puts the point constructor out of line, 11 calls),
+  one to six dead `int probe = 0;` locals at the top change no byte, eight expand the absolute projection at the first site (12 calls).
+  `draw == false` against `!draw` is one unit and `x = x + 1` for `x++` gives it back; neither moves a register. A probe ladder
+  (-3 to +40) beside every structural variant separates a budget state from the variant's own code: lane F87's "800 and up" for the other
+  forms of the projection sites were budget states.
+- The first site calls and the second expands because of the pending sites (the /Ob2 rule's N_i), so the forms after the projection count.
+  Forms that give the image's bytes at their own weight: first site `basecell->Draw_It(screen - Point2D(ISO_TILE_PIXEL_W / 2, 0), ...)`
+  at +16 (not at +10), `Point2D pixel(screen.X - ..., screen.Y)` at +3 to +6, the same as a temporary argument at +6 to +10; second site
+  with a named `Point2D left = pixel - Point2D(...)` at -1 to +3. TibSun's `pixel.X -= 30` at the second site has no pending site and
+  expands everything at both sites. So the image's text is heavier than the bank's by its own forms, and the bank's member-wise first site
+  and `draw == false` are one composition of that weight among several.
+- The elevation block has two states. A (the image's but one compare): draw in al, height in edx, the cell pointer spilled, Elevation read
+  from the cell three times. B: Elevation shared into a new frame slot (frame 0x48), the cell pointer in eax, Height read again at each
+  use. A product of 3 x 5 x 5 x 9 spellings of the four tests (479 measured) and 240 of TibSun's `overlap` form says: A exactly when the
+  height difference has three uses after sharing. A written `height - level < 0` shares with the named difference and counts (B); a written
+  sum (`Elevation + height - level`, any association or operand order) is reordered to Elevation - level + height, does not share and does
+  not count. Three texts reach A: the bank (difference in the second outer operand and both middle tests), the difference in both outer
+  tests and the first middle test (38 bytes: the image's `test ecx, ecx`, the middle sum wrong) and the difference in the first outer and
+  both middle tests (17 lines: `test ecx, ecx` right, the outer sum wrong). The image has four uses in state A, which no spelling of the
+  block gives: not TibSun's `level - 1` reading of the same tests (its text maps onto the image's constants one for one), not the
+  difference declared beside height, not Height read from the cell at each use, not one more use of height (mixed states, frame 0x48).
+  TibSun's structure with `overlap` (the image's `mov al, [home]` reads as `draw = overlap`) holds Elevation in al and draw in cl at
+  every weight in the window (best 295), so the bank's structure stays.
+- The second residue is not text of the helper and not a count. The result pointer of Rectangular_To_Isometric goes to ecx (image edx,
+  which lets the load of coord.Z into ecx float up) under 19 texts of Coord_To_Pixel_Absolute(Coord) (declare then assign, a reference
+  or a copy of the result, the lift as a local before or after the divisions, one return expression, coord.Z read into a local right
+  after the call), a fresh Coord or a temporary at the site, 1 to 32 new declared types ahead of the function and 1 to 6 dead locals. A
+  local copy of coord.Z ahead of the call is folded to zero, so the image reads Z after the call. The tree's other helper
+  (World_To_View_Pixel) at the site never gives the image's call list.
+- queue Extract_Compressed_Events: the stores left at the end of the new-run block come out in the order their statements were written.
+  Over 120 orders of the six statements the trailing stores of numunits, of the first four bytes of Whom, of units and of dest keep
+  statement order wherever they are all deferred; the image's order (numunits, Whom, units, dest, the count table) is TibSun's statement
+  order (count, numunits, then the copy), and the second loop of the image has the same order (count, numunits, Whom, its byte). The
+  register evidence says the opposite about the loads: count is incremented in edx and numunits then takes dl with src already in eax, so
+  the read of *src is ahead of both. A text with the read first and the four-byte store after the decrement is what is missing; every
+  whole-statement order has one or the other. The frame decides the rest: only the bank's shape (the event assigned first, saved through
+  `memcpy(dest++, &event...)`) keeps 0x9C; saving from the packet first loses eight bytes (0x94) and 220 lines in every order, with
+  `dest++` as a statement or inside the copy. The count table's store anywhere but last: best 78. `--numunits`, `numunits -= 1`, a comma
+  pair with count: the same bytes; a chained assignment or a nested memcpy: frame 0x98.
+- walk Movement_AI, read only: the held address is one of two address temporaries. &HeadToCoord sits in ebx through the whole function in
+  image and draft; &DestinationCoord is in the image a register only where an out-of-line call takes it (Is_In_Same_Zone at the top and
+  in the MOVE_MOVING_BLOCK arm, each with its own lea) and the MOVE_TEMP arm reads the three members from ebp. With it gone edi is free
+  and the image uses it as a fifth register at the second Adjacent_Cell site (Z) and in the MOVE_TEMP subtraction, so those hunks are
+  effects. `LinkedTo->Get_Coord() + AdjacentPoint[dir & 7]` written at the first site gives the two leas with the constructor expanded
+  (118 calls, 66 lines), the same coupled state as lane F89's; with lane F88's form at the second site only, one more assignment does
+  not flip it. The tube block's `rep movsd` does not explain it (the draft's web already steps round it, liveness follows the paths).
