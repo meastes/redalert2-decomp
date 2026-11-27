@@ -7128,3 +7128,48 @@ count in the unit).
   the block as much as ahead of it. The turned window is +31 to +62 exactly. It is not a count alone: with either of two early blocks
   taken out (diagnostic) no count to +296 turns the sum at all, so "24 to 32 fewer locals" is not shown to be the image's state.
 - A probe set that walks a header must restore it: the scripts copy the header aside, trap the exit and check git status after.
+
+## A count-sensitive row counts in one of two ways, and only one of them answers to the include order; no parked draft is count-sensitive at file scope (found in the rebuild (lane F98, high))
+
+Found in the rebuild (lane F98, high); no row changed. About 3,300 compiles, all scripted (three whole-tree runs of 444 units among them). Lane
+tools in build/r/f98 (removed at hand-back; copies in private/dossiers/fable/f98_tools): lib.py (one compile, any guard open, every row
+compared), plist.py (each guard opened alone and what it adds), sw.py (struct, inline-function or class probes ahead of the unit's first
+include, every parked draft), rs.py (the same probes, every exact row of the unit), inc.py (the unit's includes in a reference's
+order: ra2-decomp, mischa85, the TibSun archive, Robin's 1.001), bis.py (the place where a row's count is taken, by bisection over the
+unit's file-scope lines and then inside the header found, headers restored), allrows.py (all 444 units compiled side by side, the rows
+that changed state between two runs: a whole-tree includer check in five minutes).
+
+- The manifests hold no `count_sensitive` entry (mapgen's was the last). Every parked row with a draft (33 rows in 24 units, one guard
+  open at a time) was measured with 1 to 64 struct declarations and with 1 to 64 inline functions ahead of the unit's first include:
+  the same bytes at every count, List_Proc excepted (2 of 13,822 bytes at one count). Every reference include order for those units:
+  no draft moves a byte (Projectile_Motion alone, 51 to 59 under mischa85's order). So the parked tail is not waiting on a declaration
+  count or an include order; what remains of it is text.
+- An exact row that is count-sensitive counts in one of two ways, and bis.py tells them apart in about ten compiles. (1) The unit's
+  total ahead of the function: a declaration placed just ahead of the function's own line still moves the row. queue Print_CRCs, map
+  Zone_Reset and Build_Reachable_Subzones, sidebar Reposition_Sidebar, house AI_Build_Defense, ownrdraw Trackbar_Proc and Slide_Dialog,
+  wonline OnChannelJoin. An include order does not change a total, and the row has the same windows under any order (Print_CRCs
+  under ra2-decomp's queue.cpp order: identical at all seventeen counts tried). (2) A count taken at one declaration inside the include
+  closure, after which nothing moves the row, as mapgen Create_Urban_Area at class BaseClass: sidebar SelectClass::Action at
+  geometry.h's `const Cell CELL_NONE(0, 0);`, wonline Draw_Player_List at wonline.h's `extern Wstring g_NickName;`, wonline Pick_Lobby
+  at class GenericList in listnode.h (through ini.h), techno Draw_Post_Render at _rect.h's `extern Rect TacticalRect;` (through
+  shapeset.h), ownrdraw Owner_Button_Proc in globals.h between ScenarioCRC and `extern Cell CurrentCell;`. Each place is the first
+  object or member of a class the function works with (Cell, Wstring, Rect), which fits lane F97's reading of BaseClass. Only rows of
+  the second kind can answer to an include order.
+- An include order moves more than counts. house AI_Build_Defense (flagged, a named second count) is exact at +0 to +12 struct
+  declarations of 64 on the tree's order and at none of nine counts over the period under ra2-decomp's house.cpp order; its natural
+  form (the references' reused `count`) is off under both orders at every count. So a row lost under a reference order is not
+  shown to have a window there, and a probe sweep on one order says nothing about the other.
+- The two held rows that are held on count flips do not come back by include order (owner's conditions: ra2-decomp's twin unit order
+  only, whole). TechnoTypeClass's constructor under ra2-decomp's `UnusedField Unused2`: exact, and five rows flip in the tree (house
+  AI_Build_Defense, map Zone_Reset, queue Print_CRCs, sidebar Reposition_Sidebar, startup WinMain; 27,523 B); the reference order in
+  house, queue, sidebar and startup restores none, and map.cpp is in that order already. Projectile_Motion under the twin's Magnitude
+  and Turn's named difference: exact, and three rows flip (ownrdraw Trackbar_Proc, queue Print_CRCs, wonline OnChannelJoin; 20,492 B);
+  the reference order in queue and wonline restores neither, and ownrdraw.cpp does not compile in ra2-decomp's order (its geoconst2.h
+  comes ahead of the header that declares Cell). Six of the seven distinct rows count totals (WinMain was not bisected); the reason is the paragraph above.
+- map Close_Object's twin form (As_Techno with cast.h, the dead cell gone) leaves Zone_Reset off at +0 to +10 and exact at +12 to +52.
+  The twin's multiplayer.h added beside cast.h puts it in the window, the twin's smudtype.h takes it out again, and the twin's whole
+  list is out. One include of five that does no work in this unit, kept because it lands in a window, is a subset chosen by count: not
+  landed.
+- Probe kinds do not weigh alike and do not act at the same places: with cast.h in, twelve struct declarations turn Zone_Reset only
+  ahead of map.h, while on the tree's text four turn it anywhere ahead of its own line. Read a window with the probe kind and the
+  place it was measured at, and do not carry it to another header state.
