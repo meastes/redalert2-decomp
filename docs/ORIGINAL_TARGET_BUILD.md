@@ -648,6 +648,32 @@ Seeds and sweep matches are scratch: promotion still uses
 roughly 7–10 seconds of startup, so the sweep batches about 150 compiles per
 session.
 
+### Source-permutation search (permute.py, lane O108, 2026-11-27)
+
+`tools/original_target/permute.py UNIT FUNC --entry ADDR [...]` is an unattended beam search over one parked
+function's text (its RA2_NON_MATCHING guard opened in a scratch copy; the tree's file is never written). It
+extends `order_search.py`'s rules (statement and declaration order, `++` spelling, for/while) with
+commutative operand order, flipped relational operators, `!x`/`x == 0`/`x != 0` spellings, `&&` against nested
+ifs, ternary against if/else, inlining a once-used builtin or pointer local, and a named `bool` for an if
+condition. It never adds dead statements, dummy variables, duplicate copies, `__forceinline`, header or
+include changes or asm. Each variant compiles through `build.compile_units` (the compiler lock and
+`parallel_sessions`, so the Windows workers' native config works unchanged) and is compared with
+`rebuild.compare` on the unit's row, or on `manifests/image_bounds.csv` for a no-row function (`--symbol SUB`
+picks the mangled name). A variant counts only when every row exact in the base stays exact. Scores are cached
+by text in `WORK/UNIT-ENTRY/cache.jsonl` (default `private/scratch/permute/`), so a rerun resumes.
+
+```sh
+$RA2_PYTHON -B tools/original_target/permute.py ownrdraw Adjust_Control_Position --entry 5e9410 \
+    --beam 6 --depth 4 --slack 2 --budget 2500 --hours 1.25 --report private/dossiers/fable/permute/X.md
+# --list prints the base's single mutations; --open TEXT also opens a guard holding TEXT (a guarded
+# declaration the draft uses); --ref NAME=ADDR binds an unbound static (NAME may be a substring);
+# --kinds perm,comm,... limits the mutations; --alt ALTS.json adds twin/archive texts as in order_search.
+```
+
+A hit (0 bytes differ, every other row still exact) is a candidate, not a landing: it lands under the normal
+rules (flags for any named local or spelling, catalog, whole-file build). Tests:
+`tests/test_original_target_permute.py` (the mutations, no compiler).
+
 ## Plain Wine host
 
 The default local config uses WineHQ's macOS build 11.18
