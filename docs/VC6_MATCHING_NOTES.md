@@ -7457,3 +7457,31 @@ the unit exact), psweep.py (0 to 64 probes ahead of any line of a unit).
   prototype; queue: two moves only with an archive-placed prototype), +5,600 B against AI_Build_Defense's 3,264 B.
 - timer.h's Has_Completed2 (lane O94's ballast) is the archive's: TibSun timer.h declares and defines it and its drive.cpp calls it; mischa85's header
   has it too. It stays as reference text.
+
+## A count tie is read at all eight residues with weight-free levers; two ties that share a residue are separated by a statement between their sites, not by the count (found in the rebuild (lane F113, high))
+
+Found in the rebuild (lane F113, high): walk WalkLocomotionClass::Movement_AI 0x71E220 exact (4,967 B, new row; 2,999 by position and 61 lines
+before). About 500 compiles, scripted. Lane tools in build/r/f113 (removed at hand-back; copies in private/dossiers/fable/f113_tools): v3.py (named
+spelling toggles on the draft, one state line per variant: calls, web, the schedule site, the second site, the rest), scan.py (one structure at the
+eight counts), fs.py (file-scope declarations), tg.py (the toggle table).
+
+- Read the twin project's attempt rows, not only its banks. ra2-decomp's data/attempts.csv of 2026-11-27 named the three forms that take the draft
+  from 61 lines to 8 (the MOVE_TEMP distance and the turn after Mark_Head_To without named locals, `Coord(tube_ptr->Get_Exit(), 0)`); the bank with
+  that text was never published. A named `int` holding a Distance result blocks the web split here as there.
+- Build weight-free count levers before reading any tie. A dead probe local adds IL weight and on a root at its inline edge reports only the
+  expansion (lane F89). Spellings that change the count and nothing else: a once-used named local written inside its call (-1), a free function
+  for the object's own inline member (`::Direction(obj->Center_Coord(), c)` against `obj->Direction(c)`: -1 for the member; `Distance(...)`
+  against `obj->Distance(c)`: +1 for the member), `Cell(coord)` for `coord.As_Cell()` (+1 ahead of the sites, nothing after them). Four of -1 and
+  four of +1 reach every residue; +8 gives the same tie again, so the period is 8 in this tree too.
+- A scan of one structure at the eight residues shows each tie's own residue. In the twin text the &DestinationCoord web splits at residue 0, the
+  argument schedule at the first Adjacent_Cell's constructor call turns at residue 0 as well, and the tube block's table address is taken early
+  at +1. Most spellings move all three together (they are counts). The ones that do not sit between the sites: As_Coord() or `tube_ptr->Count` in
+  the tube block's height statement move the schedule tie by three or four against the web (with their own code change), and
+  `Cell cell = coord.As_Cell();`, the statement between the two Adjacent_Cell sites, moves the schedule tie two away with no code of its own.
+  That is the text the image wants: web split, schedule as at every other residue.
+- At the wanted residue the same statement can turn an inline decision. With `coord.As_Cell()` alone the point constructor at 0x71E929 is
+  expanded there; with one more pair of -1 and +1 levers it stays called. Named locals (`int dist`, `DirStruct face`) expand it in every
+  combination. So the last step is a choice among equal counts: ten pairs were exact, and the one taken is the pair whose forms are sibling
+  idioms in exact rows (drive's `LinkedTo->Distance(DestinationCoord)`, hover's `DirType d = LinkedTo->Direction(HeadToCoord)`).
+- File-scope declarations ahead of the function (externs, classes, prototypes, a typedef, a static; one to four) do not move any of the three
+  ties: this count is the function's own.

@@ -2,10 +2,10 @@
   "id": "rebuild-walk",
   "population": {
     "id": "rebuild-walk",
-    "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
-    "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "f7452649332943ba8b2029d5e4e9676feca7ee11f2bd56cb925ac5e3ed75e530",
-    "historical_acceptance_sha256": "185f95a3b18bc1e9ad40c809a911336306d250bc5e6820f690f8373ef890d75a"
+    "inventory_sha256": "3ef54957ead29a46e6eea750cf77b51ffc34d00fd9f92cbc8d84610084a29092",
+    "gaps_sha256": "b308050a46b7cf6e70bfe0e590d67bf26b9b9ffdf6333c695e3d171b36a26c95",
+    "historical_population_sha256": "049468079aedb57815ea518b6e5704d2962cafd85acfbfd338a8f7ed769409ad",
+    "historical_acceptance_sha256": "049468079aedb57815ea518b6e5704d2962cafd85acfbfd338a8f7ed769409ad"
   },
   "references": {
     "_RECT_NONE": 11505712,
@@ -47,8 +47,37 @@
     "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z": 5537792,
     "?Pixel_To_Z_Lepton@Tactical@@SIHH@Z": 6957488,
     "?Set@FacingClass@@QAE_NABVDirType@@@Z": 4950800,
-    "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ": 4659120,
+    "?Frame@@3HA": 10751276,
+    "?Rule@@3PAVRulesClass@@A": 8624200,
+    "__real@8@4008e100000000000000": 7976456,
+    "?Basic_Path@FootClass@@QAE_NVCell@@HH@Z": 4993024,
+    "??0?$TPoint3D@H@@QAE@HHH@Z": 4306480,
+    "?Length@?$TPoint3D@H@@QBEHXZ": 4306816,
+    "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z": 7421360,
+    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
+    "?Is_Same_Cell_Zone@MapClass@@QAE_NABVCell@@0W4MZoneType@@_N22@Z": 5568448,
+    "?Tubes@@3V?$DynamicVectorClass@PAVTubeClass@@@@A": 8806856,
+    "?AdjacentCell@@3QBVCell@@B": 8723056,
+    "?Cell_Coord@CellClass@@QBE?AVCoord@@XZ": 4676960,
     "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z": 5612160,
+    "?AdjacentPoint@@3QBVPoint2D@@B": 8723136,
+    "?Get_Cell_Height@ObjectClass@@QBEHXZ": 6113232,
+    "?HasAnyLink@RadioClass@@QBE_NXZ": 6516496,
+    "?Incoming@CellClass@@QAEXABVCoord@@_N11@Z": 4679968,
+    "?Try_Open_Gate@MapClass@@QAE_NPAVFootClass@@ABVCell@@@Z": 5614800,
+    "?Cell_Object@CellClass@@QBEPAVObjectClass@@ABVPoint2D@@_N@Z": 4659248,
+    "?Is_Ally@HouseClass@@QBE_NPBVObjectClass@@@Z": 5133696,
+    "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A": 10706408,
+    "?Shimmer@CellClass@@QAEXXZ": 4687680,
+    "?Mark_Head_To@WalkLocomotionClass@@QAE_NABVCoord@@@Z": 7468432,
+    "?atan2@fastmath@@YANNN@Z": 4957696,
+    "__real@8@3fffc90fdaa22168c000": 7976496,
+    "__real@8@c00ca2f83d7b47677800": 7976488,
+    "__real@8@bff1c9116cc4faf2b800": 7976480,
+    "?sin@fastmath@@YANN@Z": 4957312,
+    "?cos@fastmath@@YANN@Z": 4957392,
+    "?Trigger_Veins@CellClass@@QAEXXZ": 4700976,
+    "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ": 4659120,
     "?Closest_Free_Spot@CellClass@@QBE?AVCoord@@ABV2@_N1@Z": 4678832,
     "?Goodie_Check@CellClass@@QAE_NPAVFootClass@@@Z": 4680896,
     "_CLSID_WalkLocomotion": 8003488,
@@ -143,7 +172,6 @@
     "?Stop_Moving@WalkLocomotionClass@@UAGXXZ": 7463184,
     "?Do_Turn@WalkLocomotionClass@@UAGXUDirStruct@@@Z": 7463280,
     "?Force_Immediate_Destination@WalkLocomotionClass@@UAGXUCoordStruct@@@Z": 7463328,
-    "?Mark_Head_To@WalkLocomotionClass@@QAE_NABVCoord@@@Z": 7468432,
     "?GetClassID@WalkLocomotionClass@@UAGJPAU_GUID@@@Z": 7469312,
     "?Load@WalkLocomotionClass@@UAGJPAUIStream@@@Z": 7469376,
     "?Save@WalkLocomotionClass@@UAGJPAUIStream@@H@Z": 7469504,
@@ -227,11 +255,12 @@
           "resolved": 11505724
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7461904,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7461936,
@@ -295,11 +324,12 @@
           "resolved": 11505736
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7461936,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7461984,
@@ -347,11 +377,12 @@
           "resolved": 11505808
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7461984,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7462016,
@@ -399,11 +430,12 @@
           "resolved": 11505792
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462016,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7462048,
@@ -451,11 +483,12 @@
           "resolved": 11505784
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462048,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7462080,
@@ -503,11 +536,12 @@
           "resolved": 11505744
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462080,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7462112,
@@ -555,11 +589,12 @@
           "resolved": 11505704
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462112,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7462144,
@@ -639,11 +674,12 @@
           "resolved": 11505816
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462144,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7462208,
@@ -699,11 +735,12 @@
           "resolved": 11505752
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462208,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7462256,
@@ -759,11 +796,12 @@
           "resolved": 11505776
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462256,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7462304,
@@ -819,11 +857,12 @@
           "resolved": 11505800
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462304,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7462352,
@@ -863,11 +902,12 @@
           "resolved": 11505730
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462352,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7462368,
@@ -915,11 +955,12 @@
           "resolved": 11505768
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462368,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7462400,
@@ -1023,11 +1064,12 @@
           "resolved": 8055476
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462400,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7462512,
@@ -1083,11 +1125,12 @@
           "resolved": 4292997461
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462512,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7462560,
@@ -1110,11 +1153,12 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462560,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7462576,
@@ -1170,11 +1214,12 @@
           "resolved": 11505768
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462576,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7462672,
@@ -1222,11 +1267,12 @@
           "resolved": 11505768
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462672,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7462768,
@@ -1274,11 +1320,12 @@
           "resolved": 11505768
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462768,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7462896,
@@ -1310,11 +1357,12 @@
           "resolved": 541
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462896,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7462944,
@@ -1386,11 +1434,12 @@
           "resolved": 4294461673
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462944,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7463184,
@@ -1462,11 +1511,12 @@
           "resolved": 11505768
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7463184,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7463280,
@@ -1498,11 +1548,12 @@
           "resolved": 4292454785
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7463280,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7463328,
@@ -1550,10 +1601,1081 @@
           "resolved": 11505768
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7463328,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
+    },
+    {
+      "entry": 7463456,
+      "method": "0071e220",
+      "body_bytes": 4967,
+      "body_sha256": "c1d2fff335d910d70882a6f3c51d2fe05255299da2b6a3d764df7778d892f896",
+      "padding_bytes": 9,
+      "full_extent_bytes": 4976,
+      "full_extent_sha256": "8c3495ec9f9b5b71d564f69ce0d7aa058a3d09b4cbbdb645f60f119273cda0de",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Image-derived bound (manifests/image_bounds.csv, image_bounds.py; start call@0071dffe +3, end bound row)",
+      "padding_provenance": null,
+      "bound": "image-derived",
+      "symbol": "?Movement_AI@WalkLocomotionClass@@QAEX_N@Z",
+      "symbol_prefix": "?Movement_AI@WalkLocomotionClass@@QAEX_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 0,
+          "resolved": 11505760
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 4,
+          "resolved": 11505764
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 8,
+          "resolved": 11505768
+        },
+        {
+          "offset": 131,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 171,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 183,
+          "kind": 6,
+          "symbol": "__real@8@4008e100000000000000",
+          "target": 7976456,
+          "addend": 0,
+          "resolved": 7976456
+        },
+        {
+          "offset": 188,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 396848
+        },
+        {
+          "offset": 194,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 262,
+          "kind": 20,
+          "symbol": "?Basic_Path@FootClass@@QAE_NVCell@@HH@Z",
+          "target": 4993024,
+          "addend": 0,
+          "resolved": 4292496598
+        },
+        {
+          "offset": 351,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4291809965
+        },
+        {
+          "offset": 380,
+          "kind": 20,
+          "symbol": "?Length@?$TPoint3D@H@@QBEHXZ",
+          "target": 4306816,
+          "addend": 0,
+          "resolved": 4291810272
+        },
+        {
+          "offset": 386,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 482,
+          "kind": 20,
+          "symbol": "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z",
+          "target": 7421360,
+          "addend": 0,
+          "resolved": 4294924714
+        },
+        {
+          "offset": 647,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 652,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293041088
+        },
+        {
+          "offset": 710,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 715,
+          "kind": 20,
+          "symbol": "?Is_Same_Cell_Zone@MapClass@@QAE_NABVCell@@0W4MZoneType@@_N22@Z",
+          "target": 5568448,
+          "addend": 0,
+          "resolved": 4293071569
+        },
+        {
+          "offset": 932,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 937,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293040803
+        },
+        {
+          "offset": 994,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 999,
+          "kind": 20,
+          "symbol": "?Is_Same_Cell_Zone@MapClass@@QAE_NABVCell@@0W4MZoneType@@_N22@Z",
+          "target": 5568448,
+          "addend": 0,
+          "resolved": 4293071285
+        },
+        {
+          "offset": 1133,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1145,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293040483
+        },
+        {
+          "offset": 1170,
+          "kind": 6,
+          "symbol": "?Tubes@@3V?$DynamicVectorClass@PAVTubeClass@@@@A",
+          "target": 8806856,
+          "addend": 16,
+          "resolved": 8806872
+        },
+        {
+          "offset": 1241,
+          "kind": 6,
+          "symbol": "?Tubes@@3V?$DynamicVectorClass@PAVTubeClass@@@@A",
+          "target": 8806856,
+          "addend": 4,
+          "resolved": 8806860
+        },
+        {
+          "offset": 1380,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 0,
+          "resolved": 8723056
+        },
+        {
+          "offset": 1387,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 0,
+          "resolved": 8723056
+        },
+        {
+          "offset": 1440,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1457,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293040283
+        },
+        {
+          "offset": 1464,
+          "kind": 20,
+          "symbol": "?Cell_Coord@CellClass@@QBE?AVCoord@@XZ",
+          "target": 4676960,
+          "addend": 0,
+          "resolved": 4292179332
+        },
+        {
+          "offset": 1570,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1575,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4293114421
+        },
+        {
+          "offset": 1642,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1651,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4293114345
+        },
+        {
+          "offset": 1695,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 0,
+          "resolved": 11505760
+        },
+        {
+          "offset": 1703,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 4,
+          "resolved": 11505764
+        },
+        {
+          "offset": 1715,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 8,
+          "resolved": 11505768
+        },
+        {
+          "offset": 1775,
+          "kind": 6,
+          "symbol": "?AdjacentPoint@@3QBVPoint2D@@B",
+          "target": 8723136,
+          "addend": 0,
+          "resolved": 8723136
+        },
+        {
+          "offset": 1802,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4291808514
+        },
+        {
+          "offset": 1906,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1923,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293039705
+        },
+        {
+          "offset": 1968,
+          "kind": 20,
+          "symbol": "?Get_Cell_Height@ObjectClass@@QBEHXZ",
+          "target": 6113232,
+          "addend": 0,
+          "resolved": 4293615100
+        },
+        {
+          "offset": 1984,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1989,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293039751
+        },
+        {
+          "offset": 2043,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2048,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293039692
+        },
+        {
+          "offset": 2076,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 0,
+          "resolved": 11505760
+        },
+        {
+          "offset": 2084,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 4,
+          "resolved": 11505764
+        },
+        {
+          "offset": 2093,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 8,
+          "resolved": 11505768
+        },
+        {
+          "offset": 2104,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 2132,
+          "kind": 20,
+          "symbol": "?Movement_AI@WalkLocomotionClass@@QAEX_N@Z",
+          "target": 7463456,
+          "addend": 0,
+          "resolved": 4294965160
+        },
+        {
+          "offset": 2199,
+          "kind": 20,
+          "symbol": "?Length@?$TPoint3D@H@@QBEHXZ",
+          "target": 4306816,
+          "addend": 0,
+          "resolved": 4291808453
+        },
+        {
+          "offset": 2205,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 2225,
+          "kind": 20,
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+          "target": 6516496,
+          "addend": 0,
+          "resolved": 4294018107
+        },
+        {
+          "offset": 2276,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11505816,
+          "addend": 0,
+          "resolved": 11505816
+        },
+        {
+          "offset": 2316,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2321,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293039307
+        },
+        {
+          "offset": 2336,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 0,
+          "resolved": 11505760
+        },
+        {
+          "offset": 2343,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 4,
+          "resolved": 11505764
+        },
+        {
+          "offset": 2355,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 8,
+          "resolved": 11505768
+        },
+        {
+          "offset": 2466,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11505816,
+          "addend": 0,
+          "resolved": 11505816
+        },
+        {
+          "offset": 2506,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 0,
+          "resolved": 11505760
+        },
+        {
+          "offset": 2511,
+          "kind": 20,
+          "symbol": "?Incoming@CellClass@@QAEXABVCoord@@_N11@Z",
+          "target": 4679968,
+          "addend": 0,
+          "resolved": 4292181293
+        },
+        {
+          "offset": 2559,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 2564,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 2597,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 2743,
+          "kind": 20,
+          "symbol": "?Basic_Path@FootClass@@QAE_NVCell@@HH@Z",
+          "target": 4993024,
+          "addend": 0,
+          "resolved": 4292494117
+        },
+        {
+          "offset": 2749,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 2755,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 2769,
+          "kind": 6,
+          "symbol": "__real@8@4008e100000000000000",
+          "target": 7976456,
+          "addend": 0,
+          "resolved": 7976456
+        },
+        {
+          "offset": 2774,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 394262
+        },
+        {
+          "offset": 2901,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2906,
+          "kind": 20,
+          "symbol": "?Try_Open_Gate@MapClass@@QAE_NPAVFootClass@@ABVCell@@@Z",
+          "target": 5614800,
+          "addend": 0,
+          "resolved": 4293115730
+        },
+        {
+          "offset": 2961,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2974,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293038766
+        },
+        {
+          "offset": 2981,
+          "kind": 20,
+          "symbol": "?Cell_Object@CellClass@@QBEPAVObjectClass@@ABVPoint2D@@_N@Z",
+          "target": 4659248,
+          "addend": 0,
+          "resolved": 4292160103
+        },
+        {
+          "offset": 3010,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 0,
+          "resolved": 11505760
+        },
+        {
+          "offset": 3018,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 4,
+          "resolved": 11505764
+        },
+        {
+          "offset": 3026,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 8,
+          "resolved": 11505768
+        },
+        {
+          "offset": 3037,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 3065,
+          "kind": 20,
+          "symbol": "?Movement_AI@WalkLocomotionClass@@QAEX_N@Z",
+          "target": 7463456,
+          "addend": 0,
+          "resolved": 4294964227
+        },
+        {
+          "offset": 3094,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NPBVObjectClass@@@Z",
+          "target": 5133696,
+          "addend": 0,
+          "resolved": 4292634438
+        },
+        {
+          "offset": 3125,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3131,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293038609
+        },
+        {
+          "offset": 3147,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3152,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293038588
+        },
+        {
+          "offset": 3161,
+          "kind": 6,
+          "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
+          "target": 10706408,
+          "addend": 4,
+          "resolved": 10706412
+        },
+        {
+          "offset": 3191,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3196,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293038544
+        },
+        {
+          "offset": 3295,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3301,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293038439
+        },
+        {
+          "offset": 3308,
+          "kind": 20,
+          "symbol": "?Shimmer@CellClass@@QAEXXZ",
+          "target": 4687680,
+          "addend": 0,
+          "resolved": 4292188208
+        },
+        {
+          "offset": 3339,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 0,
+          "resolved": 11505760
+        },
+        {
+          "offset": 3346,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 4,
+          "resolved": 11505764
+        },
+        {
+          "offset": 3358,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 8,
+          "resolved": 11505768
+        },
+        {
+          "offset": 3372,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 3394,
+          "kind": 20,
+          "symbol": "?Movement_AI@WalkLocomotionClass@@QAEX_N@Z",
+          "target": 7463456,
+          "addend": 0,
+          "resolved": 4294963898
+        },
+        {
+          "offset": 3416,
+          "kind": 20,
+          "symbol": "?Mark_Head_To@WalkLocomotionClass@@QAE_NABVCoord@@@Z",
+          "target": 7468432,
+          "addend": 0,
+          "resolved": 1556
+        },
+        {
+          "offset": 3496,
+          "kind": 20,
+          "symbol": "?atan2@fastmath@@YANNN@Z",
+          "target": 4957696,
+          "addend": 0,
+          "resolved": 4292458036
+        },
+        {
+          "offset": 3502,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 3511,
+          "kind": 6,
+          "symbol": "__real@8@c00ca2f83d7b47677800",
+          "target": 7976488,
+          "addend": 0,
+          "resolved": 7976488
+        },
+        {
+          "offset": 3516,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 393520
+        },
+        {
+          "offset": 3624,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 3739,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292457297
+        },
+        {
+          "offset": 3747,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 393289
+        },
+        {
+          "offset": 3909,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 0,
+          "resolved": 11505760
+        },
+        {
+          "offset": 3923,
+          "kind": 20,
+          "symbol": "?Mark_Head_To@WalkLocomotionClass@@QAE_NABVCoord@@@Z",
+          "target": 7468432,
+          "addend": 0,
+          "resolved": 1049
+        },
+        {
+          "offset": 4004,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 0,
+          "resolved": 11505760
+        },
+        {
+          "offset": 4017,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 4,
+          "resolved": 11505764
+        },
+        {
+          "offset": 4029,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 8,
+          "resolved": 11505768
+        },
+        {
+          "offset": 4161,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11505816,
+          "addend": 0,
+          "resolved": 11505816
+        },
+        {
+          "offset": 4208,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 0,
+          "resolved": 11505760
+        },
+        {
+          "offset": 4216,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 4,
+          "resolved": 11505764
+        },
+        {
+          "offset": 4228,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 8,
+          "resolved": 11505768
+        },
+        {
+          "offset": 4410,
+          "kind": 20,
+          "symbol": "?atan2@fastmath@@YANNN@Z",
+          "target": 4957696,
+          "addend": 0,
+          "resolved": 4292457122
+        },
+        {
+          "offset": 4416,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 4425,
+          "kind": 6,
+          "symbol": "__real@8@c00ca2f83d7b47677800",
+          "target": 7976488,
+          "addend": 0,
+          "resolved": 7976488
+        },
+        {
+          "offset": 4430,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 392606
+        },
+        {
+          "offset": 4523,
+          "kind": 6,
+          "symbol": "__real@8@bff1c9116cc4faf2b800",
+          "target": 7976480,
+          "addend": 0,
+          "resolved": 7976480
+        },
+        {
+          "offset": 4558,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 4292456590
+        },
+        {
+          "offset": 4571,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 392465
+        },
+        {
+          "offset": 4584,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4292456644
+        },
+        {
+          "offset": 4600,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 392436
+        },
+        {
+          "offset": 4715,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 4720,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293037020
+        },
+        {
+          "offset": 4729,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 4737,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293037003
+        },
+        {
+          "offset": 4866,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 4871,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293036757
+        },
+        {
+          "offset": 4878,
+          "kind": 20,
+          "symbol": "?Trigger_Veins@CellClass@@QAEXXZ",
+          "target": 4700976,
+          "addend": 0,
+          "resolved": 4292199934
+        }
+      ],
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
+      "source": "src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7463456,
       "source_quality_family": "rebuild"
     },
     {
@@ -1786,11 +2908,12 @@
           "resolved": 11505768
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7468432,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7469312,
@@ -1846,11 +2969,12 @@
           "resolved": 8003500
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7469312,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7469376,
@@ -1922,11 +3046,12 @@
           "resolved": 7972332
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7469376,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7469504,
@@ -1990,11 +3115,12 @@
           "resolved": 7972328
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7469504,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7469728,
@@ -2017,11 +3143,12 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7469728,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7469744,
@@ -2061,11 +3188,12 @@
           "resolved": 8003664
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7469744,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7469840,
@@ -2088,11 +3216,12 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7469840,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7469920,
@@ -2115,11 +3244,12 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7469920,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7469984,
@@ -2142,11 +3272,12 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7469984,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7470032,
@@ -2218,11 +3349,12 @@
           "resolved": 482453
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7470032,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7470304,
@@ -2245,11 +3377,12 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7470304,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7470384,
@@ -2281,11 +3414,12 @@
           "resolved": 11505816
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7470384,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7470544,
@@ -2308,11 +3442,12 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7470544,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7470560,
@@ -2344,11 +3479,12 @@
           "resolved": 4292990054
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7470560,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7470576,
@@ -2380,11 +3516,12 @@
           "resolved": 4292990070
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7470576,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7470592,
@@ -2407,11 +3544,12 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7470592,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7470624,
@@ -2434,11 +3572,12 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7470624,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7470640,
@@ -2461,11 +3600,12 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7470640,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7470656,
@@ -2529,11 +3669,12 @@
           "resolved": 401091
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7470656,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7470736,
@@ -2565,11 +3706,12 @@
           "resolved": 4294966294
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7470736,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7470752,
@@ -2601,11 +3743,12 @@
           "resolved": 4294967094
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7470752,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7470768,
@@ -2637,11 +3780,12 @@
           "resolved": 4294967094
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7470768,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7470784,
@@ -2673,11 +3817,12 @@
           "resolved": 4294966246
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7470784,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7470800,
@@ -2709,11 +3854,12 @@
           "resolved": 4294967046
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7470800,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     },
     {
       "entry": 7470816,
@@ -2745,11 +3891,12 @@
           "resolved": 4294967046
         }
       ],
-      "source_sha256": "dfe5fe2627abc17602db2c5dcaf205f03812984f0836d9e5310ba17445ddf8d5",
+      "source_sha256": "f34fab70f751348fe01661fecd35e487b901e292f76b7c6871330804f71da90b",
       "source": "src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7470816,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3514"
     }
   ]
 }

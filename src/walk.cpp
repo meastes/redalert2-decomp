@@ -222,7 +222,6 @@ void STDMETHODCALLTYPE WalkLocomotionClass::Force_Immediate_Destination(CoordStr
  * HISTORY:                                                                                    *
  *   07/29/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 2,999 bytes differ by position against the image-derived bound 0071e220 (4,967 B; ours 4,960 B, 1,505 instructions as the image, all 119 calls in the image's order, plain frame 0x38; 61 lines in 36 hunks by an exact LCS of the instruction lists, was 178 in 90: lane F88, structure over position) (ra2-decomp's refreshed bank banks/0x0075AEC0.cpp at 41d009df on origin/banked-forms, lines 176 to 491, ported whole: the zone guard first, guard returns, one IsNewNavCom store at the end, `bool moved` tested twice, a named `CellClass & next`, LinkedTo->Distance and Get_Exit().As_Coord(); RA2 readings kept: IsLocked for the expansion's IsInPlayfield, HasAnyLink, the IsUnderEMP virtual, PlayGlobal as in drive.cpp. What is left is one register web, as the bank records for the twin: &DestinationCoord stays in edi from the top through the MOVE_TEMP and MOVE_MOVING_BLOCK arms (the image holds it in esi to the end of the path block, reads the members directly in the MOVE_TEMP arm and takes the address again at 0071EC9E), which also keeps edi from the second Adjacent_Cell sum at 0071E980. In this text the image's web comes only together with the point constructor expanded at 0071E929 (118 calls): with mech.cpp's named `Cell exit` and `Coord offset` in the tube block, or five or more probe locals, and one trailing inline site turns both back; mech.cpp's exact twin text has the image's web. Tried without change: mech.cpp's spellings of the distance, the destination cell, the cell pointer and Cell_Object; `Map[LinkedTo->Get_Coord() + AdjacentPoint[dir & 7]]` at the second site gives the image's size (4,967 B) and its three loads first, 87 lines. Earlier texts and their scores: docs/VC6_MATCHING_NOTES.md, the F76, F83 and F88 sections); main: best 89.83, tried 12 times (frame, inline, register)
 void WalkLocomotionClass::Movement_AI(bool first_pass)
 {
 	if (HeadToCoord == COORD_NONE) {
@@ -245,7 +244,7 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 
 					LinkedTo->On_Movement_Blocked();
 
-					if (Distance(LinkedTo->Center_Coord(), DestinationCoord) < Rule->CloseEnoughDistance && !LinkedTo->IsTethered) {
+					if (LinkedTo->Distance(DestinationCoord) < Rule->CloseEnoughDistance && !LinkedTo->IsTethered) {
 						LinkedTo->Assign_Destination(NULL);
 					} else {
 						if (LinkedTo->TryTryAgain) {
@@ -298,7 +297,7 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 					LinkedTo->Clear_Occupy_Bit(LinkedTo->Get_Coord());
 
 					TubeClass * tube_ptr = Tubes[tube];
-					HeadToCoord = tube_ptr->Get_Exit().As_Coord();
+					HeadToCoord = Coord(tube_ptr->Get_Exit(), 0);
 
 					memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * (ARRAY_SIZE(LinkedTo->Path) - 1));
 					LinkedTo->Path[ARRAY_SIZE(LinkedTo->Path) - 1] = FACING_NONE;
@@ -321,7 +320,7 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 				return;
 			} else {
 				Coord coord = Adjacent_Cell(LinkedTo->Get_Coord(), dir);
-				Cell cell = coord;
+				Cell cell = coord.As_Cell();
 
 				CellClass & next = Map[Adjacent_Cell(LinkedTo->Get_Coord(), dir)];
 				if (LinkedTo->IsOnBridge ^ next.IsUnderBridge) {
@@ -343,8 +342,7 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 							return;
 						}
 
-						int dist = LinkedTo->Distance(DestinationCoord);
-						if (dist < Rule->CloseEnoughDistance &&
+						if (LinkedTo->Distance(DestinationCoord) < Rule->CloseEnoughDistance &&
 							!LinkedTo->HasAnyLink() &&
 							abs(DestinationCoord.Z - LinkedTo->Get_Coord().Z) < 2 * LEVEL_LEPTON_H &&
 							Map[LinkedTo->Get_Coord()].Land_Type() != LAND_TUNNEL) {
@@ -437,8 +435,7 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 						IsReallyMoving = true;
 						if (!LinkedTo->IsActive) return;
 
-						DirStruct face = (DirStruct &)::Direction(LinkedTo->Center_Coord(), HeadToCoord);
-						Do_Turn(face);
+						Do_Turn((DirStruct &)::Direction(LinkedTo->Center_Coord(), HeadToCoord));
 						LinkedTo->Set_Speed(1.0);
 					} else {
 						LinkedTo->Set_Speed(0.0);
@@ -499,7 +496,7 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 				int speed = LinkedTo->Current_Speed();
 				LinkedTo->IsToPathAroundBlockage = false;
 
-				DirType face = ::Direction(LinkedTo->Center_Coord(), HeadToCoord);
+				DirType face = LinkedTo->Direction(HeadToCoord);
 				Do_Turn((DirStruct &)face);
 
 				Cell old_cell = LinkedTo->Get_Cell();
@@ -540,7 +537,6 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 	LinkedTo->IsNewNavCom = false;
 }
 
-#endif
 
 
 /// <summary>
