@@ -228,12 +228,11 @@ int DropshipLoadoutClass::Get_Allowable_Index(TechnoTypeClass * ttype)
 /// <remarks>The alpha and depth buffers are re-created around this screen, so anything
 /// held in them beforehand is lost.</remarks>
 void Dropship_Screen(void); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 4453 bytes differ by position, 10 instruction lines in 8 hunks (stack offsets blind), ours 10,800 B of 10,797, with 6 references bound by the image's aligned sites (lane O107 prep, 2026-11-28: the draft compiles with this guard open); before: 4453 bytes differ against the 10,797-byte original body; 20 instruction lines differ at five operand-order sites (RA2 body; frame exact with the twin's dissolve index; exact when VectorClass::operator[] indexes unsigned, which costs other units exact rows)
+#ifdef RA2_NON_MATCHING // not exact: 3 bytes differ by position, 3 instruction lines in 3 hunks (stack offsets blind), ours 10,797 B of 10,797, frame exact, with 6 references bound by the image's aligned sites (lane F124 text, landed by lane O110, 2026-11-28): an own counter in 13 loops, `i` kept where the frame and the order at 0x4A76C4 need the shared one; left: the pixel reload register at 0x4A8098/0x4A809D (eax, ours ecx) and one lea order at 0x4A8FD4; before: 4453 bytes, 10 lines (lane O107 prep). Exact when VectorClass::operator[] indexes unsigned (RA1 vector.h form), which costs 32 exact rows in 13 other units (lane O110)
 void Dropship_Screen(void)
 {
 	int i;
 	int j;
-	int k;
 
 	int dropship_count = Scen->StartingDropships;
 	int money = PlayerPtr->Available_Money();
@@ -375,11 +374,11 @@ void Dropship_Screen(void)
 	};
 
 	ShapeSet *green_shapes[ARRAY_SIZE(_green_btn_names)];
-	for (i = 0; i < ARRAY_SIZE(_green_btn_names); ++i) {
-		CCFileClass file(_green_btn_names[i]);
+	for (int i1 = 0; i1 < ARRAY_SIZE(_green_btn_names); ++i1) {
+		CCFileClass file(_green_btn_names[i1]);
 		unsigned char *shape_buf = new unsigned char[file.Size()];
 		file.Read(shape_buf, file.Size());
-		green_shapes[i] = (ShapeSet *)shape_buf;
+		green_shapes[i1] = (ShapeSet *)shape_buf;
 	}
 
 	ShapeSet *loadout_shape = (ShapeSet *)MFCD::Retrieve("LOADOUT.SHP");
@@ -399,16 +398,16 @@ void Dropship_Screen(void)
 
 	PaletteClass palette_data;
 	memmove(&palette_data, MFCD::Retrieve("DROPSHIP.PAL"), sizeof(palette_data));
-	for (i = 0; i < 256; ++i) {
-		palette_data[i] = RGBClass(palette_data[i].Get_Red() * 4, palette_data[i].Get_Green() * 4, palette_data[i].Get_Blue() * 4);
+	for (int i2 = 0; i2 < 256; ++i2) {
+		palette_data[i2] = RGBClass(palette_data[i2].Get_Red() * 4, palette_data[i2].Get_Green() * 4, palette_data[i2].Get_Blue() * 4);
 	}
 
 	ConvertClass *drawer_dropship = new ConvertClass(palette_data, GamePalette, *VisibleSurface, 53, false); // RA2: the executable passes 53 as the dropship drawer's flags, not 63
 	ConvertClass *drawer_dropship_alpha = new ConvertClass(palette_data, GamePalette, *VisibleSurface, 1, false);
 
 	memmove(&palette_data, MFCD::Retrieve("CAMEO.PAL"), sizeof(palette_data));
-	for (i = 0; i < 256; ++i) {
-		palette_data[i] = RGBClass(palette_data[i].Get_Red() * 4, palette_data[i].Get_Green() * 4, palette_data[i].Get_Blue() * 4);
+	for (int i3 = 0; i3 < 256; ++i3) {
+		palette_data[i3] = RGBClass(palette_data[i3].Get_Red() * 4, palette_data[i3].Get_Green() * 4, palette_data[i3].Get_Blue() * 4);
 	}
 	ConvertClass *drawer_cameo = new ConvertClass(palette_data, GamePalette, *VisibleSurface, 1, false);
 
@@ -431,12 +430,12 @@ void Dropship_Screen(void)
 			}
 		}
 	} else {
-		for (k = 0; k < type_count; ++k) {
+		for (int i5 = 0; i5 < type_count; ++i5) {
 			TechnoTypeClass *techtype = NULL;
-			if (k < InfantryTypes.Count()) {
-				techtype = InfantryTypes[k];
+			if (i5 < InfantryTypes.Count()) {
+				techtype = InfantryTypes[i5];
 			} else {
-				techtype = UnitTypes[k - InfantryTypes.Count()];
+				techtype = UnitTypes[i5 - InfantryTypes.Count()];
 			}
 
 			if ((int)techtype->Level > PlayerPtr->Control.TechLevel) {
@@ -467,11 +466,11 @@ void Dropship_Screen(void)
 	ToggleClass *button_list = NULL;
 
 	int id = 1;
-	for (i = 0; i < _cameo_count; ++i) {
-		ShapeButtonClass * button = new ShapeButtonClass(id, i < candidates.Count() ? (ShapeSet const *)candidates[i]->Get_Cameo_Data() : no_cameo_shape, screen_origin.X + _cameo_x + (_cameo_width + _cameo_gap_x) * (i % 2), screen_origin.Y + _cameo_y + (_cameo_height + _cameo_gap_y) * (i / 2), 0, 0, true);
+	for (int i6 = 0; i6 < _cameo_count; ++i6) {
+		ShapeButtonClass * button = new ShapeButtonClass(id, i6 < candidates.Count() ? (ShapeSet const *)candidates[i6]->Get_Cameo_Data() : no_cameo_shape, screen_origin.X + _cameo_x + (_cameo_width + _cameo_gap_x) * (i6 % 2), screen_origin.Y + _cameo_y + (_cameo_height + _cameo_gap_y) * (i6 / 2), 0, 0, true);
 		button->ShapeDrawer = CameoDrawer;
-		buttons[i] = button;
-		if (i == 0) {
+		buttons[i6] = button;
+		if (i6 == 0) {
 			button_list = buttons[0];
 		} else {
 			button->Add(*button_list);
@@ -494,9 +493,9 @@ void Dropship_Screen(void)
 	++id;
 
 	for (i = 0; i < dropship_count; ++i) {
-		for (j = 0; j < SLOT_PER_DROPSHIP; ++j) {
-			int xpos = j * (_slot_width + _slot_gap_x);
-			ShapeButtonClass * button = new ShapeButtonClass(id, NULL, screen_origin.X + _slot_x + (xpos < 2 * (_slot_width + _slot_gap_x) ? xpos : xpos - 2 * (_slot_width + _slot_gap_x)), screen_origin.Y + _loadout_slot_ys[dropship_count - 1][i][j], 0, 0, false);
+		for (int j1 = 0; j1 < SLOT_PER_DROPSHIP; ++j1) {
+			int xpos = j1 * (_slot_width + _slot_gap_x);
+			ShapeButtonClass * button = new ShapeButtonClass(id, NULL, screen_origin.X + _slot_x + (xpos < 2 * (_slot_width + _slot_gap_x) ? xpos : xpos - 2 * (_slot_width + _slot_gap_x)), screen_origin.Y + _loadout_slot_ys[dropship_count - 1][i][j1], 0, 0, false);
 			button->ShapeDrawer = CameoDrawer;
 			buttons[id - 1] = button;
 			button->Add(*button_list);
@@ -619,8 +618,8 @@ void Dropship_Screen(void)
 						}
 
 						force_light_redraw = true;
-						for (j = 0; ; ++j) {
-							if (j >= button_fades.Count()) {
+						for (int j2 = 0;; ++j2) {
+							if (j2 >= button_fades.Count()) {
 								ButtonFadeEffect *fade = new ButtonFadeEffect(::timeGetTime(), candidate_index, 127.0f, -1.0f, false);
 								if (usage_index != -1 && Scen->AllowableUnitCounts[usage_index] >= Scen->AllowableUnitMaximums[usage_index]) {
 									force_info_redraw = true;
@@ -629,7 +628,7 @@ void Dropship_Screen(void)
 								button_fades.Add(fade);
 								break;
 							}
-							if (button_fades[j]->CandidateIndex == candidate_index) {
+							if (button_fades[j2]->CandidateIndex == candidate_index) {
 								break;
 							}
 						}
@@ -644,20 +643,20 @@ void Dropship_Screen(void)
 					cameo_top += 2;
 				}
 
-				for (i = 0; i < _cameo_count; ++i) {
-					int candidate_index = cameo_top + i;
-					buttons[i]->Set_Shape(candidate_index < candidates.Count() ? (ShapeSet const *)candidates[candidate_index]->Get_Cameo_Data() : no_cameo_shape, 0, 0);
+				for (int i9 = 0; i9 < _cameo_count; ++i9) {
+					int candidate_index = cameo_top + i9;
+					buttons[i9]->Set_Shape(candidate_index < candidates.Count() ? (ShapeSet const *)candidates[candidate_index]->Get_Cameo_Data() : no_cameo_shape, 0, 0);
 
 					int usage_index = -1;
 					if (candidate_index < candidates.Count()) {
 						usage_index = DropshipLoadoutClass::Get_Allowable_Index(candidates[candidate_index]);
 					}
 					if (usage_index == -1 || Scen->AllowableUnitCounts[usage_index] < Scen->AllowableUnitMaximums[usage_index]) {
-						AlphaBuffer->Fill(127, Rect(buttons[i]->X, buttons[i]->Y, _cameo_width, _cameo_height));
+						AlphaBuffer->Fill(127, Rect(buttons[i9]->X, buttons[i9]->Y, _cameo_width, _cameo_height));
 					} else {
-						AlphaBuffer->Fill(_fade_low, Rect(buttons[i]->X, buttons[i]->Y, _cameo_width, _cameo_height));
+						AlphaBuffer->Fill(_fade_low, Rect(buttons[i9]->X, buttons[i9]->Y, _cameo_width, _cameo_height));
 					}
-					buttons[i]->Draw_Me(1);
+					buttons[i9]->Draw_Me(1);
 				}
 
 				buttons[input - 1]->IsPressed = false;
@@ -672,9 +671,9 @@ void Dropship_Screen(void)
 					int usage_index = DropshipLoadoutClass::Get_Allowable_Index(selections[remove_index]);
 					if (usage_index != -1) {
 						if (Scen->AllowableUnitCounts[usage_index] >= Scen->AllowableUnitMaximums[usage_index]) {
-							for (j = 0; j < candidates.Count(); ++j) {
-								if (candidates[j] == selections[remove_index]) {
-									ButtonFadeEffect *fade = new ButtonFadeEffect(::timeGetTime(), j, 127.0f, -1.0f, false);
+							for (int j3 = 0; j3 < candidates.Count(); ++j3) {
+								if (candidates[j3] == selections[remove_index]) {
+									ButtonFadeEffect * fade = new ButtonFadeEffect(::timeGetTime(), j3, 127.0f, -1.0f, false);
 									fade->Direction = 1.0f;
 									fade->Alpha = 63.0f;
 									button_fades.Add(fade);
@@ -689,13 +688,13 @@ void Dropship_Screen(void)
 					selections.Delete_Index(remove_index);
 					redraw = true;
 
-					for (i = 0; i < selected_count - remove_index - 1; ++i) {
-						ShapeButtonClass *dest_slot = buttons[input + i - 1];
+					for (int i10 = 0; i10 < selected_count - remove_index - 1; ++i10) {
+						ShapeButtonClass * dest_slot = buttons[input + i10 - 1];
 
 						ShapeSet const *old_shape = dest_slot->Get_Shape_Data();
 						BSurface *old_surface = new BSurface(old_shape->Get_Width(), old_shape->Get_Height(), 1, old_shape->Get_Data(0));
 
-						dest_slot->Set_Shape(buttons[input + i]->Get_Shape_Data(), 0, 0);
+						dest_slot->Set_Shape(buttons[input + i10]->Get_Shape_Data(), 0, 0);
 
 						ShapeSet const *new_shape = dest_slot->Get_Shape_Data();
 						BSurface *new_surface = new BSurface(new_shape->Get_Width(), new_shape->Get_Height(), 1, new_shape->Get_Data(0));
@@ -742,14 +741,14 @@ void Dropship_Screen(void)
 			redraw = true;
 		}
 
-		for (i = 0; i < ARRAY_SIZE(_green_light_ys); ++i) {
-			if (light_frame[i] != (unsigned int)-1) {
-				int frame = light_frame[i];
-				int next_frame = (timeGetTime() - light_start[i]) / _light_rate;
+		for (int i11 = 0; i11 < ARRAY_SIZE(_green_light_ys); ++i11) {
+			if (light_frame[i11] != (unsigned int)-1) {
+				int frame = light_frame[i11];
+				int next_frame = (timeGetTime() - light_start[i11]) / _light_rate;
 				if (next_frame != frame || force_light_redraw) {
-					int light_y = screen_origin.Y + _green_light_ys[i];
+					int light_y = screen_origin.Y + _green_light_ys[i11];
 					int light_x = screen_origin.X + _light_x;
-					ShapeSet *shape = green_shapes[i];
+					ShapeSet * shape = green_shapes[i11];
 					if (next_frame > shape->Get_Count()) {
 						Blit_Block(
 							*HiddenSurface,
@@ -760,7 +759,7 @@ void Dropship_Screen(void)
 							Rect(light_x, light_y, shape->Get_Width(), shape->Get_Height()),
 							NULL,
 							plain_blitter);
-						light_frame[i] = (unsigned int)-1;
+						light_frame[i11] = (unsigned int)-1;
 					} else {
 						Draw_Shape(
 							*HiddenSurface,
@@ -770,7 +769,7 @@ void Dropship_Screen(void)
 							Point2D(0, 0),
 							Rect(light_x, light_y, shape->Get_Width(), shape->Get_Height()),
 							SHAPE_NORMAL);
-						light_frame[i] = next_frame;
+						light_frame[i11] = next_frame;
 					}
 					redraw = true;
 				}
@@ -993,11 +992,11 @@ void Dropship_Screen(void)
 	delete drawer_dropship_alpha;
 	delete background_surface;
 	delete [] drop_shape_buf;
-	for (i = 0; i < ARRAY_SIZE(green_shapes); ++i) {
-		delete green_shapes[i];
+	for (int i14 = 0; i14 < ARRAY_SIZE(green_shapes); ++i14) {
+		delete green_shapes[i14];
 	}
-	for (i = 0; i < button_count; ++i) {
-		delete buttons[i];
+	for (int i15 = 0; i15 < button_count; ++i15) {
+		delete buttons[i15];
 	}
 	delete [] buttons;
 
