@@ -4812,7 +4812,6 @@ Cell FootClass::Search_For_Tiberium(int rad, bool allow_weighted)
 /// <param name="rad">The limit of the search, expressed in cells from this object.</param>
 /// <returns>Returns with the cell of the Tiberium chosen. Otherwise, CELL_NONE is
 /// returned.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 2 bytes differ; RobinDigitalPro's ra2-1001-decomp text (src/m85/src/foot.cpp at bd7e611, itself on ra2-decomp's twin): the weight as one conditional converted after the join and the cell read through Fetch_CellID give the image's four Cell sums and every call; left is the register of the CELL_NONE return (image edx, here ecx). With `cellptr->CellID` the tail register is the image's but the vector constructor expands (1207 B); the twin's (int)MAX form keeps the sums wrong (1045 B). The sums follow two counts (one more referenced local, or five more parenthesised products, turn them); the tail follows neither (lane F63)
 Cell FootClass::Search_For_Tiberium_Weighted(int rad)
 {
 	DiscreteDistributionClass<CellClass> celldist;
@@ -4823,9 +4822,7 @@ Cell FootClass::Search_For_Tiberium_Weighted(int rad)
 	}
 
 	int numharv = House->AUQuantity.Value(House->Get_First_Ownable(Rule->HarvesterUnit)->HeapID); // RA2: the first harvester this house may own, not the list's first
-	if (numharv < 1) {
-		numharv = 1;
-	}
+	numharv = max(1, numharv);
 
 	for (int radius = 1; radius < rad; radius++) {
 		int ringspan = radius * 3; // RA2: three cells per ring step
@@ -4834,10 +4831,7 @@ Cell FootClass::Search_For_Tiberium_Weighted(int rad)
 		bool southrun = false;
 		bool westrun = false;
 		bool eastrun = false;
-		int divisor = 1;
-		if (share >= 1) {
-			divisor = share;
-		}
+		int divisor = max(1, share);
 		double scale = 1.0 / (double)divisor;
 		for (int x = -radius; x <= radius; x++) {
 			Cell cell;
@@ -4893,11 +4887,10 @@ Cell FootClass::Search_For_Tiberium_Weighted(int rad)
 
 	CellClass *cellptr = celldist.Sample();
 	if (cellptr != NULL) {
-		return(cellptr->Fetch_CellID());
+		return(cellptr->CellID);
 	}
 	return(CELL_NONE);
 }
-#endif
 
 
 

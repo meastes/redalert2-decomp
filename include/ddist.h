@@ -25,6 +25,11 @@ class DiscreteDistributionClass
 				bool operator == (DistributionObject const & that) const { return(Object == that.Object && Weight == that.Weight); }
 				bool operator != (DistributionObject const & that) const { return(Object != that.Object || Weight != that.Weight); }
 
+				/// The two accessors below are a flagged variation form (kind helper): Sample
+				/// reads the entry through them. No reference text has them.
+				U Get_Object(void) const { return(Object); }
+				unsigned int Get_Weight(void) const { return(Weight); }
+
 				/*
 				 * This is the candidate this entry stands for, and what the Sample function
 				 * returns when the entry is the one picked.
@@ -125,9 +130,9 @@ inline T * DiscreteDistributionClass<T>::Sample(void)
 	if (TotalWeight >= 1 && Count() != 0) {
 		unsigned int pick = Random_Pick<unsigned int>(1, TotalWeight);
 		for (int index = 0; index < Objects.Count(); index++) {
-			cumulative += Objects[index].Weight;
+			cumulative += Objects[index].Get_Weight();
 			if (cumulative >= pick) {
-				return(Objects[index].Object);
+				return(Objects[index].Get_Object());
 			}
 		}
 		return(NULL); // RA2: this return inside the test as well, as ra2-decomp's include/ddist.h and main's form have it

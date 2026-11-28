@@ -7485,3 +7485,21 @@ eight counts), fs.py (file-scope declarations), tg.py (the toggle table).
   idioms in exact rows (drive's `LinkedTo->Distance(DestinationCoord)`, hover's `DirType d = LinkedTo->Direction(HeadToCoord)`).
 - File-scope declarations ahead of the function (externs, classes, prototypes, a typedef, a static; one to four) do not move any of the three
   ties: this count is the function's own.
+
+## A diagnostic that fixes a row with one coined inline is split into its parts, and each part is looked for in real text on its own; a nested accessor can carry a call's result where a root copy would be coined (found in the rebuild (lane F116, high))
+
+- foot Search_For_Tiberium_Weighted 0x4CBB40 (1,467 B, 2 B -> exact). Lane F75's identity inline around `celldist.Sample()` did two things at once.
+  Probed apart: (1) a root inline site after the loops that makes no Cell temporary (an empty inline, a `Cell const &` read) gives 856 alone;
+  (2) a pointer that only carries Sample's result into the named one (`picked = Sample(); cellptr = picked;`) gives exact with (1). The carried
+  pointer counts only while it is used once: tested or read as well, the state is 856 again. A bool, a predicate's parameter or a Cell local in
+  its place overshoot (1,045).
+- Part (2) has a source inside the inlined callee: Sample reading its entry through two accessors on DistributionObject (`Get_Weight()` in the sum,
+  `Get_Object()` at the return) gives the same state from the plain `CellClass *cellptr = celldist.Sample();`. One accessor alone does not. The
+  other users of the header decide between candidate callee forms: a single-exit Sample with a result local is exact in foot as well, but house
+  AI_Build_Defense 0x4F1190 stops being exact (its image keeps two NULL returns and the choice in a register), so the accessor form is the one
+  that holds in all three includers (foot, house, teamtype). Check every includer with each callee form before reading it as found.
+- Part (1) was already in the twin's text and had been read as a miss: `int divisor = max(1, share)` (the template max is a root inline site, inside
+  the loops but counted) gave 856 with the member read under the old header (lanes F68, F70), which is state (1) without (2). A reference form
+  that reaches a known intermediate state is half of the answer, not a failed form.
+- Close and wrong, as a control: a root guard `if (celldist.Get_Total_Weight() >= 1)` folded into Sample's own test leaves 11 B, the place of
+  `cumulative = 0` (the image zeroes it ahead of the weight test, so the first test is Sample's own and no root guard stands ahead of it).
