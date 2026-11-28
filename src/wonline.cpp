@@ -3899,7 +3899,7 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 			return(S_OK);
 		}
 		STDMETHOD(OnUserIP)(HRESULT, User *) { return(S_OK); }
-#ifdef RA2_NON_MATCHING // not exact: 2765 bytes differ by position, one call and 61 instruction lines (main-derived tree, the find results as the image's if / else if chain; the image calls keyHash 0x00767CD0 under the first lookup's expanded getPointer and ours expands it; ra2-decomp's matched twin, Yuri's Revenge 0x007A9970, expands it too, so its text does not settle the level; in scratch the row is the image's code when the lookup sits in an inline function with one more inline site after it, lane F58)
+#ifdef RA2_NON_MATCHING // not exact: 2765 bytes differ by position, 38 instruction lines in 11 hunks (stack offsets blind), ours 2,896 B of 2,867, no unbound references (lane O107 prep, 2026-11-28: the draft compiles with this guard open); before: 2765 bytes differ by position, one call and 61 instruction lines (main-derived tree, the find results as the image's if / else if chain; the image calls keyHash 0x00767CD0 under the first lookup's expanded getPointer and ours expands it; ra2-decomp's matched twin, Yuri's Revenge 0x007A9970, expands it too, so its text does not settle the level; in scratch the row is the image's code when the lookup sits in an inline function with one more inline site after it, lane F58)
 		STDMETHOD(OnFind)(HRESULT r, Channel * chan)
 		{
 			unsigned int status = 0;
@@ -12249,7 +12249,7 @@ bool __fastcall Find_Channel_By_Name(Wstring const & name, ArrayList<Channel> co
 }
 
 int __fastcall Run_Online_Menu(bool first_time); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 2594 of 2687 bytes differ against the image-derived bound 00759370 (ra2-decomp's matched Yuri's Revenge buddy menu c19f107 whole, with RA2's globals, event values, UI calls, lobby number and string sites: 97 of 101 calls before the jump table in order, up from 94; position score 2594, was 2579 with main's text and its two single-caller helpers written out, 2391 with the helpers, held on variation_candidates.csv)
+#ifdef RA2_NON_MATCHING // not exact: 2594 bytes differ by position, 88 instruction lines in 37 hunks (stack offsets blind), ours 2,800 B of 2,687, no unbound references (lane O107 prep, 2026-11-28: the draft compiles with this guard open); before: 2594 of 2687 bytes differ against the image-derived bound 00759370 (ra2-decomp's matched Yuri's Revenge buddy menu c19f107 whole, with RA2's globals, event values, UI calls, lobby number and string sites: 97 of 101 calls before the jump table in order, up from 94; position score 2594, was 2579 with main's text and its two single-caller helpers written out, 2391 with the helpers, held on variation_candidates.csv)
 int __fastcall Run_Online_Menu(bool first_time) // RA2: 0x00759370, the buddy list screen run from the online menu: hosts a game, joins a buddy's lobby or game, or leaves; 1 when a game starts, 2 for a skirmish, 0 otherwise
 {
 	g_PlayingNetGame = false;

@@ -80,7 +80,7 @@
  *   05/11/1996 JLB : Moderated risk calc so range doesn't dominate.                           *
  *=============================================================================================*/
 // RA2: the constructor of the types read from the rules, meastes' body at 0x6D9B40 (every member in its initialization list order)
-#ifdef RA2_NON_MATCHING // not exact: 15 bytes differ (the two pushes and the lea of Prerequisite's vector constructor are scheduled one member store early among the +0x538..+0x544 stores); exact when exactly one scalar member before LeadershipRating is a class with an inline one-argument constructor (any of them, a probe; two overshoot), which no reference header has; main had `Leptons GuardRange`
+#ifdef RA2_NON_MATCHING // not exact: 15 bytes differ by position, 4 instruction lines in 3 hunks (stack offsets blind), ours 2,961 B of 2,961, no unbound references (lane O107 prep, 2026-11-28: the draft compiles with this guard open); before: 15 bytes differ (the two pushes and the lea of Prerequisite's vector constructor are scheduled one member store early among the +0x538..+0x544 stores); exact when exactly one scalar member before LeadershipRating is a class with an inline one-argument constructor (any of them, a probe; two overshoot), which no reference header has; main had `Leptons GuardRange`
 TechnoTypeClass::TechnoTypeClass(char const * ininame, SpeedType speed) :
 	BASECLASS(ininame),
 	WalkRate(1),
